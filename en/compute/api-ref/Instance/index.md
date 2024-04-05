@@ -249,10 +249,12 @@ Method | Description
 [addOneToOneNat](addOneToOneNat.md) | Enables One-to-one NAT on the network interface.
 [attachDisk](attachDisk.md) | Attaches the disk to the instance.
 [attachFilesystem](attachFilesystem.md) | Attaches the filesystem to the instance.
+[attachNetworkInterface](attachNetworkInterface.md) | Attaches the network-interface to the instance.
 [create](create.md) | Creates an instance in the specified folder. Method starts an asynchronous operation that can be cancelled while it is in progress.
 [delete](delete.md) | Deletes the specified instance.
 [detachDisk](detachDisk.md) | Detaches the disk from the instance.
 [detachFilesystem](detachFilesystem.md) | Detaches the filesystem from the instance.
+[detachNetworkInterface](detachNetworkInterface.md) | Detaches the network-interface to the instance.
 [get](get.md) | Returns the specified Instance resource.
 [getSerialPortOutput](getSerialPortOutput.md) | Returns the serial port output of the specified Instance resource.
 [list](list.md) | Retrieves the list of Instance resources in the specified folder.

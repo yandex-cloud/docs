@@ -1111,6 +1111,10 @@ description: "В статье приведен полный справочник
 
 ## {{ ydb-full-name }} {#ydb-roles}
 
+#### ydb.auditor {#ydb-auditor}
+
+{% include [ydb.auditor](../_roles/ydb/auditor.md) %}
+
 #### ydb.viewer {#ydb-viewer}
 
 {% include [ydb.viewer](../_roles/ydb/viewer.md) %}

@@ -43,7 +43,7 @@
       1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
       1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-      1. Download the [data-transfer-pgsql-mpg.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-pgsql-mpg/data-transfer-pgsql-mpg.tf) configuration file to the same working directory.
+      1. Download the [data-transfer-pgsql-mpg.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-on-premise-postgresql-to-cloud/blob/main/data-transfer-pgsql-mpg.tf) configuration file to the same working directory.
 
          This file describes:
 

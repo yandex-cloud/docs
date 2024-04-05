@@ -8,7 +8,7 @@ sourcePath: overlay/security/start_auth.md
 
 Пользователь {{ yandex-cloud }} может выполнять только те операции над ресурсами, которые разрешены назначенными ему ролями. Пока у пользователя нет никаких ролей, почти все операции ему запрещены.
 
-Чтобы разрешить доступ к ресурсам сервиса {{ ydb-short-name }} (базы данных и их пользователи), назначьте аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным пользователям](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md) или [системной группе](../../iam/concepts/access-control/system-group.md) нужные роли из приведенного ниже списка. Роль может быть назначена на родительский ресурс (каталог или облако), роли которого наследуются вложенными ресурсами. 
+Чтобы разрешить доступ к ресурсам сервиса {{ ydb-short-name }} (базы данных и их пользователи), назначьте аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным пользователям](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md) или [системной группе](../../iam/concepts/access-control/system-group.md) нужные роли из приведенного ниже списка. Роль может быть назначена на родительский ресурс (каталог или облако), роли которого наследуются вложенными ресурсами.
 
 Кроме того можно выдать роль на доступ к конкретной базе данных. Это позволит пользователю без каких-либо ролей в каталоге, где размещена база, получить доступ к самой базе данных в соответствии с выданной ролью.
 
@@ -32,6 +32,10 @@ sourcePath: overlay/security/start_auth.md
 
 ### Сервисные роли {#service-roles}
 
+#### ydb.auditor {#ydb-auditor}
+
+{% include [ydb.auditor](../../_roles/ydb/auditor.md) %}
+
 #### ydb.viewer {#ydb-viewer}
 
 {% include [ydb.viewer](../../_roles/ydb/viewer.md) %}
@@ -50,6 +54,10 @@ sourcePath: overlay/security/start_auth.md
 
 
 ### Примитивные роли {#primitive-roles}
+
+#### {{roles-auditor}} {#auditor}
+
+{% include [roles-auditor](../../_includes/roles-auditor.md) %}
 
 #### {{ roles-viewer }} {#viewer}
 

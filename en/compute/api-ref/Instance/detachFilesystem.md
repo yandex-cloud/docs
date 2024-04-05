@@ -6,9 +6,7 @@ sourcePath: en/_api-ref/compute/v1/api-ref/Instance/detachFilesystem.md
 # Compute Cloud API, REST: Instance.detachFilesystem
 Detaches the filesystem from the instance.
  
-To detach a filesystem, the instance must have a `STOPPED` status ([Instance.status](/docs/compute/api-ref/Instance#representation)).
-To check the instance status, make a [get](/docs/compute/api-ref/Instance/get) request.
-To stop the running instance, make a [stop](/docs/compute/api-ref/Instance/stop) request.
+
  
 ## HTTP request {#https-request}
 ```

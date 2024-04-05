@@ -1102,7 +1102,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_9_6.<br>rowSecurity | **boolean*
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_9_6.<br>defaultTransactionIsolation | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_9_6.<br>statementTimeout | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_9_6.<br>lockTimeout | **integer** (int64)
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_9_6.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_9_6.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_9_6.<br>byteaOutput | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_9_6.<br>xmlbinary | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_9_6.<br>xmloption | **string**
@@ -1158,7 +1158,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_10_1C.<br>rowSecurity | **boolea
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10_1C.<br>defaultTransactionIsolation | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10_1C.<br>statementTimeout | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10_1C.<br>lockTimeout | **integer** (int64)
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_10_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_10_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10_1C.<br>byteaOutput | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10_1C.<br>xmlbinary | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10_1C.<br>xmloption | **string**
@@ -1227,7 +1227,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>rowSecurity | **boolean**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>defaultTransactionIsolation | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>statementTimeout | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>lockTimeout | **integer** (int64)
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>byteaOutput | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>xmlbinary | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>xmloption | **string**
@@ -1295,7 +1295,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>rowSecurity | **boolean**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>defaultTransactionIsolation | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>statementTimeout | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>lockTimeout | **integer** (int64)
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>byteaOutput | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>xmlbinary | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>xmloption | **string**
@@ -1363,7 +1363,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_11_1C.<br>rowSecurity | **boolea
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11_1C.<br>defaultTransactionIsolation | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11_1C.<br>statementTimeout | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11_1C.<br>lockTimeout | **integer** (int64)
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_11_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_11_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11_1C.<br>byteaOutput | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11_1C.<br>xmlbinary | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11_1C.<br>xmloption | **string**
@@ -1431,7 +1431,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_12.<br>rowSecurity | **boolean**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12.<br>defaultTransactionIsolation | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12.<br>statementTimeout | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12.<br>lockTimeout | **integer** (int64)
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_12.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_12.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12.<br>byteaOutput | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12.<br>xmlbinary | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12.<br>xmloption | **string**
@@ -1499,7 +1499,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>rowSecurity | **boolea
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>defaultTransactionIsolation | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>statementTimeout | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>lockTimeout | **integer** (int64)
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>byteaOutput | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>xmlbinary | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>xmloption | **string**
@@ -1567,7 +1567,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_13.<br>rowSecurity | **boolean**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13.<br>defaultTransactionIsolation | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13.<br>statementTimeout | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13.<br>lockTimeout | **integer** (int64)
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_13.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_13.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13.<br>byteaOutput | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13.<br>xmlbinary | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13.<br>xmloption | **string**
@@ -1635,7 +1635,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_13_1C.<br>rowSecurity | **boolea
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13_1C.<br>defaultTransactionIsolation | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13_1C.<br>statementTimeout | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13_1C.<br>lockTimeout | **integer** (int64)
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_13_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_13_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13_1C.<br>byteaOutput | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13_1C.<br>xmlbinary | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13_1C.<br>xmloption | **string**
@@ -1703,7 +1703,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_14.<br>rowSecurity | **boolean**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14.<br>defaultTransactionIsolation | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14.<br>statementTimeout | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14.<br>lockTimeout | **integer** (int64)
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_14.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_14.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14.<br>byteaOutput | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14.<br>xmlbinary | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14.<br>xmloption | **string**
@@ -1770,7 +1770,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_14_1C.<br>rowSecurity | **boolea
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14_1C.<br>defaultTransactionIsolation | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14_1C.<br>statementTimeout | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14_1C.<br>lockTimeout | **integer** (int64)
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_14_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_14_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14_1C.<br>byteaOutput | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14_1C.<br>xmlbinary | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14_1C.<br>xmloption | **string**
@@ -1837,7 +1837,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_15.<br>rowSecurity | **boolean**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15.<br>defaultTransactionIsolation | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15.<br>statementTimeout | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15.<br>lockTimeout | **integer** (int64)
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_15.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_15.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15.<br>byteaOutput | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15.<br>xmlbinary | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15.<br>xmloption | **string**
@@ -1904,7 +1904,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_15_1C.<br>rowSecurity | **boolea
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15_1C.<br>defaultTransactionIsolation | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15_1C.<br>statementTimeout | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15_1C.<br>lockTimeout | **integer** (int64)
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_15_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_15_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15_1C.<br>byteaOutput | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15_1C.<br>xmlbinary | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15_1C.<br>xmloption | **string**
@@ -1971,7 +1971,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>rowSecurity | **boolean**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>defaultTransactionIsolation | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>statementTimeout | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>lockTimeout | **integer** (int64)
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>byteaOutput | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>xmlbinary | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>xmloption | **string**
@@ -2038,7 +2038,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>rowSecurity | **boolea
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>defaultTransactionIsolation | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>statementTimeout | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>lockTimeout | **integer** (int64)
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>byteaOutput | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>xmlbinary | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>xmloption | **string**

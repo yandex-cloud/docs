@@ -42,7 +42,17 @@ POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/tests
         "value": "string"
       }
     ],
-    "loggingLogGroupId": "string"
+    "loggingLogGroupId": "string",
+    "artifactSettings": {
+      "isArchive": true,
+      "filterInclude": [
+        "string"
+      ],
+      "filterExclude": [
+        "string"
+      ],
+      "objectStorageBucket": "string"
+    }
   }
 }
 ```
@@ -65,6 +75,11 @@ testDetails.<br>tags[] | **object**<br><p>Tags assigned to the test.</p>
 testDetails.<br>tags[].<br>key | **string**<br><p>Key of the tag.</p> 
 testDetails.<br>tags[].<br>value | **string**<br><p>Value of the tag.</p> 
 testDetails.<br>loggingLogGroupId | **string**<br><p>ID of the logging group to which test artifacts are uploaded.</p> 
+testDetails.<br>artifactSettings | **object**<br><p>Settings which define where to upload test artifacts and which files should be included.</p> <p>Artifact upload settings.</p> <p>Defines where to upload test artifacts and which files should be included.</p> 
+testDetails.<br>artifactSettings.<br>isArchive | **boolean** (boolean)<br><p>Setting which defines whether artifact files should be archived prior to uploading.</p> 
+testDetails.<br>artifactSettings.<br>filterInclude[] | **string**<br><p>Filter strings defining which files should be included to artifacts. GLOB format.</p> <p>Example:</p> <ul> <li>['*'] - all files will be uploaded.</li> <li>['<em>.log', '</em>.yaml] - all ``.log`` and ``.yaml`` files will be uploaded.</li> </ul> 
+testDetails.<br>artifactSettings.<br>filterExclude[] | **string**<br><p>Filter strings defining which files should be excluded from artifacts. GLOB format.</p> <p>Example:</p> <ul> <li>filter_include=['*'], filter_exclude=['phout.log'] - upload all ``.log`` files excluding ``phout.log``.</li> </ul> 
+testDetails.<br>artifactSettings.<br>objectStorageBucket | **string**<br><p>Name of output object storage bucket in test's folder.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

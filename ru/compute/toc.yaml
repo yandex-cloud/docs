@@ -719,6 +719,8 @@ items:
                 href: api-ref/Instance/attachDisk.md
               - name: attachFilesystem
                 href: api-ref/Instance/attachFilesystem.md
+              - name: attachNetworkInterface
+                href: api-ref/Instance/attachNetworkInterface.md
               - name: create
                 href: api-ref/Instance/create.md
               - name: delete
@@ -727,6 +729,8 @@ items:
                 href: api-ref/Instance/detachDisk.md
               - name: detachFilesystem
                 href: api-ref/Instance/detachFilesystem.md
+              - name: detachNetworkInterface
+                href: api-ref/Instance/detachNetworkInterface.md
               - name: get
                 href: api-ref/Instance/get.md
               - name: getSerialPortOutput

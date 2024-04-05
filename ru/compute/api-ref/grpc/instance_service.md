@@ -23,6 +23,8 @@ A set of methods for managing Instance resources.
 | [DetachDisk](#DetachDisk) | Detaches the disk from the instance. |
 | [AttachFilesystem](#AttachFilesystem) | Attaches the filesystem to the instance. |
 | [DetachFilesystem](#DetachFilesystem) | Detaches the filesystem from the instance. |
+| [AttachNetworkInterface](#AttachNetworkInterface) | Attaches the network-interface to the instance. |
+| [DetachNetworkInterface](#DetachNetworkInterface) | Detaches the network-interface to the instance. |
 | [AddOneToOneNat](#AddOneToOneNat) | Enables One-to-one NAT on the network interface. |
 | [RemoveOneToOneNat](#RemoveOneToOneNat) | Removes One-to-one NAT from the network interface. |
 | [UpdateNetworkInterface](#UpdateNetworkInterface) | Updates the specified instance network interface. |
@@ -1983,7 +1985,7 @@ values[] | **string**<br>Affinity value or host ID or host group ID
 
 ## AttachFilesystem {#AttachFilesystem}
 
-Attaches the filesystem to the instance. <br>The instance and the filesystem must reside in the same availability zone. <br>To attach a filesystem, the instance must have a `STOPPED` status ([Instance.status](#Instance8)). To check the instance status, make a [InstanceService.Get](#Get) request. To stop the running instance, make a [InstanceService.Stop](#Stop) request. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm).
+Attaches the filesystem to the instance. <br>The instance and the filesystem must reside in the same availability zone. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm).
 
 **rpc AttachFilesystem ([AttachInstanceFilesystemRequest](#AttachInstanceFilesystemRequest)) returns ([operation.Operation](#Operation9))**
 
@@ -2201,7 +2203,7 @@ values[] | **string**<br>Affinity value or host ID or host group ID
 
 ## DetachFilesystem {#DetachFilesystem}
 
-Detaches the filesystem from the instance. <br>To detach a filesystem, the instance must have a `STOPPED` status ([Instance.status](#Instance9)). To check the instance status, make a [InstanceService.Get](#Get) request. To stop the running instance, make a [InstanceService.Stop](#Stop) request.
+Detaches the filesystem from the instance.
 
 **rpc DetachFilesystem ([DetachInstanceFilesystemRequest](#DetachInstanceFilesystemRequest)) returns ([operation.Operation](#Operation10))**
 
@@ -2410,24 +2412,34 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
-## AddOneToOneNat {#AddOneToOneNat}
+## AttachNetworkInterface {#AttachNetworkInterface}
 
-Enables One-to-one NAT on the network interface.
+Attaches the network-interface to the instance. <br>To attach a network-interface, the instance must have a `STOPPED` status ([Instance.status](#Instance10)). To check the instance status, make a [InstanceService.Get](#Get) request. To stop the running instance, make a [InstanceService.Stop](#Stop) request.
 
-**rpc AddOneToOneNat ([AddInstanceOneToOneNatRequest](#AddInstanceOneToOneNatRequest)) returns ([operation.Operation](#Operation11))**
+**rpc AttachNetworkInterface ([AttachInstanceNetworkInterfaceRequest](#AttachInstanceNetworkInterfaceRequest)) returns ([operation.Operation](#Operation11))**
 
 Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddInstanceOneToOneNatMetadata](#AddInstanceOneToOneNatMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AttachInstanceNetworkInterfaceMetadata](#AttachInstanceNetworkInterfaceMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Instance](#Instance10)<br>
 
-### AddInstanceOneToOneNatRequest {#AddInstanceOneToOneNatRequest}
+### AttachInstanceNetworkInterfaceRequest {#AttachInstanceNetworkInterfaceRequest}
 
 Field | Description
 --- | ---
-instance_id | **string**<br>ID of the instance to enable One-to-One NAT on. 
-network_interface_index | **string**<br>The index of the network interface to enable One-to-One NAT on. 
-internal_address | **string**<br>The network address that is assigned to the instance for this network interface. 
+instance_id | **string**<br>Required. ID of the instance that in which network interface is being attached to. 
+network_interface_index | **string**<br>Required. The index of the network interface 
+subnet_id | **string**<br>Required. ID of the subnet. 
+primary_v4_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec)**<br>Primary IPv4 address that will be assigned to the instance for this network interface. 
+security_group_ids[] | **string**<br>Required. ID's of security groups attached to the interface. 
+
+
+### PrimaryAddressSpec {#PrimaryAddressSpec1}
+
+Field | Description
+--- | ---
+address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system. 
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec)**<br>An external IP address configuration. If not specified, then this instance will have no external internet access. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>Internal DNS configuration 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec1}
@@ -2459,17 +2471,18 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddInstanceOneToOneNatMetadata](#AddInstanceOneToOneNatMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AttachInstanceNetworkInterfaceMetadata](#AttachInstanceNetworkInterfaceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Instance](#Instance10)>**<br>if operation finished successfully. 
 
 
-### AddInstanceOneToOneNatMetadata {#AddInstanceOneToOneNatMetadata}
+### AttachInstanceNetworkInterfaceMetadata {#AttachInstanceNetworkInterfaceMetadata}
 
 Field | Description
 --- | ---
-instance_id | **string**<br>ID of the instance. 
+instance_id | **string**<br>ID of the instant network interface that is being updated. 
+network_interface_index | **string**<br> 
 
 
 ### Instance {#Instance10}
@@ -2639,23 +2652,22 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
-## RemoveOneToOneNat {#RemoveOneToOneNat}
+## DetachNetworkInterface {#DetachNetworkInterface}
 
-Removes One-to-one NAT from the network interface.
+Detaches the network-interface to the instance. <br>To Detach a network-interface, the instance must have a `STOPPED` status ([Instance.status](#Instance11)). To check the instance status, make a [InstanceService.Get](#Get) request. To stop the running instance, make a [InstanceService.Stop](#Stop) request.
 
-**rpc RemoveOneToOneNat ([RemoveInstanceOneToOneNatRequest](#RemoveInstanceOneToOneNatRequest)) returns ([operation.Operation](#Operation12))**
+**rpc DetachNetworkInterface ([DetachInstanceNetworkInterfaceRequest](#DetachInstanceNetworkInterfaceRequest)) returns ([operation.Operation](#Operation12))**
 
 Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RemoveInstanceOneToOneNatMetadata](#RemoveInstanceOneToOneNatMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DetachInstanceNetworkInterfaceMetadata](#DetachInstanceNetworkInterfaceMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Instance](#Instance11)<br>
 
-### RemoveInstanceOneToOneNatRequest {#RemoveInstanceOneToOneNatRequest}
+### DetachInstanceNetworkInterfaceRequest {#DetachInstanceNetworkInterfaceRequest}
 
 Field | Description
 --- | ---
-instance_id | **string**<br>ID of the instance to remove One-to-one NAT. 
-network_interface_index | **string**<br>The index of the network interface to remove One-to-One NAT from. 
-internal_address | **string**<br>The network address that is assigned to the instance for this network interface. 
+instance_id | **string**<br>Required. ID of the instance that in which network interface is being attached to. 
+network_interface_index | **string**<br>Required. The index of the network interface. 
 
 
 ### Operation {#Operation12}
@@ -2668,17 +2680,18 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RemoveInstanceOneToOneNatMetadata](#RemoveInstanceOneToOneNatMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DetachInstanceNetworkInterfaceMetadata](#DetachInstanceNetworkInterfaceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Instance](#Instance11)>**<br>if operation finished successfully. 
 
 
-### RemoveInstanceOneToOneNatMetadata {#RemoveInstanceOneToOneNatMetadata}
+### DetachInstanceNetworkInterfaceMetadata {#DetachInstanceNetworkInterfaceMetadata}
 
 Field | Description
 --- | ---
-instance_id | **string**<br>ID of the instance. 
+instance_id | **string**<br>ID of the instant network interface that is being updated. 
+network_interface_index | **string**<br>The index of the network interface. 
 
 
 ### Instance {#Instance11}
@@ -2848,36 +2861,24 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
-## UpdateNetworkInterface {#UpdateNetworkInterface}
+## AddOneToOneNat {#AddOneToOneNat}
 
-Updates the specified instance network interface.
+Enables One-to-one NAT on the network interface.
 
-**rpc UpdateNetworkInterface ([UpdateInstanceNetworkInterfaceRequest](#UpdateInstanceNetworkInterfaceRequest)) returns ([operation.Operation](#Operation13))**
+**rpc AddOneToOneNat ([AddInstanceOneToOneNatRequest](#AddInstanceOneToOneNatRequest)) returns ([operation.Operation](#Operation13))**
 
 Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateInstanceNetworkInterfaceMetadata](#UpdateInstanceNetworkInterfaceMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddInstanceOneToOneNatMetadata](#AddInstanceOneToOneNatMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Instance](#Instance12)<br>
 
-### UpdateInstanceNetworkInterfaceRequest {#UpdateInstanceNetworkInterfaceRequest}
+### AddInstanceOneToOneNatRequest {#AddInstanceOneToOneNatRequest}
 
 Field | Description
 --- | ---
-instance_id | **string**<br>Required. ID of the instance that is being updated. 
-network_interface_index | **string**<br>Required. The index of the network interface to be updated. 
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the instance should be updated. 
-subnet_id | **string**<br>ID of the subnet. 
-primary_v4_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec)**<br>Primary IPv4 address that will be assigned to the instance for this network interface. 
-primary_v6_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec)**<br>Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet. 
-security_group_ids[] | **string**<br>ID's of security groups attached to the interface. 
-
-
-### PrimaryAddressSpec {#PrimaryAddressSpec1}
-
-Field | Description
---- | ---
-address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system. 
+instance_id | **string**<br>ID of the instance to enable One-to-One NAT on. 
+network_interface_index | **string**<br>The index of the network interface to enable One-to-One NAT on. 
+internal_address | **string**<br>The network address that is assigned to the instance for this network interface. 
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec)**<br>An external IP address configuration. If not specified, then this instance will have no external internet access. 
-dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>Internal DNS configuration 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec2}
@@ -2909,18 +2910,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateInstanceNetworkInterfaceMetadata](#UpdateInstanceNetworkInterfaceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddInstanceOneToOneNatMetadata](#AddInstanceOneToOneNatMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Instance](#Instance12)>**<br>if operation finished successfully. 
 
 
-### UpdateInstanceNetworkInterfaceMetadata {#UpdateInstanceNetworkInterfaceMetadata}
+### AddInstanceOneToOneNatMetadata {#AddInstanceOneToOneNatMetadata}
 
 Field | Description
 --- | ---
-instance_id | **string**<br>ID of the instant network interface that is being updated. 
-network_interface_index | **string**<br>The index of the network interface. 
+instance_id | **string**<br>ID of the instance. 
 
 
 ### Instance {#Instance12}
@@ -3090,27 +3090,23 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
-## ListOperations {#ListOperations}
+## RemoveOneToOneNat {#RemoveOneToOneNat}
 
-Lists operations for the specified instance.
+Removes One-to-one NAT from the network interface.
 
-**rpc ListOperations ([ListInstanceOperationsRequest](#ListInstanceOperationsRequest)) returns ([ListInstanceOperationsResponse](#ListInstanceOperationsResponse))**
+**rpc RemoveOneToOneNat ([RemoveInstanceOneToOneNatRequest](#RemoveInstanceOneToOneNatRequest)) returns ([operation.Operation](#Operation14))**
 
-### ListInstanceOperationsRequest {#ListInstanceOperationsRequest}
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RemoveInstanceOneToOneNatMetadata](#RemoveInstanceOneToOneNatMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Instance](#Instance13)<br>
 
-Field | Description
---- | ---
-instance_id | **string**<br>Required. ID of the Instance resource to list operations for. The maximum string length in characters is 50.
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListInstanceOperationsResponse.next_page_token](#ListInstanceOperationsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstanceOperationsResponse.next_page_token](#ListInstanceOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-
-
-### ListInstanceOperationsResponse {#ListInstanceOperationsResponse}
+### RemoveInstanceOneToOneNatRequest {#RemoveInstanceOneToOneNatRequest}
 
 Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation14)**<br>List of operations for the specified instance. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListInstanceOperationsRequest.page_size](#ListInstanceOperationsRequest), use the `next_page_token` as the value for the [ListInstanceOperationsRequest.page_token](#ListInstanceOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+instance_id | **string**<br>ID of the instance to remove One-to-one NAT. 
+network_interface_index | **string**<br>The index of the network interface to remove One-to-One NAT from. 
+internal_address | **string**<br>The network address that is assigned to the instance for this network interface. 
 
 
 ### Operation {#Operation14}
@@ -3123,53 +3119,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
-result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
-
-
-## Move {#Move}
-
-Moves the specified instance to another folder of the same cloud. <br>The instance must be stopped before moving. To stop the instance, make a [Stop](#Stop) request. <br>After moving, the instance will start recording its Monitoring default metrics to its new folder. Metrics that have been recorded to the source folder prior to moving will be retained.
-
-**rpc Move ([MoveInstanceRequest](#MoveInstanceRequest)) returns ([operation.Operation](#Operation15))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveInstanceMetadata](#MoveInstanceMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Instance](#Instance13)<br>
-
-### MoveInstanceRequest {#MoveInstanceRequest}
-
-Field | Description
---- | ---
-instance_id | **string**<br>Required. ID of the instance to move. <br>To get the instance ID, make a [InstanceService.List](#List) request. The maximum string length in characters is 50.
-destination_folder_id | **string**<br>Required. ID of the folder to move the instance to. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
-
-
-### Operation {#Operation15}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the operation. 
-description | **string**<br>Description of the operation. 0-256 characters long. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-created_by | **string**<br>ID of the user or service account who initiated the operation. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
-done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveInstanceMetadata](#MoveInstanceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RemoveInstanceOneToOneNatMetadata](#RemoveInstanceOneToOneNatMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Instance](#Instance13)>**<br>if operation finished successfully. 
 
 
-### MoveInstanceMetadata {#MoveInstanceMetadata}
+### RemoveInstanceOneToOneNatMetadata {#RemoveInstanceOneToOneNatMetadata}
 
 Field | Description
 --- | ---
-instance_id | **string**<br>ID of the instance that is being moved. 
-source_folder_id | **string**<br>ID of the folder that the instance is being moved from. 
-destination_folder_id | **string**<br>ID of the folder that the instance is being moved to. 
+instance_id | **string**<br>ID of the instance. 
 
 
 ### Instance {#Instance13}
@@ -3339,35 +3299,27 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
-## Relocate {#Relocate}
+## UpdateNetworkInterface {#UpdateNetworkInterface}
 
-Moves the specified instance to another availability zone <br>Running instance will be restarted during this operation.
+Updates the specified instance network interface.
 
-**rpc Relocate ([RelocateInstanceRequest](#RelocateInstanceRequest)) returns ([operation.Operation](#Operation16))**
+**rpc UpdateNetworkInterface ([UpdateInstanceNetworkInterfaceRequest](#UpdateInstanceNetworkInterfaceRequest)) returns ([operation.Operation](#Operation15))**
 
 Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RelocateInstanceMetadata](#RelocateInstanceMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateInstanceNetworkInterfaceMetadata](#UpdateInstanceNetworkInterfaceMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Instance](#Instance14)<br>
 
-### RelocateInstanceRequest {#RelocateInstanceRequest}
+### UpdateInstanceNetworkInterfaceRequest {#UpdateInstanceNetworkInterfaceRequest}
 
 Field | Description
 --- | ---
-instance_id | **string**<br>Required. ID of the instance to move. <br>To get the instance ID, make a [InstanceService.List](#List) request. The maximum string length in characters is 50.
-destination_zone_id | **string**<br>Required. ID of the availability zone to move the instance to. <br>To get the zone ID, make a [ZoneService.List](./zone_service#List) request. The maximum string length in characters is 50.
-network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec)**<br>Required. Network configuration for the instance. Specifies how the network interface is configured to interact with other services on the internal network and on the internet. Currently only one network interface is supported per instance. The number of elemets must be exactly 1.
-boot_disk_placement | **[DiskPlacementPolicy](#DiskPlacementPolicy2)**<br>Boot disk placement policy configuration in target zone. Must be specified if disk has placement policy. 
-secondary_disk_placements[] | **[DiskPlacementPolicyChange](#DiskPlacementPolicyChange)**<br>Secondary disk placement policy configurations in target zone. Must be specified for each disk that has placement policy. 
-
-
-### NetworkInterfaceSpec {#NetworkInterfaceSpec1}
-
-Field | Description
---- | ---
-subnet_id | **string**<br>Required. ID of the subnet. The maximum string length in characters is 50.
+instance_id | **string**<br>Required. ID of the instance that is being updated. 
+network_interface_index | **string**<br>Required. The index of the network interface to be updated. 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the instance should be updated. 
+subnet_id | **string**<br>ID of the subnet. 
 primary_v4_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec)**<br>Primary IPv4 address that will be assigned to the instance for this network interface. 
 primary_v6_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec)**<br>Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet. 
-security_group_ids[] | **string**<br>ID's of security groups attached to the interface 
+security_group_ids[] | **string**<br>ID's of security groups attached to the interface. 
 
 
 ### PrimaryAddressSpec {#PrimaryAddressSpec2}
@@ -3398,23 +3350,7 @@ ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable value
 ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
 
 
-### DiskPlacementPolicy {#DiskPlacementPolicy2}
-
-Field | Description
---- | ---
-placement_group_id | **string**<br>Placement group ID. 
-placement_group_partition | **int64**<br> 
-
-
-### DiskPlacementPolicyChange {#DiskPlacementPolicyChange}
-
-Field | Description
---- | ---
-disk_id | **string**<br>Disk ID. 
-disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy3)**<br>Placement policy configuration for given disk. 
-
-
-### Operation {#Operation16}
+### Operation {#Operation15}
 
 Field | Description
 --- | ---
@@ -3424,19 +3360,18 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RelocateInstanceMetadata](#RelocateInstanceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateInstanceNetworkInterfaceMetadata](#UpdateInstanceNetworkInterfaceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Instance](#Instance14)>**<br>if operation finished successfully. 
 
 
-### RelocateInstanceMetadata {#RelocateInstanceMetadata}
+### UpdateInstanceNetworkInterfaceMetadata {#UpdateInstanceNetworkInterfaceMetadata}
 
 Field | Description
 --- | ---
-instance_id | **string**<br>ID of the instance that is being moved. 
-source_zone_id | **string**<br>ID of the availability zone that the instance is being moved from. 
-destination_zone_id | **string**<br>ID of the availability zone that the instance is being moved to. 
+instance_id | **string**<br>ID of the instant network interface that is being updated. 
+network_interface_index | **string**<br>The index of the network interface. 
 
 
 ### Instance {#Instance14}
@@ -3606,11 +3541,527 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
+## ListOperations {#ListOperations}
+
+Lists operations for the specified instance.
+
+**rpc ListOperations ([ListInstanceOperationsRequest](#ListInstanceOperationsRequest)) returns ([ListInstanceOperationsResponse](#ListInstanceOperationsResponse))**
+
+### ListInstanceOperationsRequest {#ListInstanceOperationsRequest}
+
+Field | Description
+--- | ---
+instance_id | **string**<br>Required. ID of the Instance resource to list operations for. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListInstanceOperationsResponse.next_page_token](#ListInstanceOperationsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstanceOperationsResponse.next_page_token](#ListInstanceOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
+
+
+### ListInstanceOperationsResponse {#ListInstanceOperationsResponse}
+
+Field | Description
+--- | ---
+operations[] | **[operation.Operation](#Operation16)**<br>List of operations for the specified instance. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListInstanceOperationsRequest.page_size](#ListInstanceOperationsRequest), use the `next_page_token` as the value for the [ListInstanceOperationsRequest.page_token](#ListInstanceOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+
+
+### Operation {#Operation16}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
+
+
+## Move {#Move}
+
+Moves the specified instance to another folder of the same cloud. <br>The instance must be stopped before moving. To stop the instance, make a [Stop](#Stop) request. <br>After moving, the instance will start recording its Monitoring default metrics to its new folder. Metrics that have been recorded to the source folder prior to moving will be retained.
+
+**rpc Move ([MoveInstanceRequest](#MoveInstanceRequest)) returns ([operation.Operation](#Operation17))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveInstanceMetadata](#MoveInstanceMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Instance](#Instance15)<br>
+
+### MoveInstanceRequest {#MoveInstanceRequest}
+
+Field | Description
+--- | ---
+instance_id | **string**<br>Required. ID of the instance to move. <br>To get the instance ID, make a [InstanceService.List](#List) request. The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the folder to move the instance to. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
+
+
+### Operation {#Operation17}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveInstanceMetadata](#MoveInstanceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Instance](#Instance15)>**<br>if operation finished successfully. 
+
+
+### MoveInstanceMetadata {#MoveInstanceMetadata}
+
+Field | Description
+--- | ---
+instance_id | **string**<br>ID of the instance that is being moved. 
+source_folder_id | **string**<br>ID of the folder that the instance is being moved from. 
+destination_folder_id | **string**<br>ID of the folder that the instance is being moved to. 
+
+
+### Instance {#Instance15}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the instance. 
+folder_id | **string**<br>ID of the folder that the instance belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+name | **string**<br>Name of the instance. 1-63 characters long. 
+description | **string**<br>Description of the instance. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
+zone_id | **string**<br>ID of the availability zone where the instance resides. 
+platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
+resources | **[Resources](#Resources15)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
+status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
+metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
+metadata_options | **[MetadataOptions](#MetadataOptions15)**<br>Options allow user to configure access to instance's metadata 
+boot_disk | **[AttachedDisk](#AttachedDisk15)**<br>Boot disk that is attached to the instance. 
+secondary_disks[] | **[AttachedDisk](#AttachedDisk15)**<br>Array of secondary disks that are attached to the instance. 
+local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk15)**<br>Array of local disks that are attached to the instance. 
+filesystems[] | **[AttachedFilesystem](#AttachedFilesystem15)**<br>Array of filesystems that are attached to the instance. 
+network_interfaces[] | **[NetworkInterface](#NetworkInterface15)**<br>Array of network interfaces that are attached to the instance. 
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings15)**<br>Serial port settings 
+gpu_settings | **[GpuSettings](#GpuSettings15)**<br>GPU settings 
+fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy15)**<br>Scheduling policy configuration. 
+service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
+network_settings | **[NetworkSettings](#NetworkSettings15)**<br>Network Settings 
+placement_policy | **[PlacementPolicy](#PlacementPolicy15)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+
+
+### Resources {#Resources15}
+
+Field | Description
+--- | ---
+memory | **int64**<br>The amount of memory available to the instance, specified in bytes. 
+cores | **int64**<br>The number of cores available to the instance. 
+core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. 
+gpus | **int64**<br>The number of GPUs available to the instance. 
+
+
+### MetadataOptions {#MetadataOptions15}
+
+Field | Description
+--- | ---
+gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+
+
+### AttachedDisk {#AttachedDisk15}
+
+Field | Description
+--- | ---
+mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
+auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
+disk_id | **string**<br>ID of the disk that is attached to the instance. 
+
+
+### AttachedLocalDisk {#AttachedLocalDisk15}
+
+Field | Description
+--- | ---
+size | **int64**<br>Size of the disk, specified in bytes. 
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
+
+
+### AttachedFilesystem {#AttachedFilesystem15}
+
+Field | Description
+--- | ---
+mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. 
+filesystem_id | **string**<br>ID of the filesystem that is attached to the instance. 
+
+
+### NetworkInterface {#NetworkInterface15}
+
+Field | Description
+--- | ---
+index | **string**<br>The index of the network interface, generated by the server, 0,1,2... etc. Currently only one network interface is supported per instance. 
+mac_address | **string**<br>MAC address that is assigned to the network interface. 
+subnet_id | **string**<br>ID of the subnet. 
+primary_v4_address | **[PrimaryAddress](#PrimaryAddress15)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address | **[PrimaryAddress](#PrimaryAddress15)**<br>Primary IPv6 address that is assigned to the instance for this network interface. IPv6 not available yet. 
+security_group_ids[] | **string**<br>ID's of security groups attached to the interface 
+
+
+### PrimaryAddress {#PrimaryAddress15}
+
+Field | Description
+--- | ---
+address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
+one_to_one_nat | **[OneToOneNat](#OneToOneNat15)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
+dns_records[] | **[DnsRecord](#DnsRecord15)**<br>Internal DNS configuration 
+
+
+### OneToOneNat {#OneToOneNat15}
+
+Field | Description
+--- | ---
+address | **string**<br>An external IP address associated with this instance. 
+ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
+dns_records[] | **[DnsRecord](#DnsRecord15)**<br>External DNS configuration 
+
+
+### DnsRecord {#DnsRecord15}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
+
+
+### SerialPortSettings {#SerialPortSettings15}
+
+Field | Description
+--- | ---
+ssh_authorization | enum **SSHAuthorization**<br>Authentication and authorization in serial console when using SSH protocol <ul><li>`INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata</li><li>`OS_LOGIN`: Authentication and authorization using Oslogin service</li></ul>
+
+
+### GpuSettings {#GpuSettings15}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
+
+
+### SchedulingPolicy {#SchedulingPolicy15}
+
+Field | Description
+--- | ---
+preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
+
+
+### NetworkSettings {#NetworkSettings15}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
+
+
+### PlacementPolicy {#PlacementPolicy15}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Placement group ID. 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule15)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
+
+
+### HostAffinityRule {#HostAffinityRule15}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action 
+values[] | **string**<br>Affinity value or host ID or host group ID 
+
+
+## Relocate {#Relocate}
+
+Moves the specified instance to another availability zone <br>Running instance will be restarted during this operation.
+
+**rpc Relocate ([RelocateInstanceRequest](#RelocateInstanceRequest)) returns ([operation.Operation](#Operation18))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RelocateInstanceMetadata](#RelocateInstanceMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Instance](#Instance16)<br>
+
+### RelocateInstanceRequest {#RelocateInstanceRequest}
+
+Field | Description
+--- | ---
+instance_id | **string**<br>Required. ID of the instance to move. <br>To get the instance ID, make a [InstanceService.List](#List) request. The maximum string length in characters is 50.
+destination_zone_id | **string**<br>Required. ID of the availability zone to move the instance to. <br>To get the zone ID, make a [ZoneService.List](./zone_service#List) request. The maximum string length in characters is 50.
+network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec)**<br>Required. Network configuration for the instance. Specifies how the network interface is configured to interact with other services on the internal network and on the internet. Currently only one network interface is supported per instance. The number of elemets must be exactly 1.
+boot_disk_placement | **[DiskPlacementPolicy](#DiskPlacementPolicy2)**<br>Boot disk placement policy configuration in target zone. Must be specified if disk has placement policy. 
+secondary_disk_placements[] | **[DiskPlacementPolicyChange](#DiskPlacementPolicyChange)**<br>Secondary disk placement policy configurations in target zone. Must be specified for each disk that has placement policy. 
+
+
+### NetworkInterfaceSpec {#NetworkInterfaceSpec1}
+
+Field | Description
+--- | ---
+subnet_id | **string**<br>Required. ID of the subnet. The maximum string length in characters is 50.
+primary_v4_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec)**<br>Primary IPv4 address that will be assigned to the instance for this network interface. 
+primary_v6_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec)**<br>Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet. 
+security_group_ids[] | **string**<br>ID's of security groups attached to the interface 
+
+
+### PrimaryAddressSpec {#PrimaryAddressSpec3}
+
+Field | Description
+--- | ---
+address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system. 
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec)**<br>An external IP address configuration. If not specified, then this instance will have no external internet access. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>Internal DNS configuration 
+
+
+### OneToOneNatSpec {#OneToOneNatSpec4}
+
+Field | Description
+--- | ---
+ip_version | enum **IpVersion**<br>External IP address version. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
+address | **string**<br> 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>External DNS configuration 
+
+
+### DnsRecordSpec {#DnsRecordSpec4}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
+
+
+### DiskPlacementPolicy {#DiskPlacementPolicy2}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Placement group ID. 
+placement_group_partition | **int64**<br> 
+
+
+### DiskPlacementPolicyChange {#DiskPlacementPolicyChange}
+
+Field | Description
+--- | ---
+disk_id | **string**<br>Disk ID. 
+disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy3)**<br>Placement policy configuration for given disk. 
+
+
+### Operation {#Operation18}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RelocateInstanceMetadata](#RelocateInstanceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Instance](#Instance16)>**<br>if operation finished successfully. 
+
+
+### RelocateInstanceMetadata {#RelocateInstanceMetadata}
+
+Field | Description
+--- | ---
+instance_id | **string**<br>ID of the instance that is being moved. 
+source_zone_id | **string**<br>ID of the availability zone that the instance is being moved from. 
+destination_zone_id | **string**<br>ID of the availability zone that the instance is being moved to. 
+
+
+### Instance {#Instance16}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the instance. 
+folder_id | **string**<br>ID of the folder that the instance belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+name | **string**<br>Name of the instance. 1-63 characters long. 
+description | **string**<br>Description of the instance. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
+zone_id | **string**<br>ID of the availability zone where the instance resides. 
+platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
+resources | **[Resources](#Resources16)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
+status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
+metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
+metadata_options | **[MetadataOptions](#MetadataOptions16)**<br>Options allow user to configure access to instance's metadata 
+boot_disk | **[AttachedDisk](#AttachedDisk16)**<br>Boot disk that is attached to the instance. 
+secondary_disks[] | **[AttachedDisk](#AttachedDisk16)**<br>Array of secondary disks that are attached to the instance. 
+local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk16)**<br>Array of local disks that are attached to the instance. 
+filesystems[] | **[AttachedFilesystem](#AttachedFilesystem16)**<br>Array of filesystems that are attached to the instance. 
+network_interfaces[] | **[NetworkInterface](#NetworkInterface16)**<br>Array of network interfaces that are attached to the instance. 
+serial_port_settings | **[SerialPortSettings](#SerialPortSettings16)**<br>Serial port settings 
+gpu_settings | **[GpuSettings](#GpuSettings16)**<br>GPU settings 
+fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy16)**<br>Scheduling policy configuration. 
+service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
+network_settings | **[NetworkSettings](#NetworkSettings16)**<br>Network Settings 
+placement_policy | **[PlacementPolicy](#PlacementPolicy16)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
+
+
+### Resources {#Resources16}
+
+Field | Description
+--- | ---
+memory | **int64**<br>The amount of memory available to the instance, specified in bytes. 
+cores | **int64**<br>The number of cores available to the instance. 
+core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. 
+gpus | **int64**<br>The number of GPUs available to the instance. 
+
+
+### MetadataOptions {#MetadataOptions16}
+
+Field | Description
+--- | ---
+gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+
+
+### AttachedDisk {#AttachedDisk16}
+
+Field | Description
+--- | ---
+mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
+auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
+disk_id | **string**<br>ID of the disk that is attached to the instance. 
+
+
+### AttachedLocalDisk {#AttachedLocalDisk16}
+
+Field | Description
+--- | ---
+size | **int64**<br>Size of the disk, specified in bytes. 
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
+
+
+### AttachedFilesystem {#AttachedFilesystem16}
+
+Field | Description
+--- | ---
+mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. 
+filesystem_id | **string**<br>ID of the filesystem that is attached to the instance. 
+
+
+### NetworkInterface {#NetworkInterface16}
+
+Field | Description
+--- | ---
+index | **string**<br>The index of the network interface, generated by the server, 0,1,2... etc. Currently only one network interface is supported per instance. 
+mac_address | **string**<br>MAC address that is assigned to the network interface. 
+subnet_id | **string**<br>ID of the subnet. 
+primary_v4_address | **[PrimaryAddress](#PrimaryAddress16)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address | **[PrimaryAddress](#PrimaryAddress16)**<br>Primary IPv6 address that is assigned to the instance for this network interface. IPv6 not available yet. 
+security_group_ids[] | **string**<br>ID's of security groups attached to the interface 
+
+
+### PrimaryAddress {#PrimaryAddress16}
+
+Field | Description
+--- | ---
+address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
+one_to_one_nat | **[OneToOneNat](#OneToOneNat16)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
+dns_records[] | **[DnsRecord](#DnsRecord16)**<br>Internal DNS configuration 
+
+
+### OneToOneNat {#OneToOneNat16}
+
+Field | Description
+--- | ---
+address | **string**<br>An external IP address associated with this instance. 
+ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
+dns_records[] | **[DnsRecord](#DnsRecord16)**<br>External DNS configuration 
+
+
+### DnsRecord {#DnsRecord16}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
+
+
+### SerialPortSettings {#SerialPortSettings16}
+
+Field | Description
+--- | ---
+ssh_authorization | enum **SSHAuthorization**<br>Authentication and authorization in serial console when using SSH protocol <ul><li>`INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata</li><li>`OS_LOGIN`: Authentication and authorization using Oslogin service</li></ul>
+
+
+### GpuSettings {#GpuSettings16}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
+
+
+### SchedulingPolicy {#SchedulingPolicy16}
+
+Field | Description
+--- | ---
+preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
+
+
+### NetworkSettings {#NetworkSettings16}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
+
+
+### PlacementPolicy {#PlacementPolicy16}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Placement group ID. 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule16)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
+
+
+### HostAffinityRule {#HostAffinityRule16}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action 
+values[] | **string**<br>Affinity value or host ID or host group ID 
+
+
 ## SimulateMaintenanceEvent {#SimulateMaintenanceEvent}
 
 
 
-**rpc SimulateMaintenanceEvent ([SimulateInstanceMaintenanceEventRequest](#SimulateInstanceMaintenanceEventRequest)) returns ([operation.Operation](#Operation17))**
+**rpc SimulateMaintenanceEvent ([SimulateInstanceMaintenanceEventRequest](#SimulateInstanceMaintenanceEventRequest)) returns ([operation.Operation](#Operation19))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SimulateInstanceMaintenanceEventMetadata](#SimulateInstanceMaintenanceEventMetadata)<br>
@@ -3623,7 +4074,7 @@ Field | Description
 instance_id | **string**<br>Required.  The maximum string length in characters is 50.
 
 
-### Operation {#Operation17}
+### Operation {#Operation19}
 
 Field | Description
 --- | ---
@@ -3689,7 +4140,7 @@ type | **string**<br>Required. Type of the subject. <br>It can contain one of th
 
 Sets access bindings for the instance.
 
-**rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation18))**
+**rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation20))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetAccessBindingsMetadata](#SetAccessBindingsMetadata)<br>
@@ -3719,7 +4170,7 @@ id | **string**<br>Required. ID of the subject. <br>It can contain one of the fo
 type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
-### Operation {#Operation18}
+### Operation {#Operation20}
 
 Field | Description
 --- | ---
@@ -3746,7 +4197,7 @@ resource_id | **string**<br>ID of the resource for which access bindings are bei
 
 Updates access bindings for the instance.
 
-**rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation19))**
+**rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation21))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateAccessBindingsMetadata](#UpdateAccessBindingsMetadata)<br>
@@ -3784,7 +4235,7 @@ id | **string**<br>Required. ID of the subject. <br>It can contain one of the fo
 type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
-### Operation {#Operation19}
+### Operation {#Operation21}
 
 Field | Description
 --- | ---

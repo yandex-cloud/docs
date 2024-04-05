@@ -1,9 +1,9 @@
 ---
-title: "How to manage connections. Step-by-step instructions"
-description: "Step-by-step instructions for working with {{ connection-manager-name }} in {{ yandex-cloud }}. In this article you will learn how to create, view, update, and delete connections."
+title: "How to manage connections. Step-by-step guides"
+description: "Step-by-step guide on using {{ connection-manager-name }} in {{ yandex-cloud }}. In this tutorial, you will learn how to create, view, modify, and delete connections."
 ---
 
-# Step-by-step instructions for {{ connection-manager-name }}
+# Step-by-step guides for {{ connection-manager-name }}
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 

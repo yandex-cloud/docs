@@ -2,8 +2,8 @@
 editable: false
 ---
 
-# Pricing for {{ data-transfer-name }}
+# {{ data-transfer-name }} pricing
 
 Currently, you can use {{ data-transfer-name }} resources for free.
 
-For the consumption of other {{ yandex-cloud }} resources used during transfers (for example, managed database services), you will be charged according to their pricing policy.
+Other {{ yandex-cloud }} resources you are going to use during transfer (e.g., managed database services) will be billed according to their respective [pricing plans]({{ link-cloud-calculator }}).

@@ -1,12 +1,12 @@
-# {{ metadata-hub-full-name }} overview
+# About {{ metadata-hub-full-name }}
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-{{ metadata-hub-full-name }} — a service that provides data management capabilities in {{ yandex-cloud }}:
+{{ metadata-hub-full-name }} is a service that provides data management capabilities in {{ yandex-cloud }}:
 
-* automatic creation and management of database connection parameters;
-* storing, receiving schemes and checking the evolution of data exchange schemes;
-* search and visualization of meta-information about data stores and connections between them.
+* Automatic creation and management of database connection parameters.
+* Storing, getting schemas, and checking the evolution of data exchange schemas.
+* Search and visualization of meta information about data storages and links between them.
 
 ## Connection management {#connection-manager}
 

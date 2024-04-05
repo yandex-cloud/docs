@@ -56,7 +56,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
       1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-      1. Download the [data-transfer-ydb-mkf.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-ydb-mkf.tf) configuration file to the same working directory.
+      1. Download the [data-transfer-ydb-mkf.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-cdc-from-ydb-to-kafka/blob/main/data-transfer-ydb-mkf.tf) configuration file to the same working directory.
 
          This file describes:
 
@@ -83,7 +83,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * `target_kf_version`: {{ KF }} version in the target cluster.
          * `target_user_name`: Username for connecting to the {{ KF }} topic.
          * `target_user_password`: User password.
-         * `transfer_enabled`: Set `0` to ensure that no transfer is created before you [manually create endpoints](#prepare-transfer).
+         * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 

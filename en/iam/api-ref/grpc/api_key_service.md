@@ -49,6 +49,7 @@ id | **string**<br>ID of the API Key.
 service_account_id | **string**<br>ID of the service account that the API key belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 description | **string**<br>Description of the API key. 0-256 characters long. 
+last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last authentication using this API key. 
 
 
 ## Get {#Get}
@@ -72,6 +73,7 @@ id | **string**<br>ID of the API Key.
 service_account_id | **string**<br>ID of the service account that the API key belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 description | **string**<br>Description of the API key. 0-256 characters long. 
+last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last authentication using this API key. 
 
 
 ## Create {#Create}
@@ -104,6 +106,7 @@ id | **string**<br>ID of the API Key.
 service_account_id | **string**<br>ID of the service account that the API key belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 description | **string**<br>Description of the API key. 0-256 characters long. 
+last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last authentication using this API key. 
 
 
 ## Update {#Update}
@@ -156,6 +159,7 @@ id | **string**<br>ID of the API Key.
 service_account_id | **string**<br>ID of the service account that the API key belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 description | **string**<br>Description of the API key. 0-256 characters long. 
+last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last authentication using this API key. 
 
 
 ## Delete {#Delete}

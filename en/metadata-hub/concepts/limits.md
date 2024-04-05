@@ -1,8 +1,8 @@
-# {{ metadata-hub-full-name }} quotas
+# Quotas in {{ metadata-hub-full-name }}
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-{{ connection-manager-name }} has the following quotas:
+The following restrictions apply to managing connections using {{ connection-manager-name }}:
 
 * [_Quotas_]({{ link-console-quotas }}) are organizational restrictions that can be changed by technical support.
 

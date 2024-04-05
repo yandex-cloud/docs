@@ -69,8 +69,16 @@ pool_mode | enum **PoolingMode**<br>Mode that the connection pooler is working i
 prepared_statements_pooling | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>User can use prepared statements with transaction pooling. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-prepare.html) 
 catchup_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The connection pooler setting. It determines the maximum allowed replication lag (in seconds). Pooler will reject connections to the replica with a lag above this threshold. It can be useful to prevent application from reading stale data. <br>Default value: 0 <br>Value of `0` disables this mechanism 
 wal_sender_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) to wait for WAL replication (can be set only for PostgreSQL 12+) Terminate replication connections that are inactive for longer than this amount of time. <br>Default value: `60000` (60 seconds). <br>Value of `0` disables the timeout mechanism. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html) 
-idle_in_transaction_session_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction. <br>Values of `0` (default) disables the timeout. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) 
+idle_in_transaction_session_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction. <br>Values of `0` (default) disables the timeout. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) Acceptable values are 0 to 2147483647, inclusive.
 statement_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) to wait for statement The timeout is measured from the time a command arrives at the server until it is completed by the server. <br>If `log_min_error_statement` is set to ERROR or lower, the statement that timed out will also be logged. <br>Value of `0` (default) disables the timeout <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) 
+pgaudit | **[PGAuditSettings](#PGAuditSettings)**<br> 
+
+
+### PGAuditSettings {#PGAuditSettings}
+
+Field | Description
+--- | ---
+log[] | enum **PGAuditSettingsLog**<br> 
 
 
 ## List {#List}
@@ -132,8 +140,16 @@ pool_mode | enum **PoolingMode**<br>Mode that the connection pooler is working i
 prepared_statements_pooling | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>User can use prepared statements with transaction pooling. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-prepare.html) 
 catchup_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The connection pooler setting. It determines the maximum allowed replication lag (in seconds). Pooler will reject connections to the replica with a lag above this threshold. It can be useful to prevent application from reading stale data. <br>Default value: 0 <br>Value of `0` disables this mechanism 
 wal_sender_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) to wait for WAL replication (can be set only for PostgreSQL 12+) Terminate replication connections that are inactive for longer than this amount of time. <br>Default value: `60000` (60 seconds). <br>Value of `0` disables the timeout mechanism. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html) 
-idle_in_transaction_session_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction. <br>Values of `0` (default) disables the timeout. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) 
+idle_in_transaction_session_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction. <br>Values of `0` (default) disables the timeout. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) Acceptable values are 0 to 2147483647, inclusive.
 statement_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) to wait for statement The timeout is measured from the time a command arrives at the server until it is completed by the server. <br>If `log_min_error_statement` is set to ERROR or lower, the statement that timed out will also be logged. <br>Value of `0` (default) disables the timeout <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) 
+pgaudit | **[PGAuditSettings](#PGAuditSettings1)**<br> 
+
+
+### PGAuditSettings {#PGAuditSettings1}
+
+Field | Description
+--- | ---
+log[] | enum **PGAuditSettingsLog**<br> 
 
 
 ## Create {#Create}
@@ -190,8 +206,16 @@ pool_mode | enum **PoolingMode**<br>Mode that the connection pooler is working i
 prepared_statements_pooling | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>User can use prepared statements with transaction pooling. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-prepare.html) 
 catchup_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The connection pooler setting. It determines the maximum allowed replication lag (in seconds). Pooler will reject connections to the replica with a lag above this threshold. It can be useful to prevent application from reading stale data. <br>Default value: 0 <br>Value of `0` disables this mechanism 
 wal_sender_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) to wait for WAL replication (can be set only for PostgreSQL 12+) Terminate replication connections that are inactive for longer than this amount of time. <br>Default value: `60000` (60 seconds). <br>Value of `0` disables the timeout mechanism. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html) 
-idle_in_transaction_session_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction. <br>Values of `0` (default) disables the timeout. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) 
+idle_in_transaction_session_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction. <br>Values of `0` (default) disables the timeout. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) Acceptable values are 0 to 2147483647, inclusive.
 statement_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) to wait for statement The timeout is measured from the time a command arrives at the server until it is completed by the server. <br>If `log_min_error_statement` is set to ERROR or lower, the statement that timed out will also be logged. <br>Value of `0` (default) disables the timeout <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) 
+pgaudit | **[PGAuditSettings](#PGAuditSettings2)**<br> 
+
+
+### PGAuditSettings {#PGAuditSettings2}
+
+Field | Description
+--- | ---
+log[] | enum **PGAuditSettingsLog**<br> 
 
 
 ### Operation {#Operation}
@@ -281,8 +305,16 @@ pool_mode | enum **PoolingMode**<br>Mode that the connection pooler is working i
 prepared_statements_pooling | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>User can use prepared statements with transaction pooling. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-prepare.html) 
 catchup_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The connection pooler setting. It determines the maximum allowed replication lag (in seconds). Pooler will reject connections to the replica with a lag above this threshold. It can be useful to prevent application from reading stale data. <br>Default value: 0 <br>Value of `0` disables this mechanism 
 wal_sender_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) to wait for WAL replication (can be set only for PostgreSQL 12+) Terminate replication connections that are inactive for longer than this amount of time. <br>Default value: `60000` (60 seconds). <br>Value of `0` disables the timeout mechanism. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html) 
-idle_in_transaction_session_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction. <br>Values of `0` (default) disables the timeout. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) 
+idle_in_transaction_session_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction. <br>Values of `0` (default) disables the timeout. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) Acceptable values are 0 to 2147483647, inclusive.
 statement_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) to wait for statement The timeout is measured from the time a command arrives at the server until it is completed by the server. <br>If `log_min_error_statement` is set to ERROR or lower, the statement that timed out will also be logged. <br>Value of `0` (default) disables the timeout <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) 
+pgaudit | **[PGAuditSettings](#PGAuditSettings3)**<br> 
+
+
+### PGAuditSettings {#PGAuditSettings3}
+
+Field | Description
+--- | ---
+log[] | enum **PGAuditSettingsLog**<br> 
 
 
 ### Operation {#Operation1}
@@ -445,8 +477,16 @@ pool_mode | enum **PoolingMode**<br>Mode that the connection pooler is working i
 prepared_statements_pooling | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>User can use prepared statements with transaction pooling. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-prepare.html) 
 catchup_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The connection pooler setting. It determines the maximum allowed replication lag (in seconds). Pooler will reject connections to the replica with a lag above this threshold. It can be useful to prevent application from reading stale data. <br>Default value: 0 <br>Value of `0` disables this mechanism 
 wal_sender_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) to wait for WAL replication (can be set only for PostgreSQL 12+) Terminate replication connections that are inactive for longer than this amount of time. <br>Default value: `60000` (60 seconds). <br>Value of `0` disables the timeout mechanism. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html) 
-idle_in_transaction_session_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction. <br>Values of `0` (default) disables the timeout. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) 
+idle_in_transaction_session_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction. <br>Values of `0` (default) disables the timeout. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) Acceptable values are 0 to 2147483647, inclusive.
 statement_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) to wait for statement The timeout is measured from the time a command arrives at the server until it is completed by the server. <br>If `log_min_error_statement` is set to ERROR or lower, the statement that timed out will also be logged. <br>Value of `0` (default) disables the timeout <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) 
+pgaudit | **[PGAuditSettings](#PGAuditSettings4)**<br> 
+
+
+### PGAuditSettings {#PGAuditSettings4}
+
+Field | Description
+--- | ---
+log[] | enum **PGAuditSettingsLog**<br> 
 
 
 ## RevokePermission {#RevokePermission}
@@ -528,7 +568,15 @@ pool_mode | enum **PoolingMode**<br>Mode that the connection pooler is working i
 prepared_statements_pooling | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>User can use prepared statements with transaction pooling. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-prepare.html) 
 catchup_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The connection pooler setting. It determines the maximum allowed replication lag (in seconds). Pooler will reject connections to the replica with a lag above this threshold. It can be useful to prevent application from reading stale data. <br>Default value: 0 <br>Value of `0` disables this mechanism 
 wal_sender_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) to wait for WAL replication (can be set only for PostgreSQL 12+) Terminate replication connections that are inactive for longer than this amount of time. <br>Default value: `60000` (60 seconds). <br>Value of `0` disables the timeout mechanism. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html) 
-idle_in_transaction_session_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction. <br>Values of `0` (default) disables the timeout. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) 
+idle_in_transaction_session_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction. <br>Values of `0` (default) disables the timeout. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) Acceptable values are 0 to 2147483647, inclusive.
 statement_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) to wait for statement The timeout is measured from the time a command arrives at the server until it is completed by the server. <br>If `log_min_error_statement` is set to ERROR or lower, the statement that timed out will also be logged. <br>Value of `0` (default) disables the timeout <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) 
+pgaudit | **[PGAuditSettings](#PGAuditSettings5)**<br> 
+
+
+### PGAuditSettings {#PGAuditSettings5}
+
+Field | Description
+--- | ---
+log[] | enum **PGAuditSettingsLog**<br> 
 
 
