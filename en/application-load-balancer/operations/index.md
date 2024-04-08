@@ -43,5 +43,6 @@ description: "Step-by-step guide for using {{ alb-full-name }} in {{ yandex-clou
 ## Tools for {{ managed-k8s-name }} {#k8s-ingress-controller}
 
 * [{#T}](k8s-ingress-controller-install.md)
+* [{#T}](k8s-ingress-controller-upgrade.md)
 * [{#T}](k8s-gateway-api-install.md)
 * [{#T}](k8s-ingress-controller-apply.md)

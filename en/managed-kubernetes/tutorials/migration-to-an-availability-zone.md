@@ -58,7 +58,7 @@ To migrate a zonal master to a different availability zone:
       {{ yc-k8s }} cluster update \
          --folder-id <folder_ID> \
          --id <cluster_ID> \
-         --master-location subnet-id=<new_subnet_ID>,zone=ru-central1-d
+         --master-location subnet-id=<new_subnet_ID>,zone={{ region-id }}-d
       ```
 
       Where:
@@ -159,7 +159,7 @@ To migrate a zonal master to a different availability zone:
 
 {% note info %}
 
-The zonal master host is moved to the new subnet with the same internal IP address it had in the old subnet. This IP address remains reserved in the old subnet as well, so you cannot delete it. Later on, you will be able to [move](../../vpc/operations/subnet-relocate.md) such a subnet to a new availability zone, or it will be moved to the `{{ region-id }}-d` zone automatically as soon as the `{{ region-id }}-c` zone is closed.
+The zonal master is moved to the new subnet with the same internal IP address it had in the old subnet. This IP address remains reserved in the old subnet as well, so you cannot delete it. Later on, you will be able to [move](../../vpc/operations/subnet-relocate.md) such a subnet to a new availability zone, or it will be moved to the `{{ region-id }}-d` zone automatically as soon as the `{{ region-id }}-c` zone is closed.
 
 {% endnote %}
 
@@ -227,7 +227,7 @@ To migrate a regional master host to a different set of availability zones:
          master {
             ...
             regional {
-               region = "ru-central1"
+               region = "{{ region-id }}"
                location {
                   subnet_id = yandex_vpc_subnet.my-subnet-a.id
                   zone      = yandex_vpc_subnet.my-subnet-a.zone

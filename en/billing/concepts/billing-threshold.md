@@ -27,7 +27,7 @@ The billing threshold amount is calculated individually and depends on a combina
 - Amount for resources consumed.
 - Your financial standing.
 
-You can find information about the billing threshold amount in the [management console]({{ link-console-billing }}), in the billing account information under **{{ ui-key.yacloud.billing.account.overview.section_account-data }}**.
+You can view the information on the billing threshold amount in [{{ billing-name }}]({{ link-console-billing }}), in the top-right section of the **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page, along with the current balance details.
 
 ## Enabling a billing threshold {#enable}
 

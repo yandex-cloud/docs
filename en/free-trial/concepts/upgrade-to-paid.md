@@ -1,6 +1,6 @@
 # Upgrading to the paid version
 
-You do not upgrade to the paid version automatically once the trial period ends. To upgrade to the paid version, go to the **Billing** page in the management console and click **Upgrade to the paid version**.
+You do not upgrade to the paid version automatically after the trial period ends. To upgrade to the paid version, click **Upgrade to the paid version** in [{{ billing-name }}]({{ link-console-billing }}).
 
 ## Using the remainder of the initial grant
 

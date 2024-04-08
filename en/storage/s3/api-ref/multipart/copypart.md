@@ -7,7 +7,7 @@ description: "The copyPart method in {{ objstorage-name }} API (S3) copies a par
 
 Copies part of an object.
 
-Has the same functionality as [{#T}](uploadpart.md), but data isn't passed in the request body. It's copied from an existing object.
+It provides the same functionality as [{#T}](uploadpart.md), but data is copied from an existing object rather than transmitted in the request body.
 
 ## Request {#request}
 

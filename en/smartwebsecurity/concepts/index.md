@@ -1,6 +1,6 @@
 # {{ sws-full-name }} overview
 
-{{ sws-full-name }} is a service for protection against DDoS attacks and bots at the [OSI model](https://en.wikipedia.org/wiki/OSI_model) L7 application level.
+{{ sws-full-name }} is a service for protection against DDoS attacks and bots at application level L7 of the [OSI model](https://en.wikipedia.org/wiki/OSI_model).
 
 You can connect the service to [{{ alb-full-name }}](../../application-load-balancer/) [virtual hosts](../../application-load-balancer/concepts/http-router.md#virtual-host).
 

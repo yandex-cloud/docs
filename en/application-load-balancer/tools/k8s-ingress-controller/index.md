@@ -52,6 +52,8 @@ Where `secretName` is the ID of the certificate from {{ certificate-manager-full
 
 {% endcut %}
 
+With this `Ingress` resource configuration in [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) version 0.2.0 and later, the [backend groups](principles.md) correspond to the `backend.service` parameter. Versions 0.1.x use other parameters: `host`, `http.paths.path`, and `http.paths.pathType`. As a result, collisions may occur when updating the ALB Ingress Controller. To avoid them, [find out whether upgrade restrictions apply](../../operations/k8s-ingress-controller-upgrade.md) to your infrastructure.
+
 ## Logging settings {#log-options}
 
 To set up logging for an L7 load balancer created using an {{ alb-name }} Ingress controller in your {{ managed-k8s-name }} cluster, add the `ingress.alb.yc.io/group-settings-name` annotation with a name for the Ingress group settings and specify the settings in the additional `IngressGroupSettings` resource. For more information, see [Ingress resource annotations](../../k8s-ref/ingress.md#annotations).

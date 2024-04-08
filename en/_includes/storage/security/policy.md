@@ -72,9 +72,9 @@ Example of a rule for a specific {{ yandex-cloud }} user:
 }
 ```
 
-{% cut "An example for simultaneous usage of domains console.cloud.yandex.* and console.yandex.cloud" %}
+{% cut "Example for sharing the console.cloud.yandex.* and console.yandex.cloud domains" %}
 
-If you are using the deprecated domain `console.cloud.yandex.*` simultaneously with the new one `console.yandex.cloud`, set the following policy rules:
+If you are using the old `console.cloud.yandex.*` domain in conjunction with the new `console.yandex.cloud` domain, set the following policy rules:
 
 ```json
 {

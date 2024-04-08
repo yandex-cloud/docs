@@ -4,8 +4,8 @@ This guide will help you create your first L7 load balancer, connect a target gr
 
 ## Getting started {#before-begin}
 
-1. Log in to or register in the [management console]({{ link-console-main }}). If you do not have an account yet, go to the management console and follow the guide.
-   1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. Log in or sign up to the [management console]({{ link-console-main }}). If you are not signed up yet, navigate to the management console and follow the instructions.
+1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default virtual network with subnets in all availability zones.
 
 ## Create a VM and launch a test web server on it {#create-vm}
@@ -181,9 +181,9 @@ As an example, let's create a balancer with a node in the same subnet and same a
       ```bash
       yc alb load-balancer create test-load-balancer \
         --network-name <network_name> \
-        --location subnet-name=<name_of_subnet_in_{{ region-id }}-a>,zone={{ region-id }}-a \
-        --location subnet-name=<name_of_subnet_in_{{ region-id }}-b>,zone={{ region-id }}-b \
-        --location subnet-name=<name_of_subnet_in_{{ region-id }}-c>,zone={{ region-id }}-c
+        --location subnet-name=<{{ region-id }}-a_subnet_name>,zone={{ region-id }}-a \
+        --location subnet-name=<{{ region-id }}-b_subnet_name>,zone={{ region-id }}-b \
+        --location subnet-name=<{{ region-id }}-d_subnet_name>,zone={{ region-id }}-d
       ```
 
    1. Add a listener:

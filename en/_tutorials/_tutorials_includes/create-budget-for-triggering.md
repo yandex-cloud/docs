@@ -2,12 +2,10 @@ The user can create a budget if they have the `editor` role. To get notification
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ billing-name }} interface {#billing}
 
-   1. In the [management console]({{ link-console-main }}), select the folder in which you created the service account.
-   1. In the top-left corner, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-   1. Select ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
-   1. On the **{{ ui-key.yacloud.billing.label_accounts }}** page, select a billing account.
+   1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
+   1. Select a billing account.
    1. In the **{{ ui-key.yacloud.billing.account.overview.section_account-data }}** section, in the **{{ ui-key.yacloud.common.id }}** field, copy the billing account ID. You will need it when creating a trigger for budgets.
    1. Go to the **{{ ui-key.yacloud.billing.account.switch_budgets }}** tab and click **{{ ui-key.yacloud.billing.account.budgets.button_create }}**.
    1. Under **{{ ui-key.yacloud.common.section-base }}**, specify:

@@ -3,9 +3,9 @@ title: "Download reporting documents"
 description: "Learn how to download an archive with closing documents, request a reconciliation report, completion report, and electronic invoices."
 ---
 
-# Viewing your expense history and downloading reporting documents through the console
+# Viewing your expense history and downloading reporting documents in {{ billing-name }}
 
-Individuals, companies, and individual entrepreneurs can view their expense history. Companies and individual entrepreneurs that are residents of Russia or Kazakhstan can download reporting documents in the {{ yandex-cloud }} management console.
+Individuals, companies, and individual entrepreneurs can view their expense history. Companies and individual entrepreneurs that are residents of Russia or Kazakhstan can download reporting documents in {{ billing-name }}.
 
 {% list tabs group=customers %}
 
@@ -17,13 +17,14 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
 
    {% include [billing.accounts.account](../../_includes/billing/accountant-role.md) %}
 
-   ### Download closing documents {#download-closing-docs}
+   ### Downloading closing documents {#download-closing-docs}
 
-   Reports and invoices are generated on the last day of the reporting period (month). The relevant documents will become available for download seven business days after the reporting period ends. Documents for previous reporting periods are also available in the management console.
+   Reports and invoices are generated on the last day of the reporting period (month). The relevant documents will become available for download seven business days after the reporting period ends. Documents for previous reporting periods are also available in {{ billing-name }}.
 
    To download closing documents:
-   1. In the top-left corner of the management console, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
-   1. On the **{{ ui-key.yacloud.billing.label_accounts }}** page, select a billing account.
+
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+   1. Select a billing account.
    1. Go to **{{ ui-key.yacloud.billing.account.switch_acts }}**.
    1. Open the **{{ ui-key.yacloud.billing.account.tab_acts-title }}** tab.
    1. In the line for the relevant reporting period, click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.billing.account.button_download-action }}**. A window will open showing the reporting documents for the selected period.
@@ -32,13 +33,14 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
 
    ### Requesting a reconciliation report {#download-acts}
 
-   To generate a reconciliation report, submit a request in the {{ yandex-cloud }} management console. After your request is processed, the document will become available for download.
+   To generate a reconciliation report, submit a request in {{ billing-name }}. After your request is processed, the document will become available for download.
 
    You can request a reconciliation report for the current month seven business days after the month ends.
 
    To request a reconciliation report:
-   1. In the top-left corner of the management console, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
-   1. On the **{{ ui-key.yacloud.billing.label_accounts }}** page, select a billing account.
+
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+   1. Select a billing account.
    1. Go to **{{ ui-key.yacloud.billing.account.switch_acts }}**.
    1. Open the **{{ ui-key.yacloud.billing.account.tab_reconciliation-reports-title }}** tab.
    1. Click **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_request-report }}**. In the window that opens, select the period to generate the reconciliation report for and click **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_request-report-short }}**.
@@ -64,11 +66,12 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
 
    Completion reports can be downloaded by companies and individual entrepreneurs that are residents of Kazakhstan.
 
-   Documents are generated on the last day of the reporting period (month). The completion report will become available for download seven business days after the reporting period ends. Acceptance certificates for previous reporting periods are also available in the management console.
+   Documents are generated on the last day of the reporting period (month). The completion report will become available for download seven business days after the reporting period ends. Acceptance certificates for previous reporting periods are also available in {{ billing-name }}.
 
    To request a completion report:
-   1. In the top-left corner of the management console, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
-   1. On the **{{ ui-key.yacloud.billing.label_accounts }}** page, select a billing account.
+
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+   1. Select a billing account.
    1. Go to **{{ ui-key.yacloud.billing.account.switch_acts }}**.
    1. Open the **{{ ui-key.yacloud.billing.account.tab_acts-title }}** tab.
    1. In the line for the relevant reporting period, click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.billing.account.button_download-action }}**. This will open a window with reports for the selected period.
@@ -82,13 +85,14 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
 
 - Individuals {#individuals}
 
-   ## View your expense history {#expense-history}
+   ## Viewing your expense history {#expense-history}
 
-   Individuals who are residents of  can view their monthly spending history in the {{ yandex-cloud }} management console.
+   Individuals who are residents of  can view their monthly expense history in {{ billing-name }}.
 
    To view your expense history:
-   1. In the top-left corner of the management console, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
-   1. On the **{{ ui-key.yacloud.billing.label_accounts }}** page, select a billing account.
+
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+   1. Select a billing account.
    1. Go to **{{ ui-key.yacloud.billing.account.switch_expences }}**.
 
    Individuals cannot download reporting documents.

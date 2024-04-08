@@ -34,7 +34,7 @@
 | [Origin shielding](./origins-shielding.md) | Using a shield server between CDN servers and origins to reduce origin load. |
 | [Content caching](./caching.md) | Creating copies of files and storing them temporarily on CDN servers and/or on the client side. |
 | [Secure tokens](./secure-tokens.md) | Setting up access to files on CDN servers based on time and IP using secure tokens. |
-| [IP-based access policy](./ip-address-acl.md) | Setting up access to CDN resources using IP blacklists and whitelists. |
+| [IP-based access policy](./ip-address-acl.md) | Configuring access to CDN resources using an allow or block policy. |
 | [Log export](./logs.md) | Exporting CDN and shielding server request logs to object storage. |
 | [Quotas and limits](./limits.md) | Service use restrictions. |
 

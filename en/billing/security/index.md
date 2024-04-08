@@ -24,10 +24,6 @@ Access can only be granted to a user whose billing account has a cloud linked in
 
 ### Service roles {#service-roles}
 
-#### billing.accounts.member {#billing-accounts-member}
-
-{% include [billing.accounts.member](../../_roles/billing/accounts/member.md) %}
-
 #### billing.accounts.owner {#billing-accounts-owner}
 
 {% include [billing.accounts.owner](../../_roles/billing/accounts/owner.md) %}
@@ -71,32 +67,32 @@ Primitive roles can only be assigned to users in the **{{ ui-key.yacloud.iam.clo
 
 The table below provides a list of operations available to each role type.
 
-| Operations | `member` | `owner` | `viewer` | `accountant` | `editor` | `admin` |
-|---------------------------------------------------------|----------------------------------------|----------------------------------------|----------------------------------------|----------------------------------------|----------------------------------------|----------------------------------------|
-| Displaying a billing account in the list of all user accounts | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Viewing billing account information | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Viewing and receiving usage notifications | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Viewing and downloading reporting (closing) documents | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Viewing and downloading generated reconciliation reports | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Checking expenses | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Accessing usage details | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Topping up your personal account using a bank account | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Generating a new reconciliation report | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Activating promo codes | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Linking clouds to billing accounts | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Creating details export | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Creating budget | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Resource allocation | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Assigning roles to billing accounts | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
-| Viewing and editing roles | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
-| Renaming a billing account | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
-| Changing payer contact information | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
-| Changing billing details | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
-| Changing bank cards | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
-| Changing payment methods | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
-| Activating trial period | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
-| Activating paid version | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
-| Topping up your personal account using a bank card | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Operations | `owner` | `viewer` | `accountant` | `editor` | `admin` |
+|---------------------------------------------------------|---------------------------------------|----------------------------------------|----------------------------------------|----------------------------------------|----------------------------------------|
+| Displaying a billing account in the list of all user accounts | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Viewing billing account information | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Viewing and receiving usage notifications | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Viewing and downloading reporting (closing) documents | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Viewing and downloading generated reconciliation reports | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Checking expenses | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Accessing usage details | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Topping up your personal account using a bank account | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Generating a new reconciliation report | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Activating promo codes | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Linking clouds to billing accounts | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Creating details export | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Creating budget | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Resource allocation | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Assigning roles to billing accounts | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
+| Viewing and editing roles | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
+| Renaming a billing account | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Changing payer contact information | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Changing billing details | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Changing bank cards | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Changing payment methods | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Activating trial period | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Activating paid version | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Topping up your personal account using a bank card | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
 
 ## Adding a user {#set-member-role}
 
@@ -116,10 +112,8 @@ The steps for adding a new billing account user depend on whether this billing a
 
    {% endnote %}
 
-   1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-   1. In the top-left corner, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-   1. Select ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
-   1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+   1. Select a billing account.
    1. Go to the **{{ ui-key.yacloud.billing.account.switch_users }}** page.
    1. At the top right, click **{{ ui-key.yacloud.billing.account.users.button_add }}**.
    1. Select a user from the drop-down list. The list shows users whose clouds are linked to your billing account.
@@ -140,10 +134,8 @@ The steps for assigning a billing account role depend on whether this billing ac
    Users with the `billing.accounts.admin` role can grant access to the billing account to any user or service account within the same organization. To do this:
 
    1. [Make sure](../../organization/operations/users-get.md) that the user you need belongs to your organization. If not, [add them](../../organization/operations/add-account.md).
-   1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-   1. In the top-left corner, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-   1. Select ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
-   1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+   1. Select a billing account.
    1. Go to the **{{ ui-key.yacloud.billing.account.switch_users }}** page.
    1. At the top right, click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**. In the window that opens:
 
@@ -162,8 +154,8 @@ The steps for assigning a billing account role depend on whether this billing ac
 
    Users with the `billing.accounts.admin` role can grant access to the billing account to any user or service account on the **{{ ui-key.yacloud.iam.cloud.incident-notifications.label_users }}** list. To do this:
 
-   1. In the top-left corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ billing-name }}**.
-   1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+   1. Select a billing account.
    1. Go to the **{{ ui-key.yacloud.billing.account.switch_users }}** page.
    1. Find the user or service account in the list.
    1. In the line with the user or service account you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.billing.account.users.button_tune-role }}**.
@@ -184,10 +176,8 @@ The steps for revoking a billing account role depend on whether this billing acc
 
    A user with the `billing.accounts.admin` role can revoke a billing account role from users or service accounts in their organization at any time. To do this:
 
-   1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-   1. In the top-left corner, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-   1. Select ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
-   1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+   1. Select a billing account.
    1. Go to the **{{ ui-key.yacloud.billing.account.switch_users }}** page.
    1. Select a user or service account from the list or use filtering by users.
    1. In the line with the user or service account you need, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
@@ -198,8 +188,8 @@ The steps for revoking a billing account role depend on whether this billing acc
 
    A user with the `billing.accounts.admin` role can revoke a billing account role from users or service accounts on the list at any time. To do this:
 
-   1. In the top-left corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ billing-name }}**.
-   1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+   1. Select a billing account.
    1. Go to the **{{ ui-key.yacloud.billing.account.switch_users }}** page.
    1. Find the user or service account in the list.
    1. In the line with the user or service account you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.billing.account.users.button_tune-role }}**.
@@ -217,9 +207,8 @@ The steps for revoking a billing account role depend on whether this billing acc
 
 You can only delete users from those billing accounts that are not added to an organization. To do this:
 
-1. In the top-left corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ billing-name }}**.
-1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
-1. Go to the **{{ ui-key.yacloud.billing.account.switch_users }}** page.
+1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+1. Select a billing account.
 1. Find the user or service account in the list.
 1. In the line with the user or service account you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.billing.account.users.button_remove-user }}**.
 1. This deletes the user from the list of the billing account users.

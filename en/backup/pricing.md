@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Pricing for {{ backup-full-name }}
+# {{ backup-full-name }} pricing
 
 To calculate the cost of using {{ backup-name }}, see the prices on this page.
 
@@ -12,17 +12,17 @@ The cost of {{ backup-name }} depends on the number of protected VMs and the tot
 
 ### VM protection {#vms}
 
-You start paying for a VM in {{ backup-name }} once you link it to a [backup policy](./concepts/policy.md). You will be charged for the VM until you unlink it from the policy regardless of the VM status.
+You start paying for a VM in {{ backup-name }} as soon as you link it to a [backup policy](./concepts/policy.md). Regardless of the VM status, you will be charged for the VM until you unlink it from the policy.
 
-If you delete a VM in [{{ compute-full-name }}](../compute/) using the [management console]({{ link-console-main }}), the VM will be unlinked from all the policies. If you delete a VM using the CLI, {{ TF }}, or API, it will not be unlinked from the policies automatically. You need to unlink it yourself.
+If you delete a VM in [{{ compute-full-name }}](../compute/) using the [management console]({{ link-console-main }}), the VM will be unlinked from all policies. If you delete a VM using the CLI, {{ TF }}, or API, it will not be unlinked from policies automatically. You need to unlink it yourself.
 
 The minimum billing unit is 1 VM per hour.
 
 ### Using storage {#backups}
 
-A fee is charged for the total size of storage used by backups.
+You are charged for the total size of storage used by backups.
 
-The minimum billable unit is 1 hour of storing 1 MB of data.
+The minimum billing unit is 1 hour of storing 1 MB of data.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -33,11 +33,11 @@ If a VM is stopped or deleted, its backups are still stored in {{ backup-name }}
 
 {% note info %}
 
-To pay less, delete the backups of deleted VMs that you no longer need.
+To pay less, delete the backups of the deleted VMs that you no longer need.
 
 {% endnote %}
 
-The size of VM backups can fall short of the VM disk size, e.g., if the VM disk usage is low and the level of data compression is high, or exceed the same, e.g., when there are many backups and their data is continuously modified and poorly compressed.
+The size of VM backups can fall short of the VM disk size, e.g., if the VM disk usage is low and the level of data compression is high, or exceed it, e.g., when there are many backups and their data is continuously modified and poorly compressed.
 
 ## Pricing {#prices}
 
@@ -67,7 +67,7 @@ The monthly usage rate is based on 720 hours a month.
 
 Example of calculating the cost of {{ backup-name }} per month for the following configuration:
 * One VM is linked to backup policies.
-* The total size of backups is 50 GB.
+* Total size of backups is 50 GB.
 
 
 

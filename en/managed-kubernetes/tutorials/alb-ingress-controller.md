@@ -3,9 +3,9 @@
 The [{{ alb-full-name }}](../../application-load-balancer/) service is designed for load balancing and traffic distribution across applications. To use it for managing ingress traffic of applications running in a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster), you need an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
 
 To set up access to the applications running in your {{ managed-k8s-name }} cluster via {{ alb-name }}:
-1. [{#T}](#create-ingress-and-apps)
-1. [{#T}](#configure-group)
-1. [{#T}](#verify-setup)
+1. [{#T}](#create-ingress-and-apps).
+1. [{#T}](#configure-group).
+1. [{#T}](#verify-setup).
 
 ## Getting started {#before-you-begin}
 
@@ -313,6 +313,8 @@ Command result:
 
          You can replace `my-ingress-group` with any group name you like. Make sure it meets the naming [requirements]({{ k8s-docs }}/concepts/overview/working-with-objects/names/).
 
+      In [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) versions prior to 0.2.0, each backend group corresponds to a bundle of `host`, `http.paths.path`, and `http.paths.pathType` parameters. In versions 0.2.0 and later, the backend group corresponds to the `backend.service` parameter. This may cause collisions when updating the ALB Ingress Controller. To avoid them, [find out whether upgrade restrictions apply](../operations/applications/upgrade-alb-ingress-controller.md) to your infrastructure.
+
       (Optional) Enter the advanced settings for the controller:
 
       {% cut "Additional settings" %}
@@ -328,11 +330,20 @@ Command result:
 
       * `ingress.alb.yc.io/internal-alb-subnet`: Subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
       * `ingress.alb.yc.io/protocol`: Connection protocol used by the load balancer and the backends:
-         * `http`: HTTP/1.1. Default value
+         * `http`: HTTP/1.1; default value
          * `http2`: HTTP/2
          * `grpc`: gRPC
-      * `ingress.alb.yc.io/transport-security`: Encryption protocol used by the connections between the load balancer and the backends:
-         * `tls`: TLS with no certificate challenge.
+      * `ingress.alb.yc.io/transport-security`: Encryption protocol for connections between the load balancer and backends.
+
+         {% note warning %}
+
+         In [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) version 0.2.0 and later, you can only use an annotation in the [Service](../../application-load-balancer/k8s-ref/service.md#metadata) object.
+
+         If you specify an annotation in the `Ingress` resources that use a single service with the same settings for backend groups, such annotation will apply correctly. However, this mechanism is obsolete and will not be supported going forward.
+
+         {% endnote %}
+
+         The acceptable value is `tls`: TLS with no certificate challenge.
 
          If no annotation is specified, the load balancer connects to the backends with no encryption.
       * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
@@ -358,7 +369,7 @@ Command result:
 
       {% endnote %}
 
-      For more information about the Ingress resource settings, see [{#T}](../../application-load-balancer/k8s-ref/ingress.md).
+      For more information about the Ingress resource settings, see [{#T}](../alb-ref/ingress.md).
 
    1. Create an Ingress controller and applications:
 
@@ -582,7 +593,7 @@ Command result:
 
       * `ingress.alb.yc.io/internal-alb-subnet`: Subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
       * `ingress.alb.yc.io/protocol`: Connection protocol used by the load balancer and the backends:
-         * `http`: HTTP/1.1. Default value
+         * `http`: HTTP/1.1; default value
          * `http2`: HTTP/2
          * `grpc`: gRPC
       * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
@@ -606,7 +617,7 @@ Command result:
 
       {% endnote %}
 
-      For more information about the Ingress resource settings, see [{#T}](../../application-load-balancer/k8s-ref/ingress.md).
+      For more information about the Ingress resource settings, see [{#T}](../alb-ref/ingress.md).
    1. Create an Ingress controller, an `HttpBackendGroup` object, and a {{ k8s }} app:
 
       ```bash
@@ -710,6 +721,6 @@ Specifying a name for the Ingress group settings using the `ingress.alb.yc.io/gr
 ## Delete the resources you created {#clear-out}
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
-1. [Delete a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. [Delete the {{ alb-name }} target groups](../../application-load-balancer/operations/target-group-delete.md).
 1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).

@@ -7,7 +7,7 @@
 A completion report is a primary accounting document confirming the provision of services. It contains aggregate data on the cost of the services actually provided. Detailed information about the services rendered is available on the [Usage details](../operations/check-charges.md) page.
 
 For residents of Russia, Yandex.Cloud LLC generates unilateral reports. The civil legislation, just like the Tax Code and the accounting legislation, do not require any acceptance reports under fee-based service agreements. The acceptance of works can be formally acknowledged by a report or other documentary evidence (as per Articles 783 and 720 of the Civil Code of the Russian Federation). Moreover, there are no legal regulations that require making a bilateral report or executing another bilateral document when submitting and accepting works or services.
-Yandex.Cloud LLC issues unilateral reports according to the [offer agreement](https://yandex.ru/legal/cloud_oferta/) it signs with the customer. The reports contain all the details required under civil and accounting legislation in line with the requirements for primary accounting documents.
+Issuing of unilateral reports by Yandex.Cloud LLC is stipulated in an [offer agreement](https://yandex.ru/legal/cloud_oferta/) signed with a customer. The reports contain all the details required under civil and accounting legislation in line with the requirements for primary accounting documents.
 
 ### Creating a completion report {#create-act}
 
@@ -39,6 +39,6 @@ Reports are then used as a basis for generating [invoices](../concepts/invoice.m
 
 ## Reconciliation report {#reconciliation-report}
 
-Reconciliation reports are available only for residents of the Russian Federation. They are [generated upon a request](../operations/download-reporting-docs) you can submit from the {{ yandex-cloud }} management console. After your request is processed, the document will become available for download.
+Reconciliation reports are available only for residents of the Russian Federation. They are [generated upon a request](../operations/download-reporting-docs) you can submit in {{ billing-name }}. After your request is processed, the document will become available for download.
 
 You can download copies of your documents or request the original documents and the reconciliation report in your [Yandex Balance](https://balance.yandex.com) account.

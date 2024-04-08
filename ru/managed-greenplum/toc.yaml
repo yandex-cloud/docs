@@ -61,6 +61,8 @@ items:
                 href: operations/pxf/create-hive-source.md
           - name: Создание внешней таблицы
             href: operations/pxf/create-table.md
+          - name: Изменение настроек PXF
+            href: operations/pxf/settings.md
       - name: Подключение к внешнему файловому серверу (gpfdist)
         href: operations/gpfdist/connect.md
       - name: Расширения {{ GP }}

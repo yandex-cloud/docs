@@ -14,7 +14,7 @@ The cost depends on the service plan selected. The service plan applies to an or
 
 | Service plan | Basic          | Business | Premium |
 --- |----------------|------------------------------|--------
-| **Cost** | Free of charge | {{ sku|USD|support.organization.business.fixed_consumption.v1|int|string }} per month plus 5% of the cost of the billing</br> account resources consumed by the organization | Contact us |
+| **Cost** | Free of charge | {{ sku|USD|support.organization.business.fixed_consumption.v1|int|string }} per month from the billing account selected at the time of service plan activation and 5% of the cost of organization resource usage, regardless of which billing account the organization's resources are linked to. | Contact us |
 
 {% note info %}
 
@@ -41,9 +41,9 @@ The price is calculated based on the amount of resources consumed over the curre
 
 #### Example of calculating the cost for an organization whose resources are paid from a single billing account {#business-example-one-ba}
 
-If the customer consumes $800 worth of resources a month, the technical support service will cost:
+If a customer consumes $800 worth of resources a month, technical support will cost:
 {{ sku|USD|support.organization.business.fixed_consumption.v1|int|string }} + $800 * 0.05 = $64
-This amount will be charged to one billing account.
+This amount will be debited from a single billing account.
 
 #### Example of calculating the cost for an organization whose resources are paid from two billing accounts {#business-example-two-ba}
 
@@ -51,8 +51,8 @@ If an organization with an activated support service plan uses resources paid fr
 
 An organization with the Business service plan activated pays for resources from different billing accounts:
 
-* Account 1: Consumes resources for $400 a month.
-* Account 2: Consumes resources for $80 a month.
+* Account 1: Consumes $400 worth of resources a month.
+* Account 2: Consumes $80 worth of resources a month.
 
 The fixed amount will only be paid by one of the accounts, for example, Account 1.
 

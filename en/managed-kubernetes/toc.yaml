@@ -63,6 +63,8 @@ items:
             href: operations/applications/hashicorp-vault.md
           - name: Installing the {{ alb-name }} Ingress controller
             href: operations/applications/alb-ingress-controller.md
+          - name: Upgrading the {{ alb-name }} Ingress controller
+            href: operations/applications/upgrade-alb-ingress-controller.md
           - name: Installing Istio
             href: operations/applications/istio.md
           - name: Installing Jaeger
@@ -286,7 +288,7 @@ items:
     href: pricing.md
   - name: CLI reference
     href: ../cli/cli-ref/managed-services/managed-kubernetes/index.md
-  - name: Terraform reference
+  - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:
@@ -360,6 +362,32 @@ items:
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: '{{ alb-name }} tools'
+    items:
+      - name: Overview
+        href: alb-ref/index.md
+      - name: Ingress controller
+        items:
+          - name: Ingress
+            href: alb-ref/ingress.md
+          - name: HttpBackendGroup
+            href: alb-ref/http-backend-group.md
+      - name: Gateway API
+        items:
+          - name: Gateway
+            href: alb-ref/gateway.md
+          - name: HTTPRoute
+            href: alb-ref/http-route.md
+      - name: Service
+        href: alb-ref/service.md
+  - name: '{{ network-load-balancer-name }} tools'
+    items:
+      - name: Overview
+        href: nlb-ref/index.md
+      - name: Service
+        href: nlb-ref/service.md
+      - name: NetworkPolicy
+        href: nlb-ref/networkpolicy.md
   - name: FAQ
     items:
       - name: General questions

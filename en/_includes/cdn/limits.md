@@ -12,3 +12,4 @@
 | Number of file paths per cache purging request | 10 |
 | Number of requests for [preloading files](../../cdn/concepts/caching.md#prefetch) per minute | 1 |
 | Number of paths to preloaded files per request | 100 |
+| Number of IP addresses (subnet prefixes) in the IP address access policy [list](../../cdn/concepts/ip-address-acl.md#ip-list) | 100 |

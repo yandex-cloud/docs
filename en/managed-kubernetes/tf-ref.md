@@ -1,10 +1,8 @@
-# {{ TF }} provider's {{ managed-k8s-full-name }} resource reference
+# {{ TF }} reference for {{ managed-k8s-full-name }}
 
-With [{{ TF }}](https://www.terraform.io/), you can quickly create a cloud infrastructure in {{ yandex-cloud }} and manage it using configuration files. The configuration files store the infrastructure description in the HashiCorp Configuration Language (HCL). {{ TF }} and its providers are distributed under the [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
+{% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
-If you change the configuration files, {{ TF }} automatically determines which part of your configuration is already deployed and what should be added or removed.
-
-For more information about {{ TF }}, [see the documentation](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+## Resources {#resources}
 
 The following {{ TF }} provider resources are supported for {{ managed-k8s-name }}:
 
@@ -12,3 +10,12 @@ The following {{ TF }} provider resources are supported for {{ managed-k8s-name 
 | --- | --- |
 | [yandex_kubernetes_cluster]({{ tf-provider-resources-link }}/kubernetes_cluster) | [{{ k8s }} cluster](./concepts/index.md#kubernetes-cluster) |
 | [yandex_kubernetes_node_group]({{ tf-provider-resources-link }}/kubernetes_node_group) | [Node group](./concepts/index.md#node-group) |
+
+## {#data-sources} data sources
+
+{{ managed-k8s-name }} supports the following {{ TF }} data sources:
+
+| **{{ TF }} data source** | **Description** |
+| --- | --- |
+| [yandex_kubernetes_cluster]({{ tf-provider-datasources-link }}/datasource_kubernetes_cluster) | [{{ k8s }} cluster](./concepts/index.md#kubernetes-cluster) information |
+| [yandex_kubernetes_node_group]({{ tf-provider-datasources-link }}/datasource_kubernetes_node_group) | [Node group](./concepts/index.md#node-group) information |

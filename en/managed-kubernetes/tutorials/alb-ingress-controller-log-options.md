@@ -1,4 +1,4 @@
-# Logging settings for Ingress controllers {{ alb-name }}
+# Logging settings for {{ alb-name }} Ingress controllers
 
 You can configure the logging settings for [L7 balancers](../../application-load-balancer/concepts/application-load-balancer.md) created with {{ alb-name }} [Ingress controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) within a {{ managed-k8s-name }} cluster.
 
@@ -10,10 +10,10 @@ This article explains how to create three L7 balancers with different logging se
 
 To configure L7 balancers:
 
-1. [{#T}](#install-app)
-1. [{#T}](#create-ingress)
-1. [{#T}](#configure-group)
-1. [{#T}](#check-result)
+1. [{#T}](#install-app).
+1. [{#T}](#create-ingress).
+1. [{#T}](#configure-group).
+1. [{#T}](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -352,9 +352,17 @@ Create three [Ingress](https://kubernetes.io/docs/concepts/services-networking/i
       * `http2`: HTTP/2
       * `grpc`: gRPC
 
-   * `ingress.alb.yc.io/transport-security`: Encryption protocol used by the connections between the load balancer and the backends:
+   * `ingress.alb.yc.io/transport-security`: Encryption protocol for connections between the load balancer and backends.
 
-      * `tls`: TLS with no certificate challenge.
+      {% note warning %}
+
+      In [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) version 0.2.0 and later, you can only use an annotation in the [Service](../../application-load-balancer/k8s-ref/service.md#metadata) object.
+
+      If you specify an annotation in the `Ingress` resources that use a single service with the same settings for backend groups, such annotation will apply correctly. However, this mechanism is obsolete and will not be supported going forward.
+
+      {% endnote %}
+
+      The acceptable value is `tls`: TLS with no certificate challenge.
 
       If no annotation is specified, the load balancer connects to the backends with no encryption.
 
@@ -377,7 +385,7 @@ Create three [Ingress](https://kubernetes.io/docs/concepts/services-networking/i
 
    {% endnote %}
 
-   For more information about the Ingress resource settings, see [{#T}](../../application-load-balancer/k8s-ref/ingress.md).
+   For more information about the Ingress resource settings, see [{#T}](../alb-ref/ingress.md).
 
 1. Create Ingress controllers:
 

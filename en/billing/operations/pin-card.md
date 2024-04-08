@@ -15,13 +15,20 @@ If the selected bank card expires, it will no longer be linked to your billing a
 ## Changing a bank card for payment {#change_card}
 
 To set a different bank card:
-1. In the top-left corner of the management console, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
-1. Select an account from the list.
-1. Under **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_card }}**, click **{{ ui-key.yacloud.billing.account.overview.card_label_edit }}**.
-1. Specify your card details: 16-digit number, expiration date, and CVV (you can find it on the back side of your card).
-1. Click **{{ ui-key.yacloud.billing.account.bind-cloud.button_bind }}**.
 
-{% include [yandex-account](../_includes/payment-card-validation.md) %}
+{% list tabs group=instructions %}
+
+- {{ billing-name }} interface {#billing}
+
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+   1. Select a billing account.
+   1. Under **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_card }}**, click **{{ ui-key.yacloud.billing.account.overview.card_label_edit }}**.
+   1. Specify your card details: 16-digit number, expiration date, and CVV (you can find it on the back side of your card).
+   1. Click **{{ ui-key.yacloud.billing.account.bind-cloud.button_bind }}**.
+
+   {% include [yandex-account](../_includes/payment-card-validation.md) %}
+
+{% endlist %}
 
 ## Deleting a bank card {#remove-card}
 

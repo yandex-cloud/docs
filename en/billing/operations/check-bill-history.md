@@ -13,10 +13,9 @@ You can view the full history of payments to your [personal account](../concepts
 
    Individuals can view the full history of payments on the **{{ ui-key.yacloud.billing.account.switch_history }}** page.
 
-   To open the **{{ ui-key.yacloud.billing.account.switch_history }}** page:
-    1. In the top-left corner of the management console, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
-    1. Select an account from the list.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/clock-arrow-rotate-left.svg) **{{ ui-key.yacloud.billing.account.switch_history }}**.
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+   1. Select a billing account.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/clock-arrow-rotate-left.svg) **{{ ui-key.yacloud.billing.account.switch_history }}**.
 
    <br/>All payments are arranged chronologically, the earliest payment being displayed at the very bottom.
    <br/>To filter the payments, set the date range. The results will be shown in a table.
