@@ -1,1 +1,1 @@
-Роль `ai.admin` позволяет использовать сервисы Translate, Vision, SpeechKit и YandexGPT. Включает в себя все разрешения, предоставляемые ролью `ai.editor`.
+Роль `ai.admin` позволяет использовать сервисы Translate, Vision, SpeechKit и Foundation Models. Включает в себя все разрешения, предоставляемые ролью `ai.editor`.

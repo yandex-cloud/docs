@@ -26,6 +26,7 @@ default:
   api-host-sk-stt: stt.api.cloud.yandex.net
   api-host-sk-tts: tts.api.cloud.yandex.net
   api-url-prefix: /docs
+  art-freetier: 10
   at-event-prefix: yandex.cloud
   at-full-name: Yandex Audit Trails
   at-name: Audit Trails

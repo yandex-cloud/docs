@@ -1,12 +1,12 @@
 # Как начать работать с {{ yagpt-full-name }}
 
-{% include notitle [preview-stage](../../_includes/yandexgpt/preview.md) %}
+{% include notitle [preview-stage](../../_includes/foundation-models/yandexgpt/preview.md) %}
 
-В этом разделе вы научитесь использовать нейросеть для генерации текста.
+В этом разделе вы научитесь использовать нейросеть {{ yagpt-name }} для генерации текста.
 
-В [консоли управления]({{ link-console-main }}/link/yandexgpt) новым пользователям без [платежного аккаунта](../../billing/concepts/billing-account.md) доступно {{ gpt-freetier }} бесплатных запросов в час, чтобы вы могли максимально быстро и просто познакомиться с возможностями модели. Чтобы использовать API и иметь возможность увеличить [квоты](../concepts/limits.md) на потребление, [привяжите](../../billing/operations/pin-cloud.md) платежный аккаунт к облаку.
+В [консоли управления]({{ link-console-main }}/link/foundation-models/yandexgpt) новым пользователям без [платежного аккаунта](../../billing/concepts/billing-account.md) доступно {{ gpt-freetier }} бесплатных запросов в час, чтобы вы могли максимально быстро и просто познакомиться с возможностями модели. Чтобы использовать API и иметь возможность увеличить [квоты](../concepts/limits.md) на потребление, [привяжите](../../billing/operations/pin-cloud.md) платежный аккаунт к облаку.
 
-О стоимости использования сервиса {{ yagpt-full-name }} см. [{#T}](../pricing.md).
+О стоимости использования {{ yagpt-full-name }} см. [{#T}](../pricing.md).
 
 ## Перед началом работы {#before-begin}
 
@@ -57,7 +57,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, на который у вашего аккаунта есть роль `{{ roles-yagpt-user }}` или выше.
-  1. В списке сервисов выберите **{{ yagpt-name }}**.
+  1. В списке сервисов выберите **{{ foundation-models-name }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/dice-3.svg) **{{ ui-key.yacloud.yagpt.label_promt }}**.
   1. В блоке **{{ ui-key.yacloud.yagpt.label_instruction-text }}** опишите контекст запроса.
   1. В блоке **{{ ui-key.yacloud.yagpt.label_request-text }}** опишите свой запрос к модели.
@@ -91,7 +91,7 @@
 
      Где:
 
-     {% include [api-parameters](../../_includes/yandexgpt/api-parameters.md) %}
+     {% include [api-parameters](../../_includes/foundation-models/yandexgpt/api-parameters.md) %}
 
   1. Отправьте запрос нейросети с помощью метода [completion](../text-generation/api-ref/TextGeneration/completion.md), выполнив команду:
 

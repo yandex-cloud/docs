@@ -26,6 +26,7 @@ default:
   api-host-sk-stt: stt.api.cloud.yandex.net
   api-host-sk-tts: tts.api.cloud.yandex.net
   api-url-prefix: /docs
+  art-freetier: 10
   at-event-prefix: yandex.cloud
   at-full-name: Yandex Audit Trails
   at-name: Audit Trails
@@ -506,6 +507,7 @@ default:
   roles-vpc-private-admin: vpc.privateAdmin
   roles-vpc-public-admin: vpc.publicAdmin
   roles-vpc-user: vpc.user
+  roles-yaart-user: ai.imageGeneration.user
   roles-yagpt-user: ai.languageModels.user
   roles:
     gitlab:

@@ -6,7 +6,9 @@ editable: false
 
 {{ foundation-models-full-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Сервис тарифицируется в соответствии с документом [Специальные условия использования](https://yandex.ru/legal/cloud_specialterms/?lang=ru#index__section_fk5_d4c_cgb). Детализация использования {{ yagpt-full-name }} доступна в {{ billing-name }} как использование ресурсов {{ foundation-models-full-name }}. 
 
-В [консоли управления]({{ link-console-main }}/link/yandexgpt) новым пользователям без [платежного аккаунта](../billing/concepts/billing-account.md) доступно {{ gpt-freetier }} бесплатных запросов в час.
+В [консоли управления]({{ link-console-main }}/link/yandexgpt) новым пользователям без [платежного аккаунта](../billing/concepts/billing-account.md) для тестирования доступны запросы к моделям:
+* {{ yagpt-full-name }} — {{ gpt-freetier }} бесплатных запросов в час.
+* {{ yandexart-name }} — {{ art-freetier }} бесплатных запросов в час.
 
 ## Из чего складывается стоимость использования {{ foundation-models-full-name }} {#rules}
 
@@ -25,11 +27,17 @@ editable: false
 
 Количество тарифицирующих юнитов вычисляется на основе суммарного числа токенов промта и ответа и округляется до целого значения в большую сторону после применения коэффициента.
 
-Работа моделей краткого пересказа и моделей, дообученных в {{ ml-platform-full-name }}, тарифицируется по правилам {{ gpt-lite }}.
+#### Дообученные модели {#rules-tuned-generating}
+
+Работа модели краткого пересказа тарифицируется по правилам {{ gpt-lite }}. Работа моделей, дообученных в {{ ml-platform-full-name }}, тарифицируется по правилам {{ gpt-pro }}.
 
 ### Векторизация текста {#rules-embedding}
 
 Стоимость представления текста в виде векторов (получения эмбеддингов по тексту) зависит от объема текста, поданного на векторизацию. 
+
+### Генерация изображений {#rules-image-generation}
+
+На стадии [Preview](../overview/concepts/launch-stages.md) использование {{ yandexart-name }} не тарифицируется.
 
 ### Внутренние ошибки сервера {#error-request}
 

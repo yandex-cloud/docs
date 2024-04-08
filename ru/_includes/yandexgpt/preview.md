@@ -1,1 +1,0 @@
-{{ yagpt-full-name }} находится на [стадии Preview](../../overview/concepts/launch-stages.md) и является частью сервиса {{ foundation-models-full-name }}.
