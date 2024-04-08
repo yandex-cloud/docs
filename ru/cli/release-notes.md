@@ -7,6 +7,34 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
+## Версия 0.123.0 (08.04.24) {#version0.123.0}
+### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mch-name }}**
+
+* Для параметра `--host` команды `yc managed-clickhouse cluster restore` добавлен опциональный аргумент `shard-name`.
+
+#### {{ mmg-name }}
+
+* В команду `yc managed-mongodb hosts add --host` добавлены параметры `hidden`, `priority` и `secondary-delay-secs`.
+* Добавлена новая команда `yc managed-mongodb hosts update` для модификации параметров `hidden`, `priority` и `secondary-delay-secs`.
+
+#### {{ sf-name }} {#serverless-functions}
+
+* Изменены лимиты батчинга для команды `yc serverless trigger create`.
+
+#### {{ backup-name }} {#backup}
+
+* В вывод результата команды `backup resource list-tasks` добавлено поле `RESULT CODE`, отображающее код завершения операции с ВМ.
+
+### Изменения в CLI {#cli}
+
+* В документацию и установочный скрипт внесены исправления, помогающие настроить автодополнение для `yc` в дистрибутивах Linux, основанных на CentOS.
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.122.0 (27.03.24) {#version0.122.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -34,8 +62,6 @@ description: "На странице представлены релизы YC CLI
 
 * Добавлена команда `yc compute instance attach-network-interface` для добавления сетевого интерфейса в уже существующую ВМ.
 * Добавлена команда `yc compute instance detach-network-interface` для удаления сетевого интерфейса из уже существующей ВМ.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.121.0 (12.03.24) {#version0.121.0}
 

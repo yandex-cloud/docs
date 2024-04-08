@@ -42,10 +42,13 @@ The primary pod manages the {{ alb-name }} resource architecture using the follo
 
 * You can create backend groups to process incoming traffic:
 
-   * Based on {{ k8s }} services referenced in `Ingress` rules directly (`spec.rules[*].http.paths[*].backend.service`). This method is useful if you need to bind a simple backend group consisting of a single service to a route.
+   * Based on {{ k8s }} services referenced in `Ingress` [rules](../../../application-load-balancer/k8s-ref/ingress.md#rule) directly. This method is useful if you need to bind a simple backend group consisting of a single service to a route.
+
+      In [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) versions prior to 0.2.0, each backend group corresponds to a bundle of `host`, `http.paths.path`, and `http.paths.pathType` parameters in the `Ingress` rules. In versions 0.2.0 and later, the backend group corresponds to the `backend.service` parameter. This may cause collisions when updating the ALB Ingress Controller. To avoid them, [find out whether upgrade restrictions apply](../../operations/k8s-ingress-controller-upgrade.md) to your infrastructure.
+
    * Based on `HttpBackendGroup` resources that support explicit backend group descriptions. These are [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) from the API `alb.yc.io` group exposed by an Ingress controller. All the `HttpBackendGroup` fields are described in the [reference](../../k8s-ref/http-backend-group.md).
 
-      You need to refer to `HttpBackendGroup`in `Ingress` rules same as to services (`spec.rules[*].http.paths[*].backend.resource`).
+      You need to refer to `HttpBackendGroup` in the `Ingress` rules same as to services (`spec.rules[*].http.paths[*].backend.resource`).
 
       {% include [k8s-ingress-controller-backend-group-features](../../../_includes/application-load-balancer/k8s-ingress-controller-backend-group-features.md) %}
 

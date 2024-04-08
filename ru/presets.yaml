@@ -686,6 +686,7 @@ default:
   yandex-cloud: Yandex Cloud
   yandex-direct: Яндекс Директ
   yandex-oauth: Яндекс.OAuth
+  yandexart-name: YandexART
   yc-compute: yc compute
   yc-compute-ig: yc compute instance-group
   yc-dp: yc dataproc
@@ -4013,7 +4014,6 @@ default:
           button_billing-payment-action: Перейти на платную версию
           button_download-action: Скачать
           create-new:
-            account_label_new: Новый плательщик
             account-type_label_company: Бизнес-аккаунт
             account-type_label_individual: Личный аккаунт
             label_title: Создание платежного аккаунта
@@ -4035,7 +4035,6 @@ default:
             section_resources: Облака
           dashboard:
             button_refill: Пополнить счет
-            label_rename: Переименовать аккаунт
             popup-grant-activation_button_activate: Активировать
           detail:
             button_create-periodic-export: Регулярный экспорт
@@ -4074,7 +4073,6 @@ default:
             column_description: Описание
             column_money: Сумма платежа
             column_status: Статус
-          label_accounts: Список аккаунтов
           label_consumption: Потребление
           overview:
             button_bind-card-apply: Применить
@@ -4979,6 +4977,8 @@ default:
             title_consumption-history: История потребления
             title_current-state: Текущее состояние
             title_states-history: История состояний
+          pxf:
+            action_edit-settings: Изменить настройки PXF
           user-auth:
             action_add-rule: Добавить правило
             action_edit-rules: Редактировать правила
@@ -4997,6 +4997,7 @@ default:
         field_hosts-count: Количество хостов
         field_restore-only: БД и таблицы для восстановления
         field_segments-in-host: Сегментов на хост
+        label_pxf: PXF
         label_user-auth: Аутентификация пользователей
         label-analyze-timeout: Таймаут ANALYZE
         label-start-time: Время старта (UTC)
@@ -6129,10 +6130,16 @@ default:
         label_section-customization: Настройка внешнего вида
         label_section-style: Внешний вид
         label_server-key: Ключ сервера
+        value_challenge-image_text: Распознавание текста
+        value_challenge-kaleidoscope: Калейдоскоп
+        value_challenge-silhouettes: Силуэты
         value_complexity-easy: Легкая
+        value_complexity-force_hard: Максимальная
         value_complexity-hard: Высокая
         value_complexity-medium: Средняя
         value_config-standard: Стандартный
+        value_pre-check-checkbox: Чекбокс
+        value_pre-check-slider: Слайдер
       storage:
         bucket:
           button_action-permissions: ACL объекта
@@ -7964,7 +7971,7 @@ default:
     yc_prometheus-operator:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/prometheus/kube-prometheus-stack
-        tag: 45.9.1-3a
+        tag: 57.2.0-1
     yc_thumbor:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor

@@ -70,7 +70,9 @@ For {{ managed-k8s-name }}, the following container runtime environments are ava
 
 ### Connecting to group nodes {#node-connect-ssh}
 
-You can connect to nodes in a group via SSH. Learn more in [Connecting to a node via SSH](../operations/node-connect-ssh.md).
+You can connect to nodes in a group in the following ways:
+* Via an SSH client using a standard SSH key pair, see [{#T}](../operations/node-connect-ssh.md).
+* Via an SSH client and YC CLI using OS Login, see [{#T}](../operations/node-connect-oslogin.md).
 
 ### Taints and tolerations policies {#taints-tolerations}
 
@@ -225,4 +227,4 @@ In the service documentation, _service account_ refers to a regular cloud servic
 
 {% include [metrics-k8s-tools](../../_includes/managed-kubernetes/metrics-k8s-tools.md) %}
 
-Metrics are described in the [{#T}](../../managed-kubernetes/metrics.md) section.
+You can find metrics description in [{#T}](../../managed-kubernetes/metrics.md).

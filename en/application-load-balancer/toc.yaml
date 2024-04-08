@@ -63,8 +63,10 @@ items:
             href: operations/application-load-balancer-delete.md
       - name: Tools for {{ managed-k8s-name }}
         items:
-          - name: Installing Ingress controller
+          - name: Installing an Ingress controller
             href: operations/k8s-ingress-controller-install.md
+          - name: Updating an Ingress controller
+            href: operations/k8s-ingress-controller-upgrade.md
           - name: Installing Gateway API
             href: operations/k8s-gateway-api-install.md
           - name: Creating or updating resources based on configuration
@@ -123,7 +125,7 @@ items:
     href: pricing.md
   - name: CLI reference
     href: ../cli/cli-ref/managed-services/application-load-balancer/index.md
-  - name: Terraform reference
+  - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:
@@ -283,4 +285,6 @@ items:
             href: k8s-ref/http-route.md
       - name: Service
         href: k8s-ref/service.md
+  - name: Release notes
+    href: release-notes.md
 base: en/application-load-balancer

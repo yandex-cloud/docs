@@ -49,6 +49,8 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
 base: en/smartwebsecurity

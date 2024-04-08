@@ -23,7 +23,9 @@ The number of [prompt](concepts/index.md) and response [tokens](concepts/tokens.
 
 The number of billing units is based on the overall number of prompt and response tokens and is rounded up to a whole number after applying the multiplier.
 
-The use of summary models and models tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-lite }} rules.
+#### Tuned models {#rules-tuned-generating}
+
+The use of summary model is charged according to the {{ gpt-lite }} rules. The use of models tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} rules.
 
 ### Text vectorization {#rules-embedding}
 

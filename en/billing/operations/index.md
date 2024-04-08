@@ -1,5 +1,5 @@
 ---
-title: "Instructions for operations with Billing"
+title: "Guides on using Billing"
 description: "In this article, you will learn how to work with the {{ billing-name }} service in {{ yandex-cloud }}, activate the paid version, purchase a committed volume of services (CVoS), activate a promo code, top up your account, and more."
 ---
 

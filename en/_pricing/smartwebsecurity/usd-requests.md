@@ -1,6 +1,6 @@
-| Number of requests per month, million | Cost per 1 million requests, without VAT |
+| Number of requests per month, million | Cost per million requests, without VAT |
 | --- | --- |
-| Less than 0.01 (10,000 requests) inclusive | Free |
+| Up to 0.01 (10,000 requests) inclusive | Free of charge |
 | From 0.01 to 1 inclusive | $200.000000 |
 | From 1 to 10 inclusive | $28.000000 |
 | From 10 to 100 inclusive | $1.600000 |

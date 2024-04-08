@@ -46,7 +46,7 @@ To create a security profile:
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
    1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
-      Preset profiles include:
+      A preset profile includes:
       * [Basic default rule](../smartwebsecurity/concepts/rules.md#base-rules) enabled for all traffic with the [`{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}` action type](../smartwebsecurity/concepts/rules.md#rule-action).
       * [Smart Protection rule](../smartwebsecurity/concepts/rules.md#smart-protection-rules) enabled for all traffic with the `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}` action type.
 

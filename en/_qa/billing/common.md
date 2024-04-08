@@ -1,4 +1,4 @@
-# General questions about Billing
+# General questions about {{ billing-name }}
 
 #### Can I use my OS license for VM instances in {{ yandex-cloud }}? {#os-license}
 
@@ -18,6 +18,6 @@ You can find the bank details in the section [Legal documents](https://yandex.co
 
 #### How do I contact technical support? {#support}
 
-Depending on your pricing plan, you can [contact technical support]({{ link-console-support }}) using one of the methods below:
+Depending on your service plan, you can [contact technical support]({{ link-console-support }}) using one of the methods below:
 
 {% include [support-channels](../../_includes/support/channels.md) %}

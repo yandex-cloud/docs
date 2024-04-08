@@ -35,7 +35,7 @@ To stop an L7 load balancer:
       yc application-load-balancer load-balancer stop --help
       ```
 
-   1. Retrieve a list of all the load balancers in the default folder:
+   1. Get a list of all load balancers in the default folder:
 
       ```bash
       yc application-load-balancer load-balancer list --format yaml
@@ -67,7 +67,7 @@ To stop an L7 load balancer:
             subnet_id: e9bn57jvjnbu********
           - zone_id: {{ region-id }}-b
             subnet_id: e2ltcj4urgpb********
-          - zone_id: {{ region-id }}-c
+          - zone_id: {{ region-id }}-d
             subnet_id: b0c29k6anelk********
         log_group_id: ckgph76s449v********
         created_at: "2022-02-11T09:00:31.911019416Z"
@@ -82,7 +82,7 @@ To stop an L7 load balancer:
             subnet_id: e9bn57jvjnbu********
           - zone_id: {{ region-id }}-b
             subnet_id: e2ltcj4urgpb********
-          - zone_id: {{ region-id }}-c
+          - zone_id: {{ region-id }}-d
             subnet_id: b0c29k6anelk********
         log_group_id: ckgjhe81a23v********
         created_at: "2022-02-11T09:01:46.724279145Z"
@@ -132,7 +132,7 @@ To start a load balancer:
       yc application-load-balancer load-balancer start --help
       ```
 
-   1. Retrieve a list of all the load balancers in the default folder:
+   1. Get a list of all load balancers in the default folder:
 
       ```bash
       yc application-load-balancer load-balancer list --format yaml
@@ -164,7 +164,7 @@ To start a load balancer:
             subnet_id: e9bn57jvjnbu********
           - zone_id: {{ region-id }}-b
             subnet_id: e2ltcj4urgpb********
-          - zone_id: {{ region-id }}-c
+          - zone_id: {{ region-id }}-d
             subnet_id: b0c29k6anelk********
         log_group_id: ckgph76s449v********
         created_at: "2022-02-11T09:00:31.911019416Z"
@@ -179,7 +179,7 @@ To start a load balancer:
             subnet_id: e9bn57jvjnbu********
           - zone_id: {{ region-id }}-b
             subnet_id: e2ltcj4urgpb********
-          - zone_id: {{ region-id }}-c
+          - zone_id: {{ region-id }}-d
             subnet_id: b0c29k6anelk********
         log_group_id: ckgjhe81a23v********
         created_at: "2022-02-11T09:01:46.724279145Z"

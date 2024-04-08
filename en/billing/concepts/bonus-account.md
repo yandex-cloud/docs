@@ -25,7 +25,7 @@ Each individual, sole proprietor, or business can be given only one initial gran
 {% endnote %}
 
 ## Additional grants {#additional}
-Additional grants can be provided upon a {{ yandex-cloud }} manager's decision, as well as under the [content program](../../../content-program), [referral program](../../../referral-program), or [Yandex Cloud Boost program](../../../cloud-boost). You can view the amount of additional grants and their validity period in the management console.
+Additional grants can be provided upon a {{ yandex-cloud }} manager's decision, as well as under the [content program](../../../content-program), [referral program](../../../referral-program), or [Yandex Cloud Boost program](../../../cloud-boost). You can view the amount of additional grants and their validity period in {{ billing-name }}.
 
 
 

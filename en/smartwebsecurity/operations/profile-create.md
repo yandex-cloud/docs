@@ -19,6 +19,11 @@
    1. (Optional) Enter a description.
    1. (Optional) Add a [label](../../resource-manager/concepts/labels.md) for the profile.
    1. In the **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** field, select an action to be applied to the traffic that mismatches the criteria of other rules: `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` or `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
+   1. Select [{{ captcha-full-name }}](../../smartcaptcha/) to check suspicious requests:
+
+      {% include [captcha-integration](../../_includes/smartwebsecurity/captcha-integration.md) %}
+
+      To create a new captcha, click **Create**.
    1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
    1. In the rule creation window:
 

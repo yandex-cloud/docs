@@ -6,10 +6,9 @@ You can view information on your {{ yandex-cloud }} service usage by building a 
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ billing-name }} interface {#billing}
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
-
    1. Select the account you want to get details for.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/chart-area-stacked.svg) **{{ ui-key.yacloud.billing.account.switch_detail }}** and click **{{ ui-key.yacloud.billing.account.detail.button_move-to-datalens }}**.
    1. Click **Create connection**.

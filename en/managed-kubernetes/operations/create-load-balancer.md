@@ -31,7 +31,7 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
 1. [Create a simple app](#simple-app).
 1. [Create a LoadBalancer service with a public IP address](#lb-create).
 1. [Create a LoadBalancer service with an internal IP address](#lb-int-create).
-1. [Configure advanced settings for the service](#advanced).
+1. [Specify the advanced settings](#advanced).
 1. [Specify node health check parameters](#healthcheck).
 1. (Optional) [{#T}](#network-policy).
 
@@ -185,7 +185,7 @@ Prepare the required infrastructure:
 
 ## Create a LoadBalancer service with a public IP address {#lb-create}
 
-When you create a service of the `LoadBalancer` type, the {{ yandex-cloud }} controller creates and configures a [network load balancer](../../network-load-balancer/concepts/index.md) in your folder with a public IP address.
+When you create a service of the `LoadBalancer` type, the {{ yandex-cloud }} controller creates and configures for you in your folder a [network load balancer](../../network-load-balancer/concepts/index.md) with a public IP address.
 
 {% note warning %}
 
@@ -212,7 +212,7 @@ When you create a service of the `LoadBalancer` type, the {{ yandex-cloud }} con
        app: hello
    ```
 
-   For more information, see the `Service` resource [reference](../../network-load-balancer/k8s-ref/service.md) for {{ network-load-balancer-full-name }}.
+   For more information, see the `Service` resource [reference](../nlb-ref/service.md) for {{ network-load-balancer-full-name }}.
 
 1. Create a network load balancer:
 
@@ -320,7 +320,7 @@ When you create a service of the `LoadBalancer` type, the {{ yandex-cloud }} con
        app: hello
    ```
 
-   For more information, see the `Service` resource [reference](../../network-load-balancer/k8s-ref/service.md#annotations) for {{ network-load-balancer-full-name }}.
+   For more information, see the `Service` resource [reference](../nlb-ref/service.md#annotations) for {{ network-load-balancer-full-name }}.
 
 1. Delete the network load balancer you created earlier:
 
@@ -386,11 +386,11 @@ spec:
 
 {% endcut %}
 
-For more information, see the `Service` resource [reference](../../network-load-balancer/k8s-ref/service.md#servicespec) for {{ network-load-balancer-full-name }}.
+For more information, see the `Service` resource [reference](../nlb-ref/service.md#servicespec) for {{ network-load-balancer-full-name }}.
 
-## Specify the node health check parameters {#healthcheck}
+## Specify node health check parameters {#healthcheck}
 
-Services like `LoadBalancer` in {{ managed-k8s-name }} can run status check requests against a {{ k8s }} [target node group](../../network-load-balancer/concepts/target-resources.md). Based on the resulting metrics, {{ managed-k8s-name }} decides if the nodes are available.
+Such services as `LoadBalancer` in {{ managed-k8s-name }} can run status check requests against a {{ k8s }} [target node group](../../network-load-balancer/concepts/target-resources.md). Based on the metrics delivered to the service, {{ managed-k8s-name }} decides if the nodes are available.
 
 To enable node health check mode, specify the `yandex.cloud/load-balancer-healthcheck-*` annotations in the service specification, such as the following:
 
@@ -405,11 +405,11 @@ metadata:
     yandex.cloud/load-balancer-healthcheck-interval: "2s"
 ```
 
-For more information, see the `Service` resource [reference](../../network-load-balancer/k8s-ref/service.md#annotations) for {{ network-load-balancer-full-name }}.
+For more information, see the `Service` resource [reference](../nlb-ref/service.md#annotations) for {{ network-load-balancer-full-name }}.
 
 ## Create a NetworkPolicy object {#network-policy}
 
-To connect to services published via {{ network-load-balancer-name }} from particular IP addresses, enable [network policies](../concepts/network-policy.md) in the cluster. To set up access via the load balancer, create a [NetworkPolicy]({{ k8s-api-link }}#networkpolicy-v1-networking-k8s-io) object with the `Ingress` policy type.
+To connect to services published via {{ network-load-balancer-name }} from particular IP addresses, enable [network policies](../concepts/network-policy.md) in the cluster. To set up access via the load balancer, create a [NetworkPolicy]({{ k8s-api-link }}#networkpolicy-v1-networking-k8s-io) object with a policy of the `Ingress` type.
 
 {% cut "NetworkPolicy object configuration example" %}
 
@@ -441,7 +441,7 @@ spec:
 
 {% endcut %}
 
-For more information, see the [NetworkPolicy](../../network-load-balancer/k8s-ref/networkpolicy.md) resource `reference` for {{ network-load-balancer-full-name }}.
+For more information, see the [NetworkPolicy](../nlb-ref/networkpolicy.md) resource `reference` for {{ network-load-balancer-full-name }}.
 
 ## Delete the resources you created {#clear-out}
 

@@ -78,3 +78,4 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 
 
 * [Reference for the {{ alb-name }} Ingress controller](../../application-load-balancer/k8s-ref/index.md).
+* [Restrictions when updating the ALB Ingress Controller](../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md).

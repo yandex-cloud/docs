@@ -70,7 +70,7 @@ According to the [offer](https://yandex.ru/legal/cloud_oferta/?lang=en), you can
 
 #### What goes into the cost of using {{ marketplace-full-name }}? {#marketplace}
 
-The cost of using {{ marketplace-full-name }} is the total cost of using {{ marketplace-full-name }} products. To review the items that make up the usage costs in detail, see the [details](../../billing/operations/check-charges.md) under Billing, grouping by product.
+The cost of using {{ marketplace-full-name }} is the total cost of using {{ marketplace-full-name }} products. To review the items that make up the usage costs in detail, see the [details](../../billing/operations/check-charges.md) in {{ billing-name }} with grouping by product.
 
 
 #### Is it possible to withdraw money from the balance? {#refund}

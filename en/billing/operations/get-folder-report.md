@@ -1,4 +1,4 @@
-# Get expense details by folder
+# Getting expense details by folder
 
 You can get a CSV file with your general or per-resource spending details.
 
@@ -23,11 +23,9 @@ You can get a CSV file with your general or per-resource spending details.
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ billing-name }} interface {#billing}
 
-   1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-   1. In the top-left corner, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-   1. Select ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
    1. Select the account you want to get details for.
    1. In the left-hand panel, select **{{ ui-key.yacloud.billing.account.switch_exports }}**.
    1. Click **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
@@ -104,7 +102,7 @@ The table contains the following columns:
 {% cut "Deprecated parameters" %}
 
 * `created_at`: Date and time when the specified cost of consumption was charged. In [Unix Timestamp](https://www.unixtimestamp.com) format.
-* `label.system_labels.folder_id`: ID of the folder. The value is now displayed in the `folder_id` column.
+* `label.system_labels.folder_id`: Folder ID. The value is now displayed in the `folder_id` column.
 
 {% endcut %}
 

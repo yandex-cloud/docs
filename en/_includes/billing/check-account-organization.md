@@ -1,6 +1,10 @@
-1. Go to [**{{ billing-name }}**](https://billing.yandex.cloud/accounts/).
-1. Accounts added to the organization will have its ID in the **{{ ui-key.yacloud_billing.billing.account.overview.account-data_label_organization }}** column.
-1. Select an account from the list.
-1. In the **{{ ui-key.yacloud_billing.billing.account.overview.section_account-data }}** section of the **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page, you will see a link to the organization.
+{% list tabs group=instructions %}
 
-You can [change the organization](../../billing/operations/change-organization.md) for your billing account for any other you are being a [user](../../organization/operations/add-account.md) in.
+- {{ billing-name }} interface {#billing}
+
+   1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
+   1. Accounts [added to an organization](../../billing/concepts/organization.md) will have its ID in the **{{ ui-key.yacloud_billing.billing.account.overview.account-data_label_organization }}** column.
+   1. Select a billing account.
+   1. In the **{{ ui-key.yacloud_billing.billing.account.overview.section_account-data }}** section of the **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page, you will see a link to the organization. On this page, you can also [change your billing account organization](../../billing/operations/change-organization.md).
+
+{% endlist %}

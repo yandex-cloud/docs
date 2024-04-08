@@ -13,9 +13,9 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the load balancer.
+      1. In the [management console]({{ link-console-main }}), select the folder that houses the load balancer.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-      1. In the the appropriate load balancer row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+      1. In the load balancer row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
       1. In the window that opens, under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, enable traffic in the availability zone to move your VMs to.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -73,7 +73,7 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
                disable_traffic: true
              - zone_id: {{ region-id }}-b
                  subnet_id: e2lgp8o00g06********
-             - zone_id: {{ region-id }}-c
+             - zone_id: {{ region-id }}-d
                  subnet_id: b0cv501fvp13********
          log_group_id: ckgah4eo2j0r********
          security_group_ids:
@@ -116,7 +116,7 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
 
          {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-         The new availability zone will start receiving traffic in the load balancer. You can check this using the [management console]({{ link-console-main }}) or this CLI command:
+         The load balancer will start receiving traffic in the new availability zone. You can check this using the [management console]({{ link-console-main }}) or this CLI command:
 
          ```bash
          yc alb load-balancer get <load_balancer_name>
@@ -128,7 +128,7 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
 
    {% endlist %}
 
-1. [Set up](../../vpc/operations/security-group-add-rule.md) a [security group](../../vpc/concepts/security-groups.md) for the load balancer if needed. For the load balancer to run properly, its security groups must allow outgoing connections to the IP addresses of the subnet in the new availability zone of your VMs.
+1. [Set up](../../vpc/operations/security-group-add-rule.md) a [security group](../../vpc/concepts/security-groups.md) of the load balancer if needed. For the load balancer to run properly, its security groups must allow outgoing connections to the IP addresses of the subnet in the new availability zone of your VMs.
 1. [Move](../../compute/operations/vm-control/vm-change-zone.md) the VM to the new availability zone.
 1. [Add](../../application-load-balancer/operations/target-group-update.md#add-targets) new VMs to the load balancer's target group and [delete](../../application-load-balancer/operations/target-group-update.md#remove-targets) the old ones.
 1. Make sure the load balancer identifies the VM status as `HEALTHY`:

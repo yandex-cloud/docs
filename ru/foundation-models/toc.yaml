@@ -199,6 +199,45 @@ items:
             href: prompts/yandexgpt/general-functions-summarization.md
           - name: Создание таблицы
             href: prompts/yandexgpt/general-functions-create-table.md
+  - name: Библиотека промтов {{ yandexart-name }}
+    items:
+      - name: Все промты
+        href: prompts/yandexart/index.md
+      - name: Маркетинг
+        items:
+          - name: Портрет женщины
+            href: prompts/yandexart/marketing-portrait.md
+          - name: Реклама сумки
+            href: prompts/yandexart/marketing-accessory.md
+          - name: Реклама еды для собак
+            href: prompts/yandexart/marketing-food.md
+          - name: Идеи дизайна чайника
+            href: prompts/yandexart/marketing-pot.md
+      - name: Иллюстрации для книг и презентаций
+        items:
+          - name: Город будущего
+            href: prompts/yandexart/illustrations-city.md
+          - name: Изображение интерьера
+            href: prompts/yandexart/illustrations-interior.md
+          - name: Изображение природы
+            href: prompts/yandexart/illustrations-nature.md
+      - name: Изображения для социальных сетей
+        items:
+          - name: Иллюстрация для детей
+            href: prompts/yandexart/social-network-animation.md
+          - name: Изображение мыши-путешественницы
+            href: prompts/yandexart/social-network-cheese.md
+          - name: Изображение электроники
+            href: prompts/yandexart/social-network-electronics.md
+          - name: Обложка для поста
+            href: prompts/yandexart/social-network-spring.md
+      - name: Логотипы и иконки
+        items:
+          - name: Логотип с птицей
+            href: prompts/yandexart/logo-bird.md
+          - name: Иконка с банком
+            href: prompts/yandexart/logo-bank.md
+          - name: Изображение электроники
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

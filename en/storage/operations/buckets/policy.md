@@ -186,7 +186,7 @@ To apply or edit a bucket access policy:
       * `policy`: Policy name. This is a required parameter.
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 
@@ -320,7 +320,7 @@ To delete a bucket policy:
       ```
 
    1. Delete the `policy` field describing the bucket policy settings from the configuration file.
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
       1. In the command line, change to the folder where you edited the configuration file.
       1. Run a check using this command:
 

@@ -116,7 +116,7 @@ This instruction will use a gRPC service as a test target.
 
 ## Install Ingress {#install-ingress}
 
-1. Create an [Ingress](../../application-load-balancer/k8s-ref/ingress.md) resource manifest in the `ingress.yaml` file:
+1. Create an [Ingress](../../managed-kubernetes/alb-ref/ingress.md) resource manifest in the `ingress.yaml` file:
 
    ```yaml
    apiVersion: networking.k8s.io/v1
@@ -162,7 +162,7 @@ This instruction will use a gRPC service as a test target.
    * `secretName`: Reference to a [TLS certificate](../../certificate-manager/concepts/index.md) from [{{ certificate-manager-full-name }}](../../certificate-manager/) in `yc-certmgr-cert-id-<certificate_ID>` format.
    * `hosts`, `host`: Domain name the TLS certificate corresponds to.
 
-   For more information, see [Ingress fields and annotations](../../application-load-balancer/k8s-ref/ingress.md).
+   For more information, see [Ingress fields and annotations](../../managed-kubernetes/alb-ref/ingress.md).
 1. Create an `Ingress` resource:
 
    ```bash
