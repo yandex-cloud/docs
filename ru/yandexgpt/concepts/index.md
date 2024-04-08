@@ -5,7 +5,7 @@ description: "{{ yagpt-full-name }} — это API нейросети, кото�
 
 # О сервисе {{ yagpt-full-name }}
 
-{% include notitle [preview-stage](../../_includes/yandexgpt/preview.md) %}
+{% include notitle [preview-stage](../../_includes/foundation-models/yandexgpt/preview.md) %}
 
 Cервис {{ foundation-models-full-name }} объединит в себе несколько больших генеративных нейросетей и поможет вам использовать их возможности для своих бизнес-задач.
 

@@ -55,7 +55,6 @@ items:
     href: forms/index.yaml
   - name: '{{ foundation-models-name }}'
     href: foundation-models/index.yaml
-    hidden: true
   - name: Identity and Access Management
     href: iam/index.yaml
   - name: IoT Core
@@ -147,6 +146,7 @@ items:
     href: query/index.yaml
   - name: YandexGPT API
     href: yandexgpt/index.yaml
+    hidden: true
   - name: Management console
     href: console/index.yaml
 base: en

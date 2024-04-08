@@ -9,7 +9,7 @@ description: "Следуя данной инструкции, вы научит�
 
 ## Перед началом работы {#before-begin}
 
-{% include notitle [ai-before-beginning](../../_includes/yandexgpt/ai-before-beginning.md) %}
+{% include notitle [ai-before-beginning](../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
 
 ## Отправьте запрос к модели {#request}
 
@@ -38,7 +38,7 @@ description: "Следуя данной инструкции, вы научит�
 
    Где:
 
-   {% include [api-parameters](../../_includes/yandexgpt/api-parameters.md) %}
+   {% include [api-parameters](../../_includes/foundation-models/yandexgpt/api-parameters.md) %}
 
 1. Отправьте запрос к модели, выполнив команду:
 
