@@ -4013,7 +4013,6 @@ default:
           button_billing-payment-action: Switch to the paid version
           button_download-action: Download
           create-new:
-            account_label_new: New payer
             account-type_label_company: Business account
             account-type_label_individual: Individual account
             label_title: Create a billing account
@@ -4035,7 +4034,6 @@ default:
             section_resources: Clouds
           dashboard:
             button_refill: Top up account
-            label_rename: Rename account
             popup-grant-activation_button_activate: Activate
           detail:
             button_create-periodic-export: Periodic export
@@ -4074,7 +4072,6 @@ default:
             column_description: Description
             column_money: Payment amount
             column_status: Status
-          label_accounts: List of accounts
           label_consumption: Consumption
           overview:
             button_bind-card-apply: Apply
@@ -4977,6 +4974,8 @@ default:
             title_consumption-history: Usage history
             title_current-state: Current state
             title_states-history: State history
+          pxf:
+            action_edit-settings: Edit PXF settings
           user-auth:
             action_add-rule: Add rule
             action_edit-rules: Edit rules
@@ -4995,6 +4994,7 @@ default:
         field_hosts-count: Host count
         field_restore-only: Databases and tables for recovery
         field_segments-in-host: Segments per host
+        label_pxf: PXF
         label_user-auth: User authentication
         label-analyze-timeout: ANALYZE timeout
         label-start-time: Start time (UTC)
@@ -6127,10 +6127,16 @@ default:
         label_section-customization: Сustomize style
         label_section-style: Style
         label_server-key: Server key
+        value_challenge-image_text: Text recognition
+        value_challenge-kaleidoscope: Kaleidoscope
+        value_challenge-silhouettes: Silhouettes
         value_complexity-easy: Easy
+        value_complexity-force_hard: Maximum
         value_complexity-hard: Hard
         value_complexity-medium: Medium
         value_config-standard: Standard
+        value_pre-check-checkbox: Checkbox
+        value_pre-check-slider: Slider
       storage:
         bucket:
           button_action-permissions: Object ACL
@@ -7964,7 +7970,7 @@ default:
     yc_prometheus-operator:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/prometheus/kube-prometheus-stack
-        tag: 45.9.1-3a
+        tag: 57.2.0-1
     yc_thumbor:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor

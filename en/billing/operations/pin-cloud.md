@@ -19,11 +19,10 @@ To link a cloud or transfer an existing one:
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ billing-name }} interface {#billing}
 
-   1. In the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-   1. Select ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
-   1. Select a billing account from the list.
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+   1. Select a billing account.
    1. Go to the **{{ ui-key.yacloud.billing.account.switch_overview }}** page.
    1. Under **{{ ui-key.yacloud.billing.account.dashboard-resources.section_resources }}**, click **{{ ui-key.yacloud.billing.account.dashboard-resources.button_bind-cloud }}**.
    1. Select the cloud from the list.
@@ -52,7 +51,7 @@ To link a cloud or transfer an existing one:
 
       For more information about the `yandex_billing_cloud_binding` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/billing_cloud_binding).
 
-  1. Create resources:
+   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

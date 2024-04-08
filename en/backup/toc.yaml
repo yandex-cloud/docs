@@ -67,7 +67,7 @@ items:
             href: pricing-archive/pricing-20240401.md
   - name: CLI reference
     href: ../cli/cli-ref/managed-services/backup/index.md
-  - name: Terraform reference
+  - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:

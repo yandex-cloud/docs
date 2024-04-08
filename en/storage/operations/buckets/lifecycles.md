@@ -84,17 +84,20 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
       * `transition`: Parameter of a rule for changing the storage class of any objects from standard (`STANDARD`) to cold (`COLD` or `STANDARD_IA`). This is an optional parameter. It may contain:
          * `date`: Date after which you want the rule to take effect. This is an optional parameter.
-         * `days`: Number of days after creating an object when the rule takes effect. The minimum value is 1. This is an optional parameter.
+         * `days`: Number of days after creating an object when the rule takes effect. The minimum value is `1`. This is an optional parameter.
          * `storage_class`: Storage class to move the object to. Can be either `COLD` or `STANDARD_IA`. This is a required parameter.
       * `expiration`: Parameter of a rule for deleting any objects. This is an optional parameter. It may contain:
          * `date`: Date after which you want the rule to take effect. This is an optional parameter.
-         * `days`: Number of days after creating an object when the rule takes effect. The minimum value is 1. This is an optional parameter.
+         * `days`: Number of days after creating an object when the rule takes effect. The minimum value is `1`. This is an optional parameter.
+         * `expired_object_delete_marker`: It triggers when the object has only the current version left. It may take either the `true` or `false` value. This is an optional parameter.
       * `noncurrent_transitions`: Parameter of a rule for changing the storage class of non-current object versions from standard (`STANDARD`) to cold (`COLD` or `STANDARD_IA`). This is an optional parameter. It may contain:
-         * `noncurrent_days`: Number of days before the transition. The minimum value is 1. This is a required parameter.
+         * `noncurrent_days`: Number of days before the transition. The minimum value is `1`. This is a required parameter.
          * `storage_class`: Storage class to move the object to. Can be either `COLD` or `STANDARD_IA`. This is a required parameter.
       * `noncurrent_expiration`: Parameter of a rule for deleting non-current object versions. This is an optional parameter. It may contain:
-         * `noncurrent_days`: Number of days before expiration. The minimum value is 1. This is a required parameter.
+         * `noncurrent_days`: Number of days before expiration. The minimum value is `1`. This is a required parameter.
       * `abort_incomplete_multipart_upload_days`: Parameter of a rule for removing all parts of multipart uploads that were not completed within the specified number of days. This is an optional parameter.
+      * `noncurrent_delete_markers`: Parameter of a rule for deleting non-current delete markers. This is an optional parameter. It may contain:
+         * `noncurrent_days`: Rule starts to apply after the number of days from the classification of the delete marker version as non-current, which is specified in this parameter, expires. The minimum value is `0`. This is a required parameter.
 
       Make sure to specify at least one of the following parameters: `transition`, `expiration`, `noncurrent_transitions`, `noncurrent_expiration`, or `abort_incomplete_multipart_upload_days`.
 
@@ -218,6 +221,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       * `Expiration`: Parameter of a rule for deleting any objects. This is an optional parameter. It may contain:
          * `Date`: Date after which the object will be deleted, in the ISO 8601 format, e.g., `YYYY-MM-DD`. Time is always 00:00 UTC. This is an optional parameter.
          * `Days`: Number of days since the creation of the object, after which the object will be deleted. The minimum value is `1`. This is an optional parameter.
+         * `ExpiredObjectDeleteMarker`: It triggers when the object has only the current version left. It may take either the `true` or `false` value. This is an optional parameter.
       * `NoncurrentVersionTransitions`: Parameter of a rule for changing the storage class of non-current object versions from standard (`STANDARD`) to cold (`COLD` or `STANDARD_IA`). This is an optional parameter. It may contain:
          * `NoncurrentDays`: Number of days before changing the storage class of non-current object versions. The minimum value is `1`. This is a required parameter.
          * `StorageClass`: Storage class to move the object to. Can be either `COLD` or `STANDARD_IA`. This is a required parameter.
@@ -354,7 +358,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
             }
             ```
 
-         * `And`: **AND** logical operator for filters. This is an optional parameter. Use this filter to combine filtering by prefix, size, or object tag in a single rule. With the `And` logical operator, you can set up filtering by multiple tags at the same time. To do this, specify the tags as `key = value` pairs in the `tags` block.
+         * `And`: `AND` logical operator for filters. This is an optional parameter. Use this filter to combine filtering by prefix, size, or object tag in a single rule. With the `And` logical operator, you can set up filtering by multiple tags at the same time. To do this, specify the tags as `key = value` pairs in the `tags` block.
 
             ```hcl
             filter {
@@ -384,6 +388,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       `expiration` parameters:
       * `date`: Date after which you want the rule to take effect. This is an optional parameter.
       * `days`: Number of days after creating an object when the rule takes effect. The minimum value is 1. This is an optional parameter.
+      * `expired_object_delete_marker`: It triggers when the object has only the current version left. It may take either the `true` or `false` value. This is an optional parameter.
 
       `transition` parameters:
       * `date`: Date after which you want the rule to take effect. This is an optional parameter.
@@ -399,7 +404,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 

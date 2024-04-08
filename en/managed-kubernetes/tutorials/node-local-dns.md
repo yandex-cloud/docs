@@ -48,11 +48,11 @@ To set up DNS query caching:
    1. Download the [k8s-node-local-dns.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/managed-kubernetes/k8s-node-local-dns.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. The file describes:
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security group](../../vpc/concepts/security-groups.md) and [rules](../operations/connect/security-groups.md) needed to run the {{ managed-k8s-name }} cluster:
+      * [Security group](../../vpc/concepts/security-groups.md) and [rules](../operations/connect/security-groups.md) required for the {{ managed-k8s-name }} cluster to operate:
          * Rules for service traffic.
          * Rules for accessing the {{ k8s }} API and managing the {{ managed-k8s-name }} cluster with `kubectl` through ports 443 and 6443.
       * {{ managed-k8s-name }} cluster.
-      * [Service account](../../iam/concepts/users/service-accounts.md) required to use the cluster and [{{ managed-k8s-name }} node group](../concepts/index.md#node-group).
+      * [Service account](../../iam/concepts/users/service-accounts.md) required for the cluster and [{{ managed-k8s-name }} node group](../concepts/index.md#node-group) to operate.
    1. Specify the following in the configuration file:
       * [Folder ID](../../resource-manager/operations/folder/get-id.md).
       * [{{ k8s }} versions](../concepts/release-channels-and-updates.md) for the cluster and {{ managed-k8s-name }} node groups.
@@ -564,7 +564,7 @@ To run [test queries](https://kubernetes.io/docs/tasks/administer-cluster/dns-de
             - default.svc.cluster.local
             - svc.cluster.local
             - cluster.local
-            - ru-central1.internal
+            - {{ region-id }}.internal
             - internal
             - my.dns.search.suffix
           options:

@@ -10,3 +10,6 @@
 | {{ gpt-lite }}, asynchronous mode | 0.50 | $0.0008 |
 | {{ gpt-pro }}, synchronous mode       | 6.00 | $0.0096 |
 | {{ gpt-pro }}, asynchronous mode      | 3.00 | $0.0048 |
+| Summary model, synchronous mode | 1.00        | $0.0016                                  |
+| Summary model, asynchronous mode | 0.50       | $0.0008                                  |
+| Models tuned in {{ ml-platform-name }} | 6.00 | $0.0096                                 |

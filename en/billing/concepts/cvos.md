@@ -14,7 +14,7 @@ The amount of the guaranteed discount depends on the amount of service resources
 
 ## Purchase and validity period {#how-to-enable}
 
-You can view the available offers and purchase a CVoS in the management console under **{{ ui-key.yacloud.billing.account.switch_offers }}**.
+You can view the available offers and purchase a CVoS in {{ billing-name }} under **{{ ui-key.yacloud.billing.account.switch_offers }}**.
 
 When [purchasing a CVoS](../operations/purchase-cvos.md), you yourself should choose the following:
 * Validity period: 6 months or 1 year.
@@ -22,7 +22,7 @@ When [purchasing a CVoS](../operations/purchase-cvos.md), you yourself should ch
 
 
 
-Information about CVoS usage and its expiration is displayed in the management console.
+You can view the information on CVoS usage and its expiration in {{ billing-name }}.
 
 {% note info %}
 
@@ -87,7 +87,7 @@ The total amount charged depends on whether any {{ yandex-cloud }} services that
 
 According to the agreement, you may not change the terms of the purchased CVoS, extend it, or cancel it.
 
-However, you can purchase a new CVoS if you have any offers available in the management console. For detailed instructions, see [Purchase a CVoS](../operations/purchase-cvos.md).
+However, you can purchase a new CVoS if you have any offers available in {{ billing-name }}. For detailed instructions, see [Purchase a CVoS](../operations/purchase-cvos.md).
 
 ## Services that you can purchase a CVoS for {#cvos-services}
 

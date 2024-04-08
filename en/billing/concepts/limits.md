@@ -1,6 +1,6 @@
 ---
-title: "Quotas and limits in Billing"
-description: "Billing has some limits and quotas. For more information about the service restrictions, read this article."
+title: "Billing quotas and limits"
+description: "Billing has certain limits and quotas. For more information about the service restrictions, read this article."
 
 editable: false
 ---

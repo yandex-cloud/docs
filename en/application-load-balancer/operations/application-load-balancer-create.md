@@ -16,7 +16,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
    1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}** and select **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
    1. Enter the load balancer name.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select:
-      1. [Network](../../vpc/concepts/network.md#network) whose [subnets](../../vpc/concepts/network.md#subnet) will host the load balancer nodes.
+      1. [Network](../../vpc/concepts/network.md#network) whose [subnets](../../vpc/concepts/network.md#subnet) will house the load balancer nodes.
       1. Suitable [security groups](../concepts/application-load-balancer.md#security-groups):
 
          {% include [security-groups](../../_includes/application-load-balancer/security-groups.md) %}
@@ -34,6 +34,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
          * **{{ ui-key.yacloud.alb.label_discard-percent }}**: Set the percentage of logs to discard.
 
          You can set multiple rules.
+
    1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select three subnets for the load balancer nodes and enable traffic to these subnets.
 
       {% include [subnets-required](../../_includes/application-load-balancer/subnets-required.md) %}
@@ -80,7 +81,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
       Where:
       * `load_balancer_name`: Name of the new load balancer.
       * `--network-name`: Name of the network in which the load balancer is created.
-      * `--security-group-id` (optional): List of one to five [secutity group](../concepts/application-load-balancer.md#security-groups) IDs separated by commas. If you omit this parameter, any traffic will be allowed for the load balancer.
+      * `--security-group-id` (optional): List of one to five [security group](../concepts/application-load-balancer.md#security-groups) IDs separated by commas. If you omit this parameter, any traffic will be allowed for the load balancer.
       * `--location`: Subnet and availability zone. You can repeat the option multiple times to specify different availability zones and subnets.
 
       Result:
@@ -99,7 +100,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
           subnet_id: buc4gsmpj8hv********
         - zone_id: {{ region-id }}-b
           subnet_id: blt6pcatjje6********
-        - zone_id: {{ region-id }}-c
+        - zone_id: {{ region-id }}-d
           subnet_id: fo2ap2nrhjk9********
       log_group_id: eolul9ap0bv0********
       security_group_ids:
@@ -132,9 +133,9 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
          * `--log-group-id`: ID of the [log group](../../logging/concepts/log-group.md).
          * `--discard`: Rule for discarding logs. Rule parameters:
             * `codes`: HTTP status codes, classes of HTTP status codes, or gRPC codes.
-            * `percent`: Percentage of logs to be discarded.
+            * `percent`: Percentage of logs to discard.
 
-            You can set multiple rules.
+         You can set multiple rules.
 
          Result:
 
@@ -224,7 +225,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
           subnet_id: e9bs1hp7lgdl********
         - zone_id: {{ region-id }}-b
           subnet_id: e2le8i7hqa21********
-        - zone_id: {{ region-id }}-c
+        - zone_id: {{ region-id }}-d
           subnet_id: b0cgk1au6fn2********
       log_group_id: ckgs4u5km3u8********
       security_group_ids:

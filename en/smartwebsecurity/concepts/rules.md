@@ -24,6 +24,10 @@ Each [security profile](profiles.md) includes a _basic default rule_ with the lo
 
 _Smart Protection_ is a rule that sends traffic, based on the specified conditions, for automatic analysis using machine learning and behavioral analysis algorithms. Suspicious requests are sent to [{{ captcha-name }}](../../smartcaptcha/) for additional verification.
 
+You can use the following captcha options:
+
+{% include [captcha-integration](../../_includes/smartwebsecurity/captcha-integration.md) %}
+
 ## Rule actions {#rule-action}
 
 Actions for basic rules:

@@ -9,10 +9,10 @@ You can create and configure a {{ managed-k8s-name }} cluster with no internet c
 
 To create a {{ managed-k8s-name }} cluster with no internet access:
 
-1. [{#T}](#infra)
-1. [{#T}](#vm)
-1. [{#T}](#check)
-1. [{#T}](#cert)
+1. [{#T}](#infra).
+1. [{#T}](#vm).
+1. [{#T}](#check).
+1. [{#T}](#cert).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -91,7 +91,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
-         * To access API {{ k8s }} and manage a cluster using `kubectl` or other utilities:
+         * To access the {{ k8s }} API and manage a cluster using `kubectl` or other utilities:
 
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`, `{{ port-k8s }}`
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
@@ -346,7 +346,7 @@ To configure certificate updates using DaemonSet, do the following on your VM:
                    else
                      echo "Doing Nothing as no certs has not been changed"
                    fi
-                 sleep 60 
+                 sleep 60
                done
            imagePullPolicy: Never
            securityContext:

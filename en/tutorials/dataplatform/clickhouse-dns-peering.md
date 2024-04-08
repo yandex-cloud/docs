@@ -5,6 +5,6 @@ description: "{{ dns-full-name }} enables you to configure a DNS zone shared by 
 
 # Configuring {{ dns-full-name }} for {{ mch-full-name }} cluster access from other cloud networks
 
-{% include notitle [clickhouse-dns-peering](../../_tutorials/infrastructure/mdb-dns-peering/clickhouse-dns-peering.md) %}
+{% include notitle [clickhouse-dns-peering](../../_tutorials/dataplatform/clickhouse-dns-peering.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

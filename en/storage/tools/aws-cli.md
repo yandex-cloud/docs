@@ -12,7 +12,7 @@ To work with {{ objstorage-name }} via the AWS CLI, you can use the following se
 
 {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-## Installing {#installation}
+## Installation {#installation}
 
 {% include [install-aws-cli](../../_includes/aws-tools/install-aws-cli.md) %}
 
@@ -36,22 +36,47 @@ To configure the AWS CLI, enter the `aws configure` command. The command request
 The `aws configure` command saves the static key and the region.
 * The static key in the `.aws/credentials` file has the following format:
 
-   ```
+   ```ini
    [default]
-     aws_access_key_id = id
-     aws_secret_access_key = secretKey
+     aws_access_key_id = <static_key_ID>
+     aws_secret_access_key = <static_key_contents>
    ```
 
 * The default region in the `.aws/config` file has the following format:
 
-   ```
+   ```ini
    [default]
      region = {{ region-id }}
    ```
 
+* You can create multiple profiles for different service accounts by specifying their details in the `.aws/credentials` file:
+
+   ```ini
+   [default]
+     aws_access_key_id = <ID_of_static_key_1>
+     aws_secret_access_key = <contents_of_static_key_1>
+   [<name_of_profile_2>]
+     aws_access_key_id = <ID_of_static_key_2>
+     aws_secret_access_key = <contents_of_static_key_2>
+   ...
+   [<name of_profile_n>]
+     aws_access_key_id = <ID_of_static_key_n>
+     aws_secret_access_key = <contents_of_static_key_n>
+   ```
+
+   Where `default` is the default profile.
+
+   To switch between different profiles, the AWS CLI commands use the `--profile` option, such as the following:
+
+   ```bash
+   aws --endpoint-url=https://{{ s3-storage-host }}/ \
+     --profile <name_of_profile_2> \
+     s3 mb s3://<bucket_name>
+   ```
+
 ## Specifics {#specifics}
 
-Make sure to consider the specifics of the AWS CLI when using {{ objstorage-name }}:
+Give consideration to the AWS CLI specifics when using {{ objstorage-name }}:
 
 * The AWS CLI treats {{ objstorage-name }} as a hierarchical file system and object keys look like file paths.
 * The client is configured to work with Amazon servers by default. Therefore, when running the `aws` command to work with {{ objstorage-name }}, make sure to use the `--endpoint-url` parameter. To avoid having to specify the parameter manually each time you run the command, use an alias or a configuration file.
