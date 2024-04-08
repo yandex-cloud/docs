@@ -1,1 +1,1 @@
-Роль `ai.auditor` позволяет просматривать квоты для сервисов Translate, Vision, SpeechKit и YandexGPT, а также читать метаинформацию каталогов.
+Роль `ai.auditor` позволяет просматривать квоты для сервисов Translate, Vision, SpeechKit и Foundation Models, а также читать метаинформацию каталогов.

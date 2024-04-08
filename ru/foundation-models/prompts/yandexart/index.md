@@ -1,10 +1,9 @@
 # Библиотека промтов {{ yandexart-name }}
 
-{% include [yandexart-prompts-tips](../../../_includes/yandexart/yandexart-prompts-tips.md) %}
+{% include [yandexart-prompts-tips](../../../_includes/foundation-models/yandexart/yandexart-prompts-tips.md) %}
 
 ## Маркетинг {#marketing}
 
-* [{#T}](marketing-portrait.md)
 * [{#T}](marketing-accessory.md)
 * [{#T}](marketing-food.md)
 * [{#T}](marketing-pot.md)

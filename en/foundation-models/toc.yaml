@@ -1,7 +1,6 @@
 title: Yandex Foundation Models
 href: index.yaml
 stage: preview
-no-index: true
 items:
   - name: Getting started
     items:

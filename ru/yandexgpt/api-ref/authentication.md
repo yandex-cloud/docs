@@ -1,1 +1,1 @@
-{% include [ai-before-beginning](../../_includes/yandexgpt/ai-before-beginning.md) %}
+{% include [ai-before-beginning](../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}

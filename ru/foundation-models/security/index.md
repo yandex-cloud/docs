@@ -10,6 +10,10 @@
 
 {% include [yandexgpt-user](../../_roles/ai/languageModels/user.md) %}
 
+#### {{ roles-yaart-user }} {#imageGeneration-user}
+
+{% include [yandexgpt-user](../../_roles/ai/imageGeneration/user.md) %}
+
 #### ai.auditor {#ai-auditor}
 
 {% include [ai-auditor](../../_roles/ai/auditor.md) %}

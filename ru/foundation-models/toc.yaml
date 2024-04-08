@@ -1,12 +1,13 @@
 title: Yandex Foundation Models
 href: index.yaml
 stage: preview
-no-index: true
 items:
   - name: Начало работы
     items:
       - name: Начало работы с {{ yagpt-full-name }}
-        href: quickstart/quickstart-yandexgpt.md
+        href: quickstart/yandexgpt.md
+      - name: Начало работы с {{ yandexart-name }}
+        href: quickstart/yandexart.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -23,18 +24,30 @@ items:
             href: operations/yandexgpt/async-request.md
           - name: Отключить логирование запросов
             href: operations/yandexgpt/disable-logging.md
+      - name: '{{ yandexart-name }}'
+        items:
+          - name: Сгенерировать изображение
+            href: operations/yandexart/request.md
   - name: Концепции
     items:
       - name: О сервисе {{ foundation-models-full-name }}
         href: concepts/index.md
       - name: '{{ yagpt-full-name }}'
         items:
+          - name: Обзор {{ yagpt-full-name }}
+            href: concepts/yandexgpt/index.md
           - name: Модели
             href: concepts/yandexgpt/models.md
           - name: Токены
             href: concepts/yandexgpt/tokens.md
       - name: Эмбеддинги
         href: concepts/embeddings.md
+      - name: '{{ yandexart-name }}'
+        items:
+          - name: Обзор {{ yandexart-name }}
+            href: concepts/yandexart/index.md
+          - name: Модели
+            href: concepts/yandexart/models.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Практические руководства
@@ -105,6 +118,26 @@ items:
                 href: embeddings/api-ref/grpc/index.md
               - name: EmbeddingsService
                 href: embeddings/api-ref/grpc/embedding_service.md
+      - name: ' {{ yandexart-name }} (англ.)'
+        items:
+          - name: REST
+            items:
+              - name: Overview
+                href: image-generation/api-ref/index.md
+              - name: ImageGenerationAsync
+                items:
+                  - name: Overview
+                    href: image-generation/api-ref/ImageGenerationAsync/index.md
+                  - name: generate
+                    href: image-generation/api-ref/ImageGenerationAsync/generate.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: image-generation/api-ref/grpc/index.md
+              - name: ImageGenerationAsyncService
+                href: image-generation/api-ref/grpc/image_generation_service.md
+              - name: OperationService
+                href: image-generation/api-ref/grpc/operation_service.md
       - name: API v1alpha (устаревший)
         items:
           - name: REST (англ.)
@@ -205,8 +238,6 @@ items:
         href: prompts/yandexart/index.md
       - name: Маркетинг
         items:
-          - name: Портрет женщины
-            href: prompts/yandexart/marketing-portrait.md
           - name: Реклама сумки
             href: prompts/yandexart/marketing-accessory.md
           - name: Реклама еды для собак

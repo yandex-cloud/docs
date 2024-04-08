@@ -1,6 +1,6 @@
 # Модели {{ yagpt-full-name }}
 
-{% include notitle [preview-stage](../../_includes/yandexgpt/preview.md) %}
+{% include notitle [preview-stage](../../_includes/foundation-models/yandexgpt/preview.md) %}
 
 {{ yagpt-full-name }} предоставляет доступ к двум большим текстовым генеративным нейросетям: стандартной {{ gpt-lite }}, подходящей для решения задач в режиме реального времени, и большой {{ yagpt-name }}, которая дает более точные ответы на сложные запросы.
 
@@ -21,4 +21,4 @@
 
 ## Возможности дообучения {#tuning-abilities}
 
-{% include [tuning-abilities](../../_includes/yandexgpt/tuning-abilities.md) %}
+{% include [tuning-abilities](../../_includes/foundation-models/yandexgpt/tuning-abilities.md) %}
