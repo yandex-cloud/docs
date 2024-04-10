@@ -107,8 +107,6 @@ If you added a new host in the `{{ region-id }}-d` zone to a cluster that has {{
 
 ### {{ managed-k8s-name }} {#k8s}
 
-{% include [unable-migration-in-relocated-subnet](../../_includes/managed-kubernetes/unable-migration-in-relocated-subnet.md) %}
-
 To move a {{ managed-k8s-name }} cluster between availability zones:
 
 * [Migrate a master host](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md#transfer-a-master).
@@ -125,14 +123,6 @@ To migrate a VM that is connected to an L7 load balancer, you need to enable tra
 ### {{ vpc-name }} {#vpc}
 
 Subnet migration allows you to maintain the original addressing and the IP addresses configured for the listeners of the internal load balancers. Note that you can only migrate empty subnets that do not have any connected resources, such as VM instances, database hosts, and {{ managed-k8s-name }} nodes.
-
-{% note alert %}
-
-Currently, you cannot migrate subnets.
-
-Additionally, you cannot currently create or migrate {{ managed-k8s-name }} clusters and node groups within the subnets migrated from the `{{ region-id }}-c` availability zone.
-
-{% endnote %}
 
 You can [migrate](../../vpc/operations/subnet-relocate.md) subnets by running the `relocate` command.
 

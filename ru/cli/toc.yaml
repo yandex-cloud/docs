@@ -1,5 +1,10 @@
 title: Интерфейс командной строки
 href: index.yaml
+label:
+  title: KZ
+  description: Сервис доступен в регионе Казахстан.
+  theme: info
+  when: region == "kz"
 items:
   - name: Начало работы с CLI
     href: quickstart.md

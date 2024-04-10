@@ -4,6 +4,7 @@
 {% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
 
 
+
 В сценарии описывается развертывание Microsoft Windows Server Datacenter с предустановленной службой Remote Desktop Services в {{ yandex-cloud }}. Инсталляция Microsoft Windows Server with Remote Desktop Services будет состоять из одного сервера, на котором будут установлены службы Remote Desktop Services и Active Directory. Образы представлены с подготовленными квотами на 5, 10, 25, 50 и 100 пользователей. Выберите версию с необходимой квотой. Все примеры приводятся для сервера с квотой на 5 пользователей.
 
 {% note warning %}

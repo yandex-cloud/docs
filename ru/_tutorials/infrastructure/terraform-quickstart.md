@@ -1,5 +1,6 @@
 # Начало работы с {{ TF }}
 
+
 {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 Чтобы создать вашу первую инфраструктуру в {{ yandex-cloud }} с помощью {{ TF }}:
@@ -70,6 +71,7 @@ yc compute image list --folder-id standard-images
 
 Конфигурации ресурсов задаются сразу после конфигурации провайдера:
 
+
 ```hcl
 terraform {
   required_providers {
@@ -87,6 +89,8 @@ resource "yandex_compute_instance" "vm-1" {
   name = "terraform1"
 }
 ```
+
+
 
 {% list tabs group=operating_system %}
 

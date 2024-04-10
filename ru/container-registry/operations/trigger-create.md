@@ -5,4 +5,5 @@ description: "Создайте триггер для {{ container-registry-name 
 
 # Создание триггера для реестра
 
+
 {% include [container-registry](../../_includes/functions/cr-trigger-create.md) %}

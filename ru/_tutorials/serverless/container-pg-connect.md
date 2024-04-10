@@ -1,3 +1,5 @@
+
+
 Чтобы подключиться к кластеру {{ mpg-name }} из контейнера {{ serverless-containers-name }}:
 
 1. [Подготовьте файлы для Docker-образа](#prepare-docker).
@@ -40,7 +42,7 @@
         RUN apt-get update && \
             apt-get install wget postgresql-client --yes && \
             mkdir --parents ~/.postgresql && \
-            wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
+            wget "{{ crt-web-path }}" \
             --output-document ~/.postgresql/root.crt && \
             chmod 0600 ~/.postgresql/root.crt
 

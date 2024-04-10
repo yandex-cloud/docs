@@ -1,5 +1,6 @@
 # Загрузка аудитных логов в MaxPatrol SIEM
 
+
 [MaxPatrol SIEM](https://www.ptsecurity.com/ru-ru/products/mpsiem/) может читать [аудитные логи](../../audit-trails/concepts/events.md) {{ yandex-cloud }} из потока данных [{{ yds-full-name }}](../../data-streams/). Для полного прохождения руководства у вас должен быть доступ к экземпляру MaxPatrol SIEM.
 
 Чтобы настроить экспорт аудитных логов:

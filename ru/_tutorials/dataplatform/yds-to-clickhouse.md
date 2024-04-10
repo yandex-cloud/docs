@@ -1,5 +1,6 @@
 # Сохранение потока данных {{ yds-full-name }} в {{ mch-full-name }}
 
+
 С помощью сервиса {{ data-transfer-name }} вы можете поставлять данные из [потока {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts) в сервис {{ mch-name }}.
 
 Чтобы перенести данные:

@@ -12,6 +12,7 @@ editable: false
 
 ## Цены {#prices}
 
+
 {% note warning %}
 
 Цены действуют с 1 марта 2024 года.

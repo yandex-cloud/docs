@@ -8,7 +8,7 @@
 * [перезапустить хост](#restart);
 * [удалить хост](#remove-host).
 
-О том, как перенести хосты {{ CH }} в другую зону доступности, читайте в [инструкции](host-migration.md#clickhouse-hosts).
+О том, как перенести хосты {{ CH }} в другую [зону доступности](../../overview/concepts/geo-scope.md), читайте в [инструкции](host-migration.md#clickhouse-hosts).
 
 {% note warning %}
 

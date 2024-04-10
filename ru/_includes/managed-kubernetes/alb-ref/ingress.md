@@ -1,5 +1,6 @@
 # Поля и аннотации ресурса Ingress
 
+
 В ресурсе `Ingress` определяются правила распределения входящего трафика между сервисами {{ k8s }}. По этим правилам [Ingress-контроллер {{ alb-name }}](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) создает [балансировщик](../../../application-load-balancer/concepts/application-load-balancer.md) с нужными обработчиками и [HTTP-роутерами](../../../application-load-balancer/concepts/http-router.md). [Сервисы](../../../application-load-balancer/k8s-ref/service.md), выступающие в роли бэкендов {{ alb-name }}, могут быть указаны в `Ingress` напрямую или в составе [групп бэкендов `HttpBackendGroup`](../../../application-load-balancer/k8s-ref/http-backend-group.md).
 
 `Ingress` — стандартный ресурс {{ k8s }}. В этом справочнике описаны поля и аннотации ресурса, с которыми работает Ingress-контроллер {{ alb-name }}. Полный справочник ресурса см. в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/).

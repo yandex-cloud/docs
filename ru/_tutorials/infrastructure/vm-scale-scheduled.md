@@ -1,5 +1,6 @@
 # Масштабирование группы виртуальных машин по расписанию
 
+
 Создайте [группу ВМ](../../compute/concepts/instance-groups/index.md) [{{ compute-full-name }}](../../compute/) и настройте для нее [масштабирование](../../compute/concepts/instance-groups/scale.md) по расписанию. Размером группы ВМ будет управлять [функция](../../functions/concepts/function.md) [{{ sf-full-name }}](../../functions/), запускаемая по [таймеру](../../functions/concepts/trigger/timer.md).
 
 Чтобы настроить масштабирование группы ВМ с помощью штатных инструментов — через [консоль управления](../../console/), с помощью [интерфейса командной строки](../../cli/) (CLI) или [API](../../api-design-guide/):

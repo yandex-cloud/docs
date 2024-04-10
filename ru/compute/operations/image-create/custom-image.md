@@ -176,6 +176,7 @@ datasource:
 
 ## Установите драйверы для совместимости с GPU {#gpu-drivers}
 
+
 Если при работе с ВМ потребуется [GPU](../../concepts/gpus.md), во время подготовки образа [установите драйверы NVIDIA](../vm-operate/install-nvidia-drivers.md).
 
 ## Создайте файл с образом {#create-image-file}

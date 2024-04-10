@@ -1,5 +1,6 @@
 # Удалить кластер GPU
 
+
 Перед удалением [кластера GPU](../../concepts/gpus.md#gpu-clusters) удалите из него все [виртуальные машины](../../concepts/vm.md).
 
 {% list tabs group=instructions %}

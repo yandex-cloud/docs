@@ -1,5 +1,6 @@
 # Создать группу виртуальных машин фиксированного размера
 
+
 Вы можете создать группу с фиксированным количеством [ВМ](../../concepts/vm.md). Управление размером такой [группы ВМ](../../concepts/instance-groups/index.md) осуществляется вручную. Подробнее читайте в разделе [{#T}](../../concepts/instance-groups/scale.md#fixed-scale).
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}

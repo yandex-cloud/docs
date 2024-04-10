@@ -10,7 +10,7 @@
    {% include [change-payment-docs](../_includes/change-payment-docs.md) %}
 
 
-1. Отправьте запрос на электронную почту [cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru). Запрос рассматривается в течение трех рабочих дней. Менеджер {{ yandex-cloud }} сообщит вам о принятом решении.
+1. Отправьте запрос на электронную почту [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}). Запрос рассматривается в течение трех рабочих дней. Менеджер {{ yandex-cloud }} сообщит вам о принятом решении.
 
 {% note info %}
 

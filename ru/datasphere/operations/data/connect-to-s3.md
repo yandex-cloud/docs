@@ -27,7 +27,7 @@
     ```python
     session = boto3.session.Session()
 
-    ENDPOINT = "https://storage.yandexcloud.net"
+    ENDPOINT = "https://{{ s3-storage-host }}"
 
     session = boto3.Session(
         aws_access_key_id=(os.environ['token']),

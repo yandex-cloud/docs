@@ -5,13 +5,14 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Зарезервировать потребление (CVoS)
 
+
 {% include [cvos-term](../_includes/cvos-term.md) %}
 
 ## Чтобы зарезервировать потребление (CVoS) {#enable}
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ billing-name }} {#billing}
+- {{ billing-interface }} {#billing}
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Убедитесь, что ваш платежный аккаунт имеет тип потребления `{{ ui-key.yacloud.billing.account.overview.usage-type_label_paid }}`. Подробнее об активации платной версии читайте в разделе [{#T}](activate-commercial.md).

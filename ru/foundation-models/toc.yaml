@@ -1,6 +1,11 @@
 title: Yandex Foundation Models
 href: index.yaml
 stage: preview
+label:
+  title: RU
+  description: Сервис доступен только в регионе Россия.
+  theme: unknown
+  when: region == "kz"
 items:
   - name: Начало работы
     items:

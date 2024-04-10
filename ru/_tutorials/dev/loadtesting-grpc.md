@@ -1,5 +1,6 @@
 # Нагрузочное тестирование gRPC-сервиса
 
+
 {{ load-testing-name }} можно использовать для нагрузочного тестирования сервиса по протоколу [gRPC](https://grpc.io/docs/) с помощью [генератора нагрузки](../../load-testing/concepts/load-generator.md) [Pandora](../../load-testing/concepts/load-generator.md#pandora).
 
 Чтобы провести нагрузочное тестирование:

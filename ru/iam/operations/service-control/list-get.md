@@ -1,6 +1,9 @@
 # Получение информации о доступах сервисов
 
+
+
 {% include notitle [preview](../../../_includes/note-preview.md) %}
+
 
 В Yandex Identity and Access Management есть возможность управлять [доступом сервисов](../../concepts/service-control.md) к ресурсам в облаке.
 

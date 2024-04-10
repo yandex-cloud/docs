@@ -1,5 +1,6 @@
 # Создать виртуальную машину в группе размещения
 
+
 Создайте [ВМ](../../concepts/vm.md) в [группе размещения](../../concepts/placement-groups.md).
 
 {% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}

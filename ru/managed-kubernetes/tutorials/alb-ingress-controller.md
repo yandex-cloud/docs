@@ -1,5 +1,6 @@
 # Настройка Ingress-контроллера {{ alb-name }}
 
+
 Сервис [{{ alb-full-name }}](../../application-load-balancer/) используется для балансировки нагрузки и распределения трафика между приложениями. Чтобы с его помощью управлять трафиком к приложениям, запущенным в [кластере {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster), необходим [Ingress-контроллер](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
 
 Чтобы настроить доступ к запущенным в кластере {{ managed-k8s-name }} приложениям через {{ alb-name }}:

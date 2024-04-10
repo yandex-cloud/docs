@@ -11,8 +11,6 @@ To migrate {{ managed-k8s-name }} resources from one availability zone to anothe
 1. [Migrate a master host](#transfer-a-master).
 1. [Migrate the node group and the pod workloads](#transfer-a-node-group).
 
-{% include [unable-migration-in-relocated-subnet](../../_includes/managed-kubernetes/unable-migration-in-relocated-subnet.md) %}
-
 ## Getting started {#before-you-begin}
 
 {% include [cli-install](../../_includes/cli-install.md) %}

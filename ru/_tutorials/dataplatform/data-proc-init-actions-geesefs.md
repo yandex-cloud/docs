@@ -1,5 +1,6 @@
 # Использование скриптов инициализации для настройки GeeseFS в {{ dataproc-name }}
 
+
 В сервисе {{ dataproc-full-name }} вы можете использовать для настройки хостов [скрипты инициализации](../../data-proc/concepts/init-action.md) (initialization actions).
 
 С их помощью можно автоматизировать установку и настройку программы [GeeseFS](../../storage/tools/geesefs.md), позволяющей хостам кластера {{ dataproc-full-name }} монтировать бакеты {{ objstorage-full-name }} через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).

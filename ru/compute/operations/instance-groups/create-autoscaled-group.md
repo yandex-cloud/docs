@@ -1,5 +1,6 @@
 # Создать автоматически масштабируемую группу виртуальных машин
 
+
 Вы можете создать [автоматически масштабируемую](../../concepts/instance-groups/scale.md#auto-scale) [группу однотипных ВМ](../../concepts/instance-groups/index.md). Управление размером такой группы [ВМ](../../concepts/vm.md) будет осуществляться автоматически.
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}

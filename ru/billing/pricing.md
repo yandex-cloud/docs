@@ -4,7 +4,9 @@ editable: false
 
 # Правила тарификации {{ yandex-cloud }}
 
+
 В {{ yandex-cloud }} вы можете использовать ресурсы как тарифицируемых, так и нетарифицируемых сервисов. Стоимость использования сервиса {{ billing-name }} входит в стоимость оплачиваемых сервисов и дополнительно не тарифицируется.
+
 
 ## Нетарифицируемые сервисы {#free}
 
@@ -21,6 +23,8 @@ editable: false
 * {{ preview-stage }} [{{ maf-full-name }}](../managed-airflow/pricing.md)
 * {{ preview-stage }} [{{ metadata-hub-name }}](../metadata-hub/pricing.md)
 * {{ preview-stage }} [{{ postbox-name }}](../postbox/pricing.md)
+* {{ preview-stage }}[{{ sws-full-name }}](../smartwebsecurity/pricing.md)
+* {{ preview-stage }} [{{ speechsense-full-name }}](../speechsense/pricing.md)
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)
 * {{ preview-stage }}[{{ websql-full-name }}](../websql/pricing.md)
 * [{{ wiki-full-name }}](../wiki/pricing.md)

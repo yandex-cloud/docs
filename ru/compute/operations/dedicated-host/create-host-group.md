@@ -1,5 +1,6 @@
 # Создание группы выделенных хостов
 
+
 Вы можете создать группу [выделенных хостов](../../concepts/dedicated-host.md), предназначенных для размещения исключительно ваших виртуальных машин в {{ yandex-cloud }}.
 
 {% include [dedicated](../../../_includes/compute/dedicated-quota.md) %}

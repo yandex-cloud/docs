@@ -1,5 +1,6 @@
 # Загрузка данных из {{ MY }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}
 
+
 С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из кластера-источника {{ mmy-name }} в объектное хранилище {{ objstorage-full-name }}.
 
 Чтобы перенести данные:

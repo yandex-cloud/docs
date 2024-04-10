@@ -7,8 +7,6 @@ description: "In this tutorial, you will create a {{ managed-k8s-name }} cluster
 
 Create a [{{ managed-k8s-name }} cluster](concepts/index.md#kubernetes-cluster) and [node group](concepts/index.md#node-group) and manage them using kubectl, the {{ k8s }} command line tool.
 
-{% include [unable-in-relocated-subnet](../_includes/managed-kubernetes/unable-in-relocated-subnet.md) %}
-
 ## Getting started {#before-you-begin}
 
 To get started with {{ managed-k8s-name }}:

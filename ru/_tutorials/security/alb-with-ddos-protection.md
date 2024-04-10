@@ -1,5 +1,6 @@
 # Создание балансировщика с защитой от DDoS
 
+
 В этом сценарии вы создадите [L7-балансировщик](../../application-load-balancer/concepts/index.md) с обработчиком, который имеет [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) с функцией [защиты от DDoS-атак](../../vpc/ddos-protection/index.md).
 
 Чтобы создать L7-балансировщик с защитой от DDoS-атак:

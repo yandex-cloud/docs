@@ -1,5 +1,6 @@
 # Установка Filebeat
 
+
 [Filebeat](https://www.elastic.co/beats/filebeat) — плагин, который позволяет собирать и передавать логи в экосистему Elastic Stack: {{ ES }}, Kibana, Logstash. [Filebeat](/marketplace/products/yc/filebeat) устанавливается в [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster), собирает логи кластера и [подов](../../concepts/index.md#pod), а затем отправляет их в сервис [{{ mes-full-name }}](../../../managed-elasticsearch/).
 
 ## Перед началом работы {#before-you-begin}

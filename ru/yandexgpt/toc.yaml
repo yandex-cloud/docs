@@ -1,5 +1,10 @@
 title: YandexGPT API
 href: index.yaml
+label:
+  title: RU
+  description: Сервис доступен только в регионе Россия.
+  theme: unknown
+  when: region == "kz"
 stage: preview
 noIndex: true
 items:

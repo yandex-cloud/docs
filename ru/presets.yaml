@@ -32,6 +32,7 @@ default:
   at-name: Audit Trails
   at-short-name: Audit Trails
   auth-host: console.cloud.yandex.ru
+  auth-main-host: auth.yandex.cloud
   b1-medium: b1.medium (2 × 50% vCPU, 4 ГБ)
   b1-micro: b1.micro (2 × 20% vCPU, 2 ГБ)
   b1-nano: b1.nano (2 × 5% vCPU, 2 ГБ)
@@ -43,7 +44,10 @@ default:
   backup-full-name: Yandex Cloud Backup
   backup-name: Cloud Backup
   backup-short-name: Cloud Backup
+  billing-docs-email: cloud_docs@support.yandex.ru
+  billing-interface: Интерфейс Yandex Cloud Billing
   billing-name: Yandex Cloud Billing
+  billing-oferta-url: https://yandex.ru/legal/cloud_oferta/
   brand-voice-cc: Brand Voice Call Center
   brand-voice-cc-name: SpeechKit Brand Voice Call Center
   brand-voice-core: Brand Voice Self Service
@@ -245,7 +249,7 @@ default:
   link-console-billing: https://billing.yandex.cloud/accounts
   link-console-cloud: https://console.cloud.yandex.ru/cloud
   link-console-iam-users: https://console.cloud.yandex.ru/iam?section=users
-  link-console-main: https://console.cloud.yandex.ru
+  link-console-main: https://console.yandex.cloud
   link-console-quotas: https://console.cloud.yandex.ru/cloud?section=quotas
   link-console-settings: https://console.cloud.yandex.ru/settings
   link-console-support: https://support-center.cloud.yandex.ru
@@ -764,7 +768,7 @@ default:
           6|int|string: "440\_₽"
   sku|RUB|backup:
     protected_vms:
-      v1|string: Не тарифицируется
+      v2|month|string: "238,80\_₽"
     used_space:
       v1|month|string: "4,20\_₽"
   sku|RUB|cdn:
@@ -1673,7 +1677,7 @@ default:
         v1|string: Не тарифицируется
   sku|USD|backup:
     protected_vms:
-      v1|string: Не тарифицируется
+      v2|month|string: "1,910400\_$"
     used_space:
       v1|month|string: "0,033600\_$"
   sku|USD|cdn:

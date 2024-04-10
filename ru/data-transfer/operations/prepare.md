@@ -5,6 +5,7 @@ description: "Из статьи вы узнаете, как подготовит
 
 # Подготовка к трансферу
 
+
 ## Подготовка источника {#source}
 
 ### Источники Airbyte® {#source-airbyte}
@@ -36,14 +37,17 @@ description: "Из статьи вы узнаете, как подготовит
 
 ### Источник {{ ES }} {#source-es}
 
+
 {% include [prepare elasticsearch db](../../_includes/data-transfer/endpoints/sources/elasticsearch-prepare.md) %}
 
 ### Источник {{ GP }} {#source-gp}
+
 
 {% include [prepare greenplum db](../../_includes/data-transfer/endpoints/sources/greenplum-prepare.md) %}
 
 
 ### Источник {{ MG }} {#source-mg}
+
 
 {% include [prepare mongo db](../../_includes/data-transfer/endpoints/sources/mongodb-prepare.md) %}
 
@@ -64,6 +68,7 @@ description: "Из статьи вы узнаете, как подготовит
 {% include [prepare db](../../_includes/data-transfer/endpoints/sources/pg-prepare.md) %}
 
 
+
 ### Источник {{ yds-full-name }} {#source-yds}
 
 {% include [prepare yds db](../../_includes/data-transfer/endpoints/sources/yds-prepare.md) %}
@@ -73,6 +78,7 @@ description: "Из статьи вы узнаете, как подготовит
 
 {% include [prepare yds db](../../_includes/data-transfer/endpoints/sources/ydb-prepare.md) %}
 
+
 ## Подготовка приемника {#target}
 
 ### Приемник {{ CH }} {#target-ch}
@@ -81,14 +87,17 @@ description: "Из статьи вы узнаете, как подготовит
 
 ### Приемник {{ ES }} {#target-es}
 
+
 {% include [prepare elastic db](../../_includes/data-transfer/endpoints/targets/elasticsearch-prepare.md) %}
 
 ### Приемник {{ GP }} {#target-gp}
+
 
 {% include [prepare greenplum db](../../_includes/data-transfer/endpoints/targets/greenplum-prepare.md) %}
 
 
 ### Приемник {{ MG }} {#target-mg}
+
 
 {% include [prepare mongodb db](../../_includes/data-transfer/endpoints/targets/mongodb-prepare.md) %}
 
@@ -109,9 +118,11 @@ description: "Из статьи вы узнаете, как подготовит
 {% include [prepare postgresql db](../../_includes/data-transfer/endpoints/targets/pg-prepare.md) %}
 
 
+
 ### Приемник {{ ydb-full-name }} {#target-ydb}
 
 {% include [prepare ydb db](../../_includes/data-transfer/endpoints/targets/ydb-prepare.md) %}
+
 
 {% include [airbyte-trademark](../../_includes/data-transfer/airbyte-trademark.md) %}
 

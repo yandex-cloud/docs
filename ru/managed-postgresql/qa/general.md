@@ -5,6 +5,7 @@ description: "Что такое {{ mpg-name }}? Для каких задач с�
 
 # Общие вопросы про {{ mpg-name }}
 
+
 {% include [general-minitoc](../../_qa/managed-postgresql/minitoc/general.md) %}
 
 {% include [general](../../_qa/managed-postgresql/general.md) %}

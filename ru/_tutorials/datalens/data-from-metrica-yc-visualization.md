@@ -1,5 +1,6 @@
 # Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
 
+
 {% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
 
 В этом практическом руководстве вы научитесь строить воронки конверсий, проведете когортный анализ и посчитаете Retention пользовательской базы в {{ ml-platform-full-name }} и визуализируете данные в {{ datalens-full-name }}.

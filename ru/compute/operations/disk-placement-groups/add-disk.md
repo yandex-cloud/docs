@@ -1,5 +1,6 @@
 # Добавить диск в группу размещения
 
+
 {% note warning %}
 
 Из-за технических особенностей инфраструктуры {{ yandex-cloud }} не гарантируется, что существующий [нереплицируемый диск](../../concepts/disk.md#nr-disks) получится добавить в [группу размещения](../../concepts/disk-placement-group.md), но вы можете гарантированно [создать](../disk-create/nonreplicated.md#nr-disk-in-group) [диск](../../concepts/disk.md) сразу в группе.

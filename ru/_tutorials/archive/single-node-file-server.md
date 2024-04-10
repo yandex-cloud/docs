@@ -1,5 +1,6 @@
 # Однонодовый файловый сервер
 
+
 Вы научитесь создавать однонодовый файловый сервер с помощью [Samba](https://www.samba.org/) и [NFS](https://docs.microsoft.com/ru-ru/windows-server/storage/nfs/nfs-overview), а также подключаться к нему с компьютеров на Linux, macOS и Windows.
 
 Чтобы создать однонодовый файловый сервер:

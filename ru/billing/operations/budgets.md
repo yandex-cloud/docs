@@ -23,7 +23,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ billing-name }} {#billing}
+- {{ billing-interface }} {#billing}
 
   1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
 
@@ -67,3 +67,4 @@
 ## См. также
 
 * [{#T}](../tutorials/serverless-trigger-budget-vm.md).
+* [{#T}](../tutorials/serverless-trigger-budget-queue-vm-tg.md).

@@ -22,6 +22,7 @@ _Лог-группа_ — это способ группировки логов 
 
 ## Сервисы, которые могут писать логи в {{ cloud-logging-name }} {#services}
 
+
 * [{{ alb-name }}](../../application-load-balancer/)
 * [{{ api-gw-name }}](../../api-gateway/)
 * [{{ at-name }}](../../audit-trails/)

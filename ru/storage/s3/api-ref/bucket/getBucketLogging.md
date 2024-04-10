@@ -1,5 +1,6 @@
 # Метод getBucketLogging
 
+
 Возвращает настройки [логирования действий с бакетом](../../../concepts/server-logs.md). 
 
 ## Запрос {#request}

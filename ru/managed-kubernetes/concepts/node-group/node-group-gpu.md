@@ -1,5 +1,6 @@
 # Группы узлов с GPU
 
+
 Вы можете создавать [группы узлов](../index.md#node-group) [кластера {{ managed-k8s-name }}](../index.md#kubernetes-cluster) с [графическими ускорителями (GPU)](../../../compute/concepts/gpus.md). Узел создается из [образа](../../../compute/concepts/image.md) [виртуальной машины](../../../compute/concepts/vm.md), совместимой с GPU, — на ней установлены драйверы NVIDIA и [библиотеки CUDA](https://developer.nvidia.com/gpu-accelerated-libraries) для GPU-ускорения.
 
 ## Требования {#requirements}

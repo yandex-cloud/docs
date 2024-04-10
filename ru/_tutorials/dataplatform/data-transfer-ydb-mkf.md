@@ -1,5 +1,6 @@
 # Поставка данных из {{ mkf-full-name }} в {{ ydb-full-name }}
 
+
 Вы можете отслеживать изменения данных в _источнике_ {{ ydb-name }} и отправлять их в _кластер-приемник_ {{ mkf-name }} с помощью технологии [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC). Эти данные будут автоматически добавлены в топики {{ mkf-short-name }} с именами таблиц {{ ydb-name }}.
 
 {% include [CDC-YDB](../../_includes/data-transfer/note-ydb-cdc.md) %}

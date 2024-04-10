@@ -1,5 +1,6 @@
 # Установка Container Storage Interface для S3
 
+
 [Container Storage Interface для S3](/marketplace/products/yc/csi-s3) (_CSI_) позволяет динамически резервировать [бакеты](../../../storage/concepts/bucket.md) S3-совместимых хранилищ и монтировать их к [подам](../../concepts/index.md#pod) [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) в виде [постоянных томов](../../concepts/volume.md#persistent-volume) (_PersistentVolume_). Подключение выполняется при помощи [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра))-реализации файловой системы [GeeseFS](https://github.com/yandex-cloud/geesefs).
 
 ## Создание сервисного аккаунта {#create-sa-key}

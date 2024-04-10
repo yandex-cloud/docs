@@ -19,6 +19,7 @@ editable: false
 
 ## Цены {#prices}
 
+
 ### Перевод и определение языка текста {#prices-translate-detect}
 
 

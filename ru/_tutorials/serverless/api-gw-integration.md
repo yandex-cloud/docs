@@ -1,5 +1,6 @@
 # Разработка пользовательской интеграции в {{ api-gw-name }}
 
+
 С помощью serverless-технологий можно создать собственную интеграцию с сервисами {{ yandex-cloud }}.
 
 Пользовательская интеграция представляет собой [функцию](../../functions/concepts/function.md) {{ sf-full-name }} или [контейнер](../../serverless-containers/concepts/container.md) {{ serverless-containers-full-name }}, которые предназначены для решения типовой задачи.

@@ -1,5 +1,10 @@
 title: Описание технической поддержки
 href: index.yaml
+label:
+  title: KZ
+  description: Сервис доступен в регионе Казахстан.
+  theme: info
+  when: region == "kz"
 items:
   - name: Порядок оказания технической поддержки
     href: overview.md
@@ -19,7 +24,6 @@ items:
     items:
       - name: Действующие правила
         href: pricing.md
-      - name: Архив
         items:
           - name: До 1 октября 2023 года
             href: pricing-archive/pricing01102023.md

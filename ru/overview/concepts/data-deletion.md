@@ -49,7 +49,12 @@
 
 Чтобы перестать работать с платформой и удалить ваш профиль:
 
+
+
+Чтобы удалить неактуальный платежный аккаунт в {{ yandex-cloud }}:
+
 {% include [delete-account](../../_includes/billing/delete-account.md) %}
+
 
 
 #### См. также {#see-also}
