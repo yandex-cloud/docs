@@ -1,5 +1,6 @@
 # Установка ExternalDNS c плагином для {{ dns-full-name }}
 
+
 [ExternalDNS](https://github.com/kubernetes-sigs/external-dns) позволяет автоматически создавать [DNS-записи](../../../dns/concepts/resource-record.md) в [{{ dns-full-name }}](../../../dns/). ExternalDNS делает ресурсы {{ k8s }} доступными для обнаружения через общедоступные DNS-серверы.
 
 ## Перед началом работы {#before-you-begin}

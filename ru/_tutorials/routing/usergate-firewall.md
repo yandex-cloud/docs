@@ -1,5 +1,6 @@
 # Создание и настройка шлюза UserGate в режиме межсетевого экрана
 
+
 [UserGate](https://www.usergate.com/ru/products/enterprise-firewall) — межсетевой экран нового поколения от одноименной российской компании.
 
 Вы создадите виртуальную машину UserGate в {{ yandex-cloud }} и настроите шлюз для работы в режиме межсетевого экрана. Для расширенного изучения возможностей UserGate пройдите бесплатный курс [UserGate Getting Started](https://university.tssolution.ru/usergate-getting-started-v6).

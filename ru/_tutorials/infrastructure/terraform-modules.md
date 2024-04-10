@@ -1,5 +1,6 @@
 # Использование модулей {{ yandex-cloud }} в {{ TF }}
 
+
 {{ yandex-cloud }} предоставляет ![](../../_assets/overview/solution-library-icon.svg)[набор модулей для Terraform](https://github.com/terraform-yc-modules). Модули {{ TF }} объединяют несколько облачных ресурсов, которые должны работать вместе. Благодаря модулям конфигурация облачной инфраструктуры упрощается, блоки легче переиспользовать, а все необходимые для создания ресурсов параметры можно указать в переменных. 
 
 На этой странице рассказано, как подключить модули и использовать их для создания тестовой инфраструктуры: [облачной сети](../../vpc/concepts/network.md#network) с тремя [подсетями](../../vpc/concepts/network.md#subnet) [{{ vpc-full-name }}](../../vpc/) и [кластера {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).

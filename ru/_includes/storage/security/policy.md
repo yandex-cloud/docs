@@ -52,7 +52,6 @@
 
 Пример правила для конкретного пользователя {{ yandex-cloud }}:
 
-
 ```json
 {
   "Effect": "Allow",
@@ -66,11 +65,12 @@
   ],
   "Condition": {
     "StringLike": {
-      "aws:referer": "https://console.yandex.cloud/folders/*/storage/buckets/your-bucket-name*"
+      "aws:referer": "{{ link-console-main }}/folders/*/storage/buckets/your-bucket-name*"
     }
   }
 }
 ```
+
 
 {% cut "Пример для совместного использования доменов console.cloud.yandex.* и console.yandex.cloud" %}
 
@@ -91,7 +91,7 @@
     "StringLike": {
       "aws:referer": [
         "https://console.cloud.yandex.*/folders/*/storage/buckets/your-bucket-name*",
-        "https://console.yandex.cloud/folders/*/storage/buckets/your-bucket-name*"
+        "{{ link-console-main }}/folders/*/storage/buckets/your-bucket-name*"
       ]
     }
   }
@@ -99,7 +99,6 @@
 ```
 
 {% endcut %}
-
 
 
 

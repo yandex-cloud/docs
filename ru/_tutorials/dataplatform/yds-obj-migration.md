@@ -1,3 +1,5 @@
+
+
 С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из [потока {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts) в бакет {{ objstorage-full-name }}:
 
 1. [Подготовьте поток данных {{ yds-name }}](#prepare-source).

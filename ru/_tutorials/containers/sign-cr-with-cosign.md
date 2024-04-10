@@ -1,3 +1,5 @@
+
+
 В этом сценарии описано, как подписать [Docker-образы](../../container-registry/concepts/docker-image.md) с помощью [Cosign](https://docs.sigstore.dev/cosign/overview/) в [{{ container-registry-full-name }}](../../container-registry/), а затем настроить проверку подписей в [{{ managed-k8s-full-name }}](../../managed-kubernetes/).
 
 Чтобы подписать и настроить проверку Docker-образов:

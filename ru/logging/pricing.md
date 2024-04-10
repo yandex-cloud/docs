@@ -12,6 +12,7 @@ editable: false
 
 ## Цены {#prices}
 
+
 ### Запись данных {#data-ingested}
 
 

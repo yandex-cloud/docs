@@ -1,5 +1,6 @@
 # Поля и аннотации ресурса Service
 
+
 Ресурс `Service` определяет [сервис {{ k8s }}](../../../managed-kubernetes/concepts/index.md#service). Для инструментов {{ alb-name }} для {{ managed-k8s-name }} — [Ingress-контроллера](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) и [Gateway API](../../../application-load-balancer/tools/k8s-gateway-api/index.md) — сервисы представляют собой бэкенды, между которыми распределяется входящий трафик.  Сервисы, выступающие в роли бэкендов {{ alb-name }}, могут быть указаны в [ресурсе `Ingress`](../../../application-load-balancer/k8s-ref/ingress.md) напрямую или в составе [групп бэкендов `HttpBackendGroup`](../../../application-load-balancer/k8s-ref/http-backend-group.md). При использовании Gateway API сервисы-бэкенды указываются в [ресурсе `HTTPRoute`](../../../application-load-balancer/k8s-ref/http-route.md).
 
 `Service` — стандартный ресурс {{ k8s }}. В этом справочнике описаны поля и аннотации ресурса, с которыми работают инструменты {{ alb-name }} для {{ managed-k8s-name }}. Полный справочник ресурса см. в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).

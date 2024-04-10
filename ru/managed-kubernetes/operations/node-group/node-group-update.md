@@ -5,6 +5,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Изменение группы узлов {{ managed-k8s-name }}
 
+
 {% include [yc-node-group-list](../../../_includes/managed-kubernetes/node-group-list.md) %}
 
 Перед началом работы убедитесь, что в [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) достаточно [свободных ресурсов](../../concepts/limits.md).

@@ -137,7 +137,7 @@
     - AWS CLI {#aws-cli}
 
       ```bash
-      aws --endpoint https://storage.yandexcloud.net s3 cp \
+      aws --endpoint https://{{ s3-storage-host }} s3 cp \
         s3://<имя_бакета>/<префикс><имя_объекта> ./
       ```
 

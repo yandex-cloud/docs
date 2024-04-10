@@ -1,5 +1,6 @@
 # Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с помощью Sqoop
 
+
 {% include [What is the Sqoop](./header.md) %}
 
 ## Перед началом работы {#before-you-begin}

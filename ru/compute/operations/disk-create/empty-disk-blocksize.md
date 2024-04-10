@@ -5,6 +5,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Создать пустой диск с блоком большого размера
 
+
 {% include [default-catalogue](../../../_includes/compute/disk-blocksize.md) %}
 
 {% list tabs group=instructions %}

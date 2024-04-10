@@ -1,5 +1,6 @@
 # Трейл
 
+
 Трейл — это ресурс {{ at-name }}, который отвечает за сбор и доставку аудитных логов ресурсов {{ yandex-cloud }} в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}, [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }} или [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }}.
 
 ## Область сбора аудитных логов {#collecting-area}

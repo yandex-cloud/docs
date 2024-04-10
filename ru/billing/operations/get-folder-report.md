@@ -23,7 +23,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ billing-name }} {#billing}
+- {{ billing-interface }} {#billing}
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите аккаунт, для которого хотите получить детализацию.
@@ -75,7 +75,7 @@
    * {{ container-registry-short-name }} — идентификатор контейнера.
    * {{ k8s }} и {{ dataproc-name }} — идентификатор кластера.
    * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }} и {{ mkf-name }} — идентификатор хоста в кластере.
-   * {{ message-queue-name }} — идентификатор запроса.
+     * {{ message-queue-name }} — идентификатор запроса.
    * {{ sf-name }} — идентификатор функции.
    * {{ monitoring-short-name }}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }} и {{ vision-short-name }} — пустое значение.
    * Техническая поддержка — идентификатор подписки.

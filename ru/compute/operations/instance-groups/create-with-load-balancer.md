@@ -1,5 +1,6 @@
 # Создать группу виртуальных машин фиксированного размера с L7-балансировщиком
 
+
 Вы можете создать [группу ВМ](../../concepts/instance-groups/index.md) фиксированного размера, интегрированную с сервисом балансировки нагрузки [{{ alb-full-name }}](../../../application-load-balancer/). Вместе с группой [ВМ](../../concepts/vm.md) будет автоматически создана [целевая группа](../../../application-load-balancer/concepts/target-group.md) {{ alb-name }}, которую можно привязать к [балансировщику](../../../application-load-balancer/concepts/index.md) и распределять нагрузку между ВМ в группе на прикладном уровне. Подробнее см. в разделе [{#T}](../../concepts/instance-groups/balancers.md).
 
 {% include [alb-warning.md](../../../_includes/instance-groups/alb-warning.md) %}

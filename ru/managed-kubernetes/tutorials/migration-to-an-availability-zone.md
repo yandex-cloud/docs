@@ -1,5 +1,6 @@
 # Миграция ресурсов {{ managed-k8s-name }} в другую зону доступности
 
+
 {% note info %}
 
 {% include [zone-c-deprecation](../../_includes/vpc/zone-c-deprecation.md) %}
@@ -10,8 +11,6 @@
 
 1. [Перенесите мастер](#transfer-a-master).
 1. [Перенесите группу узлов и рабочую нагрузку в подах](#transfer-a-node-group).
-
-{% include [unable-migration-in-relocated-subnet](../../_includes/managed-kubernetes/unable-migration-in-relocated-subnet.md) %}
 
 ## Перед началом работы {#before-you-begin}
 

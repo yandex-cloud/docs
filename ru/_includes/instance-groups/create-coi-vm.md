@@ -134,7 +134,7 @@
 
      * `deploy_policy` — политика развертывания ВМ в группе.
      * `scale_policy` — политика масштабирования ВМ в группе.
-     * `allocation_policy` — политика распределения ВМ по зонам и регионам.
+     * `allocation_policy` — политика распределения ВМ по [зонам](../../overview/concepts/geo-scope.md) и регионам.
 
      Полный код файла `specification.yaml`:
 

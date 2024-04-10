@@ -4,6 +4,7 @@
 {% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
 
 
+
 В сценарии приводится пример развертывания Active Directory в {{ yandex-cloud }}.
 
 Чтобы развернуть инфраструктуру Active Directory:

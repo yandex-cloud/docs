@@ -1,3 +1,5 @@
+
+
 Платформа для распределенной трассировки [Jaeger](https://github.com/jaegertracing/jaeger) позволяет выполнять мониторинг состояния запросов в распределенных системах микросервисных приложений.
 
 В этой статье вы узнаете, как установить платформу Jaeger в [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и настроить ее для работы с [{{ ydb-full-name }}](../../ydb/):

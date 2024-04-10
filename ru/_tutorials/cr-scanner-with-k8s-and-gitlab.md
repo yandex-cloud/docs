@@ -1,5 +1,6 @@
 # Сканирование уязвимостей {{ container-registry-name }} при непрерывном развертывании приложений {{ managed-k8s-name }} с помощью {{ GL }}
 
+
 Вы можете [сканировать уязвимости](../container-registry/concepts/vulnerability-scanner.md) [Docker-образов](../container-registry/concepts/docker-image.md) в [{{ container-registry-full-name }}](../container-registry/) при непрерывном развертывании приложений [{{ managed-k8s-full-name }}](../managed-kubernetes/) через {{ GL }}.
 
 Для этого с помощью непрерывной интеграции ([Continuous Integration](/blog/posts/2022/10/ci-cd), CI) в {{ GL }} создается специальный сценарий, который запускается после каждого коммита:

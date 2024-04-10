@@ -1,5 +1,6 @@
 # Выгрузка данных {{ GP }} в холодное хранилище
 
+
 Данные {{ mgp-full-name }} хранятся на дисках кластера. С помощью [расширения {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }} эти данные можно перенести в холодное хранилище {{ objstorage-full-name }}. Тогда они будут храниться в служебном бакете в сжатом и зашифрованном виде. Это удобно, если данные нужно хранить долго, а работать с ними планируется редко. Так хранение [будет дешевле](../../../storage/pricing.md).
 
 {{ YZ }} поддерживает таблицы AO и AOCO (append-optimized storage). Подробнее о таблицах см. в разделе [{#T}](../../../managed-greenplum/concepts/tables.md) и [документации {{ GP }}](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-ddl-ddl-storage.html).

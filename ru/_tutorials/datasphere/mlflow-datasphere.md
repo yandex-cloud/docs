@@ -231,7 +231,7 @@
    * Добавьте в него следующие строки, подставив значение внутреннего IP вашей виртуальной машины:
 
      ```bash
-     MLFLOW_S3_ENDPOINT_URL=https://storage.yandexcloud.net/
+     MLFLOW_S3_ENDPOINT_URL=https://{{ s3-storage-host }}/
      MLFLOW_TRACKING_URI=http://<внутренний_IP-адрес_виртуальной_машины>:8000
      ```
 
@@ -290,7 +290,7 @@
    After=network.target
 
    [Service]
-   Environment=MLFLOW_S3_ENDPOINT_URL=https://storage.yandexcloud.net/
+   Environment=MLFLOW_S3_ENDPOINT_URL=https://{{ s3-storage-host }}/
    Restart=on-failure
    RestartSec=30
    StandardOutput=file:/home/<имя_пользователя_ВМ>/mlflow_logs/stdout.log
@@ -321,7 +321,7 @@
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. В поле **{{ ui-key.yc-ui-datasphere.secret.name }}** задайте имя секрета — `MLFLOW_S3_ENDPOINT_URL`.
-1. В поле **{{ ui-key.yc-ui-datasphere.secret.content }}** вставьте адрес — `https://storage.yandexcloud.net/`.
+1. В поле **{{ ui-key.yc-ui-datasphere.secret.content }}** вставьте адрес — `https://{{ s3-storage-host }}/`.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. Создайте еще три секрета:
    * `MLFLOW_TRACKING_URI` со значением `http://<внутренний_IP-адрес_виртуальной_машины>:8000`;

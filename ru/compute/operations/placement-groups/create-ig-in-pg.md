@@ -1,5 +1,6 @@
 # Создать группу виртуальных машин в группе размещения
 
+
 Вы можете создать [группу ВМ](../../concepts/instance-groups/index.md) в [группе размещения](../../concepts/placement-groups.md).
 
 {% list tabs group=instructions %}

@@ -1,6 +1,11 @@
 title: Партнерская программа Yandex Cloud
 href: index.yaml
 editable: false
+label:
+  title: RU
+  description: Сервис доступен только в регионе Россия.
+  theme: unknown
+  when: region == "kz"
 items:
   - name: Начало работы
     href: quickstart.md

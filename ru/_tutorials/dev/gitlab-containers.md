@@ -1,3 +1,5 @@
+
+
 [{{ GL }}](https://about.gitlab.com/) — инструмент [непрерывной интеграции (Continuous integration, CI)](/blog/posts/2022/10/ci-cd).
 
 В этом руководстве описаны:

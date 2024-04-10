@@ -1,3 +1,5 @@
+
+
 Чтобы настроить перенос данных из базы [Amazon RDS for {{ PG }}](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html) в базу {{ mpg-name }} с помощью сервиса {{ data-transfer-name }}:
 
 1. [Подготовьте тестовые данные](#prepare-data).

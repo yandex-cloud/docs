@@ -1,5 +1,6 @@
 # Настройка {{ dns-full-name }} для доступа к кластеру {{ mch-full-name }} из других облачных сетей
 
+
 {% include [mdb-peering-intro](../_tutorials_includes/mdb-dns-peering/intro.md) %}
 
 ## Перед началом работы {#before-you-begin}

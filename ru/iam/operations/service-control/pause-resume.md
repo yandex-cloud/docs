@@ -1,6 +1,9 @@
 # Приостановка и возобновление доступа сервисов
 
+
+
 {% include notitle [preview](../../../_includes/note-preview.md) %}
+
 
 В Yandex Identity and Access Management есть возможность приостанавливать и возобновлять [доступ сервисов](../../concepts/service-control.md) к ресурсам в облаке.
 

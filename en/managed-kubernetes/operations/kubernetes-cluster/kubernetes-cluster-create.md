@@ -2,8 +2,6 @@
 
 Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) and then [create a node group](../node-group/node-group-create.md).
 
-{% include [unable-in-relocated-subnet](../../../_includes/managed-kubernetes/unable-in-relocated-subnet.md) %}
-
 To create a cluster with no internet access, see the [{#T}](../../tutorials/k8s-cluster-with-no-internet.md) section.
 
 ## Getting started {#before-you-begin}

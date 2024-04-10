@@ -117,8 +117,6 @@
 
 ### {{ managed-k8s-name }} {#k8s}
 
-{% include [unable-migration-in-relocated-subnet](../../_includes/managed-kubernetes/unable-migration-in-relocated-subnet.md) %}
-
 Чтобы мигрировать кластер {{ managed-k8s-name }} из одной зоны доступности в другую:
 
 * [Перенесите мастер](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md#transfer-a-master).
@@ -135,14 +133,6 @@
 ### {{ vpc-name }} {#vpc}
 
 Миграция подсетей позволяет сохранить адресацию и настроенные IP-адреса обработчиков внутренних балансировщиков. Обратите внимание, что переместить можно только пустые подсети, к которым не подключены никакие ресурсы: ВМ, хосты БД, узлы {{ managed-k8s-name }} и другие.
-
-{% note alert %}
-
-Возможность миграции подсетей сейчас недоступна.
-
-Создание и миграция кластеров и групп узлов {{ managed-k8s-name }} временно недоступны в подсетях, перенесенных из зоны доступности `{{ region-id }}-c`.
-
-{% endnote %}
 
 Подсети можно [мигрировать](../../vpc/operations/subnet-relocate.md) с помощью команды `relocate`.
 

@@ -5,6 +5,7 @@
 ## Цены { #prices }
 
 
+
 {% include [rub](../_pricing/query/rub.md) %}
 
 

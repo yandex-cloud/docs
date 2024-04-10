@@ -1,5 +1,6 @@
 # Загрузка аудитных логов в {{ mos-full-name }}
 
+
 Создайте трейл, который будет загружать [аудитные логи](../audit-trails/concepts/format.md) ресурсов {{ yandex-cloud }} в поток данных [{{ yds-full-name }}](../data-streams/). Затем настройте непрерывную доставку логов в кластер {{ mos-full-name }} с помощью {{ data-transfer-full-name }}.
 
 ![audit-opensearch-schema](../_assets/mdb/audit-opensearch-schema.svg)

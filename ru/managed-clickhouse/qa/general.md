@@ -5,6 +5,7 @@ description: "Что такое {{ mch-name }}? Для каких задач с�
 
 # Общие вопросы про {{ mch-name }}
 
+
 {% include [general-minitoc](../../_qa/managed-clickhouse/minitoc/general.md) %}
 
 {% include [general](../../_qa/managed-clickhouse/general.md) %}

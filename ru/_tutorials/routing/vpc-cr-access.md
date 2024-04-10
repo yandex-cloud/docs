@@ -1,5 +1,6 @@
 # Подключение к {{ container-registry-name }} из {{ vpc-name }}
 
+
 Для работы с [{{ container-registry-name }}](../../container-registry/) облачным ресурсам требуется доступ в интернет. С помощью руководства вы развернете в {{ yandex-cloud }} облачную инфраструктуру для организации доступа к {{ container-registry-name }} для ресурсов, которые размещены в облачной сети [{{ vpc-name }}](../../vpc/concepts/) и не имеют публичных IP-адресов или выхода в интернет через [NAT-шлюз](../../vpc/concepts/gateways).
 
 {{ container-registry-short-name }} для хранения Docker-образов в реестре использует [{{ objstorage-name }}](../../storage/). В этом решении также организован доступ к {{ objstorage-name }} для ресурсов в {{ vpc-name }}.

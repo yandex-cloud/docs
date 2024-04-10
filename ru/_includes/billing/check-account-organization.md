@@ -1,6 +1,6 @@
 {% list tabs group=instructions %}
 
-- Интерфейс {{ billing-name }} {#billing}
+- {{ billing-interface }} {#billing}
 
   1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
   1. У аккаунтов, [добавленных в организацию](../../billing/concepts/organization.md), появится ее идентификатор в столбце **{{ ui-key.yacloud_billing.billing.account.overview.account-data_label_organization }}**.

@@ -1,6 +1,6 @@
 {% list tabs group=instructions %}
 
-- Интерфейс {{ billing-name }} {#billing}
+- {{ billing-interface }} {#billing}
 
   1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
   1. Выберите аккаунт, идентификатор которого хотите узнать.

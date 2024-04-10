@@ -119,8 +119,8 @@ description: "Следуя данной инструкции, вы сможет�
 * [{{ PG }}](../target/postgresql.md);
 * [{{ MY }}](../target/mysql.md);
 * [{{ CH }}](../target/clickhouse.md);
-* [{{ GP }}](../target/greenplum.md);
-* [{{ ydb-full-name }}](../target/yandex-database.md).
+* [{{ ydb-full-name }}](../target/yandex-database.md);
+* [{{ GP }}](../target/greenplum.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

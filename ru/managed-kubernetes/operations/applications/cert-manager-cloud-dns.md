@@ -1,5 +1,6 @@
 # Установка cert-manager c плагином {{ dns-full-name }} ACME webhook
 
+
 [cert-manager](https://cert-manager.io) — приложение, которое добавляет сертификаты и эмитентов сертификатов в качестве типов ресурсов в [кластерах {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и упрощает процесс получения, обновления и использования этих сертификатов. Например, при получении сертификатов [Let's Encrypt®](https://letsencrypt.org/) можно пройти следующие виды [проверок](https://letsencrypt.org/ru/docs/challenge-types) для подтверждения владения доменом:
 
 * [DNS-01](https://letsencrypt.org/ru/docs/challenge-types/#проверка-dns-01). Для прохождения проверки используется сервис [{{ dns-full-name }}](../../../dns/). Вместе с cert-manager устанавливается плагин {{ dns-full-name }} ACME webhook, который обеспечивает интеграцию с сервисом.

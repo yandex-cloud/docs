@@ -1,5 +1,6 @@
 # Как начать работать с {{ alb-full-name }}
 
+
 С помощью этой инструкции вы создадите первый L7-балансировщик, подключите к нему целевую группу и настроите передачу трафика на бэкенд тестового приложения.
 
 ## Перед началом работы {#before-begin}
@@ -7,6 +8,7 @@
 1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md). Во время создания каталога вы можете создать виртуальную сеть по умолчанию с подсетями во всех зонах доступности.
+
 
 ## Создайте ВМ и запустите на ней тестовый веб-сервер {#create-vm}
 
@@ -162,9 +164,10 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
   1. Введите имя балансировщика: `test-load-balancer`.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть, в подсетях которой будет размещаться узлы балансировщика.
-  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите подсети для узлов балансировщика в каждой зоне доступности и включите передачу трафика.
+  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите для узлов балансировщика подсети в разных [зонах доступности](../overview/concepts/geo-scope.md) и включите прием трафика в этих подсетях.
 
-      {% include [subnets-required](../_includes/application-load-balancer/subnets-required.md) %}
+      Чтобы не создавать узел балансировщика в определенной зоне доступности, нажмите ![xmark](../_assets/console-icons/xmark.svg) в соответствующей строке.
+
 
   1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**. Задайте настройки обработчика:
       1. Введите имя обработчика: `test-listener`.
@@ -181,9 +184,7 @@
       ```bash
       yc alb load-balancer create test-load-balancer \
         --network-name <имя_сети> \
-        --location subnet-name=<имя_подсети_в_зоне_{{ region-id }}-a>,zone={{ region-id }}-a \
-        --location subnet-name=<имя_подсети_в_зоне_{{ region-id }}-b>,zone={{ region-id }}-b \
-        --location subnet-name=<имя_подсети_в_зоне_{{ region-id }}-d>,zone={{ region-id }}-d
+        --location subnet-name=<имя_подсети_в_зоне_{{ region-id }}-a>,zone={{ region-id }}-a
       ```
 
   1. Добавьте обработчик:

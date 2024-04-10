@@ -1,5 +1,6 @@
 # Установка Filebeat OSS
 
+
 [Filebeat OSS](https://www.elastic.co/beats/filebeat) — плагин, который позволяет собирать и передавать логи в экосистему {{ OS }}. Filebeat OSS устанавливается в кластер [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster), собирает логи кластера и [подов](../../concepts/index.md#pod), а затем отправляет их в сервис [{{ mos-full-name }}](../../../managed-opensearch/).
 
 ## Перед началом работы {#before-you-begin}
@@ -12,7 +13,7 @@
 1. Включите режим совместимости для поддержки клиента Filebeat OSS в {{ OS }}. Для этого выполните запрос:
 
    ```bash
-   wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" && \
+   wget "{{ crt-web-path }}" && \
    curl --user <имя_пользователя>:<пароль> --cacert CA.pem \
    --request PUT https://<имя_хоста_с_ролью_DATA>:{{ port-mos }}/_cluster/settings \
    -H "Content-Type: application/json" -d \

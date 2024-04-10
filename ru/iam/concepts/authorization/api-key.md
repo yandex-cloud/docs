@@ -1,5 +1,6 @@
 # API-ключ
 
+
 _API-ключ_ — секретный ключ, используемый для упрощенной авторизации в API {{ yandex-cloud }}. API-ключи используются только для авторизации [сервисного аккаунта](../users/service-accounts.md).
 
 {% include [api-keys-disclaimer](../../../_includes/iam/api-keys-disclaimer.md) %}

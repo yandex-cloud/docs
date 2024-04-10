@@ -1,5 +1,6 @@
 # Подключение тома в блочном режиме
 
+
 Чтобы подключить [том в режиме](../../concepts/volume.md#block) `volumeMode: Block`:
 1. [{#T}](#create-pvc).
 1. [{#T}](#create-pod).

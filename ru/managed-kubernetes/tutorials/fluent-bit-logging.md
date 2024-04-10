@@ -5,6 +5,7 @@ description: "Обработчик логов Fluent Bit позволяет тр
 
 # Настройка Fluent Bit для работы с {{ cloud-logging-full-name }}
 
+
 {% note info %}
 
 Включить отправку логов [мастера {{ managed-k8s-name }}](../concepts/index.md#master) в [{{ cloud-logging-name }}](../../logging/) можно с помощью настройки `master logging` при [создании](../operations/kubernetes-cluster/kubernetes-cluster-create.md) или [изменении](../operations/kubernetes-cluster/kubernetes-cluster-update.md) [кластера](../concepts/index.md#kubernetes-cluster). Настройка доступна только через API, CLI и {{ TF }}. Подробнее см. в руководстве [Передача логов кластера {{ managed-k8s-name }} в {{ cloud-logging-name }}](../../logging/tutorials/k8s-fluent-bit-logging.md#master-logging).

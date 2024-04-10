@@ -1,5 +1,6 @@
 # Установка Policy Reporter
 
+
 [Policy Reporter](https://kyverno.github.io/policy-reporter/) предназначен для работы с результатами срабатываний Kyverno-политик — [PolicyReports](https://kyverno.io/docs/policy-reports/). Также он поддерживает инструменты Falco, jsPolicy, Kube Bench и Trivy. Policy Reporter позволяет визуализировать результаты в графическом виде. Для долгосрочного хранения или дальнейшей загрузки в SIEM-систему результаты можно выгрузить во внешнее хранилище, например в [{{ objstorage-full-name }} (S3)](../../../storage/) или [{{ yds-full-name }}](../../../data-streams/).
 
 {% note warning %}

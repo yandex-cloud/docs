@@ -1,5 +1,6 @@
 # Миграция базы данных из Google BigQuery в {{ mch-name }}
 
+
 Вы можете перенести базу данных из Google BigQuery в {{ mch-full-name }} и затем проанализировать ее с помощью {{ datalens-full-name }}.
 
 Таблица переносится в сжатом виде в бакет Google Storage, а из него в бакет {{ objstorage-full-name }}. Затем данные импортируются в кластер {{ mch-name }}, где их можно проанализировать с помощью {{ datalens-full-name }}.

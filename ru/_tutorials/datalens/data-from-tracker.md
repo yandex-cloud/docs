@@ -5,6 +5,7 @@ description: "Для визуализация данных из {{ tracker-short
 
 # Визуализация данных из {{ tracker-full-name }}
 
+
 Визуализация данных из {{ tracker-short-name }} в {{ datalens-full-name }} позволяет построить более сложную аналитику, чем это возможно средствами самого {{ tracker-short-name }}.
 
 Для визуализации данных из {{ tracker-short-name }} в {{ datalens-short-name }} необходимо:

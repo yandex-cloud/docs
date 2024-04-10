@@ -1,5 +1,6 @@
 # Установка HashiCorp Vault с поддержкой {{ kms-name }}
 
+
 [HashiCorp Vault](https://www.vaultproject.io/) — инструмент с открытым исходным кодом, который обеспечивает безопасное хранение и доступ к различным секретам (паролям, сертификатам, токенам).
 
 Образ приложения содержит предустановленную сборку HashiCorp Vault, которая при помощи [{{ kms-full-name }}](../../../kms/) дополнительно поддерживает [Auto Unseal](https://developer.hashicorp.com/vault/docs/concepts/seal#auto-unseal). Сборка подготовлена на основе [HashiCorp Vault](https://github.com/hashicorp/vault/tags) соответствующей версии.

@@ -1,5 +1,6 @@
 # Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз данных из других облачных сетей
 
+
 {% include [mdb-peering-intro](../_tutorials_includes/mdb-dns-peering/intro.md) %}
 
 ## Перед началом работы {#before-you-begin}

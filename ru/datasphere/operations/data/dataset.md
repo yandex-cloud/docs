@@ -116,7 +116,7 @@
   source_path = ''
   target_path = '/home/jupyter/mnt/datasets/<имя_датасета>/'
 
-  s3r = boto3.resource(service_name='s3', endpoint_url='https://storage.yandexcloud.net', **S3_CREDS)
+  s3r = boto3.resource(service_name='s3', endpoint_url='https://{{ s3-storage-host }}', **S3_CREDS)
   bucket = s3r.Bucket(bucket_name)
 
   for obj in bucket.objects.filter(Prefix=source_path):

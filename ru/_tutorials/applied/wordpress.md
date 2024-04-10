@@ -1,5 +1,6 @@
 # Создание сайта на WordPress
 
+
 Создайте и настройте веб-сайт на базе CMS WordPress с помощью специального [образа](../../compute/concepts/image.md) [виртуальной машины](../../compute/concepts/vm.md).
 
 Чтобы настроить веб-сайт на WordPress:

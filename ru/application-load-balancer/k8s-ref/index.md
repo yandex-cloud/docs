@@ -6,6 +6,7 @@ description: "На странице представлен справочник 
 # Справочник инструментов {{ alb-name }} для {{ managed-k8s-name }}
 
 
+
 {{ alb-name }} предоставляет инструменты, которые позволяют разворачивать L7-балансировщики нагрузки в кластерах {{ managed-k8s-full-name }}: [Ingress-контроллер](../tools/k8s-ingress-controller/index.md) и [Gateway API](../tools/k8s-gateway-api/index.md). В справочнике описаны конфигурации ресурсов {{ k8s }}, по которым Ingress-контроллер и Gateway API разворачивают инфраструктуру.
 
 

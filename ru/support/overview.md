@@ -30,6 +30,7 @@
 * [ваши персональные данные](request.md#personal), которые хранит Яндекс.
 
 
+
 ## С какими запросами можно обратиться {#request-types}
 
 
@@ -58,6 +59,7 @@
 | Рекомендации по устранению проблем с совместимостью стороннего программного обеспечения (непосредственная помощь в решении)                                               |                                     |                                     | ![image](../_assets/common/yes.svg) |
 | Консультации выделенного инженера по архитектурным решениям с учетом вашего сценария использования сервисов {{ yandex-cloud }}.                                           |                                     |                                     | ![image](../_assets/common/yes.svg) |
 | Персональный технический менеджер                                                                                                                                         |                                     |                                     | ![image](../_assets/common/yes.svg) |
+
 
 
 Инженеры службы технической поддержки {{ yandex-cloud }} не решают задачи:
@@ -89,3 +91,5 @@
 
 {% include [change-tariff](../_includes/support/change-pricing.md) %}
 
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}
