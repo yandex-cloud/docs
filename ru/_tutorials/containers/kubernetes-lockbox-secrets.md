@@ -128,7 +128,7 @@
 
    ```bash
    kubectl --namespace ns apply -f - <<< '
-   apiVersion: external-secrets.io/v1alpha1
+   apiVersion: external-secrets.io/v1beta1
    kind: SecretStore
    metadata:
      name: secret-store
@@ -147,7 +147,7 @@
 
    ```bash
    kubectl --namespace ns apply -f - <<< '
-   apiVersion: external-secrets.io/v1alpha1
+   apiVersion: external-secrets.io/v1beta1
    kind: ExternalSecret
    metadata:
      name: external-secret
