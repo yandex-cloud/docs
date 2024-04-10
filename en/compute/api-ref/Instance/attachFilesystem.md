@@ -8,10 +8,6 @@ Attaches the filesystem to the instance.
  
 The instance and the filesystem must reside in the same availability zone.
 
-To attach a filesystem, the instance must have a `STOPPED` status ([Instance.status](/docs/compute/api-ref/Instance#representation)).
-To check the instance status, make a [get](/docs/compute/api-ref/Instance/get) request.
-To stop the running instance, make a [stop](/docs/compute/api-ref/Instance/stop) request.
-
 To use the instance with an attached filesystem, the latter must be mounted.
 For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm).
  

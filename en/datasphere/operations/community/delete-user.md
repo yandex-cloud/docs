@@ -11,8 +11,7 @@ You can only remove a user if you have the `{{ roles-datasphere-communities-admi
 
 {% endnote %}
 
-1. Open the {{ ml-platform-name }} [home page]({{ link-datasphere-main }}).
-1. In the left-hand panel, select ![community-panel](../../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. {% include [ui-find-community](../../../_includes/datasphere/ui-find-community.md) %}
 1. Select the community to remove users from.
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.members }}** tab.
 1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the user and select **{{ ui-key.yc-ui-datasphere.common.member.remove }}**.

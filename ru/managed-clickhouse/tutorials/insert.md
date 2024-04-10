@@ -145,7 +145,7 @@ Buffer(database, table, num_layers, min_time, max_time, min_rows, max_rows, min_
    
    Подробнее о поддерживаемых типах данных см. в документации [Cap'n Proto](https://capnproto.org/language.html), [Protobuf](https://developers.google.com/protocol-buffers/docs/proto3) и [{{ CH }}]({{ ch.docs }}/sql-reference/data-types/).
 
-1. [Подключитесь к кластеру](../operations/connect.md) и создайте таблицу `db1.users` нужного вида, если ее еще не существует:
+1. [Подключитесь к кластеру](../operations/connect/clients.md) и создайте таблицу `db1.users` нужного вида, если ее еще не существует:
 
    ```sql
    CREATE TABLE IF NOT EXISTS db1.users (id UInt64, name String)
@@ -361,7 +361,7 @@ pip3 install protobuf varint pycapnp
      
    {% endlist %}
 
-   О том, как получить FQDN хоста, см. [инструкцию](../operations/connect.md#fqdn).
+   О том, как получить FQDN хоста, см. [инструкцию](../operations/connect/fqdn.md).
 
 ### Вставка данных {#insert-data}
 
@@ -383,7 +383,7 @@ pip3 install protobuf varint pycapnp
    
    {% endlist %}
    
-1. [Подключитесь к кластеру](../operations/connect.md) и проверьте, что данные были успешно вставлены, выполнив запрос `SELECT`: 
+1. [Подключитесь к кластеру](../operations/connect/clients.md) и проверьте, что данные были успешно вставлены, выполнив запрос `SELECT`: 
 
    {% list tabs group=data_format %}
 

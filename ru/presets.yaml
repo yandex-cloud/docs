@@ -26,6 +26,7 @@ default:
   api-host-sk-stt: stt.api.cloud.yandex.net
   api-host-sk-tts: tts.api.cloud.yandex.net
   api-url-prefix: /docs
+  art-freetier: 10
   at-event-prefix: yandex.cloud
   at-full-name: Yandex Audit Trails
   at-name: Audit Trails
@@ -156,6 +157,7 @@ default:
   forms-full-name: Yandex Forms
   forms-name: Forms
   foundation-models-full-name: Yandex Foundation Models
+  foundation-models-name: Foundation Models
   GL: GitLab
   gl:
     docs: https://docs.gitlab.com
@@ -167,7 +169,7 @@ default:
     docs:
       pivotal: https://gpdb.docs.pivotal.io
       vmware: https://docs.vmware.com/en/VMware-Greenplum
-  gpt-freetier: 100
+  gpt-freetier: 10
   gpt-lite: YandexGPT Lite
   gpt-pro: YandexGPT Pro
   grafana-name: Grafana
@@ -505,6 +507,7 @@ default:
   roles-vpc-private-admin: vpc.privateAdmin
   roles-vpc-public-admin: vpc.publicAdmin
   roles-vpc-user: vpc.user
+  roles-yaart-user: ai.imageGeneration.user
   roles-yagpt-user: ai.languageModels.user
   roles:
     gitlab:
@@ -601,6 +604,8 @@ default:
   speechsense-name: SpeechSense
   SPRK: Apache Spark™
   storage-aws-cli-alias: ycs3
+  sts-host: sts.yandexcloud.net
+  sts-name: Security Token Service
   stt-long-audioLength: 4 часа
   stt-long-fileSize: 1 ГБ
   stt-long-resultsStorageTime: 3 суток
@@ -683,6 +688,7 @@ default:
   yandex-cloud: Yandex Cloud
   yandex-direct: Яндекс Директ
   yandex-oauth: Яндекс.OAuth
+  yandexart-name: YandexART
   yc-compute: yc compute
   yc-compute-ig: yc compute instance-group
   yc-dp: yc dataproc
@@ -758,7 +764,7 @@ default:
           6|int|string: "440\_₽"
   sku|RUB|backup:
     protected_vms:
-      v1|string: "238,80\_₽"
+      v1|string: Не тарифицируется
     used_space:
       v1|month|string: "4,20\_₽"
   sku|RUB|cdn:
@@ -1667,7 +1673,7 @@ default:
         v1|string: Не тарифицируется
   sku|USD|backup:
     protected_vms:
-      v1|string: "1,910400\_$"
+      v1|string: Не тарифицируется
     used_space:
       v1|month|string: "0,033600\_$"
   sku|USD|cdn:
@@ -3458,6 +3464,7 @@ default:
           dashboard-resources:
             title_section-billable: Привязанные облака и сервисы
           dashboard:
+            button_go-pay: Перейти на платную версию
             card_label_threshold-description: Подробнее
             label_inactivation: Удалить
             label_rename: Переименовать
@@ -3489,6 +3496,8 @@ default:
         field_theme-contrast: Контрастность
         label_monitoring-name: Мониторинг
         label_telegram: Telegram
+        section_settings: Настройки уведомлений
+        section_transports: Способы уведомления
       usermenu:
         label_login: Войти
     yacloud_monitoring:
@@ -4007,7 +4016,6 @@ default:
           button_billing-payment-action: Перейти на платную версию
           button_download-action: Скачать
           create-new:
-            account_label_new: Новый плательщик
             account-type_label_company: Бизнес-аккаунт
             account-type_label_individual: Личный аккаунт
             label_title: Создание платежного аккаунта
@@ -4029,7 +4037,6 @@ default:
             section_resources: Облака
           dashboard:
             button_refill: Пополнить счет
-            label_rename: Переименовать аккаунт
             popup-grant-activation_button_activate: Активировать
           detail:
             button_create-periodic-export: Регулярный экспорт
@@ -4068,7 +4075,6 @@ default:
             column_description: Описание
             column_money: Сумма платежа
             column_status: Статус
-          label_accounts: Список аккаунтов
           label_consumption: Потребление
           overview:
             button_bind-card-apply: Применить
@@ -4973,6 +4979,8 @@ default:
             title_consumption-history: История потребления
             title_current-state: Текущее состояние
             title_states-history: История состояний
+          pxf:
+            action_edit-settings: Изменить настройки PXF
           user-auth:
             action_add-rule: Добавить правило
             action_edit-rules: Редактировать правила
@@ -4991,6 +4999,7 @@ default:
         field_hosts-count: Количество хостов
         field_restore-only: БД и таблицы для восстановления
         field_segments-in-host: Сегментов на хост
+        label_pxf: PXF
         label_user-auth: Аутентификация пользователей
         label-analyze-timeout: Таймаут ANALYZE
         label-start-time: Время старта (UTC)
@@ -5665,7 +5674,7 @@ default:
           additional-field-serverless: Доступ из Serverless
           additional-field-websql: Доступ из консоли управления
           additional-field-yandex-query_ru: Доступ из Yandex Query
-          backup-retain-period: Срок хранения автоматических резервных копии, дней
+          backup-retain-period: Срок хранения автоматических резервных копий, дней
           backup-window-start: Начало резервного копирования (UTC)
           base_field_description: Описание
           base_field_environment: Окружение
@@ -5833,6 +5842,9 @@ default:
       postgresql:
         cluster:
           additional-field-pooling_mode: Режим работы менеджера подключений
+          field_diskSizeLimit: Новый размер хранилища
+          field_thresholds: Увеличивать размер
+          section_disk-scaling: Автоматическое увеличение размера хранилища
           switch_backups: Резервные копии
           switch_databases: Базы данных
           switch_datalens: DataLens
@@ -6027,7 +6039,6 @@ default:
             field_ymq-cutoff: Время ожидания, с
             label_any-budget: Все бюджеты
             label_billing-budget: Бюджет
-            label_cloud-logs: Cloud Logs
             label_container: Контейнер
             label_container-registry: Container Registry
             label_data-streams: Data Streams
@@ -6042,7 +6053,6 @@ default:
             section_base: Базовые параметры
             section_batch-settings: Настройки группирования сообщений
             section_billing-budget: Настройки бюджета
-            section_cloud-logs: Настройки Cloud Logs
             section_container: Настройки контейнера
             section_container-registry: Настройки Container Registry
             section_data-streams: Настройки Data Streams
@@ -6120,10 +6130,16 @@ default:
         label_section-customization: Настройка внешнего вида
         label_section-style: Внешний вид
         label_server-key: Ключ сервера
+        value_challenge-image_text: Распознавание текста
+        value_challenge-kaleidoscope: Калейдоскоп
+        value_challenge-silhouettes: Силуэты
         value_complexity-easy: Легкая
+        value_complexity-force_hard: Максимальная
         value_complexity-hard: Высокая
         value_complexity-medium: Средняя
         value_config-standard: Стандартный
+        value_pre-check-checkbox: Чекбокс
+        value_pre-check-slider: Слайдер
       storage:
         bucket:
           button_action-permissions: ACL объекта
@@ -7508,7 +7524,6 @@ default:
         models: Модели
         more: Еще
         name: Имя
-        never: Никогда
         overview: Обзор
         pin: Закрепить
         port: Порт
@@ -7551,9 +7566,7 @@ default:
         balance: Баланс проекта
         dataproc-cluster: Кластер Data Proc
         dedicated-vm-inactivity-timeout: Остановить простаивающую ВМ через
-        description: Описание
         name: Имя
-        period-of-inactivity: Прерывать ячейки с низкой нагрузкой через
         security-group: Группа безопасности
       external-ide:
         external-ide-vm-configuration: Конфигурация ВМ для удаленного подключения
@@ -7865,7 +7878,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.1.25
+        tag: v0.2.0
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
@@ -7874,7 +7887,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/cert-manager-webhook-yandex/cert-manager-webhook-yandex
-        tag: 1.0.8
+        tag: 1.0.8-1
     yc_chaos-mesh:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/chaos-mesh/chaos-mesh
@@ -7938,7 +7951,7 @@ default:
     yc_loki:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
-        tag: 1.1.1
+        tag: 1.1.2
     yc_metric-provider:
       helmChart:
         name: >-
@@ -7955,7 +7968,7 @@ default:
     yc_prometheus-operator:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/prometheus/kube-prometheus-stack
-        tag: 45.9.1-2
+        tag: 57.2.0-1
     yc_thumbor:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor
@@ -7967,4 +7980,4 @@ default:
     yc_velero-yc-csi:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero
-        tag: 2.30.4
+        tag: 2.30.4-1

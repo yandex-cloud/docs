@@ -1,0 +1,284 @@
+title: Yandex Foundation Models
+href: index.yaml
+stage: preview
+items:
+  - name: Начало работы
+    items:
+      - name: Начало работы с {{ yagpt-full-name }}
+        href: quickstart/yandexgpt.md
+      - name: Начало работы с {{ yandexart-name }}
+        href: quickstart/yandexart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: '{{ yagpt-full-name }}'
+        items:
+          - name: Отправить запрос в режиме чата
+            href: operations/yandexgpt/create-chat.md
+          - name: Отправить запрос в промт-режиме
+            href: operations/yandexgpt/create-prompt.md
+          - name: Отправить запрос к дообученной модели
+            href: operations/yandexgpt/finetune.md
+          - name: Отправить асинхронный запрос
+            href: operations/yandexgpt/async-request.md
+          - name: Отключить логирование запросов
+            href: operations/yandexgpt/disable-logging.md
+      - name: '{{ yandexart-name }}'
+        items:
+          - name: Сгенерировать изображение
+            href: operations/yandexart/request.md
+  - name: Концепции
+    items:
+      - name: О сервисе {{ foundation-models-full-name }}
+        href: concepts/index.md
+      - name: '{{ yagpt-full-name }}'
+        items:
+          - name: Обзор {{ yagpt-full-name }}
+            href: concepts/yandexgpt/index.md
+          - name: Модели
+            href: concepts/yandexgpt/models.md
+          - name: Токены
+            href: concepts/yandexgpt/tokens.md
+      - name: Эмбеддинги
+        href: concepts/embeddings.md
+      - name: '{{ yandexart-name }}'
+        items:
+          - name: Обзор {{ yandexart-name }}
+            href: concepts/yandexart/index.md
+          - name: Модели
+            href: concepts/yandexart/models.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Практические руководства
+    items:
+      - name: Дообучение модели {{ yagpt-name }}
+        href: tutorials/yagpt-tuning.md
+  - name: Справочники API
+    items:
+      - name: Обзор
+        href: concepts/api.md
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: Миграция на YandexGPT API v1 и Embeddings API v1
+        href: api-ref/migration-to-v1.md
+      - name: '{{ yagpt-full-name }} (англ.)'
+        items:
+          - name: REST
+            items:
+              - name: Overview
+                href: text-generation/api-ref/index.md
+              - name: TextGeneration
+                items:
+                  - name: Overview
+                    href: text-generation/api-ref/TextGeneration/index.md
+                  - name: completion
+                    href: text-generation/api-ref/TextGeneration/completion.md
+              - name: TextGenerationAsync
+                items:
+                  - name: Overview
+                    href: text-generation/api-ref/TextGenerationAsync/index.md
+                  - name: completion
+                    href: text-generation/api-ref/TextGenerationAsync/completion.md
+              - name: Tokenizer
+                items:
+                  - name: Overview
+                    href: text-generation/api-ref/Tokenizer/index.md
+                  - name: tokenize
+                    href: text-generation/api-ref/Tokenizer/tokenize.md
+                  - name: tokenizeCompletion
+                    href: text-generation/api-ref/Tokenizer/tokenizeCompletion.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: text-generation/api-ref/grpc/index.md
+              - name: TextGenerationService
+                href: text-generation/api-ref/grpc/text_generation_service.md
+              - name: TextGenerationAsyncService
+                href: text-generation/api-ref/grpc/TextGenerationAsyncService.md
+              - name: TokenizerService
+                href: text-generation/api-ref/grpc/TokenizerService.md
+              - name: OperationService
+                href: text-generation/api-ref/grpc/operation_service.md
+      - name: Embeddings API (англ.)
+        items:
+          - name: REST
+            items:
+              - name: Overview
+                href: embeddings/api-ref/index.md
+              - name: Embeddings
+                items:
+                  - name: Overview
+                    href: embeddings/api-ref/Embeddings/index.md
+                  - name: textEmbedding
+                    href: embeddings/api-ref/Embeddings/textEmbedding.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: embeddings/api-ref/grpc/index.md
+              - name: EmbeddingsService
+                href: embeddings/api-ref/grpc/embedding_service.md
+      - name: ' {{ yandexart-name }} (англ.)'
+        items:
+          - name: REST
+            items:
+              - name: Overview
+                href: image-generation/api-ref/index.md
+              - name: ImageGenerationAsync
+                items:
+                  - name: Overview
+                    href: image-generation/api-ref/ImageGenerationAsync/index.md
+                  - name: generate
+                    href: image-generation/api-ref/ImageGenerationAsync/generate.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: image-generation/api-ref/grpc/index.md
+              - name: ImageGenerationAsyncService
+                href: image-generation/api-ref/grpc/image_generation_service.md
+              - name: OperationService
+                href: image-generation/api-ref/grpc/operation_service.md
+      - name: API v1alpha (устаревший)
+        items:
+          - name: REST (англ.)
+            items:
+              - name: Overview
+                href: api-ref/v1alpha/index.md
+              - name: TextGeneration
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/TextGeneration/index.md
+                  - name: chat
+                    href: api-ref/v1alpha/TextGeneration/chat.md
+                  - name: instruct
+                    href: api-ref/v1alpha/TextGeneration/instruct.md
+              - name: Tokenizer
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/Tokenizer/index.md
+                  - name: tokenize
+                    href: api-ref/v1alpha/Tokenizer/tokenize.md
+              - name: Embeddings
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/Embeddings/index.md
+                  - name: embedding
+                    href: api-ref/v1alpha/Embeddings/embedding.md
+              - name: TextGenerationAsync
+                items:
+                  - name: Overview
+                    href: api-ref/v1alpha/TextGenerationAsync/index.md
+                  - name: instruct
+                    href: api-ref/v1alpha/TextGenerationAsync/instruct.md
+          - name: gRPC (англ.)
+            items:
+              - name: Overview
+                href: api-ref/v1alpha/grpc/index.md
+              - name: TextGenerationService
+                href: api-ref/v1alpha/grpc/llm_service.md
+              - name: TokenizerService
+                href: api-ref/v1alpha/grpc/TokenizerService.md
+              - name: EmbeddingsService
+                href: api-ref/v1alpha/grpc/EmbeddingsService.md
+              - name: TextGenerationAsyncService
+                href: api-ref/v1alpha/grpc/TextGenerationAsyncService.md
+              - name: OperationService
+                href: api-ref/v1alpha/grpc/operation_service.md
+  - name: Библиотека промтов {{ yagpt-full-name }}
+    items:
+      - name: Все промты
+        href: prompts/yandexgpt/index.md
+      - name: Контент
+        items:
+          - name: Исправление ошибок
+            href: prompts/yandexgpt/content-fixing-errors.md
+          - name: Написание текста
+            href: prompts/yandexgpt/content-write-text.md
+          - name: Локализация текста
+            href: prompts/yandexgpt/content-text-localization.md
+      - name: Маркетинг
+        items:
+          - name: Генерация заголовка текста
+            href: prompts/yandexgpt/marketing-header-generation.md
+          - name: Генерация описания товара
+            href: prompts/yandexgpt/marketing-description-generation.md
+          - name: Генерация рекламного объявления
+            href: prompts/yandexgpt/marketing-ad-generation.md
+          - name: Стилизация текста
+            href: prompts/yandexgpt/marketing-text-customization.md
+      - name: HR
+        items:
+          - name: Генерация вопросов для интервью
+            href: prompts/yandexgpt/hr-generating-questions.md
+          - name: Создание плана изучения навыка
+            href: prompts/yandexgpt/hr-create-plan.md
+      - name: Клиентский сервис
+        items:
+          - name: Генерация ответа на отзыв
+            href: prompts/yandexgpt/customer-service-generating-response.md
+          - name: Переписывание ответа
+            href: prompts/yandexgpt/customer-service-rewrite-response.md
+          - name: Классификация обращений
+            href: prompts/yandexgpt/customer-service-classification-appeals.md
+      - name: Автоматизация
+        items:
+          - name: Распознавание именованных сущностей
+            href: prompts/yandexgpt/automation-ner.md
+          - name: Нормализация чисел и дат
+            href: prompts/yandexgpt/automation-normalization.md
+      - name: Общекорпоративные функции
+        items:
+          - name: Краткий пересказ статьи
+            href: prompts/yandexgpt/general-functions-summarization.md
+          - name: Создание таблицы
+            href: prompts/yandexgpt/general-functions-create-table.md
+  - name: Библиотека промтов {{ yandexart-name }}
+    items:
+      - name: Все промты
+        href: prompts/yandexart/index.md
+      - name: Маркетинг
+        items:
+          - name: Реклама сумки
+            href: prompts/yandexart/marketing-accessory.md
+          - name: Реклама еды для собак
+            href: prompts/yandexart/marketing-food.md
+          - name: Идеи дизайна чайника
+            href: prompts/yandexart/marketing-pot.md
+      - name: Иллюстрации для книг и презентаций
+        items:
+          - name: Город будущего
+            href: prompts/yandexart/illustrations-city.md
+          - name: Изображение интерьера
+            href: prompts/yandexart/illustrations-interior.md
+          - name: Изображение природы
+            href: prompts/yandexart/illustrations-nature.md
+      - name: Изображения для социальных сетей
+        items:
+          - name: Иллюстрация для детей
+            href: prompts/yandexart/social-network-animation.md
+          - name: Изображение мыши-путешественницы
+            href: prompts/yandexart/social-network-cheese.md
+          - name: Изображение электроники
+            href: prompts/yandexart/social-network-electronics.md
+          - name: Обложка для поста
+            href: prompts/yandexart/social-network-spring.md
+      - name: Логотипы и иконки
+        items:
+          - name: Логотип с птицей
+            href: prompts/yandexart/logo-bird.md
+          - name: Иконка с банком
+            href: prompts/yandexart/logo-bank.md
+          - name: Изображение электроники
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: История изменений
+    href: release-notes/index.md
+  - name: Решение проблем
+    items:
+      - name: Вопросы и ответы
+        href: qa/index.md
+      - name: Коды ошибок
+        href: troubleshooting/error-codes.md
+base: ru/foundation-models

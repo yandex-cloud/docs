@@ -211,6 +211,10 @@ items:
         href: metrics-ref/storage-ref.md
       - name: '{{ captcha-name }}'
         href: metrics-ref/captcha-ref.md
+      - name: '{{ sws-name }}'
+        href: metrics-ref/smartwebsecurity-ref.md
+  - name: Release notes
+    href: release-notes.md
   - name: FAQ
     items:
       - name: General questions

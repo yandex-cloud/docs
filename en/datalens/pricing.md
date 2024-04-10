@@ -2,46 +2,46 @@
 editable: false
 ---
 
-# {{ datalens-full-name }} pricing policy
+# {{ datalens-full-name }} pricing
 
 ## Current pricing policy {#effective-rules}
 
-Currently, {{ datalens-full-name }} is provided free of charge, regardless of the number of users, sessions, or requests.
+The service is provided free of charge without limitations on the number of users, sessions, or requests.
 
-## Pricing policy starting April 23, 2024 {#service-plans}
+## Pricing policy as of April 23, 2024 {#service-plans}
 
-Starting April 23, 2024, {{ datalens-full-name }} will have the Community and Business service plans that differ in terms of features and services. The service plan you choose will apply to your entire organization. Only the organization owner or admin will be able to switch to another service plan.
+Starting April 23, 2024, {{ datalens-full-name }} is introducing the Community and Business service plans offering different service packages. The selected plan covers an organization and can only be changed by its owner or administrator.
 
-From April 23 to June 1, 2024, you can test our service plans at no charge. This will allow you to choose the plan that best fits your needs. Starting June 1, 2024, you will be charged as per the [service plan pricing](#service-plan-cost).
+From April 23 to June 1, 2024, you will be able to test these service plans for functionality at no charge. This will help you to choose a plan that best fits your needs. After the free trial ends, [service plan charge](#service-plan-cost) will be introduced.
 
-* **Community**: This service plan suits small teams and non-comercial projects and includes all basic {{ datalens-full-name }} features, such as:
+* **Community**: Suitable for small teams and non-commercial projects. Includes all basic {{ datalens-full-name }} features, such as:
    * Interactive dashboards
    * Chart builder
    * Data model and calculations
-   * Roles for access permissions
+   * Role-based access management
    * Yandex ID authentication
 
         {% note info %}
 
-        All existing customers that set up identity federation and were active in {{ datalens-name }} before April 22, 2024 will be able to use enterprise authentication and SSO within the Community plan free of charge until December 31, 2024.
+        For existing customers who have configured an identity federation and were active {{ datalens-name }} users before April 22, 2024, enterprise authentication and SSO will be available for free as part of the Community plan until December 31, 2024.
 
         {% endnote %}
 
-   * [Basic support](../support/pricing.md#base)
+   * [Basic technical support plan](../support/pricing.md#base)
 
-* **Business**: This service plan is suitable for business implementations and needs. Apart from all Community features, it also includes:
-    * {{ datalens-name }} UI customization
-    * {{ datalens-name }} usage statistics
-    * Secure private object embedding
-    * SLA
-    * Enterprise authentication and SSO
-    * [Business support](../support/pricing.md#business) (only applies to {{ datalens-name }}) and higher support priority compared to the Community plan
+* **Business**: Suitable for enterprise deployments and business scenarios. Includes the whole Community feature set, plus:
+    * {{ datalens-name }} UI customization.
+    * {{ datalens-name }} usage statistics.
+    * Secure private object embedding.
+    * [SLA](https://yandex.com/legal/cloud_sla_datalens).
+    * Enterprise authentication and SSO.
+    * [Business technical support plan](../support/pricing.md#business) (only applies to {{ datalens-name }}) and priority over the Community plan when processing support requests.
 
-## Pricing policy starting June 1, 2024 {#service-plan-cost}
+## Pricing policy as of June 1, 2024 {#service-plan-cost}
 
-Starting June 1, 2024, you will be charged for using {{ datalens-name }} as per the service plan you selected.
+Starting June 1, 2024, {{ datalens-name }} users will be billed based on the selected service plan.
 
-A user is deemed active and their actions are charged for if they triggered a request to a data source, such as opened or edited a dashboard, chart, or dataset. Public links to dashboards and charts work without authentication and do not add up to the active user count.
+A user is active and subject to billing if their actions have resulted in a query to a data source, e.g., they opened or edited a dashboard, chart, or dataset. Public URLs to dashboards and charts work without authentication and do not contribute to the active user count.
 
 
 

@@ -1,0 +1,1 @@
+Роль `ai.imageGeneration.user` позволяет использовать модели генерации изображений YandexART в сервисе Foundation Models.

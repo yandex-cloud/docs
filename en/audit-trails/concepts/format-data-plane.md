@@ -1,6 +1,6 @@
 # Data event audit log
 
-Keep track of [data (data plane) events](events-data-plane.md) to make sure only authorized users can access and update your data. This will help you ensure your cloud infrastructure's compliance with legal regulations and industry standards. For example, you can keep track of your employees' access permissions to sensitive data stored in buckets.
+Keep track of [data events](events-data-plane.md) to make sure only authorized users can access and update your data. This will help you ensure your cloud infrastructure's compliance with legal regulations and industry standards. For example, you can keep track of your employees' access permissions to sensitive data stored in buckets.
 
 You can analyze data event logs to optimize the use of resources in your infrastructure. Thus, you can determine what resources are used most often and enhance their performance, or identify rarely used resources that can be grouped or removed to cut costs.
 
@@ -10,7 +10,7 @@ When setting up collection of data events for an {{ objstorage-name }} bucket, w
 
 {% endnote %}
 
-A data (data plane) audit log is a JSON object with a record of events that occurred to {{ yandex-cloud }} resources.
+A data event audit log is a JSON object with a record of events that occurred to {{ yandex-cloud }} resources.
 
 The log entry [format](#scheme) is universal for any event. The values of some fields are determined both by the source resource and the event type.
 
@@ -216,4 +216,3 @@ Log group entries have the following values:
    * `WARN`: For the `CANCELLED` value
    * `INFO`: For all other cases
 * **{{ ui-key.yacloud.logging.column_header-message }}**: Includes the values of the `event_status`, `event_type`, `subject_name`, `cloud_name`, and `resource_name` fields.
-

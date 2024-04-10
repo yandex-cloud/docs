@@ -1,6 +1,6 @@
 # Как начать работать с {{ yagpt-full-name }}
 
-{% include notitle [preview-stage](../_includes/yandexgpt/preview.md) %}
+{% include notitle [preview-stage](../_includes/foundation-models/yandexgpt/preview.md) %}
 
 В этом разделе вы научитесь использовать нейросеть для генерации текста.
 
@@ -40,7 +40,7 @@
      x-folder-id: <идентификатор_каталога>
      ```
 
-  Другие способы аутентификации в API описаны на странице [{#T}](api-ref/authentication.md).
+  Другие способы аутентификации в API описаны на странице [Аутентификация в {{ yagpt-full-name }}](api-ref/authentication.md).
 
 {% endlist %}
 
@@ -91,7 +91,7 @@
 
      Где:
 
-     {% include [api-parameters](../_includes/yandexgpt/api-parameters.md) %}
+     {% include [api-parameters](../_includes/foundation-models/yandexgpt/api-parameters.md) %}
 
   1. Отправьте запрос нейросети с помощью метода [completion](./text-generation/api-ref/TextGeneration/completion.md), выполнив команду:
 

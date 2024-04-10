@@ -1,6 +1,6 @@
 # Обзор {{ yq-full-name }}
 
-{{ yq-full-name }} – это сервис обработки данных, способный выполнять федеративные запросы к объектному хранилищу [{{ objstorage-full-name }}](../../storage/concepts/index.md), управляемым базам данных [{{ mpg-name }}](https://cloud.yandex.ru/services/managed-postgresql) и [{{ mch-name }}](https://cloud.yandex.ru/services/managed-clickhouse), а также потокам данных реального времени [{{ yds-full-name }}](../../data-streams/concepts/index.md). С помощью YQL, единого диалекта SQL, {{ yq-full-name }} позволяет агрегировать результаты выполнения запросов между этими системами.
+{{ yq-full-name }} – это сервис обработки данных, способный выполнять федеративные запросы к объектному хранилищу [{{ objstorage-full-name }}](../../storage/concepts/index.md), управляемым базам данных [{{ mpg-name }}](https://cloud.yandex.ru/services/managed-postgresql) и [{{ mch-name }}](https://cloud.yandex.ru/services/managed-clickhouse), а также потокам данных реального времени [{{ yds-full-name }}](../../data-streams/concepts/index.md). С помощью YQL, единого диалекта SQL, {{ yq-full-name }} позволяет агрегировать результаты выполнения запросов [между этими системами](../concepts/federated-processing.md).
 
 {{ yq-full-name }} является полностью управляемым облачным решением, это означает, что нет необходимости иметь запущенные сервера, на которых развернуто ПО. Все необходимые ресурсы для исполнения запросов выделяются в момент их запуска и освобождаются после завершения, а сами запросы начинают исполняться немедленно.
 

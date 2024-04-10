@@ -16,7 +16,7 @@ If you already have an organization in {{ org-full-name}}, {{ wiki-full-name }} 
 
 ## Migrating to {{ wiki-name }} from Confluence
 
-If you are using Confluence and want to migrate to {{ wiki-full-name }}, our experts will help you migrate your posts to {{ wiki-name }}. To do this, [contact support]({{ link-support }}).
+If you are using Confluence and want to migrate to {{ wiki-full-name }}, our experts will help you migrate your posts to {{ wiki-name }}. For this, contact our technical support using the [feedback form]({{ link-wiki-feedback }}).
 
 ## Create a new organization {#new-org}
 

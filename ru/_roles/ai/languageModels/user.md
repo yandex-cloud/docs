@@ -1,1 +1,1 @@
-Роль `ai.languageModels.user` позволяет использовать сервис YandexGPT.
+Роль `ai.languageModels.user` позволяет использовать YandexGPT API в сервисе Foundation Models.

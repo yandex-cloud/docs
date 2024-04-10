@@ -67,6 +67,8 @@ items:
             href: operations/sa/create-access-key.md
           - name: Удаление статического ключа доступа
             href: operations/sa/delete-access-key.md
+          - name: Создание временного ключа доступа с помощью {{ sts-name }}
+            href: operations/sa/create-sts-key.md
           - name: Создание API-ключа
             href: operations/api-key/create.md
           - name: Удаление API-ключа
@@ -125,6 +127,8 @@ items:
         href: concepts/service-control.md
       - name: Федерации удостоверений
         href: concepts/federations.md
+      - name: '{{ sts-name }}'
+        href: concepts/authorization/sts.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Безопасное использование {{ yandex-cloud }}

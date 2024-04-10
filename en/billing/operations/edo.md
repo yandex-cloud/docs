@@ -5,7 +5,7 @@ With EDM, you can get [closing reporting documents](../concepts/edo.md#document)
 {% note warning %}
 
 If you enable EDM, you will no longer receive electronic versions of closing documents to your e-mail address and their original copies to your mailing address.
-However, you will be able to download closing documents in the management console. For details, see [this guide](download-reporting-docs.md).
+However, you will be able to download closing documents in {{ billing-name }}. For more information, refer to [this guide](download-reporting-docs.md).
 
 {% endnote %}
 

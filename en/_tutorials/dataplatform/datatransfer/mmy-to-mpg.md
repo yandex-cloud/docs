@@ -42,7 +42,7 @@ Prepare the infrastructure:
    1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [mysql-postgresql.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/datatransfer/mysql-postgresql.tf) configuration file to the same working directory.
+   1. Download the [mysql-postgresql.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-mysql-to-postgresql/blob/main/mysql-postgresql.tf) configuration file to the same working directory.
 
       This file describes:
 
@@ -196,10 +196,10 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - Manually {#manual}
 
-   * [Transfer](../../../data-transfer/operations/transfer.md#delete).
+   * [Transfer](../../../data-transfer/operations/transfer.md#delete)
    * [Endpoints](../../../data-transfer/operations/endpoint/index.md#delete)
-   * [{{ mmy-name }} cluster](../../../managed-mysql/operations/cluster-delete.md).
-   * [{{ mpg-name }} cluster](../../../managed-postgresql/operations/cluster-delete.md).
+   * [{{ mmy-name }} cluster](../../../managed-mysql/operations/cluster-delete.md)
+   * [{{ mpg-name }} cluster](../../../managed-postgresql/operations/cluster-delete.md)
 
 - {{ TF }} {#tf}
 

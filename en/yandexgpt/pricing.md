@@ -6,6 +6,8 @@ editable: false
 
 {{ yagpt-full-name }} is at the [Preview stage](../overview/concepts/launch-stages.md) and is part of {{ foundation-models-full-name }}. The service is at the Preview stage and is billed according to the [Special Terms of Use](https://yandex.ru/legal/cloud_specialterms/?lang=en#index__section_fk5_d4c_cgb). You can find {{ yagpt-full-name }} usage details in {{ billing-name }} as {{ foundation-models-full-name }} resource usage.
 
+In the [management console]({{ link-console-main }}/link/yandexgpt), {{ gpt-freetier }} free prompts per hour are available to new users without a [billing account](../billing/concepts/billing-account.md).
+
 ## What goes into the cost of using {{ yagpt-full-name }} {#rules}
 
 ### Pricing unit {#unit}
@@ -23,7 +25,9 @@ The number of [prompt](concepts/index.md) and response [tokens](concepts/tokens.
 
 The number of billing units is based on the overall number of prompt and response tokens and is rounded up to a whole number after applying the multiplier.
 
-The use of summary models and models tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-lite }} rules.
+#### Tuned models {#rules-tuned-generating}
+
+The use of summary model is charged according to the {{ gpt-lite }} rules. The use of models tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} rules.
 
 ### Text vectorization {#rules-embedding}
 

@@ -164,7 +164,6 @@ Make sure the uploaded image is in the `READY` status.
 
          * `size`: Disk size in GB.
          * `image-id`: ID of the custom image to create the VM from. Specify the ID of the [uploaded](../image-create/upload.md) image.
-
       * `--public-ip`: Add this flag to assign a [public IP](../../../vpc/concepts/address.md#public-addresses) to the VM. To create a VM without a public IP address, remove this flag.
       * `--ssh-key`: Path to the public [SSH key](../../operations/vm-connect/ssh.md#creating-ssh-keys) file. The default username for access via SSH is `yc-user`.
 
@@ -176,7 +175,7 @@ Make sure the uploaded image is in the `READY` status.
       folder_id: b1g681qpemb4********
       created_at: "2024-03-02T12:58:43Z"
       name: test-vm-from-image
-      zone_id: ru-central1-a
+      zone_id: {{ region-id }}-a
       platform_id: standard-v2
       resources:
         memory: "2147483648"

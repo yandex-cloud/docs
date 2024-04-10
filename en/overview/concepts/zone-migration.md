@@ -2,29 +2,40 @@
 
 The `{{ region-id }}-c` availability zone will be [discontinued](./ru-central1-c-deprecation.md) in the first six months of 2024. You can migrate resources from it to the new `{{ region-id }}-d` zone.
 
-We added the `relocate` CLI command for a number of {{ compute-name }} and {{ vpc-name }} resources, which allows you to migrate resources to a different zone. To migrate instance groups, {{ network-load-balancer-name }} and {{ alb-name }} resources, managed databases, {{ managed-k8s-name }} clusters, and serverless services, use the existing tools.
-
-We are currently developing custom migration tools for {{ mgl-name }}. If you have resources of this service deployed in `{{ region-id }}-c`, we will notify you when these tools become available.
+We added the `relocate` CLI command for a number of {{ compute-name }} and {{ vpc-name }} resources, which allows you to migrate resources to a different zone. If migrating instance groups, {{ network-load-balancer-name }} and {{ alb-name }} resources, managed databases, {{ mgl-name }} instances, {{ managed-k8s-name }} clusters, and serverless services, use the existing tools.
 
 If among your services there are {{ objstorage-name }}, {{ cdn-name }}, {{ dns-name }} and others not listed below, you do not need to migrate their resources.
 
-## Deadlines for migration from the {{ region-id }}-c zone {#relocation-deadline}
+## Timeline for migrating resources from the {{ region-id }}-c zone {#relocation-deadline}
 
 We will be discontinuing the `{{ region-id }}-c` zone in multiple steps. In Q1 2024, you will receive a newsletter or message from your account manager with a deadline for migrating your resources.
 
 ### What happens if I do not make it in time? {#what-if}
 
-Once the migration timeline expires, we will forcibly migrate your resources from the `{{ region-id }}-c` zone. This will include:
+As soon as the migration due date is reached, we will forcibly migrate your resources from the `{{ region-id }}-c` zone. This will include:
 
 * Creating backups on your network disks located in the `{{ region-id }}-c` zone and migrating your disks to the `{{ region-id }}-d` zone.
-* Migrating your VMs to the `{{ region-id }}-d` availability zone. When being migrated, your resources will be stopped, and their network settings, subnets, IP addresses, and FQDNs will change. Then, they will be launched in the new availability zones.
-* When it comes to managed database resources and {{ managed-k8s-name }}: backing up your data and migrating your resources to `{{ region-id }}-d`; this will also trigger changing network settings, subnets, IP addresses, and FQDNs.
+* Migrating your VMs to the `{{ region-id }}-d` availability zone. When being migrated, your resources will be stopped, and their network settings, subnets, IP addresses, and FQDNs will change. Then, they will be launched in the new availability zone.
+* When migrating {{ managed-k8s-name }} and managed database resources: backing up your data and migrating your resources to `{{ region-id }}-d` with reconfiguration of network settings, subnets, IP addresses, and FQDNs.
 
-Over this forced migration, your resources will change both its public and internal IP addresses. This may lead to losing network access to the resources through the previous IP addresses; you may also have to update your firewall and DNS configuration, as well as other settings that depend on the addresses your resources refer to.
+During this forced migration, your resources will get new public and internal IP addresses. This may lead to losing network access to the resources through the previous IP addresses; you may also have to update your firewall and DNS configuration, as well as other settings that depend on the addresses your resources refer to.
 
 During the forced migration, your services may also become unavailable.
 
 To keep your services available and minimize your risks, make sure to migrate your resources from the `{{ region-id }}-c` zone on your own before the deadline.
+
+### What risks does the forcible migration carry? {#technical-risks}
+
+Sometimes, we may not be able to correctly migrate your resources to `{{ region-id }}-d` due to technical reasons. This may apply to any resources that still reside in `{{ region-id }}-c` once the migration deadline is over.
+
+This, in its turn, will trigger the following, depending on the resource type:
+
+* For your {{ compute-name }} VMs, we will create snapshots and then stop them. You will then be able to restore your VMs from snapshots in another availability zone.
+* {{ managed-k8s-name }} clusters will become fully unavailable, including in `{{ region-id }}-a` and `{{ region-id }}-b`, in case you use a regional master or have node groups in such zones. We will back up your cluster settings (technically, take the etcd disk snapshot), which you will be able to request from our tech support.
+* Managed database hosts residing in `{{ region-id }}-c` will be disabled. Before doing so, we will create database backups from which you can restore your cluster.
+* Instance groups residing in `{{ region-id }}-c` will be stopped. You will get backups of all VM instances that were part of the relevant groups.
+* {{ mgl-name }} repositories located in `{{ region-id }}-c` will be deleted. We will create a backup you will be able to request from our tech support.
+* {{ cloud-desktop-name }}s located in `{{ region-id }}-c` will be deleted. Before doing so, we will create their images.
 
 ### How do I get help with migration? {#need-help}
 
@@ -74,17 +85,18 @@ In most cases, to migrate a managed database service host, you need to create a 
 
 See these service-specific migration guides:
 
-* [{{ mpg-name }}](../../managed-postgresql/operations/host-migration.md)
-* [{{ mch-name }}](../../managed-clickhouse/operations/host-migration.md)
-* [{{ mmg-name }}](../../managed-mongodb/operations/host-migration.md)
-* [{{ mmy-name }}](../../managed-mysql/operations/host-migration.md)
-* [{{ mrd-name }}](../../managed-redis/operations/host-migration.md)
-* [{{ mos-name }}](../../managed-opensearch/operations/host-migration.md)
-* [{{ ydb-name }}](../../ydb/operations/migration-to-an-availability-zone.md)
+* [{{ dataproc-name }}](../../data-proc/operations/migration-to-an-availability-zone.md).
+* [HDFS-based {{ dataproc-name }}](../../data-proc/tutorials/hdfs-cluster-migration.md).
+* [{{ mkf-name }}](../../managed-kafka/operations/host-migration.md).
+* [{{ mch-name }}](../../managed-clickhouse/operations/host-migration.md).
+* [{{ mes-name }}](../../managed-elasticsearch/operations/host-migration.md).
+* [{{ mmg-name }}](../../managed-mongodb/operations/host-migration.md).
+* [{{ mmy-name }}](../../managed-mysql/operations/host-migration.md).
+* [{{ mos-name }}](../../managed-opensearch/operations/host-migration.md).
+* [{{ mpg-name }}](../../managed-postgresql/operations/host-migration.md).
+* [{{ mrd-name }}](../../managed-redis/operations/host-migration.md).
+* [{{ ydb-name }}](../../ydb/operations/migration-to-an-availability-zone.md).
 * {{ mgp-name }}: To migrate, restore the cluster from a [backup](../../managed-greenplum/operations/cluster-backups.md).
-* [{{ dataproc-name }}](../../data-proc/operations/migration-to-an-availability-zone.md)
-* [HDFS-based {{ dataproc-name }}](../../data-proc/tutorials/hdfs-cluster-migration.md)
-* [{{ mkf-name }}](../../managed-kafka/operations/host-migration.md)
 
 ### {{ data-transfer-name }} {#data-transfer}
 
@@ -142,7 +154,7 @@ To migrate functions, containers, and API gateways, you need to create a subnet 
 
 ### {{ mgl-name }} {#gitlab}
 
-A tool that will allow you to migrate {{ mgl-name }} installations hosted in the `{{ region-id }}-c` availability zone on your own is currently under development and is scheduled for release by late March 2024. If you use {{ mgl-name }} in the `{{ region-id }}-c` zone, we will notify you as soon as the option to migrate resources from `{{ region-id }}-c` is available.
+To change the availability zone of a {{ mgl-name }} instance located in `{{ region-id }}-c`, see [Migrating a `ru-central1-c` instance to a different availability zone](../../managed-gitlab/operations/instance/zone-migration.md).
 
 ### {{ cloud-desktop-name }} {#cloud-desktop}
 

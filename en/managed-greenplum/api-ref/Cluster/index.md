@@ -422,8 +422,8 @@ clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum | **object**
 clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>start | **object**
 clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>start.<br>hours | **string** (int64)<br><p>Acceptable values are 0 to 23, inclusive.</p> 
 clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>start.<br>minutes | **string** (int64)<br><p>Acceptable values are 0 to 59, inclusive.</p> 
-clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>analyzeTimeout | **integer** (int64)<br><p>in seconds 24<em>60</em>60-1 = 86399</p> <p>Acceptable values are 7200 to 86399, inclusive.</p> 
-clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>vacuumTimeout | **integer** (int64)<br><p>in seconds 24<em>60</em>60-1 = 86399</p> <p>Acceptable values are 7200 to 86399, inclusive.</p> 
+clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>analyzeTimeout | **integer** (int64)<br><p>Maximum duration of the ``ANALYZE`` operation, in seconds. The default value is ``36000``. As soon as this period expires, the ``ANALYZE`` operation will be forced to terminate.</p> <p>Acceptable values are 7200 to 86399, inclusive.</p> 
+clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>vacuumTimeout | **integer** (int64)<br><p>Maximum duration of the ``VACUUM`` operation, in seconds. The default value is ``36000``. As soon as this period expires, the ``VACUUM`` operation will be forced to terminate.</p> <p>Acceptable values are 7200 to 86399, inclusive.</p> 
 clusterConfig.<br>pxfConfig | **object**
 clusterConfig.<br>pxfConfig.<br>effectiveConfig | **object**<br><p>Required.</p> 
 clusterConfig.<br>pxfConfig.<br>effectiveConfig.<br>connectionTimeout | **integer** (int64)<br><p>Connection</p> <p>Acceptable values are 5 to 600, inclusive.</p> 

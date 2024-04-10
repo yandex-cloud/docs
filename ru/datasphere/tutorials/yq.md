@@ -80,4 +80,4 @@ GROUP BY col1
 * `--description` — (опционально) описание запроса.
 * `--raw-results` — (опционально) параметр, чтобы возвращать необработанные результаты выполнения запроса в {{ yq-name }}. Спецификация формата доступна в разделе [{#T}](../../query/api/yql-json-conversion-rules.md).
 
-{% include  [working_with_yq](../../_includes/query/magics.md)%}
+{% include [working_with_yq](../../_includes/query/magics.md)%}

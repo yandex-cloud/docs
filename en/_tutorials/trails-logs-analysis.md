@@ -1,6 +1,6 @@
 # Uploading audit logs to {{ mch-name }} and data visualization in {{ datalens-name }}
 
-Upload management event (Control Plane) [audit logs](../audit-trails/concepts/format.md) from a folder to [{{ mch-full-name }}](../managed-clickhouse/) and analyze the resource use in [{{ datalens-full-name }}]({{ link-datalens-main }}).
+Upload management event [audit logs](../audit-trails/concepts/format.md) from a folder to [{{ mch-full-name }}](../managed-clickhouse/) and analyze the resource use in [{{ datalens-full-name }}]({{ link-datalens-main }}).
 1. [Prepare your cloud](#before-begin).
 1. [Prepare the environment](#environment-preparing).
 1. [Create a trail](#create-trail).
@@ -19,7 +19,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost includes:
 * Fee for using a [data stream](../data-streams/concepts/glossary.md#stream-concepts) (see [{{ yds-name }} pricing](../data-streams/pricing.md)).
-* Fee for continuously running [{{ mch-name }} cluster](../managed-clickhouse/concepts/index.md) (see [{{ mch-name }} pricing](../managed-clickhouse/pricing.md)).
+* Fee for a continuously running [{{ mch-name }} cluster](../managed-clickhouse/concepts/index.md) (see [{{ mch-name }} pricing](../managed-clickhouse/pricing.md)).
 
 ## Prepare the environment {#environment-preparing}
 
@@ -115,7 +115,7 @@ The infrastructure support cost includes:
       * `member`: ID of the `sa-trail-logs` service account.
 
      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
-  1. Make sure the configuration files are valid.
+  1. Make sure the configuration files are correct.
      1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
@@ -140,7 +140,7 @@ The infrastructure support cost includes:
 
      ```bash
      export FOLDER_ID=<folder_ID>
-     export IAM_TOKEN=<iam_token>
+     export IAM_TOKEN=<IAM_token>
      curl -H "Authorization: Bearer ${IAM_TOKEN}" \
        "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
      ```
@@ -200,7 +200,7 @@ The infrastructure support cost includes:
 
      ```bash
      export FOLDER_ID=<folder_ID>
-     export IAM_TOKEN=<iam_token>
+     export IAM_TOKEN=<IAM_token>
      curl -X POST \
        -H "Content-Type: application/json" \
        -H "Authorization: Bearer ${IAM_TOKEN}" \
@@ -224,7 +224,7 @@ The infrastructure support cost includes:
      1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![pencil](../_assets/console-icons/pencil.svg). Enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option and click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
      1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, enable the following options:
         * Access from {{ datalens-name }}
-        * Access from management console
+        * Access from the management console
         * Access from [{{ data-transfer-full-name }}](../data-transfer/)
   1. After configuring all settings, click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
@@ -301,7 +301,7 @@ The infrastructure support cost includes:
      ```
 
      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mch }}).
-  1. Make sure the configuration files are valid.
+  1. Make sure the configuration files are correct.
      1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
@@ -495,7 +495,7 @@ A transfer will migrate data between the source service (a stream) and the targe
      * `target_id`: ID of the `target-logs-ch` target endpoint.
 
      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-dt-transfer }}).
-  1. Make sure the configuration files are valid.
+  1. Make sure the configuration files are correct.
      1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 

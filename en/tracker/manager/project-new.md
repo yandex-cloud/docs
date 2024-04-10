@@ -18,11 +18,11 @@ In the new {{ tracker-name }} interface, you can open any projects available to 
 
 The project page shows the details of the team, goals, and issues of the project:
 
-* **About the project** tab. It includes the project description, status, timeframes, names of the author and employee responsible for the project, the list of its team members, comments, customers, [milestones](milestones.md), and tags.
+* **About the project** tab. Project description, status, timeline, project author and owner, list of team members, comments, customers, [milestones](milestones.md), [links](./create-project.md#links) to other projects and portfolios, tags.
 
 * **Issue lists** tab. The list shows both open issues and closed issues. You can filter the issue list. For more information, see [{#T}](project-list.md).
 
-* **Gantt chart** tab. Your schedule of resolving project issues. The Gantt chart specifies the timeframes of the issues and relationships between them. For more information, see [{#T}](../gantt/project.md).
+* **Gantt chart** tab. Your schedule of work on project issues. The Gantt chart specifies the timeframes of the issues and relationships between them. For more information, see [{#T}](../gantt/project.md).
 
 * **Issue boards** tab. A virtual board with cards that makes it easy to track statuses of project issues. For more information, see [{#T}](./boards-project.md).
 

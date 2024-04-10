@@ -26,6 +26,7 @@ default:
   api-host-sk-stt: stt.api.cloud.yandex.net
   api-host-sk-tts: tts.api.cloud.yandex.net
   api-url-prefix: /docs
+  art-freetier: 10
   at-event-prefix: yandex.cloud
   at-full-name: Yandex Audit Trails
   at-name: Audit Trails
@@ -156,6 +157,7 @@ default:
   forms-full-name: Yandex Forms
   forms-name: Forms
   foundation-models-full-name: Yandex Foundation Models
+  foundation-models-name: Foundation Models
   GL: GitLab
   gl:
     docs: https://docs.gitlab.com
@@ -167,7 +169,7 @@ default:
     docs:
       pivotal: https://gpdb.docs.pivotal.io
       vmware: https://docs.vmware.com/en/VMware-Tanzu-Greenplum
-  gpt-freetier: 100
+  gpt-freetier: 10
   gpt-lite: YandexGPT Lite
   gpt-pro: YandexGPT Pro
   grafana-name: Grafana
@@ -241,7 +243,7 @@ default:
   link-cloud-services: /services
   link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=en
   link-console-access-management: https://console.cloud.yandex.com/iam
-  link-console-billing: https://console.cloud.yandex.com/billing
+  link-console-billing: https://billing.yandex.cloud/accounts
   link-console-cloud: https://console.cloud.yandex.com/cloud
   link-console-iam-users: https://console.cloud.yandex.ru/iam?section=users
   link-console-main: https://console.cloud.yandex.com
@@ -603,6 +605,8 @@ default:
   speechsense-name: SpeechSense
   SPRK: Apache Spark™
   storage-aws-cli-alias: ycs3
+  sts-host: sts.yandexcloud.net
+  sts-name: Security Token Service
   stt-long-audioLength: 4 hours
   stt-long-fileSize: 1 GB
   stt-long-resultsStorageTime: 3 days
@@ -760,7 +764,7 @@ default:
           6|int|string: ₽440
   sku|RUB|backup:
     protected_vms:
-      v1|string: ₽238.80
+      v1|string: Free
     used_space:
       v1|month|string: ₽4.20
   sku|RUB|cdn:
@@ -1669,7 +1673,7 @@ default:
         v1|string: Free
   sku|USD|backup:
     protected_vms:
-      v1|string: $1.910400
+      v1|string: Free
     used_space:
       v1|month|string: $0.033600
   sku|USD|cdn:
@@ -3458,6 +3462,7 @@ default:
           dashboard-resources:
             title_section-billable: Linked clouds and services
           dashboard:
+            button_go-pay: Upgrade to paid version
             card_label_threshold-description: Detailed
             label_inactivation: Delete
             label_rename: Rename
@@ -3489,6 +3494,8 @@ default:
         field_theme-contrast: Contrast
         label_monitoring-name: Monitoring
         label_telegram: Telegram
+        section_settings: Notification settings
+        section_transports: Notification methods
       usermenu:
         label_login: Log in
     yacloud_monitoring:
@@ -4007,7 +4014,6 @@ default:
           button_billing-payment-action: Switch to the paid version
           button_download-action: Download
           create-new:
-            account_label_new: New payer
             account-type_label_company: Business account
             account-type_label_individual: Individual account
             label_title: Create a billing account
@@ -4029,7 +4035,6 @@ default:
             section_resources: Clouds
           dashboard:
             button_refill: Top up account
-            label_rename: Rename account
             popup-grant-activation_button_activate: Activate
           detail:
             button_create-periodic-export: Periodic export
@@ -4068,7 +4073,6 @@ default:
             column_description: Description
             column_money: Payment amount
             column_status: Status
-          label_accounts: List of accounts
           label_consumption: Consumption
           overview:
             button_bind-card-apply: Apply
@@ -4971,6 +4975,8 @@ default:
             title_consumption-history: Usage history
             title_current-state: Current state
             title_states-history: State history
+          pxf:
+            action_edit-settings: Edit PXF settings
           user-auth:
             action_add-rule: Add rule
             action_edit-rules: Edit rules
@@ -4989,6 +4995,7 @@ default:
         field_hosts-count: Host count
         field_restore-only: Databases and tables for recovery
         field_segments-in-host: Segments per host
+        label_pxf: PXF
         label_user-auth: User authentication
         label-analyze-timeout: ANALYZE timeout
         label-start-time: Start time (UTC)
@@ -5831,6 +5838,9 @@ default:
       postgresql:
         cluster:
           additional-field-pooling_mode: Pooling mode
+          field_diskSizeLimit: New storage size
+          field_thresholds: Increase size
+          section_disk-scaling: Automatic increase of storage size
           switch_backups: Backups
           switch_databases: Databases
           switch_datalens: DataLens
@@ -6025,7 +6035,6 @@ default:
             field_ymq-cutoff: Waiting time, s
             label_any-budget: Any budget
             label_billing-budget: Budget
-            label_cloud-logs: Cloud Logs
             label_container: Container
             label_container-registry: Container Registry
             label_data-streams: Data Streams
@@ -6040,7 +6049,6 @@ default:
             section_base: Basic settings
             section_batch-settings: Batch message settings
             section_billing-budget: Budget settings
-            section_cloud-logs: Cloud Logs settings
             section_container: Container settings
             section_container-registry: Container Registry settings
             section_data-streams: Data Streams settings
@@ -6118,10 +6126,16 @@ default:
         label_section-customization: Сustomize style
         label_section-style: Style
         label_server-key: Server key
+        value_challenge-image_text: Text recognition
+        value_challenge-kaleidoscope: Kaleidoscope
+        value_challenge-silhouettes: Silhouettes
         value_complexity-easy: Easy
+        value_complexity-force_hard: Maximum
         value_complexity-hard: Hard
         value_complexity-medium: Medium
         value_config-standard: Standard
+        value_pre-check-checkbox: Checkbox
+        value_pre-check-slider: Slider
       storage:
         bucket:
           button_action-permissions: Object ACL
@@ -7508,7 +7522,6 @@ default:
         models: Models
         more: More
         name: Name
-        never: Never
         overview: Overview
         pin: Pin
         port: Port
@@ -7551,9 +7564,7 @@ default:
         balance: Project balance
         dataproc-cluster: Data Proc cluster
         dedicated-vm-inactivity-timeout: Stop inactive VM after
-        description: Description
         name: Name
-        period-of-inactivity: Period of inactivity
         security-group: Security group
       external-ide:
         external-ide-vm-configuration: VM configuration for remote connection
@@ -7865,7 +7876,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.1.25
+        tag: v0.2.0
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
@@ -7874,7 +7885,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/cert-manager-webhook-yandex/cert-manager-webhook-yandex
-        tag: 1.0.8
+        tag: 1.0.8-1
     yc_chaos-mesh:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/chaos-mesh/chaos-mesh
@@ -7938,7 +7949,7 @@ default:
     yc_loki:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
-        tag: 1.1.1
+        tag: 1.1.2
     yc_metric-provider:
       helmChart:
         name: >-
@@ -7955,7 +7966,7 @@ default:
     yc_prometheus-operator:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/prometheus/kube-prometheus-stack
-        tag: 45.9.1-2
+        tag: 57.2.0-1
     yc_thumbor:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor
@@ -7967,4 +7978,4 @@ default:
     yc_velero-yc-csi:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero
-        tag: 2.30.4
+        tag: 2.30.4-1

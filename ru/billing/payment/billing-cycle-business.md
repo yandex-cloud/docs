@@ -4,7 +4,7 @@
 
 ![image](../../_assets/billing/billing-cycle-business-credit.svg)
 
-1. Вы [активируете платную версию](../operations/activate-commercial.md) до истечения срока действия пробного периода.
+1. Вы [активируете платную версию](../operations/activate-commercial.md) до истечения срока действия [пробного периода](../../billing/concepts/trial-period.md).
 
    {% include [billing-how-to-use-grant](../../_includes/billing-how-to-use-grant.md) %}
 

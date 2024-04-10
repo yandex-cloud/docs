@@ -1,9 +1,14 @@
 | Event name | Description |
 --- | ---
+| `CancelJob` | Canceling a job |
 | `CreateCommunity` | Creating a community |
+| `CreateJob` | Creating a job |
 | `CreateProject` | Creating a project |
+| `DeleteAllJobData` | Deleting all job data |
 | `DeleteCommunity` | Deleting a community |
+| `DeleteJobData` | Deleting job data |
 | `DeleteProject` | Deleting a project |
+| `ExecuteJob` | Running a job |
 | `SetCommunityAccessBindings` | Setting access bindings for a community |
 | `SetProjectAccessBindings` | Setting access bindings for a project |
 | `UpdateCommunity` | Updating a community |

@@ -1,6 +1,6 @@
 ---
 title: "How to work with {{ sf-full-name }}"
-description: "In this article, you will learn how to work with {{ sf-full-name }} in {{ yandex-cloud }}. Find out how to manage functions (create, update, invoke, and delete a function) and triggers (create a timer or a trigger for {{ message-queue-name }}, {{ iot-full-name }}, {{ container-registry-name }}, and Cloud Logs)."
+description: "In this article, you will learn how to work with {{ sf-full-name }} in {{ yandex-cloud }}. Find out how to manage a function (create, modify, invoke, and delete a function) and a trigger (create a timer or trigger for {{ message-queue-name }}, {{ iot-full-name }}, {{ container-registry-name }})."
 ---
 
 # Step-by-step guides for {{ sf-name }}
@@ -68,7 +68,6 @@ description: "In this article, you will learn how to work with {{ sf-full-name }
 * [Creating a trigger for {{ message-queue-name }}](trigger/ymq-trigger-create.md)
 * [Creating a trigger for {{ objstorage-name }}](trigger/os-trigger-create.md)
 * [Creating a trigger for {{ container-registry-name }}](trigger/cr-trigger-create.md)
-* [Creating a trigger for {{ cloud-logs-name }}](trigger/cloudlogs-trigger-create.md)
 * [Creating a trigger for {{ cloud-logging-name }}](trigger/cloud-logging-trigger-create.md)
 * [Creating a trigger for {{ iot-name }} (device)](trigger/iot-core-trigger-create.md)
 * [Creating a trigger for {{ iot-name }} (broker)](trigger/iot-core-trigger-broker-create.md)

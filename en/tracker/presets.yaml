@@ -40,6 +40,7 @@ default:
   link-ya-360-delete: https://yandex.com/support/business/delete-organisation.html
   link-ya-360-notfree: https://yandex.com/support/business/payment/disable-free-version.html
   link-ya-360-groups: https://yandex.com/support/business/projects.html
+  link-tracker-feedback: https://forms.yandex.ru/surveys/6767/
   link-org-add-federation: https://cloud.yandex.com/docs/organization/add-federation
   support-connect-account: https://yandex.com/support/connect/add-account.html#org-structure__manage-user
   support-connect-domain: https://yandex.com/support/connect/add-domain.html

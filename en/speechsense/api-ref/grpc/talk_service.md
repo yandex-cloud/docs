@@ -11,6 +11,7 @@ sourcePath: en/_api-ref-grpc/talk-analytics/api-ref/grpc/talk_service.md
 | --- | --- |
 | [UploadAsStream](#UploadAsStream) | rpc for streaming talk documents. |
 | [Upload](#Upload) | rpc for uploading talk document as single message |
+| [UploadText](#UploadText) | rpc for uploading text talk document |
 
 ## Calls TalkService {#calls}
 
@@ -96,9 +97,7 @@ rpc for uploading talk document as single message
 Field | Description
 --- | ---
 metadata | **[TalkMetadata](#TalkMetadata)**<br> 
-payload | **oneof:** `audio` or `text`<br>audio or text payload
-&nbsp;&nbsp;audio | **[AudioRequest](#AudioRequest)**<br>audio or text payload 
-&nbsp;&nbsp;text | **[TextRequest](#TextRequest)**<br>audio or text payload 
+audio | **[AudioRequest](#AudioRequest)**<br>audio payload 
 
 
 ### TalkMetadata {#TalkMetadata1}
@@ -149,23 +148,60 @@ Field | Description
 data | **bytes**<br>Bytes with audio data. 
 
 
-### TextRequest {#TextRequest}
+### UploadTalkResponse {#UploadTalkResponse1}
 
 Field | Description
 --- | ---
-entries[] | **[TextEntry](#TextEntry)**<br> 
+talk_id | **string**<br>id of created talk document 
 
 
-### TextEntry {#TextEntry}
+## UploadText {#UploadText}
+
+rpc for uploading text talk document
+
+**rpc UploadText ([UploadTextRequest](#UploadTextRequest)) returns ([UploadTextResponse](#UploadTextResponse))**
+
+### UploadTextRequest {#UploadTextRequest}
 
 Field | Description
 --- | ---
-channel_number | **int64**<br> 
+metadata | **[TalkMetadata](#TalkMetadata)**<br> 
+text_content[] | **[TextContent](#TextContent)**<br> 
+
+
+### TalkMetadata {#TalkMetadata2}
+
+Field | Description
+--- | ---
+connection_id | **string**<br>id of connection this talk belongs too 
+fields | **map<string,string>**<br>channel defined fields 
+
+
+### TextContent {#TextContent}
+
+Field | Description
+--- | ---
+messages[] | **[Message](#Message)**<br> 
+
+
+### Message {#Message}
+
+Field | Description
+--- | ---
+user_id | **string**<br> 
 timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+payload | **oneof:** `text`<br>
+&nbsp;&nbsp;text | **[TextPayload](#TextPayload)**<br> 
+
+
+### TextPayload {#TextPayload}
+
+Field | Description
+--- | ---
 text | **string**<br> 
 
 
-### UploadTalkResponse {#UploadTalkResponse1}
+### UploadTextResponse {#UploadTextResponse}
 
 Field | Description
 --- | ---

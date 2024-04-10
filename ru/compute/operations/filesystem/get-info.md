@@ -95,6 +95,6 @@ title: "Как получить информацию о файловом хра�
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [файловом хранилище](../../concepts/filesystem.md), воспользуйтесь методом REST API [get](../../api-ref/Filesystem/get.md) для ресурса [Snapshot](../../api-ref/Filesystem/index.md), или вызовом gRPC API [FilesystemService/Get](../../api-ref/grpc/filesystem_service.md#Get).
+  Чтобы получить подробную информацию о [файловом хранилище](../../concepts/filesystem.md), воспользуйтесь методом REST API [get](../../api-ref/Filesystem/get.md) для ресурса [Filesystem](../../api-ref/Filesystem/index.md), или вызовом gRPC API [FilesystemService/Get](../../api-ref/grpc/filesystem_service.md#Get).
 
 {% endlist %}

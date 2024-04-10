@@ -28,7 +28,7 @@
 
 ## Возможности дообучения {#tuning-abilities}
 
-{% include [tuning-abilities](../../../_includes/yandexgpt/tuning-abilities.md) %}
+{% include [tuning-abilities](../../../_includes/foundation-models/yandexgpt/tuning-abilities.md) %}
 
 ## Запросы к дообученной модели {#requests}
 

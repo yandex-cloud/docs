@@ -42,6 +42,7 @@ Aliases:
 - [yc managed-mongodb hosts](hosts/index.md) — Manage hosts of a MongoDB cluster.
 	- [yc managed-mongodb hosts list](hosts/list.md) — List hosts for a MongoDB cluster.
 	- [yc managed-mongodb hosts add](hosts/add.md) — Add new hosts to the cluster in specified availability zones.
+	- [yc managed-mongodb hosts update](hosts/update.md) — Update specified hosts in the cluster.
 	- [yc managed-mongodb hosts delete](hosts/delete.md) — Remove specified hosts from the a cluster.
 	- [yc managed-mongodb hosts resetup](hosts/resetup.md) — Resetup specified MongoD hosts.
 	- [yc managed-mongodb hosts restart](hosts/restart.md) — Restart specified MongoD hosts.

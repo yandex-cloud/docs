@@ -137,7 +137,7 @@ items:
     href: pricing.md
   - name: Справочник CLI
     href: ../cli/cli-ref/managed-services/iot/index.md
-  - name: Справочник Terraform
+  - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API Devices
     items:
@@ -289,8 +289,8 @@ items:
                 href: broker/api-ref/Broker/update.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
-  - name: Вопросы и ответы
-    href: qa/index.md
   - name: История изменений
     href: release-notes.md
+  - name: Вопросы и ответы
+    href: qa/index.md
 base: ru/iot-core

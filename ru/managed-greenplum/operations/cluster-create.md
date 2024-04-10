@@ -6,7 +6,7 @@
 
 Подробнее см. в разделе [{#T}](../concepts/index.md).
 
-## Как создать кластер {{ mgp-name }} {#create-cluster}
+## Создать кластер {#create-cluster}
 
 {% list tabs group=instructions %}
 
@@ -309,18 +309,6 @@
            }
          }
 
-         pxf_config {
-           connection_timeout             = <таймаут_для_запросов_на_чтение>
-           upload_timeout                 = <таймаут_для_запросов_на_запись>
-           max_threads                    = <максимальное_число_потоков_Apache_Tomcat®>
-           pool_allow_core_thread_timeout = <разрешен_ли_таймаут_для_стриминговых_потоков>
-           pool_core_size                 = <количество_стриминговых_потоков>
-           pool_queue_capacity            = <емкость_очереди_в_пул_за_стриминговыми_потоками>
-           pool_max_size                  = <максимальное_число_стриминговых_потоков>
-           xmx                            = <изначальный_размер_JVM-кучи>
-           xms                            = <максимальный_размер_JVM-кучи>
-         }
-  
          user_name     = "<имя_пользователя>"
          user_password = "<пароль>"
   
@@ -336,13 +324,6 @@
        * `version` — версия {{ GP }}.
        * `master_host_count` — количество хостов-мастеров: 1 или 2.
        * `segment_host_count` — количество хостов-сегментов: от 2 до 32.
-       * `pxf_config` — настройки [{{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/index.html) (PXF). Это программная платформа, которая позволяет получить доступ к данным во внешних СУБД.
-
-          Настройки `pxf_config` совпадают с настройками в конфигурационном файле {{ GP }} [pxf-application.properties]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/config_files.html?hWord=N4IghgNiBcIC4HsC2BjMcQF8g#pxfapplicationproperties-1). Он описывает свойства сервиса PXF. Чтобы задать их, используйте средства {{ yandex-cloud }} вместо правки файла.
-
-          Настройки PXF:
-
-          {% include [pxf-config-settings](../../_includes/mdb/mgp/pxf-config-settings.md) %}
 
        Включенная защита от удаления кластера не помешает подключиться вручную и удалить содержимое базы данных.
 
@@ -389,6 +370,79 @@
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+{% endlist %}
+
+## Создать копию кластера {#duplicate}
+
+Вы можете создать кластер {{ GP }}, который будет обладать настройками созданного ранее кластера. Для этого конфигурация исходного кластера {{ GP }} импортируется в {{ TF }}. В результате вы можете либо создать идентичную копию, либо взять за основу импортированную конфигурацию и внести в нее изменения. Использовать импорт удобно, если исходный кластер {{ GP }} обладает множеством настроек и нужно создать похожий на него кластер.
+
+Чтобы создать копию кластера {{ GP }}:
+
+{% list tabs group=instructions %}
+
+- {{ TF }} {#tf}
+
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
+    1. В той же рабочей директории разместите файл с расширением `.tf` и содержимым:
+
+        ```hcl
+        resource "yandex_mdb_greenplum_cluster" "old" { }
+        ```
+
+    1. Запишите идентификатор первоначального кластера {{ GP }} в переменную окружения:
+
+        ```bash
+        export GREENPLUM_CLUSTER_ID=<идентификатор_кластера>
+        ```
+
+        Идентификатор можно запросить вместе со [списком кластеров в каталоге](../../managed-greenplum/operations/cluster-list.md#list-clusters).
+
+    1. Импортируйте настройки первоначального кластера {{ GP }} в конфигурацию {{ TF }}:
+
+        ```bash
+        terraform import yandex_mdb_greenplum_cluster.old ${GREENPLUM_CLUSTER_ID}
+        ```
+
+    1. Получите импортированную конфигурацию:
+
+        ```bash
+        terraform show
+        ```
+
+    1. Скопируйте ее из терминала и вставьте в файл с расширением `.tf`.
+    1. Расположите файл в новой директории `imported-cluster`.
+    1. Измените скопированную конфигурацию так, чтобы из нее можно было создать новый кластер:
+
+        * Укажите новое имя кластера в строке `resource` и параметре `name`.
+        * Удалите параметры `created_at`, `health`, `id`, `status`, `master_hosts` и `segment_hosts`.
+        * Добавьте параметр `user_password`.
+        * Если в блоке `maintenance_window` указано значение параметра `type = "ANYTIME"`, удалите параметр `hour`.
+        * (Опционально) Внесите дополнительные изменения, если вам нужна не идентичная, а кастомизированная копия.
+
+    1. В директории `imported-cluster` [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+
+    1. В этой же директории [настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf).
+
+    1. Поместите конфигурационный файл в директорию `imported-cluster` и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
+
+    1. Проверьте корректность файлов конфигурации {{ TF }}:
+
+        ```bash
+        terraform validate
+        ```
+
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+    1. Создайте необходимую инфраструктуру:
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 

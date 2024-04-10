@@ -85,7 +85,9 @@ items:
             href: operations/applications/velero-yc-csi.md
       - name: Сетевые сценарии
         items:
-          - name: Обеспечение доступа к приложению, запущенному в кластере {{ k8s }}
+          - name: >-
+              "Обеспечение доступа к приложению, запущенному в кластере {{ k8s
+              }}"
             href: operations/create-load-balancer.md
           - name: Настройка контроллера сетевых политик Calico
             href: operations/calico.md
@@ -392,6 +394,8 @@ items:
         href: nlb-ref/service.md
       - name: NetworkPolicy
         href: nlb-ref/networkpolicy.md
+  - name: История изменений
+    href: release-notes.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы
@@ -410,8 +414,6 @@ items:
         href: qa/troubleshooting.md
       - name: Все вопросы на одной странице
         href: qa/all.md
-  - name: История изменений
-    href: release-notes.md
   - name: Обучающие курсы
     href: training.md
 base: ru/managed-kubernetes

@@ -32,4 +32,6 @@
 
 1. [Создайте внешнюю таблицу](pxf/create-table.md) по протоколу PXF.
 
+1. (Опционально) [Измените настройки PXF](./pxf/settings.md), заданные по умолчанию.
+
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

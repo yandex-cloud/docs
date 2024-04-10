@@ -75,10 +75,13 @@ links:
     href: dns/
   - title: Пробный период
     description: Описание пробного периода использования Yandex Cloud
-    href: getting-started/free-trial/concepts/quickstart.md
+    href: getting-started/free-trial/concepts/quickstart
   - title: Cloud Functions
     description: Запуск вашего кода в виде функции
     href: functions/
+  - title: Foundation Models
+    description: Генеративные модели машинного обучения
+    href: foundation-models/
   - title: Identity and Access Management
     description: Идентификация и контроль доступа к облачным ресурсам
     href: iam/
@@ -219,6 +222,3 @@ links:
   - title: Облачная терминология
     description: Словарь разработчика
     href: glossary/
-  - title: YandexGPT API
-    description: Генеративные языковые модели для ваших бизнес-приложений.
-    href: yandexgpt/

@@ -25,4 +25,5 @@
 | `UpdateOrganizationAccessBindings` | Updating access bindings to an organization |
 | `UpdateOsLoginProfile` | Updating an OS Login profile |
 | `UpdateOsLoginSettings` | Updating OS Login settings |
+| `UpdateSubscribers` | Updating a subscription list |
 | `UpdateUserSshKey` | Updating an SSH user key |

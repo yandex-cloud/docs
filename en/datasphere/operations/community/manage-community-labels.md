@@ -6,6 +6,8 @@ Labels can be used to provide [spending details](billing-details.md) of a specif
 
 ## Adding a label {#add-label}
 
+1. {% include [ui-find-community](../../../_includes/datasphere/ui-find-community.md) %}
+1. Select the community where you want to change the {{ ml-platform-name }} labels.
 1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.common.more }}** and select **{{ ui-key.yc-ui-datasphere.common.manage-labels }}** from the drop-down list.
 1. Click **Add label**.
 1. Specify the key and value and press **Enter**.

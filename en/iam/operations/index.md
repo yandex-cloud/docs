@@ -55,6 +55,10 @@ The guides on managing identity federations are now included in the {{ org-full-
 - [{#T}](sa/create-access-key.md)
 - [{#T}](sa/delete-access-key.md)
 
+## Temporary access keys {#temporary-keys}
+
+- [{#T}](sa/create-sts-key.md)
+
 ## API keys {#api-keys}
 
 - [{#T}](api-key/create.md)
@@ -64,3 +68,11 @@ The guides on managing identity federations are now included in the {{ org-full-
 
 - [{#T}](authorized-key/create.md)
 - [{#T}](authorized-key/delete.md)
+
+## Service control {#service-control}
+
+{% include notitle [preview](../../_includes/note-preview.md) %}
+
+- [{#T}](service-control/list-get.md)
+- [{#T}](service-control/enable-disable.md)
+- [{#T}](service-control/pause-resume.md)

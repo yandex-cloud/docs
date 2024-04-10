@@ -8,7 +8,7 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet. For information on how to get started with {{ yandex-cloud }}, see [Getting started with {{ yandex-cloud }}](../getting-started/).
 1. Accept the user agreement.
-1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and that it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. [Make sure](../iam/operations/roles/get-assigned-roles.md) that your account has the `speech-sense.spaces.creator` role assigned.
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Select the organization to work with {{ speechsense-name }} in or [create](../organization/operations/enable-org.md) a new one.

@@ -111,6 +111,8 @@ items:
             href: operations/prometheus/querying/remote-read.md
           - name: Grafana
             href: operations/prometheus/querying/grafana.md
+      - name: Правила записи
+        href: operations/prometheus/recording-rules.md
       - name: Чтение и запись метрик кластера {{ k8s }}
         href: operations/prometheus/read-write-for-kubernetes.md
   - name: Управление доступом
@@ -213,6 +215,8 @@ items:
         href: metrics-ref/captcha-ref.md
       - name: '{{ sws-name }}'
         href: metrics-ref/smartwebsecurity-ref.md
+  - name: История изменений
+    href: release-notes.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы
@@ -227,8 +231,6 @@ items:
         href: qa/alerts.md
       - name: Все вопросы на одной странице
         href: qa/all.md
-  - name: История изменений
-    href: release-notes.md
   - name: Обучающие курсы
     href: training.md
 base: ru/monitoring

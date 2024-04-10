@@ -1,9 +1,18 @@
 ---
-title: "How to create a portfolio in {{ tracker-full-name }}"
-description: "Follow this guide to create a portfolio."
+title: "Managing portfolios in {{ tracker-full-name }}"
+description: "This tutorial explains how to manage {{ tracker-full-name }} portfolios."
 ---
 
-# Creating a portfolio
+# Managing portfolios
+
+In this section, you will learn how to manage your portfolios:
+
+* [Creating a portfolio](#create-potfolio)
+* [Setting up a hierarchy](#add-portfolios-projects)
+* [Adding links for a portfolio](#links)
+* [Deleting a portfolio](#delete)
+
+## Creating a portfolio {#create-potfolio}
 
 To create a project portfolio:
 
@@ -26,9 +35,9 @@ To create a project portfolio:
    * **Tags**: Add or select the tags that would make it easier to find the portfolio.
 
 
-## Linking portfolios and projects {#add-portfolios-projects}
+## Setting up a hierarchy {#add-portfolios-projects}
 
-#### Adding a nested portfolio or project {#add-nested}
+### Adding a nested portfolio or project {#add-nested}
 
 1. Open the window for portfolio or project creation using one of these methods:
    * In the top-right corner of the portfolio page, click **Add** and select **Portfolio** or **Project**.
@@ -48,7 +57,7 @@ To create a project portfolio:
       1. Select **Existing**.
       1. Start typing the project or portfolio name and pick the option you need from the list that appears.
 
-#### Adding a parent portfolio {#add-parent}
+### Adding a parent portfolio {#add-parent}
 
 {% note alert %}
 
@@ -59,6 +68,67 @@ A project or portfolio can have only one parent portfolio.
 1. Go to the project or portfolio page and click **Included in the portfolio** in the right-hand panel.
 1. Start typing the portfolio name and pick the option you need from the list that appears.
 1. Click **Save**.
+
+## Adding links for a portfolio {#links}
+
+You can link a portfolio to other projects or portfolios to group entities based on a common topic or highlight their hierarchy.
+
+You can find a list of linked projects and portfolios on the **About portfolio** tab under the portfolio description.
+
+### Creating a link {#create-link}
+
+To create a link to other project or portfolio:
+
+1. Go to the **About portfolio** tab and click ![plus](../../_assets/console-icons/plus.svg)**Add link** .
+1. Choose the appropriate link type:
+
+   * **Depends on**: Start of work on the current portfolio depends on the completion of another project or portfolio.
+   * **Blocks**: Execution of this portfolio blocks the start of work on another project or portfolio.
+
+1. Choose an entity to create a link to:
+
+   * **New**: To create a new entity. Choose entity type (![briefcase](../../_assets/console-icons/briefcase.svg) for a portfolio and ![folders](../../_assets/console-icons/folders.svg) for a project), enter a name, specify the deadline and click **Create**.
+   * **Existing**: If a project or portfolio already exists. Specify the key and the name of the entity and select it from the list.
+
+The link will appear in the list of linked projects and portfolios.
+
+### Changing the link type {#change-link-type}
+
+To change a portfolio's link type:
+
+1. Open the portfolio page.
+1. Go to the **About portfolio** tab.
+1. In the **Depends on** or **Blocks** list under the portfolio description, select the link whose type you want to change.
+1. Next to the linked entity, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) → **Change link type** and choose a new type.
+
+### Removing a link {#delete-link}
+
+To remove an entity's link:
+
+1. Open the portfolio page.
+1. Go to the **About portfolio** tab.
+1. In the **Depends on** or **Blocks** list under the portfolio description, select the link you want to remove.
+1. Next to the linked entity, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) → **Remove link**.
+
+## Bulk editing projects in a portfolio {#bulk-change}
+
+To bulk edit multiple projects in a portfolio:
+
+1. In the left-hand panel, select ![](../../_assets/console-icons/folders.svg)&nbsp;**Projects** and open the portfolio you need.
+1. In the selected portfolio, go to the **Projects** tab.
+1. Set ![check](../../_assets/console-icons/check.svg) next to the box next to the portfolios and projects you want to edit.
+
+   If you want to select all the listed portfolios and projects at once, set ![check](../../_assets/console-icons/check.svg) above the list.
+
+1. Under the list of portfolios and projects, select the operation you need:
+
+   * **Change status**: Select a status from the list.
+   * **Assign person in charge**: Enter a username or name in the search bar and select a user.
+   * **Move to portfolio**: In the window that opens, select an existing portfolio or create a new one using the relevant tab. If one or several of the selected projects and portfolios already belong to another portfolio, this operation will remove them from the current portfolio and place in the new one.
+   * ![](../../_assets/console-icons/ellipsis.svg) → **Edit parameters**: In the window that opens, edit the parameters and click **Apply**. If the fields you need are not in the list, click **Edit parameter list** to add them.
+   * ![](../../_assets/console-icons/ellipsis.svg) → **Delete**: Delete the selected projects and portfolios.
+
+1. After the operation is complete, you will be notified of the number of portfolios and projects you successfully edited in the bottom-right corner.
 
 ## Deleting a portfolio {#delete}
 

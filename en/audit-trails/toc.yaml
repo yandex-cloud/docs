@@ -129,4 +129,6 @@ items:
     href: concepts/events.md
   - name: Data event reference
     href: concepts/events-data-plane.md
+  - name: Release notes
+    href: release-notes.md
 base: en/audit-trails

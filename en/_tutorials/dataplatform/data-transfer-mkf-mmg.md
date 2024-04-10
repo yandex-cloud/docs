@@ -45,7 +45,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
       1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-      1. Download the [data-transfer-mkf-mmg.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mkf-mmg.tf) configuration file to the same working directory.
+      1. Download the [data-transfer-mkf-mmg.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-mongodb/blob/main/data-transfer-mkf-mmg.tf) configuration file to the same working directory.
 
          This file describes:
 
@@ -64,7 +64,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * `source_user_password`: Password of `mkf-user` in the source cluster.
          * `target_mg_version`: {{ MG }} version in the target cluster.
          * `target_user_password`: Password of `mmg-user` in the target cluster.
-         * `transfer_enabled`: Set `0` to ensure that no transfer is created before you [manually create endpoints](#prepare-transfer).
+         * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 

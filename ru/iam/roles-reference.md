@@ -647,16 +647,6 @@ description: "В статье приведен полный справочник
 
 Подробнее см. [{#T}](../data-transfer/security/index.md).
 
-
-## {{ yagpt-full-name }} {#yagpt-roles}
-
-#### ai.languageModels.user {#languageModels-user}
-
-{% include [yandexgpt-user](../_roles/ai/languageModels/user.md) %}
-
-Подробнее см. [{#T}](../yandexgpt/security/index.md).
-
-
 ## {{ iam-full-name }} {#iam-roles}
 
 #### iam.serviceAccounts.user {#iam-serviceAccounts-user}
@@ -729,6 +719,19 @@ description: "В статье приведен полный справочник
 {% include [iot-editor](../_roles/iot/editor.md) %}
 
 Подробнее см. [{#T}](../iot-core/security/index.md).
+
+
+## {{ foundation-models-full-name }} {#fm-roles}
+
+#### ai.languageModels.user {#languageModels-user}
+
+{% include [yandexgpt-user](../_roles/ai/languageModels/user.md) %}
+
+#### ai.imageGeneration.user {#imageGeneration-user}
+
+{% include [yandexart-user](../_roles/ai/imageGeneration/user.md) %}
+
+Подробнее см. [{#T}](../foundation-models/security/index.md).
 
 
 ## {{ kms-full-name }} {#kms-roles}
@@ -905,7 +908,7 @@ description: "В статье приведен полный справочник
 
 {% include [managed-clickhouse.admin](../_roles/managed-clickhouse/admin.md) %}
 
-Подробнее см. [{#T}](../managed-clickhouse/security/index.md).
+Подробнее см. [{#T}](../managed-clickhouse/security.md).
 
 
 ## {{ mes-full-name }} {#managed-elasticsearch-roles}
@@ -1110,6 +1113,10 @@ description: "В статье приведен полный справочник
 
 
 ## {{ ydb-full-name }} {#ydb-roles}
+
+#### ydb.auditor {#ydb-auditor}
+
+{% include [ydb.auditor](../_roles/ydb/auditor.md) %}
 
 #### ydb.viewer {#ydb-viewer}
 

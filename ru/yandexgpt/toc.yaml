@@ -1,6 +1,7 @@
 title: YandexGPT API
 href: index.yaml
 stage: preview
+noIndex: true
 items:
   - name: Начало работы
     href: quickstart.md
@@ -194,14 +195,14 @@ items:
             href: prompts/general-functions-create-table.md
   - name: Управление доступом
     href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: История изменений
+    href: release-notes.md
   - name: Решение проблем
     items:
       - name: Вопросы и ответы
         href: qa/index.md
       - name: Коды ошибок
         href: troubleshooting/error-codes.md
-  - name: Правила тарификации
-    href: pricing.md
-  - name: История изменений
-    href: release-notes.md
 base: ru/yandexgpt

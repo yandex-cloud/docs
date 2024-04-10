@@ -1,10 +1,9 @@
 ---
 title: "Moving an instance group with a network load balancer to a different availability zone"
-description: "In this article, you will learn how to move a {{ compute-name }} instance group with a network load balancer across availability zones."
+description: "In this article, you will learn how to move a {{ compute-full-name }} instance group with a network load balancer across availability zones."
 ---
 
 # Moving an instance group with a network load balancer to a different availability zone
-
 
 {% note info %}
 
@@ -12,27 +11,22 @@ description: "In this article, you will learn how to move a {{ compute-name }} i
 
 {% endnote %}
 
-
-To move an instance group with a {{ network-load-balancer-full-name }} [network load balancer](../../../network-load-balancer/concepts):
-1. [Create](../../../vpc/operations/subnet-create.md) a subnet in the availability zone to move the instance group to.
+To move an [instance group](../../concepts/instance-groups/index.md) with a [{{ network-load-balancer-full-name }}](../../../network-load-balancer/) [network load balancer](../../../network-load-balancer/concepts/index.md):
+1. [Create](../../../vpc/operations/subnet-create.md) a [subnet](../../../vpc/concepts/network.md#subnet) in the [availability zone](../../../overview/concepts/geo-scope.md) where you want to move your instance group.
 1. Add the group instances to the new availability zone:
 
    {% include [ig-create-in-another-zone](../../../_includes/compute/ig-create-in-another-zone.md) %}
 
-1. Depending on the load balancer [type](../../../network-load-balancer/concepts/nlb-types.md), follow these steps:
-
+1. Depending on the [load balancer type](../../../network-load-balancer/concepts/nlb-types.md), follow these steps:
    * **External load balancer** (`EXTERNAL` type):
-
       1. Wait until the resources of the target group in the new availability zone pass a [health check](../../../network-load-balancer/concepts/health-check.md) and switch to the `HEALTHY` status. See [{#T}](../../../network-load-balancer/operations/check-resource-health.md).
 
          After this, the load balancer will start routing traffic through the new availability zone. This may take up to two minutes. See [Achieving routing convergence in the availability zone](../../../network-load-balancer/concepts/specifics.md#nlb-zone-converge).
-
       1. Delete the group instances from the previous availability zone:
 
          {% include [ig-delete-in-zone.md](../../../_includes/compute/ig-delete-in-zone.md) %}
 
    * **Internal load balancer** (`INTERNAL` type):
-
       1. Move the resources that need access to the internal load balancer to the previously created subnet.
       1. Switch to a new [listener](../../../network-load-balancer/concepts/listener.md):
 
@@ -40,7 +34,7 @@ To move an instance group with a {{ network-load-balancer-full-name }} [network 
 
          - Management console {#console}
 
-            1. In the [management console]({{ link-console-main }}), select the folder that houses the load balancer.
+            1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the load balancer.
             1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
             1. Click the name of the load balancer you need.
             1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_listeners }}**, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_delete-listener }}**.
@@ -51,13 +45,13 @@ To move an instance group with a {{ network-load-balancer-full-name }} [network 
 
          - CLI {#cli}
 
-            1. View a description of the CLI listener delete command:
+            1. View the description of the [CLI](../../../cli/) command for deleting a listener:
 
                ```bash
                yc load-balancer network-load-balancer remove-listener --help
                ```
 
-            1. Get a list of all network load balancers in the default folder:
+            1. Get a list of all network load balancers in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
                ```bash
                yc load-balancer network-load-balancer list
@@ -82,7 +76,7 @@ To move an instance group with a {{ network-load-balancer-full-name }} [network 
 
                Result:
 
-               ```yaml
+               ```text
                id: enp2btm6uvdr********
                folder_id: b1gmit33ngp3********
                ...
@@ -102,7 +96,7 @@ To move an instance group with a {{ network-load-balancer-full-name }} [network 
 
                Result:
 
-               ```yaml
+               ```text
                done (1s)
                id: enpvg9o73hqh********
                folder_id: b1gmit33ngp3********
@@ -138,7 +132,7 @@ To move an instance group with a {{ network-load-balancer-full-name }} [network 
 
                Result:
 
-               ```yaml
+               ```text
                done (1s)
                id: enp2btm6uvdr********
                folder_id: b1gmit33ngp3********
@@ -175,14 +169,12 @@ To move an instance group with a {{ network-load-balancer-full-name }} [network 
                ```
 
                Where:
-
                * `name`: Listener name.
                * `port`: Port where the load balancer will accept incoming traffic.
                * `target_port`: Target port where the balancer will send traffic.
                * `subnet_id`: ID of the subnet in the availability zone where you want to move your instance group.
 
                For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
-
             1. Apply the changes:
 
                {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -192,12 +184,10 @@ To move an instance group with a {{ network-load-balancer-full-name }} [network 
          - API {#api}
 
             1. To remove a network load balancer's listener, use the [removeListener](../../../network-load-balancer/api-ref/NetworkLoadBalancer/removeListener.md) REST API method for the [NetworkLoadBalancer](../../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/RemoveListener](../../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#RemoveListener) gRPC API call, and provide the following in the request:
-
                * Load balancer ID in the `networkLoadBalancerId` parameter.
                * Listener name in the `listenerName` parameter.
 
                You can get the load balancer ID with a [list of network load balancers in the folder](../../../network-load-balancer/operations/load-balancer-list.md#list) and the listener name with [network load balancer details](../../../network-load-balancer/operations/load-balancer-list.md#get).
-
             1. To add a network balancer listener, use the [addListener](../../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) API method for the [NetworkLoadBalancer](../../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/AddListener](../../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#AddListener) gRPC API call, and provide the following in your request:
 
                ```json
@@ -224,12 +214,13 @@ To move an instance group with a {{ network-load-balancer-full-name }} [network 
 
          {% note warning %}
 
-         Your listener IP address will change. Make sure to specify the new listener IP address in the settings of the resources the balancer receives traffic from.
+         Your listener [IP address](../../../vpc/concepts/address.md) will change. Make sure to specify the new listener IP address in the settings of the resources the balancer receives traffic from.
 
          {% endnote %}
 
       1. Delete the group instances from the previous availability zone:
 
          {% include [ig-delete-in-zone.md](../../../_includes/compute/ig-delete-in-zone.md) %}
+
       1. Make sure the subnet in the previous availability zone has no resources left.
       1. [Delete](../../../vpc/operations/subnet-delete.md) the subnet in the previous availability zone.

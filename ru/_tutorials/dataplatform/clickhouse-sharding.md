@@ -57,7 +57,7 @@
          Для [классического шардирования](#shard-example) создание групп шардов не требуется.
 
     
-    1. Если вы используете группы безопасности, [настройте их](../../managed-clickhouse/operations/connect.md#configuring-security-groups) так, чтобы к кластеру можно было подключаться из интернета.
+    1. Если вы используете группы безопасности, [настройте их](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) так, чтобы к кластеру можно было подключаться из интернета.
 
 
 - {{ TF }} {#tf}
@@ -98,7 +98,7 @@
 
 ### Настройте clickhouse-client {#deploy-clickhouse-client}
 
-[Установите и настройте clickhouse-client](../../managed-clickhouse/operations/connect.md), чтобы иметь возможность подключаться с его помощью к базе данных.
+[Установите и настройте clickhouse-client](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client), чтобы иметь возможность подключаться с его помощью к базе данных.
 
 ## Создайте таблицы с данными {#create-tables}
 
@@ -116,7 +116,7 @@
 
 Перед работой с распределенной таблицей:
 
-1. [Подключитесь](../../managed-clickhouse/operations/connect.md) к базе `tutorial`.
+1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md) к базе `tutorial`.
 1. Создайте таблицу `hits_v1` на движке [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/), которая будет размещена на всех хостах кластера:
 
    ```sql
@@ -130,7 +130,7 @@
 
 Чтобы создать распределенную таблицу `hits_v1_distributed` в кластере:
 
-1. [Подключитесь](../../managed-clickhouse/operations/connect.md) к базе `tutorial`.
+1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md) к базе `tutorial`.
 1. Создайте таблицу на движке [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed):
 
    ```sql
@@ -157,7 +157,7 @@
 
 Перед работой с распределенной таблицей:
 
-1. [Подключитесь](../../managed-clickhouse/operations/connect.md) к базе `tutorial`.
+1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md) к базе `tutorial`.
 1. Создайте таблицу `hits_v1` на движке [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/), которая использует все хосты группы шардов `sgroup` кластера:
 
    ```sql
@@ -171,7 +171,7 @@
 
 Чтобы создать распределенную таблицу `tutorial.hits_v1_distributed` в кластере:
 
-1. [Подключитесь](../../managed-clickhouse/operations/connect.md) к базе `tutorial`.
+1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md) к базе `tutorial`.
 1. Создайте таблицу на движке [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed):
 
    ```sql
@@ -191,7 +191,7 @@
 
 Перед работой с распределенной таблицей:
 
-1. [Подключитесь](../../managed-clickhouse/operations/connect.md) к базе `tutorial`.
+1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md) к базе `tutorial`.
 1. Создайте таблицу `hits_v1` на движке [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/), которая использует все хосты группы шардов `sgroup_data` кластера:
 
    ```sql
@@ -207,7 +207,7 @@
 
 Чтобы создать распределенную таблицу `tutorial.hits_v1_distributed` в кластере:
 
-1. [Подключитесь](../../managed-clickhouse/operations/connect.md) к базе `tutorial`.
+1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md) к базе `tutorial`.
 1. Создайте таблицу на движке [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed):
 
    ```sql

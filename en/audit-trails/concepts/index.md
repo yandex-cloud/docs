@@ -20,7 +20,7 @@ Collecting audit logs enables you to use analytical tools and promptly respond t
 
 ## Management audit logs {#control-plane-logs}
 
-{{ at-name }} collects [management (control plane)](./control-plane-vs-data-plane.md#control-plane-events) audit logs for the following {{ yandex-cloud }} services:
+{{ at-name }} collects [management event](./control-plane-vs-data-plane.md#control-plane-events) audit logs for the following {{ yandex-cloud }} services:
 
 * {{ alb-full-name }}
 * {{ at-full-name }}
@@ -61,7 +61,7 @@ The following [management events](./events.md) are logged:
 
 ## Data audit logs {#data-plane-logs}
 
-{{ at-name }} collects [data (data plane)](./control-plane-vs-data-plane.md#data-plane-events) audit logs for the following {{ yandex-cloud }} services:
+{{ at-name }} collects [data event](./control-plane-vs-data-plane.md#data-plane-events) audit logs for the following {{ yandex-cloud }} services:
 
 * {{ dns-full-name }}
 * {{ lockbox-full-name }}

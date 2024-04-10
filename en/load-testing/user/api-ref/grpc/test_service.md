@@ -63,6 +63,7 @@ name | **string**<br>Name of the test. Value must match the regular expression `
 description | **string**<br>Description of the test. The maximum string length in characters is 256.
 tags[] | **[common.Tag](#Tag)**<br>Tags assigned to the test. 
 logging_log_group_id | **string**<br>ID of the logging group to which test artifacts are uploaded. 
+artifact_settings | **[ArtifactSettings](#ArtifactSettings)**<br>Settings which define where to upload test artifacts and which files should be included. 
 
 
 ### Tag {#Tag}
@@ -71,6 +72,17 @@ Field | Description
 --- | ---
 key | **string**<br>Key of the tag. 
 value | **string**<br>Value of the tag. 
+
+
+### ArtifactSettings {#ArtifactSettings}
+
+Field | Description
+--- | ---
+upload_to | **oneof:** `object_storage_bucket`<br>
+&nbsp;&nbsp;object_storage_bucket | **string**<br>Name of output object storage bucket in test's folder. 
+is_archive | **bool**<br>Setting which defines whether artifact files should be archived prior to uploading. 
+filter_include[] | **string**<br>Filter strings defining which files should be included to artifacts. GLOB format. <br>Example: <ul><li>['*'] - all files will be uploaded. </li><li>['*.log', '*.yaml] - all `.log` and `.yaml` files will be uploaded.</li></ul> 
+filter_exclude[] | **string**<br>Filter strings defining which files should be excluded from artifacts. GLOB format. <br>Example: <ul><li>filter_include=['*'], filter_exclude=['phout.log'] - upload all `.log` files excluding `phout.log`.</li></ul> 
 
 
 ### Operation {#Operation}
@@ -124,6 +136,7 @@ name | **string**<br>Name of the test. Value must match the regular expression `
 description | **string**<br>Description of the test. The maximum string length in characters is 256.
 tags[] | **[common.Tag](#Tag1)**<br>Tags assigned to the test. 
 logging_log_group_id | **string**<br>ID of the logging group to which test artifacts are uploaded. 
+artifact_settings | **[ArtifactSettings](#ArtifactSettings1)**<br>Settings which define where to upload test artifacts and which files should be included. 
 
 
 ### Summary {#Summary}
@@ -139,6 +152,7 @@ is_finished | **bool**<br>Indicates whether the test is finished.
 error | **string**<br>Error message. 
 imbalance_point | **[ImbalancePoint](#ImbalancePoint)**<br>Detected imbalance point. <br>Contains information about a state at the moment it has been [auto-stopped](/docs/load-testing/concepts/auto-stop). <br>Empty if no auto-stop occured. 
 assigned_agent_id | **string**<br>ID of the agent that executed the test. 
+artifacts | **[FilePointer](#FilePointer)**<br>Test output artifacts. <br>Link to the artifacts output target containing `.log` and other files collected during test execution. 
 
 
 ### ImbalancePoint {#ImbalancePoint}
@@ -147,6 +161,22 @@ Field | Description
 --- | ---
 at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Imbalance moment timestamp. 
 rps | **int64**<br>Imbalance moment RPS. 
+
+
+### FilePointer {#FilePointer}
+
+Field | Description
+--- | ---
+file_pointer | **oneof:** `object_storage`<br>
+&nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage)**<br>Reference to a file in Object Storage. 
+
+
+### ObjectStorage {#ObjectStorage}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Bucket name. 
+name | **string**<br>File name. 
 
 
 ## Get {#Get}
@@ -200,6 +230,7 @@ name | **string**<br>Name of the test. Value must match the regular expression `
 description | **string**<br>Description of the test. The maximum string length in characters is 256.
 tags[] | **[common.Tag](#Tag1)**<br>Tags assigned to the test. 
 logging_log_group_id | **string**<br>ID of the logging group to which test artifacts are uploaded. 
+artifact_settings | **[ArtifactSettings](#ArtifactSettings1)**<br>Settings which define where to upload test artifacts and which files should be included. 
 
 
 ### Tag {#Tag1}
@@ -208,6 +239,17 @@ Field | Description
 --- | ---
 key | **string**<br>Key of the tag. 
 value | **string**<br>Value of the tag. 
+
+
+### ArtifactSettings {#ArtifactSettings1}
+
+Field | Description
+--- | ---
+upload_to | **oneof:** `object_storage_bucket`<br>
+&nbsp;&nbsp;object_storage_bucket | **string**<br>Name of output object storage bucket in test's folder. 
+is_archive | **bool**<br>Setting which defines whether artifact files should be archived prior to uploading. 
+filter_include[] | **string**<br>Filter strings defining which files should be included to artifacts. GLOB format. <br>Example: <ul><li>['*'] - all files will be uploaded. </li><li>['*.log', '*.yaml] - all `.log` and `.yaml` files will be uploaded.</li></ul> 
+filter_exclude[] | **string**<br>Filter strings defining which files should be excluded from artifacts. GLOB format. <br>Example: <ul><li>filter_include=['*'], filter_exclude=['phout.log'] - upload all `.log` files excluding `phout.log`.</li></ul> 
 
 
 ### Summary {#Summary1}
@@ -223,6 +265,7 @@ is_finished | **bool**<br>Indicates whether the test is finished.
 error | **string**<br>Error message. 
 imbalance_point | **[ImbalancePoint](#ImbalancePoint1)**<br>Detected imbalance point. <br>Contains information about a state at the moment it has been [auto-stopped](/docs/load-testing/concepts/auto-stop). <br>Empty if no auto-stop occured. 
 assigned_agent_id | **string**<br>ID of the agent that executed the test. 
+artifacts | **[FilePointer](#FilePointer1)**<br>Test output artifacts. <br>Link to the artifacts output target containing `.log` and other files collected during test execution. 
 
 
 ### ImbalancePoint {#ImbalancePoint1}
@@ -231,6 +274,22 @@ Field | Description
 --- | ---
 at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Imbalance moment timestamp. 
 rps | **int64**<br>Imbalance moment RPS. 
+
+
+### FilePointer {#FilePointer1}
+
+Field | Description
+--- | ---
+file_pointer | **oneof:** `object_storage`<br>
+&nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage1)**<br>Reference to a file in Object Storage. 
+
+
+### ObjectStorage {#ObjectStorage1}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Bucket name. 
+name | **string**<br>File name. 
 
 
 ## Stop {#Stop}
@@ -311,6 +370,7 @@ name | **string**<br>Name of the test. Value must match the regular expression `
 description | **string**<br>Description of the test. The maximum string length in characters is 256.
 tags[] | **[common.Tag](#Tag2)**<br>Tags assigned to the test. 
 logging_log_group_id | **string**<br>ID of the logging group to which test artifacts are uploaded. 
+artifact_settings | **[ArtifactSettings](#ArtifactSettings2)**<br>Settings which define where to upload test artifacts and which files should be included. 
 
 
 ### Tag {#Tag2}
@@ -319,6 +379,17 @@ Field | Description
 --- | ---
 key | **string**<br>Key of the tag. 
 value | **string**<br>Value of the tag. 
+
+
+### ArtifactSettings {#ArtifactSettings2}
+
+Field | Description
+--- | ---
+upload_to | **oneof:** `object_storage_bucket`<br>
+&nbsp;&nbsp;object_storage_bucket | **string**<br>Name of output object storage bucket in test's folder. 
+is_archive | **bool**<br>Setting which defines whether artifact files should be archived prior to uploading. 
+filter_include[] | **string**<br>Filter strings defining which files should be included to artifacts. GLOB format. <br>Example: <ul><li>['*'] - all files will be uploaded. </li><li>['*.log', '*.yaml] - all `.log` and `.yaml` files will be uploaded.</li></ul> 
+filter_exclude[] | **string**<br>Filter strings defining which files should be excluded from artifacts. GLOB format. <br>Example: <ul><li>filter_include=['*'], filter_exclude=['phout.log'] - upload all `.log` files excluding `phout.log`.</li></ul> 
 
 
 ### Summary {#Summary2}
@@ -334,6 +405,7 @@ is_finished | **bool**<br>Indicates whether the test is finished.
 error | **string**<br>Error message. 
 imbalance_point | **[ImbalancePoint](#ImbalancePoint2)**<br>Detected imbalance point. <br>Contains information about a state at the moment it has been [auto-stopped](/docs/load-testing/concepts/auto-stop). <br>Empty if no auto-stop occured. 
 assigned_agent_id | **string**<br>ID of the agent that executed the test. 
+artifacts | **[FilePointer](#FilePointer2)**<br>Test output artifacts. <br>Link to the artifacts output target containing `.log` and other files collected during test execution. 
 
 
 ### ImbalancePoint {#ImbalancePoint2}
@@ -342,6 +414,22 @@ Field | Description
 --- | ---
 at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Imbalance moment timestamp. 
 rps | **int64**<br>Imbalance moment RPS. 
+
+
+### FilePointer {#FilePointer2}
+
+Field | Description
+--- | ---
+file_pointer | **oneof:** `object_storage`<br>
+&nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage2)**<br>Reference to a file in Object Storage. 
+
+
+### ObjectStorage {#ObjectStorage2}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Bucket name. 
+name | **string**<br>File name. 
 
 
 ## Delete {#Delete}
@@ -446,6 +534,7 @@ name | **string**<br>Name of the test. Value must match the regular expression `
 description | **string**<br>Description of the test. The maximum string length in characters is 256.
 tags[] | **[common.Tag](#Tag3)**<br>Tags assigned to the test. 
 logging_log_group_id | **string**<br>ID of the logging group to which test artifacts are uploaded. 
+artifact_settings | **[ArtifactSettings](#ArtifactSettings3)**<br>Settings which define where to upload test artifacts and which files should be included. 
 
 
 ### Tag {#Tag3}
@@ -454,6 +543,17 @@ Field | Description
 --- | ---
 key | **string**<br>Key of the tag. 
 value | **string**<br>Value of the tag. 
+
+
+### ArtifactSettings {#ArtifactSettings3}
+
+Field | Description
+--- | ---
+upload_to | **oneof:** `object_storage_bucket`<br>
+&nbsp;&nbsp;object_storage_bucket | **string**<br>Name of output object storage bucket in test's folder. 
+is_archive | **bool**<br>Setting which defines whether artifact files should be archived prior to uploading. 
+filter_include[] | **string**<br>Filter strings defining which files should be included to artifacts. GLOB format. <br>Example: <ul><li>['*'] - all files will be uploaded. </li><li>['*.log', '*.yaml] - all `.log` and `.yaml` files will be uploaded.</li></ul> 
+filter_exclude[] | **string**<br>Filter strings defining which files should be excluded from artifacts. GLOB format. <br>Example: <ul><li>filter_include=['*'], filter_exclude=['phout.log'] - upload all `.log` files excluding `phout.log`.</li></ul> 
 
 
 ### Summary {#Summary3}
@@ -469,6 +569,7 @@ is_finished | **bool**<br>Indicates whether the test is finished.
 error | **string**<br>Error message. 
 imbalance_point | **[ImbalancePoint](#ImbalancePoint3)**<br>Detected imbalance point. <br>Contains information about a state at the moment it has been [auto-stopped](/docs/load-testing/concepts/auto-stop). <br>Empty if no auto-stop occured. 
 assigned_agent_id | **string**<br>ID of the agent that executed the test. 
+artifacts | **[FilePointer](#FilePointer3)**<br>Test output artifacts. <br>Link to the artifacts output target containing `.log` and other files collected during test execution. 
 
 
 ### ImbalancePoint {#ImbalancePoint3}
@@ -477,5 +578,21 @@ Field | Description
 --- | ---
 at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Imbalance moment timestamp. 
 rps | **int64**<br>Imbalance moment RPS. 
+
+
+### FilePointer {#FilePointer3}
+
+Field | Description
+--- | ---
+file_pointer | **oneof:** `object_storage`<br>
+&nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage3)**<br>Reference to a file in Object Storage. 
+
+
+### ObjectStorage {#ObjectStorage3}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Bucket name. 
+name | **string**<br>File name. 
 
 

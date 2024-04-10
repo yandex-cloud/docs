@@ -14,4 +14,4 @@
 
 Позволяет управлять ресурсами и доступом к ним.
 
-Подробнее о примитивных ролях читайте в статье [Роли](../iam/concepts/access-control/roles.md#primitive-roles).
+Подробнее о примитивных ролях см. в [справочнике ролей {{ yandex-cloud }}](../iam/roles-reference#primitive-roles).

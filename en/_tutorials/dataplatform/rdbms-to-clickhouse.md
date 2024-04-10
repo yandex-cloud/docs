@@ -42,7 +42,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [postgresql-to-clickhouse.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/postgresql-to-clickhouse.tf) configuration file to the same working directory.
+   1. Download the [postgresql-to-clickhouse.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-postgresql-to-clickhouse/blob/main/postgresql-to-clickhouse.tf) configuration file to the same working directory.
 
       This file describes:
 

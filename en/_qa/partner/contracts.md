@@ -24,13 +24,13 @@ If your customer pays VAT, you can re-issue them invoices from your organization
 
 #### What service payment system is used in {{ yandex-cloud }} for partners? What happens if there is no money in the account? {#payments}
 
-{{ yandex-cloud }} uses a postpaid billing system. To get started, you should switch to paid consumption mode. Your account or [subaccounts](../../partner/terms.md#sub-account) may start consumption without any top-up immediately after activation. The sum for consumption across all subaccounts linked to the partner account is debited from the partner's personal account.
+{{ yandex-cloud }} uses a postpaid billing system. To get started, you should switch to paid consumption mode. Your account or [subaccounts](../../partner/terms.md#sub-account) may start consumption without any top-up immediately after activation. The sum for consumption across all subaccounts linked to the partner account is debited from the partner personal account.
 
 At the end of each month, we will send a service certificate to your email address indicating the amount minus the partner bonus for the past (reporting) month.
 
 At the end of the reporting month, starting from the second month of paid consumption, you have 15 days to settle the payment invoice received. During this period, until the account is topped up, your [credit limit](../../billing/concepts/billing-threshold.md) is activated. The credit limit is calculated automatically based on the average monthly consumption over the past few months.
 
-If you do not settle the payment before the end of the current month or the credit limit is exceeded, we will contact you to clarify the reasons for the delay in payment and agree on the deadline for transferring the funds. If we fail to receive your response after several attempts to contact you, your resources may be suspended until the issue is resolved. For more information about suspending and restoring service usage, see **Billing cycle** in the Billing documentation:
+If you do not settle the payment before the end of the current month or the credit limit is exceeded, we will contact you to clarify the reasons for the delay in payment and agree on the deadline for transferring the funds. If we fail to receive your response after several attempts to contact you, your resources may be suspended until the issue is resolved. For more information about suspending and restoring service usage, see **Billing cycle** in the {{ billing-name }} documentation:
 * [Individuals](../../billing/payment/billing-cycle-individual.md)
 * [Businesses and individual entrepreneurs](../../billing/payment/billing-cycle-business.md)
 

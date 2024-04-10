@@ -200,7 +200,7 @@ items:
             href: internet-store/opencart.md
           - name: Setting up virtual hosting
             href: web/virtual-hosting.md
-          - name: Assigning a domain name to a VM with a web server
+          - name: Binding a domain name to a VM with a web server
             href: web/bind-domain-vm.md
       - name: 1C
         items:
@@ -343,7 +343,7 @@ items:
           other cloud networks
         href: dataplatform/clickhouse-dns-peering.md
       - name: >-
-          Migrating an HDFS {{ dataproc-name }} cluster to a different
+          Migrating a {{ dataproc-name }} HDFS cluster to a different
           availability zone
         href: dataplatform/hdfs-cluster-migration.md
       - name: Importing data from {{ mmy-name }} to {{ dataproc-name }} using Sqoop
@@ -388,6 +388,10 @@ items:
           Migrating databases from {{ mmy-name }} to {{ objstorage-name }} using
           {{ data-transfer-name }}
         href: dataplatform/mmy-objs-migration.md
+      - name: >-
+          Migrating data from {{ objstorage-name }} to {{ mmy-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/objs-mmy-migration.md
       - name: Importing data from {{ mmy-name }} to {{ dataproc-name }} using Sqoop
         href: dataplatform/sqoop-mmy.md
       - name: >-
@@ -534,7 +538,7 @@ items:
         href: routing/dataproc-nat-instance.md
       - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}
         href: routing/storage-vpc-access.md
-      - name: Connecting to {{container-registry-name}} from {{vpc-short-name}}
+      - name: Connecting to {{ container-registry-name }} from {{ vpc-short-name }}
         href: routing/vpc-cr-access.md
   - name: Data visualization and analytics
     items:
@@ -610,6 +614,8 @@ items:
         href: serverless/canary-release.md
       - name: Interactive debugging of {{ sf-name }} functions
         href: serverless/serverless-live-debug.md
-      - name: Running a containerized app in {{ serverless-containers-full-name }}
+      - name: >-
+          Running a containerized application in {{
+          serverless-containers-full-name }}
         href: serverless/deploy-app-container.md
 base: en/tutorials

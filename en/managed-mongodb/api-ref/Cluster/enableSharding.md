@@ -45,7 +45,11 @@ clusterId | <p>Required. ID of the MongoDB cluster to enable sharding for.</p> <
       "subnetId": "string",
       "assignPublicIp": true,
       "type": "string",
-      "shardName": "string"
+      "shardName": "string",
+      "hidden": true,
+      "secondaryDelaySecs": "integer",
+      "priority": "number",
+      "tags": "object"
     }
   ],
   "mongoinfra": {
@@ -77,6 +81,10 @@ hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet that the host shoul
 hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the host should get a public IP address on creation.</p> <p>After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with ``assignPublicIp`` set as needed.</p> <p>Possible values:</p> <ul> <li>false - don't assign a public IP to the host.</li> <li>true - the host should have a public IP address.</li> </ul> 
 hostSpecs[].<br>type | **string**<br><p>Type of the host to be deployed.</p> <ul> <li>MONGOD: A mongod host.</li> <li>MONGOS: A mongos host.</li> <li>MONGOCFG: A mongocfg host.</li> <li>MONGOINFRA: A mongoinfra (mongos+mongocfg) host.</li> </ul> 
 hostSpecs[].<br>shardName | **string**<br><p>Name of the shard that the host belongs to.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
+hostSpecs[].<br>hidden | **boolean** (boolean)<br><p>Is host hidden in replSet</p> 
+hostSpecs[].<br>secondaryDelaySecs | **integer** (int64)<br><p>The number of seconds "behind" the primary that this replica set member should "lag"</p> 
+hostSpecs[].<br>priority | **number** (double)<br><p>Priority of host for the election in replSet</p> 
+hostSpecs[].<br>tags | **object**<br><p>Host tags</p> 
 mongoinfra | **object**<br><p>mongos specification for sharding.</p> 
 mongoinfra.<br>resources | **object**<br><p>Required. Resources for mongoinfra (mongos+mongocfg) hosts.</p> 
 mongoinfra.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 

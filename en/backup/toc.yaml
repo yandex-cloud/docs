@@ -58,10 +58,16 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
-    href: pricing.md
+    items:
+      - name: Current pricing policy
+        href: pricing.md
+      - name: Archive
+        items:
+          - name: Before April 1, 2024
+            href: pricing-archive/pricing-20240401.md
   - name: CLI reference
     href: ../cli/cli-ref/managed-services/backup/index.md
-  - name: Terraform reference
+  - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:

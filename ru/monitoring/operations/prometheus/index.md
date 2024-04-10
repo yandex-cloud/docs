@@ -37,8 +37,8 @@ description: "{{ managed-prometheus-full-name }} — система монито
 Долгосрочное хранение метрик | Не предназначен для долгосрочного хранения метрик. Полагается на [сторонние решения](https://prometheus.io/docs/prometheus/latest/storage/#existing-integrations). | Поддерживается долгосрочное хранение метрик. При использовании [прореживания](../../concepts/decimation.md) возможно неограниченное по времени хранение.
 Чтение метрик | Поддерживается чтение данных и метаданных через [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/). | Поддерживается чтение данных и метаданных через [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) с некоторыми [ограничениями](querying/grafana.md#restrictions).
 Визуализация | [Expression browser](https://prometheus.io/docs/visualization/browser/), [Grafana](https://prometheus.io/docs/visualization/grafana/) | Поддерживается [{{ prometheus-name }} data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/).
-Агрегация | Поддерживается агрегация с помощью [recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/). | Будет реализовано в будущих версиях. В данный момент recording rules можно вычислять по краткосрочным данным на локальных экземплярах {{ prometheus-name }}.
-Алертинг | Поддерживается с помощью [alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/). | Будет реализовано в будущих версиях. В данный момент alerting rules можно вычислять по краткосрочным данным на локальных экземплярах {{ prometheus-name }}.
+Агрегация | Поддерживается агрегация с помощью правил записи ([recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/)). | Поддерживаются существующие файлы с [правилами записи](recording-rules.md) (`recording rules`) в формате YAML. Загрузка файлов и управление ими доступны через пользовательский интерфейс {{ monitoring-name }} и API.
+Алертинг | Поддерживается с помощью правил алертинга ([alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)). | Будет реализовано в будущих версиях. В данный момент правила алертинга (`alerting rules`) можно вычислять по краткосрочным данным на локальных экземплярах {{ prometheus-name }}.
 Интеграции | Клиентские [библиотеки](https://prometheus.io/docs/instrumenting/clientlibs/) и [экспортеры](https://prometheus.io/docs/instrumenting/exporters/). | Можно использовать существующие библиотеки и экспортеры.
 
 
@@ -46,7 +46,7 @@ description: "{{ managed-prometheus-full-name }} — система монито
 
 * Значение `NaN` не поддерживается и воспринимается как отсутствие точки.
 * Значения `+Inf`/`-Inf` могут обрабатываться некорректно.
-* Не поддерживаются `recording rules` и `alerting rules`.
+* Не поддерживаются правила алертинга (`alerting rules`).
 * Не поддерживаются `staleness markers`, `exemplars` и `native histograms`.
 
 ## Квоты и лимиты {#limits}
@@ -59,12 +59,14 @@ description: "{{ managed-prometheus-full-name }} — система монито
 
 Вид ограничения | Значение
 ----- | -----
-Максимальная скорость записи в формате [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | 500 запросов/с и 20 МБ/с
+Максимальная скорость записи в формате [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | 1000 запросов/с и 80 МБ/с
 Количество метрик в одном запросе на запись | 10000
-Количество запросов в секунду на чтение через [Remote Read API](https://prometheus.io/docs/prometheus/latest/querying/remote_read_api) | 100
-Количество запросов в секунду на чтение через [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) | 100
-Количество уникальных метрик | 10 000 000
-Максимальное время хранения [устаревших метрик](../../concepts/ttl.md) | 60 дней
+Количество запросов в секунду на чтение через [Remote Read API](https://prometheus.io/docs/prometheus/latest/querying/remote_read_api) | 200
+Количество запросов в секунду на чтение через [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) | 200
+Количество уникальных метрик | 20 000 000
+Максимальное время хранения [устаревших метрик](../../concepts/ttl.md) ^1^ | 60 дней
+
+^1^ Если новые значения не поступают для метрики в течение 60 дней, она считается устаревшей и удаляется. Если новые значения поступают, время хранения метрики не ограничено.
 
 На вкладке **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** справа находится блок **{{ ui-key.yacloud_monitoring.prometheus.approved.widget-monitoring.title }}**. С помощью него можно:
 

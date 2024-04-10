@@ -58,7 +58,13 @@ items:
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
-    href: pricing.md
+    items:
+      - name: Действующие правила
+        href: pricing.md
+      - name: Архив
+        items:
+          - name: До 1 апреля 2024 года
+            href: pricing-archive/pricing-20240401.md
   - name: Справочник CLI
     href: ../cli/cli-ref/managed-services/backup/index.md
   - name: Справочник {{ TF }}
@@ -145,10 +151,10 @@ items:
                 href: backup/api-ref/Resource/listTasks.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: История изменений
+    href: release-notes.md
   - name: Вопросы и ответы
     items:
       - name: Решение проблем
         href: qa/troubleshooting.md
-  - name: История изменений
-    href: release-notes.md
 base: ru/backup
