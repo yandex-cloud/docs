@@ -58,7 +58,7 @@ description: "На странице представлены релизы YC CLI
 * `yc dns zone create`;
 * `yc dns zone update`.
 
-##### {{compute-name}}
+##### {{ compute-name }}
 
 * Добавлена команда `yc compute instance attach-network-interface` для добавления сетевого интерфейса в уже существующую ВМ.
 * Добавлена команда `yc compute instance detach-network-interface` для удаления сетевого интерфейса из уже существующей ВМ.

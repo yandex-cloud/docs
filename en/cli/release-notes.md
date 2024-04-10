@@ -7,6 +7,36 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ## Current version {#latest-release}
 
+### Version 0.122.0 (27.03.24) {#version0.122.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ sf-name }} {#serverless-functions}
+
+* Added the `--tmpfs-size` parameter to the `yc serverless function version create` command to mount the `/tmp` directory from memory when allocating 1 GB of memory or more to the function.
+* Deleted the `yc serverless trigger create cloud-logs` command.
+
+##### {{ data-transfer-name }}
+
+Added the following commands to create and modify {{ yds-full-name }} endpoints:
+* `yc datatransfer endpoint create yds-source`
+* `yc datatransfer endpoint create yds-target`
+* `yc datatransfer endpoint update yds-source`
+* `yc datatransfer endpoint update yds-target`
+
+##### {{ dns-name }} {#dns}
+
+Added the `--deletion-protection` parameter to the following commands to protect the DNS zone from accidental deletion:
+* `yc dns zone create`
+* `yc dns zone update`
+
+##### {{ compute-name }}
+
+* Added the `yc compute instance attach-network-interface` command to add a network interface to an existing VM.
+* Added the `yc compute instance detach-network-interface` command to delete a network interface from an existing VM.
+
+## Previous releases {#previous-releases}
+
 ### Version 0.121.0 (12/03/24) {#version0.121.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -27,20 +57,18 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ##### {{ load-testing-name }} {#load-testing}
 
-* Added the `yc loadtesting test wait` command to enable waiting until a load test is complete.
-* Added the `--wait` and `--wait-idle-timeout` flags to the `yc loadtesting test create` command to enable waiting until the created load test is complete.
-* Added the `--configuration agent-by-filter=""` and `--configuration anonymous-agent=true` flags to the `yc loadtesting test create` command to enable selecting a load testing agent by filer or an anonymous agent respectively.
-* Added the `--filter` flag to the `yc loadtesting agent list` command to filter a list of agents.
+* Added the `yc loadtesting test wait` command for a wait till the end of the created load test.
+* Added the `--wait` and `--wait-idle-timeout` flags to the `yc loadtesting test create` command for a wait till the end of the created load test.
+* Added the `--configuration agent-by-filter=""` and `--configuration anonymous-agent=true` flags to the `yc loadtesting test create` command for selecting a load testing agent by filtering or an anonymous agent, respectively.
+* Added the `--filter` flag to the `yc loadtesting agent list` command to filter the agents list.
 
 ##### {{ vpc-name }} {#vpc}
 
 * Added the `--dns-record` flag to the `yc vpc address create` command for providing DNS specifications of the address.
 * Added the following flags to the `yc vpc address update` command:
 
-   * `--dns-record` for providing DNS specifications of the address
-   * `--clear-dns-records` for removing all DNS specifications of the address
-
-## Previous releases {#previous-releases}
+   * `--dns-record` for providing DNS specifications of the address.
+   * `--clear-dns-records` for removing all DNS specifications of the address.
 
 ### Version 0.120.0 (01/03/24) {#version0.120.0}
 

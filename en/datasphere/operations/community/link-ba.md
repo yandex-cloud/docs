@@ -22,7 +22,8 @@ You can only manage a billing account if you have a [Yandex account](../../../ia
 
 The community's administrator can change the billing account used to pay for projects and resources of the community.
 
-1. On the community's page, click **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}**.
+1. {% include [ui-find-community](../../../_includes/datasphere/ui-find-community.md) %}
+1. Select the required community and open the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab.
 1. Under **{{ ui-key.yc-ui-datasphere.common.billing }}**, click **![pencil](../../../_assets/console-icons/pencil.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
 1. Select an existing billing account or create a new billing account by following the prompts in the interface.
 1. Click **{{ ui-key.yc-ui-datasphere.common.link }}**.

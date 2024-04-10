@@ -22,8 +22,8 @@ Syntax:
 |`--queue`|<b>`string`</b><br/>Message queue identifier.|
 |`--queue-service-account-id`|<b>`string`</b><br/>Service account to be used by the worker to access the Message Queue.|
 |`--queue-service-account-name`|<b>`string`</b><br/>Service account to be used by the worker to access the Message Queue.|
-|`--batch-size`|<b>`int`</b><br/>Batch size, 1 - 10. Default: 1|
-|`--batch-cutoff`|<b>`duration`</b><br/>Batch cutoff. 0 - 20s. Default: 10s.|
+|`--batch-size`|<b>`int`</b><br/>Batch size, 1 - 1000. Default: 1|
+|`--batch-cutoff`|<b>`duration`</b><br/>Batch cutoff. 0 - 60s. Default: 10s.|
 |`--invoke-function-id`|<b>`string`</b><br/>Function to be invoked by worker to access the Message Queue.|
 |`--invoke-function-name`|<b>`string`</b><br/>Function to be invoked by worker to access the Message Queue.|
 |`--invoke-function-tag`|<b>`string`</b><br/>Function tag.|

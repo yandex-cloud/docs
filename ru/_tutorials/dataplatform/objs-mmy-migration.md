@@ -103,9 +103,9 @@
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageResultTable.add_system_cols.title }}** — выключите опцию.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` и укажите имена полей и тип данных:
 
-        * `id` : `INT64`, признак **Ключ**;
-        * `device_id` : `INT32`;
-        * `datetime` : `DATETIME`;
+        * `id`: `INT64`, признак **Ключ**;
+        * `device_id`: `INT32`;
+        * `datetime`: `DATETIME`;
   
            {% note info %}
 
@@ -113,13 +113,13 @@
 
            {% endnote %}
 
-        * `latitude` : `DOUBLE`;
-        * `longitude` : `DOUBLE`;
-        * `altitude` : `DOUBLE`;
-        * `speed` : `DOUBLE`;
-        * `battery_voltage` : `DOUBLE`;
-        * `cabin_temperature` : `DOUBLE`;
-        * `fuel_level` : `DOUBLE`.
+        * `latitude`: `DOUBLE`;
+        * `longitude`: `DOUBLE`;
+        * `altitude`: `DOUBLE`;
+        * `speed`: `DOUBLE`;
+        * `battery_voltage`: `DOUBLE`;
+        * `cabin_temperature`: `DOUBLE`;
+        * `fuel_level`: `DOUBLE`.
 
     Остальные параметры оставьте по умолчанию.
 
@@ -183,7 +183,7 @@
       1 |     99101 | 2022-06-05T17:27:00 | 55.703289 |  37.66542 |   427.50 | 52.29 |            23.5 |              17.0 |     52.0 |
       2 |     95106 | 2022-06-06T09:49:54 | 55.712944 |  37.66542 |   429.13 | 55.50 |            21.0 |              18.0 |     32.0 |
       3 |    117890 | 2023-06-07T06:21:29 | 55.712944 |  37.66542 |   429.13 | 56.20 |            20.0 |              18.7 |     45.0 |
-      4 |     99101 | 2022-06-05 17:27:00 | 55.291944 |  37.66542 |   429.13 | 59.09 |            21.0 |              18.0 |     20.0 |       
+      4 |     99101 | 2022-06-05 17:27:00 | 55.291944 |  37.66542 |   429.13 | 59.09 |            21.0 |              18.0 |     20.0 |
     ```
 
     {% endcut %}

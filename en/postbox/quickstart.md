@@ -80,10 +80,10 @@ You can send a verification email using:
       AWS Secret Access Key [****************w5lb]: <service_account_secret_key>
       ```
 
-   1. Specify `ru-central1` as the default region name:
+   1. Specify the {{ region-id }} default region name:
 
       ```
-      Default region name [ru-central1]: ru-central1
+      Default region name [{{ region-id }}]: {{ region-id }}
       ```
 
    1. Specify `JSON` as the default format for output data:
@@ -151,7 +151,7 @@ You can send a verification email using:
    DATE = "20230926"
    SERVICE = "postbox"
    MESSAGE = "SendRawEmail"
-   REGION = "ru-central1"
+   REGION = "{{ region-id }}"
    TERMINAL = "aws4_request"
    VERSION = 0x04
 

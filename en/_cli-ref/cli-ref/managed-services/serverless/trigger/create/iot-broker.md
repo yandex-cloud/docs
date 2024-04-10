@@ -21,7 +21,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--broker-id`|<b>`string`</b><br/>Internet of Things broker ID.|
 |`--mqtt-topic`|<b>`string`</b><br/>Internet of Things Broker MQTT topic.|
-|`--batch-size`|<b>`int`</b><br/>Batch size, 1 - 10. Default: 1|
+|`--batch-size`|<b>`int`</b><br/>Batch size, 1 - 1000. Default: 1|
 |`--batch-cutoff`|<b>`duration`</b><br/>Batch cutoff. 1 - 60s. Default: 1s.|
 |`--invoke-function-id`|<b>`string`</b><br/>Function to be invoked by worker on the data from IoT.|
 |`--invoke-function-name`|<b>`string`</b><br/>Function to be invoked by worker on the data from IoT.|

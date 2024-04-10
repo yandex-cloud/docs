@@ -25,7 +25,7 @@ Syntax:
 |`--resource-types`|<b>`value[,value]`</b><br/>List of resource types to subscribe.|
 |`--stream-names`|<b>`value[,value]`</b><br/>List of stream names to subscribe.|
 |`--log-levels`|<b>`value[,value]`</b><br/>List of log levels to subscribe.<br/>Available levels are: 'trace', 'debug', 'info', 'warn', 'error', 'fatal'.|
-|`--batch-size`|<b>`int`</b><br/>Batch size, 1 - 100. Default: 1|
+|`--batch-size`|<b>`int`</b><br/>Batch size, 1 - 1000. Default: 1|
 |`--batch-cutoff`|<b>`duration`</b><br/>Batch cutoff. 1 - 60s. Default: 1s.|
 |`--invoke-function-id`|<b>`string`</b><br/>Function to be invoked by worker on the data from Logging.|
 |`--invoke-function-name`|<b>`string`</b><br/>Function to be invoked by worker on the data from Logging.|

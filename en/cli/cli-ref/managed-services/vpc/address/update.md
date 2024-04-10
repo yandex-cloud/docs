@@ -26,7 +26,7 @@ Syntax:
 |`--reserved`|Specifies if address is reserved or not.|
 |`--deletion-protection`|Specifies if address is protected from deletion.|
 |`--clear-dns-records`|Clear all DNS records.|
-|`--dns-record`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>DNS record specifications<br/><br/>Possible property names:<br/><ul> <li><code>dns-zone</code>:     Specifies id DNS zone.</li> <li><code>fqdn</code>:     Specifies fqdn for DNS record.</li> <li><code>ptr</code>:     Set if PTR record is required</li> <li><code>ttl</code>:     DNS record TTL in seconds</li> </ul>|
+|`--dns-record`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>DNS record specifications<br/><br/>Possible property names:<br/><ul> <li><code>dns-zone</code>:     Specifies id of DNS zone.</li> <li><code>fqdn</code>:     Specifies fqdn for DNS record.</li> <li><code>ptr</code>:     Set if PTR record is required</li> <li><code>ttl</code>:     DNS record TTL in seconds</li> </ul>|
 
 #### Global Flags
 

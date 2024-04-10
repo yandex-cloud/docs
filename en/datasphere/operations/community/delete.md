@@ -11,8 +11,7 @@ You can only delete the communities in which you have the `{{ roles-datasphere-c
 
 {% endnote %}
 
-1. Open the {{ ml-platform-name }} [home page]({{ link-datasphere-main }}).
-1. In the left-hand panel, select ![community-panel](../../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. {% include [ui-find-community](../../../_includes/datasphere/ui-find-community.md) %}
 1. Select the community to delete.
 1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.common.more }}** and select **{{ ui-key.yc-ui-datasphere.common.delete }}** from the drop-down list.
 1. In the window that opens, click **{{ ui-key.yc-ui-datasphere.common.submit }}**.

@@ -79,7 +79,17 @@ A panel will open showing information about the view name and its columns:
 
 * Column name.
 * Data type.
-* Whether the column is Nullable.
+* Whether or not the column is nullable.
+
+## Viewing information about a schema {#view-scheme}
+
+To see detailed information about a database schema:
+
+1. Select the connection and database.
+1. Select the schema.
+1. To the right of the schema name, click ![image](../../_assets/console-icons/sliders-vertical.svg) and select **Schema information**.
+
+A panel will open with information about the schema type and its sequences, if any.
 
 ## Reconnecting to databases and clusters {#update-connection}
 
