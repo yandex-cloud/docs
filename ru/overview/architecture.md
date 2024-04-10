@@ -1,6 +1,5 @@
 # Архитектура платформы {{ yandex-cloud }}
 
-
 Облачная платформа {{ yandex-cloud }} — это набор надежных и безопасных сервисов для решения любых бизнес-задач. Сервисы платформы используют единый пул унифицированных аппаратных ресурсов, что позволяет быстро масштабировать платформу и с минимальными затратами автоматически подключать дополнительную инфраструктуру, если это необходимо.
 
 ![Architecture](../_assets/overview/architecture.svg =450x)
@@ -40,6 +39,4 @@
 * [Устройство виртуальной сети](https://www.youtube.com/watch?v=QsuBmnF2Wus&list=PL1x4ET76A10ZpAEZcRFNuTGhNQXAc8CNw&index=33).
 * [Как работает {{ mgp-full-name }}](https://www.youtube.com/live/ec9hifUiMoE?feature=share).
 * [Под капотом {{ speechkit-full-name }}](https://youtu.be/LVD104U4IjM).
-
-   
 

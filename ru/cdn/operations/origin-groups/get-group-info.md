@@ -43,7 +43,7 @@ title: "Как получить информацию об источнике в 
       ```text
       id: "152152********"
       origin_group_id: "2128********"
-      source: test-cdn-1.storage.yandexcloud.net
+      source: test-cdn-1.{{ s3-storage-host }}
       enabled: true
       meta:
         bucket:
@@ -98,7 +98,7 @@ title: "Как получить информацию об источнике в 
       origins:
       - id: "2741********"
         origin_group_id: "2149********"
-        source: test-cdn-1-2.storage.yandexcloud.net
+        source: test-cdn-1-2.{{ s3-storage-host }}
         enabled: true
         backup: true
         meta:
@@ -106,7 +106,7 @@ title: "Как получить информацию об источнике в 
             name: test-cdn-1-2
       - id: "2742********"
         origin_group_id: "2149********"
-        source: test-cdn-1-1.storage.yandexcloud.net
+        source: test-cdn-1-1.{{ s3-storage-host }}
         enabled: true
         meta:
           bucket:

@@ -9,9 +9,6 @@ noIndex: true
 
 {{ alb-name }} предоставляет инструменты, которые позволяют разворачивать L7-балансировщики нагрузки в кластерах {{ managed-k8s-full-name }}: [Ingress-контроллер](../../application-load-balancer/tools/k8s-ingress-controller/index.md) и [Gateway API](../../application-load-balancer/tools/k8s-gateway-api/index.md). В справочнике описаны конфигурации ресурсов {{ k8s }}, по которым Ingress-контроллер и Gateway API разворачивают инфраструктуру.
 
-
-
-
 ## Ресурсы Ingress-контроллера {#ingress}
 
 * [Ingress](ingress.md) — правила распределения трафика между бэкендами.
@@ -25,5 +22,3 @@ noIndex: true
 ## Общие ресурсы {#common}
 
 * [Service](service.md) — описание [сервисов {{ k8s }}](../concepts/index.md#service), используемых в качестве бэкендов.
-
-

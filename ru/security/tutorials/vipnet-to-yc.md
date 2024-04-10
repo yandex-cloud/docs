@@ -75,7 +75,7 @@ VPN-туннель работает между двумя решениями ViP
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
-Чтобы создать ВМ с несколькими сетевыми интерфейсами, [запросите в технической поддержке]({{ link-console-support }}/create-ticket) включение флага `MULTI_INTERFACE_INSTANCES_ALPHA` на облако.
+Чтобы создать ВМ с несколькими сетевыми интерфейсами, [запросите в технической поддержке]({{ link-console-support }}) включение флага `MULTI_INTERFACE_INSTANCES_ALPHA` на облако.
 
 
 ## Необходимые платные ресурсы {#paid-resources}

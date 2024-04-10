@@ -23,6 +23,7 @@ description: "Виртуальная машина — это аналог сер
 
 ## Зона доступности {#az}
 
+
 {% include [instance-az](../_includes_service/instance-az.md) %}
 
 ## Вычислительные ресурсы {#types}

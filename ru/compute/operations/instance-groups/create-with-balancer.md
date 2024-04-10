@@ -1,5 +1,6 @@
 # Создать группу виртуальных машин фиксированного размера с сетевым балансировщиком нагрузки
 
+
 Вы можете создать [группу ВМ](../../concepts/instance-groups/index.md) фиксированного размера, интегрированную с сервисом балансировки нагрузки [{{ network-load-balancer-full-name }}](../../../network-load-balancer/). Вместе с группой [ВМ](../../concepts/vm.md) будет автоматически создана [целевая группа](../../../network-load-balancer/concepts/target-resources.md) {{ network-load-balancer-name }}, которую можно привязать к [сетевому балансировщику](../../../network-load-balancer/concepts/index.md) и распределять нагрузку между ВМ в группе на сетевом уровне. Подробнее см. в разделе [{#T}](../../concepts/instance-groups/balancers.md).
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}

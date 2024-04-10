@@ -1,5 +1,6 @@
 # Основы работы с {{ marketplace-name }}
 
+
 {{ managed-k8s-name }} позволяет использовать в кластерах приложения из [{{ marketplace-full-name }}](/marketplace).
 
 {% note info %}

@@ -5,6 +5,7 @@ description: "На странице представлены вопросы и �
 
 # Вопросы и ответы про {{ mch-short-name }}
 
+
 ### Общие вопросы {#toc-general}
 
 {% include [general-minitoc](../../_qa/managed-clickhouse/minitoc/general.md) %}

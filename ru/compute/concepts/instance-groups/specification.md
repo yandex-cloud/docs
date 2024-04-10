@@ -78,7 +78,7 @@ auto_healing_policy:
   auto_healing_action: RESTART
 allocation_policy:
   zones:
-    - zone_id: {{ region-id }}-b
+    - zone_id: {{ region-id }}-a
 service_account_id: ajefnb8427bh********
 ```
 

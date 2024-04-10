@@ -1,5 +1,6 @@
 # Удалить диск из группы размещения
 
+
 Удалите [нереплицируемый диск](../../concepts/disk.md#nr-disks) из [группы размещения](../../concepts/disk-placement-group.md). Затем [диск](../../concepts/disk.md) можно [удалить насовсем](../disk-control/delete.md) или добавить обратно в группу размещения.
 
 {% list tabs group=instructions %}

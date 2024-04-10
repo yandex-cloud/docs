@@ -5,6 +5,7 @@ description: "{{ managed-prometheus-full-name }} — система монито
 
 # Обзор {{managed-prometheus-full-name}}
 
+
 {{ managed-prometheus-full-name }} — система мониторинга, совместимая с [{{ prometheus-name }}](https://prometheus.io/docs/introduction/overview/). С помощью нее можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных {{ prometheus-name }} и язык запросов [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/), что позволяет работать с уже существующими дашбордами в [{{ grafana-name }}](https://grafana.com/grafana/).
 
 {{ prometheus-name }} имеет много механизмов для сбора метрик, включая [библиотеки](https://prometheus.io/docs/instrumenting/clientlibs/) для популярных языков программирования и поддержку [экспорта метрик](https://prometheus.io/docs/instrumenting/exporters/) из сторонних систем, например баз данных, очередей сообщений и т.п. {{ managed-prometheus-name }} позволяет использовать наработки Open Source-сообщества {{ prometheus-name }} и при этом обеспечивает высокую масштабируемость, доступность и безопасность без необходимости самостоятельно разворачивать кластеры {{ prometheus-name }} и управлять внутренней инфраструктурой мониторинга. Чтобы начать использовать {{ managed-prometheus-name }}, достаточно установить агенты, которые поддерживают протокол записи метрик [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write).

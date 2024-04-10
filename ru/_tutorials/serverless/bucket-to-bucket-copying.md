@@ -1,5 +1,6 @@
 # Автоматическое копирование объектов из одного бакета {{ objstorage-name }} в другой
 
+
 Настройте автоматическое копирование объектов из одного [бакета](../../storage/concepts/bucket.md) {{ objstorage-name }} в другой. Копирование будет осуществляться с помощью [функции](../../functions/concepts/function.md) {{ sf-name }}, которая запускается по [триггеру](../../functions/concepts/trigger/os-trigger.md) при добавлении нового объекта в бакет.
 
 Чтобы настроить копирование:
@@ -494,7 +495,7 @@
         * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `s3-copy-fn`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
-          * `S3_ENDPOINT` — `https://storage.yandexcloud.net`.
+          * `S3_ENDPOINT` — `https://{{ s3-storage-host }}`.
           * `DST_BUCKET` — имя резервного бакета, в который нужно копировать объекты.
 
         * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
@@ -535,7 +536,7 @@
        --entrypoint=handler.sh \
        --service-account-id=<идентификатор_сервисного_аккаунта> \
        --environment DST_BUCKET=<имя_резервного_бакета> \
-       --environment S3_ENDPOINT=https://storage.yandexcloud.net \
+       --environment S3_ENDPOINT=https://{{ s3-storage-host }} \
        --secret name=s3-static-key,key=key_id,environment-variable=AWS_ACCESS_KEY_ID \
        --secret name=s3-static-key,key=secret,environment-variable=AWS_SECRET_ACCESS_KEY \
        --source-path=./handler-sh.zip
@@ -573,7 +574,7 @@
        log_group_id: ckgmc3l93cl0********
        environment:
          DST_BUCKET: <имя_резервного_бакета>
-         S3_ENDPOINT: https://storage.yandexcloud.net
+         S3_ENDPOINT: https://{{ s3-storage-host }}
        secrets:
          - id: e6q5qe9a1hgk********
            version_id: e6qrdn2e1acb********
@@ -602,7 +603,7 @@
        service_account_id = "aje20nhregkcvu******"
        environment = {
          DST_BUCKET  = "<имя_резервного_бакета>"
-         S3_ENDPOINT = "https://storage.yandexcloud.net"
+         S3_ENDPOINT = "https://{{ s3-storage-host }}"
        }
        secrets = {
          id = "e6q5qe9a1hgk1a******"

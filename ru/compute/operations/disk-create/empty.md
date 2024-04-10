@@ -17,6 +17,8 @@
   1. Если требуется, добавьте произвольное описание диска.
   1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться диск.
   1. Выберите нужный тип диска: `{{ ui-key.yacloud.compute.instances.create-disk.value_network-hdd }}`, `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd }}`, `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-io-m3 }}` или `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}`.
+      
+
   1. Выберите нужный размер блока (минимальный объем хранения информации на диске). По умолчанию размер блоков всех создаваемых дисков равен 4 КБ, однако для дисков больше 8 ТБ этого недостаточно.
   1. Укажите нужный размер диска. Максимальный размер диска зависит от заданного размера блока.
 

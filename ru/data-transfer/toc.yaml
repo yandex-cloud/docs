@@ -1,5 +1,10 @@
 title: Yandex Data Transfer
 href: index.yaml
+label:
+  title: KZ
+  description: Сервис доступен в регионе Казахстан.
+  theme: info
+  when: region == "kz"
 items:
   - name: Доступные трансферы
     href: transfer-matrix.md

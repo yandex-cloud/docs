@@ -1,5 +1,6 @@
 # Автоматизация работы с {{ dataproc-full-name }} с помощью {{ maf-full-name }}
 
+
 В сервисе {{ maf-full-name }} можно создать DAG — [направленный ациклический граф задач](../../../managed-airflow/concepts/index.md), который позволит автоматизировать работу с [сервисом {{ dataproc-full-name }}](../../../data-proc/index.yaml). Ниже рассматривается DAG, который включает в себя несколько задач:
 
 1. Создать кластер {{ dataproc-name }}.
@@ -173,7 +174,7 @@
       {
          "aws_access_key_id": "<идентификатор_статического_ключа>",
          "aws_secret_access_key": "<секретный_ключ>",
-         "host": "https://storage.yandexcloud.net/"
+         "host": "https://{{ s3-storage-host }}/"
       }
       ```
 

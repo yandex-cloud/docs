@@ -8,7 +8,7 @@
 
 При работе с сервисами {{ yandex-cloud }} вы создаете _ресурсы_: [виртуальные машины](../compute/concepts/vm.md), кластеры управляемых баз данных и [{{ k8s }}](../managed-kubernetes/concepts/index.md), [реестры](../container-registry/concepts/registry.md), [секреты](../lockbox/concepts/secret.md) и многие другие. Большинство сервисов хранит создаваемые ресурсы в [каталогах](../resource-manager/concepts/resources-hierarchy.md#folder). Каталоги принадлежат [облакам](../resource-manager/concepts/resources-hierarchy.md#cloud), а облака — организациям. 
 
-Кроме этого, в организации могут быть активированы [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), экземпляр [{{ datalens-full-name }}]({{ link-datalens-main }}) и сервисы [{{ tracker-full-name }}]({{ link-tracker }}), [{{ wiki-full-name }}]({{ link-wiki }}), [{{ forms-full-name }}]({{ link-forms-b2b }}). Все они самостоятельно хранят свои ресурсы, но могут обмениваться информацией с другими сервисами в рамках одной организации. Организации не взаимодействуют друг с другом. 
+Кроме этого, в организации могут быть активированы [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), экземпляр [{{ datalens-full-name }}]({{ link-datalens-main }}) и сервисы [{{ tracker-full-name }}]({{ link-tracker }}), [{{ wiki-full-name }}]({{ link-wiki }}), [{{ forms-full-name }}]({{ link-forms-b2b }}). Все они самостоятельно хранят свои ресурсы, но могут обмениваться информацией с другими сервисами в рамках одной организации. Организации не взаимодействуют друг с другом.
 
 В [интерфейсе {{ org-full-name }}]({{ link-org-main }}) можно [посмотреть](../organization/concepts/manage-services.md), какие облака и сервисы существуют в вашей организации. 
 

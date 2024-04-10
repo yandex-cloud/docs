@@ -1,8 +1,7 @@
 # Создание кластера {{ managed-k8s-name }}
 
-Создайте [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster), а затем [создайте группу узлов](../node-group/node-group-create.md).
 
-{% include [unable-in-relocated-subnet](../../../_includes/managed-kubernetes/unable-in-relocated-subnet.md) %}
+Создайте [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster), а затем [создайте группу узлов](../node-group/node-group-create.md).
 
 Если вы хотите создать кластер без доступа в интернет, обратитесь к разделу [{#T}](../../tutorials/k8s-cluster-with-no-internet.md).
 

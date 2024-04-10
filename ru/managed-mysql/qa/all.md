@@ -5,6 +5,7 @@ description: "На странице представлены вопросы и �
 
 # Вопросы и ответы про {{ mmy-short-name }}®
 
+
 ### Общие вопросы {#toc-general}
 
 {% include [general-minitoc](../../_qa/managed-mysql/minitoc/general.md) %}

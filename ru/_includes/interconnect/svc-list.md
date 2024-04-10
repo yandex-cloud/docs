@@ -9,5 +9,7 @@
 [{{ translate-full-name }}](../../translate/) | translate.{{ api-host }}
 [Консоль управления]({{ link-console-main }}) | {{ api-host }}
 [{{ monitoring-full-name }}](../../monitoring/) | {{ api-host-monitoring-1 }}
+{{ yagpt-full-name }} сервиса [{{ foundation-models-name }}](../../foundation-models/) | {{ api-host-llm }}
+All-Services | Все сервисы {{ yandex-cloud }}, перечисленные выше
 
 

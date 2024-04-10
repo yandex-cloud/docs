@@ -1,5 +1,6 @@
 # Подключение к {{ objstorage-name }} из {{ vpc-name }}
 
+
 Подключиться к [{{ objstorage-full-name }}](../../storage/) в {{ yandex-cloud }} можно через соответствующий [API Endpoint](../../api-design-guide/concepts/endpoints.md), FQDN которого потом преобразуется в публичный IP-адрес с помощью службы DNS.
 
 В статье описано, как развернуть в {{ yandex-cloud }} облачную инфраструктуру для организации доступа к {{ objstorage-name }} для ресурсов, которые размещены в [облачной сети](../../vpc/concepts/network.md#network) {{ vpc-short-name }} и не имеют публичных IP-адресов или выхода в интернет через [NAT-шлюз](../../vpc/concepts/gateways.md).

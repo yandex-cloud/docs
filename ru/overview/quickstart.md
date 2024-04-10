@@ -6,13 +6,12 @@ description: "С помощью этой статьи вы научитесь р
 # Начало работы с {{ yandex-cloud }}
 
 
+
 Платформа {{ yandex-cloud }} имеет несколько пользовательских интерфейсов, например, [консоль управления]({{ link-console-main }}) и [интерфейс командной строки](../cli/). Для доступа к любому пользовательскому интерфейсу вам потребуется _пользовательский аккаунт_. Это может быть личный аккаунт на Яндексе (Яндекс ID) или аккаунт в Яндекс 360. Подробные инструкции смотрите в Справке [Яндекс ID](https://yandex.ru/support/passport/authorization/registration.html) и [Яндекс 360](https://yandex.ru/support/business/add-users.html).
 
 ## Создание платежного аккаунта {#new-account}
 
 При создании первого платежного аккаунта, привязанного к пользовательскому аккаунту, вам будет начислен [стартовый грант](../getting-started/usage-grant.md).
-
-{% include [main](../_includes/billing/registration-main.md) %}
 
  {% list tabs group=customers %}
 

@@ -1,5 +1,6 @@
 # Поля ресурса HttpBackendGroup
 
+
 Ресурс `HttpBackendGroup` позволяет объединять бэкенды — сервисы {{ k8s }}, между которыми распределяется трафик, — в группу. По таким ресурсам [Ingress-контроллер {{ alb-name }}](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) создает [группы бэкендов](../../../application-load-balancer/concepts/backend-group.md).
 
 Указание на `HttpBackendGroup` нужно добавить в [ресурс `Ingress`](../../../application-load-balancer/k8s-ref/ingress.md).

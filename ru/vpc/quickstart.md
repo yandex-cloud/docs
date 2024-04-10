@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Облачная сеть и подсети во всех зонах доступности могут быть созданы автоматически при [создании каталога](../resource-manager/operations/folder/create.md) или в процессе [создания виртуальной машины](../compute/quickstart/quick-create-linux.md).
+Облачная сеть и подсети во всех [зонах доступности](../overview/concepts/geo-scope.md) могут быть созданы автоматически при [создании каталога](../resource-manager/operations/folder/create.md) или в процессе [создания виртуальной машины](../compute/quickstart/quick-create-linux.md).
 
 {% endnote %}
 

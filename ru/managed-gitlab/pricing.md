@@ -74,6 +74,7 @@ editable: false
 
 ## Цены {#prices}
 
+
 ### Вычислительные ресурсы инстансов {#prices-instance}
 
 

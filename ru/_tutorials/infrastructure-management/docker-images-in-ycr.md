@@ -1,5 +1,6 @@
 # Хранение Docker-образов из {{ mgl-full-name }} в {{ container-registry-full-name }}
 
+
 В {{ GL }} интегрирован сервис [{{ container-registry-name }}](https://docs.gitlab.com/ee/user/packages/container_registry/). Он позволяет хранить Docker-образы для каждого проекта в {{ GL }}.
 
 Вместо {{ GL }} {{ container-registry-name }} вы можете использовать [{{ container-registry-full-name }}](../../container-registry/index.yaml). Этот сервис позволяет хранить Docker-образы в облаке и распространять их между управляемыми сервисами {{ yandex-cloud }}, например, [{{ managed-k8s-full-name }}](../../managed-kubernetes/index.yaml) или [{{ mgl-full-name }}](../../managed-gitlab/index.yaml).

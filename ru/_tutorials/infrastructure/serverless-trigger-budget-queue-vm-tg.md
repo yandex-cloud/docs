@@ -1,5 +1,6 @@
 # Создание триггеров, которые вызывают функции {{ sf-name }} для остановки ВМ и отправки уведомлений в Telegram
 
+
 В этом руководстве вы создадите serverless-инфраструктуру, которая при превышении пороговых значений [бюджета](../../billing/concepts/budget.md) будет останавливать запущенные виртуальные машины и отправлять пользователю уведомления в Telegram.
 
 [Триггер для бюджетов](../../functions/concepts/trigger/budget-trigger.md) будет вызывать [функцию](../../functions/concepts/function.md) {{ sf-name }}, а функция — останавливать [виртуальные машины](../../compute/concepts/vm.md#project) {{ compute-name }} и отправлять сообщение в [очередь](../../message-queue/concepts/queue.md) {{ message-queue-full-name }}. 

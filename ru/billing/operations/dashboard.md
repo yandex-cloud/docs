@@ -1,12 +1,13 @@
 # Посмотреть детализацию использования сервисов в {{ datalens-full-name }}
 
+
 Вы можете посмотреть сведения по использованию сервисов {{ yandex-cloud }}, собрав дашборд в {{ datalens-full-name }}.
 
 ## Создайте подключение {#create-connection}
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ billing-name }} {#billing}
+- {{ billing-interface }} {#billing}
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите аккаунт, для которого хотите получить детализацию.

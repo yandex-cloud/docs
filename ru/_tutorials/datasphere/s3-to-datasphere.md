@@ -1,5 +1,6 @@
 # Использование данных из {{ objstorage-full-name }} для обучения модели в {{ ml-platform-name }}
 
+
 Вы создадите [бакет](../../storage/concepts/bucket.md) в [{{ objstorage-name }}](../../storage/), смонтируете его к файловой системе Windows с помощью [rclone](https://rclone.org) и загрузите туда данные для обучения [модели](../../datasphere/concepts/models/index.md) в [{{ ml-platform-full-name }}]({{ link-datasphere-main }}).
 
 Чтобы использовать данные из {{ objstorage-name }} для обучения модели в {{ ml-platform-name }}:

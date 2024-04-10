@@ -1,12 +1,15 @@
 # Добавить виртуальную машину в кластер GPU
 
+
 В [кластерах GPU](../../concepts/gpus.md#gpu-clusters) можно создавать только [ВМ](../../concepts/vm.md) на [платформе](../../concepts/vm-platforms.md) [{{ a100-epyc }}](../../concepts/vm-platforms.md#gpu-platforms) c 8 GPU. Вам понадобится подготовить [образ](../../concepts/image.md) [диска](../../concepts/disk.md) с драйверами [по инструкции](../image-create/custom-image.md) и использовать его при создании ВМ.
+
 
 {% note info %}
 
 Кластеры GPU сейчас доступны только в [зоне доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-a`. Добавить ВМ в кластер GPU можно только из той же зоны доступности.
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

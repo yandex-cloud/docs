@@ -5,6 +5,7 @@ description: "Что такое {{ mrd-name }}? Для каких задач с�
 
 # Общие вопросы про {{ mrd-name }}
 
+
 {% include [general-minitoc](../../_qa/managed-redis/minitoc/general.md) %}
 
 {% include [general](../../_qa/managed-redis/general.md) %}

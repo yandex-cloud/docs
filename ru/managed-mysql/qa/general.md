@@ -5,6 +5,7 @@ description: "Что такое {{ mmy-name }}? Для каких задач с�
 
 # Общие вопросы про {{ mmy-name }}
 
+
 {% include [general-minitoc](../../_qa/managed-mysql/minitoc/general.md) %}
 
 {% include [general](../../_qa/managed-mysql/general.md) %}

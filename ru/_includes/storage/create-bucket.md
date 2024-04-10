@@ -1,3 +1,5 @@
+
+
 Минимально необходимая роль для создания бакета — `storage.editor`. См. [описание роли](../../storage/security/#storage-editor).
 
 {% list tabs group=instructions %}

@@ -20,6 +20,7 @@ editable: false
 
 ## Цены {{ vpc-short-name }} {#prices}
 
+
 ### Публичные IP-адреса {#prices-public-ip}
 
 Публичный IP-адрес может находиться в двух состояниях:
@@ -111,6 +112,7 @@ editable: false
 
 
 ## Цены {{ ddos-protection-full-name }} {#prices-ddos-protection}
+
 
 
 Все цены указаны с учетом НДС.

@@ -5,6 +5,7 @@ description: "Для группы выделенных хостов {{ compute-n
 
 # Настроить права доступа к группе выделенных хостов
 
+
 Чтобы предоставить пользователю, группе или [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md) доступ к [группе выделенных хостов](../../concepts/dedicated-host.md), назначьте [роль](../../../iam/concepts/access-control/roles.md) на нее.
 
 ## Назначить роль {#add-access}

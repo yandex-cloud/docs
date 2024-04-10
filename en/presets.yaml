@@ -764,7 +764,7 @@ default:
           6|int|string: ₽440
   sku|RUB|backup:
     protected_vms:
-      v1|string: Free
+      v2|month|string: ₽238.80
     used_space:
       v1|month|string: ₽4.20
   sku|RUB|cdn:
@@ -1673,7 +1673,7 @@ default:
         v1|string: Free
   sku|USD|backup:
     protected_vms:
-      v1|string: Free
+      v2|month|string: $1.910400
     used_space:
       v1|month|string: $0.033600
   sku|USD|cdn:

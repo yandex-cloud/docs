@@ -1,5 +1,6 @@
 # Интеграция с {{ container-registry-name }}
 
+
 [{{ container-registry-full-name }}](../../container-registry/) — сервис для хранения и распространения [Docker-образов](../../container-registry/concepts/docker-image.md). Интеграция с ним позволяет {{ managed-k8s-name }} запускать [поды](../concepts/index.md#pod) с приложениями из Docker-образов, которые хранятся в [реестре](../../container-registry/concepts/registry.md) {{ container-registry-name }}. Для взаимодействия с {{ container-registry-name }} [настраивается](#config-ch) Docker Credential helper. Он позволяет работать с приватными реестрами с помощью [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
 
 Чтобы интегрировать {{ managed-k8s-name }} с {{ container-registry-name }}:

@@ -1,5 +1,6 @@
 # Интеграция с Argo CD
 
+
 [Argo CD](https://argo-cd.readthedocs.io) — декларативный инструмент для непрерывной доставки в {{ k8s }} по модели GitOps.
 
 В этом руководстве описана интеграция [инстанса {{ mgl-full-name }}](../../../managed-gitlab/concepts/index.md#instance), [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и установленных в кластере [Argo CD](/marketplace/products/yc/argo-cd) и [{{ GLR }}](/marketplace/products/yc/gitlab-runner), который выполняет сборку [Docker-контейнеров](/blog/posts/2022/03/docker-containers) с помощью инструмента [Kaniko](https://github.com/GoogleContainerTools/kaniko).

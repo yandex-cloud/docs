@@ -1,6 +1,5 @@
 # Объект Operation
 
-
 Каждая операция, которая изменяет состояние ресурса, приводит к созданию объекта [Operation](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation.proto). Этот объект содержит информацию об операции: статус, идентификатор, время вызова и т. д.
 
 С помощью объекта `Operation` вы можете:

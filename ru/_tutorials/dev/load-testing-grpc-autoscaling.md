@@ -1,5 +1,6 @@
 # Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием
 
+
 По этому руководству вы развернете автомасштабируемый [gRPC](https://grpc.io/docs/)-сервис в [кластере {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) с помощью [Ingress-контроллера](../../application-load-balancer/tools/k8s-ingress-controller/index.md) [{{ alb-full-name }}](../../application-load-balancer/) и проведете нагрузочное тестирование сервиса.
 
 Чтобы развернуть сервис и осуществить нагрузочное тестирование:

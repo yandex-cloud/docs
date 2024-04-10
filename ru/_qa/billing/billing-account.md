@@ -49,7 +49,7 @@
 #### Почему после создания платежного аккаунта со способом оплаты "{{ ui-key.yacloud_billing_account.cloud-billing-account.payment-type_label_invoice }}" я не получил письмо с описанием дальнейших действий?  {#account-notification}
 
 Активация платежного аккаунта может занять до трех рабочих дней.
-Если в течение этого времени вы так и не получили письмо, отправьте запрос на электронную почту [cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru).
+Если в течение этого времени вы так и не получили письмо, отправьте запрос на электронную почту [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}).
 
 {% include [change-payment-docs](../../billing/_includes/change-payment-docs.md) %}
 
@@ -57,7 +57,7 @@
 #### Я отвязал карту от аккаунта на Яндексе, и мой платежный аккаунт заблокировали. Что делать?  {#account-card}
 
 
-Платежный аккаунт был переведен в статус `SUSPENDED` согласно [условиям договора (п. 6.11.4.)](https://yandex.ru/legal/cloud_oferta/).
+Платежный аккаунт был переведен в статус `SUSPENDED` согласно [условиям договора (п. 6.11.4.)]({{ billing-oferta-url }}).
 После блокировки на вашу почту, указанную в аккаунте Яндекса или Яндекс 360, было отправлено письмо с подробными инструкциями по восстановлению доступа.
 
 
@@ -89,7 +89,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ billing-name }} {#billing}
+- {{ billing-interface }} {#billing}
 
    1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
    1. Выберите платежный аккаунт.

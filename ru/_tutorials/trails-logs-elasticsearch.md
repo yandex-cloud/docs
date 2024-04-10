@@ -1,5 +1,6 @@
 # Загрузка аудитных логов в {{ mes-full-name }}
 
+
 Создайте трейл, который будет загружать аудитные логи уровня конфигурации ресурсов отдельного облака в бакет {{ objstorage-full-name }}. Затем настройте непрерывную доставку логов в кластер {{ mes-full-name }}.
 
 Решение, которое описано в руководстве, работает по следующей схеме:
@@ -37,7 +38,7 @@
 
 Часть шагов выполняется в [{{ TF }}](https://www.terraform.io/intro). {% include [terraform-install](../_includes/terraform-install.md) %}
 
-Часть функций {{ yandex-cloud }} из руководства находится на стадии [Preview](../overview/concepts/launch-stages.md). [Запросите в технической поддержке]({{ link-console-support }}/create-ticket) доступ к этим функциям:
+Часть функций {{ yandex-cloud }} из руководства находится на стадии [Preview](../overview/concepts/launch-stages.md). [Запросите в технической поддержке]({{ link-console-support }}) доступ к этим функциям:
 
 * [{{ at-name }}](../audit-trails/).
 * [Группы безопасности](../vpc/concepts/security-groups.md).

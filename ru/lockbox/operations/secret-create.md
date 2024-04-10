@@ -5,6 +5,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Создать секрет
 
+
 {% include [secret-create](../../_includes/lockbox/secret-create.md) %}
 
 {% note tip %}

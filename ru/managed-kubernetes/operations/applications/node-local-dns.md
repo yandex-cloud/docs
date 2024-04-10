@@ -1,5 +1,6 @@
 # Установка NodeLocal DNS
 
+
 [NodeLocal DNS](/marketplace/products/yc/node-local-dns) снижает нагрузку по [DNS-запросам](../../../glossary/dns.md) за счет запуска кеша на каждом [узле](../../concepts/index.md#node-group) в [кластере {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster). Это позволяет повысить производительность и отказоустойчивость кластера {{ managed-k8s-name }}.
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}

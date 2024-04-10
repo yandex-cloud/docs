@@ -1,8 +1,7 @@
 # Создание группы узлов
 
-Чтобы создать [группу узлов](../../concepts/index.md#node-group), сначала [создайте кластер {{ managed-k8s-name }}](../kubernetes-cluster/kubernetes-cluster-create.md) и убедитесь, что в [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) достаточно [свободных ресурсов](../../concepts/limits.md).
 
-{% include [unable-in-relocated-subnet](../../../_includes/managed-kubernetes/unable-in-relocated-subnet.md) %}
+Чтобы создать [группу узлов](../../concepts/index.md#node-group), сначала [создайте кластер {{ managed-k8s-name }}](../kubernetes-cluster/kubernetes-cluster-create.md) и убедитесь, что в [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) достаточно [свободных ресурсов](../../concepts/limits.md).
 
 ## Создайте группу узлов {#node-group-create}
 

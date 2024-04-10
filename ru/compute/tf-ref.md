@@ -1,5 +1,6 @@
 # Справочник {{ TF }} для {{ compute-full-name }}
 
+
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
 ## Ресурсы {#resources}

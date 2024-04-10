@@ -8,6 +8,7 @@
 
 {% include [Tag-Preview](../_includes/tag-preview.md) %}
 
+
 | Название сервиса | Справочники API |
 | ---------------- | --------------- |
 | {{ api-gw-full-name }}                  | [gRPC](../api-gateway/apigateway/api-ref/grpc/)<br>[REST](../api-gateway/apigateway/api-ref/)<br>[WebSocket gRPC](../api-gateway/apigateway/websocket/api-ref/grpc/)<br>[WebSocket REST](../api-gateway/apigateway/websocket/api-ref/) |

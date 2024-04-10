@@ -1,5 +1,6 @@
 # Установка Prometheus Operator с поддержкой {{ monitoring-full-name }}
 
+
 {% include [install-prometheus-operator](../../../_includes/managed-kubernetes/install-prometheus-operator.md) %}
 
 ## См. также {#see-also}

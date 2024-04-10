@@ -1,6 +1,7 @@
 # Как начать работать с {{ data-transfer-name }}
 
 Копируйте или реплицируйте данные из источника в приемник, создав [эндпоинты](concepts/index.md#endpoint) и настроив между ними [трансферы](concepts/index.md#transfer).
+См. [полный список эндпоинтов](transfer-matrix.md) и возможных трансферов между ними.
 
 
 ## Перед началом работы {#before-you-begin}
@@ -88,9 +89,6 @@
 * [{{ MY }}](operations/prepare.md#target-my)
 * [{{ objstorage-name }}](operations/prepare.md#target-storage)
 * [{{ PG }}](operations/prepare.md#target-pg)
-
-
-* [{{ ydb-full-name }}](operations/prepare.md#target-ydb)
 
 
 ## Создайте эндпоинт для источника {#source}

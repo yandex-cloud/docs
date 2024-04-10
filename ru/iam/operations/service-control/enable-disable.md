@@ -1,6 +1,9 @@
 # Выдача и отзыв доступа сервисов
 
+
+
 {% include notitle [preview](../../../_includes/note-preview.md) %}
+
 
 В Yandex Identity and Access Management есть возможность выдавать и отзывать [доступ сервисов](../../concepts/service-control.md) к ресурсам в облаке.
 
