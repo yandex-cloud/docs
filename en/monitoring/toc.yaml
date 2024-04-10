@@ -111,8 +111,6 @@ items:
             href: operations/prometheus/querying/remote-read.md
           - name: Grafana
             href: operations/prometheus/querying/grafana.md
-      - name: Recording rules
-        href: operations/prometheus/recording-rules.md
       - name: Reading and writing {{ k8s }} cluster metrics
         href: operations/prometheus/read-write-for-kubernetes.md
   - name: Access management
@@ -213,6 +211,10 @@ items:
         href: metrics-ref/storage-ref.md
       - name: '{{ captcha-name }}'
         href: metrics-ref/captcha-ref.md
+      - name: '{{ sws-name }}'
+        href: metrics-ref/smartwebsecurity-ref.md
+  - name: Release notes
+    href: release-notes.md
   - name: FAQ
     items:
       - name: General questions

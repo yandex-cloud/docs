@@ -33,7 +33,7 @@ Syntax:
 |`--log-statement`|<b>`string`</b><br/>Log statement. Values: 'log-statement-none', 'log-statement-ddl', 'log-statement-mod', 'log-statement-all'|
 |`--statement-timeout`|<b>`int`</b><br/>Statement timeout in milliseconds.|
 |`--idle-in-transaction-session-timeout`|<b>`int`</b><br/>Idle in transaction session timeout in milliseconds.|
-|`--wal-sender-timeout`|<b>`int`</b><br/>WAL sender timeout in milliseconds.|
+|`--wal-sender-timeout`|<b>`int`</b><br/>WAL sender timeout in milliseconds.<br/>--pgaudit.log<br/>Enable audit events for user|
 
 #### Global Flags
 

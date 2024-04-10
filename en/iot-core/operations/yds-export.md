@@ -63,7 +63,7 @@ description: "Follow this guide to export messages to {{ yds-name }}."
 
       * `--registry-name`: Name of the registry.
       * `--name`: Name of the export.
-      * `--database`: Location of the [database](https://ydb.tech/en/docs/concepts/connect#database) where the stream data is stored. Specify the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`). For example, `/ru-central1/r1gra875baom********/g5n22e7ejf**********`.
+      * `--database`: Location of the [database](https://ydb.tech/en/docs/concepts/connect#database) where the stream data is stored. Specify the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`). For example, `/{{ region-id }}/r1gra875baom********/g5n22e7ejf**********`.
       * `--stream`: Name of the [data stream](../../data-streams/concepts/glossary.md#stream-concepts) where messages from MQTT topics will be sent to.
       * `--mqtt-topic-filter`: Topic from which messages will be exported or filter using [wildcard characters](../concepts/topic/usage.md#wildcards). If this parameter is not specified, messages will be exported from all topics within the registry, including topics from all devices within the registry.
       * `--stream-service-account-name`: Name of the [service account](../../iam/concepts/users/service-accounts.md) with the `yds-writer` role.
@@ -74,7 +74,7 @@ description: "Follow this guide to export messages to {{ yds-name }}."
       id: are520n46t**********
       name: export-from-topic
       registry_id: areqqa5ntm**********
-      database: /ru-central1/b1gia87mbaom********/etnu4r0v1c**********
+      database: /{{ region-id }}/b1gia87mbaom********/etnu4r0v1c**********
       stream: topic-message-stream
       service_account_id: ajeu9klp40**********
       created_at: "2023-09-18T09:52:28.840124837Z"

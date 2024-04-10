@@ -205,6 +205,8 @@ items:
             href: tutorials/rdbms-to-clickhouse.md
           - name: '{{ GP }} to {{ PG }}'
             href: tutorials/greenplum-to-postgresql.md
+          - name: '{{ objstorage-name }} to {{ MY }}'
+            href: tutorials/objs-mmy-migration.md
           - name: '{{ objstorage-name }} to {{ PG }}'
             href: tutorials/object-storage-to-postgresql.md
           - name: '{{ yandex-direct }} to {{ CH }}'

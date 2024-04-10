@@ -12,9 +12,9 @@ To add employee accounts to the organization, follow these steps:
 1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 1. In the left-hand panel, select [Users](https://org.cloud.yandex.ru/users) ![icon-users](../../_assets/console-icons/person.svg).
 1. In the top-right corner, click **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
-1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{login-example}}`).
+1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{ login-example }}`).
 
-    You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
+   {% include [send-invitation](../../_includes/organization/send-invitation.md) %}
 
 1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**. The users will be added to the organization as soon as they accept the invitation and select a log-in account for the organization.
 

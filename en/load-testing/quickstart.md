@@ -4,9 +4,9 @@ This guide will help you create a test agent in your cloud, configure a simple l
 
 ## Getting started {#before-you-begin}
 
-1. Log in to the [management console]({{ link-console-main }}). If you do not have an account yet, go to the management console and follow the guide.
-   1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md).
-1. If you do not have any folder, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default virtual network with subnets in all availability zones.
+1. Log in to the [management console]({{ link-console-main }}). If you are not signed up yet, navigate to the management console and follow the instructions.
+1. Go to [{{ billing-name }}]({{ link-console-billing }}) and make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md).
+1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default virtual network with subnets in all availability zones.
 1. Create a [service account](../iam/operations/sa/create.md) in the folder to host the agents that will generate the load. [Assign](../iam/operations/roles/grant.md) it the `loadtesting.generatorClient` [role](./security/#roles-list).
 1. The agent connects to {{ load-testing-name }} using a public API. For security purposes, [create a security group](../vpc/operations/security-group-create.md). To connect to the control service, make sure the agent allows outgoing traffic to port 443. To do this, [add the following rule](../vpc/operations/security-group-add-rule.md) for outgoing traffic to your security group:
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `443`
@@ -15,7 +15,7 @@ This guide will help you create a test agent in your cloud, configure a simple l
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
 1. The agent will need access to the subnet hosting the test target. For the agent to be able to connect to {{ load-testing-name }}, set up a [NAT gateway](../vpc/operations/create-nat-gateway.md) for the subnet.
-1. If you do not have an SSH key pair yet, [create them](../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+1. If you do not have an SSH key pair yet, [create one](../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 ## Create an agent {#create-agent}
 
@@ -48,7 +48,7 @@ We will use Pandora as load generator, since it is best suited for testing cloud
    1. **{{ ui-key.yacloud.load-testing.field_target-address }}**: Enter the address of the service to test: `example.myservice.ru`.
    1. **{{ ui-key.yacloud.load-testing.field_target-port }}**: Set to `80` (default HTTP port).
    1. **Testing threads**: `1000`.
-      This means that the load generator can simultaneously process 1000 operations: either create 1000 connections or wait for 1000 responses from the service at the same time.
+      This means that the generator can simultaneously process 1,000 operations: either create 1,000 connections or wait for 1,000 responses from the service at the same time.
 
       {% note warning %}
 

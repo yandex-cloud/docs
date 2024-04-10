@@ -18,5 +18,3 @@ To work with a project through the API, you may need a notebook ID.
       ```
 
    1. Use the copied path as the notebook ID.
-
-

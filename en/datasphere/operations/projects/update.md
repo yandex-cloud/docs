@@ -8,11 +8,17 @@ description: "Follow this guide to update your project settings."
 On the project editing page, you can change the project name and description, set consumption limits, and configure integration with other {{ yandex-cloud }} services:
 
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
-1. To change the project name or description, click ![pencil](../../../_assets/console-icons/pencil-to-line.svg) next to its current name. In the window that opens, specify **{{ ui-key.yc-ui-datasphere.edit-project-page.name }}** and, if required, the project **{{ ui-key.yc-ui-datasphere.edit-project-page.description }}** and click **{{ ui-key.yc-ui-datasphere.common.save }}**.
+1. To change the project name or description, click ![pencil](../../../_assets/console-icons/pencil-to-line.svg) next to its current name. In the window that opens:
+   * **{{ ui-key.yc-ui-datasphere.edit-project-page.name }}**: Specify the project name.
+   * You can click **{{ ui-key.yc-ui-datasphere.edit-project-page.add-description }}** and add a description, if required.
+   * Click **{{ ui-key.yc-ui-datasphere.common.save }}**.
 1. To change other settings, go to the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab.
 1. Click **![pencil](../../../_assets/console-icons/pencil-to-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}** in the relevant settings section.
 
-   * Under **{{ ui-key.yc-ui-datasphere.common.general }}**, in the **{{ ui-key.yc-ui-datasphere.edit-project-page.dedicated-vm-inactivity-timeout }}** field, specify the time within which the VM will be stopped and deleted from the project if it is not running any computations.
+   * Under **{{ ui-key.yc-ui-datasphere.common.general }}**:
+
+      * **{{ ui-key.yc-ui-datasphere.edit-project-page.dedicated-vm-inactivity-timeout }}**: Specify the time within which the VM will be stopped and deleted from the project if not running any computations.
+      * **{{ ui-key.yc-ui-datasphere.external-ide.external-ide-vm-configuration }}**: Select the VM configuration that will be created when connecting to the local IDE.
 
    * Under **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}**:
 
@@ -23,7 +29,7 @@ On the project editing page, you can change the project name and description, se
       {% include [subnet-create](../../../_includes/subnet-create.md) %}
 
       * **{{ ui-key.yc-ui-datasphere.edit-project-page.security-group }}**: Specify a [security group](../../../vpc/concepts/security-groups.md) if you use them in your organization.
-      * **{{ ui-key.yc-ui-datasphere.edit-project-page.dataproc-cluster }}**: Select the [cluster](../../../data-proc/operations/cluster-create.md) if needed.
+      * **{{ ui-key.yc-ui-datasphere.edit-project-page.dataproc-cluster }}**: Select the [{{ dataproc-name }} cluster](../../../data-proc/operations/cluster-create.md), if required.
 
    * Under **{{ ui-key.yc-ui-datasphere.project-page.settings.limits }}**, you can set up [restrictions](restrictions.md) for your project.
 

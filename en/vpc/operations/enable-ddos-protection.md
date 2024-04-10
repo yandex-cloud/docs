@@ -1,6 +1,6 @@
 # Enabling DDoS protection
 
-DDoS protection activates when a virtual machine is [created](../../compute/quickstart/quick-create-linux) and public IPs are [reserved](get-static-ip.md).
+You can activate DDoS protection when [creating](../../compute/quickstart/quick-create-linux) a virtual machine or [reserving](get-static-ip.md) public IP addresses.
 
 Protected addresses are allocated from a separate pool; therefore, you cannot enable and disable protection for a previously reserved address.
 
@@ -9,13 +9,13 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
 
 - Management console {#console}
 
-   When configuring the network on a new virtual machine, select the automatically assigned public IP address or select an address from the list of reserved addresses.
+   When configuring a network on a new virtual machine, select the automatically assigned public IP address or an address from the list of the reserved ones.
 
-   Once you select an address, select the **{{ ui-key.yacloud.component.compute.network-select.field_ddos-protection-provider }}** option.
+   Once you select an address, select **{{ ui-key.yacloud.component.compute.network-select.field_ddos-protection-provider }}**.
 
 {% endlist %}
 
-## Enabling DDoS protection when reserving IP addresses {#enable-on-reservation}
+## Enabling DDoS protection when reserving an IP address {#enable-on-reservation}
 
 {% list tabs group=instructions %}
 
@@ -23,7 +23,7 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
 
    To reserve a protected static IP address:
 
-   1. In the [management console]({{ link-console-main }}), change to the folder where you need to reserve an address.
+   1. In the [management console]({{ link-console-main }}), go to the folder where you need to reserve an address.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
    1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
@@ -37,7 +37,7 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
 
    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-   1. Open the {{ TF }} configuration file and edit the fragment with the static public IP description by adding the `ddos_protection_provider` field:
+   1. Open the {{ TF }} configuration file and edit the section with the static public IP description by adding the `ddos_protection_provider` field:
 
       ```hcl
       resource "yandex_vpc_address" "addr" {
@@ -49,7 +49,7 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
       }
       ```
 
-      Where `ddos_protection_provider` is a parameter that enables DDoS protection. Available values: `qrator`.
+      Where `ddos_protection_provider` is a parameter that enables DDoS protection. The only available value is `qrator`.
 
       For more information about the `yandex_vpc_address` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_address).
 
@@ -81,7 +81,7 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check if DDoS protection is active in the [management console]({{ link-console-main }}) or with the following [CLI](../../cli/quickstart.md) command:
+      You can check whether DDoS protection is active in the [management console]({{ link-console-main }}) or with the following [CLI](../../cli/quickstart.md) command:
 
       ```
       yc vpc address list

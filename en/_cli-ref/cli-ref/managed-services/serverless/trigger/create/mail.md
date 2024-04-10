@@ -22,7 +22,7 @@ Syntax:
 |`--attachements-bucket`|<b>`string`</b><br/>S3 bucket to store attachements.|
 |`--attachements-service-account-id`|<b>`string`</b><br/>Service account to be used by the worker to store attachements to storage.|
 |`--attachements-service-account-name`|<b>`string`</b><br/>Service account to be used by the worker to store attachements to storage.|
-|`--batch-size`|<b>`int`</b><br/>Batch size, 1 - 10. Default: 1|
+|`--batch-size`|<b>`int`</b><br/>Batch size, 1 - 1000. Default: 1|
 |`--batch-cutoff`|<b>`duration`</b><br/>Batch cutoff. 1 - 60s. Default: 1s.|
 |`--invoke-function-id`|<b>`string`</b><br/>Function to be invoked by worker on receiving email.|
 |`--invoke-function-name`|<b>`string`</b><br/>Function to be invoked by worker on receiving email.|

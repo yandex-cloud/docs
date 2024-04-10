@@ -2,23 +2,23 @@
 
 The `{{ region-id }}-c` availability zone will be [discontinued](./ru-central1-c-deprecation.md) in the first six months of 2024. You can migrate resources from it to the new `{{ region-id }}-d` zone.
 
-We added the `relocate` CLI command for a number of {{ compute-name }} and {{ vpc-name }} resources, which allows you to migrate resources to a different zone. To migrate instance groups, {{ network-load-balancer-name }} and {{ alb-name }} resources, managed databases, {{ mgl-name }} instances, {{ managed-k8s-name }} clusters, and serverless services, use the existing tools.
+We added the `relocate` CLI command for a number of {{ compute-name }} and {{ vpc-name }} resources, which allows you to migrate resources to a different zone. If migrating instance groups, {{ network-load-balancer-name }} and {{ alb-name }} resources, managed databases, {{ mgl-name }} instances, {{ managed-k8s-name }} clusters, and serverless services, use the existing tools.
 
-If you have {{ objstorage-name }}, {{ cdn-name }}, {{ dns-name }}, or other services that are not listed below, you do not need to migrate their resources.
+If among your services there are {{ objstorage-name }}, {{ cdn-name }}, {{ dns-name }} and others not listed below, you do not need to migrate their resources.
 
-## Deadlines for migration from the {{ region-id }}-c zone {#relocation-deadline}
+## Timeline for migrating resources from the {{ region-id }}-c zone {#relocation-deadline}
 
 We will be discontinuing the `{{ region-id }}-c` zone in multiple steps. In Q1 2024, you will receive a newsletter or message from your account manager with a deadline for migrating your resources.
 
 ### What happens if I do not make it in time? {#what-if}
 
-Once the migration timeline expires, we will forcibly migrate your resources from the `{{ region-id }}-c` zone. This will include:
+As soon as the migration due date is reached, we will forcibly migrate your resources from the `{{ region-id }}-c` zone. This will include:
 
 * Creating backups on your network disks located in the `{{ region-id }}-c` zone and migrating your disks to the `{{ region-id }}-d` zone.
-* Migrating your VMs to the `{{ region-id }}-d` availability zone. When being migrated, your resources will be stopped, and their network settings, subnets, IP addresses, and FQDNs will change. Then, they will be launched in the new availability zone. Sometimes, your resources may not start correctly in the new zone due to [technical reasons](#technical-risks).
-* When it comes to managed database resources and {{ managed-k8s-name }}: backing up your data and migrating your resources to `{{ region-id }}-d`; this will also trigger changing network settings, subnets, IP addresses, and FQDNs.
+* Migrating your VMs to the `{{ region-id }}-d` availability zone. When being migrated, your resources will be stopped, and their network settings, subnets, IP addresses, and FQDNs will change. Then, they will be launched in the new availability zone.
+* When migrating {{ managed-k8s-name }} and managed database resources: backing up your data and migrating your resources to `{{ region-id }}-d` with reconfiguration of network settings, subnets, IP addresses, and FQDNs.
 
-Over this forced migration, your resources will change both its public and internal IP addresses. This may lead to losing network access to the resources through the previous IP addresses; you may also have to update your firewall and DNS configuration, as well as other settings that depend on the addresses your resources refer to.
+During this forced migration, your resources will get new public and internal IP addresses. This may lead to losing network access to the resources through the previous IP addresses; you may also have to update your firewall and DNS configuration, as well as other settings that depend on the addresses your resources refer to.
 
 During the forced migration, your services may also become unavailable.
 
@@ -44,11 +44,11 @@ You can contact [our partners](./zone-migration-partners.md) for assistance and 
 ## Recommended migration process {#migration-best-practices}
 
 1. For all networks, [create a new subnet](../../vpc/operations/subnet-create.md) in the `{{ region-id }}-d` zone.
-1. Optionally, if you are using {{ interconnect-name }}, contact [support]({{ link-console-support }}) to configure the new subnet. To complete the subnet configuration, you must create any resource (e.g., a VM) and connect it to the subnet to correctly announce the new subnet's routing information in {{ interconnect-name }}.
+1. (Optional) If you are using {{ interconnect-name }}, contact [support]({{ link-console-support }}) to configure the new subnet. To complete the subnet configuration, you must create any resource (e.g., a VM) and connect it to the subnet to correctly announce the new subnet's routing information in {{ interconnect-name }}.
 1. Migrate your resources to the new availability zone:
    1. [VM instances](#compute) (one by one or by expanding the instance group).
    1. [Database hosts](#mdb).
-   1. Optionally, [restart](../../data-transfer/operations/transfer.md) the linked {{ data-transfer-name }} transfers.
+   1. (Optional) [Restart](../../data-transfer/operations/transfer.md) the linked {{ data-transfer-name }} transfers.
    1. [{{ managed-k8s-name }} master hosts and node groups](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md).
 1. If you were using [network](../../network-load-balancer/operations/load-balancer-change-zone.md) or [L7 load balancers](../../application-load-balancer/operations/application-load-balancer-relocate.md), add the resources you want to migrate to their target groups. Enable ingress traffic in the new availability zone for the L7 load balancers.
 1. Make sure the subnets in `{{ region-id }}-c` have no resources left. Delete any remaining resources.
@@ -85,17 +85,17 @@ In most cases, to migrate a managed database service host, you need to create a 
 
 See these service-specific migration guides:
 
-* [{{ dataproc-name }}](../../data-proc/operations/migration-to-an-availability-zone.md)
-* [HDFS-based {{ dataproc-name }}](../../data-proc/tutorials/hdfs-cluster-migration.md)
-* [{{ mkf-name }}](../../managed-kafka/operations/host-migration.md)
-* [{{ mch-name }}](../../managed-clickhouse/operations/host-migration.md)
-* [{{ mes-name }}](../../managed-elasticsearch/operations/host-migration.md)
-* [{{ mmg-name }}](../../managed-mongodb/operations/host-migration.md)
-* [{{ mmy-name }}](../../managed-mysql/operations/host-migration.md)
-* [{{ mos-name }}](../../managed-opensearch/operations/host-migration.md)
-* [{{ mpg-name }}](../../managed-postgresql/operations/host-migration.md)
-* [{{ mrd-name }}](../../managed-redis/operations/host-migration.md)
-* [{{ ydb-name }}](../../ydb/operations/migration-to-an-availability-zone.md)
+* [{{ dataproc-name }}](../../data-proc/operations/migration-to-an-availability-zone.md).
+* [HDFS-based {{ dataproc-name }}](../../data-proc/tutorials/hdfs-cluster-migration.md).
+* [{{ mkf-name }}](../../managed-kafka/operations/host-migration.md).
+* [{{ mch-name }}](../../managed-clickhouse/operations/host-migration.md).
+* [{{ mes-name }}](../../managed-elasticsearch/operations/host-migration.md).
+* [{{ mmg-name }}](../../managed-mongodb/operations/host-migration.md).
+* [{{ mmy-name }}](../../managed-mysql/operations/host-migration.md).
+* [{{ mos-name }}](../../managed-opensearch/operations/host-migration.md).
+* [{{ mpg-name }}](../../managed-postgresql/operations/host-migration.md).
+* [{{ mrd-name }}](../../managed-redis/operations/host-migration.md).
+* [{{ ydb-name }}](../../ydb/operations/migration-to-an-availability-zone.md).
 * {{ mgp-name }}: To migrate, restore the cluster from a [backup](../../managed-greenplum/operations/cluster-backups.md).
 
 ### {{ data-transfer-name }} {#data-transfer}
@@ -154,7 +154,7 @@ To migrate functions, containers, and API gateways, you need to create a subnet 
 
 ### {{ mgl-name }} {#gitlab}
 
-To change the availability zone of a {{ mgl-name }} instance located in `{{ region-id }}-c`, see [Migrating a ru-central1-c instance to a new availability zone](../../managed-gitlab/operations/instance/zone-migration.md).
+To change the availability zone of a {{ mgl-name }} instance located in `{{ region-id }}-c`, see [Migrating a `ru-central1-c` instance to a different availability zone](../../managed-gitlab/operations/instance/zone-migration.md).
 
 ### {{ cloud-desktop-name }} {#cloud-desktop}
 

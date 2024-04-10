@@ -32,7 +32,7 @@ To set up an S3 connection from the notebook code:
    session = boto3.Session(
        aws_access_key_id=(os.environ['token']),
        aws_secret_access_key=(os.environ['key_value']),
-       region_name="ru-central1",
+       region_name="{{ region-id }}",
    )
 
    s3 = session.client(

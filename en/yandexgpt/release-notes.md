@@ -7,11 +7,15 @@ description: "This page contains {{ yagpt-full-name }} release notes."
 
 ## Current version {#current}
 
+### Release on 27/03/2024 {#270324}
+
+Added a new {{ gpt-pro }} model of the YandexGPT 3 family.
+
+## Previous versions {#previous}
+
 ### Release on 26/01/2024 {#260124}
 
 Updated the {{ yagpt-name }} and {{ gpt-lite }} [models](concepts/models.md) and improved their response performance.
-
-## Previous versions {#previous}
 
 ### Release on 06/12/2023 {#061223}
 

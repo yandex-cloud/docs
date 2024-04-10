@@ -31,3 +31,4 @@
 ----- | ----- | -----
 | Number of tokens per response | 2,000 | 2,000 |
 | Total number of tokens | {{ yagpt-max-tokens }} | {{ yagpt-max-tokens }} |
+| Number of free requests per hour for users without a billing account. Available only in the management console | {{ gpt-freetier }} | — |

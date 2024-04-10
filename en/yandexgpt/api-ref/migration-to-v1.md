@@ -10,8 +10,8 @@ In YandexGPT API v1 and Embeddings API v1, specify the [model](../concepts/model
 
 | Model | API v1alpha | YandexGPT API v1 and Embeddings API v1 |
 | --- | --- | --- |
-| {{ yagpt-name }} | `"model": "yagpt-2.0:hq"` | `"modelUri": "gpt://<folder_ID>/yandexgpt/latest"` |
-| {{ yagpt-name }} Lite | `"model": "general"` | `"modelUri": "gpt://<folder_ID>/yandexgpt-lite/latest"` |
+| {{ gpt-pro }} | `"model": "yagpt-2.0:hq"` | `"modelUri": "gpt://<folder_ID>/yandexgpt/latest"` |
+| {{ gpt-lite }} | `"model": "general"` | `"modelUri": "gpt://<folder_ID>/yandexgpt-lite/latest"` |
 
 ## Generation {#generation}
 

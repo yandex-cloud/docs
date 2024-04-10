@@ -1,4 +1,4 @@
-# Connecting to {{ container-registry-name }} from {{ vpc-short-name }}
+# Connecting to {{ container-registry-name }} from {{ vpc-name }}
 
 To work with [{{ container-registry-name }}](../../container-registry/), cloud resources require internet access. Follow this guide to deploy a cloud infrastructure in {{ yandex-cloud }} to set up access to {{ container-registry-name }} for resources that are hosted in the [{{ vpc-name }}](../../vpc/concepts/) cloud network and have no public IP addresses or access to the internet through a [NAT gateway](../../vpc/concepts/gateways).
 
@@ -12,22 +12,22 @@ After the solution is deployed in {{ yandex-cloud }}, the following resources wi
 | `cr-nlb` | Internal network load balancer accepts traffic to {{ container-registry-name }}. The load balancer accepts TCP traffic with destination port 443 and distributes it across resources (VMs) in a target group. |
 | `nat-group` | Load balancer target group with VMs that have the NAT function enabled. |
 | `s3-nlb` | Internal network load balancer accepts traffic to {{ objstorage-name }}. The load balancer accepts TCP traffic with destination port 443 and distributes it across resources (VMs) in a target group. |
-| `nat-a1-vm`, `nat-b1-vm` | VMs with NAT in the `ru-central1-a` and `ru-central1-b` zones for routing traffic to {{ container-registry-name }} and {{ objstorage-name }} with translation of IP addresses of traffic sources and targets, as well as for routing the return traffic. |
+| `nat-a1-vm`, `nat-b1-vm` | VMs with NAT in the `{{ region-id }}-a` and `{{ region-id }}-b` zones for routing traffic to {{ container-registry-name }} and {{ objstorage-name }} with translation of IP addresses of traffic sources and targets, as well as for routing the return traffic. |
 | `pub-ip-a1`, `pub-ip-b1` | VM public IP addresses to which the VPC cloud network translates their internal IP addresses. |
 | `DNS zones and A records` | `{{ s3-storage-host }}.` and `{{ registry }}.` private DNS zones in the `cr-vpc` network with `A` resource records mapping domain names to IP addresses of internal network load balancers. |
 | `test-registry` | Registry in {{ container-registry-name }}. |
 | `container-registry-<registry_ID>` | Bucket name in {{ objstorage-name }} for storing Docker images, where `<registry_ID>` is the registry ID. {{ container-registry-name }} automatically creates a bucket for the registry in {{ objstorage-name }}. |
-| `cr-subnet-a`, `cr-subnet-b` | Cloud subnets to host NAT instances in the `ru-central1-a` and `ru-central1-b` zones. |
+| `cr-subnet-a`, `cr-subnet-b` | Cloud subnets to host NAT instances in the `{{ region-id }}-a` and `{{ region-id }}-b` zones. |
 | `test-cr-vm` | Test VM to verify access to {{ container-registry-name }}. |
 | `test-cr-subnet-a` | Cloud subnet to host the test VM. |
 
 `*` *When deploying, you can specify an existing cloud network as well*.
 
 Internal DNS zones are created for the cloud network with hosted resources in [{{ dns-name }}](../../dns/concepts/):
-* `{{registry}}.` and a type A resource record mapping the `{{ registry }}` domain name of {{ container-registry-name }} to the IP address of the `cr-nlb` [internal network load balancer](../../network-load-balancer/concepts/nlb-types).
+* `{{ registry }}.` and a type A resource record mapping the `{{ registry }}` domain name of {{ container-registry-name }} to the IP address of the `cr-nlb` [internal network load balancer](../../network-load-balancer/concepts/nlb-types).
 * `{{ s3-storage-host }}.` and a type A resource record mapping the `{{ s3-storage-host }}` domain name of {{ objstorage-short-name }} to the IP address of the `s3-nlb` internal network load balancer.
 
-With these recodrs, traffic from cloud resources to {{ container-registry-short-name }} and {{ objstorage-short-name }} will be routed to internal load balancers that will distribute the load across the NAT instances.
+With these records, traffic from cloud resources to {{ container-registry-short-name }} and {{ objstorage-short-name }} will be routed to internal load balancers that will distribute the load across the NAT instances.
 
 To deploy a NAT instance, an [image from Marketplace](/marketplace/products/yc/nat-instance-ubuntu-22-04-lts) is used that translates the source and target IP addresses to ensure traffic routing to the {{ container-registry-short-name }} and {{ objstorage-short-name }} public IP addresses.
 
@@ -258,10 +258,10 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    | --- | --- | --- | --- | --- |
    | `folder_id` | Yes | ID of the folder to host the solution components | `string` | `b1gentmqf1ve9uc54nfh` |
    | `vpc_id` | - | ID of the cloud network for which access to {{ container-registry-short-name }} is set up. If not specified, such a network will be created. | `string` | `enp48c1ndilt42veuw4x` |
-   | `yc_availability_zones` | - | List of [availability zones](../../overview/concepts/geo-scope) for deploying NAT instances | `list(string)` | `["ru-central1-a", "ru-central1-b"]` |
+   | `yc_availability_zones` | - | List of [availability zones](../../overview/concepts/geo-scope) for deploying NAT instances | `list(string)` | `["{{ region-id }}-a", "{{ region-id }}-b"]` |
    | `subnet_prefix_list` | - | List of prefixes of cloud subnets to host the NAT instances (one subnet in each availability zone from the `yc_availability_zones` list in the same order) | `list(string)` | `["10.10.1.0/24", "10.10.2.0/24"]` |
    | `nat_instances_count` | - | Number of NAT instances to deploy. We recommend setting an even number to evenly distribute the instances across the availability zones. | `number` | `2` |
-   | `registry_private_access` | - | Only allow registry access from public IP addresses of NAT instances. If `true`, access is limited. To cancel the limit, set `false`. | `bool` | `true` |
+   | `registry_private_access` | - | Only allow registry access from public IP addresses of NAT instances. If `true`, access is limited. To remove the limit, set `false`. | `bool` | `true` |
    | `trusted_cloud_nets` | Yes | List of aggregated prefixes of cloud subnets that {{ container-registry-short-name }} access is allowed for. It is used in the rule for incoming traffic of security groups for the NAT instances. | `list(string)` | `["10.0.0.0/8", "192.168.0.0/16"]` |
    | `vm_username` | - | NAT instance and test VM user names | `string` | `admin` |
    | `cr_ip` | - | {{ container-registry-short-name }} public IP address | `string` | `84.201.171.239` |

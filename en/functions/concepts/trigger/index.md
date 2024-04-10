@@ -14,7 +14,6 @@ The following types of triggers are available in {{ sf-name }}:
 * [Trigger for {{ message-queue-name }}](ymq-trigger.md)
 * [Trigger for {{ objstorage-name }}](os-trigger.md)
 * [Trigger for {{ container-registry-name }}](cr-trigger.md)
-* [Trigger for {{ cloud-logs-name }}](cloudlogs-trigger.md)
 * [Trigger for {{ cloud-logging-name }}](cloud-logging-trigger.md)
 * [Trigger for {{ iot-name }}](iot-core-trigger.md)
 * [Trigger for budgets](budget-trigger.md)

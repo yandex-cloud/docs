@@ -1,7 +1,5 @@
 # Setting project limits
 
-{% include [serverless-deprecation-note](../../../_includes/datasphere/serverless-deprecation-note.md) %}
-
 In {{ ml-platform-name }}, you can set up consumption limits for a project. Project consumption thresholds are set in [units](../../pricing.md#unit).
 
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
@@ -12,8 +10,6 @@ In {{ ml-platform-name }}, you can set up consumption limits for a project. Proj
    * You stop the VM.
 
 1. Click **{{ ui-key.yc-ui-datasphere.common.save }}**.
-
-Under [{{ ui-key.yc-ui-datasphere.common.general }}](update.md), you can specify the **{{ ui-key.yc-ui-datasphere.edit-project-page.period-of-inactivity }}** parameter to indicate how soon the cells with CPU or GPU loads less than 1% stop running (the default value is `{{ ui-key.yc-ui-datasphere.common.never }}`).
 
 #### See also {#see-also}
 

@@ -18,8 +18,9 @@ description: "In this tutorial, you will learn how to set up a {{ MY }} target e
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-* [Migrating the {{ MY }} cluster](../../../tutorials/managed-mysql-to-mysql.md).
-* [Migration with storage changed from {{ PG }} to {{ MY }}](../../../tutorials/mpg-to-mmy.md).
+* [Migrating a {{ MY }} cluster](../../../tutorials/managed-mysql-to-mysql.md).
+* [Migration with change of storage: {{ PG }} to {{ MY }}](../../../tutorials/mpg-to-mmy.md).
+* [Migration with change of storage: {{ objstorage-name }} to {{ MY }}](../../../tutorials/objs-mmy-migration.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
 

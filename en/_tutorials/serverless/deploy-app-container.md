@@ -104,7 +104,7 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) and ass
 
          | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
          | --- | --- | --- | --- | --- | --- |
-         | Incoming | `any` | `27017` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+         | `Incoming` | `any` | `27017` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
          1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
          1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -190,21 +190,21 @@ We recommend using a [VM](../../compute/concepts/vm.md) with basic configuration
       1. Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** tab and click **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
       1. In the window that opens, go to the **{{ ui-key.yacloud.compute.instances.create.value_docker-compose-yaml }}** tab and enter the VM specification:
 
-      ```yaml
-      version: '3.1'
+         ```yaml
+         version: '3.1'
 
-      services:
-        mongo:
-          image: mongo
-          restart: always
-          environment:
-            MONGO_INITDB_ROOT_USERNAME: mongo_db_user
-            MONGO_INITDB_ROOT_PASSWORD: <password>
-          ports:
-            - 27017:27017
-      ```
+         services:
+           mongo:
+             image: mongo
+             restart: always
+             environment:
+               MONGO_INITDB_ROOT_USERNAME: mongo_db_user
+               MONGO_INITDB_ROOT_PASSWORD: <password>
+             ports:
+               - 27017:27017
+         ```
 
-      In the `MONGO_INITDB_ROOT_PASSWORD` parameter, specify the password to use for accessing the database. To create a password, you can use the [password generator](https://passwordsgenerator.net/). Save the password as you will need it in the next steps.
+         In the `MONGO_INITDB_ROOT_PASSWORD` parameter, specify the password to use for accessing the database. To create a password, you can use the [password generator](https://passwordsgenerator.net/). Save the password as you will need it in the next steps.
 
       1. Click **{{ ui-key.yacloud.common.apply }}**.
 
@@ -468,20 +468,20 @@ To run your application in {{ yandex-cloud }}, create a [container](../../server
    1. Enter `mongo-express-container` as your container name.
    1. Click **{{ ui-key.yacloud.common.create }}**.
    1. Go to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
-      1. Under **Resources**, enter the amount of RAM: `1024 MB`.
-      1. Under **Image parameters**:
-         1. In the **Image URL** field, specify the Docker image you pushed [previously](#push-image).
-         1. In the **Environment variables** field, add the following variables:
+      1. Under **{{ ui-key.yacloud.serverless-containers.section_resources }}**, enter the amount of RAM: `1024 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+      1. Under **{{ ui-key.yacloud.serverless-containers.section_image }}**:
+         1. In the **{{ ui-key.yacloud.serverless-containers.label_image-url }}** field, specify the Docker image you pushed [previously](#push-image).
+         1. In the **{{ ui-key.yacloud.serverless-containers.label_environment }}** field, add the following variables:
             * `ME_CONFIG_BASICAUTH_USERNAME`: Leave empty.
             * `ME_CONFIG_BASICAUTH_PASSWORD`: Leave empty.
             * `VCAP_APP_PORT`: Specify port `8080`.
             * `ME_CONFIG_MONGODB_SERVER`: Specify the VM public IP address obtained [previously](#create-vm).
-         1. In the **{{ lockbox-full-name }} secrets** field, specify these secrets:
+         1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** field, specify these secrets:
             * `ME_CONFIG_MONGODB_AUTH_USERNAME`: Secret with the `login` key
             * `ME_CONFIG_MONGODB_AUTH_PASSWORD`: Secret with the `password` key
-      1. Under **Settings**:
-         1. In the **Service account** field, enter `mongo-express`.
-         1. In the **Timeout, sec** field, enter `15`.
+      1. Under **{{ ui-key.yacloud.serverless-containers.section_parameters }}**:
+         1. In the **{{ ui-key.yacloud.serverless-containers.label_service-account }}** field, enter `mongo-express`.
+         1. In the **{{ ui-key.yacloud.serverless-containers.label_timeout }}** field, enter `15`.
    1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
 
 - CLI {#cli}

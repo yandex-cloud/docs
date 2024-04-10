@@ -2,11 +2,11 @@
 
 {% include notitle [preview-stage](../../_includes/yandexgpt/preview.md) %}
 
-{{ yagpt-full-name }} provides access to two large generative neural networks: the standard {{ gpt-lite }} model suitable for real-time tasks, and the larger {{ gpt-pro }} model for more accurate responses to sophisticated queries.
+{{ yagpt-full-name }} provides access to two large generative neural networks: the standard {{ gpt-lite }} suitable for real-time tasks, and the big {{ yagpt-name }} for more accurate responses to sophisticated requests.
 
-If the standard models are not enough, you can [fine-tune](../tutorials/yagpt-tuning) {{ gpt-lite }} in [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) for it to better respond to your requests.
+If out-of-the-box models are not enough, you can [fine-tune](../tutorials/yagpt-tuning) {{ gpt-lite }} in [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) for it to better respond to your requests.
 
-You can access the model's API via its [URI](https://en.wikipedia.org/wiki/URI) which contains the [folder ID](../../resource-manager/operations/folder/get-id.md). The `/latest` option specifies the version of the model to invoke and is optional.
+To [access](../operations/create-prompt.md) your model via the API, under `modelUri`, specify its [URI](https://en.wikipedia.org/wiki/URI) which contains the [folder ID](../../resource-manager/operations/folder/get-id.md). The `/latest` option specifies the version of the model to invoke and is optional.
 
 ## {{ yagpt-full-name }} generation models {#yandexgpt-generation}
 
@@ -17,7 +17,7 @@ You can access the model's API via its [URI](https://en.wikipedia.org/wiki/URI) 
 | Summary | `gpt://<folder_ID>/summarization/latest` | Asynchronous, synchronous |
 | Model fine-tuned in {{ ml-platform-full-name}} | `ds://<fine_tuned_model_ID>` | Synchronous |
 
-Summary models run on {{ gpt-lite }} and share usage [quotas](./limits.md#quotas). Models tuned in {{ ml-platform-full-name}} run on {{ gpt-pro }}.
+Summary models are powered by {{ gpt-lite }}. Models fine-tuned in {{ ml-platform-full-name }} are powered by {{ gpt-pro }}. Modified model share usage [quotas](./limits.md#quotas) with their basic models.
 
 ## Fine-tuning capabilities {#tuning-abilities}
 

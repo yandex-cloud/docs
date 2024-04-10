@@ -7,8 +7,10 @@ items:
         href: tutorials/index.md
       - name: Preparing your own images with Microsoft products
         href: prepare-image.md
-      - name: Use of personal licenses for Microsoft products
+      - name: Using personal licenses for Microsoft products
         href: byol.md
+      - name: Secure password transmission to an initialization script
+        href: tutorials/secure-password-script.md
   - name: Licensing
     items:
       - name: Microsoft licenses in {{ yandex-cloud }}

@@ -616,7 +616,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
             * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `512 {{ ui-key.yacloud.common.units.label_megabyte }}`
             * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `service-account-for-budget`
             * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-               * `TELEGRAM_BOT_API_TOKEN`: Telegram bot's API token saved previously.
+               * `TELEGRAM_BOT_API_TOKEN`: Telegram bot API token saved previously.
                * `TELEGRAM_BOT_CHAT_ID`: Telegram user's `ChatID` saved previously.
 
          1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
@@ -658,7 +658,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
          Where:
 
-         * `--service-account-id`: [service-account-for-budget](../../iam/operations/sa/get-id.md) `ID` saved previously. The service account will be used to invoke the function.
+         * `--service-account-id`: `service-account-for-budget` [ID](../../iam/operations/sa/get-id.md) saved previously. The service account will be used to invoke the function.
          * `--environment`: Environment variables:
 
             * `TELEGRAM_BOT_API_TOKEN`: Telegram bot's API token saved previously.
@@ -752,7 +752,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
    name: budget-queue-trigger
    rule:
      message_queue:
-       queue_id: yrn:yc:ymq:ru-central1:b1g9d2k0itu4********:budget-queue
+       queue_id: yrn:yc:ymq:{{ region-id }}:b1g9d2k0itu4********:budget-queue
        service_account_id: ajed1o6dd581********
        batch_settings:
          size: "1"
@@ -797,7 +797,7 @@ Before you start creating virtual machines, prepare a [key pair](../../compute/o
 
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
       * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `yc-user`.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) created previously.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) created earlier.
 
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 

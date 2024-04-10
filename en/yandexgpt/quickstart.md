@@ -1,18 +1,48 @@
 # Getting started with {{ yagpt-full-name }}
 
+{% include notitle [preview-stage](../_includes/yandexgpt/preview.md) %}
+
 In this section, you will learn how to use a neural network for generating texts.
+
+The [management console]({{ link-console-main }}/link/yandexgpt) provides a fast and easy way for new users without a [billing account](../billing/concepts/billing-account.md) to try out the model with {{ gpt-freetier }} free prompts per hour. To access the API and increase usage [quotas](concepts/limits.md), [link](../billing/operations/pin-cloud.md) your billing account to the cloud.
 
 For information about {{ yagpt-full-name }} usage costs, see [{#T}](pricing.md).
 
-{% include notitle [preview-stage](../_includes/yandexgpt/preview.md) %}
-
 ## Getting started {#before-begin}
 
-You can start working from the management console right away.
+To get started in {{ yandex-cloud }}:
 
-To run sample requests using the API, install [cURL](https://curl.haxx.se).
+1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
+1. In [{{ billing-name }}]({{ link-console-billing }}), make sure that you have a [billing account](../billing/concepts/billing-account.md) linked and its [status](../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../resource-manager/operations/folder/create.md).
 
-{% include notitle [ai-before-beginning](../_includes/yandexgpt/ai-before-beginning.md) %}
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+   You can start working from the management console right away.
+
+- API {#api}
+
+   To run sample requests using the API, install [cURL](https://curl.haxx.se).
+
+   To work with the {{ yagpt-name }} API, you need to get authenticated using your account:
+
+   1. Get an IAM token for your [Yandex account](../iam/operations/iam-token/create.md) or [federated account](../iam/operations/iam-token/create-for-federation.md).
+   1. Get the [ID of the folder](../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-yagpt-user }}` role or higher.
+   1. When accessing {{ yagpt-full-name }} via the API, provide the received parameters in each request:
+
+      * Specify the IAM token in the `Authorization` header.
+      * Specify the folder ID in the `x-folder-id` header.
+
+      ```json
+      Authorization: Bearer <IAM_token>
+      x-folder-id: <folder_ID>
+      ```
+
+   For information about other API authentication methods, see [{#T}](api-ref/authentication.md).
+
+{% endlist %}
 
 ## Generate the text {#generate-text}
 
@@ -107,7 +137,7 @@ To improve the quality of generated responses, {{ yagpt-full-name }} logs user p
 
 {% endlist %}
 
-#### See also {#see-also}
+#### What's next {#what-is-next}
 
 * [Learn more about {{ yagpt-full-name }}](concepts/index.md)
 * [Learn about API authentication methods](api-ref/authentication.md)

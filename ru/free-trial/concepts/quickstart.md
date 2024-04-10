@@ -29,6 +29,7 @@ description: "Пробный период — это разовое ознако
 {% include [quickstart-all](../../_includes/quickstart-all-no-billing.md) %}
 
 Вам также могут быть полезны ссылки:
+* [Нетарифицируемые сервисы](../../billing/pricing.md#free)
 * [{#T}](limits.md)
 * [{#T}](usage-monitor.md)
 * [{#T}](trial-ending.md)

@@ -73,7 +73,7 @@ In our example, both the {{ yandex-cloud }} infrastructure and the service deplo
    1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `sa-for-datasphere`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
       * `container-registry.images.puller` to allow {{ ml-platform-name }} to pull your Docker image for creating a node.
-      * `vpc.user` to use the {{ ml-platform-name }} cluster network.
+      * `vpc.user` to use the {{ ml-platform-name }} network.
       * `datasphere.user` to send requests to the node.
 
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.

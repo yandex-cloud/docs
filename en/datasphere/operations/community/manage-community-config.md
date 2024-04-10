@@ -11,13 +11,13 @@ You can limit {{ ml-platform-name }} resources and features available across you
 
 {% endnote %}
 
-1. Open the {{ ml-platform-name }} [home page]({{ link-datasphere-main }}).
-1. In the left-hand panel, select ![community-panel](../../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. {% include [ui-find-community](../../../_includes/datasphere/ui-find-community.md) %}
 1. Select the community to set up the {{ ml-platform-name }} functionality in.
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.restrictions }}** tab.
 1. Under **{{ ui-key.yc-ui-datasphere.restrictions.project-mode }}**:
 
-   * **{{ ui-key.yc-ui-datasphere.restrictions.JUPYTER_TOKEN }}**: Project will enable you to [work from any local IDE](../projects/remote-connect.md) supporting connection to remote {{ jlab }} servers.
+   * **{{ ui-key.yc-ui-datasphere.restrictions.JUPYTER_TOKEN }}**: Projects will enable you to [work from any local IDE](../projects/remote-connect.md) supporting connection to remote {{ jlab }} servers.
+   * **{{ ui-key.yc-ui-datasphere.restrictions.DEDICATED_INSTANCE_COUNT }}**: Number of VMs available in community projects.
 
 1. Under **{{ ui-key.yc-ui-datasphere.common.resources }}**:
 

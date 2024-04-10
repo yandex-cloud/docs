@@ -95,6 +95,8 @@ items:
         href: cors.md
       - name: CLI
         href: cli.md
+      - name: Полное доменное имя (FQDN)
+        href: fqdn.md
   - name: Безопасность
     items:
       - name: SSL-сертификат

@@ -26,6 +26,8 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
+      - name: March 2024
+        href: release-notes/2403.md
       - name: February 2024
         href: release-notes/2402.md
       - name: January 2024

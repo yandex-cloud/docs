@@ -30,7 +30,7 @@ If you don't have permissions to edit the details, refer to the administrator of
 
 To check and update user details, follow these steps:
 
-1. In the management console, go to [**Billing**]({{ link-console-billing }}?section=accounts).
+1. Go to [{{ billing-name }}]({{ link-console-billing }}).
 
 1. Select a billing account in whose cloud you use a Microsoft product and go to the **Overview** page.
 
