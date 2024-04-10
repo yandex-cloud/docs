@@ -26,34 +26,22 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
 
       * Select an availability zone to place your VM in.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../concepts/image.md).
-
-   
    1. {% include [encryption-section-boot](../../../_includes/compute/encryption-section-boot.md) %}
-
-
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, [add a disk](create-from-disks.md):
       * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
       * Enter the disk name.
       * Select the [disk type](../../concepts/disk.md#disks_types).
       * Specify the required block size.
       * Specify the required disk size.
-
-      
       * {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
-
-
       * (Optional) Enable the **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}** option if you need to automatically delete the disk when deleting the VM it will be attached to.
       * Select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}` as content.
       * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
-
-   
    1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../concepts/filesystem.md):
       * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
       * In the window that opens, select the file storage.
       * Enter the device name.
       * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
-
-
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Choose a [platform](../../concepts/vm-platforms.md).
       * Specify the [guaranteed share](../../../compute/concepts/performance-levels.md) and the required number of vCPUs, as well as the amount of RAM.
@@ -63,10 +51,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
 
       {% include [network-settings](../../../_includes/compute/network-settings.md) %}
 
-   
    1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
-
-
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       * (Optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). With a service account, you can flexibly configure access rights for your resources.
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
@@ -93,7 +78,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI create VM command:
+   1. View the description of the [CLI](../../../cli/) command to create a VM:
 
       ```bash
       yc compute instance create --help
@@ -122,9 +107,8 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
         {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
       * Availability zone: `{{ region-id }}-a`
-      * Subnet: `default-a`
+      * [Subnet](../../../vpc/concepts/network.md#network): `default-a`
       * With a [public IP address](../../../vpc/concepts/address.md#public-addresses) and two disks
-
 
       To specify whether to delete the disk when deleting the VM, set the `--auto-delete` flag:
 
@@ -198,10 +182,10 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
 
       * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
          * `name`: Disk name.
-         * `type`: Disk type.
+         * `type`: Disk [type](../../concepts/disk.md#disks_types).
          * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to host the disk.
          * `size`: Disk size in GB.
-         * `image_id`: ID of the image to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
+         * `image_id`: ID of the [image](../../concepts/image.md) to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
 
             {% include [id-info](../../../_includes/compute/id-info.md) %}
 
@@ -210,7 +194,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
          * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
          * `platform_id`: [Platform](../../concepts/vm-platforms.md).
          * `zone`: Availability zone to host the VM.
-         * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+         * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected platform.
          * `boot_disk`: Boot disk settings. Specify the disk ID.
          * `secondary_disk`: Secondary disk to attach to the VM. Specify the ID of the secondary disk. If you do not have a disk, [create](../disk-create/empty.md) one.
          * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#network). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
@@ -225,12 +209,11 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
       {% endnote %}
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-
    1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

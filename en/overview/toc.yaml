@@ -12,9 +12,9 @@ items:
         items:
           - name: Overview
             href: concepts/geo-scope.md
-          - name: Deprecation of the {{ region-id }}-c zone
+          - name: Discontinuation of the {{ region-id }}-c zone
             href: concepts/ru-central1-c-deprecation.md
-          - name: Migration to the ru-central1-d availability zone
+          - name: Migration to the {{ region-id }}-d availability zone
             href: concepts/zone-migration.md
           - name: Migrating resources through partners
             href: concepts/zone-migration-partners.md

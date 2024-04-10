@@ -4,7 +4,7 @@ In [GPU clusters](../../concepts/gpus.md#gpu-clusters), you can only create [VMs
 
 {% note info %}
 
-GPU clusters are now only available in the `ru-central1-a` [availability zone](../../../overview/concepts/geo-scope.md). You can only add a VM to a GPU cluster from the same availability zone.
+GPU clusters are now only available in the `{{ region-id }}-a` [availability zone](../../../overview/concepts/geo-scope.md). You can only add a VM to a GPU cluster from the same availability zone.
 
 {% endnote %}
 
@@ -14,7 +14,7 @@ GPU clusters are now only available in the `ru-central1-a` [availability zone](.
 
    ```bash
    export YC_GPU_CLUSTER=$(yc compute gpu-cluster list --format=json | jq -r .[].id)
-   export YC_ZONE="ru-central1-a"
+   export YC_ZONE="{{ region-id }}-a"
    export SUBNET_NAME="my-subnet-name"
    export SUBNET_ID=$(yc vpc subnet get --name=$SUBNET_NAME --format=json | jq -r .id)
    yc compute instance create --name node-gpu-test \

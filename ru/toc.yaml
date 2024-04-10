@@ -29,8 +29,6 @@ items:
     href: logging/index.yaml
   - name: Cloud Notification Service
     href: notifications/index.yaml
-  - name: Cloud Video
-    href: video/index.yaml
   - name: Compute Cloud
     href: compute/index.yaml
   - name: Container Registry

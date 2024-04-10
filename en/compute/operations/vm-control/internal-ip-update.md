@@ -1,6 +1,6 @@
 # Changing the VM internal IP address
 
-After you create a VM, you can change its internal IP address.
+After you create a [VM](../../concepts/vm.md), you can change its [internal IP address](../../../vpc/concepts/address.md#internal-addresses).
 
 {% list tabs group=instructions %}
 
@@ -11,14 +11,13 @@ After you create a VM, you can change its internal IP address.
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
    1. [Stop](vm-stop-and-start.md#stop) the VM.
-
-   1. View a description of the CLI command for updating the VM internal IP address:
+   1. View the description of the [CLI](../../../cli/) command for updating the VM internal IP address:
 
       ```bash
       yc compute instance update-network-interface --help
       ```
 
-   1. Get a list of VMs in the default folder:
+   1. Get a list of VMs in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
@@ -34,7 +33,7 @@ After you create a VM, you can change its internal IP address.
 
       Where:
 
-      * `--ipv4-address`: Internal IP address. Specify a new address or enter `auto` to assign it automatically.
+      * `--ipv4-address`: Internal IP address. Specify a new IP address or enter `auto` to assign it automatically.
       * `--network-interface-index`: Network interface index.
 
 - {{ TF }} {#tf}
@@ -56,7 +55,6 @@ After you create a VM, you can change its internal IP address.
       ```
 
       For more information about the `yandex_compute_instance` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
-
    1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

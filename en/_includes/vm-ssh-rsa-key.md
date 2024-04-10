@@ -1,4 +1,4 @@
-To connect to a [VM](../compute/concepts/vm.md) over SSH, you need a key pair: the public key is placed on the VM, while the private one is stored on the user's device. This method is more secure than connecting with a username and password.
+To connect to a [VM](../compute/concepts/vm.md) over SSH, you need a key pair: the public key resides on the VM, and the private one is kept by the user. This method is more secure than connecting with login and password.
 
 {% include [vm-connect-ssh-linux-note](vm-connect-ssh-linux-note.md) %}
 
@@ -21,7 +21,7 @@ To create a key pair:
 
       The public part of the key will be saved to the `<key_name>.pub` file.
 
-- Windows 10 {#windows}
+- Windows 10/11 {#windows}
 
    1. Run `cmd.exe` or `powershell.exe`.
    1. Use the `ssh-keygen` command to create a new key:
@@ -36,7 +36,7 @@ To create a key pair:
 
 - Windows 7/8 {#windows7-8}
 
-   To create keys for Windows, use the PuTTY application.
+   Create keys using the PuTTY app:
    1. [Download](https://www.putty.org) and install PuTTY.
    1. Make sure that the directory where you installed PuTTY is included in `PATH`:
       1. Right-click **My computer**. Click **Properties**.
@@ -49,7 +49,7 @@ To create a key pair:
       ![ssh_generate_key](../_assets/compute/ssh-putty/ssh-generate-key-rsa.png)
 
    1. In **Key passphrase**, enter a strong password. Enter it again in the field below.
-   1. Click **Save private** key and save the private key. Never share it with anyone and do not tell anyone the passphrase for it.
+   1. Click **Save private** key and save the private key. Do not share its key phrase with anyone.
    1. Save the key to a text file. To do this, copy the public key from the text field to a text file with the name `id_rsa.pub`. Please note that the key must be written as a **single line** (no returns or line breaks).
 
 {% endlist %}

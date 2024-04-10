@@ -17,7 +17,7 @@ To delete a notebook from a project:
 
 {% note alert %}
 
-After you delete a project, the entire notebook code and the state of the interpreter are lost.
+Once you delete the project, all notebooks and created resources will be lost.
 
 {% endnote %}
 

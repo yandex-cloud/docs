@@ -6039,7 +6039,6 @@ default:
             field_ymq-cutoff: Время ожидания, с
             label_any-budget: Все бюджеты
             label_billing-budget: Бюджет
-            label_cloud-logs: Cloud Logs
             label_container: Контейнер
             label_container-registry: Container Registry
             label_data-streams: Data Streams
@@ -6054,7 +6053,6 @@ default:
             section_base: Базовые параметры
             section_batch-settings: Настройки группирования сообщений
             section_billing-budget: Настройки бюджета
-            section_cloud-logs: Настройки Cloud Logs
             section_container: Настройки контейнера
             section_container-registry: Настройки Container Registry
             section_data-streams: Настройки Data Streams
@@ -7526,7 +7524,6 @@ default:
         models: Модели
         more: Еще
         name: Имя
-        never: Никогда
         overview: Обзор
         pin: Закрепить
         port: Порт
@@ -7569,9 +7566,7 @@ default:
         balance: Баланс проекта
         dataproc-cluster: Кластер Data Proc
         dedicated-vm-inactivity-timeout: Остановить простаивающую ВМ через
-        description: Описание
         name: Имя
-        period-of-inactivity: Прерывать ячейки с низкой нагрузкой через
         security-group: Группа безопасности
       external-ide:
         external-ide-vm-configuration: Конфигурация ВМ для удаленного подключения

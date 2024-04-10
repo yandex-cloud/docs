@@ -118,7 +118,7 @@ You can also use the [internal IP addresses](../../../vpc/concepts/address.md#in
 
    Type `yes` in the terminal and press **Enter**.
 
-- Windows 10 {#windows}
+- Windows 10/11 {#windows}
 
    Make sure that the Windows account has read privileges on the folder containing the keys.
 
@@ -148,7 +148,7 @@ You can also use the [internal IP addresses](../../../vpc/concepts/address.md#in
 
 - Windows 7/8 {#windows7-8}
 
-   In Windows, a connection is established using the PuTTY application.
+   Establish a connection using the PuTTY app:
    1. Run the Pageant application.
       1. Right-click on the Pageant icon in the task bar.
       1. In the context menu, select **Add key**.

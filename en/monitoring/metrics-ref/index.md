@@ -28,5 +28,6 @@ description: "The page contains a list of {{ yandex-cloud }} metric references, 
 * [{{ monitoring-full-name }}](monitoring-ref.md)
 * [{{ objstorage-full-name }}](storage-ref.md)
 * [{{ captcha-full-name }}](captcha-ref.md)
+* [{{ sws-full-name }}](smartwebsecurity-ref.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -5,7 +5,6 @@ description: "Use this tutorial to create a Linux VM."
 
 # Creating a VM from a public Linux image
 
-
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -19,14 +18,14 @@ description: "Use this tutorial to create a Linux VM."
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI create VM command:
+   1. View the description of the [CLI](../../../cli/) command to create a [VM](../../concepts/vm.md):
 
       ```bash
       yc compute instance create --help
       ```
 
    1. [Prepare](../vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
-   1. Select a Linux-based public [image](../images-with-pre-installed-software/get-list.md) from {{ marketplace-full-name }}, e.g., [CentOS 7](/marketplace/products/yc/centos-7).
+   1. Select a Linux-based public [image](../images-with-pre-installed-software/get-list.md) from [{{ marketplace-full-name }}](../../../marketplace/), e.g., [CentOS 7](/marketplace/products/yc/centos-7).
 
       {% include [standard-images](../../../_includes/standard-images.md) %}
 
@@ -69,14 +68,13 @@ description: "Use this tutorial to create a Linux VM."
 
       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
       * `subnet-name`: Name of the selected subnet.
-      * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP, disable this parameter.
+      * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, disable this parameter.
       * `image-family`: [Image family](../../concepts/image.md#family), such as `centos-7`. This option allows you to install the latest version of the OS from the specified family.
       * `--ssh-key`: [Public SSH key](../vm-connect/ssh.md#creating-ssh-keys) path. The VM will automatically create a user named `yc-user` for this key.
 
          {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
       If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data using the `--metadata-from-file` parameter.
-
 
    {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
@@ -164,7 +162,6 @@ description: "Use this tutorial to create a Linux VM."
       {% endnote %}
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-
    1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -178,11 +175,7 @@ description: "Use this tutorial to create a Linux VM."
    Create a VM using the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource:
    1. [Prepare](../vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
    1. Get an [{{ iam-full-name }} token](../../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
-
-      
       * [Guide](../../../iam/operations/iam-token/create.md) for users with a Yandex account.
-
-
       * [Guide](../../../iam/operations/iam-token/create-for-sa.md) for a [service account](../../../iam/concepts/users/service-accounts.md).
       * [Guide](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
    1. [Get the ID](../../../resource-manager/operations/folder/get-id.md) of the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).

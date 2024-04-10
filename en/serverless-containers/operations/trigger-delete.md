@@ -12,7 +12,7 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ ser
    1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-   1. Select the trigger you want to update.
+   1. Select the trigger you want to delete.
    1. In the top-right corner of the page, click **{{ ui-key.yacloud.serverless-functions.list.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.serverless-functions.list.popup-confirm_button_delete }}**.
 
@@ -24,7 +24,7 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ ser
 
    {% include [trigger-list-note](../../_includes/serverless-containers/trigger-list-note.md) %}
 
-   Delete a trigger:
+   Delete the trigger:
 
    ```bash
    yc serverless trigger delete <trigger_name>
@@ -74,7 +74,7 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ ser
           retry_interval     = 15
         }
         dlq {
-          queue_id           = "yrn:yc:ymq:ru-central1:b1geoelk7fld********:formycontainer"
+          queue_id           = "yrn:yc:ymq:{{ region-id }}:b1geoelk7fld********:formycontainer"
           service_account_id = "ajej9vu5f62d********"
         }
       }

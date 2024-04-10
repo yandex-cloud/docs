@@ -24,10 +24,6 @@ You can [change or disable](../operations/projects/update.md) the subnet in the 
 Yes, you can. If you close the notebook tab, current executions will continue, all variables and computation results will be saved, but the output will not be saved for the executions that finished while the notebook was closed.
 After completion of all the running computations, the VM will be assigned to the notebook for three hours. You can [change](../operations/projects/update.md) this value in the project settings.
 
-#### Why can't I start multiple notebooks in my project simultaneously? {#parallel-run}
-
-Running notebooks have access to the project storage and can edit files. To avoid conflicts between notebooks accessing the same files during computations, {{ ml-platform-name }} prevents you from starting multiple notebooks at the same time.
-
 #### How do I specify the configuration type for my project? {#instance-type}
 
 You can select a [computing resource configuration](../concepts/configurations.md) when you first run computations in the {{ ml-platform-name }} notebook. The minimum available configuration is **c1.4** (4 vCPUs).

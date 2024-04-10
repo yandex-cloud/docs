@@ -5,13 +5,11 @@ description: "Use this guide to create a VM with a GPU."
 
 # Creating a VM with a GPU
 
-This section explains how to create a [VM](../../concepts/vm.md) with a GPU. For more information about VM configurations, see [{#T}](../../concepts/gpus.md).
+This section explains how to create a [VM](../../concepts/vm.md) with a [GPU](../../concepts/gpus.md).
 
 By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) has a zero [quota](../../concepts/limits.md#quotas) for creating VMs with GPUs. To change the [quota]({{ link-console-quotas }}), contact [technical support]({{ link-console-support }}).
 
-
 {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
-
 
 {% list tabs group=instructions %}
 
@@ -26,7 +24,7 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI create VM command:
+   1. View the description of the [CLI](../../../cli/) command to create a VM:
 
       ```bash
       yc compute instance create --help
@@ -41,7 +39,6 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
 
    1. Create a VM in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
-      
       ```bash
       yc compute instance create \
         --name gpu-instance \
@@ -55,8 +52,6 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
         --ssh-key ~/.ssh/id_ed25519.pub
       ```
 
-
-
       Where:
       * `--name`: VM name.
 
@@ -64,10 +59,7 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
 
       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
 
-         
          {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
-
-
 
       * `--platform`: [Platform](../../concepts/vm-platforms.md) ID:
 
@@ -77,8 +69,6 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
       * `--memory`: Amount of RAM.
       * `--gpus`: Number of GPUs.
       * `--preemptible`: For a [preemptible](../../concepts/preemptible-vm.md) VM.
-
-
       * `--create-boot-disk`: OS [image](../images-with-pre-installed-software/get-list.md).
 
          {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
@@ -93,7 +83,7 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
 
       Result:
 
-      ```bash
+      ```text
       name: gpu-instance
       zone_id: {{ region-id }}-a
       platform_id: gpu-standard-v3
@@ -109,6 +99,7 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
 - {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl
@@ -171,18 +162,14 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
       * `yandex_compute_instance`: Description of the VM:
          * `name`: VM name.
          * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
-         * `platform_id`: ID of the [platform](../../concepts/vm-platforms.md):
+         * `platform_id`: ID of the [platform](../../concepts/vm-platforms.md).
          * `zone`: Availability zone to host the VM.
 
-            
             {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
-
-
 
          * `platform_id`: ID of the [platform](../../concepts/vm-platforms.md):
 
             {% include [gpu-platforms-api](../../../_includes/compute/gpu-platforms-api.md) %}
-
 
          * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
          * `boot_disk`: Boot disk settings. Specify the disk ID.
@@ -198,7 +185,6 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
       {% endnote %}
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-
    1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

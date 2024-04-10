@@ -22,7 +22,7 @@ HTTP metrics:
 | --- | --- |
 | `load_balancer.request_bytes_per_second`<br>`DGAUGE`, bytes/s | Total amount of load balancer requests per second.<br>When combined with the *zone* label, only requests from a specific availability zone will be counted. |
 | `load_balancer.requests_count_per_second`<br>`DGAUGE`, requests/s | Number of load balancer requests per second.<br>When combined with the *zone* label, only requests from a specific availability zone will be counted.<br>A special label named *code* indicates the code of a response, e.g., `200` or `grpc:CANCELLED`. |
-| `load_balancer.requests_latency_milliseconds`<br>`HIST`, milliseconds | Distribution histogram of the response latency (the time between the load balancer receiving the first byte of a request to sending the last byte of the response), 50th to 99th percentiles, in milliseconds.<br>When combined with the *zone* label, only responses in a specific availability zone will be counted.<br>A special label named *bin* indicates histogram buckets. |
+| `load_balancer.requests_latency_milliseconds`<br>`IGUAGE`, milliseconds | Distribution histogram of the response latency (time between the load balancer receiving the first byte of request to sending the last byte of response), 50th to 99th percentiles, in milliseconds.<br>When combined with the *zone* label, only responses in a specific availability zone will be counted.<br>A special label named *bin* indicates histogram buckets. |
 | `load_balancer.response_bytes_per_second`<br>`DGAUGE`, bytes/s | Total amount of load balancer responses per second.<br>When combined with the *zone* label, only responses in a specific availability zone will be counted. |
 
 ## Scaling metrics {#scaling-metrics}
@@ -35,3 +35,7 @@ HTTP metrics:
 | `load_balancer.scaling.http_received_bytes_per_second`<br>`DGAUGE`, bytes/s | Amount of data received per second |
 | `load_balancer.scaling.http_transmitted_bytes_per_second`<br>`DGAUGE`, bytes/s | Amount of data transmitted per second |
 | `load_balancer.scaling.requests_per_second`<br>`DGAUGE`, requests/s | Number of requests per second |
+
+## {{ sws-name }} metrics {#sws-metrics}
+
+{% include [alb-sws](alb-sws.md) %}

@@ -152,8 +152,7 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
       * `batch_size`: Message batch size. Acceptable values are from 1 to 10.
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
-
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -174,7 +173,7 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
 
       1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
          ```bash
          yc serverless trigger get <trigger_ID>

@@ -122,7 +122,7 @@ All actions with {{ network-load-balancer-name }} resources are logged as a list
         folder_id: b1gmit33ngp3********
         created_at: "2024-02-01T09:33:45Z"
         name: nlb-e6f3e-083
-        region_id: ru-central1
+        region_id: {{ region-id }}
         status: ACTIVE
         type: EXTERNAL
       ```

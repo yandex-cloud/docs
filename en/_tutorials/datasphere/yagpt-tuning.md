@@ -1,4 +1,4 @@
-In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) you can [tune](../../datasphere/concepts/models/foundation-models.md#tuning-abilities) the [{{ yagpt-name }}](../../yandexgpt/concepts/index.md) neural network to adhere to the specified answer format or text analysis principles to make it more tailored to your specific tasks. To do this, prepare a file with pairs of queries and reference responses and start tuning. You cannot train the model with new information, e.g., a support service knowledge base.
+In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) you can [tune](../../datasphere/concepts/models/foundation-models.md#tuning-abilities) the [{{ gpt-pro }}](../../yandexgpt/concepts/index.md) neural network to adhere to the specified answer format or text analysis principles to make it more tailored to your specific tasks. To do this, prepare a file with pairs of requests and reference responses and start tuning. You cannot train the model on new information, e.g., a support service knowledge base.
 
 {% note info %}
 
@@ -75,27 +75,7 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
 
 ## Prepare data for model training {#create-data}
 
-Data required for model tuning should be saved to a JSON file as pairs of UTF-8 encoded [queries and reference responses](../../datasphere/concepts/models/foundation-models.md#yagpt-tuning). To successfully run model tuning, you need at least 10 pairs.
-
-File content example:
-
-```json
-[
-{
-    "request": "happy new year!",
-    "response": "Happy New Year!"
-},
-{
-    "request": "goot prodact, recomend it to everibody!",
-    "response": "Good product, recommend it to everybody!"
-},
-{
-    "request": "i have a komplaint about theirs service!",
-    "response": "I have a complaint about their service!"
-}
-…
-]
-```
+{% include [fine-tuning-file-requirements](../../_includes/datasphere/fine-tuning-file-requirements.md) %}
 
 ## Tune the model {#model-tuning}
 

@@ -23,6 +23,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 ### Infrastructure and network {#infra}
 
 * [{{ api-gw-full-name }}](../api-gateway/qa/index.md)
+* [{{ backup-full-name }}](../backup/qa/troubleshooting.md)
 * [{{ dns-full-name }}](../dns/qa/index.md)
 * [{{ cloud-logging-full-name }}](../logging/qa/index.md)
 * [{{ compute-full-name }}](../compute/qa/all.md)
@@ -85,6 +86,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 
 ### Developer tools {#developer-tools}
 
+* [{{ cos-full-name }}](../cos/qa/index.md)
 * [{{ mgl-full-name }}](../managed-gitlab/qa/index.md)
 
 ### Resources and management {#resources-operations}

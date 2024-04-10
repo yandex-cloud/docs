@@ -21,7 +21,7 @@ Syntax:
 |`--cluster-id`|<b>`string`</b><br/>ID of the MongoDB cluster.|
 |`--cluster-name`|<b>`string`</b><br/>Name of the MongoDB cluster.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Configurations for MongoDB hosts that should be added to the shard.<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the new host should reside.</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>assign-public-ip</code>:     Assign a public IP address to the host being added.</li> </ul>|
+|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Configurations for MongoDB hosts that should be added to the shard.<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the new host should reside.</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>assign-public-ip</code>:     Assign a public IP address to the host being added.</li> <li><code>hidden</code>:     Set hidden parameter to the host being added</li> <li><code>secondary-delay-secs</code>:     Set secondaryDelaySecs parameter to the host being added</li> <li><code>priority</code>:     Set priority parameter to the host being added</li> <li><code>tags</code>:     Set tags parameter to the host being added</li> </ul>|
 
 #### Global Flags
 

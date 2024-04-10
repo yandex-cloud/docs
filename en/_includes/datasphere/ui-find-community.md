@@ -1,0 +1,1 @@
+Open the {{ ml-platform-name }} [home page]({{ link-datasphere-main }}). In the left-hand panel, select ![community-panel](../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.

@@ -31,9 +31,9 @@
     --maintenance-grace-period 1m
   ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Создайте Terraform-манифест `mnt-vm.tf`:
+  1. Создайте {{ TF }}-манифест `mnt-vm.tf`:
 
       ```
       terraform {
@@ -88,7 +88,7 @@
       }
       ```
 
-  1. Примените Terraform-манифест:
+  1. Примените {{ TF }}-манифест:
 
       ```bash
       export YC_TOKEN=$(yc iam create-token)

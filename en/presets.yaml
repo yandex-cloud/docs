@@ -243,7 +243,7 @@ default:
   link-cloud-services: /services
   link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=en
   link-console-access-management: https://console.cloud.yandex.com/iam
-  link-console-billing: https://console.cloud.yandex.com/billing
+  link-console-billing: https://billing.yandex.cloud/accounts
   link-console-cloud: https://console.cloud.yandex.com/cloud
   link-console-iam-users: https://console.cloud.yandex.ru/iam?section=users
   link-console-main: https://console.cloud.yandex.com
@@ -6035,7 +6035,6 @@ default:
             field_ymq-cutoff: Waiting time, s
             label_any-budget: Any budget
             label_billing-budget: Budget
-            label_cloud-logs: Cloud Logs
             label_container: Container
             label_container-registry: Container Registry
             label_data-streams: Data Streams
@@ -6050,7 +6049,6 @@ default:
             section_base: Basic settings
             section_batch-settings: Batch message settings
             section_billing-budget: Budget settings
-            section_cloud-logs: Cloud Logs settings
             section_container: Container settings
             section_container-registry: Container Registry settings
             section_data-streams: Data Streams settings
@@ -7524,7 +7522,6 @@ default:
         models: Models
         more: More
         name: Name
-        never: Never
         overview: Overview
         pin: Pin
         port: Port
@@ -7567,9 +7564,7 @@ default:
         balance: Project balance
         dataproc-cluster: Data Proc cluster
         dedicated-vm-inactivity-timeout: Stop inactive VM after
-        description: Description
         name: Name
-        period-of-inactivity: Period of inactivity
         security-group: Security group
       external-ide:
         external-ide-vm-configuration: VM configuration for remote connection

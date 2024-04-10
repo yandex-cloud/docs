@@ -13,7 +13,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 |---|---|
 | [{{ api-gw-full-name }}](../../api-gateway/index.yaml) | Service for creating API gateways |
 | [{{ alb-full-name }}](../../application-load-balancer/index.yaml) | Service for distributing incoming traffic between web application components |
-| [{{ at-full-name }}](../../audit-trails/index.yaml) | {{ preview-stage }} Service for collecting and exporting audit logs |
+| [{{ at-full-name }}](../../audit-trails/index.yaml) | Service for collecting and exporting audit logs |
 | [{{ certificate-manager-full-name }}](../../certificate-manager/index.yaml) | Service for managing TLS certificates |
 | [{{ cloud-apps-full-name }}](../../cloud-apps/index.yaml) | {{ preview-stage }} Service for deploying serverless stack-based applications |
 | [{{ backup-full-name }}](../../backup/index.yaml) | Service for backing up {{ yandex-cloud }} resources |
@@ -52,19 +52,19 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ mmy-full-name }}®](../../managed-mysql/index.yaml) | Service for creating and managing {{ MY }} clusters |
 | [{{ mos-full-name }}](../../managed-opensearch/index.yaml) | Service for creating and managing {{ OS }} clusters |
 | [{{ mpg-full-name }}](../../managed-postgresql/index.yaml) | Service for creating and managing {{ PG }} clusters |
-| [{{ managed-prometheus-full-name }}](../../monitoring/operations/prometheus/index.md) | {{ preview-stage }} Monitoring system compatible with [{{ prometheus-name }}](https://prometheus.io/docs/introduction/overview/) |
 | [{{ mrd-full-name }}™](../../managed-redis/index.yaml) | Service for creating and managing {{ RD }} clusters |
 | [{{ ydb-full-name }}](../../ydb/index.yaml) | {{ ydb-full-name }} database management service |
+| [{{ marketplace-full-name }}](../../marketplace/index.yaml) | Marketplace of turnkey developer tools and other services |
 | [{{ message-queue-full-name }}](../../message-queue/index.yaml) | Queue service for messaging between components of distributed applications and microservices |
 | [{{ monitoring-full-name }}](../../monitoring/index.yaml) | Service for collecting and visualizing metrics |
 | [{{ network-load-balancer-full-name }}](../../network-load-balancer/index.yaml) | Service for distributing network load across cloud resources |
 | [{{ objstorage-full-name }}](../../storage/index.yaml) | All-purpose scalable cloud object storage |
-| [{{ yq-full-name }}](../../query/index.yaml) | {{ preview-stage }} Service for running queries using a common SQL dialect |
+| [{{ yq-full-name }}](../../query/index.yaml) | Service for running queries using the common SQL dialect |
 | [{{ resmgr-full-name }}](../../resource-manager/index.yaml) | Cloud resource management service |
 | [{{ search-api-full-name }}](../../search-api/index.yaml) | Service for making search queries |
 | [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) | Serverless launch of containerized applications |
 | [{{ captcha-full-name }}](../../smartcaptcha/index.yaml) | System user identification |
-| [{{ sws-full-name }}](../../smartwebsecurity/index.yaml) | Service for protection against DDoS attacks at the OSI model L7 application level |
+| [{{ sws-full-name }}](../../smartwebsecurity/index.yaml) | Service for protection against DDoS attacks at application level L7 of the OSI model |
 | [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/index.yaml) | Speech recognition and synthesis technologies |
 | [{{ speechsense-full-name }}](../../speechsense/index.yaml) | {{ preview-stage }} Speech analytics service for analyzing voice and text communication channels |
 | [{{ tracker-full-name }}](../../tracker/index.yaml) | Service for business collaboration and workflows |

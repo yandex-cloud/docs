@@ -136,7 +136,13 @@ items:
       - name: Добавить команду очереди
         href: manager/queue-team.md
       - name: Настроить доступ к очереди
-        href: manager/queue-access.md
+        items:
+          - name: Страница управления доступом
+            href: manager/queue-access.md
+          - name: Права доступа в очереди
+            href: manager/queue-access-types.md
+          - name: Примеры настройки
+            href: manager/queue-access-examples.md
       - name: Настроить учет времени
         href: manager/queue-spent-time.md
       - name: Расширенные возможности очереди

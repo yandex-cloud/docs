@@ -30,7 +30,7 @@
 
 - Windows 7/8 {#windows7-8}
 
-   To create keys for Windows, use the PuTTY application.
+   Create keys using the PuTTY app:
    1. [Download](https://www.putty.org) and install PuTTY.
    1. Make sure that the directory where you installed PuTTY is included in `PATH`:
       1. Right-click **My computer**. Click **Properties**.
@@ -43,7 +43,7 @@
       ![ssh_generate_key](../_assets/compute/ssh-putty/ssh_generate_key.png)
 
    1. In **Key passphrase**, enter a strong password. Enter it again in the field below.
-   1. Click **Save private** key and save the private key. Never share it with anyone and do not tell anyone the passphrase for it.
+   1. Click **Save private** key and save the private key. Do not share its key phrase with anyone.
    1. Save the key to a text file. To do this, copy the **single-line** public key from the text field to a text file named `id_ed25519.pub`.
 
 {% endlist %}
