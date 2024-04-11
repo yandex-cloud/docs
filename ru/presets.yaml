@@ -3654,7 +3654,6 @@ default:
         save-changes: Сохранить
       common:
         resource-acl:
-          label_inherited-bindings: Наследуемые роли
           label_service-accounts: Сервисные аккаунты
       component:
         form-file-upload:
@@ -3728,7 +3727,9 @@ default:
             action:
               enter: Войти
         oslogin-settings:
+          title_allow-edit-own-keys: Разрешить членам организации управлять своими SSH-ключами
           title_ssh-certificate-settings: Доступ по OS Login при помощи SSH-сертификатов (рекомендуется)
+          title_user-ssh-key-settings: Доступ по OS Login при помощи SSH-ключей
       forms:
         action:
           create: Создать
@@ -4390,7 +4391,6 @@ default:
           button_revoke: Отозвать
           column_permissions: Разрешения
           label_select-placeholder: Выберите пользователя
-          label_select-section-service-accounts: Сервисные аккаунты
           label_title: Редактирование ACL
         acl:
           update-dialog:
@@ -4518,9 +4518,7 @@ default:
             label_status: Статус
         disks:
           button_action-attach: Присоединить
-          button_action-delete: Удалить
           button_action-detach: Отсоединить
-          button_action-edit: Редактировать
           button_action-image: Создать образ
           button_action-snapshot: Создать снимок
           button_create: Создать диск
@@ -4530,7 +4528,6 @@ default:
             button_update: Сохранить изменения
           label_disk-used: Подключен
           popup_detach-disk_button_detach: Отсоединить
-          popup-confirm_button_delete: Удалить
         group:
           edit:
             label_title: Изменение группы виртуальных машин
@@ -4543,13 +4540,11 @@ default:
           switch_monitoring: Мониторинг
           switch_operations: Операции
         groups:
-          button_action-delete: Удалить
-          button_action-edit: Изменить
           button_action-pause: Приостановить процессы
           button_action-resume: Возобновить процессы
           button_action-start: Запустить группу
           button_action-stop: Остановить группу
-          button_create: Создать группу
+          button_create: Создать группу виртуальных машин
           create:
             button_create: Создать
             button_create-account: Создать аккаунт
@@ -4620,7 +4615,6 @@ default:
           hosts:
             label_title: Список хостов
         images:
-          button_action-delete: Удалить
           button_action-image: Создать образ
           button_upload: Загрузить образ
           column_id: Идентификатор
@@ -4659,10 +4653,7 @@ default:
           switch_service-console: Последовательный порт
         instances:
           button_action-restart: Перезапустить
-          button_action-start: Запустить
-          button_action-stop: Остановить
-          button_create: Создать ВМ
-          button_gr-action-delete: Удалить
+          button_create: Создать виртуальную машину
           button_gr-action-stop: Остановить
           create-disk:
             button_create: Добавить
@@ -4769,12 +4760,12 @@ default:
           switch_instances: Список ВМ
         placement-groups:
           button_create: Создать
-          button_create-disk-pg: Группу размещения нереплицируемых дисков
-          button_create-instance-pg: Группу размещения ВМ
+          button_menu-create-disk-placement-group: Группу размещения нереплицируемых дисков
+          button_menu-create-instance-placement-group: Группу размещения виртуальных машин
           create:
             button_create: Создать
           label_tab-disks: Группы размещения нереплицируемых дисков
-          label_tab-instances: Группы размещения ВМ
+          label_tab-instances: Группы размещения виртуальных машин
         snapshots-schedules:
           action_attach-disk: Добавить диск
           action_detach-disk: Удалить из расписания
@@ -4792,7 +4783,6 @@ default:
           title_snapshot-schedule-disks: Диски
         snapshots:
           list:
-            button_action-delete: Удалить
             button_action-image: Создать образ
         switch_disks: Диски
         switch_file-storages: Файловые хранилища
@@ -6400,7 +6390,7 @@ default:
       yagpt:
         label_button-instruct-submit: Узнать ответ
         label_instruction-text: Инструкции
-        label_promt: Промт-режим
+        label_promt: Промт-режим YandexGPT
         label_request-text: Запрос
         label_temperature-text: Температура
       ydb:
@@ -7921,10 +7911,6 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/filebeat-oss/chart/filebeat-oss
         tag: 7.12.1-1
-    yc_filebeat:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/filebeat/chart/filebeat
-        tag: 7.16.3-5
     yc_fluent-bit:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit

@@ -40,7 +40,6 @@ On this page, you will find events for the following services:
 * [{{ mmy-short-name }}](#managed-service-for-mysql)
 * [{{ mpg-short-name }}](#managed-service-for-postgresql)
 * [{{ mrd-short-name }}](#managed-service-for-redis)
-* [{{ mes-short-name }}](#managed-service-for-elasticsearch)
 * [{{ mos-short-name }}](#managed-service-for-opensearch)
 * [{{ network-load-balancer-name }}](#network-load-balancer)
 * [{{ objstorage-name }}](#objstorage)
@@ -254,11 +253,6 @@ Service name: `mdb.redis`.
 
 {% include [mrd-events](../../_includes/audit-trails/events/mrd-events.md) %}
 
-## {{ mes-short-name }} {#managed-service-for-elasticsearch}
-
-Service name: `mdb.elasticsearch`.
-
-{% include [mes-events](../../_includes/audit-trails/events/mes-events.md) %}
 
 ## {{ mos-short-name }} {#managed-service-for-opensearch}
 

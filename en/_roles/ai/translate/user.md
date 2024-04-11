@@ -1,1 +1,1 @@
-The `ai.translate.user` role enables you to use the service for text translation.
+The `ai.translate.user` role allows you to use Yandex Translate to [translate texts](../../../translate/quickstart.md), as well as view info on the relevant [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), and [quotas](../../../translate/concepts/limits.md#translate-quotas).

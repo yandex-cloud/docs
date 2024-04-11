@@ -28,7 +28,6 @@ description: "Из статьи вы узнаете, как задать нас�
     * [{{ KF }} в {{ CH }}](../../../tutorials/mkf-to-mch.md);
     * [{{ KF }} в {{ PG }}](../../../tutorials/mkf-to-mpg.md);
     * [{{ KF }} в {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md);
-    * [{{ KF }} в {{ ES }}](../../../tutorials/mkf-to-mes.md);
     * [{{ KF }} в {{ MG }}](../../../tutorials/mkf-to-mmg.md);
     * [{{ KF }} в {{ MY }}](../../../tutorials/mkf-to-mmy.md);
     * [{{ KF }} в {{ OS }}](../../../tutorials/mkf-to-mos.md);

@@ -17,7 +17,6 @@ description: "На странице приведен список справоч
 * [{{ lockbox-full-name }}](lockbox-ref.md)
 * [{{ mkf-full-name }}](managed-kafka-ref.md)
 * [{{ mch-full-name }}](managed-clickhouse-ref.md)
-* [{{ mes-full-name }}](managed-elasticsearch-ref.md)
 * [{{ mgp-full-name }}](managed-greenplum-ref.md)
 * [{{ managed-k8s-full-name }}](managed-kubernetes-ref.md)
 * [{{ mmg-full-name }}](managed-mongodb-ref.md)

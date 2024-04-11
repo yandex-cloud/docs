@@ -283,10 +283,6 @@ items:
           data-transfer-name }}
         href: dataplatform/managed-kafka-to-greenplum.md
       - name: >-
-          Поставка данных из {{ mkf-name }} в {{ mes-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mkf-mes.md
-      - name: >-
           Поставка данных из {{ mkf-name }} в {{ mmg-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf-mmg.md
@@ -372,10 +368,6 @@ items:
         href: dataplatform/data-proc-init-actions-geesefs.md
       - name: Автоматизация работы с {{ dataproc-name }} с помощью {{ maf-name }}
         href: dataplatform/data-proc-and-airflow.md
-      - name: >-
-          Миграция данных из стороннего кластера {{ ES }} в {{ mes-name }} с
-          помощью Reindex API
-        href: dataplatform/migration-via-reindex-api.md
       - name: Миграция коллекций из стороннего кластера {{ MG }} в {{ mmg-name }}
         href: dataplatform/mongodb-migration-with-data-transfer.md
       - name: Миграция данных в {{ mmg-name }}

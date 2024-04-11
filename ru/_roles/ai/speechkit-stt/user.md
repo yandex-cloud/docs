@@ -1,1 +1,1 @@
-Роль `ai.speechkit-stt.user` позволяет использовать сервис SpeechKit для распознавания речи.
+Роль `ai.speechkit-stt.user` позволяет использовать сервис Yandex SpeechKit для [распознавания](../../../speechkit/stt/index.md) речи, а также просматривать информацию об [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](../../../speechkit/concepts/limits.md#speechkit-quotas) сервиса.

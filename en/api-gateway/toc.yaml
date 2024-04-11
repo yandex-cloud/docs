@@ -7,7 +7,7 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Creating API gateways
+      - name: Creating an API gateway
         href: operations/api-gw-create.md
       - name: Managing API gateways
         expanded: true
@@ -28,7 +28,7 @@ items:
             href: operations/api-gw-logs.md
           - name: Migration to the {{ region-id }}-d availability zone
             href: operations/api-gw-migration.md
-          - name: Deleting API gateways
+          - name: Deleting an API gateway
             href: operations/api-gw-delete.md
   - name: Tutorials
     items:
@@ -190,8 +190,8 @@ items:
                 href: apigateway/websocket/api-ref/Connection/send.md
   - name: '{{ at-name }} events'
     href: at-ref.md
-  - name: FAQ
-    href: qa/index.md
   - name: Release notes
     href: release-notes.md
+  - name: FAQ
+    href: qa/index.md
 base: en/api-gateway

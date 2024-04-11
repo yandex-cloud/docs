@@ -367,7 +367,7 @@ The infrastructure support cost includes:
 
       1. In the [management console]({{ link-console-main }}), select the appropriate folder.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. Choose the `nat-a` instance in the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
+      1. Choose the `nat-a` instance in the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.common.stop }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 
    - CLI {#cli}
@@ -409,7 +409,7 @@ The infrastructure support cost includes:
 
       1. In the [management console]({{ link-console-main }}), select the appropriate folder.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. Choose the `nat-a` instance in the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
+      1. Choose the `nat-a` instance in the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.common.stop }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
    - CLI {#cli}

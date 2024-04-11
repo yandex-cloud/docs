@@ -207,11 +207,6 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 
 
 
-### {{ mes-full-name }} {#mes}
-
-{% include [mes-limits.md](../../_includes/mdb/mes-limits.md) %}
-
-
 
 
 ### {{ mgl-full-name }} {#mgl}

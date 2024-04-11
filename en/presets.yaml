@@ -3648,7 +3648,6 @@ default:
         save-changes: Save
       common:
         resource-acl:
-          label_inherited-bindings: Inherited roles
           label_service-accounts: Service accounts
       component:
         form-file-upload:
@@ -3722,7 +3721,9 @@ default:
             action:
               enter: Log in
         oslogin-settings:
+          title_allow-edit-own-keys: Allow members to use their own SSH keys
           title_ssh-certificate-settings: Access via OS Login using SSH certificates (recommended)
+          title_user-ssh-key-settings: Access via OS Login using SSH keys
       forms:
         action:
           create: Create
@@ -4384,7 +4385,6 @@ default:
           button_revoke: Revoke
           column_permissions: Permissions
           label_select-placeholder: Select a user
-          label_select-section-service-accounts: Service accounts
           label_title: ACL editing
         acl:
           update-dialog:
@@ -4512,9 +4512,7 @@ default:
             label_status: Status
         disks:
           button_action-attach: Attach
-          button_action-delete: Delete
           button_action-detach: Detach
-          button_action-edit: Edit
           button_action-image: Create image
           button_action-snapshot: Create snapshot
           button_create: Create disk
@@ -4524,7 +4522,6 @@ default:
             button_update: Save changes
           label_disk-used: Active
           popup_detach-disk_button_detach: Detach
-          popup-confirm_button_delete: Delete
         group:
           edit:
             label_title: Changing an instance group
@@ -4537,13 +4534,11 @@ default:
           switch_monitoring: Monitoring
           switch_operations: Operations
         groups:
-          button_action-delete: Delete
-          button_action-edit: Edit
           button_action-pause: Pause
           button_action-resume: Resume
           button_action-start: Start group
           button_action-stop: Stop group
-          button_create: Create group
+          button_create: Create group of virtual machines
           create:
             button_create: Create
             button_create-account: Create account
@@ -4614,7 +4609,6 @@ default:
           hosts:
             label_title: List of hosts
         images:
-          button_action-delete: Delete
           button_action-image: Create image
           button_upload: Upload image
           column_id: ID
@@ -4653,10 +4647,7 @@ default:
           switch_service-console: Serial port
         instances:
           button_action-restart: Restart
-          button_action-start: Start
-          button_action-stop: Stop
-          button_create: Create VM
-          button_gr-action-delete: Delete
+          button_create: Create virtual machine
           button_gr-action-stop: Stop
           create-disk:
             button_create: Add
@@ -4761,12 +4752,12 @@ default:
           switch_instances: List of VMs
         placement-groups:
           button_create: Create
-          button_create-disk-pg: Non-replicated disk placement group
-          button_create-instance-pg: VM placement group
+          button_menu-create-disk-placement-group: Non-replicated disk placement group
+          button_menu-create-instance-placement-group: Virtual machine placement group
           create:
             button_create: Create
           label_tab-disks: Non-replicated disk placement groups
-          label_tab-instances: VM placement groups
+          label_tab-instances: Virtual machine placement groups
         snapshots-schedules:
           action_attach-disk: Add disk
           action_detach-disk: Delete from schedule
@@ -4784,7 +4775,6 @@ default:
           title_snapshot-schedule-disks: Disks
         snapshots:
           list:
-            button_action-delete: Delete
             button_action-image: Create image
         switch_disks: Disks
         switch_file-storages: File storages
@@ -6392,7 +6382,7 @@ default:
       yagpt:
         label_button-instruct-submit: View answer
         label_instruction-text: Instructions
-        label_promt: Prompt mode
+        label_promt: YandexGPT Prompt mode
         label_request-text: Request
         label_temperature-text: Temperature
       ydb:
@@ -7915,10 +7905,6 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/filebeat-oss/chart/filebeat-oss
         tag: 7.12.1-1
-    yc_filebeat:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/filebeat/chart/filebeat
-        tag: 7.16.3-5
     yc_fluent-bit:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit

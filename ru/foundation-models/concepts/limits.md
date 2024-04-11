@@ -1,9 +1,9 @@
 ---
-title: "Квоты и лимиты в {{ yagpt-full-name }}"
-description: "В сервисе {{ yagpt-full-name }} действует ряд квот и лимитов. Более подробно об ограничениях в сервисах вы узнаете из этой статьи."
+title: "Квоты и лимиты в {{ foundation-models-full-name }}"
+description: "В сервисе {{ foundation-models-full-name  }} действует ряд квот и лимитов. Более подробно об ограничениях в сервисах вы узнаете из этой статьи."
 ---
 
-# Квоты и лимиты в {{ yagpt-full-name }}
+# Квоты и лимиты в {{ foundation-models-full-name }}
 
 {% include notitle [preview-stage](../../_includes/foundation-models/yandexgpt/preview.md) %}
 

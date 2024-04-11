@@ -6,7 +6,7 @@
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Выберите группу ВМ, которую хотите изменить.
-  1. В правом верхнем углу нажмите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
+  1. В правом верхнем углу нажмите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** отключите старую [зону доступности](../../overview/concepts/geo-scope.md).
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 

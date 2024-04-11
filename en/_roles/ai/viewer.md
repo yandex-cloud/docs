@@ -1,1 +1,3 @@
-The `ai.viewer` role enables you to view quotas for Translate, Vision, SpeechKit, and YandexGPT, as well as folder metadata. It includes all permissions of the `ai.auditor` role.
+The `ai.viewer` role enables you to view quotas for Yandex Translate, Yandex Vision, Yandex SpeechKit, and Yandex Foundation Models, as well as view the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) info.
+
+This role includes the permissions of the `ai.auditor` role.

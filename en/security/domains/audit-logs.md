@@ -43,9 +43,6 @@ List of important {{ yandex-cloud }}-level events for search in audit logs:
 
 Solutions for exporting {{ yandex-cloud }} audit logs are available for the following SIEM systems:
 
-- {{ mes-full-name }} (ELK)
-
-   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Collecting, monitoring, and analyzing audit logs in {{ mes-full-name }}](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk)
 
 - ArcSight
 

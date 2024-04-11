@@ -187,8 +187,6 @@ items:
         href: metrics-ref/managed-kafka-ref.md
       - name: '{{ mch-name }}'
         href: metrics-ref/managed-clickhouse-ref.md
-      - name: '{{ mes-name }}'
-        href: metrics-ref/managed-elasticsearch-ref.md
       - name: '{{ mgp-name }}'
         href: metrics-ref/managed-greenplum-ref.md
       - name: '{{ managed-k8s-name }}'

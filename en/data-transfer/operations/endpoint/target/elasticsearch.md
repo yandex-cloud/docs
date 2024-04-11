@@ -16,8 +16,6 @@ description: "In this tutorial, you will learn how to set up an {{ ES }} target 
 
 ## Scenarios for transferring data to {{ ES }} {#scenarios}
 
-1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
-   * [Delivering data from {{ KF }} to {{ ES }}](../../../tutorials/mkf-to-mes.md)
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
@@ -39,29 +37,8 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
-* [{{ mes-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
+* [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
-
-
-### {{ mes-name }} cluster {#managed-service}
-
-
-{% note warning %}
-
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mes.viewer }}` role](../../../../managed-elasticsearch/security/index.md#mes-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
-
-{% endnote %}
-
-
-Connection with the cluster ID specified in {{ yandex-cloud }}.
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-   {% include [Managed Elasticsearch](../../../../_includes/data-transfer/necessary-settings/ui/managed-elasticsearch.md) %}
-
-{% endlist %}
 
 
 ### Custom installation {#on-premise}

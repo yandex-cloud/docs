@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 If the [agent](../../load-testing/concepts/agent.md) is hosted on {{ yandex-cloud }}, a fee is charged for computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
-At the [Preview](../../overview/concepts/launch-stages.md) stage, using {{ load-testing-name }} is free of charge.
+At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testing-name }} is free of charge.
 
 ## Prepare a test target {#target-prepare}
 
@@ -168,7 +168,7 @@ In your test script, specify a sequence of HTTP requests to run during testing. 
       uploader:
          enabled: true
          package: yandextank.plugins.DataUploader
-         api_address: loadtesting.api.cloud.yandex.net:443
+         api_address: loadtesting.{{ api-host }}:443
       pandora:
          enabled: true
          package: yandextank.plugins.Pandora

@@ -1,4 +1,4 @@
-# Управление доступом в {{ yagpt-full-name }}
+# Управление доступом в {{ foundation-models-full-name }}
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 

@@ -46,9 +46,7 @@
      }
      ```
 
-     Где:
-
-     {% include [api-parameters](../../../_includes/foundation-models/yandexgpt/api-parameters.md) %}
+     {% include [api-parameters](../../../_includes/foundation-models/yandexart/api-parameters.md) %}
 
   1. Отправьте запрос нейросети с помощью метода [ImageGenerationAsync.generate](../../image-generation/api-ref/ImageGenerationAsync/generate.md), выполнив команду:
 
@@ -64,22 +62,24 @@
      * `<значение_IAM-токена>` — IAM-токен вашего аккаунта.
      * `prompt.json` — файл в формате JSON, содержащий параметры запроса.
      
-     В ответе сервис вернет идентификатор вашего запроса:
+     В ответе сервис вернет [объект Operation](../../../api-design-guide/concepts/operation.md):
 
      ```json
      {
      "id":"fbveu1sntj**********","description":"","createdAt":null,"createdBy":"","modifiedAt":null,"done":false,"metadata":null}
      ```
 
-  1. Генерация изображения занимает некоторое время. Подождите 10 секунд и отправьте запрос, чтобы получить результат генерации. Если изображение готово, результат вернется в [кодировке Base64](https://en.wikipedia.org/wiki/Base64) и будет записан в файл `image.jpeg`.
+     Сохраните идентификатор (`id`) операции, полученный в ответе.
+
+  1. Генерация изображения может занять от нескольких секунд до нескольких минут. Подождите некоторое время и отправьте запрос, чтобы получить результат генерации. Если изображение готово, результат вернется в [кодировке Base64](https://en.wikipedia.org/wiki/Base64) и будет записан в файл `image.jpeg`.
   
      ```bash
-     curl -X GET -H "Authorization: Bearer <значение_IAM-токена>" https://llm.api.cloud.yandex.net:443/operations/<идентификатор_запроса> | jq -r '.response | .image' | base64 -d > image.jpeg
+     curl -X GET -H "Authorization: Bearer <значение_IAM-токена>" https://llm.api.cloud.yandex.net:443/operations/<идентификатор_операции> | jq -r '.response | .image' | base64 -d > image.jpeg
      ```
 
      Где:
 
      * `<значение_IAM-токена>` — IAM-токен, полученный [перед началом работы](#before-begin).
-     * `<идентификатор_запроса>` — значение поля `id`, полученное в ответе на запрос генерации.
+     * `<идентификатор_операции>` — значение поля `id`, полученное в ответе на запрос генерации.
 
 {% endlist %}

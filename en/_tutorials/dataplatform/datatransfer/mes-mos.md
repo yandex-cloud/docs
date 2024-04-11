@@ -14,71 +14,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Prepare the infrastructure:
 
-   {% list tabs group=instructions %}
+   
+   1. [Create an {{ ES }} installation]({{ links.es.docs }}/elasticsearch/reference/current/getting-started.html).
 
-   - Manually {#manual}
+   1. [Enable cluster access from {{ yandex-cloud }}](../../../data-transfer/concepts/network.md#source-external).
 
-      1. [Create a {{ mes-name }} cluster](../../../managed-elasticsearch/operations/cluster-create.md) or a [custom {{ ES }} installation]({{ links.es.docs }}/elasticsearch/reference/current/getting-started.html).
+   1. [Create a {{ mos-name }} target cluster](../../../managed-opensearch/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
 
-         Make sure to enable public access to [Data Node](../../../managed-elasticsearch/concepts/hosts-roles.md#data-node) hosts in your {{ mes-name }} cluster. For your custom {{ ES }} installation, [enable cluster access from {{ yandex-cloud }}](../../../data-transfer/concepts/network.md#source-external).
-
-         {% note info %}
-
-         Users who have not yet worked with {{ ES }} in the cloud cannot create new clusters starting July 20, 2023. Current service users can use existing clusters and create new ones.
-
-         Starting April 11, 2024, {{ mes-full-name }} will no longer be available.
-
-         {% endnote %}
-
-      1. [Create a {{ mos-name }} target cluster](../../../managed-opensearch/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
-
-   - {{ TF }} {#tf}
-
-      1. {% include [terraform-install](../../../_includes/terraform-install.md) %}
-      1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and specify the parameter values.
-      1. Download the [data-transfer-mes-mos.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-elasticsearch-to-opensearch/blob/main/data-transfer-mes-mos.tf) configuration file to the same working directory.
-
-         This file describes:
-
-         * [Network](../../../vpc/concepts/network.md#network).
-         * [Subnet](../../../vpc/concepts/network.md#subnet).
-         * [Security group](../../../vpc/concepts/security-groups.md) and rules required to connect to the {{ mes-name }} and {{ mos-name }} clusters.
-         * {{ mes-name }} source cluster.
-         * {{ mos-name }} target cluster.
-         * Transfer.
-
-      1. In the `data-transfer-mes-mos.tf` file, specify the variables:
-
-         * Set `create_mes` to `1` to create a {{ mes-name }} cluster. If you want to use an existing cluster or a custom {{ ES }} installation, set it to `0`.
-
-            {% note info %}
-
-            Users who have not yet worked with {{ ES }} in the cloud cannot create new clusters starting July 20, 2023. Current service users can use existing clusters and create new ones.
-
-            Starting April 11, 2024, {{ mes-full-name }} will no longer be available.
-
-            {% endnote %}
-
-         * `es_admin_password`: {{ mes-name }} admin user password.
-         * `os_admin_password`: {{ mos-name }} admin user password.
-         * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
-
-      1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-      1. Make sure the {{ TF }} configuration files are correct using this command:
-
-         ```bash
-         terraform validate
-         ```
-
-         If there are any errors in the configuration files, {{ TF }} will point them out.
-
-      1. Create the required infrastructure:
-
-         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-         {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
-
-   {% endlist %}
 
 1. Install the utilities:
 
@@ -96,7 +38,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Set up the source cluster {#configure-source}
 
-1. If using a {{ mes-name }} cluster, [get an SSL certificate](../../../managed-elasticsearch/operations/cluster-connect.md#get-ssl-cert) to connect to the cluster.
 
 1. (Optional) Create a user to execute the transfer.
 
@@ -244,32 +185,8 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete endpoints](../../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
-1. Delete the other resources depending on how they were created:
 
-   {% list tabs group=instructions %}
 
-   - Manually {#manual}
+1. [Delete the {{ mos-name }} cluster](../../../managed-opensearch/operations/cluster-delete.md).
+1. [Delete the subnet](../../../vpc/operations/subnet-delete.md) and [network](../../../vpc/operations/network-delete.md).
 
-      1. [Delete the {{ mes-name }} cluster](../../../managed-elasticsearch/operations/cluster-delete.md).
-      1. [Delete the {{ mos-name }} cluster](../../../managed-opensearch/operations/cluster-delete.md).
-      1. [Delete the subnet](../../../vpc/operations/subnet-delete.md) and [network](../../../vpc/operations/network-delete.md).
-
-   - {{ TF }} {#tf}
-
-      1. In the terminal window, go to the directory containing the infrastructure plan.
-      1. Delete the `data-transfer-mes-mos.tf` configuration file.
-      1. Make sure the {{ TF }} configuration files are correct using this command:
-
-         ```bash
-         terraform validate
-         ```
-
-         If there are any errors in the configuration files, {{ TF }} will point them out.
-
-      1. Confirm updating the resources.
-
-         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-         All the resources described in the `data-transfer-mes-mos.tf` configuration file will be deleted.
-
-   {% endlist %}

@@ -7,4 +7,5 @@
 
 Роль `auditor` в настоящее время недоступна в сервисах:
 * Yandex Data Streams;
+* Yandex Managed Service for YDB;
 * Yandex Query.

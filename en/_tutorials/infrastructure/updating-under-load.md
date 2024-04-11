@@ -452,7 +452,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Click the `group-for-load` instance group name.
-   1. Click ![edit](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
+   1. Click ![edit](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
       * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**, enter the new disk size of `35 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
       * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
@@ -535,7 +535,7 @@ To delete the created resources:
       1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
-      1. To the right of the `load-generator` group line, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-delete }}**.
+      1. To the right of the `load-generator` group line, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
    1. Delete the service account:
       1. In the [management console]({{ link-console-main }}), select the folder where you created the service account.

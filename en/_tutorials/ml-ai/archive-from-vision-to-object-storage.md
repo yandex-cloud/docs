@@ -398,10 +398,10 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
         -H "x-data-logging-enabled: true" \
         -H "x-folder-id: ${FOLDERID}" \
         -d '@body.json' \
-        https://ocr.api.cloud.yandex.net/ocr/v1/recognizeText \
+        https://ocr.{{ api-host }}/ocr/v1/recognizeText \
         -o output.json
 
-      # Get the name of the image file for later use.
+      # Get the name of the image file for substitution.
       IMAGE_BASE_NAME=$(basename -- "$f")
       IMAGE_NAME="${IMAGE_BASE_NAME%.*}"
 

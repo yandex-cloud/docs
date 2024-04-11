@@ -260,7 +260,7 @@ To easily transfer the app and the web server configuration you created to VMs s
 1. In the [management console]({{ link-console-main }}) {{ yandex-cloud }}, select the folder you created your VM in.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Find the `ci-tutorial-test-app` VM and select it.
-1. Click **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
+1. Click **{{ ui-key.yacloud.common.stop }}**.
 1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 1. After stopping the VM, select the **{{ ui-key.yacloud.compute.switch_disks }}** tab.
 1. In the required disk row, click ![vertical-ellipsis](../../_assets/console-icons/ellipsis-vertical.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.

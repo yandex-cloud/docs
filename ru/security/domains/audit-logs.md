@@ -43,9 +43,6 @@
 
 Решения для экспорта аудитных логов {{ yandex-cloud }} подготовлены для следующих SIEM-систем:
 
-- {{ mes-full-name }} (ELK)
-
-  ![](../../_assets/overview/solution-library-icon.svg)[Решение: Сбор, мониторинг и анализ аудитных логов в {{ mes-full-name }}](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk)
 
 - ArcSight
 

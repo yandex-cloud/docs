@@ -23,6 +23,8 @@ description: "Для создания целевой группы {{ alb-full-na
      1. (Опционально) Если [IP-адрес](../../vpc/concepts/address.md) ресурса находится вне [{{ vpc-full-name }}](../../vpc/), выберите опцию **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
 
         Например, укажите частный IPv4-адрес из вашего ЦОД, подключенного к {{ yandex-cloud }} через [{{ interconnect-full-name }}](../../interconnect/). Адрес должен входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
+
+
      1. Нажмите **{{ ui-key.yacloud.alb.button_add-target }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
@@ -65,6 +67,7 @@ description: "Для создания целевой группы {{ alb-full-na
       ```
 
       Также вы можете создать целевую группу с ресурсами, которые размещены вне [{{ vpc-full-name }}](../../vpc/), например в вашем ЦОД, подключенном к {{ yandex-cloud }} через [{{ interconnect-full-name }}](../../interconnect/). Адреса ресурсов должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
+
 
       Выполните команду, указав в параметрах имя целевой группы и частные IPv4-адреса ресурсов:
 
@@ -149,6 +152,7 @@ description: "Для создания целевой группы {{ alb-full-na
        }
      }
      ```
+
 
      Где `yandex_alb_target_group` — параметры целевой группы:
      * `name` — имя целевой группы.

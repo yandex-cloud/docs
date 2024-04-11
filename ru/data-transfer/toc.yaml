@@ -180,8 +180,6 @@ items:
             href: tutorials/mkf-to-mpg.md
           - name: '{{ KF }} в {{ GP }}'
             href: tutorials/managed-kafka-to-greenplum.md
-          - name: '{{ KF }} в {{ ES }}'
-            href: tutorials/mkf-to-mes.md
           - name: '{{ KF }} в {{ MG }}'
             href: tutorials/mkf-to-mmg.md
           - name: '{{ KF }} в {{ MY }}'

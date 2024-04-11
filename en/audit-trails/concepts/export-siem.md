@@ -11,7 +11,6 @@ The {{ yandex-cloud }} team has prepared a set of solutions for exporting audit 
 <small>How to choose an architecture</small>
 
 As of today, solutions have been prepared for the following SIEM systems:
-* [{{ mes-full-name }}](../tutorials/trails-logs-elasticsearch.md).
 * [{{ mos-full-name }}](../tutorials/trails-logs-opensearch.md).
 * [ArcSight](../tutorials/export-logs-to-arcsight.md).
 * [Splunk](../tutorials/export-logs-to-splunk.md).

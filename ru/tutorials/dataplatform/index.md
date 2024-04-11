@@ -17,7 +17,6 @@ description: "На странице представлен список прак
 * [{#T}](ydb-mkf-replication.md)
 * [{#T}](data-transfer-mkf-mch.md)
 * [{#T}](managed-kafka-to-greenplum.md)
-* [{#T}](data-transfer-mkf-mes.md)
 * [{#T}](data-transfer-mkf-mmg.md)
 * [{#T}](data-transfer-mkf-mmy.md)
 * [{#T}](data-transfer-mkf-mos.md)
@@ -57,9 +56,7 @@ description: "На странице представлен список прак
 
 ## {{ ES }} {#elasticsearch}
 
-* [{#T}](migration-via-reindex-api.md)
 * [{#T}](elasticsearch-to-opensearch.md)
-* [{#T}](data-transfer-mkf-mes.md)
 
 ## {{ MG }} {#mongodb}
 

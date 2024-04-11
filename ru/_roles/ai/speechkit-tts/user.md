@@ -1,1 +1,1 @@
-Роль `ai.speechkit-tts.user` позволяет использовать сервис SpeechKit для синтеза речи.
+Роль `ai.speechkit-tts.user` позволяет использовать сервис Yandex SpeechKit для [синтеза](../../../speechkit/tts/index.md) речи, а также просматривать информацию об [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](../../../speechkit/concepts/limits.md#speechkit-quotas) сервиса.

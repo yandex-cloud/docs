@@ -1,1 +1,1 @@
-The `vpc.gateways.viewer` role grants access to information about network gateways.
+The `vpc.gateways.viewer` role allows you to view information on [NAT gateways](../../../vpc/concepts/gateways.md).

@@ -12,7 +12,7 @@ Create a [placement group](../../concepts/placement-groups.md).
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
    1. Go to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab.
-   1. In the top-right corner, click **{{ ui-key.yacloud.compute.placement-groups.button_create }}** and choose **{{ ui-key.yacloud.compute.placement-groups.button_create-instance-pg }}**.
+   1. In the top-right corner, click **{{ ui-key.yacloud.compute.placement-groups.button_create }}** and choose **{{ ui-key.yacloud.compute.placement-groups.button_menu-create-instance-placement-group }}**.
    1. Enter a name for the placement group. The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}

@@ -44,7 +44,6 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ maf-full-name }}](../../managed-airflow/index.yaml) | {{ preview-stage }} Service for creating and managing {{ AF }} clusters |
 | [{{ mkf-full-name }}](../../managed-kafka/index.yaml) | Service for creating and managing {{ KF }} clusters |
 | [{{ mch-full-name }}](../../managed-clickhouse/index.yaml) | Service for creating and managing {{ CH }} clusters |
-| [{{ mes-full-name }}](../../managed-elasticsearch/index.yaml) | Service for creating and managing {{ ES }} clusters |
 | [{{ mgl-full-name }}](../../managed-gitlab/index.yaml) | Service for managing the {{ GL }} DevOps platform |
 | [{{ mgp-full-name }}](../../managed-greenplum/index.yaml) | Service for creating and managing {{ GP }} clusters |
 | [{{ managed-k8s-full-name }}®](../../managed-kubernetes/index.yaml) | Service for creating and managing Kubernetes clusters |

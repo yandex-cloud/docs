@@ -17,7 +17,7 @@
     |-------------------------------------------------------------------------------|:-----------------------------------------------------------------:|
     | Топик {{ KF }} — собственный или в составе [сервиса {{ mkf-short-name }}](../../managed-kafka/)             | ![no](../../_assets/common/no.svg)   |
     | База данных {{ CH }} — собственная или в составе [сервиса {{ mch-short-name }}](../../managed-clickhouse/)  | ![no](../../_assets/common/no.svg)   |
-    | База данных {{ ES }} — собственная или в составе [сервиса {{ mes-short-name }}](../../managed-elasticsearch/) | ![yes](../../_assets/common/yes.svg)  |
+    | Собственная база данных {{ ES }}                                                                            | ![yes](../../_assets/common/yes.svg)  |
     | База данных {{ GP }} — собственная или в составе [сервиса {{ mgp-short-name }}](../../managed-greenplum/)   | ![yes](../../_assets/common/yes.svg) |
     | База данных {{ MG }} — собственная или в составе [сервиса {{ mmg-short-name }}](../../managed-mongodb/)     | ![yes](../../_assets/common/yes.svg) |
     | База данных {{ MY }} — собственная или в составе [сервиса {{ mmy-short-name }}](../../managed-mysql/)       | ![yes](../../_assets/common/yes.svg) |

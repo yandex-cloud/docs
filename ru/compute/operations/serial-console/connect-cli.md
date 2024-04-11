@@ -18,51 +18,116 @@
 
 {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-1. Посмотрите описание команды CLI для подключения к серийной консоли:
+Дальнейший порядок действий по подключению зависит от операционной системы и от того, включен ли для ВМ доступ по [OS Login](../../../organization/concepts/os-login.md). Если для ВМ [включен](../vm-connect/enable-os-login.md) доступ по OS Login, подключение к серийной консоли происходит с использованием короткоживущих SSH-сертификатов. Для подключения к ВМ с выключенным доступом по OS Login используются [SSH-ключи](../../../glossary/ssh-keygen.md).
 
-   ```bash
-   yc compute connect-to-serial-port --help
-   ```
+Некоторые ОС могут запрашивать данные пользователя для доступа на ВМ. Поэтому перед подключением к серийной консоли таких ВМ необходимо создать локальный пароль пользователя.
 
-1. Получите список ВМ в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию:
+{% list tabs %}
 
-   {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
+- Linux c SSH-ключом
 
-1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной ВМ, например `first-instance`.
-1. Подключитесь к серийной консоли Linux:
+  1. Создайте локальный пароль пользователя на ВМ:
+      1. [Подключитесь](../vm-connect/ssh.md) к ВМ по SSH.
+      1. {% include [create-serial-console-user](../../../_includes/compute/create-serial-console-user.md) %}
+      1. Отключитесь от ВМ. Для этого введите команду `logout`.
 
-   ```bash
-   yc compute connect-to-serial-port \
-     --instance-name first-instance \
-     --ssh-key ~/.ssh/id_ed25519
-   ```
+  1. Посмотрите описание команды CLI для подключения к серийной консоли:
 
-   Или к SAC Windows:
+      ```bash
+      yc compute connect-to-serial-port --help
+      ```
 
-   ```bash
-   yc compute connect-to-serial-port \
-     --instance-name first-instance \
-     --port 2
-   ```
+  1. Получите список ВМ в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию:
 
-   Где:
-   * `--instance-name` — обязательный параметр. Имя ВМ.
-   * `--user` — опциональный параметр. Имя пользователя. Если параметр не указан, по умолчанию будет использоваться пользователь `yc-user`. Пользователь `yc-user` создается автоматически при создании ВМ. Подробнее читайте в разделе [{#T}](../vm-create/create-linux-vm.md).
-   * `--port` — опциональный параметр. Номер порта для подключения к серийной консоли.
-     * Значение по умолчанию — 1, для подключения к серийной консоли Linux параметр указывать необязательно.
-     * При подключении к серийной консоли Windows (SAC) передайте значение 2.
-   * `--ssh-key` — опциональный параметр. Путь к закрытому ключу для [SSH-доступа](../../../glossary/ssh-keygen.md) к ВМ на базе Linux, который нужно добавить в [метаданные](../../concepts/vm-metadata.md). Если параметр не указан, будет сгенерирован SSH-ключ `yc_serialssh_key`.
-     
-     {% include [key-without-password-alert](../../../_includes/compute/key-without-password-alert.md) %}
+      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
+
+  1. Подключитесь к серийной консоли нужной ВМ:
+
+      ```bash
+      yc compute connect-to-serial-port \
+        --instance-name <имя_ВМ> \
+        --ssh-key ~/.ssh/id_ed25519
+      ```
+
+      Где:
+      * `--instance-name` — обязательный параметр. Имя виртуальной машины.
+          Вместо имени ВМ можно передать ее идентификатор в параметре `--instance-id`.
+
+      * `--ssh-key` — опциональный параметр. Путь к закрытому ключу для [SSH-доступа](../../../glossary/ssh-keygen.md) к ВМ, например `~/.ssh/id_ed25519`. Если параметр не указан, будет сгенерирован SSH-ключ `yc_serialssh_key`.
+
+      {% include [key-without-password-alert](../../../_includes/compute/key-without-password-alert.md) %}
+
+      При подключении система может запросить логин и пароль для аутентификации на ВМ. Введите созданные ранее логин и пароль, после чего вы получите доступ к серийной консоли.
+
+      Подробнее о команде `yc compute connect-to-serial-port` читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/connect-to-serial-port.md).
+
+- Linux по OS Login
+
+  1. Создайте локальный пароль пользователя на ВМ:
+      1. [Подключитесь](../vm-connect/os-login.md) к ВМ по OS Login.
+      1. {% include [create-serial-console-user](../../../_includes/compute/create-serial-console-user.md) %}
+      1. Отключитесь от ВМ. Для этого введите команду `logout`.
+
+  1. Получите список ВМ в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию:
+
+      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
+
+  1. {% include [enable-os-login-serial-console-auth](../../../_includes/compute/enable-os-login-serial-console-auth.md) %}
+
+  1. Посмотрите описание команды CLI для подключения к серийной консоли:
+
+      ```bash
+      yc compute connect-to-serial-port --help
+      ```
+
+  1. Подключитесь к серийной консоли нужной ВМ:
+
+      ```bash
+      yc compute connect-to-serial-port \
+        --instance-name <имя_ВМ>
+      ```
+
+      Где `--instance-name` — обязательный параметр. Имя виртуальной машины. Вместо имени ВМ можно передать ее идентификатор в параметре `--instance-id`.
+
+      При подключении система может запросить логин и пароль для аутентификации на ВМ. Введите созданные ранее логин и пароль, после чего вы получите доступ к серийной консоли.
+
+      Подробнее о команде `yc compute connect-to-serial-port` читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/connect-to-serial-port.md).
+
+- Windows
+
+  1. Посмотрите описание команды CLI для подключения к серийной консоли:
+
+      ```bash
+      yc compute connect-to-serial-port --help
+      ```
+
+  1. Получите список ВМ в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию:
+
+      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
+
+  1. Подключитесь к SAC Windows нужной ВМ:
+
+      ```bash
+      yc compute connect-to-serial-port \
+        --instance-name <имя_ВМ> \
+        --port 2
+      ```
+
+      Где:
+      * `--instance-name` — обязательный параметр. Имя виртуальной машины. Вместо имени ВМ можно передать ее идентификатор в параметре `--instance-id`.
+      * `--port` — опциональный параметр. Номер порта для подключения к серийной консоли. При подключении к серийной консоли Windows (SAC) передайте значение `2`.
+
+      По запросу системы введите логин, домен (имя ВМ) и пароль. Подробнее см. в разделе [Запустить командную оболочку в Windows SAC](./windows-sac.md).
+
+      Подробнее о команде `yc compute connect-to-serial-port` читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/connect-to-serial-port.md).
+
+{% endlist %}
 
 ### Решение проблем {#troubleshooting}
 
 * Если после подключения к серийной консоли на экране ничего не отображается:
   * Нажмите на клавиатуре клавишу **Enter**.
   * Перезапустите ВМ (для ВМ, созданных до 22 февраля 2019 года).
-* Если ОС запрашивает данные пользователя для доступа на ВМ, укажите имя пользователя (логин) и пароль:
-  * На ВМ с Linux предварительно создайте пароль для пользователя. Выполните команду `sudo passwd <имя_пользователя>`. Подробнее см. в разделе [Начало работы с серийной консолью](./index.md#linux-configuration).
-  * На ВМ с Windows потребуется ввести логин, домен (имя ВМ) и пароль. Подробнее см. в разделе [Запустить командную оболочку в Windows SAC](./windows-sac.md).
 
 ## Отключиться от серийной консоли {#turn-off-serial-console}
 

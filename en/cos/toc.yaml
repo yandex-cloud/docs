@@ -47,11 +47,11 @@ items:
         href: concepts/coi-specifications.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: '{{ coi }} releases'
-    href: release-notes.md
   - name: Pricing policy
     href: pricing.md
-  - name: Questions and answers
+  - name: '{{ coi }} releases'
+    href: release-notes.md
+  - name: FAQ
     href: qa/index.md
   - name: Troubleshooting
     href: error/index.md

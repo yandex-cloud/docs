@@ -76,9 +76,7 @@
      }
      ```
 
-     Где:
-
-     {% include [api-parameters](../../_includes/foundation-models/yandexgpt/api-parameters.md) %}
+     {% include [api-parameters](../../_includes/foundation-models/yandexart/api-parameters.md) %}
 
   1. Отправьте запрос нейросети с помощью метода [ImageGenerationAsync.generate](../image-generation/api-ref/ImageGenerationAsync/generate.md), выполнив команду:
 

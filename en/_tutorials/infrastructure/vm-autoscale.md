@@ -571,7 +571,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
       1. In the [management console]({{ link-console-main }}), select the folder where you created the `auto-group` instance group.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, click ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
-      1. In the `auto-group` instance group line, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-delete }}**.
+      1. In the `auto-group` instance group line, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
 
    - CLI {#cli}

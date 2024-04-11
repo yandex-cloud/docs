@@ -150,15 +150,6 @@ This section contains {{ at-full-name }} release notes.
 
    {% endcut %}
 
-   {% cut "{{ mes-short-name }}" %}
-
-   [Management events](./concepts/format.md):
-
-   | Event | Description |
-   --- | ---
-   | `MoveCluster` | Moving a cluster |
-
-   {% endcut %}
 
    {% cut "{{ mgp-short-name }}" %}
 
