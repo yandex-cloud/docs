@@ -38,7 +38,6 @@
 | Confluent and Google Cloud | [{{ mkf-full-name }}](../../managed-kafka/) |
 | Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
 | Database Migration Service,<br/>Migrate for Compute Engine | [{{ data-transfer-full-name }}](../../data-transfer/) |
-| Elastic Cloud (Elasticsearch Service) | [{{ mes-full-name }}](../../managed-elasticsearch/) |
 | External Application Load Balancer | [{{ alb-full-name }}](../../application-load-balancer/) |
 | MongoDB Atlas | [{{ mmg-full-name }}](../../managed-mongodb/) |
 | Cloud Armor | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |

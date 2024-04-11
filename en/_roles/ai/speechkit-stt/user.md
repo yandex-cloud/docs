@@ -1,1 +1,1 @@
-The `ai.speechkit-stt.user` role enables you to use SpeechKit to recognize speech.
+The `ai.speechkit-stt.user` role allows you to use Yandex SpeechKit for [speech recognition](../../../speechkit/stt/index.md), as well as view info on the relevant [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), and [quotas](../../../speechkit/concepts/limits.md#speechkit-quotas).

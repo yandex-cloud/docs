@@ -1,15 +1,22 @@
-# {{ TF }} provider's {{ lockbox-full-name }} resource reference
+# {{ TF }} reference for {{ lockbox-full-name }}
 
-With [{{ TF }}](https://www.terraform.io/), you can quickly create a cloud infrastructure in {{ yandex-cloud }} and manage it using configuration files. The configuration files store the infrastructure description in the HashiCorp Configuration Language (HCL). {{ TF }} and its providers are distributed under the [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
+{% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
-If you change the configuration files, {{ TF }} automatically figures out which part of your configuration is already deployed and what should be added or removed.
-
-For more information about {{ TF }}, [see the documentation](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+## Resources {#resources}
 
 The following {{ TF }} provider resources are supported for {{ lockbox-name }}:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret) | [Secret](./concepts/secret.md#secret) |
-| [yandex_lockbox_secret_iam_binding]({{ tf-provider-resources-link }}/lockbox_secret_iam_binding) | [Role](./security/index.md#roles-list) for a secret |
+| [yandex_lockbox_secret_iam_binding]({{ tf-provider-resources-link }}/lockbox_secret_iam_binding) | [Binding](../iam/concepts/access-control/index.md#access-bindings) access privileges to a secret |
 | [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version) | [Secret version](./concepts/secret.md#version) |
+
+## Data sources {#data-sources}
+
+{{ lockbox-name }} supports the following {{ TF }} provider data sources:
+
+| **{{ TF }} data source** | **Description** |
+| --- | --- |
+| [yandex_lockbox_secret]({{ tf-provider-datasources-link }}/datasource_lockbox_secret) | Information about a [secret](./concepts/secret.md#secret) |
+| [yandex_lockbox_secret_version]({{ tf-provider-datasources-link }}/datasource_lockbox_secret_version) | Information about a [secret version](./concepts/secret.md#version) |

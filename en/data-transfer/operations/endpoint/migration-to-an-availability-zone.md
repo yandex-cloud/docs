@@ -28,7 +28,6 @@ You can migrate [transfers](../../concepts/index.md#transfer) from one [availabi
 1. Move your cluster hosts to a different availability zone. For more information, see the documentation for the following services:
 
    * [{{ mch-full-name }}](../../../managed-clickhouse/operations/host-migration.md).
-   * [{{ mes-full-name }}](../../../managed-elasticsearch/operations/host-migration.md).
    * [{{ mgp-full-name }}](../../../managed-greenplum/operations/cluster-backups.md#restore).
    * [{{ mmg-full-name }}](../../../managed-mongodb/operations/host-migration.md).
    * [{{ mmy-full-name }}](../../../managed-mysql/operations/host-migration.md).

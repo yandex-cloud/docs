@@ -37,12 +37,6 @@ _Файловое хранилище_ — это виртуальная файл
 
 Подключение файловых хранилищ к ВМ {{ compute-name }} под управлением ОС Windows сейчас не поддерживается.
 
-### Поставка метрик в {{ monitoring-full-name }} {#metrics-delivery}
-
-Метрики файловых хранилищ не поставляются автоматически в [{{ monitoring-full-name }}]({{ link-monitoring }}).
-
-Поставка метрик в {{ monitoring-name }} через [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/) не поддерживается.
-
 **Смотрите также**
 
 * [{#T}](../operations/filesystem/create.md)

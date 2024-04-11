@@ -289,8 +289,8 @@ items:
                 href: broker/api-ref/Broker/update.md
   - name: '{{ at-name }} events'
     href: at-ref.md
-  - name: FAQ
-    href: qa/index.md
   - name: Release notes
     href: release-notes.md
+  - name: FAQ
+    href: qa/index.md
 base: en/iot-core

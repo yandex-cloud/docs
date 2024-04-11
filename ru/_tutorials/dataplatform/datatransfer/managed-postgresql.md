@@ -1,5 +1,6 @@
 # Миграция данных с использованием сервиса {{ data-transfer-full-name }} {#data-transfer}
 
+
 1. [Подготовьте кластер-источник](../../../data-transfer/operations/prepare.md#source-pg).
 1. Подготовьте инфраструктуру:
 

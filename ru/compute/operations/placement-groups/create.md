@@ -12,7 +12,7 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}**.
-  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.compute.placement-groups.button_create }}** и выберите **{{ ui-key.yacloud.compute.placement-groups.button_create-instance-pg }}**.
+  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.compute.placement-groups.button_create }}** и выберите **{{ ui-key.yacloud.compute.placement-groups.button_menu-create-instance-placement-group }}**.
   1. Введите имя группы размещения. Требования к имени:
 
      {% include [name-format](../../../_includes/name-format.md) %}

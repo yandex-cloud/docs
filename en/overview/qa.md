@@ -43,7 +43,6 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 * [{{ yq-full-name }}](../query/qa/index.md)
 * [{{ mkf-full-name }}](../managed-kafka/qa/index.md)
 * [{{ mch-full-name }}](../managed-clickhouse/qa/all.md)
-* [{{ mes-full-name }}](../managed-elasticsearch/qa/index.md)
 * [{{ mgp-full-name }}](../managed-greenplum/qa/all.md)
 * [{{ mmg-full-name }}](../managed-mongodb/qa/all.md)
 * [{{ mmy-full-name }}](../managed-mysql/qa/all.md)

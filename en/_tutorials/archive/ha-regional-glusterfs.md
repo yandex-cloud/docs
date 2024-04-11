@@ -335,7 +335,7 @@ This will create three VMs for hosting client code (`client01`, `client02`, and 
 
       1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. Choose `gluster02` from the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
+      1. Choose `gluster02` from the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.common.stop }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 
    - CLI {#cli}

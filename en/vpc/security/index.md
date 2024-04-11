@@ -39,6 +39,10 @@ In this section, you will learn:
 
 {% include [vpc-user](../../_roles/vpc/user.md) %}
 
+#### vpc.externalAddresses.user {#vpc-externalAddresses-user}
+
+{% include [vpc.externalAddresses.user](../../_roles/vpc/externalAddresses/user.md) %}
+
 #### vpc.admin {#vpc-admin}
 
 {% include [vpc-admin](../../_roles/vpc/admin.md) %}

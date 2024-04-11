@@ -1,1 +1,1 @@
-Роль `ai.vision.user` позволяет использовать сервис для анализа изображений.
+Роль `ai.vision.user` позволяет использовать сервис Yandex Vision OCR для [анализа изображений](../../../vision/concepts/ocr/index.md), а также просматривать информацию об [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](../../../vision/concepts/limits.md#vision-quotas) сервиса.

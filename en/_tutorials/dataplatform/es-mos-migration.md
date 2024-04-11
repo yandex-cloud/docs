@@ -1,16 +1,5 @@
 # Migrating data from {{ ES }} to {{ mos-full-name }}
 
-{% note warning %}
-
-Starting April 11, 2024, support for {{ mes-full-name }} will be discontinued.
-
-Users who have not yet worked with {{ ES }} in the cloud cannot create new clusters starting July 20, 2023. Current service users can use existing clusters and create new ones.
-
-
-You can [create {{ OS }} clusters](../../managed-opensearch/operations/cluster-create.md) in {{ yandex-cloud }} as an alternative to {{ ES }} and transfer data from existing {{ ES }} clusters to {{ mos-name }}.
-
-{% endnote %}
-
 
 There are three mechanisms to migrate data from a source {{ ES }} cluster to a target {{ mos-full-name }} cluster:
 
@@ -116,22 +105,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 1. Set up the {{ ES }} source cluster:
 
    
-   {% list tabs %}
-
-   - Third-party {{ ES }} cluster
-
-     {% include [source-3p](es-mos-migration/source-3p.md) %}
-
-   - {{ mes-name }}
-
-      1. [Install the `repository-s3` plugin](../../managed-opensearch/operations/plugins.md#update).
-
-      1. [Install an SSL certificate](../../managed-elasticsearch/operations/cluster-connect.md#get-ssl-cert).
-
-      1. Make sure you can [connect to the source cluster](../../managed-elasticsearch/operations/cluster-connect.md) using the {{ ES }} API and Kibana.
-
-   {% endlist %}
-
+   {% include [source-3p](es-mos-migration/source-3p.md) %}
 
 
 1. [Install an SSL certificate](../../managed-opensearch/operations/connect.md#ssl-certificate).
@@ -143,32 +117,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 1. Connect the bucket as a snapshot repository on the source cluster:
 
    
-   {% list tabs %}
-
-   - Third-party {{ ES }} cluster
-
-     {% include [connect-bucket-3p](es-mos-migration/connect-bucket-3p.md) %}
-
-   - {{ mes-name }}
-
-      Run this command:
-
-      ```bash
-      curl --request PUT \
-           "https://admin:<admin_user_password>@<IP_address_or_FQDN_of_the_host_with_the_DATA_role_in_the_source_cluster>:{{ port-mes }}/_snapshot/<repository_name>" \
-           --cacert ~/.elasticsearch/root.crt \
-           --header 'Content-Type: application/json' \
-           --data '{
-             "type": "s3",
-             "settings": {
-               "bucket": "<bucket_name>",
-               "endpoint": "{{ s3-storage-host }}"
-             }
-           }'
-      ```
-
-   {% endlist %}
-
+   {% include [connect-bucket-3p](es-mos-migration/connect-bucket-3p.md) %}
 
 
    To learn more about adding the repository, see the [plugin documentation]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html).
@@ -180,43 +129,13 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
    Example of creating a snapshot with the `snapshot_1` name for the entire cluster:
 
    
-   {% list tabs %}
-
-   - Third-party {{ ES }} cluster
-
-     {% include [create-snapshot-3p](es-mos-migration/create-snapshot-3p.md) %}
-
-   - {{ mes-name }}
-
-      ```bash
-      curl --request PUT \
-           "https://admin:<admin_user_password>@<IP_address_or_FQDN_of_the_host_with_the_DATA_role_in_the_source_cluster>:{{ port-mes }}/_snapshot/<repository_name>/snapshot_1?wait_for_completion=false&pretty" \
-           --cacert ~/.elasticsearch/root.crt
-      ```
-
-   {% endlist %}
-
+   {% include [create-snapshot-3p](es-mos-migration/create-snapshot-3p.md) %}
 
 
    Creating a snapshot may take a long time. Track the operation progress [using the {{ ES }} tools]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), for example:
 
-   {% list tabs %}
-
    
-   - Third-party {{ ES }} cluster
-
-     {% include [track-snapshot-creation-3p](es-mos-migration/track-snapshot-creation-3p.md) %}
-
-   - {{ mes-name }}
-
-      ```bash
-      curl --request GET \
-           "https://admin:<admin_user_password>@<IP_address_or_FQDN_of_the_host_with_the_DATA_role_in_the_source_cluster>:{{ port-mes }}/_snapshot/<repository_name>/snapshot_1/_status?pretty" \
-           --cacert ~/.elasticsearch/root.crt
-      ```
-
-   {% endlist %}
-
+   {% include [track-snapshot-creation-3p](es-mos-migration/track-snapshot-creation-3p.md) %}
 
 
 ### Restore a snapshot on the target cluster {#restore-snapshot}

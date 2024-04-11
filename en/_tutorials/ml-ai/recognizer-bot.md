@@ -55,9 +55,9 @@ The cost of Telegram bot support includes:
       # Service endpoints and authentication data
 
       API_TOKEN = os.environ['TELEGRAM_TOKEN']
-      vision_url = 'https://ocr.api.cloud.yandex.net/ocr/v1/recognizeText'
-      speechkit_url = 'https://stt.api.cloud.yandex.net/speech/v1/stt:recognize'
-      speechkit_synthesis_url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
+      vision_url = 'https://ocr.{{ api-host }}/ocr/v1/recognizeText'
+      speechkit_url = 'https://stt.{{ api-host }}/speech/v1/stt:recognize'
+      speechkit_synthesis_url = 'https://tts.{{ api-host }}/speech/v1/tts:synthesize'
       folder_id = ""
       iam_token = ''
 
@@ -65,16 +65,16 @@ The cost of Telegram bot support includes:
       telebot.logger.setLevel(logging.INFO)
       bot = telebot.TeleBot(API_TOKEN, threaded=False)
 
-      # Getting folder ID
+      # Getting the folder ID
 
       def get_folder_id(iam_token, version_id):
 
           headers = {'Authorization': f'Bearer {iam_token}'}
-          function_id_req = requests.get(f'https://serverless-functions.api.cloud.yandex.net/functions/v1/versions/{version_id}',
+          function_id_req = requests.get(f'https://serverless-functions.{{ api-host }}/functions/v1/versions/{version_id}',
                                          headers=headers)
           function_id_data = function_id_req.json()
           function_id = function_id_data['functionId']
-          folder_id_req = requests.get(f'https://serverless-functions.api.cloud.yandex.net/functions/v1/functions/{function_id}',
+          folder_id_req = requests.get(f'https://serverless-functions.{{ api-host }}/functions/v1/functions/{function_id}',
                                        headers=headers)
           folder_id_data = folder_id_req.json()
           folder_id = folder_id_data['folderId']
@@ -102,7 +102,7 @@ The cost of Telegram bot support includes:
       @bot.message_handler(commands=['help', 'start'])
       def send_welcome(message):
           bot.reply_to(message,
-                       "The bot can:\n*recognize text from images;\n* generate voice messages from text;\n* convert voice messages to text.")
+                       "The bot can:\n*recognize text in images;\n* generate voice messages from text;\n* transcribe voice messages to text.")
 
       @bot.message_handler(func=lambda message: True, content_types=['text'])
       def echo_message(message):
@@ -213,7 +213,7 @@ Register the bot in Telegram and get a token.
 
 ## Create a function {#create-function}
 
-Create a function that will handle user actions in the chat.
+Create a function to process user actions in the chat.
 
 {% list tabs group=instructions %}
 
@@ -553,7 +553,7 @@ Result:
 Talk to the bot:
 
 1. Open Telegram and search for the bot by the [specified](#bot-register) `username`.
-1. Send a message saying `/start` in the chat.
+1. Send a message saying `/start` to the chat.
 
    The bot must respond with:
 

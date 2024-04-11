@@ -453,7 +453,7 @@
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Нажмите на имя группы ВМ `group-for-load`.
-  1. Нажмите кнопку ![edit](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
+  1. Нажмите кнопку ![edit](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}** укажите новый размер диска — `35 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
      * Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
@@ -536,7 +536,7 @@ Transfer/sec:     206.94B
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
-      1. Справа в строке группы `load-generator` нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.groups.button_action-delete }}**.
+      1. Справа в строке группы `load-generator` нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
       1. В открывшемся окне нажмите **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
    1. Удалите сервисный аккаунт:
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали сервисный аккаунт.

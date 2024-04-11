@@ -1,19 +1,29 @@
-# {{ TF }} provider's {{ org-full-name }} resource reference
+# {{ TF }} reference for {{ org-full-name }}
 
-With [{{ TF }}](https://www.terraform.io/), you can quickly create a cloud infrastructure in {{ yandex-cloud }} and manage it using configuration files. The configuration files store the infrastructure description in the HashiCorp Configuration Language (HCL). {{ TF }} and its providers are distributed under the [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
+{% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
-If you change the configuration files, {{ TF }} automatically figures out which part of your configuration is already deployed and what should be added or removed.
-
-For more information about {{ TF }}, [see the documentation](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+## Resources {#resources}
 
 The following {{ TF }} provider resources are supported for {{ org-name }}:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_organizationmanager_group]({{ tf-provider-resources-link }}/organizationmanager_group) | [User group](./concepts/groups.md) |
-| [yandex_organizationmanager_group_iam_member]({{ tf-provider-resources-link }}/organizationmanager_group_iam_member) | [Role](./security/index.md#roles-list) for a user group |
+| [yandex_organizationmanager_group_iam_member]({{ tf-provider-resources-link }}/organizationmanager_group_iam_member) | [Binding](../iam/concepts/access-control/index.md#access-bindings) access privileges to a user group |
 | [yandex_organizationmanager_group_membership]({{ tf-provider-resources-link }}/organizationmanager_group_membership) | Member of a user group |
-| [yandex_organizationmanager_organization_iam_binding]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_binding) | [Role](./security/index.md#roles-list) for an organization |
-| [yandex_organizationmanager_organization_iam_member]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_member) | [Role](./security/index.md#roles-list) for an organization |
+| [yandex_organizationmanager_organization_iam_binding]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_binding) | [Binding](../iam/concepts/access-control/index.md#access-bindings) access privileges to an organization |
+| [yandex_organizationmanager_organization_iam_member]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_member) | [Binding](../iam/concepts/access-control/index.md#access-bindings) access privileges to an organization |
 | [yandex_organizationmanager_saml_federation]({{ tf-provider-resources-link }}/organizationmanager_saml_federation) | [SAML-compatible identity federation](./concepts/add-federation.md) |
 | [yandex_organizationmanager_saml_federation_user_account]({{ tf-provider-resources-link }}/organizationmanager_saml_federation_user_account) | [Federated user](./concepts/add-federation.md#saml-authentication) |
+
+## Data sources {#data-sources}
+
+{{ org-name }} supports the following {{ TF }} provider data sources:
+
+| **{{ TF }} data source** | **Description** |
+| --- | --- |
+| [yandex_organizationmanager_group]({{ tf-provider-datasources-link }}/datasource_organizationmanager_group) | [User group](./concepts/groups.md) information |
+| [yandex_organizationmanager_os_login_settings]({{ tf-provider-datasources-link }}/datasource_organizationmanager_os_login_settings) | Information on configuring access via [OS Login](./concepts/os-login.md) |
+| [yandex_organizationmanager_saml_federation]({{ tf-provider-datasources-link }}/datasource_organizationmanager_saml_federation) | Information about a [SAML-compatible identity federation](./concepts/add-federation.md) |
+| [yandex_organizationmanager_saml_federation_user_account]({{ tf-provider-datasources-link }}/datasource_organizationmanager_saml_federation_user_account) | [Federated user](./concepts/add-federation.md#saml-authentication) information |
+| [yandex_organizationmanager_user_ssh_key]({{ tf-provider-datasources-link }}/datasource_organizationmanager_user_ssh_key) | Information about a user SSH key |

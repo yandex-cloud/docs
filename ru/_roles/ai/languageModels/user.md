@@ -1,1 +1,1 @@
-Роль `ai.languageModels.user` позволяет использовать YandexGPT API в сервисе Foundation Models.
+Роль `ai.languageModels.user` позволяет использовать [языковые модели](../../../yandexgpt/concepts/models.md#yandexgpt-generation) генерации YandexGPT API в сервисе Yandex Foundation Models, а также просматривать информацию об [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](../../../yandexgpt/concepts/limits.md#yandexgpt-quotas) сервиса.

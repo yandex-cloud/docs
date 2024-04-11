@@ -28,7 +28,6 @@ description: "In this article, you will learn how to work with the managed servi
 * [{#T}](applications/external-secrets-operator.md)
 * [{#T}](applications/externaldns.md)
 * [{#T}](applications/falco.md)
-* [{#T}](applications/filebeat.md)
 * [{#T}](applications/filebeat-oss.md)
 * [{#T}](applications/fluentbit.md)
 * [{#T}](applications/gateway-api.md)

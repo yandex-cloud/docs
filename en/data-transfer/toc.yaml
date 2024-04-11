@@ -175,8 +175,6 @@ items:
             href: tutorials/mkf-to-mpg.md
           - name: '{{ KF }} to {{ GP }}'
             href: tutorials/managed-kafka-to-greenplum.md
-          - name: '{{ KF }} to {{ ES }}'
-            href: tutorials/mkf-to-mes.md
           - name: '{{ KF }} to {{ MG }}'
             href: tutorials/mkf-to-mmg.md
           - name: '{{ KF }} to {{ MY }}'

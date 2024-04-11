@@ -88,10 +88,9 @@ description: "In this tutorial, you will learn about {{ yandex-cloud }} security
 ## Collecting, monitoring, and analyzing audit logs {#logs-analysis}
 
 * **{{ at-full-name }}**: Enable [{{ at-name }}](../../audit-trails/quickstart.md) for all clouds and folders.
-* **Collecting events on the guest OS and applications side**: Collect events, for example, using [{{ mes-full-name }}](../../managed-elasticsearch/) or free solutions, such as Osquery and [Wazuh](/marketplace/products/opennix/wazuh).
+* **Collecting events on the guest OS and applications side**: Collect events, for example, free solutions, such as Osquery and [Wazuh](/marketplace/products/opennix/wazuh).
 * **Collecting Flow logs (if required)**: For example, using NGFW from {{ marketplace-name }} or free software (options are available in service plans).
 * **Exporting {{ at-name }} events to SIEM**.
-  ![](../../_assets/overview/solution-library-icon.svg)[Solution: Exporting to {{ mes-name }} (ELK)](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk)
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Exporting to ArcSight](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-arcsight)
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Exporting to Splunk](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-splunk)
   You can export event data to any SIEM using s3fs, see the [instructions](../../storage/tools/s3fs.md).
@@ -142,14 +141,11 @@ description: "In this tutorial, you will learn about {{ yandex-cloud }} security
 
 * **Node group configuration according to baseline and standards**: Configure node groups according to standards and baseline: NIST, CIS, and other. You can use automated tools, such as kube-bench and kubescape.
 * **Runtime security and policy engine**: Use runtime security solutions, such as [Falco](/marketplace/products/yc/falco), as well as policy engine solutions, such as OPA Gatekeeper and [Kyverno](/marketplace/products/yc/kyverno).
-  ![](../../_assets/overview/solution-library-icon.svg)[Solution: Installing Falco and a policy engine with alerts delivered to {{ mes-name }}](https://github.com/yandex-cloud-examples/yc-export-mk8s-auditlogs-to-elk)
 * **Security updates**: Select a relevant [update channel](../../managed-kubernetes/concepts/release-channels-and-updates.md) and enable automatic or manual installation of updates immediately after publication in the selected channel. Also perform timely updates of your own software on node groups.
 * **Distribution of pods into different node groups**: Configure node taints and tolerations + node affinity (by load and degree of privacy).
 
 ### Collecting, monitoring, and analyzing audit logs {#kubernetes-logs-analysis}
 
-* **Collecting and analyzing {{ k8s }} audit logs and security tools**.
-  ![](../../_assets/overview/solution-library-icon.svg)[Solution: Analyzing {{ k8s }} security logs in {{ mes-name }}: audit logs, a policy engine, and Falco](https://github.com/yandex-cloud-examples/yc-export-mk8s-auditlogs-to-elk)
 * **Collecting and analyzing audit logs of workloads and node groups**: For example, using open-source tools, such as [Fluent Bit](/marketplace/products/yc/fluent-bit) and Beats.
 
 

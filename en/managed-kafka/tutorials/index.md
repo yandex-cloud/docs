@@ -26,7 +26,6 @@ You can use {{ mkf-name }} to transfer data between databases. Sources and targe
 * [From {{ KF }} to {{ ydb-short-name }}](mkf-ydb-stream.md)
 * [From {{ KF }} to {{ CH }}](mkf-to-mch-migration.md)
 * [From {{ KF }} to {{ yds-name }}](mkf-yds-stream.md)
-* [From {{ KF }} to {{ ES }}](mkf-to-mes-migration.md)
 * [From {{ KF }} to {{ GP }}](managed-kafka-to-greenplum.md)
 * [From {{ KF }} to {{ MG }}](mkf-to-mmg-migration.md)
 * [From {{ KF }} to {{ MY }}](mkf-to-mmy-migration.md)

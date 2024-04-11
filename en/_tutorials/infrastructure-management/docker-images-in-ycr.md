@@ -173,6 +173,8 @@ To allow {{ mgl-name }} to save Docker images and their tags in {{ container-reg
 
 ## Create the CI script's configuration file {#add-ci}
 
+To build images from a Dockerfile without Docker, use [kaniko](https://github.com/GoogleContainerTools/kaniko).
+
 To publish Docker images from your {{ GL }} project in {{ container-registry-full-name }}, create a CI script:
 
 1. Open the {{ GL }} project.

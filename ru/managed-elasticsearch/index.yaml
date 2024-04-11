@@ -1,18 +1,10 @@
 title: Yandex Managed Service for Elasticsearch
 description:
-  - С 11 апреля 2024 года сервис {{ mes-full-name }} перестанет быть доступен.
+  - <i>Сервис {{ mes-full-name }} недоступен с 11 апреля 2024 года.</i>
   - >-
-    С 20 июля 2023 года пользователи, которые пока не работали с {{ ES }} в
-    облаке, не могут создавать новые кластеры. Действующие пользователи сервиса
-    могут работать с существующими кластерами и создавать новые. Подробнее см. в
-    <a href="/blog/posts/2023/06/managed-elasticsearch">анонсе {{ yandex-cloud
-    }}</a>.
-  - >-
-    Вы можете <a
+    <i>Вы можете <a
     href="/docs/managed-opensearch/operations/cluster-create">создать кластер {{
-    OS }}</a> в {{ yandex-cloud }} в качестве альтернативы {{ ES }}, а также <a
-    href="/docs/managed-elasticsearch/tutorials/migration-to-opensearch">перенести
-    данные</a> из существующего кластера {{ ES }} в {{ mos-name }}.
+    OS }}</a> в {{ yandex-cloud }} в качестве альтернативы {{ ES }}.</i>
   - <hr>
   - >-
     Сервис Managed Service for Elasticsearch помогает разворачивать и

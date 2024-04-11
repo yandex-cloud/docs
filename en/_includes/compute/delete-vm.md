@@ -6,7 +6,7 @@
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the line with the appropriate VM, click ![image](../../_assets/console-icons/ellipsis.svg), and then click **{{ ui-key.yacloud.common.delete }}**.
 
-      To delete multiple VMs, select the VMs you need to delete in the list and click **{{ ui-key.yacloud.compute.instances.button_gr-action-delete }}** at the bottom of the screen.
+      To delete multiple VMs, select the VMs you need to delete in the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
 
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_delete }}**.
 

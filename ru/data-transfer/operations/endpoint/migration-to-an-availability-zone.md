@@ -29,7 +29,6 @@
 1. Перенесите хосты кластера в другую зону доступности. Подробнее см. в документации сервисов:
 
    * [{{ mch-full-name }}](../../../managed-clickhouse/operations/host-migration.md);
-   * [{{ mes-full-name }}](../../../managed-elasticsearch/operations/host-migration.md);
    * [{{ mgp-full-name }}](../../../managed-greenplum/operations/cluster-backups.md#restore);
    * [{{ mmg-full-name }}](../../../managed-mongodb/operations/host-migration.md);
    * [{{ mmy-full-name }}](../../../managed-mysql/operations/host-migration.md);

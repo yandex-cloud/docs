@@ -6,7 +6,7 @@
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. В строке с нужной ВМ нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.delete }}**.
 
-     Чтобы удалить несколько виртуальных машин, выделите нужные ВМ в списке и нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_gr-action-delete }}** в нижней части экрана.
+     Чтобы удалить несколько виртуальных машин, выделите нужные ВМ в списке и нажмите кнопку **{{ ui-key.yacloud.common.delete }}** в нижней части экрана.
 
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_delete }}**.
 
