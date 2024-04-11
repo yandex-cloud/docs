@@ -189,10 +189,10 @@
 
 ### Скачайте проект {#download-project}
 
-Клонируйте репозиторий с проектом `yc-serverless-serverless-game`:
+Клонируйте репозиторий с проектом `yc-serverless-game`:
 
 ```bash
-git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-serverless-serverless-game.git
+git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-serverless-game.git
 ```
 
 ### Зарегистрируйте Telegram-бота {#create-bot}
@@ -437,7 +437,7 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
 
 ### Создайте таблицу {#ydb-table-create}
 
-1. Перейдите в папку `files` внутри каталога `yc-serverless-serverless-game`.
+1. Перейдите в папку `files` внутри каталога `yc-serverless-game`.
 
 1. Создайте таблицу, используя файл `db-example.sql`:
 
@@ -562,7 +562,7 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
 
 ## Разверните проект {#app-deploy}
 
-1. Перейдите в папку `files` внутри каталога `yc-serverless-serverless-game`.
+1. Перейдите в папку `files` внутри каталога `yc-serverless-game`.
 
 1. Измените конфигурацию для {{ objstorage-name }}. Так как имя бакета должно быть уникальным, замените имя бакета на собственное в следующих файлах:
 
@@ -589,7 +589,7 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
     echo $APP_ENV
     ```
 
-1. Соберите и разверните проект. В корне каталога `yc-serverless-serverless-game` последовательно выполните следующие команды:
+1. Соберите и разверните проект. В корне каталога `yc-serverless-game` последовательно выполните следующие команды:
 
     ```bash
     nvm use
@@ -700,7 +700,7 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
        {'key': 'yds_writer_key_secret', 'text_value': '$YDS_WRITER_KEY_SECRET'}]"
        ```
 
-1. Перейдите в корень каталога `yc-serverless-serverless-game` и еще раз разверните проект:
+1. Перейдите в корень каталога `yc-serverless-game` и еще раз разверните проект:
 
     ```bash
     npm run deploy
@@ -724,7 +724,7 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
     >> ~/.bashrc && . ~/.bashrc
     ```
 
-1. Внесите изменения в спецификацию API-шлюза. Перейдите в папку `files` внутри каталога `yc-serverless-serverless-game` и выполните команду:
+1. Внесите изменения в спецификацию API-шлюза. Перейдите в папку `files` внутри каталога `yc-serverless-game` и выполните команду:
 
     ```bash
     cp apigw-example.yml apigw.yml
