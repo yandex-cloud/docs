@@ -1,1 +1,1 @@
-The `compute.osAdminLogin` role allows SSH access to VMs via OS Login and enables you to run commands as a superuser (`sudo`).
+The `compute.osAdminLogin` role allows you to connect to [instances](../../compute/concepts/vm.md) using SSH certificates or SSH keys via [OS Login](../../organization/concepts/os-login.md) and run commands as a superuser (`sudo`).

@@ -33,7 +33,6 @@ List of services whose resources support labels:
 * [{{ lockbox-full-name }}](../../lockbox/index.yaml)
 * [{{ mkf-full-name }}](../../managed-kafka/index.yaml)
 * [{{ mch-full-name }}](../../managed-clickhouse/index.yaml)
-* [{{ mes-full-name }}](../../managed-elasticsearch/index.yaml)
 * [{{ mgp-full-name }}](../../managed-greenplum/index.yaml)
 * [{{ managed-k8s-full-name }}](../../managed-kubernetes/index.yaml)
 * [{{ mmg-full-name }}](../../managed-mongodb/index.yaml)

@@ -55,7 +55,6 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ KF }} в {{ CH }}](mkf-to-mch.md)
 * [{{ KF }} в {{ PG }}](mkf-to-mpg.md)
 * [{{ KF }} в {{ GP }}](managed-kafka-to-greenplum.md)
-* [{{ KF }} в {{ ES }}](mkf-to-mes.md)
 * [{{ KF }} в {{ MG }}](mkf-to-mmg.md)
 * [{{ KF }} в {{ MY }}](mkf-to-mmy.md)
 * [{{ KF }} в {{ OS }}](mkf-to-mos.md)

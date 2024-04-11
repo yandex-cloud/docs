@@ -15,7 +15,6 @@
 | Amazon Elastic Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
 | Amazon Elastic Kubernetes Service | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
 | Amazon ElastiCache | [{{ mrd-full-name }}](../../managed-redis/) |
-| Amazon Elasticsearch Service | [{{ mes-full-name }}](../../managed-elasticsearch/) |
 | Amazon EMR | [{{ dataproc-full-name }}](../../data-proc/) |
 | Amazon Interactive Video Service | [{{ video-full-name }}](../../video/) |
 | Amazon Kinesis Data Streams | [{{ yds-full-name }}](../../data-streams/) |

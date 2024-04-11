@@ -65,7 +65,7 @@ description: "Follow this guide to get information about a log group."
      -import-path ~/cloudapi/ \
      -import-path ~/cloudapi/third_party/googleapis/ \
      -proto ~/cloudapi/yandex/cloud/logging/v1/log_group_service.proto \
-   logging.api.cloud.yandex.net:443 yandex.cloud.logging.v1.LogGroupService.Get
+   logging.{{ api-host }}:443 yandex.cloud.logging.v1.LogGroupService.Get
    ```
 
    Result:
@@ -92,7 +92,7 @@ description: "Follow this guide to get information about a log group."
      -import-path ~/cloudapi/ \
      -import-path ~/cloudapi/third_party/googleapis/ \
      -proto ~/cloudapi/yandex/cloud/logging/v1/log_group_service.proto \
-   logging.api.cloud.yandex.net:443 yandex.cloud.logging.v1.LogGroupService.Stats
+   logging.{{ api-host }}:443 yandex.cloud.logging.v1.LogGroupService.Stats
    ```
 
    Result:

@@ -47,8 +47,6 @@ items:
             href: operations/applications/externaldns.md
           - name: Installing Falco
             href: operations/applications/falco.md
-          - name: Installing Filebeat
-            href: operations/applications/filebeat.md
           - name: Installing Filebeat OSS
             href: operations/applications/filebeat-oss.md
           - name: Installing Fluent Bit

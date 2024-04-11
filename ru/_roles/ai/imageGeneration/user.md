@@ -1,1 +1,1 @@
-Роль `ai.imageGeneration.user` позволяет использовать модели генерации изображений YandexART в сервисе Foundation Models.
+Роль `ai.imageGeneration.user` позволяет использовать модели генерации изображений YandexART в сервисе Yandex Foundation Models, а также просматривать информацию об [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](../../../yandexgpt/concepts/limits.md#yandexgpt-quotas) сервиса.

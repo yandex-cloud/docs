@@ -1,1 +1,1 @@
-Роль `ai.translate.user` позволяет использовать сервис для перевода текста.
+Роль `ai.translate.user` позволяет использовать сервис Yandex Translate для [перевода текста](../../../translate/quickstart.md), а также просматривать информацию об [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](../../../translate/concepts/limits.md#translate-quotas) сервиса.

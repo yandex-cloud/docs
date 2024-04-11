@@ -15,71 +15,13 @@
 
 1. Подготовьте инфраструктуру:
 
-    {% list tabs group=instructions %}
+    
+    1. [Создайте пользовательскую инсталляцию {{ ES }}]({{ links.es.docs }}/elasticsearch/reference/current/getting-started.html).
 
-    - Вручную {#manual}
+    1. [Обеспечьте доступ к кластеру из {{ yandex-cloud }}](../../../data-transfer/concepts/network.md#source-external).
 
-        1. [Создайте кластер {{ mes-name }}](../../../managed-elasticsearch/operations/cluster-create.md) или [пользовательскую инсталляцию {{ ES }}]({{ links.es.docs }}/elasticsearch/reference/current/getting-started.html).
+    1. [Создайте кластер-приемник {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
-            В кластере {{ mes-name }} должен быть включен публичный доступ к хостам с [ролью Data Node](../../../managed-elasticsearch/concepts/hosts-roles.md#data-node). Для пользовательской инсталляции {{ ES }} [обеспечьте доступ к кластеру из {{ yandex-cloud }}](../../../data-transfer/concepts/network.md#source-external).
-
-            {% note info %}
-
-            С 20 июля 2023 года пользователи, которые пока не работали с {{ ES }} в облаке, не могут создавать новые кластеры. Действующие пользователи сервиса могут работать с существующими кластерами и создавать новые.
-
-            С 11 апреля 2024 года сервис {{ mes-full-name }} станет недоступен.
-
-            {% endnote %}
-
-        1. [Создайте кластер-приемник {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
-
-    - {{ TF }} {#tf}
-
-        1. {% include [terraform-install](../../../_includes/terraform-install.md) %}
-        1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и укажите значения параметров.
-        1. Скачайте в ту же рабочую директорию файл конфигурации [data-transfer-mes-mos.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-elasticsearch-to-opensearch/blob/main/data-transfer-mes-mos.tf).
-
-            В этом файле описаны:
-
-            * [сеть](../../../vpc/concepts/network.md#network);
-            * [подсеть](../../../vpc/concepts/network.md#subnet);
-            * [группа безопасности](../../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластерам {{ mes-name }} и {{ mos-name }};
-            * кластер-источник {{ mes-name }};
-            * кластер-приемник {{ mos-name }};
-            * трансфер.
-
-        1. Укажите в файле `data-transfer-mes-mos.tf` переменные:
-
-            * `create_mes` — значение `1`, чтобы создать кластер {{ mes-name }}. Если вы хотите использовать существующий кластер или пользовательскую инсталляцию {{ ES }}, укажите `0`.
-
-                {% note info %}
-
-                С 20 июля 2023 года пользователи, которые пока не работали с {{ ES }} в облаке, не могут создавать новые кластеры. Действующие пользователи сервиса могут работать с существующими кластерами и создавать новые.
-
-                С 11 апреля 2024 года сервис {{ mes-full-name }} станет недоступен.
-
-                {% endnote %}
-
-            * `es_admin_password` — пароль пользователя-администратора {{ mes-name }}.
-            * `os_admin_password` — пароль пользователя-администратора {{ mos-name }}.
-            * `transfer_enabled` — значение `0`, чтобы не создавать трансфер до [создания эндпоинтов вручную](#prepare-transfer).
-
-        1. Выполните команду `terraform init` в директории с конфигурационным файлом. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Создайте необходимую инфраструктуру:
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-            {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
-
-    {% endlist %}
 
 1. Установите утилиты:
 
@@ -97,7 +39,6 @@
 
 ## Настройте кластер-источник {#configure-source}
 
-1. Если вы используете кластер {{ mes-name }}, [получите SSL-сертификат](../../../managed-elasticsearch/operations/cluster-connect.md#get-ssl-cert) для подключения к кластеру.
 
 1. (Опционально) Создайте пользователя, от имени которого будет выполняться трансфер.
 
@@ -245,32 +186,8 @@
 
 1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
-1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-    {% list tabs group=instructions %}
 
-    - Вручную {#manual}
+1. [Удалите кластер {{ mos-name }}](../../../managed-opensearch/operations/cluster-delete.md).
+1. [Удалите подсеть](../../../vpc/operations/subnet-delete.md) и [сеть](../../../vpc/operations/network-delete.md).
 
-        1. [Удалите кластер {{ mes-name }}](../../../managed-elasticsearch/operations/cluster-delete.md).
-        1. [Удалите кластер {{ mos-name }}](../../../managed-opensearch/operations/cluster-delete.md).
-        1. [Удалите подсеть](../../../vpc/operations/subnet-delete.md) и [сеть](../../../vpc/operations/network-delete.md).
-
-    - {{ TF }} {#tf}
-
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        1. Удалите конфигурационный файл `data-transfer-mes-mos.tf`.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Подтвердите изменение ресурсов.
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-            Все ресурсы, которые были описаны в конфигурационном файле `data-transfer-mes-mos.tf`, будут удалены.
-
-    {% endlist %}

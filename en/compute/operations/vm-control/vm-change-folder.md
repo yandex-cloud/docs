@@ -160,11 +160,11 @@ A moved VM remains connected to the [subnet](../../../vpc/concepts/network.md#su
    1. In the [management console]({{ link-console-main }}), select the folder where you moved the VM.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. Click the VM name.
-   1. Click **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
+   1. Click **{{ ui-key.yacloud.common.stop }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
    1. Under **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}**, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
    1. In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select a new subnet and click **{{ ui-key.yacloud.common.save }}**.
-   1. Click **{{ ui-key.yacloud.compute.instances.button_action-start }}**.
+   1. Click **{{ ui-key.yacloud.common.start }}**.
 
 - CLI {#cli}
 

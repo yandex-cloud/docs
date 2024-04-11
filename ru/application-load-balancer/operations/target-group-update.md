@@ -20,6 +20,8 @@
      1. (Опционально) Если IP-адрес ресурса находится вне [{{ vpc-full-name }}](../../vpc/), выберите опцию **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
 
         Например, укажите частный IPv4-адрес из вашего ЦОД, подключенного к {{ yandex-cloud }} через [{{ interconnect-full-name }}](../../interconnect/). IP-адрес должен входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
+
+
      1. Нажмите **{{ ui-key.yacloud.alb.button_add-target }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
@@ -57,6 +59,7 @@
      ```
 
      Также вы можете добавить в целевую группу ресурсы, которые размещены вне [{{ vpc-full-name }}](../../vpc/), например в вашем ЦОД, подключенном к {{ yandex-cloud }} через [{{ interconnect-full-name }}](../../interconnect/). IP-адреса ресурсов должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
+
 
      Выполните команду, указав в параметрах имя целевой группы и частный IPv4-адрес ресурса:
 
@@ -141,6 +144,7 @@
        }
      }
      ```
+
 
      Где `yandex_alb_target_group` — параметры целевой группы:
      * `name` — имя целевой группы.

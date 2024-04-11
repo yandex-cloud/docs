@@ -141,7 +141,7 @@ For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert-templa
 * `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`: `96,636,764,160` bytes (90%)
 * `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}`: `85,899,345,920` bytes (80%)
 
-You can view the host's current storage size and RAM amount in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-elasticsearch).
+You can view the host's current storage size and RAM amount in the [detailed information about the cluster](cluster-list.md#get-cluster).
 
 
 ## Cluster state and status {#cluster-health-and-status}

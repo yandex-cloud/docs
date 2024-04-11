@@ -43,6 +43,8 @@ items:
             href: operations/folder/get-id.md
           - name: Getting notifications from services in a folder
             href: operations/folder/notify.md
+      - name: Viewing operations with the service's resources
+        href: operations/operation-logs.md
   - name: Concepts
     items:
       - name: Yandex Cloud resource hierarchy

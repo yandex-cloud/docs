@@ -1,1 +1,1 @@
-The `ai.languageModels.user` role enables you to use YandexGPT.
+The `ai.languageModels.user` role allows you to use YandexGPT API [language models](../../../yandexgpt/concepts/models.md#yandexgpt-generation) for text generation within the Yandex Foundation Models service, as well as view info on the relevant [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), and [quotas](../../../yandexgpt/concepts/limits.md#yandexgpt-quotas).

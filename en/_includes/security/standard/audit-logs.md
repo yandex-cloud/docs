@@ -49,7 +49,6 @@ You can enable {{ at-full-name }} at the folder, cloud, and organization level. 
 
 Solutions for exporting {{ yandex-cloud }} audit logs are available for the following SIEM systems:
 
-* {{ mes-full-name }} (ELK/Opensearch): [Collecting, monitoring, and analyzing audit logs in {{ mes-full-name }}](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk)
 
 * ArcSight: [Collecting, monitoring, and analyzing audit logs in ArcSight SIEM](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-arcsight)
 

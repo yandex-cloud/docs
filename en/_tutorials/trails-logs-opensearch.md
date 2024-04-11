@@ -199,7 +199,7 @@ To use Security Content:
     * `filters.ndjson`
     * `search.ndjson`
 
-### Dashboards {#dashboard}
+### Dashboard {#dashboard}
 
 Use the ready-made `Audit-trails-dashboard`:
 

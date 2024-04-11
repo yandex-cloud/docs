@@ -93,5 +93,5 @@
 
 ## См. также {#see-also}
 
-* [Документация {{ mos-name }}](../../../managed-elasticsearch/).
+* [Документация {{ mos-name }}](../../../managed-opensearch/).
 * [Документация Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/index.html).

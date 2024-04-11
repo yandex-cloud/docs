@@ -261,7 +261,7 @@
 1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} выберите каталог, в котором создана ВМ.
 1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Найдите ВМ `ci-tutorial-test-app` и выберите ее.
-1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
 1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 1. После остановки ВМ выберите вкладку **{{ ui-key.yacloud.compute.switch_disks }}**.
 1. В строке диска нажмите кнопку ![vertical-ellipsis](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.

@@ -1,1 +1,1 @@
-Роль `vpc.gateways.editor` позволяет управлять NAT-шлюзами.
+Роль `vpc.gateways.editor` позволяет создавать, изменять и удалять [NAT-шлюзы](../../../vpc/concepts/gateways.md), а также подключать их к [таблицам маршрутизации](../../../vpc/concepts/static-routes.md#rt-vpc).

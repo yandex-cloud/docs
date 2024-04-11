@@ -1,1 +1,1 @@
-The `compute.images.user` role lets you use images to create new resources, such as virtual machines.
+The `compute.images.user` role allows you to view a list of [images](../../../compute/concepts/image.md) and information on them, get information on the latest image within the [image family](../../../compute/concepts/image.md#family), as well as use images to create new resources, such as [instances](../../../compute/concepts/vm.md).

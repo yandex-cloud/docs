@@ -647,6 +647,7 @@ description: "В статье приведен полный справочник
 
 Подробнее см. [{#T}](../data-transfer/security/index.md).
 
+
 ## {{ iam-full-name }} {#iam-roles}
 
 #### iam.serviceAccounts.user {#iam-serviceAccounts-user}
@@ -911,21 +912,6 @@ description: "В статье приведен полный справочник
 Подробнее см. [{#T}](../managed-clickhouse/security.md).
 
 
-## {{ mes-full-name }} {#managed-elasticsearch-roles}
-
-#### managed-elasticsearch.viewer {#managed-elasticsearch-viewer}
-
-{% include [managed-elasticsearch.viewer](../_roles/managed-elasticsearch/viewer.md) %}
-
-#### managed-elasticsearch.editor {#managed-elasticsearch-editor}
-
-{% include [managed-elasticsearch.editor](../_roles/managed-elasticsearch/editor.md) %}
-
-#### managed-elasticsearch.admin {#managed-elasticsearch-admin}
-
-{% include [managed-elasticsearch.admin](../_roles/managed-elasticsearch/admin.md) %}
-
-Подробнее см. [{#T}](../managed-elasticsearch/security/index.md).
 
 
 ## {{ mgl-full-name }} {#managed-gitlab-roles}
@@ -1419,6 +1405,10 @@ description: "В статье приведен полный справочник
 #### vpc.user {#vpc-user}
 
 {% include [vpc-user](../_roles/vpc/user.md) %}
+
+#### vpc.externalAddresses.user {#vpc-externalAddresses-user}
+
+{% include [vpc.externalAddresses.user](../_roles/vpc/externalAddresses/user.md) %}
 
 #### vpc.admin {#vpc-admin}
 

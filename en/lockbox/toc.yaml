@@ -27,6 +27,8 @@ items:
             href: operations/serverless/containers.md
           - name: Transmitting a secret to {{ sf-full-name }}
             href: operations/serverless/functions.md
+      - name: Viewing operations with a secret
+        href: operations/operation-logs.md
   - name: Concepts
     items:
       - name: Overview

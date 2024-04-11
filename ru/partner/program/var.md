@@ -43,7 +43,6 @@ _Программа прямого партнерства_ — партнерс�
 * к потреблению сервисов:
 
   * [{{ marketplace-full-name }}](/marketplace)
-  * [{{ mes-full-name }}](../../managed-elasticsearch/)
   * [{{ mmg-full-name }}](../../managed-mongodb/)
   * [{{ interconnect-full-name }}](../../interconnect/)
 

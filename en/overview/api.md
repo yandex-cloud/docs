@@ -39,7 +39,6 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 | {{ lockbox-name }} {{ tag-preview }} | [gRPC](../lockbox/api-ref/grpc/)<br>[REST](../lockbox/api-ref/) |
 | {{ mkf-full-name }}                     | [gRPC](../managed-kafka/api-ref/grpc/)<br>[REST](../managed-kafka/api-ref/) |
 | {{ mch-full-name }}                     | [gRPC](../managed-clickhouse/api-ref/grpc/)<br>[REST](../managed-clickhouse/api-ref/) |
-| {{ mes-full-name }}                     | [gRPC](../managed-elasticsearch/api-ref/grpc/)<br>[REST](../managed-elasticsearch/api-ref/) |
 | {{ mgp-full-name }}                     | [gRPC](../managed-greenplum/api-ref/grpc/)<br>[REST](../managed-greenplum/api-ref/) |
 | {{ managed-k8s-full-name }}<sup>®</sup> | [gRPC](../managed-kubernetes/api-ref/grpc/)<br>[REST](../managed-kubernetes/api-ref/) |
 | {{ mmg-full-name }}                     | [gRPC](../managed-mongodb/api-ref/grpc/)<br>[REST](../managed-mongodb/api-ref/) |

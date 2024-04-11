@@ -20,7 +20,6 @@
 * [{{ data-transfer-full-name }}](../data-transfer/release-notes/index.md)
 * [{{ mkf-full-name }}](../managed-kafka/release-notes.md)
 * [{{ mch-full-name }}](../managed-clickhouse/release-notes.md)
-* [{{ mes-full-name }}](../managed-elasticsearch/release-notes.md)
 * [{{ mgp-full-name }}](../managed-greenplum/release-notes.md)
 * [{{ mmg-full-name }}](../managed-mongodb/release-notes.md)
 * [{{ mmy-full-name }}](../managed-mysql/release-notes.md)

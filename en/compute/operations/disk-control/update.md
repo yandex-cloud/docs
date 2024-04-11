@@ -20,7 +20,7 @@ To change the name and description of a disk:
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update a disk.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
-   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the required disk and select **{{ ui-key.yacloud.compute.disks.button_action-edit }}**.
+   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the required disk and select **{{ ui-key.yacloud.common.edit }}**.
    1. Change the disk name and description.
    1. Click **{{ ui-key.yacloud.compute.disks.edit.button_update }}**.
 
@@ -78,7 +78,7 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
    1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
-   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the required disk and select **{{ ui-key.yacloud.compute.disks.button_action-edit }}**.
+   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the required disk and select **{{ ui-key.yacloud.common.edit }}**.
    1. Increase the disk size.
    1. Click **{{ ui-key.yacloud.compute.disks.edit.button_update }}**.
 

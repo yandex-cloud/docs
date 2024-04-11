@@ -265,10 +265,6 @@ items:
           data-transfer-name }}
         href: dataplatform/managed-kafka-to-greenplum.md
       - name: >-
-          Delivering data from {{ mkf-name }} to {{ mes-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mkf-mes.md
-      - name: >-
           Delivering data from {{ mkf-name }} to {{ mmg-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf-mmg.md
@@ -356,10 +352,6 @@ items:
         href: dataplatform/data-proc-init-actions-geesefs.md
       - name: Automating operations with {{ dataproc-name }} using {{ maf-name }}
         href: dataplatform/data-proc-and-airflow.md
-      - name: >-
-          Migrating data from a third-party {{ ES }} cluster to {{ mes-name }}
-          using the Reindex API
-        href: dataplatform/migration-via-reindex-api.md
       - name: >-
           Migrating collections from a third-party {{ MG }} cluster to {{
           mmg-name }}

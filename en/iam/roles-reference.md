@@ -648,15 +648,6 @@ For more information, see [{#T}](../data-streams/security/index.md).
 For more information, see [{#T}](../data-transfer/security/index.md).
 
 
-## {{ yagpt-full-name }} {#yagpt-roles}
-
-#### ai.languageModels.user {#languageModels-user}
-
-{% include [yandexgpt-user](../_roles/ai/languageModels/user.md) %}
-
-For more information, see [{#T}](../yandexgpt/security/index.md).
-
-
 ## {{ iam-full-name }} {#iam-roles}
 
 #### iam.serviceAccounts.user {#iam-serviceAccounts-user}
@@ -729,6 +720,19 @@ For more information, see [{#T}](../iam/security/index.md).
 {% include [iot-editor](../_roles/iot/editor.md) %}
 
 For more information, see [{#T}](../iot-core/security/index.md).
+
+
+## {{ foundation-models-full-name }} {#fm-roles}
+
+#### ai.languageModels.user {#languageModels-user}
+
+{% include [yandexgpt-user](../_roles/ai/languageModels/user.md) %}
+
+#### ai.imageGeneration.user {#imageGeneration-user}
+
+{% include [yandexart-user](../_roles/ai/imageGeneration/user.md) %}
+
+For more information, see [{#T}](../foundation-models/security/index.md).
 
 
 ## {{ kms-full-name }} {#kms-roles}
@@ -908,21 +912,6 @@ For more information, see [{#T}](../managed-kafka/security/index.md).
 For more information, see [{#T}](../managed-clickhouse/security/index.md).
 
 
-## {{ mes-full-name }} {#managed-elasticsearch-roles}
-
-#### managed-elasticsearch.viewer {#managed-elasticsearch-viewer}
-
-{% include [managed-elasticsearch.viewer](../_roles/managed-elasticsearch/viewer.md) %}
-
-#### managed-elasticsearch.editor {#managed-elasticsearch-editor}
-
-{% include [managed-elasticsearch.editor](../_roles/managed-elasticsearch/editor.md) %}
-
-#### managed-elasticsearch.admin {#managed-elasticsearch-admin}
-
-{% include [managed-elasticsearch.admin](../_roles/managed-elasticsearch/admin.md) %}
-
-For more information, see [{#T}](../managed-elasticsearch/security/index.md).
 
 
 ## {{ mgl-full-name }} {#managed-gitlab-roles}
@@ -1110,6 +1099,10 @@ For more information, see [{#T}](../managed-redis/security/index.md).
 
 
 ## {{ ydb-full-name }} {#ydb-roles}
+
+#### ydb.auditor {#ydb-auditor}
+
+{% include [ydb.auditor](../_roles/ydb/auditor.md) %}
 
 #### ydb.viewer {#ydb-viewer}
 
@@ -1412,6 +1405,10 @@ For more information, see [{#T}](../translate/security/index.md).
 #### vpc.user {#vpc-user}
 
 {% include [vpc-user](../_roles/vpc/user.md) %}
+
+#### vpc.externalAddresses.user {#vpc-externalAddresses-user}
+
+{% include [vpc.externalAddresses.user](../_roles/vpc/externalAddresses/user.md) %}
 
 #### vpc.admin {#vpc-admin}
 

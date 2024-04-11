@@ -150,15 +150,6 @@
 
   {% endcut %}
 
-  {% cut "{{ mes-short-name }}" %}
-
-  [События уровня конфигурации](./concepts/format.md):
-
-  Событие | Описание
-  --- | ---
-  `MoveCluster` | Перемещение кластера
-
-  {% endcut %}
 
   {% cut "{{ mgp-short-name }}" %}
 

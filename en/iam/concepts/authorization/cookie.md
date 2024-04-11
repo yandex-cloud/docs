@@ -1,25 +1,12 @@
 ---
-title: "IAM Cookie format"
-description: "In this tutorial, you will learn what the IAM Cookie format looks like."
+title: "Cookies in {{ yandex-cloud }}"
+description: "In this tutorial, you will learn which cookies {{ yandex-cloud }} uses."
 ---
 
 # Cookie
 
-## IAM Cookie format {#cookie-format}
+{{ yandex-cloud }} web interfaces use `yc_session` cookies to authenticate a user.
 
-It always starts with `c1` and sequences of characters in the following order:
+In the console of every service (e.g., [console.yandex.cloud](console.yandex.cloud), [org.yandex.cloud](org.yandex.cloud), or [datalens.yandex.cloud](datalens.yandex.cloud)), cookies are independent of each other.
 
-1. Any character, but for a space.
-1. Any number of characters, such as:
-   * Latin letters
-   * Numbers
-   * Underscores `_` and hyphens `-`
-1. 0 to 2 `=` symbols.
-1. Any character, but for a space.
-1. 86 characters, such as:
-   * Latin letters
-   * Numbers
-   * Underscores `_` and hyphens `-`
-1. 0 to 2 `=` symbols.
-
-Sample IAM Cookie: `c1f9eugktrZqYks_a=7Y-TmpGUnUKHz-3rfjrtoDw3_npWay4-SjJ_ghY7KlouMjJ3Kncrl9PcSLTl0-e8rTxrv3fT3Uls2dPnvK08a7w==`
+All cookies are linked to a single logical session initiated by [auth.yandex.cloud](auth.yandex.cloud).

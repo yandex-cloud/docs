@@ -28,7 +28,6 @@ description: "In this tutorial, you will learn how to set up an {{ KF }} source 
    * [{{ KF }} to {{ CH }}](../../../tutorials/mkf-to-mch.md).
    * [{{ KF }} to {{ PG }}](../../../tutorials/mkf-to-mpg.md).
    * [{{ KF }} to {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md).
-   * [{{ KF }} to {{ ES }}](../../../tutorials/mkf-to-mes.md).
    * [{{ KF }} to {{ MG }}](../../../tutorials/mkf-to-mmg.md).
    * [{{ KF }} to {{ MY }}](../../../tutorials/mkf-to-mmy.md).
    * [{{ KF }} to {{ OS }}](../../../tutorials/mkf-to-mos.md).

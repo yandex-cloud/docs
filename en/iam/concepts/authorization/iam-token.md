@@ -6,13 +6,21 @@ An IAM token is a unique sequence of characters issued to a user after authentic
 
 {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
-In the management console and the command line interface (CLI), the token is obtained and used without the user needing to do anything.
+To work with {{ TF }}, [add an IAM token to environment variables](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) or specify it in the [provider configuration file](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider):
 
-## The lifetime {#lifetime}
+```
+provider "yandex" {
+  token = "<IAM_token>"
+}
+```
+
+In case you work in the management console or the command line interface (CLI), you do not need to do anything to obtain and use a token.
+
+## Lifetime {#lifetime}
 
 IAM tokens are valid for a maximum of {{ iam-token-lifetime }}. A token's lifetime is specified in a response from the service that returns the token, e.g., the [VM metadata service](../../../compute/operations/vm-connect/auth-inside-vm.md).
 
-To avoid a situation when your token has expired and you do not have a new token yet, request it beforehand.
+To avoid situations when your token has expired and you do not have a new token yet, request it beforehand.
 
 If you generate a new {{ iam-short-name }} token, the previous one continues to be valid until its lifetime expires.
 

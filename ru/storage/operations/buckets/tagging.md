@@ -19,11 +19,66 @@
   1. Нажмите **Enter**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [tags-update-notice](../../../_includes/storage/tags-update-notice.md) %}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для изменения настроек бакета:
+
+       ```bash
+       yc storage bucket update --help
+       ```
+
+  1. Получите список бакетов в каталоге по умолчанию:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Результат:
+
+      ```text
+      +------------------+----------------------+----------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       | MAX SIZE | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+----------+-----------------------+---------------------+
+      | my-bucket        | b1gmit33ngp3******** | 10       | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+----------+-----------------------+---------------------+
+      ```
+
+  1. Добавьте метки, указав имя нужного бакета:
+
+      ```bash
+      yc storage bucket update <имя_бакета> \
+        --tags <ключ_метки_1>=<значение_метки_1>,<ключ_метки_2>=<значение_метки_2>,...,<ключ_метки_n>=<значение_метки_n>
+      ```
+
+      Где `--tags` — флаг для перечисления меток бакета в формате `ключ=значение`.
+
+      Результат:
+
+      ```text
+      name: my-bucket
+      folder_id: b1gmit33ngp3********
+      default_storage_class: STANDARD
+      versioning: VERSIONING_ENABLED
+      acl: {}
+      created_at: "2023-04-24T14:15:28.240705Z"
+      tags:
+        - key: key-tag
+          value: key-value
+      ```
+
+- AWS CLI {#aws-cli}
+
+  {% include [tags-update-notice](../../../_includes/storage/tags-update-notice.md) %}
 
   Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
-  В терминале выполните команду, которая перезаписывает все имеющиеся у бакета метки:
+  В терминале выполните команду:
 
   ```bash
   aws s3api put-bucket-tagging \
@@ -40,6 +95,8 @@
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
 - {{ TF }} {#tf}
+
+  {% include [tags-update-notice](../../../_includes/storage/tags-update-notice.md) %}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -72,6 +129,8 @@
   ```
 
 - API {#api}
+
+  {% include [tags-update-notice](../../../_includes/storage/tags-update-notice.md) %}
 
   Чтобы добавить или изменить метки бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [putBucketTagging](../../s3/api-ref/bucket/putbuckettagging.md).
 
@@ -122,7 +181,54 @@
   1. Выберите бакет в списке.
   1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}** в меню слева.
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для получения информации о бакете:
+
+      ```bash
+      yc storage bucket get --help
+      ```
+
+  1. Получите список бакетов в каталоге по умолчанию:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Результат:
+
+      ```text
+       +------------------+----------------------+----------+-----------------------+---------------------+
+       |       NAME       |      FOLDER ID       | MAX SIZE | DEFAULT STORAGE CLASS |     CREATED AT      |
+       +------------------+----------------------+----------+-----------------------+---------------------+
+       | my-bucket        | b1gmit33ngp3******** | 10       | STANDARD              | 2022-12-16 13:58:18 |
+       +------------------+----------------------+----------+-----------------------+---------------------+
+      ```
+
+  1. Получите информацию о метках, указав имя нужного бакета:
+
+      ```bash
+      yc storage bucket get <имя_бакета> --full
+      ```
+
+      Результат:
+
+      ```text
+      name: my-bucket
+      folder_id: b1gmit33ngp3********
+      default_storage_class: STANDARD
+      ...
+      tags:
+        - key: key-tag
+          value: key-value
+      ...
+      ```
+
+- AWS CLI {#aws-cli}
 
   Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
@@ -222,7 +328,53 @@
   1. Напротив нужной метки нажмите значок ![image](../../../_assets/console-icons/xmark.svg).
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для изменения настроек бакета:
+
+      ```bash
+      yc storage bucket update --help
+      ```
+
+  1. Получите список бакетов в каталоге по умолчанию:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Результат:
+
+      ```text
+      +------------------+----------------------+----------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       | MAX SIZE | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+----------+-----------------------+---------------------+
+      | my-bucket        | b1gmit33ngp3******** | 10       | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+----------+-----------------------+---------------------+
+      ```
+
+  1. Удалите метки, указав имя нужного бакета:
+
+      ```bash
+      yc storage bucket update <имя_бакета> \
+        --remove-tags
+      ```
+
+      Результат:
+
+      ```text
+      name: my-bucket
+      folder_id: b1gmit33ngp3********
+      default_storage_class: STANDARD
+      versioning: VERSIONING_ENABLED
+      acl: {}
+      created_at: "2023-04-24T14:15:28.240705Z"
+      ```
+
+- AWS CLI {#aws-cli}
 
   Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 

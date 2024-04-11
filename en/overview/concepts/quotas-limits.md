@@ -203,11 +203,6 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 
 
 
-### {{ mes-full-name }} {#mes}
-
-{% include [mes-limits.md](../../_includes/mdb/mes-limits.md) %}
-
-
 
 
 ### {{ mgl-full-name }} {#mgl}

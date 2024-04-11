@@ -34,7 +34,6 @@ Folder notifications include information about the following resources:
 
   * {{ KF }}
   * {{ CH }}
-  * {{ ES }}
   * {{ GP }}
   * {{ k8s }}
   * {{ MG }}

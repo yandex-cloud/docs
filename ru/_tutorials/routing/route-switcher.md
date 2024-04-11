@@ -368,7 +368,7 @@
 
       1. В [консоли управления]({{ link-console-main }}) выберите нужный в каталог.
       1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. Выберите ВМ `nat-a` в списке, нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
+      1. Выберите ВМ `nat-a` в списке, нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.stop }}**.
       1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 
    - CLI {#cli}
@@ -410,7 +410,7 @@
 
       1. В [консоли управления]({{ link-console-main }}) выберите нужный в каталог.
       1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. Выберите ВМ `nat-a` в списке, нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
+      1. Выберите ВМ `nat-a` в списке, нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.stop }}**.
       1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
    - CLI {#cli}

@@ -1,1 +1,1 @@
-Роль `compute.osLogin` разрешает доступ к виртуальным машинам по протоколу `ssh` через OS Login.
+Роль `compute.osLogin` позволяет подключаться к [виртуальным машинам](../../compute/concepts/vm.md) через [OS Login](../../organization/concepts/os-login.md) с помощью SSH-сертификатов или SSH-ключей.

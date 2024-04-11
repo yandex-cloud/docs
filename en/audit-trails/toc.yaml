@@ -33,6 +33,8 @@ items:
             href: operations/export-cloud-bucket.md
           - name: Folder
             href: operations/export-folder-bucket.md
+      - name: Viewing operations with a trail
+        href: operations/operation-logs.md
   - name: Tutorials
     items:
       - name: Searching for {{ yandex-cloud }} events in {{ yq-full-name }}
@@ -51,8 +53,6 @@ items:
         href: tutorials/logs-analysis.md
       - name: Exporting audit logs to SIEM systems
         items:
-          - name: Uploading audit logs to {{ mes-full-name }}
-            href: tutorials/trails-logs-elasticsearch.md
           - name: Uploading audit logs to {{ mos-full-name }}
             href: tutorials/trails-logs-opensearch.md
           - name: Exporting audit logs to MaxPatrol SIEM

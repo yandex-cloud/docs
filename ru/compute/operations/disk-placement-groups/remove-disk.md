@@ -13,8 +13,8 @@
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}**.
   1. Выберите группу размещения, из которой нужно удалить диск.
   1. Перейдите на панель **{{ ui-key.yacloud.compute.placement-group.switch_disks }}**.
-  1. Справа от имени удаляемого диска нажмите значок ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-delete }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.disks.popup-confirm_button_delete }}**.
+  1. Справа от имени удаляемого диска нажмите значок ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - {{ TF }} {#tf}
 

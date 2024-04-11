@@ -47,6 +47,8 @@ items:
         href: operations/cert-backup.md
       - name: Adding alerts for certificates
         href: operations/alert.md
+      - name: Viewing operations with a certificate
+        href: operations/operation-logs.md
   - name: Tutorials
     items:
       - name: Installing an NGINX Ingress controller in {{ managed-k8s-name }}

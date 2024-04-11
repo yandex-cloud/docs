@@ -118,22 +118,7 @@
 1. Настройте кластер-источник {{ ES }}:
 
     
-    {% list tabs %}
-
-    - Сторонний кластер {{ ES }}
-
-      {% include [source-3p](es-mos-migration/source-3p.md) %}
-
-    - {{ mes-name }}
-
-        1. [Установите плагин](../../managed-opensearch/operations/plugins.md#update) `repository-s3`.
-
-        1. [Установите SSL-сертификат](../../managed-elasticsearch/operations/cluster-connect.md#get-ssl-cert).
-
-        1. Убедитесь, что вы можете [подключиться к кластеру-источнику](../../managed-elasticsearch/operations/cluster-connect.md) с помощью {{ ES }} API и Kibana.
-
-    {% endlist %}
-
+    {% include [source-3p](es-mos-migration/source-3p.md) %}
 
 
 1. [Установите SSL-сертификат](../../managed-opensearch/operations/connect.md#ssl-certificate).
