@@ -192,7 +192,7 @@
 Клонируйте репозиторий с проектом `yc-serverless-game`:
 
 ```bash
-git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-serverless-game.git
+git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
 ```
 
 ### Зарегистрируйте Telegram-бота {#create-bot}
