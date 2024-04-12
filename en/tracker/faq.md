@@ -97,7 +97,7 @@ The owner is specified on the **{{ ui-key.startrek.ui_components_IssueTabs.descr
 
 The **{{ ui-key.startrek-backend.fields.issue.summary-key-value }}** field includes the issue name: this is an arbitrary value the user comes up with. The names are almost always unique. If you try to build a table where rows or columns are grouped by a set of unique values (the **{{ ui-key.startrek-backend.fields.issue.summary-key-value }}** field), the result would be cumbersome and uninformative.
 
-Do not use the **{{ ui-key.startrek-backend.fields.issue.summary-key-value }}** field to group data in rows or columns of [pivot tables](user/widgets.md#section_esm_vjp_pz), or as a key parameter to build [issue statistics](user/widgets.md#statistika-po-zadacham). We will soon disable data aggregation or grouping by the **{{ ui-key.startrek-backend.fields.issue.summary-key-value }}** field in widgets. All the widgets with such grouping will be deleted later.
+Do not use the **{{ ui-key.startrek-backend.fields.issue.summary-key-value }}** field to group data in rows or columns of [pivot tables](user/summary-table.md), or as a key parameter to build [issue statistics](user/issues-stat.md). We will soon disable data aggregation or grouping by the **{{ ui-key.startrek-backend.fields.issue.summary-key-value }}** field in widgets. All the widgets with such grouping will be deleted later.
 
 If you have any widgets with grouping by the **{{ ui-key.startrek-backend.fields.issue.summary-key-value }}** field and you want to preserve them, you can:
 * Replace your widget with a [new widget with an issue list](#replace_widget).

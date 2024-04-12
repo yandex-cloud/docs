@@ -17,6 +17,7 @@ description: "This page provides a list of tutorials on creating sites, using 1C
 * [OpenCart-based online store](../internet-store/opencart.md)
 * [Setting up virtual hosting](../web/virtual-hosting.md)
 * [Assigning a domain name to a VM with a web server](../web/bind-domain-vm.md)
+* [Creating a Python web application with Flask](../web/flask.md)
 
 ## 1С {#1c}
 

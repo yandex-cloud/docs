@@ -13,10 +13,10 @@ description: "Следуя данной инструкции, вы сможет�
 - {{ billing-interface }} {#billing}
 
   1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
-  1. Выберите аккаунт на странице **{{ ui-key.yacloud.billing.label_accounts }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.billing.account.switch_overview }}** и нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-grants.button_activate-grant }}**. Эта кнопка появляется только, когда промокод стал доступен.
-  1. Введите промокод и нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard.popup-grant-activation_button_activate }}**.
+  1. Выберите аккаунт на странице **{{ ui-key.yacloud_billing.billing.title_accounts }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.button_activate-grant }}**. Эта кнопка появляется только, когда промокод стал доступен.
+  1. Введите промокод и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard.popup-grant-activation_button_activate }}**.
 
-  Вся информация о добавленном промокоде будет доступна в [сервисе {{ billing-name }}]({{ link-console-billing }}) в блоке **{{ ui-key.yacloud.billing.account.dashboard-grants.section_grants }}**.
+  Вся информация о добавленном промокоде будет доступна в [сервисе {{ billing-name }}]({{ link-console-billing }}) в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.section_grants }}**.
 
 {% endlist %}

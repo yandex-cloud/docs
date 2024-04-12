@@ -87,15 +87,9 @@ http(s)://<имя_бакета>.{{ s3-web-host }}
 http(s)://{{ s3-web-host }}/<имя_бакета>
 ```
 
-
-
-{% note info %}
-
-По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../operations/hosting/certificate.md) в {{ objstorage-name }}.
+{% include [bucket-https](../../_includes/storage/bucket-https.md) %}
 
 {% include [redirect-https](../../_includes/storage/redirect-https.md) %}
-
-{% endnote %}
 
 
 При обращении к сайту вы будете получать ответы с кодами, описанными в разделе [{#T}](../s3/api-ref/hosting/answer-codes.md).

@@ -50,15 +50,15 @@
 
 1. На верхней панели {{ tracker-name }} нажмите ![](../_assets/tracker/tracker-burger.png) → **Биллинг**.
 
-1. На странице **{{ ui-key.yacloud.billing.switch_accounts }}** выберите ваш платежный аккаунт.  
+1. На странице **{{ ui-key.yacloud_billing.billing.switch_accounts }}** выберите ваш платежный аккаунт.  
 
-   На странице **{{ ui-key.yacloud.billing.account.switch_dashboard }}** под названием аккаунта будет указан текущий баланс. 
+   На странице **{{ ui-key.yacloud_billing.billing.account.switch_dashboard }}** под названием аккаунта будет указан текущий баланс. 
 
 ## Пополнить счет картой {#card}
 
 1. На верхней панели {{ tracker-name }} нажмите ![](../_assets/tracker/tracker-burger.png) → **Биллинг**.
 
-1. На странице **{{ ui-key.yacloud.billing.switch_accounts }}** выберите ваш платежный аккаунт.  
+1. На странице **{{ ui-key.yacloud_billing.billing.switch_accounts }}** выберите ваш платежный аккаунт.  
 
 1. В блоке с названием аккаунта нажмите кнопку **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.refill-balance }}**.
 
@@ -68,7 +68,7 @@
 
 1. На верхней панели {{ tracker-name }} нажмите ![](../_assets/tracker/tracker-burger.png) → **Биллинг**.
 
-1. На странице **{{ ui-key.yacloud.billing.accounts.label_title }}** выберите ваш платежный аккаунт.  
+1. На странице **{{ ui-key.yacloud_billing.billing.accounts.label_title }}** выберите ваш платежный аккаунт.  
 
 1. В блоке с названием аккаунта нажмите кнопку **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.refill-balance }}**.
 
@@ -78,7 +78,7 @@
 
 ## Посмотреть историю платежей {#history}
 
-Всю историю зачислений на счет платежного аккаунта можно отслеживать на странице **{{ ui-key.yacloud.billing.account.switch_history }}** либо в сервисе Яндекс&#160;Баланс. Способ отслеживания зависит от типа плетельщика.
+Всю историю зачислений на счет платежного аккаунта можно отслеживать на странице **{{ ui-key.yacloud_billing.billing.account.switch_history }}** либо в сервисе Яндекс&#160;Баланс. Способ отслеживания зависит от типа плетельщика.
 
 {% list tabs group=customers %}
 
@@ -90,8 +90,8 @@
 
   1. На верхней панели {{ tracker-name }} нажмите ![](../_assets/tracker/tracker-burger.png) → **Биллинг**.
 
-  1. На странице **{{ ui-key.yacloud.billing.switch_accounts }}** выберите ваш платежный аккаунт.  
+  1. На странице **{{ ui-key.yacloud_billing.billing.switch_accounts }}** выберите ваш платежный аккаунт.  
 
-  1. На левой панели выберите **{{ ui-key.yacloud.billing.account.switch_history }}**.
+  1. На левой панели выберите **{{ ui-key.yacloud_billing.billing.account.switch_history }}**.
   
 {% endlist %}

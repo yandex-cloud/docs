@@ -9,4 +9,4 @@ Service for obtaining images from input data.
 ## Methods {#methods}
 Method | Description
 --- | ---
-[generate](generate.md) | RPC method for obtaining image from inpt data.
+[generate](generate.md) | A method for generating an image based on a textual description.

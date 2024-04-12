@@ -3459,18 +3459,141 @@ default:
     yacloud_billing:
       billing:
         account:
+          acts_batch-download-text_pdf: Download documents (PDF)
+          acts_batch-download-text_zip: Download documents (ZIP)
+          bind-cloud:
+            button_bind: Link
+          budgets:
+            button_create: Create budget
+            label_amount: Amount
+            label_budgets: Budgets
+            label_expire: Expires
+            label_limits: Limits
+            label_notify: Notify
+            label_reset-period: Calculation period
+            label_type: Budget type
+            label_type-balance: Balance
+            label_type-cost: Cost
+            label_type-expense: Due and payable
+            reset-period_value_custom: Custom
+            reset-period_value_monthly: Monthly
+            section_scope: Scope
+          button_billing-payment-action: Switch to the paid version
+          button_download-action: Download
+          create-new:
+            account-type_label_company: Business account
+            account-type_label_individual: Individual account
+            label_title: Create a billing account
+            payment-type_label_card: Bank card
+            payment-type_label_invoice: Bank transfer
+            section_persons: Payers
+          dashboard-grants:
+            button_activate-grant: Activate promo code
+            section_grants: Grants
+          dashboard-info:
+            company_label_edit_ru: Edit data in Yandex Balance
+          dashboard-overview:
+            button_refill: Top up account
+            popup-refill_button_company-action: Issue receipt
+            popup-refill_button_individual-action: Top up account
           dashboard-resources:
+            button_action-rename-account: Rename
+            button_bind-cloud: Link cloud
+            title_clouds: Clouds
             title_section-billable: Linked clouds and services
           dashboard:
             button_go-pay: Upgrade to paid version
+            button_refill: Top up account
             card_label_threshold-description: Detailed
             label_inactivation: Delete
             label_rename: Rename
             popup-go-pay_button_cancel: Cancel
+            popup-grant-activation_button_activate: Activate
+          detail:
+            button_create-periodic-export: Periodic export
+            button_export: Export details
+            button_move-to-datalens: Details in DataLens
+            column_cloud-name: Cloud
+            column_cost: Consumption cost
+            column_credit: Discount
+            column_expense: Due and payable
+            column_product: Product
+            column_service: Service
+            column_unit: Unit
+            filter_label_all-filters: Filters
+            label_from: From
+            label_product: Products
+            label_service: Services
+            label_to: To
+            label_top-cost: Consumption cost
+            label_top-total: Due and payable
+            tab_product: By product
+            value_cost: Consumption
+            value_folders: Folders
+          exports:
+            button_create-periodic-export: Create periodic export
+            button_open-yandex-query: Process in YQ
+            field_bucket: Bucket
+            field_detail-type: Usage details
+            field_locale: Language
+            field_prefix: Directory
+            label_create-export-title: Create periodic export
+            label_include-resources: Resource
+            label_not-include-resources: General
+            locale_value_en-lang: English
+            locale_value_ru-lang: Русский
+          history:
+            column_date: Payment date
+            column_description: Description
+            column_money: Payment amount
+            column_status: Status
+          label_consumption: Consumption
           overview:
             account-data_label_organization: Organization
+            button_bind-card-apply: Apply
+            card_label_edit: Change bank card
+            company_label_rs: Billing account
+            payment-type_label_card: Bank card
+            payment-type_label_invoice: Wire transfer
             section_account-data: General information
+            section_card: Bank card
+            usage-type_label_paid: Paid version
+          reconciliation-reports:
+            action_download-with-facsimile: Download signed report
+            action_download-without-facsimile: Download unsigned report
+            action_request-report: Request reconciliation report
+            action_request-report-short: Request
+            field_actions: Actions
+            value_completed: Done
+          switch_acts: Reporting documents
+          switch_budgets: Budgets
+          switch_dashboard: Overview
+          switch_detail: Usage details
+          switch_expences: Expense history
+          switch_exports: Export details
+          switch_history: Payment history
+          switch_offers: Commitments
           switch_overview: Account info
+          switch_users: Access management
+          tab_acts-title: Closing documents
+          tab_reconciliation-reports-title: Reconciliation reports
+          user-dialog:
+            button_submit: Add
+          users:
+            button_add: Add user
+            button_remove-user: Remove user
+            button_tune-role: Configure roles
+            popup-tune-role_add-button: Assign role
+        accounts:
+          column_cloud: Clouds
+          label_title: List of accounts
+          main-banner_button_create: Create a billing account
+        cud:
+          purchase:
+            button_purchase: Purchase commitment
+        label_service: Yandex Cloud Billing
+        switch_accounts: List of accounts
+        title_accounts: Billing accounts
     yacloud_components:
       acl:
         action:

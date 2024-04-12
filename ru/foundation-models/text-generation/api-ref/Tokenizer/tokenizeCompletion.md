@@ -35,13 +35,13 @@ Request for the service to generate text completion.
  
 Field | Description
 --- | ---
-modelUri | **string**<br><p>The identifier of the model to be used for completion generation.</p> 
+modelUri | **string**<br><p>The <a href="/docs/foundation-models/concepts/yandexgpt/models">ID of the model</a> to be used for completion generation.</p> 
 completionOptions | **object**<br><p>Configuration options for completion generation.</p> <p>Defines the options for completion generation.</p> 
 completionOptions.<br>stream | **boolean** (boolean)<br><p>Enables streaming of partially generated text.</p> 
-completionOptions.<br>temperature | **number** (double)<br><p>Affects creativity and randomness of responses. Should be a double number between 0 (inclusive) and 1 (inclusive). Lower values produce more straightforward responses, while higher values lead to increased creativity and randomness. Default temperature: 0.6</p> 
-completionOptions.<br>maxTokens | **integer** (int64)<br><p>The limit on the number of tokens used for single completion generation. Must be greater than zero. The maximum allowed parameter value may depend on the model used.</p> 
+completionOptions.<br>temperature | **number** (double)<br><p>Affects creativity and randomness of responses. Should be a double number between 0 (inclusive) and 1 (inclusive). Lower values produce more straightforward responses while higher values lead to increased creativity and randomness. Default temperature: 0.3</p> 
+completionOptions.<br>maxTokens | **integer** (int64)<br><p>The limit on the number of tokens used for single completion generation. Must be greater than zero. This maximum allowed parameter value may depend on the model being used.</p> 
 messages[] | **object**<br><p>A list of messages representing the context for the completion model.</p> 
-messages[].<br>role | **string**<br><p>Identifier of the message sender. Supported roles:</p> <ul> <li>``system`` - special role used to define the behaviour of the completion model</li> <li>``assistant`` - a role used by the model to generate responses</li> <li>``user`` - a role used by the user to describe requests to the model</li> </ul> 
+messages[].<br>role | **string**<br><p>The ID of the message sender. Supported roles:</p> <ul> <li>``system``: Special role used to define the behaviour of the completion model.</li> <li>``assistant``: A role used by the model to generate responses.</li> <li>``user``: A role used by the user to describe requests to the model.</li> </ul> 
 messages[].<br>text | **string**<br><p>Textual content of the message.</p> 
  
 ## Response {#responses}

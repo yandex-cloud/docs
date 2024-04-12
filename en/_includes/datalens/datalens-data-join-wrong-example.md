@@ -1,4 +1,6 @@
-When creating a link between widgets on a dashboard, you may encounter a situation when the link does not work. This usually happens when you create a link between a selector and a chart built from different datasets. The cause is a link between widgets based on a field not used to pick values in the selector:
+When creating a link between widgets on a dashboard, you may encounter a situation when the link does not work. This usually happens when you create a link between a selector and a chart built from different datasets. Such widgets end up being linked based on a field that is not used in the selector.
+
+Let's consider this case as an example:
 
 1\. There is a chart on the dashboard named `Sample: Sales trends` built from a dataset called `Sample CH Sales`.
 
@@ -18,21 +20,13 @@ There is a field in the dataset (chart) called `ShopID` which takes string value
 
 4\. We will create a link between the selector and the `Sample: Sales trends` chart using an alias. It is not possible to create a link based on the store name since it is not included in the `Sample CH Sales` dataset used to build the chart.
 
-
 ![image](../../_assets/datalens/concepts/SampleSelectorShopName.png)
 
 Therefore, we will create the link using the `ShopID` field.
 
 ![image](../../_assets/datalens/concepts/SampleSelectorShopID.png)
 
-
-As a result, the values picked by the selector do not have any effect on chart visualization because the widgets are linked through the `ShopID` field, and the selector picks its values from the `ShopName` field.
-
-{% note warning %}
-
-At the same time, the values picked by the selector don't have any effect on chart visualization.
-
-{% endnote %}
+As a result, the values you choose in the selector do not have any effect on chart visualization because the widgets are linked through the `ShopID` field, and the the selector picks its values from the `ShopName` field.
 
 
 ![image](../../_assets/datalens/concepts/SampleSelectorEmpty.png)

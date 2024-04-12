@@ -2,6 +2,7 @@
 
 Возвращает перечень бакетов, доступных пользователю.
 
+{% include [sa-acl-bucket-list-note.md](../../../../_includes/storage/sa-acl-bucket-list-note.md) %}
 
 ## Запрос {#request}
 

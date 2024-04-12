@@ -5,6 +5,8 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Удаление всех объектов из бакета
 
+{% include [auto-delete-all-multipart](../../../_includes/storage/auto-delete-all-multipart.md) %}
+
 Чтобы очистить бакет и не [платить](../../pricing.md) за хранение:
 
 {% list tabs group=instructions %}

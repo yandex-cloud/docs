@@ -39,19 +39,21 @@ _Бакет_ — это выделенная часть хранилища {{ ob
 
 Для обращения к бакету вы можете использовать следующие формы URL:
 
-- `https://{{ s3-storage-host }}/<bucket>?<parameters>`
-- `http://<bucket>.{{ s3-storage-host }}?<parameters>`
+
+* `http(s)://{{ s3-storage-host }}/<имя_бакета>?<параметры>`
+* `http(s)://<имя_бакета>.{{ s3-storage-host }}?<параметры>`
+
 
 {% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
 
 
-
 ## Обращение к бакету по HTTPS {#bucket-https}
 
-{{ objstorage-name }} поддерживает безопасное подключение по протоколу [HTTPS](../../glossary/ssl-certificate.md). При обращении к бакетам используйте URL вида `https://{{ s3-storage-host }}/<bucket>?<parameters>`.
+{{ objstorage-name }} поддерживает безопасное подключение по протоколу [HTTPS](../../glossary/ssl-certificate.md).
 
 {% include [bucket-https](../../_includes/storage/bucket-https.md) %}
 
+О поддержке HTTPS при хостинге сайтов в {{ objstorage-name }} читайте в разделе [{#T}](./hosting.md).
 
 
 ## Настройки бакетов {#bucket-settings}

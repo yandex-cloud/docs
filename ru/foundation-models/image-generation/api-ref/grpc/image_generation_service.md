@@ -9,13 +9,13 @@ Service for obtaining images from input data.
 
 | Call | Description |
 | --- | --- |
-| [Generate](#Generate) | RPC method for obtaining image from inpt data. |
+| [Generate](#Generate) | A method for generating an image based on a textual description. |
 
 ## Calls ImageGenerationAsyncService {#calls}
 
 ## Generate {#Generate}
 
-RPC method for obtaining image from inpt data.
+A method for generating an image based on a textual description.
 
 **rpc Generate ([ImageGenerationRequest](#ImageGenerationRequest)) returns ([operation.Operation](#Operation))**
 
@@ -26,25 +26,25 @@ Response of Operation:<br>
 
 Field | Description
 --- | ---
-model_uri | **string**<br>The identifier of the model to be used for image generation. 
+model_uri | **string**<br>The [ID of the model](/docs/foundation-models/concepts/yandexart/models) to be used for image generation. 
 messages[] | **[Message](#Message)**<br>A list of messages representing the context for the image generation model. 
-generation_options | **[ImageGenerationOptions](#ImageGenerationOptions)**<br>Image generation options 
+generation_options | **[ImageGenerationOptions](#ImageGenerationOptions)**<br>Image generation options. 
 
 
 ### Message {#Message}
 
 Field | Description
 --- | ---
-text | **string**<br>text 
-weight | **double**<br>Message weight. Negative values for negative messages 
+text | **string**<br>Text describing the image. 
+weight | **double**<br>Message weight. Negative values indicate negative messages. 
 
 
 ### ImageGenerationOptions {#ImageGenerationOptions}
 
 Field | Description
 --- | ---
-mime_type | **string**<br>generated image format 
-seed | **int64**<br>Seed for image generation 
+mime_type | **string**<br>MIME type of generated image format. 
+seed | **int64**<br>Seed for image generation. 
 
 
 ### Operation {#Operation}
@@ -67,7 +67,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-image | **bytes**<br>Image serialized as bytes array 
-model_version | **string**<br>Model version (changes with model releases). 
+image | **bytes**<br>The image is serialized as an array of bytes encoded in base64. 
+model_version | **string**<br>The model version changes with each new releases. 
 
 

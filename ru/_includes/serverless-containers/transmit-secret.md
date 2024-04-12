@@ -64,6 +64,50 @@
       
       В контейнер можно передать несколько секретов. Для этого укажите параметр `--secret` необходимое количество раз.
 
+- {{ TF }} {#tf}
+
+    {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+    1. Откройте файл конфигурации {{ TF }} и добавьте к описанию функции блок `secrets`:
+
+        ```hcl
+        resource "yandex_serverless_container" "test-container" {
+          name               = "<имя_контейнера>"
+          memory             = <объем_памяти>
+          service_account_id = "<идентификатор_сервисного_аккаунта>"
+          secrets {
+            id                   = "<идентификатор_секрета>"
+            version_id           = "идентификатор_версии_секрета>"
+            key                  = "<ключ_секрета_1>"
+            environment_variable = "<имя_переменной_окружения_1>"
+          }
+          secrets {
+            id                   = "<идентификатор_секрета>"
+            version_id           = "<идентификатор_версии_секрета>"
+            key                  = "<ключ_секрета_2>"
+            environment_variable = "<имя_переменной_окружения_2>"
+          }
+          image {
+            url = "<URL_Docker-образа>"
+          }
+        }
+        ```
+
+        Где:
+          * `secrets` — блок с настройками секрета. Содержит параметры:
+            * `id` — идентификатор секрета. Обязательный параметр.
+            * `version_id` — идентификатор версии секрета. Обязательный параметр.
+            * `key` — ключ одной из пар ключ-значение в версии секрета, который будет храниться в переменной окружения. Обязательный параметр.
+            * `environment_variable` — имя переменной окружения, в которой будет храниться секрет. Обязательный параметр.
+        
+        Более подробную информацию о параметрах ресурса `yandex_serverless_container` см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
+ 
+    1. Примените изменения:
+
+        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+    Проверить изменение функции и ее настройки можно в [консоли управления]({{ link-console-main }}).
+
 - API {#api}
 
   Чтобы передать секрет {{ lockbox-name }} в контейнер, воспользуйтесь методом REST API [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/container_service.md#deployRevision).

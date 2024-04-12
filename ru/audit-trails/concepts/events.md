@@ -1,6 +1,5 @@
 # Справочник событий уровня конфигурации
 
-
 Значение поля `event_type` (_тип события_) аудитного лога уровня конфигурации определяется сервисом-источником события.
 
 Общий вид значения:
@@ -15,41 +14,42 @@
 * [{{ alb-name }}](#alb)
 * [{{ at-name }}](#audit-trails)
 * [{{ certificate-manager-name }}](#certificate-manager)
-* [{{ cloud-apps-name }}](#cloud-apps)
-* [{{ dns-name }}](#dns)
-* [{{ sf-name }}](#functions)
 * [{{ backup-name }}](#backup)
 * [{{ cdn-name }}](#cdn)
+* [{{ dns-name }}](#dns)
+* [{{ sf-name }}](#functions)
 * [{{ cloud-logging-name }}](#cloud-logging)
 * [{{ marketplace-name }}](#marketplace)
+* [{{ org-name }}](#organization)
+* [{{ cloud-apps-name }}](#cloud-apps)
 * [{{ compute-name }}](#compute)
 * [{{ container-registry-name }}](#container-registry)
 * [{{ dataproc-name }}](#dataproc)
-* [{{ data-transfer-name }}](#datatransfer)
 * [{{ ml-platform-name }}](#datasphere)
+* [{{ data-transfer-name }}](#datatransfer)
 * [{{ iam-name }}](#iam)
 * [{{ iot-name }}](#iot)
 * [{{ kms-name }}](#kms)
 * [{{ load-testing-name }}](#loadtesting)
 * [{{ lockbox-name }}](#lockbox)
-* [{{ mkf-short-name }}](#managed-service-for-kafka)
 * [{{ mch-short-name }}](#managed-service-for-clickhouse)
 * [{{ mgl-full-name }}](#managed-service-for-gitlab)
 * [{{ mgp-short-name }}](#managed-service-for-greenplum)
-* [{{ mmg-short-name }}](#managed-service-for-mongodb)
+* [{{ mkf-short-name }}](#managed-service-for-kafka)
 * [{{ managed-k8s-name }}](#managed-service-for-kubernetes)
+* [{{ mmg-short-name }}](#managed-service-for-mongodb)
 * [{{ mmy-short-name }}](#managed-service-for-mysql)
+* [{{ mos-short-name }}](#managed-service-for-opensearch)
 * [{{ mpg-short-name }}](#managed-service-for-postgresql)
 * [{{ mrd-short-name }}](#managed-service-for-redis)
-* [{{ mos-short-name }}](#managed-service-for-opensearch)
 * [{{ network-load-balancer-name }}](#network-load-balancer)
 * [{{ objstorage-name }}](#objstorage)
+* [{{ resmgr-name }}](#resmgr)
 * [{{ search-api-name }}](#searchapi)
 * [{{ serverless-containers-name }}](#serverless-containers)
-* [{{ org-name }}](#organization)
-* [{{ resmgr-name }}](#resmgr)
-* [{{ sws-name }}](#smartwebsecurity)
 * [{{ captcha-name }}](#smartcaptcha)
+* [{{ sws-name }}](#smartwebsecurity)
+* [{{ speechsense-name }}](#speechsense)
 * [{{ vpc-name }}](#vpc)
 * [{{ ydb-short-name }}](#ydb)
 * [{{ yq-short-name }}](#yq)
@@ -59,7 +59,6 @@
 Имя сервиса — `serverless.apigateway`.
 
 {% include [api-gw-events](../../_includes/audit-trails/events/api-gw-events.md) %}
-
 
 ## {{ alb-name }} {#alb}
 
@@ -79,12 +78,12 @@
 `UpdateTrail` | Изменение трейла
 `UpdateTrailAccessBindings` | Изменение привязок прав доступа для трейла
 
-## {{ sf-name }} {#functions}
 
-Имя сервиса — `serverless`.
+## {{ certificate-manager-name }} {#certificate-manager}
 
-{% include [functions-events](../../_includes/audit-trails/events/functions-events.md) %}
+Имя сервиса — `certificatemanager`.
 
+{% include [cm-events](../../_includes/audit-trails/events/cm-events.md) %}
 
 ## {{ backup-name }} {#backup}
 
@@ -99,11 +98,37 @@
 
 {% include [cdn-events](../../_includes/audit-trails/events/cdn-events.md) %}
 
-## {{ certificate-manager-name }} {#certificate-manager}
+## {{ dns-name }} {#dns}
 
-Имя сервиса — `certificatemanager`.
+Имя сервиса — `dns`.
 
-{% include [cm-events](../../_includes/audit-trails/events/cm-events.md) %}
+{% include [dns-events](../../_includes/audit-trails/events/dns-events.md) %}
+
+## {{ sf-name }} {#functions}
+
+Имя сервиса — `serverless`.
+
+{% include [functions-events](../../_includes/audit-trails/events/functions-events.md) %}
+
+
+## {{ cloud-logging-name }} {#cloud-logging}
+
+Имя сервиса — `logging`.
+
+{% include [logging-events](../../_includes/audit-trails/events/logging-events.md) %}
+
+
+## {{ marketplace-name }} {#marketplace}
+
+Имя сервиса — `marketplace.licensemanager`.
+
+{% include [marketplace-events](../../_includes/audit-trails/events/marketplace-events.md) %}
+
+## {{ org-name }} {#organization}
+
+Имя сервиса — `organizationmanager`.
+
+{% include [org-events](../../_includes/audit-trails/events/org-events.md) %}
 
 ## {{ cloud-apps-name }} {#cloud-apps}
 
@@ -116,25 +141,6 @@
 `SetApplicationAccessBindings` | Назначение привязок прав доступа для приложения
 `UpdateApplicationAccessBindings` | Изменение привязок прав доступа для приложения
 `UpdateCloudApplication` | Изменение приложения
-
-## {{ dns-name }} {#dns}
-
-Имя сервиса — `dns`.
-
-{% include [dns-events](../../_includes/audit-trails/events/dns-events.md) %}
-
-## {{ cloud-logging-name }} {#cloud-logging-name}
-
-Имя сервиса — `logging`.
-
-{% include [logging-events](../../_includes/audit-trails/events/logging-events.md) %}
-
-
-## {{ marketplace-name }} {#marketplace}
-
-Имя сервиса — `marketplace.licensemanager`.
-
-{% include [marketplace-events](../../_includes/audit-trails/events/marketplace-events.md) %}
 
 ## {{ compute-name }} {#compute}
 
@@ -196,17 +202,12 @@
 
 {% include [lockbox-events](../../_includes/audit-trails/events/lockbox-events.md) %}
 
-## {{ mkf-short-name }} {#managed-service-for-kafka}
-
-Имя сервиса — `mdb.kafka`
-
-{% include [managed-kafka-events](../../_includes/audit-trails/events/managed-kafka-events.md) %}
-
 ## {{ mch-short-name }} {#managed-service-for-clickhouse}
 
 Имя сервиса — `mdb.clickhouse`.
 
 {% include [mch-events](../../_includes/audit-trails/events/mch-events.md) %}
+
 
 
 ## {{ mgl-name }} {#managed-service-for-gitlab}
@@ -222,6 +223,18 @@
 
 {% include [mgp-events](../../_includes/audit-trails/events/managed-greenplum-events.md) %}
 
+## {{ mkf-short-name }} {#managed-service-for-kafka}
+
+Имя сервиса — `mdb.kafka`
+
+{% include [managed-kafka-events](../../_includes/audit-trails/events/managed-kafka-events.md) %}
+
+## {{ managed-k8s-name }} {#managed-service-for-kubernetes}
+
+Имя сервиса — `k8s`.
+
+{% include [managed-k8s-events](../../_includes/audit-trails/events/managed-k8s-events.md) %}
+
 
 ## {{ mmg-short-name }} {#managed-service-for-mongodb}
 
@@ -230,17 +243,17 @@
 {% include [mongodb-events](../../_includes/audit-trails/events/mongodb-events.md) %}
 
 
-## {{ managed-k8s-name }} {#managed-service-for-kubernetes}
-
-Имя сервиса — `k8s`.
-
-{% include [managed-k8s-events](../../_includes/audit-trails/events/managed-k8s-events.md) %}
-
 ## {{ mmy-short-name }} {#managed-service-for-mysql}
 
 Имя сервиса — `mdb.mysql`.
 
 {% include [mysql-events](../../_includes/audit-trails/events/mysql-events.md) %}
+
+## {{ mos-short-name }} {#managed-service-for-opensearch}
+
+Имя сервиса — `mdb.opensearch`.
+
+{% include [mos-events](../../_includes/audit-trails/events/mos-events.md) %}
 
 ## {{ mpg-short-name }} {#managed-service-for-postgresql}
 
@@ -254,13 +267,6 @@
 
 {% include [mrd-events](../../_includes/audit-trails/events/mrd-events.md) %}
 
-
-## {{ mos-short-name }} {#managed-service-for-opensearch}
-
-Имя сервиса — `mdb.opensearch`.
-
-{% include [mos-events](../../_includes/audit-trails/events/mos-events.md) %}
-
 ## {{ network-load-balancer-name }} {#network-load-balancer}
 
 Имя сервиса — `loadbalancer`.
@@ -272,6 +278,12 @@
 Имя сервиса — `storage`.
 
 {% include [storage-events](../../_includes/audit-trails/events/storage-events.md) %}
+
+## {{ resmgr-name }} {#resmgr}
+
+Имя сервиса — `resourcemanager`.
+
+{% include [resmgr-events](../../_includes/audit-trails/events/resmgr-events.md) %}
 
 ## {{ search-api-name }} {#searchapi}
 
@@ -285,17 +297,11 @@
 
 {% include [serverless-containers-events](../../_includes/audit-trails/events/serverless-containers-events.md) %}
 
-## {{ org-name }} {#organization}
+## {{ captcha-name }} {#smartcaptcha}
 
-Имя сервиса — `organizationmanager`.
+Имя сервиса — `smartcaptcha`.
 
-{% include [org-events](../../_includes/audit-trails/events/org-events.md) %}
-
-## {{ resmgr-name }} {#resmgr}
-
-Имя сервиса — `resourcemanager`.
-
-{% include [resmgr-events](../../_includes/audit-trails/events/resmgr-events.md) %}
+{% include [captcha-events](../../_includes/audit-trails/events/captcha-events.md) %}
 
 ## {{ sws-name }} {#smartwebsecurity}
 
@@ -303,17 +309,18 @@
 
 {% include [sws-events](../../_includes/audit-trails/events/sws-events.md) %}
 
-## {{ captcha-name }} {#smartcaptcha}
+## {{ speechsense-name }} {#speechsense}
 
-Имя сервиса — `smartcaptcha`.
+Имя сервиса — `speechsense`.
 
-{% include [captcha-events](../../_includes/audit-trails/events/captcha-events.md) %}
+{% include [org-events](../../_includes/audit-trails/events/speechsense-events.md) %}
 
 ## {{ vpc-name }} {#vpc}
 
 Имя сервиса — `network`.
 
 {% include [vpc-events](../../_includes/audit-trails/events/vpc-events.md) %}
+
 
 ## {{ ydb-short-name }} {#ydb}
 

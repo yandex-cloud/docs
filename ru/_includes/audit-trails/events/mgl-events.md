@@ -5,11 +5,14 @@
 `CreateInstance` | Создание инстанса
 `CreateInstanceBackup` | Создание резервной копии инстанса
 `DeleteInstance` | Удаление инстанса
+`FinishMigration` | Завершение процесса миграции инстанса в другую зону доступности
 `ReconfigureGitlab` | Изменение конфигурации {{ GL }}
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `ResizeInstance` | Изменение размера инстанса
+`RollbackMigration` | Отмена процесса миграции инстанса в другую зону доступности
 `ScheduleUpgrade` | Назначение времени обновления инстанса
 `StartInstance` | Запуск инстанса
+`StartMigration` | Запуск процесса миграции инстанса в другую зону доступности
 `StopInstance` | Остановка инстанса
 `UpdateInstance` | Изменение инстанса
 `UpdateOmniauthInstance` | Изменение настроек OmniAuth

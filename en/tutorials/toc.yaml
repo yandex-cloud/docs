@@ -202,6 +202,8 @@ items:
             href: web/virtual-hosting.md
           - name: Binding a domain name to a VM with a web server
             href: web/bind-domain-vm.md
+          - name: Creating a Python web application with Flask
+            href: web/flask.md
       - name: 1C
         items:
           - name: 1C-Bitrix online store
@@ -458,6 +460,10 @@ items:
         href: dataplatform/greenplum-to-postgresql.md
       - name: Exporting {{ GP }} data to a cold {{ objstorage-name }} storage
         href: dataplatform/greenplum-yezzey.md
+      - name: >-
+          Loading data from {{ objstorage-full-name }} to {{ mgp-full-name }}
+          using {{ data-transfer-full-name }}
+        href: dataplatform/object-storage-to-greenplum.md
       - name: >-
           Migrating databases from a third-party {{ RD }} cluster to {{ mrd-name
           }}

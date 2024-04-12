@@ -166,7 +166,7 @@ rpc for uploading text talk document
 Field | Description
 --- | ---
 metadata | **[TalkMetadata](#TalkMetadata)**<br> 
-text_content[] | **[TextContent](#TextContent)**<br> 
+text_content | **[TextContent](#TextContent)**<br> 
 
 
 ### TalkMetadata {#TalkMetadata2}

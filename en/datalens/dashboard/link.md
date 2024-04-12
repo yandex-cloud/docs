@@ -17,13 +17,10 @@ The field used by the selector to filter on must be included in the dataset used
 The link type determines how values in selectors and charts are filtered. The type is set in the links window in dashboard edit mode.
 You can use the following types of links for a widget pair:
 
-
-* **Link**: Widgets influence each other both ways.
-* **Incoming link**: Incoming influence.
-* **Outgoing link**: Outgoing influence.
-* **Ignore**: For widgets that mutually ignore each other.
-* **No link**: For widgets from different datasets or widgets that cannot be linked.
-
+* **Two-way**: Widgets influence each other both ways.
+* **Incoming**: Incoming influence.
+* **Outgoing**: Outgoing influence.
+* **Not linked**: Widgets are not linked and have no influence on each other.
 
 {% note warning %}
 
@@ -33,20 +30,22 @@ You cannot create a link with [{#T}](./widget.md#text) and [{#T}](./widget.md#ti
 
 Some widgets cannot influence other widgets. The table below shows possible types of links between widgets:
 
-
 | Affects/Affected | Selector | Charts |
 ----- | ----- | -----
-| **Selector** | Link<br/>Incoming link<br/>Outgoing link<br/>Ignore | Outgoing link<br/>Ignore |
-| **Chart** | Incoming link<br/>Ignore | — |
-
+| **Selector** | Two-way<br/>Incoming<br/>Outgoing<br/>Not linked | Outgoing<br/>Not linked |
+| **Chart** | Incoming<br/>Not linked | — |
 
 ## Alias {#alias}
 
 An alias is a link between fields of different datasets defining how widgets influence each other when linked.
 
+Aliases allow you to link widgets that are based on different datasets. For example, if you create an alias using the `[Region]` and `[Country]` fields from different datasets, a selector by the `[Region]` field from one dataset will filter data in a chart with the `[Country]` field of another dataset.
 
-Aliases allow you to link widgets that are based on different datasets. For example, if you create an alias using the `[Region]` and `[Country]` fields from different datasets, a selector by the `[Region]` field from one dataset will filter data in a chart with the `[Country]` field of another dataset. For widgets based on the same dataset, aliases are created automatically.
+{% note warning %}
 
+Please note that you cannot create aliases for fields from the same dataset or fields with the same IDs from different datasets.
+
+{% endnote %}
 
 Creating aliases is required when you need to:
 
@@ -61,7 +60,7 @@ You can specify an alias for a pair of linked widgets. In this case:
 * Multiple aliases can be set for a single pair of widgets.
 * An alias set for one pair of widgets is applied to all linked widgets that are based on the same datasets (which use the fields specified in the alias).
 * An alias works within a single dashboard tab.
-* To limit the use of aliases, set the **Ignore** link type between your widgets based on the selected field. In this case, the widgets will have no influence for the selected field within the dashboard tab.
+* To limit the use of aliases, set the link type between widgets to **Not linked** by the selected field. In this case, the widgets will have no influence for the selected field within the dashboard tab.
 
 {% note info %}
 

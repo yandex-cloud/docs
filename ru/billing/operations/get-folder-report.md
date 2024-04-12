@@ -27,20 +27,20 @@
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите аккаунт, для которого хотите получить детализацию.
-  1. На панели слева выберите **{{ ui-key.yacloud.billing.account.switch_exports }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
-  1. В открывшемся окне **{{ ui-key.yacloud.billing.account.exports.label_create-export-title }}** укажите:
-     * В поле **{{ ui-key.yacloud.billing.account.exports.field_bucket }}** имя бакета, где будет храниться CSV-файл с детализацией.
-     * В поле **{{ ui-key.yacloud.billing.account.exports.field_prefix }}** название папки для файла. Последний символ должен быть `/`.
+  1. На панели слева выберите **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.exports.button_create-periodic-export }}**.
+  1. В открывшемся окне **{{ ui-key.yacloud_billing.billing.account.exports.label_create-export-title }}** укажите:
+     * В поле **{{ ui-key.yacloud_billing.billing.account.exports.field_bucket }}** имя бакета, где будет храниться CSV-файл с детализацией.
+     * В поле **{{ ui-key.yacloud_billing.billing.account.exports.field_prefix }}** название папки для файла. Последний символ должен быть `/`.
      * Выберите язык, на котором будут отображаться названия продуктов – английский или русский.
-     * Выберите тип детализации – **{{ ui-key.yacloud.billing.account.exports.label_not-include-resources }}** или **{{ ui-key.yacloud.billing.account.exports.label_include-resources }}**.
+     * Выберите тип детализации – **{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}** или **{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}**.
      
          {% note tip %}
 
-         Выбирая тип **{{ ui-key.yacloud.billing.account.exports.label_include-resources }}** для регулярного экспорта детализации, вы сможете просматривать в [поле `resource_id`](#format), в том числе, и ресурсы сервисов {{ datalens-full-name }}, {{ tracker-full-name }} и {{ ml-platform-name }}, например [идентификаторы сообществ {{ ml-platform-name }}](../../datasphere/concepts/community.md).
+         Выбирая тип **{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}** для регулярного экспорта детализации, вы сможете просматривать в [поле `resource_id`](#format), в том числе, и ресурсы сервисов {{ datalens-full-name }}, {{ tracker-full-name }} и {{ ml-platform-name }}, например [идентификаторы сообществ {{ ml-platform-name }}](../../datasphere/concepts/community.md).
 
          {% endnote %}
-  1. Нажмите кнопку **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

@@ -43,12 +43,14 @@ Configure one of the supported data sources:
 * [{{ MY }}](../source/mysql.md).
 * [{{ CH }}](../source/clickhouse.md).
 * [{{ GP }}](../source/greenplum.md).
-* [{{ objstorage-full-name }}](../source/object-storage.md).
 * [{{ KF }}](../source/kafka.md).
 * [Airbyte](../../../transfer-matrix.md#airbyte).
 * [{{ metrika }}](../source/metrika.md).
 * [{{ DS }}](../source/data-streams.md).
+* [{{ objstorage-full-name }}](../source/object-storage.md).
 * [Oracle](../source/oracle.md).
+* [{{ ES }}](../source/elasticsearch.md).
+* [{{ OS }}](../source/opensearch.md).
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
 

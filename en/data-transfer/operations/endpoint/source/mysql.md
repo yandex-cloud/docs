@@ -181,6 +181,8 @@ For OnPremise, all fields are filled in manually.
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred. This option is specified using regular expressions.
 
+      Regular expressions for included and excluded tables must meet the ID naming rules in {{ MY }}. For more information, see the [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/identifiers.html). Escaping double quotes is not required.
+
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.object_transfer_settings.title }}**: Allows you to select the DB schema elements that will be transferred when activating or deactivating a transfer.
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.advanced_settings.title }}**:

@@ -40,7 +40,7 @@ pageToken | <p>Opaque value identifying the endpoints page to be fetched. Should
       "labels": "object",
       "settings": {
 
-        // `endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `ydsTarget`
+        // `endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`
         "mysqlSource": {
           "connection": {
 
@@ -708,6 +708,22 @@ pageToken | <p>Opaque value identifying the endpoints page to be fetched. Should
             "string"
           ]
         },
+        "metrikaSource": {
+          "counterIds": [
+            "string"
+          ],
+          "token": {
+            "raw": "string"
+          },
+          "streams": [
+            {
+              "type": "string",
+              "columns": [
+                "string"
+              ]
+            }
+          ]
+        },
         "ydsTarget": {
           "database": "string",
           "stream": "string",
@@ -754,7 +770,7 @@ endpoints[].<br>name | **string**
 endpoints[].<br>description | **string**
 endpoints[].<br>labels | **object**
 endpoints[].<br>settings | **object**
-endpoints[].<br>settings.<br>mysqlSource | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `ydsTarget`<br>
+endpoints[].<br>settings.<br>mysqlSource | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 endpoints[].<br>settings.<br>mysqlSource.<br>connection | **object**<br><p>Database connection settings</p> 
 endpoints[].<br>settings.<br>mysqlSource.<br>connection.<br>mdbClusterId | **string** <br>`endpoints[].settings.mysqlSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed Service for MySQL cluster ID</p> 
 endpoints[].<br>settings.<br>mysqlSource.<br>connection.<br>onPremise | **object**<br>Connection options for on-premise MySQL <br>`endpoints[].settings.mysqlSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br>
@@ -780,7 +796,7 @@ endpoints[].<br>settings.<br>mysqlSource.<br>includeTablesRegex[] | **string**
 endpoints[].<br>settings.<br>mysqlSource.<br>excludeTablesRegex[] | **string**
 endpoints[].<br>settings.<br>mysqlSource.<br>securityGroups[] | **string**<br><p>Security groups</p> 
 endpoints[].<br>settings.<br>mysqlSource.<br>serviceDatabase | **string**<br><p>Database for service tables</p> <p>Default: data source database. Here created technical tables (__tm_keeper, __tm_gtid_keeper).</p> 
-endpoints[].<br>settings.<br>postgresSource | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `ydsTarget`<br>
+endpoints[].<br>settings.<br>postgresSource | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 endpoints[].<br>settings.<br>postgresSource.<br>connection | **object**<br><p>Database connection settings</p> 
 endpoints[].<br>settings.<br>postgresSource.<br>connection.<br>mdbClusterId | **string** <br>`endpoints[].settings.postgresSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed Service for PostgreSQL cluster ID</p> 
 endpoints[].<br>settings.<br>postgresSource.<br>connection.<br>onPremise | **object**<br>Connection options for on-premise PostgreSQL <br>`endpoints[].settings.postgresSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br>
@@ -820,7 +836,7 @@ endpoints[].<br>settings.<br>postgresSource.<br>objectTransferSettings.<br>cast 
 endpoints[].<br>settings.<br>postgresSource.<br>objectTransferSettings.<br>materializedView | **string**<br><p>Materialized views</p> <p>CREATE MATERIALIZED VIEW ...</p> <ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
 endpoints[].<br>settings.<br>postgresSource.<br>objectTransferSettings.<br>sequenceSet | **string**<br><ul> <li>BEFORE_DATA: Before data transfer</li> <li>AFTER_DATA: After data transfer</li> <li>NEVER: Don't copy</li> </ul> 
 endpoints[].<br>settings.<br>postgresSource.<br>securityGroups[] | **string**<br><p>Security groups</p> 
-endpoints[].<br>settings.<br>ydbSource | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `ydsTarget`<br>
+endpoints[].<br>settings.<br>ydbSource | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 endpoints[].<br>settings.<br>ydbSource.<br>database | **string**<br><p>Path in YDB where to store tables</p> 
 endpoints[].<br>settings.<br>ydbSource.<br>instance | **string**<br><p>Instance of YDB. example: ydb-ru-prestable.yandex.net:2135</p> 
 endpoints[].<br>settings.<br>ydbSource.<br>paths[] | **string**
@@ -829,7 +845,7 @@ endpoints[].<br>settings.<br>ydbSource.<br>subnetId | **string**<br><p>Network i
 endpoints[].<br>settings.<br>ydbSource.<br>saKeyContent | **string**<br><p>Authorization Key</p> 
 endpoints[].<br>settings.<br>ydbSource.<br>securityGroups[] | **string**<br><p>Security groups</p> 
 endpoints[].<br>settings.<br>ydbSource.<br>changefeedCustomName | **string**<br><p>Pre-created change feed</p> 
-endpoints[].<br>settings.<br>ydsSource | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `ydsTarget`<br>
+endpoints[].<br>settings.<br>ydsSource | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 endpoints[].<br>settings.<br>ydsSource.<br>database | **string**<br><p>Database</p> 
 endpoints[].<br>settings.<br>ydsSource.<br>stream | **string**<br><p>Stream</p> 
 endpoints[].<br>settings.<br>ydsSource.<br>serviceAccountId | **string**<br><p>SA which has read access to the stream.</p> 
@@ -868,7 +884,7 @@ endpoints[].<br>settings.<br>ydsSource.<br>endpoint | **string**<br><p>for dedic
 endpoints[].<br>settings.<br>ydsSource.<br>subnetId | **string**<br><p>Network interface for endpoint. If none will assume public ipv4</p> 
 endpoints[].<br>settings.<br>ydsSource.<br>securityGroups[] | **string**<br><p>Security groups</p> 
 endpoints[].<br>settings.<br>ydsSource.<br>consumer | **string**<br><p>for important streams</p> 
-endpoints[].<br>settings.<br>kafkaSource | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `ydsTarget`<br>
+endpoints[].<br>settings.<br>kafkaSource | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 endpoints[].<br>settings.<br>kafkaSource.<br>connection | **object**<br><p>Connection settings</p> 
 endpoints[].<br>settings.<br>kafkaSource.<br>connection.<br>clusterId | **string** <br>`endpoints[].settings.kafkaSource.connection` includes only one of the fields `clusterId`, `onPremise`<br><br><p>Managed Service for Kafka cluster ID</p> 
 endpoints[].<br>settings.<br>kafkaSource.<br>connection.<br>onPremise | **object**<br>Connection options for on-premise Kafka <br>`endpoints[].settings.kafkaSource.connection` includes only one of the fields `clusterId`, `onPremise`<br>
@@ -925,7 +941,7 @@ endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>nullKeysA
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>addRestColumn | **boolean** (boolean)<br><p>Will add _rest column for all unknown fields</p> 
 endpoints[].<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>unescapeStringValues | **boolean** (boolean)<br><p>Unescape string values</p> 
 endpoints[].<br>settings.<br>kafkaSource.<br>topicNames[] | **string**<br><p>List of topic names to read</p> 
-endpoints[].<br>settings.<br>mongoSource | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `ydsTarget`<br>
+endpoints[].<br>settings.<br>mongoSource | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 endpoints[].<br>settings.<br>mongoSource.<br>connection | **object**
 endpoints[].<br>settings.<br>mongoSource.<br>connection.<br>connectionOptions | **object**
 endpoints[].<br>settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>user | **string**<br><p>User name</p> 
@@ -951,7 +967,7 @@ endpoints[].<br>settings.<br>mongoSource.<br>excludedCollections[].<br>databaseN
 endpoints[].<br>settings.<br>mongoSource.<br>excludedCollections[].<br>collectionName | **string**
 endpoints[].<br>settings.<br>mongoSource.<br>secondaryPreferredMode | **boolean** (boolean)<br><p>Read mode for mongo client</p> 
 endpoints[].<br>settings.<br>mongoSource.<br>securityGroups[] | **string**<br><p>Security groups</p> 
-endpoints[].<br>settings.<br>clickhouseSource | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `ydsTarget`<br>
+endpoints[].<br>settings.<br>clickhouseSource | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 endpoints[].<br>settings.<br>clickhouseSource.<br>connection | **object**
 endpoints[].<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions | **object**
 endpoints[].<br>settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>user | **string**
@@ -974,7 +990,7 @@ endpoints[].<br>settings.<br>clickhouseSource.<br>includeTables[] | **string**<b
 endpoints[].<br>settings.<br>clickhouseSource.<br>excludeTables[] | **string**<br><p>Exclude list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns.</p> 
 endpoints[].<br>settings.<br>clickhouseSource.<br>subnetId | **string**
 endpoints[].<br>settings.<br>clickhouseSource.<br>securityGroups[] | **string**
-endpoints[].<br>settings.<br>mysqlTarget | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `ydsTarget`<br>
+endpoints[].<br>settings.<br>mysqlTarget | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 endpoints[].<br>settings.<br>mysqlTarget.<br>connection | **object**<br><p>Database connection settings</p> 
 endpoints[].<br>settings.<br>mysqlTarget.<br>connection.<br>mdbClusterId | **string** <br>`endpoints[].settings.mysqlTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed Service for MySQL cluster ID</p> 
 endpoints[].<br>settings.<br>mysqlTarget.<br>connection.<br>onPremise | **object**<br>Connection options for on-premise MySQL <br>`endpoints[].settings.mysqlTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br>
@@ -996,7 +1012,7 @@ endpoints[].<br>settings.<br>mysqlTarget.<br>timezone | **string**<br><p>Databas
 endpoints[].<br>settings.<br>mysqlTarget.<br>cleanupPolicy | **string**<br><p>Cleanup policy</p> <p>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED.</p> <ul> <li>DISABLED: Don't cleanup</li> <li>DROP: Drop</li> <li>TRUNCATE: Truncate</li> </ul> 
 endpoints[].<br>settings.<br>mysqlTarget.<br>serviceDatabase | **string**<br><p>Database schema for service table</p> <p>Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper).</p> 
 endpoints[].<br>settings.<br>mysqlTarget.<br>securityGroups[] | **string**<br><p>Security groups</p> 
-endpoints[].<br>settings.<br>postgresTarget | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `ydsTarget`<br>
+endpoints[].<br>settings.<br>postgresTarget | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 endpoints[].<br>settings.<br>postgresTarget.<br>connection | **object**<br><p>Database connection settings</p> 
 endpoints[].<br>settings.<br>postgresTarget.<br>connection.<br>mdbClusterId | **string** <br>`endpoints[].settings.postgresTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed Service for PostgreSQL cluster ID</p> 
 endpoints[].<br>settings.<br>postgresTarget.<br>connection.<br>onPremise | **object**<br>Connection options for on-premise PostgreSQL <br>`endpoints[].settings.postgresTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br>
@@ -1014,7 +1030,7 @@ endpoints[].<br>settings.<br>postgresTarget.<br>password | **object**<br><p>Pass
 endpoints[].<br>settings.<br>postgresTarget.<br>password.<br>raw | **string**<br><p>Raw secret value</p> 
 endpoints[].<br>settings.<br>postgresTarget.<br>cleanupPolicy | **string**<br><p>Cleanup policy for activate, reactivate and reupload processes. Default is truncate.</p> <ul> <li>DISABLED: Don't cleanup</li> <li>DROP: Drop</li> <li>TRUNCATE: Truncate</li> </ul> 
 endpoints[].<br>settings.<br>postgresTarget.<br>securityGroups[] | **string**<br><p>Security groups</p> 
-endpoints[].<br>settings.<br>clickhouseTarget | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `ydsTarget`<br>
+endpoints[].<br>settings.<br>clickhouseTarget | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 endpoints[].<br>settings.<br>clickhouseTarget.<br>connection | **object**
 endpoints[].<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions | **object**
 endpoints[].<br>settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>user | **string**
@@ -1053,7 +1069,7 @@ endpoints[].<br>settings.<br>clickhouseTarget.<br>sharding.<br>roundRobin | **ob
 endpoints[].<br>settings.<br>clickhouseTarget.<br>sharding.<br>roundRobin.<br>roundRobin | **object** <br>`endpoints[].settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
 endpoints[].<br>settings.<br>clickhouseTarget.<br>clickhouseClusterName | **string**
 endpoints[].<br>settings.<br>clickhouseTarget.<br>securityGroups[] | **string**
-endpoints[].<br>settings.<br>ydbTarget | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `ydsTarget`<br>
+endpoints[].<br>settings.<br>ydbTarget | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 endpoints[].<br>settings.<br>ydbTarget.<br>database | **string**<br><p>Path in YDB where to store tables</p> 
 endpoints[].<br>settings.<br>ydbTarget.<br>instance | **string**<br><p>Instance of YDB. example: ydb-ru-prestable.yandex.net:2135</p> 
 endpoints[].<br>settings.<br>ydbTarget.<br>path | **string**<br><p>Path extension for database, each table will be layouted into this path</p> 
@@ -1064,7 +1080,7 @@ endpoints[].<br>settings.<br>ydbTarget.<br>saKeyContent | **string**<br><p>SA co
 endpoints[].<br>settings.<br>ydbTarget.<br>securityGroups[] | **string**<br><p>Security groups</p> 
 endpoints[].<br>settings.<br>ydbTarget.<br>isTableColumnOriented | **boolean** (boolean)<br><p>Should create column-oriented table (OLAP). By default it creates row-oriented (OLTP)</p> 
 endpoints[].<br>settings.<br>ydbTarget.<br>defaultCompression | **string**<br><p>Compression that will be used for default columns family on YDB table creation</p> 
-endpoints[].<br>settings.<br>kafkaTarget | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `ydsTarget`<br>
+endpoints[].<br>settings.<br>kafkaTarget | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 endpoints[].<br>settings.<br>kafkaTarget.<br>connection | **object**<br><p>Connection settings</p> 
 endpoints[].<br>settings.<br>kafkaTarget.<br>connection.<br>clusterId | **string** <br>`endpoints[].settings.kafkaTarget.connection` includes only one of the fields `clusterId`, `onPremise`<br><br><p>Managed Service for Kafka cluster ID</p> 
 endpoints[].<br>settings.<br>kafkaTarget.<br>connection.<br>onPremise | **object**<br>Connection options for on-premise Kafka <br>`endpoints[].settings.kafkaTarget.connection` includes only one of the fields `clusterId`, `onPremise`<br>
@@ -1095,7 +1111,7 @@ endpoints[].<br>settings.<br>kafkaTarget.<br>serializer.<br>serializerDebezium |
 endpoints[].<br>settings.<br>kafkaTarget.<br>serializer.<br>serializerDebezium.<br>serializerParameters[] | **object**<br><p>Settings of sterilization parameters as key-value pairs</p> 
 endpoints[].<br>settings.<br>kafkaTarget.<br>serializer.<br>serializerDebezium.<br>serializerParameters[].<br>key | **string**<br><p>Name of the serializer parameter</p> 
 endpoints[].<br>settings.<br>kafkaTarget.<br>serializer.<br>serializerDebezium.<br>serializerParameters[].<br>value | **string**<br><p>Value of the serializer parameter</p> 
-endpoints[].<br>settings.<br>mongoTarget | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `ydsTarget`<br>
+endpoints[].<br>settings.<br>mongoTarget | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 endpoints[].<br>settings.<br>mongoTarget.<br>connection | **object**
 endpoints[].<br>settings.<br>mongoTarget.<br>connection.<br>connectionOptions | **object**
 endpoints[].<br>settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>user | **string**<br><p>User name</p> 
@@ -1116,7 +1132,14 @@ endpoints[].<br>settings.<br>mongoTarget.<br>database | **string**<br><p>Databas
 endpoints[].<br>settings.<br>mongoTarget.<br>cleanupPolicy | **string**<br><ul> <li>DISABLED: Don't cleanup</li> <li>DROP: Drop</li> <li>TRUNCATE: Truncate</li> </ul> 
 endpoints[].<br>settings.<br>mongoTarget.<br>subnetId | **string**
 endpoints[].<br>settings.<br>mongoTarget.<br>securityGroups[] | **string**<br><p>Security groups</p> 
-endpoints[].<br>settings.<br>ydsTarget | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `ydsTarget`<br>
+endpoints[].<br>settings.<br>metrikaSource | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
+endpoints[].<br>settings.<br>metrikaSource.<br>counterIds[] | **string** (int64)
+endpoints[].<br>settings.<br>metrikaSource.<br>token | **object**
+endpoints[].<br>settings.<br>metrikaSource.<br>token.<br>raw | **string**<br><p>Raw secret value</p> 
+endpoints[].<br>settings.<br>metrikaSource.<br>streams[] | **object**
+endpoints[].<br>settings.<br>metrikaSource.<br>streams[].<br>type | **string**
+endpoints[].<br>settings.<br>metrikaSource.<br>streams[].<br>columns[] | **string**
+endpoints[].<br>settings.<br>ydsTarget | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`<br>
 endpoints[].<br>settings.<br>ydsTarget.<br>database | **string**<br><p>Database</p> 
 endpoints[].<br>settings.<br>ydsTarget.<br>stream | **string**<br><p>Stream</p> 
 endpoints[].<br>settings.<br>ydsTarget.<br>serviceAccountId | **string**<br><p>SA which has read access to the stream.</p> 

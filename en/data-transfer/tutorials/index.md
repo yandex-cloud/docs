@@ -77,6 +77,7 @@ Loading data to data marts is a process of transferring prepared data to storage
 * [{{ GP }} to {{ PG }}](greenplum-to-postgresql.md)
 * [{{ yandex-direct }} to {{ CH }}](direct-to-mch.md)
 * [{{ objstorage-name }} to {{ PG }}](object-storage-to-postgresql.md)
+* [{{ objstorage-name }} to {{ GP }}](object-storage-to-greenplum.md)
 * [{{ objstorage-name }} to {{ MY }}](objs-mmy-migration.md)
 * [{{ objstorage-name }} to {{ CH }}](object-storage-to-clickhouse.md)
 * [{{ objstorage-name }} to {{ ydb-short-name }}](object-storage-to-ydb.md)

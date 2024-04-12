@@ -28,8 +28,8 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите платежный аккаунт.
-  1. Нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
-  1. Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
+  1. В открывшемся окне введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
   1. Введите данные карты и нажмите кнопку **Оплатить**.
 
 {% endlist %}
@@ -52,14 +52,14 @@ description: "Следуя данной инструкции, вы сможет�
 
 1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 1. Выберите платежный аккаунт.
-1. Нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Эта кнопка доступна только после [перехода на платное потребление](activate-commercial.md).
 1. Выберите способ оплаты:
 
   {% list tabs group=payments %}
 
    - Банковский перевод {#transfer}
 
-     Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
+     Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
 
      Система сформирует счет для оплаты. Распечатайте счет и используйте его для оплаты в отделении банка или через систему клиент-банк.
 
@@ -76,7 +76,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   - Банковская карта {#card}
 
-    Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**. Затем введите данные карты и нажмите кнопку **Оплатить**.
+    Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Затем введите данные карты и нажмите кнопку **Оплатить**.
 
     {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
