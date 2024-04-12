@@ -76,6 +76,12 @@
        sudo mkinitrd -f --with=virtio_blk --with=virtio_net --with=virtio_pci --with=virtiofs /boot/initramfs-$(uname -r).img $(uname -r)
        ```
 
+     * Если появилась ошибка `Command 'mkinitrd' not found`, то драйверы нужно установить при помощи утилиты `dracut`:
+
+       ```sh
+       sudo dracut --force --add-drivers "virtio_blk virtio_net virtio_pci virtiofs" /boot/initramfs-$(uname -r).img $(uname -r)
+       ```
+
        После этого перезапустите ОС и проверьте, что драйверы появились в файле `initramfs` и загрузились:
 
        ```sh
