@@ -3465,18 +3465,141 @@ default:
     yacloud_billing:
       billing:
         account:
+          acts_batch-download-text_pdf: Скачать документы (PDF)
+          acts_batch-download-text_zip: Скачать документы (ZIP)
+          bind-cloud:
+            button_bind: Привязать
+          budgets:
+            button_create: Создать бюджет
+            label_amount: Сумма
+            label_budgets: Бюджеты
+            label_expire: Дата окончания
+            label_limits: Пороги
+            label_notify: Уведомить
+            label_reset-period: Период расчета
+            label_type: Тип бюджета
+            label_type-balance: Остаток средств
+            label_type-cost: Стоимость потребления
+            label_type-expense: К оплате
+            reset-period_value_custom: Настраиваемый
+            reset-period_value_monthly: Месячный
+            section_scope: Область действия
+          button_billing-payment-action: Перейти на платную версию
+          button_download-action: Скачать
+          create-new:
+            account-type_label_company: Бизнес-аккаунт
+            account-type_label_individual: Личный аккаунт
+            label_title: Создание платежного аккаунта
+            payment-type_label_card: Банковская карта
+            payment-type_label_invoice: Банковский перевод
+            section_persons: Плательщики
+          dashboard-grants:
+            button_activate-grant: Активировать промокод
+            section_grants: Гранты
+          dashboard-info:
+            company_label_edit_ru: Редактировать данные в Яндекс Балансе
+          dashboard-overview:
+            button_refill: Пополнить баланс
+            popup-refill_button_company-action: Выписать счет
+            popup-refill_button_individual-action: Пополнить баланс
           dashboard-resources:
+            button_action-rename-account: Переименовать
+            button_bind-cloud: Привязать облако
+            title_clouds: Облака
             title_section-billable: Привязанные облака и сервисы
           dashboard:
             button_go-pay: Перейти на платную версию
+            button_refill: Пополнить счет
             card_label_threshold-description: Подробнее
             label_inactivation: Удалить
             label_rename: Переименовать
             popup-go-pay_button_cancel: Отменить
+            popup-grant-activation_button_activate: Активировать
+          detail:
+            button_create-periodic-export: Регулярный экспорт
+            button_export: Экспорт детализации
+            button_move-to-datalens: Подробная детализация в DataLens
+            column_cloud-name: Облако
+            column_cost: Стоимость потребления
+            column_credit: Скидка
+            column_expense: К оплате
+            column_product: Продукт
+            column_service: Сервис
+            column_unit: Ед. потребления
+            filter_label_all-filters: Фильтры
+            label_from: От
+            label_product: Продукты
+            label_service: Сервисы
+            label_to: До
+            label_top-cost: Стоимость потребления
+            label_top-total: К оплате
+            tab_product: По продуктам
+            value_cost: Потребление
+            value_folders: Каталогам
+          exports:
+            button_create-periodic-export: Создать регулярный экспорт
+            button_open-yandex-query: Обработать в YQ
+            field_bucket: Бакет
+            field_detail-type: Детализация
+            field_locale: Язык
+            field_prefix: Папка
+            label_create-export-title: Создание регулярного экспорта
+            label_include-resources: Поресурсная
+            label_not-include-resources: Общая
+            locale_value_en-lang: English
+            locale_value_ru-lang: Русский
+          history:
+            column_date: Дата платежа
+            column_description: Описание
+            column_money: Сумма платежа
+            column_status: Статус
+          label_consumption: Потребление
           overview:
             account-data_label_organization: Организация
+            button_bind-card-apply: Применить
+            card_label_edit: Изменить банковскую карту
+            company_label_rs: Расчетный счет
+            payment-type_label_card: Банковская карта
+            payment-type_label_invoice: Банковский перевод
             section_account-data: Общие сведения
+            section_card: Банковская карта
+            usage-type_label_paid: Платная версия
+          reconciliation-reports:
+            action_download-with-facsimile: Скачать подписанный акт
+            action_download-without-facsimile: Скачать акт без подписи
+            action_request-report: Заказать акт сверки
+            action_request-report-short: Заказать
+            field_actions: Действия
+            value_completed: Готово
+          switch_acts: Отчётные документы
+          switch_budgets: Бюджеты
+          switch_dashboard: Обзор
+          switch_detail: Детализация
+          switch_expences: История расходов
+          switch_exports: Экспорт детализации
+          switch_history: История платежей
+          switch_offers: Резервы
           switch_overview: Данные аккаунта
+          switch_users: Управление доступом
+          tab_acts-title: Закрывающие документы
+          tab_reconciliation-reports-title: Акты сверки
+          user-dialog:
+            button_submit: Добавить
+          users:
+            button_add: Добавить пользователя
+            button_remove-user: Удалить пользователя
+            button_tune-role: Настроить роли
+            popup-tune-role_add-button: Назначить роль
+        accounts:
+          column_cloud: Облака
+          label_title: Список аккаунтов
+          main-banner_button_create: Создать платёжный аккаунт
+        cud:
+          purchase:
+            button_purchase: Зарезервировать потребление
+        label_service: Yandex Cloud Billing
+        switch_accounts: Список аккаунтов
+        title_accounts: Платёжные аккаунты
     yacloud_components:
       acl:
         action:

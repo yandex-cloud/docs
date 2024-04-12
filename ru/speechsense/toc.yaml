@@ -72,7 +72,13 @@ items:
       - name: Теги в диалогах
         href: concepts/tags.md
       - name: Отчеты
-        href: concepts/reports.md
+        items:
+          - name: Обзор
+            href: concepts/reports/index.md
+          - name: Форма оценки
+            href: concepts/reports/evaluation-form.md
+          - name: Детализация
+            href: concepts/reports/details.md
       - name: Поддерживаемые форматы аудио
         href: concepts/formats.md
   - name: Справочник API
@@ -85,6 +91,8 @@ items:
             href: api-ref/grpc/index.md
           - name: TalkService
             href: api-ref/grpc/talk_service.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

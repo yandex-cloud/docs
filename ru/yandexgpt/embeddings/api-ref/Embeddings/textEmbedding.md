@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/ai/foundation_models/v1/embedding/embeddings/api-ref/Emb
 ---
 
 # Foundation Models Embedding API, REST: Embeddings.textEmbedding
-RPC method for obtaining embeddings from text data.
+A method for obtaining embeddings from text data.
  
 
  
@@ -25,7 +25,7 @@ Request for the service to obtain text embeddings.
  
 Field | Description
 --- | ---
-modelUri | **string**<br><p>The identifier of the model to be used for obtaining text embeddings.</p> 
+modelUri | **string**<br><p>The <a href="/docs/foundation-models/concepts/embeddings">ID of the model</a> to be used for obtaining text embeddings.</p> 
 text | **string**<br><p>The input text for which the embedding is requested.</p> 
  
 ## Response {#responses}
@@ -46,4 +46,4 @@ Field | Description
 --- | ---
 embedding[] | **number** (double)<br><p>A repeated list of double values representing the embedding.</p> 
 numTokens | **string** (int64)<br><p>The number of tokens in the input text.</p> 
-modelVersion | **string**<br><p>Model version (changes with model releases).</p> 
+modelVersion | **string**<br><p>The model version changes with each new releases.</p> 

@@ -186,6 +186,8 @@ Connecting to the database with explicitly specified network addresses and ports
    * `<schema_name>.*`: All tables in the specified schema.
    * `<table_name>`: Table in the default schema.
 
+   Included and excluded table names must meet the ID naming rules in {{ CH }}. For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/syntax#syntax-identifiers). Escaping double quotes is not required.
+
    Leave the lists empty to transfer all the tables.
 
 - {{ TF }} {#tf}

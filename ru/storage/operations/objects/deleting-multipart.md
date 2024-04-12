@@ -2,7 +2,9 @@
 
 Объект может быть загружен не полностью при использовании [составной загрузки](../../concepts/multipart.md).
 
-Чтобы удалить частично загруженный объект:
+{% include [auto-delete-all-multipart](../../../_includes/storage/auto-delete-all-multipart.md) %}
+
+Чтобы удалить частично загруженный объект вручную:
 
 {% list tabs group=instructions %}
 
@@ -44,3 +46,4 @@
   Воспользуйтесь методом S3 API [abortUpload](../../s3/api-ref/multipart/abortupload.md).
 
 {% endlist %}
+

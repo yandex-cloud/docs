@@ -9,4 +9,4 @@ Service for text generation.
 ## Methods {#methods}
 Method | Description
 --- | ---
-[completion](completion.md) | RPC method for generating text completions.
+[completion](completion.md) | A method for generating text completions in [synchronous mode](/docs/foundation-models/concepts/#working-mode).

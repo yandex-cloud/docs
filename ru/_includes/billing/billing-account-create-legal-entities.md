@@ -4,7 +4,7 @@
 
 1. Войдите в свой Яндекс ID или аккаунт в Яндекс 360. Если у вас еще нет аккаунта, [зарегистрируйтесь](https://yandex.ru/support/id/authorization/registration.html) и в сервисе [{{org-full-name}}]({{link-org-main}}) создайте [организацию](../../organization/quickstart.md), в которой вы будете работать. Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
 
-1. На странице **{{ ui-key.yacloud.billing.label_accounts }}** нажмите кнопку **Создать платёжный аккаунт**. Заполните данные:
+1. На странице **{{ ui-key.yacloud_billing.billing.title_accounts }}** нажмите кнопку **Создать платёжный аккаунт**. Заполните данные:
    
    * {% include [choose-name-step](../../billing/_includes/choose-name-step.md) %}
    * {% include [choose-org-step](../../billing/_includes/choose-org-step.md) %}
@@ -16,11 +16,11 @@
 
 1. Выберите тип плательщика: **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.person-type-company }}**.
 
-1. Выберите способ оплаты **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_card }}** или **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_invoice }}**. В любой момент после создания платежного аккаунта вы можете [изменить способ оплаты](../../billing/operations/change-payment-method.md).
+1. Выберите способ оплаты **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_card }}** или **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}**. В любой момент после создания платежного аккаунта вы можете [изменить способ оплаты](../../billing/operations/change-payment-method.md).
 
 1. Нажмите кнопку **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**
 
-1. Если вы выбрали способ оплаты **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_card }}**:
+1. Если вы выбрали способ оплаты **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_card }}**:
    
    1. Укажите юридическую информацию о вашей организации и ваши контактные данные.
    
@@ -40,7 +40,7 @@
    
    1. Укажите актуальные почту и телефон. Контактные данные нужны не только для связи с вами, но и для выставления счетов и финансовых документов. Если вы уже зарегистрированы в {{ yandex-cloud }}, проверьте правильность контактных данных.
 
-1. Если вы выбрали способ оплаты **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_invoice }}**:
+1. Если вы выбрали способ оплаты **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}**:
    
    1. Укажите юридическую информацию о вашей организации и ваши контактные данные.
    
@@ -48,9 +48,9 @@
 
 1. Если это ваш первый платежный аккаунт в {{ yandex-cloud }}, вам доступно подключение [пробного периода](../../billing/concepts/trial-period.md). После его завершения доступ к вашим ресурсам будет приостановлен. Для возобновления работы потребуется перейти на [платную версию](../../billing/operations/activate-commercial.md).
 
-1. Нажмите кнопку **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-   Если вы выбрали способ оплаты **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_invoice }}** или если плательщик — нерезидент РФ и РК, вы получите письмо с описанием дальнейших действий на почту, указанную в аккаунте Яндекса или Яндекс 360. Активация платежного аккаунта может занять до трех рабочих дней.
+   Если вы выбрали способ оплаты **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}** или если плательщик — нерезидент РФ и РК, вы получите письмо с описанием дальнейших действий на почту, указанную в аккаунте Яндекса или Яндекс 360. Активация платежного аккаунта может занять до трех рабочих дней.
 
    
    {% include [offices-and-foreign-companies](offices-and-foreign-companies.md) %}

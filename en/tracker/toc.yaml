@@ -309,13 +309,31 @@ items:
         items:
           - name: Overview
             href: user/dashboard.md
-          - name: How to create a dashboard
+          - name: Creating a dashboard
             href: user/create-dashboard.md
           - name: Widgets
-            href: user/widgets.md
+            items:
+              - name: Overview
+                href: user/widgets.md
+              - name: Issues
+                href: user/tasks.md
+              - name: Note
+                href: user/note.md
+              - name: Pivot table
+                href: user/summary-table.md
+              - name: Pivot table with totaled values
+                href: user/summary-table-with-totals.md
+              - name: Events
+                href: user/events.md
+              - name: Issue statistics
+                href: user/issues-stat.md
+              - name: Created/Resolved chart
+                href: user/created-and-resolved.md
+              - name: Cycle time
+                href: user/cycle-time.md
           - name: Editing a dashboard
             href: user/edit-dashboard.md
-          - name: How to copy a dashboard
+          - name: Copying a dashboard
             href: user/copy-dashboard.md
           - name: How to copy a widget
             href: user/copy-widget.md

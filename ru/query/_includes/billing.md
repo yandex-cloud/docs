@@ -21,7 +21,7 @@
 Для настройки интеграции выполните следующие действия:
 
 1. Перейдите к списку выгрузок детализации расходов в консоли {{ yandex-cloud }}.
-1. Выберите необходимую детализацию и нажмите кнопку **{{ ui-key.yacloud.billing.account.exports.button_open-yandex-query }}**.
+1. Выберите необходимую детализацию и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.exports.button_open-yandex-query }}**.
 1. При первом переходе из сервиса {{ billing-name }} в {{ yq-full-name }} необходимо выполнить настройку интеграции:
    1. В интерфейсе {{ yq-name }} в диалоге создания соединения выберите сервисный аккаунт, от имени которого будет выполняться чтение данных из {{ objstorage-name }}, и нажмите кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
    1. В интерфейсе {{ yq-name }} в диалоге создания привязки к данным проверить предустановленные параметры, нажав кнопку **{{ ui-key.yql.yq-binding-form.binding-preview.button-text }}**, после чего завершить интеграцию, нажав кнопку **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**.

@@ -15,8 +15,8 @@
   
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите платежный аккаунт.
-  1. На странице ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.billing.account.switch_overview }}** нажмите кнопку **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}**.
-  1. Подтвердите переход, для этого еще раз нажмите кнопку **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}**.
+  1. На странице ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}**.
+  1. Подтвердите переход, для этого еще раз нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}**.
 
 {% endlist %}
 

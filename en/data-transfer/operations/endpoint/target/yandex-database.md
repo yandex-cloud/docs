@@ -35,12 +35,14 @@ For a detailed description of possible {{ data-transfer-full-name }} data transf
 
 Configure one of the supported data sources:
 
-* [{{ PG }}](../source/postgresql.md).
 * [{{ MY }}](../source/mysql.md).
 * [{{ KF }}](../source/kafka.md).
 * [Airbyte](../../../transfer-matrix.md#airbyte).
 * [{{ DS }}](../source/data-streams.md).
 * [{{ objstorage-full-name }}](../source/object-storage.md).
+* [{{ PG }}](../source/postgresql.md).
+* [{{ ES }}](../source/elasticsearch.md).
+* [{{ OS }}](../source/opensearch.md).
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
 

@@ -51,6 +51,7 @@ description: "This page provides a list of tutorials for building a data platfor
 * [{#T}](greenplum-to-clickhouse.md)
 * [{#T}](greenplum-to-postgresql.md)
 * [{#T}](greenplum-yezzey.md)
+* [{#T}](object-storage-to-greenplum.md)
 
 
 ## {{ ES }} {#elasticsearch}

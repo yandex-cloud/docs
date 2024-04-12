@@ -4,7 +4,7 @@
 
 1. Войдите в свой Яндекс ID или аккаунт в Яндекс 360. Если у вас еще нет аккаунта, [зарегистрируйтесь](https://yandex.ru/support/id/authorization/registration.html) и в сервисе [{{org-full-name}}]({{link-org-main}}) создайте [организацию](../../organization/quickstart.md), в которой вы будете работать. Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
 
-1. На странице **{{ ui-key.yacloud.billing.label_accounts }}** нажмите кнопку **Создать платёжный аккаунт**. Заполните данные:
+1. На странице **{{ ui-key.yacloud_billing.billing.title_accounts }}** нажмите кнопку **Создать платёжный аккаунт**. Заполните данные:
   
    * {% include [choose-name-step](../../billing/_includes/choose-name-step.md) %}
    * {% include [choose-org-step](../../billing/_includes/choose-org-step.md) %}
@@ -29,4 +29,4 @@
 
 1. Укажите актуальные почту и телефон. Контактные данные нужны не только для связи с вами, но и для выставления счетов и финансовых документов. Если вы уже зарегистрированы в {{ yandex-cloud }}, проверьте правильность контактных данных.
 
-1. Нажмите кнопку **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.

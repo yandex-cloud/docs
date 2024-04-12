@@ -13,7 +13,7 @@ description: "Эта инструкция поможет начать работ
 1. Откройте [главную страницу]({{ link-console-support }}) {{ support-center-name }}.
 1. Выберите [организацию](../organization/quickstart.md), в которой вы будете работать с {{ support-center-name }}, или [создайте новую](../organization/operations/enable-org).
 
-Если вы работаете с центром поддержки из собственной организации, то на странице [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`.
+Если вы работаете с центром поддержки из собственной организации, то на странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`.
 
 ## Поиск решения проблемы {#search-for-solution}
 

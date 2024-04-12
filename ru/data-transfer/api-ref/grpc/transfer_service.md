@@ -477,6 +477,7 @@ status | enum **TransferStatus**<br> <ul><li>`CREATING`: Transfer does some work
 type | enum **TransferType**<br> <ul><li>`SNAPSHOT_AND_INCREMENT`: Snapshot and increment</li><li>`SNAPSHOT_ONLY`: Snapshot</li><li>`INCREMENT_ONLY`: Increment</li></ul>
 warning | **string**<br> 
 transformation | **[Transformation](#Transformation2)**<br> 
+prestable | **bool**<br> 
 
 
 ### Endpoint {#Endpoint}
@@ -495,7 +496,7 @@ settings | **[EndpointSettings](#EndpointSettings)**<br>
 
 Field | Description
 --- | ---
-settings | **oneof:** `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target` or `yds_target`<br>
+settings | **oneof:** `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source` or `yds_target`<br>
 &nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](#MysqlSource)**<br> 
 &nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](#PostgresSource)**<br> 
 &nbsp;&nbsp;ydb_source | **[endpoint.YdbSource](#YdbSource)**<br> 
@@ -509,6 +510,7 @@ settings | **oneof:** `mysql_source`, `postgres_source`, `ydb_source`, `yds_sour
 &nbsp;&nbsp;ydb_target | **[endpoint.YdbTarget](#YdbTarget)**<br> 
 &nbsp;&nbsp;kafka_target | **[endpoint.KafkaTarget](#KafkaTarget)**<br> 
 &nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](#MongoTarget)**<br> 
+&nbsp;&nbsp;metrika_source | **[endpoint.MetrikaSource](#MetrikaSource)**<br> 
 &nbsp;&nbsp;yds_target | **[endpoint.YDSTarget](#YDSTarget)**<br> 
 
 
@@ -1069,6 +1071,23 @@ subnet_id | **string**<br>
 security_groups[] | **string**<br>Security groups 
 
 
+### MetrikaSource {#MetrikaSource}
+
+Field | Description
+--- | ---
+counter_ids[] | **int64**<br> 
+token | **[Secret](#Secret1)**<br> 
+streams[] | **[MetrikaStream](#MetrikaStream)**<br> 
+
+
+### MetrikaStream {#MetrikaStream}
+
+Field | Description
+--- | ---
+type | enum **MetrikaStreamType**<br> 
+columns[] | **string**<br> 
+
+
 ### YDSTarget {#YDSTarget}
 
 Field | Description
@@ -1271,6 +1290,7 @@ status | enum **TransferStatus**<br> <ul><li>`CREATING`: Transfer does some work
 type | enum **TransferType**<br> <ul><li>`SNAPSHOT_AND_INCREMENT`: Snapshot and increment</li><li>`SNAPSHOT_ONLY`: Snapshot</li><li>`INCREMENT_ONLY`: Increment</li></ul>
 warning | **string**<br> 
 transformation | **[Transformation](#Transformation3)**<br> 
+prestable | **bool**<br> 
 
 
 ### Endpoint {#Endpoint1}
@@ -1289,7 +1309,7 @@ settings | **[EndpointSettings](#EndpointSettings1)**<br>
 
 Field | Description
 --- | ---
-settings | **oneof:** `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target` or `yds_target`<br>
+settings | **oneof:** `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source` or `yds_target`<br>
 &nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](#MysqlSource1)**<br> 
 &nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](#PostgresSource1)**<br> 
 &nbsp;&nbsp;ydb_source | **[endpoint.YdbSource](#YdbSource1)**<br> 
@@ -1303,6 +1323,7 @@ settings | **oneof:** `mysql_source`, `postgres_source`, `ydb_source`, `yds_sour
 &nbsp;&nbsp;ydb_target | **[endpoint.YdbTarget](#YdbTarget1)**<br> 
 &nbsp;&nbsp;kafka_target | **[endpoint.KafkaTarget](#KafkaTarget1)**<br> 
 &nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](#MongoTarget1)**<br> 
+&nbsp;&nbsp;metrika_source | **[endpoint.MetrikaSource](#MetrikaSource1)**<br> 
 &nbsp;&nbsp;yds_target | **[endpoint.YDSTarget](#YDSTarget1)**<br> 
 
 
@@ -1861,6 +1882,23 @@ database | **string**<br>Database name
 cleanup_policy | enum **CleanupPolicy**<br> <ul><li>`DISABLED`: Don't cleanup</li><li>`DROP`: Drop</li><li>`TRUNCATE`: Truncate</li></ul>
 subnet_id | **string**<br> 
 security_groups[] | **string**<br>Security groups 
+
+
+### MetrikaSource {#MetrikaSource1}
+
+Field | Description
+--- | ---
+counter_ids[] | **int64**<br> 
+token | **[Secret](#Secret2)**<br> 
+streams[] | **[MetrikaStream](#MetrikaStream1)**<br> 
+
+
+### MetrikaStream {#MetrikaStream1}
+
+Field | Description
+--- | ---
+type | enum **MetrikaStreamType**<br> 
+columns[] | **string**<br> 
 
 
 ### YDSTarget {#YDSTarget1}

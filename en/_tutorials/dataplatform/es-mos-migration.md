@@ -72,7 +72,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
    1. In the `es-mos-migration-snapshot.tf` file, specify these variables:
 
-      * `folder_id`: Cloud directory ID, the same one specified in the provider settings.
+      * `folder_id`: Cloud folder ID, the same one specified in the provider settings.
       * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
       * `os_admin_password`: {{ OS }} admin user password.
       * `os_version`: {{ OS }} version.
@@ -341,7 +341,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
 
 1. [Create a role]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) with the `create_index` and `write` privileges for all indexes (`*`).
 
-1. [Create a user](../../managed-opensearch/operations/cluster-users.md) and assign the user this role.
+1. [Create a user](../../managed-opensearch/operations/cluster-users.md) and assign this role to them.
 
    {% note tip %}
 

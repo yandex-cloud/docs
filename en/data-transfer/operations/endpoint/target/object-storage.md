@@ -31,7 +31,10 @@ Configure one of the supported data sources:
 * [{{ KF }}](../source/kafka.md).
 * [Airbyte](../../../transfer-matrix.md#airbyte).
 * [{{ DS }}](../source/data-streams.md).
+* [Oracle](../source/oracle.md).
 * [{{ ydb-name }}](../source/ydb.md).
+* [{{ ES }}](../source/elasticsearch.md).
+* [{{ OS }}](../source/opensearch.md).
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
 

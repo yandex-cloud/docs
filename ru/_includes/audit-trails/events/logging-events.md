@@ -4,7 +4,6 @@
 `CreateExport` | Создание выгрузки логов
 `CreateLogGroup` | Создание лог-группы
 `CreateSink` | Создание приемника логов
-`UpdateLogGroup` | Изменение лог-группы
 `DeleteExport` | Удаление выгрузки логов
 `DeleteLogGroup` | Удаление лог-группы
 `DeleteSink` | Удаление приемника логов
@@ -13,6 +12,7 @@
 `SetSinkAccessBindings` | Назначение привязок прав доступа для приемника логов
 `UpdateExport` | Изменение выгрузки логов 
 `UpdateExportAccessBindings` | Изменение привязок прав доступа для выгрузки логов
+`UpdateLogGroup` | Изменение лог-группы
 `UpdateLogGroupAccessBindings` | Изменение привязок прав доступа для лог-группы
 `UpdateSink` | Изменение приемника логов
 `UpdateSinkAccessBindings` | Изменение привязок прав доступа для приемника логов

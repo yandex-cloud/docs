@@ -23,4 +23,6 @@
    * `<schema_name>.*`: All tables in the specified schema.
    * `<table_name>`: Table in the default schema.
 
+   Included and excluded table names must meet the ID naming rules in Oracle. For more information, see the [Oracle documentation]({{ oracle.docs }}/sqlrf/Database-Object-Names-and-Qualifiers.html). Double quotes within a table name are not supported. Escaping outer double quotes is not required.
+
 * {% include [Convert NUMBER to INT64](../../fields/oracle/ui/convert-number-to-int64.md) %}

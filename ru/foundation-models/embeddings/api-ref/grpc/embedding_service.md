@@ -9,13 +9,13 @@ Service for obtaining embeddings from input data.
 
 | Call | Description |
 | --- | --- |
-| [TextEmbedding](#TextEmbedding) | RPC method for obtaining embeddings from text data. |
+| [TextEmbedding](#TextEmbedding) | A method for obtaining embeddings from text data. |
 
 ## Calls EmbeddingsService {#calls}
 
 ## TextEmbedding {#TextEmbedding}
 
-RPC method for obtaining embeddings from text data.
+A method for obtaining embeddings from text data.
 
 **rpc TextEmbedding ([TextEmbeddingRequest](#TextEmbeddingRequest)) returns ([TextEmbeddingResponse](#TextEmbeddingResponse))**
 
@@ -23,7 +23,7 @@ RPC method for obtaining embeddings from text data.
 
 Field | Description
 --- | ---
-model_uri | **string**<br>The identifier of the model to be used for obtaining text embeddings. 
+model_uri | **string**<br>The [ID of the model](/docs/foundation-models/concepts/embeddings) to be used for obtaining text embeddings. 
 text | **string**<br>The input text for which the embedding is requested. 
 
 
@@ -33,6 +33,6 @@ Field | Description
 --- | ---
 embedding[] | **double**<br>A repeated list of double values representing the embedding. 
 num_tokens | **int64**<br>The number of tokens in the input text. 
-model_version | **string**<br>Model version (changes with model releases). 
+model_version | **string**<br>The model version changes with each new releases. 
 
 

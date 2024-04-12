@@ -16,7 +16,7 @@
 
     {% list tabs group=instructions %}
 
-    * Вручную {#manual}
+    - Вручную {#manual}
 
         1. [Создайте кластер-приемник {{ mgp-name }}](../../managed-greenplum/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
 
@@ -33,7 +33,7 @@
 
         1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта `storage-viewer`.
 
-    * С помощью {{ TF }} {#tf}
+    - С помощью {{ TF }} {#tf}
 
         1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
         1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -143,13 +143,13 @@
 
     {% list tabs group=instructions %}
 
-    * Вручную {#manual}
+    - Вручную {#manual}
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**, использующий созданные эндпоинты.
 
         1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-    * С помощью {{ TF }} {#tf}
+    - С помощью {{ TF }} {#tf}
 
         1. Укажите в файле `object-storage-to-greenplum.tf` переменные:
 
@@ -190,7 +190,7 @@
     {% cut "Пример ответа" %}
 
     ```sql
-      __file_name  | __row_index | Id |  Name  
+      __file_name  | __row_index | Id |  Name
     ---------------+-------------+----+--------
     demo_data1.csv |           1 |  1 | Anna
     demo_data1.csv |           2 |  2 | Robert
@@ -218,7 +218,7 @@
         {% cut "Пример ответа" %}
 
         ```sql
-          __file_name  | __row_index | Id |  Name  
+          __file_name  | __row_index | Id |  Name
         ---------------+-------------+----+--------
         demo_data1.csv |           1 |  1 | Anna
         demo_data1.csv |           2 |  2 | Robert
@@ -242,12 +242,12 @@
 
     {% list tabs group=instructions %}
 
-    * Вручную {#manual}
+    - Вручную {#manual}
 
         * [Кластер {{ mgp-name }}](../../managed-greenplum/operations/cluster-delete.md).
         * [Бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
 
-    * С помощью {{ TF }} {#tf}
+    - С помощью {{ TF }} {#tf}
 
         1. Удалите все объекты из бакета.
         1. В терминале перейдите в директорию с планом инфраструктуры.

@@ -207,6 +207,8 @@ items:
             href: tutorials/objs-mmy-migration.md
           - name: '{{ objstorage-name }} to {{ PG }}'
             href: tutorials/object-storage-to-postgresql.md
+          - name: '{{ objstorage-name }} to {{ GP }}'
+            href: tutorials/object-storage-to-greenplum.md
           - name: '{{ yandex-direct }} to {{ CH }}'
             href: tutorials/direct-to-mch.md
           - name: '{{ objstorage-name }} to {{ CH }}'
@@ -257,26 +259,6 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: Release notes
-    items:
-      - name: All release notes
-        href: release-notes/index.md
-      - name: February 2024
-        href: release-notes/2402.md
-      - name: January 2024
-        href: release-notes/2401.md
-      - name: '2023'
-        items:
-          - name: December 2023
-            href: release-notes/2312.md
-          - name: November 2023
-            href: release-notes/2311.md
-          - name: October 2023
-            href: release-notes/2310.md
-          - name: September 2023
-            href: release-notes/2309.md
-          - name: August 2023
-            href: release-notes/2308.md
   - name: CLI reference
     items:
       - name: Overview
@@ -347,4 +329,26 @@ items:
     href: at-ref.md
   - name: Public materials
     href: public-talks.md
+  - name: Release notes
+    items:
+      - name: All release notes
+        href: release-notes/index.md
+      - name: March 2024
+        href: release-notes/2403.md
+      - name: February 2024
+        href: release-notes/2402.md
+      - name: January 2024
+        href: release-notes/2401.md
+      - name: '2023'
+        items:
+          - name: December 2023
+            href: release-notes/2312.md
+          - name: November 2023
+            href: release-notes/2311.md
+          - name: October 2023
+            href: release-notes/2310.md
+          - name: September 2023
+            href: release-notes/2309.md
+          - name: August 2023
+            href: release-notes/2308.md
 base: en/data-transfer

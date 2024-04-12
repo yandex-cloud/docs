@@ -18,9 +18,9 @@ description: "In this tutorial, you will learn how to set up a {{ MY }} target e
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-* [Migrating a {{ MY }} cluster](../../../tutorials/managed-mysql-to-mysql.md).
-* [Migration with change of storage: {{ PG }} to {{ MY }}](../../../tutorials/mpg-to-mmy.md).
-* [Migration with change of storage: {{ objstorage-name }} to {{ MY }}](../../../tutorials/objs-mmy-migration.md).
+* [Migrating the {{ MY }} cluster](../../../tutorials/managed-mysql-to-mysql.md).
+* [Migration with storage changed from {{ PG }} to {{ MY }}](../../../tutorials/mpg-to-mmy.md).
+* [Migration with storage changed from {{ objstorage-name }} to {{ MY }}](../../../tutorials/objs-mmy-migration.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
 
@@ -34,10 +34,10 @@ Configure one of the supported data sources:
 
 * [{{ PG }}](../source/postgresql.md).
 * [{{ MY }}](../source/mysql.md).
-* [{{ objstorage-full-name }}](../source/object-storage.md).
 * [{{ KF }}](../source/kafka.md).
 * [Airbyte](../../../transfer-matrix.md#airbyte).
 * [{{ DS }}](../source/data-streams.md).
+* [{{ objstorage-full-name }}](../source/object-storage.md).
 * [{{ ydb-name }}](../source/ydb.md).
 
 ## Preparing the target database {#prepare}

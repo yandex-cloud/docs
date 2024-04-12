@@ -9,4 +9,4 @@ Service for obtaining embeddings from input data.
 ## Methods {#methods}
 Method | Description
 --- | ---
-[textEmbedding](textEmbedding.md) | RPC method for obtaining embeddings from text data.
+[textEmbedding](textEmbedding.md) | A method for obtaining embeddings from text data.
