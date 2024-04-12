@@ -1,8 +1,8 @@
 # Collecting request statistics
 
-Managers and staff members of the support team often require various kinds of information about the ongoing issues as well as statistics on previously resolved requests. In {{ tracker-name }}, you can view all relevant information and statistics on a dashboard. First, [create a dashboard](user/create-dashboard.md#section_cv2_ck3_pz)and then add [widgets](user/widgets.md#section_ll1_zdp_pz). These may include issue lists, tables, and charts, all of which are created automatically based on filters.
+Managers and staff members of the support team often require various kinds of information about the ongoing issues as well as statistics on previously resolved requests. In {{ tracker-name }}, you can view all relevant information and statistics on a dashboard. First, [create a dashboard](user/create-dashboard.md#section_cv2_ck3_pz) and then add [widgets](user/widgets.md). These may include issue lists, tables, and charts, all of which are created automatically based on filters.
 
-For example, a manager can add to their dashboard a list of requests with no assignee and the statistics of opened and closed requests over a period. A support representative would probably need a list of issues assigned to them and a list of issues without an assignee that need to be accepted.
+For example, a manager can add to their dashboard a list of requests with no assignee and the statistics of opened and closed requests over a period. A support team member would make use of a list of issues assigned to them and a list of issues without an assignee that need to be accepted.
 
 Let's look at the examples of widgets for support:
 
@@ -56,7 +56,7 @@ To get statistics about how many issues were assigned to your employees over the
 
 1. On the dashboard page, click ![](../_assets/tracker/icon-settings.png) → **Edit**.
 
-1. Add **Summary table** widget.
+1. Add a **Summary table** widget.
 
 1. In the **Filter** field, select **Query** and enter the [query text](user/query-filter.md#query-format):
 

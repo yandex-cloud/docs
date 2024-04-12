@@ -13,7 +13,7 @@ description: "Check out {{ tracker-full-name }} release notes for February 2024.
 
 ### Cycle time chart, a new widget on dashboards {#cycle-time-widget}
 
-Added a new widget on dashboards: a beta version of the [cycle time](../user/widgets.md#cycle-time) chart. To enable the chart, go to ![image](../../_assets/tracker/svg/settings.svg) **Settings** ⟶ ![image](../../_assets/tracker/svg/interface.svg) **Interface** and enable **Dashboard analytics**.
+Added a new widget on dashboards: a beta version of the [cycle time](../user/cycle-time.md) chart. To enable the chart, go to ![image](../../_assets/tracker/svg/settings.svg) **Settings** ⟶ ![image](../../_assets/tracker/svg/interface.svg) **Interface** and enable **Dashboard analytics**.
 
 The widget supports automatic updates and filtering. Fixed certain bugs of the beta version.
 

@@ -87,11 +87,11 @@
 
    * Чтобы переименовать аккаунт, в блоке с названием аккаунта нажмите значок ![image](../_assets/horizontal-ellipsis.svg) и выберите **Переименовать**.
 
-   * Чтобы привязать другую банковскую карту для оплаты, в блоке **{{ ui-key.yacloud.billing.account.overview.section_card }}** нажмите кнопку **{{ ui-key.yacloud.billing.account.overview.card_label_edit }}**.
+   * Чтобы привязать другую банковскую карту для оплаты, в блоке **{{ ui-key.yacloud_billing.billing.account.overview.section_card }}** нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.overview.card_label_edit }}**.
 
    * Чтобы изменить способ оплаты для юридического лица или ИП, обратитесь в техническую поддержку через [форму обратной связи]({{ link-tracker-feedback }}).
 
-   * Чтобы изменить данные плательщика, внизу страницы нажмите кнопку **Редактировать в Яндекс&#160;Балансе**, затем на странице Баланса выберите раздел **{{ ui-key.yacloud.billing.account.create-new.section_persons }}**.
+   * Чтобы изменить данные плательщика, внизу страницы нажмите кнопку **Редактировать в Яндекс&#160;Балансе**, затем на странице Баланса выберите раздел **{{ ui-key.yacloud_billing.billing.account.create-new.section_persons }}**.
 
    {% note info %}
 

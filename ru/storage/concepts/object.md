@@ -68,7 +68,9 @@
 
 Для бакета с ограниченным доступом сервис генерирует временную подписанную ссылку, которая позволяет скачать объект даже из бакета с ограниченным доступом. [Подробнее про подписанные ссылки, их генерацию и использование](pre-signed-urls.md).
 
+
 {% include [bucket-https](../../_includes/storage/bucket-https.md) %}
+
 
 {% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
 

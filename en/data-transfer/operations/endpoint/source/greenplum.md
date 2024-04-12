@@ -95,9 +95,13 @@ Connecting to the database with explicitly specified network addresses and ports
       * `<schema_name>.*`: All tables in the specified schema.
       * `<table_name>`: Table in the default schema.
 
+      Included and excluded table names must meet the ID naming rules in {{ GP }}. Double quotes within a table name are not supported. Outer quotes are only used as delimiters and will be deleted when processing paths.
+
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GpSourceAdvancedSettings.strong_consistency.title }}**: When enabled, {{ data-transfer-name }} will apply additional steps to the source to assure [snapshot consistency](#snapshot-consistency).
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GpSourceAdvancedSettings.service_schema.title }}**: Schema for placing auxiliary objects of the transfer.
+
+   The schema name must meet the ID naming rules in {{ GP }}. Double quotes in a schema name are not supported.
 
 {% endlist %}
 

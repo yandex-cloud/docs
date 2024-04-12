@@ -30,7 +30,7 @@
 #### Я создал новый платежный бизнес-аккаунт, а он заблокирован. Почему? {#blocked-account}
 
 Скорее всего, ранее вы уже создавали платежный бизнес-аккаунт, для которого был активирован пробный период. В рамках пробного периода вашему платежному аккаунту выдается стартовый грант. Так как стартовый грант может быть выдан только на один платежный аккаунт, то при повторной регистрации вы не можете использовать пробный период и новый платежный аккаунт создается в статусе `SUSPENDED`.
-Чтобы разблокировать новый платежный аккаунт, [активируйте платную версию](../../billing/operations/activate-commercial.md) и [пополните баланс лицевого счета](../../billing/operations/pay-the-bill.md) на минимальную сумму (минимальная сумма указана в окне **{{ ui-key.yacloud.billing.account.dashboard.button_refill }}**).
+Чтобы разблокировать новый платежный аккаунт, [активируйте платную версию](../../billing/operations/activate-commercial.md) и [пополните баланс лицевого счета](../../billing/operations/pay-the-bill.md) на минимальную сумму (минимальная сумма указана в окне **{{ ui-key.yacloud_billing.billing.account.dashboard.button_refill }}**).
 
 #### Как изменить тип платежного аккаунта? {#account-type}
 
@@ -67,7 +67,7 @@
 
 Скорее всего, платежная система вашей карты не поддерживается нашим сервисом.
 
-Для решения проблемы попробуйте привязать другую карту или, если вы являетесь юридическим лицом, создайте платежный аккаунт с типом **{{ ui-key.yacloud.billing.account.create-new.account-type_label_company }}** и способом оплаты **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_invoice }}**.
+Для решения проблемы попробуйте привязать другую карту или, если вы являетесь юридическим лицом, создайте платежный аккаунт с типом **{{ ui-key.yacloud_billing.billing.account.create-new.account-type_label_company }}** и способом оплаты **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}**.
 
 #### Почему при создании платежного аккаунта появляется ошибка «Недоступная страна для плательщика»?  {#account-error}
 
@@ -93,11 +93,11 @@
 
    1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
    1. Выберите платежный аккаунт.
-   1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.switch_overview }}**.
-   1. Нажмите ссылку **{{ ui-key.yacloud.billing.account.dashboard-info.company_label_edit_ru }}**. 
+   1. Перейдите на страницу **{{ ui-key.yacloud_billing.billing.account.switch_overview }}**.
+   1. Нажмите ссылку **{{ ui-key.yacloud_billing.billing.account.dashboard-info.company_label_edit_ru }}**. 
       Вы будете перенаправлены в сервис [Яндекс Баланс](https://balance.yandex.ru/).
    1. Выберите плательщика и нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
-   1. В разделе **Платежные реквизиты** заполните поле **{{ ui-key.yacloud.billing.account.overview.company_label_rs }}**.
+   1. В разделе **Платежные реквизиты** заполните поле **{{ ui-key.yacloud_billing.billing.account.overview.company_label_rs }}**.
 
 {% endlist %}
 

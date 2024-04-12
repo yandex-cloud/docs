@@ -13,7 +13,11 @@
 `functions.UpdateFunctionAccessBindings` | Изменение привязок прав доступа для функции
 `mdbproxy.CreateProxy` | Создание подключения к управляемой базе данных
 `mdbproxy.DeleteProxy` | Удаление подключения к управляемой базе данных
+`mdbproxy.SetProxyAccessBindings` | Назначение привязок прав доступа к управляемой базе данных
 `mdbproxy.UpdateProxy` | Изменение подключения к управляемой базе данных
+`mdbproxy.UpdateProxyAccessBindings` | Изменение привязок прав доступа к управляемой базе данных
 `triggers.CreateTrigger` | Создание триггера
 `triggers.DeleteTrigger` | Удаление триггера
+`triggers.PauseTrigger` | Остановка триггера
+`triggers.ResumeTrigger` | Запуск триггера
 `triggers.UpdateTrigger` | Изменение триггера

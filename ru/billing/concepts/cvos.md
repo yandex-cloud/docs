@@ -15,7 +15,7 @@
 
 ## Подключение и срок действия {#how-to-enable}
 
-Ознакомиться с доступными предложениями и подключить CVoS вы можете в сервисе {{ billing-name }} в разделе **{{ ui-key.yacloud.billing.account.switch_offers }}**.
+Ознакомиться с доступными предложениями и подключить CVoS вы можете в сервисе {{ billing-name }} в разделе **{{ ui-key.yacloud_billing.billing.account.switch_offers }}**.
 
 При [подключении CVoS](../operations/purchase-cvos.md) вы самостоятельно выбираете:
 * срок действия — 6 месяцев или 1 год;

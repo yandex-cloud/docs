@@ -42,14 +42,14 @@ The infrastructure support cost includes:
    ```yaml
    #cloud-config
    runcmd:
-     - [ sudo, chmod, 666, /dev/ttyS1]
+   - [ sudo, chmod, 666, /dev/ttyS1]
    users:
-     - name: <username>
-       groups: sudo
-       shell: /bin/bash
-       sudo: 'ALL=(ALL) NOPASSWD:ALL'
-       ssh-authorized-keys:
-         - <public_SSH_key_to_connect_to_VM>
+   - name: <username>
+     groups: sudo
+     shell: /bin/bash
+     sudo: 'ALL=(ALL) NOPASSWD:ALL'
+     ssh-authorized-keys:
+     - <public_SSH_key_to_connect_to_VM>
    ```
 
    In the file configuration, set the username and specify the public part of the [SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) required to connect to the VM. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair yourself.
@@ -66,22 +66,22 @@ The infrastructure support cost includes:
 
    ```yaml
    spec:
-     containers:
-     - image: ubuntu
-       name: app
-       command: ["/bin/bash", "-c", "sleep 30 && echo 'Hello World!' > /dev/ttyS1"]
-       securityContext:
-         privileged: true
+   containers:
+   - image: ubuntu
+     name: app
+     command: ["/bin/bash", "-c", "sleep 30 && echo 'Hello World!' > /dev/ttyS1"]
+     securityContext:
+       privileged: true
        stdin: false
        tty: false
        volumeMounts:
-         - mountPath: /dev/ttyS1
-           name: log-port
+       - mountPath: /dev/ttyS1
+         name: log-port
      restartPolicy: Always
      volumes:
-       - name: log-port
-         hostPath:
-           path: /dev/ttyS1
+     - name: log-port
+       hostPath:
+         path: /dev/ttyS1
    ```
 
    1. Create a VM with multiple [disks](../../compute/concepts/disk.md).

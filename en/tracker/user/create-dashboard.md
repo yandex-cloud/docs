@@ -4,21 +4,22 @@ You can add several dashboards, each with its set of widgets and switch between 
 
 To create a dashboard:
 
-1. In the left-hand panel, click ![](../../_assets/tracker/svg/dashboards.svg)&nbsp;**Dashboards** → **New dashboard**.
+1. In the left-hand panel, click ![](../../_assets/tracker/svg/dashboards.svg)&nbsp;**Dashboards** → **Create dashboard**.
 
 1. Enter a name for the dashboard and click **Create**.
 
 1. In the top-right corner, click **Edit** and select widgets one by one from the **Add widget** list to configure them. The following widgets are available in {{ tracker-name }}:
 
-   - [Issues](widgets.md#tasks)
-   - [Note](widgets.md#note)
-   - [Summary table](widgets.md#summary-table)
-   - [Summary table with totaled values](widgets.md#summary-table-with-totals)
-   - [Events](widgets.md#events)
-   - [Issue Statistics](widgets.md#issues-stat)
-   - [Created vs. Resolved Graph](widgets.md#created-and-resolved)
+   - [Issues](tasks.md)
+   - [Note](note.md)
+   - [Pivot table](summary-table.md)
+   - [Pivot table with totaled values](summary-table-with-totals.md)
+   - [Events](events.md)
+   - [Issue statistics](issues-stat.md)
+   - [Created/Resolved chart](created-and-resolved.md)
+   - [Cycle time](cycle-time.md)
 
-   Widgets let you view issue analytics. Issues are selected for widgets using a [query language](query-filter.md) or [filter](create-filter.md). You can select a filter from the list of preset and custom filters or set it manually right on the widget creation page.
+   With widgets, you can view issue analytics. Issues are selected for widgets using a [query language](query-filter.md) or a [filter](create-filter.md). You can select a filter from the list of preset and custom filters or set it manually right on the widget creation page.
 
 1. Arrange the widgets however you like, set their sizes, and click **Save**.
 

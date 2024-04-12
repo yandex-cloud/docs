@@ -20,6 +20,7 @@ You can implement scenarios for data migration and delivery from the {{ objstora
 {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
 * [Loading data from {{ objstorage-name }} to {{ PG }}](../../../tutorials/object-storage-to-postgresql.md).
+* [Loading data from {{ objstorage-name }} to {{ GP }}](../../../tutorials/object-storage-to-greenplum.md).
 * [Loading data from {{ objstorage-name }} to {{ MY }}](../../../tutorials/objs-mmy-migration.md).
 * [Loading data from {{ objstorage-name }} to {{ CH }}](../../../tutorials/object-storage-to-clickhouse.md).
 * [Loading data from {{ objstorage-name }} to {{ ydb-short-name }}](../../../tutorials/object-storage-to-ydb.md).

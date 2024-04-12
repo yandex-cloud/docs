@@ -18,7 +18,7 @@ links:
     href: operations/index
   - title: Концепции
     description: Узнайте про концепции и общее устройство сервиса
-    href: concepts/reports
+    href: concepts/resources-hierarchy
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/

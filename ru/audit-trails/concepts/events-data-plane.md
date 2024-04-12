@@ -17,6 +17,7 @@
 * [{{ mmy-name }}](#mmy)
 * [{{ mpg-name }}](#mpg)
 * [{{ objstorage-name }}](#objstorage)
+* [{{ speechsense-name }}](#speechsense)
 
 ## {{ dns-name }} {#dns}
 
@@ -65,3 +66,9 @@
 Имя сервиса — `storage`.
 
 {% include [storage-events-dp](../../_includes/audit-trails/events/storage-events-dp.md) %}
+
+## {{ speechsense-name }} {#speechsense}
+
+Имя сервиса — `speechsense`.
+
+{% include [speechsense-events-dp](../../_includes/audit-trails/events/speechsense-events-dp.md) %}

@@ -114,10 +114,10 @@ description: "Доступ к платежному аккаунту предос
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите платежный аккаунт.
-  1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.switch_users }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.billing.account.users.button_add }}**.
+  1. Перейдите на страницу **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.users.button_add }}**.
   1. Выберите пользователя из выпадающего списка. В списке отображаются пользователи, облака которых привязаны к вашему платежному аккаунту.
-  1. Нажмите кнопку **{{ ui-key.yacloud.billing.account.user-dialog.button_submit }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.user-dialog.button_submit }}**.
 
   Пользователь или сервисный аккаунт получит роль `billing.accounts.member` и будет добавлен в список **{{ ui-key.yacloud.iam.cloud.incident-notifications.label_users }}**. Чтобы разрешить доступ к платежному аккаунту, назначьте нужную роль.
 
@@ -136,7 +136,7 @@ description: "Доступ к платежному аккаунту предос
   1. [Убедитесь](../../organization/operations/users-get.md), что в вашей организации есть нужный пользователь. Если нет, [добавьте](../../organization/operations/add-account.md) его.
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите платежный аккаунт.
-  1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.switch_users }}**.
+  1. Перейдите на страницу **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
   1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**. В открывшемся окне:
 
      1. Нажмите кнопку ![image](../../_assets/create.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
@@ -156,10 +156,10 @@ description: "Доступ к платежному аккаунту предос
  
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите платежный аккаунт.
-  1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.switch_users }}**.
+  1. Перейдите на страницу **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
   1. Найдите пользователя или сервисный аккаунт в списке.
-  1. В строке с нужным пользователем или сервисным аккаунтом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.billing.account.users.button_tune-role }}**.
-  1. Нажмите кнопку ![image](../../_assets/create.svg) **{{ ui-key.yacloud.billing.account.users.popup-tune-role_add-button }}**.
+  1. В строке с нужным пользователем или сервисным аккаунтом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_billing.billing.account.users.button_tune-role }}**.
+  1. Нажмите кнопку ![image](../../_assets/create.svg) **{{ ui-key.yacloud_billing.billing.account.users.popup-tune-role_add-button }}**.
   1. Выберите необходимую роль из списка.
 
 {% endlist %}
@@ -178,7 +178,7 @@ description: "Доступ к платежному аккаунту предос
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите платежный аккаунт.
-  1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.switch_users }}**.
+  1. Перейдите на страницу **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
   1. Найдите пользователя или сервисный аккаунт в списке, либо воспользуйтесь фильтром по пользователю. 
   1. В строке с нужным пользователем или сервисным аккаунтом нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
   1. Напротив роли, которую необходимо отозвать, нажмите ![image](../../_assets/cross.svg).
@@ -190,9 +190,9 @@ description: "Доступ к платежному аккаунту предос
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите платежный аккаунт.
-  1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.switch_users }}**.
+  1. Перейдите на страницу **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
   1. Найдите пользователя или сервисный аккаунт в списке.
-  1. В строке с нужным пользователем или сервисным аккаунтом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.billing.account.users.button_tune-role }}**.
+  1. В строке с нужным пользователем или сервисным аккаунтом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_billing.billing.account.users.button_tune-role }}**.
   1. Напротив роли, которую необходимо отозвать, нажмите ![image](../../_assets/console-icons/xmark.svg). Роль будет отозвана. 
 
   {% note info %}
@@ -210,7 +210,7 @@ description: "Доступ к платежному аккаунту предос
 1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 1. Выберите платежный аккаунт.
 1. Найдите пользователя или сервисный аккаунт в списке.
-1. В строке с нужным пользователем или сервисным аккаунтом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.billing.account.users.button_remove-user }}**.
+1. В строке с нужным пользователем или сервисным аккаунтом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_billing.billing.account.users.button_remove-user }}**.
 1. Пользователь будет удален из списка пользователей этого платежного аккаунта.
 
 Если платежный аккаунт привязан к организации, просто [отзовите](#delete-role) нужную роль у пользователя или сервисного аккаунта. Вы можете [исключить пользователя из организации](../../organization/edit-account), чтобы закрыть для него доступ ко всем облакам и ресурсам в ней.

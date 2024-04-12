@@ -47,14 +47,14 @@
 
   1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
   1. В списке платежных аккаунтов выберите нужный.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.billing.account.switch_detail }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.billing.account.detail.button_export }}** и выберите **{{ ui-key.yacloud.billing.account.detail.button_create-periodic-export }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.detail.button_export }}** и выберите **{{ ui-key.yacloud_billing.billing.account.detail.button_create-periodic-export }}**.
   1. В открывшемся окне:
 
-     * В поле **{{ ui-key.yacloud.billing.account.exports.field_bucket }}** укажите имя бакета, [созданного ранее](#create-bucket). В нем будет храниться CSV-файл с детализацией.
-     * В поле **{{ ui-key.yacloud.billing.account.exports.field_prefix }}** укажите название папки для файла. Последний символ должен быть `/`.
-     * В поле **{{ ui-key.yacloud.billing.account.exports.field_locale }}** выберите язык, на котором будут отображаться названия продуктов – **{{ ui-key.yacloud.billing.account.exports.locale_value_en-lang }}** или **{{ ui-key.yacloud.billing.account.exports.locale_value_ru-lang }}**.
-     * В поле **{{ ui-key.yacloud.billing.account.exports.field_detail-type }}** выберите тип детализации **{{ ui-key.yacloud.billing.account.exports.label_include-resources }}**.
+     * В поле **{{ ui-key.yacloud_billing.billing.account.exports.field_bucket }}** укажите имя бакета, [созданного ранее](#create-bucket). В нем будет храниться CSV-файл с детализацией.
+     * В поле **{{ ui-key.yacloud_billing.billing.account.exports.field_prefix }}** укажите название папки для файла. Последний символ должен быть `/`.
+     * В поле **{{ ui-key.yacloud_billing.billing.account.exports.field_locale }}** выберите язык, на котором будут отображаться названия продуктов – **{{ ui-key.yacloud_billing.billing.account.exports.locale_value_en-lang }}** или **{{ ui-key.yacloud_billing.billing.account.exports.locale_value_ru-lang }}**.
+     * В поле **{{ ui-key.yacloud_billing.billing.account.exports.field_detail-type }}** выберите тип детализации ***{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}**.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 

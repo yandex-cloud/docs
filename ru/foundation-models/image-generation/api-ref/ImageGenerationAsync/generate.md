@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/ai/foundation_models/v1/image_generation/image-generatio
 ---
 
 # Foundation Models Image Generation API, REST: ImageGenerationAsync.generate
-RPC method for obtaining image from inpt data.
+A method for generating an image based on a textual description.
  
 
  
@@ -30,17 +30,17 @@ POST https://llm.{{ api-host }}/foundationModels/v1/imageGenerationAsync
   }
 }
 ```
-Request for the service to generate image
+Request for the service to generate an image.
  
 Field | Description
 --- | ---
-modelUri | **string**<br><p>The identifier of the model to be used for image generation.</p> 
+modelUri | **string**<br><p>The <a href="/docs/foundation-models/concepts/yandexart/models">ID of the model</a> to be used for image generation.</p> 
 messages[] | **object**<br><p>A list of messages representing the context for the image generation model.</p> 
-messages[].<br>text | **string**<br><p>text</p> 
-messages[].<br>weight | **number** (double)<br><p>Message weight. Negative values for negative messages</p> 
-generationOptions | **object**<br><p>Image generation options</p> 
-generationOptions.<br>mimeType | **string**<br><p>generated image format</p> 
-generationOptions.<br>seed | **string** (int64)<br><p>Seed for image generation</p> 
+messages[].<br>text | **string**<br><p>Text describing the image.</p> 
+messages[].<br>weight | **number** (double)<br><p>Message weight. Negative values indicate negative messages.</p> 
+generationOptions | **object**<br><p>Image generation options.</p> 
+generationOptions.<br>mimeType | **string**<br><p>MIME type of generated image format.</p> 
+generationOptions.<br>seed | **string** (int64)<br><p>Seed for image generation.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -1,15 +1,9 @@
 # Миграция данных из {{ ES }} в {{ mos-full-name }}
 
 
-{% note warning %}
+{% note info %}
 
-С 11 апреля 2024 года сервис {{ mes-full-name }} перестанет быть доступен.
-
-С 20 июля 2023 года пользователи, которые пока не работали с {{ ES }} в облаке, не могут создавать новые кластеры. Действующие пользователи сервиса могут работать с существующими кластерами и создавать новые.
-
-Подробнее см. в [анонсе {{ yandex-cloud }}](/blog/posts/2023/06/managed-elasticsearch).
-
-Вы можете [создать кластер {{ OS }}](../../managed-opensearch/operations/cluster-create.md) в {{ yandex-cloud }} в качестве альтернативы {{ ES }}, а также перенести данные из существующего кластера {{ ES }} в {{ mos-name }}.
+Сервис {{ mes-full-name }} недоступен с 11 апреля 2024 года.
 
 {% endnote %}
 
@@ -130,32 +124,7 @@
 1. Подключите бакет в качестве репозитория снапшотов на кластере-источнике:
 
     
-    {% list tabs %}
-
-    - Сторонний кластер {{ ES }}
-
-      {% include [connect-bucket-3p](es-mos-migration/connect-bucket-3p.md) %}
-
-    - {{ mes-name }}
-
-        Выполните команду:
-
-        ```bash
-        curl --request PUT \
-             "https://admin:<пароль_пользователя_admin>@<IP-адрес_или_FQDN_хоста_с_ролью_DATA_в_кластере-источнике>:{{ port-mes }}/_snapshot/<имя_репозитория>" \
-             --cacert ~/.elasticsearch/root.crt \
-             --header 'Content-Type: application/json' \
-             --data '{
-               "type": "s3",
-               "settings": {
-                 "bucket": "<имя_бакета>",
-                 "endpoint": "{{ s3-storage-host }}"
-               }
-             }'
-        ```
-
-    {% endlist %}
-
+    {% include [connect-bucket-3p](es-mos-migration/connect-bucket-3p.md) %}
 
 
     Подробнее о подключении репозитория см. в [документации плагина]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html).
@@ -167,43 +136,13 @@
     Пример создания снапшота с именем `snapshot_1` для всего кластера:
 
     
-    {% list tabs %}
-
-    - Сторонний кластер {{ ES }}
-
-      {% include [create-snapshot-3p](es-mos-migration/create-snapshot-3p.md) %}
-
-    - {{ mes-name }}
-
-        ```bash
-        curl --request PUT \
-             "https://admin:<пароль_пользователя_admin>@<IP-адрес_или_FQDN_хоста_с_ролью_DATA_в_кластере-источнике>:{{ port-mes }}/_snapshot/<имя_репозитория>/snapshot_1?wait_for_completion=false&pretty" \
-             --cacert ~/.elasticsearch/root.crt
-        ```
-
-    {% endlist %}
-
+    {% include [create-snapshot-3p](es-mos-migration/create-snapshot-3p.md) %}
 
 
     Процесс создания снапшота может занять длительное время. Отслеживайте ход выполнения операции [с помощью инструментов {{ ES }}]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), например:
 
-    {% list tabs %}
-
     
-    - Сторонний кластер {{ ES }}
-
-      {% include [track-snapshot-creation-3p](es-mos-migration/track-snapshot-creation-3p.md) %}
-
-    - {{ mes-name }}
-
-        ```bash
-        curl --request GET \
-             "https://admin:<пароль_пользователя_admin>@<IP-адрес_или_FQDN_хоста_с_ролью_DATA_в_кластере-источнике>:{{ port-mes }}/_snapshot/<имя_репозитория>/snapshot_1/_status?pretty" \
-             --cacert ~/.elasticsearch/root.crt
-        ```
-
-    {% endlist %}
-
+    {% include [track-snapshot-creation-3p](es-mos-migration/track-snapshot-creation-3p.md) %}
 
 
 ### Восстановите снапшот в кластере-приемнике {#restore-snapshot}

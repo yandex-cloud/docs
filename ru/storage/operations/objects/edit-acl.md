@@ -22,6 +22,12 @@ description: "Для управления доступом к объекту в 
 
     1. В появившемся окне **{{ ui-key.yacloud.storage.permissions-dialog.label_title }}** выдайте или отзовите необходимые разрешения.
 
+        {% note info %}
+  
+        {% include [console-sa-acl-note](../../../_includes/storage/console-sa-acl-note.md) %}
+  
+        {% endnote %}
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}

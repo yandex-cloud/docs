@@ -9,13 +9,13 @@ Service for asynchronous text generation.
 
 | Call | Description |
 | --- | --- |
-| [Completion](#Completion) | RPC method for generating text completions in asynchronous mode. |
+| [Completion](#Completion) | A method for generating text completions in [asynchronous mode](/docs/foundation-models/concepts/#working-mode). |
 
 ## Calls TextGenerationAsyncService {#calls}
 
 ## Completion {#Completion}
 
-RPC method for generating text completions in asynchronous mode.
+A method for generating text completions in [asynchronous mode](/docs/foundation-models/concepts/#working-mode).
 
 **rpc Completion ([CompletionRequest](#CompletionRequest)) returns ([operation.Operation](#Operation))**
 
@@ -26,7 +26,7 @@ Response of Operation:<br>
 
 Field | Description
 --- | ---
-model_uri | **string**<br>The identifier of the model to be used for completion generation. 
+model_uri | **string**<br>The [ID of the model](/docs/foundation-models/concepts/yandexgpt/models) to be used for completion generation. 
 completion_options | **CompletionOptions**<br>Configuration options for completion generation. 
 messages[] | **Message**<br>A list of messages representing the context for the completion model. 
 
@@ -53,6 +53,6 @@ Field | Description
 --- | ---
 alternatives[] | **Alternative**<br>A list of generated completion alternatives. 
 usage | **ContentUsage**<br>A set of statistics describing the number of content tokens used by the completion model. 
-model_version | **string**<br>Model version (changes with model releases). 
+model_version | **string**<br>The model version changes with each new releases. 
 
 

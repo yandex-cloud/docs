@@ -40,10 +40,10 @@ Configure one of the supported data sources:
 * [{{ PG }}](../source/postgresql.md).
 * [{{ MY }}](../source/mysql.md).
 * [{{ GP }}](../source/greenplum.md).
-* [{{ objstorage-full-name }}](../source/object-storage.md).
 * [{{ KF }}](../source/kafka.md).
 * [Airbyte](../../../transfer-matrix.md#airbyte).
 * [{{ DS }}](../source/data-streams.md).
+* [{{ objstorage-full-name }}](../source/object-storage.md).
 * [{{ ydb-name }}](../source/ydb.md).
 * [Oracle](../source/oracle.md).
 

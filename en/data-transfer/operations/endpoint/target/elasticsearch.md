@@ -26,6 +26,8 @@ Configure one of the supported data sources:
 * [{{ KF }}](../source/kafka.md).
 * [{{ DS }}](../source/data-streams.md).
 * [{{ PG }}](../source/postgresql.md).
+* [{{ ES }}](../source/elasticsearch.md).
+* [{{ OS }}](../source/opensearch.md).
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
 

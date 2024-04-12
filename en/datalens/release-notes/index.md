@@ -1,79 +1,48 @@
 ---
-title: "{{ datalens-full-name }} release notes for February 2024"
-description: "Check out {{ datalens-full-name }} release notes for February 2024."
+title: "{{ datalens-full-name }} release notes for March 2024"
+description: "Check out {{ datalens-full-name }} release notes for March 2024."
 ---
 
-# {{ datalens-full-name }} release notes: February 2024
+# {{ datalens-full-name }} release notes: March 2024
+
 
 * [Updates](#top-news)
 * [Fixes and improvements](#fixes)
 
 ## Updates {#top-news}
 
-### _Categories_ section for pie and ring charts {#category-pie-ring-charts}
+### Filtering charts by charts {#chart-filtration}
 
-Added the **Categories** section for [pie](../visualization-ref/pie-chart.md) and [ring](../visualization-ref/ring-chart.md) charts. Now the **Categories** section is used to group data, and the **Color** section to color the chart segments.
+Added the option to [filter charts by charts](../dashboard/chart-chart-filtration.md). A chart with filtering configured can now be used as a selector for other charts.
 
-{% cut "Pie chart example" %}
+You can enable filtering for a chart in the widget settings on the dashboard. To apply filtering, click an individual item in the filtering chart, e.g., a point on a graph, a column, or a pie chart segment. The linked charts will then be filtered by the selected dimensions.
 
-![tag](../../_assets/datalens/visualization-ref/pie-chart/category-in-pie.png)
+### Connecting to Yandex Documents {#yadocs-connection}
 
-{% endcut %}
+Added a new connection type: [Yandex Documents](../operations/connection/create-yadocs.md).
 
+### Uploading Excel files {#file-connection}
 
-### **Repeat** button in widgets containing an error {#repeat-button}
+Added the option to upload `Excel` files for the [Files](../operations/connection/create-file.md) connection type.
 
-Added the **Repeat** button for charts returning an error. Use this button to repeat you request to the source. The button is available for most error types.
+### Configuring links on the dashboard {#dashboard-link-settings}
 
-### Opening anchor links in the current browser window {#link-target-self}
+Updated the [link](../dashboard/link.md) management interface on the dashboard. To configure links, switch to the dashboard edit mode and click ![image](../../_assets/datalens/links.svg) to the right of the widget you need.
 
-Implemented opening anchor links (starting with `#`) in the current browser window. Now, in text widgets, you can provide a link to the dashboard header from the table of contents. The page will scroll to that header as soon as the link is clicked.
+### Joining tables in a connection to Bitrix24 {#bitrix24-join}
 
-### Drag-and-drop sorting in manual selectors {#drap-drop-params}
+In a connection to [Bitrix24](../operations/connection/create-bitrix24.md), you can now [join data](../concepts/data-join.md#ui-join) from multiple tables.
 
-In the manual selector settings, you can now reorder the possible values using drag and drop.
+### New domain {#new-domain}
+
+Starting March 27, {{ datalens-short-name }} is available at the new address, <https://datalens.yandex.cloud>.
+
+Users will not experience any change. Old addresses will redirect you automatically. However, you will have to log in once again. For more information, see the [blog](https://yandex.cloud/ru/blog/posts/2024/03/new-domain).
+
 
 ## Fixes and improvements {#fixes}
 
 
-### Applying custom palette colors in a combined chart {#user-palette}
+### Displaying the X axis in a combined chart {#combined-chart-format}
 
-Fixed an error with application of custom palette colors in a [combined](../visualization-ref/combined-chart.md) chart.
-
-### Filling table cells with null values {#null-color-fill}
-
-Fixed an error where [table](../visualization-ref/table-chart.md) cells with empty (`null`) values were not filled.
-
-### Gradient filling of table columns {#gradient-fill-columns}
-
-Fixed an error where tri-color gradient coloring was not working correctly in columns containing both negative and positive values.
-
-### Displaying errors for dataset fields in a wizard {#error-message-field-ds}
-
-Fixed an error where, after replacing a dataset, the chart still had fields with a link to the old dataset and the `Measurement not involved in dataset linking` error was displayed.
-
-### Bar chart axis formatting {#bar-chart-format}
-
-Fixed the percentage presentation of the [bar](../visualization-ref/bar-chart.md) chart axis. To have axis labels displayed as a percentage:
-
-1. Drag a numeric value from the dataset to the **X** section. Set **Format** to `Percentage`.
-1. For the **X** section, set **Axis formatting** to `By first field on the X axis`. The X axis labels will appear as a percentage.
-
-Similarly, you can configure the percentage display for the Y axis.
-
-### Selecting a color for column chart null values {#column-chart-null-color}
-
-Fixed the color selection error with [column](../visualization-ref/column-chart.md) chart `null` values.
-
-### Chart sorting during split {#split-sorted}
-
-Fixed chart sorting when using the **Split** section.
-
-### Enabling/disabling sum display in QL chart tooltips {#ql-charts-summa}
-
-Fixed an error where it was impossible to disable sum display in [QL chart](../concepts/chart/ql-charts.md) tooltips.
-
-### Linking by chart parameters {#link-chart-params}
-
-Fixed an issue where the dashboard link settings did not display a chart-level [parameter](../concepts/parameters.md) link between widgets.
-
+Fixed the mode of displaying the X axis in a [combined chart](../visualization-ref/combined-chart.md): the `Continuous` value is now set by default.

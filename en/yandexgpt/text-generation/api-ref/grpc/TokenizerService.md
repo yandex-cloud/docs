@@ -46,7 +46,7 @@ RPC method for tokenizing content of CompletionRequest
 
 Field | Description
 --- | ---
-model_uri | **string**<br>The identifier of the model to be used for completion generation. 
+model_uri | **string**<br>The [ID of the model](/docs/foundation-models/concepts/yandexgpt/models) to be used for completion generation. 
 completion_options | **CompletionOptions**<br>Configuration options for completion generation. 
 messages[] | **Message**<br>A list of messages representing the context for the completion model. 
 

@@ -9,4 +9,4 @@ Service for asynchronous text generation.
 ## Methods {#methods}
 Method | Description
 --- | ---
-[completion](completion.md) | RPC method for generating text completions in asynchronous mode.
+[completion](completion.md) | A method for generating text completions in [asynchronous mode](/docs/foundation-models/concepts/#working-mode).

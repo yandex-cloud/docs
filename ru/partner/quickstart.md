@@ -25,7 +25,7 @@
 
    * тип платежного аккаунта: [Бизнес-аккаунт](../billing/concepts/billing-account.md#ba-types);
    * бизнес-аккаунт оформлен на юридическое лицо, резидента РФ;
-   * способ оплаты — **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_invoice }}**.
+   * способ оплаты — **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}**.
 
 1. [Переведите](../billing/operations/activate-commercial.md) платежный аккаунт из режима пробного периода в платную версию. При переходе в платную версию гранты сохраняются на аккаунте и могут быть использованы для оплаты сервисов.
 1. Дождитесь обратной связи от менеджера и согласования заявки — оно может занять до 7 рабочих дней.

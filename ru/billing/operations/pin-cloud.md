@@ -23,10 +23,10 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите платежный аккаунт.
-  1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.switch_overview }}**.
-  1. Нажмите ссылку **{{ ui-key.yacloud.billing.account.dashboard-resources.button_bind-cloud }}** в блоке **{{ ui-key.yacloud.billing.account.dashboard-resources.section_resources }}**.
+  1. Перейдите на страницу **{{ ui-key.yacloud_billing.billing.account.switch_overview }}**.
+  1. Нажмите ссылку **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.button_bind-cloud }}** в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_clouds }}**.
   1. Выберите облако из списка.
-  1. Нажмите кнопку **{{ ui-key.yacloud.billing.account.bind-cloud.button_bind }}** — добавленное облако появится в списке.
+  1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}** — добавленное облако появится в списке.
   1. Погасите задолженность на старом аккаунте, если переносили облако.
 
 - {{ TF }} {#tf}

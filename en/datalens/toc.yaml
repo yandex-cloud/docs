@@ -783,8 +783,10 @@ items:
     href: pricing.md
   - name: Release notes
     items:
-      - name: February 2024
+      - name: March 2024
         href: release-notes/index.md
+      - name: February 2024
+        href: release-notes/2402.md
       - name: January 2024
         href: release-notes/2401.md
   - name: Troubleshooting

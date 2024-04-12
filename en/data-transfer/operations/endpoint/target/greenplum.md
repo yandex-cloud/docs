@@ -24,6 +24,10 @@ description: "In this tutorial, you will learn how to set up a {{ GP }} target e
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
    * [Delivering data from {{ KF }} to {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md).
 
+1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
+
+   * [Loading data from {{ objstorage-name }} to {{ GP }}](../../../tutorials/object-storage-to-greenplum.md).
+
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
 
 ## Configuring the data source {#supported-sources}
@@ -33,10 +37,10 @@ Configure one of the supported data sources:
 * [{{ PG }}](../source/postgresql.md).
 * [{{ MY }}](../source/mysql.md).
 * [{{ GP }}](../source/greenplum.md).
-* [{{ objstorage-full-name }}](../source/object-storage.md).
 * [{{ KF }}](../source/kafka.md).
 * [Airbyte](../../../transfer-matrix.md#airbyte).
 * [{{ DS }}](../source/data-streams.md).
+* [{{ objstorage-full-name }}](../source/object-storage.md).
 * [{{ ydb-name }}](../source/ydb.md).
 * [Oracle](../source/oracle.md).
 

@@ -182,6 +182,8 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoCollectionFilter.excluded_collections.title }}**: Data is transferred from all collections except the specified ones.
 
+   Included and excluded collection names must meet the ID naming rules in {{ MG }}. Escaping double quotes is not required.
+
 - {{ TF }} {#tf}
 
    * `secondary_preferred_mode`: If there are replicas in the cluster, they will be used for data reads instead of the master host.
@@ -198,8 +200,8 @@ If a source workload is high (over 10,000 write transactions per second), we rec
 
 {% note info %}
 
-1. If you use several endpoints, you need to create a separate transfer for each one.
-1. As transfers of [timeseries collections]({{ mg.docs.comd }}/core/timeseries-collections/) are not supported, you should exclude these collections.
+* If you use several endpoints, you need to create a separate transfer for each one.
+* As transfers of [timeseries collections]({{ mg.docs.comd }}/core/timeseries-collections/) are not supported, you should exclude these collections.
 
 {% endnote %}
 
@@ -208,8 +210,8 @@ If a source workload is high (over 10,000 write transactions per second), we rec
 
 Configure one of the supported data targets:
 
-* [{{ MG }}](../target/mongodb.md).
 * [{{ objstorage-full-name }}](../target/object-storage.md).
+* [{{ MG }}](../target/mongodb.md).
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
 
