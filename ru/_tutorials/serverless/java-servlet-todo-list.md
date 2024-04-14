@@ -315,18 +315,21 @@
            x-yc-apigateway-integration:
              type: cloud-functions
              function_id: <идентификатор_add-task>
+             service_account_id: <сервисный_аккаунт>
            operationId: addTask
        /list:
          get:
            x-yc-apigateway-integration:
              type: cloud-functions
              function_id: <идентификатор_list-tasks>
+             service_account_id: <сервисный_аккаунт>
            operationId: listTasks
        /delete:
          delete:
            x-yc-apigateway-integration:
              type: cloud-functions
              function_id: <идентификатор_delete-task>
+             service_account_id: <сервисный_аккаунт>
            operationId: deleteTask
      ```
 

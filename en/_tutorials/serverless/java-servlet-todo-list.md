@@ -313,18 +313,21 @@ To ensure interaction between services, create an API gateway:
             x-yc-apigateway-integration:
               type: cloud-functions
               function_id: <add-task_ID>
+              service_account_id: <service_account>
             operationId: addTask
         /list:
           get:
             x-yc-apigateway-integration:
               type: cloud-functions
               function_id: <list-tasks_ID>
+              service_account_id: <service_account>
             operationId: listTasks
         /delete:
           delete:
             x-yc-apigateway-integration:
               type: cloud-functions
               function_id: <delete-task_ID>
+              service_account_id: <service_account>
             operationId: deleteTask
       ```
 
