@@ -17,7 +17,7 @@
 * [{{ mmy-full-name }}](../../managed-mysql/operations/monitoring.md).
 * [{{ mrd-full-name }}](../../managed-redis/operations/monitoring.md).
 
-Важные метрики выведены на сервисные дашборды каждого сервиса. Полных список метрик для каждого сервиса доступен в разделе **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**. Выгрузить полный список метрик можно по [инструкции](../../monitoring/operations/metric/list.md).
+Важные метрики выведены на сервисные дашборды каждого сервиса. Полный список метрик для каждого сервиса доступен в разделе **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**. Выгрузить полный список метрик можно по [инструкции](../../monitoring/operations/metric/list.md).
 
 #### Как настроить единицы измерения на графике? {#graph-units}
 
