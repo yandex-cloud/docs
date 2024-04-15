@@ -69,8 +69,8 @@
       |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
       | b0c6n43f9lgh******** | default-{{ region-id }}-d     | enpe3m3fa00u******** |                | {{ region-id }}-d     | [10.***.0.0/24] |
-      | e2l2da8a20b3******** | default-{{ region-id }}-b     | enpe3m3fa00u******** |                | {{ region-id }}-b | [10.***.0.0/24] |
-      | e9bnlm18l70a******** | default-{{ region-id }}-a     | enpe3m3fa00u******** |                | {{ region-id }}-a | [10.***.0.0/24] |
+      | e2l2da8a20b3******** | default-{{ region-id }}-b     | enpe3m3fa00u******** |                | {{ region-id }}-b     | [10.***.0.0/24] |
+      | e9bnlm18l70a******** | default-{{ region-id }}-a     | enpe3m3fa00u******** |                | {{ region-id }}-a     | [10.***.0.0/24] |
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
       ```
 
@@ -99,20 +99,21 @@
       ```
 
       Где:
-      * `name` — имя ВМ.
+
+      * `--name` — имя ВМ.
 
         {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-      * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
+      * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
       * `subnet-name` — имя выбранной [подсети](../../vpc/concepts/network.md#subnet).
       * `security-group-ids` — идентификатор [группы безопасности](../../vpc/concepts/security-groups.md), настроенной для работы с {{ backup-name }}.
       * `image-id` — [идентификатор образа](../../compute/concepts/image.md) операционной системы.
       * `size` — размер загрузочного диска.
-      * `cores` — [количество vCPU](../../compute/concepts/vm.md) ВМ.
-      * `core-fraction` — гарантированная доля vCPU в %.
-      * `memory` — [объем оперативной памяти](../../compute/concepts/vm.md) ВМ.
-      * `service-account-name` — имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) с ролью `backup.editor`.
-      * `user-data` — путь к созданному ранее файлу со сценарием для установки на ВМ агента {{ backup-name }}.
+      * `--cores` — [количество vCPU](../../compute/concepts/vm.md) ВМ.
+      * `--core-fraction` — гарантированная доля vCPU в %.
+      * `--memory` — [объем оперативной памяти](../../compute/concepts/vm.md) ВМ.
+      * `--service-account-name` — имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) с ролью `backup.editor`.
+      * `--user-data` — путь к созданному ранее файлу со сценарием для установки на ВМ агента {{ backup-name }}.
 
       В этом примере создается ВМ на базе Windows Server 2022:
 

@@ -63,6 +63,8 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       
       * Select the [disk type](../concepts/storage.md).
 
+         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
+
          
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
@@ -183,6 +185,9 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       
       * `--clickhouse-disk-type`: Disk type.
+
+         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
+
       * `--yandexquery-access`: Access via {{ yq-full-name }}, `true` or `false`.
 
 
@@ -399,7 +404,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mch }}).
 
-   1. Check the {{ TF }} configuration files for errors:
+   1. Check that the {{ TF }} configuration files are correct:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -529,13 +534,13 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Cloud ID: `{{ tf-cloud-id }}`.
    * Folder ID: `{{ tf-folder-id }}`.
    * New cloud network named `cluster-net`.
-      * A new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+      * New [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
    * Number of `{{ host-class }}` class hosts in a new subnet named `cluster-subnet-{{ region-id }}-a`: 1.
 
       Subnet parameters:
-      * Address range: `172.16.1.0/24`.
-      * Network: `cluster-net`.
-      * Availability zone: `{{ region-id }}-a`.
+      * Address range: `172.16.1.0/24`
+      * Network: `cluster-net`
+      * Availability zone: `{{ region-id }}-a`
 
    * Network SSD storage (`{{ disk-type-example }}`): 32 GB.
    * Database name: `db1`.
@@ -586,7 +591,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
       These subnets will belong to the `cluster-net` network.
 
-      * A new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+      * New [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
    * Local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ CH }} hosts: 32 GB.
    * Local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ ZK }} hosts: 10 GB.
    * Database name: `db1`.

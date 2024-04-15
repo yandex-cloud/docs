@@ -33,7 +33,7 @@ To set up the interface theme and how the issues will be opened on the page:
 
 1. Select a theme under **{{ ui-key.yacloud.settings.switch_appearance }}**.
 
-1. To open an issue in the right-hand panel when you click its name or key (e.g., **TEST-123**), select **{{ ui-key.startrek.ui_components_Confirm.ok-button-text }}**.
+1. To open an issue in the right-hand panel when you click its name or key (e.g., **TEST-123**), select **Yes**.
 
 ## Setting the user display type {#sec_display}
 

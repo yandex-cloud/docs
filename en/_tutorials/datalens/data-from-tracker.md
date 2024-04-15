@@ -102,7 +102,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. Select **Serverless computing** → **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
 1. Specify a name for the function and click **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
-1. In the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** window that opens, select `Python / 3.9` as the runtime environment.
+1. In the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** window that opens, select the `Python` runtime environment.
 1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
 1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field, click **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}**.
 1. Attach a [test archive](https://github.com/yandex-cloud-examples/yc-tracker-data-import/blob/main/build/tracker-data-import.zip).

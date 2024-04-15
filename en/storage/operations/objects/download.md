@@ -12,8 +12,7 @@ description: "In this tutorial, you will learn how to download an object from {{
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
    1. Select the bucket from which you want to download an object.
-   1. Navigate to the object page by clicking its name.
-   1. In the top-right corner, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.storage.file.button_download }}**.
+   1. Next to the object you want to download, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.file.button_download }}**.
 
    {% note info %}
 

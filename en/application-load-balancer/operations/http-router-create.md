@@ -18,7 +18,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
    1. Enter the HTTP router name.
    1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
    1. Enter the host name.
-   1. (Optional) In the **{{ sws-name }} security profile** field, select the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md).
+   1. (Optional) In the **Security profile** field, select the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md).
    1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
    1. Enter the route **{{ ui-key.yacloud.common.name }}**.
    1. In the **{{ ui-key.yacloud.alb.label_path }}** field, select one of the options:
@@ -91,14 +91,17 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
       yc alb virtual-host create <virtual_host_name> \
         --http-router-name <HTTP_router_name> \
         --authority your-domain.foo.com \
-        --modify-request-header name=Accept-Language,append=ru-RU
+        --modify-request-header name=Accept-Language,append=ru-RU \
+        --security-profile-id <security_profile_ID>
       ```
 
       Where:
+      * `--http-router-name`: HTTP router name.
       * `--authority`: Domains for the `Host` and `authority` headers that will be associated with this virtual host. Wildcards are supported, for example, `*.foo.com` or `*-bar.foo.com`.
       * `--modify-request-header`: Settings for modifying request headers:
          * `name`: Name of the header to be modified.
          * `append`: String to be added to the header value.
+      * `--security-profile-id`: (Optional) ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md).
 
       Result:
 
@@ -175,26 +178,29 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
       ```hcl
       resource "yandex_alb_http_router" "tf-router" {
-        name   = "<HTTP_router_name>"
-        labels = {
+        name          = "<HTTP_router_name>"
+        labels        = {
           tf-label    = "tf-label-value"
           empty-label = ""
         }
       }
 
       resource "yandex_alb_virtual_host" "my-virtual-host" {
-        name           = "<virtual_host_name>"
-        http_router_id = yandex_alb_http_router.tf-router.id
+        name                    = "<virtual_host_name>"
+        http_router_id          = yandex_alb_http_router.tf-router.id
         route {
-          name = "<route_name>"
+          name                  = "<route_name>"
           http_route {
             http_route_action {
-              backend_group_id = "<backend_group_ID>"
-              timeout          = "60s"
+              backend_group_id  = "<backend_group_ID>"
+              timeout           = "60s"
             }
           }
         }
-      }    
+        route_options {
+          security_profile_id   = "<security_profile_ID>"
+        }
+      }
       ```
 
       Where:
@@ -215,11 +221,13 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
             * `http_route_action`: Parameter to indicate an action on HTTP traffic.
                * `backend_group_id`: [Backend group](../concepts/backend-group.md) ID.
                * `timeout`: Maximum request idle timeout in seconds.
+         * `route_options`: (Optional) Additional parameters of the virtual host:
+            * `security_profile_id`:  [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md) ID.
 
       For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
-      * [Yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) resource
-      * [Yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) resource
-   1. Create resources.
+      * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router)
+      * [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host)
+   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

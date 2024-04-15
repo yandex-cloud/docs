@@ -2,9 +2,9 @@
 
 {{ yagpt-full-name }} предоставляет доступ к большим текстовым генеративным нейросетям: стандартной {{ gpt-lite }}, подходящей для решения задач в режиме реального времени, большой {{ gpt-pro }} на базе {{ yagpt-name }} 3, которая дает более точные ответы на сложные запросы, и специальной модели краткого пересказа, работающей на базе {{ gpt-lite }}.
 
-Если стандартных моделей вам недостаточно, вы можете [дообучить](../../tutorials/yagpt-tuning) {{ gpt-pro }} в сервисе [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), чтобы модель точнее отвечала на ваши запросы. 
+Если стандартных моделей вам недостаточно, вы можете [дообучить](../../tutorials/yagpt-tuning) {{ gpt-pro }} в сервисе [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), чтобы модель точнее отвечала на ваши запросы.
 
-Чтобы [обратиться](../../operations/yandexgpt/create-prompt.md) к модели по API, в параметре `modelUri` укажите ее [URI](https://ru.wikipedia.org/wiki/URI), содержащий [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md). Опция `/latest` указывает версию вызываемой модели и является опциональной. 
+Чтобы [обратиться](../../operations/yandexgpt/create-prompt.md) к модели по API, в параметре `modelUri` укажите ее [URI](https://ru.wikipedia.org/wiki/URI), содержащий [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md). Опция `/latest` указывает версию вызываемой модели и является опциональной.
 
 ## Модели генерации {{ yagpt-full-name }} {#yandexgpt-generation}
 

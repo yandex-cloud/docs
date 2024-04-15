@@ -11,7 +11,7 @@ description: "Управление доступом в веб-инструмен
 * [какие роли необходимы](#required-roles) для того или иного действия.
 
 
-Для использования сервиса необходимо авторизоваться в консоли управления с [аккаунтом на Яндексе](../../iam/concepts/index.md#passport) или с [федеративным аккаунтом](../../iam/concepts/index.md#saml-federation).
+Для использования сервиса необходимо авторизоваться в консоли управления с [аккаунтом на Яндексе](../../iam/concepts/users/accounts.md#passport) или с [федеративным аккаунтом](../../iam/concepts/users/accounts.md#saml-federation).
 
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}

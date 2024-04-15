@@ -27,6 +27,13 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
 {% include [mmg-settings-dependence](../../_includes/mdb/mmg/note-info-settings-dependence.md) %}
 
+When changing the host class:
+
+* Your single-host cluster will be unavailable for a few minutes with database connections terminated.
+* A multi-host cluster will get a new primary replica. Its hosts will be stopped and updated one by one. Once stopped, a host will be unavailable for a few minutes.
+
+We recommend changing the host class only when the cluster has no active workload.
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

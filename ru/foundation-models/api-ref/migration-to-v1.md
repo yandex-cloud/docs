@@ -30,8 +30,9 @@
   Общая структура запроса:
 
   #|
-  ||**API v1alpha**|**YandexGPT API v1**||
-  ||```json
+  || **API v1alpha** |  **YandexGPT API v1** ||
+  || 
+  ```json
   {
     "model": "string",
     "generationOptions": {
@@ -40,19 +41,15 @@
       "maxTokens": "integer"
     },
 
-    /*
-    includes only one of the fields: 
-    either `instructionText` or `instructionUri`
-    */
-    
+    // только одно из полей: `instructionText` или `instructionUri`
     "instructionText": "string",
     "instructionUri": "string",
 
-    /* end of the list of possible fields */
-
     "requestText": "string"
   }
-  ```|```json
+  ```
+  |
+  ```json
   {
     "modelUri": "string",
     "completionOptions": {
@@ -67,7 +64,8 @@
       }
     ]
   }
-  ```||
+  ```
+  ||
   |#
 
   Поля тела запроса:
@@ -75,30 +73,34 @@
   #|
   || **API v1alpha** | **YandexGPT API v1** | **Описание** ||
   || model | modelUri|[Идентификатор модели](../concepts/yandexgpt/models.md), которая будет использоваться для генерации ответа. Параметр содержит [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} или идентификатор [дообученной](../tutorials/yagpt-tuning.md) в {{ ml-platform-name }} модели.||
-  || instructionText | ```json
+  || instructionText | 
+  ```json
   "messages": [
     {
       "role": "system",
       "text": "string"
     }
   ]
-  ``` | В YandexGPT API v1 блок `messages` — список сообщений, которые задают контекст запроса для модели.
+  ``` 
+  | В YandexGPT API v1 блок `messages` — список сообщений, которые задают контекст запроса для модели.
   * `role` — в значении `system` позволяет задать контекст запроса и определить поведение модели.
   * `text` — текст, задающий контекст запроса. ||
   || instructionUri | modelUri | В YandexGPT API v1 параметр `instructionUri` не используется, URI задается в параметре `modelUri`.||
-  || requestText | ```json
+  || requestText | 
+  ```json
   "messages": [
     {
       "role": "user",
       "text": "string"
     }
   ]
-  ``` | В YandexGPT API v1 блок `messages` — список сообщений, которые задают контекст запроса для модели.
+  ``` 
+  | В YandexGPT API v1 блок `messages` — список сообщений, которые задают контекст запроса для модели.
   * `role` — в значении `user` позволяет отправлять пользовательские сообщения к модели.
   * `text` — текстовое сообщение запроса.||
-  ||partialResults|stream|Включает потоковую передачу частично сгенерированного текста. Принимает значения `true` или `false`.||
-  ||generationOptions|completionOptions|Задает параметры конфигурации запроса.||
-  ||maxTokens|maxTokens|Имя параметра `maxTokens` осталось прежним, но его значение изменилось. В **API v1alpha** в параметре `maxTokens` задавалось ограничение на суммарное количество токенов в запросе и ответе. В **YandexGPT API v1** значение параметра `maxTokens` — это максимальное количество токенов только в ответе.||
+  || partialResults | stream | Включает потоковую передачу частично сгенерированного текста. Принимает значения `true` или `false`. ||
+  || generationOptions | completionOptions | Задает параметры конфигурации запроса. ||
+  || maxTokens | maxTokens | Имя параметра `maxTokens` осталось прежним, но его значение изменилось. В **API v1alpha** в параметре `maxTokens` задавалось ограничение на суммарное количество токенов в запросе и ответе. В **YandexGPT API v1** значение параметра `maxTokens` — это максимальное количество токенов только в ответе.||
   |#
 
   **TextGeneration.chat (режим чата)**
@@ -113,7 +115,8 @@
 
   #|
   || **API v1alpha**|**YandexGPT API v1** ||
-  || ```json
+  || 
+  ```json
   {
     "model": "string",
     "generationOptions": {
@@ -129,7 +132,9 @@
     ],
     "instructionText": "string"
   }
-  ``` | ```json
+  ``` 
+  | 
+  ```json
   {
     "modelUri": "string",
     "completionOptions": {
@@ -144,28 +149,31 @@
       }
     ]
   }
-  ```||
+  ```
+  ||
   |#
 
   Поля тела запроса:
 
   #|
   || **API v1alpha** | **YandexGPT API v1** | **Описание** ||
-  || model | modelUri | [Идентификатор модели](../concepts/yandexgpt/models.md), которая будет использоваться для генерации ответа. Параметр содержит [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} или идентификатор [дообученной](../tutorials/yagpt-tuning.md) в {{ ml-platform-name }} модели.||
-  ||instructionText|```json
+  || model | modelUri | [Идентификатор модели](../concepts/yandexgpt/models.md), которая будет использоваться для генерации ответа. Параметр содержит [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} или идентификатор [дообученной](../tutorials/yagpt-tuning.md) в {{ ml-platform-name }} модели. ||
+  || instructionText |
+  ```json
   "messages": [
     {
       "role": "system",
       "text": "string"
     }
   ]
-  ```|В YandexGPT API v1 блок `messages` — список сообщений, которые задают контекст запроса для модели.
+  ```
+  | В YandexGPT API v1 блок `messages` — список сообщений, которые задают контекст запроса для модели.
   * `role` — в значении `system` позволяет задать контекст запроса и определить поведение модели.
-  * `text` — текст, задающий контекст запроса.||
-  ||partialResults|stream|Включает потоковую передачу частично сгенерированного текста. Принимает значения `true` или `false`.||
-  ||generationOptions|completionOptions|Задает параметры конфигурации запроса.||
-  ||maxTokens|maxTokens|Имя параметра `maxTokens` осталось прежним, но значение изменилось. В **API v1alpha** в параметре `maxTokens` задавалось ограничение на суммарное количество токенов в запросе и ответе. В **YandexGPT API v1** значение параметра `maxTokens` — это максимальное количество токенов только в ответе.||
-  ||role|role|Имя параметра `role` осталось прежним, но список возможных значений изменился. В **API v1alpha** возможными значениями параметра были `Ассистент` и `Пользователь`. В **YandexGPT API v1** возможные значения параметра — `assistant`, `user` и `system`.||
+  * `text` — текст, задающий контекст запроса. ||
+  || partialResults | stream | Включает потоковую передачу частично сгенерированного текста. Принимает значения `true` или `false`.||
+  || generationOptions | completionOptions | Задает параметры конфигурации запроса. ||
+  || maxTokens | maxTokens | Имя параметра `maxTokens` осталось прежним, но значение изменилось. В **API v1alpha** в параметре `maxTokens` задавалось ограничение на суммарное количество токенов в запросе и ответе. В **YandexGPT API v1** значение параметра `maxTokens` — это максимальное количество токенов только в ответе. ||
+  || role | role | Имя параметра `role` осталось прежним, но список возможных значений изменился. В **API v1alpha** возможными значениями параметра были `Ассистент` и `Пользователь`. В **YandexGPT API v1** возможные значения параметра — `assistant`, `user` и `system`. ||
   |#
 
 - Асинхронный режим
@@ -180,7 +188,8 @@
 
   #|
   ||**API v1alpha**|**YandexGPT API v1**||
-  ||```json
+  ||
+  ```json
   {
     "model": "string",
     "generationOptions": {
@@ -189,19 +198,15 @@
       "maxTokens": "integer"
     },
 
-    /*
-    includes only one of the fields: 
-    either `instructionText` or `instructionUri`
-    */
-    
+    // только одно из полей: `instructionText` или `instructionUri` 
     "instructionText": "string",
     "instructionUri": "string",
 
-    /* end of the list of possible fields */
-
     "requestText": "string"
   }
-  ```|```json
+  ```
+  |
+  ```json
   {
     "modelUri": "string",
     "completionOptions": {
@@ -216,33 +221,38 @@
       }
     ]
   }
-  ```||
+  ```
+  ||
   |#
 
   Поля тела запроса:
 
   #|
-  ||**API v1alpha**|**YandexGPT API v1**|**Описание**||
-  ||model|modelUri|[Идентификатор модели](../concepts/yandexgpt/models.md), которая будет использоваться для генерации ответа. Параметр содержит [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} или идентификатор [дообученной](../tutorials/yagpt-tuning.md) в {{ ml-platform-name }} модели.||
-  ||instructionText|```json
+  || **API v1alpha** | **YandexGPT API v1** | **Описание** ||
+  || model | modelUri | [Идентификатор модели](../concepts/yandexgpt/models.md), которая будет использоваться для генерации ответа. Параметр содержит [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} или идентификатор [дообученной](../tutorials/yagpt-tuning.md) в {{ ml-platform-name }} модели. ||
+  || instructionText |
+  ```json
   "messages": [
     {
       "role": "system",
       "text": "string"
     }
   ]
-  ```|В YandexGPT API v1 блок `messages` — список сообщений, которые задают контекст запроса для модели.
+  ```
+  | В YandexGPT API v1 блок `messages` — список сообщений, которые задают контекст запроса для модели.
   * `role` — в значении `system` позволяет задать контекст запроса и определить поведение модели.
-  * `text` — текст, задающий контекст запроса.||
-  ||instructionUri|modelUri|В YandexGPT API v1 параметр `instructionUri` не используется, URI задается в параметре `modelUri`.||
-  ||requestText|```json
+  * `text` — текст, задающий контекст запроса. ||
+  || instructionUri | modelUri | В YandexGPT API v1 параметр `instructionUri` не используется, URI задается в параметре `modelUri`. ||
+  || requestText |
+  ```json
   "messages": [
     {
       "role": "user",
       "text": "string"
     }
   ]
-  ```|В YandexGPT API v1 блок `messages` — список сообщений, которые задают контекст запроса для модели.
+  ```
+  | В YandexGPT API v1 блок `messages` — список сообщений, которые задают контекст запроса для модели.
   * `role` — в значении `user` позволяет отправлять пользовательские сообщения к модели.
   * `text` — текстовое сообщение запроса.||
   ||partialResults|stream|Включает потоковую передачу частично сгенерированного текста. Принимает значения `true` или `false`.||
@@ -269,13 +279,16 @@
   Общая структура запроса:
 
   #|
-  ||**API v1alpha**|**YandexGPT API v1**||
-  ||```json
+  || **API v1alpha** | **YandexGPT API v1** ||
+  ||
+  ```json
   {
     "model": "string",
     "text": "string"
   }
-  ```|```json
+  ```
+  |
+  ```json
   {
     "modelUri": "string",
     "completionOptions": {
@@ -290,14 +303,15 @@
       }
     ]
   }
-  ```||
+  ```
+  ||
   |#
 
   Поля тела запроса:
 
   #|
-  ||**API v1alpha**|**YandexGPT API v1**|**Описание**||
-  ||model|modelUri|[Идентификатор модели](../concepts/yandexgpt/models.md), которая будет использоваться для генерации ответа. Параметр содержит [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} или идентификатор [дообученной](../tutorials/yagpt-tuning.md) в {{ ml-platform-name }} модели.||
+  || **API v1alpha** | **YandexGPT API v1** | **Описание** ||
+  || model | modelUri | [Идентификатор модели](../concepts/yandexgpt/models.md), которая будет использоваться для генерации ответа. Параметр содержит [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} или идентификатор [дообученной](../tutorials/yagpt-tuning.md) в {{ ml-platform-name }} модели. ||
   |#
 
 - Tokenizer.tokenize
@@ -313,25 +327,29 @@
   Общая структура запроса осталась без изменений:
 
   #|
-  ||**API v1alpha**|**YandexGPT API v1**||
-  ||```json
+  || **API v1alpha** | **YandexGPT API v1** ||
+  ||
+  ```json
   {
     "model": "string",
     "text": "string"
   }
-  ```|```json
+  ```
+  |
+  ```json
   {
     "modelUri": "string",
     "text": "string"
   }
-  ```||
+  ```
+  ||
   |#
 
   Поля тела запроса:
 
   #|
-  ||**API v1alpha**|**YandexGPT API v1**|**Описание**||
-  ||model|modelUri|[Идентификатор модели](../concepts/yandexgpt/models.md), которая будет использоваться для генерации ответа. Параметр содержит [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} или идентификатор [дообученной](../tutorials/yagpt-tuning.md) в {{ ml-platform-name }} модели.||
+  || **API v1alpha** | **YandexGPT API v1** | **Описание** ||
+  || model | modelUri | [Идентификатор модели](../concepts/yandexgpt/models.md), которая будет использоваться для генерации ответа. Параметр содержит [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} или идентификатор [дообученной](../tutorials/yagpt-tuning.md) в {{ ml-platform-name }} модели. ||
   |#
 
 {% endlist %}
@@ -347,26 +365,30 @@ API-эндпойнт:
 Общая структура запроса:
 
 #|
-||**API v1alpha**|**Embeddings API v1**||
-||```json
+|| **API v1alpha** | **Embeddings API v1** ||
+||
+```json
 {
   "embeddingType": "string",
   "model": "string",
   "text": "string"
 }
-```|```json
+```
+|
+```json
 {
   "modelUri": "string",
   "text": "string"
 }
-```||
+```
+||
 |#
 
 Поля тела запроса:
 
 #|
-||**API v1alpha**|**Embeddings API v1**|**Описание**||
-||model|—|В Embeddings API v1 модель векторного представления текста задается в параметре `modelUri`.||
-||`"embeddingType" = "EMBEDDING_TYPE_QUERY"`|`"modelUri" = "emb://<идентификатор_каталога>/text-search-query/latest"`|Векторизация коротких текстов: поисковых запросов, обращений и т.п.||
-||`"embeddingType" = "EMBEDDING_TYPE_DOCUMENT"`|`"modelUri" = "emb://<идентификатор_каталога>/text-search-doc/latest"`|Векторизация больших текстов исходных данных, например статей документации.||
+|| **API v1alpha** | **Embeddings API v1** | **Описание** ||
+|| model | — | В Embeddings API v1 модель векторного представления текста задается в параметре `modelUri`. ||
+|| `"embeddingType" = "EMBEDDING_TYPE_QUERY"` | `"modelUri" = "emb://<идентификатор_каталога>/text-search-query/latest"` | Векторизация коротких текстов: поисковых запросов, обращений и т.п. ||
+|| `"embeddingType" = "EMBEDDING_TYPE_DOCUMENT"` | `"modelUri" = "emb://<идентификатор_каталога>/text-search-doc/latest"` | Векторизация больших текстов исходных данных, например статей документации. ||
 |#

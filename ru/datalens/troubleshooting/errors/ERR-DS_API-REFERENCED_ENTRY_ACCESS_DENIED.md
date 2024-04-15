@@ -1,4 +1,4 @@
-# Referenced connection <идентификатор подключения> cannot be loaded: access denied
+# Referenced connection <идентификатор_подключения> cannot be loaded: access denied
 
 `ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED`
 

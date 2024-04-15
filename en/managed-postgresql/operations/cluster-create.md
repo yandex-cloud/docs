@@ -49,6 +49,8 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
       
       * Select the disk type.
 
+         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
+
          
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
@@ -171,6 +173,9 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
       Where:
 
       * `environment`: `prestable` or `production`.
+      * `disk-type`: Disk type.
+
+         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
       
       * `assign-public-ip`: Internet access to the host, `true` or `false`.

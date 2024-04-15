@@ -99,7 +99,7 @@ items:
     href: pricing.md
   - name: CLI reference
     href: ../cli/cli-ref/managed-services/managed-opensearch/index.md
-  - name: Terraform reference
+  - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:

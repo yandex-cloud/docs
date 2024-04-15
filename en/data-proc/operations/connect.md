@@ -182,7 +182,6 @@ To connect to a {{ dataproc-name }} host, make sure the SSH key you specified wh
          Select the data source depending on the {{ dataproc-name }} component you are connecting to:
 
          * Hive: Select **Apache Hive**.
-         * HBase: Select **Apache Phoenix**.
          * Spark: Select **Apache Spark**.
 
          The list of settings does not change.
@@ -191,7 +190,7 @@ To connect to a {{ dataproc-name }} host, make sure the SSH key you specified wh
 
       1. Specify the connection parameters on the **General** tab:
          * **Host**: FQDN of the cluster master host or its public IP address.
-         * Click **Download** to download the connection driver.
+         * If connecting for the first time, click **Download** to download the connection driver.
       1. On the **SSH/SSL** tab:
          1. Enable the **Use SSL** setting and specify the SSL connection parameters:
             * **CA file**: Downloaded SSL certificate for the connection.
@@ -211,24 +210,26 @@ To connect to a {{ dataproc-name }} host, make sure the SSH key you specified wh
    1. [Download the SSH key](#data-proc-ssh) to the local machine or VM to connect to a {{ dataproc-name }} cluster.
    1. Create a new DB connection:
       1. In the **Database** menu, select **New connection**.
-      1. Select the **Apache Hive** database from the list.
+      1. Select a data source from the DB list depending on the configuration of the {{ dataproc-name }} cluster you are connecting to:
 
-         {% note info %}
-
-         Depending on the {{ dataproc-name }} service you are connecting to, you may need to select **Apache Phoenix** (for HBase) or **Apache Spark** instead of **Apache Hive**. The list of settings does not change.
-
-         {% endnote %}
+         * If the cluster uses Hive, select **Apache Hive**.
+         * If only Spark is enabled in the cluster and the [Thrift server is enabled](../concepts/settings-list.md#spark-thrift-server), select **Apache Spark**.
 
       1. Click **Next**.
-      1. Specify the connection parameters on the **Main** tab:
-         * **Host**: FQDN of the cluster master host or its public IP address.
-      1. On the **SSH** tab, specify:
+      1. On the **SSH** tab, enable the **Use SSH tunnel** setting and specify the parameters:
+         * **Host/IP**: FQDN (to connect via an intermediate VM) or public IP address of the master host.
+         * **Username**: Enter the username:
+            * For version 2.0: `ubuntu`
+            * For version 1.4: `root`
          * **Authentication method**: `Public key`.
-         * **Secret key**: Path to the private key file.
-         * **Passphrase**: Password of the private key.
-         * (Optional) To connect via an intermediate VM, enable the **Use SSH tunnel** setting and specify the following parameters to configure it:
+         * **Secret key**: Path to the cluster private key file.
+         * **Passphrase**: Private key password.
+         * (Optional) To connect via an intermediate VM, enable the **Use jump server** setting and specify the parameters:
             * **Host/IP**: Public IP address of the VM to connect to.
             * **Username**: Username for connecting to the VM.
+            * **Authentication method**: `Public key`.
+            * **Secret key**: Path to the VM private key file.
+            * **Passphrase**: Private key password.
    1. Click **Test connection ...** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 

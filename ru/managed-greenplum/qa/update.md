@@ -1,4 +1,4 @@
-# Изменение {{ GP }}-кластера
+# Изменение кластера {{ GP }}
 
 {% include [update](../../_qa/managed-greenplum/update.md) %}
 

@@ -110,7 +110,7 @@ The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ li
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. In the {{ dataproc-name }} cluster description, add a `subcluster_spec` section containing the settings for the new subcluster:
 
       ```hcl
@@ -187,7 +187,7 @@ You cannot delete data storage subclusters.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. In the {{ dataproc-name }} cluster description, delete the `subcluster_spec` section for the required subcluster.
    1. Make sure the settings are correct.
 

@@ -38,7 +38,7 @@ If you are using [{{ forms-full-name }} for business](forms-for-org.md), you can
 
    * **All users**.
 
-   * **Company employees only**.
+   * **Organization employees only**.
 
    * **Listed employees**: Only the listed employees will be able to edit the form. To add a new user to the list, enter their login or name into the field. You can also grant access to multiple employees by naming a group of {{ ya-360 }} or {{ org-full-name }} organizations.
 

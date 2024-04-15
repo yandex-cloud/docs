@@ -199,6 +199,12 @@ If you are using [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/pro
 
 1. If you used a Let's Encrypt® certificate, make sure the [domain rights verification](../../certificate-manager/operations/managed/cert-validate.md) was successful and the certificate got the `Issued` status.
 
+   ```bash
+   kubectl describe certificate domain-name-secret
+   ```
+
+   {% include [cert-manager-events-explained](../../_includes/managed-kubernetes/cert-manager-events-explained.md) %}
+
    {% note info %}
 
    The verification of domain rights for a Let's Encrypt® certificate may take several hours.

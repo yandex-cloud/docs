@@ -9,7 +9,7 @@ description: "To start working with {{ maf-full-name }}, create a service cluste
 
 To get started with the service:
 
-1. [Create a {{ maf-name }} cluster](#cluster-create).
+1. [Create a cluster](#cluster-create).
 1. [Open the {{ AF }} web interface](#web-gui).
 
 ## Getting started {#before-you-begin}
@@ -34,7 +34,7 @@ To get started with the service:
 1. In the management console, select the directory where you want to create a cluster.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 1. Click **{{ ui-key.yacloud.airflow.button_create-cluster }}**.
-1. Set the cluster parameters and click **{{ ui-key.yacloud.common.create }}**. This process is described in detail in [{#T}](operations/cluster-create.md).
+1. Set the cluster parameters and click **{{ ui-key.yacloud.common.create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
 1. Wait until the cluster is ready: its status on the {{ maf-name }} dashboard will change to **{{ ui-key.yacloud.ydb.sql.label_status_running }}** and its state, to **Alive**. This may take some time.
 
 ## Open the {{ AF }} web interface {#web-gui}

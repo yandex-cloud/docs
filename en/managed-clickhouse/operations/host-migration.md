@@ -1,6 +1,6 @@
 # Migrating {{ CH }} cluster hosts to a different availability zone
 
-The {{ CH }} and {{ ZK }} hosts of the {{ mch-name }} cluster are located in the {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). You can move hosts from one availability zone to another.
+{{ CH }} and {{ ZK }} hosts of the {{ mch-name }} cluster are located in the {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). You can move hosts from one availability zone to another.
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 
@@ -113,7 +113,7 @@ The {{ CH }} and {{ ZK }} hosts of the {{ mch-name }} cluster are located in the
 
    - {{ TF }} {#tf}
 
-      1. In the {{ TF }} configuration file with the infrastructure plan, remove from the cluster description the `host` sections with the source availability zone.
+      1. In the {{ TF }} configuration file with the infrastructure plan, remove the `host` sections with the source availability zone from the cluster description.
       1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -226,7 +226,7 @@ The {{ CH }} and {{ ZK }} hosts of the {{ mch-name }} cluster are located in the
 
    - {{ TF }} {#tf}
 
-      1. In the {{ TF }} configuration file with the infrastructure plan, remove from the cluster description the `host` sections with the source availability zone.
+      1. In the {{ TF }} configuration file with the infrastructure plan, remove the `host` sections with the source availability zone from the cluster description.
       1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}

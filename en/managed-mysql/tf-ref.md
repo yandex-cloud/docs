@@ -1,12 +1,8 @@
-# {{ TF }} provider's {{ mmy-full-name }} resource reference
+# {{ TF }} reference for {{ mmy-full-name }}
 
-With [{{ TF }}](https://www.terraform.io/), you can quickly create a cloud infrastructure in {{ yandex-cloud }} and manage it using configuration files. The configuration files store the infrastructure description in the HashiCorp Configuration Language (HCL). {{ TF }} and its providers are distributed under the [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
+{% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
-If you change the configuration files, {{ TF }} automatically figures out which part of your configuration is already deployed and what should be added or removed.
-
-
-For more information about {{ TF }}, [see the documentation](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
+## Resources {#resources}
 
 The following {{ TF }} provider resources are supported for {{ mmy-name }}:
 
@@ -15,3 +11,12 @@ The following {{ TF }} provider resources are supported for {{ mmy-name }}:
 | [yandex_mdb_mysql_cluster]({{ tf-provider-resources-link }}/mdb_mysql_cluster) | [Cluster](concepts/index.md) |
 | [yandex_mdb_mysql_database]({{ tf-provider-resources-link }}/mdb_mysql_database) | Database |
 | [yandex_mdb_mysql_user]({{ tf-provider-resources-link }}/mdb_mysql_user) | Database user |
+
+## Data sources {#data-sources}
+
+{{ mmy-name }} supports the following {{ TF }} provider data sources:
+
+| **{{ TF }} data source** | **Description** |
+| --- | --- |
+| [yandex_mdb_mysql_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_mysql_cluster) | [Cluster](./concepts/index.md) information |
+| [yandex_mdb_mysql_user]({{ tf-provider-datasources-link }}/datasource_mdb_mysql_user) | Database user information |

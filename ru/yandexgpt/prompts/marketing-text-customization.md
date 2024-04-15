@@ -43,14 +43,14 @@
 
 	```bash
 	curl -k -v -X POST
-     	-H "Authorization: Bearer <значение_IAM-токена>"
+     	-H "Authorization: Bearer <IAM-токен>"
      	-d @prompt.json
      	https://llm.{{ api-host }}/foundationModels/v1/completion
 	```
 	
 	Где:
 
-	* `<значение_IAM-токена>` — IAM-токен, полученный для вашего аккаунта.
+	* `<IAM-токен>` — IAM-токен, полученный для вашего аккаунта.
 	* `prompt.json` — файл в формате JSON, содержащий параметры запроса.
 
 {% endlist %}
@@ -81,7 +81,7 @@
 
 ## Пример 2 {#example-2}
 
-### Параметры запроса {#params} 
+### Параметры запроса {#params}
 
 * **Инструкция**: Ты — опытный копирайтер. Перепиши маркетинговый текст с учётом вида текста и выбранной тональности.
 
@@ -123,14 +123,14 @@
 
 	```bash
 	curl -k -v -X POST
-     	-H "Authorization: Bearer <значение_IAM-токена>"
+     	-H "Authorization: Bearer <IAM-токен>"
      	-d @prompt.json
      	https://llm.{{ api-host }}/foundationModels/v1/completion
 	```
 	
 	Где:
 
-	* `<значение_IAM-токена>` — IAM-токен, полученный для вашего аккаунта.
+	* `<IAM-токен>` — IAM-токен, полученный для вашего аккаунта.
 	* `prompt.json` — файл в формате JSON, содержащий параметры запроса.
 
 {% endlist %}

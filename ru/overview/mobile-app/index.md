@@ -9,7 +9,7 @@
 
 ## Доступ в мобильное приложение {#how}
 
-Для входа используйте [Яндекс ID](../../iam/concepts/index.md#passport) или аккаунт в [федерации удостоверений](../../organization/concepts/add-federation.md).
+Для входа используйте [Яндекс ID](../../iam/concepts/users/accounts.md#passport) или аккаунт в [федерации удостоверений](../../organization/concepts/add-federation.md).
 
 ## Поддерживаемые устройства и ОС {#devices-os}
 

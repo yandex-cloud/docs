@@ -7,7 +7,7 @@ keywords:
   - {{ ES }}
 ---
 
-# Создание {{ ES }}-кластера
+# Создание кластера {{ ES }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
@@ -15,7 +15,7 @@ keywords:
 
 {% note info %}
 
-* Количество хостов с ролью _Data node_, которые можно создать вместе с {{ ES }}-кластером, зависит от выбранного [типа дисков](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Количество хостов с ролью _Data node_, которые можно создать вместе с кластером {{ ES }}, зависит от выбранного [типа дисков](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
 * Доступные типы дисков [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
 
 {% endnote %}
@@ -64,7 +64,7 @@ keywords:
   1. Задайте конфигурацию хостов с ролью _Data node_, выбрав вкладку **{{ ui-key.yacloud.opensearch.title_data-node }}**:
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите платформу, тип хостов и класс хостов.
 
-        Класс хостов определяет технические характеристики [виртуальных машин](../../compute/concepts/vm.md), на которых будут развернуты ноды {{ ES }}. Все доступные варианты перечислены в разделе [{#T}](../concepts/instance-types.md). При изменении класса хостов для кластера {{ mes-name }} меняются характеристики всех уже созданных экземпляров.
+        Класс хостов определяет технические характеристики [виртуальных машин](../../compute/concepts/vm.md), на которых будут развернуты ноды {{ ES }}. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md). При изменении класса хостов для кластера {{ mes-name }} меняются характеристики всех уже созданных экземпляров.
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
         * Выберите [тип диска](../concepts/storage.md).
 
@@ -85,7 +85,7 @@ keywords:
 
              {% endnote %}
 
-             Если для хоста {{ ES }} с ролью _Data node_ включен публичный доступ, к этому хосту или расположенной на нем Kibana можно подключиться через интернет. Подробнее см. в разделе [{#T}](cluster-connect.md).
+             Если для хоста {{ ES }} с ролью _Data node_ включен публичный доступ, к этому хосту или расположенной на нем Kibana можно подключиться через интернет. Подробнее см. в разделе [Подключение к кластеру](cluster-connect.md).
 
              {% include [mes-tip-public-kibana](../../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 

@@ -7,16 +7,16 @@ description: "На странице представлен список поша
 
 ## Кластеры
 
-* [{#T}](cluster-list.md)
+* [Информация об имеющихся кластерах](cluster-list.md)
 * [{#T}](calculate-specs.md)
-* [{#T}](cluster-create.md)
-* [{#T}](update.md)
-* [{#T}](cluster-stop.md)
-* [{#T}](./hosts/cluster-hosts.md)
+* [Создание кластера](cluster-create.md)
+* [Изменение настроек кластера](update.md)
+* [Остановка и запуск кластера](cluster-stop.md)
+* [Управление хостами кластера](./hosts/cluster-hosts.md)
 * [{#T}](./hosts/cluster-expand.md)
 * [{#T}](./hosts/host-migration.md)
-* [{#T}](cluster-backups.md)
-* [{#T}](cluster-delete.md)
+* [Управление резервными копиями](cluster-backups.md)
+* [Удаление кластера](cluster-delete.md)
 
 Если вы хотите перенести хосты кластера {{ mgp-name }} в другую зону доступности, обратитесь к [инструкции по управлению резервными копиями](cluster-backups.md).
 
@@ -47,15 +47,15 @@ description: "На странице представлен список поша
 
 ## Расширения {{ GP }}
 
-* [{#T}](./extensions/cluster-extensions.md)
-* [{#T}](./extensions/pgcrypto.md)
-* [{#T}](./extensions/uuid-cb.md)
+* [Управление расширениями](./extensions/cluster-extensions.md)
+* [Использование pgcrypto](./extensions/pgcrypto.md)
+* [Использование uuid-cb](./extensions/uuid-cb.md)
 
 ## Логи и мониторинг
 
-* [{#T}](cluster-logs.md)
+* [Просмотр логов кластера](cluster-logs.md)
 * [{#T}](performance-diagnostics.md)
-* [{#T}](monitoring.md)
+* [Мониторинг состояния кластера и хостов](monitoring.md)
 
 ## Вспомогательные утилиты
 

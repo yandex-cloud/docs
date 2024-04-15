@@ -7,19 +7,19 @@ keywords:
   - Elasticsearch
 ---
 
-# Изменение настроек {{ ES }}-кластера
+# Изменение настроек кластера {{ ES }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
 После создания кластера вы можете:
 
 
-* [{#T}](#change-service-account).
+* [Изменить настройки сервисного аккаунта](#change-service-account).
 
 
 * [{#T}](#change-resource-preset).
 * [{#T}](#change-disk-size).
-* [{#T}](#change-elasticsearch-config).
+* [Настроить серверы](#change-elasticsearch-config) {{ ES }} согласно [документации {{ ES }}](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html).
 * [{#T}](#change-admin-password).
 * [{#T}](#change-additional-settings).
 
@@ -27,7 +27,7 @@ keywords:
 
 * [{#T}](cluster-version-update.md).
 
-* [{#T}](host-migration.md).
+* [Миграция хостов кластера в другую зону доступности](host-migration.md).
 
 
 ## Изменить настройки сервисного аккаунта {#change-service-account}
@@ -38,7 +38,7 @@ keywords:
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
     1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
-    1. Выберите нужный сервисный аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта см. в разделе [{#T}](s3-access.md).
+    1. Выберите нужный сервисный аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к {{ objstorage-name }} из кластера](s3-access.md).
 
 - CLI {#cli}
 
@@ -69,7 +69,7 @@ keywords:
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-       О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
     1. Укажите в поле описания кластера `service_account_id` идентификатор сервисного аккаунта:
 
@@ -151,7 +151,7 @@ keywords:
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
       Полный список доступных для изменения полей конфигурации кластера {{ mes-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
 
@@ -263,7 +263,7 @@ keywords:
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
       Полный список доступных для изменения полей конфигурации кластера {{ mes-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
 
@@ -310,7 +310,7 @@ keywords:
     {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
   * Необходимый размер хранилища (в байтах) в параметрах:
-    * `configSpec.elasticsearchSpec.dataNode.resources.diskSize`  — для хостов с ролью *Data node*.
+    * `configSpec.elasticsearchSpec.dataNode.resources.diskSize` — для хостов с ролью *Data node*.
     * `configSpec.elasticsearchSpec.masterNode.resources.diskSize` — для хостов с ролью *Master node*.
   * Список настроек, которые необходимо изменить, в параметре `updateMask`.
 
@@ -437,7 +437,7 @@ keywords:
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
       Полный список доступных для изменения полей конфигурации кластера {{ mes-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
 
@@ -537,7 +537,7 @@ keywords:
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
       Полный список доступных для изменения полей конфигурации кластера {{ mes-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
 

@@ -45,7 +45,7 @@ To create a cluster:
 
 1. In the management console, open the folder to create your cluster in and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_empty-create }}**.
-1. Set the cluster parameters and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. This process is described in detail in [{#T}](operations/cluster-create.md).
+1. Set the cluster parameters and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
 1. Wait until the cluster is ready for use: its status will change to **Alive**. This may take some time.
 
 ## Connect to the cluster {#connect}
@@ -63,7 +63,7 @@ To connect to a cluster:
    * For version 2.0: `ubuntu`.
    * For version 1.4: `root`.
 
-For more information about connecting to {{ dataproc-name }} clusters, see [{#T}](operations/connect.md).
+For more information about connecting to a {{ dataproc-name }} cluster, see [Connecting to a cluster](operations/connect.md).
 
 ## Connect to component interfaces {#connect-components}
 

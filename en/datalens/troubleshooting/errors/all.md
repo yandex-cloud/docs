@@ -54,5 +54,6 @@ To view detailed error information, follow the link by clicking the error code:
 | [ERR.DS_API.US.ACCESS_DENIED](ERR-DS_API-US-ACCESS_DENIED.md) | Access denied | |
 | [ERR.DS_API.TYPE_CAST.FAILED](ERR-DS_API-TYPE_CAST-FAILED.md) | Data type conversion error |
 | [ERR.DS_API.US.BAD_REQUEST](ERR-DS_API-US-BAD_REQUEST.md) | Object request error |
+| [ERR.FILE.INVALID_LINK.YADOCS_INVALID_PUBLIC_LINK_PREFIX](ERR-FILE-INVALID_LINK-YADOCS_INVALID_PUBLIC_LINK_PREFIX.md) | Incorrect Yandex Documents link format |
 | [ERR.FILE.UNSUPPORTED_DOCUMENT](ERR-FILE-UNSUPPORTED_DOCUMENT.md) | File check failed |
 | [ERR.US.BAD_REQUEST.ALREADY_EXISTS](ERR-US-BAD_REQUEST-ALREADY_EXISTS.md) | Failed to create <object type> |
