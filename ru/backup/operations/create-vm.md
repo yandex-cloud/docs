@@ -76,8 +76,8 @@ description: "Следуя данной инструкции, вы сможет�
       |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
       | b0c6n43f9lgh******** | default-{{ region-id }}-d     | enpe3m3fa00u******** |                | {{ region-id }}-d     | [10.***.0.0/24] |
-      | e2l2da8a20b3******** | default-{{ region-id }}-b     | enpe3m3fa00u******** |                | {{ region-id }}-b | [10.***.0.0/24] |
-      | e9bnlm18l70a******** | default-{{ region-id }}-a     | enpe3m3fa00u******** |                | {{ region-id }}-a | [10.***.0.0/24] |
+      | e2l2da8a20b3******** | default-{{ region-id }}-b     | enpe3m3fa00u******** |                | {{ region-id }}-b     | [10.***.0.0/24] |
+      | e9bnlm18l70a******** | default-{{ region-id }}-a     | enpe3m3fa00u******** |                | {{ region-id }}-a     | [10.***.0.0/24] |
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
       ```
 
@@ -98,21 +98,22 @@ description: "Следуя данной инструкции, вы сможет�
       ```
 
       Где:
-      * `folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-      * `name` — имя создаваемой ВМ.
+
+      * `--folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+      * `--name` — имя создаваемой ВМ.
 
         {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-      * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
+      * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
       * `subnet-name` — имя выбранной [подсети](../../vpc/concepts/network.md#subnet).
       * `security-group-ids` — идентификатор [группы безопасности](../../vpc/concepts/security-groups.md), настроенной для работы с {{ backup-name }}.
       * `image-id` — [идентификатор образа](../../compute/concepts/image.md) операционной системы.
       * `size` — размер загрузочного диска.
-      * `cores` — [количество vCPU](../../compute/concepts/vm.md) ВМ.
-      * `core-fraction` — гарантированная доля vCPU в %.
-      * `memory` — [объем оперативной памяти](../../compute/concepts/vm.md) ВМ.
-      * `service-account-name` — имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) с ролью `backup.editor`.
-      * `ssh-key` — путь к файлу с [открытым SSH-ключом](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
+      * `--cores` — [количество vCPU](../../compute/concepts/vm.md) ВМ.
+      * `--core-fraction` — гарантированная доля vCPU в %.
+      * `--memory` — [объем оперативной памяти](../../compute/concepts/vm.md) ВМ.
+      * `--service-account-name` — имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) с ролью `backup.editor`.
+      * `--ssh-key` — путь к файлу с [открытым SSH-ключом](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
 
       В этом примере создается ВМ на базе ОС [Ubuntu 20.04](https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts):
 
@@ -122,7 +123,7 @@ description: "Следуя данной инструкции, вы сможет�
         --name my-vm \
         --zone {{ region-id }}-b \
         --network-interface subnet-name=my-vpc-{{ region-id }}-b,nat-ip-version=ipv4,security-group-ids=abcd3570sbqg******** \
-        --create-boot-disk image-id=fd8ecgtorub9r4609man,size=25 \
+        --create-boot-disk image-id=fd8ecgtorub9********,size=25 \
         --cores 2 \
         --core-fraction 100 \
         --memory 4 \

@@ -21,7 +21,7 @@ Packer создаст и запустит виртуальную машину с
 
 * Установите [интерфейс командной строки](../../cli/quickstart.md#install) {{ yandex-cloud }}.
 * [Создайте](../../vpc/quickstart.md) в вашем каталоге облачную сеть с одной подсетью.
-* Получите [OAuth-токен]({{ link-cloud-oauth }}) для [аккаунта на Яндексе](../../iam/concepts/#passport) или [IAM-токен](../../iam/operations/iam-token/create-for-federation.md) для [федеративного аккаунта](../../iam/concepts/federations.md).
+* Получите [OAuth-токен]({{ link-cloud-oauth }}) для [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport) или [IAM-токен](../../iam/operations/iam-token/create-for-federation.md) для [федеративного аккаунта](../../iam/concepts/users/accounts.md#saml-federation).
 
 
 ### Необходимые платные ресурсы {#paid-resources}

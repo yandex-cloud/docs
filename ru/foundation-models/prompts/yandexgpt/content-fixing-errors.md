@@ -35,7 +35,7 @@
 }
 ```
 
-Где `<идентификатор_каталога>` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }}, у которого есть доступ к сервису {{ yagpt-name }}.
+{% include [folder-id](../../../_includes/foundation-models/yandexgpt/folder-id.md) %}
 
 {% list tabs group=programming_language %}
 
@@ -43,14 +43,14 @@
 
 	```bash
 	curl -k -v -X POST
-     	-H "Authorization: Bearer <значение_IAM-токена>"
+     	-H "Authorization: Bearer <IAM-токен>"
      	-d @prompt.json
      	https://llm.{{ api-host }}/foundationModels/v1/completion
 	```
 	
 	Где:
 
-	* `<значение_IAM-токена>` — IAM-токен, полученный для вашего аккаунта.
+	* `<IAM-токен>` — значение IAM-токена, полученного для вашего аккаунта.
 	* `prompt.json` — файл в формате JSON, содержащий параметры запроса.
 
 {% endlist %}
@@ -112,7 +112,7 @@
 }
 ```
 
-Где `<идентификатор_каталога>` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }}, у которого есть доступ к сервису {{ yagpt-name }}.
+{% include [folder-id](../../../_includes/foundation-models/yandexgpt/folder-id.md) %}
 
 {% list tabs group=programming_language %}
 
@@ -120,14 +120,14 @@
 
 	```bash
 	curl -k -v -X POST
-     	-H "Authorization: Bearer <значение_IAM-токена>"
+     	-H "Authorization: Bearer <IAM-токен>"
      	-d @prompt.json
      	https://llm.{{ api-host }}/foundationModels/v1/completion
 	```
 	
 	Где:
 
-	* `<значение_IAM-токена>` — IAM-токен, полученный для вашего аккаунта.
+	* `<IAM-токен>` — значение IAM-токена, полученного для вашего аккаунта.
 	* `prompt.json` — файл в формате JSON, содержащий параметры запроса.
 
 {% endlist %}

@@ -233,6 +233,8 @@ items:
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Release notes
+    href: release-notes.md
   - name: Troubleshooting
     href: troubleshooting.md
 base: en/cdn

@@ -47,7 +47,7 @@
 
 Роли назначаются субъектам. Существуют следующие типы субъектов:
 
-* `userAccount` — [аккаунт на Яндексе](../index.md#passport), добавленный в {{ yandex-cloud }}.
+* `userAccount` — [аккаунт на Яндексе](../users/accounts.md#passport), добавленный в {{ yandex-cloud }}.
 * `serviceAccount` — [сервисный аккаунт](../users/service-accounts.md), созданный в {{ yandex-cloud }}.
 
     {% include [include](../../../_includes/sa-assign-role-note.md) %}

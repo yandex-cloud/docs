@@ -19,7 +19,7 @@ To create and [start jobs](../operations/running-jobs.md), you can:
 * Use the {{ yandex-cloud }} interfaces. For more information, see [basic examples](../tutorials/job-overview.md#jobs-basic-tutorials) for working with jobs.
 
 
-* Connect directly to the cluster node. For more information, see the example in [{#T}](../tutorials/remote-run-job.md).
+* Connect directly to the cluster node. For more information, see the example in the [Running jobs from remote hosts that are not part of the cluster](../tutorials/remote-run-job.md) section.
 
 
 To successfully run a job:

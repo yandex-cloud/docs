@@ -1,6 +1,6 @@
 # {{ alb-full-name }} release notes
 
-## Q1 2024 {#2024-q1}
+## Q1 2024 {#q1-2024}
 
 * Improved stability of data processing and transmission (data plane) within the service.
 * Implemented integration with [{{ sws-full-name }}](../smartwebsecurity/):

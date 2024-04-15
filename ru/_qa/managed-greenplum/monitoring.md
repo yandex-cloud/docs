@@ -14,6 +14,6 @@
 
 Мониторинг можно осуществлять с минимальным шагом в 5 секунд.
 
-Подробнее о мониторинге см. в разделе [{#T}](../../managed-greenplum/operations/monitoring.md).
+Подробнее о мониторинге см. в разделе [Мониторинг состояния кластера и хостов](../../managed-greenplum/operations/monitoring.md).
 
 {% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}

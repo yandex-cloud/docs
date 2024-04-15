@@ -17,6 +17,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
    1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
    1. Enter **{{ ui-key.yacloud.common.name }}**.
    1. In the **{{ ui-key.yacloud.alb.label_authority }}** field, type `*` or the [IP address](../../vpc/concepts/address.md) of the load balancer.
+   1. (Optional) In the **Security profile** field, select the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md).
    1. Click **{{ ui-key.yacloud.alb.button_add-route }}** and select **{{ ui-key.yacloud.alb.label_route-type }}**: `{{ ui-key.yacloud.alb.label_proto-grpc }}`.
       1. Enter **{{ ui-key.yacloud.common.name }}**.
       1. Under **{{ ui-key.yacloud.alb.label_fqmn }}**, select one of the options:
@@ -82,9 +83,13 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
       yc alb virtual-host create <virtual_host_name> \
         --http-router-name <HTTP_router_name> \
         --authority *
+        --security-profile-id <security_profile_ID>
       ```
 
-      Where `--authority`: Domains for the Host and `:authority` headers that will be associated with this virtual host. Wildcards are supported, for example, `*.foo.com` or `*-bar.foo.com`.
+      Where:
+      * `--http-router-name`: HTTP router name.
+      * `--authority`: Domains for the `:authority` headers that will be associated with this virtual host. Wildcards are supported, for example, `*.foo.com` or `*-bar.foo.com`.
+      * `--security-profile-id`: (Optional) ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md).
 
       Result:
 
@@ -172,6 +177,9 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
             }
           }
         }
+        route_options {
+          security_profile_id   = "<security_profile_ID>"
+        }
       }
       ```
 
@@ -188,11 +196,14 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
             {% include [name-format](../../_includes/name-format.md) %}
 
          * `http_router_id`: HTTP router ID.
-         * `grpc_route`: Description of the route for gRPC traffic:
+         * `route`: HTTP router route description:
             * `name`: Route name.
-            * `grpc_route_action`: Parameter to indicate an action on gRPC traffic.
-               * `backend_group_id`: [Backend group](../concepts/backend-group.md) ID.
-               * `max_timeout`: Maximum request idle timeout in seconds.
+            * `grpc_route`: Description of the route for gRPC traffic:
+               * `grpc_route_action`: Parameter to indicate an action on gRPC traffic.
+                  * `backend_group_id`: [Backend group](../concepts/backend-group.md) ID.
+                  * `max_timeout`: Maximum request idle timeout in seconds.
+         * `route_options`: (Optional) Additional parameters of the virtual host:
+            * `security_profile_id`: [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md) ID.
 
       For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
       * [Yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) resource

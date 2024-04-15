@@ -15,8 +15,8 @@ You can perform the following actions for any subcluster:
 
 You can also change subclusters' availability zone. In which case they will be migrated to a different availability zone together with the {{ dataproc-name }} cluster. The process depends on the cluster type:
 
-* [{#T}](migration-to-an-availability-zone.md).
-* [{#T}](../tutorials/hdfs-cluster-migration.md).
+* [Migrating a lightweight cluster to a different availability zone](migration-to-an-availability-zone.md).
+* [Migrating an HDFS cluster to a different availability zone](../tutorials/hdfs-cluster-migration.md).
 
 ## Changing the number of hosts {#change-host-number}
 
@@ -63,7 +63,7 @@ You can change the number of hosts in data storage and processing subclusters:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ dataproc-name }} cluster description, edit the value of the `hosts_count` parameter under `subcluster_spec` for the relevant data storage or processing subcluster:
 
@@ -87,7 +87,7 @@ You can change the number of hosts in data storage and processing subclusters:
 
 {% include [dedicated-hosts-edit-restrictions](../../_includes/data-proc/note-vm-edit-restrictions.md) %}
 
-You can change the computing power of hosts in a separate subcluster. It depends on driver deploy mode:
+You can change the computing power of hosts in a separate subcluster. It depends on the driver deploy mode:
 
 {% include [subcluster-computing-nodes](../../_includes/data-proc/subcluster-computing-nodes.md) %}
 
@@ -151,7 +151,7 @@ You can change the computing power of hosts in a separate subcluster. It depends
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ dataproc-name }} cluster description, edit the value of the `resource_preset_id` parameter under `subcluster_spec.resources` for the relevant subcluster:
 
@@ -257,7 +257,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ dataproc-name }} cluster description, add a `subcluster_spec.autoscaling_config` section with the required autoscaling settings for the relevant subcluster:
 
@@ -369,7 +369,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ dataproc-name }} cluster description, edit the value of the `disk_size` parameter under `subcluster_spec.resources` for the relevant subcluster:
 
@@ -419,7 +419,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Change the value of the `security_group_ids` parameter in the cluster description:
 

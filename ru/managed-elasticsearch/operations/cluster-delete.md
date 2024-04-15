@@ -7,7 +7,7 @@ keywords:
   - Elasticsearch
 ---
 
-# Удаление {{ ES }}-кластера
+# Удаление кластера {{ ES }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 

@@ -2,9 +2,9 @@
 
 {{ dataproc-name }} cluster logs are collected and displayed by [{{ cloud-logging-full-name }}](../../logging).
 
-To monitor the events on the cluster and its individual hosts, specify, in its settings, a relevant [log group](../../logging/concepts/log-group.md). You can do this when [creating](cluster-create.md) or [updating](cluster-update.md) the cluster. If no log group has been selected for a cluster, a default log group in the cluster directory will be used to send and store logs.
+To monitor the events on the cluster and its individual hosts, specify, in its settings, a relevant [log group](../../logging/concepts/log-group.md). You can do this when [creating](cluster-create.md) or [updating](cluster-update.md) the cluster. If no log group has been selected for the cluster, a default log group in the cluster directory will be used to send and store logs.
 
-For more information, see [{#T}](../concepts/logs.md).
+For more information, see [Logs](../concepts/logs.md).
 
 ## Viewing log entries {#logging-cluster}
 
@@ -14,7 +14,7 @@ For more information, see [{#T}](../concepts/logs.md).
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Click the cluster name.
-   1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_configuration }}**, click the name of the cluster log group. The {{ cloud-logging-name }} page opens.
+   1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_configuration }}**, click the name of the cluster log group. The {{ cloud-logging-name }} page will open.
    1. Click the row of the log group. This will open the cluster logs.
    1. (Optional) Specify the output settings:
       * [Message filter](../concepts/logs.md):
@@ -87,7 +87,7 @@ For more information, see [{#T}](../concepts/logs.md).
          --until 'YYYY-MM-DDThh:mm:ssZ'
       ```
 
-      Set the logging period in the `--since` and `--until` parameters. Time format: `YYYY-MM-DDThh:mm:ssZ`. Example: `2020-08-10T12:00:00Z`. The time zone must be specified in UTC format.
+      Set the logging period in the `--since` and `--until` parameters in `YYYY-MM-DDThh:mm:ssZ` format, e.g., `2020-08-10T12:00:00Z`. The time zone must be specified in UTC format.
 
    * To get a log for metrics sent from a specific host to [{{ monitoring-full-name }}](../../monitoring/index.yaml), run this command:
 

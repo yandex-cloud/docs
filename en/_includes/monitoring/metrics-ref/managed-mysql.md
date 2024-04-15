@@ -1,4 +1,4 @@
-The name of the metric is written in the `name` label.
+The metric name is written in the `name` label.
 
 Common labels for all {{ mmy-name }} metrics:
 
@@ -162,20 +162,20 @@ Processor core workload.
 | `mysql_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if a DB host is alive, `0` if it is not. |
 | `mysql_is_primary`<br/>`DGAUGE`, 0/1 | Master host indicator.<br/>`1` if a DB host is a master, `0` if it is not. |
 | `mysql_is_replica`<br/>`DGAUGE`, 0/1 | Replica host indicator.<br/>`1` if a DB host is a replica, `0` if it is not. |
-| `mysql_latency_query_0.5`<br/>`DGAUGE`, seconds | Query execution time, median value |
-| `mysql_latency_query_0.75`<br/>`DGAUGE`, seconds | Query execution time, 0.75 percentile |
-| `mysql_latency_query_0.90`<br/>`DGAUGE`, seconds | Query execution time, 0.90 percentile |
-| `mysql_latency_query_0.95`<br/>`DGAUGE`, seconds | Query execution time, 0.95 percentile |
-| `mysql_latency_query_0.99`<br/>`DGAUGE`, seconds | Query execution time, 0.99 percentile |
-| `mysql_latency_query_avg`<br/>`DGAUGE`, seconds | Average query execution time |
-| `mysql_latency_query_oldest`<br/>`DGAUGE`, seconds | Execution time of the oldest query |
-| `mysql_latency_trx_0.5`<br/>`DGAUGE`, seconds | Transaction execution time, median value |
-| `mysql_latency_trx_0.75`<br/>`DGAUGE`, seconds | Transaction execution time, 0.75 percentile |
-| `mysql_latency_trx_0.90`<br/>`DGAUGE`, seconds | Transaction execution time, 0.90 percentile |
-| `mysql_latency_trx_0.95`<br/>`DGAUGE`, seconds | Transaction execution time, 0.95 percentile |
-| `mysql_latency_trx_0.99`<br/>`DGAUGE`, seconds | Transaction execution time, 0.99 percentile |
-| `mysql_latency_trx_avg`<br/>`DGAUGE`, seconds | Average transaction execution time |
-| `mysql_latency_trx_oldest`<br/>`DGAUGE`, seconds | Execution time of the oldest transaction |
+| `mysql_latency_query_0.5`<br/>`DGAUGE`, milliseconds | Query execution time, median value |
+| `mysql_latency_query_0.75`<br/>`DGAUGE`, milliseconds | Query execution time, 0.75 percentile |
+| `mysql_latency_query_0.90`<br/>`DGAUGE`, milliseconds | Query execution time, 0.90 percentile |
+| `mysql_latency_query_0.95`<br/>`DGAUGE`, milliseconds | Query execution time, 0.95 percentile |
+| `mysql_latency_query_0.99`<br/>`DGAUGE`, milliseconds | Query execution time, 0.99 percentile |
+| `mysql_latency_query_avg`<br/>`DGAUGE`, milliseconds | Average query execution time |
+| `mysql_latency_query_oldest`<br/>`DGAUGE`, milliseconds | Execution time of the oldest query |
+| `mysql_latency_trx_0.5`<br/>`DGAUGE`, milliseconds | Transaction execution time, median value |
+| `mysql_latency_trx_0.75`<br/>`DGAUGE`, milliseconds | Transaction execution time, 0.75 percentile |
+| `mysql_latency_trx_0.90`<br/>`DGAUGE`, milliseconds | Transaction execution time, 0.90 percentile |
+| `mysql_latency_trx_0.95`<br/>`DGAUGE`, milliseconds | Transaction execution time, 0.95 percentile |
+| `mysql_latency_trx_0.99`<br/>`DGAUGE`, milliseconds | Transaction execution time, 0.99 percentile |
+| `mysql_latency_trx_avg`<br/>`DGAUGE`, milliseconds | Average transaction execution time |
+| `mysql_latency_trx_oldest`<br/>`DGAUGE`, milliseconds | Execution time of the oldest transaction |
 | `mysql_replication_lag`<br/>`DGAUGE`, seconds | Time that a replica lags behind the master |
 | `mysql_role`<br/>`DGAUGE`, 1/2 | Current role of a MySQL server in the replication.<br/>`2` if the server is a replica (secondary server), `1` if it is a master (primary server). |
 | `mysql_writable`<br/>`DGAUGE`, 0/1 | Server write access.<br/>`1` if a server is available for writes, `0` if it is not. |

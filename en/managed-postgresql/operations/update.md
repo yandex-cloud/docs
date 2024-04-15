@@ -23,7 +23,7 @@ After creating a cluster, you can:
 
 Learn more about other cluster updates:
 
-* [Updating the {{ PG }} version](cluster-version-update.md).
+* [Upgrading the {{ PG }} version](cluster-version-update.md).
 
 * [Managing disk space](storage-space.md).
 
@@ -36,6 +36,14 @@ Learn more about other cluster updates:
 Some {{ PG }} settings [depend on the selected host class](../concepts/settings-list.md#settings-instance-dependent).
 
 {% endnote %}
+
+When changing the host class:
+
+* Your single-host cluster will be unavailable for a few minutes with database connections terminated.
+* Your multi-host cluster will get a new master host. Its hosts will be stopped and updated one by one. Once stopped, a host will be unavailable for a few minutes.
+* Using a [special FQDN](./connect.md#special-fqdns) does not guarantee a stable database connection: user sessions may be terminated.
+
+We recommend changing the host class only when the cluster has no active workload.
 
 {% list tabs group=instructions %}
 

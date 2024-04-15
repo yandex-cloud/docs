@@ -82,7 +82,7 @@
 
      ```bash
      yc backup backups recover \
-       --source-backup-id <идентификатор_резервной копии> \
+       --source-backup-id <идентификатор_резервной_копии> \
        --destination-instance-id <идентификатор_целевой_ВМ>
      ```
 

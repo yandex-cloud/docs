@@ -6,7 +6,7 @@
 
 ## Модели векторного представления текста {#yandexgpt-embeddings}
 
-{{ foundation-models-full-name }} предоставляет две модели векторизации текста. Обращение к модели по API возможно по ее [URI](https://ru.wikipedia.org/wiki/URI), содержащем [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Опция `/latest` указывает версию вызываемой модели и является опциональной. 
+{{ foundation-models-full-name }} предоставляет две модели векторизации текста. Обращение к модели по API возможно по ее [URI](https://ru.wikipedia.org/wiki/URI), содержащему [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Опция `/latest` указывает версию вызываемой модели и является опциональной.
 
 | Назначение | URI | Режим работы |
 |---|---|---|
@@ -26,7 +26,7 @@
   import numpy as np
   from scipy.spatial.distance import cdist
 
-  FOLDER_ID = "<идетификатор_каталога>"
+  FOLDER_ID = "<идентификатор_каталога>"
   IAM_TOKEN = "<IAM-токен>"
 
   doc_uri = f"emb://{FOLDER_ID}/text-search-doc/latest"
@@ -68,7 +68,7 @@
 
   Где:
 
-  * `<идетификатор_каталога>` — идентификатор каталога {{ yandex-cloud }}.
+  * `<идентификатор_каталога>` — идентификатор каталога {{ yandex-cloud }}.
   * `<IAM-токен>` — [IAM-токен](../../iam/concepts/authorization/iam-token.md) аккаунта для [аутентификации в API](../api-ref/authentication.md).
 
   Результат выполнения:

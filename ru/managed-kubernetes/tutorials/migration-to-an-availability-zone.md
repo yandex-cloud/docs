@@ -439,7 +439,21 @@
 
    Так вы выключите поды, которые используют диски. При этом сохранится объект API {{ k8s }} [PersistentVolumeClaim](../concepts/volume.md#persistent-volume) (PVC).
 
-1. Создайте [снапшот](../../glossary/snapshot.md) — копию диска [PersistentVolume](../concepts/volume.md#persistent-volume) (PV) на определенный момент времени. Подробнее о механизме снапшотов см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
+1. Для объекта [PersistentVolume](../concepts/volume.md#persistent-volume) (PV), связанного с `PersistentVolumeClaim`, измените значение параметра `persistentVolumeReclaimPolicy` с `Delete` на `Retain`, чтобы предотвратить случайную потерю данных.
+
+   1. Получите название объекта `PersistentVolume`:
+
+      ```bash
+      kubectl get pv
+      ```
+
+   1. Отредактируйте объект `PersistentVolume`:
+
+      ```bash
+      kubectl edit pv <название_PV>
+      ```
+
+1. Создайте [снапшот](../../glossary/snapshot.md) — копию диска `PersistentVolume` на определенный момент времени. Подробнее о механизме снапшотов см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
 
    1. Получите название объекта `PersistentVolumeClaim`:
 
@@ -453,12 +467,14 @@
       apiVersion: snapshot.storage.k8s.io/v1
       kind: VolumeSnapshot
       metadata:
-         name: new-snapshot-test
+         name: new-snapshot-test-<номер>
       spec:
          volumeSnapshotClassName: yc-csi-snapclass
          source:
             persistentVolumeClaimName: <название_PVC>
       ```
+
+      Если вы создаете несколько снапшотов для разных `PersistentVolumeClaim`, укажите `<номер>` (номер по порядку), чтобы значение `metadata.name` было уникальным для каждого снапшота.
 
    1. Создайте снапшот:
 
@@ -507,7 +523,7 @@
       apiVersion: v1
       kind: PersistentVolume
       metadata:
-         name: new-pv-test
+         name: new-pv-test-<номер>
       spec:
          capacity:
             storage: <размер_PersistentVolume>
@@ -533,6 +549,8 @@
          | `network-nvme` | `yc-network-nvme` |
          | `network-hdd` | `yc-network-hdd` |
 
+      Если вы создаете несколько объектов `PersistentVolume`, укажите `<номер>` (номер по порядку), чтобы значение `metadata.name` было уникальным.
+
    1. Создайте объект `PersistentVolume`:
 
       ```bash
@@ -545,7 +563,7 @@
       kubectl get pv
       ```
 
-      В выводе команды появится объект `new-pv-test`.
+      В выводе команды появится объект `new-pv-test-<номер>`.
 
 1. Создайте объект `PersistentVolumeClaim` на основе нового объекта `PersistentVolume`:
 
@@ -563,7 +581,7 @@
             requests:
                storage: <размер_PV>
          storageClassName: <тип_диска>
-         volumeName: new-pv-test
+         volumeName: new-pv-test-<номер>
       ```
 
       В файле задайте параметры:
@@ -571,6 +589,7 @@
       * `metadata.name` — название объекта `PersistentVolumeClaim`, который вы использовали для создания снапшота. Название можно получить с помощью команды `kubectl get pvc`.
       * `spec.resources.requests.storage` — размер `PersistentVolume`, совпадает с размером созданного диска.
       * `spec.storageClassName` — тип диска `PersistentVolume`, совпадает с типом диска у нового объекта `PersistentVolume`.
+      * `spec.volumeName` — название объекта `PersistentVolume`, на основе которого создается `PersistentVolumeClaim`. Название можно получить с помощью команды `kubectl get pv`.
 
    1. Удалите исходный объект `PersistentVolumeClaim`, чтобы затем заменить его:
 
@@ -616,3 +635,17 @@
    ```
 
    Вывод команды показывает, в каких узлах запущены поды.
+
+1. Удалите неиспользуемый объект `PersistentVolume` (в статусе `Released`).
+
+   1. Получите название объекта `PersistentVolume`:
+
+      ```bash
+      kubectl get pv
+      ```
+
+   1. Удалите объект `PersistentVolume`:
+
+      ```bash
+      kubectl delete pv <название_PV>
+      ```

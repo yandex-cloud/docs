@@ -1,16 +1,24 @@
-# {{ TF }} provider's {{ sf-full-name }} resource reference
+# {{ TF }} reference for {{ sf-full-name }}
 
-With [{{ TF }}](https://www.terraform.io/), you can quickly create a cloud infrastructure in {{ yandex-cloud }} and manage it using configuration files. The configuration files store the infrastructure description in the HashiCorp Configuration Language (HCL). {{ TF }} and its providers are distributed under the [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
+{% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
-If you change the configuration files, {{ TF }} automatically figures out which part of your configuration is already deployed and what should be added or removed.
-
-For more information about {{ TF }}, [see the documentation](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+## Resources {#resources}
 
 The following {{ TF }} provider resources are supported for {{ sf-name }}:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_function]({{ tf-provider-resources-link }}/function) | [Function](./concepts/function.md) |
-| [yandex_function_iam_binding]({{ tf-provider-resources-link }}/function_iam_binding) | [Role](./security/index.md#roles-list.md) for a function |
+| [yandex_function_iam_binding]({{ tf-provider-resources-link }}/function_iam_binding) | [Binding](../iam/concepts/access-control/index.md#access-bindings) access privileges to a function |
 | [yandex_function_scaling_policy]({{ tf-provider-resources-link }}/function_scaling_policy) | [Function scaling settings](./concepts/function.md#scaling) |
 | [yandex_function_trigger]({{ tf-provider-resources-link }}/function_trigger) | [Trigger](./concepts/trigger/index.md) |
+
+## Data sources {#data-sources}
+
+{{ sf-name }} supports the following {{ TF }} provider data sources:
+
+| **{{ TF }} data source** | **Description** |
+| --- | --- |
+| [yandex_function]({{ tf-provider-datasources-link }}/datasource_function) | Information about a [function](./concepts/function.md) |
+| [yandex_function_scaling_policy]({{ tf-provider-datasources-link }}/datasource_function_scaling_policy) | Information about [function scaling settings](./concepts/function.md#scaling) |
+| [yandex_function_trigger]({{ tf-provider-datasources-link }}/datasource_function_trigger) | Information about a [trigger](./concepts/trigger/index.md) |

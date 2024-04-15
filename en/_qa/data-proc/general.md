@@ -18,13 +18,13 @@ You can find cluster logs in its log group. To track the events of a cluster and
 
 {% include [logs](../logs.md) %}
 
-#### Why is a cluster working slowly even though it still has free computing resources? {#throttling}
+#### Why is the cluster slow even though the computing resources are not used fully? {#throttling}
 
 {% include [throttling](../throttling.md) %}
 
 To increase the maximum IOPS and bandwidth values and make throttling less likely, consider switching to a different cluster with larger host storage or a faster disk type. You can transfer data to a new cluster, for example, using [{{ metastore-full-name }}](../../data-proc/concepts/metastore.md).
 
-#### I get the `^M: bad interpreter` error while running an initialization script. How do I fix this? {#syntax-error}
+#### I get the `^M: bad interpreter` error when running the initialization script. How do I fix this? {#syntax-error}
 
 Since the script runtime environment is Linux (Ubuntu), scripts created in Windows may end with an error saying `^M: bad interpreter` due to using the `CR/LF` newline character (in Linux, it is `LF`). To fix the error, save the script file in Linux format. For more information, see [{#T}](../../data-proc/concepts/init-action.md#syntax-errors).
 
@@ -84,9 +84,9 @@ It depends on the driver deploy mode:
 
 {% include [subcluster-computing-nodes](../../_includes/data-proc/subcluster-computing-nodes.md) %}
 
-In {{ yandex-cloud }}, the computing power depends on the host class. For their ratio, see [{#T}](../../data-proc/concepts/instance-types.md).
+In {{ yandex-cloud }}, the computing power depends on the host class. For their ratio, see [Host classes](../../data-proc/concepts/instance-types.md).
 
-#### How do I upgrate the image version in {{ dataproc-name }}? {#upgrade}
+#### How do I upgrade the image version in {{ dataproc-name }}? {#upgrade}
 
 The service has no built-in mechanism for updating [image versions](../../data-proc/concepts/environment.md). To update the version of your image, create a new cluster.
 

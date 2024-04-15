@@ -113,6 +113,8 @@ items:
         href: tutorials/mmy-ydb-migration.md
       - name: Migrating databases from {{ mmy-name }} to {{ objstorage-full-name }}
         href: tutorials/mmy-objs-migration.md
+      - name: Transferring data from {{ objstorage-full-name }} to {{ mmy-name }}
+        href: tutorials/objs-mmy-migration.md
       - name: '{{ MY }} change data capture and delivery to {{ DS }}'
         href: tutorials/mmy-to-yds.md
       - name: >-

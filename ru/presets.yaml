@@ -3053,8 +3053,6 @@ default:
         button-submit-text: Применить
       ui_components_BulkSuggestPopup:
         apply: Применить
-      ui_components_Confirm:
-        ok-button-text: Да
       ui_components_CreateIssueForm:
         create-issue: Создать задачу
       ui_components_dashboard_DashboardActionsMenu:
@@ -5959,7 +5957,7 @@ default:
       postgresql:
         cluster:
           additional-field-pooling_mode: Режим работы менеджера подключений
-          field_diskSizeLimit: Новый размер хранилища
+          field_diskSizeLimit: Максимальный размер хранилища
           field_thresholds: Увеличивать размер
           section_disk-scaling: Автоматическое увеличение размера хранилища
           switch_backups: Резервные копии

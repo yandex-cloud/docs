@@ -30,5 +30,6 @@ description: "This page provides a list of {{ objstorage-name }} tutorials."
 
 
 * [{#T}](./object-storage-to-postgresql.md)
+* [{#T}](./object-storage-to-greenplum.md)
 * [{#T}](./object-storage-to-clickhouse.md)
 * [{#T}](./object-storage-to-ydb.md)

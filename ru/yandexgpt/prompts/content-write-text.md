@@ -43,14 +43,14 @@
 
 	```bash
 	curl -k -v -X POST
-     	-H "Authorization: Bearer <значение_IAM-токена>"
+     	-H "Authorization: Bearer <IAM-токен>"
      	-d @prompt.json
      	https://llm.{{ api-host }}/foundationModels/v1/completion
 	```
 	
 	Где:
 
-	* `<значение_IAM-токена>` — IAM-токен, полученный для вашего аккаунта.
+	* `<IAM-токен>` — IAM-токен, полученный для вашего аккаунта.
 	* `prompt.json` — файл в формате JSON, содержащий параметры запроса.
 
 {% endlist %}
@@ -122,14 +122,14 @@
 
 	```bash
 	curl -k -v -X POST
-     	-H "Authorization: Bearer <значение_IAM-токена>"
+     	-H "Authorization: Bearer <IAM-токен>"
      	-d @prompt.json
      	https://llm.{{ api-host }}/foundationModels/v1/completion
 	```
 	
 	Где:
 
-	* `<значение_IAM-токена>` — IAM-токен, полученный для вашего аккаунта.
+	* `<IAM-токен>` — IAM-токен, полученный для вашего аккаунта.
 	* `prompt.json` — файл в формате JSON, содержащий параметры запроса.
 
 {% endlist %}

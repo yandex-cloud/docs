@@ -41,7 +41,7 @@ The size of VM backups can fall short of the VM disk size, e.g., if the VM disk 
 
 ## Pricing {#prices}
 
-The monthly usage rate is based on 720 hours a month.
+The monthly usage rate is based on 720 hours per month.
 
 ### Protected {{ backup-name }} VMs {#prices-vms}
 
@@ -63,9 +63,9 @@ The monthly usage rate is based on 720 hours a month.
 
 
 
-## Example of cost calculation {#price-example}
+## Cost calculation example {#price-example}
 
-Example of calculating the cost of {{ backup-name }} per month for the following configuration:
+Here is an example of calculating the cost of {{ backup-name }} for one month for the following configuration:
 * One VM is linked to backup policies.
 * Total size of backups is 50 GB.
 
@@ -74,10 +74,10 @@ Example of calculating the cost of {{ backup-name }} per month for the following
 
 > 1 VM × $1.910400 + 50 GB × $0.033600 = $3.590400
 
-> Total: $3.590400 is the cost of using {{ backup-name }} to protect one VM with the total size of backups amounting to 50 GB per month, without VAT.
+> $3.590400 is the cost of using {{ backup-name }} to protect one VM with the total size of backups amounting to 50 GB per month, without VAT.
 
 Where:
 * 1: Number of VMs linked to backup policies.
-* $1.910400: Cost of connecting 1 VM to {{ backup-name }} per month, including
+* $1.910400: Cost of connecting 1 VM to {{ backup-name }} per month, without VAT.
 * 50 GB: Total size of backups.
 * $0.033600: Cost of storing 1 GB of backups per month, without VAT.

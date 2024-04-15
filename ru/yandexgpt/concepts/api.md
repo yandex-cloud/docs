@@ -1,6 +1,6 @@
-# Особенности реализация API в сервисе {{ yagpt-full-name }}
+# Особенности реализации API в сервисе {{ yagpt-full-name }}
 
-С помощью {{ yagpt-full-name }} можно выполнять задачи, связанные с генерацией текстового контента. Например, вы можете выбрать [режим взаимодействия с пользователем](../concepts/index.md#working-modes) или оценить размер текстового поля в [токенах](../concepts/tokens.md). Справочники методов и вызовом API см. в разделах [gRPC](../text-generation/api-ref/grpc/) и [REST](../text-generation/api-ref/).
+С помощью {{ yagpt-full-name }} можно выполнять задачи, связанные с генерацией текстового контента. Например, вы можете выбрать [режим взаимодействия с пользователем](../concepts/index.md#working-modes) или оценить размер текстового поля в [токенах](../concepts/tokens.md). Справочники методов и вызовов API см. в разделах [gRPC](../text-generation/api-ref/grpc/) и [REST](../text-generation/api-ref/).
 
 API {{ yagpt-name }} спроектирован на основе механизма gRPC. Для описания методов и структур данных в API используется Protocol Buffers (proto 3).
 

@@ -40,7 +40,7 @@ The example below shows how to create an external data source for a {{ mpg-name 
 1. Send a request using [cURL](https://curl.haxx.se):
 
    ```bash
-   curl --location "https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<cluster_ID>/pxf_datasources" \
+   curl --location "https://mdb.{{ api-host }}/managed-greenplum/v1/clusters/<cluster_ID>/pxf_datasources" \
         --header "Content-Type: text/plain" \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         --data "{
@@ -49,7 +49,7 @@ The example below shows how to create an external data source for a {{ mpg-name 
                 \"jdbc\": {
                     \"driver\": \"org.postgresql.Driver\",
                     \"url\": \"jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/<DB_name>\",
-                    \"user\": \"<user_name>\",
+                    \"user\": \"<username>\",
                     \"password\": \"<user_password>\"
                 }
             }

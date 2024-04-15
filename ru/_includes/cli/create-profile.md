@@ -1,4 +1,4 @@
-Чтобы аутентифицироваться с помощью [аккаунта на Яндексе](../../iam/concepts/index.md#passport):
+Чтобы аутентифицироваться с помощью [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport):
 
 1. Получите OAuth-токен в сервисе [Яндекс ID](https://yandex.ru/dev/id/doc/ru/concepts/ya-oauth-intro): 
 

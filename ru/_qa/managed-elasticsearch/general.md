@@ -6,7 +6,7 @@
 * изменение класса хостов и объема хранилища;
 * другие сервисные работы {{ mes-short-name }}.
 
-Подробнее в разделе [{#T}](../../managed-elasticsearch/concepts/maintenance.md).
+Подробнее в разделе [Техническое обслуживание](../../managed-elasticsearch/concepts/maintenance.md).
 
 #### Включено ли резервное копирование кластеров по умолчанию? {#default-backup}
 

@@ -3,7 +3,7 @@ title: "Migrating a {{ mgl-full-name }} instance to a different availability zon
 description: "In this tutorial, you will learn how to migrate a {{ mgl-name }} instance to a different availability zone."
 ---
 
-# Migrating a ru-central1-c instance to a new availability zone
+# Migrating a ru-central1-c instance to a different availability zone
 
 {% note info %}
 
@@ -23,7 +23,7 @@ VMs with {{ mgl-name }} instances reside in {{ yandex-cloud }} [availability zon
 
       1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
       1. Click the instance name and select the **{{ ui-key.yacloud.gitlab.title_migration }}** tab.
-      1. If you are unable to use the migration functionality, request access to it.
+      1. If unable to use the migration functionality, request access to it.
 
          When your request is approved, you will be notified by email. To continue, reload the page in your browser.
 
@@ -36,6 +36,6 @@ VMs with {{ mgl-name }} instances reside in {{ yandex-cloud }} [availability zon
       1. On the **{{ ui-key.yacloud.gitlab.title_migration }}** tab:
 
          * If the instance works properly, click **{{ ui-key.yacloud.gitlab.button_finish-migration }}**.
-         * If the instance fails, click **{{ ui-key.yacloud.gitlab.button_rollback-migration }}** to move it back to the initial availability zone, or contact [technical support]({{ link-console-support }}).
+         * If the instance is inoperable, click **{{ ui-key.yacloud.gitlab.button_rollback-migration }}** to move it back to the initial availability zone, or contact [technical support]({{ link-console-support }}).
 
    {% endlist %}

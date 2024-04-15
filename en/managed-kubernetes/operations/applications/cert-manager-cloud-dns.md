@@ -1,7 +1,9 @@
 # Installing cert-manager with the {{ dns-full-name }} ACME webhook plugin
 
-[cert-manager](https://cert-manager.io) is an application that adds certificates and certificate issuers as resource types in [{{ managed-k8s-name }} clusters](../../concepts/index.md#kubernetes-cluster) to facilitate obtaining, renewal, and use of such certificates.
-The {{ dns-full-name }} ACME webhooks plugin for cert-manager allows you to complete a [DNS-01 challenge](https://letsencrypt.org/ru/docs/challenge-types/#проверка-dns-01) via [{{ dns-name }}](../../../dns/).
+[cert-manager](https://cert-manager.io) is an application that adds certificates and certificate issuers as resource types in [{{ managed-k8s-name }} clusters](../../concepts/index.md#kubernetes-cluster) to facilitate obtaining, renewal, and use of such certificates. For example, to get [Let's Encrypt®](https://letsencrypt.org/) certificates, you can pass the following [challenges](https://letsencrypt.org/docs/challenge-types/) to prove domain ownership:
+
+* [DNS-01](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge). To pass this challenge, use [{{ dns-full-name }}](../../../dns/). Together with cert-manager, you need to install the ACME webhook {{ dns-full-name }} plugin for integration with the service.
+* [HTTP-01](https://letsencrypt.org/docs/challenge-types/#http-01-challenge). To pass this challenge, use an Ingress controller installed in a cluster.
 
 ## Getting started {#before-you-begin}
 
@@ -9,11 +11,11 @@ The {{ dns-full-name }} ACME webhooks plugin for cert-manager allows you to comp
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-1. Make sure that the {{ managed-k8s-name }} cluster is located in the same [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) as the [{{ dns-name }} zone](../../../dns/concepts/dns-zone.md).
+1. Make sure that the {{ managed-k8s-name }} cluster is located in the same [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) as the [{{ dns-name }} public zone](../../../dns/concepts/dns-zone.md#public-zones).
 1. {% include [kubectl-install](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. [Create a service account](../../../iam/operations/sa/create.md) for cert-manager.
-1. [Assign to it](../../../iam/operations/sa/assign-role-for-sa.md) the `dns.editor` role for the folder hosting the [public DNS zone](../../../dns/concepts/dns-zone.md#public-zones).
-1. [Create an authorized key](../../../iam/operations/authorized-key/create.md) and save it to a file named `key.json`.
+1. [Create](../../../iam/operations/sa/create.md) a service account to run cert-manager.
+1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the service account the `dns.editor` role for the folder hosting the public DNS zone.
+1. [Create](../../../iam/operations/authorized-key/create.md) an authorized key for the service account and save it to the `key.json` file.
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
@@ -31,6 +33,44 @@ The {{ dns-full-name }} ACME webhooks plugin for cert-manager allows you to comp
       * `https://acme-staging-v02.api.letsencrypt.org/directory`: Test URL.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
+
+## Installation using a Helm chart {#helm-install}
+
+1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with cert_manager and the {{ dns-full-name }} plugin, run this command:
+
+   ```bash
+   export HELM_EXPERIMENTAL_OCI=1 && \
+   helm pull oci://{{ mkt-k8s-key.yc_cert-manager-webhook-yandex.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_cert-manager-webhook-yandex.helmChart.tag }} \
+     --untar && \
+   helm install \
+     --namespace <namespace> \
+     --create-namespace \
+     --set-file config.auth.json=key.json \
+     --set config.email='<email_address_to_receive_Lets_Encrypt_notifications>' \
+     --set config.folder_id='<ID_of_folder_with_Cloud_DNS_zone>' \
+     --set config.server='Lets_Encrypt_server_URL' \
+     cert-manager-webhook-yandex ./cert-manager-webhook-yandex/
+   ```
+
+   As a Let's Encrypt® server URL, use:
+   * `https://acme-v02.api.letsencrypt.org/directory`: Primary URL.
+   * `https://acme-staging-v02.api.letsencrypt.org/directory`: Test URL.
+
+   This command also creates a new namespace required for cert-manager.
+
+1. Make sure the cert-manager [pod](../../concepts/index.md#pod) has changed its status to `Running`:
+
+   ```bash
+   kubectl get pods --namespace=<namespace> -l app=cert-manager-webhook-yandex -w
+   ```
+
+## Getting a test certificate {#issue-certificate}
+
+To test the installed application, get a test certificate. To issue the certificate, we are going to use the `yc-clusterissuer` issuer. It is created when you install cert-manager and pre-configured to work with Let's Encrypt®.
+
 1. Create a file named `certificate.yaml` with a request for a test certificate:
 
    ```yaml
@@ -70,37 +110,15 @@ The {{ dns-full-name }} ACME webhooks plugin for cert-manager allows you to comp
    domain-name  True   domain-name-secret  45m
    ```
 
-## Installation using a Helm chart {#helm-install}
+   The `True` status in the `READY` column means that the certificate was issued successfully.
 
-1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
-
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with cert_manager and the {{ dns-full-name }} plugin, run this command:
+1. (Optional) Get detailed information about the certificate:
 
    ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ mkt-k8s-key.yc_cert-manager-webhook-yandex.helmChart.name }} \
-     --version {{ mkt-k8s-key.yc_cert-manager-webhook-yandex.helmChart.tag }} \
-     --untar && \
-   helm install \
-     --namespace <namespace> \
-     --create-namespace \
-     --set-file config.auth.json=key.json \
-     --set config.email='<email_address_to_receive_Lets_Encrypt_notifications>' \
-     --set config.folder_id='<ID_of_folder_with_Cloud_DNS_zone>' \
-     --set config.server='Lets_Encrypt_server_URL' \
-     cert-manager-webhook-yandex ./cert-manager-webhook-yandex/
+   kubectl -n <namespace> describe certificate domain-name
    ```
 
-   As a Let's Encrypt® server URL, use:
-   * `https://acme-v02.api.letsencrypt.org/directory`: Primary URL.
-   * `https://acme-staging-v02.api.letsencrypt.org/directory`: Test URL.
-
-   This command also creates a new namespace required for cert-manager.
-1. Make sure the cert-manager [pod](../../concepts/index.md#pod) status has changed to `Running`:
-
-   ```bash
-   kubectl get pods --namespace=<namespace> -l app=cert-manager-webhook-yandex -w
-   ```
+   {% include [cert-manager-events-explained](../../../_includes/managed-kubernetes/cert-manager-events-explained.md) %}
 
 ## Use cases {#examples}
 

@@ -560,7 +560,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
     1. Сохраните полученный на предыдущем шаге API-токен в переменную окружения `TELEGRAM_BOT_API_TOKEN`:
 
         ```bash
-        export TELEGRAM_BOT_API_TOKEN=<Telegram-API-токен>
+        export TELEGRAM_BOT_API_TOKEN=<Telegram_API-токен>
         ```
 
     1. Перейдите в директорию `yc-telegram-bot-with-trigger-for-budget/steps/6-register-telegram-bot` и выполните команду:

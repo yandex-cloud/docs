@@ -24,7 +24,7 @@ To maintain external network access to {{ dataproc-name }} services, create a ne
 
 To reconfigure external connections when recreating a cluster or moving the workload to a different cluster, you can just change the `CNAME` record you created.
 
-For a setup example, see [{#T}](../tutorials/reconnect-network.md).
+For a configuration example, see the [Reconfiguring a network connection when recreating a cluster](../tutorials/reconnect-network.md) section.
 
 ## Security groups {#security-groups}
 
@@ -32,4 +32,4 @@ Security groups follow the _All traffic that is not allowed is prohibited_ princ
 
 For example, let's assume you use a VM located on the 10.128.0.0/16 subnet to connect to the cluster. If only the 10.133.0.0/24 subnet is specified in the security group rules, you will not be able to connect to the cluster. Moreover, you will not be able to connect to a cluster with a VM located in the 10.128.0.0/16 subnet, for which the permissions for the required ports have not been specified.
 
-Before creating a cluster, you should create and configure security groups so that service traffic between cluster hosts is enabled. For more information, see [{#T}](../operations/cluster-create.md).
+Before creating a cluster, you should create and configure security groups so that service traffic between cluster hosts is enabled. For more information, see [Creating a cluster](../operations/cluster-create.md).
