@@ -105,6 +105,10 @@ items:
         href: tutorials/mmy-to-mgp.md
       - name: Exporting {{ GP }} data to cold storage in {{ objstorage-full-name }}
         href: tutorials/yezzey.md
+      - name: >-
+          Loading data from {{ objstorage-full-name }} to {{ mgp-name }} using
+          {{ data-transfer-full-name }}
+        href: tutorials/object-storage-to-greenplum.md
   - name: Concepts
     items:
       - name: Resource relationships

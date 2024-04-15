@@ -307,7 +307,7 @@ To connect to a {{ mpg-name }} cluster from a Docker container, add the followin
        apt-get install postgresql-client --yes
    ```
 
-You can find an example of a connection from {{ serverless-containers-full-name }} in [this tutorial](../../serverless-containers/tutorials/pg-connect.md).
+   You can find an example of a connection from {{ serverless-containers-full-name }} in [this tutorial](../../serverless-containers/tutorials/pg-connect.md).
 
 
 - Connecting via SSL {#with-ssl}

@@ -877,6 +877,10 @@ items:
       - name: File check failed
         hidden: true
         href: troubleshooting/errors/ERR-FILE-UNSUPPORTED_DOCUMENT.md
+      - name: Incorrect Yandex Documents link format
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-FILE-INVALID_LINK-YADOCS_INVALID_PUBLIC_LINK_PREFIX.md
       - name: Incompatible dimensions
         hidden: true
         href: >-

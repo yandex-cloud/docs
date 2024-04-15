@@ -23,7 +23,7 @@ The `{{ region-id }}-c` availability zone is [being discontinued](/blog/posts/20
 
 {% endnote %}
 
-Hosts in each subcluster are created with the computing capacity that is consistent with the specified _host class_. For a list of available host classes and their specs, see [{#T}](instance-types.md).
+Hosts in each subcluster are created with the computing capacity that is consistent with the specified _host class_. For a list of available host classes and their specs, see [Host classes](instance-types.md).
 
 
 

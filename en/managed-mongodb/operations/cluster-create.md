@@ -43,6 +43,8 @@ A {{ MG }} cluster is one or more database hosts between which you can configure
 
       * Select the [disk type](../concepts/storage.md).
 
+         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
+
          
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
@@ -146,6 +148,10 @@ A {{ MG }} cluster is one or more database hosts between which you can configure
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
          * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
          * `assign-public-ip`: Internet access to the host via a public IP, `true` or `false`.
+
+      * `--mongod-disk-type`: Disk type.
+
+         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
 
       * `--performance-diagnostics`: Enable performance diagnostics for the cluster, `true` or `false`.

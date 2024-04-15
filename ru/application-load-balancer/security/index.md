@@ -69,6 +69,7 @@ description: "Управление доступом в сервисе для р�
 Получение состояний целевых групп | `getTargetStates` | `alb.viewer`
 Добавление, изменение и удаление обработчиков | `addListener`, `updateListener`, `removeListener` | `alb.editor`
 Добавление, изменение и удаление SNI-обработчиков | `addSniMatch`, `updateSniMatch`, `removeSniMatch` | `alb.editor`
+Получение сертификатов для обработчиков с TLS-шифрованием | `addListener`, `updateListener` | `certificate-manager.certificates.downloader`
 Остановка и запуск L7-балансировщика | `stop`, `start` | `alb.editor`
 **Управление HTTP-роутерами** | |
 [Создание HTTP-роутера](../operations/http-router-create.md) | `create` | `alb.editor`

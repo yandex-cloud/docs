@@ -55,7 +55,7 @@ description: "Из этой статьи вы узнаете, что такое 
 
 Значения параметров ресурсной группы `admin_group` нельзя изменить.
 
-Подробнее об управлении ролями см. в разделе [{#T}](./cluster-users.md) и в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/admin_guide-roles_privs.html).
+Подробнее об управлении ролями см. в разделе [Пользователи и роли](./cluster-users.md) и в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/admin_guide-roles_privs.html).
 
 ## Особенности распределения оперативной памяти {#ram}
 

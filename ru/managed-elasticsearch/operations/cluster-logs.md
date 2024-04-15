@@ -7,7 +7,7 @@ keywords:
   - Elasticsearch
 ---
 
-# Просмотр логов {{ ES }}-кластера
+# Просмотр логов кластера {{ ES }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 

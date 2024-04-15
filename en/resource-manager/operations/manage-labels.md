@@ -26,7 +26,7 @@ Labels are supported in certain [services](../concepts/labels.md#services). Labe
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To add a label to a service resource, use this command:
+   To add or update an existing service resource label, run this command:
 
    ```
    yc <service_name> <resource_type> add-labels <resource_name_or_ID> \
@@ -99,7 +99,7 @@ You can create a label with multiple values. For example, create a label named `
 
 ## Editing a label {#update-label}
 
-You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
+You can only edit resource labels using the {{ yandex-cloud }} CLI and {{ TF }}.
 
 {% list tabs group=instructions %}
 

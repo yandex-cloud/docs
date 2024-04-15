@@ -3,7 +3,7 @@ title: "How to change {{ CH }} cluster settings in {{ mch-full-name }}"
 description: "Follow this guide to change {{ CH }} cluster settings."
 ---
 
-# Changing {{ CH }} cluster settings
+# Updating {{ CH }} cluster settings
 
 After creating a cluster, you can:
 
@@ -54,6 +54,14 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Replication](../concepts/replication.md).
 
 {% endnote %}
+
+When changing the host class:
+
+* Your single-host cluster will be unavailable for a few minutes with database connections terminated.
+* In a multi-host cluster, hosts will be stopped and updated one by one. When stopped, a host will be unavailable for a few minutes.
+* Using a [special FQDN](./connect.md#fqdn) does not guarantee a stable database connection: user sessions may be terminated.
+
+We recommend changing the host class only when the cluster has no active workload.
 
 Host class affects the amount of RAM that {{ CH }} can use. For more information, see [Memory management](../concepts/memory-management.md).
 

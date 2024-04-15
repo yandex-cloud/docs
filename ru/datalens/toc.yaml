@@ -927,7 +927,7 @@ items:
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-ROW_COUNT_LIMIT.md
       - name: >-
-          Referenced connection <идентификатор подключения> cannot be loaded
+          Referenced connection <идентификатор_подключения> cannot be loaded
           access denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_ACCESS_DENIED.md
@@ -978,7 +978,7 @@ items:
       - name: YT table has no schema. Only schematized tables are supported
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md
-      - name: Не удалось создать <тип объекта>
+      - name: Не удалось создать <тип_объекта>
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md
       - name: Ошибка в запросе к объекту

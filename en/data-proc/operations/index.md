@@ -7,16 +7,16 @@ description: "This page provides a list of step-by-step guides for {{ dataproc-n
 
 ## {{ dataproc-name }} clusters
 
-* [{#T}](cluster-list.md)
-* [{#T}](cluster-create.md)
-* [{#T}](connect.md)
-* [{#T}](cluster-update.md)
-* [{#T}](migration-to-an-availability-zone.md)
-* [{#T}](cluster-delete.md)
+* [Information about existing clusters](cluster-list.md)
+* [Creating clusters](cluster-create.md)
+* [Connecting to a cluster](connect.md)
+* [Updating a cluster](cluster-update.md)
+* [Migrating a lightweight cluster to a different availability zone](migration-to-an-availability-zone.md)
+* [Deleting clusters](cluster-delete.md)
 
 ## Subclusters {{ dataproc-name }}
 
-* [{#T}](subclusters.md)
+* [Managing subclusters](subclusters.md)
 * [{#T}](subcluster-update.md)
 
 ## Apache and other third-party services

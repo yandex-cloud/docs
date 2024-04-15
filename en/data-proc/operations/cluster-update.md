@@ -8,8 +8,8 @@ You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more 
 
 You can also move a {{ dataproc-name }} cluster to a different availability zone. The process depends on the cluster type:
 
-* [{#T}](migration-to-an-availability-zone.md).
-* [{#T}](../tutorials/hdfs-cluster-migration.md).
+* [Migrating a lightweight cluster to a different availability zone](migration-to-an-availability-zone.md).
+* [Migrating an HDFS cluster to a different availability zone](../tutorials/hdfs-cluster-migration.md).
 
 To change {{ dataproc-name }} cluster settings:
 
@@ -30,7 +30,7 @@ To change {{ dataproc-name }} cluster settings:
 
    1. Change additional cluster settings:
 
-      **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**: Manages cluster protection against inadvertent deletion by a user.
+      **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**: Manages cluster protection against accidental deletion by a user.
 
       Enabled protection will not prevent a manual connection to the cluster and deletion of data.
 
@@ -87,7 +87,7 @@ To change {{ dataproc-name }} cluster settings:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. To activate cluster deletion protection and access to {{ dataproc-name }} [component web interfaces](../concepts/interfaces.md), update the values in the appropriate fields of the {{ dataproc-name }} cluster description:
 

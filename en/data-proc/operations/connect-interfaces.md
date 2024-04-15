@@ -1,6 +1,6 @@
 # Connecting to component interfaces
 
-You can connect to {{ dataproc-name }} component interfaces either using [UI Proxy](#ui-proxy) or an [intermediate virtual machine](#routing). For more information, see [{#T}](../concepts/interfaces.md).
+You can connect to {{ dataproc-name }} component interfaces either using [UI Proxy](#ui-proxy) or an [intermediate virtual machine](#routing). For more information, see [Component interfaces and ports](../concepts/interfaces.md).
 
 ## UI Proxy {#ui-proxy}
 

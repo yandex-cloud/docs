@@ -9,26 +9,26 @@ description: "В этом разделе собраны пошаговые ин�
 
 ## Кластеры
 
-* [{#T}](cluster-list.md)
-* [{#T}](cluster-create.md)
-* [{#T}](cluster-connect.md)
+* [Информация об имеющихся кластерах](cluster-list.md)
+* [Создание кластера](cluster-create.md)
+* [Подключение к кластеру](cluster-connect.md)
 * [{#T}](saml-authentication.md)
-* [{#T}](cluster-update.md)
+* [Изменение настроек кластера](cluster-update.md)
 * [{#T}](cluster-version-update.md)
-* [{#T}](cluster-plugins.md)
-* [{#T}](cluster-extensions.md)
-* [{#T}](cluster-stop.md)
+* [Управление плагинами](cluster-plugins.md)
+* [Управление расширениями](cluster-extensions.md)
+* [Остановка и запуск кластера](cluster-stop.md)
 * [{#T}](cluster-hosts.md)
-* [{#T}](host-migration.md)
-* [{#T}](cluster-backups.md)
-* [{#T}](s3-access.md)
-* [{#T}](cluster-delete.md)
+* [Миграция хостов кластера в другую зону доступности](host-migration.md)
+* [Управление резервными копиями](cluster-backups.md)
+* [Настройка доступа к {{ objstorage-name }}](s3-access.md)
+* [Удаление кластера](cluster-delete.md)
 
 ## Пользователи {{ ES }}
 
-* [{#T}](cluster-users.md)
+* [Управление пользователями](cluster-users.md)
 
 ## Логи и мониторинг
 
-* [{#T}](cluster-logs.md)
-* [{#T}](monitoring.md)
+* [Просмотр логов кластера](cluster-logs.md)
+* [Мониторинг состояния кластера и хостов](monitoring.md)

@@ -1,4 +1,4 @@
-# Идемпотентность 
+# Идемпотентность
 
 Сервисы {{ yandex-cloud }} поддерживают механизм [идемпотентности](https://ru.wikipedia.org/wiki/Идемпотентность). Идемпотентная операция — это операция, которая при многократном вызове возвращает один и тот же результат. 
 
@@ -15,7 +15,7 @@ Idempotency-Key: <UUID>
 
 {% note info %}
 
-Сервисы искусственного интеллекта {{ yagpt-full-name }}, {{ speechkit-full-name }}, {{ translate-full-name }} и {{ vision-full-name }} не поддерживают идемпотентность даже с заголовком `Idempotency-Key`.
+Сервисы искусственного интеллекта {{ foundation-models-full-name }}, {{ speechkit-full-name }}, {{ translate-full-name }} и {{ vision-full-name }} не поддерживают идемпотентность даже с заголовком `Idempotency-Key`.
 
 {% endnote %}
 

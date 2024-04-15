@@ -107,7 +107,7 @@ Remove all the accounts that have a Yandex ID from your organization, except tho
 
 #### 1.3 Only appropriate administrators can manage {{ iam-short-name }} group membership {#iam-admins}
 
-It's convenient to control access to resources via [user groups](../../../iam/operations/groups/create.md). Be sure to control access rights to a group as a resource. Users with access rights to the group can manage other users' membership in the group. When users are granted these rights:
+You can conveniently control access to resources via [user groups](../../../iam/operations/groups/create.md). Make sure to control access rights to a group as a resource. Users with access permissions to the group can manage other users' membership in the group. Users are granted these permissions in the following cases:
 
 * The user is assigned the `organization-manager.groups.memberAdmin` role for an organization.
 * The user is assigned the `organization-manager.groups.memberAdmin` role for a specific group as a resource.
@@ -330,7 +330,7 @@ From inside a VM, metadata is available in the following formats:
 
 Amazon EC2 Instance Metadata Service version 1 (IMDSv1) has a number of drawbacks. The most critical of them is that there is a risk of compromising a service account token via the metadata service using a Server-Side Request Forgery (SSRF) attack. For more information, see the [official AWS blog](https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service/). Therefore, AWS has released IMDSv2, the second version of the metadata service.
 
-So far, {{ yandex-cloud }} doesn't support version 2, so it's strongly recommended to technically disable getting a service account token via the Amazon EC2 metadata service.
+So far, {{ yandex-cloud }} does not support version 2, so it is strongly recommended to technically disable getting a service account token via the Amazon EC2 metadata service.
 
 The Google Compute Engine metadata service uses an additional header to protect against SSRF and enhance security.
 
@@ -367,7 +367,7 @@ You can disable getting a service account token via Amazon EC2 using the [aws_v1
 Under metadata_options, set the [aws_v1_http_token](../../../compute/api-ref/grpc/instance_service.md#MetadataOptions) parameter to `DISABLED` for the found VMs:
 
 ```bash
-yc compute instance update <VM_instance_ID> \
+yc compute instance update <VM_ID> \
   --metadata-options aws-v1-http-token=DISABLED
 ```
 
@@ -623,7 +623,7 @@ The most appropriate approach would be to not use this account on a regular basi
 * After that, if you do not use the bank card payment method (only available for this role), set a strong password for this account (generated using specialized software), disable 2FA, and refrain from using this account unnecessarily.
 * Change the password to a newly generated one each time you use the account.
 
-We recommend disabling 2FA only for this account and if it is not <q>assigned</q> to a specific employee. This lets you avoid linking this critical account to a personal device.
+We recommend disabling 2FA only for this account and if it is not assigned to a specific employee. Thus you can avoid linking this critical account to a personal device.
 
 To manage a billing account, assign the `{{ roles-admin }}` or `{{ roles-editor }}` role for the billing account to a dedicated employee with a federated account.
 
@@ -657,20 +657,20 @@ Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and
 
    1. Open the {{ yandex-cloud }} management console in your browser.
    1. Go to **All services** → **{{ org-full-name }}** → **Users**.
-   1. Check who is granted the roles: `{{ roles-admin }}`, `organization-manager.organizations.owner`, `organization-manager.admin`, and `{{ roles-cloud-owner }}`.
+   1. Check to whom the `{{ roles-admin }}`, `organization-manager.organizations.owner`, `organization-manager.admin`, and `{{ roles-cloud-owner }}` roles are granted.
 
    Checking roles for a cloud:
 
    1. Open the {{ yandex-cloud }} management console in your browser.
    1. Go to the global cloud menu: click the cloud in the initial cloud menu. Select the **Access rights** tab.
-   1. Check who is granted the `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-cloud-owner }}` roles.
+   1. Check to whom the `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-cloud-owner }}` roles are granted.
 
    To check roles for a folder:
 
    1. Open the {{ yandex-cloud }} management console in your browser.
    1. Next, go to each folder of each cloud and, similarly, select the **Access rights** tab.
-   1. Check who is granted the `{{ roles-admin }}` role.
-   1. If all the privileged roles are granted to trusted administrators, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+   1. Check to whom the `{{ roles-admin }}` role is granted.
+   1. If all the privileged roles are granted to trusted administrators, the recommendation is fulfilled. Otherwise, proceed to the **Guides and solutions to use**.
 
 - Performing a check via the CLI {#cli}
 

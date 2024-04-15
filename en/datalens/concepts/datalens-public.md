@@ -1,6 +1,6 @@
 # Public access
 
-You can grant public access to charts and dashboards you create, so that any user could view published objects without logging in. However, the user will not be able to view chart settings, connections, or the dataset, or run an SQL query.
+You can make the charts and dashboards you create public, so any user can follow a link and view the object you published without logging in. However, the user will not be able to view chart settings, connections, or the dataset, or run an SQL query.
 
 {% include [share-note](../../_includes/datalens/datalens-share-note.md) %}
 

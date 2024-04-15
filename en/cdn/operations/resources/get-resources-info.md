@@ -175,7 +175,7 @@ title: "How to get information about a resource in {{ cdn-full-name }}"
       * `output "resource_cname"`: Output variable that contains information about the domain name:
          * `value`: Returned value.
 
-      You can replace `resource_cname` with any other parameter to get the information you need. For more information about the `yandex_cdn_resource` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_cdn_resource).
+      You can replace `cname` with any other parameter to get the information you need. For more information about the `yandex_cdn_resource` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_cdn_resource).
 
    1. Create resources:
 
@@ -190,7 +190,7 @@ title: "How to get information about a resource in {{ cdn-full-name }}"
       Result:
 
       ```bash
-      resource_cname = "cdn.example.com"
+      resource_cname = "cl-54b75255.edgecdn.ru"
       ```
 
 {% endlist %}

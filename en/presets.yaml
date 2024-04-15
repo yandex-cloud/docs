@@ -3049,8 +3049,6 @@ default:
         button-submit-text: Apply
       ui_components_BulkSuggestPopup:
         apply: Apply
-      ui_components_Confirm:
-        ok-button-text: 'Yes'
       ui_components_CreateIssueForm:
         create-issue: Create issue
       ui_components_dashboard_DashboardActionsMenu:
@@ -5951,7 +5949,7 @@ default:
       postgresql:
         cluster:
           additional-field-pooling_mode: Pooling mode
-          field_diskSizeLimit: New storage size
+          field_diskSizeLimit: Maximum storage size
           field_thresholds: Increase size
           section_disk-scaling: Automatic increase of storage size
           switch_backups: Backups

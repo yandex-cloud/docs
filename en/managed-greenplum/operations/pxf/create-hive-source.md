@@ -31,7 +31,7 @@ The example below shows how to create an external Hive data source using the {{ 
 1. Send a request using [cURL](https://curl.haxx.se):
 
    ```bash
-   curl --location "https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<cluster_ID>/pxf_datasources" \
+   curl --location "https://mdb.{{ api-host }}/managed-greenplum/v1/clusters/<cluster_ID>/pxf_datasources" \
        --header "Content-Type: text/plain" \
        --header "Authorization: Bearer ${IAM_TOKEN}" \
        --data "{

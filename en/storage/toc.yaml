@@ -124,6 +124,10 @@ items:
           data-transfer-full-name }}
         href: tutorials/object-storage-to-postgresql.md
       - name: >-
+          Loading data to {{ mgp-full-name }} using {{ data-transfer-full-name
+          }}
+        href: tutorials/object-storage-to-greenplum.md
+      - name: >-
           Loading data to {{ mch-full-name }} using {{ data-transfer-full-name
           }}
         href: tutorials/object-storage-to-clickhouse.md
@@ -475,6 +479,8 @@ items:
     href: at-ref.md
   - name: Bucket logs
     href: logs-ref.md
+  - name: Release notes
+    href: release-notes.md
   - name: FAQ
     href: qa.md
 base: en/storage

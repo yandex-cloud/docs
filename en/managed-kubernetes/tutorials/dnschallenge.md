@@ -14,38 +14,29 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Getting started {#before-begin}
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `dns.editor` [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create a [domain zone](../../dns/concepts/dns-zone.md).
-1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../operations/node-group/node-group-create.md) in any suitable configuration.
-1. [Configure cluster security groups and node groups](../operations/connect/security-groups.md).
 
-1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-
-1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
 1. [Create an authorized key](../../iam/operations/authorized-key/create.md) for the [service account](../../iam/concepts/users/service-accounts.md) and save it to JSON file:
 
    ```bash
    yc iam key create \
-     --service-account-name <name_of_the_service_account> \
+     --service-account-name <service_account_name> \
      --format json \
-     --output iamkey.json
+     --output key.json
    ```
+
+1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md). A Let's Encrypt® certificate will be issued for the domain in this zone after you pass the [DNS-01 challenge](https://letsencrypt.org/ru/docs/challenge-types/#проверка-dns-01).
+
+1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../operations/node-group/node-group-create.md) in any suitable configuration.
+
+1. [Configure cluster security groups and node groups](../operations/connect/security-groups.md).
+
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Create a certificate {#create-cert}
 
-1. Create the [cert-manager](../concepts/index.md#namespace) `namespace`:
+1. Install the cert-manager app with the {{ dns-full-name }} ACME webhook plugin [by following the guide](../../managed-kubernetes/operations/applications/cert-manager-cloud-dns.md).
 
-   ```bash
-   kubectl create namespace cert-manager
-   ```
-
-1. Create a [secret](../../certificate-manager/concepts/index.md#types) in the `cert-manager` namespae:
-
-   ```bash
-   kubectl create secret generic cert-manager-secret \
-     --from-file=iamkey.json \
-     --namespace=cert-manager
-   ```
-
-1. Install cert-manager with the CloudDNS ACME webhook plugin by following [this guide](../../managed-kubernetes/operations/applications/cert-manager-cloud-dns.md).
+   During the installation, specify the service account and the authorized key created at the [Getting started](#before-begin) step.
 
 1. Create a file named `certificate.yaml`:
 
@@ -59,7 +50,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      secretName: example-com-secret
      issuerRef:
        # The issuer created previously
-       name: clusterissuer
+       name: yc-clusterissuer
        kind: ClusterIssuer
      dnsNames:
        - <domain_name>
@@ -73,18 +64,28 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Check the result {#check-result}
 
-To make sure that the certificate is in the `READY` status, run this command:
+1. Check if the certificate is available:
 
-```bash
-kubectl get certificate example-com
-```
+   ```bash
+   kubectl get certificate example-com
+   ```
 
-Result:
+   Result:
 
-```text
-NAME         READY  SECRET              AGE
-example-com  True   example-com-secret  24h
-```
+   ```text
+   NAME         READY  SECRET              AGE
+   example-com  True   example-com-secret  24h
+   ```
+
+   The `True` status in the `READY` column means that the certificate was issued successfully.
+
+1. (Optional) Get detailed information about the certificate:
+
+   ```bash
+   kubectl -n default describe certificate example-com
+   ```
+
+   {% include [cert-manager-events-explained](../../_includes/managed-kubernetes/cert-manager-events-explained.md) %}
 
 ## Delete the resources you created {#clear-out}
 

@@ -386,6 +386,8 @@ items:
         href: nlb-ref/service.md
       - name: NetworkPolicy
         href: nlb-ref/networkpolicy.md
+  - name: Release notes
+    href: release-notes.md
   - name: FAQ
     items:
       - name: General questions
@@ -404,6 +406,4 @@ items:
         href: qa/troubleshooting.md
       - name: All questions on one page
         href: qa/all.md
-  - name: Release notes
-    href: release-notes.md
 base: en/managed-kubernetes

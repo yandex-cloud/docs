@@ -20,7 +20,7 @@
 
    {% note tip %}
 
-   Управлять платежным аккаунтом могут только пользователи с [аккаунтом на Яндексе](../iam/concepts/index.md#passport). Если вы работаете с {{ yandex-cloud }} через [федерацию удостоверений](../organization/concepts/add-federation.md), [обратитесь]({{ link-console-support }}) в техническую поддержку.
+   Управлять платежным аккаунтом могут только пользователи с [аккаунтом на Яндексе](../iam/concepts/users/accounts.md#passport). Если вы работаете с {{ yandex-cloud }} через [федерацию удостоверений](../organization/concepts/add-federation.md), [обратитесь]({{ link-console-support }}) в техническую поддержку.
 
    {% endnote %}
 

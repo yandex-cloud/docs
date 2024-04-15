@@ -30,13 +30,13 @@ items:
                 href: operations/cluster-update.md
               - name: Изменение версии и редакции {{ ES }}
                 href: operations/cluster-version-update.md
-              - name: Управление плагинами {{ ES }}
+              - name: Управление плагинами
                 href: operations/cluster-plugins.md
-              - name: Управление расширениями {{ ES }}
+              - name: Управление расширениями
                 href: operations/cluster-extensions.md
           - name: Остановка и запуск кластера
             href: operations/cluster-stop.md
-          - name: Управление хостами {{ ES }}
+          - name: Управление хостами
             href: operations/cluster-hosts.md
           - name: Миграция хостов в другую зону доступности
             href: operations/host-migration.md
@@ -46,7 +46,7 @@ items:
             href: operations/s3-access.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
-      - name: Управление пользователями {{ ES }}
+      - name: Управление пользователями
         href: operations/cluster-users.md
       - name: Логи и мониторинг
         items:

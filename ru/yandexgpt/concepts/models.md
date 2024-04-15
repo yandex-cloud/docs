@@ -6,7 +6,7 @@
 
 Если стандартных моделей вам недостаточно, вы можете [дообучить](../tutorials/yagpt-tuning) {{ gpt-lite }} в сервисе [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), чтобы модель точнее отвечала на ваши запросы. 
 
-Чтобы [обратиться](../operations/create-prompt.md) к модели по API, в параметре `modelUri` укажите ее [URI](https://ru.wikipedia.org/wiki/URI), содержащий [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Опция `/latest` указывает версию вызываемой модели и является опциональной. 
+Чтобы [обратиться](../operations/create-prompt.md) к модели по API, в параметре `modelUri` укажите ее [URI](https://ru.wikipedia.org/wiki/URI), содержащий [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Опция `/latest` указывает версию вызываемой модели и является опциональной.
 
 ## Модели генерации {{ yagpt-full-name }} {#yandexgpt-generation}
 

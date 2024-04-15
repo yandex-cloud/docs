@@ -3,7 +3,7 @@ title: "Редакции Elasticsearch"
 description: "Возможности, предоставляемые {{ mes-name }}, зависят от редакции {{ ES }}."
 ---
 
-# Редакции Elasticsearch
+# Редакции {{ ES }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 

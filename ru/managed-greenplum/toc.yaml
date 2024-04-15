@@ -150,7 +150,7 @@ items:
         href: concepts/pooling.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
-      - name: Настройки Greenplum®
+      - name: Настройки {{ GP }}
         href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md

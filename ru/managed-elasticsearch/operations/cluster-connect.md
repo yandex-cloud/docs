@@ -7,7 +7,7 @@ keywords:
   - Elasticsearch
 ---
 
-# Подключение к {{ ES }}-кластеру
+# Подключение к кластеру {{ ES }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 

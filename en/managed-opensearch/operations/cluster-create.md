@@ -375,8 +375,8 @@ Using import, you can bring the existing clusters under the {{ TF }} management.
       * Disk size: `10737418240` (in bytes)
       * Disk type: `network-ssd`
       * Number of hosts: Three
-      * Availability zone: `{{ region-id }}-b`
-      * Subnet: `{{ network-name }}-{{ region-id }}-b`
+      * Availability zone: `{{ region-id }}-a`
+      * Subnet: `{{ network-name }}-{{ region-id }}-a`
       * Public address: Assigned
       * Host group roles: `DATA` and `MANAGER`
 
@@ -387,8 +387,8 @@ Using import, you can bring the existing clusters under the {{ TF }} management.
       * Disk size: `10737418240` (in bytes)
       * Disk type: `network-ssd`
       * Number of hosts: One
-      * Availability zone: `{{ region-id }}-b`
-      * Subnet: `{{ network-name }}-{{ region-id }}-b`
+      * Availability zone: `{{ region-id }}-a`
+      * Subnet: `{{ network-name }}-{{ region-id }}-a`
       * Public address: Assigned
 
    Run this command:
@@ -417,8 +417,8 @@ Using import, you can bring the existing clusters under the {{ TF }} management.
                              `disk-size=10737418240,`
                              `disk-type-id=network-ssd,`
                              `hosts-count=3,`
-                             `zone-ids={{ region-id }}-b,`
-                             `subnet-names={{ network-name }}-{{ region-id }}-b,`
+                             `zone-ids={{ region-id }}-a,`
+                             `subnet-names={{ network-name }}-{{ region-id }}-a,`
                              `assign-public-ip=true,`
                              `roles=data+manager \
       --dashboards-node-group name=dashboard-group,`
@@ -426,8 +426,8 @@ Using import, you can bring the existing clusters under the {{ TF }} management.
                              `disk-size=10737418240,`
                              `disk-type-id=network-ssd,`
                              `hosts-count=1,`
-                             `zone-ids={{ region-id }}-b,`
-                             `subnet-names={{ network-name }}-{{ region-id }}-b,`
+                             `zone-ids={{ region-id }}-a,`
+                             `subnet-names={{ network-name }}-{{ region-id }}-a,`
                              `assign-public-ip=true
    ```
 

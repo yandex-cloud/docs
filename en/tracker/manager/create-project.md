@@ -126,7 +126,7 @@ You can find a list of linked projects and portfolios on the **About project** t
 
 ### Creating a link {#create-link}
 
-To create a link to other project or portfolio:
+To create a link to another project or portfolio:
 
 1. Go to **About project** and click ![plus](../../_assets/console-icons/plus.svg)**Add link**.
 1. Choose the appropriate link type:

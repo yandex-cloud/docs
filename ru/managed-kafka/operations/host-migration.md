@@ -29,7 +29,7 @@
 
    {% list tabs group=instructions %}
 
-   * Консоль управления {#console}
+   - Консоль управления {#console}
 
       1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
       1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
@@ -37,7 +37,7 @@
       1. Укажите подсеть в новой зоне доступности, если в ней находится больше одной подсети.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-   * CLI {#cli}
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -53,7 +53,7 @@
 
       Если в новой зоне доступности находится только одна подсеть, параметр `--subnet-ids` необязательный.
 
-   * {{ TF }} {#tf}
+   - {{ TF }} {#tf}
 
       1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -87,7 +87,7 @@
 
       {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-   * API {#api}
+   - API {#api}
 
       Чтобы изменить зону доступности у кластера и его хоста {{ KF }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
@@ -164,11 +164,18 @@
 
    {% list tabs group=instructions %}
 
-   * Консоль управления {#console}
+   - Консоль управления {#console}
 
       1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
       1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
       1. В разделе **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** укажите новый набор зон доступности. Их количество не должно уменьшиться.
+
+         {% note warning %}
+
+         Добавив новую зону доступности, снимите выбор с одной из старых. Если этого не сделать, после сохранения настроек вы не сможете удалить старую зону доступности.
+
+         {% endnote %}
+
       1. Укажите подсеть в новой зоне доступности, если:
 
          * выполняется миграция в зону доступности, где хосты {{ KF }} или {{ ZK }} ранее не размещались;
@@ -176,7 +183,7 @@
 
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-   * CLI {#cli}
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -192,9 +199,15 @@
 
       В параметре `--zone-ids` перечислите зоны доступности через запятую. Их количество не должно уменьшиться.
 
+      {% note warning %}
+
+      Добавив новую зону доступности, удалите из списка одну из старых. Если этого не сделать, после выполнения команды вы не сможете удалить старую зону доступности.
+
+      {% endnote %}
+
       В параметре `--subnet-ids` через запятую перечислите подсети для зон доступности `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-d`. Подсети для этих зон должны быть указаны, даже если хосты {{ KF }} размещаются в меньшем количестве зон. Все три зоны доступности нужны для хостов {{ ZK }}.
 
-   * {{ TF }} {#tf}
+   - {{ TF }} {#tf}
 
       1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -214,6 +227,12 @@
          ```
 
          Количество зон доступности не должно уменьшиться.
+
+         {% note warning %}
+
+         Добавив новую зону доступности, удалите из списка одну из старых. Если этого не сделать, после сохранения настроек вы не сможете удалить старую зону доступности.
+
+         {% endnote %}
 
       1. Измените в параметре `subnet_ids` список подсетей, если:
 
@@ -242,7 +261,7 @@
 
       {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-   * API {#api}
+   - API {#api}
 
       Чтобы изменить набор зон доступности у кластера и его хостов {{ KF }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 

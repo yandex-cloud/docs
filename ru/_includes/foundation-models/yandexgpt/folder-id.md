@@ -1,0 +1,1 @@
+Где `<идентификатор_каталога>` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }}, на который у вашего аккаунта есть роль `{{ roles-yagpt-user }}` или выше.

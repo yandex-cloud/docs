@@ -14,6 +14,7 @@ To go to the list of versions, click the ![image](../../../_assets/console-icons
 
 To select a version from the list, click it. The version number will be displayed as the value of the `revId` parameter in the chart address string. Click a link with the version number in the `revId` parameter to open the relevant version of the chart directly.
 
+
 ## Version types {#version-types}
 
 All versions fall into the following types:
@@ -48,7 +49,13 @@ You can share any chart version by adding the `revId` parameter to the chart lin
 
 ## Creating a new version {#version-create}
 
-A new version is automatically created when you click **Save and make current** in chart edit mode. Here are the chart configuration changes that result in a new version:
+A new version is automatically created:
+
+* In current chart version edit mode, after you click **Save** (which creates a new current version) or ![chevron-down](../../../_assets/console-icons/chevron-down.svg) → **Save as draft** (which creates a new draft version).
+* In draft edit mode or non-current chart version edit mode, after you click **Save as draft** (which creates a new draft version) or ![chevron-down](../../../_assets/console-icons/chevron-down.svg) → **Save and make current** (which creates a new current version).
+* In draft or non-current chart version view mode, after you click **Make current**.
+
+Here are the chart configuration changes that result in a new version:
 
 * Changing chart settings that can be accessed by clicking ![image](../../../_assets/console-icons/gear.svg) at the top of the screen.
 * Adding, renaming, or deleting chart fields.
