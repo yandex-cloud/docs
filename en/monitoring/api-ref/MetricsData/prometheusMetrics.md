@@ -21,7 +21,7 @@ Authorization: Bearer <API_key>
 | Parameter | Description |
 --- | ---
 | folderId | This is a required field. ID of the folder you want to export metrics from. The maximum string length is 50 characters. |
-| service | ID of the service you want to export metrics from. |
+| service | This is a required field. [ID](../../operations/metric/prometheusExport.md) of the service you want to export metrics from. |
 
 ## Response {#responses}
 **HTTP Code: 200 - OK**
