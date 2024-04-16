@@ -9,6 +9,14 @@
 
 {% endnote %}
 
+## Релиз 03.04.2024 {#030424}
+
+1. Изменились [конфигурации](concepts/data-proc-template.md#configurations) временных кластеров {{ dataproc-name }}.
+1. [Ноды из моделей](concepts/deploy/index.md#models-node) теперь можно развернуть из моделей XGBoost и LightGBM.
+1. В [API исполнения](api-ref/overview.md#notebook) добавлена возможность передавать входные переменные.
+1. Улучшено [создание нод](operations/deploy/node-create.md#from-docker) из Docker-образов.
+1. Исправлены ошибки и добавлены небольшие улучшения в работе сервиса.
+
 ## Релиз 27.03.2024 {#270324}
 
 Дообучение модели в {{ ml-platform-name }} теперь работает на базе новой модели {{ gpt-pro }}.

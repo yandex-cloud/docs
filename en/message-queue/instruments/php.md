@@ -1,14 +1,16 @@
 # Example of using {{ message-queue-full-name }} on PHP
 
-Using the [AsyncAWS](https://async-aws.com), you can manage message queues and send and receive messages in {{ message-queue-name }}.
+With [AsyncAws](https://async-aws.com), you can manage {{ message-queue-name }} message queues and send and receive messages.
 
 ## Installation {#install}
 
-Install the AsyncAWS library:
+Install the AsyncAws library:
+
 ```
 composer require async-aws/sqs ^1.9
 ```
-## Before you start {#prepare}
+
+## Getting started {#prepare}
 
 {% include [mq-http-api-preps](../_includes_service/mq-http-api-preps-sdk.md)%}
 

@@ -32,8 +32,8 @@ items:
           Python
         href: tutorials/connect-from-cf.md
       - name: >-
-          Connecting to a {{ ydb-short-name }} database from {{ sf-full-name }}
-          function in Node.js
+          Connecting to a {{ ydb-short-name }} database from a {{ sf-full-name
+          }} function in Node.js
         href: tutorials/connect-from-cf-nodejs.md
       - name: Converting a video to a GIF in Python
         href: tutorials/video-converting-queue.md
@@ -65,6 +65,8 @@ items:
         href: concepts/resources.md
       - name: Serverless and dedicated operation modes
         href: concepts/serverless-and-dedicated.md
+      - name: OLTP or OLAP operating modes
+        href: concepts/oltp-and-olap.md
       - name: DynamoDB tables
         href: concepts/dynamodb-tables.md
       - name: Quotas and limits
@@ -267,15 +269,17 @@ items:
                 href: api-ref/StorageType/list.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
-  - name: Working with YDB via Terraform
+  - name: Working with YDB via {{ TF }}
     items:
-      - name: Getting started to work with YDB via Terraform
+      - name: Introduction to YDB via {{ TF }}
         href: ./terraform/intro.md
       - name: Getting authentication credentials
         href: ./terraform/credentials.md
-      - name: Installing and configuring Terraform and the YDB provider
+      - name: >-
+          Installing and configuring {{ TF }} and a provider for connection to
+          YDB
         href: ./terraform/install.md
       - name: Creating configuration files and connecting to YDB
         href: ./terraform/configure.md

@@ -6,8 +6,8 @@ Using the [AWS SDK for Golang](https://aws.amazon.com/sdk-for-go/), you can mana
 
 Install the AWS SDK for Golang by following the [instructions](https://aws.amazon.com/sdk-for-go/) on the official website.
 
-Starting with version sqs service `v1.26.0` AWS uses the JSON protocol for client interaction with services, instead of XML-based.
-Correct operation is possible when using the following package versions:
+Starting with SQS version `v1.26.0`, AWS uses JSON instead of XML for communication between customers and services.
+To avoid performance issues, use the following package versions:
 ```
 github.com/aws/aws-sdk-go-v2 v1.22.2
 github.com/aws/aws-sdk-go-v2/config v1.25.0
@@ -15,7 +15,7 @@ github.com/aws/aws-sdk-go-v2/credentials v1.16.0
 github.com/aws/aws-sdk-go-v2/service/sqs v1.26.0
 ```
 
-## Before you start {#prepare}
+## Getting started {#prepare}
 
 {% include [mq-http-api-preps](../_includes_service/mq-http-api-preps-sdk.md)%}
 

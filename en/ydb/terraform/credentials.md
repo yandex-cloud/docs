@@ -1,6 +1,6 @@
 # Getting authentication credentials
 
-To authenticate in {{ yandex-cloud }} and manage YDB databases via Terraform, you can use a [service account,](../../iam/concepts/users/service-accounts.md) [Yandex account](../../iam/concepts/index.md#passport), or [federated account](../../iam/concepts/index.md#saml-federation). For Terraform authentication and access to YDB, you will also need the {{ yandex-cloud }} CLI. If you do not have it yet, follow [this guide](../../cli/quickstart.md#install) to install it.
+To authenticate in {{ yandex-cloud }} and manage YDB databases using {{ TF }}, you can use a [service account](../../iam/concepts/users/service-accounts.md), [Yandex account](../../iam/concepts/index.md#passport), or [federated account](../../iam/concepts/index.md#saml-federation). To authenticate and work in {{ TF }} with YDB, you will also need the {{ yandex-cloud }} CLI. If you do not have it yet, follow [this guide](../../cli/quickstart.md#install) to install it.
 
 You can create and set up a service account by following this guide:
 1. In the management console, select the folder to create a service account in.
@@ -15,7 +15,7 @@ You can create and set up a service account by following this guide:
 
 1. Click **Create**.
 
-Go to **Service account** and create an authorized key for Terraform authentication in {{ yandex-cloud }}:
+Go to **Service account** and create an authorized key for {{ TF }} authentication in {{ yandex-cloud }}:
 1. Click `Create new key` and select `Create authorized key`.
 
 1. Enter the **Key description** (optional) and click **Create**.
@@ -59,7 +59,7 @@ Add the credentials to the environment variables:
    ```
 {% endlist %}
 
-Terraform will use the defined environment variables for authentication, so keep in mind that the `IAM token` lifetime cannot exceed 12 hours. After the token expires, Terraform will issue an authentication error. In that case, update the environment variable: re-run the `export YC_TOKEN=$(yc iam create-token)` command.
+{{ TF }} will use the defined environment variables for authentication, so keep in mind that the `IAM token` lifetime cannot exceed 12 hours. After the token expires, {{ TF }} will be returning an authentication error. In that case, update the environment variable: re-run the `export YC_TOKEN=$(yc iam create-token)` command.
 
 You can automate the process of obtaining a new token using `crontab`: enter `crontab -e`, and then enter `0 * * * * export YC_TOKEN=$(yc iam create-token)`. Now, `crontab` will independently update the token every hour within the current session. To update the token when opening a new session, run one of the following commands:
 ```bash
@@ -67,4 +67,4 @@ echo "export YC_TOKEN=$(yc iam create-token)" >> ~/.bashrc # Command for bash sh
 echo "export YC_TOKEN=$(yc iam create-token)" >> ~/.zshrc # Command for zsh shell
 ```
 
-This completes the authentication setup. You can now [install and configure](./install.md) Terraform.
+This completes the authentication setup. You can [install and configure](./install.md) {{ TF }}.
