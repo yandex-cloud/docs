@@ -21,7 +21,9 @@ items:
             href: instruments/jms.md
           - name: Laravel
             href: instruments/laravel.md
-          - name: Terraform
+          - name: Symfony
+            href: instruments/symfony.md
+          - name: '{{ TF }}'
             href: instruments/terraform.md
           - name: Golang
             href: instruments/golang.md

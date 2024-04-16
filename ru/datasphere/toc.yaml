@@ -111,7 +111,7 @@ items:
             href: operations/data/connect-to-ya-disk.md
           - name: Подключение к Google Drive
             href: operations/data/connect-to-google-drive.md
-      - name: Развертывание эксплуатации моделей
+      - name: '{{ ds-inf }}'
         items:
           - name: Создать ноду
             href: operations/deploy/node-create.md

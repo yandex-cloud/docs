@@ -878,6 +878,95 @@ default:
       cpu|string: ₽1.68
       disk|month|string: ₽13.01
       ram|string: ₽0.45
+  sku|RUB|interconnect:
+    trunk:
+      direct:
+        100gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: ₽1920000.00
+        100mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: ₽11070.00
+        10gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: ₽214191.00
+        1gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: ₽44226.00
+        200mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: ₽20663.00
+        20gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: ₽423450.00
+        2gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: ₽83384.00
+        300mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: ₽28778.00
+        30gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: ₽627778.00
+        3gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: ₽117473.00
+        400mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: ₽35417.00
+        40gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: ₽827175.00
+        4gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: ₽146495.00
+        500mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: ₽40578.00
+        50gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: ₽1021640.00
+        50mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: ₽5535.00
+        5gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: ₽170448.00
+      hosted_connections:
+        v1|string: ₽120.00
+      physical_port:
+        1000base_lx:
+          monthly_usage:
+            v1|string: ₽2325.00
+        100gbase_er4:
+          monthly_usage:
+            v1|string: ₽22500.00
+        100gbase_lr4:
+          monthly_usage:
+            v1|string: ₽19438.00
+        10gbase_er:
+          monthly_usage:
+            v1|string: ₽2513.00
+        10gbase_lr:
+          monthly_usage:
+            v1|string: ₽2325.00
   sku|RUB|kms:
     api:
       v1:
@@ -7616,6 +7705,7 @@ default:
         default: Default
         delete: Delete
         description: Description
+        dimension: Tensor dimension
         docker: Docker
         edit: Edit
         endpoint: Endpoint
@@ -7633,6 +7723,7 @@ default:
         models: Models
         more: More
         name: Name
+        other: Other
         overview: Overview
         pin: Pin
         port: Port
@@ -7718,10 +7809,12 @@ default:
         node-form-label:
           checkpoint: Checkpoint
           Description: Description
+          maintenance-limit: Maintenance limit
           name: Name
           type: Type
         provisioning-form-label:
           instance-spec: Instance configuration
+        source: Docker image storage
         telemetry-form-label:
           http-path: HTTP path
           port: Port
@@ -7737,6 +7830,7 @@ default:
           kernel-docker-image: Kernel Docker image
           output-variables: Output variables
           provisioning: Provisioning
+          runtime-options: Docker image settings
           telemetry: Telemetry
         variables-form-placeholder:
           name: Name
