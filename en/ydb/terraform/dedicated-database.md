@@ -19,7 +19,7 @@ resource "yandex_ydb_database_dedicated" "my_database_2" {
     storage_type_id = "ssd"
   }
 
-  location_id = "ru-central1"
+  location_id = "{{ region-id }}"
   network_id  = "enpv06v9b6og********" # ID of the network where to create the database
   subnet_ids = [
     "e2lekh3vqf1p********", "e9bmliplcipm********", "b0cm0qpcf4q5********"

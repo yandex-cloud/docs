@@ -882,6 +882,95 @@ default:
       cpu|string: "1,68\_₽"
       disk|month|string: "13,01\_₽"
       ram|string: "0,45\_₽"
+  sku|RUB|interconnect:
+    trunk:
+      direct:
+        100gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "1\_920\_000,00\_₽"
+        100mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "11\_070,00\_₽"
+        10gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "214\_191,00\_₽"
+        1gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "44\_226,00\_₽"
+        200mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "20\_663,00\_₽"
+        20gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "423\_450,00\_₽"
+        2gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "83\_384,00\_₽"
+        300mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "28\_778,00\_₽"
+        30gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "627\_778,00\_₽"
+        3gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "117\_473,00\_₽"
+        400mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "35\_417,00\_₽"
+        40gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "827\_175,00\_₽"
+        4gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "146\_495,00\_₽"
+        500mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "40\_578,00\_₽"
+        50gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "1\_021\_640,00\_₽"
+        50mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "5\_535,00\_₽"
+        5gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "170\_448,00\_₽"
+      hosted_connections:
+        v1|string: "120,00\_₽"
+      physical_port:
+        1000base_lx:
+          monthly_usage:
+            v1|string: "2\_325,00\_₽"
+        100gbase_er4:
+          monthly_usage:
+            v1|string: "22\_500,00\_₽"
+        100gbase_lr4:
+          monthly_usage:
+            v1|string: "19\_438,00\_₽"
+        10gbase_er:
+          monthly_usage:
+            v1|string: "2\_513,00\_₽"
+        10gbase_lr:
+          monthly_usage:
+            v1|string: "2\_325,00\_₽"
   sku|RUB|kms:
     api:
       v1:
@@ -7622,6 +7711,7 @@ default:
         default: По умолчанию
         delete: Удалить
         description: Описание
+        dimension: Размерность тензора
         docker: Docker-образ
         edit: Редактировать
         endpoint: Эндпоинт
@@ -7639,6 +7729,7 @@ default:
         models: Модели
         more: Еще
         name: Имя
+        other: Другое
         overview: Обзор
         pin: Закрепить
         port: Порт
@@ -7724,10 +7815,12 @@ default:
         node-form-label:
           checkpoint: Контрольная точка
           Description: Описание
+          maintenance-limit: Лимит на обслуживание
           name: Имя
           type: Тип
         provisioning-form-label:
           instance-spec: Конфигурация инстанса
+        source: Хранилище Docker-образов
         telemetry-form-label:
           http-path: HTTP-адрес
           port: Порт
@@ -7743,6 +7836,7 @@ default:
           kernel-docker-image: Системный Docker-образ
           output-variables: Выходные переменные
           provisioning: Обеспечение
+          runtime-options: Настройки Docker-образа
           telemetry: Телеметрия
         variables-form-placeholder:
           name: Имя

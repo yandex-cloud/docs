@@ -41,7 +41,7 @@ column {
 
 Here are the values of the `"yandex_ydb_table"` section parameters:
 1. `path`: Database path where the table will be created. The table name is specified without the trailing slash `/`. If the directory where the table is created does not exist, it will be created.
-1. `connection_string`: Path to connect to the database. It is used together with the `ydb_full_endpoint` parameter, which contains the full path to the database: `grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gv7kfcttio********/etn66ecf1qbt********`. For brevity and simplicity, you can use a link to the `"yandex_ydb_database_serverless"` resource, specifying the ID and the `ydb_full_endpoint` parameter, e.g., `yandex_ydb_database_serverless.database1.ydb_full_endpoint`.
+1. `connection_string`: Path to connect to the database. It is used together with the `ydb_full_endpoint` parameter, which contains the full path to the database: `grpcs://ydb.serverless.yandexcloud.net:2135/?database=/{{ region-id }}/b1gv7kfcttio********/etn66ecf1qbt********`. For brevity and simplicity, you can use a link to the `"yandex_ydb_database_serverless"` resource, specifying the ID and the `ydb_full_endpoint` parameter, e.g., `yandex_ydb_database_serverless.database1.ydb_full_endpoint`.
 1. `primary_key`: Primary key of the table. The key can be composite.
 
 Full list of fields in the `yandex_ydb_table` resource:

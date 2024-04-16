@@ -7,7 +7,7 @@ description: "Follow this guide to create configuration files and connect to YDB
 
 {% note warning %}
 
-To work with this guide, make sure that the Terraform provider for YDB is installed. To install the YDB provider, see [Installing and configuring Terraform and the YDB provider](./install.md).
+To work with this guide, make sure that a Terraform provider for YDB is installed. To install a YDB provider, see [Installing and configuring Terraform and the YDB provider](./install.md).
 
 {% endnote %}
 
@@ -30,7 +30,7 @@ terraform {
 }
 
 provider "yandex" {
-  zone = "ru-central1-a" # Default availability zone
+  zone = "{{ region-id }}-a" # Default availability zone
 }
 ```
 
@@ -40,4 +40,4 @@ Values of the provider section parameters:
 * `provider`: Provider name.
 * `zone`: [Availability zone](../../overview/concepts/geo-scope.md) where all cloud resources will be created by default.
 
-To initialize the provider, in the directory hosting the configuration files, run `terraform init`. In the terminal, you will see a message about successful installation. Now that Terraform is installed and set up, you can start creating a [serverless](./serverless-database.md) or [dedicated](./dedicated-database.md) database.
+To initialize the provider, run the `terraform init` command in the directory hosting the configuration files. In the terminal, you will see a message about successful installation. Now that Terraform is installed and set up, you can start creating a [serverless](./serverless-database.md) or [dedicated](./dedicated-database.md) database.

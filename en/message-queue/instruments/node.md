@@ -6,13 +6,13 @@
 
 Install the AWS SDK for JavaScript in Node.js by following the [instructions](https://aws.amazon.com/sdk-for-node-js/) on the official site.
 
-Starting with version sqs service `3.446.0` AWS uses the JSON protocol for client interaction with services, instead of XML-based.
-Correct operation is possible only when using package versions up to `3.445.0` inclusive.
+Starting from SQS version `3.446.0`, AWS uses JSON instead of XML for communication between customers and services.
+To avoid performance issues, use the package versions `3.445.0` or earlier.
 ```shell
 npm install @aws-sdk/client-sqs@3.445.0
 ```
 
-## Before you start {#prepare}
+## Getting started {#prepare}
 
 {% include [mq-http-api-preps](../_includes_service/mq-http-api-preps-sdk.md)%}
 
