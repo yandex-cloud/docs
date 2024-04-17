@@ -13,6 +13,10 @@
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте кластер {{ managed-k8s-name }} ](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации с доступом в интернет.
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. {% include [Install Helm](../../_includes/managed-kubernetes/helm-install.md) %}
 
@@ -261,6 +265,8 @@
    export GRAFANA_PORT=$(kubectl get service/grafana -o jsonpath='{.spec.ports[0].port}') && \
    echo http://$GRAFANA_IP:$GRAFANA_PORT
    ```
+
+   {% include [Настройка групп безопасности при недоступности ресурса](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
 1. В открывшемся окне браузера введите логин и пароль `admin/admin`, после чего установите новый пароль для пользователя `admin`.
 1. [Добавьте источник данных](https://grafana.com/docs/grafana/latest/datasources/add-a-data-source/) с типом `{{ prometheus-name }}` и следующими настройками:

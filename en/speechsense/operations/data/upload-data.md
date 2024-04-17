@@ -147,7 +147,7 @@ To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` 
 
    Where:
 
-   * `audio-path`: Path to the audio file with the dialog.
-   * `meta-path`: Path to the file with the dialog metadata.
-   * `connection-id`: ID of the connection you upload the data to.
-   * `key`: API key for authentication. If using an IAM token, specify the `IAM_TOKEN` environment variable instead of `API_KEY`.
+   * `--audio-path`: Path to the audio file with the dialog.
+   * `--meta-path`: Path to the file with the dialog metadata.
+   * `--connection-id`: ID of the connection you upload the data to.
+   * `--key`: API key for authentication. If using an IAM token, specify the `IAM_TOKEN` environment variable instead of `API_KEY`.

@@ -9,6 +9,12 @@
 
    {% include [default-catalogue](../default-catalogue.md) %}
 
+1. {% include [check-sg-prerequsites](./security-groups/check-sg-prerequsites-lvl3.md) %}
+
+    Также [убедитесь](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md), что  настроены группы безопасности, необходимые для работы {{ alb-name }}.
+
+    {% include [sg-common-warning](./security-groups/sg-common-warning.md) %}
+
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md), необходимый для работы Ingress-контроллера, и [назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md):
    * `alb.editor` — для создания необходимых ресурсов.
    * `vpc.publicAdmin` — для управления [внешней связностью](../../vpc/security/index.md#roles-list).
@@ -71,12 +77,14 @@
 
 ## См. также {#see-also}
 
-* [Описание Ingress-контроллеров](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) в документации {{ k8s }}.
+* Описание Ingress-контроллеров в документации:
+
+   * [{{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/)
+   * [{{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md)
 
 
 * [Практическое руководство по настройке Ingress-контроллера {{ alb-name }}](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
 * [Практическое руководство по настройке логирования для Ingress-контроллеров {{ alb-name }}](../../managed-kubernetes/tutorials/alb-ingress-controller-log-options.md).
 
 
-* [Справочник Ingress-контроллера {{ alb-name }}](../../application-load-balancer/k8s-ref/index.md).
 * [Ограничения при обновлении ALB Ingress Controller](../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md).

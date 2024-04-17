@@ -39,7 +39,7 @@ https://yandex.<domain>/search/xml
 
 {% include [sortby](../../_includes/search-api/sortby.md) %}
 
-The format is as follows: `sortby=<sorting type>.order%3D<sorting order>`. For example, for reverse sorting by date, use `sortby=tm.order%3Dascending`.
+The format is as follows: `sortby=<sorting_type>.order%3D<sorting_order>`. For example, for reverse sorting by date, use `sortby=tm.order%3Dascending`.
 
 {% include [filter](../../_includes/search-api/filter.md) %}
 

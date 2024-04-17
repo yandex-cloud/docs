@@ -6,6 +6,14 @@ description: "Follow this guide to move a subnet to a different availability zon
 
 # Moving a subnet to a different availability zone
 
+{% note alert %}
+
+Currently, you cannot migrate subnets.
+
+Additionally, you cannot currently create or migrate {{ managed-k8s-name }} clusters and node groups within the subnets migrated from the `{{ region-id }}-c` availability zone.
+
+{% endnote %}
+
 [Subnets](../concepts/network.md) can be moved to a different [availability zone](../../overview/concepts/geo-scope.md). You can only migrate empty subnets not hosting any VM instances or other resources.
 
 To move a subnet to a different availability zone:
@@ -115,7 +123,7 @@ To move a subnet to a different availability zone:
       curl -X POST \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d "@<request_body_file>" \
-          https://vpc.api.cloud.yandex.net/vpc/v1/subnets/<subnet_ID>:relocate
+          https://vpc.{{ api-host }}/vpc/v1/subnets/<subnet_ID>:relocate
       ```
 
       Where:

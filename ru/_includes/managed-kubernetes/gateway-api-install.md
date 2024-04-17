@@ -11,18 +11,22 @@
    {% include [default-catalogue](../default-catalogue.md) %}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md), необходимый для работы Gateway API.
-1. [Назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md):
+1. [Назначьте сервисному аккаунту роли](../../iam/operations/sa/assign-role-for-sa.md):
    * `alb.editor` — для создания необходимых ресурсов.
    * `vpc.publicAdmin` — для управления [внешней связностью](../../vpc/security/index.md#roles-list).
    * `certificate-manager.admin` — для работы с [сертификатами](../../certificate-manager/concepts/index.md#types), зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/).
    * `compute.viewer` — для использования [узлов](../../managed-kubernetes/concepts/index.md#node-group) кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) балансировщика.
-1. Создайте для него [авторизованный ключ](../../iam/operations/authorized-key/create.md) и сохраните в файл `sa-key.json`:
+1. Создайте для сервисного аккаунта [авторизованный ключ](../../iam/operations/authorized-key/create.md) и сохраните ключ в файл `sa-key.json`:
 
    ```bash
    yc iam key create \
      --service-account-name <имя_сервисного_аккаунта_для_Gateway_API> \
      --output sa-key.json
    ```
+
+1. {% include [check-sg-prerequsites](./security-groups/check-sg-prerequsites-lvl3.md) %}
+
+    {% include [sg-common-warning](./security-groups/sg-common-warning.md) %}
 
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
@@ -65,5 +69,4 @@
 ## См. также {#see-also}
 
 * [Описание проекта Gateway API](https://gateway-api.sigs.k8s.io/).
-* [Документация {{ alb-name }}](../../application-load-balancer/).
-* [Справочник инструментов {{ alb-name }} для {{ managed-k8s-name }}](../../application-load-balancer/k8s-ref/index.md).
+* [Описание и конфигурация Gateway API](../../application-load-balancer/tools/k8s-gateway-api/index.md) в документации {{ alb-name }}.

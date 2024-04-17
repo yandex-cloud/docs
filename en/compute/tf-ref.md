@@ -1,10 +1,8 @@
-# {{ TF }} provider's {{ compute-full-name }} resource reference
+# {{ TF }} reference for {{ compute-full-name }}
 
-With [{{ TF }}](https://www.terraform.io/), you can quickly create a cloud infrastructure in {{ yandex-cloud }} and manage it using configuration files. The configuration files store the infrastructure description in the HashiCorp Configuration Language (HCL). {{ TF }} and its providers are distributed under the [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
+{% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
-If you change the configuration files, {{ TF }} automatically figures out which part of your configuration is already deployed and what should be added or removed.
-
-For more information about {{ TF }}, [see the documentation](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+## Resources {#resources}
 
 The following {{ TF }} provider resources are supported for {{ compute-name }}:
 
@@ -20,3 +18,20 @@ The following {{ TF }} provider resources are supported for {{ compute-name }}:
 | [yandex_compute_placement_group]({{ tf-provider-resources-link }}/compute_placement_group) | [VM placement group](./concepts/placement-groups.md) |
 | [yandex_compute_snapshot]({{ tf-provider-resources-link }}/compute_snapshot) | [Disk snapshot](./concepts/snapshot.md) |
 | [yandex_compute_snapshot_schedule]({{ tf-provider-resources-link }}/compute_snapshot_schedule) | [Disk snapshot schedule](./concepts/snapshot-schedule.md) |
+
+## Data sources {#data-sources}
+
+{{ compute-name }} supports the following {{ TF }} provider data sources:
+
+| **{{ TF }} data source** | **Description** |
+| --- | --- |
+| [yandex_compute_disk]({{ tf-provider-datasources-link }}/datasource_compute_disk) | [Disk](./concepts/disk.md) information |
+| [yandex_compute_disk_placement_group]({{ tf-provider-datasources-link }}/datasource_compute_disk_placement_group) | Information on a [non-replicated disk placement group](./concepts/disk-placement-group.md) |
+| [yandex_compute_filesystem]({{ tf-provider-datasources-link }}/datasource_compute_filesystem) | [File storage](./concepts/filesystem.md) information |
+| [yandex_compute_gpu_cluster]({{ tf-provider-datasources-link }}/datasource_compute_gpu_cluster) | [GPU cluster](./concepts/gpus.md#gpu-clusters) information |
+| [yandex_compute_image]({{ tf-provider-datasources-link }}/datasource_compute_image) | [Image](./concepts/image.md) information |
+| [yandex_compute_instance]({{ tf-provider-datasources-link }}/datasource_compute_instance) | [VM instance](./concepts/vm.md) information |
+| [yandex_compute_instance_group]({{ tf-provider-datasources-link }}/datasource_compute_instance_group) | [Instance group](./concepts/instance-groups/index.md) information |
+| [yandex_compute_placement_group]({{ tf-provider-datasources-link }}/datasource_compute_placement_group) | [VM placement group](./concepts/placement-groups.md) information |
+| [yandex_compute_snapshot]({{ tf-provider-datasources-link }}/datasource_compute_snapshot) | [Disk snapshot](./concepts/snapshot.md) information |
+| [yandex_compute_snapshot_schedule]({{ tf-provider-datasources-link }}/datasource_compute_snapshot_schedule) | Information on a [disk snapshot schedule](./concepts/snapshot-schedule.md) |

@@ -9,7 +9,13 @@
 
 {% endnote %}
 
-Перед началом работы [создайте группу узлов](../node-group/node-group-create.md) с оперативной памятью не менее 14 ГБ.
+## Перед началом работы {#before-you-begin}
+
+1. [Создайте группу узлов](../node-group/node-group-create.md) с оперативной памятью не менее 14 ГБ.
+
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 

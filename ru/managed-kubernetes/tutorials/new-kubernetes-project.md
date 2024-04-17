@@ -293,8 +293,13 @@
 
 ## Подключитесь к кластеру {{ managed-k8s-name }} {#cluster-connect}
 
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+    {% include [configure-sg-alb-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-manual.md) %}
+
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. [Настройте группы безопасности кластера {{ managed-k8s-name }} и группы узлов](../operations/connect/security-groups.md). Группа безопасности группы узлов должна разрешать входящие TCP-соединения к портам 10501 и 10502 из подсетей балансировщика нагрузки или из его группы безопасности (позже подсети и группу нужно будет указать для создания балансировщика).
 
 ## Подготовьте ресурсы {{ container-registry-name }} {#create-cr-res}
 
@@ -493,6 +498,8 @@ yc container registry configure-docker
 
       По конфигурации балансировщика нагрузки будет автоматически развернут [L7-балансировщик](../../application-load-balancer/concepts/application-load-balancer.md).
 1. Перейдите по ссылке `https://<доменное_имя>` и убедитесь, что ваше приложение успешно опубликовано.
+
+    {% include [Настройка групп безопасности при недоступности ресурса](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
 ## Удалите созданные ресурсы {#clear-out}
 

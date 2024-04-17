@@ -1,5 +1,5 @@
 ---
-title: "{{ k8s }} resource interdependencies"
+title: "Resource relationships in {{ k8s }}"
 description: "The main entity in this managed service is a {{ k8s }} cluster. A {{ k8s }} cluster consists of a master and one or more node groups. The master is responsible for managing the {{ k8s }} cluster. Containerized user applications are run on nodes."
 ---
 

@@ -1,4 +1,4 @@
-You cannot tune the {{ yagpt-name }} model with new information, e.g., a support service knowledge base. However, you can train the model to generate responses in a specific format or analyze texts. You can train the model to:
+You cannot tune the {{ gpt-pro }} model on new information, e.g., a support service knowledge base. However, you can train the model to generate responses in a specific format or analyze texts. You can train the model to:
 * Summarize and rewrite texts.
 * Generate questions and answers from text input.
 * Provide responses in a particular format or style.

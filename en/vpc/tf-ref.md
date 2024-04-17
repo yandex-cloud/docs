@@ -1,10 +1,8 @@
-# {{ TF }} provider's {{ vpc-full-name }} resource reference
+# {{ TF }} reference for {{ vpc-full-name }}
 
-With [{{ TF }}](https://www.terraform.io/), you can quickly create a cloud infrastructure in {{ yandex-cloud }} and manage it using configuration files. The configuration files store the infrastructure description in the HashiCorp Configuration Language (HCL). {{ TF }} and its providers are distributed under the [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
+{% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
-If you change the configuration files, {{ TF }} automatically figures out which part of your configuration is already deployed and what should be added or removed.
-
-For more information about {{ TF }}, [see the documentation](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+## Resources {#resources}
 
 The following {{ TF }} provider resources are supported for {{ vpc-name }}:
 
@@ -18,3 +16,17 @@ The following {{ TF }} provider resources are supported for {{ vpc-name }}:
 | [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group) | [Security group](./concepts/security-groups.md) |
 | [yandex_vpc_security_group_rule]({{ tf-provider-resources-link }}/vpc_security_group_rule) | [Security group rule](./concepts/security-groups.md#security-groups-rules) |
 | [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) | [Subnet](./concepts/network.md#subnet) |
+
+## Data sources {#data-sources}
+
+{{ vpc-name }} supports the following {{ TF }} provider data sources:
+
+| **{{ TF }} data source** | **Description** |
+| --- | --- |
+| [yandex_vpc_address]({{ tf-provider-datasources-link }}/datasource_vpc_address) | Information on a [cloud resource address](./concepts/address.md) |
+| [yandex_vpc_gateway]({{ tf-provider-datasources-link }}/datasource_vpc_gateway) | [Gateway](./concepts/gateways.md) information |
+| [yandex_vpc_network]({{ tf-provider-datasources-link }}/datasource_vpc_network) | [Cloud network](./concepts/network.md#network) information |
+| [yandex_vpc_route_table]({{ tf-provider-datasources-link }}/datasource_vpc_route_table) | [Route table](./concepts/static-routes.md#rt-vpc) information |
+| [yandex_vpc_security_group]({{ tf-provider-datasources-link }}/datasource_vpc_security_group) | [Security group](./concepts/security-groups.md) information |
+| [yandex_vpc_security_group_rule]({{ tf-provider-datasources-link }}/datasource_vpc_security_group_rule) | Information on a [security group rule](./concepts/security-groups.md#security-groups-rules) |
+| [yandex_vpc_subnet]({{ tf-provider-datasources-link }}/datasource_vpc_subnet) | [Subnet](./concepts/network.md#subnet) information |

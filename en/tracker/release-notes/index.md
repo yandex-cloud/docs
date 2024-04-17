@@ -1,58 +1,58 @@
 ---
-title: "{{ tracker-full-name }} release notes for February 2024"
-description: "Check out {{ tracker-full-name }} release notes for February 2024."
+title: "{{ tracker-full-name }} release notes for March 2024"
+description: "Check out {{ tracker-full-name }} release notes for March 2024."
 ---
 
-# {{ tracker-full-name }} release notes: February 2024
+# {{ tracker-full-name }} release notes: March 2024
 
 * [Updates](#top-news)
 * [Fixes and improvements](#fixes)
 
 ## Updates {#top-news}
 
+### _Issue lifecycle_ chart {#issue-lifecycle}
 
-### Cycle time chart, a new widget on dashboards {#cycle-time-widget}
+Now you can find a chart in issues that shows the time your issue remains in each of the statuses. The chart is available on the **History** tab of an issue. Using the ![](../../_assets/tracker/svg/arrow.svg) icon, you can expand the chart: each status will appear in a separate row.
 
-Added a new widget on dashboards: a beta version of the [cycle time](../user/cycle-time.md) chart. To enable the chart, go to ![image](../../_assets/tracker/svg/settings.svg) **Settings** ⟶ ![image](../../_assets/tracker/svg/interface.svg) **Interface** and enable **Dashboard analytics**.
+![](../../_assets/tracker/issue-lifecycle.png =700x)
 
-The widget supports automatic updates and filtering. Fixed certain bugs of the beta version.
+### Bulk operations in projects and portfolios {#bulk-projects-portfolios}
 
-### Baselines on a project's Gantt chart {#gantt-baseliness}
+For projects within a portfolio, you can now use [bulk edit operations](../manager/create-portfolio.md#bulk-change) to perform the following for multiple projects simultaneously:
 
-Added selection and display of [baselines](../gantt/project.md#baselines) to the Gantt chart settings panel. To open the project baseline panel, click ![image](../../_assets/console-icons/clock-arrow-rotate-left.svg) above the time scale on the right.
+* Change their status.
+* Assign a person in charge.
+* Move them to a different portfolio.
+* Edit their parameters.
+* Delete them.
+
+### Links in projects and portfolios {#links}
+
+In [projects](../manager/create-project.md#links) and [portfolios](../manager/create-portfolio.md#links), you can now add *Depends on*/*Blocks* links.
 
 
 ## Fixes and improvements {#fixes}
 
-### Changing the order of filters saved on a board {#quick-filters}
+### New interface for SLA rules, templates, and notifications {#new-ui}
 
-You can now set the display order of filters saved on a board. To do this:
+The new interface now supports a few more {{ tracker-name }} pages:
 
-1. Click the ![image](../../_assets/console-icons/gear.svg) icon next to filters.
-1. Change positions of filters in the **All filters** section by dragging them.
-1. Click **Apply**.
+* **SLA rules** page in the queue settings.
+* [Page for managing issue and comment templates]({{ link-tracker-templates }}): **Settings** ⟶ **Interface** ⟶ **Manage templates**.
+* [Notification settings page]({{ link-sub-roles }}): **Settings** ⟶ **Interface** ⟶ **Notification settings**.
 
-### Updated the interface of the _Notifications_ tab {#subscriptions-font-update}
+### Exporting issues via reports {#issues-reports}
 
-The **Queue settings** → **Notifications** page is now has a new interface.
+{{ tracker-name }} supports exporting issue lists from filters as XMS, CSV, and XLSX files. The export feature is often unstable: errors occur, files do not download or contain an incomplete issue list.
 
-### _Download all_ button in the project and portfolio description {#all-download-button}
+Now, a new tool is available for exporting issues via report generation. To use the new export feature:
 
-Added **Download all** button in the project and portfolio description allowing to download the archive of all files attached to the description.
+1. On the page with issues, click ![](../../_assets/console-icons/file-arrow-down.svg) **Export** and select the file format from the list: XML, CSV, or XLSX.
+1. In the bottom-right corner of the page, a report generation message will appear. Click the link in this message to go to the report page.
+1. On the report page, click **Download**. This will save the file with the issue list in the downloads.
 
-### Warning when attempting to add users to whom access is denied {#access-warning}
+You can still use the old export tool: click ![](../../_assets/console-icons/file-arrow-down.svg) **Export** ⟶ **Download file (earlier version)** and select the file format. This will save the file in the downloads.
 
-Now, if you try to add users to whom access to {{ tracker-name }} is denied when setting up access permissions for a queue, a prohibition warning will appear.
+### _Cycle time_ widget improvements {#cycle-time-improvements}
 
-
-### Fixed the error of summon saving on the transition screen in the workflow editor {#call-save-fix}
-
-Fixed the error that prevented saving an employee summon on the [transition screen](../manager/workflow-action-edit.md#screen) when setting up a workflow in the [workflow](../manager/workflow.md) visual editor.
-
-### Fixed macros {#macros-fix}
-
-Fixed operation of [macros](../manager/create-macroses.md): they now open in the sheet on the right rather than a pop-up window, and you can copy information from the issue.
-
-### Default background on boards {#default-background-fix}
-
-Added grey background by default for boards to improve visual perception.
+Added new parameters to the [**Cycle time**](../user/cycle-time.md) widget: you can now select sprints as a step.

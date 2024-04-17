@@ -18,13 +18,13 @@ The project portfolio page shows information about the portfolio team and curren
 
 * **{{ ui-key.startrek.ui_components_portfolios_Header.projects-tab }}** tab. The list shows both open and closed portfolios and projects. You can reorder them, move across portfolios, and filter by the parameters you specify.
 
-* **Gantt chart** tab. This is a road map for portfolio projects and issues included in them. The Gantt chart specifies the timeframes of the portfolios, projects, and issues and relationships between them. For more information, see [{#T}](../gantt/portfolio.md).
+* **Gantt chart** tab. This is a roadmap for portfolio projects and issues included in them. The Gantt chart specifies the timeframes of the portfolios, projects, and issues and relationships between them. For more information, see [{#T}](../gantt/portfolio.md).
 
 You can track your portfolio's progress indicator in the top-right corner of the portfolio page. The colors and sizes of the indicator bars change depending on the statuses of portfolios and projects explicitly nested in this portfolio. The portfolios and projects nested in the portfolios of this portfolio are not displayed in the progress indicator.
 
 To record portfolio updates, type in a comment. If you need to change the portfolio status, select a new status at the bottom panel before submitting the comment.
 
-To restrict access to the portfolio, click the lock icon in the top-right corner and select **Members only**. Doing so will make the portfolio only available to the users listed in the **Participants**, **Author**, **Customers**, and **Responsible** fields.
+The portfolio is available to all the organization's employees and **Followers** by default. To restrict access to the portfolio, click the lock icon in the top-right corner and select **Members only**. This will make the portfolio available only to the users specified in the **Author**, **Person in charge**, **Customers**, **Followers**, and **Participants** fields.
 
 {% note info %}
 

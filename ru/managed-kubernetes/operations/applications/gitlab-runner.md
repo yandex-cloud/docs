@@ -5,10 +5,15 @@
 
 ## Перед началом работы {#before-you-begin}
 
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. Откройте в браузере административную панель {{ GL }}:
    * Если {{ GL }} развернут на [виртуальной машине](../../../compute/concepts/vm.md) [{{ compute-full-name }}](../../../compute/), используйте ее [публичный IP-адрес](../../../compute/concepts/network.md#public-ip).
    * Если {{ GL }} развернут в [сервисе {{ mgl-full-name }}](../../../managed-gitlab/), используйте [FQDN инстанса](../../../compute/concepts/network.md##hostname).
-1. Получите регистрационный токен (registration token):
+
+1. В административной панели получите регистрационный токен (registration token):
    * Для настройки {{ GLR }} для всего [инстанса {{ GL }}](../../../managed-gitlab/concepts/index.md) (требуются права администратора {{ GL }}):
      1. Нажмите кнопку **Menu** и выберите пункт **Admin**.
      1. Выберите пункт **CI/CD** → **Runners**.

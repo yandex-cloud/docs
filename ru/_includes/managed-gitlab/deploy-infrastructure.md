@@ -21,7 +21,10 @@
      {% endnote %}
 
   1. [Создайте кластер {{ managed-k8s-name }} ](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). При создании кластера {{ managed-k8s-name }} укажите ранее созданные сервисные аккаунты для ресурсов и узлов.
-  1. [Настройте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для работы кластера {{ managed-k8s-name }}.
+  1. {% include [configure-sg-manual](../managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+        {% include [sg-common-warning](../managed-kubernetes/security-groups/sg-common-warning.md) %}
+
   1. [Настройте группу безопасности](../../managed-gitlab/operations/configure-security-group.md) для работы [инстанса {{ mgl-name }}](../../managed-gitlab/concepts/index.md#instance).
   1. [Создайте реестр {{ container-registry-full-name }}](../../container-registry/operations/registry/registry-create.md).
   1. [Создайте авторизованный ключ](../../iam/operations/authorized-key/create.md) для сервисного аккаунта с ролью `{{ roles-cr-pusher }}` и сохраните в файл `key.json`:
@@ -46,10 +49,13 @@
      В этом файле описаны:
      * [Сеть](../../vpc/concepts/network.md#network).
      * [Подсеть](../../vpc/concepts/network.md#subnet).
-     * [Группа безопасности по умолчанию](../../vpc/concepts/security-groups.md) и правила, необходимые для работы [инстанса {{ mgl-name }}](../../managed-gitlab/concepts/index.md#instance).
-     * [Группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для работы [кластера {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
-     * Кластер {{ managed-k8s-name }}.
+     * [Кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
      * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера {{ managed-k8s-name }} и [группы узлов](../../managed-kubernetes/concepts/index.md#node-group).
+     * {% include [configure-sg-terraform](../managed-kubernetes/security-groups/configure-sg-tf-with-audience-lvl3.md) %}
+
+        {% include [sg-common-warning](../managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+     * [Группа безопасности по умолчанию](../../vpc/concepts/security-groups.md) и правила, необходимые для работы [инстанса {{ mgl-name }}](../../managed-gitlab/concepts/index.md#instance).
      * [Реестр](../../container-registry/concepts/registry.md) [{{ container-registry-full-name }}](../../container-registry/).
      * [Авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта. Ключ необходим для доступа к реестру из {{ GL }}.
      * Локальный файл `key.json` с данными авторизованного ключа.

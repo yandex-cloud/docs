@@ -40,6 +40,8 @@ These settings apply to {{ TF }} `0.13` and higher. We recommend using the lates
 
       Open the {{ TF }} CLI configuration file named `terraform.rc` in your user's `%APPDATA%` folder.
 
+      To find out the absolute path to the `%APPDATA%` folder, run the `echo %APPDATA%` command for cmd or the `$env:APPDATA` command for PowerShell.
+
    {% endlist %}
 
    Add the following section to the file:

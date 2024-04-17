@@ -19,6 +19,11 @@
 1. [Создайте группу узлов {{ managed-k8s-name }}](../operations/node-group/node-group-create.md) с настройками:
    * **{{ ui-key.yacloud.k8s.node-group.overview.label_platform }}** — выберите `{{ ui-key.yacloud.component.compute.resources.value_platform-tab-gpu }}` → `Intel Broadwell with NVIDIA® Tesla v100`.
    * **{{ ui-key.yacloud.component.compute.resources.field_gpus }}** — укажите нужное количество GPU.
+
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Создайте под с GPU {#create-pod-gpu}

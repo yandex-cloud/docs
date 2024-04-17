@@ -63,10 +63,11 @@
         * Укажите ранее созданный сервисный аккаунт для узлов.
         * Выделите публичный IP-адрес, чтобы предоставить группе узлов доступ в интернет и возможность скачивать Docker-образы и компоненты.
 
-    1. Настройте группы безопасности:
+    1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-        * [Для кластера и группы узлов {{ managed-k8s-name }}](../operations/connect/security-groups.md).
-        * [Для балансировщиков нагрузки {{ alb-name }}](../../application-load-balancer/concepts/application-load-balancer.md#security-groups).
+        {% include [configure-sg-alb-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-manual.md) %}
+
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
     1. [Создайте пользовательскую лог-группу {{ cloud-logging-name }}](../../logging/operations/create-group.md).
 
@@ -83,8 +84,13 @@
 
         * [Сеть](../../vpc/concepts/network.md#network).
         * [Подсеть](../../vpc/concepts/network.md#subnet).
-        * [Группы безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для работы [кластера {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) и [балансировщиков нагрузки {{ alb-name }}](../../application-load-balancer/concepts/application-load-balancer.md).
         * Кластер {{ managed-k8s-name }}.
+        * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+
+            {% include [configure-sg-alb-tf](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-tf.md) %}
+
+            {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
         * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для ресурсов и узлов {{ managed-k8s-name }}.
         * Сервисный аккаунт для работы Ingress-контроллера {{ alb-name }}.
         * [Пользовательская лог-группа](../../logging/concepts/log-group.md) {{ cloud-logging-name }}.
@@ -357,7 +363,7 @@
 
         {% note warning %}
 
-        В [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) версии 0.2.0 и позднее аннотация используется только в объекте [Service](../../application-load-balancer/k8s-ref/service.md#metadata).
+        В [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) версии 0.2.0 и позднее аннотация используется только в объекте [Service](../../application-load-balancer/k8s-ref/service-for-ingress.md#metadata).
 
         Если указать аннотацию в ресурсах `Ingress`, где используется один сервис с одинаковыми настройками для групп бэкендов, аннотация применится корректно. Но такой механизм устарел, в дальнейшем  он не будет поддерживаться.
 

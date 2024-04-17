@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started with the CLI
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: CLI installation
         href: operations/install-cli.md
@@ -37,10 +37,6 @@ items:
         href: concepts/core-properties.md
       - name: Synchronous and asynchronous command execution modes
         href: concepts/mode.md
-  - name: CLI releases
-    href: release-notes.md
-  - name: Troubleshooting
-    href: error.md
   - name: CLI reference
     items:
       - name: Overview
@@ -4479,4 +4475,8 @@ items:
                   - name: remove-access-binding
                     href: >-
                       cli-ref/managed-services/container/repository/remove-access-binding.md
+  - name: CLI releases
+    href: release-notes.md
+  - name: Troubleshooting
+    href: error.md
 base: en/cli

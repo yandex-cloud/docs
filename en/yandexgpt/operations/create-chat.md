@@ -83,7 +83,7 @@ To generate text in [chat mode](../concepts/index.md#working-mode), deliver a li
 
          def gpt(auth_headers):
 
-             url = 'https://llm.api.cloud.yandex.net/foundationModels/v1/completion'
+             url = 'https://llm.{{ api-host }}/foundationModels/v1/completion'
 
              with open('body.json', 'r', encoding='utf-8') as f:
                  data = json.dumps(json.load(f))
@@ -121,13 +121,13 @@ To generate text in [chat mode](../concepts/index.md#working-mode), deliver a li
          **Authentication using an IAM token:**
 
          ```bash
-         export IAM_TOKEN=<IAM token>
+         export IAM_TOKEN=<IAM_token>
          ```
 
          **Authentication using an API key:**
 
          ```bash
-         export API_KEY=<API key>
+         export API_KEY=<API_key>
          ```
 
       1. Run the created file:

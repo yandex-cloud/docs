@@ -8,21 +8,24 @@
 1. [{#T}](#configure-group).
 1. [{#T}](#verify-setup).
 
+Полную конфигурацию ресурсов для Ingress-контроллера {{ alb-name }} см. в следующих разделах:
+
+* [Ingress](../alb-ref/ingress.md) — правила распределения трафика между бэкендами и настройки Ingress-контроллера.
+* [HttpBackendGroup](../alb-ref/http-backend-group.md) — объединение бэкендов в группы.
+* [IngressClass](../alb-ref/ingress-class.md) — управление несколькими Ingress-контроллерами в кластере {{ k8s }}.
+* [Service](../alb-ref/service-for-ingress.md) — описание сервисов {{ k8s }}, используемых в качестве бэкендов.
+
 ## Перед началом работы {#before-you-begin}
 
 1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
 1. Если у вас уже есть сертификат для доменной зоны, [добавьте сведения о нем](../../certificate-manager/operations/import/cert-create.md) в сервис [{{ certificate-manager-full-name }}](../../certificate-manager/). Или [добавьте новый сертификат от Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md).
 1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
 1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
-1. Создайте правила [групп безопасности](../../vpc/concepts/security-groups.md), чтобы разрешить:
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-   * [Служебный входящий и исходящий трафик](../operations/connect/security-groups.md#rules-internal) для кластера {{ managed-k8s-name }} и группы узлов.
-   * Входящий трафик для группы узлов:
+    {% include [configure-sg-alb-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-manual.md) %}
 
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `10501-10502`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — укажите диапазоны адресов подсетей, которые вы будете использовать при [создании Ingress-контроллера](#create-ingress-and-apps). Например, `10.96.0.0/16` или `10.112.0.0/16`.
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. [Установите Ingress-контроллер {{ alb-name }}](../operations/applications/alb-ingress-controller.md).
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
@@ -338,7 +341,7 @@ yc certificate-manager certificate list
 
         {% note warning %}
 
-        В [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) версии 0.2.0 и позднее аннотация используется только в объекте [Service](../../application-load-balancer/k8s-ref/service.md#metadata).
+        В [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) версии 0.2.0 и позднее аннотация используется только в объекте [Service](../../application-load-balancer/k8s-ref/service-for-ingress.md#metadata).
 
         Если указать аннотацию в ресурсах `Ingress`, где используется один сервис с одинаковыми настройками для групп бэкендов, аннотация применится корректно. Но такой механизм устарел, в дальнейшем он не будет поддерживаться.
 
@@ -370,7 +373,9 @@ yc certificate-manager certificate list
 
      {% endnote %}
 
-     Подробное описание настроек ресурса Ingress см. в статье [{#T}](../alb-ref/ingress.md).
+     Если вы используете несколько Ingress-контроллеров, для каждого из них создайте ресурс [IngressClass](../alb-ref/ingress-class.md). В конфигурации `Ingress` укажите нужный `IngressClass` в поле `spec.ingressClassName`.
+
+     Подробное описание настроек ресурса `Ingress` см. в статье [{#T}](../alb-ref/ingress.md).
 
   1. Создайте Ingress-контроллер и приложения:
 
@@ -707,6 +712,8 @@ yc certificate-manager certificate list
 
      Убедитесь, что приложения доступны через {{ alb-name }} и возвращают страницы с текстом `This is APP#1` и `This is APP#2` соответственно.
 
+     {% include [Настройка групп безопасности при недоступности ресурса](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
+
    - Группа бэкендов
 
      Откройте в браузере URI приложения:
@@ -716,6 +723,8 @@ yc certificate-manager certificate list
      ```
 
      Убедитесь, что целевые ресурсы доступны через {{ alb-name }}.
+
+     {% include [Настройка групп безопасности при недоступности ресурса](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
    {% endlist %}
 

@@ -194,7 +194,7 @@ To start computations without opening {{ jlab }}Lab, you need a {{ sf-name }} th
 
       def handler(event, context):
 
-          url = 'https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<project_ID>:execute'
+          url = 'https://datasphere.{{ api-host }}/datasphere/v2/projects/<project_ID>:execute'
           body = {"notebookId": "/home/jupyter/datasphere/project/test_classifier.ipynb"}
           headers = {"Content-Type" : "application/json",
                      "Authorization": "Bearer {}".format(context.token['access_token'])}

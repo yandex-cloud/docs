@@ -147,14 +147,14 @@ items:
                 href: api-ref/v1alpha/grpc/operation_service.md
   - name: Access management
     href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: Release notes
+    href: release-notes.md
   - name: Troubleshooting
     items:
       - name: FAQ
         href: qa/index.md
       - name: Error codes
         href: troubleshooting/error-codes.md
-  - name: Pricing policy
-    href: pricing.md
-  - name: Release notes
-    href: release-notes.md
 base: en/yandexgpt

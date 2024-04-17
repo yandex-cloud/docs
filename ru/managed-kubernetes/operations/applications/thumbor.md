@@ -26,6 +26,10 @@
 
 1. [Задайте права доступа на чтение объектов бакета](../../../storage/operations/objects/edit-acl.md) для сервисного аккаунта.
 
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
@@ -40,6 +44,9 @@
    * **Разрешить URL без подписи (unsafe)** — выберите эту опцию, если вы не указывали ключ безопасности на предыдущем шаге.
    * **Подкаталог в бакете** — укажите имя каталога в бакете (без завершающего символа `/`), в котором находятся изображения.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+
+    Для обеспечения работы Thumbor будет автоматически создан сервис {{ k8s }} типа `LoadBalancer` и соответствующий ему [балансировщик {{ network-load-balancer-full-name }}](../../../network-load-balancer).
+
 1. Дождитесь перехода приложения в статус `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
@@ -89,15 +96,9 @@
 
    {% endlist %}
 
+    Для обеспечения работы Thumbor будет автоматически создан сервис {{ k8s }} типа `LoadBalancer` и соответствующий ему [балансировщик {{ network-load-balancer-full-name }}](../../../network-load-balancer).
+
 ## Получение доступа к приложению {#app-access}
-
-После установки приложения будет автоматически развернут [сетевой балансировщик нагрузки {{ network-load-balancer-full-name }}](../../../network-load-balancer/). Доступ к приложению осуществляется по протоколу HTTP.
-
-{% note info %}
-
-Перед использованием приложения убедитесь, что для вашего кластера настроены корректные [правила для подключения к сервисам из интернета](../connect/security-groups.md#rules-nodes).
-
-{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -120,6 +121,8 @@
   1. В адресной строке браузера откройте ссылку `http://<IP-адрес_балансировщика>/unsafe/<имя_изображения_в_бакете>`.
 
 {% endlist %}
+
+{% include [Настройка групп безопасности при недоступности ресурса](../../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
 Подробнее о работе с изображениями см. в [документации Thumbor](https://thumbor.readthedocs.io/en/latest/imaging.html).
 

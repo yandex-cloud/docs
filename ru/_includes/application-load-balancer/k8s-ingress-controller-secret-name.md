@@ -1,5 +1,1 @@
-{% note warning %}
-
-Поле `secretName` поддерживает только указания на сертификаты из {{ certificate-manager-name }} в формате `yc-certmgr-cert-id-<идентификатор_сертификата>`. Не указывайте в этом поле собственные секреты {{ k8s }}.
-
-{% endnote %}
+Если сертификат пока не добавлен в {{ certificate-manager-name }}, укажите секрет {{ k8s }} с сертификатом в поле `secretName`. Тогда Ingress-контроллер {{ alb-name }} автоматически добавит сертификат в {{ certificate-manager-name }}.

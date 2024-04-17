@@ -15,6 +15,10 @@
 
 ## Посмотрите количество ресурсов, выделенных для пода сервера метрик {#get-resources}
 
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. Выполните команду:
 

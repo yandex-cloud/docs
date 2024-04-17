@@ -25,10 +25,11 @@
    * Сервисный аккаунт `sa-k8s-nodes` для управления группой узлов:
      * `container-registry.images.puller` — для загрузки образов из [{{ container-registry-full-name }}](../../container-registry/).
 1. [Создайте сеть](../../vpc/quickstart.md) с именем `k8s-network` для размещения кластера. При создании сети выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
-1. [Создайте группы безопасности](../operations/connect/security-groups.md):
-   * `sg-k8s` — для [мастера и группы узлов](../operations/connect/security-groups.md#rules-internal).
-   * `k8s-public-services` — для обеспечения [публичного доступа к сервисам из интернета](../operations/connect/security-groups.md#rules-nodes).
-   * `k8s-master-whitelist` — для [доступа к API {{ k8s }}](../operations/connect/security-groups.md#rules-master).
+
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. [Создайте ключ шифрования](../../kms/operations/key.md#create):
    * **{{ ui-key.yacloud.kms.symmetric-key.form.field_name }}** — `k8s-symetric-key`.
    * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}** — `AES-128`.
@@ -41,7 +42,7 @@
    * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** — `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}** — `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}`.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_network }}** — `k8s-network`.
-   * **{{ ui-key.yacloud.k8s.clusters.create.field_security-groups }}** — `sg-k8s`, `k8s-master-whitelist`.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_security-groups }}** — выберите созданные ранее группы безопасности, которые содержат правила для служебного трафика и для доступа к API {{ k8s }}.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}** — `{{ ui-key.yacloud.common.enabled }}`.
 1. [Создайте две группы узлов](../operations/node-group/node-group-create.md) в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-b` со следующими настройками:
    * В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}**:
@@ -51,7 +52,7 @@
      * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}** — `1`.
    * В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
      * **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** — `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`.
-     * **{{ ui-key.yacloud.k8s.node-groups.create.field_security-groups }}** — `sg-k8s`, `k8s-public-services`.
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_security-groups }}** — выберите созданные ранее группы безопасности, которые содержат правила для служебного трафика, для подключения к сервисам из интернета и для подключения к узлам по SSH.
      * **{{ ui-key.yacloud.k8s.node-groups.create.field_locations }}** — `{{ region-id }}-a` или `{{ region-id }}-b`.
 
 1. {% include [Настройка kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
@@ -151,6 +152,8 @@
 
    {% endnote %}
 
+    {% include [Настройка групп безопасности при недоступности ресурса](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
+
    В течение нескольких минут {{ k8s-hpa }} увеличит количество подов на узлах из-за роста потребления CPU. Когда текущих ресурсов кластера будет недостаточно, чтобы удовлетворить значение `requests`, {{ k8s-ca}} увеличит количество узлов в группах.
 1. Завершите процесс имитации рабочей нагрузки. В течение нескольких минут количество узлов и подов вернется к начальному состоянию.
 
@@ -232,6 +235,8 @@
      curl -H "Host: nginx.example.com" http://$URL
    ```
 
+    {% include [Настройка групп безопасности при недоступности ресурса](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
+
 1. Убедитесь, что метрика `nginx_ingress_controller_requests_per_second` доступна:
 
    ```bash
@@ -260,6 +265,8 @@
      | jq -r '.status.loadBalancer.ingress[0].ip') && \
      while true; do curl -H "Host: nginx.example.com" http://$URL; done
    ```
+
+    {% include [Настройка групп безопасности при недоступности ресурса](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
    В течение нескольких минут {{ k8s-hpa }} увеличит количество подов на узлах из-за роста количества запросов к приложению. Когда текущих ресурсов кластера будет недостаточно, чтобы удовлетворить значение `requests`, {{ k8s-ca}} увеличит количество узлов в группах.
 1. Завершите процесс имитации рабочей нагрузки. В течение нескольких минут количество узлов и подов вернется к начальному состоянию.

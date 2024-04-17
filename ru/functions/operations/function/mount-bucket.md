@@ -5,8 +5,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Смонтировать бакеты в функцию
 
-{% include [read-note](../../../_includes/functions/read-note.md) %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

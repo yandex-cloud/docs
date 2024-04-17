@@ -10,7 +10,7 @@ For a detailed description of the available versions, see [Recognition models](s
 
 In speech synthesis, the service provides [two types of voices](tts/voices.md): standard and premium. Premium voices use new speech synthesis technology.
 
-For more information about voice models, see [About the technology](tts/index.md#voices).
+For more information about voice models, see [About technology](tts/index.md#voices).
 
 ## Current version {#current}
 
@@ -28,13 +28,13 @@ Various improvements in synthesis quality, including the synthesis of questions.
 
 For testing purposes, a function for adding stress to specific words is available. It allows you to better control intonation, especially when synthesizing questions. To add a stress after a word that needs to be emphasized, add `<[accented]>`. For example, in `Are you glad <[accented]> to see me?`, the word **glad** is emphasized.
 
-### Release 09.03.21 {#0903}
+### Release on 09/03/21 {#090321}
 
 In streaming speech recognition, transcription, and short audio recognition by the `general:rc` tag, a new version of the _Demosthenes_ model is now available. It features improved basic recognition quality and recognizes names of healthcare professions and words related to jewelry.
 
-We invite you to join in testing the version. We'll be grateful for your feedback.
+We invite you to join in testing the version. Any feedback will be appreciated.
 
-#### Version availability by tags {#tags-0903}
+#### Version availability by tags {#tags-090321}
 
 In transcription only:
 
@@ -43,14 +43,14 @@ In transcription only:
 In streaming, transcription, and short audio recognition:
 
 * `general`: The _Galen_ version.
-* `general:rc`: The _Demosthenes_ version.
-* `general:deprecated`: The _Zeno_ version.
+* `general:rc`: _Demosthenes_ version.
+* `general:deprecated`: _Zeno_ version.
 
-### Release 26.02.21 {#2602}
+### Release on 26/02/21 {#260221}
 
 In transcription by the `hqa` model tag, a new version named _Guarneri_ is now available. It features greatly improved recognition quality.
 
-#### Version availability by tags {#tags-2602}
+#### Version availability by tags {#tags-260221}
 
 In transcription only:
 
@@ -59,14 +59,14 @@ In transcription only:
 In streaming, transcription, and short audio recognition:
 
 * `general`: The _Galen_ version.
-* `general:rc`: The _Galen_ version.
-* `general:deprecated`: The _Zeno_ version.
+* `general:rc`: _Galen_ version.
+* `general:deprecated`: _Zeno_ version.
 
-### Release 03.02.21 {#0302}
+### Release on 03/02/21 {#030221}
 
 The _Galen_ version of the basic recognition model was tested successfully and is the main version of the recognition model as of February 3.
 
-#### Version availability by tags {#tags-0302}
+#### Version availability by tags {#tags-030221}
 
 In transcription only:
 
@@ -75,14 +75,14 @@ In transcription only:
 In streaming, transcription, and short audio recognition:
 
 * `general`: The _Galen_ version.
-* `general:rc`: The _Galen_ version.
-* `general:deprecated`: The _Zeno_ version.
+* `general:rc`: _Galen_ version.
+* `general:deprecated`: _Zeno_ version.
 
-### Release 14.12.20 {#1412}
+### Release on 14/12/20 {#141220}
 
 In transcription by the `hqa` model tag, a new version named _Amati_ is now available. Issues have been fixed where silence was recognized instead of speech. Text recognition for news and medicine subject domains has been improved.
 
-#### Version availability by tags {#tags-1412}
+#### Version availability by tags {#tags-141220}
 
 In transcription only:
 
@@ -91,14 +91,14 @@ In transcription only:
 In streaming, transcription, and short audio recognition:
 
 * `general`: _Zeno_ version.
-* `general:rc`: The _Galen_ version.
-* `general:deprecated`: The _Anaximander_ version.
+* `general:rc`: _Galen_ version.
+* `general:deprecated`: _Anaximander_ version.
 
-### Release 01.12.20 {#0112}
+### Release on 01/12/20 {#011220}
 
 In streaming, transcription, and short audio recognition by the `general:rc` tag, a new version of the _Galen_ model is now available. It provides a significantly better basic recognition quality and recognizes words related to COVID-19.
 
-#### Version availability by tags {#tags-0112}
+#### Version availability by tags {#tags-011220}
 
 In transcription only:
 
@@ -107,14 +107,14 @@ In transcription only:
 In streaming, transcription, and short audio recognition:
 
 * `general`: _Zeno_ version.
-* `general:rc`: The _Galen_ version.
-* `general:deprecated`: The _Anaximander_ version.
+* `general:rc`: _Galen_ version.
+* `general:deprecated`: _Anaximander_ version.
 
-### Release 24.11.20 {#2411}
+### Release on 24/11/20 {#241120}
 
 After successful testing, the _Zeno_ version is now the main released version of the `general` model in streaming, transcription, and short audio recognition.
 
-#### Version availability by tags {#tags-2411}
+#### Version availability by tags {#tags-241120}
 
 In transcription only:
 
@@ -123,21 +123,21 @@ In transcription only:
 In streaming, transcription, and short audio recognition:
 
 * `general` and `general:rc`: _Zeno_ version.
-* `general:deprecated`: The _Anaximander_ version.
+* `general:deprecated`: _Anaximander_ version.
 
-### Release 17.11.20 {#1711}
+### Release on 17/11/20 {#171120}
 
 Numerous corrections in the pronunciation of individual words thanks to the improved normalization. Declension of numerals fixed. A new version of the `alena` premium voice is now available by the `alena` tag.
 
-#### Version availability by tags {#tags-1711}
+#### Version availability by tags {#tags-171120}
 
 No changes.
 
-### Release 26.10.20 {#2610}
+### Release on 26/10/20 {#261020}
 
 A next-generation recognition model is available in transcription: `hqa`. This model has a richer vocabulary, so recognition results are much better and more understandable to readers. The difference is especially noticeable with long audio recognition.
 
-#### Version availability by tags {#tags-2610}
+#### Version availability by tags {#tags-261020}
 
 In transcription:
 
@@ -148,17 +148,17 @@ In transcription:
 
 In streaming and short audio recognition: no changes.
 
-### Release 12.10.20 {#1210}
+### Release on 12/10/20 {#121020}
 
 The new version provides significantly better basic recognition quality. A new version of the `general` model is now available in streaming, transcription, and short audio recognition.
 
-#### Version availability by tags {#tags-1210}
+#### Version availability by tags {#tags-121020}
 
 * `general`: _Anaximander_ version.
-* `general:rc`: The _Zeno_ version.
-* `general:deprecated`: The _Marcus Aurelius_ version.
+* `general:rc`: _Zeno_ version.
+* `general:deprecated`: _Marcus Aurelius_ version.
 
-### Release 18.08.20 {#1808}
+### Release on 18/08/20 {#180820}
 
 Update for transcription in the *Anaximander* version:
 
@@ -168,7 +168,7 @@ Update for transcription in the *Anaximander* version:
 
 The acoustic and language properties of the model have not changed.
 
-#### Version availability by tags {#tags-1808}
+#### Version availability by tags {#tags-180820}
 
 These versions are available for streaming recognition, transcription, and short audio recognition:
 
@@ -176,20 +176,20 @@ These versions are available for streaming recognition, transcription, and short
 * `general:rc`: _Anaximander_ version (updated).
 * `general:deprecated`: _Marcus Aurelius_ version.
 
-### Release 21.07.20 {#2107}
+### Release on 21/07/20 {#210720}
 
 _Anaximander_ is now the main operating version for streaming recognition, transcription, and short audio recognition.
 
-#### Version availability by tags {#tags-2107}
+#### Version availability by tags {#tags-210720}
 
 * `general` and `general:rc`: _Anaximander_ version.
 * `general:deprecated`: _Marcus Aurelius_ version.
 
-### Release 27.05.20 {#2705}
+### Release on 27/05/20 {#270520}
 
 New versions of the `general` model are now available in transcription and short audio recognition.
 
-#### Version availability by tags {#tags-2705}
+#### Version availability by tags {#tags-270520}
 
 Available versions by tag:
 
@@ -199,28 +199,28 @@ Available versions by tag:
 Versions of the `general` model available for streaming recognition:
 
 * `general`: The _Marcus Aurelius_ version.
-* `general:rc`: The _Anaximander_ version.
-* `general:deprecated`: The _Diogenes_ version.
+* `general:rc`: _Anaximander_ version.
+* `general:deprecated`: _Diogenes_ version.
 
-### Release 15.05.20 {#1505}
+### Release on 15/05/20 {#150520}
 
 For streaming speech recognition, the new version of the _Anaximander_ model is now available with the `general:rc` tag.
 
-#### Version availability by tags {#tags-1505}
+#### Version availability by tags {#tags-150520}
 
-* `general`: The _Marcus Aurelius_ version.
-* `general:rc`: The _Anaximander_ version.
-* `general:deprecated`: The _Diogenes_ version.
+* `general`: _Marcus Aurelius_ version.
+* `general:rc`: _Anaximander_ version.
+* `general:deprecated`: _Diogenes_ version.
 
 The versions for short and long audio recognition remain unchanged.
 
-### Release 16.04.20 {#1604}
+### Release on 16/04/20 {#160420}
 
 For streaming speech recognition by the `general` tag, a new version of the _Marcus Aurelius_ model is now available.
 
-#### Version availability by tags {#tags-1604}
+#### Version availability by tags {#tags-160420}
 
-* `general` and `general:rc:` The _Marcus Aurelius_ version.
-* `general:deprecated`: The _Diogenes_ version.
+* `general` and `general:rc:` _Marcus Aurelius_ version.
+* `general:deprecated`: _Diogenes_ version.
 
 The versions for short and long audio recognition available with the `general` tag remain unchanged.

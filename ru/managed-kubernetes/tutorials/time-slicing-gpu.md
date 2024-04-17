@@ -19,6 +19,10 @@
 
 1. [Создайте группу узлов {{ managed-k8s-name }}](../operations/node-group/node-group-create.md) c [GPU NVIDIA® Tesla® T4](../../compute/concepts/gpus.md#tesla-t4).
 
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Настройка kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Настройте Time-Slicing GPUs {#configure-time-slicing}

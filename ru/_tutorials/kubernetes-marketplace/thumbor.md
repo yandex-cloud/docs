@@ -35,6 +35,11 @@ Thumbor удобно использовать для подготовки изо
       * Сервисный аккаунт `thumbor-sa` для работы с Thumbor.
 
    1. [Создайте кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) {{ managed-k8s-name }} и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации.
+
+   1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
    1. [Cоздайте бакет](../../storage/operations/buckets/create.md) в {{ objstorage-full-name }}.
    1. [Предоставьте сервисному аккаунту](../../storage/operations/objects/edit-acl.md) `thumbor-sa` разрешение `READ` на бакет.
 
@@ -51,14 +56,6 @@ Thumbor удобно использовать для подготовки изо
 
       * Сеть.
       * Подсеть.
-      * [Группы безопасности и правила](../../managed-kubernetes/operations/connect/security-groups.md) для нескольких функций:
-
-         * сетевой балансировщик нагрузки;
-         * передача трафика между [мастером](../../managed-kubernetes/concepts/index.md#master) и [узлами](../../managed-kubernetes/concepts/index.md#node-group);
-         * передача трафика между [подами](../../managed-kubernetes/concepts/index.md#pod) и [сервисами](../../managed-kubernetes/concepts/index.md#service);
-         * проверка работоспособности узлов с помощью ICMP-запросов из подсетей внутри {{ yandex-cloud }};
-         * подключение к сервисам из интернета.
-
       * Сервисные аккаунты для различных сервисов:
 
          * для работы кластера и группы узлов {{ managed-k8s-name }};
@@ -67,6 +64,11 @@ Thumbor удобно использовать для подготовки изо
 
       * Кластер {{ managed-k8s-name }}.
       * Группа узлов.
+      
+      * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
       * Статический ключ доступа для создания бакета.
       * Бакет.
 
@@ -299,6 +301,8 @@ Thumbor удобно использовать для подготовки изо
 * `https://<доменное_имя_ресурса>/unsafe/800x600/filters:watermark(cc.xlarge.png,-10,10,80,15)/poster_rodents_bunnysize.jpg`
 
 Отобразятся подготовленные изображения с различным размером. На каждом изображении есть водяной знак [Creative Commons](https://ru.wikipedia.org/wiki/Creative_Commons).
+
+{% include [Настройка групп безопасности при недоступности ресурса](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
 ## Удалите созданные ресурсы {#clear-out}
 

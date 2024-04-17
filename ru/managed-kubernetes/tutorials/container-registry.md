@@ -253,14 +253,11 @@ yc container registry configure-docker
 
 ## Подключитесь к кластеру {{ managed-k8s-name }} {#cluster-connect}
 
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. [Настройте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md#rules-master) кластера {{ managed-k8s-name }}.
-
-   {% note warning %}
-
-   Настройки [групп безопасности](../../vpc/concepts/security-groups.md) могут препятствовать подключению к кластеру {{ managed-k8s-name }}.
-
-   {% endnote %}
 
 ## Запустите тестовое приложение {#test-app}
 

@@ -1,14 +1,14 @@
 ---
-title: "Data type matching table"
+title: "Data type mapping table"
 description: "When you create a dataset, {{ datalens-short-name }} converts the source data to its own type for streamlined data processing. This helps {{ datalens-short-name }} unify operations with data from different sources."
 ---
 
-# Data type matching table
+# Data type mapping table
 
 When you create a dataset, {{ datalens-short-name }} converts the source data to its own type for streamlined data processing.
 This helps {{ datalens-short-name }} unify the operations with data from different sources.
 
-The table below shows how data types of different databases and {{ datalens-short-name }} internal data types correspond to one another.
+The table below shows how data types of different databases and {{ datalens-short-name }} internal data types map.
 
 DataLens | {{ CH }} | PostgreSQL | MySQL | MS SQL |
 ----- | ----- | ----- | ----- | ----- |

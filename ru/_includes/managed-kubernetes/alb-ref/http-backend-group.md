@@ -46,9 +46,9 @@ spec:
 
     Имя ресурса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
   
-    Это имя нужно указать в поле `spec.rules.http.paths.backend.resource.name` ресурса `Ingress` (см. [справочник](../../../application-load-balancer/k8s-ref/ingress.md)).
+    Это имя нужно указать в поле `spec.rules.http.paths.backend.resource.name` ресурса `Ingress` (см. [конфигурацию](../../../application-load-balancer/k8s-ref/ingress.md)).
 
-    Не соответствует имени группы бэкендов в {{ alb-name }}.
+    Не является именем группы бэкендов в {{ alb-name }}.
 
 * `spec` (`HttpBackendGroupSpec`)
 
@@ -80,7 +80,7 @@ spec:
 
       Указание на [сервис {{ k8s }}](../../../managed-kubernetes/concepts/index.md#service), который должен обрабатывать запросы в качестве бэкенда.
 
-      Ресурс `Service`, на который указывает это поле, должен быть описан по [спецификации](../../../application-load-balancer/k8s-ref/service.md).
+      Ресурс `Service`, на который указывает это поле, должен быть описан по [принятой конфигурации](../../../application-load-balancer/k8s-ref/service-for-ingress.md).
 
       Для бэкенда должен быть указан либо сервис, либо бакет {{ objstorage-name }} (`storageBucket`), но не оба одновременно.
 

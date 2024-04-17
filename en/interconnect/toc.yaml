@@ -41,4 +41,6 @@ items:
         href: operations/pub-add.md
   - name: Pricing policy
     href: pricing.md
+  - name: Release notes
+    href: release-notes.md
 base: en/interconnect

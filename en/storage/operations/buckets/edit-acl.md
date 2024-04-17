@@ -3,7 +3,7 @@ title: "Editing a bucket ACL in {{ objstorage-full-name }}"
 description: "To control access to an {{ objstorage-name }} bucket, besides {{ iam-short-name }}, you can also use an access control list (ACL)."
 ---
 
-# Editing the ACL of a bucket
+# Editing a bucket ACL
 
 {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
 
@@ -33,7 +33,7 @@ To configure the [ACL](../../concepts/acl.md) of a bucket:
    yc storage bucket update --help
    ```
 
-   You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), and [system groups](../../concepts/acl.md#system-groups) (e.g., a group including all internet users or a group including all authenticated {{ yandex-cloud }} users). These settings are not compatible: a bucket should have either a predefined ACL or a set of individual permissions.
+   You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md) and [system groups](../../concepts/acl.md#system-groups) (e.g., a group including all internet users or a group including all authenticated {{ yandex-cloud }} users). These settings are not compatible: a bucket should have either a predefined ACL or a set of individual permissions.
 
    Using a predefined ACL
 
@@ -64,7 +64,7 @@ To configure the [ACL](../../concepts/acl.md) of a bucket:
 
    Setting up individual permissions
 
-   : 1. To grant a {{ yandex-cloud }} user or service account permissions using an ACL, get their ID. For more information, see [{#T}](../../../iam/operations/users/get.md) and [{#T}](../../../iam/operations/sa/get-id.md).
+   : 1. To grant permissions using an ACL to a {{ yandex-cloud }} user, a service account, or a user group, get their ID. For more information, see [{#T}](../../../iam/operations/users/get.md) and [{#T}](../../../iam/operations/sa/get-id.md).
    1. Run this command:
 
       ```bash
@@ -74,10 +74,10 @@ To configure the [ACL](../../concepts/acl.md) of a bucket:
 
       Where:
       * `grant-type`: Type of the permission grantee. The possible values include:
-         * `grant-type-account`: User or service account.
+         * `grant-type-account`: User, [service account](../../../iam/concepts/users/service-accounts.md), or [user group](../../../organization/concepts/groups.md).
          * `grant-type-all-authenticated-users`: [System group](../../concepts/acl.md#system-groups) of all authenticated {{ yandex-cloud }} users.
          * `grant-type-all-users`: System group of all internet users.
-      * `grantee-id`: ID of the user or service account to grant permission to. It is specified only if `grant-type=grant-type-account`.
+      * `grantee-id`: ID of the user, service account, or user group to grant permission to. It is specified only if `grant-type=grant-type-account`.
       * `permission`: ACL permission type. Possible values are `permission-full-control`, `permission-write`, and `permission-read`. For more information about permissions, see [{#T}](../../concepts/acl.md#permissions-types).
 
       To configure multiple permissions, specify the `--grants` parameter multiple times.
@@ -132,15 +132,19 @@ To configure the [ACL](../../concepts/acl.md) of a bucket:
       * `access_key`: ID of the static access key.
       * `secret_key`: Value of the secret access key.
       * `bucket`: Bucket name. This is a required parameter.
-      * `grant`: [ACL](../../concepts/acl.md). This is an optional parameter. For access management, use a service account with administrator rights.
-         * `id`: User ID.
-         * `type`: System group type.
-         * `permissions`: Types of permissions according to the [ACL](../../concepts/acl.md#permissions-types).
-         * `uri`: System group ID.
+      * `grant`: [ACL](../../concepts/acl.md). This is an optional parameter. To manage this parameter, the service account for which the static access keys were obtained must have the `storage.admin` [role](../../security/index.md#roles-list) for a bucket or a folder.
+         * `type`: Type of the permission grantee. The possible values include:
+            * `CanonicalUser`: For a user, [service account](../../../iam/concepts/users/service-accounts.md), or [user group](../../../organization/concepts/groups.md).
+            * `Group`: For a [system group](../../concepts/acl.md#system-groups).
+         * `permissions`: Type of ACL [permissions](../../concepts/acl.md#permissions-types).
+         * `id`: ID of the user, service account, or user group. It is used with the `CanonicalUser` permission grantee type.
+         * `uri`: System group ID. It is used with the `Group` permission grantee type. The possible values include:
+            * `http://acs.amazonaws.com/groups/global/AllUsers`: All internet users.
+            * `http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: All authenticated {{ yandex-cloud }} users.
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:

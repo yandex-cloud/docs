@@ -1,5 +1,5 @@
 ---
-name: "Guide for copying objects from {{ objstorage-full-name }} buckets"
+name: "How to copy objects from {{ objstorage-full-name }} buckets"
 description: "In this tutorial, you will learn how to copy objects from a bucket in {{ objstorage-full-name }}."
 ---
 
@@ -85,19 +85,20 @@ To copy objects to a bucket hosted in a different [organization](../../../overvi
 - AWS CLI {#cli}
 
    1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md) for each organization.
+   1. Make sure that the profiles for the source and target service accounts are listed in the `~/.aws/credentials` file.
    1. Set the target bucket's [access control list (ACL)](../../concepts/acl.md) with full access permissions granted to the source bucket's service account:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
-        s3api put-bucket-acl --profile <source_configuration_file_path> \
+        s3api put-bucket-acl --profile <target_profile_name> \
         --bucket <target_bucket_name> \
-        --grant-full-control id=<service_account_ID>
+        --grant-full-control id=<source_service_account_ID>
       ```
 
       Where:
 
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
-      * `--profile`: Path to the AWS CLI [configuration file](../../tools/aws-cli.md#config-files) for the organization hosting the source bucket.
+      * `--profile`: Name of the profile in the AWS CLI [configuration file](../../tools/aws-cli.md#config-files) for the organization hosting the target bucket.
       * `--bucket`: Target bucket name.
       * `--grant-full-control`: Parameter for granting the source bucket's service account access to the target bucket. Specify the service account ID of the organization from which the objects are copied.
 
@@ -105,7 +106,7 @@ To copy objects to a bucket hosted in a different [organization](../../../overvi
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
-        s3 cp --profile <target_configuration_file_path> \
+        s3 cp --profile <source_profile_name> \
         s3://<source_bucket>/<object_key> \
         s3://<target_bucket>/<object_key>
       ```
@@ -113,7 +114,7 @@ To copy objects to a bucket hosted in a different [organization](../../../overvi
       Where:
 
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
-      * `--profile`: Path to the AWS CLI configuration file for the organization hosting the target bucket.
+      * `--profile`: Name of the profile in the AWS CLI [configuration file](../../tools/aws-cli.md#config-files) for the organization hosting the source bucket.
       * `s3 cp`: Copy object command.
 
       To copy all objects from the source bucket, use the `--recursive` parameter.
