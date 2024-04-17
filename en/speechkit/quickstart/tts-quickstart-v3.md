@@ -1,4 +1,4 @@
-# How to synthesize speech in {{ speechkit-short-name }} API v3
+# How to synthesize speech in the {{ speechkit-short-name }} API v3
 
 In this section, you will learn how to synthesize speech from text using the {{ speechkit-short-name }} [API v3](../tts-v3/api-ref/grpc/) (gRPC).
 
@@ -57,7 +57,7 @@ To synthesize speech from text with [TTS markup](../tts/markup/tts-markup.md) to
    jq . -c tts_req.json | \
    grpcurl -H "authorization: Bearer ${IAM_TOKEN}" \
            -H "x-folder-id: ${FOLDER_ID}" \
-           -d @ tts.api.cloud.yandex.net:443 speechkit.tts.v3.Synthesizer/UtteranceSynthesis | \
+           -d @ tts.{{ api-host }}:443 speechkit.tts.v3.Synthesizer/UtteranceSynthesis | \
    jq -r '.audioChunk.data' | base64 -d > speech.wav
    ```
 
@@ -72,5 +72,5 @@ As a result, the `speech.wav` file with synthesized speech will be created in th
 #### See also {#what-is-next}
 
 * [Learn more about the API v3](../../tts-v3/api-ref/grpc/)
-* [Authentication in the API](../concepts/auth.md)
+* [Authentication with the API](../concepts/auth.md)
 * [{#T}](../tts/api/tts-examples-v3.md)

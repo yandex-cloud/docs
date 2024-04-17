@@ -1,5 +1,5 @@
 
-* `--filter-from-organisation-id` — идентификатор организации, которой принадлежит создаваемый трейл и для ресурсов которой будут собираться аудитные логи. Получите идентификатор организации в консоли [{{org-full-name}}]({{link-org-main}}) или с помощью команды CLI `yc organization-manager organization list`.
+* `--filter-from-organisation-id` — идентификатор организации, которой принадлежит создаваемый трейл и для ресурсов которой будут собираться аудитные логи. Получите идентификатор организации в консоли [{{ org-full-name }}]({{ link-org-main }}) или с помощью команды CLI `yc organization-manager organization list`.
 
     При использовании параметра `--filter-from-organisation-id` необходимо также задать идентификаторы облаков в параметре `--filter-some-cloud-ids`.
 
@@ -13,6 +13,6 @@
 
 * `--filter-all-organisation-id` — идентификатор организации, которой принадлежит создаваемый трейл и для всех ресурсов во всех облаках которой будут собираться аудитные логи.
 
-    Получите идентификатор организации в консоли [{{org-full-name}}]({{link-org-main}}) или с помощью команды CLI `yc organization-manager organization list`.
+    Получите идентификатор организации в консоли [{{ org-full-name }}]({{ link-org-main }}) или с помощью команды CLI `yc organization-manager organization list`.
 
     Использование параметра `--filter-all-organisation-id` исключает использование параметра `--filter-from-organisation-id`.

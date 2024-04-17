@@ -64,7 +64,7 @@ To create projects, copy and paste the code into notebook cells and run them.
 1. Output the list of all available organizations and their IDs:
 
    ```python
-   res = requests.get('https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds',
+   res = requests.get('https://resource-manager.{{ api-host }}/resource-manager/v1/clouds',
                        headers={"Authorization" : "Bearer {}".format(iam_token)})
 
    res.json()
@@ -79,7 +79,7 @@ To create projects, copy and paste the code into notebook cells and run them.
 1. Get a list of available billing accounts:
 
    ```python
-   res = requests.get('https://billing.api.cloud.yandex.net/billing/v1/billingAccounts',
+   res = requests.get('https://billing.{{ api-host }}/billing/v1/billingAccounts',
                        headers={"Authorization" : "Bearer {}".format(iam_token)})
    res.json()
    ```
@@ -93,7 +93,7 @@ To create projects, copy and paste the code into notebook cells and run them.
    data['organizationId'] = ORGANIZATION_ID
    data['billingAccountId'] = "<billing_account_ID>"
 
-   res = requests.post('https://datasphere.api.cloud.yandex.net/datasphere/v2/communities',
+   res = requests.post('https://datasphere.{{ api-host }}/datasphere/v2/communities',
                        json=data,
                        headers={"Authorization" : "Bearer {}".format(iam_token)})
    community_res = res.json()
@@ -103,7 +103,7 @@ To create projects, copy and paste the code into notebook cells and run them.
 1. Get a list of role IDs in {{ ml-platform-name }}:
 
    ```python
-   res = requests.get('https://iam.api.cloud.yandex.net/iam/v1/roles',
+   res = requests.get('https://iam.{{ api-host }}/iam/v1/roles',
                        headers={"Authorization" : "Bearer {}".format(iam_token)})
    roles = res.json()['roles']
    datasphere_roles = [role for role in roles if 'datasphere' in role['id']]
@@ -113,7 +113,7 @@ To create projects, copy and paste the code into notebook cells and run them.
 1. [Get](/organization/api-ref/User/listMembers) a list of organization members:
 
    ```python
-   res = requests.get("https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/{}/users".format(ORGANIZATION_ID),
+   res = requests.get("https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{}/users".format(ORGANIZATION_ID),
                        headers={"Authorization" : "Bearer {}".format(iam_token)})
    res.json()
    ```
@@ -124,7 +124,7 @@ To create projects, copy and paste the code into notebook cells and run them.
 
    ```python
    # List the IDs of the members from the 'sub' field to create projects for
-   user_organization_ids = ['<member_1_id>','<member_2_id>']
+   user_organization_ids = ['<member_1_ID>','<member_2_ID>']
 
    projects = {}
    for user_id in user_organization_ids:
@@ -132,14 +132,14 @@ To create projects, copy and paste the code into notebook cells and run them.
       data={}
       data['name'] = "Student {}".format(user_id)
       data['communityId'] = community_res['metadata']['communityId']
-      data['description'] = "This is a workplace to create code and store resources"
+      data['description'] = "This is a workplace and create code and store resources"
       data['limits'] = {
         # Set a limit on the maximum number of units per hour for the project
         "maxUnitsPerHour": 10000,
         # Set a limit on the maximum number of units per cell run for the project
         "maxUnitsPerExecution": 5000
       }
-      res = requests.post('https://datasphere.api.cloud.yandex.net/datasphere/v2/projects',
+      res = requests.post('https://datasphere.{{ api-host }}/datasphere/v2/projects',
                           json=data,
                           headers={"Authorization" : "Bearer {}".format(iam_token)})
       print("Project for {} is created with response: {}".format(user_id, res))
@@ -147,14 +147,14 @@ To create projects, copy and paste the code into notebook cells and run them.
       data={}
       data['communityId'] = community_res['metadata']['communityId']
       data['projectNamePattern'] = "Student {}".format(user_id)
-      res = requests.get('https://datasphere.api.cloud.yandex.net/datasphere/v2/projects',
+      res = requests.get('https://datasphere.{{ api-host }}/datasphere/v2/projects',
                           json=data,
                           headers={"Authorization" : "Bearer {}".format(iam_token)})
       projects[user_id] = res.json()['projects'][0]
       project_id = res.json()['projects'][0]['id']
 
       # Add yourself with the {{ roles-datasphere-project-admin }} role
-      # and the user with the {{ roles-datasphere-project-developer }}role to the project
+      # and the user with the {{ roles-datasphere-project-developer }} role to the project
       data={}
       data['accessBindings'] = [{
         "roleId": 'datasphere.community-projects.admin',
@@ -165,11 +165,11 @@ To create projects, copy and paste the code into notebook cells and run them.
         {
         "roleId": 'datasphere.community-projects.developer',
         "subject": {
-              "id": "<project_developer_id>", # Specify the project developer ID
+              "id": "<project_developer_ID>", # Specify the project developer ID
               "type": "userAccount"
         }}
       ]
-      res = requests.post('https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/{}:setAccessBindings'.\
+      res = requests.post('https://datasphere.{{ api-host }}/datasphere/v2/projects/{}:setAccessBindings'.\
                           format(project_id),
                           json=data,
                           headers={"Authorization" : "Bearer {}".format(iam_token)})

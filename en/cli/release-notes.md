@@ -7,7 +7,7 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ## Current version {#latest-release}
 
-### Version 0.122.0 (27.03.24) {#version0.122.0}
+### Version 0.122.0 (27/03/24) {#version0.122.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
@@ -57,10 +57,10 @@ Added the `--deletion-protection` parameter to the following commands to protect
 
 ##### {{ load-testing-name }} {#load-testing}
 
-* Added the `yc loadtesting test wait` command for a wait till the end of the created load test.
-* Added the `--wait` and `--wait-idle-timeout` flags to the `yc loadtesting test create` command for a wait till the end of the created load test.
-* Added the `--configuration agent-by-filter=""` and `--configuration anonymous-agent=true` flags to the `yc loadtesting test create` command for selecting a load testing agent by filtering or an anonymous agent, respectively.
-* Added the `--filter` flag to the `yc loadtesting agent list` command to filter the agents list.
+* Added the `yc loadtesting test wait` command for waiting until a load test is complete.
+* Added the `--wait` and `--wait-idle-timeout` flags to the `yc loadtesting test create` command for waiting until the created load test is complete.
+* Added the `--configuration agent-by-filter=""` and `--configuration anonymous-agent=true` flags to the `yc loadtesting test create` command for selecting a load testing agent by filter or an anonymous agent, respectively.
+* Added the `--filter` flag to the `yc loadtesting agent list` command to filter the list of agents.
 
 ##### {{ vpc-name }} {#vpc}
 

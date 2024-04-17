@@ -112,20 +112,40 @@ items:
         href: concepts/limits.md
   - name: Инструменты для {{ managed-k8s-name }}
     items:
+      - name: Обзор
+        href: tools/index.md
       - name: Ingress-контроллер
         items:
           - name: Обзор
             href: tools/k8s-ingress-controller/index.md
           - name: Принципы работы
             href: tools/k8s-ingress-controller/principles.md
+          - name: Конфигурация ресурсов
+            items:
+              - name: Ingress
+                href: k8s-ref/ingress.md
+              - name: HttpBackendGroup
+                href: k8s-ref/http-backend-group.md
+              - name: IngressClass
+                href: k8s-ref/ingress-class.md
+              - name: Service для Ingress
+                href: k8s-ref/service-for-ingress.md
       - name: Gateway API
-        href: tools/k8s-gateway-api/index.md
-      - name: Необходимые настройки
         items:
-          - name: Группы безопасности
-            href: tools/k8s-ingress-controller/security-groups.md
-          - name: Сервисный аккаунт
-            href: tools/k8s-ingress-controller/service-account.md
+          - name: Обзор
+            href: tools/k8s-gateway-api/index.md
+          - name: Конфигурация ресурсов
+            items:
+              - name: Gateway
+                href: k8s-ref/gateway.md
+              - name: HTTPRoute
+                href: k8s-ref/http-route.md
+              - name: Service для Gateway API
+                href: k8s-ref/service-for-gateway.md
+      - name: Настройки групп безопасности
+        href: tools/k8s-ingress-controller/security-groups.md
+      - name: Работа с сервисными аккаунтами
+        href: tools/k8s-ingress-controller/service-account.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -274,24 +294,6 @@ items:
     href: at-ref.md
   - name: Логи L7-балансировщика
     href: logs-ref.md
-  - name: Справочник инструментов для {{ managed-k8s-name }}
-    items:
-      - name: Обзор
-        href: k8s-ref/index.md
-      - name: Ingress-контроллер
-        items:
-          - name: Ingress
-            href: k8s-ref/ingress.md
-          - name: HttpBackendGroup
-            href: k8s-ref/http-backend-group.md
-      - name: Gateway API
-        items:
-          - name: Gateway
-            href: k8s-ref/gateway.md
-          - name: HTTPRoute
-            href: k8s-ref/http-route.md
-      - name: Service
-        href: k8s-ref/service.md
   - name: История изменений
     href: release-notes.md
   - name: Обучающие курсы

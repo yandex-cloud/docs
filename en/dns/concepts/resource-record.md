@@ -276,7 +276,9 @@ TXT record implementation in {{ dns-full-name }} has the following special featu
 
 * The service supports a single TXT record.
 
-* A TXT record can store multiple values. Each record is subject to the following limitations: no more than 255 characters per line and 1024 characters total. If the value of a TXT record contains more than 1024 characters, split it into multiple values in the same TXT record. Enclose each value in double quotes (`""`) as required.
+* A TXT record may not exceed 1,024 characters in length.
+
+* A TXT record can store multiple values. Enclose each one in double quotes (`""`) as needed.
 
 * The space character serves as a separator. If an input string has spaces, it will be perceived as multiple strings.
 

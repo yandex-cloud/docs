@@ -1,1 +1,1 @@
-{{ yagpt-name }} is at the [Preview stage](../../overview/concepts/launch-stages.md) and is part of {{ foundation-models-full-name }}.
+{{ yagpt-full-name }} is at the [Preview stage](../../overview/concepts/launch-stages.md) and is part of {{ foundation-models-full-name }}.

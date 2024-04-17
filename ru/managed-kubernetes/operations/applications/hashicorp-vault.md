@@ -6,18 +6,17 @@
 Образ приложения содержит предустановленную сборку HashiCorp Vault, которая при помощи [{{ kms-full-name }}](../../../kms/) дополнительно поддерживает [Auto Unseal](https://developer.hashicorp.com/vault/docs/concepts/seal#auto-unseal). Сборка подготовлена на основе [HashiCorp Vault](https://github.com/hashicorp/vault/tags) соответствующей версии.
 
 Чтобы установить HashiCorp Vault:
-1. [Создайте сервисный аккаунт и ключи](#sa-keys-create).
-1. [Установите HashiCorp Vault](#install).
+1. [Подготовьте все необходимое для начала работы](#before-you-begin).
+1. Установите HashiCorp Vault с помощью [{{ marketplace-full-name }}](#marketplace-install) или [Helm](#helm-install).
 1. [Выполните инициализацию хранилища](#vault-init).
 
-{% include [Перед началом установите kubectl](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
-
-## Создание сервисного аккаунта и ключей {#sa-keys-create}
+## Перед началом работы {#before-you-begin}
 
 Для работы HashiCorp Vault требуется:
 * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с [ролью](../../../iam/concepts/access-control/roles.md) `kms.keys.encrypterDecrypter`.
 * [Авторизованный ключ](../../../iam/concepts/authorization/key.md).
 * [Симметричный ключ шифрования](../../../kms/concepts/key.md).
+
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md):
 
    ```bash
@@ -52,6 +51,12 @@
    ```
 
    Идентификатор каталога можно получить [со списком каталогов](../../../resource-manager/operations/folder/get-id.md).
+
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 

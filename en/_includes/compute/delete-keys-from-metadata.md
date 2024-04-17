@@ -36,7 +36,7 @@
 
    ```bash
    curl -X POST -H "Authorization: Bearer <IAM_token>" \
-     -d '{"delete":["<SSH_key_name>"]}' https://compute.api.cloud.yandex.net/compute/v1/instances/<VM_ID>/updateMetadata
+     -d '{"delete":["<SSH_key_name>"]}' https://compute.{{ api-host }}/compute/v1/instances/<VM_ID>/updateMetadata
    ```
 
 {% endlist %}

@@ -9,6 +9,10 @@
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Настройка kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}

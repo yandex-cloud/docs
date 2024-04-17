@@ -33,7 +33,7 @@ This structure is provided for information purposes only and contains mutually e
    </groupings>
 </request>
 <response date="20120928T103130">
-   <error code="15">Sorry, there are no results for this search</error>
+   <error code="15">No matches found for your search query</error>
    <reqid>1348828873568466-1289158387737177180255457-3-011-XML</reqid>
    <found priority="phrase">206775197</found>
    <found priority="strict">206775197</found>
@@ -68,20 +68,20 @@ This structure is provided for information purposes only and contains mutually e
                <relevance priority="phrase" />
                <url>https://www.yandex.ru/</url>
                <domain>www.yandex.ru</domain>
-               <title>&quot;<hlword>Yandex</hlword>&quot; is a search engine and web portal</title>
+               <title>&quot;<hlword>Yandex</hlword>&quot; is a search engine and a web portal</title>
                <headline>Search across the internet based on the user region.</headline>
                <modtime>20060814T040000</modtime>
                <size>26938</size>
                <charset>utf-8</charset>
                <passages>
-                  <passage><hlword>Yandex</hlword> is a search engine that can, by your request,...</passage>
+                  <passage><hlword>Yandex</hlword> is a search engine that can, at your request,...</passage>
                </passages>
                <properties>
                    <_PassagesType>0</_PassagesType>
                    <lang>ru</lang>
                </properties>
                <mime-type>text/html</mime-type>
-               <saved-copy-url>https://hghltd.yandex.net/yandbtm?text=yandex&amp;url=https%3A%2F%2Fwww.yandex.ru%2F&amp;fmode=inject&amp;mime=html&amp;l10n=ru&amp;sign=e3737561fc3d1105967d1ce619dbd3c7&amp;keyno=0</saved-copy-url>
+               <saved-copy-url>https://hghltd.yandex.net/yandbtm?text=yandex&amp;url=https%3A%2F%2Fwww.yandex.ru%2F&amp;fmode=inject&amp;mime=html&amp;l10n=ru&amp;sign=e3737561fc3d1105967d1ce6*******&amp;keyno=0</saved-copy-url>
             </doc>
          </group>
       </grouping>
@@ -127,7 +127,7 @@ Contains grouping parameters in the [groupby](#request-groupby) tag
 The example below shows the contents of the `request` grouping tag returned in response to a query:
 
 ```http
-https://yandex.com.tr/search/xml?l10n=en&user=xml-search-user&key=03.79031114:b631r9j587dkl4jko987hgg7bn2kl8a2&query=%22has%20sample%20applications%20for%20the%20most%20popular%20programming%22&sortby=tm&maxpassages=2&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=1
+https://yandex.com.tr/search/xml?l10n=en&user=xml-search-user&key=03.79031114:b631r9j587dkl4jko987hgg7********&query=%22has%20sample%20applications%20for%20the%20most%20popular%20programming%22&sortby=tm&maxpassages=2&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=1
 ```
 
 ```xml
@@ -152,8 +152,8 @@ It contains the `date` attribute with the query date and time (UTC) in `<year><m
 This group consists of the following sections:
 
 * [General information about search results](#basic-search-info)
-* [Misspell / reask section](#misspell-block)
-* [Results section](#results-block)
+* [`misspell / reask` section](#misspell-block)
+* [`results` section](#results-block)
 
 ### General information about search results {#basic-search-info}
 
@@ -171,7 +171,7 @@ In some cases, the tag is mutually exclusive with other tags of the `response` g
 || reqid | Unique ID of the request | N/A ||
 || found | Estimated number of documents found in response to the query
 |
-`priority`: Service attribute that may take one of the following values:
+`priority`: Service attribute. The possible values include:
 
 * `phrase`
 * `strict`
@@ -192,12 +192,12 @@ The table below lists the tags for this section.
 This is a grouping tag.
 
 It contains information about a possible typo in the search query.
-| N/A ||
+| Missing ||
 || reask |
 This is a grouping tag.
 
 It contains information about a fix made in the original query before searching for documents.
-| N/A
+| Missing
 ||
 || rule |
 Type of error detected in the query.
@@ -213,13 +213,13 @@ The possible values include:
 Source query text.
 
 The `hlword` tag is added to a fragment of a search query that might contain an error.
-| N/A
+| Missing
 ||
 || text-to-show |
 This tag is optional and used only for the `reask` grouping tag.
 
 It contains the fixed search query text. In most cases, it matches the value provided in the [text](#text) tag.
-| N/A
+| Missing
 ||
 || text | Fixed search query text | N/A ||
 |#
@@ -244,10 +244,10 @@ The following attributes show rules for grouping the found documents:
 * `attr`: Service attribute that depends on the `mode` attribute value.
 * `groups-on-page`: Number of groups returned per page with search results.
 * `docs-in-group`: Number of documents returned per group.
-* `curcateg`: Service attribute set to `-1`.
+* `curcateg`: Service attribute sets to `-1`
 ||
 || found | Estimate of the number of created groups |
-`priority`: Service attribute that may take one of the following values:
+`priority`: Service attribute The possible values include:
 
 * `phrase`
 * `strict`
@@ -260,7 +260,7 @@ Estimate of the number of documents found in response to the query.
 It is a more accurate estimate as compared to the value provided in the `found` tag of the [general information about search results](#basic-search-info).
 
 |
-`priority`: Service attribute that may take one of the following values:
+`priority`: Service attribute. The possible values include:
 
 * `phrase`
 * `strict`
@@ -272,7 +272,7 @@ It is a more accurate estimate as compared to the value provided in the `found`
 
 The value being provided must be used when generating search results.
 
-| N/A
+| Missing
 ||
 || page | Number of the returned page with search results. Page numbering starts from zero (the `0` value stands for page 1).
 |
@@ -283,7 +283,7 @@ The value being provided must be used when generating search results.
 This is a grouping tag.
 
 Each `group` tag contains information about the found document group.
-| N/A
+| Missing
 ||
 || categ | Identification data of the group of found documents.
 |
@@ -294,7 +294,7 @@ Each `group` tag contains information about the found document group.
 Estimate of the number of documents used to create the group.
 
 Documents that qualify to be included into the group are ranked based on the query conditions provided in the `sortby` parameter. Depending on the [docs-in-group](post-request.md#post-docs-in-group) parameter value, from one to three of the first documents are included into the group.
-| N/A
+| Missing
 ||
 || relevance | This is a service parameter. | `priority`: Service attribute. ||
 || doc |
@@ -312,13 +312,13 @@ Depending on the [docs-in-group](post-request.md#post-docs-in-group) parameter v
 Title of the found document.
 
 Words included in the search query are highlighted with the `hlword` tag.
-| N/A
+| Missing
 ||
 || headline |
 This is an optional tag that stands for document annotation.
 
 It is generated using the `meta` HTML tag with the `name` attribute set to the `description` value.
-| N/A
+| Missing
 ||
 || modtime |
 Date and time of document update in the following format:
@@ -333,7 +333,7 @@ This tag is optional and may be missing in some cases.
 
 {% endnote %}
 
-| N/A
+| Missing
 ||
 || size | Size of the found document, in bytes | N/A ||
 || charset | Encoding of the found document | N/A ||
@@ -344,7 +344,7 @@ Passage with a document annotation.
 Words included in the search query are highlighted with the `hlword` tag.
 
 The maximum number of passages provided in a single `passages` tag depends on the search query `maxpassages` parameter value.
-| N/A
+| Missing
 ||
 || mime-type | Document type according to [RFC2046](http://tools.ietf.org/html/rfc2046) | N/A ||
 || properties | Grouping tag with document properties | N/A ||
@@ -354,14 +354,14 @@ Passage type. The possible values include:
 * `0`: Regular passage (made of the document text).
 * `1`: Passage based on the link text. Used if the document is found via a link.
 
-| N/A
+| Missing
 ||
 || lang |
 This tag is optional.
 
 It determines the document language.
 
-| N/A
+| Missing
 ||
 || saved-copy-url | URL of the saved document copy | N/A ||
 |#

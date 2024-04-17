@@ -246,6 +246,8 @@ items:
             href: infrastructure-management/sap.md
           - name: Разработка Telegram-бота для распознавания текста и аудио
             href: ml-ai/recognizer-bot.md
+          - name: Развертывание сервера Minecraft в {{ yandex-cloud }}
+            href: infrastructure/minecraft-server.md
   - name: Построение Data Platform
     items:
       - name: Все руководства

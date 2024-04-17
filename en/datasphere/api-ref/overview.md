@@ -28,18 +28,18 @@ With `CommunityService` calls and `Community` methods, you can create, update, a
    **Example**. Creating a community:
 
    ```bash
-   grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+   grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
      -d '{"organization_id": "<organization_ID>"}' \
-     datasphere.api.cloud.yandex.net:443 \
+     datasphere.{{ api-host }}:443 \
      yandex.cloud.datasphere.v2.CommunityService/Create
    ```
 
    **Example**. Viewing a list of communities in an organization:
 
    ```bash
-   grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+   grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
      -d '{"organization_id": "<organization_ID>"}' \
-     datasphere.api.cloud.yandex.net:443 \
+     datasphere.{{ api-host }}:443 \
      yandex.cloud.datasphere.v2.CommunityService/List
    ```
 
@@ -50,16 +50,16 @@ With `CommunityService` calls and `Community` methods, you can create, update, a
    **Example**. Creating a community:
 
    ```bash
-   curl -H "Authorization: Bearer <IAM token>" \
-     -X POST "https://datasphere.api.cloud.yandex.net/datasphere/v2/communities" \
+   curl -H "Authorization: Bearer <IAM_token>" \
+     -X POST "https://datasphere.{{ api-host }}/datasphere/v2/communities" \
      -d '{ "organizationId": "<organization_ID>" }'
    ```
 
    **Example**. Viewing a list of communities in an organization:
 
    ```bash
-   curl -H "Authorization: Bearer <IAM token>" \
-     -X GET "https://datasphere.api.cloud.yandex.net/datasphere/v2/communities" \
+   curl -H "Authorization: Bearer <IAM_token>" \
+     -X GET "https://datasphere.{{ api-host }}/datasphere/v2/communities" \
      -d '{ "organizationId": "<organization_ID>" }'
    ```
 
@@ -87,18 +87,18 @@ With `ProjectService` calls and `Project` methods, you can create, open, update,
    **Example**. Creating a project:
 
    ```bash
-   grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
-     -d '{"community_id": "<community ID>"}' \
-     datasphere.api.cloud.yandex.net:443 \
+   grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
+     -d '{"community_id": "<community_ID>"}' \
+     datasphere.{{ api-host }}:443 \
      yandex.cloud.datasphere.v2.ProjectService/Create
    ```
 
    **Example**. Viewing a list of folder projects:
 
    ```bash
-   grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
-     -d '{"community_id": "<community ID>"}' \
-     datasphere.api.cloud.yandex.net:443 \
+   grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
+     -d '{"community_id": "<community_ID>"}' \
+     datasphere.{{ api-host }}:443 \
      yandex.cloud.datasphere.v2.ProjectService/List
    ```
 
@@ -109,16 +109,16 @@ With `ProjectService` calls and `Project` methods, you can create, open, update,
    **Example**. Creating a project:
 
    ```bash
-   curl -H "Authorization: Bearer <IAM token>" \
-     -X POST "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects" \
+   curl -H "Authorization: Bearer <IAM_token>" \
+     -X POST "https://datasphere.{{ api-host }}/datasphere/v2/projects" \
      -d '{ "communityId": "<community_ID>" }'
    ```
 
    **Example**. Viewing a list of community projects:
 
    ```bash
-   curl -H "Authorization: Bearer <IAM token>" \
-     -X GET "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects" \
+   curl -H "Authorization: Bearer <IAM_token>" \
+     -X GET "https://datasphere.{{ api-host }}/datasphere/v2/projects" \
      -d '{ "communityId": "<community_ID>" }'
    ```
 
@@ -144,7 +144,7 @@ To run a notebook, you can use the `Execute` call or the `execute` method in `Pr
    ```bash
    grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
      -d '{"project_id": "<project_ID>", "target": "notebook_id", "notebook_id": "<notebook_ID>"}' \
-     datasphere.api.cloud.yandex.net:443 \
+     datasphere.{{ api-host }}:443 \
      yandex.cloud.datasphere.v2.ProjectService/Execute
    ```
 
@@ -158,7 +158,7 @@ To run a notebook, you can use the `Execute` call or the `execute` method in `Pr
 
    ```bash
    curl -H "Authorization: Bearer <IAM_token>" \
-     -X POST "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<project_ID>:execute" \
+     -X POST "https://datasphere.{{ api-host }}/datasphere/v2/projects/<project_ID>:execute" \
      -d '{ "notebook_id": "<notebook_ID>" }'
    ```
 
@@ -188,18 +188,18 @@ You can use the API to set up access to a project (`ProjectService`, `Project`) 
    **Example**. Viewing a list of access permissions for a project:
 
    ```bash
-   grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+   grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
      -d '{"resource_id": "<project_ID>"}' \
-     datasphere.api.cloud.yandex.net:443 \
+     datasphere.{{ api-host }}:443 \
      yandex.cloud.datasphere.v2.ProjectService/ListAccessBindings
    ```
 
    **Example**. Viewing a list of access permissions for a community:
 
    ```bash
-   grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+   grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
      -d '{"resource_id": "<community_ID>"}' \
-     datasphere.api.cloud.yandex.net:443 \
+     datasphere.{{ api-host }}:443 \
      yandex.cloud.datasphere.v2.CommunityService/ListAccessBindings
    ```
 
@@ -210,15 +210,15 @@ You can use the API to set up access to a project (`ProjectService`, `Project`) 
    **Example**. Viewing a list of access permissions for a project:
 
    ```bash
-   curl -H "Authorization: Bearer <IAM token>" \
-     -X GET "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<resource_ID>:accessBindings"
+   curl -H "Authorization: Bearer <IAM_token>" \
+     -X GET "https://datasphere.{{ api-host }}/datasphere/v2/projects/<resource_ID>:accessBindings"
    ```
 
    **Example**. Viewing a list of access permissions for a community:
 
    ```bash
-   curl -H "Authorization: Bearer <IAM token>" \
-     -X GET "https://datasphere.api.cloud.yandex.net/datasphere/v2/communities/<resource_ID>:accessBindings"
+   curl -H "Authorization: Bearer <IAM_token>" \
+     -X GET "https://datasphere.{{ api-host }}/datasphere/v2/communities/<resource_ID>:accessBindings"
    ```
 
    For more information about the [Project](Project/index.md) and [Community](Community/index.md) methods, see the API documentation.
@@ -241,9 +241,9 @@ You can use the API to set up consumption limits for a project (`ProjectService`
    **Example**. Getting a project's balance:
 
    ```bash
-   grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+   grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
      -d '{"project_id": "<project_ID>"}' \
-     datasphere.api.cloud.yandex.net:443 \
+     datasphere.{{ api-host }}:443 \
      yandex.cloud.datasphere.v2.ProjectService/GetUnitBalance
    ```
 
@@ -254,8 +254,8 @@ You can use the API to set up consumption limits for a project (`ProjectService`
    **Example**. Getting a project's balance:
 
    ```bash
-   curl -H "Authorization: Bearer <IAM token>" \
-     -X GET "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<project_ID>:unitBalance"
+   curl -H "Authorization: Bearer <IAM_token>" \
+     -X GET "https://datasphere.{{ api-host }}/datasphere/v2/projects/<project_ID>:unitBalance"
    ```
 
    For more information about the `Project` methods, see the [API documentation](Project/index.md).

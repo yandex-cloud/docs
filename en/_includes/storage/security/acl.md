@@ -33,14 +33,19 @@ ACLs uploaded for objects apply immediately. ACLs uploaded for buckets, as well 
    You can get the ID in the following ways:
    * In the [IAM]({{ link-console-access-management }}) section of the management console.
    * Using the [{{ iam-short-name }} CLI or API](../../../iam/operations/users/get.md).
-
 * [Service account](../../../iam/concepts/users/service-accounts)
 
    To get the ID, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** section in the management console.
 
-* [System groups](#system-groups)
+* [System group](#system-groups)
 
    Use the system group URI to grant permissions.
+
+* [User group](../../../organization/concepts/groups.md)
+
+   To get the ID, navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
+
+   You can [specify](../../../storage/operations/buckets/edit-acl.md) a user group using the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, and API. Currently, user groups are only available for the ACL bucket.
 
 ## ACL operations {#acl-operations}
 

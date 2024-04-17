@@ -805,6 +805,8 @@ items:
             href: qa/index.md
           - name: Права доступа
             href: qa/permissions.md
+          - name: Тарификация и оплата
+            href: qa/pricing.md
           - name: Подключения
             href: qa/connections.md
           - name: Датасеты

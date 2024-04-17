@@ -144,7 +144,7 @@ Authentication is performed under a service account using an [API key](../../../
       def run(secret):
          # Establish a connection to the server.
          cred = grpc.ssl_channel_credentials()
-         channel = grpc.secure_channel('stt.api.cloud.yandex.net:443', cred)
+         channel = grpc.secure_channel('stt.{{ api-host }}:443', cred)
          stub = stt_service_pb2_grpc.RecognizerStub(channel)
 
          # Send data for recognition.
@@ -192,7 +192,7 @@ Authentication is performed under a service account using an [API key](../../../
    1. Set the service account's API key as an environment variable:
 
       ```bash
-      export API_KEY=<API key>
+      export API_KEY=<API_key>
       ```
 
    1. Run the created file:

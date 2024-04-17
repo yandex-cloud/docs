@@ -118,6 +118,8 @@ items:
             href: operations/deploy/node-customization.md
           - name: Sending requests to nodes
             href: operations/deploy/node-api.md
+          - name: Stopping or resuming a node
+            href: operations/deploy/node-suspend-resume.md
           - name: Creating an alias
             href: operations/deploy/alias-create.md
           - name: Updating an alias

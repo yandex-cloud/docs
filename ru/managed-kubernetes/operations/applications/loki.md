@@ -5,31 +5,35 @@
 
 ## Перед началом работы {#before-you-begin}
 
-{% include [cli-install](../../../_includes/cli-install.md) %}
+1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
-{% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-Чтобы начать работу с Loki:
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
-1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролями](../../../iam/concepts/access-control/roles.md) `storage.uploader` и `storage.viewer`. Он необходим для доступа к [{{ objstorage-full-name }}](../../../storage/).
-1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md):
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-    * Если установка Loki будет выполняться с помощью [{{ marketplace-full-name }}](#marketplace-install), создайте статический ключ в формате JSON и сохраните его в файл `sa-key.json`:
+1. Подготовьтесь к установке Loki:
 
-        ```bash
-        yc iam access-key create \
-           --service-account-name=<имя_сервисного_аккаунта> \
-           --format=json > sa-key.json
-        ```
+    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролями](../../../iam/concepts/access-control/roles.md) `storage.uploader` и `storage.viewer`. Он необходим для доступа к [{{ objstorage-full-name }}](../../../storage/).
+    1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md):
 
-    * Если установка Loki будет выполняться с помощью [Helm-чарта](#helm-install), выполните команду и сохраните полученные идентификатор ключа (`key_id`) и секретный ключ (`secret`):
+        * Если установка Loki будет выполняться с помощью [{{ marketplace-full-name }}](#marketplace-install), создайте статический ключ в формате JSON и сохраните его в файл `sa-key.json`:
 
-        ```bash
-        yc iam access-key create \
-           --service-account-name=<имя_сервисного_аккаунта>
-        ```
+            ```bash
+            yc iam access-key create \
+               --service-account-name=<имя_сервисного_аккаунта> \
+               --format=json > sa-key.json
+            ```
 
-1. [Создайте бакет](../../../storage/operations/buckets/create.md) с ограниченным доступом в {{ objstorage-name }}.
+        * Если установка Loki будет выполняться с помощью [Helm-чарта](#helm-install), выполните команду и сохраните полученные идентификатор ключа (`key_id`) и секретный ключ (`secret`):
+
+            ```bash
+            yc iam access-key create \
+               --service-account-name=<имя_сервисного_аккаунта>
+            ```
+
+    1. [Создайте бакет](../../../storage/operations/buckets/create.md) с ограниченным доступом в {{ objstorage-name }}.
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 

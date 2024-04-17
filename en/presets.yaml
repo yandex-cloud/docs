@@ -3782,9 +3782,12 @@ default:
         title_method-sms: SMS
       component:
         parametrizer:
+          add: Add parameter
           dashboard:
             multivalue-key-value: Multivalue
           default-value: Default value
+          parameters: Parameters
+          save: Save
           type:
             custom: Custom
             query: Label
@@ -3792,6 +3795,8 @@ default:
       dashboard:
         dash:
           create-alert: Create alert
+        settings:
+          dashboard-settings: Dashboard settings
         tab:
           service-dashboards: Service dashboards
         widget-placeholder:
@@ -3804,6 +3809,8 @@ default:
         confirm:
           button_continue: Continue
       header:
+        action:
+          settings: Settings
         title:
           mx-mode: Metric Explorer
       homepage:
@@ -4914,6 +4921,7 @@ default:
             label_backup: Backups
             label_network: Network
             section_access: Access
+            section_additional: Additional settings
             section_base: Basic parameters
             section_coi: Docker container settings
             section_disk: Disks

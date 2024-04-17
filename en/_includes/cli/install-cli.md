@@ -19,13 +19,13 @@
 
       {% note warning %}
 
-      To make autocomplete properly work when using `zsh` you need to use `zsh` version 5.1 or higher, when using `bash` on CentOS and derived distributions you need to additionally install `bash-completion` package.
+      For correct operation of the autocompletion feature when using `zsh`, you need the shell version 5.1 or higher. If using `bash` on CentOS and derivative distributions, install the `bash-completion` package.
 
       {% endnote %}
 
    1. After installation is complete, restart your terminal.
 
-- MacOS {#macos}
+- macOS {#macos}
 
    1. Run this command:
 

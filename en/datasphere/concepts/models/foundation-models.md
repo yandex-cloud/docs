@@ -16,7 +16,7 @@ The {{ gpt-pro }} model is now available for tuning. You can access the tuned mo
 
 {% note warning %}
 
-{{ gpt-lite }}-based models (created before March 25, 2024) will cease to operate on April 29, 2024.
+{{ gpt-lite }}-based models (created before March 27, 2024) will cease to operate on April 29, 2024.
 
 {% endnote %}
 
@@ -32,6 +32,6 @@ In the {{ ml-platform-name }} interface, create a new fine-tuned foundation mode
 
 ## Requests to a fine-tuned model {#requests}
 
-You can send requests to a fine-tuned model through the {{ ml-platform-name }} Playground interface or the [API v1](../../../yandexgpt/api-ref/v1/) from {{ ml-platform-name }} and other applications in synchronous mode. In Playground, requests are made on behalf of a user with the model access flag set. You can send requests through Playground to the original or fine-tuned model to compare the results.
+You can send requests to a fine-tuned model through the {{ ml-platform-name }} Playground interface or the [API v1](../../../yandexgpt/text-generation/api-ref/index.md) from {{ ml-platform-name }} and other applications in synchronous mode. In Playground, requests are made on behalf of a user with the model access flag set. You can send requests through Playground to the original or fine-tuned model to compare the results.
 
 To make API requests, add a user account or service account you are going to use to submit requests to the list of {{ ml-platform-name }} project members. The account must have the `ai.languageModels.user` role.

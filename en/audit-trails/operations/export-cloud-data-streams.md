@@ -89,6 +89,267 @@ To create a trail that exports audit logs from the cloud:
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   1. View the description of the [CLI](../../cli/) command for creating a trail:
+
+      ```bash
+      yc audit-trails trail create --help
+      ```
+
+   1. Run the command to create a trail to collect [management event](../concepts/format.md) audit logs in the cloud:
+
+      ```bash
+      yc audit-trails trail create \
+        --name <trail_name> \
+        --description "<trail_description>" \
+        --service-account-id <service_account_ID> \
+        --destination-yds-stream <data_stream_name> \
+        --destination-yds-database-id <YDB_DB_ID> \
+        --filter-from-cloud-id <cloud_ID> \
+        --filter-some-folder-ids <list_of_folders_in_the_cloud>
+      ```
+
+      Where:
+
+      {% include [trail-create-cli-descs_part1](../../_includes/audit-trails/trail-create-cli-descs-part1.md) %}
+
+      {% include [trail-create-cli-descs-yds](../../_includes/audit-trails/trail-create-cli-descs-yds.md) %}
+
+      {% include [trail-create-cli-descs_cloud](../../_includes/audit-trails/trail-create-cli-descs-cloud.md) %}
+
+      {% cut "Result:" %}
+
+      ```yml
+      done (1s)
+      id: cnpgt7fgi482********
+      folder_id: b1g9d2k0itu4********
+      created_at: "2024-04-01T10:37:35.151Z"
+      updated_at: "2024-04-01T10:37:35.151Z"
+      name: sample-trail
+      description: My very first trail
+      destination:
+        data_stream:
+          database_id: etnsamrdlkiv********
+          stream_name: sample-stream
+      service_account_id: ajeee339l4m5********
+      status: ACTIVE
+      filter:
+        path_filter:
+          root:
+            some_filter:
+              resource:
+                id: b1glti4eser3********
+                type: resource-manager.cloud
+              filters:
+                - any_filter:
+                    resource:
+                      id: b1g9d2k0itu4********
+                      type: resource-manager.folder
+                - any_filter:
+                    resource:
+                      id: b1gp73knqj0u********
+                      type: resource-manager.folder
+        event_filter: {}
+      cloud_id: b1glti4eser3********
+      ```
+
+      {% endcut %}
+
+   1. To create a trail for collecting management event and [data event](../concepts/format-data-plane.md) audit logs, use the trail YAML specification file.
+
+      1. Create a trail configuration file, e.g., `specification.yaml`:
+
+         {% cut "specification.yaml" %}
+
+         {% include [cli-spec-cloud-yds](../../_includes/audit-trails/cli-spec-cloud-yds.md) %}
+
+         {% endcut %}
+
+         {% cut "Specification description" %}
+
+         {% include [trail-create-clispec-descs-part1](../../_includes/audit-trails/trail-create-clispec-descs-part1.md) %}
+
+         {% include [trail-create-clispec-descs-yds](../../_includes/audit-trails/trail-create-clispec-descs-yds.md) %}
+
+         {% include [trail-create-clispec-descs-part2](../../_includes/audit-trails/trail-create-clispec-descs-part2.md) %}
+
+         {% endcut %}
+
+      1. Run the command, specifying the path to the created trail specification file:
+
+         ```bash
+         yc audit-trails trail create --file <specification_file_path>
+         ```
+
+         {% cut "Result" %}
+
+         ```yml
+         done (1s)
+         id: cnplt4audsde********
+         folder_id: b1g9d2k0itu4********
+         created_at: "2024-04-02T04:18:49.186Z"
+         updated_at: "2024-04-02T04:18:49.186Z"
+         name: sample-trail
+         description: My very first trail
+         destination:
+           data_stream:
+             database_id: etnneuucptkf********
+             stream_name: sample-stream
+         service_account_id: ajeee339l4m5********
+         status: ACTIVE
+         filter:
+           path_filter:
+             root:
+               some_filter:
+                 resource:
+                   id: b1glti4eser3********
+                   type: resource-manager.cloud
+                 filters:
+                   - any_filter:
+                       resource:
+                         id: b1g9d2k0itu4********
+                         type: resource-manager.folder
+                   - any_filter:
+                       resource:
+                         id: b1gp73knqj0u********
+                         type: resource-manager.folder
+           event_filter:
+             filters:
+               - service: mdb.postgresql
+                 categories:
+                   - plane: DATA_PLANE
+                     type: WRITE
+                 path_filter:
+                   root:
+                     some_filter:
+                       resource:
+                         id: b1glti4eser3********
+                         type: resource-manager.cloud
+                       filters:
+                         - any_filter:
+                             resource:
+                               id: b1g9d2k0itu4********
+                               type: resource-manager.folder
+                         - any_filter:
+                             resource:
+                               id: b1gp73knqj0u********
+                               type: resource-manager.folder
+               - service: dns
+                 categories:
+                   - plane: DATA_PLANE
+                     type: READ
+                 path_filter:
+                   root:
+                     any_filter:
+                       resource:
+                         id: b1glti4eser3********
+                         type: resource-manager.cloud
+         cloud_id: b1glti4eser3********
+         ```
+
+         {% endcut %}
+
+      For more information about the `yc audit-trails trail create` command, see the [CLI reference](../../cli/cli-ref/managed-services/audit-trails/trail/create.md).
+
+- {{ TF }} {#tf}
+
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   1. In the configuration file, describe the parameters of the trail that will collect audit events of the cloud resources:
+
+      ```hcl
+      resource "yandex_audit_trails_trail" "basic_trail" {
+        name = "<trail_name>"
+        folder_id   = "<folder_ID>"
+        description = "<trail_description>"
+
+        labels = {
+          key = "value"
+        }
+
+        service_account_id = "<service_account_ID>"
+
+        data_stream_destination {
+          stream_name   = "<data_stream_name>"
+          database_id = "<YDB_DB_ID>"
+        }
+
+        filter {
+          path_filter {
+            some_filter {
+              resource_id   = "<organization_ID>"
+              resource_type = "<parent_resource_type>"
+              any_filters {
+                  resource_id   = "<cloud_1_ID>"
+                  resource_type = "<child_resource_type>"
+              }
+              any_filters {
+                  resource_id   = "<cloud_2_ID>"
+                  resource_type = "<child_resource_type>"
+              }
+            }
+          }
+          event_filters {
+            service = "<service_1_ID>"
+            categories {
+              plane = "DATA_PLANE"
+              type  = "<action_type>"
+            }
+            path_filter {
+              any_filter {
+                resource_id = "<organization_ID>"
+                resource_type = "<resource_type>"
+              }
+            }
+          }
+          event_filters {
+            service = "<service_2_ID>"
+            categories {
+              plane = "DATA_PLANE"
+              type  = "<action_type>"
+            }
+            path_filter {
+              any_filter {
+                resource_id = "<organization_ID>"
+                resource_type = "<resource_type>"
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      {% include [trail-create-tf-descs_part1](../../_includes/audit-trails/trail-create-tf-descs-part1.md) %}
+
+      {% include [trail-create-tf-descs-yds](../../_includes/audit-trails/trail-create-tf-descs-yds.md) %}
+
+      {% include [trail-create-tf-descs_part2](../../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
+
+      For more information about the parameters of the `yandex_audit_trails_trail` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/audit_trails_trail).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+
+      ```bash
+      yc audit-trails trail get <trail_name>
+      ```
+
+- API {#api}
+
+   Use the [create](../api-ref/Trail/create.md) REST API method for the [Trail](../api-ref/Trail/index.md) resource or the [TrailService/Create](../api-ref/grpc/trail_service.md#Create) gRPC API call.
+
 {% endlist %}
 
 The trail will be created and will begin uploading audit logs to the data stream.

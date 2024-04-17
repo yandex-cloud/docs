@@ -1,4 +1,4 @@
-In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) you can [tune](../../datasphere/concepts/models/foundation-models.md#tuning-abilities) the [{{ gpt-pro }}](../../yandexgpt/concepts/index.md) neural network to adhere to the specified answer format or text analysis principles to make it more tailored to your specific tasks. To do this, prepare a file with pairs of requests and reference responses and start tuning. You cannot train the model on new information, e.g., a support service knowledge base.
+In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) you can [tune](../../datasphere/concepts/models/foundation-models.md#tuning-abilities) the [{{ gpt-pro }}](../../yandexgpt/concepts/index.md) neural network to adhere to the specified answer format or text analysis principles to make it more tailored to your specific tasks. To do this, prepare a file with pairs of prompts and reference responses and start tuning. You cannot train the model on new information, e.g., a support service knowledge base.
 
 {% note info %}
 
@@ -140,13 +140,13 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
             "messages": [
                 {
                 "role": "user",
-                "text": "<request_text>"
+                "text": "<prompt_text>"
                 }
             ]            
     }
     headers = {"Authorization" : "Bearer " + '<IAM_token>',
             "x-folder-id": "<folder_ID>", }
-    res = requests.post("https://llm.api.cloud.yandex.net/foundationModels/v1/completion",
+    res = requests.post("https://llm.{{ api-host }}/foundationModels/v1/completion",
         headers=headers, json=req)
     print(res.json())
     ```
@@ -173,17 +173,17 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
             "messages": [
                 {
                 "role": "system",
-                "text": "<text_of_instructions>"
+                "text": "<instruction_text>"
                 },
                 {
                 "role": "user",
-                "text": "<request_text>"
+                "text": "<prompt_text>"
                 }
             ]
     }
     headers = {"Authorization" : "Bearer " + '<IAM_token>',
                        "x-folder-id": "<folder_ID>", }
-    res = requests.post("https://llm.api.cloud.yandex.net/foundationModels/v1/completion",
+    res = requests.post("https://llm.{{ api-host }}/foundationModels/v1/completion",
         headers=headers, json=req)
     print(res.json())
     ```

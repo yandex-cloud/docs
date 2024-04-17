@@ -27,6 +27,10 @@
    ```
 
 1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации. В настройках кластера {{ managed-k8s-name }} укажите сервисный аккаунт `k8s-sa`.
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ### Необходимые платные ресурсы {#paid-resources}
@@ -398,6 +402,8 @@ curl https://<ваш_домен> -vv
 ...
 * SSL certificate verify ok.
 ```
+
+{% include [Настройка групп безопасности при недоступности ресурса](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
 Сертификат от Let's Encrypt® должен обновляться автоматически вслед за [обновлением сертификата](../../certificate-manager/operations/managed/cert-update.md) в {{ certificate-manager-name }}.
 

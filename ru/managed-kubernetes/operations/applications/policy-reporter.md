@@ -11,28 +11,32 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Для выгрузки результатов срабатываний политик настройте внешнее хранилище:
+1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
-* **{{ objstorage-name }}**
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. {% include [cli-install](../../../_includes/cli-install.md) %}
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
-     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-  1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролью](../../../iam/concepts/access-control/roles.md) `storage.uploader`. Он необходим для доступа к {{ objstorage-name }}.
-  1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) в формате JSON и сохраните его в файл `sa-key.json`:
+1. Для выгрузки результатов срабатываний политик настройте внешнее хранилище:
 
-     ```bash
-     yc iam access-key create \
-       --service-account-name=<имя_сервисного_аккаунта> \
-       --format=json > sa-key.json
-     ```
+    * **{{ objstorage-name }}**
 
-  1. [Создайте бакет](../../../storage/operations/buckets/create.md) с ограниченным доступом в {{ objstorage-name }}.
+      1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролью](../../../iam/concepts/access-control/roles.md) `storage.uploader`. Он необходим для доступа к {{ objstorage-name }}.
+      1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) в формате JSON и сохраните его в файл `sa-key.json`:
 
-* **{{ yds-name }}**
+         ```bash
+         yc iam access-key create \
+           --service-account-name=<имя_сервисного_аккаунта> \
+           --format=json > sa-key.json
+         ```
 
-  [Создайте поток данных](../../../data-streams/quickstart/create-stream.md).
+      1. [Создайте бакет](../../../storage/operations/buckets/create.md) с ограниченным доступом в {{ objstorage-name }}.
+
+    * **{{ yds-name }}**
+
+      [Создайте поток данных](../../../data-streams/quickstart/create-stream.md).
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 

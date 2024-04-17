@@ -36,7 +36,7 @@ If the allowed number of queries during one of the hours is exceeded, queries in
 
 {% endnote %}
 
-Below is a general structure of a resulting XML document with sample values.
+Below, you can find a general structure of a resulting XML document with sample values.
 
 
 ```xml

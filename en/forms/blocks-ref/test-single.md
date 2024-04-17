@@ -27,8 +27,10 @@ Enter your prompt.
 
 Under all the responses you think are correct, select **Correct**.
 
-Under the correct responses, specify the number of points that the user gets for each response. It must be a positive integer or fraction with no more than two decimal places.  
+Under the correct responses, specify the number of points that the user gets for each response. It must be a positive integer or fraction with no more than two decimal places.
 The user only gets points for the response that they select.
+
+{% include [display-type](../../_includes/forms/display-type.md) %}
 
 {% include [id-required-hidden](../../_includes/forms/id-required-hidden.md) %}
 

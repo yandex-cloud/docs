@@ -13,7 +13,7 @@ You can send requests to the models [asynchronously](../concepts/index.md#workin
 
 ## Send a request to the model {#request}
 
-1. Create a file with the request body (for example, `body.json`).
+1. Create a file with the request body, e.g., `body.json`:
 
    ```json
    {
@@ -76,7 +76,7 @@ You can send requests to the models [asynchronously](../concepts/index.md#workin
 
    ```bash
    curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-     https://llm.api.cloud.yandex.net/operations/<operation_ID>
+     https://llm.{{ api-host }}/operations/<operation_ID>
    ```
 
    Result example:

@@ -38,6 +38,8 @@ items:
             href: operations/dashboard/copy.md
           - name: Добавление виджета на дашборд
             href: operations/dashboard/add-widget.md
+          - name: Добавление параметра дашборда
+            href: operations/dashboard/add-parameters.md
           - name: Удаление виджета с дашборда
             href: operations/dashboard/delete-widget.md
           - name: Удаление дашборда

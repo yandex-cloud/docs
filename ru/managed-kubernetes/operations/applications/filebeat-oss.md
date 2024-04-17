@@ -1,7 +1,7 @@
 # Установка Filebeat OSS
 
 
-[Filebeat OSS](https://www.elastic.co/beats/filebeat) — плагин, который позволяет собирать и передавать логи в экосистему {{ OS }}. Filebeat OSS устанавливается в кластер [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster), собирает логи кластера и [подов](../../concepts/index.md#pod), а затем отправляет их в сервис [{{ mos-full-name }}](../../../managed-opensearch/).
+[Filebeat OSS](https://www.elastic.co/beats/filebeat) — плагин, который позволяет собирать и передавать логи в экосистему {{ OS }}. Filebeat OSS устанавливается в [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster), собирает логи кластера и [подов](../../concepts/index.md#pod), а затем отправляет их в сервис [{{ mos-full-name }}](../../../managed-opensearch/).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -10,6 +10,11 @@
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
 1. Убедитесь, что кластер {{ managed-k8s-name }} расположен в той же [облачной сети](../../../vpc/concepts/network.md), что и [кластер {{ mos-name }}](../../../managed-opensearch/concepts/index.md).
+
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. Включите режим совместимости для поддержки клиента Filebeat OSS в {{ OS }}. Для этого выполните запрос:
 
    ```bash

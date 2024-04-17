@@ -15,6 +15,10 @@
    В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}** выберите опцию **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
 1. [Создайте группу узлов](node-group/node-group-create.md) любой подходящей конфигурации.
 
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. Узнайте [IP-адрес](../../vpc/concepts/address.md) сервиса `kube-dns`:

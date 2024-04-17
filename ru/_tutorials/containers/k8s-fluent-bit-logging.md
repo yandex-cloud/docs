@@ -27,7 +27,11 @@
      {% endnote %}
 
   1. [Создайте кластер {{ managed-k8s-name }} ](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md#node-group-create). При создании кластера {{ managed-k8s-name }} укажите ранее созданные сервисные аккаунты для ресурсов и узлов.
-  1. [Настройте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для работы кластера {{ managed-k8s-name }}.
+  
+  1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
   1. [Создайте лог-группу](../../logging/operations/create-group.md).
 
 - {{ TF }} {#tf}
@@ -39,14 +43,14 @@
      В этом файле описаны:
      * [Сеть](../../vpc/concepts/network.md#network).
      * [Подсеть](../../vpc/concepts/network.md#subnet).
-     * [Группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) и правила, необходимые для работы [кластера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [группы узлов](../../managed-kubernetes/concepts/index.md#node-group):
-       * Правила для служебного трафика.
-       * Правила для доступа к API {{ k8s }} и управления кластером {{ managed-k8s-name }} с помощью `kubectl` через порты 443 и 6443.
-       * Правила для доступа к сервисам из интернета.
-     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для ресурсов и узлов {{ managed-k8s-name }}.
+     * [Лог-группа](../../logging/concepts/log-group.md) {{ cloud-logging-name }}.
      * Кластер {{ managed-k8s-name }}.
      * Группа узлов {{ managed-k8s-name }}.
-     * [Лог-группа](../../logging/concepts/log-group.md) {{ cloud-logging-name }}.
+     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для ресурсов и узлов {{ managed-k8s-name }}.
+     * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+     
   1. Укажите в файле конфигурации:
      * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
      * [Версию {{ k8s }}](../../managed-kubernetes/concepts/release-channels-and-updates.md) для кластера {{ managed-k8s-name }} и групп узлов.

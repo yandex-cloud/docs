@@ -64,33 +64,14 @@ You can update the value of a [resource record](../concepts/resource-record.md).
       {% endcut %}
 
    1. Check the configuration using this command:
-      ```
-      terraform validate
-      ```
 
-      If the configuration is correct, you will get this message:
+   1. Apply the changes:
 
-      ```
-      Success! The configuration is valid.
-      ```
-
-   1. Run this command:
-      ```
-      terraform plan
-      ```
-
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-
-   1. Apply the configuration changes:
-      ```
-      terraform apply
-      ```
-
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       You can verify that the DNS record has been updated in the [management console]({{ link-console-main }}) or using the [CLI](../../cli/quickstart.md) command below:
 
-      ```
+      ```bash
       yc dns zone list-records <zone_name>
       ```
 

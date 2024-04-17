@@ -9,7 +9,9 @@ description: "This page contains {{ yagpt-full-name }} release notes."
 
 ### Release on 27/03/2024 {#270324}
 
-Added a new {{ gpt-pro }} model of the YandexGPT 3 family.
+1. Added a new {{ gpt-pro }} model of the YandexGPT 3 family.
+1. Model tuning in {{ ml-platform-name }} now works based on the new {{ gpt-pro }} model.
+1. In the [management console]({{ link-console-main }}/link/yandexgpt), new {{ yandex-cloud }} users without a [billing account](../billing/concepts/billing-account.md) now have a quota of {{ gpt-freetier }} free prompts per hour.
 
 ## Previous versions {#previous}
 

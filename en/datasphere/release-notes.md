@@ -9,11 +9,15 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 {% endnote %}
 
-## Release on 01/03/2024 {#01032024}
+## Release on 27/03/2024 {#270324}
+
+Model tuning in {{ ml-platform-name }} now works based on the new {{ gpt-pro }} model.
+
+## Release on 01/03/2024 {#010324}
 
 The Serverless mode is no longer supported.
 
-## Release on 27/02/2024 {#27022024}
+## Release on 27/02/2024 {#270224}
 
 1. Added the option to run a notebook in Dedicated mode to the [API](api-ref/overview.md).
 1. Improved logs and [metrics](concepts/deploy/monitoring.md) for nodes.

@@ -1,13 +1,13 @@
 # Создать или изменить ресурсы {{ alb-name }} по конфигурации для {{ managed-k8s-name }}
 
 
-Чтобы управлять ресурсами {{ alb-name }} с помощью [Ingress-контроллера](../tools/k8s-ingress-controller/index.md) и [Gateway API](../tools/k8s-gateway-api/index.md) для {{ managed-k8s-full-name }}, нужно создать конфигурации — файлы в формате YAML с описаниями ресурсов {{ k8s }}: `Ingress`, `HttpBackendGroup`, `Gateway`, `HTTPRoute` и т. д. Подробнее о конфигурации см. в [справочнике инструментов для {{ managed-k8s-name }}](../k8s-ref/index.md).
+Чтобы управлять ресурсами {{ alb-name }} с помощью [Ingress-контроллера](../tools/k8s-ingress-controller/index.md) и [Gateway API](../tools/k8s-gateway-api/index.md) для {{ managed-k8s-full-name }}, нужно создать конфигурации — файлы в формате YAML с описаниями ресурсов {{ k8s }}: `Ingress`, `HttpBackendGroup`, `Gateway`, `HTTPRoute` и т. д.
 
 ## Перед началом работы {#prerequisites}
 
 1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Установите Ingress-контроллер](k8s-ingress-controller-install.md) или [Gateway API](k8s-gateway-api-install.md).
-1. Создайте конфигурацию. Подробнее см. в описаниях [Ingress-контроллера](../tools/k8s-ingress-controller/index.md) и [Gateway API](../tools/k8s-gateway-api/index.md) и [справочнике](../k8s-ref/index.md) этих инструментов.
+1. Создайте ресурс. Конфигурации доступных ресурсов см. в разделе [{#T}](../tools/index.md).
 
 ## Применить конфигурацию {#apply}
 

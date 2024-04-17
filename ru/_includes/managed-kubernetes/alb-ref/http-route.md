@@ -1,11 +1,11 @@
 # Поля ресурса HTTPRoute
 
 
-В ресурсе `HTTPRoute` определяются правила маршрутизации трафика по бэкендам — сервисам {{ k8s }} ([ресурсам `Service`](../../../application-load-balancer/k8s-ref/service.md)) или перенаправления трафика. `HTTPRoute` получает входящий трафик от тех [ресурсов `Gateway`](../../../application-load-balancer/k8s-ref/gateway.md), требованиям которых соответствует.
+В ресурсе `HTTPRoute` определяются правила маршрутизации трафика по бэкендам — сервисам {{ k8s }} (ресурсам [Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md)) или перенаправления трафика. `HTTPRoute` получает входящий трафик от тех [ресурсов `Gateway`](../../../application-load-balancer/k8s-ref/gateway.md), требованиям которых соответствует.
 
 `HTTPRoute` предназначен для разработчиков приложений. Оператор кластера должен использовать `Gateway`.
 
-`HTTPRoute` — ресурс {{ k8s }}, определенный [проектом {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/). В этом справочнике описаны поля и аннотации ресурса, с которыми работает Gateway API {{ alb-name }}. Полный справочник ресурса см. в [документации {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.HTTPRoute).
+`HTTPRoute` — ресурс {{ k8s }}, определенный [проектом {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API {{ alb-name }}. Полное описание конфигурации ресурса см. в [документации {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.HTTPRoute).
 
 ## HTTPRoute {#httproute}
 
@@ -30,7 +30,7 @@ spec: <HTTPRouteSpec>
 
     Имя ресурса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-    Не соответствует имени маршрута в {{ alb-name }}.
+    Не является именем маршрута в {{ alb-name }}.
  
   * `namespace` (`string`)
 
@@ -84,7 +84,7 @@ rules:
 
   Список ресурсов `Gateway` (или их обработчиков из поля `spec.listeners` — см. [справочник](../../../application-load-balancer/k8s-ref/gateway.md#spec)), к которым должен быть привязан `HTTPRoute`.
 
-  Также маршрут должен удовлетворять правилам, описанным в [спецификации](../../../application-load-balancer/k8s-ref/gateway.md#spec) `Gateway` (поле `spec.listeners.allowedRoutes`).
+  Также маршрут должен удовлетворять правилам, описанным в [конфигурации](../../../application-load-balancer/k8s-ref/gateway.md#spec) `Gateway` (поле `spec.listeners.allowedRoutes`).
   
   * `namespace` (`string`)
     
@@ -158,7 +158,7 @@ rules:
 
     Список [сервисов {{ k8s }}](../../../managed-kubernetes/concepts/index.md#service), которые должны обрабатывать запрос в качестве бэкенда.
 
-    Ресурс `Service`, на который указывает это поле, должен быть описан по [спецификации](../../../application-load-balancer/k8s-ref/service.md).
+    Ресурс `Service`, на который указывает это поле, должен быть описан по [принятой конфигурации](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
   
      * `name` (`string`)
 
@@ -172,7 +172,7 @@ rules:
 
        Номер порта сервиса.
 
-       Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее см. в [спецификации ресурса](../../../application-load-balancer/k8s-ref/service.md).
+       Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее см. в [конфигурации ресурса](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
 
        Поле предназначено для работы Gateway API и не соответствует ни одному из полей ресурсов {{ alb-name }}.
        

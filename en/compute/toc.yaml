@@ -91,7 +91,7 @@ items:
             href: operations/vm-control/vm-detach-public-ip.md
           - name: Making a VM's public IP address static
             href: operations/vm-control/vm-set-static-ip.md
-          - name: Changing the VM internal IP address
+          - name: Changing a VM's internal IP address
             href: operations/vm-control/internal-ip-update.md
           - name: Updating a VM
             href: operations/vm-control/vm-update.md
@@ -105,7 +105,7 @@ items:
             href: operations/vm-control/vm-access.md
           - name: Deleting a VM
             href: operations/vm-control/vm-delete.md
-      - name: Working on VMs
+      - name: Working on a VM
         items:
           - name: Connecting to a VM via SSH
             href: operations/vm-connect/ssh.md
@@ -501,7 +501,7 @@ items:
             href: pricing-archive/pricing-30042019.md
   - name: CLI reference
     href: ../cli/cli-ref/managed-services/compute/index.md
-  - name: Terraform reference
+  - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:
@@ -901,8 +901,10 @@ items:
                 href: api-ref/InstanceGroup/updateFromYaml.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Release notes
+    href: release-notes.md
   - name: FAQ
     items:
       - name: General questions

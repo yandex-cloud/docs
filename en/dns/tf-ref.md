@@ -1,10 +1,8 @@
-# {{ TF }} provider's {{ dns-full-name }} resource reference
+# {{ TF }} reference for {{ dns-full-name }}
 
-With [{{ TF }}](https://www.terraform.io/), you can quickly create a cloud infrastructure in {{ yandex-cloud }} and manage it using configuration files. The configuration files store the infrastructure description in the HashiCorp Configuration Language (HCL). {{ TF }} and its providers are distributed under the [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
+{% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
-If you change the configuration files, {{ TF }} automatically figures out which part of your configuration is already deployed and what should be added or removed.
-
-For more information about {{ TF }}, [see the documentation](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+## Resources {#resources}
 
 The following {{ TF }} provider resources are supported for {{ dns-name }}:
 
@@ -12,3 +10,11 @@ The following {{ TF }} provider resources are supported for {{ dns-name }}:
 | --- | --- |
 | [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset) | [Resource record](./concepts/resource-record.md) |
 | [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone) | [DNS zone](./concepts/dns-zone.md) |
+
+## Data sources {#data-sources}
+
+{{ dns-name }} supports the following {{ TF }} provider data sources:
+
+| **{{ TF }} data source** | **Description** |
+| --- | --- |
+| [yandex_dns_zone]({{ tf-provider-datasources-link }}/datasource_dns_zone) | [DNS zone](./concepts/dns-zone.md) information |

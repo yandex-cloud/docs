@@ -5,6 +5,8 @@ description: "Follow this guide to create a resource record."
 
 # Creating a resource record
 
+A [TXT record](../concepts/resource-record.md#txt) may not exceed 1,024 characters in length.
+
 To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
 {% list tabs group=instructions %}
@@ -31,11 +33,25 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
    Run this command:
 
    ```bash
-   yc dns zone add-records --name <zone_name> \
+   yc dns zone add-records --name <DNS_zone_name> \
      --record "<domain_name> <TTL> <record_type> <value>"
    ```
 
-   You can add multiple records at the same time.
+   **Example**
+
+   Creating a TXT record with a DKIM signature:
+
+   > ```bash
+   > yc dns zone add-records test-zone \
+   >   --record "test-record TXT v=DKIM1;k=rsa;p=MIIBIjAN...gkH2v1NTgQdTKfPmDK...YdRiwIDAQAB"
+   > ```
+
+   If your TXT record contains multiple values, enclose each one in double quotes (`""`):
+
+   > ```bash
+   > yc dns zone add-records test-zone \
+   >   --record "test-record TXT v=DKIM1;k=rsa;p=MIIBIjAN""gkH2v1NTgQdTKfPmDK""YdRiwIDAQAB"
+   > ```
 
 - {{ TF }} {#tf}
 
@@ -74,6 +90,14 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
         ttl     = 200
         data    = ["10.1.0.2"]
       }
+
+      resource "yandex_dns_recordset" "rs_dkim" {
+        zone_id = yandex_dns_zone.zone1.id
+        name    = "dkim"
+        type    = "TXT"
+        ttl     = 200
+        data    = ["v=DKIM1;k=rsa;t=s;p=MIIBIjAN...gkH2v1NTgQdTKfPmDK...YdRiwIDAQAB"]
+      }
       ```
 
       Where:
@@ -98,29 +122,13 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Run a check using this command:
-      ```
-      terraform plan
-      ```
+   1. Apply the changes:
 
-      The terminal will display a list of resources with parameters. This is a test step; no resources will be created. If the configuration contains any errors, {{ TF }} will point them out.
-
-      {% note alert %}
-
-      You will be charged for all the resources created with {{ TF }}. Check the pricing plan carefully.
-
-      {% endnote %}
-
-   1. To create resources, run the command:
-      ```
-      terraform apply
-      ```
-
-   1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-      ```
+      ```bash
       yc dns zone list-records <zone_name>
       ```
 
@@ -131,5 +139,3 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 {% endlist %}
 
 When creating AAAA resource records, the service automatically normalizes IPv6 addresses by replacing the gaps between `:` with zeros. For example: `2001:db8::` → `2001:db8:0:0:0:0:0:0`.
-
-The service supports a single [TXT record](../concepts/resource-record.md#txt). The value of a resource TXT record cannot contain more than 255 characters per line and 1024 characters total. If a record contains more characters, split it into multiple values.

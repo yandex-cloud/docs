@@ -5,15 +5,19 @@
 
 [Плагин для {{ cloud-logging-name }}](/marketplace/products/yc/fluent-bit) позволяет выгружать в сервис [{{ cloud-logging-full-name }}](../../../logging/) логи, которые генерируются в кластере {{ managed-k8s-name }}, в том числе на уровне [подов](../../concepts/index.md#pod).
 
-## Создание сервисного аккаунта {#create-sa-key}
+## Перед началом работы {#before-you-begin}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md), необходимый для работы Fluent Bit.
-1. [Назначьте ему роли](../../../iam/operations/sa/assign-role-for-sa.md) `logging.writer` и `monitoring.editor`.
-1. Создайте [авторизованный ключ](../../../iam/operations/sa/create-access-key.md) и сохраните его в файл `sa-key.json`.
+1. [Назначьте сервисному аккаунту роли](../../../iam/operations/sa/assign-role-for-sa.md) `logging.writer` и `monitoring.editor`.
+1. [Создайте авторизованный ключ](../../../iam/operations/sa/create-access-key.md) для сервисного аккаунта и сохраните его в файл `sa-key.json`.
+
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
