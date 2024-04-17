@@ -5,7 +5,7 @@
 
 `Gateway` предназначен для оператора кластера. Разработчики приложений должны использовать `HTTPRoute`.
 
-`Gateway` — ресурс {{ k8s }}, определенный [проектом {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/). В этом справочнике описаны поля и аннотации ресурса, с которыми работает Gateway API {{ alb-name }}. Полный справочник ресурса см. в [документации {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.Gateway).
+`Gateway` — ресурс {{ k8s }}, определенный [проектом {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API {{ alb-name }}. Полное описание конфигурации ресурса см. в [документации {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.Gateway).
 
 ## Gateway {#gateway}
 
@@ -32,7 +32,7 @@ spec: <GatewaySpec>
     
     Имя ресурса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-    Не соответствует имени балансировщика в {{ alb-name }}.
+    Не является именем балансировщика в {{ alb-name }}.
   
   * `namespace` (`string`)
   
@@ -105,7 +105,7 @@ addresses:
     
     Внутреннее имя обработчика.
     
-    Используется только для нужд {{ k8s }} и не соответствует имени обработчика в {{ alb-name }}.
+    Используется только для нужд {{ k8s }} и не является именем обработчика в {{ alb-name }}.
   
     Имя должно иметь формат доменного, то есть соответствовать следующему регулярному выражению: 
     
@@ -182,7 +182,7 @@ addresses:
 
     Правила, по которым для обработчика выбираются маршруты (ресурсы `HTTPRoute`). По этим маршрутам создаются [HTTP-роутеры](../../../application-load-balancer/concepts/http-router.md) и [группы бэкендов](../../../application-load-balancer/concepts/backend-group.md), привязываемые к обработчику.
   
-    Чтобы `HTTPRoute` был выбран, в его [спецификации](../../../application-load-balancer/k8s-ref/http-route.md#spec) (поле `spec.parentRefs`) должно быть указание на `Gateway`.
+    Чтобы `HTTPRoute` был выбран, в его [конфигурации](../../../application-load-balancer/k8s-ref/http-route.md#spec) (поле `spec.parentRefs`) должно быть указание на `Gateway`.
   
     * `namespaces` (`RouteNamespaces`)
   

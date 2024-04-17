@@ -1,4 +1,4 @@
-You can use a custom SSH key to connect to VMs with OS Login access enabled. To do this, [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key, add it to the organization user profile in {{ org-full-name }} and specify the following when connecting:
+You can use a custom SSH key to connect to VMs with OS Login access enabled. To do this, [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key, [add](../../organization/operations/add-ssh.md) it to the organization user profile in {{ org-full-name }} and specify the following when connecting:
 
 1. [Enable](../../organization/operations/os-login-access.md) access via OS Login at the organization level.
 
@@ -34,6 +34,6 @@ You can use a custom SSH key to connect to VMs with OS Login access enabled. To 
 
    * `--name`: Previously obtained VM name. You can specify the VM ID instead of its name by using the `--id` parameter.
    * `--identity-file`: Path to the previously saved private SSH key file, e.g., `/home/user1/.ssh/id_ed25519`.
-   * `--login`: Username in the OS Login profile.
+   * `--login`: OS Login username.
 
 You will connect to the specified virtual machine using your SSH key. If this is your first time connecting to this VM, a new user profile will be created in the VM's operating system.

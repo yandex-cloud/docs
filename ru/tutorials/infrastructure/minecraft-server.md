@@ -1,0 +1,1 @@
+{% include [minecraft-server](../../_tutorials/infrastructure/minecraft-server.md) %}

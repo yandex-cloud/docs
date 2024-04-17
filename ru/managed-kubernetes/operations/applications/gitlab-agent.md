@@ -17,29 +17,33 @@
 
 ## Перед началом работы {#before-you-begin}
 
-{% include [cli-install](../../../_includes/cli-install.md) %}
+1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
-{% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-Чтобы установить {{ GL }} Agent:
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
-1. [Создайте инстанс {{ mgl-name }}](../../../managed-gitlab/operations/instance/instance-create.md) или standalone-инстанс.
-1. Создайте файл конфигурации агента в репозитории:
-   1. Откройте ваш [инстанс {{ GL }}](../../../managed-gitlab/concepts/index.md#instance) и перейдите в ваш проект.
-   1. В ветке `main` создайте новый каталог `.gitlab/agents/<имя_агента_{{ GL }}>`.
-   1. В каталоге `<имя_агента_{{ GL }}>` создайте пустой файл `config.yaml`.
-1. Зарегистрируйте агента в {{ GL }} и получите токен доступа:
-   1. Откройте ваш инстанс {{ GL }} и перейдите в ваш проект.
-   1. Нажмите кнопку **Infrastructure** и выберите пункт **{{ k8s }} clusters**.
-   1. Нажмите кнопку **Connect a cluster** и выберите имя агента `<имя_агента_{{ GL }}>`.
-   1. Нажмите кнопку **Register**.
-   1. {{ GL }} создаст токен, который потребуется для установки приложения. Сохраните токен в безопасном месте.
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-{% note info %}
+1. Подготовьтесь к установке {{ GL }} Agent:
 
-Подробнее о настройке и регистрации агента см. в [документации {{ GL }}](https://docs.gitlab.com/ee/user/clusters/agent/install/).
+    1. [Создайте инстанс {{ mgl-name }}](../../../managed-gitlab/operations/instance/instance-create.md) или standalone-инстанс.
+    1. Создайте файл конфигурации агента в репозитории:
+       1. Откройте ваш [инстанс {{ GL }}](../../../managed-gitlab/concepts/index.md#instance) и перейдите в ваш проект.
+       1. В ветке `main` создайте новый каталог `.gitlab/agents/<имя_агента_{{ GL }}>`.
+       1. В каталоге `<имя_агента_{{ GL }}>` создайте пустой файл `config.yaml`.
+    1. Зарегистрируйте агента в {{ GL }} и получите токен доступа:
+       1. Откройте ваш инстанс {{ GL }} и перейдите в ваш проект.
+       1. Нажмите кнопку **Infrastructure** и выберите пункт **{{ k8s }} clusters**.
+       1. Нажмите кнопку **Connect a cluster** и выберите имя агента `<имя_агента_{{ GL }}>`.
+       1. Нажмите кнопку **Register**.
+       1. {{ GL }} создаст токен, который потребуется для установки приложения. Сохраните токен в безопасном месте.
 
-{% endnote %}
+    {% note info %}
+
+    Подробнее о настройке и регистрации агента см. в [документации {{ GL }}](https://docs.gitlab.com/ee/user/clusters/agent/install/).
+
+    {% endnote %}
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 

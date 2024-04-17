@@ -5,7 +5,7 @@
 
 External Secrets Operator с поддержкой {{ lockbox-name }} позволяет настроить синхронизацию [секретов {{ lockbox-name }}](../../../lockbox/concepts/secret.md) с [секретами](../../concepts/encryption.md) [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
 
-## Создание сервисного аккаунта {#create-sa-key}
+## Перед началом работы {#before-you-begin}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -15,13 +15,17 @@ External Secrets Operator с поддержкой {{ lockbox-name }} позво�
 1. Назначьте [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md) необходимую [роль](../../../lockbox/security/index.md#service-roles):
    * [Для ранее созданного секрета](../../../lockbox/operations/secret-access.md).
    * [Для всех секретов](../../../iam/operations/sa/assign-role-for-sa.md) [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) или [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud).
-1. Создайте для него [авторизованный ключ](../../../iam/concepts/authorization/key.md) и сохраните его в файл `sa-key.json`:
+1. Создайте для сервисного аккаунта [авторизованный ключ](../../../iam/concepts/authorization/key.md) и сохраните его в файл `sa-key.json`:
 
    ```bash
    yc iam key create \
      --service-account-name <имя_сервисного_аккаунта> \
      --output sa-key.json
    ```
+
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 ## Установка External Secrets Operator с помощью {{ marketplace-full-name }} {#marketplace-install}
 

@@ -35,7 +35,11 @@
      {% endnote %}
 
   1. [Создайте кластер {{ managed-k8s-name }}](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../operations/node-group/node-group-create.md). При создании кластера {{ managed-k8s-name }} укажите ранее созданные сервисные аккаунты для ресурсов и узлов.
-  1. [Настройте группы безопасности](../../operations/connect/security-groups.md) для работы кластера {{ managed-k8s-name }}.
+
+  1. {% include [configure-sg-manual](../../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+        {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
   1. [Настройте группу безопасности](../../../managed-gitlab/operations/configure-security-group.md) для работы [инстанса {{ mgl-name }}](../../../managed-gitlab/concepts/index.md#instance).
   1. [Создайте реестр {{ container-registry-full-name }}](../../../container-registry/operations/registry/registry-create.md).
   1. [Сохраните идентификатор созданного реестра](../../../container-registry/operations/registry/registry-list.md#registry-get) — он понадобится для следующих шагов.
@@ -50,15 +54,15 @@
   1. Скачайте в ту же рабочую директорию файл конфигурации кластера {{ managed-k8s-name }} [k8s-argocd.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-argocd.tf). В файле описаны:
      * [Сеть](../../../vpc/concepts/network.md#network).
      * [Подсеть](../../../vpc/concepts/network.md#subnet).
-     * [Группа безопасности](../../../vpc/concepts/security-groups.md) и [правила](../../operations/connect/security-groups.md), необходимые для работы кластера {{ managed-k8s-name }}, группы узлов, инстанса {{ mgl-name }} и [реестра {{ container-registry-name }}](../../../container-registry/concepts/registry.md):
-       * Правила для служебного трафика.
-       * Правила для доступа к API {{ k8s }} и управления кластером {{ managed-k8s-name }} с помощью `kubectl` через порты 443 и 6443.
-       * Правила для подключения к Git-репозиторию по протоколу [SSH](../../../glossary/ssh-keygen.md) через порт 22.
-       * Правила, разрешающие HTTP- и HTTPS-трафик через порты 80 и 443.
-       * Правила для подключения к {{ container-registry-name }} через порт 5050.
      * Кластер {{ managed-k8s-name }}.
      * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для ресурсов и узлов {{ managed-k8s-name }}.
      * Реестр {{ container-registry-name }}.
+     * {% include [configure-sg-terraform](../../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+
+        В этих группах безопасности также присутствуют правила, необходимые для работы инстанса {{ mgl-name }} и [реестра {{ container-registry-name }}](../../../container-registry/concepts/registry.md).
+
+        {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
   1. Укажите в файле конфигурации:
      * [Идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
      * [Версию {{ k8s }}](../../concepts/release-channels-and-updates.md) для кластера {{ managed-k8s-name }} и групп узлов.

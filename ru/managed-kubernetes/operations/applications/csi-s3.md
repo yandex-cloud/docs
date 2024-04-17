@@ -3,11 +3,15 @@
 
 [Container Storage Interface для S3](/marketplace/products/yc/csi-s3) (_CSI_) позволяет динамически резервировать [бакеты](../../../storage/concepts/bucket.md) S3-совместимых хранилищ и монтировать их к [подам](../../concepts/index.md#pod) [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) в виде [постоянных томов](../../concepts/volume.md#persistent-volume) (_PersistentVolume_). Подключение выполняется при помощи [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра))-реализации файловой системы [GeeseFS](https://github.com/yandex-cloud/geesefs).
 
-## Создание сервисного аккаунта {#create-sa-key}
+## Перед началом работы {#before-you-begin}
 
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт с [ролью](../../../storage/security/index.md#storage-editor) `storage.editor`.
 1. [Создайте](../../../iam/operations/sa/create-access-key.md) статический ключ доступа для сервисного аккаунта. Сохраните идентификатор ключа и секретный ключ — они понадобятся при установке приложения.
 1. (Опционально) Чтобы новые тома помещались в один бакет с разными префиксами, [создайте](../../../storage/operations/buckets/create.md) бакет {{ objstorage-full-name }}. Сохраните имя бакета — оно понадобится при установке приложения. Пропустите этот шаг, если для каждого тома требуется создавать отдельный бакет.
+
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 

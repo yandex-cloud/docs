@@ -42,71 +42,9 @@
 
    1. [Создайте сеть](../../vpc/operations/network-create.md) `my-net`.
    1. [Создайте подсеть](../../vpc/operations/subnet-create.md) `my-subnet` с доменным именем `internal.`.
-   1. [Создайте группу безопасности](../../vpc/operations/security-group-create.md) `k8s-security-group` и укажите в ней правила:
+   1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-      {% cut "Правила группы безопасности" %}
-
-      * Для входящего трафика:
-
-         * Для сетевого балансировщика нагрузки:
-
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
-
-         * Для передачи служебного трафика между [мастером](../concepts/index.md#master) и [узлами](../concepts/index.md#node-group):
-
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
-
-         * Для передачи трафика между [подами](../concepts/index.md#pod) и [сервисами](../concepts/index.md#service):
-
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — диапазоны адресов `172.19.0.0/16` и `172.20.0.0/16`. Позднее эти диапазоны будут использоваться при создании кластера {{ managed-k8s-name }} в качестве CIDR кластера и сервисов.
-
-         * Для проверки работоспособности узлов с помощью ICMP-запросов из подсетей внутри {{ yandex-cloud }}:
-
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_icmp }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — диапазоны адресов подсетей внутри {{ yandex-cloud }}, из которых будет осуществляться диагностика кластера:
-
-               * `10.0.0.0/8`.
-               * `192.168.0.0/16`.
-               * `172.16.0.0/12`.
-
-         * Для подключения к сервисам из интернета:
-
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `30000-32767`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
-
-         * Для подключения к узлам по протоколу [SSH](../../glossary/ssh-keygen.md):
-
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-ssh }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
-
-         * Для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` и других утилит:
-
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`, `{{ port-k8s }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
-
-      * Для исходящего трафика:
-
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
-
-      {% endcut %}
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
    1. [Создайте кластер](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) {{ managed-k8s-name }} с параметрами:
 
@@ -116,7 +54,7 @@
       * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** — без адреса.
       * **{{ ui-key.yacloud.k8s.clusters.create.field_network }}** — `my-net`.
       * **{{ ui-key.yacloud.k8s.clusters.create.field_subnetwork }}** — `my-subnet`.
-      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `k8s-security-group`.
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — выберите созданные ранее группы безопасности, которые содержат правила для служебного трафика и для доступа к API {{ k8s }}.
       * **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}** — `172.19.0.0/16`.
       * **{{ ui-key.yacloud.k8s.clusters.create.field_service-cidr }}** — `172.20.0.0/16`.
       * **{{ ui-key.yacloud.k8s.clusters.create.label_logging-enabled }}** — включена.
@@ -127,7 +65,7 @@
    1. В кластере {{ managed-k8s-name }} [создайте группу узлов](../operations/node-group/node-group-create.md) с параметрами:
 
       * **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** — без адреса.
-      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `k8s-security-group`.
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — выберите созданные ранее группы безопасности, которые содержат правила для служебного трафика, для подключения к сервисам из интернета и для подключения к узлам по SSH.
       * **{{ ui-key.yacloud.k8s.node-groups.create.field_locations }}** — подсеть `my-subnet`.
 
 * {{ TF }} {#tf}
@@ -141,17 +79,14 @@
       * Сеть.
       * Таблица маршрутизации.
       * Подсети.
-      * [Группы безопасности](../../vpc/concepts/security-groups.md) и [правила](../operations/connect/security-groups.md), необходимые для работы кластера и группы узлов {{ managed-k8s-name }}:
+      * Кластер {{ managed-k8s-name }}.
+      * Группа узлов {{ managed-k8s-name }}.
+      * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
-         * правила для служебного трафика;
-         * правило для подключения к сервисам из интернета;
-         * правило для подключения к узлам;
-         * правила для доступа к API {{ k8s }} и управления кластером {{ managed-k8s-name }} с помощью `kubectl`.
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
       * [Сервисные аккаунты](../../iam/concepts/users/service-accounts.md) для ресурсов и узлов {{ k8s }}.
       * [Симметричный ключ шифрования](../../kms/concepts/key.md) {{ kms-full-name }}.
-      * Кластер {{ managed-k8s-name }}.
-      * Группа узлов {{ managed-k8s-name }}.
 
       Файл подготовлен с помощью библиотек модулей [terraform-yc-vpc](https://github.com/terraform-yc-modules/terraform-yc-vpc) и [terraform-yc-kubernetes](https://github.com/terraform-yc-modules/terraform-yc-kubernetes). Подробнее о конфигурации ресурсов, которые создаются с помощью этих модулей, см. на страницах библиотек.
 

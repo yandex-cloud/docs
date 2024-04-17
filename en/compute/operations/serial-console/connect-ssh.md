@@ -40,21 +40,25 @@ How the serial console works depends on the operating system settings. {{ comput
 
 {% endnote %}
 
-To connect to the VM, you need its ID. For information about how to get the ID of a VM, see [{#T}](../vm-info/get-info.md).
-
-Connection command example:
+Run this command:
 
 ```bash
-ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/<private_SSH_key_name> <VM_ID>.<username>@{{ serial-ssh-host }}
+ssh -t -p 9600 -o IdentitiesOnly=yes -i <private_SSH_key_path> <VM_ID>.<username>@{{ serial-ssh-host }}
 ```
 
-Example for `yc-user` and a VM with the `fhm0b28lgfp4********` ID:
+Where:
+
+  * `private_SSH_key_path`: Path to the private part of the [SSH key](../vm-connect/ssh.md#creating-ssh-keys) created when [creating the VM](../vm-create/create-linux-vm.md).
+  * `VM_ID`: VM ID. For information about how to get a VM's ID, see [{#T}](../vm-info/get-info.md).
+  * `username`: Administrator name specified when creating the VM.
+
+Connection command example:
 
 ```bash
 ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 fhm0b28lgfp4********.yc-user@{{ serial-ssh-host }}
 ```
 
-The `yc-user` user is created automatically when creating the VM. For more information, see [{#T}](../vm-create/create-linux-vm.md).
+You can also connect to the serial console using [SSH keys for other users](../vm-connect/ssh.md#vm-authorized-keys).
 
 ### Troubleshooting {#troubleshooting}
 

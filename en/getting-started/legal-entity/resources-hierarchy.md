@@ -141,7 +141,7 @@ The management console only allows you to change the name of a folder. To change
       yc resource-manager folder add-access-binding --help
       ```
 
-   1. Select a folder (for example, `my-folder`):
+   1. Select a folder, e.g., `my-folder`:
 
       ```
       yc resource-manager folder list
@@ -188,8 +188,8 @@ The management console only allows you to change the name of a folder. To change
 
    1. Find out the folder ID using the [list](../../resource-manager/api-ref/Folder/list.md):
       ```bash
-      $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders?cloudId=b1gg8sgd16g7qca5onqs
+      $ curl -H "Authorization: Bearer <IAM_TOKEN>" \
+          https://resource-manager.{{ api-host }}/resource-manager/v1/folders?cloudId=b1gg8sgd16g7qca5onqs
 
       {
        "folders": [
@@ -207,8 +207,8 @@ The management console only allows you to change the name of a folder. To change
    1. Find out the user ID from the login using the [getByLogin](../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) method:
 
       ```bash
-      curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+      curl -H "Authorization: Bearer <IAM_TOKEN>" \
+          https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
 
       {
        "id": "gfei8n54hmfhuk5nogse",
@@ -224,7 +224,7 @@ The management console only allows you to change the name of a folder. To change
       ```bash
       curl -X POST \
           -H 'Content-Type: application/json' \
-          -H "Authorization: Bearer <IAM-TOKEN>" \
+          -H "Authorization: Bearer <IAM_TOKEN>" \
           -d '{
           "accessBindingDeltas": [{
               "action": "ADD",
@@ -234,7 +234,7 @@ The management console only allows you to change the name of a folder. To change
                       "id": "gfei8n54hmfhuk5nogse",
                       "type": "userAccount"
           }}}]}' \
-          https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
+          https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
       ```
 
 {% endlist %}
@@ -280,7 +280,7 @@ The management console only allows you to change the name of a folder. To change
    ```bash
    curl -X POST \
        -H 'Content-Type: application/json' \
-       -H "Authorization: Bearer <IAM-TOKEN>" \
+       -H "Authorization: Bearer <IAM_TOKEN>" \
        -d '{
        "accessBindingDeltas": [{
            "action": "ADD",
@@ -299,21 +299,21 @@ The management console only allows you to change the name of a folder. To change
                    "id": "helj89sfj80aj24nugsz",
                    "type": "userAccount"
        }}}]}' \
-       https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
+       https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
    ```
 
    You can also assign roles using the [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md).
 
    {% note alert %}
 
-   The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
+   The `setAccessBindings` method completely rewrites access permissions to the resource. All current resource roles will be deleted.
 
    {% endnote %}
 
    ```bash
    curl -X POST \
        -H 'Content-Type: application/json' \
-       -H "Authorization: Bearer <IAM-TOKEN>" \
+       -H "Authorization: Bearer <IAM_TOKEN>" \
        -d '{
        "accessBindings": [{
            "roleId": "editor",
@@ -322,7 +322,7 @@ The management console only allows you to change the name of a folder. To change
            "roleId": "viewer",
            "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
        }]}' \
-       https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
+       https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
    ```
 
 {% endlist %}

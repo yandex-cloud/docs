@@ -23,4 +23,4 @@
 | Type of limit | Value |
 ----- | -----
 | Number of metrics per alert | 100 |
-| Number of SMS per number per day | 20 |
+| Number of SMS per number per day | 100 |

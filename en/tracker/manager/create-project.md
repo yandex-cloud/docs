@@ -31,7 +31,7 @@ To create a project:
 
    * Project description: what are you working on and what goals you have.
    * Attachments: working materials of the project.
-   * Checklist: a list of milestones or goals of the project.
+   * Checklist: List of milestones or goals of the project.
    * **Status**: Specify the current stage of the project.
    * **Start date** and **End date**.
    * **Responsible**, **Clients**, and **Participants**: Start typing the name or login of the employee and select a relevant option from the list.
@@ -43,12 +43,11 @@ To create a project:
 
    {% note info %}
 
-   * You cannot add the same issue to multiple projects.
-   * You can add no more than 2,000 issues to a project.
+   You can add no more than 2,000 issues to a project.
 
    {% endnote %}
 
-1. A new project is available to all the organization's employees by default. To restrict access to the project, in the upper-right corner of the page, click the lock icon and select **Members only**. In this case, the project will only be available to the users listed in the fields: **Participants**, **Reporter**, **Clients**, and **Responsible**.
+1. A new project is available to all the organization's employees by default. To restrict access to the project, in the top-right corner of the page, click the lock icon and select **Members only**. This will make the project available only to the users specified in the **Author**, **Person in charge**, **Customers**, **Followers**, and **Participants** fields.
 
 ### Converting an issue to a project {#convert-from-task}
 
@@ -68,6 +67,14 @@ To create a project based on an issue:
 
 ## Adding issues to a project {#add-tickets}
 
+An issue may belong to multiple projects. The issue has one main project and the others are considered additional. In additional projects, you can [work](project-list.md) with the issue just like in the main project: it will appear in the issue list and on the Gantt chart. In other parts of the {{ tracker-name }} interface (dashboards, queues, filtering page, etc.), the issue will still be listed only in its main project.
+
+{% note info %}
+
+You can add your issue to up to 40 projects, including the main one.
+
+{% endnote %}
+
 ### From the project page {#from-project}
 
 1. Go to the **Issue list** tab, then click **{{ ui-key.startrek.ui_components_projects_Table.add-issue }}**.
@@ -75,26 +82,20 @@ To create a project based on an issue:
 1. To create a new issue:
 
    1. Select **New issue**.
-   1. Select the name of the issue, select the queue, then click **Enter**.
+   1. Select the name of the issue, select the queue, then click **Enter**. The project will become the issue's main project.
 
 1. To add an existing issue:
 
    1. Select **Existing issue**.
-   1. Start typing the issue's key or name, then pick the option you need from the list.
-
-   {% note alert %}
-
-   An issue may only belong to one project. Adding an issue from another project means it will be moved to the new project.
-
-   {% endnote %}
+   1. Start typing the issue's key or name, then pick the option you need from the list. If the issue has the main project, the current project will become an additional one for the issue. If the issue is not added to other projects, this project will become its main.
 
 ### From the issue page {#from-ticket}
 
 1. Open the issue page.
 
-1. Click the **{{ ui-key.startrek-backend.fields.issue.project-key-value }}** field in the right-hand panel. If you do not see the **{{ ui-key.startrek-backend.fields.issue.project-key-value }}** field, add it by clicking **{{ ui-key.startrek.ui_components_issues-import_IssuesImportFilters.add-parameters }}**.
+1. Click the **Project** field on the right-hand panel. If you do not see the **Project** field, add it by clicking **{{ ui-key.startrek.ui_components_issues-import_IssuesImportFilters.add-parameters }}**.
 
-1. Start typing the project's name in the **{{ ui-key.startrek-backend.fields.issue.project-key-value }}** field and pick the option you need from the list of suggestions.
+1. In the **Main** or **Additional** field, start typing the project name and pick the option you need from the list. Click **Save**.
 
 ### Adding multiple issues {#from-bulk}
 

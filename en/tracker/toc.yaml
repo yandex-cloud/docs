@@ -335,7 +335,7 @@ items:
             href: user/edit-dashboard.md
           - name: Copying a dashboard
             href: user/copy-dashboard.md
-          - name: How to copy a widget
+          - name: Copying a widget
             href: user/copy-widget.md
           - name: Shared access to dashboards
             href: user/share-dashboard.md
@@ -826,18 +826,20 @@ items:
         href: organizations.md
   - name: Release notes
     items:
-      - name: February 2024
+      - name: March 2024
         href: release-notes/index.md
+      - name: February 2024
+        href: release-notes/2402.md
       - name: January 2024
         href: release-notes/2401.md
       - name: December 2023
         href: release-notes/2312.md
       - name: November 2023
         href: release-notes/2311.md
-      - name: October 2023
-        href: release-notes/2310.md
       - name: Archive
         items:
+          - name: October 2023
+            href: release-notes/2310.md
           - name: September 2023
             href: release-notes/2309.md
           - name: August 2023

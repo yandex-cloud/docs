@@ -1,6 +1,6 @@
-# Speech synthesis in the API v3 REST
+# Speech synthesis in the REST API v3
 
-You can use REST API v3 in {{ speechkit-name }} to synthesize speech if you do not need the benefits of gRPC API.
+You can use the REST API v3 in {{ speechkit-name }} to synthesize speech if you do not need the benefits of the gRPC API.
 
 The example uses the following synthesis parameters:
 
@@ -24,7 +24,7 @@ Authentication takes place under a Yandex account or a federated account using a
 
      Where:
      * `text`: Text to synthesize
-     * `hints`: List of synthesis parameters
+     * `hints`: List of synthesis parameters:
          * `voice`: Voice for synthesis
          * `role`: Role
 
@@ -37,7 +37,7 @@ Authentication takes place under a Yandex account or a federated account using a
   
      curl -H "Authorization: Bearer $IAM_TOKEN" \
           -H "x-folder-id: $FOLDER_ID" \
-          -d @request.json https://tts.api.cloud.yandex.net:443/tts/v3/utteranceSynthesis |
+          -d @request.json https://tts.{{ api-host }}:443/tts/v3/utteranceSynthesis |
        jq -r  '.result.audioChunk.data' |
        while read chunk; do base64 -d <<< "$chunk" >> audio.wav; done
      ```

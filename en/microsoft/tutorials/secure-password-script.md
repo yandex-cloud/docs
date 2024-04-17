@@ -1,8 +1,8 @@
 # Secure password transmission to an initialization script
 
-When creating a VM from an image with the Windows OS, you can use an initialization script. For example, you can set up login-password pairs for the administrator and other system users. To protect sensitive data, use {{ lockbox-name }} functionality instead of explicitly specifying settings in the script.
+When creating a VM from an image with the Windows OS, you can use an initialization script. For example, you can set up username-password pairs for the administrator and other system users. To protect sensitive data, use {{ lockbox-name }} functionality instead of explicitly specifying settings in the script.
 
-In this tutorial, you will create a VM with the Windows OS using an initialization script which will get login-password pairs of system users from {{ lockbox-name }}.
+In this tutorial, you will create a VM with the Windows OS using an initialization script which will get username-password pairs of system users from {{ lockbox-name }}.
 
 To create a VM and protect confidential information in the initialization script:
 
@@ -22,10 +22,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost includes:
 
-* Fee for VMs (see the [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for image use (depends on the image).
-* Fee for using a {{ kms-short-name }} key (see the [{{ kms-short-name }} pricing](../../kms/pricing.md)).
-* Fee for using a secret (see the [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
+* Fee for using a {{ kms-short-name }} key (see [{{ kms-short-name }} pricing](../../kms/pricing.md)).
+* Fee for using a secret (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
 
 ## Create a service account {#create-account}
 
@@ -33,7 +33,7 @@ The infrastructure support cost includes:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a folder where you want to create your service account.
+   1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the service account, e.g., `win-secret-sa`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -73,16 +73,16 @@ The infrastructure support cost includes:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your key.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a key.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
       1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify the key attributes:
-         * **{{ ui-key.yacloud.common.name }}**: `win-secret-key`.
-         * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`.
+         * **{{ ui-key.yacloud.common.name }}**: `win-secret-key`
+         * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`
          * Leave the other parameters at their default settings.
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
-      The key is created together with its first version: click the key in the list to open the page with its attributes.
+      The key is created along with its first version: click the key in the list to open the page with its attributes.
 
    - CLI {#cli}
 
@@ -123,7 +123,7 @@ The infrastructure support cost includes:
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `win-secret-sa` account in the list and click ![image](../../_assets/options.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. Click **Add role** in dialog box that opens and select the `kms.keys.encrypterDercrypter` role.
+      1. Click **Add role** in the dialog box that opens and select the `kms.keys.encrypterDercrypter` role.
 
    - CLI {#cli}
 
@@ -143,7 +143,7 @@ The infrastructure support cost includes:
 
 ## Create a secret {#create-secret}
 
-Create a secret in {{ lockbox-name }} and use it to save login-password pairs of users for which accounts will be created in the Windows OS.
+Create a secret in {{ lockbox-name }} and use it to save username-password pairs of users for whom accounts will be created in the Windows OS.
 
 {% note warning %}
 
@@ -164,15 +164,15 @@ The password must:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your secret.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter the secret name, `win-secret`.
    1. In the **{{ ui-key.yacloud.lockbox.forms.field_kms-key }}** field, specify the `win-secret-key` key.
    1. Under **{{ ui-key.yacloud.lockbox.forms.section_version }}**:
-      * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter the login for the `Administrator` administrator.
+      * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter the username for the `Administrator`.
       * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}**, enter the administrator password.
-   1. Add more users if needed. To do so, click **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** and enter the login and password for the next user.
+   1. Add more users if needed by clicking **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** and entering the username and password for the next user.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -225,7 +225,7 @@ The password must:
       * `name`: Secret name. This is a required parameter.
       * `folder_id`: [ID](../../resource-manager/operations/folder/get-id.md) of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your secret. This is an optional parameter.
       * `kms_key_id`: ID of the [{{ kms-name }} encryption key](../../kms/concepts/key.md). The specified {{ kms-name }} key is used to encrypt your secret.
-      * `entries`: Content of the secret.
+      * `entries`: Contents of the secret.
 
       {% note warning %}
 
@@ -288,7 +288,7 @@ Create a VM with the Windows OS having the administrator and user accounts.
    $SecretID = "<secret_id>"
 
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-   $SecretURL = "https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/$SecretID/payload"
+   $SecretURL = "https://payload.lockbox.{{ api-host }}/lockbox/v1/secrets/$SecretID/payload"
 
    "Secret ID is $SecretID"
    "Payload URL is $SecretURL"
@@ -336,7 +336,7 @@ Create a VM with the Windows OS having the administrator and user accounts.
    "Bootstrap script ended" | Write-Host
    ```
 
-1. In the `init.ps1` file, replace the `<secret_id>` placeholder with the real ID of the secret where you saved the user accounts.
+1. In the `init.ps1` file, replace `<secret_id>` with the real ID of the secret where you saved the user accounts.
 
 1. Create a VM:
 
@@ -350,13 +350,13 @@ Create a VM with the Windows OS having the administrator and user accounts.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
          * Enter a VM name, e.g., `win-test`.
          * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}** section, select an [image](../../compute/concepts/image.md) with the Windows OS.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [image](../../compute/concepts/image.md) with the Windows OS.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
          * Select the `win-secret-sa` [service account](../../iam/concepts/index.md#sa).
          * In the **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** field, grant access to the [serial console](../../compute/operations/serial-console/index.md).
       1. Under **{{ ui-key.yacloud.common.metadata }}**:
          * In the field with the **Key** placeholder, enter `user-data`.
-         * In the field with the **Value** placeholder, copy the contents of the `init.ps1` file.
+         * In the field with the **Value** placeholder, paste the contents of the `init.ps1` file.
       1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    - CLI {#cli}
@@ -376,13 +376,13 @@ Create a VM with the Windows OS having the administrator and user accounts.
 
 ## Log in to the Windows OS {#login-windows}
 
-To check that the data from the secret was successfully used to create users, log in to the VM's OS:
+To check that the data from the secret was used to create users, log in to the VM's OS:
 
 1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Select the `win-test` VM.
 1. Go to the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
-1. Under **{{ ui-key.yacloud.compute.instance.switch_console }}**, select `COM2` and click **{{ ui-key.yacloud.compute.instance.console.connect }}**. The command line prompts you to enter commands:
+1. Under **{{ ui-key.yacloud.compute.instance.switch_console }}**, select `COM2` and click **{{ ui-key.yacloud.compute.instance.console.connect }}**. The command line will prompt you to enter commands:
 
    ```bash
    SAC>
@@ -418,7 +418,7 @@ To check that the data from the secret was successfully used to create users, lo
 
 1. Press **Enter** and specify the following in the given order:
    - Username.
-   - Domain if the domain account is used for logging in. Otherwise, enter the hostname or leave empty.
+   - Domain if the domain account is used for logging in. Otherwise, enter the hostname or leave it empty.
    - Password.
 
    ```bash
@@ -434,7 +434,7 @@ To check that the data from the secret was successfully used to create users, lo
    C:\Windows\system32>
    ```
 
-   If you log in successfully, it means that the data from the secret were used to create the VM.
+   If you log in successfully, it means that the data from the secret was used to create the VM.
 
 ## How to delete the resources you created {#clear-out}
 

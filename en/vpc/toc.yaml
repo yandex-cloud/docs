@@ -164,7 +164,7 @@ items:
             href: pricing-archive/pricing-01012019.md
   - name: CLI reference
     href: ../cli/cli-ref/managed-services/vpc/index.md
-  - name: Terraform reference
+  - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:
@@ -328,6 +328,8 @@ items:
             href: api-ref/grpc/operation_service.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Release notes
+    href: release-notes.md
   - name: FAQ
     href: qa/index.md
 base: en/vpc

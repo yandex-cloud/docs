@@ -40,7 +40,9 @@
 
         1. [Создайте кластер {{ k8s }}](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../../managed-kubernetes/operations/node-group/node-group-create.md) с оперативной памятью не менее 6 ГБ.
 
-        1. [Настройте группы безопасности](../../operations/connect/security-groups.md) для работы кластера {{ managed-k8s-name }}.
+        1. {% include [configure-sg-manual](../../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+            {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
     - {{ TF }} {#tf}
 
@@ -53,11 +55,11 @@
 
             * [Сеть](../../../vpc/concepts/network.md#network).
             * [Подсеть](../../../vpc/concepts/network.md#subnet).
-            * [Группа безопасности](../../../vpc/concepts/security-groups.md) и [правила](../../operations/connect/security-groups.md), необходимые для работы кластера {{ managed-k8s-name }}, группы узлов и контейнера {{ container-registry-full-name }}:
-                * Правила для служебного трафика.
-                * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` через порты 443 и 6443.
             * Кластер {{ k8s }}.
             * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и группы узлов {{ managed-k8s-name }}.
+            * {% include [configure-sg-terraform](../../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+
+                {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
         1. Укажите в файле `k8s-cluster.tf`:
 
@@ -212,6 +214,8 @@
     ```
 
 1. Чтобы запустить веб-приложение, вставьте в адресную строку браузера полученный IP-адрес.
+
+    {% include [Настройка групп безопасности при недоступности ресурса](../../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
     При обновлении страницы ее содержимое будет меняться. В зависимости от версии пода, который обслуживает ваш запрос, вы увидите:
 

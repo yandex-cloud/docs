@@ -15,10 +15,9 @@ description: "Следуя данному руководству, вы смож�
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. [Создайте группы безопасности](../operations/connect/security-groups.md):
-   * `sg-k8s` — для [мастера и группы узлов](../operations/connect/security-groups.md#rules-internal).
-   * `k8s-public-services` — для [публичного доступа к сервисам из интернета](../operations/connect/security-groups.md#rules-nodes).
-   * `k8s-master-whitelist` — для [доступа к API {{ k8s }}](../operations/connect/security-groups.md#rules-master).
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. [Создайте кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) {{ managed-k8s-name }}. При создании задайте настройки:
 
@@ -226,6 +225,8 @@ description: "Следуя данному руководству, вы смож�
    Чтобы увеличить нагрузку и ускорить выполнение сценария, запустите несколько процессов в отдельных окнах.
 
    {% endnote %}
+
+    {% include [Настройка групп безопасности при недоступности ресурса](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
 1. Через несколько минут изучите рекомендации, которые предоставляет {{ k8s-vpa }} после создания нагрузки:
 

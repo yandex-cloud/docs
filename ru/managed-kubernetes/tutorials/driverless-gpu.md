@@ -20,6 +20,10 @@
 
 1. [Создайте группу узлов](../operations/node-group/node-group-create.md) на платформе с GPU и включите опцию **{{ ui-key.yacloud.k8s.node-groups.create.field_driverless-gpu }}**.
 
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Настройка kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Установите GPU Operator {#install-gpu-operator}

@@ -28,6 +28,13 @@
      Если вы планируете работать с кластерами в пределах сети {{ yandex-cloud }}, выделять кластерам публичный IP-адрес не нужно. Для подключений извне предоставьте кластерам публичный адрес.
 
   1. [Создайте по группе узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) в каждом кластере и выделите каждой группе публичный IP-адрес.
+
+  1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+        Эти группы безопасности необходимо настроить для каждого кластера и группы узлов.
+
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
   1. [Создайте бакет в {{ objstorage-name }}](../../storage/operations/buckets/create.md).
   1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролью](../../iam/concepts/access-control/roles.md) `compute.admin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) для работы с Velero.
   1. Выдайте [сервисному аккаунту](../../iam/concepts/users/service-accounts.md) права **READ и WRITE** к [бакету](../../storage/concepts/bucket.md) в {{ objstorage-name }}. Для этого [выполните настройки ACL бакета](../../storage/operations/buckets/edit-acl.md).
@@ -45,11 +52,14 @@
      В этом файле описаны:
      * [Сеть](../../vpc/concepts/network.md#network).
      * [Подсеть](../../vpc/concepts/network.md#subnet).
-     * [Группы безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для работы кластеров {{ managed-k8s-name }}:
-       * Правила для служебного трафика.
-       * Правило для подключения к сервисам из интернета.
      * Два кластера {{ managed-k8s-name }} и их группы узлов.
      * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластеров {{ managed-k8s-name }} и групп узлов.
+     * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-with-audience-lvl3.md) %}
+
+        Эти группы безопасности будут использоваться обоими кластерами.
+
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
      * Сервисный аккаунт с [ролью](../../iam/concepts/access-control/roles.md) `compute.admin` для работы с Velero.
      * Статический ключ доступа для сервисного аккаунта, предназначенного для работы с Velero.
      * [Бакет](../../storage/concepts/bucket.md) в {{ objstorage-name }}.

@@ -9,7 +9,7 @@ description: "In this guide, you will learn how to export logs from {{ cloud-log
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your log sink.
+    1. In the [management console]({{ link-console-main }}), select the folder where your log sink is located.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Select a log group to export logs from.
     1. Go to the **{{ ui-key.yacloud.common.logs }}** tab.

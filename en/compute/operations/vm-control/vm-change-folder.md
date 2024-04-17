@@ -117,13 +117,13 @@ Limitations when moving a VM:
 
       # Moving the VM
 
-      curl -X POST "https://compute.api.cloud.yandex.net/compute/v1/instances/{${instanceId}}:move" \
+      curl -X POST "https://compute.{{ api-host }}/compute/v1/instances/{${instanceId}}:move" \
       -H "Authorization: Bearer ${IAM_TOKEN}" \
       -d '{ "destinationFolderId": "'"${destinationFolderId}"'" }'
 
       # Moving the boot disk
 
-      curl -X POST "https://compute.api.cloud.yandex.net/compute/v1/disks/{${bootDiskId}}:move" \
+      curl -X POST "https://compute.{{ api-host }}/compute/v1/disks/{${bootDiskId}}:move" \
       -H "Authorization: Bearer ${IAM_TOKEN}" \
       -d '{ "destinationFolderId": "'"${destinationFolderId}"'" }'
       ```

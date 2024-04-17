@@ -1,14 +1,21 @@
-# {{ TF }} provider's {{network-load-balancer-full-name }} resource reference
+# {{ TF }} reference for {{ network-load-balancer-full-name }}
 
-With [{{ TF }}](https://www.terraform.io/), you can quickly create a cloud infrastructure in {{ yandex-cloud }} and manage it using configuration files. The configuration files store the infrastructure description in the HashiCorp Configuration Language (HCL). {{ TF }} and its providers are distributed under the [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
+{% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
-If you change the configuration files, {{ TF }} automatically figures out which part of your configuration is already deployed and what should be added or removed.
+## Resources {#resources}
 
-For more information about {{ TF }}, [see the documentation](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
-The following {{ TF }} provider resources are supported for {{network-load-balancer-name }}:
+The following {{ TF }} provider resources are supported for {{ network-load-balancer-name }}:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_lb_network_load_balancer]({{ tf-provider-resources-link }}/lb_network_load_balancer) | [Network load balancer](./concepts/index.md) |
 | [yandex_lb_target_group]({{ tf-provider-resources-link }}/lb_target_group) | [Target group](./concepts/target-resources.md) |
+
+## Data sources {#data-sources}
+
+{{ network-load-balancer-name }} supports the following {{ TF }} provider data sources:
+
+| **{{ TF }} data source** | **Description** |
+| --- | --- |
+| [yandex_lb_network_load_balancer]({{ tf-provider-datasources-link }}/datasource_lb_network_load_balancer) | Information about a [network load balancer](./concepts/index.md) |
+| [yandex_lb_target_group]({{ tf-provider-datasources-link }}/datasource_lb_target_group) | Information about a [target group](./concepts/target-resources.md) |

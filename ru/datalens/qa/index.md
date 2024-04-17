@@ -10,6 +10,7 @@ description: "Как получить логи моей работы в серв
 Разделы:
 
 * [Права доступа](permissions.md)
+* [Тарификация и оплата](pricing.md)
 * [Подключения](connections.md)
 * [Датасеты](datasets.md)
 * [Чарты](charts.md)

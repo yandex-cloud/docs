@@ -59,7 +59,7 @@ Create a folder to store logs of your service.
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), such as `sa-with-network`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
-      * `vpc.user` to use the {{ ml-platform-name }} cluster network.
+      * `vpc.user` to use the {{ ml-platform-name }} network.
       * (Optional) `datasphere.user` to send requests to the node.
 
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -311,7 +311,7 @@ You can send requests from the {{ ml-platform-name }} interface or the notebook 
         import requests
 
         resp = requests.post(
-            "https://datasphere.api.cloud.yandex.net/datasphere/v1/nodes/<node_ID>:execute",
+            "https://datasphere.{{ api-host }}/datasphere/v1/nodes/<node_ID>:execute",
             data = json.dumps({
                 'node_id': '<node_ID>',
                 'folder_id': '<folder_ID>',
@@ -324,7 +324,7 @@ You can send requests from the {{ ml-platform-name }} interface or the notebook 
                 }
             }),
             headers = {
-                'Authorization': f"Bearer <IAM token>"
+                'Authorization': f"Bearer <IAM_token>"
             }
         )
 

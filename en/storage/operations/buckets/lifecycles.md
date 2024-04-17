@@ -161,12 +161,12 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
           {
             "ID": "DeleteOldBackups",
             "Filter": {
-              "Prefix": "backup/",
+              "Prefix": "backup/"
             },
-            "Status": "Enabled"
+            "Status": "Enabled",
             "Expiration": {
               "Days": 180
-            },
+            }
           }
         ]
       }

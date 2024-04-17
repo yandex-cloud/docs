@@ -35,6 +35,17 @@ title: "Обеспечение доступа к приложению, запу�
 1. [Укажите параметры проверки состояния узлов](#healthcheck).
 1. (Опционально) [{#T}](#network-policy).
 
+{% cut "Как обеспечить доступ к приложению с помощью HTTPS?" %}
+
+См. документацию:
+
+* [{#T}](../tutorials/new-kubernetes-project.md)
+* [{#T}](../tutorials/alb-ingress-controller.md)
+* [{#T}](../tutorials/ingress-cert-manager.md)
+* [Установка Ingress-контроллера NGINX с сертификатом из {{ certificate-manager-full-name }}](../tutorials/nginx-ingress-certificate-manager.md#check-service-availability)
+
+{% endcut %}
+
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Перед началом работы {#before-you-begin}
@@ -47,10 +58,12 @@ title: "Обеспечение доступа к приложению, запу�
 
   1. Создайте [облачную сеть](../../vpc/operations/network-create.md) и [подсеть](../../vpc/operations/subnet-create.md).
   1. Создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с [ролью](../../iam/concepts/access-control/roles.md) `editor`.
-  1. [Создайте группы безопасности](../../vpc/operations/security-group-create.md) с правилами, описанными в разделе [{#T}](connect/security-groups.md).
   1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](node-group/node-group-create.md) с параметрами:
      * [Версия {{ k8s }}](../concepts/release-channels-and-updates.md) — 1.25 или выше.
      * Публичный доступ в интернет.
+  1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 - {{ TF }} {#tf}
 
@@ -62,12 +75,12 @@ title: "Обеспечение доступа к приложению, запу�
   1. Скачайте в ту же рабочую директорию файл конфигурации кластера {{ managed-k8s-name }} [k8s-load-balancer.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/managed-kubernetes/k8s-load-balancer.tf). В файле описаны:
      * [Сеть](../../vpc/concepts/network.md#network).
      * [Подсеть](../../vpc/concepts/network.md#subnet).
-     * [Группа безопасности](../../vpc/concepts/security-groups.md) и [правила](../operations/connect/security-groups.md), необходимые для работы кластера {{ managed-k8s-name }}:
-       * Правила для служебного трафика.
-       * Правила для доступа к API {{ k8s }} и управления кластером {{ managed-k8s-name }} с помощью `kubectl` через порты 443 и 6443.
-       * Правила для доступа к сервисам из интернета.
      * Кластер {{ managed-k8s-name }}.
      * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и [группы узлов {{ managed-k8s-name }}](../concepts/index.md#node-group).
+     * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
   1. Укажите в файле конфигурации:
      * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
      * [Версию {{ k8s }}](../concepts/release-channels-and-updates.md) для кластера и групп узлов {{ managed-k8s-name }}.
@@ -294,6 +307,8 @@ title: "Обеспечение доступа к приложению, запу�
      ```
 
    {% endlist %}
+
+   {% include [Настройка групп безопасности при недоступности ресурса](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
 ## Создайте сервис типа LoadBalancer с внутренним IP-адресом {#lb-int-create}
 

@@ -2,6 +2,10 @@ Prometheus Operator с поддержкой {{ monitoring-full-name }} упро�
 
 ## Перед началом работы {#before-you-begin}
 
+1. {% include [check-sg-prerequsites](./security-groups/check-sg-prerequsites-lvl3.md) %}
+
+    {% include [sg-common-warning](./security-groups/sg-common-warning.md) %}
+
 1. На [главной странице сервиса]({{ link-monitoring }}) {{ monitoring-full-name }}, на панели слева, выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
 1. На вкладке **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.write }}** найдите URL-адрес эндпоинта для записи метрик:
 

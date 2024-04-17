@@ -16,8 +16,6 @@ You can only attach a local disk to a VM on a [dedicated host](../../concepts/de
 {% endnote %}
 
 
-To attach a network disk to a VM:
-
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -59,7 +57,7 @@ To attach a network disk to a VM:
 
       {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
 
-   1. Select the `ID` or `NAME` of the required disk (for example, `first-disk`). To view a list of disks attached to the VM, run the command:
+   1. Select the `ID` or `NAME` of the required disk, e.g., `first-disk`. To view a list of disks attached to the VM, run the command:
 
       ```bash
       yc compute instance get --full first-instance
@@ -98,13 +96,11 @@ To attach a network disk to a VM:
 
 ## Mounting a disk created from a snapshot or image {#mount-disk-and-fix-uuid}
 
-To use the attached disk:
-
 {% list tabs group=operating_system %}
 
 - Linux {#linux}
 
-   Mount the disk:
+   1. [Attach](#attach) a disk to a VM instance.
    1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
    1. Run the `blkid` command and make sure that there are no partitions with duplicate UUIDs:
 
@@ -175,12 +171,11 @@ To use the attached disk:
 
 ## Partitioning and mounting an empty disk {#mount}
 
-To partition and mount an empty disk yourself:
-
 {% list tabs group=operating_system %}
 
 - Linux {#linux}
 
+   1. [Attach](#attach) an empty disk to the VM.
    1. [Connect to the VM via SSH](../vm-connect/ssh.md).
    1. Check whether the disk is attached as a device and get its path in the system:
 
@@ -202,75 +197,91 @@ To partition and mount an empty disk yourself:
       ```
 
       Where:
-      * Network disk links have the `virtio-<disk_ID>` format. For example, `virtio-fhm1dn62tm5d******** -> ../../vdc` means that an unpartitioned disk with the `fhm1dn62tm5d********` ID is labeled `/dev/vdc`.
-      * Local disks on [dedicated hosts](../../concepts/dedicated-host.md) have links, such as `virtio-nvme-disk-<disk_number>` (if you attached the disks to your VM when creating it). Disk numbering starts from zero. For example, `virtio-nvme-disk-0 -> ../../vda` means that the first local disk (numbered zero) is labeled `/dev/vda`.
+      * Network disk links have the `virtio-<disk_ID>` format. For example, `virtio-fhm1dn62tm5d******** -> ../../vdc` means that an unpartitioned disk with the `fhm1dn62tm5d********` ID is labeled `vdc`.
+      * Local disks on [dedicated hosts](../../concepts/dedicated-host.md) have links, such as `virtio-nvme-disk-<disk_number>` (if you attached the disks to your VM when creating it). Disk numbering starts from zero. For example, `virtio-nvme-disk-0 -> ../../vda` means that the first local disk (numbered zero) is labeled `vda`.
+
    1. Partition your disk. To do this, create [partitions](https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en) using the `cfdisk` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html), the `fdisk` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html), or the `parted` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html).
 
-      For example, here is how to create partitions using the `fdisk` command. Use the `sudo` command or run commands on behalf of the `root` user: to do this, run `sudo su -`.
+      Run commands as a superuser. To do this, use `sudo` in each command, or run the `sudo su -` command initially to switch to the superuser in the terminal. For example, let's create partitions using `fdisk`:
+
       1. Run the utility:
 
          ```bash
-         sudo fdisk /dev/vdc
+         sudo fdisk /dev/<disk_label>
          ```
 
-         You will be taken to the `fdisk` menu. For a list of available commands, press **M**.
-      1. To create a new partition, press **N**.
-      1. Specify that the partition will be the primary one by pressing **P**.
-      1. You will be prompted to select a partition number. Press **Enter** to create the first partition.
-      1. Leave default values for the numbers of the first and last sectors of the partition: press **Enter** twice.
-      1. Make sure the partition has been created. To do this, press **P** to display a list of the disk partitions. This may look as follows:
+         Where `<disk_label>` is the label of the disk to be partitioned, e.g., `vdb` or `vdc`.
+
+         You will be taken to the `fdisk` menu. To get a list of available commands, type `m` and press **Enter**.
+      1. Create a new partition: type `n` and press **Enter**.
+      1. Specify that the partition will be primary: type `p` and press **Enter**.
+      1. You will be prompted to select a partition number. Press **Enter** to create partition `1`.
+      1. Leave the default values for the numbers of the first and last sectors of the partition: press **Enter** twice.
+      1. Make sure the partition has been created. To do this, request a list of disk partitions: type `p` and press **Enter**.
+
+         Result:
 
          ```text
          Device     Boot Start      End  Sectors Size Id Type
          /dev/vdc1        2048 41943039 41940992  20G 83 Linux
          ```
 
-      1. Press **W** to save changes.
-   1. Format the disk to a preferred file system, e.g., using the `mkfs` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/mkfs.8.html). For example, to format a partition to ext4, enter this command:
+         Where `vdc1` is the _partition label_ consisting of a disk label and a partition number. You will need the partition label for further actions with the partition.
+
+      1. To save your changes, type `w` and press **Enter**.
+
+   1. Format the partition to the required file system. To do this, you can use the `mkfs` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/mkfs.8.html). For example, to format a partition to `ext4`, run the command, specifying the label of the previously created partition:
 
       ```bash
-      sudo mkfs.ext4 /dev/vdc1
-      ```
-
-   1. Mount the disk partitions using the `mount` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/mount.8.html). To mount a partition named `vdc1` to the `/mnt/vdc1` directory, run this command:
-
-      ```bash
-      sudo mkdir /mnt/vdc1
-      sudo mount /dev/vdc1 /mnt/vdc1
-      ```
-
-   1. Configure the disk write and read permissions using the `chmod` [utility](https://manpages.ubuntu.com/manpages/jammy/en/man1/chmod.1.html). For example, to grant all users a permission to write data to the disk, run the following command:
-
-      ```bash
-      sudo chmod a+w /mnt/vdc1
-      ```
-
-   1. Retrieve the disk ID (`UUID`) using the `blkid` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/blkid.8.html):
-
-      ```bash
-      sudo blkid /dev/vdc1
+      sudo mkfs.ext4 /dev/<partition_label>
       ```
 
       Result:
 
       ```text
-      /dev/vdc1: UUID="397f9660-e740-40bf-8e59-ecb88958b50e" TYPE="ext4" PARTUUID="e34d0d32-01"
+      Creating filesystem with 261888 4k blocks and 65536 inodes
+      Filesystem UUID: 584a800c-e1fc-4f66-9228-a444f2d7440d
+      Superblock backups stored on blocks:
+              32768, 98304, 163840, 229376
+
+      Allocating group tables: done
+      Writing inode tables: done
+      Creating journal (4096 blocks): done
+      Writing superblocks and filesystem accounting information: done
       ```
 
-   1. To configure partition automount after VM restart:
+      Where `Filesystem UUID` is the unique _partition ID_. You will need the partition ID when setting up automatic mounting of this partition to the system. You can also get the partition ID using the `sudo blkid /dev/<partition_label>` command.
+
+   1. Mount the disk partition using the `mount` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/mount.8.html). To mount a partition named `/dev/<partition_label>` to the `/mnt/new_disk` directory, run the following command:
+
+      ```bash
+      sudo mkdir /mnt/new_disk && sudo mount /dev/<partition_label> /mnt/new_disk
+      ```
+
+   1. Configure the partition write and read permissions using the `chmod` [utility](https://manpages.ubuntu.com/manpages/jammy/en/man1/chmod.1.html). For example, to allow all users to write to the partition, run the following command:
+
+      ```bash
+      sudo chmod a+w /mnt/new_disk
+      ```
+
+   1. Configure automatic mounting of the partition to the `mnt/new_disk` directory when the VM starts:
+
       1. Open the `/etc/fstab` file using the `nano` text editor:
 
          ```bash
          sudo nano /etc/fstab
          ```
 
-      1. Append the following line to the file putting your disk ID in the `UUID` parameter as follows:
+      1. Add the following line to the end of the file, specifying the ID of your partition in the `UUID` parameter:
 
          ```text
-         UUID=397f9660-e740-40bf-8e59-ecb88958b50e /mnt/vdc1 ext4 defaults 0 2
+         UUID=<partition_ID> /mnt/new_disk ext4 defaults 0 2
          ```
 
-      1. Save the changes to the file.
+         Where `UUID` is the unique partition ID obtained earlier during formatting, e.g., `584a800c-e1fc-4f66-9228-a444f2d7440d`.
+
+      1. Save the changes and close the file.
+
    1. Check the status of your file systems:
 
       ```bash

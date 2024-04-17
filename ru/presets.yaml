@@ -3788,9 +3788,12 @@ default:
         title_method-sms: SMS
       component:
         parametrizer:
+          add: Добавить параметр
           dashboard:
             multivalue-key-value: Множественный выбор
           default-value: Значение по умолчанию
+          parameters: Параметры
+          save: Сохранить
           type:
             custom: Набор значений
             query: Значение метки
@@ -3798,6 +3801,8 @@ default:
       dashboard:
         dash:
           create-alert: Создать алерт
+        settings:
+          dashboard-settings: Настройки дашборда
         tab:
           service-dashboards: Сервисные дашборды
         widget-placeholder:
@@ -3810,6 +3815,8 @@ default:
         confirm:
           button_continue: Продолжить
       header:
+        action:
+          settings: Настройки
         title:
           mx-mode: Обзор метрик
       homepage:
@@ -4922,6 +4929,7 @@ default:
             label_backup: Резервное копирование
             label_network: Сеть
             section_access: Доступ
+            section_additional: Дополнительные настройки
             section_base: Базовые параметры
             section_coi: Настройка Docker-контейнера
             section_disk: Диски

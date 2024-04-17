@@ -381,14 +381,18 @@ items:
             href: alb-ref/ingress.md
           - name: HttpBackendGroup
             href: alb-ref/http-backend-group.md
+          - name: IngressClass
+            href: alb-ref/ingress-class.md
+          - name: Service для Ingress
+            href: alb-ref/service-for-ingress.md
       - name: Gateway API
         items:
           - name: Gateway
             href: alb-ref/gateway.md
           - name: HTTPRoute
             href: alb-ref/http-route.md
-      - name: Service
-        href: alb-ref/service.md
+          - name: Service для Gateway API
+            href: alb-ref/service-for-gateway.md
   - name: Инструменты {{ network-load-balancer-name }}
     items:
       - name: Обзор

@@ -1,4 +1,4 @@
-- **Audit log**{#setting-audit-log} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+- **Audit log**{#setting-audit-log} {{ tag-all }}
 
   Настройки [логов системы аудита](https://www.mongodb.com/docs/manual/core/auditing/). Доступны только для Enterprise-версии кластера {{ mmg-name }}.
 
@@ -20,19 +20,31 @@
 
     Подробнее см. в [документации {{ MG }}](https://www.mongodb.com/docs/manual/tutorial/configure-audit-filters/#filter-configuration-at-runtime).
 
-- **Net → Max incoming connections**{#setting-max-incoming-connections} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+- **Net**{#setting-net} {{ tag-all }}
 
-  Максимальное количество входящих соединений.
+  Настройки сетевого взаимодействия.
 
-  Минимальное значение — `10`, максимальное значение [зависит от выбранного класса хостов](#settings-instance-dependent) и равно объему RAM на хосте в МБ, но не более `16384`. Значение по умолчанию: `1024`.
+  - **Max incoming connections**{#setting-max-incoming-connections}
 
-  Подробнее см. в разделе [Ограничения на количество подключений](../../managed-mongodb/operations/connect/index.md#connection-limits).
+    Максимальное количество входящих соединений.
 
-- **Operation profiling**{#setting-operation-profiling} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+    Минимальное значение — `10`, максимальное значение [зависит от выбранного класса хостов](#settings-instance-dependent) и равно объему RAM на хосте в МБ, но не более `16384`. Значение по умолчанию: `1024`.
+
+    Подробнее см. в разделе [Ограничения на количество подключений](../../managed-mongodb/operations/connect/index.md#connection-limits).
+
+  - **Compression → Compressors**{#setting-compressors}
+
+    Список методов сжатия, которые может использовать хост с ролью `MONGOD` или `MONGOS` для сжатия сетевых сообщений. Порядок перечисления методов важен.
+
+    Значение `disabled` отключает сжатие. Значение по умолчанию — `snappy,zstd,zlib`.
+
+    Подробнее см. в [документации {{ MG }}](https://mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-net.compression.compressors).
+
+- **Operation profiling**{#setting-operation-profiling} {{ tag-all }}
 
   {% note info  %}
 
-  Настройка недоступна для хостов с ролью `MONGOS` шардированного кластера.
+  Настройки недоступны для хостов с ролью `MONGOS` шардированного кластера.
 
   {% endnote %}
 
@@ -48,6 +60,14 @@
 
     Подробнее см. в [документации {{ MG }}](https://docs.mongodb.com/manual/administration/analyzing-mongodb-performance/#database-profiling).
 
+  - **Slow op sample rate**{#setting-slow-sample-rate}
+
+    Доля медленных операций, которые следует профилировать или логировать. Параметр влияет на журнал диагностики и на профилировщик, если он включен.
+
+    Минимальное значение — `0`, максимальное значение — `1`, значение по умолчанию — `1`.
+
+    Подробнее см. в [документации {{ MG }}](https://mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpSampleRate).
+
   - **Slow op threshold**{#setting-slow-op-threshold}
   
     Время выполнения операции (в миллисекундах), при превышении которого она будет считаться медленной.
@@ -56,7 +76,7 @@
 
     Подробнее см. в [документации {{ MG }}](https://docs.mongodb.com/manual/tutorial/manage-the-database-profiler/#specify-the-threshold-for-slow-operations).
 
-- **Security**{#setting-security} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+- **Security**{#setting-security} {{ tag-all }}
 
   Настройки шифрования данных в хранилище (Encryption at rest). Доступны только для Enterprise-версии кластера {{ mmg-name }}.
   
@@ -116,7 +136,31 @@
 
       Подробнее см. в [документации {{ MG }}](https://www.mongodb.com/docs/manual/reference/program/mongod/#std-option-mongod.--kmipServerName).
 
-- **Storage**{#setting-storage} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+- **Set parameter**{#setting-set-parameter}
+
+  - **Enable flow control**{#setting-enable-flow-control} {{ tag-all }}
+
+    Определяет, будет ли контролироваться скорость, с которой основной хост выполняет операции записи. Включение параметра гарантирует, что у хостов-реплик метрика «большинство записало изменение» будет не больше предустановленного значения в 10 секунд.
+
+    Значение по умолчанию — `false` (контроль скорости отключен).
+
+    Подробнее см. в [документации {{ MG }}](https://mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.enableFlowControl).
+
+  - **Min snapshot history window in seconds**{#setting-min-snapshot-history-window-in-seconds} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    {% note info %}
+
+    Настройка доступна только для хостов с ролью `MONGOD`.
+
+    {% endnote %}
+
+    Время в секундах, в течение которого хранится история снапшотов.
+
+    Возможные значения — от нуля и выше, значение по умолчанию — `60`. Увеличение значения настройки увеличивает использование диска.
+
+    Подробнее см. в [документации {{ MG }}](https://mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.minSnapshotHistoryWindowInSeconds).
+
+- **Storage**{#setting-storage} {{ tag-all }}
 
   {% note info %}
 
@@ -162,3 +206,11 @@
       Например, для хостов класса {{ s1-medium }} максимальное значение настройки — `28.8`, значение по умолчанию — `16`.
 
       Подробнее см. в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.engineConfig.cacheSizeGB).
+
+    - **Index config → Prefix compression**{#setting-prefix-compression}
+
+      Определяет, будет ли выполняться сжатие префиксов для индексов. Изменение параметра влияет на новые индексы, но не влияет на уже созданные.
+
+      Значение по умолчанию — `true` (сжатие префиксов включено).
+
+      Подробнее см. в [документации {{ MG }}](https://mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.indexConfig.prefixCompression).
