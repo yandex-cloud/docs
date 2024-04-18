@@ -23,7 +23,7 @@ To create a cluster from a {{ dataproc-name }} template, [activate](../operation
 
 ### Configurations of temporary clusters {#configurations}
 
-Automatic {{ dataproc-name }} clusters are deployed on [{{ compute-full-name }} VMs](../../compute/concepts/vm.md) powered by Intel Cascade Lake (`standard-v2`) with 4 vCPUs and 16 GB of RAM.
+Automatic {{ dataproc-name }} clusters are deployed on [{{ compute-full-name }} VMs](../../compute/concepts/vm.md) powered by Intel Cascade Lake (`standard-v2`).
 
 You can calculate the total disk storage capacity required for different cluster configurations using this formula:
 
@@ -31,13 +31,13 @@ You can calculate the total disk storage capacity required for different cluster
 <number_of_Data_Proc_hosts> × 256 + 128
 ```
 
-| Cluster type | Number of hosts | Disk size |
+| Cluster type | Number of hosts | Disk size | Host parameters |
 |:------------:|:-----------------:|--------------|
-| **XS** | 1 | 384 GB HDD |
-| **S** | 4 | 1152 GB SSD |
-| **M** | 8 | 2176 GB SSD |
-| **L** | 16 | 4224 GB SSD |
-| **XL** | 32 | 8320 GB SSD |
+| **XS** | 1 | 384 GB HDD | 4 vCPUs, 16 GB RAM |
+| **S** | 4 | 1152 GB SSD | 4 vCPUs, 16 GB RAM |
+| **M** | 8 | 2176 GB SSD | 16 vCPUs, 64 GB RAM |
+| **L** | 16 | 4224 GB SSD | 16 vCPUs, 64 GB RAM |
+| **XL** | 32 | 8320 GB SSD | 16 vCPUs, 64 GB RAM |
 
 {% note tip %}
 

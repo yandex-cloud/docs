@@ -6,12 +6,27 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
-### Release on February 28, 2024 {#280224}
+### Release on March 27, 2024 {#273224}
 
-1. Improved recognition quality for Uzbek.
-1. As requested by users, improved recognition quality for medications, car models and tobacco products in Russian.
+All `general:rc` updates of [February 28](#280224) are now available in the `general` model.
+
+Updates to `general:rc`:
+
+* Improved recognition quality for Uzbek.
+* Improved [speaker labeling](stt/speaker-labeling.md) in recognition results.
 
 ## Previous versions {#previous}
+
+### Release on February 28, 2024 {#280224}
+
+Updates to `general:rc`:
+
+* Improved recognition quality for Uzbek.
+* As requested by users, improved recognition quality for medications, car models, and tobacco products in Russian.
+
+### Release on February 27, 2024 {#270224}
+
+All changes to the `general:rc` model are now available in the `general` model.
 
 ### Release on January 12, 2024 {#120124}
 

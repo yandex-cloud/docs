@@ -5,9 +5,9 @@ BGP connectivity is configured within each private or public connection between 
 {% note warning %}
 
 On the {{ yandex-cloud }} equipment side, there is a [limit](../../interconnect/concepts/limits.md#interconnect-limits) on the number of prefixes received from the client router over BGP.
-If this limit is exceeded, a BGP session is terminated for 30 minutes.
+Once this limit is exceeded, the BGP session will be terminated for 30 minutes.
 
-To maintain continuous BGP connectivity, we recommend setting up policies for routing information aggregation on the client router to minimize the number of prefixes announced over BGP towards the {{ yandex-cloud }} equipment to ensure the reasonable and required sizes.
+To maintain continuous BGP connectivity, we recommend setting up policies for routing information aggregation on the client router that will keep the number of prefixes announced over BGP towards the {{ yandex-cloud }} equipment at a reasonable and required level.
 
 {% endnote %}
 
@@ -21,13 +21,13 @@ On the {{ yandex-cloud }} side, a 4-byte BGP ASN value, **{{ cic-bgp-asn }}**, i
 
 When setting up BGP connectivity on the client router side, make sure to explicitly allow 4-byte BGP ASN values in its configuration.
 
-When setting up BGP interaction on the client router, for public connections on public IPv4 addresses owned by the client, make sure to specify the client's public BGP ASN.
+When setting up BGP interaction on the client router, for public connections on public IPv4 addresses owned by the client, make sure to specify the client's public BGP ASN.
 
 {% endnote %}
 
 ### BGP authentication (optional) {#bgp-auth}
 
-To increase the security level of a BGP connection, you can use BGP authentication based on the `BGP MD5 password` mechanism. If the feature is enabled, use a string of more than 20 characters as a password, which may include Latin letters, numbers, and special characters.
+To increase security of a BGP connection, you can use BGP authentication based on `BGP MD5 password`. If you enable this feature, use a string of more than 20 characters as a password, which may include Latin letters, numbers, and special characters.
 
 ### BFD protocol {#bfd}
 
@@ -37,8 +37,8 @@ The BFD protocol is always enabled on the {{ yandex-cloud }} equipment side and 
 * `timer`: 300ms
 * `multiplier`: 3
 
-These parameter values are fixed and cannot be changed manually.
+These values are fixed and cannot be changed manually.
 
-On their equipment, the client can configure an appropriate `timer` value when needed. When establishing a BFD session, these parameters will be negotiated over BFD between the client equipment and {{ yandex-cloud }} equipment.
+On their equipment, the client can configure an appropriate `timer` value when needed. When establishing a BFD session, these parameters will be aligned over BFD between the client and {{ yandex-cloud }} equipment.
 
-We do not recommend setting a `multiplier` other than 3: this might result in suboptimal protocol performance.
+We do not recommend setting any `multiplier` other than 3, as this might cause BFD performance issues.

@@ -689,8 +689,10 @@ default:
   yandex-cloud: Yandex Cloud
   yandex-direct: Yandex Direct
   yandex-oauth: Yandex.OAuth
+  yandexart-name: YandexART
   yc-compute: yc compute
   yc-compute-ig: yc compute instance-group
+  yc-compute-instance: yc compute instance
   yc-dp: yc dataproc
   yc-dt: yc datatransfer
   yc-install-path: /yandexcloud-yc/install.sh
@@ -6594,6 +6596,7 @@ default:
             button_update: Save changes
         switch_addresses: IP addresses
         switch_gateways: Gateways
+        switch_list: Cloud networks
         switch_networks: Subnets
         switch_security-groups: Security groups
         title_network-map-page: Cloud network map
@@ -7718,6 +7721,7 @@ default:
         edit: Edit
         endpoint: Endpoint
         execute: Execute
+        factory-reset: Factory reset
         folder: Folder
         foundation-models: Foundation models
         general: General settings
@@ -7812,6 +7816,7 @@ default:
           timeout: Timeout
           type: Type
         kdi-form-label:
+          image-path: Image path
           password-secret: Password secret
           user-name: Username
         node-form-label:
@@ -7842,6 +7847,7 @@ default:
           telemetry: Telemetry
         variables-form-placeholder:
           name: Name
+        ycr: Yandex Container Registry
       new-s3-page:
         access-key-id: Static access key ID
         mode: Mode
@@ -7861,6 +7867,13 @@ default:
         type:
           list: list
       project-page:
+        change-project-disk-size: Change project storage size
+        debugging-tools-key-value: Troubleshooting
+        debugging-tools:
+          clear-all-output:
+            title: Clear output
+          reset-jupyter-workspace:
+            title: Reset JupyterLab workspace
         executions: Running executions
         project-card:
           create-resource: Create resource
@@ -7873,6 +7886,7 @@ default:
           service-account: Service account
           subnet: Subnet
         stop-ide-executions: Stop JupyterLab and VM
+        stop-ide-title: Stop JupyterLab and VM
         tab:
           members: Members
           overview: Overview

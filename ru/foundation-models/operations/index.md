@@ -1,6 +1,6 @@
 ---
 title: "Инструкции по работе с {{ foundation-models-full-name }}"
-description: "Страница содержит все инструкции для работы с {{ foundation-models-full-name }} в {{ yandex-cloud }}. Рассказываем о том, как работать"
+description: "Страница содержит все инструкции для работы с {{ foundation-models-full-name }} в {{ yandex-cloud }}. Рассказываем о том, как работать."
 ---
 
 # Пошаговые инструкции для {{ foundation-models-full-name }}

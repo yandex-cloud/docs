@@ -1,0 +1,1 @@
+Метки рядом с описанием изменения позволяют определить, в каком интерфейсе оно поддерживается: в [консоли управления](../console/), [CLI](../cli/), [API](../glossary/rest-api.md) или [{{ TF }}](../tutorials/infrastructure-management/terraform-quickstart.md).

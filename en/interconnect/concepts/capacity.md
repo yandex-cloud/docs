@@ -2,7 +2,7 @@
 
 Data volume is a {{ interconnect-name }} billing unit equal to the amount of traffic transmitted within a month.
 
-Data volumes currently available for ordering:
+Currently, you can order the following data volumes:
 
 | Data volume, TB | Connection capacity |
 ---------------- | -------------------
@@ -27,7 +27,7 @@ Data volumes currently available for ordering:
 {% note info %}
 
 * For the cost of data volumes, see [Pricing policy](../pricing.md).
-* When submitting a request for a new trunk connection (either direct or partner), be sure to specify trunk capacity in `Mbps`. Available trunk connection capacities are listed in the table above. No other values are supported.
-* You can change the capacity of your existing trunk connection by contacting technical support.
+* When submitting a request for a new trunk (either direct or partner), make sure to specify trunk capacity in `Mbps`. Available trunk capacities are listed in the table above. No other values are supported.
+* You can change the capacity of your existing trunk by contacting technical support.
 
 {% endnote %}

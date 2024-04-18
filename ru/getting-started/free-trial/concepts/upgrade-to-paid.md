@@ -40,7 +40,7 @@
 
 {% list tabs group=examples %}
 
- - Пример 1 {#example1}
+- Пример 1 {#example1}
   
    Вы — резидент РФ и зарегистрировали бизнес-аккаунт со способом оплаты **{{ ui-key.yacloud_billing.billing.account.overview.payment-type_label_card }}**.
    

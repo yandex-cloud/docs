@@ -695,6 +695,7 @@ default:
   yandexart-name: YandexART
   yc-compute: yc compute
   yc-compute-ig: yc compute instance-group
+  yc-compute-instance: yc compute instance
   yc-dp: yc dataproc
   yc-dt: yc datatransfer
   yc-install-path: /yandexcloud-yc/install.sh
@@ -6602,6 +6603,7 @@ default:
             button_update: Сохранить изменения
         switch_addresses: IP-адреса
         switch_gateways: Шлюзы
+        switch_list: Облачные сети
         switch_networks: Подсети
         switch_security-groups: Группы безопасности
         title_network-map-page: Карта облачной сети
@@ -7724,6 +7726,7 @@ default:
         edit: Редактировать
         endpoint: Эндпоинт
         execute: Выполнить
+        factory-reset: Сбросить проект
         folder: Каталог
         foundation-models: Фундаментальные модели
         general: Общие настройки
@@ -7818,6 +7821,7 @@ default:
           timeout: Таймаут
           type: Тип
         kdi-form-label:
+          image-path: Путь к образу
           password-secret: Секрет с паролем
           user-name: Имя пользователя
         node-form-label:
@@ -7848,6 +7852,7 @@ default:
           telemetry: Телеметрия
         variables-form-placeholder:
           name: Имя
+        ycr: Yandex Container Registry
       new-s3-page:
         access-key-id: Идентификатор статического ключа доступа
         mode: Режим работы
@@ -7867,6 +7872,13 @@ default:
         type:
           list: list
       project-page:
+        change-project-disk-size: Изменить размер хранилища
+        debugging-tools-key-value: Решение проблем
+        debugging-tools:
+          clear-all-output:
+            title: Очистить вывод
+          reset-jupyter-workspace:
+            title: Сбросить рабочее пространство JupyterLab
         executions: Запущенные операции
         project-card:
           create-resource: Создать ресурс
@@ -7879,6 +7891,7 @@ default:
           service-account: Сервисный аккаунт
           subnet: Подсеть
         stop-ide-executions: Остановить JupyterLab и ВМ
+        stop-ide-title: Остановить JupyterLab и ВМ
         tab:
           members: Участники
           overview: Обзор

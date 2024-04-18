@@ -26,7 +26,7 @@
         1. В той же зоне доступности [создайте кластер-приемник {{ mpg-name }}](../../../managed-postgresql/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с именем пользователя-администратора `pg-user` и хостами в публичном доступе.
 
         1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
-            * [{{ mkf-name }}](../../../managed-kafka/operations/connect.md#configuring-security-groups).
+            * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
             * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups).
 
     - {{ TF }} {#tf}
@@ -76,7 +76,7 @@
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../../../managed-kafka/operations/connect.md#connection-string).
+        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
     * [jq](https://stedolan.github.io/jq/) — для потоковой обработки JSON-файлов.
 
@@ -239,7 +239,7 @@
         -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
     ```
 
-    Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../../../managed-kafka/operations/connect.md).
+    Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../../../managed-kafka/operations/connect/clients.md).
 
 1. Проверьте, что в базу данных {{ mpg-name }} перенеслись данные из кластера-источника {{ mkf-name }}:
 

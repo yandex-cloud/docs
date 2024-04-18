@@ -27,6 +27,36 @@
     --permission database=db1,role=read
   ```
 
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [Создание кластера](../../managed-mongodb/operations/cluster-create.md).
+
+  1. Добавьте ресурс `yandex_mdb_mongodb_user`.
+
+      ```hcl
+      resource "yandex_mdb_mongodb_user" "user2" {
+        cluster_id = <идентификатор_кластера>
+        name       = "user2"
+        password   = "<пароль>"
+        permission {
+          database_name = "db1"
+          roles         = [ "read" ]
+        }
+      }
+      ```
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_user).
+
 {% endlist %}
 
 ### Изменить права пользователя {#update-user-read-only}
@@ -59,34 +89,31 @@
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [{#T}](../../managed-mongodb/operations/cluster-create.md).
+      О том, как создать такой файл, см. в разделе [Создание кластера](../../managed-mongodb/operations/cluster-create.md).
 
-  1. Найдите в описании кластера {{ mmg-name }} блок `user` для пользователя `user1`.
+  1. Найдите ресурс `yandex_mdb_mongodb_user`.
   1. Добавьте блок `permission`:
 
       ```hcl
-      resource "yandex_mdb_mongodb_cluster" "cluster1" {
-        ...
-        user {
-          name     = "user1"
-          password = "<пароль>"
-          ...
-          permission {
-            database_name = "db2"
-            roles         = [ "read" ]
-          }
+      resource "yandex_mdb_mongodb_user" "user1" {
+        cluster_id = <идентификатор_кластера>
+        name       = "user1"
+        password   = "<пароль>"
+        permission {
+          database_name = "db2"
+          roles         = [ "read" ]
         }
       }
       ```
 
-      1. Проверьте корректность настроек.
+  1. Проверьте корректность настроек.
 
-          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Подтвердите изменение ресурсов.
+  1. Подтвердите изменение ресурсов.
 
-          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_user).
 
 {% endlist %}

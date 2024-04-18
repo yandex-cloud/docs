@@ -29,6 +29,7 @@ description: "Страница содержит все инструкции дл
 * [{#T}](projects/delete.md)
 * [{#T}](projects/delete-user.md)
 * [{#T}](projects/use-shared-resource.md)
+* [{#T}](projects/debugging-tools.md)
 
 ## Работа в ноутбуке {#notebook}
 

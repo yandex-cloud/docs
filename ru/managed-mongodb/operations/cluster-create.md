@@ -201,19 +201,6 @@
          version = "<версия_{{ MG }}>"
        }
 
-       database {
-         name = "<имя_БД>"
-       }
-
-       user {
-         name     = "<имя_пользователя>"
-         password = "<пароль_пользователя>"
-         permission {
-           database_name = "<имя_БД>"
-           roles         = [ "<список_ролей_пользователя>" ]
-         }
-       }
-
        resources_mongod {
          resource_preset_id = "<класс_хоста>"
          disk_type_id       = "<тип_диска>"
@@ -225,6 +212,24 @@
          subnet_id        = "<идентификатор_подсети>"
          assign_public_ip = <публичный_доступ>
        }
+     }
+
+     resource "yandex_mdb_mongodb_database" "<имя_БД>" {
+       cluster_id = "<идентификатор_кластера>"
+       name       = "<имя_БД>"
+     }
+
+     resource "yandex_mdb_mongodb_user" "<имя_пользователя>" {
+       cluster_id = <идентификатор_кластера>
+       name       = "<имя_пользователя>"
+       password   = "<пароль>"
+       permission {
+         database_name = "<имя_БД>"
+         roles         = [ "<список_ролей_пользователя>" ]
+       }
+       depends_on = [
+         yandex_mdb_mongodb_database.<имя_БД>
+       ]
      }
 
      resource "yandex_vpc_network" "<имя_сети>" { name = "<имя_сети>" }
@@ -471,18 +476,6 @@
       version = "{{ versions.tf.latest }}"
     }
 
-    database {
-      name = "db1"
-    }
-
-    user {
-      name     = "user1"
-      password = "user1user1"
-      permission {
-        database_name = "db1"
-      }
-    }
-
     resources_mongod {
       resource_preset_id = "{{ host-class }}"
       disk_type_id       = "{{ disk-type-example }}"
@@ -493,6 +486,23 @@
       zone_id   = "{{ region-id }}-a"
       subnet_id = yandex_vpc_subnet.mysubnet.id
     }
+  }
+
+  resource "yandex_mdb_mongodb_database" "db1" {
+    cluster_id = yandex_mdb_mongodb_cluster.mymg.id
+    name       = "db1"
+  }
+
+  resource "yandex_mdb_mongodb_user" "user1" {
+    cluster_id = yandex_mdb_mongodb_cluster.mymg.id
+    name       = "user1"
+    password   = "user1user1"
+    permission {
+      database_name = "db1"
+    }
+    depends_on = [
+      yandex_mdb_mongodb_database.db1
+    ]
   }
 
   resource "yandex_vpc_network" "mynet" {
@@ -610,18 +620,6 @@
       version = "{{ versions.tf.latest }}"
     }
 
-    database {
-      name = "db1"
-    }
-
-    user {
-      name     = "user1"
-      password = "user1user1"
-      permission {
-        database_name = "db1"
-      }
-    }
-
     resources_mongod {
       resource_preset_id = "{{ host-class }}"
       disk_type_id       = "{{ disk-type-example }}"
@@ -657,6 +655,23 @@
       subnet_id = yandex_vpc_subnet.mysubnet.id
       type      = "mongoinfra"
     }
+
+  resource "yandex_mdb_mongodb_database" "db1" {
+    cluster_id = yandex_mdb_mongodb_cluster.mymg.id
+    name       = "db1"
+  }
+
+  resource "yandex_mdb_mongodb_user" "user1" {
+    cluster_id = yandex_mdb_mongodb_cluster.mymg.id
+    name       = "user1"
+    password   = "user1user1"
+    permission {
+      database_name = "db1"
+    }
+    depends_on = [
+      yandex_mdb_mongodb_database.db1
+    ]
+  }
 
   resource "yandex_vpc_network" "mynet" {
     name = "mynet"
@@ -774,18 +789,6 @@
       version = "{{ versions.tf.latest }}"
     }
 
-    database {
-      name = "db1"
-    }
-
-    user {
-      name     = "user1"
-      password = "user1user1"
-      permission {
-        database_name = "db1"
-      }
-    }
-
     resources_mongod {
       resource_preset_id = "{{ host-class }}"
       disk_type_id       = "{{ disk-type-example }}"
@@ -839,6 +842,23 @@
       subnet_id = yandex_vpc_subnet.mysubnet.id
       type      = "mongocfg"
     }
+  }
+
+  resource "yandex_mdb_mongodb_database" "db1" {
+    cluster_id = yandex_mdb_mongodb_cluster.mymg.id
+    name       = "db1"
+  }
+
+  resource "yandex_mdb_mongodb_user" "user1" {
+    cluster_id = yandex_mdb_mongodb_cluster.mymg.id
+    name       = "user1"
+    password   = "user1user1"
+    permission {
+      database_name = "db1"
+    }
+    depends_on = [
+      yandex_mdb_mongodb_database.db1
+    ]
   }
 
   resource "yandex_vpc_network" "mynet" {

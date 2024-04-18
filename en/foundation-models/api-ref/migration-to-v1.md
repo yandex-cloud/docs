@@ -2,7 +2,7 @@
 
 [API v1alpha](../api-ref/v1alpha/) is deprecated and will be discontinued soon. To work with {{ yagpt-name }}, use [YandexGPT API v1](../text-generation/api-ref/) and [Embeddings API v1](../embeddings/api-ref/). In the new API version, the maximum total number of [tokens](../concepts/yandexgpt/tokens.md) allowed per user request and model response is {{ yagpt-max-tokens }}.
 
-If your product adopts methods of the obsolete API, migrate it to the new interface. See the detailed overview of the changes required for the REST API below. Similar changes apply to the gRPC API.
+If your product adopts methods of the obsolete API, migrate it to the new interface. Below is the detailed overview of the changes required for the REST API. Similar changes apply to the gRPC API.
 
 ## Model selection {#model-choice}
 
@@ -74,7 +74,7 @@ In YandexGPT API v1 and Embeddings API v1, specify the [model](../concepts/yande
 
    #|
    || **API v1alpha** | **YandexGPT API v1** | **Description** ||
-   || model | modelUri|[ID of the model](../concepts/yandexgpt/models.md) to use for response generation. This parameter contains either the [folder ID](../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} or the ID of the model [fine-tuned](../tutorials/yagpt-tuning.md) with {{ ml-platform-name }}.||
+   || model | modelUri|[ID of the model](../concepts/yandexgpt/models.md) to use for response generation. The parameter contains the {{ yandex-cloud }} [folder ID](../../resource-manager/operations/folder/get-id.md) or the ID of the model [fine-tuned](../tutorials/yagpt-tuning.md) with {{ ml-platform-name }}.||
    || instructionText | ```json
    "messages": [
      {
@@ -82,9 +82,9 @@ In YandexGPT API v1 and Embeddings API v1, specify the [model](../concepts/yande
        "text": "string"
      }
    ]
-   ``` | In YandexGPT API v1, the `messages` section is a list of messages that form the request context for the model.
+   ``` | In YandexGPT API v1, the `messages` section is a list of messages defining the request context for the model.
    * `role`: When the value is `system`, it allows you to set the request context and define the model's behavior.
-   * `text` means the text that specifies the request context. ||
+   * `text`: Text that defines the request context. ||
    || instructionUri | modelUri | YandexGPT API v1 does not use the `instructionUri` parameter; to specify the URI, use `modelUri`.||
    || requestText | ```json
    "messages": [
@@ -93,12 +93,12 @@ In YandexGPT API v1 and Embeddings API v1, specify the [model](../concepts/yande
        "text": "string"
      }
    ]
-   ``` | In YandexGPT API v1, the `messages` section is a list of messages that form the request context for the model.
+   ``` | In YandexGPT API v1, the `messages` section is a list of messages defining the request context for the model.
    * `role`: When the value is `user`, it allows sending user messages to the model.
    * `text`: Text message of the request.||
    ||partialResults|stream|It enables streaming of partially generated text. The possible values are `true` and `false`.||
    ||generationOptions|completionOptions|Specifies the request configuration parameters.||
-   ||maxTokens|maxTokens|The `maxTokens` parameter name remains the same, but its purpose changed. In **API v1alpha**, the `maxTokens` parameter defined the limit on the total number of tokens per request and response. In **YandexGPT API v1**, `maxTokens`means the maximum number of tokens in the response only.||
+   ||maxTokens|maxTokens|The `maxTokens` parameter name has remained the same, but its purpose has changed. In **API v1alpha**, the `maxTokens` parameter defined the limit on the total number of tokens per request and response. In **YandexGPT API v1**, `maxTokens` means the maximum number of tokens in the response only.||
    |#
 
    **TextGeneration.chat (chat mode)**
@@ -159,16 +159,15 @@ In YandexGPT API v1 and Embeddings API v1, specify the [model](../concepts/yande
        "text": "string"
      }
    ]
-   ```|In YandexGPT API v1, the `messages` section is the list of messages setting the request context for the model.
+   ```|In YandexGPT API v1, the `messages` section is a list of messages defining the request context for the model.
    * `role`: When the value is `system`, it allows you to set the request context and define the model's behavior.
-   * `text`: Text that sets the request context.||
+   * `text`: Text that defines the request context.||
    ||partialResults|stream|It enables streaming of partially generated text. Possible values are `true` or `false`.||
    ||generationOptions|completionOptions|It sets the request's configuration parameters.||
    ||maxTokens|maxTokens|The name of the `maxTokens` parameter remains the same, but the value has changed. In **API v1alpha**, the `maxTokens` parameter defined the limit on the total number of tokens per request and response. In **YandexGPT API v1**, the value of `maxTokens` is the maximum number of tokens per response only.||
    ||role|role|The name of the `role` parameter remains the same, but the list of possible values has changed. In **API v1alpha**, the possible values of the parameter were `Assistant` and `User`. In **YandexGPT API v1**, the possible values of the parameter are `assistant`, `user`, and `system`.||
    |#
 
-   
 - Asynchronous mode
 
    API endpoint:
@@ -232,9 +231,9 @@ In YandexGPT API v1 and Embeddings API v1, specify the [model](../concepts/yande
        "text": "string"
      }
    ]
-   ```|In YandexGPT API v1, the `messages` section is the list of messages setting the request context for the model.
+   ```|In YandexGPT API v1, the `messages` section is a list of messages defining the request context for the model.
    * `role`: When the value is `system`, it allows you to set the request context and define the model's behavior.
-   * `text`: Text that sets the request context.||
+   * `text`: Text that defines the request context.||
    ||instructionUri|modelUri|In YandexGPT API v1, the `instructionUri` parameter is not used; instead, the `modelUri` parameter defines the URI.||
    ||requestText|```json
    "messages": [
@@ -243,7 +242,7 @@ In YandexGPT API v1 and Embeddings API v1, specify the [model](../concepts/yande
        "text": "string"
      }
    ]
-   ```|In YandexGPT API v1, the `messages` section is the list of messages setting the request context for the model.
+   ```|In YandexGPT API v1, the `messages` section is a list of messages defining the request context for the model.
    * `role`: When the value is `user`, it allows sending user messages to the model.
    * `text`: Text message of the request.||
    ||partialResults|stream|It enables streaming of partially generated text. Possible values are `true` or `false`.||
@@ -251,7 +250,6 @@ In YandexGPT API v1 and Embeddings API v1, specify the [model](../concepts/yande
    ||maxTokens|maxTokens|The name of the `maxTokens` parameter remains the same, but the value has changed. In **API v1alpha**, the `maxTokens` parameter defined the limit on the total number of tokens per request and response. In **YandexGPT API v1**, the value of `maxTokens` is the maximum number of tokens per response only.||
    |#
 
-   
 {% endlist %}
 
 ## Tokenization {#tokenization}
@@ -302,7 +300,6 @@ In YandexGPT API v1 and Embeddings API v1, specify the [model](../concepts/yande
    ||model|modelUri|[ID of the model](../concepts/yandexgpt/models.md) to use for response generation. The parameter contains the {{ yandex-cloud }} [folder ID](../../resource-manager/operations/folder/get-id.md) or the ID of a model [fine-tuned](../tutorials/yagpt-tuning.md) in {{ ml-platform-name }}.||
    |#
 
-   
 - Tokenizer.tokenize
 
    You can use this method with any methods other than generation.
@@ -337,7 +334,6 @@ In YandexGPT API v1 and Embeddings API v1, specify the [model](../concepts/yande
    ||model|modelUri|[ID of the model](../concepts/yandexgpt/models.md) to use for response generation. The parameter contains the {{ yandex-cloud }} [folder ID](../../resource-manager/operations/folder/get-id.md) or the ID of a model [fine-tuned](../tutorials/yagpt-tuning.md) in {{ ml-platform-name }}.||
    |#
 
-   
 {% endlist %}
 
 ## Vectorization {#vectorization}

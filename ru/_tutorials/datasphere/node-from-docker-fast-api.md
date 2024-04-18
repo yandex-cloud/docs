@@ -193,40 +193,38 @@
 
 ## Разверните сервис в {{ ml-platform-name }} {#deploy}
 
-1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}.
-1. На панели слева выберите ![image](../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. {% include [ui-find-community](../../_includes/datasphere/ui-find-community.md) %}
 1. Выберите сообщество с привязанным платежным аккаунтом.
 1. [Создайте проект](../../datasphere/operations/projects/create.md) `Node from Docker`.
 1. [В настройках проекта](../../datasphere/operations/projects/update.md) укажите:
    *  **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}** — `data-folder`.
    *  **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** — `sa-for-datasphere`.
 1. [Создайте секрет](../../datasphere/operations/data/secrets.md) `key-for-sa`, хранящий полное содержимое файла с авторизованным ключом для сервисного аккаунта `sa-for-datasphere`.
-1. Создайте ноду. Для этого на странице проекта в правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}** и выберите **{{ ui-key.yc-ui-datasphere.resources.node }}**.
-1. Задайте основные параметры ноды:
-   * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}** — выберите **{{ ui-key.yc-ui-datasphere.common.docker }}**.
-   * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}** — `fastapi`.
-   * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}** задайте путь к образу {{ container-registry-name }} вида `cr.yandex/<идентификатор_реестра>/<имя_образа>:<тег>` Его можно получить в консоли управления, скопировав полное значение (вместе с тегом) на странице репозитория. Также вы можете заполнить поле вручную. Идентификатор реестра можно получить в CLI, выполнив команду `yc container registry list`.
-   * Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.show-additional-parameters }}** и укажите:
-      * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}** — `json_key`.
+1. Создайте ноду. Для этого на странице проекта в правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. Во всплывающем окне выберите **{{ ui-key.yc-ui-datasphere.resources.node }}**. Укажите настройки ноды:
+   1. В поле **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}** введите имя ноды — `fastapi`.
+   1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}**:
+      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}** — выберите **{{ ui-key.yc-ui-datasphere.common.docker }}**.
+      * **{{ ui-key.yc-ui-datasphere.new-node.source }}** — выберите **{{ ui-key.yc-ui-datasphere.new-node.ycr }}**.
+      * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.image-path }}** — задайте путь к образу {{ container-registry-name }} вида `cr.yandex/<идентификатор_реестра>/<имя_образа>:<тег>`. Его можно получить в консоли управления, скопировав полное значение на странице репозитория. Также вы можете заполнить поле вручную. Идентификатор реестра можно получить в CLI, выполнив команду `yc container registry list`.      
       * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}** — выберите `key-for-sa`.
-   * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.endpoint }}**:
+   1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.endpoint }}**:
       * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.type }}** — выберите протокол **HTTP**.
       * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.port }}** — 9875.
-   * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.telemetry }}**:
+   1. Включите опцию **{{ ui-key.yc-ui-datasphere.new-node.title.telemetry }}** и укажите:
       * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}** — выберите **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.prometheus }}**.
       * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.http-path }}** — `/metrics`.
       * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.port }}** — 9875.
-   * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.healthcheck }}**:
+   1. Включите опцию **{{ ui-key.yc-ui-datasphere.new-node.title.healthcheck }}** и укажите:
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.type }}** — выберите **HTTP**.
-      * **{{ ui-key.yc-ui-datasphere.common.port }}** — 9875.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.path }}** — `0.0.0.0`.
+      * **{{ ui-key.yc-ui-datasphere.common.port }}** — 9875.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.timeout }}** — 1.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.interval }}** — 15.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.fails-threshold }}** — 3.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.passes-threshold }}** — 3.
-1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}** выберите каталог `data-folder`.
-1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}** выберите [конфигурацию](../../datasphere/concepts/configurations.md) `g1.1`.
-1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
+   1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}** выберите каталог `data-folder`.
+   1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}** выберите [конфигурацию](../../datasphere/concepts/configurations.md) `g1.1`.
+   1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 ## Проверьте работу развернутого сервиса {#check-node}
 

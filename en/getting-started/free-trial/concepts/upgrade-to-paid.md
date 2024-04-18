@@ -1,10 +1,14 @@
 # Upgrading to the paid version
 
-You do not upgrade to the paid version automatically once the trial period ends. To upgrade to the paid version, on the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page in the management console, go to the billing account page and click **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}**.
+You do not upgrade to the paid version automatically after the trial period ends. To upgrade to the paid version, go to [{{ billing-name }}]({{ link-console-billing }}), open the billing account page and click **{{ ui-key.yacloud_billing.billing.account.dashboard.button_go-pay}}**. You can upgrade to the paid version during the free trial or 60 days after it expires with no data loss.
 
 {% note info %}
 
-You can upgrade to the paid version during the free trial or 60 days after it expires with no data loss.
+Upgrading to the paid version with the **{{ ui-key.yacloud.billing.account.overview.payment-type_label_card }}** payment method involves the risk of your billing account balance becoming negative.
+
+We recommend that you track spending on your personal account and top up the balance so that it is always positive. If your personal account balance exceeds the [billing threshold](../../../billing/concepts/billing-threshold.md) and you fail to pay the resulting arrears before the deadline set out in the agreement, {{ yandex-cloud }} reserves the right to change the status of your billing account to `SUSPENDED`.
+
+To control spending on {{ yandex-cloud }} resources more effectively, we recommend using a [budget](../../../billing/concepts/budget.md).
 
 {% endnote %}
 
@@ -13,26 +17,18 @@ You can upgrade to the paid version during the free trial or 60 days after it ex
 {% include [billing-how-to-use-grant](../../../_includes/billing-how-to-use-grant.md) %}
 
 
-The grant terms of use remain in effect when you upgrade:
+The grant terms of use remain in effect when you upgrade.
 
-{% list tabs group=accounts %}
-
-- Individual account {#individual}
-
-   A remainder of [part](../../usage-grant.md) of the grant is only used to pay for the intended service or services.
-
-- Business account {#business}
-
-   
-   The grant terms of use depend on the payment method you select when creating your billing account:
-
-   | Payment method | Using the grant |
-   | ----- | ----- |
-   | Bank transfer | The remainder of the grant can be used to pay for any {{ yandex-cloud }} services. |
-   | Bank card | The remainder of [part](../../usage-grant.md) of the grant can only be used to pay for its intended service or services. |
+The remainder of the grant can be used to pay for any {{ yandex-cloud }} services.
 
 
-{% endlist %}
+The grant terms of use depend on the payment method you select when creating your billing account:
+
+| Payment method | Using the grant |
+| ----- | ----- |
+| Bank transfer | The remainder of the grant can be used to pay for any {{ yandex-cloud }} services. |
+| Bank card | The remainder of a grant [part](../../usage-grant.md) can only be used to pay for its intended services. |
+
 
 
 
@@ -47,17 +43,6 @@ In {{ yandex-cloud }}, you pay for services based on the amount of resources con
 
 - Example 1 {#example1}
 
-   You are a resident of the Russian Federation and have registered a personal account.
-
-   In 25 days, you spent ₽1,000 on {{ compute-full-name }} and ₽2,500 on other services. As you have fully spent one of the grant parts, the trial period terminates automatically and access to {{ yandex-cloud }} services is suspended unless you upgrade to the paid version.
-
-   At the same time, you have 35 days until the grant expires (60 - 25).
-
-   If you upgrade to the paid version within 30 days, you can use the remainder of the grant until it expires:
-   - (3,000 - 2,500) = ₽500 for various services (other than {{ compute-name }}, {{ marketplace-full-name }} tools, and support services).
-
-- Example 2 {#example2}
-
    You are a resident of the Russian Federation and have registered a business account with the **{{ ui-key.yacloud.billing.account.overview.payment-type_label_card }}** payment method.
 
    In 20 days, you spent ₽500 on {{ compute-full-name }} and ₽3,000 on other services. As you have fully spent one of the grant parts, the trial period terminates automatically and access to {{ yandex-cloud }} services is suspended unless you upgrade to the paid version.
@@ -65,7 +50,7 @@ In {{ yandex-cloud }}, you pay for services based on the amount of resources con
    If you upgrade to the paid version within 60 days, you can use the remainder of the grant until it expires:
    - (1,000 - 500) = ₽500 for {{ compute-name }} services, {{ marketplace-full-name }} tools, and support services.
 
-- Example 3 {#example3}
+- Example 2 {#example2}
 
    You are a non-resident of the Russian Federation and have registered a business account with the **{{ ui-key.yacloud.billing.account.overview.payment-type_label_card }}** payment method.
 
@@ -77,7 +62,7 @@ In {{ yandex-cloud }}, you pay for services based on the amount of resources con
    - (15 - 10) = $5 for {{ compute-name }} services, {{ marketplace-full-name }} tools, and support services.
    - (50 - 30) = $20 for various services (other than {{ compute-name }}, {{ marketplace-full-name }} tools, and support services).
 
-- Example 4 {#example4}
+- Example 3 {#example3}
 
    You are a resident of the Russian Federation and have registered a business account with the **{{ ui-key.yacloud.billing.account.overview.payment-type_label_invoice }}** payment method.
 

@@ -1,1 +1,1 @@
-Пример команды с заполненным FQDN хоста доступен в [консоли управления]({{ link-console-main }}) по нажатию кнопки **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}** на странице кластера.
+Примеры кода с заполненным FQDN хоста доступны в [консоли управления]({{ link-console-main }}) по нажатию кнопки **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}** на странице кластера.

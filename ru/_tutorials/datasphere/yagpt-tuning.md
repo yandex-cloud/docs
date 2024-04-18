@@ -1,4 +1,4 @@
-В [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) можно [дообучить](../../datasphere/concepts/models/foundation-models.md#tuning-abilities) нейросеть [{{ gpt-pro }}](../../yandexgpt/concepts/index.md) определенному формату ответов или принципам анализа текста, чтобы она точнее отражала специфику ваших задач. Для этого нужно подготовить файл с парами запросов и эталонных ответов и запустить дообучение. Обучить модель новой информации, например базе знаний службы поддержки, не получится.
+В [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) можно [дообучить](../../datasphere/concepts/models/foundation-models.md#tuning-abilities) нейросеть [{{ gpt-pro }}](../../foundation-models/concepts/yandexgpt/models.md) определенному формату ответов или принципам анализа текста, чтобы она точнее отражала специфику ваших задач. Для этого нужно подготовить файл с парами запросов и эталонных ответов и запустить дообучение. Обучить модель новой информации, например базе знаний службы поддержки, не получится.
 
 {% note info %}
 
@@ -8,7 +8,7 @@
 
 {% note info %}
 
-Сервис {{ yagpt-full-name }} находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+Сервис {{ foundation-models-full-name }} находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 {% endnote %}
 
@@ -74,6 +74,8 @@
 {% endlist %}
 
 ## Подготовьте данные для обучения {#create-data}
+
+{% include [logging](../../_includes/foundation-models/yandexgpt/logging-disclaimer.md) %}
 
 {% include [fine-tuning-file-requirements](../../_includes/datasphere/fine-tuning-file-requirements.md) %}
 
@@ -188,7 +190,7 @@
     print(res.json())
     ```
 
-    Подробнее о параметрах запроса к дообученной модели см. в [документации {{ yagpt-full-name }}](../../yandexgpt/concepts/index.md).
+    Подробнее о параметрах запроса к дообученной модели см. в [документации {{ foundation-models-full-name }}](../../foundation-models/concepts/yandexgpt/index.md).
 
 - cURL {#curl}
 
