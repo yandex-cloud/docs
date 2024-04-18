@@ -79,8 +79,8 @@
       --attachements-service-account-id <идентификатор_сервисного_аккаунта> \
       --invoke-function-id <идентификатор_функции> \
       --invoke-function-service-account-id <идентификатор_сервисного_аккаунта> \
-      --retry-attempts 1 \
-      --retry-interval 10s \
+      --retry-attempts <количество_повторных_вызовов> \
+      --retry-interval <интервал_между_повторными_вызовами> \
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
@@ -126,6 +126,64 @@
     status: ACTIVE
     ```
   
+
+- {{ TF }} {#tf}
+
+    {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+    {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+    Чтобы создать триггер для почты, который вызывает функцию:
+
+    1. Опишите в конфигурационном файле параметры триггера:
+
+       ```hcl
+       resource "yandex_function_trigger" "my_trigger" {
+         name = "<имя_триггера>"
+         function {
+           id                 = "<идентификатор_функции">
+           service_account_id = "<идентификатор_сервисного_аккаунта>"
+           retry_attempts     = <количество_повторных_вызовов>
+           retry_interval     = <интервал_между_повторными_вызовами>
+         }
+         mail {
+           attachments_bucket_id = "<имя_бакета>"
+           service_account_id    = "<идентификатор_сервисного_аккаунта>"
+           batch_cutoff          = <время_ожидания>
+           batch_size            = <размер_группы_событий>
+         }
+         dlq {
+           queue_id           = "<идентификатор_очереди_DLQ>"
+           service_account_id = "<идентификатор_сервисного_аккаунта>"
+         }
+       }
+       ```
+ 
+       Где:
+ 
+       * `name` — имя триггера. Формат имени:
+ 
+          {% include [name-format](../../../_includes/name-format.md) %}
+
+       * `function` — параметры функции, которую будет запускать триггер:
+          * `id` — идентификатор функции.
+          * `service_account_id` — идентификатор сервисного аккаунта с правами на вызов функции.
+          * `retry_attempts` — количество повторных вызовов, которые будут сделаны, прежде чем триггер отправит сообщение в Dead Letter Queue. Необязательный параметр. Допустимые значения — от 1 до 5, значение по умолчанию — 1.
+          * `retry_interval` — время, через которое будет сделан повторный вызов функции, если текущий завершился неуспешно. Необязательный параметр. Допустимые значения — от 10 до 60 секунд, значение по умолчанию — 10 секунд.
+
+       {% include [trigger-tf-param](../../../_includes/functions/trigger-tf-param.md) %}
+       
+       Более подробную информацию о параметрах ресурса `yandex_function_trigger` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
+
+    1. Создайте ресурсы:
+
+        {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+    {{ TF }} создаст все требуемые ресурсы. Проверить создание триггера можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```bash
+    yc serverless trigger get <идентификатор_триггера>
+    ```
 
 - API {#api}
 

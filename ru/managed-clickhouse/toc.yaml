@@ -184,7 +184,7 @@ items:
   - name: Справочник CLI
     href: ../cli/cli-ref/managed-services/managed-clickhouse/index.md
   - name: Справочник {{ TF }}
-    href: reference/terraform.md
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -376,9 +376,9 @@ items:
               - name: get
                 href: api-ref/Operation/get.md
   - name: Метрики {{ monitoring-full-name }}
-    href: reference/monitoring.md
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
-    href: reference/audit-trails.md
+    href: at-ref.md
   - name: Публичные материалы
     href: public-talks.md
   - name: История изменений

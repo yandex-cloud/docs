@@ -26,17 +26,16 @@ You are separately charged for [data storage](#storage) in datasets and project 
 
 ### Running jobs in {{ ml-platform-name }} Jobs {#jobs}
 
-When you run computations remotely using [{{ ml-platform-name }} Jobs](concepts/jobs/index.md), you pay for the computation time in the selected computing resource configuration. You also pay for [storing data](#prices-storage) required to run jobs: their cache, logs, input data, and execution results.
+When you run computations remotely using [{{ ml-platform-name }} Jobs](concepts/jobs/index.md), you pay for the computation time in the selected computing resource configuration. You also pay for [storing data](#prices-jobs) required to run jobs: their cache, logs, input data, and execution results.
 
-### Using models {#node}
+### {{ ds-inf }} {#node}
 
-{% include [pricing nodes](../_includes/datasphere/nodes-pricing-warn.md) %}
+When deploying models with {{ ds-inf }}, you pay for the uptime of each node instance: from its start to deletion.
 
 ### Using {{ dataproc-name }} clusters {#data-proc}
 
-The cost of using integration with the {{ dataproc-name }} service takes into account:
-* {{ ml-platform-name }} c1.4 configuration computing resources.
-   These resources are created for integration with the {{ dataproc-name }} cluster and are charged while computations are running on the cluster.
+The cost of computations in {{ dataproc-name }} clusters includes:
+* Computing resources of the selected {{ ml-platform-name }} configuration.
 * The entire lifetime of the {{ dataproc-name }} cluster according to the [{{ dataproc-full-name }} pricing policy](../data-proc/pricing.md).
 
 Learn more about [integration with {{ dataproc-name }}](concepts/data-proc.md).
@@ -53,7 +52,7 @@ If you need to store large amounts of data, you can use {{ objstorage-full-name 
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-The monthly usage rate is based on 720 hours a month.
+The monthly usage rate is based on 720 hours per month.
 
 ## Examples of cost calculation {#price-example}
 
@@ -76,9 +75,9 @@ Where:
 * 600: VM usage time in seconds.
 * $0.0000096: Cost per unit.
 
-### When using models {#price-example-node}
+### {{ ds-inf }} {#price-example-node}
 
-Cost of using {{ ml-platform-name }} with the following parameters:
+Cost of using {{ ds-inf }} with the following parameters:
 
 * **Number of instances per node:** 2.
 * **Instance configuration:** g1.1 with 8 CPUs and 1 GPU.

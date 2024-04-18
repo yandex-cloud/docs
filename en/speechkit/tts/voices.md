@@ -7,10 +7,10 @@ description: "In this tutorial, you will learn about voices available in {{ spee
 
 This section provides a list of voices available in the service and their characteristics:
 
-* The main language that a voice supports. This is the language used by the speaker when creating this voice.
+* Main language that a voice supports. This is the language used by the speaker when creating this voice.
 * Voice gender: male or female.
 * Available voice [roles](index.md#role).
-   * Supported API version.
+* Supported API version.
 
 
 You can listen to voice samples on the [service page](/services/speechkit).
@@ -27,18 +27,18 @@ The table lists the properties of the supported voices that use deep neural netw
 | `he-IL` | Hebrew | `naomi` | F | (default) modern — `modern` </br> classic — `classic` |  v3 |
 | `kk-KK` | Kazakh | `amira` | F | — | v1, v3 |
 | `kk-KK` | Kazakh | `madi` | M | — | v1, v3 |
-| `ru-RU` | Russian | `alena` </br> (default) | F | (default) neutral — `neutral` </br> happy — `good` </br> | v1, v3 |
+| `ru-RU` | Russian | `alena` | F | (default) neutral — `neutral` </br> happy — `good` </br> | v1, v3 |
 | `ru-RU` | Russian | `filipp` | M | — | v1, v3 |
 | `ru-RU` | Russian | `ermil` | M | (default) neutral — `neutral` </br> happy — `good` | v1, v3 |
 | `ru-RU` | Russian | `jane` | F | (default) neutral — `neutral` </br> happy — `good` </br> angry — `evil` | v1, v3 |
 | `ru-RU` | Russian | `madirus` | M | — | v1, v3 |
 | `ru-RU` | Russian | `omazh` | F | (default) neutral — `neutral` </br> angry — `evil` | v1, v3 |
 | `ru-RU` | Russian | `zahar` | M | (default) neutral — `neutral` </br> happy — `good` | v1, v3 |
-| `ru-RU` | Russian | `dasha`  | F | (default) neutral — `neutral` </br> happy — `good`</br> friendly — `friendly` | v3 |
-| `ru-RU` | Russian | `julia`  | F | (default) neutral — `neutral` </br> stern — `strict` | v3 |
-| `ru-RU` | Russian | `lera`  | F | (default) neutral — `neutral` </br> friendly — `friendly` | v3 |
-| `ru-RU` | Russian | `masha`  | F | (default) happy — `good` </br> stern — `strict` </br> friendly — `friendly` | v3 |
-| `ru-RU` | Russian | `marina`  | F | (default) neutral — `neutral` </br> whisper— `whisper` </br> friendly — `friendly` | v3 |
+| `ru-RU` | Russian | `dasha` | F | (default) neutral — `neutral` </br> happy — `good`</br> friendly — `friendly` | v3 |
+| `ru-RU` | Russian | `julia` | F | (default) neutral — `neutral` </br> stern — `strict` | v3 |
+| `ru-RU` | Russian | `lera` | F | (default) neutral — `neutral` </br> friendly — `friendly` | v3 |
+| `ru-RU` | Russian | `masha` | F | (default) happy — `good` </br> stern — `strict` </br> friendly — `friendly` | v3 |
+| `ru-RU` | Russian | `marina` </br> (default) | F | (default) neutral — `neutral` </br> whisper — `whisper` </br> friendly — `friendly` | v3 |
 | `ru-RU` | Russian | `alexander` | M | (default) neutral — `neutral` </br> happy — `good` | v3 |
 | `ru-RU` | Russian | `kirill` | M | (default) neutral — `neutral` </br> stern — `strict` </br> happy — `good` | v3 |
 | `ru-RU` | Russian | `anton` | M | (default) neutral — `neutral` </br> happy — `good` | v3 |

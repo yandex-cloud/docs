@@ -35,7 +35,7 @@
         
         1. Для подключения к кластерам с локальной машины пользователя настройте группы безопасности:
 
-            * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
+            * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
             * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#configure-security-groups).
 
 
@@ -92,7 +92,7 @@
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../../managed-kafka/operations/connect.md#connection-string#bash).
+        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
     - [jq](https://stedolan.github.io/jq/) — для потоковой обработки JSON-файлов.
 
@@ -282,7 +282,7 @@
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
     ```
 
-    Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../../managed-kafka/operations/connect.md).
+    Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
 
 1. Проверьте, что таблица `sensors` кластера {{ mmy-name }} содержит отправленные данные:
 

@@ -12,15 +12,17 @@ Payment for {{ yandex-cloud }} services and resources will be debited from your 
 
 #### What happens after the trial period ends? Will you start debiting money right away? {#payment-after-trial}
 
-{{ yandex-cloud }} doesn't debit money and doesn't invoice you until you have switched to a paid account. The switching to paid consumption never happens automatically.
+{{ yandex-cloud }} does not debit money and does not invoice you until you have switched to a paid account. The switching to paid consumption never happens automatically.
 
 However, if your [grant](../usage-grant.md) has expired, access to your resources will be blocked for 30 days or until you switch to paid consumption. For more information about expiry of the trial period, see [{#T}](../free-trial/concepts/trial-ending.md).
+
+To activate a billing account, we require you to link a bank card to make sure that you are a human and not a robot. When linking the card, a small amount will be debited and immediately returned. That is how we verify that your card is real.
 
 ### Questions about the initial grant {#grant}
 
 #### I accidentally switched to a paid account. Did I lose my initial grant? Can I get it back? {#accidental-switching-trial}
 
-No, you cannot switch back to the trial version, but the grant will not be lost. The initial grant will be spent first. For more information about the order in which funds are spent, see [Billing cycle for individuals](../../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../../billing/payment/billing-cycle-business.md).
+No, you cannot switch back to the trial version, but the grant will not be lost. The initial grant will be used up first. For more information about the spending sequence, see [Billing cycle for businesses and individual entrepreneurs](../../billing/payment/billing-cycle-business.md).
 
 #### I have not used up the initial grant, but my cloud is blocked. What should I do? {#cloud-blocked-during-trial}
 
@@ -44,19 +46,19 @@ The {{ yandex-cloud }} platform meets the PCI DSS requirements; this is why it i
 
 {% include [contract-concept](../../_includes/billing/contract.md) %}
 
-No printed offer is provided.
+There is no print form of the offer.
 
-No physical invoice is provided, but you can generate and print it out from the console.
+The invoice is not physically provided either, but you can generate it in the console and print it out. For more information, see [{#T}](../../billing/operations/download-reporting-docs.md).
 
 #### I need a bilateral contract rather than an offer. Can I get it? {#signed-agreement}
 
-Yes, companies and individual entrepreneurs can sign a bilateral contract. Send a request using the [Message]({{ link-console-support }}) form. A {{ yandex-cloud }} manager will contact you to discuss the terms.
+Yes, companies and individual entrepreneurs can sign a bilateral contract. Submit a request using the [Message]({{ link-console-support }}) form. A {{ yandex-cloud }} manager will contact you to discuss the terms.
 
 #### How do I get invoiced? {#invoice}
 
-To get an invoice for paying at a bank office, use instructions at [{#T}](../../billing/operations/pay-the-bill.md#legal-entities).
+To get an invoice for a bank payment, follow the steps described in [{#T}](../../billing/operations/pay-the-bill.md#legal-entities).
 
-{{ yandex-cloud }} doesn't provide paper payment documents.
+{{ yandex-cloud }} does not provide paper payment documents.
 
 ## What's next? {#what-is-next}
 

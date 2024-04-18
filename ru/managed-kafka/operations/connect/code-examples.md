@@ -1,63 +1,32 @@
-### Bash {#bash}
+---
+title: "Примеры кода для подключения к кластеру {{ KF }} в {{ mkf-full-name }}"
+description: "Следуя этим примерам, вы сможете подключиться к базе данных в кластере {{ KF }} из кода вашего приложения."
+---
 
-Для подключения к кластеру {{ KF }} из командной строки используйте утилиту `kafkacat` — приложение с открытым исходным кодом, которое может работать как универсальный производитель или потребитель данных. Подробнее читайте в [документации](https://github.com/edenhill/kafkacat).
+# Примеры кода для подключения к кластеру {{ KF }}
 
-Перед подключением установите зависимости:
+Вы можете подключаться к хостам кластера {{ KF }} в публичном доступе только с использованием [SSL-сертификата](index.md#get-ssl-cert). В примерах ниже предполагается, что сертификат `{{ crt-local-file }}` расположен в директории:
 
-```bash
-sudo apt update && sudo apt install -y kafkacat
-```
+* `{{ crt-local-dir }}` для Ubuntu;
+* `$HOME\.kafka\` для Windows.
 
-{% list tabs group=connection %}
+Подключение без использования SSL-сертификата поддерживается только для хостов, находящихся не в публичном доступе. В этом случае трафик внутри виртуальной сети при подключении к БД шифроваться не будет.
 
-- Подключение без SSL {#without-ssl}
+При необходимости перед подключением [настройте группы безопасности](index.md#configuring-security-groups) кластера.
 
-  1. Запустите команду получения сообщений из топика:
+{% include [see-fqdn-in-console](../../../_includes/mdb/see-fqdn-in-console.md) %}
 
-      ```bash
-      kafkacat -C \
-               -b <FQDN_брокера>:9092 \
-               -t <имя_топика> \
-               -X security.protocol=SASL_PLAINTEXT \
-               -X sasl.mechanism=SCRAM-SHA-512 \
-               -X sasl.username="<логин_потребителя>" \
-               -X sasl.password="<пароль_потребителя>" -Z
-      ```
+Примеры проверялись в следующем окружении:
 
-     Команда будет непрерывно считывать новые сообщения из топика.
+* Виртуальная машина в {{ yandex-cloud }} с Ubuntu 20.04 LTS.
+* Bash: `5.0.16`.
+* Python: `3.8.2`, pip3: `20.0.2`.
+* Node.JS: `10.19.0`, npm: `6.14.4`.
+* OpenJDK: `11.0.8`, Maven: `3.6.3`.
+* Go: `1.13.8`.
+* mono-complete: `6.8.0.105`.
 
-  1. В отдельном терминале запустите команду отправки сообщения в топик:
-
-      ```bash
-      echo "test message" | kafkacat -P \
-             -b <FQDN_брокера>:9092 \
-             -t <имя_топика> \
-             -k key \
-             -X security.protocol=SASL_PLAINTEXT \
-             -X sasl.mechanism=SCRAM-SHA-512 \
-             -X sasl.username="<логин_производителя>" \
-             -X sasl.password="<пароль_производителя>" -Z
-      ```
-
-- Подключение с SSL {#with-ssl}
-
-    1. Запустите команду получения сообщений из топика:
-
-        {% include [default-get-string](./mkf/default-get-string.md) %}
-
-       Команда будет непрерывно считывать новые сообщения из топика.
-
-    1. В отдельном терминале запустите команду отправки сообщения в топик:
-
-        {% include [default-get-string](./mkf/default-send-string.md) %}
-
-{% endlist %}
-
-{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
-
-{% include [shell-howto](../../_includes/mdb/mkf/connstr-shell-howto.md) %}
-
-### C# {#csharp}
+## C# {#csharp}
 
 Перед подключением:
 
@@ -351,11 +320,11 @@ sudo apt update && sudo apt install -y kafkacat
 
 {% endlist %}
 
-{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+{% include [fqdn](../../../_includes/mdb/mkf/fqdn-host.md) %}
 
-{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
+{% include [code-howto](../../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
-### Go {#go}
+## Go {#go}
 
 Перед подключением:
 
@@ -769,11 +738,11 @@ sudo apt update && sudo apt install -y kafkacat
 
 {% endlist %}
 
-{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+{% include [fqdn](../../../_includes/mdb/mkf/fqdn-host.md) %}
 
-{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
+{% include [code-howto](../../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
-### Java {#java}
+## Java {#java}
 
 Перед подключением:
 
@@ -1015,7 +984,7 @@ sudo apt update && sudo apt install -y kafkacat
      cd /etc/security
      ```
 
-  1. {% include [keytool-importcert](./keytool-importcert.md) %}
+  1. {% include [keytool-importcert](../../../_includes/mdb/keytool-importcert.md) %}
 
   1. Пример кода для отправки сообщений в топик:
 
@@ -1147,11 +1116,11 @@ sudo apt update && sudo apt install -y kafkacat
 
 {% endlist %}
 
-{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+{% include [fqdn](../../../_includes/mdb/mkf/fqdn-host.md) %}
 
-{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
+{% include [code-howto](../../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
-### Node.js {#nodejs}
+## Node.js {#nodejs}
 
 Перед подключением установите зависимости:
 
@@ -1358,113 +1327,11 @@ npm install node-rdkafka
 
 {% endlist %}
 
-{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+{% include [fqdn](../../../_includes/mdb/mkf/fqdn-host.md) %}
 
-{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
+{% include [code-howto](../../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
-### PowerShell {#powershell}
-
-Перед подключением:
-
-1. Установите последнюю доступную версию [Microsoft OpenJDK](https://docs.microsoft.com/en-us/java/openjdk/download).
-
-1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/downloads) для версии {{ KF }}, которая используется в кластере. Версия Scala неважна.
-
-1. Распакуйте архив.
-
-   {% note tip %}
-
-   Распаковывайте файлы {{ KF }} в корневой каталог диска, например, `C:\kafka_2.12-2.6.0\`. 
-   
-   Если путь к исполняемым и пакетным файлам {{ KF }} будет слишком длинным, то при попытке запустить их возникнет ошибка `The input line is too long`.
-
-   {% endnote %}
-
-{% list tabs group=connection %}
-
-- Подключение без SSL {#without-ssl}
-
-  1. Запустите команду получения сообщений из топика:
-
-      ```powershell
-      <путь_к_директории_с_файлами_Apache_Kafka>\bin\windows\kafka-console-consumer.bat `
-          --bootstrap-server <FQDN_брокера>:9092 `
-          --topic <имя_топика> `
-          --property print.key=true `
-          --property key.separator=":" `
-          --consumer-property security.protocol=SASL_PLAINTEXT `
-          --consumer-property sasl.mechanism=SCRAM-SHA-512 `
-          --consumer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин_потребителя>' password='<пароль_потребителя>';" 
-      ```
-
-      Команда будет непрерывно считывать новые сообщения из топика.
-
-  1. В отдельном терминале запустите команду отправки сообщения в топик:
-      
-      ```powershell
-      echo "key:test message" | <путь_к_директории_с_файлами_Apache_Kafka>\bin\windows\kafka-console-producer.bat `
-          --bootstrap-server <FQDN_брокера>:9092 `
-          --topic <имя_топика> `
-          --property parse.key=true `
-          --property key.separator=":" `
-          --producer-property acks=all `
-          --producer-property security.protocol=SASL_PLAINTEXT `
-          --producer-property sasl.mechanism=SCRAM-SHA-512 `
-          --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин_производителя>' password='<пароль_производителя>';"
-      ```
-
-- Подключение с SSL {#with-ssl}
-
-  1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ KF }} мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль в параметре `--storepass` для дополнительной защиты хранилища:
-
-     ```powershell
-     keytool.exe -importcert -alias {{ crt-alias }} `
-       --file $HOME\.kafka\{{ crt-local-file }} `
-       --keystore $HOME\.kafka\ssl `
-       --storepass <пароль_хранилища_сертификатов> `
-       --noprompt
-     ```
-  
-  1. Запустите команду получения сообщений из топика:
-
-      ```powershell
-      <путь_к_директории_с_файлами_Apache_Kafka>\bin\windows\kafka-console-consumer.bat `
-          --bootstrap-server <FQDN_брокера>:9091 `
-          --topic <имя_топика> `
-          --property print.key=true `
-          --property key.separator=":" `
-          --consumer-property security.protocol=SASL_SSL `
-          --consumer-property sasl.mechanism=SCRAM-SHA-512 `
-          --consumer-property ssl.truststore.location=$HOME\.kafka\ssl `
-          --consumer-property ssl.truststore.password=<пароль_хранилища_сертификатов> `
-          --consumer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин_потребителя>' password='<пароль_потребителя>';"
-      ```
-
-     Команда будет непрерывно считывать новые сообщения из топика.
-
-  1. В отдельном терминале запустите команду отправки сообщения в топик:
-     
-      ```powershell
-      echo "key:test message" | <путь_к_директории_с_файлами_Apache_Kafka>\bin\windows\kafka-console-producer.bat `
-          --bootstrap-server <FQDN_брокера>:9091 `
-          --topic <имя_топика> `
-          --property parse.key=true `
-          --property key.separator=":" `
-          --producer-property acks=all `
-          --producer-property security.protocol=SASL_SSL `
-          --producer-property sasl.mechanism=SCRAM-SHA-512 `
-          --producer-property ssl.truststore.location=$HOME\.kafka\ssl `
-          --producer-property ssl.truststore.password=<пароль_хранилища_сертификатов> `
-          --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин_производителя>' password='<пароль_производителя>';"
-      ```
-
-{% endlist %}
-
-{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
-
-{% include [shell-howto](../../_includes/mdb/mkf/connstr-shell-howto.md) %}
-
-### Python (kafka-python) {#kafka-python}
+## Python (kafka-python) {#kafka-python}
 
 Перед подключением установите зависимости:
 
@@ -1583,11 +1450,11 @@ pip3 install kafka-python lz4 python-snappy crc32c
 
 {% endlist %}
 
-{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+{% include [fqdn](../../../_includes/mdb/mkf/fqdn-host.md) %}
 
-{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
+{% include [code-howto](../../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
-### Python (confluent-kafka) {#confluent-kafka-python}
+## Python (confluent-kafka) {#confluent-kafka-python}
 
 Перед подключением установите зависимости:
 
@@ -1735,6 +1602,6 @@ pip install confluent_kafka
 
 {% endlist %}
 
-{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+{% include [fqdn](../../../_includes/mdb/mkf/fqdn-host.md) %}
 
-{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
+{% include [code-howto](../../../_includes/mdb/mkf/connstr-code-howto.md) %}

@@ -129,6 +129,81 @@
     status: ACTIVE
     ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать триггер для {{ yds-name }}:
+
+  1. Опишите в конфигурационном файле параметры триггера:
+
+     ```
+     resource "yandex_function_trigger" "my_trigger" {
+       name = "<имя_триггера>"
+       container {
+         id                 = "<идентификатор_контейнера>"
+         service_account_id = "<идентификатор_сервисного_аккаунта>"
+         retry_attempts     = "<количество_повторных_вызовов>"
+         retry_interval     = "<интервал_между_повторными_вызовами>"
+       }
+       data_streams {
+         stream_name        = "<имя_потока_данных>"
+         database           = "<размещение_базы_данных>"
+         service_account_id = "<идентификатор_сервисного_аккаунта>"
+         batch_cutoff       = "<время_ожидания>"
+         batch_size         = "<размер_группы_событий>"
+       }
+       dlq {
+         queue_id           = "<идентификатор_очереди>"
+         service_account_id = "<идентификатор_сервисного_аккаунта>"
+       }
+     }
+     ```
+
+     Где:
+
+     * `name` — имя триггера. Формат имени:
+
+          {% include [name-format](../../_includes/name-format.md) %}
+
+     * `container` — параметры контейнера, который будет запускать триггер:
+
+         {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
+
+         * `retry_attempts` — количество повторных вызовов, которые будут сделаны, прежде чем триггер отправит сообщение в Dead Letter Queue. Необязательный параметр. Допустимые значения — от 1 до 5, значение по умолчанию — 1.
+         * `retry_interval` — время, через которое будет сделан повторный вызов контейнера, если текущий завершился неуспешно. Необязательный параметр. Допустимые значения — от 10 до 60 секунд, значение по умолчанию — 10 секунд.
+     
+     * `data_streams` — параметры потока данных {{ yds-name }}:
+         * `stream_name` — имя потока данных.
+         * `database` — размещение базы данных {{ ydb-short-name }}, к которой привязан поток {{ yds-name }}.
+
+             Чтобы узнать, где размещена база данных, выполните команду `yc ydb database list`. Размещение базы данных указано в столбце `ENDPOINT`, в параметре `database`, например `/ru-central1/b1gia87mba**********/etn7hehf6g*******`.
+
+         * `service_account_id` — сервисный аккаунт с правами на чтение из потока {{ yds-name }}  и запись в него.
+
+         {% include [tf-batch-msg-params](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
+
+     * `dlq` — параметры очереди Dead Letter Queue:
+         * `queue_id` — идентификатор очереди.
+
+             {% include [ymq-id](../../_includes/serverless-containers/ymq-id.md) %}
+
+         * `service_account_id` — сервисный аккаунт с правами на запись в очередь Dead Letter Queue.
+
+     Более подробную информацию о параметрах ресурса `yandex_function_trigger` см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
+
+  1. Создайте ресурсы:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+        ```bash
+        yc serverless trigger list
+        ```
+
 - API {#api}
 
   Чтобы создать триггер для {{ yds-name }}, воспользуйтесь методом REST API [create](../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create).

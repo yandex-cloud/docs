@@ -28,7 +28,7 @@
        1. [Создайте кластер-приемник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
        
-        1. Если вы используете группы безопасности, [настройте их так, чтобы к кластеру можно было подключаться из интернета](../../managed-kafka/operations/connect.md#configuring-security-groups).
+        1. Если вы используете группы безопасности, [настройте их так, чтобы к кластеру можно было подключаться из интернета](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 
 
        1. Настройте в кластере-приемнике топики {{ KF }}. Настройки различаются в зависимости от используемого [способа управления топиками](../../managed-kafka/concepts/topics.md#management). Имена топиков для данных формируются как `<префикс_топика>.<имя_таблицы_{{ ydb-short-name}}>`. В этом руководстве в качестве примера используется префикс `cdc`.
@@ -108,7 +108,7 @@
     sudo apt update && sudo apt install --yes kafkacat
     ```
 
-    Убедитесь, что можете с ее помощью [подключиться к кластеру-приемнику {{ mkf-name }} через SSL](../../managed-kafka/operations/connect.md#connection-string).
+    Убедитесь, что можете с ее помощью [подключиться к кластеру-приемнику {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
 ## Подготовьте источник {#prepare-source}
 

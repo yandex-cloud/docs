@@ -39,7 +39,7 @@
 Чтобы воспользоваться этим реестром, включите соответствующую опцию при [создании](../operations/cluster-create.md) или [обновлении](../operations/cluster-update.md#change-additional-settings) кластера.
 
 
-Для работы с {{ mkf-msr }} требуется дополнительная [настройка групп безопасности](../operations/connect.md#configuring-security-groups).
+Для работы с {{ mkf-msr }} требуется дополнительная [настройка групп безопасности](../operations/connect/index.md#configuring-security-groups).
 
 
 ## Субъекты в {{ mkf-msr }} {#subjects}

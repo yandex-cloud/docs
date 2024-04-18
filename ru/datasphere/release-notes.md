@@ -54,7 +54,7 @@
 
 ## Релиз 10.10.2023 {#101023}
 
-1. Дообученные модели {{ yagpt-name }} можно опробовать прямо в {{ ml-platform-name }}. {{ yagpt-name }} Playground {{ ml-platform-name }} доступен после [дообучения](../glossary/ml-models.md#fine-tuning) тем, у кого есть доступ к сервису [{{ yagpt-name }}](../yandexgpt/).
+1. Дообученные модели {{ yagpt-name }} можно опробовать прямо в {{ ml-platform-name }}. {{ yagpt-name }} Playground в {{ ml-platform-name }} доступен после [дообучения](../glossary/ml-models.md#fine-tuning) тем, у кого есть доступ к {{ yagpt-full-name }}.
 1. Появилась возможность [подключения](operations/projects/remote-connect.md) к {{ jlab }}Lab проекта {{ ml-platform-name }} из локальной IDE.
 1. Исправлены ошибки и добавлены небольшие улучшения в работе платформы.
 

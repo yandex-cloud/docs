@@ -29,7 +29,7 @@
 - Вручную {#manual}
 
    
-   1. [Настройте группу безопасности](../../managed-kafka/operations/connect.md#configuring-security-groups) для кластера {{ mkf-name }} и ВМ так, чтобы к топикам можно было подключаться с ВМ в Облаке.
+   1. [Настройте группу безопасности](../../managed-kafka/operations/connect/index.md#configuring-security-groups) для кластера {{ mkf-name }} и ВМ так, чтобы к топикам можно было подключаться с ВМ в Облаке.
 
 
    1. [Создайте кластер](../../managed-kafka/operations/cluster-create.md) {{ mkf-name }}. При создании укажите настроенную группу безопасности.
@@ -177,7 +177,7 @@
 
    1. Настройте единую группу безопасности:
 
-      * [Для кластера {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups) так, чтобы можно было подключаться к топикам через интернет.
+      * [Для кластера {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups) так, чтобы можно было подключаться к топикам через интернет.
       * [Для кластера и группы узлов](../../managed-kubernetes/operations/connect/security-groups.md) {{ managed-k8s-name }}.
 
    1. [Создайте кластер](../../managed-kafka/operations/cluster-create.md) {{ mkf-name }}. При создании укажите настроенную группу безопасности.

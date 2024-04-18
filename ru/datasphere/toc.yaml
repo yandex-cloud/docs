@@ -54,6 +54,8 @@ items:
             href: operations/projects/delete-user.md
           - name: Использовать ресурс с совместным доступом
             href: operations/projects/use-shared-resource.md
+          - name: Решение проблем
+            href: operations/projects/debugging-tools.md
       - name: '{{ ds-nb }}'
         items:
           - name: Подключиться к JupyterLab из локальной IDE

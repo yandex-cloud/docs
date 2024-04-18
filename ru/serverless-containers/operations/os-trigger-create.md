@@ -140,11 +140,11 @@
          retry_interval     = "<интервал_между_повторными_вызовами>"
        }
        object_storage {
-          bucket_id    = "<идентификатор_бакета>"
-          create       = true
-          delete       = true
-          batch_cutoff = "<время_ожидания>"
-          batch_size   = "<размер_группы_событий>"
+         bucket_id    = "<идентификатор_бакета>"
+         create       = true
+         delete       = true
+         batch_cutoff = "<время_ожидания>"
+         batch_size   = "<размер_группы_событий>"
        }
        dlq {
          queue_id           = "<идентификатор_очереди_DLQ>"

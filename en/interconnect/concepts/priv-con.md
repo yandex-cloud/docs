@@ -1,10 +1,10 @@
 # Private connection
 
-A private connection is a logical connection to your cloud [network](../../vpc/concepts/network.md#network), which is set up within a [trunk](./trunk.md). There can be multiple private connections to different cloud networks in a single trunk.
+A private connection is a logical connection to your cloud [network](../../vpc/concepts/network.md#network), which is set up within a [trunk](./trunk.md). You can have multiple private connections to different cloud networks in a single trunk.
 
 {% note warning %}
 
-You cannot set up multiple private connections to a single cloud network in one [point of presence](./pops.md). For redundancy purposes, you can set up multiple private connections in a cloud network at different [points of presence](./pops.md), but no more than one such private connection in a given point of presence.
+You cannot set up multiple private connections to a single cloud network in one [point of presence](./pops.md). For redundancy purposes, you can set up multiple private connections in a cloud network at different [points of presence](./pops.md), but no more than one such private connection per point of presence.
 
 {% endnote %}
 
@@ -29,7 +29,7 @@ IP addressing in other ranges is not allowed.
 
 {% note info %}
 
-When you set up a private connection, only IPv4 addresses are used.
+When setting up a private connection, you can only use IPv4 addresses.
 Currently, you cannot use IPv6 addresses.
 
 {% endnote %}
@@ -42,45 +42,45 @@ Currently, you cannot use IPv6 addresses.
 
 The following private connection setup options are supported:
 
-* [A private connection via a direct client connection](#prc-direct-link).
-* [A private connection via a telecom provider connection (L2 transit)](#prc-sp-l2).
-* [A private connection via a telecom provider connection (L3VPN)](#prc-sp-l3vpn).
+* [Private connection through a direct client connection](#prc-direct-link)
+* [Private connection through a telecom provider connection (L2 transit)](#prc-sp-l2)
+* [Private connection through a telecom provider connection (L3VPN)](#prc-sp-l3vpn)
 
-### A private connection via a direct client connection {#prc-direct-link}
+### Private connection through a direct client connection {#prc-direct-link}
 
 
 ![prc-direct-link](../../_assets/interconnect/interconnect-bgp-1.svg)
 
 
 
-L3 and BGP connectivity is set up between the client equipment at the point of presence and the {{ yandex-cloud }} equipment. In which case:
+This scenario implies setting up L3 and BGP connectivity between the client equipment at the point of presence and the {{ yandex-cloud }} equipment. In this case:
 
-* You should ensure L3 connectivity from the equipment in your data center to your own equipment at the point of presence yourself.
-* BGP connectivity is set up between your equipment at the point of presence and the {{ yandex-cloud }} equipment.
+* It is your responsibility to ensure L3 connectivity from the equipment in your data center to your own equipment at the point of presence.
+* You set up BGP connectivity between your equipment at the point of presence and the {{ yandex-cloud }} equipment.
 * All route announcements over BGP from your equipment at the point of presence enter all {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md).
 
-### A private connection via a telecom provider connection (L2 transit) {#prc-sp-l2}
+### Private connection via a telecom provider connection (L2 transit) {#prc-sp-l2}
 
 
 ![prc-sp-l2](../../_assets/interconnect/interconnect-bgp-2.svg)
 
 
 
-You do not have your own equipment at the point of presence and you use services of a telecom provider that ensures connectivity between {{ yandex-cloud }} and your own equipment. In which case:
-* L2 connectivity is set up by the telecom provider between its equipment at the point of presence and the {{ yandex-cloud }} equipment.
+This scenario assumes you do not have your own equipment at the point of presence and you use the services of a telecom provider that ensures connectivity between {{ yandex-cloud }} and your own equipment. In this case:
+* The telecom provider sets up L2 connectivity between its equipment at the point of presence and the {{ yandex-cloud }} equipment.
 * L3 and BGP connectivity is set up between your equipment in your data center and the {{ yandex-cloud }} equipment at the point of presence.
 * All route announcements over BGP from your equipment in your data center reach all {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md).
 
-### A private connection via a telecom provider connection (L3VPN) {#prc-sp-l3vpn}
+### Private connection through a telecom provider connection (L3VPN) {#prc-sp-l3vpn}
 
 
 ![prc-sp-l3vpn](../../_assets/interconnect/interconnect-bgp-3.svg)
 
 
 
-You do not have your own equipment at the point of presence and you use services of a telecom provider that ensures connectivity between {{ yandex-cloud }} and your own equipment. You cannot set up BGP connectivity to the {{ yandex-cloud }} equipment on your own, technically. In which case:
+This scenario also assumes you do not have your own equipment at the point of presence and you use the services of a telecom provider that ensures connectivity between {{ yandex-cloud }} and your own equipment. You cannot set up BGP connectivity to the {{ yandex-cloud }} equipment on your own, technically. In this case:
 
-* L2 connectivity is set up by the telecom provider between its equipment at the point of presence and the {{ yandex-cloud }} equipment.
+* The telecom provider sets up L2 connectivity between its equipment at the point of presence and the {{ yandex-cloud }} equipment.
 * L3 and BGP connectivity to {{ yandex-cloud }} is set up between the telecom provider's equipment and the {{ yandex-cloud }} equipment at the point of presence. This connection becomes a part of the client L3VPN, which ensures direct connectivity between your equipment in their data center and {{ yandex-cloud }}.
 * All route announcements over BGP from the telecom provider's equipment at the point of presence enter all {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md).
 * While providing the L3VPN service, the telecom provider can use both static and dynamic routing protocols.
@@ -89,12 +89,12 @@ You do not have your own equipment at the point of presence and you use services
 ## Cloud subnet announcements and communication with {{ vpc-short-name }} {#prc-announce}
 
 To connect one or more cloud subnets to a private connection, you need to have the following:
-* The ID of the virtual network (`vpc_net_id`) to connect to a trunk connection.
-* List of announced IPv4 prefixes of virtual network [subnets](../../vpc/concepts/network.md#subnet) distributed across [availability zones](../../overview/concepts/geo-scope.md). Typically, prefixes correspond to the subnets configured in your cloud. In this case, the announced prefixes and the actual subnet address ranges match.
+* ID of the virtual network (`vpc_net_id`) to connect to a trunk.
+* List of announced IPv4 prefixes of virtual network [subnets](../../vpc/concepts/network.md#subnet) distributed across [availability zones](../../overview/concepts/geo-scope.md). Typically, prefixes refer to the subnets configured in your cloud. In this case, the announced prefixes and the actual subnet address ranges match.
 
-New subnets that will be created in the virtual network later will not be announced to a {{ interconnect-name }} private connection automatically.
+New subnets that will be created in the virtual network later will not be announced to the {{ interconnect-name }} private connection automatically.
 
-To add a new subnet to an existing private connection, contact [support]({{ link-console-support }}) with a request to add a new announcement to the respective {{ interconnect-name }} private connection.
+To add a new subnet to the existing private connection, contact [support]({{ link-console-support }}) with a request to add a new announcement to the respective {{ interconnect-name }} private connection.
 
 {% note warning %}
 
@@ -102,13 +102,13 @@ When using {{ yandex-cloud }} load balancers:
 * [{{ network-load-balancer-short-name }}](../../network-load-balancer/) (NLB)
 * [{{ alb-name }}](../../application-load-balancer/) (ALB)
 
-their listeners' addresses are announced as IPv4 prefixes with the length of `/32`.
+their listener addresses are announced as IPv4 prefixes with the length of `/32`.
 
 This enables you to use load balancers to distribute traffic coming from your infrastructure via {{ interconnect-name }} between cloud resources in different {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md).
 
 {% endnote %}
 
-Your equipment announces IPv4 prefixes from your infrastructure over BGP to the {{ yandex-cloud }} equipment. You can use the following types of prefixes in announcements:
+Your equipment announces IPv4 prefixes from your infrastructure over BGP to the {{ yandex-cloud }} equipment. You can use the following types of prefixes in the announcements:
 * Private IP subnets from [RFC-1918](https://www.ietf.org/rfc/rfc1918.txt)
 * Default route: `0.0.0.0/0`
 * Public IP subnets

@@ -4,40 +4,57 @@
 
 Technology specialization advantages:
 
-* Increased revenue from selling specialization services.
-* Early access to updates and the possibility to influence the development road map.
-* Co-financing of customer maintenance activities for migrating to {{ yandex-cloud }}.
-* Dedicated partner account manager and access to {{ yandex-cloud }} in-house resources.
-* Grants for computing resources, pilot projects, and testing.
-* Co-financing of marketing activities and joint customer acquisition.
+* Increased rewards
+* Co-selling and priority access lo leads
+* Co-funding of pilot projects and pilot grants
+* Marketing support
+* Dedicated DevOps and Data Platform architects
+* Projects with the Professional Services team
+* Early access to services in Technical Preview
+* Grants for professional training programs and demo stands up to 150,000 rubles
 
 ## Types of technology specializations {#spec-types}
 
-### Infrastructure & DevOps {#infra-spec}
+### Infrastructure {#infra-spec}
 
-Configuring and deploying the IT infrastructure for customers, providing access to all the required resources for application development, testing, and launch.
+1. Migrating infrastructure to {{ yandex-cloud }}.
+1. IT infrastructure configuration and deployment.
+1. Creating multi-cloud or hybrid infrastructure.
+1. Deploying business applications in {{ yandex-cloud }}.
+
+### DevOps {#devops-spec}
+
+1. Creating a microservice architecture.
+1. Automated development environment.
+1. Creating digital products and services for the customer.
 
 ### ML & AI {#ml-spec}
 
-Developing smart voice assistants and building customized state-of-the-art solutions based on AI technology.
+1. Building intelligent voice assistants.
+1. Call center automation.
+1. Speech analytics.
+1. AI-enabled solutions.
 
 ### Data Platform {#platform-spec}
 
-Building a platform for big data processing and developing advanced analytical solutions to easily deal with any load and information volume.
+1. Enterprise data storage.
+1. Machine learning for data analytics.
+1. Real-time analytics.
 
-### Business Tools ({{ tracker-full-name }}) {#tracker-spec}
+### Security Compliance {#secom-spec}
 
-Projects for implementation, configuration, and support of [{{ tracker-full-name }}](../../tracker/index.yaml), a service for business collaboration and workflow management.
+1. Audit for compliance with {{ yandex-cloud }} security standards.
+1. Audit for compliance with industry standards and regulatory requirements.
 
 ## Rewards for partners {#award}
 
-A specializations reward is credited as a [rebate](../terms.md#rebate) for use of specialization services by subaccounts:
+A specialization reward is credited as a [rebate](../terms.md#rebate):
 
-* **Infrastructure & DevOps**: 3%
-* **Data Platform**: 5%
-* **ML & AI**: 10%
-* **Business Tools**: 30%
+* **Infrastructure**: 10% of paid consumption increase across [subaccounts](../terms.md#subaccount) and registered [projects](../program/var-tools.md#project-reg).
+* **DevOps**: 10% of paid consumption increase across subaccounts and registered projects.
+* **Data Platform**: 10% of paid consumption increase across subaccounts and registered projects.
+* **ML & AI**: 10% of paid specialization service consumption across subaccounts.
 
 A rebate is credited for each quarter during which a partner had an active specialization. Accrued rebates are displayed in the [partner portal]({{ link-cloud-partners }}) under **Rebate accrual balance**.
 
-For more information about granting partner bonuses, see the [Partner Agreement](https://yandex.ru/legal/cloud_partnership/?lang=en).
+For more information on getting partner rewards, see the [Partner Agreement](https://yandex.ru/legal/cloud_partnership/?lang=en).

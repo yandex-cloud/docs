@@ -74,35 +74,31 @@
   [Выдайте разрешение](cluster-users.md#updateuser) на доступ к созданной базе данных нужным пользователям кластера.
 
 - {{ TF }} {#tf}
-  
+
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  
-        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-  
-    1. Добавьте к описанию кластера {{ mmg-name }} блок `database`:
-  
+
+        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+    1. Добавьте ресурс `yandex_mdb_mongodb_database`:
+
         ```hcl
-        resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
-          ...
-          database {
-            name = "<имя_БД>"
-          }
+        resource "yandex_mdb_mongodb_database" "<имя_БД>" {
+          cluster_id = "<идентификатор_кластера>"
+          name       = "<имя_БД>"
         }
         ```
 
         {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
-  
-    1. Проверьте корректность настроек.
-  
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
-    1. Подтвердите изменение ресурсов.
-  
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-  
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_database).
 
 - API {#api}
 
@@ -141,24 +137,22 @@
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
-  
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  
-       О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-  
-    1. Удалите из описания кластера {{ mmg-name }} блок `database` с именем удаляемой базы данных.
-  
-    1. Проверьте корректность настроек.
-  
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
-    1. Подтвердите изменение ресурсов.
-  
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-  
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+    1. Удалите ресурс `yandex_mdb_mongodb_database` с именем удаляемой базы данных.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_database).
 
 - API {#api}
 

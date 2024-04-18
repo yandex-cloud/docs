@@ -54,10 +54,6 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 * [{{ vision-full-name }}](../vision/release-notes.md)
 * [{{ yagpt-full-name }}](../yandexgpt/release-notes.md)
 
-## Security {#security}
-
-* [{{ at-full-name }}](../audit-trails/release-notes.md)
-
 ## Business tools {#business-tools}
 
 * [{{ datalens-full-name }}](../datalens/release-notes/index.md)

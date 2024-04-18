@@ -36,7 +36,7 @@ To get started in {{ yandex-cloud }}:
       * Specify the folder ID in the `x-folder-id` header.
 
       ```json
-      Authorization: Bearer <IAM_token> 
+      Authorization: Bearer <IAM_token>
       x-folder-id: <folder_ID>
       ```
 

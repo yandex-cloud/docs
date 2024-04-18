@@ -62,7 +62,7 @@ Where:
 
 {% note warning %}
 
-The prices below are effective as of March 25, 2024.
+The prices below will take effect on March 25, 2024.
 
 {% endnote %}
 
