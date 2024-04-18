@@ -1,6 +1,6 @@
 # {{ yagpt-full-name }} models
 
-{{ yagpt-full-name }} provides access to large generative text neural networks. These are: {{ gpt-lite }}, a common one that is suitable for real-time task solving; {{ gpt-pro }}, a large one, based on {{ yagpt-name }} 3, which provides more accurate answers to complex questions; and a special model for summarizing, based on {{ gpt-lite }}.
+{{ yagpt-full-name }} provides access to large text generative neural networks: the standard {{ gpt-lite }} suitable for real-time tasks, the large {{ yagpt-name }} 3-based {{ gpt-pro }}, which is more accurate when it comes to sophisticated prompts, and the special {{ gpt-lite }}-based summary model.
 
 If out-of-the-box models are not enough, you can [fine-tune](../../tutorials/yagpt-tuning) {{ gpt-pro }} in [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) for it to better respond to your requests.
 

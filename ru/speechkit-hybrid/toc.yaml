@@ -14,8 +14,12 @@ items:
     hidden: true
   - name: Архитектура сервиса
     href: architecture.md
-  - name: Начало работы
-    href: quickstart.md
+  - name: Создание демонстрационного стенда
+    items:
+      - name: Создание стенда {{ sk-hybrid-name }}
+        href: quickstart.md
+      - name: Поиск и устранение ошибок
+        href: quickstart-debugging.md
   - name: Распознавание речи
     items:
       - name: О технологии

@@ -194,7 +194,7 @@
          /etc/kafka-connect-worker/file-connector.properties
     ```
 
-1. Подключитесь к кластеру [с помощью kcat](../../managed-kafka/operations/connect.md#bash) и получите данные из топика кластера:
+1. Подключитесь к кластеру [с помощью kcat](../../managed-kafka/operations/connect/clients.md#bash-zsh) и получите данные из топика кластера:
 
     ```bash
     kafkacat -C \

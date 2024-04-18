@@ -30,12 +30,18 @@ items:
             href: operations/host-migration.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
-      - name: Топики
+      - name: Подключение
         items:
-          - name: Подключение к топикам в кластере
-            href: operations/connect.md
-          - name: Работа с топиками и разделами
-            href: operations/cluster-topics.md
+          - name: Предварительная настройка
+            href: operations/connect/index.md
+          - name: FQDN хостов
+            href: operations/connect/fqdn.md
+          - name: Подключение из приложений
+            href: operations/connect/clients.md
+          - name: Примеры кода
+            href: operations/connect/code-examples.md
+      - name: Управление топиками
+        href: operations/cluster-topics.md
       - name: Управление пользователями
         href: operations/cluster-accounts.md
       - name: Управление коннекторами
@@ -254,7 +260,7 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
-  - name: Метрики {{ monitoring-name }}
+  - name: Метрики {{ monitoring-full-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

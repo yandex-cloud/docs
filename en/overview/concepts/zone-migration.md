@@ -15,7 +15,7 @@ We will be discontinuing the `{{ region-id }}-c` zone in multiple steps. In Q1 2
 As soon as the migration due date is reached, we will forcibly migrate your resources from the `{{ region-id }}-c` zone. This will include:
 
 * Creating backups on your network disks located in the `{{ region-id }}-c` zone and migrating your disks to the `{{ region-id }}-d` zone.
-* Migrating your VMs to the `{{ region-id }}-d` availability zone. When being migrated, your resources will be stopped, and their network settings, subnets, IP addresses, and FQDNs will change. Then, they will be launched in the new availability zone.
+* Migrating your VMs to the `{{ region-id }}-d` availability zone. When being migrated, your resources will be stopped, and their network settings, subnets, IP addresses, and FQDNs will change. Then, they will be launched in the new availability zone. Sometimes, your resources may not start correctly in the new zone due to [technical reasons](#technical-risks).
 * When migrating {{ managed-k8s-name }} and managed database resources: backing up your data and migrating your resources to `{{ region-id }}-d` with reconfiguration of network settings, subnets, IP addresses, and FQDNs.
 
 During this forced migration, your resources will get new public and internal IP addresses. This may lead to losing network access to the resources through the previous IP addresses; you may also have to update your firewall and DNS configuration, as well as other settings that depend on the addresses your resources refer to.
@@ -24,7 +24,7 @@ During the forced migration, your services may also become unavailable.
 
 To keep your services available and minimize your risks, make sure to migrate your resources from the `{{ region-id }}-c` zone on your own before the deadline.
 
-### What risks does the forcible migration carry? {#technical-risks}
+### What are the risks of forced migration? {#technical-risks}
 
 Sometimes, we may not be able to correctly migrate your resources to `{{ region-id }}-d` due to technical reasons. This may apply to any resources that still reside in `{{ region-id }}-c` once the migration deadline is over.
 
@@ -44,11 +44,11 @@ You can contact [our partners](./zone-migration-partners.md) for assistance and 
 ## Recommended migration process {#migration-best-practices}
 
 1. For all networks, [create a new subnet](../../vpc/operations/subnet-create.md) in the `{{ region-id }}-d` zone.
-1. (Optional) If you are using {{ interconnect-name }}, contact [support]({{ link-console-support }}) to configure the new subnet. To complete the subnet configuration, you must create any resource (e.g., a VM) and connect it to the subnet to correctly announce the new subnet's routing information in {{ interconnect-name }}.
+1. Optionally, if you are using {{ interconnect-name }}, contact [support]({{ link-console-support }}) to configure the new subnet. To complete the subnet configuration, you must create any resource (e.g., a VM) and connect it to the subnet to correctly announce the new subnet's routing information in {{ interconnect-name }}.
 1. Migrate your resources to the new availability zone:
    1. [VM instances](#compute) (one by one or by expanding the instance group).
    1. [Database hosts](#mdb).
-   1. (Optional) [Restart](../../data-transfer/operations/transfer.md) the linked {{ data-transfer-name }} transfers.
+   1. Optionally, [restart](../../data-transfer/operations/transfer.md) the linked {{ data-transfer-name }} transfers.
    1. [{{ managed-k8s-name }} master hosts and node groups](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md).
 1. If you were using [network](../../network-load-balancer/operations/load-balancer-change-zone.md) or [L7 load balancers](../../application-load-balancer/operations/application-load-balancer-relocate.md), add the resources you want to migrate to their target groups. Enable ingress traffic in the new availability zone for the L7 load balancers.
 1. Make sure the subnets in `{{ region-id }}-c` have no resources left. Delete any remaining resources.

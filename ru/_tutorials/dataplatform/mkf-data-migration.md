@@ -26,7 +26,7 @@
     1. Подготовьте кластер-приемник:
         * Создайте [пользователя-администратора](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `admin-cloud`.
         * Включите настройку [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
-        * Настройте [группы безопасности](../../managed-kafka/operations/connect.md#configuring-security-groups), если это требуется для подключения к кластеру-приемнику.
+        * Настройте [группы безопасности](../../managed-kafka/operations/connect/index.md#configuring-security-groups), если это требуется для подключения к кластеру-приемнику.
 
     1. Создайте в кластере-источнике пользователя `admin-source` с правом управления топиками через Admin API.
     1. Убедитесь, что настройки сети, в которой размещен кластер-источник, разрешают подключение к нему из интернета.
@@ -183,9 +183,9 @@
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику и кластеру-приемнику через SSL](../../managed-kafka/operations/connect.md#connection-string).
+        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику и кластеру-приемнику через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-1. Настройте межсетевой экран (firewall) и [группы безопасности](../../managed-kafka/operations/connect.md#configuring-security-groups), если это требуется для подключения MirrorMaker к кластеру-приемнику и кластеру-источнику.
+1. Настройте межсетевой экран (firewall) и [группы безопасности](../../managed-kafka/operations/connect/index.md#configuring-security-groups), если это требуется для подключения MirrorMaker к кластеру-приемнику и кластеру-источнику.
 
 ### Настройте конфигурацию MirrorMaker {#configure-mirrormaker}
 

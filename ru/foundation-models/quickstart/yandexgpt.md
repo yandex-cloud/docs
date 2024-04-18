@@ -46,11 +46,7 @@
 
 ## Сгенерируйте текст {#generate-text}
 
-{% note info %}
-
-Чтобы повышать качество генерируемых ответов, {{ yagpt-full-name }} логирует промты пользователей. Не передавайте в запросах чувствительную информацию и персональные данные.
-
-{% endnote %}
+{% include [logging](../../_includes/foundation-models/yandexgpt/logging-disclaimer.md) %}
 
 {% list tabs group=instructions %}
 

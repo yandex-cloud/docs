@@ -137,9 +137,9 @@
        name        = "<имя_триггера>"
        description = "<описание_триггера>"
        object_storage {
-          bucket_id = "<идентификатор_бакета>"
-          create    = true
-          update    = true
+         bucket_id = "<идентификатор_бакета>"
+         create    = true
+         update    = true
        }
        function {
          id                 = "<идентификатор_функции>"

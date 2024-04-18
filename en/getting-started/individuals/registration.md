@@ -11,15 +11,7 @@ description: "In this tutorial, you will learn how to create a billing account f
 
 A billing account is required even if your plan is to use only free services. When creating your first billing account linked to your user account, you will get your [initial grant](../usage-grant.md).
 
-{% list tabs group=versions %}
-
-- Trial period {#trial}
-
-   ![quickstart](../../_assets/overview/individuals-trial-period.svg)
-
-- Paid version {#paid}
-
-   ![quickstart](../../_assets/overview/individuals-paid-version.svg)
+![quickstart](../../_assets/overview/individuals-paid-version.svg)
 
 {% endlist %}
 
@@ -27,6 +19,6 @@ Provide details to create a billing account.
 
 {% include [start-for-individuals](../../_includes/billing/billing-account-create-individual.md) %}
 
-{% include [start](../_includes/quickstart-qa-whats-next.md) %}
+{% include [start](../_includes/quickstart-qa-whats-next-individuals.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

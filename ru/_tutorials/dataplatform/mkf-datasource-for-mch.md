@@ -90,7 +90,7 @@
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Убедитесь, что можете с ее помощью [подключиться к кластерам {{ mkf-name }} через SSL](../../managed-kafka/operations/connect.md#connection-string).
+        Убедитесь, что можете с ее помощью [подключиться к кластерам {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
     - [clickhouse-client]({{ ch.docs }}/interfaces/cli/) — для подключения к базе данных в кластере {{ mch-name }}.
 
@@ -280,7 +280,7 @@
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file-root }} -Z
     ```
 
-Данные отправляются от имени пользователей [с ролью `ACCESS_ROLE_PRODUCER`](#before-you-begin). Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../../managed-kafka/operations/connect.md).
+Данные отправляются от имени пользователей [с ролью `ACCESS_ROLE_PRODUCER`](#before-you-begin). Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
 
 ## Проверьте наличие тестовых данных в таблицах кластера {{ mch-name }} {#fetch-sample-data}
 

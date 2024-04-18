@@ -52,6 +52,8 @@ items:
             href: operations/set-dynamic-ip.md
           - name: Перенести адрес между каталогами
             href: operations/address-move.md
+          - name: Получить информацию об IP-адресе
+            href: operations/address-get-info.md
           - name: Удалить статический публичный IP-адрес
             href: operations/address-delete.md
       - name: Статическая маршрутизация
@@ -73,6 +75,8 @@ items:
             href: operations/security-group-update.md
           - name: Добавить новое правило
             href: operations/security-group-add-rule.md
+          - name: Получить информацию о группе безопасности
+            href: operations/security-group-get-info.md
           - name: Удалить правило
             href: operations/security-group-delete-rule.md
           - name: Перенести группу безопасности между каталогами

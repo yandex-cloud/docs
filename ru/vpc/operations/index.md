@@ -30,6 +30,7 @@ description: "На странице представлен список поша
 - [{#T}](set-static-ip.md)
 - [{#T}](set-dynamic-ip.md)
 - [{#T}](address-move.md)
+- [{#T}](address-get-info.md)
 - [{#T}](address-delete.md)
 
 ## Маршрутизация {#static-route}
@@ -44,6 +45,7 @@ description: "На странице представлен список поша
 - [{#T}](security-group-create.md)
 - [{#T}](security-group-update.md)
 - [{#T}](security-group-add-rule.md)
+- [{#T}](security-group-get-info.md)
 - [{#T}](security-group-delete-rule.md)
 - [{#T}](security-group-move.md)
 - [{#T}](security-group-delete.md)

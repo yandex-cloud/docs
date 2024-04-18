@@ -8,8 +8,8 @@ The guide in this checklist item will help you activate the paid version and set
 1. On the **{{ ui-key.yacloud.billing.account.switch_overview }}** page, click **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}**.
 1. Confirm the action by clicking **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}** again.
 
-Upon activation of the paid version, your [personal account balance](../../billing/concepts/personal-account.md#balance) will be zero by default. We recommend monitoring and [topping up](../../billing/operations/pay-the-bill.md) your personal account balance so that it is always positive.
-<br/>If you fail to top up your account balance on time and incur a debt, your {{ yandex-cloud }} account may be suspended. For more information, see [Billing cycle](../../billing/payment/billing-cycle-business.md).
+Upon activation of the paid version, your [personal account balance](../../billing/concepts/personal-account.md#balance) will be zero by default. We recommend monitoring and [topping up](../../billing/operations/pay-the-bill.md) your account so it is always positive.
+<br/>If you fail to top up your account on time and run into arrears, your use of {{ yandex-cloud }} services may be suspended. For more information, see [Billing cycle](../../billing/payment/billing-cycle-business.md).
 
 ## Top up your personal account {#pay-personal-account}
 

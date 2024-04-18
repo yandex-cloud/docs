@@ -19,7 +19,7 @@
 
 1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета и созданной виртуальной машины, а к ней — из интернета по [SSH](../../glossary/ssh-keygen.md):
 
-    * [Настройка групп безопасности кластера {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
+    * [Настройка групп безопасности кластера {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
     * [Настройка групп безопасности кластера {{ mmy-name }}](../../managed-mysql/operations/connect.md#configure-security-groups).
 
 
@@ -49,7 +49,7 @@
 
     1. Установите на виртуальную машину сертификаты и убедитесь в доступности кластеров:
 
-        * [{{ mkf-name }}](../../managed-kafka/operations/connect.md) (используйте утилиту `kafkacat`).
+        * [{{ mkf-name }}](../../managed-kafka/operations/connect/clients.md) (используйте утилиту `kafkacat`).
         * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#get-ssl-cert) (используйте утилиту `mysql`).
 
     1. Создайте директорию, в которой будут храниться файлы, необходимые для работы коннектора Debezium:

@@ -1,6 +1,6 @@
 # Справочник {{ TF }} для {{ mch-full-name }}
 
-{% include [terraform-ref-intro](../../_includes/terraform-ref-intro.md) %}
+{% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
 ## Ресурсы {#resources}
 
@@ -8,7 +8,7 @@
 
 | **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
 | --- | --- |
-| [yandex_mdb_clickhouse_cluster]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster) | [Кластер](../concepts/index.md) |
+| [yandex_mdb_clickhouse_cluster]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster) | [Кластер](concepts/index.md) |
 
 ## Источники данных {#data-sources}
 
@@ -16,6 +16,6 @@
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_mdb_clickhouse_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_clickhouse_cluster) | Информация о [кластере](../concepts/index.md) |
+| [yandex_mdb_clickhouse_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_clickhouse_cluster) | Информация о [кластере](concepts/index.md) |
 
-{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

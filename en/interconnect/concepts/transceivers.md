@@ -1,18 +1,18 @@
 # Transceivers
 
-To connect your or telecom provider's equipment to the {{ yandex-cloud }} equipment, optical modules, known as transceivers, are used. To set up a connection, select a **transceiver type** from the table below.
+To connect your or telecom provider's equipment to the {{ yandex-cloud }} equipment, one uses optical modules known as transceivers. To set up a connection, select a **transceiver type** from the table below.
 
-When the {{ interconnect-name }} service on the {{ yandex-cloud }} equipment is ordered, a port with the transceiver type selected by the client is reserved.
+When one orders {{ interconnect-name }}, a port with the transceiver type selected by the client is reserved on the {{ yandex-cloud }} equipment.
 
-Your or telecom provider's equipment must have a transceiver installed that is compatible with the transceiver type on the {{ yandex-cloud }} equipment. The client or telecom provider must purchase this transceiver themselves.
+Your or telecom provider's equipment must have a transceiver installed that is compatible with the transceiver type on the {{ yandex-cloud }} equipment. It is you or your telecom provider that has to purchase this transceiver on their own.
 
-Transceivers the {{ yandex-cloud }} equipment supports is listed in the table below.
+You can find the transceivers the {{ yandex-cloud }} equipment supports below:
 
 {% include [transceivers](../../_includes/interconnect/transceivers.md) %}
 
 All transceivers have Duplex LC connectors with a UPC polish.
 
-For each optical cross-connect, only single-mode (SM) optical fibers can be used.
+For each optical cross-connect, you can only use single-mode (SM) optical fibers.
 
 {% note alert %}
 

@@ -5,6 +5,6 @@ When [you create your first billing account](../../billing/quickstart/index.md),
 
 The initial grant is valid for 60 days. The amount and currency of the grant depend on the country you live in:
 
-* For residents of the Russian Federation, the grant amount is at least ₽4,000, including VAT.
-* For residents of the Republic of Kazakhstan, the grant amount is at least ₸24,000, including VAT.
-* For non-residents of the Russian Federation, the grant amount is at least $50, excluding taxes and fees.
+* For residents of Russia and tax residents of Belarus, the grant amount is at least ₽4,000, including VAT.
+* For residents of Kazakhstan, the grant amount is at least ₸24,000, including VAT.
+* For non-residents of Russia, the grant amount is at least $50, excluding taxes and fees.

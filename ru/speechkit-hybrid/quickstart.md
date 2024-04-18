@@ -1,207 +1,271 @@
 ---
-title: "Как начать работать с {{ sk-hybrid-name }}"
-description: "Следуя данной инструкции, вы сможете создать и настроить приложения для синтеза, распознавания речи, а также утилиты для нагрузочного тестирования."
+title: "Как создать демонстрационный стенд {{ sk-hybrid-name }}"
+description: "По этой инструкции вы можете создать приложения для распознавания и синтеза речи, а также утилиты для нагрузочного тестирования."
 ---
 
-# Начало работы с {{ sk-hybrid-name }}
+# Создание демонстрационного стенда {{ sk-hybrid-name }}
 
-В {{ sk-hybrid-name }} доступны приложения {{ speechkit-full-name }} для синтеза и распознавания речи:
+{{ sk-hybrid-name }} предоставляет возможности сервиса {{ speechkit-full-name }} для [распознавания](stt/testing.md) и [синтеза](tts/testing.md) речи. Вы можете развернуть демонстрационный стенд {{ sk-hybrid-name }} с помощью сервисов {{ yandex-cloud }} через {{ TF }}. Так можно потестировать приложения распознавания и синтеза, размещаемые в [Docker-контейнерах](/blog/posts/2022/03/docker-containers).
 
-* Приложение для синтеза речи `tts`.
-* Приложение для распознавания речи `stt`.
-* Утилиты для нагрузочного тестирования.
+Работа по созданию демонстрационного стенда ведется на двух машинах:
 
-Чтобы начать работу с сервисом, протестируйте развертывание приложений в [Docker-контейнерах](/blog/posts/2022/03/docker-containers) внутри вашей инфраструктуры.
+* Локальной. Ниже предполагается, что используется ОС Linux.
+* Виртуальной, соответствует [системным требованиям](system-requirements.md) {{ sk-hybrid-name }}. На этой ВМ запускаются Docker-контейнеры.
 
-## Перед началом работы {#before-you-begin}
+В демонстрационном стенде рассматривается модель лицензирования [Cloud Billing](pricing.md#billing), поэтому сведения о каждом запросе к сервису {{ sk-hybrid-name }} [отправляются](architecture.md) в сервис {{ billing-name }}.
 
-1. Проверьте, что ваше оборудование соответствует [системным требованиям](system-requirements.md#hardware).
-1. [Установите и настройте](system-requirements.md#software) необходимое окружение.
-1. Установите на сервер [Docker Engine](https://docs.docker.com/engine/install/) и [Docker Compose](https://docs.docker.com/compose/install/).
+Чтобы развернуть демонстрационный стенд {{ sk-hybrid-name }}:
 
-## Развертывание приложения синтеза речи {#example-tts}
+1. [{#T}](#get-started).
+1. [{#T}](#prepare).
+1. [{#T}](#ssh).
+1. [{#T}](#variables).
+1. [{#T}](#create-infrastructure).
+1. [{#T}](#communication-channel).
+1. [{#T}](#stt-and-tts).
 
-1. Создайте в отдельной директории файл `docker-compose.yaml`, предназначенный только для тестирования развертывания приложения:
+В случае ошибок воспользуйтесь [инструкцией по отладке](quickstart-debugging.md).
 
-   {% cut "docker-compose.yaml" %}
+## Начните работу с {{ yandex-cloud }} {#get-started}
 
-   ```yaml
-   version: '3'
-   services:
+1. Зарегистрируйтесь в {{ yandex-cloud }}. Процесс регистрации различается для физических и юридических лиц:
 
-     tts:
-       network_mode: host
-       environment:
-         - LICENSE_SERVICE_ENDPOINTS=0.0.0.0:9087
-         - SERVICE_HOST=0.0.0.0
-         - SERVICE_PORT=17009
-         - UNISTAT_PORT=17003
-         - GRPC_VERBOSITY=debug
-         - LOGGING_LEVEL=INFO
-         - TZ=UTC
-         - NVIDIA_VISIBLE_DEVICES=0
-         - NVIDIA_DRIVER_CAPABILITIES=compute,utility
-       image: cr.yandex/<идентификатор_реестра>/tts/v100/tts_server:<версия>
-       deploy:
-         resources:
-           reservations:
-             devices:
-               - capabilities: ["gpu"]
-                 driver: nvidia
-                 device_ids: ["0"]
+   * [регистрация физических лиц](../getting-started/individuals/registration.md);
+   * [регистрация юридических лиц](../getting-started/legal-entity/registration.md).
 
-     license_server:
-       network_mode: host
-       environment:
-         LICENSE_MODE: billing_agent
-         LOGGING_LEVEL: INFO
-         USE_TLS: "false"
-         STATIC_API_KEY: <API-ключ>
-       image: cr.yandex/<идентификатор_реестра>/license_server:<версия>
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }}.
+1. Создайте каталог в консоли управления. В нем будут располагаться ваши ресурсы:
 
-     envoy:
-       network_mode: host
-       image: cr.yandex/<идентификатор_реестра>/envoy:<версия>
-       environment:
-         LOGGING_LEVEL: INFO
-         ENVOY_UID: 0
-       volumes:
-         - ./log:/var/log/envoy
-       depends_on:
-         - license_server
-   ```
+   {% include [create-folder](../_includes/create-folder.md) %}
 
-   {% endcut %}
+1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) `sk-hybrid-example`.
 
-   В файле укажите параметры, полученные при [настройке окружения](#before-you-begin):
+   Сервисный аккаунт позволяет гибко настраивать права доступа. Подробнее о сервисном аккаунте читайте в разделе [{#T}](../iam/concepts/users/service-accounts.md).
 
-   * `STATIC_API_KEY` — идентификатор созданного API-ключа.
-   * `<идентификатор_реестра>` – идентификатор реестра {{ container-registry-name }}.
-   * `<версия>` – версия образа {{ sk-hybrid-name }}.
+1. [Назначьте сервисному аккаунту роли](../iam/operations/sa/assign-role-for-sa.md):
 
-1. Запустите приложение из директории с файлом `docker-compose.yaml`:
+   * `compute.editor` — чтобы создать ВМ {{ yandex-cloud }};
+   * `container-registry.images.puller` — чтобы работать с Docker-образами в реестре [{{ container-registry-full-name }}](../container-registry/index.yaml);
+   * `iam.serviceAccounts.keyAdmin` — чтобы создать [API-ключ](../iam/concepts/authorization/api-key.md) для авторизации в {{ billing-name }}.
+
+1. [Создайте API-ключ](../iam/operations/api-key/create.md).
+
+   Сохраните идентификатор и секретную часть ключа. Их нельзя запросить позднее.
+
+1. [Создайте реестр](../container-registry/operations/registry/registry-create.md) в {{ container-registry-name }}.
+1. [Сообщите команде {{ speechkit-name }}]({{ link-console-support }}) идентификатор реестра. В вашем реестре появятся необходимые контейнеры и образы.
+
+## Установите дополнительные зависимости {#prepare}
+
+На локальной машине:
+
+1. [Установите интерфейс командной строки](../cli/operations/install-cli.md) {{ yandex-cloud }} (YC CLI).
+1. [Аутентифицируйте свой сервисный аккаунт](../cli/operations/authentication/service-account.md) через YC CLI.
+1. [Установите {{ TF }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+## Подготовьте репозиторий с конфигурацией {{ TF }} {#repository}
+
+На локальной машине:
+
+1. Склонируйте [репозиторий с конфигурацией {{ TF }}](https://github.com/yandex-cloud-examples/yc-speechkit-hybrid-deployment/), из которой будет развернута необходимая инфраструктура:
 
    ```bash
-   docker-compose up
+   git clone git@github.com:yandex-cloud-examples/yc-speechkit-hybrid-deployment.git
    ```
 
-## Развертывание приложения распознавания речи {#example-stt}
+1. В терминале перейдите в директорию склонированного репозитория.
 
-{% note warning %}
+## Подготовьте SSH-ключи {#ssh}
 
-Не рекомендуется разворачивать приложения синтеза и распознавания речи на одной ВМ, так как это создает большую нагрузку на систему.
+SSH-ключи понадобятся для аутентификации при подключении к ВМ {{ yandex-cloud }}. Чтобы подготовить их, выполните следующие действия на локальной машине:
 
-{% endnote %}
-
-1. Создайте в отдельной директории файл `docker-compose.yaml`, предназначенный только для тестирования развертывания приложения:
-
-   {% cut "docker-compose.yaml" %}
-
-   ```yaml
-   version: '3'
-   services:
-
-     asr:
-       network_mode: host
-       privileged: true
-       environment:
-         - LICENSE_SERVICE_ENDPOINTS=0.0.0.0:8087
-         - SERVICE_HOST=0.0.0.0
-         - SERVICE_PORT=17002
-         - UNISTAT_PORT=17003
-         - GRPC_VERBOSITY=debug
-         - LOGGING_LEVEL=INFO
-         - TZ=UTC
-         - NVIDIA_VISIBLE_DEVICES=0
-         - NVIDIA_DRIVER_CAPABILITIES=compute,utility
-       image: cr.yandex/<идентификатор_реестра>/stt/v100/stt_server:<версия>
-       deploy:
-         resources:
-           reservations:
-             devices:
-               - capabilities: ["gpu"]
-                 driver: nvidia
-                 device_ids: ["0"]
-
-     license_server:
-       network_mode: host
-       environment:
-         LICENSE_MODE: billing_agent
-         LOGGING_LEVEL: INFO
-         USE_TLS: "false"
-         STATIC_API_KEY: <API-ключ>
-       image: cr.yandex/<идентификатор_реестра>/license_server:<версия>
-
-     envoy:
-       network_mode: host
-       image: cr.yandex/<идентификатор_реестра>/envoy:<версия>
-       environment:
-         LOGGING_LEVEL: INFO
-         ENVOY_UID: 0
-       volumes:
-         - ./log:/var/log/envoy
-       depends_on:
-         - license_server
-   ```
-
-   {% endcut %}
-
-   В файле укажите параметры, полученные при [настройке окружения](#before-you-begin):
-
-   * `STATIC_API_KEY` — идентификатор созданного API-ключа.
-   * `<идентификатор_реестра>` – идентификатор реестра {{ container-registry-name }}.
-   * `<версия>` – версия образа {{ sk-hybrid-name }}.
-
-1. Запустите приложение для распознавания речи из директории с файлом `docker-compose.yaml`:
+1. Если у вас нет пары из открытого и закрытого SSH-ключей, создайте ее:
 
    ```bash
-   docker-compose up
+   ssh-keygen -t rsa -f $HOME/.ssh/speechkit_hybrid
    ```
 
-## Нагрузочное тестирование {#load-testing}
+   После запуска команды будет предложено ввести пароль для закрытого ключа. Если не хотите указывать пароль, нажмите **Enter**.
 
-Чтобы оценить корректность и производительность тестовой инсталляции {{ sk-hybrid-name }}, используйте контейнеры с утилитой нагрузочного тестирования для [синтеза](tts/testing.md) и [распознавания](stt/testing.md) речи.
-
-1. Запустите нагрузочное тестирование синтеза речи на ВМ с приложением для синтеза речи:
+1. В директории склонированного репозитория создайте символическую ссылку, которая указывает на публичный SSH-ключ:
 
    ```bash
-   docker run -it \
-       --network=host \
-       --env ENVOY_HOST="0.0.0.0" \
-       --env ENVOY_TTS_PORT=9080 \
-       --env USE_SSL=1 \
-       --env RPS=1 \
-       cr.yandex/<идентификатор_реестра>/tools/tts-tools:0.19
+   ln -s ~/.ssh/<название_ключа>.pub ./keys/ssh-user-id-rsa.pub
    ```
 
-1. Запустите нагрузочное тестирование распознавания речи на ВМ с приложением для распознавания речи:
+   В команде передаются:
+
+   * `~/.ssh/<название_ключа>.pub` — файл с публичным SSH-ключом. Если вы создали ключ в предыдущем шаге, укажите `~/.ssh/speechkit_hybrid.pub`.
+   * `./keys/ssh-user-id-rsa.pub` — символическая ссылка. Путь указан относительно текущей директории репозитория.
+
+## Добавьте переменные для конфигурации {{ TF }} {#variables}
+
+В директории репозитория `yc-speechkit-hybrid-deployment` располагается файл `terraform.tfvars.template`. Он представляет собой {{ TF }}-шаблон, по которому задаются переменные окружения. Эти переменные передаются YC CLI и {{ TF }} во время выполнения команд.
+
+Чтобы задать переменные для конфигурации {{ TF }}, выполните следующие действия на локальной машине:
+
+1. Создайте копию {{ TF }}-шаблона в директории репозитория `yc-speechkit-hybrid-deployment`:
 
    ```bash
-   docker run -it \
-       --network=host \
-       --env SEND_MODE=RealTime \
-       --env CONNECTIONS=30 \
-       --env ENVOY_HOST="0.0.0.0" \
-       --env ENVOY_PORT=8080 \
-       --env USE_SSL=1 \
-       --env ERRORS_THRESHOLD=0.1 
-       cr.yandex/<идентификатор_реестра>/tools/stt-tools:0.20
+   cp ./terraform.tfvars.template ./terraform.tfvars
    ```
 
-Если приложения работают успешно, на консоль выводятся сообщения c процентилями времени обработки запросов и другой информацией:
+1. Укажите значения переменных в файле `terraform.tfvars`:
 
-```text
-INFO: 2023-02-17 11:22:37.106 +0000 load_test.cpp:167 q=0.75: 250ms
-INFO: 2023-02-17 11:22:37.106 +0000 load_test.cpp:167 q=0.9: 300ms
-INFO: 2023-02-17 11:22:37.106 +0000 load_test.cpp:167 q=0.95: 300ms
-INFO: 2023-02-17 11:22:37.106 +0000 load_test.cpp:167 q=0.99: 850ms
-INFO: 2023-02-17 11:22:37.186 +0000 load_test.cpp:112 Total billing units: 260
-INFO: 2023-02-17 11:22:37.186 +0000 load_test.cpp:218 SPS = 27.09172898
-INFO: 2023-02-17 11:22:37.186 +0000 load_test.cpp:263 Errors statistics: 0% (0/50)
-```
+   * `CR_REGISTRY_ID` — идентификатор реестра {{ container-registry-name }};
+   * `BILLING_STATIC_API_KEY` — секретная часть API-ключа.
 
-## См. также {#what-is-next}
+1. (Опционально) Добавьте переменную `NODES_GPU_INTERRUPTIBLE = false`.
 
-* [Установка и настройка сервиса потокового распознавания](stt/index.md).
-* [Установка и настройка сервиса синтеза речи](tts/index.md).
-* [Мониторинг сервисов](monitoring.md).
+   Конфигурация {{ TF }} в репозитории предполагает создание [прерываемой ВМ](../compute/concepts/preemptible-vm.md). Вы можете отключить возможность прерывания с помощью переменной `NODES_GPU_INTERRUPTIBLE`. Ее значение по умолчанию — `true`, оно прописано в файле `variables.tf` в репозитории `yc-speechkit-hybrid-deployment`.
+
+## Создайте инфраструктуру с помощью {{ TF }} {#create-infrastructure}
+
+Инфраструктура, необходимая для работы со {{ sk-hybrid-name }}, описана в файлах `networks.tf` и `node-deploy.tf` в репозитории `yc-speechkit-hybrid-deployment`. Файл `networks.tf` содержит конфигурацию сущностей:
+
+* сеть;
+* подсеть;
+* внутренняя зона DNS;
+* группа безопасности.
+
+Файл `node-deploy.tf` содержит конфигурацию ВМ и сервиса {{ sk-hybrid-name }}.
+
+Подробнее о конфигурации сущностей читайте на сайте [{{ TF }}]({{ tf-provider-link }}) и в документации соответствующего сервиса {{ yandex-cloud }}.
+
+Чтобы создать инфраструктуру, выполните следующие действия на локальной машине:
+
+{% list tabs group=instructions %}
+
+* {{ TF }} {#tf}
+
+   1. В терминале перейдите в директорию репозитория `yc-speechkit-hybrid-deployment`.
+   1. [Получите данные для аутентификации](../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) сервисного аккаунта `sk-hybrid-example`. Вы можете добавить данные в переменные окружения или указать эти данные в файле `main.tf`, в блоке `provider "yandex"`.
+   1. [Настройте и инициализируйте провайдеры {{ TF }}](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+
+      В репозитории в качестве конфигурационного файла с настройками провайдеров используется файл `main.tf`, поэтому повторно создавать такой файл не нужно.
+
+   1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+      ```bash
+      terraform validate
+      ```
+
+   1. Создайте инфраструктуру:
+
+      {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
+
+## Организуйте постоянный канал связи с сервером {{ yandex-cloud }} {#communication-channel}
+
+Для работы по модели лицензирования Cloud Billing обпеспечьте сетевую связность между узлом {{ billing-name }} `billing.datasphere.yandexcloud.net:443` и ВМ, на которой разворачивается сервис {{ sk-hybrid-name }}. Чтобы проверить доступность узла:
+
+1. На локальной машине получите публичный IP-адрес созданной ВМ:
+
+   ```bash
+   {{ yc-compute-instance }} list
+   ```
+
+   Публичный адрес понадобится для подключения к ВМ.
+
+   Пример результата:
+
+   ```text
+   +-----------+-------------------------------+---------------+---------+-------------+--------------+
+   |     ID    |              NAME             |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP  |
+   +-----------+-------------------------------+---------------+---------+-------------+--------------+
+   | fhmjvr*** | sk-hybrid-compose-example-*** | {{ region-id }}-a | RUNNING | 158.160.*** | 192.168.***  |
+   | ...                                                                                              |
+   +-----------+-------------------------------+---------------+---------+-------------+--------------+
+   ```
+
+   Публичный адрес указан в поле `EXTERNAL IP`.
+
+1. [Подключитесь к ВМ по SSH](../compute/operations/vm-connect/ssh.md#vm-connect):
+
+   ```bash
+   ssh <имя_пользователя>@<публичный_IP-адрес_ВМ>
+   ```
+
+   Здесь `<имя_пользователя>` — имя учетной записи пользователя ВМ.
+
+1. Выполните команду:
+
+   ```bash
+   nc -vz billing.datasphere.yandexcloud.net 443
+   ```
+
+   Если узел доступен по сети, команда возвращает результат:
+
+   ```text
+   Connection to billing.datasphere.yandexcloud.net 443 port [tcp/https] succeeded!
+   ```
+
+## Проведите нагрузочное тестирование распознавания и синтеза речи {#stt-and-tts}
+
+Чтобы оценить корректность и производительность тестовой инсталляции {{ sk-hybrid-name }}, используйте Docker-контейнеры с утилитой нагрузочного тестирования для распознавания и синтеза речи. Эти контейнеры описаны в файле `node-deploy.tf`, они были созданы вместе с [инфраструктурой](#create-infrastructure).
+
+Чтобы провести нагрузочное тестирование:
+
+1. Подключитесь к ВМ по SSH.
+1. Убедитесь, что порты `8080` и `9080` открыты для приема клиентских запросов:
+
+   ```bash
+   telnet <публичный_адрес_ВМ> 8080 && telnet <публичный_адрес_ВМ> 9080
+   ```
+
+1. Запустите распознавание речи:
+
+   ```bash
+   docker run --rm --name stt-tools \
+      --env ENVOY_HOST=<публичный_адрес_ВМ> \
+      --env ENVOY_PORT=8080 \
+      --env CONNECTIONS=40 \
+      cr.yandex/<идентификатор_реестра>/release/tools/stt-tools:0.20
+   ```
+
+   В команде укажите публичный IP-адрес ВМ и идентификатор созданного ранее реестра {{ container-registry-name }}.
+
+   Здесь:
+
+   * `ENVOY_HOST` — IP-адрес сервиса распознавания;
+   * `ENVOY_PORT` — порт сервиса распознавания (по умолчанию `8080`);
+   * `CONNECTIONS` — количество одновременно активных каналов.
+
+1. Запустите синтез речи:
+
+   ```bash
+   docker run --rm --name tts-tools \
+      --network=host \
+      --env ENVOY_HOST=<публичный_адрес_ВМ> \
+      --env ENVOY_TTS_PORT=9080 \
+      --env RPS=20 \
+      cr.yandex/<идентификатор_реестра>/release/tools/tts-tools:0.20
+   ```
+
+   В команде укажите публичный IP-адрес ВМ и идентификатор созданного ранее реестра {{ container-registry-name }}.
+
+   Здесь:
+
+   * `ENVOY_HOST` — IP-адрес сервиса синтеза;
+   * `ENVOY_TTS_PORT` — порт сервиса синтеза (по умолчанию `9080`);
+   * `RPS` — количество запросов синтеза в секунду.
+
+1. Подождите несколько минут, пока проводятся распознавание и синтез речи.
+1. Посмотрите результаты тестирования в логах контейнера:
+
+   * `docker logs stt-tools` — для распознавания речи;
+   * `docker logs tts-tools` — для синтеза речи.
+
+   Пока в логах не появится строка `Load finished. Ready to serve requests on 0.0.0.0:17001`, сервисы распознавания и синтеза речи не будут отвечать на запросы. Ожидание может занять 2–10 минут.
+
+   Далее в логах появится сообщение о том, что компонент [Envoy](architecture.md) начал прослушивать порт `8080` для распознавания речи и порт `9080` для синтеза речи. Это означает, что сервис {{ sk-hybrid-name }} запущен и готов обслуживать клиентские запросы.
+
+1. (Опционально) Остановите нагрузочное тестирование.
+
+   Во время нагрузочного тестирования команды `docker run` не будут реагировать на сигналы прерывания **Ctrl** + **C**. Если вы хотите остановить работу контейнеров, выполните команду:
+
+   * `docker stop stt-tools` — для распознавания речи;
+   * `docker stop tts-tools` — для синтеза речи.

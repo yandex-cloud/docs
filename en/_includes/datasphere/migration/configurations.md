@@ -24,8 +24,8 @@ Since projects run on different {{ yandex-cloud }} platforms with different comp
 **Configurations with vCPUs based on [Intel Ice Lake](../../../compute/concepts/performance-levels.md) and [NVIDIA® Tesla® T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPU**
 **gt4.1** ^1^ | 4 | 1 | 16 | 16
 
-^1^ is available after you deposit at least $10 to your billing account or upon request to the support team.
+^1^ Available after you deposit at least $10 to your billing account or upon request to the support team.
 
-^2^ is only available for businesses and upon request to the support team.
+^2^ Only available for businesses and upon request to the support team.
 
 

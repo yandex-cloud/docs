@@ -1,24 +1,12 @@
 # End of trial period
 
 
-The trial period terms of termination differ for individual and business accounts.
+Your trial period will end automatically depending on the payment method you selected when [creating your billing account for businesses](../../../billing/quickstart/index.md).
 
-{% list tabs group=accounts %}
-
-- Individual account {#individual}
-
-   The trial period ends automatically when you use up the grant or a [part](../../usage-grant.md) of the grant, or when it expires.
-
-- Business account {#business}
-
-   Automatic termination of the trial period depends on the payment method you selected when [creating your billing account](../../../billing/quickstart/index.md).
-
-   | Payment method | Terms of termination |
-   ----- | -----
-   | Bank transfer | The grant was used up or expired. |
-   | Bank card | The grant or a [part](../../usage-grant.md) of the grant was used up or it expired. |
-
-{% endlist %}
+| Payment method | Terms of termination |
+----- | -----
+| Bank transfer | The grant was used up or expired. |
+| Bank card | The grant or a [part](../../usage-grant.md) of the grant was used up or it expired. |
 
 
 

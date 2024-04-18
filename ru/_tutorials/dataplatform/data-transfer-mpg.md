@@ -25,7 +25,7 @@
 1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета:
 
     * [Инструкция для {{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
-    * [Инструкция для {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
+    * [Инструкция для {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 
 
 1. Установите на локальный компьютер [утилиту](https://github.com/edenhill/kcat) `kcat` (`kafkacat`) и [клиент командной строки PostgreSQL](https://www.postgresql.org/download/). Например, в Ubuntu 20.04 выполните команду:
