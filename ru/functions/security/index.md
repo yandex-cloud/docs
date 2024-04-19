@@ -14,7 +14,9 @@ description: "Управление доступом сервиса для зап
 
 ## На какие ресурсы можно назначить роль {#resources}
 
-Роль можно назначить на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) и [функцию](../concepts/function.md). Роли, назначенные на облако или каталог, действуют и на функции, которые находятся в них.
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+На [функцию](../concepts/function.md) роль можно назначить через YC CLI или API {{ yandex-cloud }}.
 
 ## Какие роли действуют в сервисе {#roles-list}
 

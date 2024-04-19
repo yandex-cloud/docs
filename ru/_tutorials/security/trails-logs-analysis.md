@@ -1,7 +1,7 @@
 # Загрузка аудитных логов в {{ mch-name }} и визуализация данных в {{ datalens-name }}
 
 
-Загрузите [аудитные логи](../audit-trails/concepts/format.md) уровня конфигурации каталога в [{{ mch-full-name }}](../managed-clickhouse/) и проанализируйте использование ресурсов в [{{ datalens-full-name }}]({{ link-datalens-main }}).
+Загрузите [аудитные логи](../../audit-trails/concepts/format.md) уровня конфигурации (Control Plane) каталога в [{{ mch-full-name }}](../../managed-clickhouse/) и проанализируйте использование ресурсов в [{{ datalens-full-name }}]({{ link-datalens-main }}).
 1. [Подготовьте облако к работе](#before-begin).
 1. [Подготовьте окружение](#environment-preparing).
 1. [Создайте трейл](#create-trail).
@@ -14,13 +14,13 @@
 
 ## Перед началом работы {#before-begin}
 
-{% include [before-you-begin](_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-* Плата за использование [потока данных](../data-streams/concepts/glossary.md#stream-concepts) (см. [тарифы {{ yds-name }}](../data-streams/pricing.md)).
-* Плата за постоянно запущенный [кластер {{ mch-name }}](../managed-clickhouse/concepts/index.md) (см. [тарифы {{ mch-name }}](../managed-clickhouse/pricing.md)).
+* Плата за использование [потока данных](../../data-streams/concepts/glossary.md#stream-concepts) (см. [тарифы {{ yds-name }}](../../data-streams/pricing.md)).
+* Плата за постоянно запущенный [кластер {{ mch-name }}](../../managed-clickhouse/concepts/index.md) (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
 
 ## Подготовьте окружение {#environment-preparing}
 
@@ -30,20 +30,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [сервисный аккаунт](../iam/concepts/users/service-accounts.md).
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [сервисный аккаунт](../../iam/concepts/users/service-accounts.md).
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта: `sa-trail-logs`.
-  1. Нажмите ![](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../iam/concepts/access-control/roles.md) `audit-trails.viewer` и `yds.editor`.
+  1. Нажмите ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../../iam/concepts/access-control/roles.md) `audit-trails.viewer` и `yds.editor`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI {#cli}
 
-  {% include [cli-install](../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) с именем `sa-trail-logs`:
+  1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `sa-trail-logs`:
 
      ```bash
      yc iam service-account create --name sa-trail-logs
@@ -58,8 +58,8 @@
      name: sa-trail-logs
      ```
 
-     Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../cli/cli-ref/managed-services/iam/service-account/create.md).
-  1. [Назначьте сервисному аккаунту роль](../iam/operations/sa/assign-role-for-sa.md) `audit-trails.viewer`:
+     Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/iam/service-account/create.md).
+  1. [Назначьте сервисному аккаунту роль](../../iam/operations/sa/assign-role-for-sa.md) `audit-trails.viewer`:
 
      ```bash
      yc resource-manager folder add-access-binding <имя_каталога> \
@@ -72,7 +72,7 @@
       * `--role` — назначаемая роль.
       * `--subject` — идентификатор сервисного аккаунта `sa-trail-logs`.
 
-     Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+     Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
   1. Назначьте сервисному аккаунту роль `yds.editor`:
 
      ```bash
@@ -88,7 +88,7 @@
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-install](../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Опишите в конфигурационном файле параметры сервисного аккаунта:
 
@@ -136,7 +136,7 @@
 
 - API {#api}
 
-  1. Создайте сервисный аккаунт с помощью метода [create](../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../iam/api-ref/ServiceAccount/index.md).
+  1. Создайте сервисный аккаунт с помощью метода [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md).
   1. Узнайте идентификатор сервисного аккаунта:
 
      ```bash
@@ -220,24 +220,24 @@
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_managed-clickhouse }}**.
   1. Укажите настройки кластера {{ CH }}:
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** укажите имя кластера `trail-logs`.
-     1. В блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}** выберите тип [виртуальной машины](../compute/concepts/vm.md) `burstable` и [тип хоста](../managed-clickhouse/concepts/instance-types.md) `b2.medium`.
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}** выберите тип [виртуальной машины](../../compute/concepts/vm.md) `burstable` и [тип хоста](../../managed-clickhouse/concepts/instance-types.md) `b2.medium`.
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** укажите имя БД `trail_data`, имя пользователя `user` и пароль. Запомните имя БД.
-     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите значок ![pencil](../_assets/console-icons/pencil.svg). Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** и нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите значок ![pencil](../../_assets/console-icons/pencil.svg). Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** и нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** включите опции:
         * Доступ из {{ datalens-name }}.
         * Доступ из консоли управления.
-        * Доступ из [{{ data-transfer-full-name }}](../data-transfer/).
+        * Доступ из [{{ data-transfer-full-name }}](../../data-transfer/).
   1. После всех настроек нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 - CLI {#cli}
 
-  1. Проверьте, есть ли в каталоге [подсети](../vpc/concepts/network.md#subnet) для хостов кластера:
+  1. Проверьте, есть ли в каталоге [подсети](../../vpc/concepts/network.md#subnet) для хостов кластера:
 
      ```bash
      yc vpc subnet list
      ```
 
-     Если ни одной подсети в каталоге нет, [создайте нужные подсети](../vpc/operations/subnet-create.md) в сервисе {{ vpc-full-name }}.
+     Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-full-name }}.
   1. Укажите параметры кластера в команде создания:
 
      ```bash
@@ -256,7 +256,7 @@
        --websql-access=true
      ```
 
-     Подробнее о команде `yc managed-clickhouse cluster create` см. в [справочнике CLI](../cli/cli-ref/managed-services/managed-clickhouse/cluster/create.md).
+     Подробнее о команде `yc managed-clickhouse cluster create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/managed-clickhouse/cluster/create.md).
 
 - {{ TF }} {#tf}
 
@@ -322,7 +322,7 @@
 
 - API {#api}
 
-  Используйте метод REST API [create](../managed-clickhouse/api-ref/Cluster/create.md).
+  Используйте метод REST API [create](../../managed-clickhouse/api-ref/Cluster/create.md).
 
 {% endlist %}
 
@@ -339,7 +339,7 @@
   1. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** БД: `stream-db`.
   1. В поле **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
-  1. Вернитесь на страницу создания потока. Нажмите значок ![image](../_assets/console-icons/arrow-rotate-right.svg) и выберите из списка созданную БД.
+  1. Вернитесь на страницу создания потока. Нажмите значок ![image](../../_assets/console-icons/arrow-rotate-right.svg) и выберите из списка созданную БД.
   1. Введите имя потока данных: `trail-logs-stream`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
@@ -349,7 +349,7 @@
 
 ## Создайте трейл {#create-trail}
 
-[Трейл](../audit-trails/concepts/trail.md) будет загружать [аудитные логи](../audit-trails/concepts/format.md) уровня конфигурации всех ресурсов вашего каталога в поток данных {{ yds-name }}.
+[Трейл](../../audit-trails/concepts/trail.md) будет загружать [аудитные логи](../../audit-trails/concepts/format.md) уровня конфигурации всех ресурсов вашего каталога в поток данных {{ yds-name }}.
 
 {% list tabs group=instructions %}
 
@@ -372,14 +372,14 @@
 
 ## Создайте эндпоинт-источник для потока данных {{ yds-name }} {#create-source-endpoint}
 
-Для создания [трансфера](../data-transfer/concepts/index.md#transfer) нужно указать [эндпоинт](../data-transfer/concepts/index.md#endpoint)-источник, ведущий на поток {{ yds-name }}.
+Для создания [трансфера](../../data-transfer/concepts/index.md#transfer) нужно указать [эндпоинт](../../data-transfer/concepts/index.md#endpoint)-источник, ведущий на поток {{ yds-name }}.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
-  1. На панели слева выберите ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
   1. В поле **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** выберите `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
   1. Укажите имя эндпоинта: `source-logs-stream`.
@@ -426,7 +426,7 @@
 - Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
-  1. На панели слева выберите ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
   1. В поле **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** выберите `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
   1. Укажите имя эндпоинта: `target-logs-ch`.
@@ -449,13 +449,13 @@
 - Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
-  1. На панели слева выберите ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
   1. Укажите имя трансфера: `logs-transfer`.
   1. Выберите эндпоинт для источника: `source-logs-stream`.
   1. Выберите эндпоинт для приемника: `target-logs-ch`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  1. Нажмите значок ![ellipsis](../_assets/console-icons/ellipsis.svg) рядом с именем трансфера и выберите пункт **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
+  1. Нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем трансфера и выберите пункт **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
   1. Дождитесь, когда трансфер перейдет в статус `{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}`.
 
 - CLI {#cli}
@@ -474,7 +474,7 @@
   * `--source-id` — идентификатор эндпоинта-источника `source-logs-stream`.
   * `--target-id` — идентификатор эндпоинта-приемника `target-logs-ch`.
 
-  Подробнее о команде `yc datatransfer transfer create` см. в [справочнике CLI](../cli/cli-ref/managed-services/datatransfer/transfer/create.md).
+  Подробнее о команде `yc datatransfer transfer create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/datatransfer/transfer/create.md).
 
 - {{ TF }} {#tf}
 
@@ -536,7 +536,7 @@
   where subject_name = '<Name_ID_пользователя>' and  event_time >= 2022-06-26
   ```
 
-* Срабатывание при создании [ключей](../iam/concepts/index.md#keys) для сервисных аккаунтов:
+* Срабатывание при создании [ключей](../../iam/concepts/index.md#keys) для сервисных аккаунтов:
 
   ```sql
   select * from trail_data.trail_logs_stream
@@ -549,7 +549,7 @@
 
 ## Визуализируйте данные в {{ datalens-name }} {#datalens-visualization}
 
-Чтобы построить визуализации, нужно [подключиться](../datalens/concepts/connection.md) к БД {{ CH }}, в которую были перенесены логи, и создать [датасет](../datalens/concepts/dataset/index.md) на основе ее данных.
+Чтобы построить визуализации, нужно [подключиться](../../datalens/concepts/connection.md) к БД {{ CH }}, в которую были перенесены логи, и создать [датасет](../../datalens/concepts/dataset/index.md) на основе ее данных.
 
 ### Создайте подключение {#create-connection}
 
@@ -574,7 +574,7 @@
 
 ### Создайте линейчатую диаграмму {#create-bar-chart}
 
-Чтобы показать количество событий для каждого источника, создайте [чарт](../datalens/concepts/chart/index.md) — линейчатую диаграмму:
+Чтобы показать количество событий для каждого источника, создайте [чарт](../../datalens/concepts/chart/index.md) — линейчатую диаграмму:
 1. Выберите тип визуализации **Линейчатая диаграмма**.
 1. Перетащите поле `event_source` из раздела **Измерения** в секцию **Y**.
 1. Перетащите поле `event_id` из раздела **Измерения** в секцию **X**.
@@ -595,7 +595,7 @@
 
 ### Создайте дашборд и добавьте на него чарты {#create-dashboard}
 
-Создайте [дашборд](../datalens/concepts/dashboard.md), на котором будут размещены чарты:
+Создайте [дашборд](../../datalens/concepts/dashboard.md), на котором будут размещены чарты:
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) сервиса **{{ datalens-name }}**.
 1. Нажмите кнопку **Создать дашборд**.
 1. Введите название дашборда `Trail logs dashboard` и нажмите кнопку **Создать**.
@@ -607,12 +607,12 @@
 
 Пример дашборда:
 
-![image](../_assets/audit-trails/tutorials/dashboard.png)
+![image](../../_assets/audit-trails/tutorials/dashboard.png)
 
 ## Как удалить созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
-* [Удалите кластер](../managed-postgresql/operations/cluster-delete.md) `trail-logs`.
-* [Удалите поток данных](../data-streams/operations/manage-streams.md#delete-data-stream) `trail-logs-stream`.
-* [Удалите эндпоинты](../data-transfer/operations/endpoint/index.md#delete) источника и приемника.
-* [Удалите трансфер](../data-transfer/operations/transfer.md#delete) `logs-transfer`.
+* [Удалите кластер](../../managed-postgresql/operations/cluster-delete.md) `trail-logs`.
+* [Удалите поток данных](../../data-streams/operations/manage-streams.md#delete-data-stream) `trail-logs-stream`.
+* [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) источника и приемника.
+* [Удалите трансфер](../../data-transfer/operations/transfer.md#delete) `logs-transfer`.

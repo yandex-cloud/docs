@@ -16,6 +16,8 @@ description: "Управление доступом в сервисе для у�
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
+На [зону DNS](../concepts/dns-zone.md) роль можно назначить через YC CLI или API {{ yandex-cloud }}.
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}

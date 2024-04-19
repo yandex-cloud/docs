@@ -16,7 +16,9 @@ description: "Управление доступом в сервисе {{ metadat
 
 ## На какие ресурсы можно назначить роль {#resources}
 
-Вы можете назначить роль на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) или на отдельное [подключение](../operations/connection-access.md). Эти роли будут действовать и на вложенные ресурсы.
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+На [подключение](../concepts/connection-manager.md) можно назначить роль в консоли управления.
 
 ## Какие роли действуют в сервисе {{ connection-manager-name }}{#roles-list}
 

@@ -1,35 +1,36 @@
 # Управление эндпоинтами
 
-[Эндпоинт](../../concepts/index.md#endpoint)-источник описывает настройки базы данных, из которой будет передаваться информация с помощью {{ data-transfer-name }}, а эндпоинт-приемник — базы, в которую будет производиться перенос. Вы можете [создать](#create), [изменить](#update), [клонировать](#clone) или [удалить](#delete) такие эндпоинты.
+[Эндпоинт](../../concepts/index.md#endpoint)-источник описывает настройки базы данных, из которой будет передаваться информация с помощью {{ data-transfer-name }}, а эндпоинт-приемник — БД, в которую будет производиться перенос. Вы можете [создать](#create), [изменить](#update), [клонировать](#clone) или [удалить](#delete) такие эндпоинты.
 
 ## Получить список эндпоинтов {#list}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-    
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
 
 - CLI {#cli}
 
-    {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    Чтобы получить список трансферов в каталоге, выполните команду:
+  Чтобы получить список [трансферов](../../concepts/index.md#transfer) в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), выполните команду:
 
-    ```bash
-    {{ yc-dt }} endpoint list
-    ```
+  ```bash
+  {{ yc-dt }} endpoint list
+  ```
 
 - API {#api}
 
-    Воспользуйтесь методом API [list](../../api-ref/Endpoint/list.md).
+  Воспользуйтесь методом API [list](../../api-ref/Endpoint/list.md).
 
 {% endlist %}
 
 ## Создать эндпоинт {#create}
+
 
 {% include [access-requirements](../../../_includes/data-transfer/note-on-required-role.md) %}
 
@@ -38,126 +39,120 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
-    1. В поле **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** выберите **{{ ui-key.yacloud.data-transfer.forms.label_source-type }}** или **{{ ui-key.yacloud.data-transfer.forms.label_target-type }}**.
-    1. Укажите имя эндпоинта. Используйте строчные латинские буквы и цифры.
-    1. (Опционально) Укажите описание эндпоинта.
-    1. Выберите нужное значение в поле **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**. Будет создан эндпоинт соответствующего типа.
-    1. Задайте параметры эндпоинта:
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
+  1. В поле **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** выберите **{{ ui-key.yacloud.data-transfer.forms.label_source-type }}** или **{{ ui-key.yacloud.data-transfer.forms.label_target-type }}**.
+  1. Укажите имя эндпоинта. Используйте строчные латинские буквы и цифры.
+  1. (Опционально) Укажите описание эндпоинта.
+  1. Выберите нужное значение в поле **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**. Будет создан эндпоинт соответствующего типа.
+  1. Задайте параметры эндпоинта:
 
-        {% include [Parameter list](../../../_includes/data-transfer/endpoint-param-list.md) %}
+     {% include [Parameter list](../../../_includes/data-transfer/endpoint-param-list.md) %}
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
 
 - CLI {#cli}
 
-    {% note info %}
+  {% note info %}
 
-    Создание эндпоинта с помощью команд CLI поддерживается только для источников и приемников типа {{ CH }}, {{ MG }}, {{ MY }} и {{ PG }}.
+  Создание эндпоинта с помощью команд [CLI](../../../cli/) поддерживается только для источников и приемников типа {{ CH }}, {{ MG }}, {{ MY }} и {{ PG }}.
 
-    {% endnote %}
+  {% endnote %}
 
-    {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    Чтобы создать эндпоинт:
+  1. Посмотрите описание команды CLI для создания эндпоинта:
 
-    1. Посмотрите описание команды CLI для создания эндпоинта:
+     ```bash
+     {{ yc-dt }} endpoint create --help
+     ```
 
-        ```bash
-        {{ yc-dt }} endpoint create --help
-        ```
+  1. Укажите параметры эндпоинта в команде создания (в примере приведены не все параметры):
 
-    1. Укажите параметры эндпоинта в команде создания (в примере приведены не все параметры):
+     ```bash
+     {{ yc-dt }} endpoint create <тип_эндпоинта> \
+       --name <имя_эндпоинта> \
+       --description <описание_эндпоинта> \
+       <параметры_эндпоинта>
+     ```
 
-        ```bash
-        {{ yc-dt }} endpoint create <тип_эндпоинта> \
-          --name <имя_эндпоинта> \
-          --description <описание_эндпоинта> \
-          <параметры_эндпоинта>
-        ```
-
-        Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных.
+     Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных.
 
 - {{ TF }} {#tf}
 
-    
-    {% note info %}
+  
+  {% note info %}
 
-    Создание эндпоинта с помощью {{ TF }} поддерживается только для источников и приемников типа {{ CH }}, {{ MG }}, {{ MY }} и {{ PG }}.
+  Создание эндпоинта с помощью {{ TF }} поддерживается только для источников и приемников типа {{ CH }}, {{ MG }}, {{ MY }} и {{ PG }}.
 
-    {% endnote %}
-
-
-    
-    {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
-
-    {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% endnote %}
 
 
-    Чтобы создать эндпоинт:
+  
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-    1. Создайте конфигурационный файл с описанием эндпоинта.
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-       Пример структуры конфигурационного файла:
 
-       ```hcl
-       resource "ycp_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
-         name = "<имя_эндпоинта>"
-         settings {
-           <тип_эндпоинта> {
-             <параметры_эндпоинта>
-           }
+  1. Создайте конфигурационный файл с описанием эндпоинта.
+
+     Пример структуры конфигурационного файла:
+
+     ```hcl
+     resource "ycp_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
+       name = "<имя_эндпоинта>"
+       settings {
+         <тип_эндпоинта> {
+           <параметры_эндпоинта>
          }
        }
-       ```
+     }
+     ```
 
-    Полную схему ресурсов можно получить, запустив `terraform providers schema`.
+  Полную схему ресурсов можно получить, запустив `terraform providers schema`.
+  1. Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных.
+  1. Проверьте корректность настроек.
 
-    1. Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных.
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-    1. Проверьте корректность настроек.
+  1. Подтвердите изменение ресурсов.
 
-        {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-    1. Подтвердите изменение ресурсов.
+  
+  1. Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-     
-        
-    1. Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
-    
 
 - API {#api}
 
-    {% note info %}
+  {% note info %}
 
-    Создание эндпоинта с помощью [API](../../../glossary/rest-api.md) поддерживается только для источников и приемников типа {{ CH }}, {{ KF }}, {{ MG }}, {{ MY }} и {{ PG }}.
+  Создание эндпоинта с помощью [API](../../../glossary/rest-api.md) поддерживается только для источников и приемников типа {{ CH }}, {{ KF }}, {{ MG }}, {{ MY }} и {{ PG }}.
 
-    {% endnote %}
+  {% endnote %}
 
-    Воспользуйтесь методом API [create](../../api-ref/Endpoint/create) и передайте в запросе:
+  Воспользуйтесь методом API [create](../../api-ref/Endpoint/create) и передайте в запросе:
+  * Идентификатор [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором должен быть размещен эндпоинт, в параметре `folderId`.
+  * Имя эндпоинта в параметре `name`.
+  * Описание эндпоинта в параметре `description`.
+  * Параметры эндпоинта в параметре `settings`.
 
-    * Идентификатор каталога, в котором должен быть размещен эндпоинт, в параметре `folderId`.
-    * Имя эндпоинта в параметре `name`.
-    * Описание эндпоинта в параметре `description`.
-    * Параметры эндпоинта в параметре `settings`.
-
-    Параметры эндпоинта см. в разделе настроек для нужного источника или приемника данных.
+   Параметры эндпоинта см. в разделе настроек для нужного источника или приемника данных.
 
 {% endlist %}
 
 ## Изменить эндпоинт {#update}
+
 
 {% include [access-requirements](../../../_includes/data-transfer/note-on-required-role.md) %}
 
 
 {% note info %}
 
-Тип эндпоинта и тип базы данных нельзя изменить. Для ряда эндпоинтов невозможно также изменить тип подключения.
+Тип эндпоинта и тип БД нельзя изменить. Для ряда эндпоинтов невозможно также изменить тип подключения.
 
 {% endnote %}
 
@@ -165,79 +160,76 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
-    1. Выберите эндпоинт и нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** на панели сверху.
-    1. Отредактируйте параметры эндпоинта:
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. Выберите эндпоинт и нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** на панели сверху.
+  1. Отредактируйте параметры эндпоинта:
 
-        {% include [Parameter list](../../../_includes/data-transfer/endpoint-param-list.md) %}
+     {% include [Parameter list](../../../_includes/data-transfer/endpoint-param-list.md) %}
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
 
 - CLI {#cli}
 
-    {% note info %}
+  {% note info %}
 
-    Изменение эндпоинта с помощью команд CLI поддерживается только для источников и приемников типа {{ CH }}, {{ MG }}, {{ MY }} и {{ PG }}.
+  Изменение эндпоинта с помощью команд CLI поддерживается только для источников и приемников типа {{ CH }}, {{ MG }}, {{ MY }} и {{ PG }}.
 
-    {% endnote %}
+  {% endnote %}
 
-    {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    Чтобы изменить настройки эндпоинта:
+  Чтобы изменить настройки эндпоинта:
+  1. Посмотрите описание команды CLI для изменения трансфера:
 
-    1. Посмотрите описание команды CLI для изменения трансфера:
+     ```bash
+     {{ yc-dt }} endpoint update --help
+     ```
 
-        ```bash
-        {{ yc-dt }} endpoint update --help
-        ```
+  1. Выполните команду, передав список настроек, которые хотите изменить (в примере приведены не все параметры):
 
-    1. Выполните команду, передав список настроек, которые хотите изменить (в примере приведены не все параметры):
+     ```bash
+     {{ yc-dt }} transfer update <тип_эндпоинта> <идентификатор_эндпоинта> \
+       --name <имя_эндпоинта> \
+       --description <описание_эндпоинта> \
+       <параметры_эндпоинта>
+     ```
 
-        ```bash
-        {{ yc-dt }} transfer update <тип_эндпоинта> <идентификатор_эндпоинта> \
-           --name <имя_эндпоинта> \
-           --description <описание_эндпоинта> \
-           <параметры_эндпоинта>
-        ```
-
-        Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных. Идентификатор эндпоинта можно получить со [списком эндпоинтов в каталоге](#list).
+     Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных. Идентификатор эндпоинта можно получить со [списком эндпоинтов в каталоге](#list).
 
 - {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с описанием эндпоинта.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с описанием эндпоинта.
 
-        О том, как создать такой файл, см. в подразделе [Создать эндпоинт](#create).
+     О том, как создать такой файл, см. в подразделе [Создать эндпоинт](#create).
+  1. Измените значение поля `name` (имя эндпоинта) и параметры эндпоинта в блоке `settings`.
+  1. Проверьте корректность настроек.
 
-    1. Измените значение поля `name` (имя эндпоинта) и параметры эндпоинта в блоке `settings`.
-    1. Проверьте корректность настроек.
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-        {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+  1. Подтвердите изменение ресурсов.
 
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
-    {% note info %}
+  {% note info %}
 
-    Изменение эндпоинта с помощью API поддерживается только для источников и приемников типа {{ CH }}, {{ KF }}, {{ MG }}, {{ MY }} и {{ PG }}.
+  Изменение эндпоинта с помощью API поддерживается только для источников и приемников типа {{ CH }}, {{ KF }}, {{ MG }}, {{ MY }} и {{ PG }}.
 
-    {% endnote %}
+  {% endnote %}
 
-    Воспользуйтесь методом API [update](../../api-ref/Endpoint/update) и передайте в запросе:
+  Воспользуйтесь методом API [update](../../api-ref/Endpoint/update) и передайте в запросе:
+  * Идентификатор эндпоинта в параметре `endpointId`
+  * Имя эндпоинта в параметре `name`.
+  * Описание эндпоинта в параметре `description`.
+  * Параметры эндпоинта в параметре `settings`.
 
-    * Идентификатор эндпоинта в параметре `endpointId`
-    * Имя эндпоинта в параметре `name`.
-    * Описание эндпоинта в параметре `description`.
-    * Параметры эндпоинта в параметре `settings`.
-
-    Идентификатор эндпоинта можно получить со [списком эндпоинтов в каталоге](#list).
+  Идентификатор эндпоинта можно получить со [списком эндпоинтов в каталоге](#list).
 
 {% endlist %}
 
@@ -247,7 +239,7 @@
 
 {% note info %}
 
-При клонировании нельзя изменить тип эндпоинта и тип базы данных.
+При клонировании нельзя изменить тип эндпоинта и тип БД.
 
 {% endnote %}
 
@@ -255,15 +247,15 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
-    1. Выберите эндпоинт, который нужно клонировать.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.clone }}** на панели сверху.
-    1. Задайте имя нового эндпоинта и при необходимости отредактируйте остальные параметры:
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. Выберите эндпоинт, который нужно клонировать.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.clone }}** на панели сверху.
+  1. Задайте имя нового эндпоинта и при необходимости отредактируйте остальные параметры:
 
-        {% include [Parameter list](../../../_includes/data-transfer/endpoint-param-list.md) %}
+     {% include [Parameter list](../../../_includes/data-transfer/endpoint-param-list.md) %}
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
 
 {% endlist %}
 
@@ -281,35 +273,35 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
-    1. Выберите эндпоинт, который нужно удалить.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}** на панели сверху.
-    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. Выберите эндпоинт, который нужно удалить.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}** на панели сверху.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
-    {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    Чтобы удалить эндпоинт, выполните команду:
+  Чтобы удалить эндпоинт, выполните команду:
 
-    ```bash
-    {{ yc-dt }} endpoint delete <идентификатор_эндпоинта>
-    ```
+  ```bash
+  {{ yc-dt }} endpoint delete <идентификатор_эндпоинта>
+  ```
 
-    Идентификатор эндпоинта можно получить со [списком эндпоинтов в каталоге](#list).
+  Идентификатор эндпоинта можно получить со [списком эндпоинтов в каталоге](#list).
 
 - {{ TF }} {#tf}
 
-    {% include [terraform-delete](../../../_includes/data-transfer/terraform-delete-endpoint.md) %}
+  {% include [terraform-delete](../../../_includes/data-transfer/terraform-delete-endpoint.md) %}
 
 - API {#api}
 
-    Воспользуйтесь методом API [delete](../../api-ref/Endpoint/delete) и передайте идентификатор нужного эндпоинта в параметре `endpointId` запроса.
+  Воспользуйтесь методом API [delete](../../api-ref/Endpoint/delete) и передайте идентификатор нужного эндпоинта в параметре `endpointId` запроса.
 
-    Идентификатор эндпоинта можно получить со [списком эндпоинтов в каталоге](#list).
+  Идентификатор эндпоинта можно получить со [списком эндпоинтов в каталоге](#list).
 
 {% endlist %}
 

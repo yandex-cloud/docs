@@ -1,12 +1,12 @@
 # Сканирование уязвимостей {{ container-registry-name }} при непрерывном развертывании приложений {{ managed-k8s-name }} с помощью {{ GL }}
 
 
-Вы можете [сканировать уязвимости](../container-registry/concepts/vulnerability-scanner.md) [Docker-образов](../container-registry/concepts/docker-image.md) в [{{ container-registry-full-name }}](../container-registry/) при непрерывном развертывании приложений [{{ managed-k8s-full-name }}](../managed-kubernetes/) через {{ GL }}.
+Вы можете [сканировать уязвимости](../../container-registry/concepts/vulnerability-scanner.md) [Docker-образов](../../container-registry/concepts/docker-image.md) в [{{ container-registry-full-name }}](../../container-registry/) при непрерывном развертывании приложений [{{ managed-k8s-full-name }}](../../managed-kubernetes/) через {{ GL }}.
 
 Для этого с помощью непрерывной интеграции ([Continuous Integration](/blog/posts/2022/10/ci-cd), CI) в {{ GL }} создается специальный сценарий, который запускается после каждого коммита:
 1. Сборка приложения в Docker-образ и загрузка образа в {{ container-registry-name }}.
 1. Сканирование Docker-образа в {{ container-registry-name }} на наличие уязвимостей.
-1. Развертывание приложения из Docker-образа в [кластере {{ managed-k8s-name }}](../managed-kubernetes/concepts/index.md#kubernetes-cluster) с помощью инструментов {{ yandex-cloud }}.
+1. Развертывание приложения из Docker-образа в [кластере {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) с помощью инструментов {{ yandex-cloud }}.
 
 Чтобы настроить сканер уязвимостей:
 1. [Создайте инстанс {{ GL }}](#create-gitlab).
@@ -20,17 +20,17 @@
 
 ## Перед началом работы {#before-begin}
 
-{% include [deploy-infrastructure](../_includes/managed-gitlab/deploy-infrastructure.md) %}
+{% include [deploy-infrastructure](../../_includes/managed-gitlab/deploy-infrastructure.md) %}
 
-{% include [prepare](../_includes/managed-gitlab/prepare.md) %}
+{% include [prepare](../../_includes/managed-gitlab/prepare.md) %}
 
-{% include [create-gitlab](../_includes/managed-gitlab/create-gitlab.md) %}
+{% include [create-gitlab](../../_includes/managed-gitlab/create-gitlab.md) %}
 
-{% include [Create a project](../_includes/managed-gitlab/initialize.md) %}
+{% include [Create a project](../../_includes/managed-gitlab/initialize.md) %}
 
-{% include [app-create](../_includes/managed-gitlab/app-create.md) %}
+{% include [app-create](../../_includes/managed-gitlab/app-create.md) %}
 
-{% include [create glr](../_includes/managed-gitlab/k8s-runner.md) %}
+{% include [create glr](../../_includes/managed-gitlab/k8s-runner.md) %}
 
 ## Настройте аутентификацию {{ k8s }} в {{ GL }} {#gitlab-authentication}
 
@@ -40,11 +40,11 @@
 
 - Токен сервисного аккаунта {#token}
 
-  {% include notitle [k8s-get-token](../_includes/managed-gitlab/k8s-get-token.md) %}
+  {% include notitle [k8s-get-token](../../_includes/managed-gitlab/k8s-get-token.md) %}
 
 - {{ GLA }} {#gla}
 
-  {% include notitle [create gla](../_includes/managed-gitlab/k8s-agent.md) %}
+  {% include notitle [create gla](../../_includes/managed-gitlab/k8s-agent.md) %}
 
 {% endlist %}
 
@@ -59,7 +59,7 @@
 
       - Токен сервисного аккаунта {#token}
 
-        * `KUBE_URL` — адрес [мастера {{ managed-k8s-name }}](../managed-kubernetes/concepts/index.md#master). Узнайте его с помощью команды:
+        * `KUBE_URL` — адрес [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master). Узнайте его с помощью команды:
 
           ```bash
           yc managed-kubernetes cluster get <имя_или_идентификатор_кластера> --format=json \
@@ -72,7 +72,7 @@
 
       {% endlist %}
 
-      * `CI_REGISTRY` — адрес созданного ранее [реестра](../container-registry/concepts/registry.md) в формате `{{ registry }}/<идентификатор_реестра>`.
+      * `CI_REGISTRY` — адрес созданного ранее [реестра](../../container-registry/concepts/registry.md) в формате `{{ registry }}/<идентификатор_реестра>`.
       * `CI_REGISTRY_KEY` — ключ, который {{ GL }} будет использовать для доступа к реестру. Скопируйте содержимое файла статического ключа `key.json` для доступа к реестру, полученного ранее.
 
       Для добавления переменной:
@@ -81,7 +81,7 @@
       * Нажмите кнопку **Add variable**.
 1. Создайте файл конфигурации сценария CI:
    1. На панели слева в {{ GL }} перейдите в раздел **Repository** и выберите вкладку **Files**.
-   1. Справа от имени проекта нажмите кнопку ![image](../_assets/console-icons/plus.svg) и в выпадающем меню выберите пункт **New file**.
+   1. Справа от имени проекта нажмите кнопку ![image](../../_assets/console-icons/plus.svg) и в выпадающем меню выберите пункт **New file**.
    1. Назовите файл `.gitlab-ci.yml`. Добавьте в него шаги сборки и загрузки Docker-образа, его сканирования на наличие уязвимостей и обновления конфигурации приложения в кластере {{ managed-k8s-name }}. Структура файла зависит от способа аутентификации {{ k8s }} в {{ GL }}:
 
       {% list tabs group=gl_auth %}
@@ -232,4 +232,4 @@
 
 После сохранения файла конфигурации `.gitlab-ci.yml` запустится сценарий сборки. Чтобы проверить результаты его выполнения, на панели слева в {{ GL }} выберите в выпадающем меню пункт **CI/CD** → **Pipelines**. Сканирование уязвимостей происходит на втором этапе `test`.
 
-{% include [clear-out](../_includes/managed-gitlab/clear-out.md) %}
+{% include [clear-out](../../_includes/managed-gitlab/clear-out.md) %}

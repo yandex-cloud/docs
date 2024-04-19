@@ -26,6 +26,15 @@ sourcePath: overlay/security/start_auth.md
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
+## На какие ресурсы можно назначить роль {#resources}
+
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+Кроме того, роль можно назначить на отдельные ресурсы сервиса. Список таких ресурсов зависит от интерфейсов {{ yandex-cloud }}, через которые назначаются роли:
+
+* в консоли управления можно назначать роли только на [СУБД YDB](../concepts/index.md#ydb);
+* через YC CLI или API {{ yandex-cloud }} — на СУБД и ее резервную копию.
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ ydb-name }}.

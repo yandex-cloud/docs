@@ -11,7 +11,9 @@
 
 ## На какие ресурсы можно назначить роль {#resources}
 
-Роль можно назначить на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) и [контейнер](../concepts/container.md).
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+На [контейнер](../concepts/container.md) роль можно назначить через YC CLI или API {{ yandex-cloud }}.
 
 ## Какие роли действуют в сервисе {#roles-list}
 

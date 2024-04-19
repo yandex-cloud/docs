@@ -1,14 +1,14 @@
 # Репликация логов в {{ objstorage-name }} с помощью Fluent Bit
 
 
-Агрегаторы данных позволяют транслировать данные, такие как логи, с [виртуальных машин](../compute/concepts/vm.md) в сервисы просмотра логов и хранения данных.
+Агрегаторы данных позволяют транслировать данные, такие как логи, с [виртуальных машин](../../compute/concepts/vm.md) в сервисы просмотра логов и хранения данных.
 
 С предлагаемой инструкцией вы научитесь автоматически реплицировать логи с виртуальной машины в бакет {{ objstorage-name }} с помощью обработчика логов [Fluent Bit](https://fluentbit.io).
 
 Решение, которое описано ниже, работает по следующей схеме:
 1. На рабочей ВМ запущен Fluent Bit как [systemd](https://ru.wikipedia.org/wiki/Systemd)-модуль.
-1. Fluent Bit собирает логи в соответствии с настройками конфигурации и отправляет их в [поток](../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }} по протоколу [Amazon Kinesis Data Streams](https://aws.amazon.com/ru/kinesis/data-streams/).
-1. В рабочем каталоге настроен [трансфер](../data-transfer/concepts/#transfer) {{ data-transfer-name }}, который забирает данные из потока и сохраняет в [бакет](../storage/concepts/bucket.md) {{ objstorage-name }}.
+1. Fluent Bit собирает логи в соответствии с настройками конфигурации и отправляет их в [поток](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }} по протоколу [Amazon Kinesis Data Streams](https://aws.amazon.com/ru/kinesis/data-streams/).
+1. В рабочем каталоге настроен [трансфер](../../data-transfer/concepts/#transfer) {{ data-transfer-name }}, который забирает данные из потока и сохраняет в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}.
 
 Чтобы настроить репликацию логов:
 
@@ -25,22 +25,22 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-{% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки хранения данных входит:
 
-* плата за обслуживание потока данных (см. [тарифы {{ yds-full-name }}](../data-streams/pricing.md));
-* плата за перенос данных между источниками и приемниками (см. [тарифы {{ data-transfer-full-name }}](../data-transfer/pricing.md));
-* плата за хранение данных (см. [тарифы {{ objstorage-full-name }}](../storage/pricing.md)).
+* плата за обслуживание потока данных (см. [тарифы {{ yds-full-name }}](../../data-streams/pricing.md));
+* плата за перенос данных между источниками и приемниками (см. [тарифы {{ data-transfer-full-name }}](../../data-transfer/pricing.md));
+* плата за хранение данных (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
 
 ## Настройте окружение {#setup}
 
-1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md), например `logs-sa`, с ролью `editor` на каталог.
-1. [Создайте статический ключ доступа](../iam/operations/sa/create-access-key.md) для сервисного аккаунта. Сохраните идентификатор и секретный ключ. Они понадобятся, чтобы авторизоваться в AWS.
-1. [Создайте ВМ](../compute/operations/vm-create/create-linux-vm.md) из публичного образа [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts). В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите сервисный аккаунт, который создали на предыдущем шаге.
-1. [Подключитесь к ВМ](../compute/operations/vm-connect/ssh.md#vm-connect) по [SSH](../glossary/ssh-keygen.md).
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md), например `logs-sa`, с ролью `editor` на каталог.
+1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта. Сохраните идентификатор и секретный ключ. Они понадобятся, чтобы авторизоваться в AWS.
+1. [Создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) из публичного образа [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts). В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите сервисный аккаунт, который создали на предыдущем шаге.
+1. [Подключитесь к ВМ](../../compute/operations/vm-connect/ssh.md#vm-connect) по [SSH](../../glossary/ssh-keygen.md).
 1. Установите на ВМ утилиту [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 1. Выполните команду:
 
@@ -49,15 +49,15 @@
     ```
 1. Последовательно введите:
 
-    * `AWS Access Key ID [None]:` — [идентификатор ключа](../iam/concepts/authorization/access-key.md) сервисного аккаунта.
-    * `AWS Secret Access Key [None]:` — [секретный ключ](../iam/concepts/authorization/access-key.md) сервисного аккаунта.
+    * `AWS Access Key ID [None]:` — [идентификатор ключа](../../iam/concepts/authorization/access-key.md) сервисного аккаунта.
+    * `AWS Secret Access Key [None]:` — [секретный ключ](../../iam/concepts/authorization/access-key.md) сервисного аккаунта.
     * `Default region name [None]:` — регион `{{ region-id }}`.
 
-{% include [create-bucket](_tutorials_includes/create-bucket.md) %}
+{% include [create-bucket](../_tutorials_includes/create-bucket.md) %}
 
-{% include [create-stream](_tutorials_includes/create-stream.md) %}
+{% include [create-stream](../_tutorials_includes/create-stream.md) %}
 
-{% include [create-transfer](_tutorials_includes/create-transfer.md) %}
+{% include [create-transfer](../_tutorials_includes/create-transfer.md) %}
 
 ## Установите Fluent Bit {#install-fluent-bit}
 
@@ -172,14 +172,14 @@
     Sep 08 16:51:19 ycl-20 fluent-bit[3450]: [2022/09/08 16:51:19] [ info] [output:stdout:stdout.0] worker #0 started
     ```
 
-{% include [check-ingestion](_tutorials_includes/check-ingestion.md) %}
+{% include [check-ingestion](../_tutorials_includes/check-ingestion.md) %}
 
 ## Как удалить созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-1. [Удалите трансфер](../data-transfer/operations/transfer.md#delete).
-1. [Удалите эндпоинты](../data-transfer/operations/endpoint/index.md#delete).
-1. [Удалите поток данных](../data-streams/operations/manage-streams.md#delete-data-stream).
-1. [Удалите объекты в бакете](../storage/operations/objects/delete.md).
-1. [Удалите бакет](../storage/operations/buckets/delete.md).
+1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
+1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete).
+1. [Удалите поток данных](../../data-streams/operations/manage-streams.md#delete-data-stream).
+1. [Удалите объекты в бакете](../../storage/operations/objects/delete.md).
+1. [Удалите бакет](../../storage/operations/buckets/delete.md).

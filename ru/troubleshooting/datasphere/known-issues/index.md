@@ -11,3 +11,4 @@
 * [Устранение ошибки Token authentication is enabled](error-token-authentication-is-enabled.md)
 * [Устранение ошибок с доступом или входом в проект](opening-project-issues.md)
 * [Устранение ошибки KernelNotResponding: The kernel died unexpectedly](error-kernel-not-responding.md)
+* [Устранение ошибки `ConnectTimeoutError` при установке пакетов через pip](error-connect-timeout-when-installing-via-pip.md)
