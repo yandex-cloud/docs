@@ -13,22 +13,13 @@ description: "Управление доступом в сервисе предо
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## На какие ресурсы можно назначить роль {#resources}
+## На какие ресурсы можно назначать роли {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-Кроме того, роль можно назначить на отдельные ресурсы сервиса:
+В консоли управления, через YC CLI или API {{ yandex-cloud }} роль можно назначить на отдельные ресурсы сервиса:
 
-* [ВМ](../operations/vm-control/vm-access.md);
-* [диск](../operations/disk-control/disk-access.md);
-* [снимок диска](../operations/snapshot-control/snapshot-access.md);
-* [расписание снимка](../operations/snapshot-control/snapshot-schedule-access.md);
-* [файловое хранилище](../operations/filesystem/filesystem-access.md);
-* [образ](../operations/image-control/access.md);
-* [группу размещения ВМ](../operations/placement-groups/access.md);
-* [группу размещения нереплицируемых дисков](../operations/disk-placement-groups/access.md);
-* [группу выделенных хостов](../operations/dedicated-host/access.md);
-* [кластер GPU](../operations/gpu-cluster/access.md).
+{% include notitle [compute-resources](../../_includes/iam/resources-with-access-control/compute.md) %}
 
 ## Какие роли действуют в сервисе {#roles-list}
 

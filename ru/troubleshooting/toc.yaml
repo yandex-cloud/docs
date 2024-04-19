@@ -8,6 +8,8 @@ items:
       - name: Решения для известных проблем Application Load Balancer
         href: application-load-balancer/known-issues/index.md
         hidden: true
+      - name: Устранение ошибки `no_route` при открытии адреса
+        href: application-load-balancer/known-issues/error-no-route.md
       - name: Примеры конфигураций и сценариев Application Load Balancer
         href: application-load-balancer/how-to/index.md
         hidden: true
@@ -79,6 +81,12 @@ items:
         href: billing/known-issues/payment-not-confirmed-issue.md
       - name: Облако зависло в статусе `Creating` или долго не создается
         href: billing/known-issues/cloud-stuck-in-creating-status.md
+      - name: Устранение ошибки `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS`
+        href: billing/known-issues/error-prohibited-user-account-usage-status.md
+      - name: >-
+          Устранение ошибки `Веб-страница временно недоступна` при оплате картой
+          Сбера
+        href: billing/known-issues/unable-to-pay-with-sber-card.md
       - name: Что делать, если документы перестали поступать в систему ЭДО?
         href: billing/known-issues/no-new-incoming-documents-in-edi.md
       - name: Примеры конфигураций и сценариев Cloud Billing
@@ -148,8 +156,6 @@ items:
       - name: Примеры конфигураций и сценариев Business
         href: business/how-to/index.md
         hidden: true
-      - name: Получение доступа к дата-центрам в Казахстане
-        href: business/how-to/accessing-data-centers-in-kazakhstan.md
   - name: Certificate Manager
     items:
       - name: Все решения для Certificate Manager
@@ -466,6 +472,8 @@ items:
           datalens/known-issues/err-ds-api-us-bad-request-data-key-should-not-start-with.md
       - name: В датасетах по Яндекс Метрике отображаются не все поля
         href: datalens/known-issues/metrika-not-all-fields.md
+      - name: Устранение ошибки `SSL is required`
+        href: datalens/known-issues/error-ssl-is-required.md
   - name: DataProc
     items:
       - name: Все решения для DataProc
@@ -518,6 +526,11 @@ items:
         href: datasphere/known-issues/opening-project-issues.md
       - name: Устранение ошибки KernelNotResponding The kernel died unexpectedly
         href: datasphere/known-issues/error-kernel-not-responding.md
+      - name: >-
+          Устранение ошибки `ConnectTimeoutError` при установке пакетов через
+          pip
+        href: >-
+          datasphere/known-issues/error-connect-timeout-when-installing-via-pip.md
       - name: Примеры конфигураций и сценариев DataSphere
         href: datasphere/how-to/index.md
         hidden: true
@@ -553,6 +566,11 @@ items:
           type information
         href: >-
           data-transfer/known-issues/failed-to-connect-to-the-destination-cluster-to-get-type-information.md
+      - name: >-
+          Устранение ошибки `The transfer is located in zone ru-central1-c and
+          will be removed`
+        href: >-
+          data-transfer/known-issues/error-the-transfer-is-located-in-zone-ru-central1-c-and-will-be-removed.md
       - name: Примеры конфигураций и сценариев Data Transfer
         href: data-transfer/how-to/index.md
         hidden: true
@@ -751,6 +769,18 @@ items:
         href: managed-kubernetes/how-to/uploading-cert-from-yc-certmgr-to-k8s.md
       - name: Как изменить часовой пояс на узлах кластера {{ managed-k8s-name }}
         href: managed-kubernetes/how-to/setting-timezone-on-mk8s-worker-nodes.md
+  - name: '{{ mkf-full-name }}'
+    items:
+      - name: Все решения для {{ mkf-full-name }}
+        href: managed-kafka/index.md
+      - name: Примеры конфигураций и сценариев {{ mkf-full-name }}
+        href: managed-kafka/how-to/index.md
+        hidden: true
+      - name: Решения для известных проблем {{ mkf-full-name }}
+        href: managed-kafka/known-issues/index.md
+        hidden: true
+      - name: Устранение ошибки `Failed authentication with /`
+        href: managed-kafka/known-issues/error-failed-authentification.md
   - name: '{{ mgl-name }}'
     items:
       - name: Все решения для {{ mgl-name }}
@@ -819,8 +849,6 @@ items:
       - name: Примеры конфигураций и сценариев Legal
         href: legal/how-to/index.md
         hidden: true
-      - name: Получение доступа к дата-центрам в Казахстане
-        href: legal/how-to/accessing-data-centers-in-kazakhstan.md
       - name: Узнать физический (географический) адрес ЦОД Yandex Cloud
         href: legal/how-to/data-centers-physical-addresses.md
   - name: Object Storage
@@ -1065,6 +1093,12 @@ items:
         href: vpc/known-issues/security-group-cannot-be-deleted.md
       - name: Устранение проблем с отправкой писем по SMTP со внешних IP-адресов
         href: vpc/known-issues/issues-with-outgoing-emails-on-external-ips.md
+      - name: >-
+          Устранение ошибки `Quota limit vpc.externalStaticAddresses.count
+          exceeded`
+        href: vpc/known-issues/error-quota-limit-exceeded.md
+      - name: Устранение ошибки `Quota limit vpc.routeTables.count exceeded`
+        href: vpc/known-issues/error-quota-limit-vpc-routetables-count-exceeded.md
       - name: Примеры конфигураций и сценариев VPC
         href: vpc/how-to/index.md
         hidden: true

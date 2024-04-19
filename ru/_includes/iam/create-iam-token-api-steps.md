@@ -2,10 +2,12 @@
 2. Получите OAuth-токен в сервисе Яндекс.OAuth. Для этого перейдите по [ссылке]({{ link-cloud-oauth }}), нажмите **Разрешить** и скопируйте полученный OAuth-токен.
 3. Обменяйте OAuth-токен на IAM-токен:
 
-    * с помощью [curl](https://curl.haxx.se) в Bash или CMD:
+    * с помощью [curl](https://curl.haxx.se) в Bash:
 
         ```bash
-        curl -d "{\"yandexPassportOauthToken\":\"<OAuth-токен>\"}" "https://iam.{{ api-host }}/iam/v1/tokens"
+        curl -X POST \
+          -d '{"yandexPassportOauthToken":"<OAuth-токен>"}' \
+          https://iam.{{ api-host }}/iam/v1/tokens
         ```
     * с помощью встроенной функции в PowerShell:
 
