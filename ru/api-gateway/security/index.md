@@ -25,6 +25,12 @@ description: "Управление доступом в сервисе API-шлю
 
 Подробнее о назначении ролей см. в документации сервиса [{{ iam-full-name }}](../../iam/operations/roles/grant.md).
 
+## На какие ресурсы можно назначить роль {#resources}
+
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+На [API-шлюз](../concepts/index.md) роль можно назначить через YC CLI или API {{ yandex-cloud }}.
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ api-gw-name }}.

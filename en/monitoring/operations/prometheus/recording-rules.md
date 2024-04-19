@@ -28,7 +28,7 @@ cat recording-rule.yaml
 # groups:
 #   - name: example
 #     rules:
-#    - record: example
+#     - record: example
 #       expr: up
 
 base64 -i recording-rule.yaml

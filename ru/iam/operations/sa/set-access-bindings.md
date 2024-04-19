@@ -2,6 +2,12 @@
 
 Этот раздел про назначение [роли](../../concepts/access-control/roles.md) на [сервисный аккаунт](../../concepts/users/service-accounts.md) как на ресурс. Чтобы выдать роль сервисному аккаунту на другой ресурс, воспользуйтесь инструкцией [{#T}](assign-role-for-sa.md).
 
+{% note info %}
+
+Чтобы назначить роль на сервисный аккаунт, нужна роль `iam.serviceAccounts.admin`.
+
+{% endnote %}
+
 ## Назначить роль на сервисный аккаунт {#assign-role-to-sa}
 
 {% list tabs group=instructions %}

@@ -6,7 +6,8 @@
 
   ```bash
   export IAM_TOKEN=`yc iam create-token`
-  curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+  curl -X GET \
+    -H "Authorization: Bearer ${IAM_TOKEN}" \
     https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
   ```
 
@@ -14,7 +15,9 @@
 
   ```powershell
   $IAM_TOKEN=yc iam create-token
-  curl.exe -H "Authorization: Bearer $IAM_TOKEN" https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
+  curl.exe -X GET `
+    -H "Authorization: Bearer $IAM_TOKEN" `
+    https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
   ```
 
 {% endlist %}

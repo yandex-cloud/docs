@@ -33,7 +33,7 @@
 
 ### Ресурсы, на которые можно назначать роли {#resource}
 
-Назначать роли можно на [облако](../../../resource-manager/operations/cloud/set-access-bindings.md), [каталог](../../../resource-manager/operations/folder/set-access-bindings.md) и другие ресурсы из [списка](resources-with-access-control.md). Если нужно предоставить доступ к ресурсу, которого нет в списке, например к [кластеру {{ mpg-full-name }}](../../../managed-postgresql/concepts/index.md), назначьте роль на родительский ресурс, от которого [наследуются](#inheritance) права доступа. У кластеров {{ mpg-name }} права доступа наследуются от каталога.
+Назначать роли можно на [облако](../../../resource-manager/operations/cloud/set-access-bindings.md), [каталог](../../../resource-manager/operations/folder/set-access-bindings.md) и другие ресурсы из [списка](resources-with-access-control.md). Если нужно предоставить доступ к ресурсу, которого нет в списке, назначьте роль на родительский ресурс, от которого [наследуются](#inheritance) права доступа. Например, у [кластеров {{ mpg-full-name }}](../../../managed-postgresql/concepts/index.md) права доступа наследуются от каталога.
 
 ### Роль {#role}
 

@@ -8,6 +8,14 @@
 
 Подробнее об управлении доступом в {{ yandex-cloud }} читайте в документации {{ iam-full-name }} в разделе [{#T}](../../iam/concepts/access-control/index.md).
 
+## На какие ресурсы можно назначить роль {#resources}
+
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+Через YC CLI или API {{ yandex-cloud }} роль можно назначить на отдельные ресурсы сервиса:
+
+{% include notitle [organization-resources](../../_includes/iam/resources-with-access-control/organization.md) %}
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 ### Сервисные роли {#service-roles}
