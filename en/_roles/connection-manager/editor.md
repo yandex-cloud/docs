@@ -5,4 +5,4 @@ Users with this role can:
 * View connection details, including [private](../../metadata-hub/concepts/secret.md) data and info on [access bindings](../../iam/concepts/access-control/index.md#access-bindings).
 * View info on Connection Manager [quotas](../../metadata-hub/concepts/limits.md).
 
-This role includes the permissions of the `connection-manager.viewer` role.
+This role also includes the `connection-manager.viewer` permissions.

@@ -168,14 +168,14 @@
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-     * `container` — параметры контейнера, который будет запускать триггер:
+     * `container` — параметры контейнера:
 
          {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
 
-         * `retry_attempts` — количество повторных вызовов, которые будут сделаны, прежде чем триггер отправит сообщение в Dead Letter Queue. Необязательный параметр. Допустимые значения — от 1 до 5, значение по умолчанию — 1.
-         * `retry_interval` — время, через которое будет сделан повторный вызов контейнера, если текущий завершился неуспешно. Необязательный параметр. Допустимые значения — от 10 до 60 секунд, значение по умолчанию — 10 секунд.
+         {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
      
-     * `data_streams` — параметры потока данных {{ yds-name }}:
+     * `data_streams` — параметры триггера:
+
          * `stream_name` — имя потока данных.
          * `database` — размещение базы данных {{ ydb-short-name }}, к которой привязан поток {{ yds-name }}.
 
@@ -185,12 +185,7 @@
 
          {% include [tf-batch-msg-params](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
 
-     * `dlq` — параметры очереди Dead Letter Queue:
-         * `queue_id` — идентификатор очереди.
-
-             {% include [ymq-id](../../_includes/serverless-containers/ymq-id.md) %}
-
-         * `service_account_id` — сервисный аккаунт с правами на запись в очередь Dead Letter Queue.
+     {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
      Более подробную информацию о параметрах ресурса `yandex_function_trigger` см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
 

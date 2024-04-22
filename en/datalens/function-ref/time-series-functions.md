@@ -10,6 +10,9 @@ Time series functions provide various ways to look up values corresponding to a 
 
 In a certain way this functionality is similar to the window function [LAG](LAG.md).
 The main difference is that `LAG` is indifferent to the actual values of the dimensions being used, and operates over positional offsets specified in _rows_, while time series functions use specific values and value offsets in date/time units like days, hours or seconds. This makes them sensitive to missing values in data. As a result of this `AGO(SUM([Sales]), [Date], "year")` will return `NULL` if the same-date row for the previous year is missing.
+
+Time series functions work with specific values or deviations specified in time units (days, hours, or seconds). Due to that, they become sensitive to missing values in data. As the result, the `AGO(SUM([Sales]), [Date], "year")` formula will return `NULL` if there is no data for the same date in the previous year. Also, note that when you use data in date and time format, you might have data for the same date, but not for the exact same second. Besides, when rounding dates to weeks, a shift in years will also return `NULL`.
+
 ## Syntax {#syntax}
 
 Time series functions support extended syntax:
@@ -90,8 +93,14 @@ See also [AT_DATE](AT_DATE.md), [LAG](LAG.md).
          [ IGNORE DIMENSIONS ... ]
        )`
 
-Re-evaluate `measure` for a date/time specified by `date_expr`.
+Re-evaluate `measure` for a date/time specified by `date_expr`. It allows to get the measure at the beginning and at the end of a period, or for the specified date.
 The `date_dimension` argument is the dimension along which the offset is made.
+
+You can use the following as the `date_expr` argument:
+
+* Certain date.
+* Function [TODAY](TODAY.md) to obtain the current date.
+* Functions to calculate date and time.
 
 See also [AGO](AGO.md), [LAG](LAG.md).
 

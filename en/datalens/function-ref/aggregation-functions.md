@@ -46,6 +46,13 @@ LOD can be specified using one of three keywords:
 
 For any of these keywords the list may have any number of dimensions, or even be empty.
 
+Using `INCLUDE` or `EXCLUDE` without a dimension list is equivalent to grouping by dimensions of an external aggregation or by chart dimensions if there are no other aggregations over the current one. `FIXED` without a list means that all data will aggregate into a single group, e.g., for calculating the resulting value.
+
+Top-level aggregations must not contain any dimensions that are missing in the chart. Hence, if you need to add details or group by dimensions that are missing in the chart, you can add them in the lower levels. For example, if you need the maximum sales amount by cities without including data on cities to the chart, use:
+```
+MAX(SUM([Sales] FIXED [City]))
+```
+
 #### Dimension Inheritance {#syntax-lod-inheritance}
 Dimensions are inherited by nested aggregations from the ones they are inside of. The expression
 ```
@@ -55,7 +62,7 @@ in a chart with the additional dimension `[Date]` is equivalent to
 ```
 AVG(MAX(SUM([Sales] FIXED [City], [Category], [Date]) FIXED [Category], [Date]) FIXED [Date])
 ```
-`INCLUDE` or `EXCLUDE` without a list of dimensions results in the same dimensions as the aggregation above or dimensions of the chart if it is the topmost aggregation. `FIXED` without a list means that all data is aggregated in a single group, which can be used to calculate total values.
+
 
 #### LOD Examples {#syntax-lod-examples}
 
@@ -81,9 +88,8 @@ SUM(
 )
 ```
 
-One of the nested aggregations' set of dimensions contains all of the others.
+One of the nested aggregations set of dimensions contains all of the others.
 
-Another important restriction for LOD is that top-level aggregations must not contain any dimensions not used in the chart.
 
 ### BEFORE FILTER BY {#syntax-before-filter-by}
 
@@ -102,8 +108,7 @@ Do not use conflicting `BEFORE FILTER BY` clauses:
 
 ## Usage Restrictions {#usage-restrictions}
 
-There are the following features of using aggregations:
-1. A function or operator cannot have aggregate and non-aggregate expressions as its arguments simultaneously. The following usage is forbidden: `CONCAT([Profit], SUM([Profit]))`.
+There are the following features of using aggregations: a function or operator cannot have aggregate and non-aggregate expressions as its arguments simultaneously. The following usage is forbidden: `CONCAT([Profit], SUM([Profit]))`.
 
 
 
@@ -256,7 +261,7 @@ If `value`:
         [ BEFORE FILTER BY ... ]
       )`
 
-Returns the median value.
+Returns the [median](https://en.wikipedia.org/wiki/Median) value. For an even number of items, it returns the greatest of the neighboring items in the central position.
 
 
 
@@ -306,7 +311,7 @@ Returns the approximate `quant`-level quantile (`quant` should be in range from 
        [ BEFORE FILTER BY ... ]
      )`
 
-Returns the statistical standard deviation of all values in the expression based on a selection from the population.
+Returns the statistical [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation) of all values in the expression based on a selection from the population.
 
 
 
@@ -317,7 +322,7 @@ Returns the statistical standard deviation of all values in the expression based
         [ BEFORE FILTER BY ... ]
       )`
 
-Returns the statistical standard deviation of all values in the expression based on the biased population.
+Returns the statistical [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation) of all values in the expression based on the biased population. The function shows how far data points are from their average. In other words, standard deviation shows to what extent values in a dataset deviate from their average.
 
 
 

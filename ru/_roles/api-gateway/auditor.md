@@ -1,1 +1,1 @@
-Роль `api-gateway.auditor` позволяет смотреть список API-шлюзов и информацию о привязках прав доступа к ним.
+Роль `api-gateway.auditor` позволяет просматривать список [API-шлюзов](../../api-gateway/concepts/index.md) и информацию о [привязках](../../iam/concepts/access-control/index.md#access-bindings) прав доступа к ним, а также метаинформацию [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).

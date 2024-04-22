@@ -6,6 +6,6 @@ Users with this role can:
 * View information about [quotas](../../managed-clickhouse/concepts/limits.md#mch-quotas) of Managed Service for ClickHouse®.
 * View information about operations with resources of Managed Service for ClickHouse®.
 
-This role includes the permissions of the `managed-clickhouse.viewer` role.
+This role also includes the `managed-clickhouse.viewer` permissions.
 
 To create ClickHouse® clusters, you also need the `vpc.user` role.

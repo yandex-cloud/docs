@@ -1,5 +1,6 @@
 # AWS SDK для PHP
 
+
 [AWS SDK для PHP](https://aws.amazon.com/ru/sdk-for-php/) — это комплект средств разработки для работы с сервисами AWS.
 
 ## Подготовка к работе {#before-you-begin}
@@ -35,7 +36,6 @@
 Для доступа к {{ objstorage-name }} используйте адрес `{{ s3-storage-host }}`.
 
 ## Примеры кода {#code-examples}
-
 
 Список имен бакетов:
 

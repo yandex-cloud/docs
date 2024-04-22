@@ -15,7 +15,7 @@ GEOPOLYGON( value )
 ```
 
 #### Description {#description}
-Converts the `value` expression to geopolygon format.
+Converts the `value` expression to [geopolygon](../concepts/data-types.md#geopolygon) format.
 
 **Argument types:**
 - `value` — `Geopolygon | String`

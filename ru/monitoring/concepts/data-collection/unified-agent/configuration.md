@@ -296,8 +296,8 @@ pipes:
     plugin: console
   channel:
     pipe:
-      pipe_ref:
-        name: named_pipe
+      - pipe_ref:
+          name: named_pipe
     output:
       plugin: debug
 ```

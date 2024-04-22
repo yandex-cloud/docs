@@ -59,7 +59,6 @@
 
     Чтобы создать триггер, который вызывает контейнер, выполните команду:
 
-    
     ```bash
     yc serverless trigger create logging \
       --name <имя_триггера> \
@@ -77,7 +76,6 @@
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
-  
 
     Где:
 
@@ -92,7 +90,6 @@
 
     Результат:
 
-    
     ```text
     id: a1s5msktijh2********
     folder_id: b1gmit33hgh2********
@@ -123,7 +120,6 @@
             service-account-id: aje3lebfemh2********
     status: ACTIVE
     ```
-  
 
 - {{ TF }} {#tf}
 
@@ -173,11 +169,13 @@
         {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
 
       * `logging` — параметры триггера:
+
         * `group_id` — идентификатор лог-группы.
-        * `resource_types` — типы ресурсов, например функций {{ sf-name }}. Необязательный параметр.
+        * `resource_types` — типы ресурсов, например функции {{ sf-name }}. Необязательный параметр.
         * `resource_ids` — идентификаторы ваших ресурсов или ресурсов {{ yandex-cloud }}, например функций {{ sf-name }}. Необязательный параметр.
         * `levels` — уровни логирования. Необязательный параметр.
         * `stream_names` — потоки логирования. Необязательный параметр.
+
           Триггер срабатывает, когда в указанную лог-группу добавляют записи, которые соответствуют всем следующим параметрам: `resource_ids`, `resource_types`, `stream_names` и `levels`. Если параметр не задан, триггер срабатывает при любом его значении.
 
         {% include [tf-batch-msg-params](../../_includes/serverless-containers/tf-batch-msg-params.md) %}

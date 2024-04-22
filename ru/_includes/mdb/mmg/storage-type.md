@@ -13,7 +13,7 @@
   * для платформ **Intel Broadwell** и **Intel Cascade Lake** — только с шагом 100 ГБ;
   * для платформы **Intel Ice Lake** — только с шагом {{ local-ssd-v3-step }}.
 
-  Список классов хостов и соответствующих им платформ см. в разделе [{#T}](../../../managed-mongodb/concepts/instance-types.md).
+  Список классов хостов и соответствующих им платформ см. в разделе [Классы хостов](../../../managed-mongodb/concepts/instance-types.md).
 
   {% include [zone-d-disk-restrictions](../ru-central1-d-local-ssd.md) %}
 

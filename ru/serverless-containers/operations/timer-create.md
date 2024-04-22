@@ -51,7 +51,6 @@
 
     Чтобы создать триггер, который вызывает контейнер, выполните команду:
 
-    
     ```bash
     yc serverless trigger create timer \
       --name <имя_таймера> \
@@ -64,7 +63,6 @@
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
-  
 
     Где:
 
@@ -76,7 +74,6 @@
 
     Результат:
 
-    
     ```text
     id: a1s5msktijh2********
     folder_id: b1gmit33hgh2********
@@ -97,7 +94,6 @@
             service-account-id: aje3932acdh2********
     status: ACTIVE
     ```
-  
 
 - {{ TF }} {#tf}
 
@@ -111,16 +107,16 @@
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
-        name = "<имя_таймера>"
-        timer {
-          cron_expression = "<cron-выражение>"
-          payload         = "<сообщение>"
-        }
+        name = "<имя_триггера>"
         container {
           id                 = "<идентификатор_контейнера>"
           service_account_id = "<идентификатор_сервисного_аккаунта>"
           retry_attempts     = <количество_повторных_вызовов>
           retry_interval     = <интервал_между_повторными_вызовами>
+        }
+        timer {
+          cron_expression = "<cron-выражение>"
+          payload         = "<сообщение>"
         }
         dlq {
           queue_id           = "<идентификатор_очереди_DLQ>"
@@ -131,19 +127,20 @@
 
       Где:
 
-      * `name` — имя таймера. Формат имени:
+      * `name` — имя триггера. Формат имени:
 
           {% include [name-format](../../_includes/name-format.md) %}
-
-      * `timer` — параметры триггера:
-          * `cron_expression` — расписание вызова контейнера в формате [cron-выражения](../concepts/trigger/timer.md#cron-expression).
-          * `payload` — сообщение, которое будет передаваться в функцию при срабатывании таймера. Длина строки должна быть не более 4096 символов.
 
       * `container` — параметры контейнера:
 
           {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
 
           {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
+
+      * `timer` — параметры триггера:
+
+          * `cron_expression` — расписание вызова контейнера в формате [cron-выражения](../concepts/trigger/timer.md#cron-expression).
+          * `payload` — сообщение, которое будет передаваться в контейнер при срабатывании таймера. Длина строки должна быть не более 4096 символов.
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 

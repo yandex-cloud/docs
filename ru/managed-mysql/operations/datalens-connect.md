@@ -1,9 +1,9 @@
 ---
-title: "Инструкция по подключению к {{ MY }}-кластеру из {{ datalens-name }}"
-description: "Из статьи вы узнаете, как подключиться к {{ MY }}-кластеру из {{ datalens-name }}."
+title: "Инструкция по подключению к кластеру {{ MY }} из {{ datalens-name }}"
+description: "Из статьи вы узнаете, как подключиться к кластеру {{ MY }} из {{ datalens-name }}."
 ---
 
-# Подключение к {{ MY }}-кластеру из {{ datalens-name }}
+# Подключение к кластеру {{ MY }} из {{ datalens-name }}
 
 {% include [mdb-datalens-connector-intro](../../_includes/mdb/datalens-connector-intro.md) %}
 

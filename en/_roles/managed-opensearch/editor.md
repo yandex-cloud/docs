@@ -6,6 +6,6 @@ Users with this role can:
 * View information on [quotas](../../managed-opensearch/concepts/limits.md#quotas) of Managed Service for OpenSearch.
 * View information on resource operations for Managed Service for OpenSearch.
 
-This role includes the permissions of the `managed-opensearch.viewer` role.
+This role also includes the `managed-opensearch.viewer` permissions.
 
 To create OpenSearch clusters, you also need the `vpc.user` role.

@@ -1,1 +1,1 @@
-The `api-gateway.auditor` role allows you to view the list of API gateways and the details on access bindings to such gateways.
+The `api-gateway.auditor` role allows you to view the list of [API gateways](../../api-gateway/concepts/index.md) and the details on [access bindings](../../iam/concepts/access-control/index.md#access-bindings) to such gateways. It also enables viewing the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) metadata.

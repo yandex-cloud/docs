@@ -27,7 +27,7 @@ URL( address, text )
 #### Пример {#examples}
 
 ```
-URL('https://example.com/?value=' + [value], [value])
+URL('https://yandex.ru/search/?text=buy+a+' + [Product Name], [Product Name])
 ```
 
 

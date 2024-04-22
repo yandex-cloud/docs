@@ -1,5 +1,6 @@
 # AWS SDK для .NET
 
+
 [AWS SDK для .NET](https://aws.amazon.com/ru/sdk-for-net/) — это комплект средств разработки для работы с сервисами AWS.
 
 ## Подготовка к работе {#before-you-begin}

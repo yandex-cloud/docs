@@ -13,4 +13,4 @@ Users with this role can:
 * View information about [quotas](../../managed-mongodb/concepts/limits.md#mmg-quotas) of Managed Service for MongoDB.
 * View information about resource operations for Managed Service for MongoDB.
 
-This role includes the permissions of the `managed-mongodb.auditor` role.
+This role also includes the `managed-mongodb.auditor` permissions.

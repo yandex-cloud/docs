@@ -1,8 +1,10 @@
-The `iam.serviceAccounts.admin` role allows you to manage service accounts and permissions to access them. The role includes the following permissions:
+The `iam.serviceAccounts.admin` role enables managing service accounts and access to them and their keys, as well as getting IAM tokens for service accounts.
 
-* Changing the description and other mutable attributes of a service account.
-* Creating all types of keys for a service account.
-* Getting IAM tokens for a service account.
-* Setting up access rights for a service account.
-
-For some services, you need a service account to perform operations, such as in Instance Groups or Managed Service for Kubernetes. If you specified a service account in the request, IAM will check whether you have permissions to use this account.
+Users with this role can:
+* View the list of [service accounts](../../../iam/concepts/users/accounts.md#sa) and info on them, as well as create, use, modify, and delete them.
+* View info on [access bindings](../../../iam/concepts/access-control/index.md#access-bindings) for service accounts and modify such bindings.
+* Get [IAM tokens](../../../iam/concepts/authorization/iam-token.md) for service accounts.
+* View the list of service account [API keys](../../../iam/concepts/authorization/api-key.md) and info on them, as well as create, modify, and delete them.
+* View the list of service account [static access keys](../../../iam/concepts/authorization/access-key.md) and info on them, as well as create, modify, and delete them.
+* View info on service account [authorized keys](../../../iam/concepts/authorization/key.md), as well as create, modify, and delete them.
+* View info on the relevant [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) and its settings.

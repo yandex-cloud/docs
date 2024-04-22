@@ -33,8 +33,14 @@ sourcePath: ru/_api-ref/datalens/function-ref/AT_DATE.md
 {% endlist %}
 
 #### Описание {#description}
-Вычисляет `measure` для даты/времени, заданных выражением `date_expr`.
+Вычисляет `measure` для даты/времени, заданных выражением `date_expr`. Позволяет получить показатель на начало или конец периода, или на конкретную дату.
 Аргумент `date_dimension` задает измерение, вдоль которого делается смещение.
+
+В качестве аргумента `date_expr` можно использовать:
+
+* конкретную дату;
+* функцию получения текущей даты [TODAY](TODAY.md);
+* функции для вычисления даты и времени.
 
 См. также [AGO](AGO.md), [LAG](LAG.md).
 
@@ -57,6 +63,10 @@ sourcePath: ru/_api-ref/datalens/function-ref/AT_DATE.md
 
 ```
 AT_DATE(SUM([Sales]), [Order Date], #2019-01-01#)
+```
+
+```
+AT_DATE(SUM([Sales]), [Order Date], TODAY())
 ```
 
 ```
