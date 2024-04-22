@@ -1,5 +1,6 @@
 # AWS Command Line Interface (AWS CLI)
 
+
 [AWS CLI](https://aws.amazon.com/ru/cli/) — это интерфейс командной строки для работы с сервисами AWS. Общий [порядок вызова команд](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html) смотрите в официальной документации Amazon.
 
 Для работы с {{ objstorage-name }} с помощью AWS CLI вы можете использовать следующие наборы команд:
@@ -24,7 +25,6 @@
 1. `Default region name` — регион `{{ region-id }}`.
 
     Для работы с {{ objstorage-name }} всегда указывайте регион — `{{ region-id }}`. Другие значения региона могут привести к ошибке авторизации.
-
 
 1. Значения остальных параметров оставьте без изменений.
 

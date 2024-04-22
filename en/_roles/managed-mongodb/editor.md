@@ -13,6 +13,6 @@ Users with this role can:
 * View information about [quotas](../../managed-mongodb/concepts/limits.md#mmg-quotas) of Managed Service for MongoDB.
 * View information about resource operations for Managed Service for MongoDB.
 
-This role includes the permissions of the `managed-mongodb.viewer` role.
+This role also includes the `managed-mongodb.viewer` permissions.
 
 To create MongoDB clusters, you also need the `vpc.user` role.

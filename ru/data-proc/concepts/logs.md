@@ -9,7 +9,7 @@
 
 Также записи логов {{ dataproc-name }} содержат дополнительные параметры:
 
-* `hostname` — FQDN хоста;
+* `hostname` — [FQDN](../../glossary/fqdn.md) хоста;
 * `log_type` — [тип записи](#log-types) логов кластера.
 
 ## Типы записей логов {{ dataproc-name }} {#types}

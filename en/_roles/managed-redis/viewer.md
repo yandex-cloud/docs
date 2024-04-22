@@ -10,4 +10,4 @@ Users with this role can:
 * View information on [quotas](../../managed-redis/concepts/limits.md#mrd-quotas) of Managed Service for Redis.
 * View information on resource operations for Managed Service for Redis.
 
-This role includes the permissions of the `managed-redis.auditor` role.
+This role also includes the `managed-redis.auditor` permissions.

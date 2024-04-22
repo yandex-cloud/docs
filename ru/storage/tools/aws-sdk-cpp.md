@@ -4,6 +4,7 @@ author: alehay
 
 # AWS SDK для C++
 
+
 [AWS SDK для C++](https://aws.amazon.com/ru/sdk-for-cpp/) — это комплект средств разработки для работы с сервисами AWS.
 
 ## Подготовка к работе {#before-you-begin}

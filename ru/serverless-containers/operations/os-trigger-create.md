@@ -55,7 +55,6 @@
 
     Чтобы создать триггер, который вызывает контейнер, выполните команду:
 
-    
     ```bash
     yc serverless trigger create object-storage \
       --name <имя_триггера> \
@@ -72,7 +71,6 @@
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
-  
 
     Где:
 
@@ -88,7 +86,6 @@
 
     Результат:
 
-    
     ```text
     id: a1s5msktijh2********
     folder_id: b1gmit33hgh2********
@@ -117,7 +114,6 @@
             service-account-id: aje3932acdh2********
     status: ACTIVE
     ```
-  
 
 - {{ TF }} {#tf}
 
@@ -160,15 +156,17 @@
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-      * `container` — параметры контейнера, который будет запускать триггер:
+      * `container` — параметры контейнера:
 
           {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
 
           {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
 
       * `object_storage` — параметры триггера:
+
           * `bucket_id` — идентификатор бакета.
           * Выберите один или несколько типов [событий](../concepts/trigger/os-trigger.md#event), которые будет обрабатывать триггер:
+
               * `create` — триггер вызовет контейнер при создании нового объекта в хранилище. Принимает значения `true` или `false`.
               * `update` — триггер вызовет контейнер при обновлении объекта в хранилище. Принимает значения `true` или `false`.
               * `delete` — триггер вызовет контейнер при удалении объекта из хранилища. Принимает значения `true` или `false`.

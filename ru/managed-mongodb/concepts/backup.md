@@ -39,7 +39,7 @@ keywords:
 
 Резервные копии создаются только на работающих кластерах. Если вы используете кластер {{ mmg-short-name }} не круглосуточно, проверьте [настройки времени начала резервного копирования](../operations/update.md#change-additional-settings).
 
-О том, как вручную создать резервную копию, читайте в разделе [{#T}](../operations/cluster-backups.md).
+О том, как вручную создать резервную копию, читайте в разделе [Управление резервными копиями](../operations/cluster-backups.md).
 
 ## Хранение резервной копии {#storage}
 
@@ -58,7 +58,7 @@ keywords:
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-    Подробнее см. в разделе [Правила тарификации для {{ mmg-name }}](../pricing.md#rules-storage).
+    Подробнее см. в разделе [Правила тарификации](../pricing.md#rules-storage).
 
 ## Проверка восстановления из резервной копии {#capabilities}
 

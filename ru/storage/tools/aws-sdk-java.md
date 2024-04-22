@@ -1,5 +1,6 @@
 # AWS SDK для Java
 
+
 [AWS SDK для Java](https://aws.amazon.com/ru/sdk-for-java/) — это комплект средств разработки для работы с сервисами AWS.
 
 ## Подготовка к работе {#before-you-begin}

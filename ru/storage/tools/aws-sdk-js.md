@@ -1,5 +1,6 @@
 # AWS SDK для JavaScript
 
+
 [AWS SDK для JavaScript](https://aws.amazon.com/ru/sdk-for-javascript) — это комплект средств разработки для взаимодействия с сервисами AWS, совместимый с {{ objstorage-full-name }}.
 
 ## Подготовка к работе {#before-you-begin}

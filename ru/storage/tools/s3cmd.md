@@ -1,5 +1,6 @@
 # S3cmd
 
+
 [S3cmd](https://s3tools.org/s3cmd) — это консольный клиент (Linux, Mac) для сервисов, поддерживающими HTTP API Amazon S3. Общий порядок вызова команд смотрите в [официальной документации](https://s3tools.org/usage) S3cmd.
 
 ## Подготовка к работе {#before-you-begin}
@@ -21,7 +22,6 @@
 1. `Default Region` — введите `{{ region-id }}`.
 
    Для работы с {{ objstorage-name }} всегда указывайте регион `{{ region-id }}`. Другие значения региона могут привести к ошибке авторизации.
-
 
 1. `S3 Endpoint` — введите `{{ s3-storage-host }}`.
 1. `DNS-style bucket+hostname:port template for accessing a bucket` — введите `%(bucket)s.{{ s3-storage-host }}`.

@@ -219,7 +219,7 @@ default:
   k8s-docs: https://kubernetes.io/ru/docs
   k8s-hpa: Horizontal Pod Autoscaler
   k8s-versions-rapid: 1.26, 1.27, 1.28, 1.29
-  k8s-versions-regular: 1.26, 1.27, 1.28
+  k8s-versions-regular: 1.26, 1.27, 1.28, 1.29
   k8s-versions-stable: 1.26, 1.27, 1.28
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak

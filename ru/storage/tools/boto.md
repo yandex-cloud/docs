@@ -1,5 +1,6 @@
 # boto3 и boto
 
+
 [boto3](https://github.com/boto/boto3) и [boto](https://github.com/boto/boto) — это комплекты средств разработки (SDK) для языков программирования Python 2.x и 3.x. SDK предназначены для работы с сервисами AWS.
 
 

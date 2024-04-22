@@ -25,4 +25,4 @@ The `vpc.admin` role allows you to manage cloud networks, subnets, route tables,
 
 {% endcut %}
 
-This role includes the permissions of the `vpc.privateAdmin`, the `vpc.publicAdmin`, and the `vpc.securityGroups.admin` roles.
+This role also includes the `vpc.privateAdmin`, `vpc.publicAdmin`, and `vpc.securityGroups.admin` permissions.

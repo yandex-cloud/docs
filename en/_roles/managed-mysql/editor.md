@@ -12,6 +12,6 @@ Users with this role can:
 * View information on [quotas](../../managed-mysql/concepts/limits.md#mmy-quotas) of Managed Service for MySQL®.
 * View information on resource operations for Managed Service for MySQL®.
 
-This role includes the permissions of the `managed-mysql.viewer` role.
+This role also includes the `managed-mysql.viewer` permissions.
 
 To create MySQL® clusters, you also need the `vpc.user` role.

@@ -12,10 +12,6 @@ description: "Из статьи вы узнаете, как подключить
 Чтобы создать подключение к {{ MS }}:
 
 
-{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
-
-
-
 
 1. Перейдите на [страницу подключений]({{ link-datalens-main }}/connections).
 
@@ -35,7 +31,7 @@ description: "Из статьи вы узнаете, как подключить
    * **Время жизни кеша в секундах**. Укажите время жизни кеша или оставьте значение по умолчанию. Рекомендованное значение — 300 секунд (5 минут).
    * **Уровень доступа SQL запросов**. Позволяет использовать произвольный SQL-запрос для [формирования датасета](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
-1. Нажмите кнопку **Создать подключение**.
+1. Нажмите кнопку **Создать подключение**. Если вы работаете с новой объектной моделью {{ datalens-short-name }}, включающей [воркбуки и коллекции](../../../datalens/workbooks-collections/index.md), выберите или создайте воркбук, в котором сохранится подключение.
 1. Укажите название подключения и нажмите кнопку **Создать**.
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}

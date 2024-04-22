@@ -6,6 +6,6 @@ Users with this role can:
 * View information on [quotas](../../managed-elasticsearch/concepts/limits.md#mes-quotas) of Managed Service for Elasticsearch.
 * View information on resource operations for Managed Service for Elasticsearch.
 
-This role includes the permissions of the `managed-elasticsearch.viewer` role.
+This role also includes the `managed-elasticsearch.viewer` permissions.
 
 To create Elasticsearch clusters, you also need the `vpc.user` role.

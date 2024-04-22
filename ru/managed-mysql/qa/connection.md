@@ -1,4 +1,4 @@
-# Подключение к {{ MY }}-кластеру
+# Подключение к кластеру {{ MY }}
 
 
 {% include [connection-minitoc](../../_qa/managed-mysql/minitoc/connection.md) %}

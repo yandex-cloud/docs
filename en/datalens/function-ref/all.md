@@ -304,8 +304,14 @@ Returns the arcsine of `number` in radians.
          [ IGNORE DIMENSIONS ... ]
        )`
 
-Re-evaluate `measure` for a date/time specified by `date_expr`.
+Re-evaluate `measure` for a date/time specified by `date_expr`. It allows to get the measure at the beginning and at the end of a period, or for the specified date.
 The `date_dimension` argument is the dimension along which the offset is made.
+
+You can use the following as the `date_expr` argument:
+
+* Certain date.
+* Function [TODAY](TODAY.md) to obtain the current date.
+* Functions to calculate date and time.
 
 See also [AGO](AGO.md), [LAG](LAG.md).
 
@@ -697,8 +703,9 @@ If you select `"dayofweek"`, you can use the additional parameter `firstday` to 
 
 Converts the `expression` expression to date and time format. When converting `Date` to `DateTime`, the time is set to '00:00:00'.
 The date must be in the format `YYYY-MM-DDThh:mm:ss` or `YYYY-MM-DD hh:mm:ss`.
+Numeric values are rendered as time in [Unix time](https://en.wikipedia.org/wiki/Unix_time) format or equal to the number of seconds elapsed since 00:00:00 on January 1, 1970, less the adjustments for leap seconds.
 
-The date and time can be converted to the specified time zone when the `timezone` option is available.
+The date and time can be converted to the specified [time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List) when the `timezone` option is available. The `timezone` parameter must be specified in `Region/Data_Zone` format.
 
 
 
@@ -910,7 +917,7 @@ Generates a Geopoint type value. For the input, it accepts a string, a "geopoint
 
 **Syntax:**`GEOPOLYGON( value )`
 
-Converts the `value` expression to geopolygon format.
+Converts the `value` expression to [geopolygon](../concepts/data-types.md#geopolygon) format.
 
 
 
@@ -1256,7 +1263,7 @@ See also [COUNT](COUNT.md), [RCOUNT](RCOUNT.md).
         [ BEFORE FILTER BY ... ]
       )`
 
-Returns the median value.
+Returns the [median](https://en.wikipedia.org/wiki/Median) value. For an even number of items, it returns the greatest of the neighboring items in the central position.
 
 
 
@@ -1579,7 +1586,7 @@ See also [COUNT](COUNT.md), [MCOUNT](MCOUNT.md).
 
 **Syntax:**`REGEXP_EXTRACT( string, pattern )`
 
-Returns the substring `string` that matches the regular expression pattern `pattern`.
+Returns the substring `string` that matches the regular expression `pattern`.
 
 
 
@@ -1779,7 +1786,7 @@ Returns a string with the specified number of spaces.
 
 **Syntax:**`SPLIT( orig_string [ , delimiter [ , part_index ] ] )`
 
-Returns a substring from `orig_string` using the `delimiter` delimiter character to divide the string into a sequence of `part_index` parts. Delimiter is a comma by default. If `part_index` is not passed, an array is returned (only for `ClickHouse`, `PostgreSQL` sources)
+It splits `orig_string` into a sequence of substrings using the `delimiter` character as separator and returns the substring whose number is equal to the `part_index` parameter. By default, the delimiting character is comma. If `part_index` is negative, the substring to return is counted from the end of `orig_string`. If the number of substrings is less than the `part_index` [absolute value](https://en.wikipedia.org/wiki/Absolute_value), the function returns an empty string. If `part_index` was not provided, the function returns an array of the substrings (only for `ClickHouse`, `PostgreSQL` sources).
 
 
 
@@ -1822,7 +1829,7 @@ Returns `TRUE` if `string` starts with `substring`. For case-insensitive searche
        [ BEFORE FILTER BY ... ]
      )`
 
-Returns the statistical standard deviation of all values in the expression based on a selection from the population.
+Returns the statistical [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation) of all values in the expression based on a selection from the population.
 
 
 
@@ -1833,7 +1840,7 @@ Returns the statistical standard deviation of all values in the expression based
         [ BEFORE FILTER BY ... ]
       )`
 
-Returns the statistical standard deviation of all values in the expression based on the biased population.
+Returns the statistical [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation) of all values in the expression based on the biased population. The function shows how far data points are from their average. In other words, standard deviation shows to what extent values in a dataset deviate from their average.
 
 
 

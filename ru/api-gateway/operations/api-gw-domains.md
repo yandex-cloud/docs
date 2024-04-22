@@ -49,7 +49,7 @@
 
         1. Выберите API-шлюз.
         1. В открывшемся окне перейдите в раздел **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}**.
-        1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.domains.button_add }}**, выберите сертификат и введите имя домена (FQDN).
+        1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.domains.button_add }}**, выберите сертификат и введите имя домена ([FQDN](../../glossary/fqdn.md)).
 
 - API {#api}
 

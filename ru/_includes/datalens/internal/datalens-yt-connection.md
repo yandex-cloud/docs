@@ -1,9 +1,5 @@
 Чтобы создать подключение к {{ ytsaurus-name }} CHYT:
 
-
-{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
-
-
 1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
 1. Нажмите кнопку **Создать подключение**.
 1. Выберите подключение **{{ ytsaurus-name }} CHYT**.
@@ -20,7 +16,7 @@
    * **HTTPS**. Активируйте опцию безопасного подключения, если ваш сервер поддерживает протокол HTTPS.
 
 
-1. Нажмите кнопку **Создать подключение**.
+1. Нажмите кнопку **Создать подключение**. Если вы работаете с новой объектной моделью {{ datalens-short-name }}, включающей [воркбуки и коллекции](../../../datalens/workbooks-collections/index.md), выберите или создайте воркбук, в котором сохранится подключение.
 1. Укажите название подключения и нажмите кнопку **Создать**.
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}

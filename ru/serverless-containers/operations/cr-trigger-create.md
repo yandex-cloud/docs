@@ -114,6 +114,83 @@
     ```
   
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать триггер для {{ container-registry-name }}:
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+
+      ```
+      resource "yandex_function_trigger" "my_trigger" {
+        name = "<имя_триггера>"
+        container {
+          id                 = "<идентификатор_контейнера>"
+          service_account_id = "<идентификатор_сервисного_аккаунта>"
+          retry_attempts     = "<количество_повторных_вызовов>"
+          retry_interval     = "<интервал_между_повторными_вызовами>"
+        }
+        container_registry {
+          registry_id      = "<идентификатор_реестра>"
+          image_name       = "<имя_образа>"
+          tag              = "<тег_образа>"
+          create_image     = true
+          delete_image     = true
+          create_image_tag = true
+          delete_image_tag = true
+          batch_cutoff     = "<время_ожидания>"
+          batch_size       = "<размер_группы_событий>"
+        }
+        dlq {
+          queue_id           = "<идентификатор_очереди>"
+          service_account_id = "<идентификатор_сервисного_аккаунта>"
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя триггера. Формат имени:
+
+           {% include [name-format](../../_includes/name-format.md) %}
+
+      * `container` — параметры контейнера:
+        
+        {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
+
+        {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
+
+      * `container_registry` — параметры триггера:
+
+        * `registry_id` — идентификатор реестра.
+        * `image_name` — имя Docker-образа.
+        * `tag` — тег Docker-образа.
+        * Выберите один или несколько типов событий, которые будет обрабатывать триггер:
+
+          * `create_image` — триггер вызовет контейнер при создании нового Docker-образа в реестре. Принимает значения `true` или `false`.
+          * `delete_image` — триггер вызовет контейнер при удалении Docker-образа в реестре. Принимает значения `true` или `false`.
+          * `create_image_tag` — триггер вызовет контейнер при создании нового тега Docker-образа в реестре. Принимает значения `true` или `false`.
+          * `delete_image_tag`— триггер вызовет контейнер при удалении тега Docker-образа в реестре. Принимает значения `true` или `false`.
+          
+        {% include [tf-batch-msg-params](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
+
+        {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
+
+      Более подробную информацию о параметрах ресурса `yandex_function_trigger` см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+      ```bash
+      yc serverless trigger get <идентификатор триггера>
+      ```
+
 - API {#api}
 
   Чтобы создать триггер для {{ container-registry-name }}, воспользуйтесь методом REST API [create](../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create).
