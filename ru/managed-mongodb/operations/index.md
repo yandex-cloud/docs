@@ -7,32 +7,32 @@ description: "На странице представлен список поша
 
 ## Кластеры
 
-* [{#T}](cluster-list.md)
-* [{#T}](cluster-create.md)
-* [{#T}](update.md)
-* [{#T}](cluster-version-update.md)
-* [{#T}](cluster-stop.md)
-* [{#T}](hosts.md)
-* [{#T}](host-migration.md)
-* [{#T}](cluster-backups.md)
-* [{#T}](cluster-delete.md)
+* [Информация об имеющихся кластерах](cluster-list.md)
+* [Создание кластера](cluster-create.md)
+* [Изменение настроек кластера](update.md)
+* [Обновление версии {{ MG }}](cluster-version-update.md)
+* [Остановка и запуск кластера](cluster-stop.md)
+* [Управление хостами кластера](hosts.md)
+* [Миграция хостов кластера в другую зону доступности](host-migration.md)
+* [Управление резервными копиями](cluster-backups.md)
+* [Удаление кластера](cluster-delete.md)
 
 ## Базы данных
 
 * [{#T}](connect/index.md)
-* [{#T}](connect/non-sharded.md)
-* [{#T}](connect/sharded.md)
-* [{#T}](databases.md)
-* [{#T}](cluster-users.md)
+* [Подключение к нешардированному кластеру](connect/non-sharded.md)
+* [Подключение к шардированному кластеру](connect/sharded.md)
+* [Управление базами данных](databases.md)
+* [Управление пользователями](cluster-users.md)
 
 ## Шардирование и репликация
 
-* [{#T}](shards.md)
+* [Управление шардами](shards.md)
 * [{#T}](stepdown.md)
 
 ## Логи и мониторинг
 
-* [{#T}](cluster-logs.md)
-* [{#T}](performance-diagnostics.md)
+* [Просмотр логов кластера](cluster-logs.md)
+* [Диагностика производительности](performance-diagnostics.md)
 * [{#T}](tools.md)
-* [{#T}](monitoring.md)
+* [Мониторинг состояния кластера и хостов](monitoring.md)

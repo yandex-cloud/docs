@@ -111,6 +111,76 @@
   status: ACTIVE
   ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать триггер для {{ container-registry-name }}:
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+
+      ```
+      resource "yandex_function_trigger" "my_trigger" {
+        name = "<имя_триггера>"
+        function {
+          id                 = "<идентификатор_функции>"
+          service_account_id = "<идентификатор_сервисного_аккаунта>"
+          retry_attempts     = "<количество_повторных_вызовов>"
+          retry_interval     = "<интервал_между_повторными_вызовами>"
+        }
+        container_registry {
+          registry_id      = "<идентификатор_реестра>"
+          image_name       = "<имя_образа>"
+          tag              = "<тег_образа>"
+          create_image     = true
+          delete_image     = true
+          create_image_tag = true
+          delete_image_tag = true
+          batch_cutoff     = "<время_ожидания>"
+          batch_size       = "<размер_группы_событий>"
+        }
+        dlq {
+          queue_id           = "<идентификатор_очереди>"
+          service_account_id = "<идентификатор_сервисного_аккаунта>"
+        }
+      }
+      ```
+
+      Где:
+
+      {% include [tf-function-params](tf-function-params.md) %}
+
+      * `container_registry` — параметры триггера:
+
+        * `registry_id` — идентификатор реестра.
+        * `image_name` — имя Docker-образа.
+        * `tag` — тег Docker-образа.
+        * Выберите один или несколько типов событий, которые будет обрабатывать триггер:
+
+          * `create_image` — триггер вызовет функцию при создании нового Docker-образа в реестре. Принимает значения `true` или `false`.
+          * `delete_image` — триггер вызовет функцию при удалении Docker-образа в реестре. Принимает значения `true` или `false`.
+          * `create_image_tag` — триггер вызовет функцию при создании нового тега Docker-образа в реестре. Принимает значения `true` или `false`.
+          * `delete_image_tag`— триггер вызовет функцию при удалении тега Docker-образа в реестре. Принимает значения `true` или `false`.
+
+        * `batch_cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда. Триггер группирует события не дольше `batch-cutoff` и отправляет их в функцию. Число событий при этом не превышает `batch-size`.
+        * `batch_size` — размер группы событий. Необязательный параметр. Допустимые значения от 1 до 10, значение по умолчанию — 1.
+
+      {% include [tf-dlq-params](../serverless-containers/tf-dlq-params.md) %}
+
+      Более подробную информацию о параметрах ресурса `yandex_function_trigger` см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+      ```bash
+      yc serverless trigger get <идентификатор триггера>
+      ```
+
 - API {#api}
 
   Чтобы создать триггер для {{ container-registry-name }}, воспользуйтесь методом REST API [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create).

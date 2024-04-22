@@ -2,4 +2,4 @@ The `mdb.auditor` role grants the minimum permissions required to view informati
 
 Users with this role can view information about managed database clusters, quotas, and folders.
 
-It includes the permissions of the `managed-elasticsearch.auditor`, `managed-opensearch.auditor`, `managed-kafka.auditor`, `managed-mysql.auditor`, `managed-sqlserver.auditor`, `managed-postgresql.auditor`, `managed-greenplum.auditor`, `managed-clickhouse.auditor`, `managed-redis.auditor`, and `managed-mongodb.auditor` roles.
+This role also includes the `managed-elasticsearch.auditor`, `managed-opensearch.auditor`, `managed-kafka.auditor`, `managed-mysql.auditor`, `managed-sqlserver.auditor`, `managed-postgresql.auditor`, `managed-greenplum.auditor`, `managed-clickhouse.auditor`, `managed-redis.auditor`, and `managed-mongodb.auditor` permissions.

@@ -52,9 +52,13 @@
 
 Чтобы создать таблицу:
 
+
+{% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
+
+
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-1. На рабочей панели слева выберите ![image](../../_assets/console-icons/chart-column.svg) **Чарты**.
-1. Нажмите кнопку **Cоздать чарт** → **Чарт**.
+1. На панели слева выберите ![chart](../../_assets/console-icons/chart-column.svg) **Чарты**.
+1. Нажмите кнопку **Создать чарт** → **Чарт**.
 1. Слева вверху нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Выберите датасет** и укажите датасет для визуализации.
 1. Выберите тип чарта **Таблица**.
 1. Перетащите измерение или показатель из датасета в секцию **Столбцы**. Поле отобразится в виде столбца.

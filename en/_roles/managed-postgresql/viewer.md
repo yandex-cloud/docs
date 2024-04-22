@@ -12,4 +12,4 @@ Users with this role can:
 * View information on [quotas](../../managed-postgresql/concepts/limits.md#mpg-quotas) of Managed Service for PostgreSQL.
 * View information on resource operations for Managed Service for PostgreSQL.
 
-This role includes the permissions of the `managed-postgresql.auditor` role.
+This role also includes the `managed-postgresql.auditor` permissions.

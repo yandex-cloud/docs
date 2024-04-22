@@ -1,6 +1,12 @@
-Роль `smart-web-security.user` предназначена для использования ресурсов Smart Web Security из других сервисов, например Yandex Application Load Balancer. Пользователи с этой ролью могут:
+Роль `smart-web-security.user` позволяет просматривать информацию о профилях безопасности Smart Web Security и использовать их.
 
-* выполнять все действия, входящие в роль `smart-web-security.viewer`;
-* использовать ресурсы Smart Web Security.
+Пользователи с этой ролью могут:
+* просматривать информацию о [профилях безопасности](../../smartwebsecurity/concepts/profiles.md) Smart Web Security и использовать их в других сервисах Yandex Cloud;
+* просматривать информацию о [привязках](../../iam/concepts/access-control/index.md#access-bindings) прав доступа к профилям безопасности;
+* просматривать список [виртуальных хостов](../../application-load-balancer/concepts/http-router.md#virtual-host) L7-балансировщика Yandex Application Load Balancer, к которым подключен профиль безопасности;
+* просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud);
+* просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-Выдать роль может пользователь с ролью `admin` в облаке или `smart-web-security.admin` в каталоге.
+Включает разрешения, предоставляемые ролью `smart-web-security.viewer`.
+
+Назначить роль `smart-web-security.user` может пользователь с ролью `admin` в облаке или `smart-web-security.admin` в каталоге.

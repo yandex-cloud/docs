@@ -27,7 +27,7 @@ Wraps `text` into a hyperlink to URL `address`. When you click on the link, the 
 #### Example {#examples}
 
 ```
-URL('https://example.com/?value=' + [value], [value])
+URL('https://yandex.ru/search/?text=buy+a+' + [Product Name], [Product Name])
 ```
 
 

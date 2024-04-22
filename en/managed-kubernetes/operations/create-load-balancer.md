@@ -110,7 +110,7 @@ Prepare the required infrastructure:
        spec:
          containers:
          - name: hello-app
-           image: {{ registry }}/crpjd37scfv6********/hello:1.1
+           image: {{ registry }}/crpjd37scfv653nl11i9/hello:1.1
    ```
 
 1. Create an app:
@@ -162,7 +162,7 @@ Prepare the required infrastructure:
        Labels:  app=hello
        Containers:
         hello-app:
-         Image:        {{ registry }}/crpjd37scfv6********/hello:1.1
+         Image:        {{ registry }}/crpjd37scfv653nl11i9/hello:1.1
          Port:         <none>
          Host Port:    <none>
          Environment:  <none>

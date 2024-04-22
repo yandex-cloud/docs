@@ -33,7 +33,7 @@ sourcePath: en/_api-ref/datalens/function-ref/MEDIAN.md
 {% endlist %}
 
 #### Description {#description}
-Returns the median value.
+Returns the [median](https://en.wikipedia.org/wiki/Median) value. For an even number of items, it returns the greatest of the neighboring items in the central position.
 
 **Argument types:**
 - `value` — `Date | Datetime | Fractional number | Integer`

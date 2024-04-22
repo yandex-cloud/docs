@@ -22,7 +22,7 @@
 
 - {% include [datatransfer access](console/datatransfer-access.md) %}
 
-- **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** — включите эту опцию, чтобы воспользоваться инструментом [{#T}](../../managed-mysql/operations/performance-diagnostics.md) в кластере.
+- **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** — включите эту опцию, чтобы воспользоваться инструментом [Диагностика производительности](../../managed-mysql/operations/performance-diagnostics.md) в кластере.
 
 - {% include [Deletion protection](console/deletion-protection.md) %}
 

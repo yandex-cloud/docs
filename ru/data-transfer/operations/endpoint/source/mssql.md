@@ -27,7 +27,7 @@
 
 - Консоль управления {#console}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.host.title }}** — IP-адрес или FQDN хоста, к которому необходимо подключиться.
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.host.title }}** — IP-адрес или [FQDN](../../../../glossary/fqdn.md) хоста, к которому необходимо подключиться.
   
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.port.title }}** — номер порта, который сервис {{ data-transfer-name }} будет использовать для подключения к хосту. 
 

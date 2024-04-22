@@ -29,7 +29,7 @@ If the substring is not found, the string is not changed.
 
 {% note info %}
 
-See the documentation of the data source to clarify the regular expression syntax.
+See the documentation of the data source to clarify the regular expression syntax. For example, `ClickHouse` uses the [RE2 syntax](https://github.com/google/re2/wiki/Syntax) to compose regular expressions.
 
 {% endnote %}
 

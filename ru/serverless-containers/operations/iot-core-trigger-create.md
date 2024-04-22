@@ -161,6 +161,7 @@ description: "Создайте триггер для топика устройс
         {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
 
       * `iot` — параметры триггера:
+
         * `registry-id` — [идентификатор реестра](../../iot-core/operations/registry/registry-list.md).
         * `device-id` — [идентификатор устройства](../../iot-core/operations/device/device-list.md). Если вы создаете триггер для топика реестра, этот параметр можно не указывать.
         * `topic` — MQTT-топик, для которого вы хотите создать триггер. Необязательный параметр. Если параметр не указан, триггер срабатывает для всех топиков реестра или устройства.

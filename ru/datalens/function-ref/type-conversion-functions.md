@@ -48,8 +48,9 @@ sourcePath: ru/_api-ref/datalens/function-ref/type-conversion-functions.md
 
 Переводит выражение `expression` в формат даты и времени. При переводе `Date` в `DateTime` время определяется, как `00:00:00`.
 Дата должна быть определена в формате `YYYY-MM-DDThh:mm:ss` или `YYYY-MM-DD hh:mm:ss`.
+Числовые значения воспринимаются как время в формате [Unix time](https://ru.wikipedia.org/wiki/Unix-время) и равны количеству секунд, прошедших с 00:00:00 1 января 1970 года, за вычетом поправок, сделанных из-за високосных секунд.
 
-При наличии дополнительного параметра `timezone` дата и время рассчитываются для указанной временной зоны.
+При наличии дополнительного параметра `timezone` дата и время рассчитываются для указанной [временной зоны](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). Параметр `timezone` должен быть определен в формате `Region/Data_Zone`.
 
 
 
@@ -136,7 +137,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/type-conversion-functions.md
 
 **Синтаксис:**`GEOPOLYGON( value )`
 
-Переводит выражение `value` в формат геополигона.
+Переводит выражение `value` в формат [геополигона](../concepts/data-types.md#geopolygon).
 
 
 

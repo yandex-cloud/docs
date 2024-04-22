@@ -1,5 +1,14 @@
 # История изменений в {{ api-gw-full-name }}
 
+## Март 2024 {#march-2024}
+
+### Обновления {#updates}
+
+* Добавлен параметр `default_object` в расширение спецификации OpenAPI для [интеграции с {{ objstorage-full-name }}](concepts/extensions/object-storage.md).
+* Добавлена поддержка подстановки параметров в `error_object` и `default_object` в расширении спецификации OpenAPI для интеграции с {{ objstorage-full-name }}.
+* Добавлена поддержка передачи заголовков `Via` и `Www-Authenticate` из ответа интеграций.
+* Добавлена поддержка автоматической отправки в веб-сокет ответа интеграции в [операции](concepts/extensions/websocket.md#connect) `x-yc-apigateway-websocket-connect`.
+
 ## Январь–Февраль 2024 {#jan-feb-2024}
 
 ### Обновления {#updates}

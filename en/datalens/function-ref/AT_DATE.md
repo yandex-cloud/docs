@@ -33,8 +33,14 @@ sourcePath: en/_api-ref/datalens/function-ref/AT_DATE.md
 {% endlist %}
 
 #### Description {#description}
-Re-evaluate `measure` for a date/time specified by `date_expr`.
+Re-evaluate `measure` for a date/time specified by `date_expr`. It allows to get the measure at the beginning and at the end of a period, or for the specified date.
 The `date_dimension` argument is the dimension along which the offset is made.
+
+You can use the following as the `date_expr` argument:
+
+* Certain date.
+* Function [TODAY](TODAY.md) to obtain the current date.
+* Functions to calculate date and time.
 
 See also [AGO](AGO.md), [LAG](LAG.md).
 
@@ -57,6 +63,10 @@ The first argument must be a measure (aggregated expression), otherwise an error
 
 ```
 AT_DATE(SUM([Sales]), [Order Date], #2019-01-01#)
+```
+
+```
+AT_DATE(SUM([Sales]), [Order Date], TODAY())
 ```
 
 ```

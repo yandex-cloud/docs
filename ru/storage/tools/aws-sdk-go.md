@@ -1,5 +1,6 @@
 # AWS SDK для Go
 
+
 [AWS SDK для Go](https://aws.amazon.com/ru/sdk-for-go/) — это комплект средств разработки для работы с сервисами AWS на языке программирования Go.
 
 ## Подготовка к работе {#before-you-begin}

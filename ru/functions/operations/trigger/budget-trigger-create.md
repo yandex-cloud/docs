@@ -52,7 +52,6 @@
 
     Чтобы создать триггер, который вызывает функцию, выполните команду:
 
-    
     ```bash
     yc serverless trigger create billing-budget \
       --name <имя_триггера> \
@@ -65,7 +64,6 @@
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
-  
 
     Где:
 
@@ -77,7 +75,6 @@
 
     Результат:
 
-    
     ```text
     id: a1sfe084v4**********
     folder_id: b1g88tflru**********
@@ -99,7 +96,6 @@
             service-account-id: aje3932acd0c********
     status: ACTIVE
     ```
-  
 
 - API {#api}
 

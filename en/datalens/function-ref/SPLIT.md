@@ -15,7 +15,7 @@ SPLIT( orig_string [ , delimiter [ , part_index ] ] )
 ```
 
 #### Description {#description}
-Returns a substring from `orig_string` using the `delimiter` delimiter character to divide the string into a sequence of `part_index` parts. Delimiter is a comma by default. If `part_index` is not passed, an array is returned (only for `ClickHouse`, `PostgreSQL` sources)
+It splits `orig_string` into a sequence of substrings using the `delimiter` character as separator and returns the substring whose number is equal to the `part_index` parameter. By default, the delimiting character is comma. If `part_index` is negative, the substring to return is counted from the end of `orig_string`. If the number of substrings is less than the `part_index` [absolute value](https://en.wikipedia.org/wiki/Absolute_value), the function returns an empty string. If `part_index` was not provided, the function returns an array of the substrings (only for `ClickHouse`, `PostgreSQL` sources).
 
 **Argument types:**
 - `orig_string` — `String`
@@ -40,6 +40,22 @@ SPLIT("192.168.0.1", ".", 1) = "192"
 
 ```
 SPLIT("192.168.0.1", ".", -1) = "1"
+```
+
+```
+SPLIT("192.168.0.1", ".", 5) = ""
+```
+
+```
+SPLIT("192.168.0.1", ".") = "['192 ','168 ','0 ','1']"
+```
+
+```
+SPLIT("192.168.0.1") = "192.168.0.1"
+```
+
+```
+SPLIT("a,b,c,d") = "['a','b','c','d']"
 ```
 
 

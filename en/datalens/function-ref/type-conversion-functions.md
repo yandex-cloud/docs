@@ -48,8 +48,9 @@ Converts the `value` expression to date format. Unlike [DATE](DATE.md), it suppo
 
 Converts the `expression` expression to date and time format. When converting `Date` to `DateTime`, the time is set to '00:00:00'.
 The date must be in the format `YYYY-MM-DDThh:mm:ss` or `YYYY-MM-DD hh:mm:ss`.
+Numeric values are rendered as time in [Unix time](https://en.wikipedia.org/wiki/Unix_time) format or equal to the number of seconds elapsed since 00:00:00 on January 1, 1970, less the adjustments for leap seconds.
 
-The date and time can be converted to the specified time zone when the `timezone` option is available.
+The date and time can be converted to the specified [time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List) when the `timezone` option is available. The `timezone` parameter must be specified in `Region/Data_Zone` format.
 
 
 
@@ -136,7 +137,7 @@ Generates a Geopoint type value. For the input, it accepts a string, a "geopoint
 
 **Syntax:**`GEOPOLYGON( value )`
 
-Converts the `value` expression to geopolygon format.
+Converts the `value` expression to [geopolygon](../concepts/data-types.md#geopolygon) format.
 
 
 

@@ -33,7 +33,7 @@ sourcePath: en/_api-ref/datalens/function-ref/STDEVP.md
 {% endlist %}
 
 #### Description {#description}
-Returns the statistical standard deviation of all values in the expression based on the biased population.
+Returns the statistical [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation) of all values in the expression based on the biased population. The function shows how far data points are from their average. In other words, standard deviation shows to what extent values in a dataset deviate from their average.
 
 **Argument types:**
 - `value` — `Fractional number | Integer`

@@ -39,8 +39,14 @@
 
 ## Создание точечной карты с кластеризацией {#create-diagram}
 
-1. На [главной странице]({{ link-datalens-main }}) сервиса {{ datalens-full-name }} нажмите **Создать чарт**.
-1. В разделе **Датасет** выберите датасет для визуализации. Если у вас нет датасета, [создайте его](../operations/dataset/create.md).
+
+{% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
+
+
+1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+1. На панели слева выберите ![chart](../../_assets/console-icons/chart-column.svg) **Чарты**.
+1. Нажмите кнопку **Создать чарт** → **Чарт**.
+1. Слева вверху нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Выберите датасет** и укажите датасет для визуализации. Если у вас нет датасета, [создайте его](../operations/dataset/create.md).
 1. Выберите тип чарта **Карта**.
 1. Выберите тип слоя **Точки с кластеризацией (Геоточки)**.
 1. Перетащите измерение с типом [Геоточка](../concepts/data-types#geopoint) из датасета в секцию с выбором типа слоя.

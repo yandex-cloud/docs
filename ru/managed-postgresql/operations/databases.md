@@ -58,6 +58,13 @@
 
       * Владелец.
 
+      * Защита от удаления.
+
+        Возможные значения:
+          - **Как у кластера**.
+          - **Включена**.
+          - **Выключена**.
+          
       * (Опционально) Шаблон — имя одной из существующих баз, с которой нужно будет скопировать схему данных. На время создания новой базы все подключения к базе-шаблону будут закрыты.
 
           Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/sql-createdatabase.html).
@@ -125,10 +132,13 @@
           lc_collate  = "<локаль_сортировки>"
           lc_type     = "<локаль_набора_символов>"
           template_db = "<имя_БД-шаблона>"
+          deletion_protection = <защита_от_удаления>
         }
         ```
 
-        Где `owner` — имя пользователя-владельца, который должен быть задан в ресурсе `yandex_mdb_postgresql_user`.
+        Где:
+          * `owner` — имя пользователя-владельца, который должен быть задан в ресурсе `yandex_mdb_postgresql_user`.
+          * `deletion_protection` — защита БД от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
         {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
@@ -152,6 +162,7 @@
 
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Настройки новой базы в параметре `databaseSpec`.
+  * Тип защиты от удаления в параметре `deletionProtection`. Возможные значения — `true`, `false`. Значение по умолчанию — `unspecified` (наследует значение от кластера).
 
      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
@@ -175,7 +186,7 @@
       ```hcl
       resource "yandex_mdb_postgresql_database" "<имя_базы данных>" {
         ...
-        name     = "<новое_имя_базы данных>"
+        name     = "<новое_имя_базы_данных>"
         ...
       }
       ```
@@ -206,12 +217,62 @@
 
 {% endlist %}
 
-## Удалить базу данных {#remove-db}
+## Настроить защиту от удаления {#update-db-deletion-protection}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Выберите нужное значение в поле **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
+
+- {{ TF }} {#tf}
+  
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры. 
+
+  1. Найдите ресурс `yandex_mdb_postgresql_database` нужной БД.
+  
+  1. Добавьте параметр `deletion_protection`. Доступные значения: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
+
+        ```hcl
+        resource "yandex_mdb_postgresql_database" "<имя_базы_данных>" {
+          ...
+          deletion_protection = <защита_от_удаления>
+          ...
+        }
+        ```
+  
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+- API {#api}
+
+  Чтобы настроить защиту от удаления БД, воспользуйтесь методом REST API [update](../api-ref/Database/update.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) и передайте в запросе:
+  
+  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+  * Имя БД в параметре `databaseName`. Чтобы узнать имя БД, [получите список БД в кластере](#list-db).
+  * Параметр `updateMask` со значением `deletionProtection`.
+  * Новое значение параметра `deletionProtection`. Возможные значения — `true`, `false`. Значение по умолчанию — `unspecified` (наследует значение от кластера).
+
+{% endlist %}
+
+## Удалить базу данных {#remove-db}
+
+БД может быть защищена от удаления. Чтобы удалить такую БД, сперва [снимите защиту](#update-db-deletion-protection).
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  Чтобы удалить базу данных:
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД, выберите пункт **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}** и подтвердите удаление.
@@ -233,6 +294,7 @@
 
 - {{ TF }} {#tf}
   
+  Чтобы удалить базу данных:
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).

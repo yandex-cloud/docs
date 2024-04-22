@@ -33,7 +33,7 @@ sourcePath: en/_api-ref/datalens/function-ref/STDEV.md
 {% endlist %}
 
 #### Description {#description}
-Returns the statistical standard deviation of all values in the expression based on a selection from the population.
+Returns the statistical [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation) of all values in the expression based on a selection from the population.
 
 **Argument types:**
 - `value` — `Fractional number | Integer`

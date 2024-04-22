@@ -1,9 +1,13 @@
-The `backup.viewer` role is intended for viewing Cloud Backup resources. Users with this role can view:
+The `backup.viewer` role allows you to view information on virtual machines connected to Cloud Backup, on backup policies and backups, as well as on the relevant cloud, folder, and quotas.
 
-* Backup policies, including permissions to access them, and a list of policies.
-* Basic information about Yandex Cloud resources linked to policies (such as VM IDs) and their backup statuses.
-* Information about backups.
-* A list of connected backup providers.
-* Service quotas.
+Users with this role can:
+* View info on the connected backup [providers](../../backup/concepts/index.md#providers).
+* View info on [access bindings](../../iam/concepts/access-control/index.md#access-bindings) for backup policies.
+* View info on [backup policies](../../backup/concepts/policy.md) and virtual machines linked to them.
+* View info on the virtual machines [connected](../../backup/concepts/vm-connection.md) to the service.
+* View info on [backups](../../backup/concepts/backup.md).
+* View info on Cloud Backup [quotas](../../backup/concepts/limits.md#backup-quotas).
+* View information on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+* View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) and its statistics.
 
-In a cloud, this role can be granted by the cloud administrator (the `admin` role), and in a folder, by the cloud administrator or a user with the `backup.admin` folder role.
+To assign the `backup.viewer` role, you need either the `admin` role for the cloud or the `backup.admin` one for the folder.

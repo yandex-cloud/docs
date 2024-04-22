@@ -8,6 +8,6 @@ Users with this role can:
 * View information on Cloud CDN [quotas](../../cdn/concepts/limits.md#cdn-quotas).
 * View information on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-This role includes the permissions of the `cdn.editor` role.
+This role also includes the `cdn.editor` permissions.
 
 Moving forward, it will additionally include more features.

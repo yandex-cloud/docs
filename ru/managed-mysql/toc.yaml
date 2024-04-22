@@ -22,7 +22,7 @@ items:
             href: operations/update.md
           - name: Остановка и запуск кластера
             href: operations/cluster-stop.md
-          - name: Управление хостами MySQL
+          - name: Управление хостами кластера
             href: operations/hosts.md
           - name: Миграция хостов в другую зону доступности
             href: operations/host-migration.md

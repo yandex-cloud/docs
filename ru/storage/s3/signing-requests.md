@@ -1,62 +1,37 @@
 # Подписывание запросов
 
+
 Многие запросы к {{ objstorage-name }} аутентифицируются на стороне сервиса и пользователь, отправляющий запрос, должен его подписать.
 
-{{ objstorage-name }} поддерживает подпись AWS Signature V4.
+{{ objstorage-name }} поддерживает подпись [AWS Signature V4](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html).
 
 Процесс подписывания состоит из этапов:
 
-1. [Генерирование подписывающего ключа](#signing-key-gen).
 1. [Генерирование строки для подписи](#string-to-sign-gen).
+1. [Генерирование подписывающего ключа](#signing-key-gen).
 1. [Подпись строки с помощью ключа](#signing).
 
 Для подписи необходимо использовать механизм [HMAC](https://ru.wikipedia.org/wiki/HMAC) с хэширующей функцией [SHA256](https://ru.wikipedia.org/wiki/SHA-2). Поддержка соответствующих методов есть во многих языках программирования. В примерах предполагается, что существует функция `sign(KEY, STRING)`, которая выполняет кодирование входной строки по заданному ключу.
-
-
-## Генерирование подписывающего ключа {#signing-key-gen}
-
-Чтобы сгенерировать подписывающий ключ, вам необходимо иметь статические ключи доступа к {{ objstorage-name }}. О том, как их получить, читайте в статье [Подготовка к работе](./index.md#before-you-begin).
-
-Генерирование подписывающего ключа:
-
-1. Закодировать дату с помощью секретного ключа:
-
-    ```
-    DateKey = sign("AWS4" + "SecretKey", "yyyymmdd")
-    ```
-
-2. Закодировать регион с помощью полученного на предыдущем шаге ключа `DateKey`:
-
-
-    ```
-    RegionKey = sign(DateKey, "{{ region-id }}")
-    ```
-
-3. Закодировать сервис с помощью полученного на предыдущем шаге ключа `RegionKey`:
-
-    ```
-    ServiceKey = sign(RegionKey, "s3")
-    ```
-
-4. Получить подписывающий ключ:
-
-    ```
-    SigningKey = sign(ServiceKey, "aws4_request")
-    ```
-
 
 ## Генерирование строки для подписи {#string-to-sign-gen}
 
 Строка для подписи (`StringToSign`) зависит от сценария использования {{ objstorage-name }}:
 
-- [Обращение к API](./index.md), совместимому с Amazon S3, без помощи SDK или специализированных утилит.
-- [Загрузка объектов с помощью HTML-формы](../concepts/presigned-post-forms.md).
-- [Подписывание URL с помощью query-параметров](../concepts/pre-signed-urls.md).
+* [Обращение к API](./index.md), совместимому с Amazon S3, без помощи SDK или специализированных утилит.
+* [Загрузка объектов с помощью HTML-формы](../concepts/presigned-post-forms.md).
+* [Подписывание URL с помощью query-параметров](../concepts/pre-signed-urls.md).
+
+
+## Генерирование подписывающего ключа {#signing-key-gen}
+
+{% include [generate-signing-key](../../_includes/storage/generate-signing-key.md) %}
 
 ## Подпись строки с помощью ключа {#signing}
 
 Чтобы получить подпись строки, необходимо использовать механизм `HMAC` с хэширующей функцией `SHA256`, а полученный результат преобразовать в шестнадцатеричное представление.
 
-```
+```text
 signature = Hex(sign(SigningKey, StringToSign))
 ```
+
+[Примеры кода](../concepts/pre-signed-urls.md#code-examples) для генерирования подписи см. в статье [{#T}](../concepts/pre-signed-urls.md).
