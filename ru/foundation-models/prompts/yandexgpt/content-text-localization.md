@@ -16,7 +16,7 @@
 
 ```json
 {
-  "modelUri": "gpt://<идентификатор_каталога>/yandexgpt-lite",
+  "modelUri": "gpt://<идентификатор_каталога>/yandexgpt/latest",
   "completionOptions": {
     "stream": false,
     "temperature": 0,

@@ -23,7 +23,7 @@ The size of a disk must be a multiple of 93 GB.
       {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
 
 
-   1. Select `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-io-m3 }}` as the disk type.
+   1. Select `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-io-m3 }}` as the disk type.
    1. Select the required block size.
    1. Specify the required disk size.
 

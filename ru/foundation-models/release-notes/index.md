@@ -5,6 +5,10 @@ description: "На странице представлена история из
 
 # История изменений в сервисе {{ foundation-models-full-name }}
 
+## Релиз 19.04.2024 {#190424}
+
+Добавлена возможность отправлять асинхронные запросы к моделям {{ yagpt-name }}, дообученным в {{ ml-platform-name }}.
+
 ## Релиз 09.04.2024 {#090424}
 
 1. Добавлена [возможность генерации изображений](../concepts/yandexart/index.md) по текстовому описанию. Модель {{ yandexart-name }} работает в асинхронном режиме и доступна в консоли управления в [{{ foundation-models-name }} Playground]({{ link-console-main }}/link/foundation-models) и через [API](../image-generation/api-ref/index.md). 

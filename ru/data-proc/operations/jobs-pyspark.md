@@ -7,6 +7,14 @@ description: "Из статьи вы узнаете, как управлять �
 
 ## Создать задание {#create}
 
+{% note info %}
+
+Если кластер {{ dataproc-name }} [подключен к кластеру {{ metastore-name }}](metastore/dataproc-connect.md), добавьте свойство `spark:spark.sql.hive.metastore.sharedPrefixes` со значением `com.amazonaws,ru.yandex.cloud` в кластер {{ dataproc-name }}. Тогда задания PySpark будут успешно выполнены. Задать свойство можно при [создании](cluster-create.md) или [изменении](cluster-update.md) кластера {{ dataproc-name }}.
+
+{% endnote %}
+
+Чтобы создать задание PySpark:
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

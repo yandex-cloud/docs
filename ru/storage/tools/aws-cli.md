@@ -95,7 +95,7 @@
       {{ storage-aws-cli-alias }} ls
       ```
 
-    * (поддерживается в AWS CLI версий 1.29.0, 2.13.0 и выше) В файле конфигурации `.aws/credentials` добавьте параметр `endpoint_url`:
+    * (поддерживается в AWS CLI версий 1.29.0, 2.13.0 и выше) В файле конфигурации `.aws/config` добавьте параметр `endpoint_url`:
 
        ```text
        endpoint_url = https://{{ s3-storage-host }}

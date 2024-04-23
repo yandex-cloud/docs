@@ -131,7 +131,7 @@
      * Выберите зону доступности `{{ region-id }}-a`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите `Ubuntu 22.04`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.section_disk }}** настройте загрузочный диск:
-     * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd }}`.
+     * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`.
      * **{{ ui-key.yacloud.compute.disk-form.field_size }}** — `20 ГБ`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.

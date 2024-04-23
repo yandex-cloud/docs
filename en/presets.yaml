@@ -3661,7 +3661,7 @@ default:
           switch_expences: Expense history
           switch_exports: Export details
           switch_history: Payment history
-          switch_offers: Commitments
+          switch_offers: Committed volume of services
           switch_overview: Account info
           switch_users: Access management
           tab_acts-title: Closing documents
@@ -4621,6 +4621,7 @@ default:
             field_internal-ipv4: Internal IPv4 address
             field_security-groups: Security groups
             field_subnetwork: Subnet
+            section_additional: Additional settings
             switch_auto: Auto
             switch_list: List
             switch_manual: Manual
@@ -4665,6 +4666,9 @@ default:
           label_delete-now: Delete now
         image-field:
           button_custom-image: Enter link
+        internal-v4-address-field:
+          button_internal-address-reserve: Reserve
+          field_internal-ipv4-address: Internal IPv4 address
         ip-address-form:
           label_button-save: Save
           label_field-search-type: Search type
@@ -4720,6 +4724,7 @@ default:
           button_attach: Attach
           field_auto-delete: Delete automatically
           field_instance: VM
+        button_relocate-to-another-zone: Relocate to another zone
         disk-form:
           field_name: Name
           field_size: Size
@@ -4739,6 +4744,7 @@ default:
             button_create: Create disk
           edit:
             button_update: Save changes
+          field_new-availability-zone: New availability zone
           label_disk-used: Active
           popup_detach-disk_button_detach: Detach
         group:
@@ -4868,6 +4874,7 @@ default:
           button_action-restart: Restart
           button_create: Create virtual machine
           button_gr-action-stop: Stop
+          button_start-instance-relocation: Start relocation
           create-disk:
             button_create: Add
             field_additional: Advanced
@@ -4876,10 +4883,6 @@ default:
             field_source: Contents
             label_title: Add a secondary disk
             value_boot-disk: Boot
-            value_network-hdd: HDD
-            value_network-ssd: SSD
-            value_network-ssd-io-m3: SSD IO
-            value_network-ssd-nonreplicated: Non-replicated SSD
             value_source-disk: Disk
             value_source-image: Image
             value_source-snapshot: Snapshot
@@ -4941,7 +4944,6 @@ default:
             value_coi-restart-never: Never
             value_coi-restart-on-failure: On-Failure
             value_docker-compose-yaml: Docker Compose
-            value_network-ssd: SSD
           label_title: Virtual machines
           popup-confirm_button_delete: Delete
           popup-confirm_button_gr-stop: Stop
@@ -5005,6 +5007,10 @@ default:
         switch_operations: Operations
         switch_placement-groups: Placement groups
         switch_snapshots: Snapshots
+        value_disk-type-network-hdd: HDD
+        value_disk-type-network-ssd: SSD
+        value_disk-type-network-ssd-io-m3: SSD IO
+        value_disk-type-network-ssd-nonreplicated: Non-replicated SSD
       cr:
         image:
           label_last-scan-time: Date of last scan
@@ -6131,6 +6137,7 @@ default:
             label_domain: Default domain
             label_id: ID
             section_base: General information
+            section_spec: Specification
         item-form:
           field_name: Name
         item:
