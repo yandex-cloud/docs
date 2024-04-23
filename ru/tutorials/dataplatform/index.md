@@ -62,6 +62,7 @@ description: "На странице представлен список прак
 
 * [{#T}](mongodb-migration-with-data-transfer.md)
 * [{#T}](mongodb-data-migration.md)
+* [{#T}](mongodb-versions.md)
 * [{#T}](mongodb-sharding.md)
 * [{#T}](mongodb-profiling.md)
 * [{#T}](data-transfer-mkf-mmg.md)

@@ -19,7 +19,8 @@ description: "Из статьи вы узнаете, как задать нас�
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-    * [Миграция кластера {{ MG }}](../../../tutorials/managed-mongodb.md).
+    * [Миграция кластера {{ MG }}](../../../tutorials/managed-mongodb.md);
+    * [Миграция кластера {{ MG }} с версии 4.4 на 6.0](../../../tutorials/mongodb-versions.md).
 
 1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
 
