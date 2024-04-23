@@ -70,6 +70,8 @@ items:
         href: tutorials/sharding.md
       - name: Миграция данных в {{ mmg-name }}
         href: tutorials/data-migration.md
+      - name: Миграция кластера {{ mmg-name }} с версии 4.4 на 6.0
+        href: tutorials/mongodb-versions.md
       - name: Миграция коллекций из стороннего кластера {{ MG }}
         href: tutorials/mongodb-migration-with-data-transfer.md
       - name: Анализ производительности и оптимизация {{ MG }}

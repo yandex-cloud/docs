@@ -108,6 +108,8 @@ items:
                 href: operations/connection/chyt/chyt-global-join.md
               - name: Рекомендации
                 href: operations/connection/chyt/chyt-recommendations.md
+          - name: Создание подключения к {{ datalens-short-name }} Usage Analytics
+            href: operations/connection/create-usage-tracking.md
           - name: Создание подключения к файлу
             href: operations/connection/create-file.md
           - name: Создание подключения к Яндекс Документам
@@ -118,6 +120,8 @@ items:
             href: operations/connection/create-big-query.md
           - name: Создание подключения к {{ prometheus-name }}
             href: operations/connection/create-prometheus.md
+          - name: Создание подключения к {{ yq-full-name }}
+            href: operations/connection/create-yandex-query.md
           - name: Создание подключения к {{ monitoring-full-name }}
             href: operations/connection/create-monitoring.md
           - name: Создание подключения к Битрикс24
@@ -128,7 +132,7 @@ items:
             href: operations/connection/create-metrica-api.md
           - name: Создание подключения к AppMetrica
             href: operations/connection/create-appmetrica.md
-          - name: Создание подключения к {{ yandex-cloud }} Billing
+          - name: Создание подключения к {{ billing-name }}
             href: operations/connection/create-cloud-billing.md
           - name: Создание подключения к Snowflake
             href: operations/connection/create-snowflake.md
@@ -746,7 +750,7 @@ items:
             href: operations/dashboard/dash-settings.md
           - name: Порядок отображения виджетов на мобильном устройстве
             href: operations/dashboard/display-modes.md
-  - name: Настройка доступа
+  - name: Управление доступом
     items:
       - name: Обзор
         href: security/index.md
@@ -774,6 +778,12 @@ items:
         href: security/row-level-security.md
       - name: Публичный доступ
         href: concepts/datalens-public.md
+  - name: Настройки сервиса
+    items:
+      - name: Настройка тарифного плана
+        href: settings/service-plan.md
+      - name: Стилизация интерфейса
+        href: settings/ui-customization.md
   - name: Marketplace
     items:
       - name: Обзор

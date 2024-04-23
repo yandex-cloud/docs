@@ -376,6 +376,8 @@ items:
         href: dataplatform/mongodb-migration-with-data-transfer.md
       - name: Миграция данных в {{ mmg-name }}
         href: dataplatform/mongodb-data-migration.md
+      - name: Миграция кластера {{ mmg-name }} с версии 4.4 на 6.0
+        href: dataplatform/mongodb-versions.md
       - name: Шардирование коллекций {{ MG }}
         href: dataplatform/mongodb-sharding.md
       - name: Анализ производительности и оптимизация {{ MG }}
