@@ -10,6 +10,8 @@
 
 * [При запуске скрипта инициализации я получаю ошибку `^M: bad interpreter`, как это исправить?](#syntax-error)
 
+* [При запуске задания PySpark возникает ошибка, связанная с `com/amazonaws/auth/AWSCredentialsProvider`, как это исправить?](#sharedPrefixes-property)
+
 * [Почему возникает ошибка `NAT should be enabled on the subnet`, и как ее исправить?](#nat)
 
 * [Почему возникает ошибка `Using fileUris is forbidden on lightweight cluster`, и как ее исправить?](#file-uri)

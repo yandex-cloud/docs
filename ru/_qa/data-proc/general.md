@@ -28,6 +28,16 @@ sudo -u hdfs hdfs balancer
 
 Так как среда выполнения скрипта — Linux (Ubuntu), то скрипты, подготовленные в Windows, могут выполниться с ошибкой `^M: bad interpreter` из-за использования символа переноса строки `CR/LF` (в Linux – `LF`). Для исправления ошибки сохраните файл скрипта в формате Linux. Подробнее см. в разделе [{#T}](../../data-proc/concepts/init-action.md#syntax-errors).
 
+#### При запуске задания PySpark возникает ошибка, связанная с `com/amazonaws/auth/AWSCredentialsProvider`, как это исправить? {#sharedPrefixes-property}
+
+Если кластер {{ dataproc-name }} подключен к кластеру {{ metastore-name }}, при запуске PySpark-заданий может возникать ошибка:
+
+```text
+previously initiated loading for a different type with name "com/amazonaws/auth/AWSCredentialsProvider";
+```
+
+Чтобы ее исправить, [добавьте свойство](../../data-proc/operations/cluster-update.md) `spark:spark.sql.hive.metastore.sharedPrefixes` со значением `com.amazonaws,ru.yandex.cloud` в кластер {{ dataproc-name }}.
+
 #### Почему возникает ошибка `NAT should be enabled on the subnet`, и как ее исправить? {#nat}
 
 Ошибка возникает при попытке создать кластер {{ dataproc-name }} в подсети, для которой не настроен NAT-шлюз. Чтобы исправить ее, [настройте сеть для {{ dataproc-name }}](../../data-proc/tutorials/configure-network.md).

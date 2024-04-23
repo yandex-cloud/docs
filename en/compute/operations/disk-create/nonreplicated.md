@@ -23,7 +23,7 @@ The size of the [disk](../../concepts/disk.md) must be a multiple of 93 GB.
 
       {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
 
-   1. Select `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}` as the disk type.
+   1. Select `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}` as the disk type.
    1. Select the required block size.
    1. Specify the required disk size.
    1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
@@ -144,7 +144,7 @@ You can only create a disk in an existing disk placement group.
    1. Select the availability zone to host the disk.
 
       The availability zone for a disk must be the same as that of the placement group where you want to create the disk.
-   1. Select `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}` as the disk type.
+   1. Select `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}` as the disk type.
    1. Select a disk placement group.
 
       If you select a group with the [partition placement](../../concepts/disk-placement-group.md#partition), specify the number of the partition you want to add the disk to.

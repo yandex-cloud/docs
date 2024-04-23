@@ -18,12 +18,11 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--name`|<b>`string`</b><br/>Name of the ClickHouse cluster.|
-|`--shard-name`|<b>`string`</b><br/>Name of the first shard in the ClickHouse cluster.|
 |`--description`|<b>`string`</b><br/>Description of the cluster.|
 |`--environment`|<b>`string`</b><br/>Environment to deploy the cluster in. Supported values: 'production', 'prestable'.|
 |`--network-id`|<b>`string`</b><br/>Network id.|
 |`--network-name`|<b>`string`</b><br/>Network name.|
-|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Individual configurations for hosts that should be created with the ClickHouse cluster.<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the new host should reside.</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>assign-public-ip</code>:     Assign a public IP address to the host being added.</li> <li><code>type</code>:     Type of the host to be created. Supported values: 'clickhouse', 'zookeeper'.</li> </ul>|
+|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Individual configurations for hosts that should be created with the ClickHouse cluster.<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the new host should reside.</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>assign-public-ip</code>:     Assign a public IP address to the host being added.</li> <li><code>shard-name</code>:     Host shard name.</li> <li><code>type</code>:     Type of the host to be created. Supported values: 'clickhouse', 'zookeeper'.</li> </ul>|
 |`--user`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Descriptions of database users to be created with the ClickHouse cluster.<br/><br/>Possible property names:<br/><ul> <li><code>name</code>:     Name of the ClickHouse user.</li> <li><code>password</code>:     Password of the ClickHouse user.</li> </ul>|
 |`--database`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Descriptions of databases to be created with the ClickHouse cluster.<br/><br/>Possible property names:<br/><ul> <li><code>name</code>:     Name of the ClickHouse database.</li> </ul>|
 |`--clickhouse-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to a ClickHouse host (CPU, RAM etc.).|

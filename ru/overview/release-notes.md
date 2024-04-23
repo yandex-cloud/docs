@@ -46,10 +46,14 @@
 ## Безопасность {#security}
 
 * [{{ at-full-name }}](../audit-trails/release-notes.md)
+* [{{ iam-full-name }}](../iam/release-notes.md)
 
 ## Мониторинг и управление ресурсами {#resources-operations}
 
+* [{{ org-full-name }}](../organization/release-notes.md)
+* [{{ iam-full-name }}](../iam/release-notes.md)
 * [{{ monitoring-full-name }}](../monitoring/release-notes.md)
+* [{{ resmgr-full-name }}](../resource-manager/release-notes.md)
 
 ## Машинное обучение {#ml-ai}
 

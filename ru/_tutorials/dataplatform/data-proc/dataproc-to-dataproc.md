@@ -27,6 +27,7 @@
             * `SPARK`;
             * `YARN`.
         * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `dataproc-sa`.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}** — `spark:spark.sql.hive.metastore.sharedPrefixes` со значением `com.amazonaws,ru.yandex.cloud`. Нужно для выполнения заданий PySpark и для интеграции с {{ metastore-name }}.
         * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** — бакет, который вы создали для выходных данных.
         * **{{ ui-key.yacloud.mdb.forms.config_field_network }}** — `dataproc-network`.
 

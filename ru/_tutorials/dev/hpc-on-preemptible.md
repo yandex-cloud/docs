@@ -34,7 +34,7 @@
 1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя ВМ. Для наглядности примера укажите `master-node`.
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой должна находиться ВМ.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os).
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** выберите жесткий [диск](../../compute/concepts/disk.md) размером 13 ГБ. Тип диска выберите **{{ ui-key.yacloud.compute.instances.create.value_network-ssd }}**, поскольку он будет использоваться для сетевого доступа другими ВМ.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** выберите жесткий [диск](../../compute/concepts/disk.md) размером 13 ГБ. Тип диска выберите **{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}**, поскольку он будет использоваться для сетевого доступа другими ВМ.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
    * Выберите [платформу](../../compute/concepts/vm-platforms.md) ВМ.
 

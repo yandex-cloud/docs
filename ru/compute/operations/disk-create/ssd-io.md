@@ -24,7 +24,7 @@
      {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
      
      
-  1. Укажите тип диска `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-io-m3 }}`.
+  1. Укажите тип диска `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-io-m3 }}`.
   1. Выберите нужный размер блока.
   1. Задайте нужный размер диска.
 

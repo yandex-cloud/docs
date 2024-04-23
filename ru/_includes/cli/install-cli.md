@@ -3,10 +3,16 @@
 - Linux {#linux}
 
     1. Выполните команду:
-    
+
+
+        
+        
         ```bash
-        curl -sSL https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+        curl -sSL https://storage.yandexcloud.net{{ yc-install-path }} | bash
         ```
+
+
+
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
         
         {% note info %}
@@ -28,11 +34,16 @@
 - macOS {#macos}
 
     1. Выполните команду:
-    
-        ```bash
-        curl -sSL https://{{ s3-storage-host }}{{ yc-install-path }} | bash
-        ```
+
+
         
+        
+        ```bash
+        curl -sSL https://storage.yandexcloud.net{{ yc-install-path }} | bash
+        ```
+
+
+
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
     1. Перезапустите командную оболочку, чтобы перезагрузить переменные окружения.
 
@@ -72,27 +83,40 @@
 - Windows {#windows}
 
     Для Windows CLI можно установить с помощью PowerShell или командной строки:
-    
+
     - Для установки с помощью PowerShell:
-    
+
         1. Выполните команду:
-        
+
+
+            
+            
+            ```bash
+            iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net{{ yc-windows-path }}')
             ```
-            iex (New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}')
-            ```        
+
+
+
         1. Скрипт установки спросит, нужно ли добавить путь до `yc` в переменную PATH:
         
             ```
             Add yc installation dir to your PATH? [Y/n]
             ```        
         1. Введите `Y`. После этого CLI {{ yandex-cloud }} можно пользоваться, командную оболочку перезапускать не нужно.
+
     - Для установки с помощью командной строки:
-    
+
         1. Выполните команду:
-        
+
+
+            
+            
+            ```bash
+            @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
             ```
-            @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
-            ```
+
+
+
         1. Скрипт установки спросит, нужно ли добавить путь до `yc` в переменную PATH:
         
             ```

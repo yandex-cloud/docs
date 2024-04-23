@@ -10,8 +10,7 @@
 
 {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
-Отвязать карту от платежного аккаунта нельзя, но вместо этого в настройках платежного аккаунта можно [изменить привязанную карту](../operations/pin-card.md). Если вы удалите карту, привязанную к вашему платежному аккаунту {{ yandex-cloud }} из [Яндекс ID](https://passport.yandex.ru/profile), то в момент списания средств, ваш платежный аккаунт может быть заблокирован — переведен в [статус `SUSPENDED`](../concepts/billing-account-statuses.md).
-
+Отвязать карту от активного платежного аккаунта нельзя, но вместо этого вы можете [изменить привязанную карту](../operations/pin-card.md). Если вы удалите карту, привязанную к вашему платежному аккаунту {{ yandex-cloud }} из [Яндекс ID](https://passport.yandex.ru/profile), то в момент списания средств, ваш платежный аккаунт может быть заблокирован — переведен в [статус `SUSPENDED`](../concepts/billing-account-statuses.md). Вы сможете [удалить карту](../operations/pin-card.md#remove-card) только после [инактивации платежного аккаунта](../operations/delete-account.md). 
 
 ## Пополнение счета {#refill}
 

@@ -10,21 +10,21 @@
 
 {% endnote %}
 
-Классификаторы могут применяться к промежуточным и окончательным результатам распознавания. Чтобы включить классификатор, определите параметр [`recognition_classifier`](../stt-v3/api-ref/grpc/stt_service.md#RecognitionClassifierOptions) в настройках сессии. Результаты срабатывания классификаторов будут приходить после [событий](../stt-v3/api-ref/grpc/stt_service.md#StreamingResponse), указанных в настройках классификатора. В зависимости от классификатора это могут быть события типа `partial`, `eou_update` или `final`.
+Классификаторы могут применяться к промежуточным и окончательным результатам распознавания. Чтобы включить классификатор, определите параметр [`recognition_classifier`](../stt-v3/api-ref/grpc/stt_service.md#RecognitionClassifierOptions) в настройках сессии. Результаты срабатывания классификаторов будут приходить отдельным сообщением сразу после [событий](../stt-v3/api-ref/grpc/stt_service.md#StreamingResponse), указанных в настройках классификатора. В зависимости от классификатора это могут быть события типа `partial`, `eou_update` или `final`.
 
 {{ speechkit-name }} поддерживает следующие классификаторы:
 
 | Классификатор | Описание | Результат | Поддерживаемые типы событий | Поддержка в версиях модели |
 |---|---|---|---|---|
-| `formal_greeting` | Формальное приветствие (например, "добрый день", "здравствуйте"") | При срабатывании | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (в `general:rc`) | `general:rc`, `general` |
-| `informal_greeting` |  Неформальное приветствие (например, "привет", "дарова") | При срабатывании | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (в `general:rc`) | `general:rc`, `general` |
-| `formal_farewell` | Формальное прощание (например, "до свидания", "всего доброго") | При срабатывании |  `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (в `general:rc`) | `general:rc`, `general` |
-| `informal_farewell` | Неформальное прощание (например, "пока", "адьёс") | При срабатывании | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (в `general:rc`) | `general:rc`, `general` |
-| `insult` | Оскорбления (например, "дурак", "урод") | При срабатывании | `ON_UTTERANCE`, `ON_FINAL` | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (в `general:rc`) |
-| `profanity` | Мат | При срабатывании  | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (в `general:rc`) | `general:rc`, `general` |
+| `formal_greeting` | Формальное приветствие (например, "добрый день", "здравствуйте"") | Вероятность соответствия фразы формальному приветствию | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (в `general:rc`) | `general:rc`, `general` |
+| `informal_greeting` |  Неформальное приветствие (например, "привет", "дарова") | Вероятность соответствия фразы неформальному приветствию | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (в `general:rc`) | `general:rc`, `general` |
+| `formal_farewell` | Формальное прощание (например, "до свидания", "всего доброго") | Вероятность соответствия фразы формальному прощанию |  `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (в `general:rc`) | `general:rc`, `general` |
+| `informal_farewell` | Неформальное прощание (например, "пока", "адьёс") | Вероятность соответствия фразы неформальному прощанию | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (в `general:rc`) | `general:rc`, `general` |
+| `insult` | Оскорбления (например, "дурак", "урод") | Вероятность соответствия фразы классу оскорблений | `ON_UTTERANCE`, `ON_FINAL` | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (в `general:rc`) |
+| `profanity` | Мат | Вероятность принадлежности фразы классу мата  | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (в `general:rc`) | `general:rc`, `general` |
 | `gender` | Пол | Вероятности для классов `male` и `female` | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` | `general:rc`, `general` |
-| `negative` | Негатив | Вероятности для классов `negative` и `not_negative` | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` | `general:rc`, `general` |
-| `answerphone` | Автоответчик | Вероятности для классов `answerphone` и `not_answerphone` | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` | `general:rc`, `general` |
+| `negative` | Негатив | Вероятность негативной окраски распознанной фразы | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` | `general:rc`, `general` |
+| `answerphone` | Автоответчик | Вероятность ответа автоответчика | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` | `general:rc`, `general` |
 
 {% list tabs group=programming_language %}
 
@@ -52,38 +52,10 @@
       )
     )
   )
- 
   ```
 
 {% endlist %}
 
-### Пример работы классификатора {#classifier-example}
-
-Пусть на распознавание пришло три фразы: "Вы плохо работаете", "Совсем дураки, позовите кого-нибудь нормального", "Ну не хотите — как хотите, всего доброго".
-
-После второй фразы придет два сообщения: с результатом распознавания фразы и с ответом классификатора:
- 
-```python
-stt_pb2.StreamingResponse(
-...,
-  classifier_update=stt_pb2.RecognitionClassifierUpdate(
-    window_type=RecognitionClassifierUpdate.LAST_UTTERANCE,
-    start_time_ms=<начало_фразы>,
-    end_time_ms=<конец_фразы>,
-    classifier_result=stt_pb2.RecognitionClassifierResult(
-      classifier="insult",
-      highlights=[
-        stt_pb2.PhraseHighlight(
-          text="дураки",
-          start_time_ms=<время_начала_слова>,
-          end_time_ms=<время_конца_слова>
-        )
-      ],
-      labels=[] 
-    )
-  )
-)
-```
 
 ## Статистики аудио {#statistics}
 

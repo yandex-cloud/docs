@@ -131,7 +131,7 @@ To create a key pair:
       * Select the `{{ region-id }}-a` availability zone.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select `Ubuntu 22.04`.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.instances.create.section_disk }}** tab and configure the boot disk:
-      * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd }}`
+      * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`
       * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `20 GB`
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`

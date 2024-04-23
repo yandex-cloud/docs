@@ -3666,7 +3666,7 @@ default:
           switch_expences: История расходов
           switch_exports: Экспорт детализации
           switch_history: История платежей
-          switch_offers: Резервы
+          switch_offers: Резервируемое потребление
           switch_overview: Данные аккаунта
           switch_users: Управление доступом
           tab_acts-title: Закрывающие документы
@@ -4626,6 +4626,7 @@ default:
             field_internal-ipv4: Внутренний IPv4-адрес
             field_security-groups: Группы безопасности
             field_subnetwork: Подсеть
+            section_additional: Дополнительные настройки
             switch_auto: Автоматически
             switch_list: Список
             switch_manual: Вручную
@@ -4670,6 +4671,9 @@ default:
           label_delete-now: Удалить сейчас
         image-field:
           button_custom-image: Укажите ссылку
+        internal-v4-address-field:
+          button_internal-address-reserve: Зарезервировать
+          field_internal-ipv4-address: Внутренний IPv4 адрес
         ip-address-form:
           label_button-save: Сохранить
           label_field-search-type: Тип поиска
@@ -4725,6 +4729,7 @@ default:
           button_attach: Подключить
           field_auto-delete: Автоматическое удаление
           field_instance: ВМ
+        button_relocate-to-another-zone: Перенести в другую зону
         disk-form:
           field_name: Имя
           field_size: Размер
@@ -4744,6 +4749,7 @@ default:
             button_create: Создать диск
           edit:
             button_update: Сохранить изменения
+          field_new-availability-zone: Новая зона доступности
           label_disk-used: Подключен
           popup_detach-disk_button_detach: Отсоединить
         group:
@@ -4873,6 +4879,7 @@ default:
           button_action-restart: Перезапустить
           button_create: Создать виртуальную машину
           button_gr-action-stop: Остановить
+          button_start-instance-relocation: Начать перенос
           create-disk:
             button_create: Добавить
             field_additional: Дополнительно
@@ -4881,10 +4888,6 @@ default:
             field_source: Наполнение
             label_title: Добавление дополнительного диска
             value_boot-disk: Загрузочный
-            value_network-hdd: HDD
-            value_network-ssd: SSD
-            value_network-ssd-io-m3: SSD IO
-            value_network-ssd-nonreplicated: Нереплицируемый SSD
             value_source-disk: Диск
             value_source-image: Образ
             value_source-snapshot: Снимок
@@ -4948,7 +4951,6 @@ default:
             value_coi-restart-never: Never
             value_coi-restart-on-failure: On-Failure
             value_docker-compose-yaml: Docker-compose
-            value_network-ssd: SSD
           label_title: Виртуальные машины
           popup-confirm_button_delete: Удалить
           popup-confirm_button_gr-stop: Остановить
@@ -5012,6 +5014,10 @@ default:
         switch_operations: Операции
         switch_placement-groups: Группы размещений
         switch_snapshots: Снимки дисков
+        value_disk-type-network-hdd: HDD
+        value_disk-type-network-ssd: SSD
+        value_disk-type-network-ssd-io-m3: SSD IO
+        value_disk-type-network-ssd-nonreplicated: Нереплицируемый SSD
       cr:
         image:
           label_last-scan-time: Дата последнего сканирования
@@ -6138,6 +6144,7 @@ default:
             label_domain: Служебный домен
             label_id: Идентификатор
             section_base: Общая информация
+            section_spec: Спецификация
         item-form:
           field_name: Имя
         item:
@@ -7203,7 +7210,7 @@ default:
                   object_storage:
                     ObjectStorageAdvancedSettings:
                       bucket_layout_column:
-                        title: Колонка с временем
+                        title: Колонка со временем
                       bucket_layout_timezone:
                         title: Часовой пояс
                       buffer_interval:
@@ -7633,7 +7640,7 @@ default:
                         additional_reader_options:
                           title: Дополнительные параметры для считывания
                         advanced_options:
-                          title: Расширенные опции
+                          title: Дополнительные настройки
                         block_size:
                           title: Размер блока
                         delimiter:
@@ -7659,11 +7666,11 @@ default:
                           title: Столбцы
                       Provider:
                         aws_access_key_id:
-                          title: AWS Access Key ID
+                          title: Идентификатор ключа доступа AWS
                         aws_secret_access_key:
-                          title: AWS Secret Access Key
+                          title: Секретный ключ доступа AWS
                         bucket:
-                          title: Bucket
+                          title: Бакет
                         endpoint:
                           title: Эндпоинт
                         path_prefix:
