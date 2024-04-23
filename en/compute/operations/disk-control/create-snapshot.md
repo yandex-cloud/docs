@@ -11,7 +11,7 @@ A _disk snapshot_ is a copy of the disk file system at a specific point in time.
 
 {% note alert %}
 
-When creating a snapshot of the `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-io-m3 }}` or `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}` type, all write operations will be temporarily suspended, and the disk will be read-only. All suspended writes requested on the guest OS side will be completed after the snapshot is created. During the snapshot generation, the guest OS will be waiting for I/O operations to be completed (`iowait` status).
+When creating a snapshot of the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-io-m3 }}` or `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}` type, all write operations will be temporarily suspended, and the disk will be read-only. All suspended writes requested on the guest OS side will be completed after the snapshot is created. During the snapshot generation, the guest OS will be waiting for I/O operations to be completed (`iowait` status).
 
 {% endnote %}
 

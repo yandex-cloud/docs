@@ -87,7 +87,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите публичный образ [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os).
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** нажмите **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**. В окне **{{ ui-key.yacloud.compute.instances.create-disk.label_title }}** укажите параметры [диска](../../compute/concepts/disk.md) для хранения данных:
      * **{{ ui-key.yacloud.compute.disk-form.field_name }}** — `fileserver-tutorial-disk`.
-     * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd }}`.
+     * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`.
      * **{{ ui-key.yacloud.compute.disk-form.field_size }}** — `100 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
      * **{{ ui-key.yacloud.compute.disk-form.field_source }}** — `{{ ui-key.yacloud.compute.disk-form.value_source-none }}`.
 

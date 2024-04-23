@@ -41,6 +41,12 @@ Aliases:
 	- [yc managed-greenplum pxf-datasource list](pxf-datasource/list.md) — List pxf-datasources for specified Greenplum cluster
 	- [yc managed-greenplum pxf-datasource get](pxf-datasource/get.md) — Get pxf-datasource for specified Greenplum cluster
 	- [yc managed-greenplum pxf-datasource delete](pxf-datasource/delete.md) — Delete pxf-datasource for specified Greenplum cluster
+- [yc managed-greenplum hba-rules](hba-rules/index.md) — Manage Greenplum hba rules
+	- [yc managed-greenplum hba-rules list](hba-rules/list.md) — List hba-rules for specified Greenplum cluster
+	- [yc managed-greenplum hba-rules get](hba-rules/get.md) — Get hba-rule for specified Greenplum cluster
+	- [yc managed-greenplum hba-rules delete](hba-rules/delete.md) — Delete hba-rule for specified Greenplum cluster
+	- [yc managed-greenplum hba-rules create](hba-rules/create.md) — Create hba-rule for specified Greenplum cluster
+	- [yc managed-greenplum hba-rules update](hba-rules/update.md) — Update hba-rule for specified Greenplum cluster
 - [yc managed-greenplum hosts](hosts/index.md) — Manage Greenplum cluster hosts.
 - [yc managed-greenplum backup](backup/index.md) — Manage Greenplum cluster backups
 	- [yc managed-greenplum backup get](backup/get.md) — Show information about the specified Greenplum backup

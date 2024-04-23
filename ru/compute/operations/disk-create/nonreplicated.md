@@ -24,7 +24,7 @@
 
      {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
 
-  1. Укажите тип диска `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}`.
+  1. Укажите тип диска `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}`.
   1. Выберите нужный размер блока.
   1. Задайте нужный размер диска.
   1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
@@ -145,7 +145,7 @@
   1. Выберите зону доступности, в которой будет находиться диск.
 
      Зона доступности для диска должна соответствовать зоне группы размещения, в которой вы хотите создать диск.
-  1. Укажите тип диска `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}`.
+  1. Укажите тип диска `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}`.
   1. Выберите группу размещения дисков.
 
       Если вы выбрали группу со стратегией [размещения разделами](../../concepts/disk-placement-group.md#partition) (partition), укажите номер раздела, в который вы хотите добавить диск.

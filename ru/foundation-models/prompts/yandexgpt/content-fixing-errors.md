@@ -16,11 +16,11 @@
 
 ```json
 {
-  "modelUri": "gpt://<идентификатор_каталога>/yandexgpt-lite",
+  "modelUri": "gpt://<идентификатор_каталога>/yandexgpt/latest",
   "completionOptions": {
     "stream": false,
     "temperature": 0,
-    "maxTokens": "2000"
+    "maxTokens": "200"
   },
   "messages": [
     {
@@ -59,20 +59,22 @@
 
 ```json
 {
-  "alternatives": [
-    {
-      "message": {
-        "role": "assistant",
-        "text": "Нейросети могут помочь человеку работать более быстро и эффективно, но опасения о том, что искусственный интеллект заменит человека, пока преждевременны."
-      },
-      "status": "ALTERNATIVE_STATUS_FINAL"
-    }
-  ],
-  "modelVersion": "yandexgpt-lite",
-  "contentUsage": {
-    "inputTextTokens": "56",
-    "completionTokens": "27",
-    "totalTokens": "83"
+  "result": {
+    "alternatives": [
+      {
+        "message": {
+          "role": "assistant",
+          "text": "Нейросети помогают человеку работать быстрее и эффективнее, но опасения, что искусственный интеллект заменит человека, пока преждевременны."
+        },
+        "status": "ALTERNATIVE_STATUS_FINAL"
+      }
+    ],
+    "usage": {
+      "inputTextTokens": "56",
+      "completionTokens": "23",
+      "totalTokens": "79"
+    },
+    "modelVersion": "07.03.2024"
   }
 }
 ```
