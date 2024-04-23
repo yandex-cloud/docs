@@ -132,6 +132,8 @@ items:
             href: tutorials/managed-mysql-to-mysql.md
           - name: Кластер {{ MG }}
             href: tutorials/managed-mongodb.md
+          - name: Миграция кластера {{ MG }} с версии 4.4 на 6.0
+            href: tutorials/mongodb-versions.md
           - name: Кластер {{ CH }}
             href: tutorials/managed-clickhouse.md
           - name: Кластер {{ GP }}

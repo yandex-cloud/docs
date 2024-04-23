@@ -48,4 +48,6 @@
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
+{% include [Internet access](../../../../_includes/data-transfer/notes/internet-access.md) %}
+
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).
