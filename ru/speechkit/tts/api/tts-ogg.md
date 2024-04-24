@@ -216,6 +216,53 @@
 
   Синтезированная речь будет записана в файл `speech.ogg` в папке, из которой вы отправляли запрос.
 
+- Node.js {#nodejs}
+  Установите необходимые зависимости:
+
+  ```bash
+  npm install --save axios form-data
+  ```
+
+  Отправьте [запрос](../request.md) на преобразование текста в речь:
+
+  ```javascript
+  import FormData from 'form-data';
+  import axios from 'axios';
+  import fs from 'node:fs';
+
+  const IAM_TOKEN = '<IAM_TOKEN>';
+  const FOLDER_ID = '<FOLDER_ID>';
+
+  const formData = new FormData();
+
+  formData.append('voice', 'filipp');
+  formData.append('text', 'Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!');
+  formData.append('lang', 'ru-RU');
+  formData.append('folderId', FOLDER_ID);
+
+  const headers = {
+    Authorization: `Bearer ${IAM_TOKEN}`,
+    ...formData.getHeaders(),
+  };
+
+  axios
+    .post('https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize', formData, {
+      headers,
+      responseType: 'arraybuffer'
+    })
+    .then(response => fs.writeFileSync('speech.ogg', response.data));
+  ```
+
+  Где:
+
+  * `IAM_TOKEN` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
+  * `FOLDER_ID` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
+  * `text` — текст в [TTS-разметке](../markup/tts-markup.md), который нужно синтезировать.
+  * `lang` — [язык](../index.md#langs) текста.
+  * `voice` — [голос](../voices.md) для синтеза речи.
+
+  Синтезированная речь будет записана в файл `speech.ogg` в папке, из которой вы отправляли запрос.
+
 {% endlist %}
 
 #### См. также {#see-also}
