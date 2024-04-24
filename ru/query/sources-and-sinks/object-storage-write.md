@@ -19,23 +19,23 @@ FROM
 Запись данных с помощью соединений удобно использовать для прототипирования и первоначальной настройки работы с записью данных. Для записи данных в бакет создайте [соединение](object-storage.md#create_connection) к {{ objstorage-short-name }} и используйте SQL-выражение:
 
 ```sql
-INSERT INTO `<connection_name>`.`<bucket_path>`
+INSERT INTO <соединение>.<путь>
     WITH
     (
-        format='<format>',
-        compression='<compression>'
+        format='<формат_данных>',
+        compression='<формат_сжатия>'
     )
 SELECT
-    <expression>
+    <выражение>
 FROM
-    <query>
+    <запрос>
 ```
 
 Где:
 
-* `connection_name` — название соединения с {{ objstorage-short-name }}.
-* `bucket_path` — путь внутри бакета, куда будут записаны данные.
-* `query` — запрос-источник данных {{ yq-name }}.
+* `<соединение>` — название соединения с {{ objstorage-short-name }}.
+* `<путь>` — путь внутри бакета, куда будут записаны данные.
+* `<запрос>` — запрос-источник данных {{ yq-name }}.
 
 ### Пример {#connection-write-example}
 
@@ -61,17 +61,17 @@ SELECT
 Если записывать данные нужно регулярно, то удобно делать это с помощью привязок к данным. При этом нет необходимости указывать все детали работы с этими данными в каждом запросе. Для записи данных в бакет создайте [привязку к данным](object-storage-binding.md) в {{ objstorage-short-name }} и используйте SQL-выражение:
 
 ```sql
-INSERT INTO `<binding_name>`
+INSERT INTO `<привязка>`
 SELECT
-    <expression>
+    <выражение>
 FROM
-    <query>
+    <запрос>
 ```
 
 Где:
 
-* `binding_name` — название привязки к данным в {{ objstorage-short-name }}.
-* `query` — запрос-источник данных {{ yq-name }}.
+* `<привязка>` — название привязки к данным в {{ objstorage-short-name }}.
+* `<запрос>` — запрос-источник данных {{ yq-name }}.
 
 ### Пример {#bindings-write-example}
 

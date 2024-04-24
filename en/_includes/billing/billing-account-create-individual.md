@@ -25,19 +25,8 @@ To create a billing account:
 
    {% include [payment-card-validation](payment-card-validation.md) %}
 
+   Your account will be created as a paid one: after you have used up your initial grant, your card will be debited for the {{ yandex-cloud }} resources you are using.
+
 1. Enter your current email address and phone number. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents. If you have already signed up for {{ yandex-cloud }}, check that your contact details are correct.
-
-1. If this is your first {{ yandex-cloud }} billing account, you are eligible for a trial period.
-
-   
-   {% note info %}
-
-   Sometimes, additional verification may be required when you create a billing account with a trial period. You will find a message with detailed instructions on the page of this billing account in {{ billing-name }}.
-
-   {% endnote %}
-
-
-   * When enabling the trial period, remember that after its expiration, your resources will be suspended. To resume operation, you will need to switch to the [paid version](../../billing/operations/activate-commercial.md).
-   * If you do not activate the trial period at this stage, your account will be created as a paid account. In this case, [after using up the initial grant](../../getting-started/usage-grant.md), you will not have to upgrade to the paid version.
 
 1. Click **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.

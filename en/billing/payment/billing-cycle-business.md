@@ -4,11 +4,11 @@ The diagram shows the cycle of issuing and paying invoices for businesses and in
 
 ![image](../../_assets/billing/billing-cycle-business-credit.svg)
 
-1. You [activate the paid version](../operations/activate-commercial.md) before the end of the trial period.
+1. You [activate the paid version](../operations/activate-commercial.md) before the [trial period](../../billing/concepts/trial-period.md) expires.
 
    {% include [billing-how-to-use-grant](../../_includes/billing-how-to-use-grant.md) %}
 
-1. If you are awarded a grant, you use it. The grant amount is reduced as {{ yandex-cloud }} service resources are consumed.
+1. If you get a grant, you use it. The grant amount is reduced progressively as you consume the resources of {{ yandex-cloud }} services.
 
 1. The grant amount and validity period are checked throughout the reporting period.
 

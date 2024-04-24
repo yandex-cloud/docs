@@ -66,6 +66,8 @@ items:
             href: operations/metastore/cluster-create.md
           - name: Подключение {{ dataproc-name }} к {{ metastore-name }}
             href: operations/metastore/dataproc-connect.md
+          - name: Экспорт и импорт кластера {{ metastore-name }}
+            href: operations/metastore/export-and-import.md
           - name: Удаление кластера {{ metastore-name }}
             href: operations/metastore/cluster-delete.md
       - name: Логи и мониторинг
@@ -134,6 +136,10 @@ items:
         href: tutorials/airflow-automation.md
       - name: Совместная работа с таблицами с использованием {{ metastore-name }}
         href: tutorials/dataproc-to-dataproc.md
+      - name: >-
+          Перенос метаданных между кластерами {{ dataproc-name }} с помощью {{
+          metastore-name }}
+        href: tutorials/metastore-import.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

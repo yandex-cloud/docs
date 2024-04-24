@@ -19,10 +19,10 @@ The expected support specialist response time is shown in the table below. A das
 | Channel | Basic | Business | Premium |
 |---------------------------|-----------------------------------------------|-----------------------------------------------------------------------|-----------------------------------------------------------------------|
 |                           | For personal and research projects | For professional projects | For business projects with stringent fault tolerance requirements. |
-| Request to Support Center | Normal: 24 hours<br>Increase quotas: 30 minutes | Normal: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes | Normal: 2 hours<br>Critical: 15 minutes<br>Increase quotas: 30 minutes |
-| Chat | - | 5 minutes | 5 minutes, a messenger of your choice |
+| Request to [Support Center](support-center.md) | Normal: 24 hours<br>Increase quotas: 30 minutes | Normal: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes | Normal: 2 hours<br>Critical: 15 minutes<br>Increase quotas: 30 minutes |
+| Chat in [Telegram](tg-chat.md) | - | 5 minutes | 5 minutes, a messenger of your choice |
 
-Only {{ yandex-cloud }} [organization members](../organization/concepts/membership.md) can send requests to support. [Make sure](./support-center.md#before-you-begin) you are making a request on behalf of the right organization. If you have an issue with your infrastructure's production environment, specify _{{ ui-key.support-center.tickets.common.label_ticket-type-critical }}_ for request type.
+Only {{ yandex-cloud }} [organization members](../organization/concepts/membership.md) can send requests to support. [Make sure](./support-center.md#before-you-begin) you are making a request on behalf of the right organization. If you have an issue with your infrastructure's production environment, specify _{{ ui-key.support-center.tickets.common.label_ticket-type-critical }}_ for the request type.
 
 Regardless of your service plan, you can request the following from technical support:
 

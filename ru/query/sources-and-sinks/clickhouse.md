@@ -54,12 +54,12 @@ SELECT * FROM clickhouse_mdb_connection.my_table
 Для работы с {{ CH }} используется следующая форма SQL-запроса:
 
 ```sql
-SELECT * FROM clickhouse_mdb_connection.<table>
+SELECT * FROM <соединение>.<имя_таблицы>
 ```
 
 где:
-* `clickhouse_mdb_connection` — название созданного подключения к БД.
-* `<table>` — имя таблицы в базе данных.
+* `<соединение>` — название созданного подключения к БД.
+* `<имя_таблицы>` — имя таблицы в базе данных.
 
 ## Ограничения {#limits}
 

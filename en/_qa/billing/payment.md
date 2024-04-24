@@ -1,4 +1,4 @@
-# Questions about payment
+# Questions about payments
 
 #### Who can pay for resources? {#how-to-buy}
 
@@ -29,13 +29,13 @@ The minimum payment amount is $1.
 
 - Residents of Russia {#russia}
 
-   You can only pay for {{ yandex-cloud }} resources in rubles (₽), regardless of your legal status ([billing account type](../../billing/concepts/billing-account.md#ba-types)).
+   You must pay for {{ yandex-cloud }} resources in rubles (₽), regardless of your legal status ([billing account type](../../billing/concepts/billing-account.md#ba-types)).
 
    {% include [rb payment](../../_includes/billing/rb-payment.md) %}
 
 - Residents of Kazakhstan {#kazakhstan}
 
-   You can only pay for {{ yandex-cloud }} resources in tenge (₸), regardless of your legal status ([billing account type](../../billing/concepts/billing-account.md#ba-types)).
+   You must pay for {{ yandex-cloud }} resources in tenge (₸), regardless of your legal status ([billing account type](../../billing/concepts/billing-account.md#ba-types)).
 
 - Non-residents of Russia and Kazakhstan {#nonresidents}
 
@@ -45,7 +45,7 @@ The minimum payment amount is $1.
 
 
 
-#### I linked a bank card to my billing account. When will money be debited from it? {#unlink-card}
+#### I linked a card to my billing business account. When will money be debited from it? {#unlink-card}
 
 If this is your trial period, funds will not be debited from the bank card you linked.
 Since you do not automatically upgrade to the paid version at the end of the trial period, funds are only debited after activating the paid version and using {{ yandex-cloud }} services.

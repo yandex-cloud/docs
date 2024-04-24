@@ -11,8 +11,8 @@ title: Как решить проблемы в проекте в {{ ml-platform-
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.more }}**.
 1. В открывшемся списке нажмите **{{ ui-key.yc-ui-datasphere.project-page.debugging-tools-key-value }}** и выберите необходимую задачу:
-   * **{{ ui-key.yc-ui-datasphere.common.factory-reset }}** — сброс состояния интерпретатора и удаление всех установленных библиотек. Код ноутбуков, вывод ячеек и все ресурсы проекта сохранятся.
-   * **{{ ui-key.yc-ui-datasphere.project-page.debugging-tools.reset-jupyter-workspace.title }}** — закрытие всех открытых файлов и ноутбуков.
-   * **{{ ui-key.yc-ui-datasphere.project-page.debugging-tools.clear-all-output.title }}** — очистка вывода всех ячеек открытых ноутбуков.
-   * **{{ ui-key.yc-ui-datasphere.project-page.change-project-disk-size }}** — изменение размера хранилища проекта. Проект будет остановлен.
-   * **{{ ui-key.yc-ui-datasphere.project-page.stop-ide-title }}** — остановка всех вычислений, закрытие открытых ноутбуков и выключение ВМ.
+   * **{{ ui-key.yc-ui-datasphere.common.factory-reset }}** — сброс состояния интерпретатора и удаление всех установленных библиотек. Код ноутбуков, вывод ячеек и все ресурсы проекта сохранятся. Помогает, когда установлены некорректные библиотеки или переполнено хранилище.
+   * **{{ ui-key.yc-ui-datasphere.project-page.debugging-tools.reset-jupyter-workspace.title }}** — закрытие всех открытых файлов и ноутбуков. Некорректные файлы и ноутбуки могут препятствовать работе {{ jlab }}Lab.
+   * **{{ ui-key.yc-ui-datasphere.project-page.debugging-tools.clear-all-output.title }}** — очистка вывода всех ячеек открытых ноутбуков. Слишком большой вывод ячеек может мешать работе {{ jlab }}Lab и замедлять работу браузера.
+   * **{{ ui-key.yc-ui-datasphere.project-page.change-project-disk-size }}** — изменение размера хранилища проекта. Проект будет остановлен. Устраняет ошибки, возникающие из-за переполненного хранилища.
+   * **{{ ui-key.yc-ui-datasphere.project-page.stop-ide-title }}** — остановка всех вычислений, закрытие открытых ноутбуков и выключение ВМ. Помогает, когда проект завис по непонятным причинам, или если нужно остановить запущенные вычисления.

@@ -38,12 +38,12 @@
 ```
 Action=ChangeMessageVisibilityBatch
 &Version=2012-11-05
-&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
-&ChangeMessageVisibilityBatchRequestEntry.1.Id=8b6f1be7-effe631a-7b3cbef1-158bf58
-&ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=EAUg9bzYh4gtKAA
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
+&ChangeMessageVisibilityBatchRequestEntry.1.Id=8b6f1be7-effe631a-7b3cb***-*****
+&ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=EAUg9bz********
 &ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=30
-&ChangeMessageVisibilityBatchRequestEntry.2.Id=54fe7789-da6cfbfd-3664814a-158c30e
-&ChangeMessageVisibilityBatchRequestEntry.2.ReceiptHandle=EAEgrqvYh4gtKAE
+&ChangeMessageVisibilityBatchRequestEntry.2.Id=54fe7789-da6cfbfd-3664814a***-*****
+&ChangeMessageVisibilityBatchRequestEntry.2.ReceiptHandle=EAEgrqv********
 &ChangeMessageVisibilityBatchRequestEntry.2.VisibilityTimeout=30
 ```
 
@@ -55,14 +55,14 @@ Action=ChangeMessageVisibilityBatch
 <ChangeMessageVisibilityBatchResponse>
     <ChangeMessageVisibilityBatchResult>
         <ChangeMessageVisibilityBatchResultEntry>
-            <Id>8b6f1be7-effe631a-7b3cbef1-158bf58</Id>
+            <Id>8b6f1be7-effe631a-7b3cbef1***-*****</Id>
         </ChangeMessageVisibilityBatchResultEntry>
         <ChangeMessageVisibilityBatchResultEntry>
-            <Id>54fe7789-da6cfbfd-3664814a-158c30e</Id>
+            <Id>54fe7789-da6cfbfd-3664814a***-*****</Id>
         </ChangeMessageVisibilityBatchResultEntry>
     </ChangeMessageVisibilityBatchResult>
     <ResponseMetadata>
-        <RequestId>4e249f0e-74ac41aa-aa8c6354-12fd717f-a9761e7b848e70720ec61d8172871228</RequestId>
+        <RequestId>4e249f0e-74ac41aa-aa8c6354-12fd717f-a9761e7b848e70720ec61d81********</RequestId>
     </ResponseMetadata>
 </ChangeMessageVisibilityBatchResponse>
 ```

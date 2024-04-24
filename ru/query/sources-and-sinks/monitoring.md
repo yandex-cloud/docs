@@ -34,22 +34,22 @@ FROM $query;
 
 ```sql
 INSERT INTO 
-        <monitoring_connection_name>.custom 
+        <соединение>.custom 
 SELECT 
-        <fields> 
+        <поля> 
 FROM 
-        <query>;
+        <запрос>;
 ```
 
 Где:
 
-- `monitoring_connection_name` — название соединения с {{ monitoring-name }}, созданного в предыдущем пункте.
-- `fields` — список полей, содержащих временную отметку, метрики и их метки.
-- `query` — запрос-источник данных {{ yq-full-name }}.
+- `<соединение>` — название соединения с {{ monitoring-name }}, созданного в предыдущем пункте.
+- `<поля>` — список полей, содержащих временную отметку, метрики и их метки.
+- `<запрос>` — запрос-источник данных {{ yq-full-name }}.
 
 {% note info %}
 
-При записи метрик необходимо использовать конструкцию `INSERT INTO <monitoring_connection_name>.custom`, где [`custom`](../../monitoring/api-ref/MetricsData/write.md#query_params) — зарезервированное имя в {{ monitoring-name }} для записи пользовательских метрик.
+При записи метрик необходимо использовать конструкцию `INSERT INTO <соединение>.custom`, где [`custom`](../../monitoring/api-ref/MetricsData/write.md#query_params) — зарезервированное имя в {{ monitoring-name }} для записи пользовательских метрик.
 
 {% endnote %}
 

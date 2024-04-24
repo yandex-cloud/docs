@@ -98,12 +98,12 @@ Action=CreateQueue
 <CreateQueueResponse>
     <CreateQueueResult>
         <QueueUrl>
-            https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+            https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
         </QueueUrl>
     </CreateQueueResult>
     <ResponseMetadata>
         <RequestId>
-            e4c69a67-f2809a49-6b326386-14d2a08-af8eb419750efa1dbcabf1848a01aefd
+            e4c69a67-f2809a49-6b326386-14d2a08-af8eb419750efa1dbcabf184********
         </RequestId>
     </ResponseMetadata>
 </CreateQueueResponse>

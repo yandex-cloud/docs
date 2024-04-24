@@ -16,6 +16,7 @@ description: "Различные сценарии использования {{ 
 * [{#T}](./s3-dataproc-ch.md)
 * [{#T}](./airflow-automation.md)
 * [{#T}](./dataproc-to-dataproc.md)
+* [{#T}](./metastore-import.md)
 
 ## Работа с заданиями {#jobs}
 

@@ -34,9 +34,9 @@ LIMIT 10;
 
 ```sql
 SELECT 
-    <expression> 
+    <выражение> 
 FROM 
-    <yds_connection_name>.`<stream_name>`
+    <соединение>.<имя_потока>
 WITH
 (
     format=raw,
@@ -45,13 +45,13 @@ WITH
         Data String
     )
 )
-WHERE <filter>;
+WHERE <фильтр>;
 ```
 
 Где:
 
-- `yds_connection_name` — название соединения с потоком данных {{ yds-short-name }}, созданного в предыдущем пункте.
-- `stream_name` — название потока данных в {{ yds-short-name }}.
+- `<соединение>` — название соединения с потоком данных {{ yds-short-name }}, созданного в предыдущем пункте.
+- `<имя_потока>` — название потока данных в {{ yds-short-name }}.
 
 ## Пример чтения данных
 

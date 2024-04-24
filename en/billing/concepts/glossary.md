@@ -61,9 +61,9 @@ Billing account
 Payer
 :   Individual, sole proprietor, or corporation that pays for the {{ yandex-cloud }} services used. Basically, these are payment details used to register agreements, issue invoices, and debit funds from a bank card.
 
-Free trial
-:   Opportunity to get hands-on experience using {{ yandex-cloud }} without paying for the resources being used.
-<br/>For more information, refer to the [Trial period](trial-period.md) section.
+Trial period
+:   Opportunity to gain hands-on experience with {{ yandex-cloud }} without paying for the resources you consume. Only available for legal entities.
+<br/>See the [Trial period](trial-period.md) section.
 
 Promo code
 :   Code you can use to receive an additional discount on {{ yandex-cloud }} services.

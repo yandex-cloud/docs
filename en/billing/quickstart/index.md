@@ -10,11 +10,11 @@ keywords:
 
 # Registering an account in {{ yandex-cloud }}
 
-To work with most {{ yandex-cloud }} services, you need a billing account. The account stores information about the payer and payment details; however, {{ yandex-cloud }} does not debit funds from your bank account and does not invoice you until you switch to the [paid version](../operations/activate-commercial.md). While some services, such as {{ tracker-name }} or {{ datalens-short-name }}, do not require a billing account, if you still create one, you will get an [initial grant](../concepts/bonus-account.md#start) that you can then use to pay for resources.
+To work with most {{ yandex-cloud }} services, you need a billing account. The account stores information about the payer and payment details. {{ yandex-cloud }} debits your card and invoices you only if you are using the [paid version](../operations/activate-commercial.md). While some services, such as {{ tracker-name }} or {{ datalens-short-name }}, do not require a billing account, if you still create one, you will get an [initial grant](../concepts/bonus-account.md#start) that you can then use to pay for resources.
 
 Under one Yandex account, all payers must be either residents of Russia, Kazakhstan, or other countries. You can learn more about billing accounts [here](../concepts/billing-account.md).
 
-New customers are entitled to a trial period. The [trial period](../concepts/trial-period.md) allows you to discover the features of the cloud infrastructure for free with some limitations. To fully use the resources, you need to switch to the paid version after your trial period ends.
+New customers who are legal entities are eligible for a trial period. The [trial period](../concepts/trial-period.md) allows you to discover the features of the cloud infrastructure for free with some limitations. To fully use the resources, you need to switch to the paid version after your trial period ends.
 
 {% list tabs group=customers %}
 

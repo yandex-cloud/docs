@@ -1,6 +1,6 @@
 ---
 title: "Trial period for new customers"
-description: "The trial period is a one-time introductory offer for new clients. The trial period is available to you if you have not purchased {{ yandex-cloud }} services or activated the trial period before."
+description: "The trial period is a one-time introductory offer for legal entities. You can use the trial period if you have never purchased {{ yandex-cloud }} services or activated the trial period before."
 ---
 
 # Trial period for new customers
@@ -13,7 +13,7 @@ The balance of the initial grant and the number of days until the end of the tri
 
 {% note warning %}
 
-You can enable the trial period only when [creating your first billing account](../quickstart/index.md) in {{ billing-name }}.
+You can enable the trial period only when [creating your first billing account](../quickstart/index.md) for a legal entity in {{ billing-name }}.
 
 {% endnote %}
 

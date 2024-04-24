@@ -1,5 +1,5 @@
-The free trial is a one-time introductory offer for new clients. You can use the free trial if you:
+The trial period is a one-time introductory offer for legal entities. You can use the trial period if you:
 
-- Have never purchased {{ yandex-cloud }} services.
-- Have not activated the free trial before.
+* Have never purchased {{ yandex-cloud }} services.
+* Have not activated the trial period before.
 

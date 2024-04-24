@@ -89,8 +89,8 @@
             ```bash
             ydb \
               --endpoint <эндпоинт> \
-              --database <имя> \
-              --yc-token-file <путь> \
+              --database <имя_БД> \
+              --yc-token-file <путь_к_OAuth-токену> \
               yql -s "SELECT 1;"
             ```
 

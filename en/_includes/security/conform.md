@@ -17,7 +17,7 @@ For more information, see:
 
 The General Data Protection Regulation (GDPR) regulates the collection and processing of personal data of individuals who reside in the European Economic Area. It was designed to strengthen data privacy protection and ensure the transparency of data collection, storage, and processing on the internet.
 
-{{ yandex-cloud }} meets key GDPR requirements. Procedures have been put in place to process requests from personal data subjects regarding personal data receipt, modification, and deletion. Data protection measures have been implemented and a procedure for notifying users of incidents has also been established.
+{{ yandex-cloud }} focuses on the GDPR as a global framework in the area of data protection and privacy. If our customer is subject to the GDPR, we make sure that provision of Yandex Cloud platform is in line with legal needs of the customer. We’re completely committed to privacy, with procedures in place for informing our customers when incidents occur.
 
 For more information, see the [Data Processing Addendum](https://yandex.com/legal/cloud_dpa/).
 
