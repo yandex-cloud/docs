@@ -13,8 +13,8 @@
 Задайте переменные окружения:
 
 ```
-export AWS_ACCESS_KEY_ID="<идентификатор ключа доступа>"
-export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
+export AWS_ACCESS_KEY_ID="<идентификатор_ключа_доступа>"
+export AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
 ```
 
 Создайте очередь в сервисе {{ message-queue-name }} и скопируйте ее URL.
@@ -138,7 +138,7 @@ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
 
 1. Заполните параметры в блоке `sqs`.
    
-   Чтобы получить значения для параметров `prefix` и `queue`, разделите URL вашей очереди на две части: префиксом будет служить `https://message-queue.{{ api-host }}/`, а параметром очереди `b1gvlrnlei4l5idm9cbj/dj6000000000g53305qi` без `/` в начале.
+   Чтобы получить значения для параметров `prefix` и `queue`, разделите URL вашей очереди на две части: префиксом будет служить `https://message-queue.{{ api-host }}/`, а параметром очереди `b1g8ad42m6he********/dj6000000000********` без `/` в начале.
 
    ```
    'sqs' => [
@@ -146,7 +146,7 @@ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
        'key' => env('AWS_ACCESS_KEY_ID'),
        'secret' => env('AWS_SECRET_ACCESS_KEY'),
        'prefix' => env('SQS_PREFIX', 'https://message-queue.{{ api-host }}/'),
-       'queue' => env('SQS_QUEUE', 'b1gvlrnlei4l5idm9cbj/dj6000000000g53305qi/laravel-test'),
+       'queue' => env('SQS_QUEUE', 'b1g8ad42m6he********/dj6000000000********/laravel-test'),
        'region' => env('AWS_DEFAULT_REGION', '{{ region-id }}'),
    ],
    ```

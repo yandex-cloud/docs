@@ -5997,6 +5997,12 @@ default:
         shard-groups:
           button_add-group: Создать группу шардов
       metastore:
+        action_export: Экспорт
+        action_import: Импорт
+        dialog:
+          import-export:
+            action_export: Экспортировать
+            action_import: Импортировать
         field_s3config-access-key-id: Идентификатор ключа доступа
         field_s3config-secret-access-key: Секретный ключ
         label_metastore: Metastore-сервер

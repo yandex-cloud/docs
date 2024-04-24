@@ -1,6 +1,6 @@
 # Desktops and their groups
 
-The main resource of {{ cloud-desktop-name }} is a _desktop_. This is a virtual [Ubuntu](https://ubuntu.com/)-based workspace deployed in the {{ yandex-cloud }} infrastructure.
+In {{ cloud-desktop-name }}, the main resource is a _desktop_. This is a virtual [Ubuntu](https://ubuntu.com/)-based workspace deployed in the {{ yandex-cloud }} infrastructure.
 
 One desktop is assigned to one user within an organization created in [{{ org-name }}](../../organization/). You can establish a desktop connection using the [Remote Desktop Protocol](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP).
 

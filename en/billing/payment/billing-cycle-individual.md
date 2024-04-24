@@ -4,11 +4,8 @@ The diagram shows the cycle of debiting funds from an individual's bank card, as
 
 ![image](../../_assets/billing/billing-cycle-individual.svg)
 
-1. You [activate the paid version](../operations/activate-commercial.md) before the end of the trial period.
-
-   {% include [billing-how-to-use-grant](../../_includes/billing-how-to-use-grant.md) %}
-
-1. If you are awarded a grant, you use it. The grant amount is reduced as {{ yandex-cloud }} service resources are consumed.
+1. You create a paid account.
+1. If you get a grant, you use it. The grant amount is reduced as {{ yandex-cloud }} service resources are consumed.
 1. The grant amount and its validity period is checked throughout the reporting period. <br/>They are described in the table below.
 
    | Grant amount | Description |

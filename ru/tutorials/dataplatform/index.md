@@ -138,6 +138,7 @@ description: "На странице представлен список прак
 * [{#T}](sqoop-mpg.md)
 * [{#T}](data-proc-init-actions-geesefs.md)
 * [{#T}](data-proc-and-airflow.md)
+* [{#T}](metastore-import.md)
 
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

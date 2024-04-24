@@ -156,4 +156,4 @@ yc kms symmetric-key add-access-binding \
 
 #### Как получить доступ к {{ objstorage-name }} из облачной сети {{ vpc-name }}? {#qa-from-vpc}
 
-Для ресурсов, которые размещены в облачной сети {{ vpc-short-name }} и не имеют публичных IP-адресов или выхода в интернет, можно [организовать подключение](../tutorials/routing/storage-vpc-access.md) к {{ objstorage-name }} через [API Endpoint](../api-design-guide/concepts/endpoints.md). FQDN эндпоинта с помощью службы DNS будет преобразован в публичный IP-адрес.
+Для ресурсов, которые размещены в облачной сети {{ vpc-short-name }} и не имеют публичных IP-адресов или выхода в интернет, можно [организовать подключение](../tutorials/routing/storage-vpc-access.md) к {{ objstorage-name }} через [API Endpoint](../api-design-guide/concepts/endpoints.md). [FQDN](../glossary/fqdn.md) эндпоинта с помощью службы DNS будет преобразован в публичный IP-адрес.

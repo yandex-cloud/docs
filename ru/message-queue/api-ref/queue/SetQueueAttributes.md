@@ -61,7 +61,7 @@ Attribute.N.Value (значение атрибута)
 ```
 Action=SetQueueAttributes
 &Version=2012-11-05
-&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
 &Attribute.1.Name=DelaySeconds
 &Attribute.1.Value=10
 &Attribute.2.Name=VisibilityTimeout
@@ -75,7 +75,7 @@ Action=SetQueueAttributes
 ```xml
 <SetQueueAttributesResponse>
     <ResponseMetadata>
-        <RequestId>87acfbed-5254a88a-ef8d6306-e5fd93e-74626d14b02d992c99e5fa1b97c0ac82</RequestId>
+        <RequestId>87acfbed-5254a88a-ef8d6306-e5fd93e-74626d14b02d992c99e5fa1b********</RequestId>
     </ResponseMetadata>
 </SetQueueAttributesResponse>
 ```

@@ -28,7 +28,7 @@ Year,Manufacturer,Model,Price
 ```sql
 SELECT 
     * 
-FROM `connection`.`path` 
+FROM <соединение>.<путь> 
 WITH
 (
     format=csv_with_names, 
@@ -68,7 +68,7 @@ Year    Manufacturer    Model   Price
 ```sql
 SELECT 
     * 
-FROM `connection`.`path` 
+FROM <соединение>.<путь> 
 WITH
 (
     format=tsv_with_names, 
@@ -124,7 +124,7 @@ WITH
 ```sql
 SELECT 
     * 
-FROM `connection`.`path` 
+FROM <соединение>.<путь> 
 WITH
 (
     format=json_each_row, 
@@ -158,7 +158,7 @@ WITH
 ```sql
 SELECT 
     * 
-FROM `connection`.`path` 
+FROM <соединение>.<путь> 
 WITH
 (
     format=raw, 
@@ -198,7 +198,7 @@ Year,Manufacturer,Model,Price
 ```sql
 SELECT 
     * 
-FROM `connection`.`path` 
+FROM <соединение>.<путь> 
 WITH
 (
     format=json_as_string, 
@@ -238,7 +238,7 @@ WITH
 ```sql
 SELECT 
     * 
-FROM `connection`.`path` 
+FROM <соединение>.<путь> 
 WITH
 (
     format=parquet, 

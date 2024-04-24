@@ -59,6 +59,22 @@ previously initiated loading for a different type with name "com/amazonaws/auth/
 
 Подробнее о размерах подсетей см. в документации [{{ vpc-full-name }}](../../vpc/concepts/network.md#subnet).
 
+#### Как исправить ошибку при создании базы данных в {{ metastore-full-name }}? {#create-db-in-hive}
+
+Ошибка возникает, если создавать БД с помощью следующего запроса:
+
+```sql
+CREATE DATABASE IF NOT EXISTS <название_БД>;
+```
+
+{{ metastore-name }} не позволяет создать базу данных или таблицу в Hive — они хранятся в [бакете {{ objstorage-full-name }}](../../storage/concepts/bucket.md), который привязан к кластеру {{ dataproc-name }}. Чтобы создать БД, выполните запрос:
+
+```sql
+CREATE DATABASE IF NOT EXISTS <название_БД> LOCATION <местоположение_БД>;
+```
+
+В параметре `LOCATION` укажите путь до бакета и БД в нем в формате: `s3a://<название_бакета>/<название_папки>/<название_БД>`. Указывать папку необязательно, но в нее объекты загружаются быстрее, чем в корень бакета.
+
 #### Почему кластер в статусе `Unknown`? {#unknown}
 
 Если у кластера был статус `Alive`, а затем стал `Unknown`:

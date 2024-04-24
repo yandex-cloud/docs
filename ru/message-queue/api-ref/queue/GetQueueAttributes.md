@@ -74,7 +74,7 @@ Attribute.N.Value (значение атрибута)
 ```
 Action=GetQueueAttributes
 &Version=2012-11-05
-&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
 &AttributeName.1=All
 ```
 
@@ -123,7 +123,7 @@ Action=GetQueueAttributes
         </Attribute>
     </GetQueueAttributesResult>
     <ResponseMetadata>
-        <RequestId>a69769e7-d07122f-147f09c0-e1f9d20-2e4fd5bae005ef4e6d639f7946b42bde</RequestId>
+        <RequestId>a69769e7-d07122f-147f09c0-e1f9d20-2e4fd5bae005ef4e6d639f79********</RequestId>
     </ResponseMetadata>
 </GetQueueAttributesResponse>
 ```

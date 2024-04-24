@@ -4,29 +4,31 @@
     ```text
     debezium.sink.type=kinesis
     debezium.sink.kinesis.region={{ region-id }}
-    debezium.sink.kinesis.endpoint=<YDS_STREAM_ENDPOINT>
+    debezium.sink.kinesis.endpoint=<эндпоинт>
     debezium.source.connector.class=io.debezium.connector.postgresql.PostgresConnector
     debezium.source.offset.storage.file.filename=data/offsets.dat
     debezium.source.offset.flush.interval.ms=0
     debezium.source.database.hostname=localhost
     debezium.source.database.port=5432
-    debezium.source.database.user=<DATABASE_USER>
-    debezium.source.database.password=<DATABASE_PASSWORD>
-    debezium.source.database.dbname=<DATABASE_NAME>
+    debezium.source.database.user=<имя_пользователя>
+    debezium.source.database.password=<пароль_пользователя>
+    debezium.source.database.dbname=<имя_БД>
     debezium.source.database.server.name=debezium
     debezium.source.plugin.name=pgoutput
 
     debezium.source.transforms=Reroute
     debezium.source.transforms.Reroute.type=io.debezium.transforms.ByLogicalTableRouter
     debezium.source.transforms.Reroute.topic.regex=(.*)
-    debezium.source.transforms.Reroute.topic.replacement=<YDS_STREAM_NAME>
+    debezium.source.transforms.Reroute.topic.replacement=<поток_данных>
     ```
 
-    * `<YDS_STREAM_ENDPOINT>` - эндпоинт потока данных {{yds-short-name}}, например, `https://yds.serverless.yandexcloud.net/{{ region-id }}/b1п89ae43m6he2ooql88r/etn01eg4rn184nemdbb`. Эндпоинт можно посмотреть на странице потока (см. [{#T}](../../data-streams/operations/manage-streams.md#list-data-streams)).
-    * `<YDS_STREAM_NAME>` - название потока данных {{yds-short-name}}.
-    * `<DATABASE_NAME>` - название базы данных {{ PG }}.
-    * `<DATABASE_USER>` - имя пользователя для подключения к базе данных {{ PG }}.
-    * `<DATABASE_PASSWORD>` - пароль пользователя для подключения к базе данных {{ PG }}.
+    Где:
+
+    * `<эндпоинт>` — эндпоинт потока данных {{yds-short-name}}, например, `https://yds.serverless.yandexcloud.net/{{ region-id }}/b1п89ae43m6he********/etn01eg4rn1********`. Эндпоинт можно посмотреть на странице потока (см. [{#T}](../../data-streams/operations/manage-streams.md#list-data-streams)).
+    * `<поток_данных>` — название потока данных {{yds-short-name}}.
+    * `<имя_БД>` — название базы данных {{ PG }}.
+    * `<имя_пользователя>` — имя пользователя для подключения к базе данных {{ PG }}.
+    * `<пароль_пользователя>` — пароль пользователя для подключения к базе данных {{ PG }}.
 1. Запустите Debezium следующей командой:
 
     ```bash

@@ -41,8 +41,7 @@
       python3 -m grpc_tools.protoc -I . \
            --python_out=./upload_data/ \
            --grpc_python_out=./upload_data/ \
-           yandex/cloud/speechsense/v1/talk_service.proto \
-           yandex/cloud/speechsense/v1/audio.proto && \
+           yandex/cloud/speechsense/v1/*
       cd upload_data
       ```
 

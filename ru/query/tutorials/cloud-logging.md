@@ -45,7 +45,7 @@ while true; do yc logging write \
   --timestamp="1s ago" \
   --level=INFO \
   --json-payload='{"request_id": "1234", "host":"test_host"}' \
-  --folder-id b1kmrhakmf8ar1i5l6f8; \
+  --folder-id b1kmrhakmf8a********; \
   sleep 1; \
 done
 ```

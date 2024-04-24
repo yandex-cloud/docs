@@ -31,12 +31,13 @@ description: "На странице представлен список поша
 * [Управление пользователями](cluster-users.md)
 * [Назначение привилегий и ролей пользователям](grant.md)
 
-## Расширения {{ PG }}
+## Расширения и словари {{ PG }}
 
 * [Управление расширениями](./extensions/cluster-extensions.md)
 * [Использование pg_cron](./extensions/pg_cron.md)
 * [Использование pgaudit](./extensions/pgaudit.md)
 * [Использование pgcrypto](./extensions/pgcrypto.md)
+* [Использование словаря Hunspell для полнотекстового поиска](./extensions/hunspell.md)
 
 ## Логи и мониторинг
 

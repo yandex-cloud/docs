@@ -79,11 +79,11 @@ curl https://{{ api-host }}/endpoints
   },
   {
    "id": "certificate-manager",
-   "address": "certificate-manager.{{ api-host }}:443"
+   "address": "{{ api-host-certmanager }}:443"
   },
   {
    "id": "certificate-manager-data",
-   "address": "data.certificate-manager.{{ api-host }}:443"
+   "address": "{{ api-host-certmanager-certcontent }}:443"
   },
   {
    "id": "cloudbackup",
@@ -151,7 +151,7 @@ curl https://{{ api-host }}/endpoints
   },
   {
    "id": "kms",
-   "address": "kms.{{ api-host }}:443"
+   "address": "{{ api-host-kms }}:443"
   },
   {
    "id": "kms-crypto",
@@ -171,7 +171,7 @@ curl https://{{ api-host }}/endpoints
   },
   {
    "id": "lockbox",
-   "address": "lockbox.{{ api-host }}:443"
+   "address": "{{ api-host-lockbox }}:443"
   },
   {
    "id": "lockbox-payload",

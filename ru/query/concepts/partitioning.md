@@ -77,11 +77,11 @@ WHERE
 SELECT 
     * 
 FROM 
-    <connection>.<path> 
+    <соединение>.<путь> 
 WITH 
 (
-    schema=(<field1>, <field2>, <field3>), 
-    partitioned_by=(field2, field3)
+    schema=(<поле_1>, <поле_2>, <поле_3>), 
+    partitioned_by=(<поле_2>, <поле_3>)
 )
 ```
 

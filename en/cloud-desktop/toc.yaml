@@ -1,6 +1,11 @@
 title: Yandex Cloud Desktop
 stage: preview
 href: index.yaml
+label:
+  title: RU
+  description: This service is only available in Russia.
+  theme: unknown
+  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -14,7 +19,7 @@ items:
             href: operations/desktop-groups/create.md
           - name: Updating a desktop group
             href: operations/desktop-groups/update.md
-          - name: Changing permissions to a desktop group
+          - name: Changing desktop group permissions
             href: operations/desktop-groups/update-acl.md
           - name: Deleting a desktop group
             href: operations/desktop-groups/delete.md
@@ -24,7 +29,7 @@ items:
             href: operations/desktops/create.md
           - name: Connecting to a desktop
             href: operations/desktops/connect.md
-          - name: Resetting a desktop user's password
+          - name: Resetting desktop user password
             href: operations/desktops/password-reset.md
           - name: Starting, restarting, and stopping a desktop
             href: operations/desktops/start-stop.md

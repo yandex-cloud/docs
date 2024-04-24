@@ -1,7 +1,10 @@
 # Monitoring transfer status
 
-Transfer status details are available in the management console.
-Detailed diagnostic information is presented as charts. You can view them in the **{{ ui-key.yacloud.data-transfer.label_monitoring }}** tab of the transfer management page or in [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
+Transfer status details are available in the management console:
+
+* You can find the summary on the timeline in the **{{ ui-key.yacloud.common.overview }}** section for the selected transfer in [{{ data-transfer-name }}]({{ link-console-main }}/link/data-transfer/). At the top right of the timeline, you can select the viewing interval: hour, day, or week. The interval is segmented. Hover the cursor over the segment to find out how many bytes and rows were transferred over the relevant period or to view error messages.
+* Detailed diagnostic information is presented as charts. You can view them on the **{{ ui-key.yacloud.data-transfer.label_monitoring }}** tab of the transfer management page or in [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
+
 You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }} to receive notifications about transfer failures. In {{ monitoring-full-name }}, there are two alert thresholds: `Warning` and `Alarm`. If the specified threshold is exceeded, you will receive alerts via the configured [notification channels](../../monitoring/concepts/alerting.md#notification-channel).
 
 
@@ -177,8 +180,8 @@ Alert parameters:
 
    Additional settings:
 
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}`.
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}**: `1 minute`.
+   * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}`.
+   * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}**: `1 minute`.
 
 ### Reads {#reading}
 
