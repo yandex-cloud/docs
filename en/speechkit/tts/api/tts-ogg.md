@@ -262,6 +262,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
   * `voice` — [Voice](../voices.md) for speech synthesis.
 
   The synthesized speech will be written to the `speech.ogg` file in the directory that you sent your request from.
+
 {% endlist %}
 
 #### See also {#see-also}
