@@ -13,13 +13,18 @@
      * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_expiration-date }}` — срабатывает в дату, указанную в поле **{{ ui-key.yacloud.storage.bucket.lifecycle.field_date }}**.
      * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_expired-object-delete-marker }}` — срабатывает после того, как у объекта осталась только текущая версия.
 
-   * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_type-transition }}` — перемещение любых объектов из стандартного (`STANDARD`) в холодное (`COLD`), из холодного в ледяное (`ICE`) или из стандартного в ледяное хранилище:
+   * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_type-transition }}` — перемещение любых объектов из стандартного (`STANDARD`) в холодное (`COLD`) хранилище:
 
      * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_expiration-days }}` — срабатывает через указанное в поле **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}** количество дней после загрузки объекта.
      * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_expiration-date }}` — срабатывает в дату, указанную в поле **{{ ui-key.yacloud.storage.bucket.lifecycle.field_date }}**.
 
+     Вы можете настроить изменение класса хранилища со стандартного (`STANDARD`) на ледяное (`ICE`) и с холодного (`COLD`, `STANDARD_IA`) на ледяное (`ICE`) с помощью YC CLI, AWS CLI, {{ TF }} и API.
+
    * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_type-version-expiration }}` — удаление нетекущих версий объектов из бакета. Срабатывает через указанное в поле **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}** количество дней после того, как версия объекта стала нетекущей.
    * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_type-version-transition }}` — перемещение нетекущих версий объектов из стандартного (`STANDARD`) в холодное (`COLD`) хранилище. Срабатывает через указанное в поле **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}** количество дней после того, как версия объекта стала нетекущей.
+
+     Вы можете настроить изменение класса хранилища со стандартного (`STANDARD`) на ледяное (`ICE`) и с холодного (`COLD`, `STANDARD_IA`) на ледяное (`ICE`) с помощью YC CLI, AWS CLI, {{ TF }} и API.
+
    * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_type-abort-incomplete-multipart-upload }}` — удаление всех частей незавершенных составных загрузок из бакета. Срабатывает через указанное в поле **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}** количество дней после загрузки объекта.
 
 1. Нажмите **{{ ui-key.yacloud.storage.bucket.lifecycle.button_save }}**.

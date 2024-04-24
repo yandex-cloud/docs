@@ -6,7 +6,7 @@
 
 ## Запрос {#request}
 
-`GET`-запрос на адрес `/queries/{query_id}/results/{<номер_результата выполнения_запроса_считая_от_0>}?project={folder_id}`, где `{folder_id}` — идентификатор каталога, а `{query_id}` — идентификатор запроса.
+`GET`-запрос на адрес `/queries/{query_id}/results/{<номер_результата_выполнения_запроса_считая_от_0>}?project={folder_id}`, где `{folder_id}` — идентификатор каталога, а `{query_id}` — идентификатор запроса.
 
 Параметры запроса передаются в URL в виде query-параметров:
 
@@ -59,7 +59,7 @@
 
 ```json
 curl -X 'GET' \
-  'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries/cseugn35bc3r5lrmbnt7/results/0?project=b1gaue5b382mmmlolb1k&offset=0&limit=100' \
+  'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries/cseugn35bc3r********/results/0?project=b1gaue5b382m********&offset=0&limit=100' \
   -H 'accept: application/json'
 ```
 

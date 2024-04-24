@@ -16,4 +16,4 @@
 
 |Формат сжатия|Название в {{ yq-name }}|
 |--|--|
-|[Snappy](https://ru.wikipedia.org/wiki/Snappy_(библиотека))|<Без названия, по умолчанию>|
+|[Snappy](https://ru.wikipedia.org/wiki/Snappy_(библиотека))| Без названия, по умолчанию |

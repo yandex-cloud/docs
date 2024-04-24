@@ -52,7 +52,7 @@ items:
             href: operations/cluster-users.md
           - name: Назначение привилегий и ролей
             href: operations/grant.md
-      - name: Расширения PostgreSQL
+      - name: Расширения и словари {{ PG }}
         items:
           - name: Управление расширениями
             href: operations/extensions/cluster-extensions.md
@@ -62,6 +62,8 @@ items:
             href: operations/extensions/pgaudit.md
           - name: pgcrypto
             href: operations/extensions/pgcrypto.md
+          - name: Словари от Hunspell для полнотекстового поиска
+            href: operations/extensions/hunspell.md
       - name: Логи и мониторинг
         items:
           - name: Просмотр логов кластера

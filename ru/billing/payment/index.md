@@ -6,11 +6,13 @@
 * [Цикл оплаты](billing-cycle-individual.md)
 * [Оплата банковской картой](payment-methods-individual.md)
 * [Чек об оплате](../concepts/individual-bill.md)
+* [Активация промокода](../operations/activate-promocode.md)
 
 Организациям и ИП:
 * [Цикл оплаты](billing-cycle-business.md)
 * [Оплата банковской картой](payment-methods-card-business.md)
 * [Перевод с расчетного счета](payment-methods-business.md)
 * [Отчетные документы](documents.md)
+* [Активация промокода](../operations/activate-promocode.md)
 
 

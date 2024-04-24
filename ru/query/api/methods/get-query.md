@@ -76,7 +76,7 @@
 
 ```json
 curl -X 'GET' \
-  'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries/cseugn35bc3r5lrmbnt7?project=b1gaue5b382mmmlolb1k' \
+  'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries/cseugn35bc3r********?project=b1gaue5b382m********' \
   -H 'accept: application/json'
 ```
 
@@ -100,6 +100,6 @@ curl -X 'GET' \
     }
   ],
   "status": "FINISHED",
-  "id": "csqugo80f0l35isue09b"
+  "id": "csqugo80f0l3********"
 }
 ```

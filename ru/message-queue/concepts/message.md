@@ -29,7 +29,7 @@
                 "SentTimestamp": "1544718633138"
             },
             "ReceiptHandle": "EAsgu6Kfw_osKAE",
-            "MD5OfBody": "5b792970792ac60da66329aa58e99054",
-            "MessageId": "fa6bcfb7-6f121e1d-fb3b33aa-2629f67"
+            "MD5OfBody": "5b792970792ac60da66329aa********",
+            "MessageId": "fa6bcfb7-6f121e1d-fb3b33aa***-*****"
 }
 ~~~

@@ -19,8 +19,8 @@ npm install @aws-sdk/client-sqs@3.445.0
 Задайте переменные окружения:
 
 ```
-export AWS_ACCESS_KEY_ID="<идентификатор ключа доступа>"
-export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
+export AWS_ACCESS_KEY_ID="<идентификатор_ключа_доступа>"
+export AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
 ```
 
 ## Пример {#sample}

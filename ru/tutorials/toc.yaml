@@ -372,6 +372,10 @@ items:
         href: dataplatform/data-proc-init-actions-geesefs.md
       - name: Автоматизация работы с {{ dataproc-name }} с помощью {{ maf-name }}
         href: dataplatform/data-proc-and-airflow.md
+      - name: >-
+          Перенос метаданных между кластерами {{ dataproc-name }} с помощью {{
+          metastore-name }}
+        href: dataplatform/metastore-import.md
       - name: Миграция коллекций из стороннего кластера {{ MG }} в {{ mmg-name }}
         href: dataplatform/mongodb-migration-with-data-transfer.md
       - name: Миграция данных в {{ mmg-name }}

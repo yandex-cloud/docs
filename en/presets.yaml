@@ -5990,6 +5990,12 @@ default:
         shard-groups:
           button_add-group: Create shard group
       metastore:
+        action_export: Export
+        action_import: Import
+        dialog:
+          import-export:
+            action_export: Export
+            action_import: Import
         field_s3config-access-key-id: Access key ID
         field_s3config-secret-access-key: Secret key
         label_metastore: Metastore

@@ -18,6 +18,8 @@
 
 * [Почему возникает ошибка `Create Data Proc cluster Error: 0 Address space exhausted`, и как ее исправить?](#addresses-exhausted)
 
+* [Как исправить ошибку при создании базы данных в {{ metastore-full-name }}?](#create-db-in-hive)
+
 * [Почему кластер в статусе `Unknown`?](#unknown)
 
 * [Какая минимальная вычислительная мощность нужна для работы подкластера с хостом-мастером?](#master-computing-power)

@@ -46,7 +46,7 @@ description: "Следуя данной инструкции, вы сможет�
        --data-urlencode 'Action=SendMessage' \
        --data-urlencode 'MessageBody=<текст_сообщения>' \
        --data-urlencode 'QueueUrl=<URL_очереди_сообщений>' \
-       --user '<ACCESS_KEY_ID>:<SECRET_KEY>' \
+       --user '<идентификатор_ключа_доступа>:<секретный_ключ>' \
        --aws-sigv4 'aws:amz:{{ region-id }}:sqs' \
        https://message-queue.{{ api-host }}/
      ```
@@ -64,7 +64,7 @@ description: "Следуя данной инструкции, вы сможет�
    
      ```text
      <?xml version="1.0" encoding="UTF-8"?>
-     <SendMessageResponse><SendMessageResult><MD5OfMessageBody>fa46dfdbe2396ac930bfa896********</MD5OfMessageBody><MessageId>31bebd6e-5b61e482-7aaaa45a-********</MessageId></SendMessageResult><ResponseMetadata><RequestId>7c65c427-be26a31a-cf93dee9-dd4989d8-ab97b54614e49d7fe560b779********</RequestId></ResponseMetadata></SendMessageResponse>
+     <SendMessageResponse><SendMessageResult><MD5OfMessageBody>fa46dfdbe2396ac930bfa896********</MD5OfMessageBody><MessageId>31bebd6e-5b61e482-7aaaa45a***-*****</MessageId></SendMessageResult><ResponseMetadata><RequestId>7c65c427-be26a31a-cf93dee9-dd4989d8-ab97b54614e49d7fe560b779********</RequestId></ResponseMetadata></SendMessageResponse>
      ```
    
    {% endlist %}

@@ -32,20 +32,20 @@ WITH
 
 ```sql
 SELECT
-    <expression>
+    <выражение>
 FROM
-    <object_storage_connection_name>.`<file_path>`
-WITH(format=<file_format>, <compression> AS compression)
+    <соединение>.<путь>
+WITH(format=<формат_данных>, <формат_сжатия> AS compression)
 WHERE
-    <filter>;
+    <фильтр>;
 ```
 
 Где:
 
-* `object_storage_connection_name` — название [соединения](#create_connection) с хранилищем.
-* `file_path` — путь к файлу или файлам внутри бакета. Поддерживаются wildcards `*`.
-* `file_format` — [формат данных](formats.md#formats) в файлах.
-* `compression` — [формат сжатия](formats.md#compression_formats) файлов.
+* `<соединение>` — название [соединения](#create_connection) с хранилищем.
+* `<путь>` — путь к файлу или файлам внутри бакета. Поддерживаются wildcards `*`.
+* `<формат_данных>` — [формат данных](formats.md#formats) в файлах.
+* `<формат_сжатия>` — [формат сжатия](formats.md#compression_formats) файлов.
 
 Если данные хранятся в сжатом состоянии, их необходимо распаковать для обработки. После распаковки разберите данные в соответствии с их форматом хранения внутри файлов.
 

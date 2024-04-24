@@ -28,8 +28,9 @@ To access the list of billing accounts, navigate to [**{{ billing-name }}**]({{ 
 - Individual account {#individual}
 
    * It is intended for residents of Russia or Kazakhstan.
-   * Resources are paid for using a [bank card](../payment/payment-methods-individual.md).
-   * Funds for the resources consumed are debited automatically. For more information, see [Billing cycle for individuals](../payment/billing-cycle-individual.md).
+   * The account is created as a paid one.
+   * You pay for resources using your [bank card](../payment/payment-methods-individual.md).
+   * Your card is debited automatically for the resources you consume. For more information, see [Billing cycle for individuals](../payment/billing-cycle-individual.md).
 
 - Business account {#business}
 
@@ -37,6 +38,7 @@ To access the list of billing accounts, navigate to [**{{ billing-name }}**]({{ 
    * Consumed resources are paid for by bank transfer from the [business's bank account](../payment/payment-methods-business.md) or a [bank card](../payment/payment-methods-card-business.md).
    * Payments for resources consumed are made based on the [agreement](../concepts/contract.md) and [bank invoice](bill.md), or the amount is debited automatically from the linked bank card. For more information, see [Billing cycle for businesses](../payment/billing-cycle-business.md).
    * A statement of the services rendered (for residents of Russia or Kazakhstan) and an invoice (for residents of Russia only) are sent to your email address at the beginning of the next billing cycle. Invoices for residents of Kazakhstan are generated electronically. For more information, see [Reporting documents](../payment/documents.md).
+   * New customers are eligible for a [trial period](trial-period.md).
 
 {% endlist %}
 

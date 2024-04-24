@@ -19,10 +19,10 @@ items:
         href: operations/index.md
       - name: '{{ yagpt-full-name }}'
         items:
-          - name: Отправить запрос в режиме чата
-            href: operations/yandexgpt/create-chat.md
           - name: Отправить запрос в промт-режиме
             href: operations/yandexgpt/create-prompt.md
+          - name: Отправить серию запросов в режиме чата
+            href: operations/yandexgpt/create-chat.md
           - name: Отправить запрос к дообученной модели
             href: operations/yandexgpt/finetune.md
           - name: Отправить асинхронный запрос

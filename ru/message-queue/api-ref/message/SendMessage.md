@@ -45,7 +45,7 @@
 ```
 Action=SendMessage
 &Version=2012-11-05
-&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
 &MessageBody=Hello+world
 ```
 
@@ -56,11 +56,11 @@ Action=SendMessage
 ```xml
 <SendMessageResponse>
     <SendMessageResult>
-        <MD5OfMessageBody>3e25960a79dbc69b674cd4ec67a72c62</MD5OfMessageBody>
-        <MessageId>cddcbbe4-b0571f5c-d7b94ce4-1523191</MessageId>
+        <MD5OfMessageBody>3e25960a79dbc69b674cd4ec********</MD5OfMessageBody>
+        <MessageId>cddcbbe4-b0571f5c-d7b94ce4***-*****</MessageId>
     </SendMessageResult>
     <ResponseMetadata>
-        <RequestId>75eb03b2-fba0e60e-b1c5641-12f7a5bc-2bf4e677831c06c5f9d7ea1063ffeb3f</RequestId>
+        <RequestId>75eb03b2-fba0e60e-b1c5641-12f7a5bc-2bf4e677831c06c5f9d7ea10********</RequestId>
     </ResponseMetadata>
 </SendMessageResponse>
 ```

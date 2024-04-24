@@ -60,7 +60,7 @@ The current transfer status determines available actions with transfers. For mor
 
 * {{ dt-status-stopping }}: Assigned to the transfer after [deactivation](../operations/transfer.md#deactivate).
 
-   At this time, the service performs the actions necessary to properly disconnect from the source and target. Depending on the [transfer type](./index.md#transfer-type) and [endpoint](./index.md#endpoint) settings, additional actions may be performed, e.g., closing replication slots, transferring triggers, stored procedures, and functions, creating indexes in the target database, and so on.
+   At this time, the service performs the actions necessary to properly disconnect from the source and target. Depending on the [transfer type](./index.md#transfer-type) and [endpoint](./index.md#endpoint) settings, additional actions may be performed, e.g., closing replication slots, transferring triggers, stored procedures, and functions, creating indexes in the target database, etc.
 
 * {{ dt-status-stopped }}: Assigned to the transfer after [deactivation](../operations/transfer.md#deactivate) is complete.
 

@@ -18,7 +18,7 @@
 
 ```json
 curl -X 'POST' \
-  'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries/cseugn35bc3r5lrmbnt7/stop?project=b1gaue5b382mmmlolb1k' \
+  'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries/cseugn35bc3r********/stop?project=b1gaue5b382m********' \
   -H 'accept: */*' \
   -d ''
 ```

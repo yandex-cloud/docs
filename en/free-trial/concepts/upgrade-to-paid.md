@@ -1,6 +1,6 @@
 # Upgrading to the paid version
 
-You do not upgrade to the paid version automatically after the trial period ends. To upgrade to the paid version, click **Upgrade to the paid version** in [{{ billing-name }}]({{ link-console-billing }}).
+You do not upgrade to the paid version automatically after the trial period ends. To upgrade to the paid version, click **{{ ui-key.yacloud_billing.billing.account.dashboard.button_go-pay}}** in [{{ billing-name }}]({{ link-console-billing }}).
 
 ## Using the remainder of the initial grant
 
@@ -37,25 +37,14 @@ In {{ yandex-cloud }}, you pay for services based on the amount of resources con
 
 - Example 1
 
-   You are a resident of the Russian Federation and registered a personal account.
-
-   In 25 days, you spent ₽1,000 on Yandex Compute Cloud and ₽2,500 on other services. As you have fully spent one of the grant parts, the trial period terminates automatically and access to {{ yandex-cloud }} services is suspended unless you upgrade to the paid version.
-
-   At the same time, you have 35 days until the grant expires (60 - 25).
-
-   If you upgrade to the paid version within 30 days, you can use the remainder of the grant until it expires:
-   - (3,000 - 2,500) = ₽500 for services other than Compute Cloud.
-
-- Example 2
-
    You are a resident of the Russian Federation and registered a business account with the **Bank card** payment method.
 
    In 20 days, you spent ₽500 on Yandex Compute Cloud and ₽3,000 on other services. As you have fully spent one of the grant parts, the trial period terminates automatically and access to {{ yandex-cloud }} services is suspended unless you upgrade to the paid version.
 
-   If you upgrade to the paid version within 30 days, you can use the remainder of the grant until it expires:
+   If you upgrade to the paid version within 60 days, you can use the remainder of the grant until it expires:
    - (1,000 - 500) = ₽500 for Compute Cloud.
 
-- Example 3
+- Example 2
 
    You are a non-resident of the Russian Federation and registered a business account with the **Bank card** payment method.
 
@@ -67,7 +56,7 @@ In {{ yandex-cloud }}, you pay for services based on the amount of resources con
    - (15 - 10) = $5 for Compute Cloud.
    - (50 - 30) = $20 for services other than Compute Cloud.
 
-- Example 4
+- Example 3
 
    You are a resident of the Russian Federation and registered a business account with the **Bank transfer** payment method.
 

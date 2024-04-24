@@ -8,6 +8,8 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+Если в кластере {{ dataproc-name }} есть таблицы, которые должны быть доступны в другом кластере {{ dataproc-name }}, [перенесите таблицы](../../../data-proc/tutorials/metastore-import.md) в нужный кластер с помощью {{ metastore-name }}.
+
 ## Перед началом работы {#before-you-begin}
 
 Подготовьте инфраструктуру:
@@ -85,11 +87,7 @@
 
 1. [Создайте кластер {{ metastore-name }}](../../../data-proc/operations/metastore/cluster-create.md) в сети `dataproc-network`.
 
-1. [Измените настройки](../../../data-proc/operations/cluster-update.md) кластеров {{ dataproc-name }}, добавив в них следующее [свойство](../../../data-proc/concepts/settings-list.md):
-
-    ```text
-    spark:spark.hive.metastore.uris=thrift://<IP-адрес_кластера_{{ metastore-name }}>:{{ port-metastore }}
-    ```
+1. [Добавьте в настройки кластеров](../../../data-proc/operations/cluster-update.md) {{ dataproc-name }} свойство `spark:spark.hive.metastore.uris` со значением `thrift://<IP-адрес_кластера_{{ metastore-name }}>:{{ port-metastore }}`.
 
    Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** и на левой панели выберите страницу ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**. IP-адрес кластера указан в блоке **{{ ui-key.yacloud.common.section-base }}**.
 

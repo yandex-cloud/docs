@@ -10,7 +10,7 @@ _Пользовательская переменная_ — значение, к
 
 Шаблон ВМ описывается в YAML-файле с помощью ключа `instance_template`. Вы можете указать системные и пользовательские переменные вместо значений следующих полей шаблона:
 
-* `instance_template.fqdn` — FQDN хоста.
+* `instance_template.fqdn` — [FQDN](../../../glossary/fqdn.md) хоста.
 * `instance_template.hostname` — имя хоста.
 * `instance_template.metadata` — метаданные ВМ. Переменные можно использовать только в значениях ключей поля `metadata`.
 * `instance_template.name` — имя ВМ.

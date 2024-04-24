@@ -7,8 +7,8 @@ description: "Страница содержит все инструкции дл
 
 ## Пошаговые инструкции для {{ yagpt-full-name }} {#yandexgpt-api}
 
-* [{#T}](./yandexgpt/create-chat.md)
 * [{#T}](./yandexgpt/create-prompt.md)
+* [{#T}](./yandexgpt/create-chat.md)
 * [{#T}](./yandexgpt/async-request.md)
 * [{#T}](./yandexgpt/finetune.md)
 * [{#T}](./yandexgpt/disable-logging.md)

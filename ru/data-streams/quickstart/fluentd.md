@@ -20,8 +20,6 @@ description: "Из статьи вы узнаете, как собирать и 
 1. Нажмите **{{ ui-key.yacloud.data-streams.button_connect }}** и перейдите на вкладку **Fluentd**.
 1. Скопируйте пример файла конфигурации и вставьте его в файл `/etc/td-agent/td-agent.conf`.
 
-   {% include [aws-sdk-attr](../../_includes/data-streams/aws-sdk-attr.md) %}
-
    Пример файла конфигурации:
 
    ```xml
@@ -41,16 +39,16 @@ description: "Из статьи вы узнаете, как собирать и 
      <store>
        @type kinesis_streams
 
-       aws_key_id <key_id>
-       aws_sec_key <secret>
+       aws_key_id <идентификатор_ключа_доступа>
+       aws_sec_key <секретный_ключ>
 
        # kinesis stream name
-       stream_name /{{ region-id }}/aoegtvhtp8ob9rqq8sto/cc8004q4lbo6bv9iivr0/test
+       stream_name /{{ region-id }}/aoegtvhtp8ob********/cc8004q4lbo6********/test
 
        # region
        region ru-central-1
 
-       endpoint https://yds.serverless.yandexcloud.net 
+       endpoint https://yds.serverless.yandexcloud.net
 
        <buffer>
          flush_interval 5s
@@ -58,6 +56,8 @@ description: "Из статьи вы узнаете, как собирать и 
      </store>
    </match>
    ```
+
+   {% include [aws-sdk-attr](../../_includes/data-streams/aws-sdk-attr.md) %}
 
 1. Отправьте тестовые данные в Fluentd:
 
@@ -69,5 +69,5 @@ description: "Из статьи вы узнаете, как собирать и 
 
    ```text
    kinesis: {"json":"message"}
-   DEBUG -- : [Aws::Kinesis::Client 200 0.628973 0 retries] put_records(stream_name:"/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/fluentd_stream",records:[{data:"{\"message\":\"Write chunk 5c0cf5c556654e99cac84b6e231347ba /   2 records /    0 KB\"}\n",partition_key:"6ec03a4e3ba832c85e80290161c1df8e"},{data:"{\"message\":\"Finish writing chunk\"}\n",partition_key:"8ada32f7373e1ab4c48fb96da43d59cf"},{data:"{\"json\":\"message\"}\n",partition_key:"70f21f2decfc90b6f19752cd6e66e611"}])
+   DEBUG -- : [Aws::Kinesis::Client 200 0.628973 0 retries] put_records(stream_name:"/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/fluentd_stream",records:[{data:"{\"message\":\"Write chunk 5c0cf5c556654e99cac84*********** /   2 records /    0 KB\"}\n",partition_key:"6ec03a4e3ba832c85e802***********"},{data:"{\"message\":\"Finish writing chunk\"}\n",partition_key:"8ada32f7373e1ab4c48fb***********"},{data:"{\"json\":\"message\"}\n",partition_key:"70f21f2decfc90b6f1975***********"}])
    ```

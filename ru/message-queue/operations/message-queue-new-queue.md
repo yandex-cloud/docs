@@ -54,7 +54,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      ```json
      {
-         "QueueUrl": "https://message-queue.{{ api-host }}/aoeaql9r10cd********/000000000000002n034r/sample-queue"
+         "QueueUrl": "https://message-queue.{{ api-host }}/aoeaql9r10cd********/000000000000********/sample-queue"
      }
      ```
 
