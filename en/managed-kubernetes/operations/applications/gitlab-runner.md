@@ -1,5 +1,6 @@
 # Installing {{ GLR }}
 
+
 [{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application that runs {{ GL }} CI/CD jobs in a pipeline using instructions from a special file named `.gitlab-ci.yml`. It helps run automated builds in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster).
 
 ## Getting started {#before-you-begin}
@@ -64,9 +65,9 @@
 
 ## Use cases {#examples}
 
-* [{#T}](../../tutorials/gitlab-containers.md)
-* [{#T}](../../tutorials/cr-scanner-with-k8s-and-gitlab.md)
-* [{#T}](../../../managed-gitlab/tutorials/image-storage.md)
+* [{#T}](../../tutorials/gitlab-containers.md).
+* [{#T}](../../tutorials/cr-scanner-with-k8s-and-gitlab.md).
+* [{#T}](../../../managed-gitlab/tutorials/image-storage.md).
 
 ## See also {#see-also}
 

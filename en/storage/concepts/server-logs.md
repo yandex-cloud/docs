@@ -1,6 +1,7 @@
-# Logging actions with a bucket
+# Bucket actions logging mechanism
 
-In {{ objstorage-name }}, there is an option to log all actions performed with a [bucket](../concepts/bucket.md). For example, you can record logs to run an internal security audit or get more granular information about bucket operations.
+
+In {{ objstorage-name }}, there is an option to log all actions performed with a [bucket](../concepts/bucket.md). For example, you can use logging for an internal security audit or to get more granular information about bucket-related operations.
 
 By default, logging is disabled. Once you enable this option, {{ objstorage-name }} will start writing data on bucket actions in a form of an [object](../concepts/object.md) once an hour.
 
@@ -79,7 +80,7 @@ Example of a record in the log file:
 
 ## Logging specifics {#features}
 
-There are several points to note about how actions with a bucket are logged in {{ objstorage-name }}.
+There are several points to note about how bucket actions are logged in {{ objstorage-name }}.
 
 ### Best-effort log delivery {#best-effort}
 

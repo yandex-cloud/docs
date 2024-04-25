@@ -1,5 +1,6 @@
 # Creating a {{ managed-k8s-name }} cluster
 
+
 Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) and then [create a node group](../node-group/node-group-create.md).
 
 To create a cluster with no internet access, see the [{#T}](../../tutorials/k8s-cluster-with-no-internet.md) section.

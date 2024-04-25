@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Pricing for {{ managed-k8s-name }}
+# {{ managed-k8s-name }} pricing
 
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
@@ -13,6 +13,7 @@ In {{ managed-k8s-name }}, you are charged for using [masters](concepts/index.md
 Nodes are charged based on the [{{ compute-full-name }} pricing policy](../compute/pricing.md).
 
 ## Pricing {#prices}
+
 
 ### Master {#master}
 

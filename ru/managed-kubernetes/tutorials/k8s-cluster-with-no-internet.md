@@ -21,7 +21,7 @@
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
    1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md):
 
@@ -68,7 +68,7 @@
       * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — выберите созданные ранее группы безопасности, которые содержат правила для служебного трафика, для подключения к сервисам из интернета и для подключения к узлам по SSH.
       * **{{ ui-key.yacloud.k8s.node-groups.create.field_locations }}** — подсеть `my-subnet`.
 
-* {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -114,7 +114,7 @@
 
    {% list tabs group=instructions %}
 
-   * Вручную {#manual}
+   - Вручную {#manual}
 
       1. Создайте сервисный аккаунт `vm-sa` с ролями `{{ roles.k8s.cluster-api.cluster-admin }}` и `{{ roles.k8s.admin }}`. От имени этого аккаунта вы подключитесь к кластеру {{ managed-k8s-name }}.
       1. Создайте группу безопасности `vm-security-group` и укажите в ней правило для входящего трафика:
@@ -131,7 +131,7 @@
          * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — `vm-security-group`.
          * **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** — `vm-sa`.
 
-   * {{ TF }} {#tf}
+   - {{ TF }} {#tf}
 
       1. В директорию с файлом `k8s-cluster-with-no-internet.tf` скачайте файл конфигурации [virtual-machine-for-k8s.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-without-internet/blob/main/virtual-machine-for-k8s.tf).
 
@@ -365,7 +365,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
    Удалите:
 
@@ -378,7 +378,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
    1. [Подсеть](../../vpc/operations/subnet-delete.md).
    1. [Сеть](../../vpc/operations/network-delete.md).
 
-* {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
    1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
    1. Удалите конфигурационные файлы `k8s-cluster-with-no-internet.tf` и `virtual-machine-for-k8s.tf`.

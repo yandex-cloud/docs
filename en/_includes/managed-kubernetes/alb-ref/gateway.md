@@ -1,5 +1,6 @@
 # Gateway resource fields
 
+
 The `Gateway` resource defines the rules for receiving incoming traffic and selecting routes ([`HTTPRoute` resources](../../../application-load-balancer/k8s-ref/http-route.md)) for the traffic. The [{{ alb-name }} Gateway API](../../../application-load-balancer/tools/k8s-gateway-api/index.md) uses these rules to create a [load balancer](../../../application-load-balancer/concepts/application-load-balancer.md) with the required listeners and [HTTP routers](../../../application-load-balancer/concepts/http-router.md).
 
 `Gateway` is designed for cluster operators. Application developers should use `HTTPRoute`.
@@ -171,7 +172,7 @@ Where:
 
          * `name` (`string`)
 
-            Name of {{ k8s }} resource that stores the certificate.
+            Name of the {{ k8s }} resource that stores the certificate.
 
          * `namespace` (`string`)
 

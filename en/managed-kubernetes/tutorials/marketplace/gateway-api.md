@@ -1,5 +1,6 @@
 # Setting up the Gateway API
 
+
 The [Gateway API](https://github.com/kubernetes-sigs/gateway-api) is a collection of API resources that model networking in a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
 
 In this tutorial, you will learn how to enable access to the applications deployed in two test environments, `dev` and `prod`, by running [{{ alb-full-name }}](../../../application-load-balancer/) with the Gateway API. For this, you will need to create a [public domain zone](../../../dns/concepts/dns-zone.md#public-zones) and delegate the domain to [{{ dns-full-name }}](../../../dns).

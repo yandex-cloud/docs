@@ -3,7 +3,8 @@ title: "How to update a {{ managed-k8s-name }} node group"
 description: "Follow this guide to update a {{ managed-k8s-name }} node group."
 ---
 
-# Updating a node group {{ managed-k8s-name }}
+# Updating a {{ managed-k8s-name }} node group
+
 
 {% include [yc-node-group-list](../../../_includes/managed-kubernetes/node-group-list.md) %}
 
@@ -59,14 +60,7 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
    yc managed-kubernetes node-group update --help
    ```
 
-  Use the following flags to update the {{ managed-k8s-name }} node group:
-
-  * `--new-name`: Change the name.
-  * `--description`: Edit the description.
-  * `--service-account-id`, `--service-account-name`: Edit the [service account](../../../iam/concepts/index.md#sa) resource.
-  * `--node-service-account-id`, `--node-service-account-name`: Update the service account for {{ managed-k8s-name }} nodes.
-  * `--version`: Change the {{ k8s }} version.
-  * `--network-interface`: [Network](../../../vpc/concepts/network.md#network) settings:
+   Use the following flags to update the {{ managed-k8s-name }} node group:
 
    * `--new-name`: Change the name.
    * `--description`: Edit the description.
@@ -149,7 +143,7 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
 
          {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -182,7 +176,7 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
 - Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. Click the name of the required VM.
+   1. Click the VM name.
    1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**.
    1. Specify the appropriate settings and click **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
 
@@ -238,7 +232,7 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  Add a cloud label to a [{{ managed-k8s-name }} node group](../../concepts/index.md#node-group):
+   Add a cloud label to a [{{ managed-k8s-name }} node group](../../concepts/index.md#node-group):
 
    ```bash
    yc managed-kubernetes node-group add-labels my-node-group --labels new_label=test_label
@@ -271,7 +265,7 @@ You can perform the following actions with [cloud labels](../../../resource-mana
      }
      ```
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -293,7 +287,7 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
    {% note warning %}
 
-   The existing set of `labels` is completely overwritten by the transmitted set.
+   The existing set of `labels` is completely overwritten by the one transmitted in the request.
 
    {% endnote %}
 
@@ -329,7 +323,7 @@ You can perform the following actions with [cloud labels](../../../resource-mana
       }
       ```
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -347,7 +341,7 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
 - CLI {#cli}
 
-  Delete a cloud label of a {{ managed-k8s-name }} node group:
+   Delete a cloud label of a {{ managed-k8s-name }} node group:
 
    ```bash
    yc managed-kubernetes node-group remove-labels my-node-group --labels test_label
@@ -366,9 +360,9 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
    1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](node-group-create.md).
-  1. In the {{ managed-k8s-name }} node group description, delete the cloud labels you no longer need under `labels`.
-  1. Make sure the configuration files are valid.
+      For more information about creating this file, see [{#T}](node-group-create.md).
+   1. In the {{ managed-k8s-name }} node group description, delete the cloud labels you no longer need under `labels`.
+   1. Make sure the configuration files are correct.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 

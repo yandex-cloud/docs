@@ -18,6 +18,8 @@ editable: false
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
+После удаления или остановки ресурсов, публичные зарезервированные IP-адреса продолжат тарифицироваться. Если IP-адреса не нужны, удалите их.
+
 ## Цены {{ vpc-short-name }} {#prices}
 
 

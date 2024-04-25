@@ -5,9 +5,10 @@ description: "Follow this guide to increase the size of a volume for the Statefu
 
 # Expanding a StatefulSet controller volume
 
+
 To increase the size of a [volume](../../concepts/volume.md) for the StatefulSet controller without shutting down the service:
-1. [{#T}](#create-sts)
-1. [{#T}](#upgrade-sts)
+1. [{#T}](#create-sts).
+1. [{#T}](#upgrade-sts).
 
 {% include [Install kubectl to get started](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 
@@ -88,7 +89,7 @@ To increase the size of a [volume](../../concepts/volume.md) for the StatefulSet
 
 
 
-1. Make sure that for objects with the `k8s-csi` prefix, the [disk](../../../compute/concepts/disk.md) status changed to `READY`:
+1. Make sure that, for objects with the `k8s-csi` prefix, the [disk](../../../compute/concepts/disk.md) status changed to `READY`:
 
    ```bash
    yc compute disk list

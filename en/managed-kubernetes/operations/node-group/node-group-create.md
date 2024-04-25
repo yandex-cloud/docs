@@ -1,5 +1,6 @@
 # Creating a node group
 
+
 To create a [node group](../../concepts/index.md#node-group), [create a {{ managed-k8s-name }} cluster](../kubernetes-cluster/kubernetes-cluster-create.md) first and make sure that the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) has enough [free resources](../../concepts/limits.md).
 
 ## Create a node group {#node-group-create}
@@ -209,7 +210,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
          {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
 
       For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 

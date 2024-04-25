@@ -1,5 +1,6 @@
 # Editing website images using Thumbor
 
+
 [Thumbor](https://thumbor.readthedocs.io/en/latest/) is an [open-source](https://github.com/thumbor/thumbor) project for on-demand image processing. Thumbor provides basic settings for editing images. For example, you can use it to resize the original image, increase its contrast ratio, or remove the red-eye effect.
 
 Thumbor is a convenient tool you can use to prepare images for websites, e.g., to create thumbnails for video previews. Thumbor supports image caching. This allows you to reduce labor costs for your website support.
@@ -27,7 +28,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * Service account for resources with the [k8s.clusters.agent](../../managed-kubernetes/security/index.md#yc-api) and `vpc.publicAdmin` `roles` for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create resources for the {{ managed-k8s-name }} cluster.
 
-      * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role to the folder with the Docker image [registry](../../container-registry/concepts/registry.md). The nodes will pull Docker images from the registry on behalf of this account.
+      * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). The nodes will pull Docker images from the registry on behalf of this account.
 
          You can use the same service account for both operations.
 
@@ -64,10 +65,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * For Thumbor.
          * To create {{ objstorage-name }} buckets.
 
-      * {{ managed-k8s-name }} cluster.
-      * Node group.
-      * Static access key for bucket creation.
-      * Bucket.
+      * {{ managed-k8s-name }} cluster
+      * Node group
+      * Static access key for bucket creation
+      * Bucket
 
    1. In `k8s-for-thumbor.tf`, specify:
 
@@ -319,9 +320,9 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - {{ TF }} {#tf}
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `images-for-thumbor.tf` configuration file. To delete a bucket, first delete the objects in it.
-   1. Check if the changes you made are correct using this command:
+   1. Check if the changes are correct using this command:
 
       ```bash
       terraform validate

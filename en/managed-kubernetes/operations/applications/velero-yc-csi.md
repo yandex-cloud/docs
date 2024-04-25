@@ -1,5 +1,6 @@
 # Installing Velero
 
+
 [Velero](https://velero.io/) is a backup, recovery, and migration tool for [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) objects, including [persistent volumes](../../concepts/volume.md#persistent-volume). With Velero, you can:
 * Protect your data from loss using a flexible backup system.
 * Recover a {{ managed-k8s-name }} cluster faster if it goes down.

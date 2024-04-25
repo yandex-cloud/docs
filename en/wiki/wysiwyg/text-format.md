@@ -34,7 +34,7 @@ description: "In this tutorial, you will learn how to use text formatting in {{ 
 
    | Element | Markup | Result |
    --- | --- | ---
-   | Heading | `# First-level heading`<br/>`## Second-level heading`<br/>`### Third-level heading` | ![](../../_assets/wiki/h1-h3.png) |
+   | Header | `# First-level heading`<br/>`## Second-level heading`<br/>`### Third-level heading` | ![](../../_assets/wiki/h1-h3.png) |
    | Bold text | `**Bold text**` | ![](../../_assets/wiki/bold.png) |
    | Italic | `*Italic*` | ![](../../_assets/wiki/italic.png) |
    | Strikethrough text | `~~Strikethrough text~~` | ![](../../_assets/wiki/crossed.png) |
@@ -184,7 +184,7 @@ description: "In this tutorial, you will learn how to use text formatting in {{ 
 
    {% note alert %}
 
-   This function is not supported in the visual form of this editor, but you can add it using the markup. Check out the markup guide. !!!INCLUDE!!!
+   This function is not supported in the visual form of this editor, but you can add it using the markup. Check out the markup guide.
 
    {% endnote %}
 

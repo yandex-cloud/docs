@@ -1,5 +1,6 @@
 # Analyzing Yandex Music podcast statistics (for podcasters)
 
+
 A podcast from Yandex Music that you have access to will serve as your data source.
 With podcast analytics, you can retrieve statistics and analyze podcast listening and subscriber data in Yandex Music. To work with podcast analytics, you must have access to one or more podcasts.
 
@@ -24,7 +25,7 @@ To visualize and analyze the data, follow these steps:
 1. [Make a dashboard or chart public](#publish-dashboard-chart).
 1. [Add a chart or dashboard to your website](#add-dashboard-chart).
 
-We recommend that you review the [Questions and answers](#qa) section to help you get answers to the most common questions users of Yandex Music podcast statistics may have.
+We recommend that you review the [FAQ](#qa) section to help you get answers to the most common questions users of Yandex Music podcast statistics may have.
 
 ## 1. Set up a connection {#configure-connection}
 
@@ -413,7 +414,7 @@ Data in {{ datalens-short-name }} is only available to users of a specific insta
 
 {% list tabs group=datalens_public %}
 
-- Publishing dashboards {#dashboard}
+- Publishing a dashboard {#dashboard}
 
    1. Open the **Yandex Music podcast analytics** dashboard.
    1. At the top of the dashboard interface, click ![image](../../_assets/console-icons/nodes-right.svg).

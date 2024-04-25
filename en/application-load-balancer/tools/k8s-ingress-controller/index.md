@@ -1,5 +1,6 @@
 # Ingress controller for {{ managed-k8s-name }}
 
+
 {{ alb-name }} provides the {{ alb-name }} Ingress controller as a tool to create and manage load balancers in [{{ managed-k8s-full-name }} clusters](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
 After installing the controller, you will be able to use it to create an [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource to handle incoming traffic. Based on the `Ingress` configuration, an [L7 load balancer](../../concepts/application-load-balancer.md) will be deployed automatically with all the requisite {{ alb-name }} resources.

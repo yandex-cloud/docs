@@ -19,6 +19,8 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
    1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
    1. Enter the host name.
    1. (Optional) In the **Security profile** field, select the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md).
+
+
    1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
    1. Enter the route **{{ ui-key.yacloud.common.name }}**.
    1. In the **{{ ui-key.yacloud.alb.label_path }}** field, select one of the options:
@@ -102,6 +104,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
          * `name`: Name of the header to be modified.
          * `append`: String to be added to the header value.
       * `--security-profile-id`: (Optional) ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md).
+
 
       Result:
 
@@ -222,7 +225,8 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
                * `backend_group_id`: [Backend group](../concepts/backend-group.md) ID.
                * `timeout`: Maximum request idle timeout in seconds.
          * `route_options`: (Optional) Additional parameters of the virtual host:
-            * `security_profile_id`:  [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md) ID.
+            * `security_profile_id`: [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md) ID.
+
 
       For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
       * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router)

@@ -1,5 +1,6 @@
 # Ingress resource fields and annotations
 
+
 The `Ingress` resource defines the rules for distributing incoming traffic between {{ k8s }} services. The [{{ alb-name }} Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) uses these rules to create a [load balancer](../../../application-load-balancer/concepts/application-load-balancer.md) with the requisite listeners and [HTTP routers](../../../application-load-balancer/concepts/http-router.md). The [services](../../../application-load-balancer/k8s-ref/service.md) acting as {{ alb-name }} backends may be specified in `Ingress` directly or as part of [`HttpBackendGroup` backend groups](../../../application-load-balancer/k8s-ref/http-backend-group.md).
 
 `Ingress` is a {{ k8s }} standard resource. This reference describes the resource's fields and annotations the {{ alb-name }} Ingress controller interfaces with. For a complete reference for the resource, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/).
@@ -357,7 +358,7 @@ The load balancer will create a dedicated listener for each domain name used as 
 ||
 
 || `secretName` | `string`         | **Required**
-Reference to a TLS certificate from {{ certificate-manager-full-name }} in `yc-certmgr-cert-id-<certificate ID>` format. This is the name a [secret](https://kubernetes.io/docs/concepts/configuration/secret/) with a certificate is featured as in {{ managed-k8s-name }}.
+Reference to a TLS certificate from {{ certificate-manager-full-name }} in `yc-certmgr-cert-id-<certificate ID>` format. This is the name a [secret](https://kubernetes.io/docs/concepts/configuration/secret/) with a certificate is available under in {{ managed-k8s-name }}.
 
 In {{ certificate-manager-name }}, you can have [a certificate from Let's Encrypt<sup>®</sup>](../../../certificate-manager/operations/managed/cert-create.md) or [load one of your own](../../../certificate-manager/operations/import/cert-create.md).
 

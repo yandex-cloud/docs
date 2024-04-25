@@ -1,5 +1,6 @@
 # Installing the {{ alb-name }} Ingress controller
 
+
 To balance the load and distribute traffic between {{ k8s }} applications, use an {{ alb-full-name }} [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md). It runs the load balancer and the required auxiliary resources when the user creates an `Ingress` resource in a {{ managed-k8s-name }} cluster.
 
 ## Getting started {#before-you-begin}

@@ -1,5 +1,6 @@
 # Using node groups with GPUs and no pre-installed drivers
 
+
 You can use {{ managed-k8s-name }} node groups for workloads on [GPUs](../../compute/concepts/gpus.md) without pre-installed drivers. Use the [GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html) to select a suitable driver version.
 
 To prepare your cluster and {{ managed-k8s-name }} node group without pre-installed drivers for running workloads:

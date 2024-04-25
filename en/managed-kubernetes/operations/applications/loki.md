@@ -1,5 +1,6 @@
 # Installing Loki
 
+
 [Loki](https://grafana.com/oss/loki/) is a horizontally scalable, highly available, multi-tenant log aggregation and storage system. It indexes a set of labels for each log stream rather than the contents of logs.
 
 ## Getting started {#before-you-begin}

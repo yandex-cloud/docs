@@ -85,10 +85,6 @@ To update the parameters of an L7 load balancer:
         locations:
         - zone_id: {{ region-id }}-a
           subnet_id: buc4gsmpj8hv********
-        - zone_id: {{ region-id }}-b
-          subnet_id: blt6pcatjje6********
-        - zone_id: {{ region-id }}-d
-          subnet_id: fo2ap2nrhjk9********
       log_group_id: eolul9ap0bv0********
       security_group_ids:
         - enpulh2tbrep********
@@ -120,7 +116,7 @@ To update the parameters of an L7 load balancer:
          * `--log-group-id`: ID of the [log group](../../logging/concepts/log-group.md).
          * `--discard`: [Rule for discarding logs](../concepts/application-load-balancer.md#discard-logs-rules). Rule parameters:
             * `codes`: HTTP status codes, classes of HTTP status codes, or gRPC codes.
-            * `percent`: Percentage of logs to be discarded.
+            * `percent`: Percentage of logs to discard.
 
          Result:
 
@@ -212,10 +208,6 @@ To update the parameters of an L7 load balancer:
         locations:
         - zone_id: {{ region-id }}-a
           subnet_id: e9bs1hp7lgdl********
-        - zone_id: {{ region-id }}-b
-          subnet_id: e2le8i7hqa21********
-        - zone_id: {{ region-id }}-d
-          subnet_id: b0cgk1au6fn2********
       log_group_id: ckgs4u5km3u8********
       security_group_ids:
       - enp49ot04g63********

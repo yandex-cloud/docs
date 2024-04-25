@@ -1,2 +1,2 @@
-* Integrating {{ objstorage-name }} with the {{ kms-name }} service for client-side encryption. For more information, see [{#T}](../../security/domains/encryption.md#libs).
-* Using third-party client-side encryption libraries prior to sending data to {{ objstorage-name }}. If you use third-party data encryption libraries and your own key management methods, make sure your operation model, algorithms, and key sizes comply with the regulatory requirements.
+* Integrating {{ objstorage-name }} with {{ kms-name }} for client-side encryption. For more information, see [{#T}](../../security/domains/encryption.md#libs).
+* Using third-party client-side encryption libraries prior to sending data to {{ objstorage-name }}. If you use third-party data encryption libraries and your own key management methods, make sure your operation model, algorithms, and key sizes comply with regulatory requirements.

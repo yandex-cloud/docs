@@ -5,6 +5,7 @@ description: "Follow these recommendations if your applications need high availa
 
 # Recommendations for using {{ managed-k8s-name }}
 
+
 Use these recommendations for your `PRODUCTION` applications that require:
 * High availability and fault tolerance.
 * Load scaling.

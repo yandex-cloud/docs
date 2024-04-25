@@ -9,9 +9,6 @@ noIndex: true
 
 {{ alb-name }} provides tools for deploying L7 load balancers in {{ managed-k8s-full-name }} clusters: [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) and [Gateway API](../../application-load-balancer/tools/k8s-gateway-api/index.md). This reference describes {{ k8s }} resource configurations used by the Ingress controller and Gateway API to deploy an infrastructure.
 
-
-
-
 ## Ingress controller resources {#ingress}
 
 * [Ingress](ingress.md): Backend traffic distribution rules.
@@ -25,5 +22,3 @@ noIndex: true
 ## Common resources {#common}
 
 * [Service](service.md): Description of [{{ k8s }} services](../concepts/index.md#service) used as backends.
-
-

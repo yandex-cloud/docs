@@ -23,7 +23,7 @@ If a company has a system for user and access management (such as Active Directo
 - Format your pages in the [new editor](pages-types.md#new-editor) with visual markup tools or in the old editor using the [Markdown](static-markup.md) markup. The new editor also allows you to enable Markdown as an additional feature.
 
 - [Attach files](attach-file.md) to a page.
-   The maximum total size of all files per organization is 5 GB.
+   The maximum total size of all files per organization is 5 GB. You can increase your file storage size by [creating](../storage/operations/buckets/create.md) and connecting your own {{ objstorage-full-name }}. To connect your storage to {{ wiki-name }}, contact our [support](feedback.md) and provide [details of the service account](../iam/operations/sa/create-access-key.md) with access to the object storage you created.
 
 - Track user edits to pages in the [history of changes](history.md). You can compare two versions of a page or restore a version from the history.
 

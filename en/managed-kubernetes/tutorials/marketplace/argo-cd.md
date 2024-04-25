@@ -1,5 +1,6 @@
 # Integration with Argo CD
 
+
 [Argo CD](https://argo-cd.readthedocs.io) is a declarative GitOps tool for continuous delivery to {{ k8s }}.
 
 This tutorial describes how to integrate a [{{ mgl-full-name }} instance](../../../managed-gitlab/concepts/index.md#instance), a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster), and [Argo CD](/marketplace/products/yc/argo-cd), as well as [{{ GLR }}](/marketplace/products/yc/gitlab-runner) installed in the cluster and building Docker containers using [Kaniko](https://github.com/GoogleContainerTools/kaniko).
@@ -159,7 +160,7 @@ Install the following items in the local environment:
 
 ### Install Argo CD to the {{ managed-k8s-name }} cluster {#install}
 
-1. Install Argo CD by following this [guide](../../operations/applications/argo-cd.md).
+1. Install Argo CD by following [this guide](../../operations/applications/argo-cd.md).
 
    {% include [Install kubectl](../../../_includes/managed-kubernetes/note-node-group-internet-access.md) %}
 

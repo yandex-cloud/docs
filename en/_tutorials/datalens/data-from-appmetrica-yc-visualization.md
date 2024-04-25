@@ -1,5 +1,6 @@
 # Mobile app customer journey analytics based on AppMetrica data
 
+
 In this scenario, you will analyze user behavior in a mobile app based on AppMetrica data:
 
 * Process the data using Python scripts in {{ jlab }} Notebooks in {{ ml-platform-full-name }}.

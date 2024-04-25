@@ -1,5 +1,6 @@
 # Visualizing data using parameters
 
+
 A parameter is a variable that can substitute constant values in calculated fields.
 
 You will learn how to manage visulizations using parameters:
@@ -203,7 +204,7 @@ After you add a selector, unlink it from other selectors in this dashboard tab.
 
       ![image](../../_assets/datalens/solution-parameters/add-selector.png)
 
-   1. Select **Manual input** as source type.
+   1. Select **Manual input** as the source type.
    1. Under **Field or parameter name**, enter `scale`. The value from the selector will be passed to this dataset parameter.
    1. Choose **List** as your selector type.
    1. Click the input field next to the **Default value** parameter and add the values:
@@ -234,7 +235,7 @@ After you add a selector, unlink it from other selectors in this dashboard tab.
 
    1. At the top of the page, click **Add**.
    1. Choose **Selector**.
-   1. Select **Manual input** as source type.
+   1. Select **Manual input** as the source type.
    1. Under **Field or parameter** name, enter `dimension`. The value from the selector will be passed to this dataset parameter.
    1. Choose **List** as your selector type.
    1. Click the input field next to the **Default value** parameter and add the values:

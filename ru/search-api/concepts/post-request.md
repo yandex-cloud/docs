@@ -5,6 +5,10 @@ description: "В данной статье описаны особенности
 
 # POST-запросы
 
+{{ search-api-name }} позволяет выполнять поиск по поисковой базе Яндекса с заданным набором параметров и получать результат поиска в формате XML. Параметры поиска можно передавать в сервис в виде HTTP-запроса методом POST. {{ search-api-name }} формирует [ответ](./response.md) в виде документа в формате XML.
+
+{% include [text-search-intro](../../_includes/search-api/text-search-intro.md) %}
+
 {% note warning %}
 
 Специальные символы, передаваемые в качестве значений параметров в теле запроса, необходимо заменять на соответствующие экранированные последовательности в соответствии с XML-encoding. Например, вместо символа амперсанд `&` используйте последовательность `&amp;`.
@@ -25,7 +29,11 @@ https://yandex.<домен>/search/xml
 
 {% include [name-and-key](../../_includes/search-api/key.md) %}
 
-Значение API-ключа передавайте в заголовке `Authorization`. [Подробнее об авторизации в {{ search-api-name }}](../operations/auth.md).
+Значение API-ключа [передавайте](../operations/auth.md) в заголовке `Authorization` в формате:
+
+```
+Authorization: Api-Key <API-ключ>
+```
 
 {% include [filter](../../_includes/search-api/filter.md) %}
 
@@ -102,9 +110,14 @@ https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&filter=strict&lr=1131
   <query>&lt;table&gt;</query>
   <sortby order="descending">tm</sortby>
   <maxpassages>2</maxpassages>
-  <page>5</page>
+  <page>4</page>
   <groupings>
     <groupby attr="d" mode="deep" groups-on-page="10" docs-in-group="3" />
   </groupings>
 </request>
 ```
+
+#### См. также {#see-also}
+
+* [{#T}](./response.md)
+* [{#T}](../operations/searching.md)

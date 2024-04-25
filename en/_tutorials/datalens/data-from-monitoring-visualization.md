@@ -1,5 +1,6 @@
 # Visualizing {{ monitoring-name }} data
 
+
 The scenario will be useful to those users who have already deployed and launched one of the {{ yandex-cloud }} services.
 
 You will create a chart based on the [{{ monitoring-full-name }} query language](../../monitoring/concepts/querying.md) and place it on the dashboard.
@@ -34,7 +35,7 @@ To get started with {{ datalens-short-name }}:
 
    * If you have a cloud but no organization, click **Add new DataLens**. In the window that opens, enter your organization's name and description and click **Create organization and DataLens**. For more information about working with organizations, see [Getting started with organizations](../../organization/quickstart.md).
 
-   If you have a technical question about the service, please contact {{ yandex-cloud }} [support]({{ link-console-support }}). To ask for advice, discuss the solution to your problem or best practices of the service, write to the [{{ datalens-short-name }}](https://t.me/YandexDataLens) chat in Telegram.
+   If you have any technical questions about the service, please contact the {{ yandex-cloud }} [support]({{ link-console-support }}). To ask for advice, discuss the solution to your problem or best practices of the service, write to the [{{ datalens-short-name }}](https://t.me/YandexDataLens) chat in Telegram.
 
 
 ## Create a connection {#create-connection}

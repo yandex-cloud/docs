@@ -134,7 +134,7 @@ To create an instance group based on a {{ coi }}:
 
       * `deploy_policy`: Deployment policy for instances in the group.
       * `scale_policy`: Scaling policy for instances in the group.
-      * `allocation_policy`: Allocation policy of the instances by zone and region.
+      * `allocation_policy`: Policy for allocating VMs by [zones](../../overview/concepts/geo-scope.md) and regions.
 
       Full code for the `specification.yaml` file:
 

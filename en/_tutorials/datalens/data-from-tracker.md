@@ -5,6 +5,7 @@ description: "To visualize data from {{ tracker-short-name }}, set up regular ex
 
 # Visualizing data from {{ tracker-full-name }}
 
+
 Visualizing data from {{ tracker-short-name }} to {{ datalens-full-name }} allows you to build more advanced analytics than when using the {{ tracker-short-name }} tools.
 
 To visualize data from {{ tracker-short-name }} to {{ datalens-short-name }}:

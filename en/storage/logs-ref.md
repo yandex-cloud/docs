@@ -1,5 +1,6 @@
 # {{ objstorage-name }} log reference
 
+
 This section describes the log fields delivered by the bucket.
 
 {{ objstorage-name }} logs are stored in JSON format. A single log entry represents one request to a bucket.
@@ -66,8 +67,8 @@ For more information, see [{#T}](concepts/server-logs.md).
 | `PUT` | `BUCKET_WEBSITES` | Uploading a [static website hosting](concepts/hosting.md) configuration for a bucket. |
 | `GET` | `BUCKET_WEBSITES` | Outputting a static website hosting configuration for a bucket. |
 | `DELETE` | `BUCKET_WEBSITES` | Deleting a static website hosting configuration for a bucket. |
-| `GET` | `BUCKET_LOGGING` | Outputting settings for logging actions with a bucket. |
-| `PUT` | `BUCKET_LOGGING` | Enabling and disabling logging of actions with a bucket. |
+| `GET` | `BUCKET_LOGGING` | Outputting settings for bucket actions logging. |
+| `PUT` | `BUCKET_LOGGING` | Enabling and disabling bucket actions logging. |
 | `PUT` | `BUCKETPOLICY` | Applying [bucket policies](concepts/policy.md) to the specified bucket. |
 | `GET` | `BUCKETPOLICY` | Outputting bucket policies for the specified bucket. |
 | `DELETE` | `BUCKETPOLICY` | Deleting bucket policies for the specified bucket. |

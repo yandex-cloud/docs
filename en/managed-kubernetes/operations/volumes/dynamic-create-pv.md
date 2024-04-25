@@ -5,6 +5,7 @@ description: "Follow this guide to create a pod with a dynamically provisioned v
 
 # Dynamic volume provisioning
 
+
 Create a [pod](../../concepts/index.md#pod) with a dynamically provisioned [volume](../../concepts/volume.md):
 1. [Create a PersistentVolumeClaim](#create-pvc).
 1. [Create a pod](#create-pod).

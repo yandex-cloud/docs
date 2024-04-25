@@ -1,5 +1,6 @@
 # Analyzing {{ objstorage-short-name }} logs in {{ datalens-short-name }}
 
+
 For the {{ objstorage-full-name }} bucket you can enable [action logging](../../storage/concepts/server-logs.md). The logs store information about operations with a [bucket](../../storage/concepts/bucket.md) and the [objects](../../storage/concepts/object.md) in it. Analysis of bucket logs can be useful, for example, if you want to understand what caused a sharp increase in load or get the overall picture of traffic distribution.
 
 You can create visualizations for your analysis using [{{ datalens-full-name }}](../../datalens/). You must transfer previously saved logs to the {{ CH }} database, which will be used as a source for {{ datalens-short-name }}.

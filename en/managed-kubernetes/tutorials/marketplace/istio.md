@@ -1,5 +1,6 @@
 # Using Istio
 
+
 [Istio](https://istio.io/latest/about/service-mesh/) implements a _service mesh_, a low-latency infrastructure layer used to process a massive volume of network communications between services in a {{ managed-k8s-name }} cluster.
 
 To view Istio usage options:

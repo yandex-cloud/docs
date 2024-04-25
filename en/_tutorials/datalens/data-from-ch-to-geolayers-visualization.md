@@ -1,6 +1,7 @@
-# Analyzing sales and locations of pizzerias based on data from {{ CH }} databases and Marketplace
+# Analyzing sales and locations of pizzerias based on data from the {{ CH }} database and Marketplace
 
-We will use a {{ CH }} database connection and the **Companies: supply and demand** product from Marketplace as a source.
+
+We will use a {{ CH }} database connection and the **Companies: supply and demand product** from Marketplace as a source.
 
 In this tutorial, you will prepare a dashboard for selecting locations to open new Dodo pizzerias.
 
