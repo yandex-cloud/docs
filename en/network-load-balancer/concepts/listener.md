@@ -19,7 +19,7 @@ Here are the required attributes of each traffic listener:
 
    {% endnote %}
 
-* `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}`: Type of transport protocol whose traffic the listener will accept. Currently, TCP and UDP protocols are supported ([UDP protocol support is limited](#nlb-udp)). You can only select one transport protocol per listener.
+* `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}`: Type of transport protocol whose traffic the listener will accept. Currently, TCP and UDP protocols are supported ([UDP protocol support is limited](./specifics#nlb-udp)). You can only select one transport protocol per listener.
 * `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}`: Port for the selected transport protocol where the listener will accept incoming traffic. Ports ranging from 1 to 32767 can be used for receiving traffic.
 * `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}`: Port where the resources in the target group will accept traffic. This port may be the same as in the `Port` attribute. After creating a listener, this port will deny connections from resources within {{ vpc-short-name }} on the VMs of the target group. VMs in the target group will only accept traffic from the load balancer's traffic listener.
 
