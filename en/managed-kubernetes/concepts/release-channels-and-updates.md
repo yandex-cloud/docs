@@ -1,5 +1,6 @@
 # Release channels
 
+
 {{ managed-k8s-name }} provides updates through release channels.
 
 The service supports three {{ k8s }} release channels. [Master](index.md#master) node and [{{ managed-k8s-name }} node group](index.md#node-group) versions are independent; therefore, you can specify different {{ k8s }} versions from a single release channel when creating them.
@@ -39,7 +40,7 @@ Read more about [{{ k8s }} version support termination](#unsupported) and the [{
 
 When an old version of {{ k8s }} is no longer supported after an update:
 * The {{ managed-k8s-name }} master cannot be updated automatically, update it manually.
-* Minor versions (for example, from 1.20 to 1.21) must be updated manually.
+* Minor versions (e.g., from 1.20 to 1.21) must be updated manually.
 * {{ managed-k8s-name }} node groups update automatically if automatic updates are enabled. If automatic updates are disabled, the old version of {{ k8s }} remains on the {{ managed-k8s-name }} node groups. In this case, the user is fully responsible for solving problems related to the {{ managed-k8s-name }} node group, since the old version of {{ k8s }} is deprecated.
 
 ### Updating {{ k8s }} cluster components {#cluster-upd}

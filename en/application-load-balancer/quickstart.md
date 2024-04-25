@@ -1,5 +1,6 @@
 # Getting started with {{ alb-full-name }}
 
+
 This guide will help you create your first L7 load balancer, connect a target group to it, and set up traffic to the test application back end.
 
 ## Getting started {#before-begin}
@@ -7,6 +8,7 @@ This guide will help you create your first L7 load balancer, connect a target gr
 1. Log in or sign up to the [management console]({{ link-console-main }}). If you are not signed up yet, navigate to the management console and follow the instructions.
 1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default virtual network with subnets in all availability zones.
+
 
 ## Create a VM and launch a test web server on it {#create-vm}
 
@@ -162,9 +164,10 @@ As an example, let's create a balancer with a node in the same subnet and same a
    1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
    1. Enter the load balancer name: `test-load-balancer`.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the network whose subnets will host the load balancer nodes.
-   1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select the subnets for the load balancer nodes in each availability zone and enable traffic.
+   1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select the subnets in different [availability zones](../overview/concepts/geo-scope.md) for the load balancer's nodes and enable traffic in these subnets.
 
-      {% include [subnets-required](../_includes/application-load-balancer/subnets-required.md) %}
+      To avoid creating a load balancer node in a particular availability zone, click ![xmark](../_assets/console-icons/xmark.svg) in the corresponding row.
+
 
    1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}**. Set the listener settings:
       1. Enter the listener name: `test-listener`.
@@ -181,9 +184,7 @@ As an example, let's create a balancer with a node in the same subnet and same a
       ```bash
       yc alb load-balancer create test-load-balancer \
         --network-name <network_name> \
-        --location subnet-name=<{{ region-id }}-a_subnet_name>,zone={{ region-id }}-a \
-        --location subnet-name=<{{ region-id }}-b_subnet_name>,zone={{ region-id }}-b \
-        --location subnet-name=<{{ region-id }}-d_subnet_name>,zone={{ region-id }}-d
+        --location subnet-name=<{{ region-id }}-a_subnet_name>,zone={{ region-id }}-a
       ```
 
    1. Add a listener:

@@ -99,6 +99,7 @@ If you do not use the panic mode, failure of some backends will further increase
 
 ### Locality aware routing {#locality}
 
+
 By default, the load balancer evenly distributes traffic between all endpoints of the backend's target groups. If the application is running in multiple availability zones, you can configure the L7 load balancer to send requests to endpoints in the availability zone where the load balancer accepted the request. If no backends are running in this availability zone, the load balancer will send the request to another zone.
 
 If strict locality is enabled, the load balancer will respond with an error (503 Service Unavailable) if no application backends are running in the availability zone that accepted the request.
@@ -112,8 +113,8 @@ Health checks of the **{{ ui-key.yacloud.alb.label_hc-type-http }}**, **{{ ui-ke
 The following health check settings are supported:
 
 * Timeout: Response waiting time.
-* Interval: Amount of time between health check requests.
-* Resource health indicators: Threshold amount of successful or failed results. If a threshold is exceeded, it indicates that the check passed or failed, respectively.
+* Interval: Time interval between health check requests.
+* Resource health indicators: Numerical thresholds of successful/failed results for the check to be considered passed or failed, respectively.
 * HTTP health check settings:
 
    * Domain name for the `Host` header (HTTP/1.1) or the `:authority` pseudo-header (HTTP/2).

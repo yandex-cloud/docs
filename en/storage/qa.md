@@ -1,9 +1,9 @@
 ---
-title: "Questions and answers about {{ objstorage-full-name }}"
-description: "This page provides answers to questions about {{ objstorage-name }}."
+title: "FAQ about {{ objstorage-full-name }}"
+description: "This page presents FAQ about {{ objstorage-name }}."
 ---
 
-# Questions and answers about {{ objstorage-name }}
+# FAQ about {{ objstorage-name }}
 
 #### What is {{ objstorage-full-name }}? {#qa-what-is}
 
@@ -44,7 +44,6 @@ Use the feedback form in the [support center]({{ link-console-support }}).
 You can contact technical support in the management console under [Support]({{ link-console-support }}).
 
 
-
 #### How much data can I store? {#qa-storage-volume}
 
 Read the section [{#T}](concepts/limits.md).
@@ -69,8 +68,8 @@ yc kms symmetric-key add-access-binding \
 ```
 
 Where:
-* `--id`: {{ kms-short-name }} key ID
-* `--service-account-id`: Service account ID
+* `--id`: {{ kms-short-name }} key ID.
+* `--service-account-id`: Service account ID.
 
 
 

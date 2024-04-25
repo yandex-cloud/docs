@@ -1,5 +1,6 @@
 # Analyzing public data on road accidents in Russia
 
+
 This scenario analyzes public data on road accidents in Russia. In addition to identifying the facts of accident statistics in Russia, during the analysis you will learn how to:
 
 

@@ -5,6 +5,7 @@ description: "Follow this guide to move VMs behind an L7 load balancer to a targ
 
 # Moving a VM to a target group in a new availability zone
 
+
 To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../concepts/application-load-balancer.md) to a [target group](../concepts/target-group.md) in a new [availability zone](../../overview/concepts/geo-scope.md):
 
 1. Enable traffic for the load balancer in the new availability zone:
@@ -25,13 +26,13 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
 
       {% include [default-catalogue.md](../../_includes/default-catalogue.md) %}
 
-      1. View the description of of the [CLI](../../cli/) command that enables the load balancer traffic:
+      1. View a description of the enable traffic CLI command:
 
          ```bash
          yc application-load-balancer load-balancer enable-traffic --help
          ```
 
-      1. Get a list of all L7 load balancers in the default [folder](../../resource-manager/concepts/resources-hierarchy.md#folder):
+      1. Get a list of all L7 load balancers in the default folder:
 
          ```bash
          yc application-load-balancer load-balancer list
@@ -55,7 +56,7 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
            --zone <availability_zone>
          ```
 
-         Where `--zone` is the availability zone to which you want to move the VM.
+         Where `--zone` is the availability zone to which you want to move your VMs.
 
          Result:
 
@@ -86,7 +87,7 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
 
       If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-      1. Open the {{ TF }} configuration file for the L7 load balancer and, under `allocation_policy`, specify a new availability zone and the ID of the previously created [subnet](../../vpc/concepts/network.md#subnet):
+      1. Open the {{ TF }} configuration file for the L7 load balancer and, under `allocation_policy`, specify the new availability zone and the ID of the previously created subnet:
 
          ```hcl
          ...
@@ -128,7 +129,7 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
 
    {% endlist %}
 
-1. [Set up](../../vpc/operations/security-group-add-rule.md) a [security group](../../vpc/concepts/security-groups.md) of the load balancer if needed. For the load balancer to run properly, its security groups must allow outgoing connections to the IP addresses of the subnet in the new availability zone of your VMs.
+1. [Set up](../../vpc/operations/security-group-add-rule.md) a [security group](../../vpc/concepts/security-groups.md) for the load balancer if needed. For the load balancer to run properly, its security groups must allow outgoing connections to the IP addresses of the subnet in the new availability zone of your VMs.
 1. [Move](../../compute/operations/vm-control/vm-change-zone.md) the VM to the new availability zone.
 1. [Add](../../application-load-balancer/operations/target-group-update.md#add-targets) new VMs to the load balancer's target group and [delete](../../application-load-balancer/operations/target-group-update.md#remove-targets) the old ones.
 1. Make sure the load balancer identifies the VM status as `HEALTHY`:

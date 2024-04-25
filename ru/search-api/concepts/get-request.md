@@ -5,13 +5,17 @@ description: "В данной статье описаны особенности
 
 # GET-запросы
 
+{{ search-api-name }} позволяет выполнять поиск по поисковой базе Яндекса с заданным набором параметров и получать результат поиска в формате XML. Параметры поиска можно передавать в сервис в виде HTTP-запроса методом GET. {{ search-api-name }} формирует [ответ](./response.md) в виде документа в формате XML.
+
+{% include [text-search-intro](../../_includes/search-api/text-search-intro.md) %}
+
+## Формат запроса {#get-request-format}
+
 {% note warning %}
 
 Специальные символы, передаваемые в качестве значений параметров, необходимо заменять на соответствующие экранированные последовательности в соответствии с percent-encoding. Например, вместо знака равно `=` используйте последовательность `%3D`.
 
 {% endnote %}
-
-## Формат запроса {#get-request-format}
 
 ```httpget
 https://yandex.<домен>/search/xml
@@ -66,5 +70,10 @@ attr%3D<служебный_атрибут>.mode%3D<тип_группировки
 Следующий запрос возвращает пятую страницу результатов поиска по запросу `<table>`. Тип поиска — `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Регион поиска — Новосибирская область. Язык уведомлений — русский. К результатам поиска применен семейный фильтр. Количество пассажей — три. Результаты группируются по домену и сортируются по релевантности. Каждая группа содержит три документа, а количество групп, возвращаемых на одной странице, равно пяти.
 
 ```httpget
-https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&query=%3Ctable%3E&lr=11316&l10n=ru&sortby=rlv&filter=strict&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=5
+https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&query=%3Ctable%3E&lr=11316&l10n=ru&sortby=rlv&filter=strict&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=4
 ```
+
+#### См. также {#see-also}
+
+* [{#T}](./response.md)
+* [{#T}](../operations/searching.md)

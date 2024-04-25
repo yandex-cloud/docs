@@ -5,6 +5,7 @@ description: "Follow this guide to set up hosting."
 
 # Hosting setup
 
+
 {{ objstorage-name }} buckets support:
 
 * [Static website hosting](#hosting).

@@ -6,11 +6,11 @@ You can find the FAQ for payments in [{#T}](payment.md).
 
 Billing accounts are managed by an administrator. You can use your existing billing account from {{ yandex-cloud }} or create a new, dedicated, billing account for {{ tracker-name }}.
 
-## Link a billing account {{ yandex-cloud }} {#bind}
+## Linking a {{ yandex-cloud }} billing account {#bind}
 
 If you use {{ yandex-cloud }} services and want to use the same billing account to pay for {{ tracker-name }} services, link this account to {{ tracker-name }}.
 
-You cannot link billing accounts that have debts or are in the `Suspended` [status](../billing/concepts/billing-account-statuses.md).
+You cannot link billing accounts that have debts or are in the [Suspended](../billing/concepts/billing-account-statuses.md) `status`.
 
 If you link a billing account with a valid [trial period](../getting-started/free-trial/concepts/quickstart.md), the paid version will be automatically activated for it. The account will start getting debited after the initial grant is used up or the trial period expires.
 
@@ -87,11 +87,11 @@ Once the billing account is created, [link it to {{ tracker-name }}](#bind). You
 
    * To rename the account, in the section with the account name, click ![image](../_assets/horizontal-ellipsis.svg) and select **Rename**.
 
-   * To link a different bank card, click **{{ ui-key.yacloud.billing.account.overview.card_label_edit }}** under **{{ ui-key.yacloud.billing.account.overview.section_card }}**.
+   * To link a different bank card, click **{{ ui-key.yacloud_billing.billing.account.overview.card_label_edit }}** under **{{ ui-key.yacloud_billing.billing.account.overview.section_card }}**.
 
    * To change payment method for a legal entity or individual entrepreneur, contact our technical support using the [feedback form]({{ link-tracker-feedback }}).
 
-   * To change the payer data, at the bottom of the page, click **Edit in Yandex&#160;Balance**, then, on the balance page, select **{{ ui-key.yacloud.billing.account.create-new.section_persons }}**.
+   * To change the payer data, at the bottom of the page, click **Edit in Yandex&#160;Balance**, then, on the balance page, select **{{ ui-key.yacloud_billing.billing.account.create-new.section_persons }}**.
 
    {% note info %}
 

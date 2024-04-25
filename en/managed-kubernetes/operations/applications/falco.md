@@ -1,5 +1,6 @@
 # Installing Falco
 
+
 [The Falco Project](https://falco.org/) is intended to secure the operation of Linux-based operating systems.
 
 The Falco application:

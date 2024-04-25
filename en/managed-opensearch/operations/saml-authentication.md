@@ -21,12 +21,12 @@ To set up SAML authentication:
    Use the URL with a [special cluster FQDN](connect.md#special-fqdns):
 
    ```
-   https://c-<{{ OS }}_cluster_ID>.rw.{{ dns-zone }}/api/security/saml/callback
+   https://c-<{{ OS }}_cluster_ID>.rw.{{ dns-zone }}/_opendistro/_security/saml/acs
    ```
 
    You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   **Example:** `https://c-e4ut2....rw.{{ dns-zone }}/api/security/saml/callback`
+   **Example:** `https://c-e4ut2....rw.{{ dns-zone }}/_opendistro/_security/saml/acs`
 
 1. Specify the **SP Entity ID (Audience URI)**.
 

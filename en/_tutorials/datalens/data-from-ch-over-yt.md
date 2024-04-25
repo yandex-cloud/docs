@@ -2,6 +2,7 @@
 # Visualizing data from CHYT
 
 
+
 This section explains how to connect CHYT using public clique as a data source for {{ datalens-short-name }}.
 
 ## Getting started {#before-you-begin}

@@ -1,5 +1,6 @@
 # Basics of working with {{ marketplace-name }}
 
+
 {{ managed-k8s-name }} enables you to use applications from [{{ marketplace-full-name }}](/marketplace) in clusters.
 
 {% note info %}

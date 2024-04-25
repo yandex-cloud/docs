@@ -1,5 +1,6 @@
 # Visualizing {{ objstorage-full-name }} data in {{ datalens-full-name }}
 
+
 {{ yq-full-name }} and {{ datalens-full-name }} integration allows you to visualize data stored in {{ objstorage-full-name }}. {{ datalens-short-name }} generates a YQL query, while {{ yq-full-name }} runs the query and returns the results, which are visualized using charts.
 
 For the solution architecture, see below.
@@ -43,7 +44,7 @@ To create a {{ datalens-short-name }} connection to {{ yq-full-name }}, you need
 
 1. In the left-hand panel, select ![study](../../_assets/console-icons/graduation-cap.svg) **{{ ui-key.yql.yq-navigation.tutorial.menu-text }}**.
 1. Click **{{ ui-key.yql.yq-tutorial.create-connection.button-label }}**. In the Create connection section, all parameter fields are pre-filled. Enter a description (optional) and click **{{ ui-key.yql.yq-connection-form.create.button-text }}**. This will take you to the data [binding](../../query/concepts/glossary.md#binding) creation screen.
-1. Enter the data binding description (optional) and click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**. Appropriate training resources are created.
+1. Enter the data binding description (optional) and click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**. Appropriate training resources will be created.
 
 ## Create a connection in {{ datalens-full-name }} {#create_connection_lens}
 

@@ -1,5 +1,6 @@
 # Integration with {{ container-registry-name }}
 
+
 [{{ container-registry-full-name }}](../../container-registry/) is a service for storing and distributing [Docker images](../../container-registry/concepts/docker-image.md). Integration with it allows {{ managed-k8s-name }} to run [pods](../concepts/index.md#pod) with applications from Docker images stored in the {{ container-registry-name }} [registry](../../container-registry/concepts/registry.md). To interact with {{ container-registry-name }}, [set up](#config-ch) Docker Credential Helper. It allows you to access private registries via a [service account](../../iam/concepts/users/service-accounts.md).
 
 To integrate {{ managed-k8s-name }} with {{ container-registry-name }}:
@@ -359,6 +360,6 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 #### See also {#see-also}
 
-* [{#T}](../../container-registry/concepts/docker-image.md)
-* [{#T}](../../container-registry/operations/authentication.md)
-* [{#T}](../../container-registry/operations/index.md)
+* [{#T}](../../container-registry/concepts/docker-image.md).
+* [{#T}](../../container-registry/operations/authentication.md).
+* [{#T}](../../container-registry/operations/index.md).

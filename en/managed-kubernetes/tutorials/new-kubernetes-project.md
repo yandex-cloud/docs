@@ -1,15 +1,16 @@
 # Creating a new {{ k8s }} project in {{ yandex-cloud }}
 
+
 This article describes how to run a new {{ k8s }} project in {{ yandex-cloud }}. An application from [{{ container-registry-full-name }}](../../container-registry/) is deployed in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and published on the internet via the [{{ alb-full-name }}](../../application-load-balancer/) Ingress controller.
 
 If you need to create a {{ managed-k8s-name }} cluster with no internet access, see the [{#T}](k8s-cluster-with-no-internet.md) section.
 
 To launch an app:
-1. [{#T}](#create-sa)
-1. [{#T}](#create-k8s-res)
-1. [{#T}](#create-cr-res)
-1. [{#T}](#setup-alb)
-1. [{#T}](#create-ingress)
+1. [{#T}](#create-sa).
+1. [{#T}](#create-k8s-res).
+1. [{#T}](#create-cr-res).
+1. [{#T}](#setup-alb).
+1. [{#T}](#create-ingress).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -33,7 +34,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    yc vpc network create --name yc-auto-network
    ```
 
-1. [Create a subnet](../../vpc/operations/subnet-create.md) in the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+1. [Create a subnet](../../vpc/operations/subnet-create.md) in the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md):
 
    ```bash
    yc vpc subnet create \
@@ -78,7 +79,7 @@ For a {{ managed-k8s-name }} cluster and [load balancer](../../application-load-
 
 ### Service account for resources {#res-sa}
 
-To create a service account for making the resources required by the {{ managed-k8s-name }} cluster:
+To create a service account which will create the resources for the {{ managed-k8s-name }} cluster:
 1. Write the folder ID from your {{ yandex-cloud }} CLI profile configuration to the variable:
 
    {% list tabs group=programming_language %}

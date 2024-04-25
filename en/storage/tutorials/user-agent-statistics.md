@@ -1,5 +1,6 @@
 # Site visit statistics by browser
 
+
 Get the query statistics for objects within a bucket configured to [host a static website](../concepts/hosting.md). The data will be retrieved using the [S3 Select](../concepts/s3-select-language.md) query language.
 
 {% note info %}

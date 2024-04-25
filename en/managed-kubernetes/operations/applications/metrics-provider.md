@@ -1,5 +1,6 @@
 # Installing {{ MP }}
 
+
 {{ MP }} streams metrics of [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) objects to monitoring systems and [auto scaling systems](../../concepts/autoscale.md). You can also broadcast metrics in the reverse direction: for example, cluster objects can receive metrics from [{{ monitoring-full-name }}](../../../monitoring/concepts/index.md).
 
 The provider transforms the request to collect external metrics from a {{ managed-k8s-name }} cluster object into the required {{ monitoring-name }} format, and also performs the reverse transformation: from {{ monitoring-name }} to the cluster object.
@@ -32,7 +33,7 @@ The provider transforms the request to collect external metrics from a {{ manage
    * (Optional) **Disable decimation**: Select this option not to apply a data [decimation function](../../../monitoring/concepts/decimation.md).
    * (Optional) **Aggregation function**: Select a data [aggregation function](../../../monitoring/concepts/querying.md#combine-functions). The default value is `AVG`.
    * (Optional) **Data filling**: Configure filling in missing data:
-     * `NULL`: Returns `null` as the metric value and `timestamp` as the timestamp value. Default value.
+     * `NULL`: Returns `null` as the metric value and `timestamp` as the timestamp value. This is a default value.
      * `NONE`: Returns no values.
      * `PREVIOUS`: Returns the value from the previous data point.
    * (Optional) **Maximum number of points**: Specify the maximum number of points that will be returned in response to a request. Use a value greater than `10`.
@@ -87,7 +88,7 @@ The provider transforms the request to collect external metrics from a {{ manage
    * `window`: Time window for which metrics will be collected (in `DdHhMmSs` format, e.g., `5d10h30m20s`).
    * `yandexMetrics.token.serviceAccountJson`: Path to the static access key of the service account with the `monitoring.viewer` role.
 
-   Decimation parameters (`downsampling`). For the provider to work, you need to select at least one of the parameters below:
+   Decimation (`downsampling`) parameters. For the provider to work, you need to select at least one of the parameters below:
    * `yandexMetrics.downsampling.gridAggregation`: Data [aggregation function](../../../monitoring/concepts/querying.md#combine-functions). The default value is `AVG`.
    * `yandexMetrics.downsampling.gapFilling`: Settings for filling in missing data:
      * `NULL`: Returns `null` as the metric value and `timestamp` as the timestamp value.
@@ -95,7 +96,7 @@ The provider transforms the request to collect external metrics from a {{ manage
      * `PREVIOUS`: Returns the value from the previous data point.
    * `yandexMetrics.downsampling.maxPoints`: Maximum number of points to be received in response to a request. Use a value greater than `10`.
    * `yandexMetrics.downsampling.gridInterval`: Time window (grid) in milliseconds. It is used for decimation: points inside the window are combined into a single one using the aggregation function. Use a value greater than `0`.
-   * `yandexMetrics.downsampling.disabled`: Disable data decimation. Valid values: `true` or `false`.
+   * `yandexMetrics.downsampling.disabled`: Disable data decimation. It may take either the `true` or `false` value.
 
      {% note info %}
 

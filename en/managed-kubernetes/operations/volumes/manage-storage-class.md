@@ -1,5 +1,6 @@
 # Managing storage classes
 
+
 _Storage class_ (`StorageClass`) allows administrators to divide the stores they provision into classes with defined parameters. Classes vary by [disk type](../../../compute/concepts/disk.md#disks_types) and pricing policy.
 
 {% note alert %}
@@ -124,7 +125,7 @@ Acceptable parameter values include:
 
 ## Change the default storage class {#sc-default}
 
-1. Check which storage class is assigned by default. `default` is shown next to its name in parentheses.
+1. Check which storage class is assigned by default: `default` is shown next to its name in parentheses.
 
    ```bash
    kubectl get storageclass

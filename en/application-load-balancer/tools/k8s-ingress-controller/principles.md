@@ -5,6 +5,7 @@ description: "Learn about the operation principles of an {{ alb-name }} Ingress 
 
 # {{ alb-name }} Ingress controller operation principles
 
+
 An [{{ alb-name }} Ingress controller for {{ managed-k8s-name }}](index.md) owns two [pods](../../../managed-kubernetes/concepts/index.md#pod):
 
 * The primary `yc-alb-ingress-controller-*` pod handles {{ alb-name }} resource creation and updates. You can track communication with resources through this pod's logs.

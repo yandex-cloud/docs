@@ -28,6 +28,9 @@ links:
       Настройте поставку системных метрик или метрик приложений при помощи
       Yandex Unified Agent
     href: concepts/data-collection/unified-agent/
+  - title: Yandex Managed Service for Prometheus®
+    description: Система мониторинга, совместимая с Prometheus
+    href: operations/prometheus/index
   - title: Язык запросов
     description: Описание языка запросов для преобразования метрик
     href: concepts/querying

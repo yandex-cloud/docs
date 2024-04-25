@@ -16,10 +16,15 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
    1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}** and select **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
    1. Enter the load balancer name.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select:
-      1. [Network](../../vpc/concepts/network.md#network) whose [subnets](../../vpc/concepts/network.md#subnet) will house the load balancer nodes.
+      1. [Network](../../vpc/concepts/network.md#network) whose [subnets](../../vpc/concepts/network.md#subnet) will host the load balancer nodes.
       1. Suitable [security groups](../concepts/application-load-balancer.md#security-groups):
 
          {% include [security-groups](../../_includes/application-load-balancer/security-groups.md) %}
+
+   1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select the subnets in different [availability zones](../../overview/concepts/geo-scope.md) for the load balancer's nodes and enable traffic in these subnets.
+
+      To avoid creating a load balancer node in a particular availability zone, click ![xmark](../../_assets/console-icons/xmark.svg) in the corresponding row.
+
 
    1. (Optional) Under **{{ ui-key.yacloud.alb.section_autoscale-settings }}**, set a limit on the number of [resource units](../concepts/application-load-balancer.md#lcu-scaling).
 
@@ -34,10 +39,6 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
          * **{{ ui-key.yacloud.alb.label_discard-percent }}**: Set the percentage of logs to discard.
 
          You can set multiple rules.
-
-   1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select three subnets for the load balancer nodes and enable traffic to these subnets.
-
-      {% include [subnets-required](../../_includes/application-load-balancer/subnets-required.md) %}
 
    1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}**. Set the listener settings:
       1. Enter the listener name.
@@ -98,10 +99,6 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
         locations:
         - zone_id: {{ region-id }}-a
           subnet_id: buc4gsmpj8hv********
-        - zone_id: {{ region-id }}-b
-          subnet_id: blt6pcatjje6********
-        - zone_id: {{ region-id }}-d
-          subnet_id: fo2ap2nrhjk9********
       log_group_id: eolul9ap0bv0********
       security_group_ids:
         - enpulh2tbrep********
@@ -223,10 +220,6 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
         locations:
         - zone_id: {{ region-id }}-a
           subnet_id: e9bs1hp7lgdl********
-        - zone_id: {{ region-id }}-b
-          subnet_id: e2le8i7hqa21********
-        - zone_id: {{ region-id }}-d
-          subnet_id: b0cgk1au6fn2********
       log_group_id: ckgs4u5km3u8********
       security_group_ids:
       - enp49ot04g63********

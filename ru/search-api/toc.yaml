@@ -20,18 +20,28 @@ items:
         href: operations/auth.md
       - name: Запрос лимитов
         href: operations/request-limits.md
+      - name: Выполнение поисковых запросов
+        href: operations/searching.md
       - name: Мобильная выдача
         href: operations/mobile.md
   - name: Концепции
     items:
       - name: О сервисе {{ search-api-name }}
         href: concepts/index.md
-      - name: GET-запросы
-        href: concepts/get-request.md
-      - name: POST-запросы
-        href: concepts/post-request.md
-      - name: Формат ответа
-        href: concepts/response.md
+      - name: Текстовый поиск
+        items:
+          - name: GET-запросы
+            href: concepts/get-request.md
+          - name: POST-запросы
+            href: concepts/post-request.md
+          - name: Формат ответа
+            href: concepts/response.md
+      - name: Поиск по картинкам
+        items:
+          - name: GET-запросы
+            href: concepts/pic-search.md
+          - name: Формат ответа
+            href: concepts/pic-response.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

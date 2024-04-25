@@ -1,5 +1,6 @@
 # Installing NodeLocal DNS
 
+
 [NodeLocal DNS](/marketplace/products/yc/node-local-dns) reduces the load from DNS requests by running a cache on every [node](../../concepts/index.md#node-group) in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster). This improves {{ managed-k8s-name }} cluster performance and fault tolerance.
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}

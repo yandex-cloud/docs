@@ -1,5 +1,6 @@
 # Installing the External Secrets Operator with {{ lockbox-name }} support
 
+
 [External Secrets Operator](/marketplace/products/yc/external-secrets) is a {{ k8s }} operator integrating external secret management systems, such as [{{ lockbox-name }}](../../../lockbox/), AWS Secrets Manager, Azure Key Vault, HashiCorp Vault, Google Secrets Manager, and more. The operator reads external APIs and automatically inserts values into a {{ k8s }} secret.
 
 The External Secrets Operator with {{ lockbox-name }} support enables you to configure syncing [{{ lockbox-name }} secrets](../../../lockbox/concepts/secret.md) with [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) [secrets](../../concepts/encryption.md).
@@ -26,12 +27,10 @@ The External Secrets Operator with {{ lockbox-name }} support enables you to con
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the {{ managed-k8s-name }} cluster name and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
-1. Under **Applications available for installation**, select [External Secrets Operator with {{ lockbox-name }} support](/marketplace/products/yc/external-secrets) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+1. Under **Applications available for installation**, select [External Secrets Operator with {{ lockbox-name }} support](/marketplace/products/yc/external-secrets) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
    * **Application name**: Enter a name for the application.
-   * **Folder ID**: Specify a [folder ID](../../../resource-manager/operations/folder/get-id.md).
-   * **Cluster ID**: Specify the [{{ managed-k8s-name }} cluster ID](../kubernetes-cluster/kubernetes-cluster-list.md).
    * **Service account key**: Paste the contents of `sa-key.json`.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.

@@ -1,5 +1,6 @@
 # Mobile app analytics based on AppMetrica data
 
+
 You can visualize and explore AppMetrica data in {{ datalens-full-name }} using the following methods:
 
 * Direct access.

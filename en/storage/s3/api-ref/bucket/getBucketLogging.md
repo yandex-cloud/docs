@@ -1,6 +1,7 @@
 # getBucketLogging method
 
-Returns settings for [logging actions with the bucket](../../../concepts/server-logs.md).
+
+Returns the settings for [bucket actions logging](../../../concepts/server-logs.md).
 
 ## Request {#request}
 
@@ -22,7 +23,7 @@ GET /{bucket}?logging HTTP/2
 
 ### Headers {#request-headers}
 
-Use [common request headers](../common-request-headers.md) in requests.
+Use [common request headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 

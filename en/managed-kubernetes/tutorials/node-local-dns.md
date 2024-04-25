@@ -1,6 +1,7 @@
 # Setting up NodeLocal DNS Cache
 
-To reduce the number of DNS queries on a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster), enable NodeLocal DNS Cache. 
+
+To reduce the number of DNS queries on a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster), enable NodeLocal DNS Cache.
 
 {% note tip %}
 

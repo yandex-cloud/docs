@@ -1,9 +1,10 @@
 ---
-title: "Resource relationships in {{ k8s }}"
+title: "{{ k8s }} resource interdependencies"
 description: "The main entity in this managed service is a {{ k8s }} cluster. A {{ k8s }} cluster consists of a master and one or more node groups. The master is responsible for managing the {{ k8s }} cluster. Containerized user applications are run on nodes."
 ---
 
 # Resource relationships in {{ managed-k8s-name }}
+
 
 [{{ k8s }}](https://kubernetes.io/) is an environment for managing containerized applications. {{ k8s }} provides tools for working with clusters to automate deployment, scaling, and management of applications in containers.
 
@@ -45,6 +46,7 @@ There are two types of masters that differ by their location in [availability zo
 A _node group_ is a group of VMs in a {{ k8s }} cluster that have the same configuration and run the user's containers.
 
 ### Configuration {#config}
+
 
 When creating a group of nodes, you can configure the following VM parameters:
 * VM type.

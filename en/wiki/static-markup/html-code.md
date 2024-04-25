@@ -1,6 +1,6 @@
 ---
 title: "HTML elements available in {{ wiki-full-name }}"
-description: "In this tutorial, you will learn which HTML elements are available in {{ wiki-name }}."
+description: "In this tutorial, you will learn what HTML elements are available in {{ wiki-name }}."
 ---
 
 # HTML elements
@@ -13,7 +13,7 @@ description: "In this tutorial, you will learn which HTML elements are available
 
    {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
 
-   The inserted HTML code in this type of editor will be displayed as text:
+   In this editor, the inserted HTML code will be displayed as text:
 
    For example:
 
@@ -33,7 +33,7 @@ description: "In this tutorial, you will learn which HTML elements are available
    {% endcut %}
 
 
-   In this type of editor, we recommend adding an HTML code to a page using the [visual editor](../pages-types.md#new-editor). Use the ![](../../_assets/wiki/svg/link.svg) button on the taskbar to insert the code.
+   In this editor, we recommend adding your HTML code to the page using the [visual editor](../pages-types.md#new-editor). Use the ![](../../_assets/wiki/svg/link.svg) button on the taskbar to insert the code.
 
 - Old editor
 

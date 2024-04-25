@@ -40,6 +40,7 @@ Data operations are billed according to the following policy:
 
 ## Pricing {#prices}
 
+
 ### Data storage {#prices-storage}
 
 The cost of 1 GB per month is fixed and does not depend on the number of days in the month.

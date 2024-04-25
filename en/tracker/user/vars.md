@@ -24,6 +24,10 @@ The variable names assigned to issue fields, have the format: `{{issue.<field_ke
 
 You can use default variables to get the user's first and last name. To obtain specific user attributes, use a variable in the format `{{issue.<role>.<attribute>}}`, where `<role>` is the role and name of the field in which the user is specified, and `<attribute>` is the attribute.
 
+
+{% include [new-default-id-type](../../_includes/tracker/api/new-default-id-type.md) %}
+
+
 User roles:
 * `assignee`: Issue assignee
 * `author`: Author
@@ -34,8 +38,9 @@ User attributes:
 * `Login`: Login
 * `firstName`: First name
 * `lastname`: Last name
-* `uid`: ID
-* `email`: Email address
+* `uid`: ID in {{ tracker-name}}
+* `email`: Email address* `cloudUid`: ID in {{ org-full-name }}
+* `passportUid`: ID in {{ ya-360 }} organization and Yandex ID
 
 For example, by using the `not_var{{issue.followers.email}}` variable, you can get email addresses for all the issue's followers.
 
@@ -59,7 +64,7 @@ Some issue parameters are not displayed in fields, but you can get their values 
 
 ### Local fields {#local-fields}
 
-The variable names assigned to local issue fields, have the format: `{{issue.local.<field_ID>}}`.
+The variable names assigned to local issue fields have the `{{issue.local.<field_ID>}}` format.
 
 ### Date and time modifiers {#date-time}
 
@@ -92,8 +97,10 @@ Examples of variables in JSON format:
 | `{{issue.<role>.login.json}}` | User login (for the `author` and `assignee` fields) | `"ivan-ivanov"` |
 | `{{issue.<role>.uid.json}}` | User ID (for the `author` and `assignee` fields) | `88********` |
 | `{{issue.<role>.login.json}}` | Logins of users (for the `followers` and `access` fields) | `["ivan-ivanov", "user3993"]` |
-| `{{issue.<role>.uid.json}}` | User IDs (for the `followers` and `access` fields) | `[88********, 55********]` |
 | `not_var{{issue.components.display.json}}` | Components | `["component1","component2"]` |
+| `{{issue.<роль>.cloudUid.json}}` | User IDs in {{ org-full-name }} (for the `followers` and `access` fields) | `[bf********, cq********]` |
+| `{{issue.<роль>.passportUid.json}}` | User IDs {{ ya-360 }} organization and Yandex ID (for the `followers` and `access` fields) | `[88********, 55********]` |
+| `{{issue.<роль>.uid.json}}` | User IDs (for the `followers` and `access` fields) | `[88********, 55********]` |
 
 {% note warning %}
 

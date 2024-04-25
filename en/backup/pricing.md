@@ -41,6 +41,7 @@ The size of VM backups can fall short of the VM disk size, e.g., if the VM disk 
 
 ## Pricing {#prices}
 
+
 The monthly usage rate is based on 720 hours per month.
 
 ### Protected {{ backup-name }} VMs {#prices-vms}

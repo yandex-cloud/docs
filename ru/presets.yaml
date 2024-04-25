@@ -4244,7 +4244,6 @@ default:
             label_title: Создание платежного аккаунта
             payment-type_label_card: Банковская карта
             payment-type_label_invoice: Банковский перевод
-            section_persons: Плательщики
           dashboard-grants:
             button_activate-grant: Активировать промокод
             section_grants: Гранты
@@ -4306,7 +4305,6 @@ default:
             payment-type_label_card: Банковская карта
             payment-type_label_invoice: Банковский перевод
             section_account-data: Общие сведения
-            section_card: Банковская карта
             usage-type_label_paid: Платная версия
           reconciliation-reports:
             action_download-with-facsimile: Скачать подписанный акт
@@ -4317,7 +4315,6 @@ default:
             value_completed: Готово
           switch_acts: Отчётные документы
           switch_budgets: Бюджеты
-          switch_dashboard: Обзор
           switch_detail: Детализация
           switch_expences: История расходов
           switch_exports: Экспорт детализации
@@ -4338,13 +4335,11 @@ default:
           button_create: Создать аккаунт
           button_empty-billing-create: Создать
           column_cloud: Облака
-          label_title: Список аккаунтов
         cud:
           purchase:
             button_purchase: Зарезервировать потребление
         label_accounts: Аккаунты
         label_service: Биллинг
-        switch_accounts: Список аккаунтов
       cdn:
         button_activate-shielding: Включить
         button_add-domain: Добавить доменное имя

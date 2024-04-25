@@ -1,6 +1,7 @@
 # Analyzing a retail chain's sales performance based on a {{ CH }} database
 
-We will use a demo {{ CH }} database with a Moscow retail chain's sales data as our data source.
+
+We will use a demo {{ CH }} database with sales data from a Moscow store chain as our data source.
 
 
 In this example, {{ datalens-short-name }} is used to visualize:
@@ -111,7 +112,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. Create a calculated field for the average sales amount per order.
    1. In the top-right corner, click **Add field**.
    1. In the **Name** field, specify **Sales per Order**.
-   1. In the column to the left, click on the **Sales** field.
+   1. In the column to the left, click the **Sales** field.
    1. Enter a `/`.
    1. In the column to the left, click the **OrderCount** field.
    1. Click **Create**.
@@ -157,7 +158,7 @@ To visualize sales dynamics by month, create a line [chart](../../datalens/conce
 
 ## Step 4. Create a column chart {#step4}
 
-To visualize sales by brand and product categories, create a column [chart](../../datalens/concepts/chart/index.md).
+To visualize sales by brand and product category, create a column [chart](../../datalens/concepts/chart/index.md).
 
 1. Copy the chart from the previous step.
    1. Click the down arrow next to the **Save** button in the top-right corner.
@@ -189,7 +190,7 @@ To visualize sales by brand and product categories, create a column [chart](../.
 
 ## Step 5. Create a pivot table chart {#step5}
 
-To visualize sales by products and time, create a pivot table [chart](../../datalens/concepts/chart/index.md).
+To visualize sales by product and time, create a pivot table [chart](../../datalens/concepts/chart/index.md).
 
 1. Copy the chart from the previous step.
    1. Click the down arrow next to the **Save** button in the top-right corner.
@@ -231,7 +232,7 @@ To visualize the density of orders on the map of Moscow, create a heat map [char
 
 1. Copy the chart from the previous step.
    1. Click the icon next to the **Save** button in the top-right corner and select **Save as**.
-   1. In the window that opens, enter the name **Sales heat map** for the new chart.
+   1. In the window that opens, enter **Sales heat map** as the name for the new chart.
    1. Click **Save**.
 
 1. Select the **Map** visualization type.

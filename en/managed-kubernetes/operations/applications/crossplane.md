@@ -1,5 +1,6 @@
 # Installing Crossplane with {{ yandex-cloud }} support
 
+
 [Crossplane](https://crossplane.io/) is a freeware add-on to {{ k8s }}, which enables platform development teams to build infrastructure for multiple vendors and produce higher-level API services used by application development teams.
 
 ## Getting started {#before-you-begin}

@@ -11,7 +11,7 @@ You can store application data in the containers where the applications are runn
 
 We can solve these problems using {{ k8s }} _volumes_.
 
-_Volumes_ are stores shared by objects from different containers deployed in one or more pods. In the pod specification, users specify the volumes to contain the pod and the path for the containers to mount those volumes to.
+A _volume_ is a storage for shared use of objects in different containers deployed within one or more pods. In the pod specification, users specify the volumes to contain the pod and the path for the containers to mount those volumes to.
 
 To handle volumes {{ k8s }} operates with the following [{{ k8s }} API](https://kubernetes.io/docs/reference/kubernetes-api/) objects: `Volume`, `PersistentVolume`, `PersistentVolumeClaim`, and `StorageClass`.
 
@@ -22,6 +22,7 @@ Volumes are classified by their life cycle:
 There are different kinds of temporary and persistent volumes, depending on the storage. Check out the [volume types](https://kubernetes.io/docs/concepts/storage/volumes/#types-of-volumes) that {{ k8s }} supports.
 
 ## Working with persistent volumes {#persistent-volume}
+
 
 You can work with {{ k8s }} persistent volumes by using the `PersistentVolume` and `PersistentVolumeClaim` API objects.
 * `PersistentVolumes` (PV) are [{{ managed-k8s-name }} cluster](index.md#kubernetes-cluster) resources that exist independently of pods. This means that the [disk](../../compute/concepts/disk.md) and data provided in the PV continue to exist when you change the {{ managed-k8s-name }} cluster and delete or recreate the pods.

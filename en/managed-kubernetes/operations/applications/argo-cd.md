@@ -1,5 +1,6 @@
 # Installing Argo CD
 
+
 [Argo CD](https://argo-cd.readthedocs.io) is a declarative GitOps tool for continuous delivery to {{ k8s }}.
 
 ## Getting started {#before-you-begin}

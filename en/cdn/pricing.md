@@ -12,6 +12,7 @@ The cost of using {{ cdn-name }} is based on:
 
 ## Pricing {#prices}
 
+
 ### Egress traffic {#traffic}
 
 

@@ -1,4 +1,5 @@
-# Installing {{ GL }} Agent
+# Installing the {{ GL }} Agent
+
 
 The [{{ GL }} Agent](/marketplace/products/yc/gitlab-agent) is used to connect a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) to {{ GL }}. You can deploy the application in a [{{ mgl-full-name }}](../../../managed-gitlab/) [instance](../../../managed-gitlab/concepts/index.md#instance) or in a standalone {{ GL }} instance.
 
@@ -10,7 +11,7 @@ The {{ GL }} Agent enables you to:
 
 {% note info %}
 
-{{ GL }} Agent does not execute CI/CD pipelines. To do this, install [{{ GL }} Runner](/marketplace/products/yc/gitlab-runner).
+The {{ GL }} Agent does not execute CI/CD pipelines. To do this, install [{{ GL }} Runner](/marketplace/products/yc/gitlab-runner).
 
 {% endnote %}
 

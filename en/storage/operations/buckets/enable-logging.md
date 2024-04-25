@@ -1,4 +1,5 @@
-# Logging actions with the bucket
+# Using the bucket actions logging mechanism
+
 
 To track operations with the [bucket](../../concepts/bucket.md), enable [logging](../../concepts/server-logs.md). Detailed information about requests to the _source_ bucket will be saved in an [object](../../concepts/object.md) in the _target_ bucket. However, {{ objstorage-name }} [does not guarantee](../../concepts/server-logs.md) that the logs are saved in a complete and timely manner.
 

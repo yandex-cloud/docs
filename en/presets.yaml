@@ -4239,7 +4239,6 @@ default:
             label_title: Create a billing account
             payment-type_label_card: Bank card
             payment-type_label_invoice: Bank transfer
-            section_persons: Payers
           dashboard-grants:
             button_activate-grant: Activate promo code
             section_grants: Grants
@@ -4301,7 +4300,6 @@ default:
             payment-type_label_card: Bank card
             payment-type_label_invoice: Wire transfer
             section_account-data: General information
-            section_card: Bank card
             usage-type_label_paid: Paid version
           reconciliation-reports:
             action_download-with-facsimile: Download signed report
@@ -4312,7 +4310,6 @@ default:
             value_completed: Done
           switch_acts: Reporting documents
           switch_budgets: Budgets
-          switch_dashboard: Overview
           switch_detail: Usage details
           switch_expences: Expense history
           switch_exports: Export details
@@ -4333,13 +4330,11 @@ default:
           button_create: Create an account
           button_empty-billing-create: Create
           column_cloud: Clouds
-          label_title: List of accounts
         cud:
           purchase:
             button_purchase: Purchase commitment
         label_accounts: Accounts
         label_service: Billing
-        switch_accounts: List of accounts
       cdn:
         button_activate-shielding: Activate
         button_add-domain: Add domain name

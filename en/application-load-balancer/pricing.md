@@ -6,7 +6,7 @@ editable: false
 
 # {{ alb-full-name }} pricing
 
-## What is included in the {{ alb-name }} cost {#rules}
+## What goes into the cost of using {{ alb-name }} {#rules}
 
 When using the {{ alb-name }} service, you pay for the actual use of computing resources of every active load balancer.
 
@@ -18,7 +18,7 @@ You can set a limit on the number of load balancer resource units in its [autosc
 
 The load balancer usage is charged on an hourly basis. You pay for the maximum number of resource units that were running for an hour. When [creating](operations/application-load-balancer-create.md) an L7 load balancer, the estimated cost is displayed in the [management console]({{ link-console-main }}) on the right.
 
-### Example of cost calculation {#example}
+### Cost calculation example {#example}
 
 A load balancer is hosted in one availability zone. The default autoscaling settings are used: at least two resource units per zone and no limit on the maximum total number of units.
 
@@ -56,6 +56,7 @@ Where:
 
 
 ## Pricing {#prices}
+
 
 
 

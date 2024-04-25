@@ -1,5 +1,6 @@
 # Fields and annotations of the Service resource
 
+
 The `Service` resource defines the [{{ k8s }} service](../../../managed-kubernetes/concepts/index.md#service). For {{ alb-name }} tools for {{ managed-k8s-name }}, such as the [Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) and [Gateway API](../../../application-load-balancer/tools/k8s-gateway-api/index.md), the services are backends between which the incoming traffic is distributed. The services acting as {{ alb-name }} backends may be specified in the [`Ingress` resource](../../../application-load-balancer/k8s-ref/ingress.md) either directly or as part of [`HttpBackendGroup` backend groups](../../../application-load-balancer/k8s-ref/http-backend-group.md). When using the Gateway API, backend services are specified in the [`HTTPRoute` resource](../../../application-load-balancer/k8s-ref/http-route.md).
 
 `Service` is a standard {{ k8s }} resource. This reference describes the fields and annotations of the resource the {{ alb-name }} tools for {{ managed-k8s-name }} interface with. For a complete reference for the resource, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).

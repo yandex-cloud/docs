@@ -1,8 +1,9 @@
 # Horizontal application scaling in a cluster
 
+
 {{ managed-k8s-name }} supports several types of [autoscaling](../concepts/autoscale.md). In this article, you will learn to configure [cluster](../concepts/index.md#kubernetes-cluster) autoscaling using a combination of {{ k8s-ca }} and {{ k8s-hpa }}.
-* [{#T}](#cpu-autoscaling)
-* [{#T}](#rps-autoscaling)
+* [{#T}](#cpu-autoscaling).
+* [{#T}](#rps-autoscaling).
 
 {% note warning %}
 

@@ -5,6 +5,7 @@ description: "{{ alb-name }} provides the Gateway API as a tool to create and ma
 
 # Gateway API for {{ managed-k8s-name }}
 
+
 {{ alb-name }} provides the Gateway API as a tool to create and manage load balancers in [{{ managed-k8s-full-name }} clusters](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster). For more information about the Gateway API project, visit its [website](https://gateway-api.sigs.k8s.io/).
 
 Once you install the Gateway API, you can use it to create a resource named `Gateway` and associated `HTTPRoute` resources:

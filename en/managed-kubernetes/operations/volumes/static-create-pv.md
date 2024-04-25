@@ -5,6 +5,7 @@ description: "Follow this guide to create a pod with a statically provisioned vo
 
 # Static volume provisioning
 
+
 Create a [pod](../../concepts/index.md#pod) with a statically provisioned [volume](../../concepts/volume.md):
 1. [Create a PersistentVolume](#create-pv).
 1. [Create a PersistentVolumeClaim](#create-claim).
@@ -41,7 +42,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
       +----------------------+------+------------+-------------------+--------+--------------+-------------+
       |          ID          | NAME |    SIZE    |       ZONE        | STATUS | INSTANCE IDS | DESCRIPTION |
       +----------------------+------+------------+-------------------+--------+--------------+-------------+
-      | ef3ouo4sgl86******** | k8s  | 4294967296 | {{ region-id }}-a | READY  |              |             |
+      | ef3ouo4sgl86******** | k8s  | 4294967296 | {{ region-id }}-a     | READY  |              |             |
       +----------------------+------+------------+-------------------+--------+--------------+-------------+
       ```
 

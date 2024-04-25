@@ -39,8 +39,13 @@ description: "Следуя данной инструкции, вы сможет�
 
 ## Примеры ошибок {#errors}
 
-* Превышен лимит запросов на чтение
-  >```remote_read: remote server https://monitoring.{{ api-host }}/workspaces/monb1piptmdo********/prometheus/api/v1/read returned HTTP status 429 Too Many Requests: {"type":"RESOURCE_EXHAUSTED","message":"too many read requests: monb1piptmdo********","code":429}```
+| Код ошибки | Текст ошибки | Описание |
+|----|----|----|
+| `404` | Эндпоинт не найден. Убедитесь, что в конфигурации указан правильный `url`. | `remote_read: remote server https://monitoring.{{ api-host }}/prometheus/workspaces/monb1piptmdo********/api/v1/read returned`<br/>`HTTP status 404 Not Found: {"status":"error","errorType":"not_found","error":"workspace not found: monb1piptmdo********"}` |
+| `401` | Сервисный аккаунт не найден. Убедитесь, что в конфигурации указан правильный [API-ключ](../../../../iam/concepts/authorization/api-key.md). | `remote_read: remote server https://monitoring.{{ api-host }}/prometheus/workspaces/monb1piptmdo********/api/v1/read returned`<br/>`HTTP status 401 Unauthorized: {"status":"error","errorType":"","error":"cannot authenticate by either token or api-key, cause: UNAUTHENTICATED: The token is invalid"}` |
+| `403` | Отсутствуют права на чтение. Убедитесь, что сервисный аккаунт имеет роль `{{ roles-monitoring-viewer }}` на выбранный каталог. | `remote_read: remote server https://monitoring.{{ api-host }}/prometheus/workspaces/monb1piptmdo********/api/v1/read returned`<br/>`HTTP status 403 Forbidden: {"status":"error","errorType":"","error":"PERMISSION_DENIED: Permission denied"}` |
+| `429` | Превышена квота [Количество запросов в секунду на чтение через Remote Read API](../index.md#limits). | `remote_read: remote server https://monitoring.{{ api-host }}/prometheus/workspaces/monb1piptmdo********/api/v1/read returned`<br/>`HTTP status 429 Too Many Requests: {"status":"error","errorType":"execution","error":"too many read requests: monb1piptmdo********"}` |
+| `400` | Запрос вернул слишком много линий. Попробуйте уточнить запрос. | `remote_read: remote server https://monitoring.{{ api-host }}/prometheus/workspaces/monb1piptmdo********/api/v1/read returned`<br/>`HTTP status 400 Bad Request: {"status":"error","errorType":"bad_data","error":"Too many metrics are loaded by selectors {job=='grafana'}, expected not more than: 10000"}` |
 
 ## Метрики {{ prometheus-name }} {#metrics}
 
