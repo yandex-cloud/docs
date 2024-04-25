@@ -216,6 +216,54 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
    The synthesized speech will be written to the `speech.ogg` file in the directory that you sent your request from.
 
+- Node.js {#nodejs}
+
+  Install the necessary dependencies:
+
+  ```bash
+  npm install --save axios form-data
+  ```
+
+  Send the [request](../request.md) to convert speech to text:
+
+  ```javascript
+  import FormData from 'form-data';
+  import axios from 'axios';
+  import fs from 'node:fs';
+
+  const IAM_TOKEN = '<IAM_TOKEN>';
+  const FOLDER_ID = '<FOLDER_ID>';
+
+  const formData = new FormData();
+
+  formData.append('text', "I'm Yandex Sp+eechkit. I can turn any text into speech. Now y+ou can, too!");
+  formData.append('voice', 'john');
+  formData.append('lang', 'en-US');
+  formData.append('folderId', FOLDER_ID);
+
+  const headers = {
+    Authorization: `Bearer ${IAM_TOKEN}`,
+    ...formData.getHeaders(),
+  };
+
+  axios
+    .post('https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize', formData, {
+      headers,
+      responseType: 'arraybuffer'
+    })
+    .then(response => fs.writeFileSync('speech.ogg', response.data));
+  ```
+
+  Where:
+
+  * `IAM_TOKEN` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
+  * `FOLDER_ID` — [Folder ID](../../../resource-manager/operations/folder/get-id.md).
+  * `text` — Text in [TTS markup](../markup/tts-markup.md) for synthesis.
+  * `lang` — [Language](../index.md#langs) of the text.
+  * `voice` — [Voice](../voices.md) for speech synthesis.
+
+  The synthesized speech will be written to the `speech.ogg` file in the directory that you sent your request from.
+
 {% endlist %}
 
 #### See also {#see-also}
