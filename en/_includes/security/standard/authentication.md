@@ -1036,7 +1036,7 @@ To get notifications of security-related events, such as vulnerability detection
 1. [Make sure](../../../resource-manager/concepts/notify.md) that notifications are set up.
 1. Enable the **Security** option in the notification settings in the management console.
 
-#### 1.23 The {{ roles-auditor }} role is used to prevent access to user data
+#### 1.23 The {{ roles-auditor }} role is used to prevent access to user data {#roles-auditor}
 
 Assign the `{{ roles-auditor }}` role to users that do not require data access, such as external contractors or auditors.
 `{{ roles-auditor }}` is a role with least privilege without access to service data. It grants permission to read service configurations and metadata.
