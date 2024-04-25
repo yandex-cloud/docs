@@ -1,11 +1,12 @@
 # Working with snapshots
 
+
 {{ managed-k8s-name }} supports snapshots, which are a point-in-time copy of a [PersistentVolume](../concepts/volume.md#provisioning-volumes). For more information about snapshots, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
 
 To create a snapshot and then restore it:
-1. [{#T}](#create-pvc-pod)
-1. [{#T}](#create-snapshot)
-1. [{#T}](#restore-from-snapshot)
+1. [{#T}](#create-pvc-pod).
+1. [{#T}](#create-snapshot).
+1. [{#T}](#restore-from-snapshot).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -302,7 +303,7 @@ Delete the resources you no longer need to avoid paying for them:
 
          {% note alert %}
 
-         {{ TF }} will delete all the resources that you created using it, such as clusters, networks, subnets, and VMs.
+         {{ TF }} will delete all the resources you created using it, such as clusters, networks, subnets, and VMs.
 
          {% endnote %}
 

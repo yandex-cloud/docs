@@ -1,8 +1,9 @@
 # Setting up Kyverno & Kyverno Policies
 
+
 The [Kyverno](https://kyverno.io) application and its [Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) extension are used for managing {{ k8s }} security policies. They appear in Kyverno as {{ k8s }} resources.
 
-To integrate [Kyverno & Kyverno Pоlicies](/marketplace/products/yc/kyverno) into {{ managed-k8s-name }}:
+To integrate [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) into {{ managed-k8s-name }}:
 1. [{#T}](#kyverno-policies)
 1. [{#T}](#check-apps)
 
@@ -31,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) cluster configuration file to the same working directory. The file describes:
          * [Network](../../../vpc/concepts/network.md#network).
          * [Subnet](../../../vpc/concepts/network.md#subnet).
-         * [Security group](../../operations/connect/security-groups.md) and rules required for the cluster, node group, and {{ managed-k8s-name }} instance to run:
+         * [Security group](../../operations/connect/security-groups.md) and the rules required for a {{ managed-k8s-name }} cluster, node group, and instance:
             * Rules for service traffic.
             * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
             * Rules for connecting to services from the internet.
@@ -61,7 +62,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a Kyverno policy {#kyverno-policies}
 
-1. Install the [Kyverno & Kyverno Pоlicies](/marketplace/products/yc/kyverno) application by following this [guide](../../operations/applications/kyverno.md).
+1. Install the [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) application by following this [guide](../../operations/applications/kyverno.md).
 1. Create a policy that will require that all [pods](../../concepts/index.md#pod) have the `app.kubernetes.io/name` [{{ k8s }} label](../../../resource-manager/concepts/labels.md).
    1. Save the specification for `ClusterPolicy` creation in a YAML file named `policy.yaml`:
 
@@ -101,7 +102,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. {% include [install policy reporter](../../../_includes/managed-kubernetes/install-policy-reporter.md) %}
 
-## Test Kyverno & Kyverno Pоlicies {#check-apps}
+## Test Kyverno & Kyverno Policies {#check-apps}
 
 * Create a pod with no `app.kubernetes.io/name` {{ k8s }} label:
 

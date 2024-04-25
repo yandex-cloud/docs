@@ -1,5 +1,6 @@
 # Visualizing data from a file
 
+
 For our source data, let's use a file named [SuperHeroes.csv](https://storage.yandexcloud.net/datalens/SuperHeroes.csv) with information about superheroes, such as their name, gender, race, and comic book publisher.
 
 This scenario demonstrates how to use {{ datalens-short-name }} to analyze dependencies, for example:

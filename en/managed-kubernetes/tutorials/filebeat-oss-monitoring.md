@@ -1,5 +1,6 @@
 # Monitoring a {{ managed-k8s-name }} cluster using Filebeat OSS
 
+
 [Filebeat OSS](https://www.elastic.co/beats/filebeat) is a plugin for collecting and forwarding logs to the {{ OS }} ecosystem. Installed in a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster), Filebeat collects cluster and [pod](../concepts/index.md#pod) logs, and forwards them to [{{ mos-full-name }}](../../managed-opensearch/).
 
 To set up {{ managed-k8s-name }} cluster monitoring with Filebeat OSS:
@@ -97,7 +98,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
 
-Delete the other resources, depending on the method used to create them:
+Delete the other resources depending on how they were created:
 
 {% list tabs group=instructions %}
 

@@ -18,6 +18,12 @@
 
 {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+Если CLI уже установлен, обновите его до последней версии:
+
+```bash
+yc components update
+```
+
 ## Перенесите мастер в другую зону доступности {#transfer-a-master}
 
 Миграция [мастера](../concepts/index.md#master) зависит от его типа: [зональный](#zonal) или [региональный](#regional).

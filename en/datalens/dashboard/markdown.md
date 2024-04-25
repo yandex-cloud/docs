@@ -255,7 +255,7 @@ val a: Int = 1
 ## Image {#image}
 
 
-You can add images from the `*.yandex.ru`, `*.yandex.net`, `yastat.net`, `yastatic.net`, or `storage.yandexcloud.net` domains. The easiest way is to upload and post an image in [{{ objstorage-full-name }}](../../storage/quickstart.md). The service is free of charge for up to 1 GB of standard storage per month.
+You can add images from the `*.yandex.ru`, `*.yandex.net`, `yastat.net`, `yastatic.net`, or `{{ s3-storage-host }}` domains. The easiest way is to upload and post an image in [{{ objstorage-full-name }}](../../storage/quickstart.md). The service is free of charge for up to 1 GB of standard storage per month.
 
 
 You can add images of any format.
@@ -294,7 +294,7 @@ For example, the following markup:
 
 {% cut "Title of the text to cut" %}
 
-The content to be displayed when you click it.
+Content displayed on click.
 
 {% endcut %}
 
@@ -304,6 +304,6 @@ will be displayed as:
 
 {% cut "Title of the text to cut" %}
 
-The content to be displayed when you click it.
+Content displayed on click.
 
 {% endcut %}

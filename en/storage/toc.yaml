@@ -1,5 +1,10 @@
 title: Yandex Object Storage
 href: index.yaml
+label:
+  title: KZ
+  description: The service is available in Kazakhstan.
+  theme: info
+  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -169,7 +174,7 @@ items:
         href: concepts/presigned-post-forms.md
       - name: Storage class
         href: concepts/storage-class.md
-      - name: Logging actions with a bucket
+      - name: Bucket actions logging mechanism
         href: concepts/server-logs.md
       - name: Backups
         href: concepts/backup.md

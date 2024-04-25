@@ -1,5 +1,6 @@
 # Server-side encryption
 
+
 In this scenario, you will enable bucket encryption. As a symmetric encryption key, you will use a [{{ kms-full-name }} key](../../kms/concepts/key.md). This key will encrypt all new bucket objects with [envelope encryption](../../kms/concepts/envelope.md).
 
 
@@ -8,10 +9,10 @@ In this scenario, you will enable bucket encryption. As a symmetric encryption k
 
 To enable server-side bucket encryption:
 
-1. [Prepare your cloud](#before-you-begin)
-1. [Create a bucket](#create-bucket)
-1. [Create a key](#create-key)
-1. [Enable encryption](#enable-encryption)
+1. [Prepare your cloud](#before-you-begin).
+1. [Create a bucket](#create-bucket).
+1. [Create a key](#create-key).
+1. [Enable encryption](#enable-encryption).
 
 If you no longer need to encrypt new bucket objects, [disable encryption](#disable-encryption).
 
@@ -129,7 +130,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
       For more information about the resources you can create with [{{ TF }}](https://www.terraform.io/docs/language/index.html), see the [provider documentation]({{ tf-provider-link }}).
 
-   2. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
 
@@ -141,7 +142,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   3. Deploy cloud resources.
+   1. Deploy cloud resources.
 
       1. If the configuration does not contain any errors, run this command:
 
@@ -149,7 +150,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
          terraform apply
          ```
 
-      2. Confirm that you want to create the resources.
+      1. Confirm that you want to create the resources.
 
          After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
 
@@ -180,7 +181,7 @@ Create a new key or use an existing one. To create a key:
       * In the **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}** field, set the [rotation](../../kms/concepts/version.md#rotate-key) period to `7 days`.
       * Click **{{ ui-key.yacloud.kms.symmetric-key.create.button_create }}**.
 
-   The key is created along with its first version: click the key in the list to open the page with its attributes.
+   The key is created together with its first version: click the key in the list to open a page with its attributes.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -270,7 +271,7 @@ Create a new key or use an existing one. To create a key:
 
 
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
 
@@ -423,7 +424,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 
 
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
 
@@ -571,7 +572,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
 
 
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -594,8 +595,8 @@ After you disable bucket encryption, previously uploaded objects will be stored 
 
          After the command is executed, {{ TF }} updates the following resources in the specified folder:
 
-         * `New-buckets-account` service account
-         * `Editor` role for `new-buckets-account`
+         * `new-buckets-account` service account
+         * `editor` role for `new-buckets-account`
          * Static key for the service account
          * {{ kms-short-name }} key named `key-1`
          * Bucket

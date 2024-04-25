@@ -1,5 +1,6 @@
 # Installing Filebeat OSS
 
+
 [Filebeat OSS](https://www.elastic.co/beats/filebeat) is a plugin for collecting and forwarding logs to the {{ OS }} ecosystem. Installed in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster), Filebeat OSS collects cluster and [pod](../../concepts/index.md#pod) logs, and forwards them to [{{ mos-full-name }}](../../../managed-opensearch/).
 
 ## Getting started {#before-you-begin}
@@ -12,7 +13,7 @@
 1. Enable the compatibility mode to support the Filebeat OSS client in {{ OS }}. For this, run the following query:
 
    ```bash
-   wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" && \
+   wget "{{ crt-web-path }}" && \
    curl --user <username>:<password> --cacert CA.pem \
    --request PUT https://<DATA_host_name>:{{ port-mos }}/_cluster/settings \
    -H "Content-Type: application/json" -d \
@@ -28,7 +29,7 @@
    Where:
    * `username`: {{ OS }} username.
    * `<password>`: {{ OS }} user password.
-   * `<host_name>`: Name of the {{ mos-name }} host with the [DATA role](../../../managed-opensearch/concepts/host-roles.md#data), such as `rc1a-6khpaeo31lacqo21.mdb.yandexcloud.net`.
+   * `<host_name>`: Name of the {{ mos-name }} host with the [DATA role](../../../managed-opensearch/concepts/host-roles.md#data), e.g., `rc1a-6khpaeo31lacqo21.mdb.yandexcloud.net`.
 
    A successful response will have this format:
 

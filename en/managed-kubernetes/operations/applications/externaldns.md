@@ -1,5 +1,6 @@
 # Installing ExternalDNS with a plugin for {{ dns-full-name }}
 
+
 [ExternalDNS](https://github.com/kubernetes-sigs/external-dns) allows you to create [DNS records](../../../dns/concepts/resource-record.md) in [{{ dns-full-name }}](../../../dns/) automatically. ExternalDNS makes {{ k8s }} resources discoverable through public DNS servers.
 
 ## Getting started {#before-you-begin}

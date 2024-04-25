@@ -51,7 +51,7 @@ The image is scaled proportionally, so the height value can be set approximately
 
    {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
 
-   Set the image size on the page in pixels in the link after the `=` sign:
+   Set the size of the image on the page in pixels in the link after the `=` sign:
 
    | Markup | Result |
    --- | ---

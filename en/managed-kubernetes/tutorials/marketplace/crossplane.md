@@ -1,5 +1,6 @@
 # Integration with Crossplane
 
+
 [Crossplane](https://crossplane.io/) is an open-source {{ k8s }} add-on that helps you bring solutions from different providers into a single infrastructure and provide application developers access to this infrastructure through high-level APIs. With Crossplane, users can manage third-party services in the same way they manage {{ k8s }} resources.
 
 To create a {{ compute-full-name }} [VM](../../../compute/concepts/vm.md) using the [Crossplane application](/marketplace/products/yc/crossplane) installed in a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster):

@@ -52,7 +52,6 @@ If a bucket has an access policy configured, access to the bucket via the {{ yan
 
 Example of a rule for a specific {{ yandex-cloud }} user:
 
-
 ```json
 {
   "Effect": "Allow",
@@ -66,11 +65,12 @@ Example of a rule for a specific {{ yandex-cloud }} user:
   ],
   "Condition": {
     "StringLike": {
-      "aws:referer": "https://console.yandex.cloud/folders/*/storage/buckets/your-bucket-name*"
+      "aws:referer": "{{ link-console-main }}/folders/*/storage/buckets/your-bucket-name*"
     }
   }
 }
 ```
+
 
 {% cut "Example for sharing the console.cloud.yandex.* and console.yandex.cloud domains" %}
 
@@ -91,7 +91,7 @@ If you are using the old `console.cloud.yandex.*` domain in conjunction with the
     "StringLike": {
       "aws:referer": [
         "https://console.cloud.yandex.*/folders/*/storage/buckets/your-bucket-name*",
-        "https://console.yandex.cloud/folders/*/storage/buckets/your-bucket-name*"
+        "{{ link-console-main }}/folders/*/storage/buckets/your-bucket-name*"
       ]
     }
   }
@@ -99,7 +99,6 @@ If you are using the old `console.cloud.yandex.*` domain in conjunction with the
 ```
 
 {% endcut %}
-
 
 
 

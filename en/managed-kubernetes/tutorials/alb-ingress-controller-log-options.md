@@ -1,5 +1,6 @@
 # Logging settings for {{ alb-name }} Ingress controllers
 
+
 You can configure the logging settings for [L7 balancers](../../application-load-balancer/concepts/application-load-balancer.md) created with {{ alb-name }} [Ingress controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) within a {{ managed-k8s-name }} cluster.
 
 This article explains how to create three L7 balancers with different logging settings:
@@ -358,7 +359,7 @@ Create three [Ingress](https://kubernetes.io/docs/concepts/services-networking/i
 
       In [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) version 0.2.0 and later, you can only use an annotation in the [Service](../../application-load-balancer/k8s-ref/service.md#metadata) object.
 
-      If you specify an annotation in the `Ingress` resources that use a single service with the same settings for backend groups, such annotation will apply correctly. However, this mechanism is obsolete and will not be supported going forward.
+      If you annotate `Ingress` resources that use a single service with the same settings for backend groups, such annotation will apply correctly. However, this mechanism is obsolete and will not be supported going forward.
 
       {% endnote %}
 

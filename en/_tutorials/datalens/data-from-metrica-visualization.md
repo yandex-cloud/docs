@@ -1,6 +1,7 @@
 # Web analytics with a connection to Yandex Metrica
 
 
+
 {% include [datalens-metrica-pro-note](../../_includes/datalens/datalens-metrica-pro-note.md) %}
 
 
@@ -73,7 +74,7 @@ If you do not have a Yandex Metrica tag and you skipped step 1, deploy a [dashbo
 
 You can change the standard [dashboard](../../datalens/concepts/dashboard.md) however you want. For example, you can delete a chart you no longer need.
 
-1. In the upper-right corner of the dashboard, click **Edit**.
+1. In the top-right corner of the dashboard, click **Edit**.
 
    ![image](../../_assets/datalens/solution-03/09-edit-dashboard.png)
 
@@ -81,7 +82,7 @@ You can change the standard [dashboard](../../datalens/concepts/dashboard.md) ho
 
    ![image](../../_assets/datalens/solution-03/10-delete-charts1.png)
 
-1. Position the **Bounce rate** and **Time on site** charts so that they fill in the empty space left after deleting the chart in the previous step. Drag the chart by clicking on the chart itself. Resize the chart using the triangle in the lower-right corner.
+1. Position the **Bounce rate** and **Time on site** charts so that they fill in the empty space left after deleting the chart in the previous step. Drag the chart by clicking it. Resize the chart using the triangle in the bottom-right corner.
 
    ![image](../../_assets/datalens/solution-03/11-replace-charts.png)
 

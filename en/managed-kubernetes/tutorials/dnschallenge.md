@@ -5,9 +5,10 @@ description: "Follow this guide to add an option to run DNS Challenge when issui
 
 # Checking DNS Challenge for Let's Encrypt® certificates
 
+
 To add an option to run DNS Challenge when issuing [Let's Encrypt® certificates](../../certificate-manager/concepts/managed-certificate.md):
-1. [{#T}](#create-cert)
-1. [{#T}](#check-result)
+1. [{#T}](#create-cert).
+1. [{#T}](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -24,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      --output key.json
    ```
 
-1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md). A Let's Encrypt® certificate will be issued for the domain in this zone after you pass the [DNS-01 challenge](https://letsencrypt.org/ru/docs/challenge-types/#проверка-dns-01).
+1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md). A Let's Encrypt® will be issued for the domain in this zone after you pass the [DNS-01 challenge](https://letsencrypt.org/ru/docs/challenge-types/#проверка-dns-01).
 
 1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../operations/node-group/node-group-create.md) in any suitable configuration.
 
@@ -34,7 +35,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a certificate {#create-cert}
 
-1. Install the cert-manager app with the {{ dns-full-name }} ACME webhook plugin [by following the guide](../../managed-kubernetes/operations/applications/cert-manager-cloud-dns.md).
+1. Install the cert-manager app with the {{ dns-full-name }} ACME webhook plugin [according to the guide](../../managed-kubernetes/operations/applications/cert-manager-cloud-dns.md).
 
    During the installation, specify the service account and the authorized key created at the [Getting started](#before-begin) step.
 

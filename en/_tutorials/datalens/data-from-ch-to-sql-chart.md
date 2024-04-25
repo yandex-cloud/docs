@@ -1,8 +1,9 @@
 # Visualizing data with a QL chart
 
+
 In this scenario, you will create charts using SQL queries. SQL queries enable you to configure data for visualization in a more flexible way than the standard dataset method does. For example, you can add parameters from dashboards to a SQL query.
 
-We recommend using a QL chart if creating a regular chart from a dataset isn't suitable for your situation or if you wish to experiment with the data.
+We recommend using a QL chart if creating a regular chart from a dataset is not suitable for your situation or if you wish to experiment with the data.
 
 A direct connection to a demo database will be used as your data source.
 
@@ -141,7 +142,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 
       ![image](../../_assets/datalens/sql-chart/add-selector.png)
 
-   1. Select **Manual input** as source type.
+   1. Select **Manual input** as the source type.
    1. In the **Field name** field, enter `status`. Certain selector values will be passed into this SQL query variable.
    1. Choose **List** as your selector type.
    1. Enable the **Multiple choice** option.
@@ -171,7 +172,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 
    1. At the top of the page, click **Add**.
    1. Choose **Selector**.
-   1. Select **Manual input** as source type.
+   1. Select **Manual input** as the source type.
    1. Under **Field name**, enter `interval`. The interval start and end values from the selector will be passed into the SQL query `not_var{{interval_from}}` and the `not_var{{interval_to}}` variables.
    1. Choose **Calendar** as your selector type.
    1. Enable **Range**.
@@ -183,7 +184,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
    1. Click **Add**.
    1. Place the selector on the dashboard on top of the chart next to the first selector.
    1. In the top-right corner of the dashboard, click **Save**.
-   1. Enter `Change in number of clients by year` as the dashoboard name and click **Create**.
+   1. Enter `Change in number of clients by year` as the dashboard name and click **Create**.
 
       ![image](../../_assets/datalens/sql-chart/add-selector-on-dashboard.png)
 

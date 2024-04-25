@@ -1,3 +1,5 @@
+
+
 The minimum role required to create a bucket is `storage.editor`. See the [role description](../../storage/security/#storage-editor) for details.
 
 {% list tabs group=instructions %}
@@ -164,7 +166,7 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
 
       For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:

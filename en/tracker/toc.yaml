@@ -1,5 +1,10 @@
 title: Yandex Tracker
 href: index.yaml
+label:
+  title: RU
+  description: The service is available in Russia only.
+  theme: unknown
+  when: region == "kz"
 items:
   - name: Getting started
     items:
@@ -136,7 +141,13 @@ items:
       - name: Adding a queue team
         href: manager/queue-team.md
       - name: Setting up access for a queue
-        href: manager/queue-access.md
+        items:
+          - name: Access management page
+            href: manager/queue-access.md
+          - name: Queue access permissions
+            href: manager/queue-access-types.md
+          - name: Configuration examples
+            href: manager/queue-access-examples.md
       - name: Setting up time tracking
         href: manager/queue-spent-time.md
       - name: Advanced queue features
@@ -229,7 +240,7 @@ items:
     items:
       - name: Overview
         href: manager/agile-new.md
-      - name: How to create a board
+      - name: Creating a board
         href: manager/agile-new-create.md
       - name: Configuring a board
         href: manager/agile-new-set-board.md
@@ -459,9 +470,9 @@ items:
     items:
       - name: Overview of features
         href: mobile.md
-      - name: How to enable {{ tracker-name }}
+      - name: Enabling {{ tracker-name }}
         href: mobile/enable-tracker.md
-      - name: How to log in to the mobile app
+      - name: Logging in to the mobile app
         href: mobile/login.md
       - name: My issues
         href: mobile/my-tickets.md

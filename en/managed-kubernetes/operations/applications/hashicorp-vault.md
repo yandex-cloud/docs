@@ -1,5 +1,6 @@
 # Installing HashiCorp Vault with {{ kms-name }} support
 
+
 [HashiCorp Vault](https://www.vaultproject.io/) is an open-source tool for securely storing and accessing secrets (e.g., passwords, certificates, and tokens).
 
 The application image contains a pre-installed build of HashiCorp Vault with added support for [Auto Unseal](https://developer.hashicorp.com/vault/docs/concepts/seal#auto-unseal) via [{{ kms-full-name }}](../../../kms/). The build is based on [HashiCorp Vault](https://github.com/hashicorp/vault/tags) of the appropriate version.

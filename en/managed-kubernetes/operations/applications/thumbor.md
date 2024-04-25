@@ -1,5 +1,6 @@
 # Installing Thumbor
 
+
 [Thumbor](https://thumbor.readthedocs.io/en/latest/) is an [open-source](https://github.com/thumbor/thumbor) project for on-demand image processing. Thumbor runs as an HTTP service and performs transformations, such as image cropping and resizing, [applying filters](https://thumbor.readthedocs.io/en/latest/filters.html#available-filters) and [many others](https://thumbor.readthedocs.io/en/latest/imaging.html).
 
 Thumbor features:

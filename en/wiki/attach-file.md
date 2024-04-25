@@ -7,7 +7,7 @@ To open a list of all files uploaded to a page, click ![](../_assets/wiki/svg/ac
 
 {% note warning %}
 
-The maximum total size of all files attached in {{ wiki-name }} per organization is 5 GB.
+The maximum total size of all files attached in {{ wiki-name }} per organization is 5 GB. You can increase your file storage size by [creating](../storage/operations/buckets/create.md) and connecting your own {{ objstorage-full-name }}. To connect your storage to {{ wiki-name }}, contact our [support](feedback.md) and provide the [details of the service account](../iam/operations/sa/create-access-key.md) with access to the object storage you created.
 
 {% endnote %}
 

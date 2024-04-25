@@ -21,12 +21,12 @@ SAML (Security Assertion Markup Language) — это язык разметки �
     Используйте URL со [специальным FQDN кластера](connect.md#special-fqdns):
 
     ```
-    https://c-<идентификатор_кластера_{{ OS }}>.rw.{{ dns-zone }}/api/security/saml/callback
+    https://c-<идентификатор_кластера_{{ OS }}>.rw.{{ dns-zone }}/_opendistro/_security/saml/acs
     ```
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    **Пример:** `https://c-e4ut2....rw.{{ dns-zone }}/api/security/saml/callback`
+    **Пример:** `https://c-e4ut2....rw.{{ dns-zone }}/_opendistro/_security/saml/acs`
 
 1. Укажите **SP Entity ID (Audience URI)**.
 

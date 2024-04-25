@@ -1,12 +1,13 @@
 # Expanding a pod volume
 
+
 To expand a [volume](../../concepts/volume.md):
-1. [{#T}](#enabling-expansion)
-1. [{#T}](#create-pvc)
+1. [{#T}](#enabling-expansion).
+1. [{#T}](#create-pvc).
 1. [{#T}](#create-pod)
-1. [{#T}](#restart-pod)
-1. [{#T}](#volume-expansion)
-1. [{#T}](#restart-pod1)
+1. [{#T}](#restart-pod).
+1. [{#T}](#volume-expansion).
+1. [{#T}](#restart-pod1).
 
 {% include [Install kubectl to get started](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 

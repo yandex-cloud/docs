@@ -23,7 +23,7 @@ PUT /{bucket}?logging HTTP/2
 
 ### Схема данных {#request-scheme}
 
-**Чтобы включить механизм логирования действий с бакетом:**
+**Чтобы включить механизм логирования действий с бакетом**:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -41,7 +41,7 @@ PUT /{bucket}?logging HTTP/2
 `TargetBucket` | Имя целевого бакета, в который сохраняются [объекты](../../../concepts/object.md) с логами.<br>Тип: String.
 `TargetPrefix` | [Префикс ключа объекта](../../../concepts/server-logs.md#key-prefix) с логами.<br>Тип: String.
 
-**Чтобы выключить механизм логирования действий с бакетом:**
+**Чтобы выключить механизм логирования действий с бакетом**:
 
 ```xml
 <BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01" />

@@ -56,6 +56,9 @@ description: "{{ managed-prometheus-full-name }} — система монито
 
 {% include [quotes-limits-def.md](../../../_includes/quotes-limits-def.md) %}
 
+Если вам необходимо больше ресурсов, напишите в службу технической поддержки по электронной почте [{{ link-support-mail }}](mailto:{{ link-support-mail }}) и расскажите, какие потребляемые квоты нужно увеличить и на сколько.
+
+
 ### Квоты для одного эндпоинта {#quotas-per-endpoint}
 
 Вид ограничения | Значение

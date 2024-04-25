@@ -1,5 +1,6 @@
 # Creating and configuring a {{ managed-k8s-name }} cluster with no internet access
 
+
 You can create and configure a {{ managed-k8s-name }} cluster with no internet connectivity. To do this, use the following configuration:
 
 * {{ managed-k8s-name }} cluster and node group without a public address. You can only connect to such a cluster using a {{ yandex-cloud }} virtual machine.
@@ -209,7 +210,7 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
 
          * Folder ID.
          * ID of the network created together with the {{ managed-k8s-name }} cluster.
-         * ID of the subnet created together with the {{ managed-k8s-name }} cluster and residing in the `{{ region-id }}-b` availability zone. You can find this zone in the VM settings.
+         * ID of the subnet created together with the {{ managed-k8s-name }} cluster and residing in the `{{ region-id }}-a` availability zone. You can find this zone in the VM settings.
          * Username to be used for connection to the VM over SSH.
          * Absolute path to the public part of the SSH key for connection to the VM.
 

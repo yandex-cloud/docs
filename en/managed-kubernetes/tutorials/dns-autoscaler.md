@@ -5,6 +5,7 @@ description: "Follow this guide to set up automatic DNS scaling by cluster size 
 
 # Automatic DNS scaling by cluster size
 
+
 {{ managed-k8s-name }} supports automatic DNS scaling. The [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) runs the `kube-dns-autoscaler` app that tunes the number of CoreDNS replicas depending on:
 * The number of {{ managed-k8s-name }} cluster [nodes](../concepts/index.md#node-group).
 * [The number of vCPUs](../../compute/concepts/performance-levels.md) in the {{ managed-k8s-name }} cluster.

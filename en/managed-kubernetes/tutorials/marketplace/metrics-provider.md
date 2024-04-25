@@ -1,5 +1,6 @@
 # Using {{ MP }} to stream metrics
 
+
 {{ MP }} streams metrics of {{ managed-k8s-name }} [cluster](../../concepts/index.md#kubernetes-cluster) objects to monitoring systems and [auto scaling systems](../../concepts/autoscale.md).
 
 In this article, you will learn how to set up transfers of external metrics to {{ k8s-hpa }} using {{ MP }}.

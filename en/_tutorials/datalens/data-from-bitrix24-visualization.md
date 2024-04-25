@@ -1,5 +1,6 @@
 # Visualizing Bitrix24 data
 
+
 You will create a connection to a demo Bitrix24 data source and get familiar with the dashboard and charts built by Bitrix24 based on {{ datalens-short-name }}. You will also learn to work with [datasets](../../datalens/concepts/dataset/index.md), [charts](../../datalens/concepts/chart/index.md), and [dashboards](../../datalens/concepts/dashboard.md).
 
 To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:

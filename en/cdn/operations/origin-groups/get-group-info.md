@@ -43,7 +43,7 @@ To get the URL and other details of an origin:
       ```text
       id: "152152********"
       origin_group_id: "2128********"
-      source: test-cdn-1.storage.yandexcloud.net
+      source: test-cdn-1.{{ s3-storage-host }}
       enabled: true
       meta:
         bucket:
@@ -98,7 +98,7 @@ To get the name, set of origins, and other details of an origin group:
       origins:
       - id: "2741********"
         origin_group_id: "2149********"
-        source: test-cdn-1-2.storage.yandexcloud.net
+        source: test-cdn-1-2.{{ s3-storage-host }}
         enabled: true
         backup: true
         meta:
@@ -106,7 +106,7 @@ To get the name, set of origins, and other details of an origin group:
             name: test-cdn-1-2
       - id: "2742********"
         origin_group_id: "2149********"
-        source: test-cdn-1-1.storage.yandexcloud.net
+        source: test-cdn-1-1.{{ s3-storage-host }}
         enabled: true
         meta:
           bucket:

@@ -65,10 +65,6 @@ To stop an L7 load balancer:
           locations:
           - zone_id: {{ region-id }}-a
             subnet_id: e9bn57jvjnbu********
-          - zone_id: {{ region-id }}-b
-            subnet_id: e2ltcj4urgpb********
-          - zone_id: {{ region-id }}-d
-            subnet_id: b0c29k6anelk********
         log_group_id: ckgph76s449v********
         created_at: "2022-02-11T09:00:31.911019416Z"
       - id: ds7o71924t0h********
@@ -80,10 +76,6 @@ To stop an L7 load balancer:
           locations:
           - zone_id: {{ region-id }}-a
             subnet_id: e9bn57jvjnbu********
-          - zone_id: {{ region-id }}-b
-            subnet_id: e2ltcj4urgpb********
-          - zone_id: {{ region-id }}-d
-            subnet_id: b0c29k6anelk********
         log_group_id: ckgjhe81a23v********
         created_at: "2022-02-11T09:01:46.724279145Z"
       ```
@@ -162,10 +154,6 @@ To start a load balancer:
           locations:
           - zone_id: {{ region-id }}-a
             subnet_id: e9bn57jvjnbu********
-          - zone_id: {{ region-id }}-b
-            subnet_id: e2ltcj4urgpb********
-          - zone_id: {{ region-id }}-d
-            subnet_id: b0c29k6anelk********
         log_group_id: ckgph76s449v********
         created_at: "2022-02-11T09:00:31.911019416Z"
       - id: ds7o71924t0h********
@@ -177,10 +165,6 @@ To start a load balancer:
           locations:
           - zone_id: {{ region-id }}-a
             subnet_id: e9bn57jvjnbu********
-          - zone_id: {{ region-id }}-b
-            subnet_id: e2ltcj4urgpb********
-          - zone_id: {{ region-id }}-d
-            subnet_id: b0c29k6anelk********
         log_group_id: ckgjhe81a23v********
         created_at: "2022-02-11T09:01:46.724279145Z"
       ```

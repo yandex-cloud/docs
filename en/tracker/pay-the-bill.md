@@ -50,15 +50,15 @@ To check your account balance:
 
 1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
 
-1. Select your billing account on the **{{ ui-key.yacloud.billing.switch_accounts }}** page.
+1. Select your billing account on the **{{ ui-key.yacloud_billing.billing.switch_accounts }}** page.
 
-   Go to the **{{ ui-key.yacloud.billing.account.switch_dashboard }}** page and you will see your current balance under the account name.
+   Go to the **{{ ui-key.yacloud_billing.billing.account.switch_dashboard }}** page and you will see your current balance under the account name.
 
 ## Top up your account with a bank card {#card}
 
 1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
 
-1. Select your billing account on the **{{ ui-key.yacloud.billing.switch_accounts }}** page.
+1. Select your billing account on the **{{ ui-key.yacloud_billing.billing.switch_accounts }}** page.
 
 1. Click **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.refill-balance }}** in the section with the account name.
 
@@ -68,7 +68,7 @@ To check your account balance:
 
 1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
 
-1. Select your billing account on the **{{ ui-key.yacloud.billing.accounts.label_title }}** page.
+1. Select your billing account on the **{{ ui-key.yacloud_billing.billing.accounts.label_title }}** page.
 
 1. Click **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.refill-balance }}** in the section with the account name.
 
@@ -78,7 +78,7 @@ To check your account balance:
 
 ## View your payment history {#history}
 
-You can view the full history of payments to your billing account on the **{{ ui-key.yacloud.billing.account.switch_history }}** page or in Yandex&#160;Balance. The payer type affects how the deposit history is tracked.
+You can view the full history of payments to your billing account on the **{{ ui-key.yacloud_billing.billing.account.switch_history }}** page or in Yandex&#160;Balance. The payer type affects how the deposit history is tracked.
 
 {% list tabs group=customers %}
 
@@ -90,8 +90,8 @@ You can view the full history of payments to your billing account on the **{{ ui
 
    1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
 
-   1. Select your billing account on the **{{ ui-key.yacloud.billing.switch_accounts }}** page.
+   1. Select your billing account on the **{{ ui-key.yacloud_billing.billing.switch_accounts }}** page.
 
-   1. In the left-hand panel, select **{{ ui-key.yacloud.billing.account.switch_history }}**.
+   1. In the left-hand panel, select **{{ ui-key.yacloud_billing.billing.account.switch_history }}**.
 
 {% endlist %}

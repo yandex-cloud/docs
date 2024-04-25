@@ -39,6 +39,10 @@ sourcePath: ru/_api-ref/datalens/function-ref/markup-functions.md
 
 Позволяет указать цвет для переданного текста.
 
+Рекомендуем использовать для указания цветов [переменные](https://preview.gravity-ui.com/uikit/iframe.html?args=&id=colors--texts&viewMode=story) из палитры дизайн-системы [Gravity UI](https://gravity-ui.com/). Эти цвета будут хорошо различимы как в светлой, так и в темной теме.
+
+Также цвет можно указать в любом формате представления веб-цвета: HEX, ключевым словом (например, `green`), RGB и т. д. Но в этом случае мы не гарантируем различимость цветов.
+
 
 
 ## [ITALIC](ITALIC.md)

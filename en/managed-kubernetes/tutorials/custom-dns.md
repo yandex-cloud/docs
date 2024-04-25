@@ -5,6 +5,7 @@ description: "Follow this guide to integrate a {{ managed-k8s-full-name }} clust
 
 # Integrating into a corporate DNS zone
 
+
 To integrate a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) into a private corporate DNS [zone](../../dns/concepts/dns-zone.md):
 1. [{#T}](#setup-zone)
 1. [{#T}](#create-pod)
@@ -64,7 +65,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Configure the DNS server {#setup-dns}
 
-When setting up the configuration, it is important that there is IP connectivity between the {{ managed-k8s-name }} cluster nodes and the DNS servers. The DNS servers can be part of [{{ vpc-full-name }}](../../vpc/) or be accessible via VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml). The example below assumes that the DNS server has the `10.129.0.3` address and the `ns.example.com` name and serves a zone called `example.com`.
+When configuring, it is important to achieve IP connectivity between the {{ managed-k8s-name }} cluster nodes and the DNS servers. The DNS servers themselves can either reside in [{{ vpc-full-name }}](../../vpc/) or be accessible via VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml). In the example below, a DNS server with the address `10.129.0.3` and name `ns.example.com` serves the `example.com` zone.
 
 ## Specify a corporate DNS zone {#setup-zone}
 
@@ -170,7 +171,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
          {% note alert %}
 
-         {{ TF }} will delete all the resources that you created using it, such as {{ managed-k8s-name }} clusters, networks, subnets, and [VMs](../../compute/concepts/vm.md).
+         {{ TF }} will delete all the resources you created using it, such as {{ managed-k8s-name }} clusters, networks, subnets, and [VMs](../../compute/concepts/vm.md).
 
          {% endnote %}
 
@@ -178,5 +179,5 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    {% endlist %}
 
-1. [Delete a VM](../../compute/operations/vm-control/vm-delete.md) with the DNS server.
-1. [Delete a DNS zone](../../dns/operations/zone-delete.md).
+1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md) with the DNS server.
+1. [Delete the DNS zone](../../dns/operations/zone-delete.md).

@@ -38,7 +38,7 @@ description: "In this tutorial, you will learn how to use lists in {{ wiki-name 
 
         {% note info %}
 
-        The numbering of the list starts with the number that you put before the first item. The order of the numbers in the markup does not affect the numbering of the finished list, but it is more convenient to work with the source text if the list items are numbered consecutively.
+        The numbering of the list starts with the number that you put before the first item. The order of the numbers in the markup does not affect the numbering of the finished list, but it is more convenient to use the source text if the list items are numbered consecutively.
 
         {% endnote %}
 

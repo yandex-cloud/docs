@@ -1,3 +1,5 @@
+
+
 The [Jaeger](https://github.com/jaegertracing/jaeger) distributed tracing platform helps monitor request status in distributed microservice application systems.
 
 In this article, you will learn how to install the Jaeger platform in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and configure it to work with [{{ ydb-full-name }}](../../ydb/):

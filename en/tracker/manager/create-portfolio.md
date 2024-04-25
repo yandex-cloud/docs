@@ -79,7 +79,7 @@ You can find a list of linked projects and portfolios on the **About portfolio**
 
 To create a link to other project or portfolio:
 
-1. Go to the **About portfolio** tab and click ![plus](../../_assets/console-icons/plus.svg)**Add link** .
+1. Go to the **About portfolio** tab and click ![plus](../../_assets/console-icons/plus.svg)**Add link**.
 1. Choose the appropriate link type:
 
    * **Depends on**: Start of work on the current portfolio depends on the completion of another project or portfolio.

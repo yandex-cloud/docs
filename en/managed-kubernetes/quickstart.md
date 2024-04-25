@@ -5,6 +5,7 @@ description: "In this tutorial, you will create a {{ managed-k8s-name }} cluster
 
 # Getting started with {{ managed-k8s-name }}
 
+
 Create a [{{ managed-k8s-name }} cluster](concepts/index.md#kubernetes-cluster) and [node group](concepts/index.md#node-group) and manage them using kubectl, the {{ k8s }} command line tool.
 
 ## Getting started {#before-you-begin}

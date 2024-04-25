@@ -1,6 +1,7 @@
 # putBucketLogging method
 
-Enables and disables [logging of actions with the bucket](../../../concepts/server-logs.md).
+
+Enables and disables [bucket actions logging](../../../concepts/server-logs.md).
 
 ## Request {#request}
 
@@ -22,7 +23,7 @@ PUT /{bucket}?logging HTTP/2
 
 ### Data schema {#request-scheme}
 
-**To enable logging of actions with the bucket:**
+**To enable bucket actions logging**:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -37,10 +38,10 @@ PUT /{bucket}?logging HTTP/2
 | Element | Description |
 | --- | --- |
 | `BucketLoggingStatus` | Root element. |
-| `TargetBucket` | The name of the target bucket where the log [objects](../../../concepts/object.md) are saved.<br>Type: String. |
+| `TargetBucket` | The name of the target bucket where the log [objects](../../../concepts/object.md) are saved.<br>Type: String |
 | `TargetPrefix` | [Prefix of the key](../../../concepts/server-logs.md#key-prefix) for the log object.<br>Type: String. |
 
-**To disable logging of actions with the bucket:**
+**To disable bucket actions logging**:
 
 ```xml
 <BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01" />
@@ -48,7 +49,7 @@ PUT /{bucket}?logging HTTP/2
 
 ### Headers {#request-headers}
 
-Use only [common request headers](../common-request-headers.md) in requests.
+Use only [common request headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 
