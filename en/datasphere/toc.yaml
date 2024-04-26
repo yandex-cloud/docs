@@ -1,5 +1,10 @@
 title: Yandex DataSphere
 href: index.yaml
+label:
+  title: RU
+  description: The service is available in Russia only.
+  theme: unknown
+  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -61,9 +66,6 @@ items:
             href: operations/projects/get-notebook-cell-ids.md
           - name: Installing packages
             href: operations/projects/install-dependencies.md
-          - name: Resetting the interpreter state
-            href: operations/projects/clear-kernel-state.md
-            hidden: true
           - name: Notebook code snippets
             href: operations/projects/snippets.md
           - name: Clearing notebook cell outputs
@@ -72,18 +74,12 @@ items:
             href: operations/projects/work-with-git.md
           - name: Running a job in {{ ml-platform-name }} Jobs
             href: operations/projects/work-with-jobs.md
-          - name: Running a Docker container in a separate cell
-            href: operations/user-images-cell.md
-            hidden: true
           - name: Setting up template-based notebook creation
             href: operations/projects/templates.md
       - name: Working with resources
         items:
           - name: Using secrets
             href: operations/data/secrets.md
-          - name: Working with checkpoints
-            href: operations/projects/checkpoints.md
-            hidden: true
           - name: Working with {{ dataproc-name }} templates
             href: operations/data-proc-template.md
           - name: Working with Docker images
@@ -154,18 +150,12 @@ items:
         href: concepts/configurations.md
       - name: '{{ ds-nb }}'
         items:
-          - name: Interpreter state
-            hidden: true
-            href: concepts/save-state.md
           - name: List of pre-installed software
             href: concepts/preinstalled-packages.md
           - name: Available commands
             href: concepts/magic.md
           - name: '#pragma service commands'
             href: concepts/pragma.md
-          - name: Background operations
-            hidden: true
-            href: concepts/async.md
           - name: Computing on Apache Spark™ clusters
             href: concepts/data-proc.md
       - name: '{{ ds-inf }}'
@@ -194,8 +184,6 @@ items:
             href: concepts/secrets.md
           - name: Docker images
             href: concepts/docker.md
-          - name: Checkpoints
-            href: concepts/checkpoints.md
           - name: Datasets
             href: concepts/dataset.md
           - name: '{{ dataproc-name }} templates'
@@ -240,9 +228,6 @@ items:
             href: tutorials/mlflow-datasphere.md
       - name: Use
         items:
-          - name: Deploying a service from a checkpoint
-            href: tutorials/node-from-cell.md
-            hidden: true
           - name: Deploying a service based on a Docker image
             href: tutorials/node-from-docker.md
           - name: Deploying a service based on a Docker image with FastAPI

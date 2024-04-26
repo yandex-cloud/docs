@@ -126,7 +126,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
-   Check that you can use `clickhouse-client` [to connect to the {{ mch-name }} cluster over SSL](../../managed-clickhouse/operations/connect.md#connection-string).
+   Check that you can use `clickhouse-client` [to connect to the {{ mch-name }} cluster over SSL](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client).
 
 ## Set up integration with {{ RMQ }} for the {{ mch-name }} cluster {#configure-mch-for-rmq}
 
@@ -185,7 +185,7 @@ The {{ mch-name }} cluster will insert data into a table in [JSONEachRow format]
 
 Create a table in the {{ mch-name }} cluster to accept data from {{ RMQ }}:
 
-1. [Connect](../../managed-clickhouse/operations/connect.md#connection-string) to the `db1` database of the {{ mch-name }} cluster using `clickhouse-client`.
+1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database of the {{ mch-name }} cluster using `clickhouse-client`.
 
 1. Run the following query:
 
@@ -276,7 +276,7 @@ Although you can read data directly from the table, we recommend using a materia
 
 To create a materialized view for the `db1.cars` table:
 
-1. [Connect](../../managed-clickhouse/operations/connect.md#connection-string) to the `db1` database of the {{ mch-name }} cluster using `clickhouse-client`.
+1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database of the {{ mch-name }} cluster using `clickhouse-client`.
 
 1. Run the following queries:
 
@@ -300,7 +300,7 @@ To create a materialized view for the `db1.cars` table:
 
 To get all the data from the `db1.cars_view` materialized view:
 
-1. [Connect](../../managed-clickhouse/operations/connect.md#connection-string) to the `db1` database of the {{ mch-name }} cluster using `clickhouse-client`.
+1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database of the {{ mch-name }} cluster using `clickhouse-client`.
 
 1. Run the following query:
 
@@ -326,7 +326,7 @@ Delete the resources you no longer need to avoid paying for them:
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `clickhouse-cluster-and-vm-for-rabbitmq.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

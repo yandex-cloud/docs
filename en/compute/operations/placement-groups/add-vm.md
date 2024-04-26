@@ -60,11 +60,11 @@ Add an existing [VM](../../concepts/vm.md) instance to a [placement group](../..
       Result:
 
       ```text
-      +----------------------+---------------------+---------------+---------+-------------+-------------+
-      |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
-      +----------------------+---------------------+---------------+---------+-------------+-------------+
-      | epdep2kq6dt5******** | instance-in-group-1 | {{ region-id }}-a | RUNNING |             | 10.129.0.5  |
-      +----------------------+---------------------+---------------+---------+-------------+-------------+
+      +----------------------+---------------------+-------------------+---------+-------------+-------------+
+      |          ID          |        NAME         |      ZONE ID      | STATUS  | EXTERNAL IP | INTERNAL IP |
+      +----------------------+---------------------+-------------------+---------+-------------+-------------+
+      | epdep2kq6dt5******** | instance-in-group-1 |   {{ region-id }}-a   | RUNNING |             | 10.129.0.5  |
+      +----------------------+---------------------+-------------------+---------+-------------+-------------+
       ```
 
    1. Stop the VM instance by including its name in the command below:
@@ -122,12 +122,12 @@ Add an existing [VM](../../concepts/vm.md) instance to a [placement group](../..
       Result:
 
       ```text
-      +----------------------+---------------------+---------------+---------+-------------+-------------+
-      |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
-      +----------------------+---------------------+---------------+---------+-------------+-------------+
-      | epdep2kq6dt5******** | instance-in-group-1 | {{ region-id }}-b | RUNNING |             | 10.129.0.5  |
-      | epdlv1pp5401******** | instance-in-group-2 | {{ region-id }}-b | STOPPED |             | 10.129.0.30 |
-      +----------------------+---------------------+---------------+---------+-------------+-------------+
+      +----------------------+---------------------+-------------------+---------+-------------+-------------+
+      |          ID          |        NAME         |      ZONE ID      | STATUS  | EXTERNAL IP | INTERNAL IP |
+      +----------------------+---------------------+-------------------+---------+-------------+-------------+
+      | epdep2kq6dt5******** | instance-in-group-1 |   {{ region-id }}-a   | RUNNING |             | 10.129.0.5  |
+      | epdlv1pp5401******** | instance-in-group-2 |   {{ region-id }}-a   | STOPPED |             | 10.129.0.30 |
+      +----------------------+---------------------+-------------------+---------+-------------+-------------+
       ```
 
    1. Start the VM instance by including its name in the command below:
@@ -218,4 +218,4 @@ Add an existing [VM](../../concepts/vm.md) instance to a [placement group](../..
 
 ## See also {#see-also}
 
-* [Creating a VM in a placement group](create-vm-in-pg.md).
+* [Creating a VM in a placement group](create-vm-in-pg.md)

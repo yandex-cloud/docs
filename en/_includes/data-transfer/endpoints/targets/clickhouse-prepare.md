@@ -10,7 +10,7 @@
 
       Once started, the transfer will connect to the target on behalf of this user.
 
-   1. [Create a security group](../../../../vpc/operations/security-group-create.md) and [configure it](../../../../managed-clickhouse/operations/connect.md#configuring-security-groups).
+   1. [Create a security group](../../../../vpc/operations/security-group-create.md) and [configure it](../../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
    1. Assign the created security group to the {{ mch-name }} cluster.
 

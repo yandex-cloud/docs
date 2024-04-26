@@ -22,7 +22,7 @@
 | `MoveRouteTable` | Moving a routing table to another folder |
 | `MoveSecurityGroup` | Moving a security group to another folder |
 | `MoveSubnet` | Moving a cloud subnet to another folder |
-| `RelocateSubnet` | Moving a cloud subnet to a different availability zone |
+| `RelocateSubnet` | Moving a cloud subnet to a [different availability zone](../../../overview/concepts/geo-scope.md) |
 | `RouteTableAttached` | Adding a routing table to a subnet |
 | `RouteTableDetached` | Detaching a routing table from a subnet |
 | `UpdateAddress` | Updating the address of a cloud resource |

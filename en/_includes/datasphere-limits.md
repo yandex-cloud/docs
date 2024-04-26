@@ -28,8 +28,6 @@
 | Type of limit | Value |
 --- | ---
 | Number of datasets concurrently connected to a project | 3 |
-| Maximum pinned [checkpoints](../datasphere/concepts/checkpoints.md) per project | 10 |
-| Maximum non-pinned checkpoints per project | 10 |
 | Maximum project storage size | 4,096 GB |
 | Maximum dataset size | 4,096 GB |
 | Maximum data size per job | 10 GB |

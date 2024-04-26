@@ -1,5 +1,6 @@
 # Developing a skill for Alice and a website with authorization
 
+
 In this scenario, you will develop a skill for Alice and deploy a web app for creating, reading and editing to-do lists with Alice's help, as well as for sharing the lists with other users on the website.
 
 
@@ -23,7 +24,7 @@ To deploy a project:
    * [jq](https://stedolan.github.io/jq/download/).
    * [Node.js](https://nodejs.org/en/download/package-manager/).
    * [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
-1. To finalize the project, you'll additionally need:
+1. To finalize the project, you will additionally need:
    * [The Go programming language](https://go.dev/).
    * The [go-swagger](https://goswagger.io/) utility.
    * The [api-spec-converter](https://www.npmjs.com/package/api-spec-converter) utility.
@@ -108,7 +109,7 @@ To do this, go to the folder with the `app.tf` config file and run the command:
 terraform init
 ```
 
-Once {{ TF }} is initialized, run the command by providing the [OAuth token](../../iam/concepts/authorization/oauth-token.md) value to be used for authorization in {{ yandex-cloud }}:
+Once {{ TF }} is initialized, run the command by delivering the [OAuth token](../../iam/concepts/authorization/oauth-token.md) value for authorization in {{ yandex-cloud }}:
 
 ```bash
 terraform apply -var-file ./variables.json -var yc-token=<OAuth_token>
@@ -248,7 +249,7 @@ To debug the skill, use the **Testing** tab in the [Yandex Dialogs](https://dia
 
 ### In the console {#console-test}
 
-Go to the **Testing** tab. You'll see a chat with Alice on the left and an interaction protocol in JSON format on the right.
+Go to the **Testing** tab. You will see a chat with Alice on the left and an interaction protocol in JSON format on the right.
 
 Below is a sample dialog:
 

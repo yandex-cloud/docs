@@ -29,7 +29,7 @@ To create a disk from an [image](../../concepts/image.md):
    1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
 
 
-   1. If required, select a [schedule](../../concepts/snapshot-schedule.md) for automatic snapshot creation, or set up a new schedule. For more information about setting up schedules, see the [guide](../snapshot-control/create-schedule.md).
+   1. If required, select a [schedule](../../concepts/snapshot-schedule.md) for automatic snapshot creation, or set up a new schedule. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
 
       {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
@@ -123,6 +123,7 @@ To create a disk from an [image](../../concepts/image.md):
 {% endlist %}
 
 Once created, the disk will get the `CREATING` status. Wait until the disk status changes to `READY` before using it.
+
 
 #### See also {#see-also}
 

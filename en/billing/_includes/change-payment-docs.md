@@ -4,7 +4,7 @@ Your request should contain:
 
 - Individual entrepreneurs {#entrepreneurs}
 
-  * Scanned copy of the [Unified State Register of Individual Entrepreneurs](https://egrul.nalog.ru/index.html) record sheet for Russia (or a similar register of individual entrepreneurs) or a scanned copy of your registration with the tax office as an individual entrepreneur.
+  *  or a scanned copy of your tax office registration as an individual entrepreneur.
   * [Billing account](../../billing/concepts/billing-account.md) ID
 
 - Businesses {#businesses}

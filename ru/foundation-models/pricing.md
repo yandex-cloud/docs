@@ -69,12 +69,6 @@ editable: false
 
 ### Генерация текста в {{ yagpt-full-name }} {#pricing-generating}
 
-{% note warning %}
-
-Цены, представленные ниже, начнут действовать 25 марта 2024 года.
-
-{% endnote %}
-
 
 {% include [rub-generating.md](../_pricing/yandexgpt/rub-generating_new.md) %}
 

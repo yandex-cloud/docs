@@ -1,5 +1,6 @@
 # {{ data-transfer-name }} tutorials
 
+
 Using {{ data-transfer-name }}, you can implement a variety of scenarios for migrating data, capturing data changes, delivering data from queues, loading data to data marts, and mirroring and uploading data to scalable storage.
 
 ## Data migration {#migration}

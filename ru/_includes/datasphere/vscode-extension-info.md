@@ -1,0 +1,1 @@
+Работа с заданиями также доступна в [Visual Studio Code](https://code.visualstudio.com/) с помощью расширения [{{ ds-jobs }} Toolkit](../../datasphere/operations/projects/jobs-toolkit.md).

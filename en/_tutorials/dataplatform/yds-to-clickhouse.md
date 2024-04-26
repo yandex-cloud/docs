@@ -1,6 +1,6 @@
 # Saving a {{ yds-full-name }} data stream in {{ mch-full-name }}
 
-With {{ data-transfer-name }}, you can deliver data from a [{{ yds-name }} data stream](../../data-streams/concepts/glossary.md#stream-concepts) to {{ mch-name }}.
+With {{ data-transfer-name }}, you can deliver data from a [data stream {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts) to {{ mch-name }}.
 
 To transfer data:
 
@@ -195,7 +195,7 @@ Prepare the infrastructure:
       1. Specify the variables in the `data-transfer-yds-mch.tf` file:
 
          * `source_endpoint_id`: ID of the source endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -235,7 +235,7 @@ Prepare the infrastructure:
 
 1. Make sure the data from the {{ yds-name }} stream has been moved to the {{ mch-name }} cluster database:
 
-   1. [Connect to the {{ mch-name }} target cluster](../../managed-clickhouse/operations/connect.md).
+   1. [Connect to the {{ mch-name }} target cluster](../../managed-clickhouse/operations/connect/clients.md).
    1. Check that the {{ CH }} database contains a table with the name of the [created {{ yds-name }} data stream](#prepare-source) with the same columns as the [data schema in the source endpoint](#prepare-transfer) and the sent test data.
 
 ## Delete the resources you created {#clear-out}

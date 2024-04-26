@@ -23,24 +23,24 @@ You can get a CSV file with your general or per-resource spending details.
 
 {% list tabs group=instructions %}
 
-- {{ billing-name }} interface {#billing}
+- {{ billing-interface }} {#billing}
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
    1. Select the account you want to get details for.
-   1. In the left-hand panel, select **{{ ui-key.yacloud.billing.account.switch_exports }}**.
-   1. Click **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
-   1. In the **{{ ui-key.yacloud.billing.account.exports.label_create-export-title }}** window that opens, specify:
-      * In the **{{ ui-key.yacloud.billing.account.exports.field_bucket }}** field, the name of the bucket to store the CSV file with details.
-      * In the **{{ ui-key.yacloud.billing.account.exports.field_prefix }}** field, the name of the folder for the file. The last character must be `/`.
-      * Select the language for product names: English or Russian.
-      * Select **{{ ui-key.yacloud.billing.account.exports.label_not-include-resources }}** or **{{ ui-key.yacloud.billing.account.exports.label_include-resources }}** as the detailed view type.
+   1. In the left-hand panel, select **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
+   1. Click **{{ ui-key.yacloud_billing.billing.account.exports.button_create-periodic-export }}**.
+   1. In the **{{ ui-key.yacloud_billing.billing.account.exports.label_create-export-title }}** window that opens, specify:
+      * In the **{{ ui-key.yacloud_billing.billing.account.exports.field_bucket }}** field, the name of the bucket to store the CSV file with details.
+      * In the **{{ ui-key.yacloud_billing.billing.account.exports.field_prefix }}** field, the name of the folder for the file. The last character must be `/`.
+          Select the language for product names: English or Russian. 
+      * Select **{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}** or **{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}** as the detailed view type.
 
          {% note tip %}
 
-         If you select the **{{ ui-key.yacloud.billing.account.exports.label_include-resources }}** type of details for regular export, you can also view {{ datalens-full-name }}, {{ tracker-full-name }}, and {{ ml-platform-name }} resources in the [`resource_id` field](#format) (e.g., [{{ ml-platform-name }} community IDs](../../datasphere/concepts/community.md)).
+         If you select the **{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}** type of details for regular export, you can also view {{ datalens-full-name }}, {{ tracker-full-name }}, and {{ ml-platform-name }} resources in the [`resource_id` field](#format) (e.g., [{{ ml-platform-name }} community IDs](../../datasphere/concepts/community.md)).
 
          {% endnote %}
-   1. Click **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -77,7 +77,7 @@ The table contains the following columns:
    * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }}, and {{ mkf-name }}: ID of the cluster host.
    * {{ message-queue-name }}: ID of the request.
    * {{ sf-name }}: ID of the function.
-   * {{ monitoring-short-name }}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }}, and {{ vision-short-name }}: An empty value.
+   * {{ monitoring-short-name }}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }} and {{ vision-short-name }}: An empty value.
    * Technical support: ID of the subscription.
 * `service_id`: ID of the service that the consumed product belongs to.
 * `service_name`: Name of the service that the consumed product belongs to.
@@ -93,7 +93,7 @@ The table contains the following columns:
 * `volume_incentive_credit`: Discount for the volume of product consumption. The decimal separator is a period.
 * `cud_credit`: Discount for the [committed volume](../concepts/cvos.md) of the resource. The cost of consumption in excess of the commitment equals the difference between the `cost` and `credit` column values. The decimal separator is a period.
 * `misc_credit`: Other types of discounts, including discounts for resource consumption after the grant for trying the platform expires, but before switching to the paid version. The decimal separator is a period.
-* `label.user_labels.<label name>`: Labels set for resources. For information about how to manage labels, see [{#T}](../../resource-manager/operations/manage-labels.md).
+* `label.user_labels.<label_name>`: Labels set for resources. For information about how to manage labels, see [{#T}](../../resource-manager/operations/manage-labels.md).
 * `locale`: Language of each exported line. The value of this field determines the `sku_name` column language. Possible values are `en` and `ru`.
 * `updated_at`: Date and time of the last line update in [Unix Timestamp](https://www.unixtimestamp.com) format.
 * `exported_at`: Date and time when the line was added to the detail file.

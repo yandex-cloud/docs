@@ -1,10 +1,11 @@
 # Getting started with {{ dns-name }}
 
+
 Create [DNS zones](concepts/dns-zone.md), add `A` records for your test [VMs](../compute/concepts/vm.md) to them, and test the availability of domain names.
 
 ## Getting started {#before-begin}
 
-1. Log in to or register in the [management console]({{ link-console-main }}). If you do not have an account yet, go to the management console and follow the guide.
+1. Log in or sign up to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
 
 
 1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).

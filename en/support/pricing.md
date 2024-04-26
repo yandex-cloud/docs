@@ -5,7 +5,6 @@ editable: false
 # Technical support pricing
 
 
-
 ## Current service plans {#effective-plans}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -65,5 +64,6 @@ The cost of support will be:
 
 The <q>Premium</q> plan includes all the services offered under the other service plans and can be supplemented based on your requirements.
 
-To get an estimate of the Premium service plan cost, please contact your {{ yandex-cloud }} manager or [support]({{link-console-support}}).
+To get an estimate of the Premium service plan cost, please contact your {{ yandex-cloud }} manager or [technical support]({{ link-console-support }}).
+
 

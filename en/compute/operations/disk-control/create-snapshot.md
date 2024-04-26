@@ -5,6 +5,7 @@ description: "Follow this guide to create a disk snapshot."
 
 # Creating a disk snapshot
 
+
 A _disk snapshot_ is a copy of the disk file system at a specific point in time.
 
 {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}

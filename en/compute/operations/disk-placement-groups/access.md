@@ -5,6 +5,7 @@ description: "You can assign or revoke access permissions for a non-replicated {
 
 # Configuring access permissions for a non-replicated disk placement group
 
+
 To grant a user, group, or [service account](../../../iam/concepts/users/service-accounts.md) access to a [non-replicated disk placement group](../../concepts/disk-placement-group.md), assign a [role](../../../iam/concepts/access-control/roles.md) for it.
 
 ## Assigning a role {#add-access}

@@ -1,5 +1,6 @@
 # Platforms
 
+
 {{ compute-full-name }} provides various types of physical processors. Choosing a platform guarantees the type of physical processor in the data center and determines the supported vCPU and RAM configurations. You can also add a graphics accelerator ([GPU](gpus.md)) to a VM. You need to choose a platform each time you create a new VM.
 
 {% note warning %}

@@ -12,7 +12,7 @@ You can send requests to fine-tuned models in {{ yagpt-name }}. Requests to the 
 
 ## Getting started {#before-begin}
 
-{% include notitle [ai-before-beginning](../../../_includes/yandexgpt/ai-before-beginning.md) %}
+{% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
 
 ## Send a request for text summarization {#text-summarization}
 
@@ -35,7 +35,7 @@ You can send requests to fine-tuned models in {{ yagpt-name }}. Requests to the 
    }
    ```
 
-   {% include [api-parameters](../../../_includes/yandexgpt/api-parameters.md) %}
+   {% include [api-parameters](../../../_includes/foundation-models/yandexgpt/api-parameters.md) %}
 
 1. To send the request to the model, run this command:
 

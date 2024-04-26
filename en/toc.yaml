@@ -89,7 +89,7 @@ items:
   - name: Managed Service for Redis
     href: managed-redis/index.yaml
   - name: Marketplace partner interface
-    href: marketplace/index.md
+    href: marketplace/index.yaml
   - name: Message Queue
     href: message-queue/index.yaml
   - name: MetaData Hub

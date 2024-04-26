@@ -1,5 +1,10 @@
 title: '{{ sf-full-name }}'
 href: index.yaml
+label:
+  title: RU
+  description: The service is available in Russia only.
+  theme: unknown
+  when: region == "kz"
 items:
   - name: Comparison with other {{ yandex-cloud }} services
     href: service-comparison.md

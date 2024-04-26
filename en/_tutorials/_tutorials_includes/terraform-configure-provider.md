@@ -61,6 +61,7 @@ These settings apply to {{ TF }} `0.13` and higher. We recommend using the lates
    For more information about setting up mirrors, see the [documentation](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 1. Add the following sections at the top of the `.tf` configuration file:
 
+   
    ```hcl
    terraform {
      required_providers {
@@ -76,6 +77,8 @@ These settings apply to {{ TF }} `0.13` and higher. We recommend using the lates
    }
    ```
 
+
+
    Where:
    * `source`: Provider's global [source address](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses).
    * `required_version`: Minimum {{ TF }} version the provider is compatible with.
@@ -83,7 +86,7 @@ These settings apply to {{ TF }} `0.13` and higher. We recommend using the lates
    * `zone`: [Availability zone](../../overview/concepts/geo-scope.md) where all cloud resources will be created by default.
 1. Run the `terraform init` command in the folder containing the `.tf` configuration file. This command initializes the providers specified in the configuration files and allows you to work with the provider resources and data sources.
 
-If the provider installation failed, create a [support request]({{ link-console-support }}?section=contact) indicating the provider name and version.
+If the provider installation failed, create a [support request]({{ link-console-support }}) stating provider name and version.
 
 If you used the `.terraform.lock.hcl` file, before initialization run the `terraform providers lock` command, specifying the URL of the mirror the provider will be uploaded from and the platforms the configuration will be used on:
 

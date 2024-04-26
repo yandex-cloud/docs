@@ -1,4 +1,5 @@
-# File storage
+# File storages
+
 
 _File storage_ is a virtual file system that can be attached to multiple {{ compute-name }} [VMs](vm.md) in the same availability zone. Users can share files in storage and use them from different VMs.
 
@@ -35,12 +36,6 @@ When you delete a VM, any attached storages are detached from it. In this case, 
 You can attach file storage to VMs running Linux with kernel version 5.4 or higher. To check the kernel version, use the `uname -r` command. If you create a VM from a custom [image](image.md), prepare it using [this guide](../operations/image-create/custom-image.md).
 
 Attaching file storages to Windows-based VMs in {{ compute-name }} is currently not supported.
-
-### Delivering metrics to {{ monitoring-full-name }} {#metrics-delivery}
-
-File storage metrics are not delivered to [{{ monitoring-full-name }}]({{ link-monitoring }}) automatically.
-
-Metric delivery to {{ monitoring-name }} via [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/) is not supported.
 
 **See also**
 

@@ -5,6 +5,7 @@ description: "Follow this guide to update a disk."
 
 # Updating a disk
 
+
 After you create a [disk](../../concepts/disk.md), you can:
 * [Change the disk name and description](#change-disk-name).
 * [Increase the size of your disk](#change-disk-size), even if it is attached to a [running](../../concepts/vm-statuses.md#list-of-statuses) [VM](../../concepts/vm.md).
@@ -61,7 +62,7 @@ To change the name and description of a disk:
 
 {% endlist %}
 
-## Increasing disk size {#change-disk-size}
+## Increasing the disk size {#change-disk-size}
 
 {% note info %}
 

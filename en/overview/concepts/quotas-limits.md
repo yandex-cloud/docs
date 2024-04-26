@@ -3,7 +3,7 @@ title: "What are quotas and limits in {{ yandex-cloud }}"
 description: "{{ yandex-cloud }} services may be subject to quotas and limits. Quotas are organizational restrictions that can be changed by technical support on request. Limits are technical restrictions due to the {{ yandex-cloud }} architecture. The limits cannot be changed."
 ---
 
-# {{ yandex-cloud }} services quotas and limits
+# {{ yandex-cloud }} service quotas and limits
 
 {{ yandex-cloud }} services can be subject to quotas and limits:
 
@@ -14,10 +14,14 @@ When designing your infrastructure in {{ yandex-cloud }}, plan for the maximum l
 
 ## Why quotas are needed {#quotas}
 
-Quotas serve as a soft restriction for requesting resources and enable {{ yandex-cloud }} to guarantee service stability, as new users cannot take up too many resources for testing purposes. If you are willing to use more resources, you can increase them in the following ways:
+Quotas serve as a soft restriction for requesting resources and enable {{ yandex-cloud }} to guarantee service stability: with quotas, new users cannot take up too much resources for testing purposes.
+
+
+If you are willing to use more resources, you can increase them in the following ways:
 
 * [Generate a request for a quota increase]({{ link-console-quotas }}). You must have the `quota-manager.requestOperator` [role](../../iam/roles-reference.md#quota-manager-requestoperator) or higher (`editor` or `admin`).
 * Contact [support]({{ link-console-support }}) and tell us which quotas you need to increase and by how much.
+
 
 
 ## Default quotas and limits for {{ yandex-cloud }} services {#quotas-limits-default}

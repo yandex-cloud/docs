@@ -62,7 +62,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. In `clickhouse-hybrid-storage.tf`, specify the username and password to use to access the {{ mch-name }} cluster.
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
 
    1. To verify that the config files are correct, run the command below:
 
@@ -88,7 +88,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    apt-get update && apt-get install curl xz-utils
    ```
 
-1. [Set up clickhouse-client](../../managed-clickhouse/operations/connect.md#clickhouse-client) and use it to connect to the database.
+1. [Set up clickhouse-client](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) and use it to connect to the database.
 
 ### Explore the test dataset (optional) {#explore-dataset}
 
@@ -174,10 +174,10 @@ To learn more about configuring TTL, see the [{{ CH }} documentation]({{ ch.docs
 
 To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tutorial/#import-data).
 
-## Checking the placement of data in a cluster {#check-table-tiering}
+## Check the placement of data in a cluster {#check-table-tiering}
 
-1. [Connect to the database](../../managed-clickhouse/operations/connect.md#clickhouse-client).
-1. Find out where the table rows are placed:
+1. [Connect to the database](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client).
+1. Check where the table rows are placed:
 
    ```sql
    SELECT
@@ -289,7 +289,7 @@ Delete the resources you no longer need to avoid paying for them:
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete `clickhouse-hybrid-storage.tf`.
    1. Run this command:
 

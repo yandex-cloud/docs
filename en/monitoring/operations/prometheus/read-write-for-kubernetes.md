@@ -6,6 +6,7 @@ noIndex: true
 
 # Reading and writing {{ managed-k8s-full-name }} cluster metrics with the Prometheus Operator
 
+
 {% include [install-prometheus-operator](../../../_includes/managed-kubernetes/install-prometheus-operator.md) %}
 
 ## See also {#see-also}

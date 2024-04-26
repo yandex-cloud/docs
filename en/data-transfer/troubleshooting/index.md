@@ -89,11 +89,13 @@ Error example:
 
 ## {{ ES }} {#elasticsearch}
 
+
 {% include [ambiguous-object-resolution-es](../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-es.md) %}
 
 {% include [duplication](../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
 
 ## {{ MG }} {#mongodb}
+
 
 {% include [string-size](../../_includes/data-transfer/troubles/mongodb/string-size.md) %}
 

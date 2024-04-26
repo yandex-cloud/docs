@@ -1,5 +1,6 @@
 # Writing load balancer logs to {{ PG }}
 
+
 You can write load balancer [logs](../../application-load-balancer/concepts/application-load-balancer.md#logging) (messages about each incoming request to the {{ alb-full-name }} load balancer) to the {{ PG }} database.
 
 To log load balancer operations, a [log group](../../logging/concepts/log-group.md) will be created in {{ cloud-logging-name }}. Log delivery from this log group to the database will be set up using {{ sf-full-name }} resources: a [trigger](../../functions/concepts/trigger/cloud-logging-trigger.md) and a triggered [function](../../functions/concepts/function.md).

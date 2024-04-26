@@ -5,6 +5,7 @@ Billing accounts are used to identify users paying for resources in {{ yandex-cl
 A billing account can be linked to multiple clouds and one [personal account](personal-account.md). You can only use the payment method that corresponds to the type of billing account and your [agreement](contract.md).
 
 
+
 The relationship between clouds, billing accounts, personal accounts, and payment methods is shown in the diagram below.
 
 ![image](../../_assets/billing/cloud-billing-account-svg.svg)
@@ -27,17 +28,16 @@ To access the list of billing accounts, navigate to [**{{ billing-name }}**]({{ 
 
 - Individual account {#individual}
 
-   * It is intended for residents of Russia or Kazakhstan.
+   * For residents of Russia and Kazakhstan.
    * The account is created as a paid one.
    * You pay for resources using your [bank card](../payment/payment-methods-individual.md).
    * Your card is debited automatically for the resources you consume. For more information, see [Billing cycle for individuals](../payment/billing-cycle-individual.md).
 
 - Business account {#business}
 
-   * It is intended for residents and non-residents of Russia or Kazakhstan.
-   * Consumed resources are paid for by bank transfer from the [business's bank account](../payment/payment-methods-business.md) or a [bank card](../payment/payment-methods-card-business.md).
-   * Payments for resources consumed are made based on the [agreement](../concepts/contract.md) and [bank invoice](bill.md), or the amount is debited automatically from the linked bank card. For more information, see [Billing cycle for businesses](../payment/billing-cycle-business.md).
-   * A statement of the services rendered (for residents of Russia or Kazakhstan) and an invoice (for residents of Russia only) are sent to your email address at the beginning of the next billing cycle. Invoices for residents of Kazakhstan are generated electronically. For more information, see [Reporting documents](../payment/documents.md).
+   * For residents of Russia and Kazakhstan and non-residents of Russia and Kazakhstan.
+   * Businesses pay for resources they consume by bank transfer from the [corporate bank account](../payment/payment-methods-business.md) or using a [bank card](../payment/payment-methods-card-business.md).
+   * Payments for resources are either made based on the [agreement](../concepts/contract.md) against [invoices](bill.md) or debited automatically from the linked bank card. For more information, see [Billing cycle for legal entities](../payment/billing-cycle-business.md).
    * New customers are eligible for a [trial period](trial-period.md).
 
 {% endlist %}

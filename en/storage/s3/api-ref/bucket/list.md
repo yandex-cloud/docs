@@ -2,6 +2,7 @@
 
 Returns a list of buckets available to the user.
 
+{% include [sa-acl-bucket-list-note.md](../../../../_includes/storage/sa-acl-bucket-list-note.md) %}
 
 ## Request {#request}
 
@@ -10,7 +11,7 @@ GET / HTTP/2
 ```
 
 ### Headers {#request-headers}
-Use only [common request headers](../common-request-headers.md) in requests.
+Use only [common request headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 
@@ -39,7 +40,7 @@ A successful response contains additional data in XML format with the schema des
 ```
 
 | Element | Description |
-| ----- | ----- |
+----- | -----
 | `Bucket` | Contains a bucket description.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket`. |
 | `Buckets` | Contains a list of buckets.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets`. |
 | `CreationDate` | Bucket creation time in the format `yyyy-mm-ddThh:mm:ss.timezone`.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket/CreationDate`. |

@@ -1,8 +1,9 @@
 # Creating a VM backup with Hystax Acura Backup
 
+
 You can create VM backups automatically and recover them in your cloud infrastructure using [Hystax Acura Backup in {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-backup).
 
-A VM with Hystax Acura Backup manages backup and recovery processes. VM backups are saved to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md). Recovery is performed using an auxiliary Hystax Cloud Agent VM. It creates a new VM with a certain RPO (Recovery Point Objective) as of an arbitrary point of time in the past. A VM backup's RTO (Recovery Time Objective) depends on the amount of source data.
+A VM with Hystax Acura Backup manages the backup and recovery processes. VM backups are saved to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md). Recovery is performed using an auxiliary Hystax Cloud Agent VM. It creates a new VM with a certain RPO (Recovery Point Objective) at a point of time in the past. Backup RTO (Recovery Time Objective) depends on the amount of source data.
 
 To back up and recover a VM using Hystax Acura Backup:
 
@@ -39,7 +40,7 @@ For detailed system requirements, see the [Hystax documentation](https://cdn.hys
 The cost of the resources required to use Hystax Acura Backup includes:
 * Fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-instance-resources)).
 * Fee for VM disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-storage)).
-* Fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * Fee for data storage in a bucket and operations with data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for using Hystax Acura Backup (see [product description](/marketplace/products/hystax/hystax-acura-backup) in {{ marketplace-name }}).
 

@@ -2,8 +2,6 @@
 
 This section describes the basic information about working with [{{ mch-name }}](https://cloud.yandex.ru/services/managed-clickhouse).
 
-{% include [preview](../_includes/preview.md) %}
-
 Example of reading data from {{ mch-name }}:
 
 ```sql
@@ -35,7 +33,7 @@ To create a connection to {{ mch-name }}:
       * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}**: `{{ ui-key.yql.yq-connection.click-house.select-item }}`.
    1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ mch-name }} cluster or create a new one.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing [service account](../../iam/concepts/users/service-accounts.md) {{ mch-name }}, or create a new one with the [`{{ roles.mch.viewer }}`](../../managed-clickhouse/security/index.md#mch-viewer) role, and use it to connect to `{{ mch-name }}` clusters.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing [service account](../../iam/concepts/users/service-accounts.md) {{ mch-name }}, or create a new one with the [`{{ roles.mch.viewer }}`](../../managed-clickhouse/security.md#managed-clickhouse-viewer) role, and use it to connect to `{{ mch-name }}` clusters.
       * **{{ ui-key.yql.yq-connection-info.database.label }}**: Select the database you will use when working with the {{ CH }} cluster.
       * **{{ ui-key.yql.yq-connection-form.login.input-label }}**: Username to use when connecting to {{ CH }} databases.
       * **{{ ui-key.yql.yq-connection-form.password.input-label }}**: User password to use when connecting to {{ CH }} databases.

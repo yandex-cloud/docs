@@ -4,7 +4,8 @@ description: "In this tutorial, you will learn how to set up a {{ MG }} source e
 ---
 # Transferring data from a {{ MG }} source endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data from a {{ MG }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+
+{{ data-transfer-full-name }} enables you to migrate data from a {{ MG }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ MG }}](#prepare) database for the transfer.

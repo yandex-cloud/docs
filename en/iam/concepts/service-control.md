@@ -5,7 +5,10 @@ description: "In this tutorial you will learn how to manage the access of servic
 
 # Service control
 
+
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
 
 Some {{ yandex-cloud }} services require access to other services' resources in the user's cloud. For example, {{ connection-manager-full-name }} requires permissions to create {{ lockbox-full-name }} secrets in the user's cloud to manage database connections, as well as permissions to manage the secrets thus created.
 

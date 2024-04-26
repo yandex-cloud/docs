@@ -1,7 +1,12 @@
 title: About technical support
 href: index.yaml
+label:
+  title: KZ
+  description: The service is available in Kazakhstan.
+  theme: info
+  when: region == "kz"
 items:
-  - name: Procedure for providing technical support
+  - name: Technical support procedure
     href: overview.md
   - name: Support Center
     href: support-center.md
@@ -19,7 +24,6 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
-      - name: Archive
         items:
           - name: Before October 1, 2023
             href: pricing-archive/pricing01102023.md

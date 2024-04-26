@@ -8,6 +8,7 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 
 {% include [Tag-Preview](../_includes/tag-preview.md) %}
 
+
 | Service name | API Reference |
 | ---------------- | --------------- |
 | {{ api-gw-full-name }}                  | [gRPC](../api-gateway/apigateway/api-ref/grpc/)<br>[REST](../api-gateway/apigateway/api-ref/)<br>[WebSocket gRPC](../api-gateway/apigateway/websocket/api-ref/grpc/)<br>[WebSocket REST](../api-gateway/apigateway/websocket/api-ref/) |

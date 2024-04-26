@@ -1,6 +1,7 @@
 # Getting started with {{ data-transfer-name }}
 
 Copy or replicate data from a source to a target by creating [endpoints](concepts/index.md#endpoint) and configuring [transfers](concepts/index.md#transfer) between them.
+For more information, refer to the [full list of endpoints](transfer-matrix.md) and possible transfers between them.
 
 
 ## Getting started {#before-you-begin}
@@ -88,9 +89,6 @@ Prepare the target for receiving the data:
 * [{{ MY }}](operations/prepare.md#target-my)
 * [{{ objstorage-name }}](operations/prepare.md#target-storage)
 * [{{ PG }}](operations/prepare.md#target-pg)
-
-
-* [{{ ydb-full-name }}](operations/prepare.md#target-ydb)
 
 
 ## Creating an endpoint for the source {#source}

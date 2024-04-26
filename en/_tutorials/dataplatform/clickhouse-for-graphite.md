@@ -139,7 +139,7 @@ Register the `rollup` configuration in a cluster to decimate and aggregate or av
 
 ## Connect the virtual machine to a database {#cluster-connect}
 
-1. If you are using security groups for a cloud network, [set them up](../../managed-clickhouse/operations/connect.md#configuring-security-groups) to allow all required traffic between the cluster and the VM.
+1. If using security groups for a cloud network, [configure them](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) to allow all required traffic between the cluster and the VM.
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md).
 1. Run the {{ CH }} CLI with the following parameters: replace `<host_FQDN>`, `<database_name>`, `<database_username>`, and `<database_user_password>` with the previously saved values.

@@ -62,7 +62,7 @@ Grant terms of use depend on:
 
    | Payment method | Using the grant |
    --- | ---
-   | Any | Total grant in the amount of ₸24,000 can be used to pay for any {{ yandex-cloud }} services |
+   | Any | You can use the whole grant anount to pay for any {{ yandex-cloud }} services. |
 
 - Non-residents of Russia and Kazakhstan {#nonresidents}
 

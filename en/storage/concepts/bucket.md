@@ -37,19 +37,21 @@ When choosing a name for your bucket, keep in mind that names containing dots ar
 
 You can use the following URL formats to access a bucket:
 
-- `https://{{ s3-storage-host }}/<bucket>?<parameters>`
-- `http://<bucket>.{{ s3-storage-host }}?<parameters>`
+
+* `http(s)://{{ s3-storage-host }}/<bucket_name>?<parameters>`
+* `http(s)://<bucket_name>.{{ s3-storage-host }}?<parameters>`
+
 
 {% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
 
 
-
 ## Accessing a bucket via HTTPS {#bucket-https}
 
-{{ objstorage-name }} supports secure connections over HTTPS. When accessing your buckets, use URLs in the `https://{{ s3-storage-host }}/<bucket>?<parameters>` format.
+{{ objstorage-name }} supports secure connections over HTTPS.
 
 {% include [bucket-https](../../_includes/storage/bucket-https.md) %}
 
+You can read more about HTTPS support when hosting websites in {{ objstorage-name }} under [{#T}](./hosting.md).
 
 
 ## Bucket settings {#bucket-settings}

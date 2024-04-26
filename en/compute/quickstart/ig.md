@@ -4,8 +4,8 @@ Create an instance group using the [Instance Groups](../concepts/instance-groups
 
 ## Getting started {#before-you-begin}
 
-1. Log in to the [management console]({{ link-console-main }}) or register as a new user. If not registered yet, navigate to the management console and follow the guide.
-1. On the [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. Log in or sign up to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
+1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../resource-manager/operations/folder/create.md).
 
 ## Create an instance group {#create-ig}
@@ -41,7 +41,7 @@ To create an instance group:
    * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Choose a [platform](../../compute/concepts/vm-platforms.md).
       * Specify the [guaranteed share](../../compute/concepts/performance-levels.md) and the required number of vCPUs, as well as the amount of RAM.
-      * (Optional) Specify that you want a [preemptible](../../compute/concepts/preemptible-vm.md) VM.
+      * (Optional) Specify that the VM must be [preemptible](../../compute/concepts/preemptible-vm.md).
    * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       * Select a [cloud network](../../compute/concepts/vm.md#network) and [subnet](../../compute/concepts/network.md#subnet). If there is no subnet, create one:
          * Click **{{ ui-key.yacloud.compute.instances.create.button_create-subnetwork-new }}**.

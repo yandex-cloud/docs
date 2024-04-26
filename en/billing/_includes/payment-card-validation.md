@@ -1,1 +1,1 @@
-To make sure your bank card is valid, we will hold a small amount) on your account. This amount will not be debited and will become available once the verification is complete and the funds are released. The period for releasing the held funds depends on your bank.
+To verify your bank card, we will hold a small amount in your account. This amount will not be written off and will be released as soon as the verification is complete. The time required to release the money may vary from bank to bank.

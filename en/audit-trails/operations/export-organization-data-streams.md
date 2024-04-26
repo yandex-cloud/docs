@@ -1,5 +1,6 @@
 # Uploading organization audit logs to {{ yds-name }}
 
+
 Follow this guide to create a new [trail](../concepts/trail.md) that will upload management event audit logs of all resources and, optionally, data event audit logs of selected services of an organization to a {{ yds-name }} stream.
 
 
@@ -263,7 +264,7 @@ To create a trail that exports organization audit logs:
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   1. In the configuration file, describe the parameters of the trail that will collect audit events of the organization's resources:
+   1. Describe in the configuration file the parameters of the trail that will collect audit events of the organization's resources:
 
       ```hcl
       resource "yandex_audit_trails_trail" "basic_trail" {
@@ -288,17 +289,17 @@ To create a trail that exports organization audit logs:
               resource_id   = "<organization_ID>"
               resource_type = "<parent_resource_type>"
               any_filters {
-                  resource_id   = "<cloud_1_ID>"
+                  resource_id   = "<cloud_ID_1>"
                   resource_type = "<child_resource_type>"
               }
               any_filters {
-                  resource_id   = "<cloud_2_ID>"
+                  resource_id   = "<cloud_ID_2>"
                   resource_type = "<child_resource_type>"
               }
             }
           }
           event_filters {
-            service = "<service_1_ID>"
+            service = "<service_ID_1>"
             categories {
               plane = "DATA_PLANE"
               type  = "<action_type>"
@@ -311,7 +312,7 @@ To create a trail that exports organization audit logs:
             }
           }
           event_filters {
-            service = "<service_2_ID>"
+            service = "<service_ID_2>"
             categories {
               plane = "DATA_PLANE"
               type  = "<action_type>"

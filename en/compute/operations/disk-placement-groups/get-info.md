@@ -4,6 +4,7 @@ title: "How to get information about a disk placement group in {{ compute-full-n
 
 # Getting information about a disk placement group
 
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

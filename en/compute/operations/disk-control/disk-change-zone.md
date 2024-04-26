@@ -9,7 +9,9 @@ A disk is created in a single [availability zone](../../../overview/concepts/geo
 
 If a disk is attached to a VM, it will be moved during [VM migration](../vm-control/vm-change-zone.md). You cannot migrate attached disks separately from their VMs.
 
+
 {% include [relocate-note](../../../_includes/compute/relocate-note.md) %}
+
 
 ## Moving a disk by creating a snapshot {#relocate-via-snapshot}
 

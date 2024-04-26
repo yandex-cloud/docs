@@ -1,6 +1,6 @@
 # {{ yagpt-full-name }} models
 
-{{ yagpt-full-name }} provides access to large text generative neural networks: the standard {{ gpt-lite }} suitable for real-time tasks, the large {{ yagpt-name }} 3-based {{ gpt-pro }}, which is more accurate when it comes to sophisticated prompts, and the special {{ gpt-lite }}-based summary model.
+{{ yagpt-full-name }} provides access to large textual generative neural networks: the standard {{ gpt-lite }} suitable for real-time tasks, the large {{ yagpt-name }} 3-based {{ gpt-pro }}, which is more accurate dealing with sophisticated prompts, and the special {{ gpt-lite }}-based summary model.
 
 If out-of-the-box models are not enough, you can [fine-tune](../../tutorials/yagpt-tuning) {{ gpt-pro }} in [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) for it to better respond to your requests.
 
@@ -19,4 +19,4 @@ Modified models share usage [quotas](../limits.md#quotas) with their basic model
 
 ## Fine-tuning capabilities {#tuning-abilities}
 
-{% include [tuning-abilities](../../../_includes/yandexgpt/tuning-abilities.md) %}
+{% include [tuning-abilities](../../../_includes/foundation-models/yandexgpt/tuning-abilities.md) %}

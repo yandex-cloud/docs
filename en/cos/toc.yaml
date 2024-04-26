@@ -1,5 +1,10 @@
 title: Yandex Container Solution
 href: index.yaml
+label:
+  title: KZ
+  description: The service is available in Kazakhstan.
+  theme: info
+  when: region == "kz"
 items:
   - name: Comparison with other {{ yandex-cloud }} services
     href: service-comparison.md
@@ -12,16 +17,16 @@ items:
       - name: Creating a VM from a {{ coi }}
         href: tutorials/vm-create.md
       - name: >-
-          Creating a VM from a {{ coi }} and an additional volume for a Docker
-          container
+          "Creating a VM from a {{ coi }} and an additional volume for a Docker
+          container"
         href: tutorials/vm-create-with-second-disk.md
-      - name: Creating a VM from a {{ coi }} with multiple Docker containers
+      - name: '"Creating a VM from a {{ coi }} with multiple Docker containers"'
         href: tutorials/docker-compose.md
       - name: Creating an instance group from a {{ coi }}
         href: tutorials/ig-create.md
       - name: >-
-          Creating an instance group from a {{ coi }} with multiple Docker
-          containers
+          "Creating an instance group from a {{ coi }} with multiple Docker
+          containers"
         href: tutorials/ig-with-containers.md
       - name: Updating a VM with a {{ coi }}
         href: tutorials/vm-update.md

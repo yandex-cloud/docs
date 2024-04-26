@@ -1,5 +1,6 @@
 # Create an instance in a placement group
 
+
 Create a [VM](../../concepts/vm.md) in a [placement group](../../concepts/placement-groups.md).
 
 {% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
@@ -70,11 +71,11 @@ Create a [VM](../../concepts/vm.md) in a [placement group](../../concepts/placem
       Result:
 
       ```text
-      +----------------------+---------------------+---------------+---------+-------------+-------------+
-      |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
-      +----------------------+---------------------+---------------+---------+-------------+-------------+
+      +----------------------+---------------------+-------------------+---------+-------------+-------------+
+      |          ID          |        NAME         |      ZONE ID      | STATUS  | EXTERNAL IP | INTERNAL IP |
+      +----------------------+---------------------+-------------------+---------+-------------+-------------+
       | epdep2kq6dt5******** | instance-in-group-1 | {{ region-id }}-a | RUNNING |             | 10.129.0.5  |
-      +----------------------+---------------------+---------------+---------+-------------+-------------+
+      +----------------------+---------------------+-------------------+---------+-------------+-------------+
       ```
 
 - {{ TF }} {#tf}

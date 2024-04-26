@@ -1,5 +1,6 @@
 # Migrating a {{ data-transfer-name }} transfer and endpoints to a different availability zone
 
+
 You can migrate [transfers](../../concepts/index.md#transfer) from one [availability zone](../../../overview/concepts/geo-scope.md) to another. The migration method depends on which service is used as the transfer endpoint: a [custom DB installation](#on-premise) or a [{{ yandex-cloud }} managed DB](#managed-service). If [migrating data](../../tutorials/index.md#migration) between a custom installation and a managed DB, you should first move the endpoint based on a custom installation and then the one based on a managed DB.
 
 ## Moving an endpoint based on a custom installation {#on-premise}

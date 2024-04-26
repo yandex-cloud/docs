@@ -21,7 +21,7 @@ You can create a cluster without specifying any subnets for the hosts if the ava
 
 {{ mch-short-name }} generates the name of each cluster host when creating it. This name will be the host's fully qualified domain name (FQDN). The host name and, consequently, FQDN cannot be changed.
 
-To learn how to get a host FQDN, see [this guide](../operations/connect.md#fqdn).
+To learn how to get a host FQDN, see [this guide](../operations/connect/fqdn.md).
 
 
 To access a host within a single cloud network, use its FQDN. For more information, see the [{{ vpc-full-name }} documentation](../../vpc/).
@@ -40,7 +40,7 @@ When deleting a publicly accessible host, the assigned IP address is revoked.
 
 {% note tip %}
 
-When connecting to a cluster from within its cloud network, make sure to [configure](../operations/connect.md#configuring-security-groups) security groups both for the cluster and for the connecting host.
+When connecting to a cluster from within its cloud network, make sure to [configure](../operations/connect/index.md#configuring-security-groups) security groups both for the cluster and for the connecting host.
 
 {% endnote %}
 

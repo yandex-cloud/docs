@@ -68,7 +68,7 @@ For IdP-specific examples, see our tutorials:
 
    To create a federation:
 
-   1. See the description of the create federation command:
+   1. View the description of the create federation command:
 
       ```bash
       yc organization-manager federation saml create --help
@@ -167,7 +167,7 @@ For IdP-specific examples, see our tutorials:
 
          * `encrypted_assertions`: Ensures authentication requests from {{ yandex-cloud }} will contain a digital signature. To complete this configuration, you will need to install a {{ yandex-cloud }} certificate for your IdP.
 
-   1. Check the {{ TF }} configuration files for errors:
+   1. Check that the {{ TF }} configuration files are correct:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -421,8 +421,8 @@ Set up the SAML application for the message to contain:
 
 * The user's unique ID in the `NameID` element. We recommend using the User Principal Name (UPN) or email address as the ID.
 * Your IdP's redirect URL for user authentication in the `Issuer` element.
-* The signed message in the `SignatureValue` element and the certificate used to sign it in `KeyInfo`.
-* Username and email address in the `AttributeStatement` element; this will enable a user to contact {{ yandex-cloud }} support from the [management console]({{ link-console-support }}).
+* The signed message in the `SignatureValue` element, and the certificate used to sign the message in the `KeyInfo` element.
+* Username and email address in the `AttributeStatement` element; this will enable the user to contact {{ yandex-cloud }} support from the [management console]({{ link-console-support }}).
 
 For more information on how to set up a SAML application, consult you IdP's documentation or contact their support. You can also find examples of IdP-specific setups in our tutorials:
 

@@ -19,11 +19,13 @@ For your internet service to run, you need two static public IP addresses: one t
    1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}** once again.
    1. In the window that opens, select the `{{ region-id }}-a` availability zone. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
+   
    {% note info %}
 
    {% include [zone-c-deprecation](../../_includes/vpc/zone-c-deprecation.md) %}
 
    {% endnote %}
+
 
 {% endlist %}
 
@@ -226,7 +228,7 @@ The network load balancer will distribute the internet service's incoming traffi
 Test the infrastructure and make sure that traffic to the internet service VMs only comes from the addresses allowed by the rules:
 
 1. On your computer, run the `curl <Network load balancer public IP address>` command. Make sure no response is received.
-1. Create a security group named `web-service-test-sg` with no rules and assign it to the `web-node-a`, `web-node-b` and `web-node-d` VMs.
+1. Create a security group named `web-service-test-sg` with no rules and assign it to the `web-node-a`, `web-node-b`, and `web-node-d` VMs.
 1. In the `web-service-test-sg` security group, create the following rule for incoming traffic:
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `80`

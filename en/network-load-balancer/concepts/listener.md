@@ -1,5 +1,6 @@
 # Traffic listener
 
+
 *Traffic listener* is a component distributed across all [availability zones](../../overview/concepts/geo-scope.md). It accepts incoming traffic on the load balancer and distributes it to all operating resources in the target groups connected to the load balancer.
 
 You can create multiple traffic listeners for each load balancer.

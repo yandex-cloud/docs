@@ -1,5 +1,6 @@
 # Scheduled scaling of instance groups
 
+
 Create a [{{ compute-full-name }}](../../compute/) [instance group](../../compute/concepts/instance-groups/index.md) and set up scheduled [scaling](../../compute/concepts/instance-groups/scale.md) for it. A [{{ sf-full-name }}](../../functions/) [function](../../functions/concepts/function.md) triggered by a [timer](../../functions/concepts/trigger/timer.md) will manage the instance group size.
 
 To set up scaling for your instance group using standard tools, such as the [management console](../../console/), [CLI](../../cli/), or [API](../../api-design-guide/):
@@ -218,7 +219,7 @@ An instance group will be created with manual scaling so that a {{ sf-name }} fu
    1. At the top right, click **{{ ui-key.yacloud.compute.groups.button_create }}**.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
       * In the **{{ ui-key.yacloud.compute.groups.create.field_name }}** field, specify `vm-scale-scheduled-ig`.
-      * Select **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** `vm-scale-scheduled-sa`.
+      * Select the `vm-scale-scheduled-sa` **{{ ui-key.yacloud.compute.groups.create.field_service-account }}**.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select `{{ region-id }}-a` and `{{ region-id }}-b` in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** and do the following in the window that opens:
       * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_os-products }}** tab and select [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).

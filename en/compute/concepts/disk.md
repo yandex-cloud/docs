@@ -10,6 +10,7 @@ keywords:
 
 # Disks
 
+
 _Disks_ are virtual versions of physical storage devices, such as SSD and HDD.
 
 Disks are designed for storing data and are attached to VMs. Detaching a disk does not delete its data.

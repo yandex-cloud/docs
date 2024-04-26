@@ -5,6 +5,7 @@ description: "In this article, you will learn how to move a {{ compute-full-name
 
 # Moving an instance group with an L7 load balancer to a different availability zone
 
+
 {% note info %}
 
 {% include [zone-c-deprecation](../../../_includes/vpc/zone-c-deprecation.md) %}
@@ -13,7 +14,7 @@ description: "In this article, you will learn how to move a {{ compute-full-name
 
 To move an [instance group](../../concepts/instance-groups/index.md) with an [[{{ alb-full-name }}](../../../application-load-balancer/) [L7 load balancer](../../../application-load-balancer/concepts/application-load-balancer.md):
 
-1. [Create](../../../vpc/operations/subnet-create.md) a [subnet](../../../vpc/concepts/network.md#subnet) in the [availability zone](../../../overview/concepts/geo-scope.md) where you want to move your [VM](../../concepts/vm.md) group.
+1. [Create](../../../vpc/operations/subnet-create.md) a [subnet](../../../vpc/concepts/network.md#subnet) in the [availability zone](../../../overview/concepts/geo-scope.md) where you want to move your [instance](../../concepts/vm.md) group.
 1. Enable traffic for the L7 load balancer in the new availability zone:
 
    {% list tabs group=instructions %}
@@ -32,13 +33,13 @@ To move an [instance group](../../concepts/instance-groups/index.md) with an [[{
 
       {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-      1. View the description of the [CLI](../../../cli/) command to enable L7 load balancer traffic:
+      1. View a description of the CLI command to enable load balancer traffic:
 
          ```bash
          yc application-load-balancer load-balancer enable-traffic --help
          ```
 
-      1. Get a list of all L7 load balancers in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+      1. Get a list of all L7 load balancers in the default folder:
 
          ```bash
          yc application-load-balancer load-balancer list
@@ -58,11 +59,11 @@ To move an [instance group](../../concepts/instance-groups/index.md) with an [[{
       1. Enable traffic:
 
          ```bash
-         yc application-load-balancer load-balancer enable-traffic <L7_load_balancer_name> \
+         yc application-load-balancer load-balancer enable-traffic <load_balancer_name> \
            --zone <availability_zone>
          ```
 
-         Where `--zone` is the availability zone where you want to move the instance group.
+         Where `--zone` is the availability zone to which you want to move your instance group.
 
          Result:
 
@@ -119,6 +120,7 @@ To move an [instance group](../../concepts/instance-groups/index.md) with an [[{
          * `subnet_id`: IDs of subnets in the availability zones.
 
          For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
+
       1. Apply the changes:
 
          {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

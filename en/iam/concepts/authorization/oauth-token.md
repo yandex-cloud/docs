@@ -1,5 +1,6 @@
 # OAuth token
 
+
 In {{ yandex-cloud }}, an OAuth token is used to authenticate users with a Yandex account: the user exchanges an OAuth token for an [{{ iam-name }} token](iam-token.md).
 
 You can get an OAuth token to work with {{ yandex-cloud }} by sending a [request]({{ link-cloud-oauth }}) to Yandex OAuth.

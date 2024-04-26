@@ -1,3 +1,5 @@
+
+
 This scenario describes how to sign [Docker images](../../container-registry/concepts/docker-image.md) using [Cosign](https://docs.sigstore.dev/cosign/overview/) in [{{ container-registry-full-name }}](../../container-registry/) and then set up signature verification in [{{ managed-k8s-full-name }}](../../managed-kubernetes/).
 
 To sign Docker images and set up their verification:

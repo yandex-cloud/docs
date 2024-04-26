@@ -1,5 +1,6 @@
 # Compute maintenance policies
 
+
 *Compute Maintenance Policies* provide the ability to report the planned impact on the user VM by the cloud infrastructure using the [metadata service](vm-metadata.md).
 
 A planned impact means the occurrence of one of the following VM maintenance events:

@@ -154,11 +154,14 @@ You can also use {{ TF }} under your [Yandex account](../../iam/concepts/index.m
 
       1. Set the profile configuration:
 
+         
          ```bash
          yc config set service-account-key key.json
          yc config set cloud-id <cloud_ID>
          yc config set folder-id <folder_ID>
          ```
+
+
 
          Where:
          * `service-account-key`: File with the authorized key of the service account.

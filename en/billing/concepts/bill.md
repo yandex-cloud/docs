@@ -23,7 +23,7 @@ Payment invoices can only be sent to the [billing account](billing-account.md) o
 
 {% endnote %}
 
-Under Section 6 of the [Offer](https://yandex.ru/legal/cloud_oferta/), Customers qualifying as a business and not using a linked corporate bank card to top up their account must themselves [generate a payment invoice](../operations/pay-the-bill.md#legal-entities) using the management console.
+Under Section 6 of the [offer]({{ billing-oferta-url }}), a Сustomer qualifying as a legal entity and not using a linked corporate bank card to top up their account must [generate a payment invoice](../operations/pay-the-bill.md#legal-entities) using the management console.
 A payment invoice is not a primary accounting document. There are no special legal requirements for drafting this document. In accounting, correct charges for services are made based on reports and tax invoices where all the required details are specified. A payment invoice is generated automatically and there is no way to change customer data.
 
 ## Payment invoice amount {#payment-amount}

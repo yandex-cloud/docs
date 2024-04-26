@@ -1,5 +1,10 @@
 title: '{{ serverless-containers-full-name }}'
 href: index.yaml
+label:
+  title: RU
+  description: The service is available in Russia only.
+  theme: unknown
+  when: region == "kz"
 items:
   - name: Comparison with other {{ yandex-cloud }} services
     href: service-comparison.md
@@ -173,7 +178,7 @@ items:
             href: concepts/trigger/data-streams-trigger.md
           - name: Email trigger
             href: concepts/trigger/mail-trigger.md
-      - name: Dead Letter Queue
+      - name: Dead letter queue
         href: concepts/dlq.md
       - name: Container logs
         href: concepts/logs.md

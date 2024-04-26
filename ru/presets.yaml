@@ -4217,95 +4217,33 @@ default:
         value_retention-save-last-f: Только последнюю
       billing:
         account:
-          acts_batch-download-text_pdf: Скачать документы (PDF)
-          acts_batch-download-text_zip: Скачать документы (ZIP)
-          bind-cloud:
-            button_bind: Привязать
           budgets:
             button_create: Создать бюджет
-            label_amount: Сумма
             label_budgets: Бюджеты
-            label_expire: Дата окончания
-            label_limits: Пороги
-            label_notify: Уведомить
-            label_reset-period: Период расчета
             label_type: Тип бюджета
             label_type-balance: Остаток средств
             label_type-cost: Стоимость потребления
             label_type-expense: К оплате
             reset-period_value_custom: Настраиваемый
-            reset-period_value_monthly: Месячный
-            section_scope: Область действия
           button_billing-payment-action: Перейти на платную версию
-          button_download-action: Скачать
           create-new:
-            account-type_label_company: Бизнес-аккаунт
-            account-type_label_individual: Личный аккаунт
-            label_title: Создание платежного аккаунта
-            payment-type_label_card: Банковская карта
             payment-type_label_invoice: Банковский перевод
-          dashboard-grants:
-            button_activate-grant: Активировать промокод
-            section_grants: Гранты
-          dashboard-info:
-            company_label_edit_ru: Редактировать данные в Яндекс Балансе
           dashboard-overview:
             button_refill: Пополнить баланс
             popup-refill_button_company-action: Выписать счет
             popup-refill_button_individual-action: Пополнить баланс
           dashboard-resources:
-            button_action-rename-account: Переименовать
-            button_bind-cloud: Привязать облако
             section_resources: Облака
-          dashboard:
-            button_refill: Пополнить счет
-            popup-grant-activation_button_activate: Активировать
           detail:
-            button_create-periodic-export: Регулярный экспорт
-            button_export: Экспорт детализации
-            button_move-to-datalens: Подробная детализация в DataLens
-            column_cloud-name: Облако
-            column_cost: Стоимость потребления
-            column_credit: Скидка
-            column_expense: К оплате
-            column_product: Продукт
-            column_service: Сервис
-            column_unit: Ед. потребления
-            filter_label_all-filters: Фильтры
-            label_from: От
-            label_product: Продукты
-            label_service: Сервисы
-            label_to: До
-            label_top-cost: Стоимость потребления
-            label_top-total: К оплате
             tab_product: По продуктам
-            value_cost: Потребление
-            value_folders: Каталогам
-          exports:
-            button_open-yandex-query: Обработать в YQ
-            field_bucket: Бакет
-            field_detail-type: Детализация
-            field_locale: Язык
-            field_prefix: Папка
-            label_create-export-title: Создание регулярного экспорта
-            label_include-resources: Поресурсная
-            label_not-include-resources: Общая
-            locale_value_en-lang: English
-            locale_value_ru-lang: Русский
           history:
             column_date: Дата платежа
             column_description: Описание
             column_money: Сумма платежа
             column_status: Статус
-          label_consumption: Потребление
           overview:
-            button_bind-card-apply: Применить
-            card_label_edit: Изменить банковскую карту
-            company_label_rs: Расчетный счет
             payment-type_label_card: Банковская карта
             payment-type_label_invoice: Банковский перевод
-            section_account-data: Общие сведения
-            usage-type_label_paid: Платная версия
           reconciliation-reports:
             action_download-with-facsimile: Скачать подписанный акт
             action_download-without-facsimile: Скачать акт без подписи
@@ -4314,30 +4252,12 @@ default:
             field_actions: Действия
             value_completed: Готово
           switch_acts: Отчётные документы
-          switch_budgets: Бюджеты
-          switch_detail: Детализация
-          switch_expences: История расходов
-          switch_exports: Экспорт детализации
           switch_history: История платежей
           switch_offers: Резервируемое потребление
           switch_overview: Данные аккаунта
-          switch_users: Управление доступом
-          tab_acts-title: Закрывающие документы
           tab_reconciliation-reports-title: Акты сверки
-          user-dialog:
-            button_submit: Добавить
-          users:
-            button_add: Добавить пользователя
-            button_remove-user: Удалить пользователя
-            button_tune-role: Настроить роли
-            popup-tune-role_add-button: Назначить роль
         accounts:
-          button_create: Создать аккаунт
           button_empty-billing-create: Создать
-          column_cloud: Облака
-        cud:
-          purchase:
-            button_purchase: Зарезервировать потребление
         label_accounts: Аккаунты
         label_service: Биллинг
       cdn:
@@ -6613,6 +6533,7 @@ default:
         switch_gateways: Шлюзы
         switch_list: Облачные сети
         switch_networks: Подсети
+        switch_route-tables: Таблица маршрутизации
         switch_security-groups: Группы безопасности
         title_network-map-page: Карта облачной сети
       yagpt:
@@ -7694,22 +7615,12 @@ default:
       alias:
         private: Приватный
         public: Публичный
-      checkpoint-list-page:
-        page-title: Контрольные точки
-      checkpoint:
-        apply: Применить
-        cell-code: Код ячейки
-        create-project-from-checkpoint: Создать проект из контрольной точки
-        type:
-          rollback: Rollback
-        variables: Переменные
       common:
         access: Доступ
         activate: Активировать
         add: Добавить
         add-link: Добавить ссылку
         add-member: Добавить участника
-        add-new: Добавить
         add-to-project: Добавить в проект
         alias: Алиас
         apply: Применить
@@ -7717,7 +7628,6 @@ default:
         bucket: Бакет
         build: Собрать
         cell: Ячейка
-        checkpoint: Контрольная точка
         clone: Клонировать
         communication: Общение
         copy-link: Копировать ссылку
@@ -7726,7 +7636,6 @@ default:
         create-resource: Создать ресурс
         datasets: Датасеты
         deactivate: Деактивировать
-        default: По умолчанию
         delete: Удалить
         description: Описание
         dimension: Размерность тензора
@@ -7750,7 +7659,6 @@ default:
         name: Имя
         other: Другое
         overview: Обзор
-        pin: Закрепить
         port: Порт
         prefix: Префикс
         projects-resources: Собственные
@@ -7760,18 +7668,15 @@ default:
         restrictions: Ограничения
         resume: Продолжить
         save: Сохранить
-        share: Поделиться
         shared-with-project-resources: Доступные
         show-additional-parameters: Показать дополнительные параметры
         spaces: Сообщества
         submit: Подтвердить
-        subnet: Подсеть
         suspend: Приостановить
         timeout: Таймаут
         tuned-foundation-models: Дообученные фундаментальные модели
         tuning-model: Дообучить модель
         type: Тип
-        unpin: Открепить
         YGPT: YandexGPT
       data-proc:
         available-clusters: Доступные кластеры
@@ -7833,13 +7738,10 @@ default:
           password-secret: Секрет с паролем
           user-name: Имя пользователя
         node-form-label:
-          checkpoint: Контрольная точка
           Description: Описание
           maintenance-limit: Лимит на обслуживание
           name: Имя
           type: Тип
-        provisioning-form-label:
-          instance-spec: Конфигурация инстанса
         source: Хранилище Docker-образов
         telemetry-form-label:
           http-path: HTTP-адрес
@@ -7852,14 +7754,9 @@ default:
           endpoint: Эндпоинт
           folder: Каталог
           healthcheck: Проверка
-          input-variables: Входные переменные
-          kernel-docker-image: Системный Docker-образ
-          output-variables: Выходные переменные
           provisioning: Обеспечение
           runtime-options: Настройки Docker-образа
           telemetry: Телеметрия
-        variables-form-placeholder:
-          name: Имя
         ycr: Yandex Container Registry
       new-s3-page:
         access-key-id: Идентификатор статического ключа доступа
@@ -7867,18 +7764,12 @@ default:
         mount-name: Имя раздела при подключении
         static-access-key: Статический ключ доступа
       node-page:
-        provisioning:
-          distribution-by-zones: Распределение по зонам
         request:
           create-test-request: Создать тестовый запрос
           curl: cURL
           server-response: Ответ сервера
         tab:
-          logs: Логи
-          monitoring: Мониторинг
           request: Запрос
-        type:
-          list: list
       project-page:
         change-project-disk-size: Изменить размер хранилища
         debugging-tools-key-value: Решение проблем
@@ -7907,7 +7798,6 @@ default:
       projects:
         create-project: Создать проект
       resources:
-        checkpoint: Контрольная точка
         dataProc: Data Proc
         dataset: Датасет
         docker: Docker-образ

@@ -1,5 +1,6 @@
 # Canary release of a {{ sf-name }} function
 
+
 Create a canary release of a {{ sf-name }} function using {{ api-gw-short-name }}.
 
 To create a canary release:
@@ -98,12 +99,12 @@ The cost of resources to support a web application includes:
       Where:
 
       * `name`: Service account name. This is a required parameter.
-      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
+      * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
       * `role`: Role being assigned.
 
       For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -122,7 +123,7 @@ The cost of resources to support a web application includes:
          terraform apply
          ```
 
-      1. Confirm creating the service account by typing `yes` in the terminal and pressing **Enter**.
+      1. Confirm creating the service account: type `yes` in the terminal and press **Enter**.
 
          The service account will then be created. You can check the new service account using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -253,7 +254,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
    1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** field, enter `canary`.
-   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add a specification:
+   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add the specification:
 
       ```yaml
       openapi: 3.0.0
@@ -396,7 +397,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/api_gateway).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -417,7 +418,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
 
       1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
          ```
          yc serverless api-gateway get <API_gateway_name>

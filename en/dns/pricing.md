@@ -4,7 +4,8 @@ description: "This article describes the {{ dns-name }} pricing policy."
 editable: false
 ---
 
-# Pricing for {{ dns-name }}
+# {{ dns-name }} pricing
+
 
 ## Public DNS queries {#public-dns-requests}
 
@@ -33,10 +34,10 @@ You will not be billed for:
 **Starting December 6, 2021, the following is provided free of charge**:
 * The first one million (1,000,000) recursive queries from VMs each month.
 
-   Once you have used up this free amount, you will be charged at the published rate.
+   Once you have used up this free amount, you will be charged according to your service plan.
 
    The unused balance of free services is reset at the end of the month.
-* Queries for domain names of {{ yandex-cloud }} services (such as `{{ api-host }}`)and those offered by Yandex (such as `mail.yandex.com`), both from VMs and the internet.
+* Queries for domain names of {{ yandex-cloud }} services (such as `{{ api-host }}`) and those offered by Yandex (such as `mail.yandex.com`), both from VMs and the internet.
 
 The cost of public DNS queries is based on usage.
 
@@ -78,7 +79,7 @@ You are charged for user-created [public](concepts/dns-zone.md#public-zones) or 
 
 [Service zones](concepts/dns-zone.md#service-zones) are provided free of charge.
 
-Billing occurs per second. The cost is calculated in proportion to usage.
+You are charged per second of usage. The cost is calculated in proportion to usage.
 
 
 > For example, the cost of owning 2 DNS zones for 360 hours will be the same as the cost of owning 1 DNS zone for 720 hours.

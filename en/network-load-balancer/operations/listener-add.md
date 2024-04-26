@@ -16,17 +16,17 @@ description: "Follow this guide to add a listener to a network load balancer."
    1. In the line of the load balancer to add a listener to, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
    1. In the window that opens, set the listener parameters:
 
-      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**
-      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}` or `{{ ui-key.yacloud.common.label_udp }}`
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**.
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}` or `{{ ui-key.yacloud.common.label_udp }}`.
 
          {% note info %}
 
-         By default, the listener uses TCP. To use UDP, [submit a request to technical support]({{ link-console-support }}/create-ticket).
+         By default, the listener uses TCP. To use UDP, [submit a request to technical support]({{ link-console-support }}).
 
          {% endnote %}
 
-      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** where the listener will listen for incoming traffic. The acceptable values are from `1` to `32767`.
-      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** the load balancer will redirect traffic to. The acceptable values are from `1` to `32767`.
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** where the listener will listen for incoming traffic. The possible values are from `1` to `32,767`.
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** the load balancer will redirect traffic to. The possible values are from `1` to `32,767`.
       * Click **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}

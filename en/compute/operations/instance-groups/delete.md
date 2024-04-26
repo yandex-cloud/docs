@@ -17,7 +17,7 @@ To delete an instance group:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
+   1. In the [management console]({{ link-console-main }}), open the folder containing the instance group you need.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. In the line with the appropriate instance group, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
@@ -39,7 +39,7 @@ To delete an instance group:
 
       {% include [instance-group-list](../../../_includes/instance-groups/instance-group-list.md) %}
 
-   1. Select the group `ID` or `NAME` (for example, `first-instance-group`).
+   1. Select the group `ID` or `NAME`, e.g., `first-instance-group`.
    1. Delete the instance group:
 
       ```bash

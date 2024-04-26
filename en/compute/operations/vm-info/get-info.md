@@ -1,5 +1,6 @@
 # Getting information about a VM
 
+
 To get basic information about each [VM](../../concepts/vm.md) you created, go to the [management console]({{ link-console-main }}) and open the VM page. To get detailed information with custom [metadata](../../concepts/vm-metadata.md), use the [CLI](../../../cli/) or API.
 
 You can also get basic information and metadata [from inside a VM](#inside-instance).
@@ -291,10 +292,10 @@ To set up metadata service parameters for a VM instance:
       Where:
       * `yandex_compute_instance`: Description of the VM:
          * `metadata_options`: Metadata parameters:
-            * `aws_v1_http_endpoint` provides access to metadata using AWS format (IMDSv1). Possible values: `0` and `1`: `Enabled`; `2`: `Disabled`.
-            * `aws_v1_http_token` provides access to {{ iam-name }} credentials using AWS format (IMDSv1). Possible values: `0` and `1`: `Enabled`; `2`: `Disabled`.
-            * `gce_http_endpoint` provides access to metadata using Google Compute Engine format. Possible values: `0` and `1`: `Enabled`; `2`: `Disabled`.
-            * `gce_http_token` provides access to {{ iam-name }} credentials using Google Compute Engine format. Possible values: `0` and `1`: `Enabled`; `2`: `Disabled`.
+            * `aws_v1_http_endpoint`: Provides access to metadata using AWS format (IMDSv1). Possible values: `0` and `1`: `Enabled`; `2`: `Disabled`.
+            * `aws_v1_http_token`: Provides access to {{ iam-name }} credentials using AWS format (IMDSv1). Possible values: `0` and `1`: `Enabled`; `2`: `Disabled`.
+            * `gce_http_endpoint`: Provides access to metadata using Google Compute Engine format. Possible values: `0` and `1`: `Enabled`; `2`: `Disabled`.
+            * `gce_http_token`: Provides access to {{ iam-name }} credentials using Google Compute Engine format. Possible values: `0` and `1`: `Enabled`; `2`: `Disabled`.
 
       For more information about the `yandex_compute_instance` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
    1. Create resources:

@@ -32,6 +32,10 @@ The list below shows all roles that are considered when verifying access rights 
 
 ### Service roles {#service-roles}
 
+#### ydb.auditor {#ydb-auditor}
+
+{% include [ydb.auditor](../../_roles/ydb/auditor.md) %}
+
 #### ydb.viewer {#ydb-viewer}
 
 {% include [ydb.viewer](../../_roles/ydb/viewer.md) %}
@@ -50,6 +54,10 @@ The list below shows all roles that are considered when verifying access rights 
 
 
 ### Primitive roles {#primitive-roles}
+
+#### {{ roles-auditor }} {#auditor}
+
+{% include [roles-auditor](../../_includes/roles-auditor.md) %}
 
 #### {{ roles-viewer }} {#viewer}
 

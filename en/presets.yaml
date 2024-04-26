@@ -32,6 +32,7 @@ default:
   at-name: Audit Trails
   at-short-name: Audit Trails
   auth-host: console.cloud.yandex.ru
+  auth-main-host: auth.yandex.cloud
   b1-medium: b1.medium (2 × 50% vCPU, 4 GB)
   b1-micro: b1.micro (2× 20% vCPU, 2 GB)
   b1-nano: b1.nano (2 × 5% vCPU, 2 GB)
@@ -43,7 +44,10 @@ default:
   backup-full-name: Yandex Cloud Backup
   backup-name: Cloud Backup
   backup-short-name: Cloud Backup
+  billing-docs-email: cloud_docs@support.yandex.ru
+  billing-interface: Yandex Cloud Billing interface
   billing-name: Yandex Cloud Billing
+  billing-oferta-url: https://yandex.ru/legal/cloud_oferta/
   brand-voice-cc: Brand Voice Call Center
   brand-voice-cc-name: SpeechKit Brand Voice Call Center
   brand-voice-core: Brand Voice Self Service
@@ -509,6 +513,7 @@ default:
   roles-vpc-private-admin: vpc.privateAdmin
   roles-vpc-public-admin: vpc.publicAdmin
   roles-vpc-user: vpc.user
+  roles-yaart-user: ai.imageGeneration.user
   roles-yagpt-user: ai.languageModels.user
   roles:
     gitlab:
@@ -4212,95 +4217,33 @@ default:
         value_retention-save-last-f: Only the last
       billing:
         account:
-          acts_batch-download-text_pdf: Download documents (PDF)
-          acts_batch-download-text_zip: Download documents (ZIP)
-          bind-cloud:
-            button_bind: Link
           budgets:
             button_create: Create budget
-            label_amount: Amount
             label_budgets: Budgets
-            label_expire: Expires
-            label_limits: Limits
-            label_notify: Notify
-            label_reset-period: Calculation period
             label_type: Budget type
             label_type-balance: Balance
             label_type-cost: Cost
             label_type-expense: Due and payable
             reset-period_value_custom: Custom
-            reset-period_value_monthly: Monthly
-            section_scope: Scope
           button_billing-payment-action: Switch to the paid version
-          button_download-action: Download
           create-new:
-            account-type_label_company: Business account
-            account-type_label_individual: Individual account
-            label_title: Create a billing account
-            payment-type_label_card: Bank card
             payment-type_label_invoice: Bank transfer
-          dashboard-grants:
-            button_activate-grant: Activate promo code
-            section_grants: Grants
-          dashboard-info:
-            company_label_edit_ru: Edit data in Yandex Balance
           dashboard-overview:
             button_refill: Top up account
             popup-refill_button_company-action: Issue receipt
             popup-refill_button_individual-action: Top up account
           dashboard-resources:
-            button_action-rename-account: Rename
-            button_bind-cloud: Link cloud
             section_resources: Clouds
-          dashboard:
-            button_refill: Top up account
-            popup-grant-activation_button_activate: Activate
           detail:
-            button_create-periodic-export: Periodic export
-            button_export: Export details
-            button_move-to-datalens: Details in DataLens
-            column_cloud-name: Cloud
-            column_cost: Consumption cost
-            column_credit: Discount
-            column_expense: Due and payable
-            column_product: Product
-            column_service: Service
-            column_unit: Unit
-            filter_label_all-filters: Filters
-            label_from: From
-            label_product: Products
-            label_service: Services
-            label_to: To
-            label_top-cost: Consumption cost
-            label_top-total: Due and payable
             tab_product: By product
-            value_cost: Consumption
-            value_folders: Folders
-          exports:
-            button_open-yandex-query: Process in YQ
-            field_bucket: Bucket
-            field_detail-type: Usage details
-            field_locale: Language
-            field_prefix: Directory
-            label_create-export-title: Create periodic export
-            label_include-resources: Resource
-            label_not-include-resources: General
-            locale_value_en-lang: English
-            locale_value_ru-lang: Русский
           history:
             column_date: Payment date
             column_description: Description
             column_money: Payment amount
             column_status: Status
-          label_consumption: Consumption
           overview:
-            button_bind-card-apply: Apply
-            card_label_edit: Change bank card
-            company_label_rs: Billing account
             payment-type_label_card: Bank card
             payment-type_label_invoice: Wire transfer
-            section_account-data: General information
-            usage-type_label_paid: Paid version
           reconciliation-reports:
             action_download-with-facsimile: Download signed report
             action_download-without-facsimile: Download unsigned report
@@ -4309,30 +4252,12 @@ default:
             field_actions: Actions
             value_completed: Done
           switch_acts: Reporting documents
-          switch_budgets: Budgets
-          switch_detail: Usage details
-          switch_expences: Expense history
-          switch_exports: Export details
           switch_history: Payment history
           switch_offers: Committed volume of services
           switch_overview: Account info
-          switch_users: Access management
-          tab_acts-title: Closing documents
           tab_reconciliation-reports-title: Reconciliation reports
-          user-dialog:
-            button_submit: Add
-          users:
-            button_add: Add user
-            button_remove-user: Remove user
-            button_tune-role: Configure roles
-            popup-tune-role_add-button: Assign role
         accounts:
-          button_create: Create an account
           button_empty-billing-create: Create
-          column_cloud: Clouds
-        cud:
-          purchase:
-            button_purchase: Purchase commitment
         label_accounts: Accounts
         label_service: Billing
       cdn:
@@ -6606,6 +6531,7 @@ default:
         switch_gateways: Gateways
         switch_list: Cloud networks
         switch_networks: Subnets
+        switch_route-tables: Route table
         switch_security-groups: Security groups
         title_network-map-page: Cloud network map
       yagpt:
@@ -7689,22 +7615,12 @@ default:
       alias:
         private: Private
         public: Public
-      checkpoint-list-page:
-        page-title: Checkpoints
-      checkpoint:
-        apply: Apply
-        cell-code: Cell code
-        create-project-from-checkpoint: Create project from checkpoint
-        type:
-          rollback: Rollback
-        variables: Variables
       common:
         access: Access
         activate: Activate
         add: Add
         add-link: Add link
         add-member: Add member
-        add-new: Add
         add-to-project: Add to project
         alias: Alias
         apply: Apply
@@ -7712,7 +7628,6 @@ default:
         bucket: Bucket
         build: Build
         cell: Cell
-        checkpoint: Checkpoint
         clone: Clone
         communication: Communications
         copy-link: Copy link
@@ -7721,7 +7636,6 @@ default:
         create-resource: Create resource
         datasets: Datasets
         deactivate: Deactivate
-        default: Default
         delete: Delete
         description: Description
         dimension: Tensor dimension
@@ -7745,7 +7659,6 @@ default:
         name: Name
         other: Other
         overview: Overview
-        pin: Pin
         port: Port
         prefix: Prefix
         projects-resources: Project
@@ -7755,18 +7668,15 @@ default:
         restrictions: Restrictions
         resume: Resume
         save: Save
-        share: Share
         shared-with-project-resources: Shared
         show-additional-parameters: Show additional parameters
         spaces: Communities
         submit: Confirm
-        subnet: Subnet
         suspend: Suspend
         timeout: Timeout
         tuned-foundation-models: Tuned foundation models
         tuning-model: Tune model
         type: Type
-        unpin: Unpin
         YGPT: YandexGPT
       data-proc:
         available-clusters: Available clusters
@@ -7828,13 +7738,10 @@ default:
           password-secret: Password secret
           user-name: Username
         node-form-label:
-          checkpoint: Checkpoint
           Description: Description
           maintenance-limit: Maintenance limit
           name: Name
           type: Type
-        provisioning-form-label:
-          instance-spec: Instance configuration
         source: Docker image storage
         telemetry-form-label:
           http-path: HTTP path
@@ -7847,14 +7754,9 @@ default:
           endpoint: Endpoint
           folder: Folder
           healthcheck: Healthcheck
-          input-variables: Input variables
-          kernel-docker-image: Kernel Docker image
-          output-variables: Output variables
           provisioning: Provisioning
           runtime-options: Docker image settings
           telemetry: Telemetry
-        variables-form-placeholder:
-          name: Name
         ycr: Yandex Container Registry
       new-s3-page:
         access-key-id: Static access key ID
@@ -7862,18 +7764,12 @@ default:
         mount-name: Mount name
         static-access-key: Static access key
       node-page:
-        provisioning:
-          distribution-by-zones: Distribution by zones
         request:
           create-test-request: Create test request
           curl: cURL
           server-response: Server response
         tab:
-          logs: Logs
-          monitoring: Monitoring
           request: Request
-        type:
-          list: list
       project-page:
         change-project-disk-size: Change project storage size
         debugging-tools-key-value: Troubleshooting
@@ -7902,7 +7798,6 @@ default:
       projects:
         create-project: Create project
       resources:
-        checkpoint: Checkpoint
         dataProc: Data Proc
         dataset: Dataset
         docker: Docker

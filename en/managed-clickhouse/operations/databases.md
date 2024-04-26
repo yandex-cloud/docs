@@ -51,7 +51,7 @@ In a cluster with DB management via SQL enabled:
 
 - SQL {#sql}
 
-   1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-database-management).
+   1. [Connect](connect/clients.md) to a cluster using the [`admin` account](#sql-database-management).
    1. Get a list of databases:
 
       ```sql
@@ -132,7 +132,7 @@ In a cluster with DB management via SQL enabled:
 
 - SQL {#sql}
 
-   1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-database-management).
+   1. [Connect](connect/clients.md) to a cluster using the [`admin` account](#sql-database-management).
    1. Create a database:
 
       ```sql
@@ -196,7 +196,7 @@ In a cluster with DB management via SQL enabled:
 
 - SQL {#sql}
 
-   1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-database-management).
+   1. [Connect](connect/clients.md) to a cluster using the [`admin` account](#sql-database-management).
    1. Delete the database:
 
       ```sql

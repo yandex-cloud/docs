@@ -1,6 +1,5 @@
 # Operation object
 
-
 Each operation that changes the state of a resource results in the creation of the object [Operation](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation.proto). This object contains information about the operation: its status, ID, call time, and so on.
 
 Using the `Operation` object, you can:
@@ -18,7 +17,7 @@ The `Operation` object contains the following fields:
 | `id`* | <b>string</b><br/>Operation ID. Generated on the service side. |
 | `created_at`* | [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto)<br/>Operation start time. Specified in [RFC3339 (Timestamps)](https://www.ietf.org/rfc/rfc3339.txt) format. |
 | `created_by`* | <b>string</b><br/>ID of the user who started the operation. |
-| `modified_at`* | [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto)<br/>The time when the resource was last updated. Specified in [RFC3339 (Timestamps)](https://www.ietf.org/rfc/rfc3339.txt) format. |
+| `modified_at`* | [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto)<br/>Resource last update time. Specified in [RFC3339 (Timestamps)](https://www.ietf.org/rfc/rfc3339.txt) format. |
 | `done`* | <b>bool</b><br/>Operation status. Can take one of the following two values:<br/><q>true</q> — the operation is completed. Note that the operation is considered completed even if an error occurred during its execution.<br/><q>false</q> — the operation is not completed. |
 | `response` | [google.protobuf.Any](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto)<br/>This field is present only if the operation completed successfully.<br/><br/> For the `Create` and `Update` methods, the `response` field contains a view of the created or updated resource. For other operations, the field may contain an empty message [google.protobuf.Empty](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/empty.proto) (for example, when deleting a resource).<br/></br>The `response` and `error` fields are mutually exclusive, which means a response cannot contain both fields at the same time. |
 | `error` | [google.rpc.Status](https://github.com/grpc/grpc/blob/master/src/proto/grpc/status/status.proto)<br/>Error message. This field is present if an error occurrs during the operation.<br/><br/><br/>The `error` field may appear in the response before the operation is completed: when an error occurs, the service immediately adds the `error` field to the `Operation` object. At the same time, the service starts rolling back to the previous state: it aborts all running procedures and deletes the resources created during the operation. Only when the service returns to the previous state will the operation be considered completed and the value of its `done` field will be set to <q>true</q>.<br/><br/>The `response` and `error` fields are mutually exclusive, which means a response cannot contain both fields at the same time. |
@@ -75,7 +74,7 @@ You can only cancel operations that change the state of a resource. In the refer
 
 {% note info %}
 
-The `Cancel` works on the Best Effort basis. Calling the method does not guarantee that the operation will be canceled. The operation may be at a stage when cancellation is no longer possible.
+The `Cancel` method works on the Best Effort basis. Calling the method does not guarantee that the operation will be canceled. The operation may be at a stage when cancellation is no longer possible.
 
 {% endnote %}
 

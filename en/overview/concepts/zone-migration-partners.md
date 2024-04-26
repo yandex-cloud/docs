@@ -1,6 +1,6 @@
 # Migrating resources through partners
 
-If you need assistance in [migrating your resources](./zone-migration.md) to another availability zone or seek advice on how to arrange the migration process, we recommend contacting our partners:
+If you need assistance in [migrating your resources](./zone-migration.md) to another availability zone or advice on how to arrange the migration process, we recommend contacting our partners:
 
 | No. | Name |
 |:---:|:---|

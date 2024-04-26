@@ -22,6 +22,7 @@ Current date – 30 days < Record creation timestamp < Current date + 1 day
 
 ## Services capable of logging in {{ cloud-logging-name }} {#services}
 
+
 * [{{ alb-name }}](../../application-load-balancer/)
 * [{{ api-gw-name }}](../../api-gateway/)
 * [{{ at-name }}](../../audit-trails/)

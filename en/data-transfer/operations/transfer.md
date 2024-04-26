@@ -16,7 +16,7 @@ You can:
 
 For more information about transfer states, operations applicable to transfers, and existing limitations, please see [{#T}](../concepts/transfer-lifecycle.md).
 
-To move a transfer and endpoints to a different availability zone, follow [this guide](endpoint/migration-to-an-availability-zone.md).
+To move a transfer and endpoints to a different [availability zone](../../overview/concepts/geo-scope.md), follow this [guide](endpoint/migration-to-an-availability-zone.md).
 
 ## Getting a list of transfers {#list}
 
@@ -87,11 +87,11 @@ To move a transfer and endpoints to a different availability zone, follow [this 
          * {{ GP }}: `<schema_name>.<table_path>`
          * {{ MG }}: `<database_name>.<collection_path>`
          * {{ MY }}: `<database_name>.<table_path>`
-         * {{ PG }}: `<schema_name>.<table_path>`
+         * {{ PG }}: `<schema_name>.<table path>`
+         * {{ ydb-short-name }}: table path
          * Oracle: `<schema_name>.<table_path>`
-         * {{ ydb-short-name }}: Table path
 
-         If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will return an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately, while an inactive transfer will stop once it is activated.
+         If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will end with an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately; an inactive one will terminate as soon as activated.
 
       * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}**: Rules for [transforming data](../concepts/data-transformation.md). This setting only appears when the source and target are of different types. Some transformers may have limitations and only apply to some source-target pairs.
 
@@ -239,10 +239,10 @@ To move a transfer and endpoints to a different availability zone, follow [this 
          * {{ MG }}: `<database_name>.<collection_path>`
          * {{ MY }}: `<database_name>.<table_path>`
          * {{ PG }}: `<schema_name>.<table_path>`
+         * {{ ydb-short-name }}: table path
          * Oracle: `<schema_name>.<table_path>`
-         * {{ ydb-short-name }}: Table path
 
-         If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will return an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately, while an inactive transfer will stop once it is activated.
+         If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will end with an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately; an inactive one will terminate as soon as activated.
 
       * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}**: Rules for [transforming data](../concepts/data-transformation.md). This setting only appears when the source and target are of different types.
 

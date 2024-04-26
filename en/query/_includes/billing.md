@@ -21,7 +21,7 @@
 To set up integration:
 
 1. Open the list of expense detail exports in the {{ yandex-cloud }} console.
-1. Select the required details and click **{{ ui-key.yacloud.billing.account.exports.button_open-yandex-query }}**.
+1. Select the required details and click **{{ ui-key.yacloud_billing.billing.account.exports.button_open-yandex-query }}**.
 1. When switching from {{ billing-name }} to {{ yq-full-name }} for the first time, set up integration:
    1. In the {{ yq-name }} interface, select the service account to be used to read data from {{ objstorage-name }} in the connection creation dialog box and click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
    1. In the {{ yq-name }} interface, check the preset parameters by clicking **{{ ui-key.yql.yq-binding-form.binding-preview.button-text }}** in the binding creation dialog. Next, click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}** to complete the integration.

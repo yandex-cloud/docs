@@ -75,7 +75,7 @@ On the on-premises site:
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
-To create a VM with several network interfaces, [have technical support]({{ link-console-support }}/create-ticket) enable the `MULTI_INTERFACE_INSTANCES_ALPHA` parameter for the cloud.
+To create a VM with several network interfaces, [request technical support]({{ link-console-support }}) to enable the `MULTI_INTERFACE_INSTANCES_ALPHA` flag for the cloud.
 
 
 ## Required paid resources {#paid-resources}
@@ -168,10 +168,10 @@ Create a [subnet](../../vpc/concepts/network.md#subnet) named `public-subnet` fo
       ```
 
       Where:
-      * `name`: Name of the subnet.
+      * `name`: Subnet name.
       * `folder-id`: ID of the folder where the cloud network is located.
       * `network-name`: Cloud network name.
-      * `zone`: [Availability zone](../../overview/concepts/geo-scope.md), for example `{{ region-id }}-a`.
+      * `zone`: [Availability zone](../../overview/concepts/geo-scope.md), e.g., `{{ region-id }}-a`.
       * `range`: The subnet CIDR.
 
    1. Similarly, create subnets for cloud resources:

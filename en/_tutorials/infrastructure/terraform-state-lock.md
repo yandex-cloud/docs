@@ -5,6 +5,7 @@ description: "When using {{ TF }} in the cloud, you need to ensure that multiple
 
 # Locking {{ TF }} states using {{ ydb-full-name }}
 
+
 {{ yandex-cloud }} supports [infrastructure management through {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md). To allow multiple users to manage the infrastructure, you can [automatically upload the {{ TF }} states and store them in {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
 
 When multiple users try to access the same state from {{ objstorage-name }} at the same time, conflicts may occur. To prevent such conflicts, you can deploy a database in [{{ ydb-full-name }}](../../ydb/) and use it to implement {{ TF }}'s native state locking mechanism. Every time you use {{ TF }} to update the infrastructure, the state will be automatically locked until the update is applied.
@@ -160,11 +161,11 @@ To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
        skip_credentials_validation = true
        skip_requesting_account_id  = true # This option is required for {{ TF }} 1.6.1 or higher.
        skip_s3_checksum            = true # This option is required to describe backend for {{ TF }} version 1.6.3 or higher.
+       }
      }
-   }
 
-   provider "yandex" {
-     zone = "<default_availability_zone>"
+     provider "yandex" {
+        zone = "<default_availability_zone>"
    }
    ```
 
@@ -175,7 +176,7 @@ To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
    * `key`: Object key in the bucket (name and path to the {{ TF }} state file in the bucket).
    * `dynamodb_table`: Table name.
 
-   To read more about the state storage backend, see the [{{ TF }} site](https://www.terraform.io/docs/backends/types/s3.html).
+   To read more about the state storage backend, see the [{{ TF }} website](https://www.terraform.io/docs/backends/types/s3.html).
 1. Run the following command in the folder with the configuration file:
 
    ```bash

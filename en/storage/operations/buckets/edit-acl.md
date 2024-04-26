@@ -21,6 +21,12 @@ To configure the [ACL](../../concepts/acl.md) of a bucket:
 
    1. In the **{{ ui-key.yacloud.storage.permissions-dialog.label_title }}** window that opens, grant or revoke the appropriate permissions.
 
+      {% note info %}
+
+      {% include [console-sa-acl-note](../../../_includes/storage/console-sa-acl-note.md) %}
+
+      {% endnote %}
+
 - {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}

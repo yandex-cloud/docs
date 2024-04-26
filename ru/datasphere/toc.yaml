@@ -68,17 +68,12 @@ items:
             href: operations/projects/get-notebook-cell-ids.md
           - name: Установить пакеты
             href: operations/projects/install-dependencies.md
-          - name: Очистить состояние интерпретатора
-            href: operations/projects/clear-kernel-state.md
-            hidden: true
           - name: Примеры кода в ноутбуке
             href: operations/projects/snippets.md
           - name: Очистить вывод ячеек ноутбука
             href: operations/projects/clear-outputs.md
           - name: Работа с Git
             href: operations/projects/work-with-git.md
-          - name: Запустить задание {{ ml-platform-name }} Jobs
-            href: operations/projects/work-with-jobs.md
           - name: Запустить Docker-контейнер в отдельной ячейке
             href: operations/user-images-cell.md
             hidden: true
@@ -88,9 +83,6 @@ items:
         items:
           - name: Работа с секретами
             href: operations/data/secrets.md
-          - name: Работа с контрольными точками
-            href: operations/projects/checkpoints.md
-            hidden: true
           - name: Работа с шаблонами {{ dataproc-name }}
             href: operations/data-proc-template.md
           - name: Работа с Docker-образами
@@ -135,6 +127,12 @@ items:
             href: operations/deploy/alias-delete.md
           - name: Отправить запрос в алиас
             href: operations/deploy/alias-api.md
+      - name: '{{ ds-jobs }}'
+        items:
+          - name: Запустить задание {{ ml-platform-name }} Jobs
+            href: operations/projects/work-with-jobs.md
+          - name: Работа с заданиями из Visual Studio Code
+            href: operations/projects/jobs-toolkit.md
       - name: Совместный доступ
         items:
           - name: Опубликовать ноутбук
@@ -161,18 +159,12 @@ items:
         href: concepts/configurations.md
       - name: '{{ ds-nb }}'
         items:
-          - name: Состояние интерпретатора
-            hidden: true
-            href: concepts/save-state.md
           - name: Список предустановленного ПО
             href: concepts/preinstalled-packages.md
           - name: Доступные команды
             href: concepts/magic.md
           - name: 'Служебные команды #pragma'
             href: concepts/pragma.md
-          - name: Фоновые операции
-            hidden: true
-            href: concepts/async.md
           - name: Вычисления на кластерах Apache Spark™
             href: concepts/data-proc.md
       - name: '{{ ds-inf }}'
@@ -201,8 +193,6 @@ items:
             href: concepts/secrets.md
           - name: Docker-образы
             href: concepts/docker.md
-          - name: Контрольные точки
-            href: concepts/checkpoints.md
           - name: Датасеты
             href: concepts/dataset.md
           - name: Шаблоны {{ dataproc-name }}
@@ -247,9 +237,6 @@ items:
             href: tutorials/mlflow-datasphere.md
       - name: Эксплуатация
         items:
-          - name: Развертывание сервиса из контрольной точки
-            href: tutorials/node-from-cell.md
-            hidden: true
           - name: Развертывание сервиса на основе Docker-образа
             href: tutorials/node-from-docker.md
           - name: Развертывание сервиса на основе Docker-образа с FastAPI

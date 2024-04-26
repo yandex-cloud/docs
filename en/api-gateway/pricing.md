@@ -6,7 +6,7 @@ editable: false
 
 # {{ api-gw-full-name }} pricing
 
-## What is included in the {{ api-gw-name }} cost {#rules}
+## What goes into the cost of using {{ api-gw-name }} {#rules}
 
 In {{ api-gw-name }}, you are charged for the number of requests to the created API gateways and outgoing traffic.
 
@@ -33,6 +33,7 @@ Cost per month = $0.96 × Number of millions of requests
 {% include [prices-example](../_includes/api-gateway/prices-example.md) %}
 
 ## Pricing {#prices}
+
 
 ### API gateway requests {#request}
 

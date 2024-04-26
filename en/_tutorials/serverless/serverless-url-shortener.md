@@ -1,5 +1,6 @@
 # URL shortener
 
+
 With this script, you will create a URL shortening service using serverless technologies available in {{ yandex-cloud }}.
 
 The service accepts user requests via a public [API gateway](../../api-gateway/concepts/index.md). The [hosting](../../storage/concepts/hosting.md) service sends the user an HTML page with a field for entering the URL. The [function](../../functions/concepts/function.md) sends the entered URL for storage in a [serverless database](../../ydb/concepts/serverless-and-dedicated.md#serverless), shortens it, and returns it to the user. When the user enters the shortened URL, the function finds the full URL in the database and redirects the user's request to it.
@@ -130,7 +131,7 @@ To create a service account for the service components to interact:
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
    1. Click on the name of the created service account.
 
-      Save the service account ID, you'll need it in the next steps.
+      Save the service account ID, you will need it in the next steps.
 
 {% endlist %}
 
@@ -408,7 +409,7 @@ To check that the service components interact properly:
 1. In the input field, enter the URL that you want to shorten.
 1. Click **Shorten**.
 
-   You'll see the shortened URL below.
+   You will see the shortened URL below.
 1. Follow this link. As a result, the same page should open as when using the full URL.
 
 ## How to delete the resources you created {#clear-out}

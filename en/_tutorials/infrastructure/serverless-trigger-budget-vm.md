@@ -1,5 +1,6 @@
 # Creating a trigger for budgets that invokes a {{ sf-name }} function to stop VM instances
 
+
 Create a trigger for [budgets](../../billing/concepts/budget.md) that invokes a {{ sf-name }} [function](../../functions/concepts/function.md). The function will stop {{ compute-name }} [VM instances](../../compute/concepts/vm.md#project) when the threshold values specified in the budget are exceeded.
 
 To deploy a project:
@@ -154,8 +155,8 @@ zip src.zip index.go go.mod
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `512 {{ ui-key.yacloud.common.units.label_megabyte }}`
          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `service-account-for-budget`
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-            * `FOLDER_ID`: ID of the folder to stop the VM instances in
-            * `TAG`: `target-for-stop`
+            * `FOLDER_ID`: ID of the folder to stop the VM instances in.
+            * `TAG`: `target-for-stop`.
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
@@ -338,8 +339,8 @@ zip src.zip index.go go.mod
       * `--name`: VM instance name.
       * `--labels`: Label. The trigger for budgets will stop the VM instance when the threshold values are reached if the `target-for-stop` label value is `true`.
       * `--zone`: Availability zone that corresponds to the selected subnet.
-      * `--subnet-name`: Name of the selected subnet.
-      * `--nat-ip-version`: Public IP.
+      * `subnet-name`: Name of the selected subnet.
+      * `nat-ip-version`: Public IP address.
       * `image-family`: [Family of images](../../compute/concepts/image#family). This option allows you to install the latest version of the operating system from the specified family.
       * `--ssh-key`: Path to the public SSH key. The `yc-user` user will be automatically created on the VM for this key. [How to create an SSH key pair](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 

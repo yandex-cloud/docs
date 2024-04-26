@@ -1,5 +1,6 @@
 # Exporting audit logs to MaxPatrol SIEM
 
+
 [MaxPatrol SIEM](https://www.ptsecurity.com/ru-ru/products/mpsiem/) is able to read {{ yandex-cloud }} [audit logs](../../audit-trails/concepts/events.md) from a [{{ yds-full-name }}](../../data-streams/) data stream. To go through the entire tutorial, you must have access to an instance of MaxPatrol SIEM.
 
 To configure audit log export:

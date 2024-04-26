@@ -1,5 +1,6 @@
 # Encryption in {{ compute-name }}
 
+
 By default, all data on {{ compute-name }} [disks](../../compute/concepts/disk.md) is encrypted at the storage database level using a system key. This protects your data from compromise in the event of physical disk theft from {{ yandex-cloud }} data centers. For more information, see [{#T}](../../security/standarts.md#sec-data).
 
 We also recommend encrypting disks and [disk snapshots](../../compute/concepts/snapshot.md) using {{ kms-full-name }} custom [symmetric keys](../../kms/concepts/key.md). This approach allows you to:
@@ -27,7 +28,7 @@ The options available when creating encrypted {{ compute-name }} resources and s
 
 | **Target resource** | **Source resource** | **Key** | **Note** |
 | --- | --- | --- | --- |
-| Empty encrypted disk | N/A | Any | See [{#T}](../operations/disk-create/empty.md). |
+| Empty encrypted disk | — | Any | See [{#T}](../operations/disk-create/empty.md). |
 | Encrypted disk | Unencrypted image | Any | See [{#T}](../operations/disk-create/from-image.md). </br>You can also use an image to</br>encrypt existing [disks](../operations/disk-control/disk-encrypt.md) and [snapshots](../operations/snapshot-control/snapshot-encrypt.md). |
 | Encrypted disk | Encrypted snapshot | Snapshot key | See [{#T}](../operations/disk-create/from-snapshot.md). |
 | Encrypted snapshot | Encrypted disk | Disk key | See [{#T}](../operations/disk-control/create-snapshot.md). |

@@ -5,6 +5,7 @@ description: "Follow this guide to schedule a disk snapshot's creation in {{ com
 
 # Creating a disk snapshot schedule
 
+
 ## Configuring an automatic disk snapshot schedule {#set-schedule}
 
 To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation of [disk snapshots](../../concepts/snapshot.md):
@@ -130,10 +131,10 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
         snapshot_count = <number_of_snapshots_per_disk>
 
         snapshot_spec {
-            description = "<snapshot_description>"
-            labels = {
-              <snapshot_label_key> = "<snapshot_label_value>"
-            }
+          description = "<snapshot_description>"
+          labels = {
+            <snapshot_label_key> = "<snapshot_label_value>"
+          }
         }
 
         disk_ids = ["<ID_of_disk_1>", "<ID_of_disk_2>"]
@@ -212,7 +213,7 @@ Snapshots are created and deleted automatically only while the schedule is on (`
         created_at: "2022-10-13T14:37:44Z"
         name: disk-2
         type_id: network-hdd
-        zone_id: {{ region-id }}-b
+        zone_id: {{ region-id }}-a
         size: "21474836480"
         block_size: "4096"
         product_ids:
@@ -269,7 +270,7 @@ Snapshots are created and deleted automatically only while the schedule is on (`
 
 #### See also {#see-also}
 
-* [{#T}](stop-and-start-schedule.md)
-* [{#T}](update-schedule.md)
-* [{#T}](delete-schedule.md)
-* [Creating disk snapshots manually](../disk-control/create-snapshot.md)
+* [{#T}](stop-and-start-schedule.md).
+* [{#T}](update-schedule.md).
+* [{#T}](delete-schedule.md).
+* [Creating disk snapshots manually](../disk-control/create-snapshot.md).

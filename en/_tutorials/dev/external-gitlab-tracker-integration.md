@@ -1,5 +1,6 @@
 # {{ GL }} integration with {{ tracker-full-name }}
 
+
 In [{{ tracker-name }} issues](../../tracker/about-tracker.md#zadacha), you can automatically add links to {{ GL }} [merge requests]({{ gl.docs }}/ee/user/project/merge_requests/) by specifying the appropriate issue [key](../../tracker/glossary.md#key) in the name or description of a new merge request. The links will be placed in [{{ ui-key.startrek.ui_components_issue-links_ExternalLinksCollapse.external-relations }}](../../tracker/external-links.md).
 
 You can also enable automatic creation of issue comments with information about merge requests. Auto comments are only available for [{{ mgl-name }}](../../managed-gitlab/).

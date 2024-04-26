@@ -4,7 +4,7 @@ description: "In this tutorial, you will learn how to set up an {{ KF }} target 
 ---
 # Transferring data to an {{ KF }} target endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data to an {{ KF }} queue and implement various scenarios of data processing and transformation. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data to a {{ KF }} queue and implement various data processing and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Configure one of the supported data sources](#supported-sources).
@@ -23,8 +23,8 @@ description: "In this tutorial, you will learn how to set up an {{ KF }} target 
 1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
 
    * [{{ MY }} change data capture and delivery to {{ KF }}](../../../tutorials/cdc-mmy.md).
-   * [{{ PG }} change data capture and delivery to {{ KF }}](../../../tutorials/cdc-mpg.md).
    * [{{ ydb-short-name }} change data capture and delivery to {{ KF }}](../../../tutorials/cdc-ydb.md).
+   * [{{ PG }} change data capture and delivery to {{ KF }}](../../../tutorials/cdc-mpg.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -94,7 +94,7 @@ Connecting to the database with explicitly specified network addresses.
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}**: Specify the topic prefix, similar to the `Debezium database.server.name` setting. Messages will be sent to a topic named `<topic_prefix>.<schema>.<table_name>`.
 
-   {{ data-transfer-full-name }} supports CDC for transfers from {{ PG }}, {{ MY }}, and {{ ydb-short-name }} databases to {{ KF }} and {{ yds-full-name }}. Data is sent to the target in Debezium format. For more information about CDC mode, see [Change data capture](../../../concepts/cdc.md).
+   {{ data-transfer-full-name }} supports CDC for transfers from {{ PG }}, {{ ydb-short-name }}, and {{ MY }} databases to {{ KF }} and {{ yds-full-name }}. Data is sent to the target in Debezium format. For more information about CDC mode, see [Change data capture](../../../concepts/cdc.md).
 
    {% include [CDC-YDB](../../../../_includes/data-transfer/note-ydb-cdc.md) %}
 

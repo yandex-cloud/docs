@@ -5,6 +5,7 @@ description: "This guide describes how you can run automatic Docker image scans 
 
 # Automatic Docker image scan on push
 
+
 {% note info %}
 
 You can enable auto [scans](../concepts/vulnerability-scanner.md) of [Docker images](../concepts/docker-image.md) for vulnerabilities on push to {{ container-registry-name }} in the [vulnerability scanner settings](../operations/scanning-docker-image.md#automatically) without creating any [{{ sf-full-name }}](../../functions/) [functions](../../functions/concepts/function.md) and [triggers](../../functions/concepts/trigger/index.md).

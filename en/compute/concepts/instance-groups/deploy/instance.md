@@ -32,6 +32,7 @@ Changes to the settings of instance groups may affect instances in this group in
 
 ### Changes that cause the restart or re-creation of instances {#ch-gr-affect}
 
+
 * Changing the group scaling policy (`scale_policy`).
 
    If the user changed the group size in the parameter or enabled automatic scaling that changed the group size, then old instances may be deleted or new instances may be created.
@@ -54,7 +55,8 @@ In some cases, changing the instance template (`instance_template`) causes the i
 
 ### Parameters whose update leads to instance restart {#ch-temp-with-restart}
 
-* `platform_id`: The hardware platform.
+
+* `platform_id`: Hardware platform.
 * `resources_spec.{memory,cores,core_fraction,gpus}`: RAM, CPU, [guaranteed CPU %](../../performance-levels.md), [number of GPUs](../../gpus.md).
 * `boot_disk_spec`: Boot disk.
 * `metadata`: Instance metadata.

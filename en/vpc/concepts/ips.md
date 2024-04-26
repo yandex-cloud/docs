@@ -9,9 +9,11 @@ description: "Resources hosted in {{ yandex-cloud }} networks use two types of p
 
 ## IP addresses used by {{ captcha-name }} {#smartcaptcha-ips}
 
+{% include [kz-preview](../../_includes/kz-preview.md) %}
+
 {% include [public-ip-list](../../_includes/smartcaptcha-ips.md) %}
 
-These IP addresses cannot be assigned to user resources. They are only needed for API requests sent to `/validate` to perform properly.
+These IP addresses cannot be assigned to user resources. They are only needed for API requests sent to `/validate` to work correctly.
 
 #### See also {#see-also}
 

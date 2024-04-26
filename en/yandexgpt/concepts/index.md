@@ -1,17 +1,17 @@
 ---
 title: "About {{ yagpt-full-name }}"
-description: "{{ yagpt-full-name }} is the API of a neural network geared to address various needs related to creating text content. {{ yagpt-name }} can generate product descriptions, articles, news stories, newsletters, blog posts, and many other types of texts. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. The more specific your request, the more likely you are to get the result you anticipate."
+description: "{{ yagpt-full-name }} is the API of a neural network geared to address various needs related to creating text content. {{ yagpt-name }} can generate product descriptions, articles, news stories, newsletters, blog posts, and many other types of texts. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. With a more specific request, you are more likely to get the result you expect."
 ---
 
 # About {{ yagpt-full-name }}
 
-{% include notitle [preview-stage](../../_includes/yandexgpt/preview.md) %}
+{% include notitle [preview-stage](../../_includes/foundation-models/yandexgpt/preview.md) %}
 
 {{ foundation-models-full-name }} combines several large generative neural networks and helps you leverage their capabilities for your business tasks.
 
-The {{ yagpt-name }} neural network is geared to address various needs related to creating text content. {{ yagpt-full-name }} can generate product descriptions, articles, news stories, newsletters, blog posts, and many other types of texts. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. The more specific your request, the more likely you are to get the result you anticipate.
+The {{ yagpt-name }} neural network is geared to address various needs related to creating text content. {{ yagpt-full-name }} can generate product descriptions, articles, news stories, newsletters, blog posts, and many other types of texts. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. With a more specific request, you are more likely to get the result you expect.
 
-The service is dynamically evolving with constant enhancements and refinements to its functionality. You can use {{ yagpt-full-name }} to create text content, such as product descriptions, articles, news stories, newsletters, blog posts, and many other texts. 
+The service is dynamically evolving with constant enhancements and refinements to its functionality. You can use {{ yagpt-full-name }} to create text content, such as product descriptions, articles, news stories, newsletters, blog posts, and many other texts.
 
 ## {{ yagpt-full-name }} operating modes {#working-mode}
 

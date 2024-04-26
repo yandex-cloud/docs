@@ -1,5 +1,10 @@
 title: Yandex Lockbox
 href: index.yaml
+label:
+  title: KZ
+  description: The service is available in Kazakhstan.
+  theme: info
+  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -51,7 +56,7 @@ items:
     href: pricing.md
   - name: CLI reference
     href: ../cli/cli-ref/managed-services/lockbox/index.md
-  - name: Terraform reference
+  - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:

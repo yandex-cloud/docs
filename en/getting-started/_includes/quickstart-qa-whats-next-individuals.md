@@ -16,13 +16,13 @@ Make sure that a valid card is linked to your account. If you linked the card an
 
 #### I could not use up the initial grant in 60 days. Can I use {{ yandex-cloud }}? {#initial-grant-expiring}
 
-Yes, usage charges will be debited from the card linked to your account. For more information, see [Billing cycle for individuals](../../billing/payment/billing-cycle-individual.md).
+Yes, usage charges will debited from the card linked to your account. For more information, see [Billing cycle for individuals](../../billing/payment/billing-cycle-individual.md).
 
 ### About the documents {#documents}
 
 #### Is it safe to pay in {{ yandex-cloud }}? {#payment-security}
 
-The {{ yandex-cloud }} platform meets the PCI DSS requirements; this is why it is safe to use the cloud services for payment processing. For more information about PCI DSS certification, see [{#T}](../../security/conform.md#pci-dss).
+The {{ yandex-cloud }} platform meets the PCI DSS requirements, which makes its cloud services safe for payment processing. For more information about PCI DSS certification, see the [{#T}](../../security/conform.md#pci-dss) section.
 
 #### Where do I find my agreement with {{ yandex-cloud }}? {#offer}
 

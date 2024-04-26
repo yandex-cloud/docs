@@ -1,8 +1,9 @@
 # Deploying a fault-tolerant architecture with preemptible VMs
 
+
 In this tutorial, you will create a [{{ sf-full-name }}](../../functions/) [function](../../functions/concepts/function.md) in [Node.js](../../functions/lang/nodejs/index.md) that will be invoked on a schedule and restart a stopped [preemptible {{ compute-full-name }} VM](../../compute/concepts/preemptible-vm.md).
 
-The architecture described here is suitable for [VMs](../../compute/concepts/vm.md) with non-critical loads. It allows you to use cost advantages of preemptible VMs and, in the event of a VM's shutdown, ensures that the idle time is less than a minute.
+The architecture described here is suitable for [VMs](../../compute/concepts/vm.md) with non-critical loads. It allows you to use cost advantages of preemptible VMs and, in the event of a VM shutdown, ensures idle time of under one minute.
 
 To deploy a fault-tolerant architecture with a preemptible VM:
 1. [Prepare the environment](#prepare).
@@ -22,10 +23,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support costs include:
 * Fee for VM computing resources (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-instance-resources)).
 * Fee for VM [disks](../../compute/concepts/disk.md) (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-storage)).
-* Fee for using a dynamic or a static [public IP](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for using a dynamic or static [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * [Secret](../../lockbox/concepts/secret.md) storage and request fees (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
 * Fee for the number of function calls, computing resources allocated to a function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
-* Fee for logging operations and data storage in a [log group](../../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)) if you use [{{ cloud-logging-name }}](../../logging/).
+* Fee for logging operations and data storage in a [log group](../../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)) if using [{{ cloud-logging-name }}](../../logging/).
 
 ## Prepare the environment {#prepare}
 
@@ -91,17 +92,15 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store an [O
       ```
 
       Where:
-
       * `name`: Secret name.
       * `key`: Secret key.
       * `text_value`: OAuth token value required for function authorization.
 
       For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
-
       * [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret).
       * [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -112,7 +111,6 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store an [O
 
       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
    1. Deploy cloud resources.
-
       1. If the configuration does not contain any errors, run this command:
 
          ```bash
@@ -327,12 +325,12 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store an [O
 
       Where:
       * `name`: Function name.
-      * `user_hash`: Arbitrary string that identifies the function version.
+      * `user_hash`: Any string to identify the function version.
       * `runtime`: Function [runtime environment](../../functions/concepts/runtime/index.md).
       * `entrypoint`: Entry point.
-      * `memory`: Amount of memory allocated for function execution, in MB.
+      * `memory`: Amount of memory allocated for the function, in MB.
       * `execution_timeout`: Function execution timeout.
-      * `service_account_id`: [ID](../../iam/operations/sa/get-id.md) of the service account with rights to invoke a function.
+      * `service_account_id`: [ID](../../iam/operations/sa/get-id.md) of the service account with permissions to invoke the function.
       * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create your function in.
       * `environment`: Environment variables:
          * `FOLDER_ID`: ID of the folder in which to restart the stopped VM instances.
@@ -345,7 +343,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store an [O
       * `zip_filename`: Path to the `index-js.zip` archive you created earlier.
 
       For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 
@@ -361,7 +359,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store an [O
          terraform apply
          ```
 
-      1. Confirm the function creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the function: type `yes` in the terminal and press **Enter**.
 
          This will create a function named `function-restart-vms` in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -463,10 +461,10 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store an [O
       * `name`: Trigger name.
       * `cron_expression`: Function invocation schedule specified as a [cron expression](../../functions/concepts/trigger/timer.md#cron-expression).
       * `ID`: ID of the function to be invoked by the trigger.
-      * `service_account_id`: ID of the service account with rights to invoke a function.
+      * `service_account_id`: ID of the service account with permissions to invoke the function.
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 

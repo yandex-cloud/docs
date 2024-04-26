@@ -66,7 +66,7 @@ description: "Follow this guide to create a {{ network-load-balancer-name }} tar
 
       * `name`: Target group name.
       * `target`: Target resource description:
-         * `subnet_id`: ID of the subnet to which target objects are connected. All targets in the target group must reside in the same availability zone.
+         * `subnet_id`: ID of the subnet to which target objects are connected. All target objects in the target group must reside within the same [availability zone](../../overview/concepts/geo-scope.md).
          * `address`: Resource internal IP address.
 
       For more information about the `yandex_lb_target_group` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_target_group).

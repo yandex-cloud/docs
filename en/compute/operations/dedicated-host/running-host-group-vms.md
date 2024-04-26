@@ -1,5 +1,6 @@
 # Creating a VM in a group of dedicated hosts
 
+
 The VM you create will be linked to one of the [dedicated hosts](../../concepts/dedicated-host.md) in the group. When the VM is stopped, it will not be available on the group hosts, and when it is restarted, it may be linked to a different host of the group.
 
 If you do not have a group of dedicated hosts, [create](create-host-group.md) one.

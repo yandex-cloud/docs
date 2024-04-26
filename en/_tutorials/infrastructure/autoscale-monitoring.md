@@ -1,4 +1,5 @@
-# Automatically scaling an instance group for handling messages from a queue in {{ message-queue-full-name }}
+# Automatically scaling an instance group to process messages from a queue in {{ message-queue-full-name }}
+
 
 This use case describes integration within {{ compute-full-name }}, [{{ message-queue-full-name }}](/services/message-queue), and [{{ monitoring-full-name }}](/services/monitoring).
 
@@ -131,7 +132,7 @@ The cost of the infrastructure includes:
 
       Where:
 
-      * `--service-account-name`: Name of the service account created in step 1: `queue-autoscale-sa`.
+      * `--service-account-name`: Name of the service account created in step 1 (`queue-autoscale-sa`).
       * `--description`: Key description.
 
       Result:
@@ -274,7 +275,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
       Where:
 
       * `--endpoint`: Root URL of the {{ message-queue-name }} API: `https://message-queue.{{ api-host }}`.
-      * `--queue-name`: Name of the queue: `queue-autoscale-queue`.
+      * `--queue-name`: Name of the queue (`queue-autoscale-queue`).
 
       Result:
 
@@ -472,7 +473,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
       * `--service-account-name`: Name of the previously created service account (`queue-autoscale-sa`).
       * `--description`: Key description.
-      * `--output`: Path to the file to save the key to `key.json`.
+      * `--output`: Path to the file to save the key to (`key.json`).
 
       Result:
 
@@ -734,7 +735,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
 ## Delete the resources you created {#clear-out}
 
-To shut down the infrastructure and stop paying for the resources you created:
+To shut down the infrastructure and stop paying for the created resources:
 
 1. [Delete](../../compute/operations/instance-groups/delete.md) `queue-autoscale-ig`.
 1. [Delete](../../compute/operations/image-control/delete.md) `queue-autoscale-image`.

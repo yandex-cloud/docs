@@ -1,5 +1,6 @@
 # Migrating data from {{ ES }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
+
 You can set up data transfer from {{ ES }} to {{ mos-name }} indexes using {{ data-transfer-name }}. To do this:
 
 1. [Set up the source cluster](#configure-source).
@@ -15,9 +16,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. Prepare the infrastructure:
 
    
-   1. [Create an {{ ES }} installation]({{ links.es.docs }}/elasticsearch/reference/current/getting-started.html).
+   1. [Create a custom {{ ES }} installation]({{ links.es.docs }}/elasticsearch/reference/current/getting-started.html).
 
-   1. [Enable cluster access from {{ yandex-cloud }}](../../../data-transfer/concepts/network.md#source-external).
+   1. [Enable access to the cluster from {{ yandex-cloud }}](../../../data-transfer/concepts/network.md#source-external).
 
    1. [Create a {{ mos-name }} target cluster](../../../managed-opensearch/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
 
@@ -77,8 +78,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
         --header 'Content-Type: application/json' \
         --request POST 'https://<{{ ES }}_Data_Node_host_address>:{{ port-mes }}/people/_doc/?pretty' -d'
         {
-              "name": "Alice",
-              "age": "30"
+              "name" : "Alice",
+              "age" : "30"
         }
         ' && \
    curl --user <source_cluster_username>:<source_cluster_user_password> \
@@ -86,8 +87,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
         --header 'Content-Type: application/json' \
         --request POST 'https://<{{ ES }}_Data_Node_host_address>:{{ port-mes }}/people/_doc/?pretty' -d'
         {
-              "name": "Robert",
-              "age": "32"
+              "name" : "Robert",
+              "age" : "32"
         }
         '
    ```
@@ -111,7 +112,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. [Create a role]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) with the `create_index` and `write` privileges for all indexes (`*`).
 
-   1. [Create a user](../../../managed-opensearch/operations/cluster-users.md) and assign the user this role.
+   1. [Create a user](../../../managed-opensearch/operations/cluster-users.md) and assign this role to them.
 
 ## Prepare and activate the transfer {#prepare-transfer}
 
@@ -134,7 +135,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          * `source_endpoint_id`: ID of the source endpoint.
          * `target_endpoint_id`: ID of the target endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 

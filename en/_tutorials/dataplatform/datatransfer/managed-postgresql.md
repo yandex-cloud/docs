@@ -1,5 +1,6 @@
 # Migrating data using {{ data-transfer-full-name }} {#data-transfer}
 
+
 1. [Prepare the source cluster](../../../data-transfer/operations/prepare.md#source-pg).
 1. Prepare the infrastructure:
 
@@ -7,7 +8,7 @@
 
    - Manually {#manual}
 
-      1. Create a [{{ mpg-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md) with any suitable configuration. In which case:
+      1. Create a [{{ mpg-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md) with any suitable configuration. Note that:
 
          * The {{ PG }} version must be the same or higher than the version in the source cluster. You cannot perform migration while downgrading {{ PG }} version.
          * When creating a cluster, specify the same database name as in the source cluster.

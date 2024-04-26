@@ -107,7 +107,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about how to create this file, see [Creating clusters](cluster-create.md).
-   1. Add a `host` block to the {{ mch-name }} cluster description.
+   1. Add the `host` block to the {{ mch-name }} cluster description.
 
       ```hcl
       resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -148,7 +148,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
 {% note warning %}
 
 
-If you cannot [connect](connect.md) to the added host, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you cannot [connect](connect/clients.md) to the host you added, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the host's subnet.
 
 
 Use the copy data schema option only if the schema is the same on all replica hosts of the cluster.
@@ -234,7 +234,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
 {% note warning %}
 
-If you can't [connect](connect.md) to the changed host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you cannot [connect](connect/clients.md) to the host after you changed it, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the host's subnet.
 
 {% endnote %}
 

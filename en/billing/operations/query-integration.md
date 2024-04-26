@@ -5,4 +5,5 @@ description: "Follow this guide to search for data in usage details with {{yq-fu
 
 # Searching for data in usage details with {{ yq-full-name }} queries
 
+
 {% include [query-billing-integration](../../query/_includes/billing.md) %}

@@ -1,5 +1,6 @@
 # Monitor expenses
 
+
 The guide in this checklist item will help you activate the paid version and set up payment for resources in your organization.
 
 ## Activate the paid version {#pay-activate}
@@ -24,7 +25,7 @@ To top up your personal account:
 
 - Bank card {#card}
 
-   Enter the payment amount and click **{{ ui-key.yacloud.billing.account.dashboard-overview.popup-refill_button_individual-action }}**. Then enter your card details and click **Pay**. Visa, MasterCard, and MIR bank cards are accepted.
+   Enter the payment amount and click **{{ ui-key.yacloud.billing.account.dashboard-overview.popup-refill_button_individual-action }}**. Then enter your card details and click **Pay**. We accept  Visa and MasterCard.
 
    Your payment will be processed in real time and completed within 15 minutes.
 
@@ -36,7 +37,7 @@ To top up your personal account:
 
    Before paying, please make sure the following is correct in your payment order:
    * Payment amount.
-   * Banking information of Yandex.Cloud LLC (Russian Federation), Yandex.Cloud Kazakhstan LLP (Republic of Kazakhstan), SAG (outside the Russian Federation and the Republic of Kazakhstan).
+   * Banking information of Yandex.Cloud LLC (Russia), Cloud Services Kazakhstan LLP (Kazakhstan), and SAG (for non-residents of Russia and Kazakhstan).
    * Your company or individual entrepreneur TIN.
    * [Personal account number](../../billing/concepts/personal-account.md#id) in the payment details.
    * [Contract number](../../billing/concepts/contract.md) in the payment details.

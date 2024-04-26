@@ -1,5 +1,6 @@
 # Migrating load testing results from OverLoad
 
+
 [Yandex OverLoad](https://overload.yandex.net/) is a service for monitoring load testing and analyzing its results. You can migrate [test results](../../load-testing/concepts/load-test-results.md) from Yandex OverLoad to {{ load-testing-full-name }}.
 
 To migrate load testing results:
@@ -24,7 +25,7 @@ The minimum folder role required for migrating load testing results from Yandex 
 
 ### Required paid resources {#paid-resources}
 
-At the [Preview](../../overview/concepts/launch-stages.md) stage, using {{ load-testing-name }} is free of charge.
+At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testing-name }} is free of charge.
 
 ## Get a Yandex OverLoad API token {#get-overload-token}
 

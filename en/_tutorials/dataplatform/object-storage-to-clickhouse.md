@@ -19,13 +19,13 @@ Prepare the infrastructure:
    1. [Create a {{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable configuration with the following settings:
 
       * Number of {{ CH }} hosts: At least two, which is required to enable replication in the cluster.
-      * Public access to cluster hosts: Allowed.
+      * With public access to cluster hosts.
       * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`.
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`.
 
    
-   1. If you are using security groups in a cluster, make sure they are [configured correctly](../../managed-clickhouse/operations/connect.md#configuring-security-groups) and allow connecting to it.
+   1. If using security groups in your cluster, make sure they are [configured correctly](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) and allow connecting to it.
 
 
    1. [Create an {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md).
@@ -34,7 +34,7 @@ Prepare the infrastructure:
 
    1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the `storage-viewer` service account.
 
-- {{ TF }} {#tf}
+- Using {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -109,14 +109,14 @@ Prepare the infrastructure:
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public part of the service account static key. If you created your infrastructure with {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Private part of the service account static key. If you created your infrastructure with {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}**: `https://storage.yandexcloud.net`.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}**: `ru-central1`.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}**: `{{ region-id }}`.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.csv.title }}`.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.delimiter.title }}**: Comma mark (`,`).
    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}**: `table1`.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` and specify field names and data types:
 
-      * `Id`: `Int64`.
-      * `Name`: `UTF8`.
+      * `Id`: `Int64`
+      * `Name`: `UTF8`
 
    Leave the default values for the other parameters.
 
@@ -138,12 +138,12 @@ Prepare the infrastructure:
 
       1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-   - {{ TF }} {#tf}
+   - Using {{ TF }} {#tf}
 
       1. In the `object-storage-to-clickhouse.tf` file, specify the values for these parameters:
 
          * `source_endpoint_id`: Source endpoint ID.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -167,7 +167,7 @@ Check the transfer performance by testing the copy and replication processes.
 
 ### Test the copy process {#verify-copy}
 
-1. [Connect to the `db1` database](../../managed-clickhouse/operations/connect.md) in the {{ mch-name }} target cluster.
+1. [Connect to the `db1` database](../../managed-clickhouse/operations/connect/clients.md) in the {{ mch-name }} target cluster.
 
 1. Run the following query:
 
@@ -175,7 +175,7 @@ Check the transfer performance by testing the copy and replication processes.
    SELECT * FROM db1.table1;
    ```
 
-   {% cut "Sample response" %}
+   {% cut "Response example" %}
 
    ```sql
      __file_name  | __row_index | Id |  Name
@@ -195,7 +195,7 @@ Check the transfer performance by testing the copy and replication processes.
 
 1. Make sure the data from the `demo_data2.csv` file has been added to the target database:
 
-   1. [Connect to the `db1` database](../../managed-clickhouse/operations/connect.md) in the {{ mch-name }} target cluster.
+   1. [Connect to the `db1` database](../../managed-clickhouse/operations/connect/clients.md) in the {{ mch-name }} target cluster.
 
    1. Run the following query:
 
@@ -203,7 +203,7 @@ Check the transfer performance by testing the copy and replication processes.
       SELECT * FROM db1.table1;
       ```
 
-      {% cut "Sample response" %}
+      {% cut "Response example" %}
 
       ```sql
         __file_name  | __row_index | Id |  Name

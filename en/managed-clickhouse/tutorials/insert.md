@@ -145,7 +145,7 @@ To insert user data in the Cap'n Proto and Protobuf formats into the `db1.users`
 
    To learn more about supported data types, see the documentation for [Cap'n Proto](https://capnproto.org/language.html), [Protobuf](https://developers.google.com/protocol-buffers/docs/proto3), and [{{ CH }}]({{ ch.docs }}/sql-reference/data-types/).
 
-1. [Connect to the cluster](../operations/connect.md) and create the `db1.users` table of the preferred format, if you have not created it yet:
+1. [Connect to the cluster](../operations/connect/clients.md) and create the `db1.users` table of the preferred format if it is not there yet:
 
    ```sql
    CREATE TABLE IF NOT EXISTS db1.users (id UInt64, name String)
@@ -293,7 +293,7 @@ To prepare scripts:
       1. Gets the `User` class from the connected `user.capnp` (`from user_capnp import User`).
       1. Executes requests to the cluster over HTTPS using SSL.
       1. Writes the test dataset to the User class object (`def add_user ...`) and adds this object to the `message` I/O bitstream.
-      1. Inserts the data from the `message` bitstream to the `db1.users` table based on the `User` class data from the `schema-capnproto` format schema in the cluster.
+      1. Inserts data from the `message` bitstream to the `db1.users` table based on the `User` class data from the `schema-capnproto` format schema in the cluster.
 
    - Protobuf {#protobuf}
 
@@ -361,7 +361,7 @@ To prepare scripts:
 
    {% endlist %}
 
-   To learn how to get a host FQDN, see [this guide](../operations/connect.md#fqdn).
+   To learn how to get a host FQDN, see [this guide](../operations/connect/fqdn.md).
 
 ### Inserting data {#insert-data}
 
@@ -383,7 +383,7 @@ To prepare scripts:
 
    {% endlist %}
 
-1. [Connect to the cluster](../operations/connect.md) and make sure that the data was successfully inserted by running the `SELECT` query:
+1. [Connect to the cluster](../operations/connect/clients.md) and make sure that the data was successfully inserted by running the `SELECT` query:
 
    {% list tabs group=data_format %}
 

@@ -8,7 +8,7 @@
 
 ## Selecting disk type during cluster creation {#storage-type-selection}
 
-The number of hosts you can create along with a {{ PG }} cluster depends on the selected disk type:
+The number of hosts you can create together with a {{ PG }} cluster depends on the selected disk type:
 
 * With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts.
 
@@ -29,7 +29,7 @@ When the storage is more than 97% full, the host automatically switches to read-
 In this mode, the `INSERT`, `DELETE`, or `UPDATE` queries result in an error.
 
 
-You can monitor storage usage on cluster hosts [by setting up alerts in {{ monitoring-full-name }}](../operations/storage-space.md#set-alert):
+You can monitor storage utilization on cluster hosts [by setting up alerts in {{ monitoring-full-name }}](../operations/storage-space.md#set-alert):
 
 
 ### Recovering a cluster from read-only mode {#read-only-solutions}
@@ -50,16 +50,16 @@ Use one of these methods:
 
 The storage size auto increase feature allows avoiding its overflow and switch of hosts to read-only mode.
 
-Storage size is increased upon reaching a preset threshold that is specified as a percentage of the total storage size. Two thresholds are used:
+Storage size is increased upon reaching a preset threshold that is specified as a percentage of the total storage size. There are two thresholds:
 
-* First threshold on reaching which storage size will be increased during the next maintenance window.
-* Second threshold on reaching which the process of increasing storage size will start immediately.
+* First threshold upon which the storage will be increased during the next [maintenance window](maintenance.md#maintenance-window).
+* Second threshold upon which the process of increasing the storage size will start right away.
 
 If both thresholds are set, make sure the second one is higher than the first one.
 
 While increasing storage size, host clusters will be unavailable.
 
-Storage size will be increased to the value set in the respective setting. After the threshold is reached for the first time, the feature will be disabled: if the threshold values are exceeded again, storage size will not be increased. To reactivate the feature, set a new storage size value after the threshold is reached.
+{% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}
 
 You can set up automatic increase of storage size:
 

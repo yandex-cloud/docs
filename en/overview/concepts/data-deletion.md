@@ -49,7 +49,12 @@ When these terms expire, the billing account is irrevocably deleted.
 
 To stop working with the platform and delete your profile:
 
+
+
+To delete a {{ yandex-cloud }} billing account you no longer need:
+
 {% include [delete-account](../../_includes/billing/delete-account.md) %}
+
 
 
 #### See also {#see-also}

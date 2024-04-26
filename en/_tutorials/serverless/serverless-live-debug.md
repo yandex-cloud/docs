@@ -1,5 +1,6 @@
 # Interactive debugging of {{ sf-name }} functions
 
+
 In this tutorial, you will set up a system to interactively debug {{ sf-full-name }} [functions](../../functions/concepts/function.md) by redirecting requests to a local server. For more information about this solution, see the [yc-serverless-live-debug](https://github.com/yandex-cloud/yc-serverless-live-debug) repository.
 
 To set up the interactive function debugging system:
@@ -51,7 +52,7 @@ The infrastructure support costs include:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
+      1. In the [management console]({{ link-console-main }}), select a folder where you want to create your service account.
       1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-live-debug`.
 
@@ -108,7 +109,7 @@ The infrastructure support costs include:
 
          For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
 
-      1. Make sure the configuration files are valid.
+      1. Make sure the configuration files are correct.
 
          1. In the command line, go to the directory where you created the configuration file.
          1. Run a check using this command:
@@ -181,7 +182,7 @@ The infrastructure support costs include:
 
          For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
 
-      1. Make sure the configuration files are valid.
+      1. Make sure the configuration files are correct.
 
          1. In the command line, go to the directory where you created the configuration file.
          1. Run a check using this command:

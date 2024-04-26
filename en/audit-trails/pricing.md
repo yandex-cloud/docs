@@ -12,6 +12,7 @@ Delivered [data events](./concepts/events-data-plane.md) are billed.
 
 ## Pricing {#prices}
 
+
 {% note warning %}
 
 The prices are valid as of March 1, 2024.

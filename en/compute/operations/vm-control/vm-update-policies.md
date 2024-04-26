@@ -1,5 +1,6 @@
 # Maintenance policy management
 
+
 To enable and configure a [VM maintenance policy](../../concepts/vm-policies.md), complete the following steps:
 
 1. [Create a VM with a configured maintenance policy](#create).

@@ -23,7 +23,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
    
    1. If you are using security groups in clusters, make sure they are set up correctly and allow connecting to the clusters:
 
-      * [{{ mch-name }}](../../managed-clickhouse/operations/connect.md#configuring-security-groups).
+      * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
       * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
 
 

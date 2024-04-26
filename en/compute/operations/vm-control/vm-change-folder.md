@@ -209,7 +209,7 @@ A moved VM remains connected to the [subnet](../../../vpc/concepts/network.md#su
       folder_id: b1gd73mbrli7********
       created_at: "2023-11-16T06:09:46Z"
       name: oslogigor1
-      zone_id: {{ region-id }}-b
+      zone_id: {{ region-id }}-a
       platform_id: standard-v3
       resources:
         memory: "2147483648"

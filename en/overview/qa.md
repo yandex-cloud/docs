@@ -7,9 +7,10 @@ description: "This article lists materials you can use to resolve issues with {{
 
 ## Support {#support}
 
-{{ yandex-cloud }} provides 24/7 technical support. Depending on your [service plan](../support/overview.md), you can contact support for various issues. To do this, open [Support]({{ link-console-support }}) in the management console. For a detailed description of the support service, see our [documentation](../support/).
+{{ yandex-cloud }} technical support is available 24/7. Depending on your [service plan](../support/overview.md), you can request help with various issues in the [Support]({{ link-console-support }}) section of the management console. For a detailed description of the support service, see our [documentation](../support/).
 
 If you did not find an answer to your question about using {{ yandex-cloud }} in the documentation, contact the support team.
+
 
 ## About {{ yandex-cloud }} {#about-platform}
 
@@ -100,11 +101,11 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 ### Machine learning {#ml-ai}
 
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
+* [{{ foundation-models-full-name }}](../foundation-models/qa/index.md)
 * [{{ speechkit-full-name }}](../{{ speechkit-slug }}/qa/all.md)
 * [{{ speechsense-full-name }}](../speechsense/qa/index.md)
 * [{{ translate-full-name }}](../translate/qa/index.md)
 * [{{ vision-full-name }}](../vision/qa/index.md)
-* [{{ yagpt-full-name }}](../yandexgpt/qa/index.md)
 
 
 

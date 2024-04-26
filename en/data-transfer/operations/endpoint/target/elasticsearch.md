@@ -4,6 +4,7 @@ description: "In this tutorial, you will learn how to set up an {{ ES }} target 
 ---
 # Transferring data to an {{ ES }} target endpoint
 
+
 {{ data-transfer-full-name }} enables you to migrate data to an {{ ES }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).

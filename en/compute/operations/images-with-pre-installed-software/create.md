@@ -5,6 +5,7 @@ description: "Follow this guide to create a VM from a public image."
 
 # Creating a VM from a public image
 
+
 To create a [VM](../../concepts/vm.md):
 
 {% list tabs group=instructions %}
@@ -58,9 +59,6 @@ To create a [VM](../../concepts/vm.md):
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       * (Optional) Select or create a [service account](../../../iam/concepts/index.md#sa). With a service account, you can flexibly configure access rights for your resources.
       * (Optional) [Enable VM access via OS Login](../vm-connect/os-login.md). The option is available for Linux images from [{{ marketplace-name }}](/marketplace) with `OS Login` in their names.
-
-         {% include notitle [preview](../../../_includes/note-preview-by-request.md) %}
-
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../vm-connect/ssh.md#creating-ssh-keys) file.
 
@@ -110,9 +108,9 @@ To create a [VM](../../concepts/vm.md):
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
       |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
-      | b0c6n43f9lgh******** | default-{{ region-id }}-a | enpe3m3fa00u******** |                | {{ region-id }}-a | [10.130.0.0/24] |
-      | e2l2da8a20b3******** | default-{{ region-id }}-b | enpe3m3fa00u******** |                | {{ region-id }}-b | [10.129.0.0/24] |
-      | e9bnlm18l70a******** | default-{{ region-id }}-d | enpe3m3fa00u******** |                | {{ region-id }}-d | [10.128.0.0/24] |
+      | b0c6n43f9lgh******** | default-{{ region-id }}-a     | enpe3m3fa00u******** |                | {{ region-id }}-a     | [10.130.0.0/24] |
+      | e2l2da8a20b3******** | default-{{ region-id }}-b     | enpe3m3fa00u******** |                | {{ region-id }}-a     | [10.129.0.0/24] |
+      | e9bnlm18l70a******** | default-{{ region-id }}-d     | enpe3m3fa00u******** |                | {{ region-id }}-a     | [10.128.0.0/24] |
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
       ```
 
@@ -137,7 +135,7 @@ To create a [VM](../../concepts/vm.md):
 
       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
       * `subnet-name`: Name of the selected subnet.
-      * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP, disable this parameter.
+      * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, disable this parameter.
       * `image-family`: [Image family](../../concepts/image.md#family), such as `centos-7`. This option allows you to install the latest version of the OS from the specified family.
       * `--ssh-key`: [Public SSH key](../vm-connect/ssh.md#creating-ssh-keys) path. The VM will automatically create a user named `yc-user` for this key.
 

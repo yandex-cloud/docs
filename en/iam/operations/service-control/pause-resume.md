@@ -1,6 +1,9 @@
 # Suspending and restoring service access
 
+
+
 {% include notitle [preview](../../../_includes/note-preview.md) %}
+
 
 In Yandex Identity and Access Management, you can suspend and restore [service access](../../concepts/service-control.md) to resources in the cloud.
 

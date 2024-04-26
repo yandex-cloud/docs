@@ -5,6 +5,7 @@ description: "This page provides recommendations for using {{ network-load-balan
 
 # Recommendations for use
 
+
 ### Use different availability zones {#place-resources-in-different-zones}
 
 Create cloud resources in multiple availability zones. This way you can maintain the availability of your applications in case one of the zones becomes unavailable.

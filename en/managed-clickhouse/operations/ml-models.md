@@ -179,7 +179,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
 To apply the model to data stored in a {{ CH }} cluster:
 
-1. Connect to the cluster [using the client](../../managed-clickhouse/operations/connect.md#cli) {{ CH }} CLI or go to the [SQL](../../managed-clickhouse/operations/web-sql-query.md) tab in the cluster management console.
+1. [Connect to the cluster](connect/clients.md).
 1. Execute an SQL query in the format:
 
    ```
@@ -270,7 +270,7 @@ To update the contents of a model that is already connected to the cluster:
 
    To update a model, use the [update](../api-ref/MlModel/update.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/Update](../api-ref/grpc/ml_model_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Model name in the `mlModelName` parameter.
    * New link to the model file in {{ objstorage-full-name }} in the `uri` parameter.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
@@ -361,13 +361,11 @@ To upload data to {{ CH }} and test the model:
    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-name }}**: `ml_test`
    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}**: `https://{{ s3-storage-host-mch }}/catboost_model.bin`
 
-1. Install the [{{ CH }} CLI]({{ ch.docs }}/interfaces/cli/) and configure your cluster connection as described in the [documentation](../../managed-clickhouse/operations/connect.md#cli).
-
 
 1. Download the [file](https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv) with data to analyze.
 
 
-1. [Connect to the database](../../managed-clickhouse/operations/connect.md#cli) via the {{ CH }} CLI.
+1. [Connect to the cluster](connect/clients.md).
 
 1. Create a test table:
 

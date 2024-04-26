@@ -1,5 +1,6 @@
 # Creating a high-performance SSD
 
+
 You can create a separate [high-performance](../../concepts/disk.md#nr-disks) SSD that combines the high speed of a non-replicated disk with redundancy.
 
 The size of a disk must be a multiple of 93 GB.

@@ -1,6 +1,6 @@
 #### Is it possible to connect to individual {{ CH }} hosts? {#connect-node}
 
-Yes, you can. You can connect to {{ CH }} cluster hosts:
+Yes, it is. You can connect to {{ CH }} cluster hosts:
 
 * Using the [HTTPS interface]({{ ch.docs }}/interfaces/http/):
    * Via an encrypted SSL connection on port 8443.
@@ -18,8 +18,8 @@ Most likely, no public access is enabled for the cluster, so you can only connec
 
 #### How do I connect to a non-public host in {{ yandex-cloud }}? {#private-host}
 
-[Connect](../../managed-clickhouse/operations/connect.md) to a host from a VM in {{ yandex-cloud }} hosted in the same cloud network, or [add](../../managed-clickhouse/operations/hosts.md#add-host) a new cluster host with public access and connect to a non-public host through it.
+[Connect](../../managed-clickhouse/operations/connect/clients.md) to a host from a VM in {{ yandex-cloud }} hosted in the same cloud network, or [add](../../managed-clickhouse/operations/hosts.md#add-host) a new cluster host with public access and connect to a non-public host through it.
 
 #### Can I connect to a public cluster without SSL? {#without-ssl}
 
-No. You can only connect to public hosts using an SSL connection. For more information, see the [documentation](../../managed-clickhouse/operations/connect.md).
+No. You can only connect to public hosts using an SSL connection. For more information, see the [documentation](../../managed-clickhouse/operations/connect/index.md).

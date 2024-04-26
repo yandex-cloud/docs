@@ -14,7 +14,7 @@ To create a cluster with no internet access, see the [{#T}](../../tutorials/k8s-
    1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
 
    
-   1. On the [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../../billing/quickstart/index.md#create_billing_account).
+   1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../../billing/quickstart/index.md#create_billing_account).
 
 
    1. If you do not have a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../../resource-manager/operations/folder/create.md).
@@ -305,7 +305,7 @@ Install {{ TF }} (unless you already have it), configure the provider according 
    }
 
    resource "yandex_resourcemanager_folder_iam_member" "k8s-clusters-agent" {
-     # The service account is assigned the "k8s.clusters.agent" role.
+     # The service account is assigned the k8s.clusters.agent role.
      folder_id = local.folder_id
      role      = "k8s.clusters.agent"
      member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
@@ -512,7 +512,7 @@ Install {{ TF }} (unless you already have it), configure the provider according 
    }
 
    resource "yandex_resourcemanager_folder_iam_member" "encrypterDecrypter" {
-     # The service account is assigned the "kms.keys.encrypterDecrypter" role.
+     # The service account is assigned the kms.keys.encrypterDecrypter role.
      folder_id = local.folder_id
      role      = "kms.keys.encrypterDecrypter"
      member    = "serviceAccount:${yandex_iam_service_account.my-regional-account.id}"

@@ -7,6 +7,7 @@ In {{ yq-full-name }}, you are billed for the amount of data read from sources w
 
 
 
+
 Individual conditions:
 - If a query is interrupted due to any system cause, you will not be charged for the query.
 - If a query is terminated by the user, you will be charged for the volume of data read by the time of the query termination.

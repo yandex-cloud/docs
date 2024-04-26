@@ -32,10 +32,20 @@ This, in its turn, will trigger the following, depending on the resource type:
 
 * For your {{ compute-name }} VMs, we will create snapshots and then stop them. You will then be able to restore your VMs from snapshots in another availability zone.
 * {{ managed-k8s-name }} clusters will become fully unavailable, including in `{{ region-id }}-a` and `{{ region-id }}-b`, in case you use a regional master or have node groups in such zones. We will back up your cluster settings (technically, take the etcd disk snapshot), which you will be able to request from our tech support.
+   * If a cluster was inactive when forced migration started, the cluster will be backed up and later deleted.
+   * If a cluster with resources located in the `{{ region-id }}-c` zone was stopped during forced migration, the cluster will be backed up and later deleted.
+   * A backup is a snapshot of etcd cluster data. To get a backup copy of your cluster, contact support.
 * Managed database hosts residing in `{{ region-id }}-c` will be disabled. Before doing so, we will create database backups from which you can restore your cluster.
 * Instance groups residing in `{{ region-id }}-c` will be stopped. You will get backups of all VM instances that were part of the relevant groups.
 * {{ mgl-name }} repositories located in `{{ region-id }}-c` will be deleted. We will create a backup you will be able to request from our tech support.
 * {{ cloud-desktop-name }}s located in `{{ region-id }}-c` will be deleted. Before doing so, we will create their images.
+
+These risks apply to resources with the following characteristics:
+
+* Resources on the `standard-v1` platform (Intel Broadwell).
+* Resources connected to subnets with custom routing tables.
+
+The above list is not exhaustive. Migrate your resources yourself by the specified deadline.
 
 ### How do I get help with migration? {#need-help}
 

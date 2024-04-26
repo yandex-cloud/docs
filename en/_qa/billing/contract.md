@@ -8,9 +8,11 @@
 
 {% list tabs group=residents %}
 
+
 - Residents of Russia {#russia}
 
-   Residents of Russia as well as tax residents of the Republic of Belarus can learn more about the terms of the agreement in [Legal documents](https://yandex.ru/legal/cloud_oferta/?lang=en).
+   Residents of Russia as well as tax residents of the Republic of Belarus can learn more about the terms of the agreement in [Legal documents]({{ billing-oferta-url }}/?lang=en).
+
 
 - Residents of Kazakhstan {#kazakhstan}
 
@@ -22,11 +24,14 @@
 
 {% endlist %}
 
-#### Can a signed agreement be finalized? {#contract}
+#### Is it an option to have a bilateral agreement? {#contract}
 
-Businesses may conclude an agreement that is signed by both parties. To do this, you must submit a request using the **Ask a question** form on the [Contact us]({{ link-console-support }}) page. A {{ yandex-cloud }} manager will contact you to discuss the terms.
+Businesses may conclude a bilateral agreement. To do this, submit a request using the **Ask a question** form on the [Contact us]({{ link-console-support }}) page. A {{ yandex-cloud }} manager will contact you to discuss the terms.
 
+#### How do I refer to the signed agreement? {#refer-to-contract}
+
+The agreement is represented by the [offer]({{ billing-oferta-url }}). Specify the agreement number and a link to the offer or enclose its printed copy.
 
 #### How do I get a hard copy of the agreement? {#paper-contract}
 
-Contact [support]({{ link-console-support }}?section=contact). A {{ yandex-cloud }} manager will contact you to discuss the terms. It will take about two weeks to prepare the agreement: a company representative will sign it and we will send it to you by mail.
+Contact [support]({{ link-console-support }}). A {{ yandex-cloud }} manager will contact you to discuss the terms. It will take about two weeks to prepare the agreement: a company representative will sign it and we will send it to you by mail.

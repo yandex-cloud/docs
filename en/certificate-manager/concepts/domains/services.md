@@ -7,6 +7,7 @@ description: "You can use verified {{ certificate-manager-name }} domains in {{ 
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}
 
+
 You can use verified {{ certificate-manager-name }} domains in the following {{ yandex-cloud }} services:
 * [{#T}](#api-gw)
 

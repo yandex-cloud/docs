@@ -5,6 +5,7 @@ description: "In this tutorial, you will learn how to set up an {{ ES }} source 
 
 # Transferring data from an {{ ES }} source endpoint
 
+
 {{ data-transfer-full-name }} enables you to migrate search and analytics data from an {{ ES }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).

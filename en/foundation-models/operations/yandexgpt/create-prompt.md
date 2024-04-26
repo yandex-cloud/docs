@@ -9,7 +9,7 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
 
 ## Getting started {#before-begin}
 
-{% include notitle [ai-before-beginning](../../../_includes/yandexgpt/ai-before-beginning.md) %}
+{% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
 
 ## Send a request to the model {#request}
 
@@ -38,7 +38,7 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
 
    Where:
 
-   {% include [api-parameters](../../../_includes/yandexgpt/api-parameters.md) %}
+   {% include [api-parameters](../../../_includes/foundation-models/yandexgpt/api-parameters.md) %}
 
 1. To send the request to the model, run this command:
 
