@@ -63,11 +63,11 @@ To enable debug output in the console, use the `--debug` key.
 
 ### Getting a list of buckets {#listing-buckets}
 
+{% include [sa-acl-bucket-list-note](../../_includes/storage/sa-acl-bucket-list-note.md) %}
+
 ```bash
 s3cmd ls
 ```
-
-S3cmd is configured using a service account. It can only view the list of buckets in the directory in which it was created. Do not use the command to get information about a public bucket located outside the service account directory.
 
 ### Create a bucket {#creating-bucket}
 

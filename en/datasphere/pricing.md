@@ -107,6 +107,7 @@ Where:
 
 ## Pricing {#prices}
 
+
 The prices of the configurations are valid for computations in [{{ ds-nb }}](concepts/project.md#mode), [{{ ds-jobs }}](concepts/jobs/index.md) jobs, and the use of [{{ ds-inf }}](../datasphere/concepts/deploy/index.md).
 
 

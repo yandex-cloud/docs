@@ -19,11 +19,66 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
   1. Click **Enter**.
   1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+   {% include [tags-update-notice](../../../_includes/storage/tags-update-notice.md) %}
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. View the description of the CLI command for changing the bucket settings:
+
+      ```bash
+      yc storage bucket update --help
+      ```
+
+   1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Result:
+
+      ```text
+      +------------------+----------------------+----------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       | MAX SIZE | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+----------+-----------------------+---------------------+
+      | my-bucket        | b1gmit33ngp3******** | 10       | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+----------+-----------------------+---------------------+
+      ```
+
+   1. Add labels by specifying the name of the required bucket:
+
+      ```bash
+      yc storage bucket update <bucket_name> \
+        --tags <label_1_key>=<label_1_value>,<label_2_key>=<label_2_value>,...,<label_n_key>=<label_n_value>
+      ```
+
+      Where `--tags` is a flag to list bucket labels in `key=value` format.
+
+      Result:
+
+      ```text
+      name: my-bucket
+      folder_id: b1gmit33ngp3********
+      default_storage_class: STANDARD
+      versioning: VERSIONING_ENABLED
+      acl: {}
+      created_at: "2023-04-24T14:15:28.240705Z"
+      tags:
+        - key: key-tag
+          value: key-value
+      ```
+
+- AWS CLI {#aws-cli}
+
+   {% include [tags-update-notice](../../../_includes/storage/tags-update-notice.md) %}
 
    If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
-   In the terminal, run this command that overwrites any existing bucket labels:
+   In the terminal, run this command:
 
    ```bash
    aws s3api put-bucket-tagging \
@@ -41,6 +96,8 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
 - {{ TF }} {#tf}
 
+   {% include [tags-update-notice](../../../_includes/storage/tags-update-notice.md) %}
+
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and add a section called `tags` to the fragment describing the bucket:
@@ -50,8 +107,8 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
         bucket           = "<bucket_name>"
         ...
         tags             = {
-          <key_of_label_1> = "<value_of_label_1>"
-          <key_of_label_2> = "<value_of_label_2>"
+          <label_1_key> = "<label_1_value>"
+          <label_2_key> = "<label_2_value>"
         }
         ...
       }
@@ -72,6 +129,8 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
    ```
 
 - API {#api}
+
+   {% include [tags-update-notice](../../../_includes/storage/tags-update-notice.md) %}
 
    To add or update bucket labels, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [putBucketTagging](../../s3/api-ref/bucket/putbuckettagging.md) S3 API method.
 
@@ -122,7 +181,54 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
    1. Select a bucket from the list.
    1. Click the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab in the left-hand menu.
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. See a description of the CLI command to get bucket information:
+
+      ```bash
+      yc storage bucket get --help
+      ```
+
+   1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Result:
+
+      ```text
+       +------------------+----------------------+----------+-----------------------+---------------------+
+       |       NAME       |      FOLDER ID       | MAX SIZE | DEFAULT STORAGE CLASS |     CREATED AT      |
+       +------------------+----------------------+----------+-----------------------+---------------------+
+       | my-bucket        | b1gmit33ngp3******** | 10       | STANDARD              | 2022-12-16 13:58:18 |
+       +------------------+----------------------+----------+-----------------------+---------------------+
+      ```
+
+   1. Get information about the labels by specifying the name of the required bucket:
+
+      ```bash
+      yc storage bucket get <bucket_name> --full
+      ```
+
+      Result:
+
+      ```text
+      name: my-bucket
+      folder_id: b1gmit33ngp3********
+      default_storage_class: STANDARD
+      ...
+      tags:
+        - key: key-tag
+          value: key-value
+      ...
+      ```
+
+- AWS CLI {#aws-cli}
 
    If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -222,7 +328,53 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
   1. Click ![image](../../../_assets/console-icons/xmark.svg) next to the appropriate label.
   1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. View the description of the CLI command for changing the bucket settings:
+
+      ```bash
+      yc storage bucket update --help
+      ```
+
+   1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Result:
+
+      ```text
+      +------------------+----------------------+----------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       | MAX SIZE | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+----------+-----------------------+---------------------+
+      | my-bucket        | b1gmit33ngp3******** | 10       | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+----------+-----------------------+---------------------+
+      ```
+
+   1. Delete labels by specifying the name of the required bucket:
+
+      ```bash
+      yc storage bucket update <bucket_name> \
+        --remove-tags
+      ```
+
+      Result:
+
+      ```text
+      name: my-bucket
+      folder_id: b1gmit33ngp3********
+      default_storage_class: STANDARD
+      versioning: VERSIONING_ENABLED
+      acl: {}
+      created_at: "2023-04-24T14:15:28.240705Z"
+      ```
+
+- AWS CLI {#aws-cli}
 
    If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -244,15 +396,15 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
    1. Open the {{ TF }} configuration file and delete the `tags` section from the fragment describing the bucket.
 
-      {% cut "Example of a bucket tag description in {{ TF }} configuration" %}
+      {% cut "Example of a bucket tag description in the {{ TF }} configuration" %}
 
       ```hcl
       resource "yandex_storage_bucket" "test-bucket" {
         bucket           = "<bucket_name>"
         ...
         tags             = {
-          <key_of_label_1> = "<value_of_label_1>"
-          <key_of_label_2> = "<value_of_label_2>"
+          <label_1_key> = "<label_1_value>"
+          <label_2_key> = "<label_2_value>"
         }
         ...
       }

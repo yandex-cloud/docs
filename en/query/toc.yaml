@@ -1,5 +1,10 @@
 title: Yandex Query
 href: index.yaml
+label:
+  title: RU
+  description: The service is available in Russia only.
+  theme: unknown
+  when: region == "kz"
 items:
   - name: Getting started
     items:
@@ -25,6 +30,8 @@ items:
         items:
           - name: Description
             href: concepts/batch-processing.md
+          - name: Federated queries
+            href: concepts/federated-processing.md
           - name: Data partitioning
             href: concepts/partitioning.md
           - name: Extended partitioning

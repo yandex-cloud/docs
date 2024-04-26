@@ -1,5 +1,6 @@
 # Updating a GPU cluster
 
+
 After creating a [GPU cluster](../../concepts/gpus.md#gpu-clusters), you can change its name, description, or labels.
 
 For information on how to add a [VM](../../concepts/vm.md) to a GPU cluster, see [{#T}](./gpu-add-to-cluster.md).
@@ -29,7 +30,7 @@ For information on how to add a [VM](../../concepts/vm.md) to a GPU cluster, see
 
       ```bash
       yc compute instance update first-gpu-cluster \
-      --new-name updated-gpu-cluster
+        --new-name updated-gpu-cluster
       ```
 
 - {{ TF }} {#tf}

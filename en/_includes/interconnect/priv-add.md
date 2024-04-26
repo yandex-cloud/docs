@@ -1,6 +1,6 @@
 ## Setting up a private connection {#priv-create}
 
-To set up a new private connection in an existing trunk, create a [new support request]({{ link-console-support }}/create-ticket).
+To set up a new private connection in an existing trunk, create a [new support request]({{ link-console-support }}).
 
 ### Contacting support to set up a new private connection {#priv-ticket}
 

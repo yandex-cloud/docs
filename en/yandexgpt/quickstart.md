@@ -1,10 +1,10 @@
 # Getting started with {{ yagpt-full-name }}
 
-{% include notitle [preview-stage](../_includes/yandexgpt/preview.md) %}
+{% include notitle [preview-stage](../_includes/foundation-models/yandexgpt/preview.md) %}
 
 In this section, you will learn how to use a neural network for generating texts.
 
-The [management console]({{ link-console-main }}/link/yandexgpt) provides a fast and easy way for new users without a [billing account](../billing/concepts/billing-account.md) to try out the model with {{ gpt-freetier }} free prompts per hour. To access the API and increase usage [quotas](concepts/limits.md), [link](../billing/operations/pin-cloud.md) your billing account to the cloud.
+The [management console]({{ link-console-main }}/link/yandexgpt) provides a quick and easy way for new users without a [billing account](../billing/concepts/billing-account.md) to try out the model with {{ gpt-freetier }} free prompts per hour. To access the API and increase usage [quotas](concepts/limits.md), [link](../billing/operations/pin-cloud.md) your billing account to the cloud.
 
 For information about {{ yagpt-full-name }} usage costs, see [{#T}](pricing.md).
 
@@ -40,7 +40,7 @@ To get started in {{ yandex-cloud }}:
       x-folder-id: <folder_ID>
       ```
 
-   For information about other API authentication methods, see [{#T}](api-ref/authentication.md).
+   For information about other API authentication methods, see the [Authentication in {{ yagpt-full-name }}](api-ref/authentication.md) page.
 
 {% endlist %}
 
@@ -91,7 +91,7 @@ To improve the quality of generated responses, {{ yagpt-full-name }} logs user p
 
       Where:
 
-      {% include [api-parameters](../_includes/yandexgpt/api-parameters.md) %}
+      {% include [api-parameters](../_includes/foundation-models/yandexgpt/api-parameters.md) %}
 
    1. Use the [completion](./text-generation/api-ref/TextGeneration/completion.md) method to send a request to the neural network in the following command:
 

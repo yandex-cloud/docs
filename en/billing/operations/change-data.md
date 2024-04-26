@@ -8,14 +8,14 @@ The sequence of user actions depends on the type of update.
 
 {% list tabs group=instructions %}
 
-- {{ billing-name }} interface {#billing}
+- {{ billing-interface }} {#billing}
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
    1. Select a billing account.
-   1. Go to the **{{ ui-key.yacloud.billing.account.switch_overview }}** page.
+   1. Go to the **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_billing.billing.account.dashboard.label_rename }}** at the top next to the account name.
    1. Enter a new name.
-   1. Click **{{ ui-key.yacloud.billing.account.dashboard-resources.button_action-rename-account }}**.
+   1. Click **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.button_action-rename-account }}**.
 
 {% endlist %}
 
@@ -25,12 +25,12 @@ You can use [Yandex Balance](https://balance.yandex.ru/) to update payer's conta
 
 {% list tabs group=instructions %}
 
-- {{ billing-name }} interface {#billing}
+- {{ billing-interface }} {#billing}
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
    1. Select a billing account.
-   1. Go to the **{{ ui-key.yacloud.billing.account.switch_overview }}** page.
-   1. Click **{{ ui-key.yacloud.billing.account.dashboard-info.company_label_edit_ru }}**. <br/>This will redirect you to [Yandex Balance](https://balance.yandex.ru/).
+   1. Go to the **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page.
+   1. Click **{{ ui-key.yacloud_billing.billing.account.dashboard-info.company_label_edit_ru }}**. <br/>This will redirect you to [Yandex Balance](https://balance.yandex.ru/).
    1. Follow the Yandex Balance [guide](https://yandex.ru/support/balance/operations/change-data.html).
 
 {% endlist %}

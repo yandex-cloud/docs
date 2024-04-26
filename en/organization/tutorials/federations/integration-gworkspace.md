@@ -83,7 +83,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. See the description of the create federation command:
+   1. View the description of the create federation command:
 
       ```
       yc organization-manager federation saml create --help
@@ -147,7 +147,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
       * `description`: Federation description.
       * `organization_id`: Organization ID.
       * `labels`: Set of key/value label pairs assigned to the federation.
-      * `issuer`: IdP server ID to be used for authentication.
+      * `issuer`: ID of the IdP server to be used for authentication.
 
          Use the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
@@ -193,7 +193,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
       }
       ```
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -246,9 +246,9 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
-      * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
+      * `cookieMaxAge`: Time before the browser asks the user to re-authenticate.
 
-      * `issuer`: IdP server ID to be used for authentication.
+      * `issuer`: ID of the IdP server to be used for authentication.
 
          Use the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
@@ -377,6 +377,7 @@ Once you have created a federation, complete the creation of the SAML applicatio
 
 1. Click **Continue**.
 
+   
    {% note tip %}
 
    For a user to be able to contact {{ yandex-cloud }} technical support from the [management console]({{ link-console-support }}), in the **Mapping attributes** step, click **Add new mappings** and set up attribute transmission:
@@ -387,6 +388,7 @@ Once you have created a federation, complete the creation of the SAML applicatio
    User attributes supported by {{ org-full-name }} services are listed in [{#T}](#claims-mapping).
 
    {% endnote %}
+
 
 1. To complete the creation of the app, click **Ready**.
 

@@ -4,7 +4,8 @@
 {% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
 
 
-This tutorial will explain to you how to deploy Microsoft Exchange servers in {{ yandex-cloud }}. We will install two Microsoft Exchange mail servers, two Active Directory servers, and two Edge Transport services in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. A network load balancer will distribute load across servers. All servers will be managed via a separate VM with internet access in the `{{ region-id }}-d` availability zone.
+
+This tutorial describes how to deploy Microsoft Exchange servers in {{ yandex-cloud }}. We will install two Microsoft Exchange mail servers, two Active Directory servers, and two Edge Transport services in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. A network load balancer will distribute load across servers. All servers will be managed via a separate VM with internet access in the `{{ region-id }}-d` availability zone.
 
 1. [Prepare your cloud](#before-you-begin).
 1. [Create a cloud network and subnets](#create-network).
@@ -627,7 +628,7 @@ Repeat these commands for the `vm-exchange-b` VM.
    ```powershell
    Name             Member Servers                                      Operational Servers
    ----             --------------                                      -------------------
-   ycdag            {VM-EXCHANGE-A, VM-EXCHANGE-B}                      {VM-EXCHANGE-A, VM-EXCHANGE-B}
+   ycdag            {VM-EXCHANGE-A, VM-EXCHANGE-B}                    {VM-EXCHANGE-A, VM-EXCHANGE-B}
    ```
 
 1. Create a mail server database:

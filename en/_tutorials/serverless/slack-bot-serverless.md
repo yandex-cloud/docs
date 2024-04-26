@@ -1,5 +1,6 @@
 # Creating a Slack chat bot
 
+
 In this use case, you will learn how to use serverless technologies to create a Slack bot that will run commands in a chat and respond to user messages.
 
 
@@ -34,7 +35,7 @@ In this use case, you will learn how to use serverless technologies to create a 
    1. Specify the following parameters:
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python37`.
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`
       * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Service account you created earlier.
 
 1. [Edit](../../api-gateway/operations/api-gw-update.md) the `for-slack-bot` API gateway. Add to the `paths` parameter the `POST` method configuration:

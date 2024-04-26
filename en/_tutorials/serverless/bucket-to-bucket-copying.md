@@ -1,5 +1,6 @@
 # Automatically copying objects from one {{ objstorage-name }} bucket to another
 
+
 Configure automatic object copy from one {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) to another. Objects will be copied using a {{ sf-name }} [function](../../functions/concepts/function.md) invoked by a [trigger](../../functions/concepts/trigger/os-trigger.md) when a new object is added to a bucket.
 
 To set up object copy:
@@ -126,12 +127,12 @@ The cost of resources includes:
          Where:
 
          * `name`: Service account name. This is a required parameter.
-         * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
+         * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
          * `role`: Role being assigned.
 
          For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
 
-      1. Make sure the configuration files are valid.
+      1. Make sure the configuration files are correct.
 
          1. In the command line, go to the directory where you created the configuration file.
          1. Run a check using this command:
@@ -150,7 +151,7 @@ The cost of resources includes:
             terraform apply
             ```
 
-         1. Confirm creating the service account by typing `yes` in the terminal and pressing **Enter**.
+         1. Confirm creating the service account: type `yes` in the terminal and press **Enter**.
 
             The service account will then be created. You can check the new service account using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -219,7 +220,7 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
 
       For more information about the `yandex_iam_service_account_static_access_key` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -342,7 +343,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
       * [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret).
       * [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -421,7 +422,7 @@ Create two buckets: the main one to store files and the backup one to copy the m
 
       For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -494,7 +495,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `s3-copy-fn`
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
-            * `S3_ENDPOINT`: `https://storage.yandexcloud.net`
+            * `S3_ENDPOINT`: `https://{{ s3-storage-host }}`
             * `DST_BUCKET`: Name of the backup bucket to copy files to
 
          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
@@ -535,7 +536,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
         --entrypoint=handler.sh \
         --service-account-id=<service_account_ID> \
         --environment DST_BUCKET=<backup_bucket_name> \
-        --environment S3_ENDPOINT=https://storage.yandexcloud.net \
+        --environment S3_ENDPOINT=https://{{ s3-storage-host }} \
         --secret name=s3-static-key,key=key_id,environment-variable=AWS_ACCESS_KEY_ID \
         --secret name=s3-static-key,key=secret,environment-variable=AWS_SECRET_ACCESS_KEY \
         --source-path=./handler-sh.zip
@@ -573,7 +574,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
       log_group_id: ckgmc3l93cl0********
       environment:
         DST_BUCKET: <backup_bucket_name>
-        S3_ENDPOINT: https://storage.yandexcloud.net
+        S3_ENDPOINT: https://{{ s3-storage-host }}
       secrets:
         - id: e6q5qe9a1hgk********
           version_id: e6qrdn2e1acb********
@@ -602,7 +603,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
         service_account_id = "aje20nhregkcvu******"
         environment = {
           DST_BUCKET  = "<backup_bucket_name>"
-          S3_ENDPOINT = "https://storage.yandexcloud.net"
+          S3_ENDPOINT = "https://{{ s3-storage-host }}"
         }
         secrets = {
           id = "e6q5qe9a1hgk1a******"
@@ -625,10 +626,10 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
       Where:
 
       * `name`: Function name.
-      * `user_hash`: Arbitrary string that identifies the function version.
+      * `user_hash`: Any string to identify the function version.
       * `runtime`: Function [runtime environment](../../functions/concepts/runtime/index.md).
       * `entrypoint`: Entry point.
-      * `memory`: Amount of memory allocated for function execution, in MB.
+      * `memory`: Amount of memory allocated for the function, in MB.
       * `execution_timeout`: Function execution timeout.
       * `service_account_id`: ID of the `s3-copy-fn` service account.
       * `environment`: Environment variables.
@@ -637,7 +638,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
 
       For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -656,7 +657,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
          terraform apply
          ```
 
-      1. Confirm the function creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the function: type `yes` in the terminal and press **Enter**.
 
 - API {#api}
 
@@ -766,7 +767,7 @@ Create a trigger for {{ objstorage-name }} that will invoke a `copy-function` wh
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:

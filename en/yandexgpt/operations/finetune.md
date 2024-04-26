@@ -1,6 +1,6 @@
 ---
 title: "How to send requests to fine-tuned models in {{ yagpt-full-name }}"
-description: "Follow this guide to send requests to fine-tuned models."
+description: "Follow this guide to learn how to send requests to fine-tuned models."
 ---
 
 # Sending requests to fine-tuned models
@@ -12,11 +12,11 @@ You can send requests to fine-tuned models in {{ yagpt-name }}. Requests to the 
 
 ## Getting started {#before-begin}
 
-{% include notitle [ai-before-beginning](../../_includes/yandexgpt/ai-before-beginning.md) %}
+{% include notitle [ai-before-beginning](../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
 
 ## Send a request for text summarization {#text-summarization}
 
-1. Create a file with the request body (for example, `body.json`).
+1. Create a file with the request body, e.g., `body.json`:
 
    ```json
    {
@@ -35,7 +35,7 @@ You can send requests to fine-tuned models in {{ yagpt-name }}. Requests to the 
    }
    ```
 
-   {% include [api-parameters](../../_includes/yandexgpt/api-parameters.md) %}
+   {% include [api-parameters](../../_includes/foundation-models/yandexgpt/api-parameters.md) %}
 
 1. To send the request to the model, run this command:
 

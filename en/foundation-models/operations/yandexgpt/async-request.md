@@ -5,11 +5,11 @@ description: "Follow this guide to send asynchronous requests to models in {{ ya
 
 # Sending an asynchronous request
 
-You can send requests to the models [asynchronously](../../concepts/index.md#working-mode). In response to such a request, you will receive the operation ID and use it to track the operation progress.
+You can request {{ yagpt-full-name }} models in [asynchronous mode](../../concepts/index.md#working-mode). In response to such a request, you will receive the operation ID and use it to track the operation progress.
 
 ## Getting started {#before-begin}
 
-{% include notitle [ai-before-beginning](../../../_includes/yandexgpt/ai-before-beginning.md) %}
+{% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
 
 ## Send a request to the model {#request}
 
@@ -36,7 +36,7 @@ You can send requests to the models [asynchronously](../../concepts/index.md#wor
    }
    ```
 
-   {% include [api-parameters](../../../_includes/yandexgpt/api-parameters.md) %}
+   {% include [api-parameters](../../../_includes/foundation-models/yandexgpt/api-parameters.md) %}
 
 1. To send the request to the model, run this command:
 

@@ -1,5 +1,6 @@
 # Creating a fixed-size instance group
 
+
 You can create a group with a fixed number of [VM instances](../../concepts/vm.md). The size of this [instance group](../../concepts/instance-groups/index.md) is set manually. For more information, see [{#T}](../../concepts/instance-groups/scale.md#fixed-scale).
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
@@ -98,10 +99,10 @@ To create a fixed-size instance group:
          * `security_group_ids`: List of [security group](../../../vpc/concepts/security-groups.md) IDs.
          * `scheduling_policy`: Scheduling policy configuration.
          * `preemptible`: Flag for creating [preemptible VMs](../../concepts/preemptible-vm.md).
-           * `true`: Create a preemptible VM.
-           * `false` (default): Create a regular VM.
+            * `true`: Create a preemptible VM.
+            * `false` (default): Create a regular VM.
 
-           When creating a preemptible instance group, keep in mind that the VM instances will terminate after 24 hours of continuous operation or earlier. VMs may not be able to restart immediately due to insufficient resources. This may occur in the event of a sharp increase in the use of {{ yandex-cloud }} computing resources.
+            When creating a preemptible instance group, keep in mind that the VM instances will terminate after 24 hours of continuous operation or earlier. VMs may not be able to restart immediately due to insufficient resources. This may occur in the event of a sharp increase in the use of {{ yandex-cloud }} computing resources.
          * `placement_policy`: (Optional) [VM placement group](../../concepts/placement-groups.md) parameters:
             * `placement_group_id`: Placement group ID.
       * [Policies](../../concepts/instance-groups/policies/index.md):
@@ -127,44 +128,44 @@ To create a fixed-size instance group:
          * `scale_policy`: [Scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for instances in the group.
          * `allocation_policy`: [Policy for allocating](../../concepts/instance-groups/policies/allocation-policy.md) VM instances by [availability zone](../../../overview/concepts/geo-scope.md) and region.
 
-     Full code for the `specification.yaml` file:
+      Full code for the `specification.yaml` file:
 
-     ```yaml
-     name: first-fixed-group
-     service_account_id: ajed6ilf11qg********
-     description: "This instance group was created from YAML config."
-     instance_template:
-       platform_id: standard-v3
-       resources_spec:
-         memory: 2g
-         cores: 2
-       boot_disk_spec:
-         mode: READ_WRITE
-         disk_spec:
-           image_id: fdvk34al8k5n********
-           type_id: network-hdd
-           size: 32g
-       network_interface_specs:
-         - network_id: c64mknqgnd8a********
-           primary_v4_address_spec: {}
-           security_group_ids:
-             - enps0ar5s3ti********
+      ```yaml
+      name: first-fixed-group
+      service_account_id: ajed6ilf11qg********
+      description: "This instance group was created from YAML config."
+      instance_template:
+        platform_id: standard-v3
+        resources_spec:
+          memory: 2g
+          cores: 2
+        boot_disk_spec:
+          mode: READ_WRITE
+          disk_spec:
+            image_id: fdvk34al8k5n********
+            type_id: network-hdd
+            size: 32g
+        network_interface_specs:
+          - network_id: c64mknqgnd8a********
+            primary_v4_address_spec: {}
+            security_group_ids:
+              - enps0ar5s3ti********
         placement_policy:
           placement_group_id: rmppvhrgm77g********
-     deploy_policy:
-       max_unavailable: 1
-       max_expansion: 0
-     scale_policy:
-       fixed_scale:
-         size: 3
-     allocation_policy:
-       zones:
-         - zone_id: {{ region-id }}-a
-           instance_tags_pool:
-           - first
-           - second
-           - third
-     ```
+      deploy_policy:
+        max_unavailable: 1
+        max_expansion: 0
+      scale_policy:
+        fixed_scale:
+          size: 3
+      allocation_policy:
+        zones:
+          - zone_id: {{ region-id }}-a
+            instance_tags_pool:
+            - first
+            - second
+            - third
+      ```
 
    1. Create an instance group in the default folder:
 
@@ -222,8 +223,8 @@ To create a fixed-size instance group:
           }
 
           network_interface {
-            network_id = "${yandex_vpc_network.network-1.id}"
-            subnet_ids = ["${yandex_vpc_subnet.subnet-1.id}"]
+            network_id         = "${yandex_vpc_network.network-1.id}"
+            subnet_ids         = ["${yandex_vpc_subnet.subnet-1.id}"]
             security_group_ids = ["<list_of_security_group_IDs>"]
           }
 
@@ -265,7 +266,7 @@ To create a fixed-size instance group:
 
          {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-      * `yandex_resourcemanager_folder_iam_member`: Description of access rights to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
+      * `yandex_resourcemanager_folder_iam_member`: Description of access permissions to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
       * `yandex_compute_instance_group`: Description of the instance group:
          * General information about the instance group:
             * `name`: Name of the instance group.

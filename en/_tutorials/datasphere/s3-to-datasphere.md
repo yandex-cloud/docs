@@ -1,5 +1,6 @@
 # Using data from {{ objstorage-full-name }} to train a model in {{ ml-platform-name }}
 
+
 You will create a [bucket](../../storage/concepts/bucket.md) in [{{ objstorage-name }}](../../storage/), mount it to the Windows file system using [rclone](https://rclone.org), and upload data to this bucket to train a [model](../../datasphere/concepts/models/index.md) in [{{ ml-platform-full-name }}]({{ link-datasphere-main }}).
 
 To use data from {{ objstorage-name }} to train a model in {{ ml-platform-name }}:

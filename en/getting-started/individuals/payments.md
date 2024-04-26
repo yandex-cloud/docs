@@ -1,8 +1,9 @@
 # Monitor expenses
 
+
 This checklist item will guide you through setting up your organization's payments for resources.
 
-After you are done creating a billing account, your [personal account balance](../../billing/concepts/personal-account.md#balance) will be zero by default. We recommend monitoring and [topping up](../../billing/operations/pay-the-bill.md) your account so it is always positive.
+After you are done creating a billing account, your [personal account balance](../../billing/concepts/personal-account.md#balance) will be zero by default. We recommend monitoring and [topping up](../../billing/operations/pay-the-bill.md) your account balance so that it always stays positive.
 <br/>If you fail to top up your account on time and run into arrears, your use of {{ yandex-cloud }} services may be suspended. For more information, see [Billing cycle](../../billing/payment/billing-cycle-individual.md).
 
 ## Top up your personal account {#pay-personal-account}
@@ -12,7 +13,7 @@ After you are done creating a billing account, your [personal account balance](.
 1. In [{{ billing-name }}]({{ link-console-billing }}) under **{{ ui-key.yacloud.billing.label_accounts }}**, select the billing account.
 1. Click **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
 1. Enter the payment amount and click **{{ ui-key.yacloud.billing.account.dashboard-overview.popup-refill_button_individual-action }}**.
-1. Enter your card details and click **Pay**. Visa, MasterCard, and MIR bank cards are accepted.
+1. Enter your card details and click **Pay**. We accept  Visa and MasterCard.
 
 Your payment will be processed in real time and completed within 15 minutes.
 

@@ -44,7 +44,7 @@ To create a connection:
    - {{ mch-name }}
 
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ mch-name }} cluster or create a new one.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing [service account](../../iam/concepts/users/service-accounts.md) {{ mch-name }}, or create a new one with the [`{{ roles.mch.viewer }}`](../../managed-clickhouse/security/index.md#mch-viewer) role, and use it to connect to `{{ mch-name }}` clusters.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing [service account](../../iam/concepts/users/service-accounts.md) {{ mch-name }}, or create a new one with the [`{{ roles.mch.viewer }}`](../../managed-clickhouse/security.md#managed-clickhouse-viewer) role, and use it to connect to `{{ mch-name }}` clusters.
       * **{{ ui-key.yql.yq-connection-form.login.input-label }}**: Username to use when connecting to {{ CH }} databases.
       * **{{ ui-key.yql.yq-connection-form.password.input-label }}**: User password to use when connecting to {{ CH }} databases.
 

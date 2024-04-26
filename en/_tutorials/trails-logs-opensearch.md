@@ -1,5 +1,6 @@
 # Exporting audit logs to {{ mos-full-name }}
 
+
 Create a trail to upload [audit logs](../audit-trails/concepts/format.md) for {{ yandex-cloud }} resources to a [{{ yds-full-name }}](../data-streams/) data stream. Once done, configure continuous log delivery to a {{ mos-full-name }} cluster using {{ data-transfer-full-name }}.
 
 ![audit-opensearch-schema](../_assets/mdb/audit-opensearch-schema.svg)
@@ -145,7 +146,7 @@ Make sure to give your stream the `audit‑trails` name to make it easier to upl
 
          {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 
-      1. The transfer is activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+      1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
    {% endlist %}
 

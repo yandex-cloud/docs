@@ -1,5 +1,6 @@
 # Configuring a secure GRE tunnel over IPsec
 
+
 To enable secure communication between remote resources and data transmission via public communication channels, e.g., the internet, one uses technologies for setting up secure connections, such as the [IPsec](https://www.ietf.org/rfc/rfc2401.txt) protocol. However, IPsec has a number of significant limitations: it is only designed for IP packet transmission, does not support [multicast delivery](https://en.wikipedia.org/wiki/IP_multicast), and cannot be combined with other protocols within a single request.
 
 To extend the IPsec features, it is handy to use the [GRE](https://en.wikipedia.org/wiki/Generic_Routing_Encapsulation) protocol in the GRE over IPsec configuration. GRE encapsulates network packets in IP packets, which enables you to transmit any traffic over IPsec.
@@ -93,7 +94,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
 
       For more information about the parameters of the `yandex_resourcemanager_folder` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
 
@@ -345,7 +346,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
 
    {% list tabs %}
 
-   - Сisco-router-a VM
+   - Cisco-router-a VM
 
       ```bash
       crypto ikev2 keyring MY_IKEV2_KEYRING
@@ -355,7 +356,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
          exit
       ```
 
-   - Сisco-router-b VM
+   - Cisco-router-b VM
 
       ```bash
       crypto ikev2 keyring MY_IKEV2_KEYRING
@@ -374,7 +375,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
 
    {% list tabs %}
 
-   - Сisco-router-a VM
+   - Cisco-router-a VM
 
       ```bash
       crypto ikev2 profile MY_IKEV2_PROFILE
@@ -388,7 +389,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
          exit
       ```
 
-   - Сisco-router-b VM
+   - Cisco-router-b VM
 
       ```bash
       crypto ikev2 profile MY_IKEV2_PROFILE
@@ -437,7 +438,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
 
    {% list tabs %}
 
-   - Сisco-router-a VM
+   - Cisco-router-a VM
 
       ```bash
       conf t
@@ -453,7 +454,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
          tunnel protection ipsec profile MY_IPSEC_PROFILE
       ```
 
-   - Сisco-router-b VM
+   - Cisco-router-b VM
 
       ```bash
       conf t
@@ -475,13 +476,13 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
 
    {% list tabs %}
 
-   - Сisco-router-a VM
+   -Cisco-router-a VM
 
       ```bash
       show crypto ikev2 sa remote cisco-router-b
       ```
 
-   - Сisco-router-b VM
+   - Cisco-router-b VM
 
       ```bash
       show crypto ikev2 sa remote cisco-router-a
@@ -519,7 +520,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
 
    {% list tabs %}
 
-   - Сisco-router-a VM
+   - Cisco-router-a VM
 
       ```bash
       conf t
@@ -528,7 +529,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
          exit
       ```
 
-   - Сisco-router-b VM
+   - Cisco-router-b VM
 
       ```bash
       conf t
@@ -543,7 +544,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
 
    {% list tabs %}
 
-   - Сisco-router-a VM
+   - Cisco-router-a VM
 
       ```bash
       router bgp 65001
@@ -557,7 +558,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
       exit
       ```
 
-   - Сisco-router-b VM
+   - Cisco-router-b VM
 
       ```bash
       router bgp 65002

@@ -1,5 +1,10 @@
 title: Yandex Translate
 href: index.yaml
+label:
+  title: RU
+  description: The service is available in Russia only.
+  theme: unknown
+  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -21,7 +26,7 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Retraining models
+      - name: Model tuning
         href: concepts/trainings-of-models.md
       - name: Supported languages
         href: concepts/supported-languages.md
@@ -33,7 +38,7 @@ items:
     items:
       - name: Overview
         href: concepts/api.md
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -85,6 +90,6 @@ items:
         items:
           - name: Policy before January 1, 2019
             href: pricing-archive/pricing-01012019.md
-  - name: Questions and answers
+  - name: FAQ
     href: qa/index.md
 base: en/translate

@@ -116,7 +116,7 @@ To create a dataset named `<dataset_name>` from a [CIFAR-10](https://www.cs.toro
    source_path = ''
    target_path = '/home/jupyter/mnt/datasets/<dataset_name>/'
 
-   s3r = boto3.resource(service_name='s3', endpoint_url='https://storage.yandexcloud.net', **S3_CREDS)
+   s3r = boto3.resource(service_name='s3', endpoint_url='https://{{ s3-storage-host }}', **S3_CREDS)
    bucket = s3r.Bucket(bucket_name)
 
    for obj in bucket.objects.filter(Prefix=source_path):

@@ -71,7 +71,7 @@ To follow the steps in this section, you will need:​
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the create federation command:
+   1. View the description of the create federation command:
 
       ```
       yc organization-manager federation saml create --help
@@ -162,7 +162,7 @@ To follow the steps in this section, you will need:​
       }
       ```
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -447,7 +447,9 @@ To set up a mapping between the user data and Outgoing Claim Types:
 
       In the **Outgoing Claim Type** column, select **Name ID**.
 
+   
    1. For a user to be able to contact {{ yandex-cloud }} technical support from the [management console]({{ link-console-support }}), add the user's email address (the **E-Mail Address** claim type) or name (the **Name** claim type).
+
 
    1. To provide the user's first and last name separately, add the **Given Name** and **Surname** claim types.
 

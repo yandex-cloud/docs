@@ -7,7 +7,7 @@ description: "In this tutorial, you will learn about voices available in {{ spee
 
 This section provides a list of voices available in the service and their characteristics:
 
-* Main language that a voice supports. This is the language used by the speaker when creating this voice.
+* Main language the voice supports. This is the language used by the speaker when creating this voice.
 * Voice gender: male or female.
 * Available voice [roles](index.md#role).
 * Supported API version.
@@ -38,7 +38,7 @@ The table lists the properties of the supported voices that use deep neural netw
 | `ru-RU` | Russian | `julia` | F | (default) neutral — `neutral` </br> stern — `strict` | v3 |
 | `ru-RU` | Russian | `lera` | F | (default) neutral — `neutral` </br> friendly — `friendly` | v3 |
 | `ru-RU` | Russian | `masha` | F | (default) happy — `good` </br> stern — `strict` </br> friendly — `friendly` | v3 |
-| `ru-RU` | Russian | `marina` </br> (default) | F | (default) neutral — `neutral` </br> whisper — `whisper` </br> friendly — `friendly` | v3 |
+| `ru-RU` | Russian | `marina` </br> (default) | F | (default) neutral — `neutral` </br> whisper — `whisper` </br> friendly — `friendly` | v1, v3 |
 | `ru-RU` | Russian | `alexander` | M | (default) neutral — `neutral` </br> happy — `good` | v3 |
 | `ru-RU` | Russian | `kirill` | M | (default) neutral — `neutral` </br> stern — `strict` </br> happy — `good` | v3 |
 | `ru-RU` | Russian | `anton` | M | (default) neutral — `neutral` </br> happy — `good` | v3 |

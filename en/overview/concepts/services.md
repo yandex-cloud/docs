@@ -1,12 +1,13 @@
 # {{ yandex-cloud }} services
 
+
 In {{ yandex-cloud }}, _Services_ allow you to manage specific cloud resources and accesses to them.
 
 ## List of {{ yandex-cloud }} services {#list}
 
 Services at the [Preview](./launch-stages.md) stage are labeled as {{ preview-stage }}.
 
-The following services are currently available as part of the {{ yandex-cloud }} platform:
+The following services are currently available within the platform:
 
 
 | Service | Description |
@@ -15,7 +16,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ alb-full-name }}](../../application-load-balancer/index.yaml) | Service for distributing incoming traffic between web application components |
 | [{{ at-full-name }}](../../audit-trails/index.yaml) | Service for collecting and exporting audit logs |
 | [{{ certificate-manager-full-name }}](../../certificate-manager/index.yaml) | Service for managing TLS certificates |
-| [{{ cloud-apps-full-name }}](../../cloud-apps/index.yaml) | {{ preview-stage }} Service for deploying serverless stack-based applications |
+| [{{ cloud-apps-full-name }}](../../cloud-apps/index.yaml) | {{ preview-stage }} Service for deploying applications based on {{ yandex-cloud }}. |
 | [{{ backup-full-name }}](../../backup/index.yaml) | Service for backing up {{ yandex-cloud }} resources |
 | [{{ billing-name }}](../../billing/index.yaml) | Service for payments and viewing expense details |
 | [{{ cdn-full-name }}](../../cdn/index.yaml) | Service for setting up a content delivery network (CDN) |
@@ -39,8 +40,8 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ iam-full-name }}](../../iam/index.yaml) | Cloud resource access management |
 | [{{ iot-full-name }}](../../iot-core/index.yaml) | IoT service that provides two-way messaging between registries and devices over the MQTT protocol |
 | [{{ kms-full-name }}](../../kms/index.yaml) | Encryption key management |
-| [{{ load-testing-full-name }}](../../load-testing/index.yaml) | {{ preview-stage }} Service for load testing and performance analysis |
-| [{{ lockbox-name }}](../../lockbox/index.yaml) | {{ preview-stage }} Service for creating and storing secrets in the {{ yandex-cloud }} infrastructure |
+| [{{ load-testing-full-name }}](../../load-testing/index.yaml) | Service for load testing and performance analysis |
+| [{{ lockbox-name }}](../../lockbox/index.yaml) | Service for creating and storing secrets in the {{ yandex-cloud }} infrastructure |
 | [{{ maf-full-name }}](../../managed-airflow/index.yaml) | {{ preview-stage }} Service for creating and managing {{ AF }} clusters |
 | [{{ mkf-full-name }}](../../managed-kafka/index.yaml) | Service for creating and managing {{ KF }} clusters |
 | [{{ mch-full-name }}](../../managed-clickhouse/index.yaml) | Service for creating and managing {{ CH }} clusters |
@@ -84,8 +85,6 @@ You can use the {{ yandex-cloud }} [management console]({{ link-console-main }})
 Services at the Preview stage are available only to some users. If you want to use one of these services, send us a request for access. You can do this on the page of the service you want to use.
 
 
-
 {% include [Greenplum trademark](../../_includes/mdb/mgp/trademark.md) %}
-
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

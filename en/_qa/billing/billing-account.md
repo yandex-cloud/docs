@@ -27,10 +27,10 @@ To transfer your cloud to a different billing account, just [link](../../billing
 If your billing account is added to an organization, you can only link to it the resources that are in the same organization. You may not have [permissions to work](../../billing/operations/pin-cloud.md#bind-roles) with this cloud or billing account. Ask your [organization](../../billing/concepts/organization.md) administrator to [grant you the roles you need](../../billing/security/index.md#set-role).
 Roles can be issued either directly to the billing account and cloud, or to the organization they reside in.
 
-#### I created a new billing business account, but it is blocked. Why? {#blocked-account}
+#### I created a new business billing account, but it is blocked. Why? {#blocked-account}
 
-Most likely, you had previously created a billing business account for which a trial period was activated. Your billing account gets the initial grant as part of the trial period. As the initial grant can be issued to one billing account only, you cannot use the trial period after re-registration. As a result, your new billing account gets the `SUSPENDED` status.
-To unblock your new billing account, [activate the paid version](../../billing/operations/activate-commercial.md) and [top up your personal account](../../billing/operations/pay-the-bill.md) by the minimum amount (the minimum amount is shown in the **{{ ui-key.yacloud.billing.account.dashboard.button_refill }}** window).
+Most likely, you had previously created a business billing account for which a trial period was activated. Your billing account gets the initial grant as part of the trial period. As the initial grant can be issued to one billing account only, you cannot use the trial period after re-registration. As a result, your new billing account gets the `SUSPENDED` status.
+To unblock your new billing account, [activate the paid version](../../billing/operations/activate-commercial.md) and [top up your personal account](../../billing/operations/pay-the-bill.md) by the minimum amount (the minimum amount is shown in the **{{ ui-key.yacloud_billing.billing.account.dashboard.button_refill }}** window).
 
 #### How do I change my billing account type? {#account-type}
 
@@ -49,7 +49,7 @@ You cannot change a billing account type once it is created, but you can [create
 #### I received no email with instructions on what to do after creating a billing account with the {{ ui-key.yacloud_billing_account.cloud-billing-account.payment-type_label_invoice }} payment method. Why? {#account-notification} 
 
 It may take up to three business days to activate your billing account.
-If no email arrived within that period, send a request to: [cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru).
+If you did not receive an email within that period, send a request to: [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}).
 
 {% include [change-payment-docs](../../billing/_includes/change-payment-docs.md) %}
 
@@ -58,7 +58,7 @@ If no email arrived within that period, send a request to: [cloud_docs@support.y
 
 Most likely, our service does not support your bank card's payment system.
 
-To resolve the issue, try linking a different bank card or, if you are a legal entity, create a billing account of the **{{ ui-key.yacloud.billing.account.create-new.account-type_label_company }}** type with the **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_invoice }}** payment method.
+To resolve the issue, try linking a different bank card or, if you are a legal entity, create a billing account of the **{{ ui-key.yacloud_billing.billing.account.create-new.account-type_label_company }}** type with the **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}** payment method.
 
 #### Why do I get an error saying _The country is not available to the payer_ when creating a billing account? {#account-error}
 
@@ -80,15 +80,15 @@ To specify a bank account for your billing account:
 
 {% list tabs group=instructions %}
 
-- {{ billing-name }} interface {#billing}
+- {{ billing-interface }} {#billing}
 
    1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
    1. Select a billing account.
-   1. Go to the **{{ ui-key.yacloud.billing.account.switch_overview }}** page.
-   1. Click **{{ ui-key.yacloud.billing.account.dashboard-info.company_label_edit_ru }}**.
+   1. Go to the **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page.
+   1. Click **{{ ui-key.yacloud_billing.billing.account.dashboard-info.company_label_edit_ru }}**.
       This will redirect you to [Yandex Balance](https://balance.yandex.ru/).
    1. Select a payer and click **{{ ui-key.yacloud.common.edit }}**.
-   1. Under **Payment details**, fill out the **{{ ui-key.yacloud.billing.account.overview.company_label_rs }}** field.
+   1. Under **Payment details**, fill out the **{{ ui-key.yacloud_billing.billing.account.overview.company_label_rs }}** field.
 
 {% endlist %}
 

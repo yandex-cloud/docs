@@ -1,5 +1,6 @@
 # Installing NVIDIA drivers
 
+
 To enable compatibility with [GPU](../../concepts/gpus.md), make sure that NVIDIA drivers are installed on the VM. You can install the drivers either when [preparing the image](../image-create/custom-image.md) or from inside the VM after it is created.
 
 ## Drivers for Tesla® V100 {#install-v100-drivers}

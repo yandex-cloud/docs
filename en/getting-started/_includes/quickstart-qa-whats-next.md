@@ -40,7 +40,7 @@ When the initial grant expires, the total unused amount is offset, and the acces
 
 #### Is it safe to pay in {{ yandex-cloud }}? {#payment-security}
 
-The {{ yandex-cloud }} platform meets the PCI DSS requirements; this is why it is safe to use the cloud services for payment processing. For more information about PCI DSS certification, see [{#T}](../../security/conform.md#pci-dss).
+The {{ yandex-cloud }} platform meets the PCI DSS requirements, which makes its cloud services safe for payment processing. For more information about PCI DSS certification, see the [{#T}](../../security/conform.md#pci-dss) section.
 
 #### Where do I find my agreement with {{ yandex-cloud }}? {#offer}
 
@@ -52,7 +52,7 @@ The invoice is not physically provided either, but you can generate it in the co
 
 #### I need a bilateral contract rather than an offer. Can I get it? {#signed-agreement}
 
-Yes, companies and individual entrepreneurs can sign a bilateral contract. Submit a request using the [Message]({{ link-console-support }}) form. A {{ yandex-cloud }} manager will contact you to discuss the terms.
+Yes, companies and individual entrepreneurs can sign a bilateral contract. To do this, submit a request using the [Message]({{ link-console-support }}) form. A {{ yandex-cloud }} manager will contact you to discuss the terms.
 
 #### How do I get invoiced? {#invoice}
 

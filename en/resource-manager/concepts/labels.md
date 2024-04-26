@@ -1,5 +1,6 @@
 # Service resource labels
 
+
 Most {{ yandex-cloud }} services support resource labeling.
 
 A _label_ is a key-value pair in `<label_name>=<label_value>` format. You can use labels to logically separate resources.
@@ -8,9 +9,9 @@ Labels are subject to the following restrictions:
 
 * Maximum number of labels per resource: 64.
 * The key:
-   * It may be up to 63 characters long.
+   * Must be from 1 to 63 characters long.
    * May contain lowercase Latin letters, numbers, hyphens, and underscores.
-   * It must start with a letter.
+   * Must start with a letter.
 * The value:
    * It may be up to 63 characters long.
    * May contain lowercase Latin letters, numbers, hyphens, and underscores.

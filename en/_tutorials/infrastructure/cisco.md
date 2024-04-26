@@ -1,6 +1,7 @@
 # Installing a Cisco CSR 1000v virtual router
 
-In {{ yandex-cloud }}, you can deploy a virtual router called Cisco Cloud Services Router (CSR) 1000v, based on a ready-to-use VM image.
+
+In {{ yandex-cloud }}, you can deploy a virtual router called Cisco Cloud Services Router (CSR) 1000v, based on a ready-made VM image.
 
 To install the CSR 1000v and configure SSH access to it:
 
@@ -23,14 +24,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note alert %}
 
-If using a Cisco CSR 1000v image without a license, router throughput is limited to 100 Kbps. To remove this limit, [install a license](https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide/b_CSR1000v_Configuration_Guide_chapter_01000.html).
+If using a Cisco CSR 1000v image without a license, the router throughput is limited to 100 kbps. To remove this limit, [install a license](https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide/b_CSR1000v_Configuration_Guide_chapter_01000.html).
 
 {% endnote %}
 
 The cost of using a virtual router includes:
 
 * Fee for a disk and a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Create an SSH key pair {#create-ssh-keys}
@@ -104,7 +105,7 @@ Save the private key in a secure location, as you will not be able to connect to
       cisco-router.ru-cent(config)#hostname cisco-router
       ```
 
-      Make sure the router name in the command line prompt changes to `cisco-router`.
+      The router name at the beginning of the command line should change to `cisco-router`.
 
 {% endlist %}
 
@@ -126,10 +127,10 @@ Create a user with the administrative rights and password authentication disable
 
 ## Configure authentication using SSH keys {#enable-ssh}
 
-1. If your public SSH key is longer than 72 characters, split it into chunks of 72 characters each. Do it by running this command in your computer terminal:
+1. If your public SSH key is longer than 72 characters, split it into chunks of 72 characters each by running this command in your computer terminal:
 
    ```bash
-   fold -bw 72 <path_to_file_with_public key>
+   fold -bw 72 <path_to_file_with_public_key>
    ```
 
    This will output your public SSH key split into chunks, 72 characters in each.
@@ -183,10 +184,10 @@ Create a user with the administrative rights and password authentication disable
 
 ## Check the SSH connection to the router {#test-ssh}
 
-1. Log in to the router via SSH. Do it by running this command in your computer terminal:
+1. Log in to the router via SSH by running this command in your computer terminal:
 
    ```bash
-   ssh -i <path_to_file_with_private_key> test-user@<public_IP_of_router>
+   ssh -i <path_to_file_with_private_key> test-user@<router_public_IP_address>
    ```
 
    If everything is configured correctly, you will log in to the router under `test-user`. If the connection is not established, make sure that the router is configured correctly in the serial console: the `aaa new-model` command was run, the key hashes are the same on your computer and the router, and password authorization for the test user is disabled. If still unable to locate the issue, repeat the previous steps.

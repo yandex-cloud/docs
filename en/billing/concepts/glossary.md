@@ -28,9 +28,9 @@ Usage details
 :   Table with detailed information on cloud resource usage.
 <br/>For more information, refer to the [Viewing service usage details](../operations/check-charges.md) section for details.
 
-Customer agreement
-:   In {{ yandex-cloud }}, all services are provided under an agreement that you accept when creating a [billing account](billing-account.md). The agreement does not require signing.
-<br/>For more information, refer to the [Customer agreement](contract.md) section.
+Agreement
+:   In {{ yandex-cloud }}, all services are provided under an agreement you enter into by accepting an offer when creating your [billing account](billing-account.md). The agreement does not require signing.
+<br/>For more information, refer to the [Agreement](contract.md) section.
 
 Billing threshold
 :   Maximum negative [personal account balance](../concepts/personal-account.md#balance). The billing threshold is enabled automatically after the [paid version is activated](../operations/activate-commercial.md) and the first reporting period ends.
@@ -50,7 +50,7 @@ Reporting period
 
 Offer
 :   Method of entering into an agreement.
-<br/>For more information, refer to the [Customer agreement](contract.md) section.
+<br/>For more information, refer to the [Agreement](contract.md) section.
 
 
 
@@ -59,7 +59,7 @@ Billing account
 <br/>For more information, refer to the [Billing account](billing-account.md) section for details.
 
 Payer
-:   Individual, sole proprietor, or corporation that pays for the {{ yandex-cloud }} services used. Basically, these are payment details used to register agreements, issue invoices, and debit funds from a bank card.
+:   Individual, individual entrepreneur, or business that pays for the {{ yandex-cloud }} services used. Basically, these are payment details used to register agreements, issue invoices, and debit the payer's bank card.
 
 Trial period
 :   Opportunity to gain hands-on experience with {{ yandex-cloud }} without paying for the resources you consume. Only available for legal entities.

@@ -25,9 +25,9 @@ The number of [prompt](concepts/index.md) and response [tokens](concepts/tokens.
 
 The number of billing units is based on the overall number of prompt and response tokens and is rounded up to a whole number after applying the multiplier.
 
-#### Tuned models {#rules-tuned-generating}
+#### Fine-tuned models {#rules-tuned-generating}
 
-The use of summary model is charged according to the {{ gpt-lite }} rules. The use of models tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} rules.
+The use of summary models is charged according to the {{ gpt-lite }} policy. The use of models fine-tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} policy.
 
 ### Text vectorization {#rules-embedding}
 
@@ -60,13 +60,8 @@ Where:
 
 ## Pricing {#prices}
 
+
 ### Text generation in {{ yagpt-full-name }} {#pricing-generating}
-
-{% note warning %}
-
-The prices below will take effect on March 25, 2024.
-
-{% endnote %}
 
 
 

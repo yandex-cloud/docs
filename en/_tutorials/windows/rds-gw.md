@@ -4,6 +4,7 @@
 {% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
 
 
+
 Remote Desktop Gateway (RDGW) is a Windows Server service for accessing resources that have no internet access via a secure HTTPS communication channel.
 
 In this use case, users from the `Administrators` group are granted access to a test VM using a self-signed certificate.
@@ -135,9 +136,9 @@ Create and set up a [security group](../../vpc/concepts/security-groups.md).
 
       | Traffic</br>direction | Description | Port</br>range | Protocol | Source</br>type | Source/Purpose |
       |---|---|---|---|---|---|
-      | Incoming | ICMP | N/A | ICMP | CIDR | 0.0.0.0/0 |
+      | Incoming | icmp | — | ICMP | CIDR | 0.0.0.0/0 |
       | Incoming | self-security | Any | Any | Security group | Current |
-      | Incoming | TCP | 3389 | TCP | CIDR | 0.0.0.0/0 |
+      | Incoming | tcp | 3389 | TCP | CIDR | 0.0.0.0/0 |
       | Incoming | RDGW | 443 | TCP | CIDR | 0.0.0.0/0 |
       | Outgoing | default | Any | Any | CIDR | 0.0.0.0/0 |
 

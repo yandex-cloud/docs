@@ -61,6 +61,8 @@ items:
                 href: operations/pxf/create-hive-source.md
           - name: Creating an external table
             href: operations/pxf/create-table.md
+          - name: Changing PXF settings
+            href: operations/pxf/settings.md
       - name: Connecting to an external file server (gpfdist)
         href: operations/gpfdist/connect.md
       - name: '{{ GP }} extensions'

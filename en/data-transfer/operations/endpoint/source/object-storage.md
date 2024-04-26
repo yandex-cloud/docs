@@ -119,8 +119,8 @@ Configure one of the supported data targets:
 * [{{ PG }}](../target/postgresql.md).
 * [{{ MY }}](../target/mysql.md).
 * [{{ CH }}](../target/clickhouse.md).
-* [{{ GP }}](../target/greenplum.md).
 * [{{ ydb-full-name }}](../target/yandex-database.md).
+* [{{ GP }}](../target/greenplum.md).
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
 

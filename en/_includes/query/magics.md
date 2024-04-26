@@ -233,7 +233,7 @@ For example, you have a defined `lst=["Academy", "Physics"]` Python list. This i
 select "Academy" in not_var{{lst}}
 ```
 
-This will result in the `Unexpected token '['` error. Jinja converts the `lst` variable to a `["Academy", "Physics"]` string according to Python rules but disregards the {{ yq-full-name }}-specific features of SQL queries, which causes the error.
+This will result in the `Unexpected token '['` error. Jinja converts the `lst` variable to an `["Academy", "Physics"]` string according to Python rules but disregards the {{ yq-full-name }}-specific features of SQL queries, which causes the error.
 
 To specify that Jinja conversions must comply with the {{ yq-full-name }} rules, use the `to_yq` filter. Then, the same query in the Jinja syntax will look like this:
 

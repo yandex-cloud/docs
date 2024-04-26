@@ -1,5 +1,10 @@
 title: Yandex Cloud Billing
 href: index.yaml
+label:
+  title: KZ
+  description: The service is available in Kazakhstan.
+  theme: info
+  when: region == "kz"
 editable: false
 items:
   - name: Getting started
@@ -162,7 +167,7 @@ items:
         href: qa/billing-account.md
       - name: Questions about the trial period and paid version
         href: qa/trial-commercial.md
-      - name: Questions about working with non-residents of Russia or Kazakhstan
+      - name: Questions about working with non-residents
         href: qa/non-resident.md
   - name: '{{ TF }} reference'
     href: tf-ref.md

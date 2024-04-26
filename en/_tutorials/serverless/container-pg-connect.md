@@ -1,3 +1,5 @@
+
+
 To connect to the {{ mpg-name }} cluster from the {{ serverless-containers-name }} container:
 
 1. [Prepare files for a Docker image](#prepare-docker).
@@ -40,7 +42,7 @@ If you no longer need the resources you created, [delete](#clear-out) them.
       RUN apt-get update && \
           apt-get install wget postgresql-client --yes && \
           mkdir --parents ~/.postgresql && \
-          wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
+          wget "{{ crt-web-path }}" \
           --output-document ~/.postgresql/root.crt && \
           chmod 0600 ~/.postgresql/root.crt
 

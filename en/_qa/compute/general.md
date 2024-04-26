@@ -1,5 +1,5 @@
 ---
-title: "Cloud computing. Questions and answers"
+title: "Cloud computing. FAQ"
 description: "What is cloud computing used for? {{ yandex-cloud }} provides scalable cloud computing capacity: you can quickly create and start VMs on demand and stop them when the load decreases. By using cloud resources, you reduce your IT infrastructure costs because you pay only for actually consumed resources."
 ---
 
@@ -14,16 +14,10 @@ It is easier to manage a cloud infrastructure so you can focus on your business 
 #### What can I do with a {{ yandex-cloud }} VM? {#what-can-i-do}
 
 * Use only those computing resources which are necessary to meet your needs. If you need expensive powerful systems, you don't have to buy them. You can create a VM in {{ yandex-cloud }} and use it whenever necessary.
-
 * Quickly [scale processing capacity](../../compute/tutorials/vm-autoscale.md) to meet your needs. You can start additional VMs during peak times and stop them when the load decreases.
-
 * Use your VMs to deploy applications that must [always be available](../../tutorials/infrastructure-management/fault-tolerance.md). You don't need to worry about guaranteeing server uptime: {{ yandex-cloud }} will keep it running smoothly. Focus on creating applications that work.
-
 * [Configure backups](../../compute/tutorials/hystax-backup.md) to make it easier to restore your data in the event of loss.
-
 * Create and distribute VM [disk images](../../compute/concepts/image.md). You can use images to quickly deploy your software on other VMs.
-
-
 * Automate VM management using the API and scripts in the command line interface.
 
 For more information about {{ yandex-cloud }} VMs, see [{#T}](../../compute/concepts/vm.md).
@@ -81,7 +75,6 @@ General recommendations for improving VM performance:
    You should read and write data in several threads.
 1. Note that network computing depends on the vCPU performance. Run synthetic tests that do not affect disk usage to diagnose network problems. If it does have to do with a slow network, we recommend adding a vCPU and retesting it.
 
-
 #### Which operating systems are supported by {{ yandex-cloud }} VMs? {#os}
 
 Such VMs support Linux and Windows-based operating systems.
@@ -96,7 +89,7 @@ Public boot disk images that have been tested in {{ yandex-cloud }} are availabl
 
 #### How do I contact technical support? {#support-channels}
 
-You can contact technical support under [Support]({{ link-console-support }}) in the management console.
+You can contact technical support in the [Support]({{ link-console-support }}) section of the management console.
 
 {% include [logs](../../_qa/logs.md) %}
 

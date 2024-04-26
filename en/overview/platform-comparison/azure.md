@@ -41,5 +41,3 @@
 | Virtual Machine Scale Sets | [{{ ig-full-name }}](../../compute/concepts/instance-groups/) |
 | Virtual Machines | [{{ compute-full-name }}](../../compute/) |
 | Virtual Network | [{{ vpc-full-name }}](../../vpc/) |
-
-

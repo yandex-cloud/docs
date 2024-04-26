@@ -29,7 +29,7 @@
 
    {% include [mdb-peering-vm-user](../_tutorials_includes/mdb-dns-peering/vm-user-warning.md) %}
 
-1. Try [connecting to the cluster](../../managed-clickhouse/operations/connect.md):
+1. Try [connecting to the cluster](../../managed-clickhouse/operations/connect/clients.md):
 
    {% include [mdb-peering-check-availability-1](../_tutorials_includes/mdb-dns-peering/check-availability-1.md) %}
 
@@ -49,7 +49,7 @@
 
    {% include [mdb-peering-vm-user](../_tutorials_includes/mdb-dns-peering/vm-user-warning.md) %}
 
-1. Try [connecting to the cluster](../../managed-clickhouse/operations/connect.md):
+1. Try [connecting to the cluster](../../managed-clickhouse/operations/connect/clients.md):
 
    {% include [mdb-peering-check-availability-2](../_tutorials_includes/mdb-dns-peering/check-availability-2.md) %}
 

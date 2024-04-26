@@ -23,6 +23,7 @@ You can move a VM to another folder within a single cloud.
 
 ## Availability zone {#az}
 
+
 {% include [instance-az](../_includes_service/instance-az.md) %}
 
 ## Computing resources {#types}

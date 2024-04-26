@@ -1,5 +1,6 @@
 # API key
 
+
 The _API key_ is a secret key used for simplified authorization in the {{ yandex-cloud }} API. API keys are only used for [service account](../users/service-accounts.md) authorization.
 
 {% include [api-keys-disclaimer](../../../_includes/iam/api-keys-disclaimer.md) %}
@@ -17,7 +18,7 @@ Users should store API keys on their own. {{ yandex-cloud }} only gives access t
 Enter the API key when accessing {{ yandex-cloud }} resources via the API. Provide the API key in the `Authorization` header in the following format:
 
 ```
-Authorization: Api-Key <API key>
+Authorization: Api-Key <API_key>
 ```
 
 

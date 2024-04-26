@@ -1,4 +1,4 @@
-# Cost analysis by type of resource
+# Cost analysis by resource
 
 Set up automatic export of the expense details for your [billing account](../../billing/concepts/billing-account.md) and generate a report with information about the costs associated with the resources within a folder. The data will be retrieved from the {{ objstorage-name }} bucket using the [S3 Select](../concepts/s3-select-language.md) query language.
 
@@ -47,14 +47,14 @@ Install and configure the [AWS CLI](../tools/aws-cli.md).
 
    1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
    1. Select the billing account you need from the list.
-   1. Go to the **{{ ui-key.yacloud.billing.account.switch_detail }}** tab.
-   1. At the top right, click **{{ ui-key.yacloud.billing.account.detail.button_export }}** and select **{{ ui-key.yacloud.billing.account.detail.button_create-periodic-export }}**.
+   1. Go to the **{{ ui-key.yacloud_billing.billing.account.switch_detail }}** tab.
+   1. At the top right, click **{{ ui-key.yacloud_billing.billing.account.detail.button_export }}** and select **{{ ui-key.yacloud_billing.billing.account.detail.button_create-periodic-export }}**.
    1. In the window that opens:
 
-      * In the **{{ ui-key.yacloud.billing.account.exports.field_bucket }}** field, enter the name of the bucket you [created earlier](#create-bucket). A CSV file with your expense details will be kept there.
-      * In the **{{ ui-key.yacloud.billing.account.exports.field_prefix }}** field, enter the name of the directory for the file. The last character must be `/`.
-      * In the **{{ ui-key.yacloud.billing.account.exports.field_locale }}** field, select the language to display product names in: **{{ ui-key.yacloud.billing.account.exports.locale_value_en-lang }}** or **{{ ui-key.yacloud.billing.account.exports.locale_value_ru-lang }}**.
-      * In the **{{ ui-key.yacloud.billing.account.exports.field_detail-type }}** field, select the **{{ ui-key.yacloud.billing.account.exports.label_include-resources }}** type of details.
+      * In the **{{ ui-key.yacloud_billing.billing.account.exports.field_bucket }}** field, enter the name of the bucket you [created earlier](#create-bucket). A CSV file with your expense details will be kept there.
+      * In the **{{ ui-key.yacloud_billing.billing.account.exports.field_prefix }}** field, enter the name of the directory for the file. The last character must be `/`.
+      * In the **{{ ui-key.yacloud_billing.billing.account.exports.field_locale }}** field, select the language to display product names in: **{{ ui-key.yacloud_billing.billing.account.exports.locale_value_en-lang }}** or **{{ ui-key.yacloud_billing.billing.account.exports.locale_value_ru-lang }}**.
+      * In the **{{ ui-key.yacloud_billing.billing.account.exports.field_detail-type }}** field, select the **{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}** type of details.
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 

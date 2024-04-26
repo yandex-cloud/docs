@@ -10,6 +10,7 @@ keywords:
 
 # Backups in {{ compute-name }}
 
+
 Data contained in images, snapshots, and disks that are not attached to VMs is stored securely and replicated within the {{ yandex-cloud }} infrastructure.
 
 To back up the data from disks attached to VMs, you need to create disk snapshots on a regular basis. You can do this both [manually](../operations/disk-control/create-snapshot.md) and automatically, [on schedule](snapshot-schedule.md).

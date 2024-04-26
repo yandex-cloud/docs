@@ -44,8 +44,6 @@ You can move [subnets](../concepts/network.md) between folders within a single [
       |          ID          |   NAME   |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE       |
       +----------------------+----------+----------------------+----------------+---------------+------------------+
       | e9bcd5mq43cn******** | subnet-a | encb4ubvmief******** |                | {{ region-id }}-a | [10.1.0.0/16]    |
-      | e2llon52hhss******** | subnet-b | enc39op1vq9m******** |                | {{ region-id }}-b | [192.168.1.0/24] |
-      | b0cscj0f9uq5******** | subnet-d | enc772aa2rgq******** |                | {{ region-id }}-d | [10.0.0.0/16]    |
       +----------------------+----------+----------------------+----------------+---------------+------------------+
       ```
 

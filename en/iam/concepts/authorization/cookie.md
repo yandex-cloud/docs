@@ -7,6 +7,6 @@ description: "In this tutorial, you will learn which cookies {{ yandex-cloud }} 
 
 {{ yandex-cloud }} web interfaces use `yc_session` cookies to authenticate a user.
 
-In the console of every service (e.g., [console.yandex.cloud](console.yandex.cloud), [org.yandex.cloud](org.yandex.cloud), or [datalens.yandex.cloud](datalens.yandex.cloud)), cookies are independent of each other.
+In the console of each service (e.g., [https://{{ console-host }}]({{ console-host }}) and [{{ link-org-main }}]({{ link-org-main }})), cookies are independent of each other.
 
-All cookies are linked to a single logical session initiated by [auth.yandex.cloud](auth.yandex.cloud).
+All cookies are linked to a single logical session initiated by [{{ auth-main-host }}]({{ auth-main-host }}).

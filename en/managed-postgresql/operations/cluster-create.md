@@ -19,7 +19,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
 {% include [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md) %}
 
-## How to create a {{ PG }} cluster {#create-cluster}
+## Creating a cluster {#create-cluster}
 
 {% list tabs group=instructions %}
 
@@ -58,16 +58,18 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
       * Select the storage size to be used for data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
 
-   1. (Optional) Under **Automatic increase of storage size**, specify the required settings:
+   1. (Optional) Under **{{ ui-key.yacloud.postgresql.cluster.section_disk-scaling }}**, specify the settings you need:
 
-      * In the **Increase size** field, set the conditions to:
+      * In the **{{ ui-key.yacloud.postgresql.cluster.field_thresholds }}** field, set the conditions to:
 
-         * Increase the storage size during the next maintenance window when the storage is full by more than the specified percentage value (%).
-         * Increase the storage size immediately when the storage is full by more than the specified percentage value (%).
+         * Increase the storage size during the [next maintenance window](../concepts/maintenance.md#maintenance-window) when the used storage space exceeds the specified percentage (%).
+         * Increase the storage size right away if the storage is more than the specified percent (%) full.
 
-         You can set both conditions, but make sure that the threshold for increasing the size immediately is higher than that for increasing the size during a maintenance window.
+         You can set both conditions, but the threshold for immediate increase must be higher than that for increase during the maintenance window.
 
-      * In the **New storage size** field, specify a new storage size to be set when one of the specified conditions is met.
+      * In the **{{ ui-key.yacloud.postgresql.cluster.field_diskSizeLimit }}** field, specify the maximum storage size that can be set when increasing the storage size automatically.
+
+      {% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}
 
       
       {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
@@ -76,8 +78,6 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
       {% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
 
       {% include [storage-resize-maintenance](../../_includes/mdb/mpg/storage-resize-maintenance.md) %}
-
-      {% include [storage-resize-reset](../../_includes/mdb/mpg/storage-resize-reset.md) %}
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
       * DB name. The name must be unique within the folder.
@@ -388,6 +388,82 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 {% endnote %}
 
+
+## Creating a cluster copy {#duplicate}
+
+You can create a {{ PG }} cluster with the settings of another cluster created earlier. To do so, you need to import the configuration of the source {{ PG }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ PG }} cluster has lots of settings and you need to create a similar one.
+
+To create a {{ PG }} cluster copy:
+
+{% list tabs group=instructions %}
+
+- {{ TF }} {#tf}
+
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
+   1. In the same working directory, place a `.tf` file with the following contents:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "old" { }
+      ```
+
+   1. Write the ID of the initial {{ PG }} cluster to the environment variable:
+
+      ```bash
+      export POSTGRESQL_CLUSTER_ID=<cluster_ID>
+      ```
+
+      You can request the ID with a [list of clusters in the folder](../../managed-postgresql/operations/cluster-list.md#list-clusters).
+
+   1. Import the settings of the initial {{ PG }} cluster into the {{ TF }} configuration:
+
+      ```bash
+      terraform import yandex_mdb_postgresql_cluster.old ${POSTGRESQL_CLUSTER_ID}
+      ```
+
+   1. Get the imported configuration:
+
+      ```bash
+      terraform show
+      ```
+
+   1. Copy it from the terminal and paste it into the `.tf` file.
+   1. Place the file in the new `imported-cluster` directory.
+   1. Modify the copied configuration so that you can create a new cluster from it:
+
+      * Specify a new cluster name in the `resource` string and the `name` parameter.
+      * Delete the `created_at`, `health`, `id`, and `status` parameters.
+      * In the `host` sections, delete the `fqdn` and `role` parameters.
+      * If the `disk_size_autoscaling` section specifies the `disk_size_limit = 0` parameter value, delete this section.
+      * If the `maintenance_window` section specifies the `type = "ANYTIME"` parameter value, delete the `hour` parameter.
+      * (Optional) Make further modifications if you need a customized copy rather than identical one.
+
+   1. In the `imported-cluster` directory, [get the authentication data](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+
+   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf).
+
+   1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
+
+   1. Check that the {{ TF }} configuration files are correct:
+
+      ```bash
+      terraform validate
+      ```
+
+      If there are any errors in the configuration files, {{ TF }} will point them out.
+
+   1. Create the required infrastructure:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+   {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
+{% endlist %}
 
 ## Examples {#examples}
 

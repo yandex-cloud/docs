@@ -1,5 +1,6 @@
 # Implementing fault-tolerant scenarios for network VMs
 
+
 In {{ yandex-cloud }}, you can deploy a cloud infrastructure using network VMs that provide firewall protection, network security, and traffic routing. With [static routing](../../vpc/concepts/static-routes.md), traffic is routed from subnets to network VMs.
 
 To ensure high availability, you can deploy multiple network VMs in different [availability zones](../../overview/concepts/geo-scope.md) and set up auto switching of outgoing subnet traffic from one network VM to another using the [route-switcher module](https://github.com/yandex-cloud-examples/yc-route-switcher/tree/main).
@@ -71,7 +72,7 @@ The infrastructure support cost includes:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
+      1. In the [management console]({{ link-console-main }}), select a folder where you want to create your service account.
       1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-terraform`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -198,7 +199,7 @@ The infrastructure support cost includes:
    sudo apt install git
    ```
 
-1. Clone the `yandex-cloud-examples/yc-route-switcher` repository from GitHub and go to the script directory:
+1. Clone the `yandex-cloud-examples/yc-route-switcher` repository from GitHub and navigate to the scenario directory:
 
    ```bash
    git clone https://github.com/yandex-cloud-examples/yc-route-switcher.git
@@ -213,7 +214,7 @@ The infrastructure support cost includes:
 
 1. Edit the following:
 
-   1. The line with the folder ID:
+   1. String with the folder ID:
 
       ```text
       folder_id = "<folder_ID>"

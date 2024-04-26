@@ -1,5 +1,6 @@
 # Building a VM image with a set of infrastructure tools using Packer
 
+
 You can use {{ compute-full-name }} to create a [VM disk image](../../compute/concepts/image.md) with a set of additional infrastructure tools using [Packer](https://www.packer.io/).
 
 Use Packer to build a VM image based on [Ubuntu Linux 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) with the parameters specified in a configuration file. Add the following tools frequently used with {{ yandex-cloud }} to the image:

@@ -5,7 +5,8 @@ description: "Use this guide to create a VM with a GPU."
 
 # Creating a VM with a GPU
 
-This section explains how to create a [VM](../../concepts/vm.md) with a [GPU](../../concepts/gpus.md).
+
+This section explains how to create a [VM](../../concepts/vm.md) with a GPU. For more information about VM configurations, see [{#T}](../../concepts/gpus.md).
 
 By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) has a zero [quota](../../concepts/limits.md#quotas) for creating VMs with GPUs. To change the [quota]({{ link-console-quotas }}), contact [technical support]({{ link-console-support }}).
 

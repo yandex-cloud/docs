@@ -1,5 +1,6 @@
 # {{ managed-k8s-name }} cluster backups in {{ objstorage-name }}
 
+
 Data in [{{ managed-k8s-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) is securely stored and replicated within the {{ yandex-cloud }} infrastructure. However, you can back up data from [{{ managed-k8s-name }} cluster node groups](../../managed-kubernetes/concepts/index.md#node-group) at any time and store them in [{{ objstorage-full-name }}](../../storage/) or other types of storage.
 
 You can create backups of {{ managed-k8s-name }} cluster node group data using the [Velero](https://velero.io/) tool. It supports working with {{ yandex-cloud }} [disks](../../compute/concepts/disk.md) using the {{ k8s }} CSI driver and helps create [snapshots of disks](../../compute/concepts/snapshot.md) and [volumes](../../managed-kubernetes/concepts/volume.md).
@@ -24,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       One {{ managed-k8s-name }} cluster will be used for creating a node group backup and the other one for restoring data from the backup.
 
-      If you intend to use your clusters within the {{ yandex-cloud }} network, there is no need to allocate them a public IP address. To allow connections from outside the network, assign a public IP to the clusters.
+      If you intend to use your clusters within the {{ yandex-cloud }} network, there is no need to allocate a public IP address to them. To allow connections from outside the network, assign a public IP to the clusters.
 
    1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in each cluster and allocate a public IP address to each group.
    1. [Create a bucket in {{ objstorage-name }}](../../storage/operations/buckets/create.md).
@@ -210,7 +211,7 @@ If you no longer need the resources you created, delete them:
 
 - {{ TF }} {#tf}
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `velero-backup.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

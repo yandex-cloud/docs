@@ -1,5 +1,6 @@
 # Creating a group of dedicated hosts
 
+
 You can create a group of [dedicated hosts](../../concepts/dedicated-host.md) that is intended solely for hosting your VMs in {{ yandex-cloud }}.
 
 {% include [dedicated](../../../_includes/compute/dedicated-quota.md) %}

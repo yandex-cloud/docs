@@ -1,5 +1,6 @@
 # Configuring networks for {{ dataproc-name }}
 
+
 In this tutorial, you will learn how to create a {{ dataproc-name }} cluster and set up subnets and a NAT gateway.
 
 ## Create resources {#deploy-infrastructure}
@@ -76,13 +77,13 @@ You have to create:
 
       The file describes:
 
-      * Network.
-      * Subnet.
-      * NAT gateway and routing table.
-      * Security group.
-      * Service account to work with cloud resources.
-      * Bucket to store job dependencies and results.
-      * {{ dataproc-name }} cluster.
+      * Network
+      * Subnet
+      * NAT gateway and routing table
+      * Security group
+      * Service account to work with cloud resources
+      * Bucket to store job dependencies and results
+      * {{ dataproc-name }} cluster
 
       {% include [sg-rules-connect](../../_includes/data-proc/note-sg-rules.md) %}
 

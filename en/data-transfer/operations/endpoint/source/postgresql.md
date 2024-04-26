@@ -20,9 +20,9 @@ description: "In this tutorial, you will learn how to set up a {{ PG }} source e
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
    * [Migrating the {{ PG }} cluster](../../../tutorials/managed-postgresql.md).
-   * [Migrating data from AWS RDS for {{ PG }}](../../../tutorials/rds-to-mpg.md).
-   * [Migration with storage changed from {{ PG }} to {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md).
-   * [Migration with storage changed from {{ PG }} to {{ MY }}](../../../tutorials/mpg-to-mmy.md).
+   * [Migrating from AWS RDS for {{ PG }}](../../../tutorials/rds-to-mpg.md).
+   * [Migrating with change of storage: {{ PG }} to {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md).
+   * [Migration with change of storage: {{ PG }} to {{ MY }}](../../../tutorials/mpg-to-mmy.md).
 
 1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
 

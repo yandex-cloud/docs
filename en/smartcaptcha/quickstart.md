@@ -34,7 +34,7 @@ To get started with the service:
 
    1. Select the type of the [main challenge](./concepts/tasks.md#main-task) to complete by the user.
    1. Select the type of the [additional challenge](./concepts/tasks.md#additional-task) to complete by the user.
-   1. Select the complexity: `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`.
+   1. Select the `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}` [level](./concepts/tasks.md#task-difficulty).
    1. (Optional) Disable [domain name validation](./concepts/domain-validation.md).
    1. Specify a list of sites where the CAPTCHA will be placed.
    1. Leave the **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** as is.

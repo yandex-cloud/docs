@@ -1,5 +1,6 @@
 # Running external agents for load testing
 
+
 You can use {{ load-testing-full-name }} for service load testing with external agents.
 
 An _external agent_ is a physical or virtual server with the load testing tool and [load generators](../../load-testing/concepts/load-generator.md), which is hosted outside {{ load-testing-name }}.
@@ -29,7 +30,7 @@ If you no longer need the connected external agent, [delete it](#clear-out) from
 
 ### Required paid resources {#paid-resources}
 
-At the [Preview](../../overview/concepts/launch-stages.md) stage, using {{ load-testing-name }} is free of charge.
+At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testing-name }} is free of charge.
 
 ## Prepare the infrastructure {#prepare-infrastructure}
 
@@ -251,4 +252,4 @@ To delete the external agent from {{ load-testing-name }}:
 
 ### See also
 
-* [{#T}](../../load-testing/tutorials/loadtesting-multiply.md)
+* [{#T}](../../load-testing/tutorials/loadtesting-multiply.md).

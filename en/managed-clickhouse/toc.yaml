@@ -31,10 +31,18 @@ items:
             href: operations/cluster-backups.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
+      - name: Connection
+        items:
+          - name: Pre-configuration
+            href: operations/connect/index.md
+          - name: FQDNs of hosts
+            href: operations/connect/fqdn.md
+          - name: Connecting from applications
+            href: operations/connect/clients.md
+          - name: Code examples
+            href: operations/connect/code-examples.md
       - name: Databases
         items:
-          - name: Connecting to a database
-            href: operations/connect.md
           - name: SQL queries in the management console
             href: operations/web-sql-query.md
           - name: Managing databases
@@ -152,7 +160,7 @@ items:
       - name: '{{ CH }} settings'
         href: concepts/settings-list.md
   - name: Access management
-    href: security/index.md
+    href: security.md
   - name: Pricing policy
     items:
       - name: Current pricing policy
@@ -168,7 +176,7 @@ items:
   - name: CLI reference
     href: ../cli/cli-ref/managed-services/managed-clickhouse/index.md
   - name: '{{ TF }} reference'
-    href: tf-ref.md
+    href: reference/terraform.md
   - name: API reference
     items:
       - name: Authentication with the API
@@ -359,10 +367,10 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
-  - name: '{{ monitoring-name }} metrics'
-    href: metrics.md
+  - name: '{{ monitoring-full-name }} metrics'
+    href: reference/monitoring.md
   - name: '{{ at-name }} events'
-    href: at-ref.md
+    href: reference/audit-trails.md
   - name: Public materials
     href: public-talks.md
   - name: Release notes

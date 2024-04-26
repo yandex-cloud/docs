@@ -1,5 +1,6 @@
 # Visualizing logs in {{ grafana-name }} using the {{ cloud-logging-full-name }} plugin
 
+
 The [{{ cloud-logging-full-name }} plugin for {{ grafana-name }}](https://github.com/yandex-cloud/grafana-logs-plugin/tree/master) is an extension for {{ grafana-name }} that allows you to add [{{ cloud-logging-name }}](https://cloud.yandex.ru/services/logging) as a data source.
 
 To visualize logs:
@@ -143,12 +144,12 @@ The cost of resources includes a fee for logging operations and log storage in a
       Where:
 
       * `name`: Service account name. This is a required parameter.
-      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
+      * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
       * `role`: Role being assigned.
 
       For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -167,7 +168,7 @@ The cost of resources includes a fee for logging operations and log storage in a
       terraform apply
       ```
 
-   1. Confirm creating the service account by typing `yes` in the terminal and pressing **Enter**.
+   1. Confirm creating the service account: type `yes` in the terminal and press **Enter**.
 
       The service account will then be created. You can check the new service account using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -243,7 +244,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
       For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_key).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -377,7 +378,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
       For more detailed information about the `yandex_logging_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/logging_group).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:

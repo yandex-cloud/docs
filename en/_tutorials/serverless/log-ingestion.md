@@ -1,5 +1,6 @@
 # Storing application runtime logs
 
+
 To analyze information about application events for any period, application runtime logs need to be stored securely.
 
 Applications don't usually send their logs to storage systems directly. Instead, they use aggregators such as [fluentd](https://www.fluentd.org), [fluentbit](https://fluentbit.io), or [logstash](https://www.elastic.co/logstash/). Though aggregators can write data to storage systems directly, to enhance reliability, data is first sent to an intermediate buffer (a data streaming bus, [message broker](https://en.wikipedia.org/wiki/Message_broker)), and then to a storage system from it.
@@ -56,7 +57,7 @@ You'll need the ID and secret key in the next steps.
 1. Select **{{ yds-full-name }}**.
 1. Click **Create stream**.
 1. Specify an existing [serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless) {{ ydb-short-name }} database or [create](../../ydb/quickstart.md#serverless) a new one. If you chose to create a new database, click ![refresh-button](../../_assets/data-streams/refresh-button.svg) **Update** after creating it to update the list of databases.
-1. Enter the name of the stream.
+1. Enter a name for the stream.
 1. Click **Create**.
 
 Wait for the stream to start. Once the stream is ready for use, its status will change from `CREATING` to `ACTIVE`.

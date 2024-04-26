@@ -12,7 +12,7 @@
 
 - CLI {#cli}
 
-   1. Open the [instance group](../../compute/concepts/instance-groups/specification.md) [specification](../../compute/concepts/instance-groups/index.md) file and edit the [VM template](../../compute/concepts/instance-groups/instance-template.md):
+   1. Open the [instance group](../../compute/concepts/instance-groups/index.md) [specification](../../compute/concepts/instance-groups/specification.md) file and edit the [VM template](../../compute/concepts/instance-groups/instance-template.md):
       * Delete the old availability zone in the `allocation_policy` section.
       * Remove the [subnet](../../vpc/concepts/network.md#subnet) ID in the old availability zone from the `network_interface_specs` section.
    1. Update the instance group:

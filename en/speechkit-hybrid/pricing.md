@@ -4,6 +4,7 @@ editable: false
 
 # {{ sk-hybrid-full-name }} pricing
 
+
 {{ sk-hybrid-full-name }} cost depends on the [licensing model](architecture.md) and [system requirements](system-requirements.md), and we discuss it on case-by-case basis. {{ sk-hybrid-name }} offers two licensing models: Cloud Billing and Yubikey.
 
 ### Cloud Billing {#billing}

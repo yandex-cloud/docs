@@ -1,5 +1,6 @@
 # Running a containerized app in {{ serverless-containers-full-name }}
 
+
 Follow this guide to deploy a containerized app in [{{ serverless-containers-name }}](../../serverless-containers/) to administer a {{ MG }} DBMS.
 
 The DBMS is deployed on a [{{ compute-full-name }}](../../compute/) VM. A [{{ container-registry-full-name }}](../../container-registry/) registry is used to host the container with the app. [{{ lockbox-full-name }}](../../lockbox/) is used to encrypt sensitive data. Secure access to the application is enabled over the [{{ api-gw-full-name }}](../../api-gateway/) API gateway. The entire infrastructure of the containerized app resides in a single folder.
@@ -218,7 +219,7 @@ We recommend using a [VM](../../compute/concepts/vm.md) with basic configuration
 
 - CLI {#cli}
 
-   1. [Prepare](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) the public and private key pair for SSH to the VM.
+   1. [Prepare](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) the public and private key pair for SSH access to the VM.
 
    1. Create the `docker-spec.yaml` Docker container specification file:
 

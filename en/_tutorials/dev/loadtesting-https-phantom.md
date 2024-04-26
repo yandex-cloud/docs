@@ -1,14 +1,15 @@
-# Using Phantom to run a fixed-load HTTPS test
+# Fixed-load HTTPS testing with Phantom
+
 
 {{ load-testing-name }} can be used for testing a fixed-load service over HTTPS using the [Phantom](../../load-testing/concepts/load-generator.md#phantom) [load generator](../../load-testing/concepts/load-generator.md).
 
 To perform load testing:
-1. [Prepare your cloud](#before-begin)
-1. [Prepare a test target](#target-prepare)
-1. [Prepare your infrastructure](#infrastructure-prepare)
-1. [Create an agent](#create-agent)
-1. [Prepare a file with test data](#test-file)
-1. [Run a test](#run-test)
+1. [Prepare your cloud](#before-begin).
+1. [Prepare a test target](#target-prepare).
+1. [Prepare your infrastructure](#infrastructure-prepare).
+1. [Create an agent](#create-agent).
+1. [Prepare a file with test data](#test-file).
+1. [Run a test](#run-test).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -20,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 If the [agent](../../load-testing/concepts/agent.md) is hosted on {{ yandex-cloud }}, a fee is charged for computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
-At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testing-name }} can be used free of charge.
+At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testing-name }} is free of charge.
 
 ## Prepare a test target {#target-prepare}
 
@@ -30,9 +31,9 @@ Make sure the service is accessed over HTTPS using the default port: `443`.
 
 You can also use {{ load-testing-name }} for load testing of a service that is public or located in a subnet and [security group](../../vpc/concepts/security-groups.md) other than those of the agent.
 
-For a public service, allow incoming HTTPS traffic to port `443`.
+For a public service, allow incoming HTTPS traffic on port `443`.
 
-For a service whose subnet and security group differ from the agent's ones, [create](#security-group-setup) a rule for incoming HTTPS traffic to port `443` in the security group where the test target is located.
+For a service whose subnet and security group differ from the agent's ones, [create](#security-group-setup) a rule for incoming HTTPS traffic on port `443` in the security group where the test target is located.
 
 ## Prepare the infrastructure {#infrastructure-prepare}
 
@@ -42,7 +43,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 ### Configure a network {#network-setup}
 
-[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and the agent will be hosted. This ensures the agent has access to {{ load-testing-name }}.
+[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and the agent will be hosted. Thus, the agent will have access to {{ load-testing-name }}.
 
 ### Configure security groups {#security-group-setup}
 

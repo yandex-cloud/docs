@@ -1,6 +1,6 @@
 ## Setting up a public connection {#pub-create}
 
-To set up a new public connection in an existing trunk, create a [new support request]({{ link-console-support }}/create-ticket).
+To set up a new public connection in an existing trunk, create a [new support request]({{ link-console-support }}).
 
 ### Contacting tech support to set up a public connection {#pub-ticket}
 

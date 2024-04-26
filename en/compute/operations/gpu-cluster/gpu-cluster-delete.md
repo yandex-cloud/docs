@@ -1,5 +1,6 @@
 # Deleting a GPU cluster
 
+
 Before deleting a [GPU cluster](../../concepts/gpus.md#gpu-clusters), make sure to delete all its [VMs](../../concepts/vm.md).
 
 {% list tabs group=instructions %}

@@ -8,7 +8,7 @@ editable: false
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
-## What is included in {{ captcha-full-name }} cost {#rules}
+## What goes into the cost of using {{ captcha-full-name }} {#rules}
 
 You are charged for [{{ captcha-name }} API requests](./quickstart.md#check-answer) at `https://smartcaptcha.yandexcloud.net/validate`. You are only charged for [correct requests](concepts/validation.md#service-response) to which the API returns the `ok` status. These requests must meet the following conditions:
 
@@ -35,6 +35,7 @@ Examples of {{ captcha-name }} usage cost calculation:
 1. A hacker passed the CAPTCHA test, obtained the `token`, and sent it 10 times after 10 minutes. The API will return the `failed` status to all requests. You will not be charged for any of them.
 
 ## Pricing {#prices}
+
 
 
 

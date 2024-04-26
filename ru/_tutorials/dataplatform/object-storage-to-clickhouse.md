@@ -179,7 +179,7 @@
     {% cut "Пример ответа" %}
 
     ```sql
-      __file_name  | __row_index | Id |  Name  
+      __file_name  | __row_index | Id |  Name
     --------------+-------------+----+--------
     demo_data1.csv |           1 |  1 | Anna
     demo_data1.csv |           2 |  2 | Robert
@@ -207,7 +207,7 @@
         {% cut "Пример ответа" %}
 
         ```sql
-          __file_name  | __row_index | Id |  Name  
+          __file_name  | __row_index | Id |  Name
         --------------+-------------+----+--------
         demo_data1.csv |           1 |  1 | Anna
         demo_data1.csv |           2 |  2 | Robert

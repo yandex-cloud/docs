@@ -1,5 +1,6 @@
 # Single-node file server
 
+
 You will learn to use [Samba](https://www.samba.org/) and [NFS](https://docs.microsoft.com/en-us/windows-server/storage/nfs/nfs-overview) to create a single-node file server, as well as connect to it from computers running Linux, macOS, and Windows.
 
 To create a single-node file server:
@@ -24,7 +25,7 @@ You can also deploy the infrastructure for hosting a website via {{ TF }} using 
 The cost of hosting a static website includes:
 
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or a static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ### Prepare the network infrastructure {#deploy-infrastructure}

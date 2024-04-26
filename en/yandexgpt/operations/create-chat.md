@@ -1,6 +1,6 @@
 ---
-title: "How to send a chat-mode request in {{ yagpt-full-name }}"
-description: "This guide will teach you how to use {{ yagpt-full-name }} in chat mode."
+title: "How to send a request in chat mode {{ yagpt-full-name }}"
+description: "Follow this guide to learn how to use {{ yagpt-full-name }} in chat mode."
 ---
 
 # Sending requests in chat mode
@@ -9,7 +9,7 @@ To generate text in [chat mode](../concepts/index.md#working-mode), deliver a li
 
 ## Getting started {#before-begin}
 
-{% include notitle [ai-before-beginning](../../_includes/yandexgpt/ai-before-beginning.md) %}
+{% include notitle [ai-before-beginning](../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
 
 ## Send a request to the model {#request}
 
@@ -46,7 +46,7 @@ To generate text in [chat mode](../concepts/index.md#working-mode), deliver a li
 
    Where:
 
-   {% include [api-parameters](../../_includes/yandexgpt/api-parameters.md) %}
+   {% include [api-parameters](../../_includes/foundation-models/yandexgpt/api-parameters.md) %}
 
 1. Send a request to the model:
 

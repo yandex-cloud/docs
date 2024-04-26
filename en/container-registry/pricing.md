@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Pricing for {{ container-registry-name }}
+# {{ container-registry-name }} pricing
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -18,7 +18,7 @@ The {{ container-registry-name }} usage cost is based on:
 
 ### Using storage {#rules-storage}
 
-Storage usage is measured in GB per month. The volume of the data stored during a month is the average value over the month based on granulated per-second data. The minimum billable unit is 1 hour of storing 1 MB of data.
+Storage usage is measured in GB per month. The volume of data stored during a month is taken as the month's average based on granulated per-second data. The minimum billing unit is 1 hour of storing 1 MB of data.
 
 {% note warning %}
 
@@ -27,6 +27,7 @@ If multiple [Docker images](concepts/docker-image.md) in the same registry use t
 {% endnote %}
 
 ## Pricing {#prices}
+
 
 ### Data storage {#prices-storage}
 

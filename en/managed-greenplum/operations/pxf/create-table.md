@@ -65,7 +65,7 @@ The `WRITABLE` option enables you to write data to an external object. To be abl
 
       With no data source created, you need to provide the source connection parameters in the SQL query for creating an external table.
 
-   1. [Connect to the {{ CH }} database](../../../managed-clickhouse/operations/connect.md#connection-string) using `clickhouse-client`.
+   1. [Connect to the {{ CH }} database](../../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`.
    1. Create a test table and populate it with data:
 
       ```sql

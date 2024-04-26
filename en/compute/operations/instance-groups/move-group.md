@@ -6,6 +6,7 @@ description: "In this article, you will learn how to move a {{ compute-name }} i
 # Moving an instance group to a different availability zone
 
 
+
 {% note info %}
 
 {% include [zone-c-deprecation](../../../_includes/vpc/zone-c-deprecation.md) %}
@@ -23,7 +24,7 @@ To move an instance group to a different availability zone:
 
    {% include [ig-create-in-another-zone](../../../_includes/compute/ig-create-in-another-zone.md) %}
 
-1. Delete the group instances from the old availability zone:
+1. Delete the group instances from the previous availability zone:
 
    {% include [ig-delete-in-zone.md](../../../_includes/compute/ig-delete-in-zone.md) %}
 

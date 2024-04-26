@@ -1,3 +1,5 @@
+
+
 [External Secrets Operator](https://external-secrets.io/latest/provider/yandex-lockbox/) enables you to set up syncing of [{{ lockbox-name }}](../../lockbox/) [secrets](../../lockbox/concepts/secret.md) with [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) [secrets](../../managed-kubernetes/concepts/encryption.md).
 
 There are [several schemas for integrating](https://external-secrets.io/latest/guides/multi-tenancy/) {{ lockbox-name }} with {{ managed-k8s-name }}. The example below describes [ESO as a Service](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service):
@@ -127,7 +129,7 @@ The cost of resources for syncing secrets includes:
 
    ```bash
    kubectl --namespace ns apply -f - <<< '
-   apiVersion: external-secrets.io/v1alpha1
+   apiVersion: external-secrets.io/v1beta1
    kind: SecretStore
    metadata:
      name: secret-store
@@ -146,7 +148,7 @@ The cost of resources for syncing secrets includes:
 
    ```bash
    kubectl --namespace ns apply -f - <<< '
-   apiVersion: external-secrets.io/v1alpha1
+   apiVersion: external-secrets.io/v1beta1
    kind: ExternalSecret
    metadata:
      name: external-secret

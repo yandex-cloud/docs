@@ -1,8 +1,9 @@
 # Creating and configuring a UserGate gateway in proxy server mode
 
+
 [UserGate](https://www.usergate.com/products/enterprise-firewall) is a next-generation firewall created by a Russia-based company Usergate.
 
-You will create a UserGate virtual machine in {{ yandex-cloud }} and set up the gateway in the proxy server mode. As a result of this, your employees will have free online access anytime and anywhere (from the office, home, cafes or other public places). To learn about advanced UserGate features, take the free course [UserGate Getting Started](https://university.tssolution.ru/usergate-getting-started-v6).
+You will create a UserGate virtual machine in {{ yandex-cloud }} and set up the gateway in the proxy server mode. As a result, your employees will have secure internet access from anywhere (office, home, cafe, other public areas). To learn about advanced UserGate features, take the free course [UserGate Getting Started](https://university.tssolution.ru/usergate-getting-started-v6).
 
 A typical diagram of running UserGate in the proxy server mode in {{ yandex-cloud }} is shown in the picture below.
 
@@ -112,7 +113,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
       Learn more in the description of the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -307,7 +308,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
       For more information about the `yandex_vpc_security_group` resource, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/vpc_security_group).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -515,7 +516,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
       To learn more, see the [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance) resource description in the {{ TF }} provider documentation.
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:

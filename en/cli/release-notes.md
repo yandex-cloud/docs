@@ -7,6 +7,35 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ## Current version {#latest-release}
 
+### Version 0.123.0 (08.04.24) {#version0.123.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### Managed database services {#managed-db}
+
+**{{ mch-name }}**
+
+* Added an optional argument, `shard-name`, for the `--host` parameter of the `yc managed-clickhouse cluster restore` command.
+
+**{{ mmg-name }}**
+
+* Added the `hidden`, `priority`, and `secondary-delay-secs` parameters to the `yc managed-mongodb hosts add --host` command.
+* Added a new command, `yc managed-mongodb hosts update`, to modify the `hidden`, `priority`, and `secondary-delay-secs` parameters.
+
+##### {{ sf-name }} {#serverless-functions}
+
+* Changed batching limits for the `yc serverless trigger create` command.
+
+##### {{ backup-name }} {#backup}
+
+* Added the `RESULT CODE` field that displays the code of completion of operation with VM to the output of the `backup resource list-tasks` command.
+
+#### Changes to the CLI {#cli}
+
+* Added the documentation and installation script fixes to help configure autocompletion for `yc` in CentOS-based Linux distributions.
+
+## Previous releases {#previous-releases}
+
 ### Version 0.122.0 (27/03/24) {#version0.122.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -35,8 +64,6 @@ Added the `--deletion-protection` parameter to the following commands to protect
 * Added the `yc compute instance attach-network-interface` command to add a network interface to an existing VM.
 * Added the `yc compute instance detach-network-interface` command to delete a network interface from an existing VM.
 
-## Previous releases {#previous-releases}
-
 ### Version 0.121.0 (12/03/24) {#version0.121.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -57,9 +84,9 @@ Added the `--deletion-protection` parameter to the following commands to protect
 
 ##### {{ load-testing-name }} {#load-testing}
 
-* Added the `yc loadtesting test wait` command for waiting until a load test is complete.
-* Added the `--wait` and `--wait-idle-timeout` flags to the `yc loadtesting test create` command for waiting until the created load test is complete.
-* Added the `--configuration agent-by-filter=""` and `--configuration anonymous-agent=true` flags to the `yc loadtesting test create` command for selecting a load testing agent by filter or an anonymous agent, respectively.
+* Added the `yc loadtesting test wait` command for a wait till the end of the load test.
+* Added the `--wait` and `--wait-idle-timeout` flags to the `yc loadtesting test create` command for a wait till the end of the created load test.
+* Added the `--configuration agent-by-filter=""` and `--configuration anonymous-agent=true` flags to the `yc loadtesting test create` command for selecting a load testing agent by filtering or an anonymous agent, respectively.
 * Added the `--filter` flag to the `yc loadtesting agent list` command to filter the list of agents.
 
 ##### {{ vpc-name }} {#vpc}

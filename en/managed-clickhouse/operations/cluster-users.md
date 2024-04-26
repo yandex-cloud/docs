@@ -68,7 +68,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 - SQL {#sql}
 
-   1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
+   1. [Connect](connect/clients.md) to a cluster using the [`admin` account](#sql-user-management).
    1. Get a list of users:
 
       ```sql
@@ -187,7 +187,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 - SQL {#sql}
 
-   1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
+   1. [Connect](connect/clients.md) to a cluster using the [`admin` account](#sql-user-management).
    1. Create a user:
 
       ```sql
@@ -433,7 +433,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
       You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-      The command only changes the settings that are explicitly specified in the `--settings` parameter. For example, the command with the parameter `--settings="readonly=1"` only changes the `readonly` setting and doesn't reset the values of the other settings. This is how changing {{ CH }} settings differs from changing quota settings.
+      The command only changes the settings that are explicitly specified in the `--settings` parameter. For example, the command with the parameter `--settings="readonly=1"` only changes the `readonly` setting and does not reset the values of the other settings. This is how changing {{ CH }} settings differs from changing quota settings.
 
       You cannot use this command to delete an existing setting. You can only explicitly set it to its default value (specified for [each setting](#clickhouse-settings)).
 
@@ -526,7 +526,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 - SQL {#sql}
 
-   1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
+   1. [Connect](connect/clients.md) to a cluster using the [`admin` account](#sql-user-management).
    1. To alter the set of user roles and privileges, use the [GRANT]({{ ch.docs }}/sql-reference/statements/grant/) and [REVOKE]({{ ch.docs }}/sql-reference/statements/revoke/) statements. For example, grant the user read rights to all objects in a specific database:
 
       ```sql
@@ -601,7 +601,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 - SQL {#sql}
 
-   1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
+   1. [Connect](connect/clients.md) to a cluster using the [`admin` account](#sql-user-management).
    1. Delete the user:
 
       ```sql
@@ -646,7 +646,7 @@ Let's say you need to add a new user named `ro-user` with the password `Passw0rd
    ```
 
    After creating the user, check that it is actually in read-only mode:
-   1. [Connect](connect.md) to the `mych` cluster with the `ro-user` you created.
+   1. [Connect](connect/clients.md) to the `mych` cluster with the `ro-user` you created.
    1. Try changing a setting, for example, disable read-only mode:
 
       ```
@@ -699,7 +699,7 @@ Let's say you need to add a new user named `ro-user` with the password `Passw0rd
 
 - SQL {#sql}
 
-   1. [Connect](connect.md) to the `mych` cluster using [the `admin` account](#sql-user-management).
+   1. [Connect](connect/clients.md) to the `mych` cluster using [the `admin` account](#sql-user-management).
    1. Create a user:
 
       ```sql

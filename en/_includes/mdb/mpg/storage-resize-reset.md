@@ -1,1 +1,0 @@
-Automatic increase of the storage size is triggered once. To activate this feature again after it was triggered, manually specify a new storage size to be set when the threshold value is reached next time.

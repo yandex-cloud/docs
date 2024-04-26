@@ -29,6 +29,7 @@ To start working with {{ yandex-cloud }}, follow the instructions:
 {% include [quickstart-all](../../_includes/quickstart-all-no-billing.md) %}
 
 You might also find these links useful:
+* [Non-billable services](../../billing/pricing.md#free)
 * [{#T}](limits.md)
 * [{#T}](usage-monitor.md)
 * [{#T}](trial-ending.md)

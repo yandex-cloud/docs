@@ -16,5 +16,4 @@ description: "Следуя данной инструкции, вы сможет�
 #### Что дальше {#what-is-next}
 
 * [{#T}](install-dependencies.md)
-* [{#T}](clear-kernel-state.md)
 * [{#T}](export.md)

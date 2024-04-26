@@ -6,7 +6,8 @@ editable: false
 
 # {{ lockbox-name }} pricing
 
-The cost of {{ lockbox-name }} usage is based on:
+
+The cost of using {{ lockbox-name }} is calculated based on:
 
 * Number of secret versions.
 * Number of completed [get](api-ref/Payload/get) operations on a secret.

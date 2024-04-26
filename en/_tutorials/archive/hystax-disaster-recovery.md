@@ -1,5 +1,6 @@
 # Fault protection with Hystax Acura
 
+
 No matter how your resource allocation is structured, you can protect your infrastructure with the Hystax Acura solution.
 
 Supported platforms:
@@ -42,7 +43,7 @@ Please note that both the Hystax Acura infrastructure and all the recovered VMs 
 The cost of the resources required to use Hystax Acura Disaster Recovery includes:
 * Fee for disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for storing images (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for each protected VM (see [product description](/marketplace/products/hystax/hystax-acura-disaster-recovery) in {{ marketplace-name }}).
 
 
@@ -118,7 +119,7 @@ Create a VM with a boot disk using an image of `Hystax Acura Disaster Recovery t
 
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       * Select the previously created `hystax-acura-account` service account.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username for SSH access, such as `yc-user`.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username for SSH access, e.g., `yc-user`.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
@@ -144,8 +145,8 @@ Create a VM with a boot disk using an image of `Hystax Acura Disaster Recovery t
 
    Where:
 
-   * `name`: VM name, such as `hystax-acura-vm`.
-   * `zone`: [Availability zone](../../overview/concepts/geo-scope.md), for example `{{ region-id }}-a`.
+   * `name`: VM name, e.g., `hystax-acura-vm`.
+   * `zone`: [Availability zone](../../overview/concepts/geo-scope.md), e.g., `{{ region-id }}-a`.
    * `cores`: [Number of vCPUs](../../compute/concepts/vm.md) in your VM.
    * `memory`: [Amount of RAM](../../compute/concepts/vm.md) in your VM.
    * `network-interface`: VM network interface description:
@@ -157,7 +158,7 @@ Create a VM with a boot disk using an image of `Hystax Acura Disaster Recovery t
 
          You can retrieve a group list using the `yc vpc security-group list` command. If you skip this parameter, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned.
    * `create-boot-disk`: Create a new disk for the VM:
-      * `name`: Disk name, such as `hystax-acura-disk`.
+      * `name`: Disk name, e.g., `hystax-acura-disk`.
       * `size`: Disk size.
       * `image-id`: Disk image ID.
 

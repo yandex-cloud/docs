@@ -1,5 +1,6 @@
 # Setting up networking between resources in different folders
 
+
 In {{ yandex-cloud }}, network resources, such as cloud network and subnets, are usually created in a single resource cloud folder that is not linked to resources in other cloud folders. When deploying resources in {{ yandex-cloud }}, it is often necessary to ensure networking between resources residing in different folders. One of the ways to do that is to use the `Multi-folder VPC` method that extends the scope of an individual {{ vpc-short-name }} network to multiple rather than one folder.
 
 Depending on the selected {{ yandex-cloud }} management interface, a network's scope is extended to other folders by:

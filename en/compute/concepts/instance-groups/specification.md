@@ -39,9 +39,9 @@ instance_template:
       size: 5g
       image_id: fd8m5bal0bi9********
   network_interface_specs:
-  - network_id: enpocgefm44f********
-    subnet_ids:
-    - e2ljvdp4j276********
+    - network_id: enpocgefm44f********
+      subnet_ids:
+        - e2ljvdp4j276********
     primary_v4_address_spec:
       one_to_one_nat_spec:
         ip_version: IPV4
@@ -62,13 +62,13 @@ scale_policy:
     initial_size: 1
     auto_scale_type: REGIONAL
     custom_rules:
-    - rule_type: WORKLOAD
-      metric_type: GAUGE
-      metric_name: queue.messages.stored_count
-      labels:
-        queue: queue-autoscale-queue
-      target: 5
-      service: message-queue
+      - rule_type: WORKLOAD
+        metric_type: GAUGE
+        metric_name: queue.messages.stored_count
+        labels:
+          queue: queue-autoscale-queue
+        target: 5
+        service: message-queue
 deploy_policy:
   max_unavailable: 1
   startup_duration: 0s
@@ -78,7 +78,7 @@ auto_healing_policy:
   auto_healing_action: RESTART
 allocation_policy:
   zones:
-  - zone_id: {{ region-id }}-b
+    - zone_id: {{ region-id }}-a
 service_account_id: ajefnb8427bh********
 ```
 

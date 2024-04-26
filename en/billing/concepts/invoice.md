@@ -2,7 +2,10 @@
 
 
 
+An invoice is a tax document that Yandex issues to residents of Russia under the Tax Code of the Russian Federation.
 
+
+An invoice is a tax document that is issued by Yandex to residents of Kazakhstan under the Tax Code of Kazakhstan "On Taxes and Other Obligatory Payments to the State Budget".
 
 
 ## Creating an invoice {#create-invoice}
@@ -20,12 +23,9 @@ A service [report](../concepts/act.md) and an invoice are generated at the end o
 
 {% list tabs group=residents %}
 
-- Residents of Russia or Kazakhstan {#residents}
-
-   {% include [nds-only-res](../_includes/nds-only-res.md) %}
 
 - Non-residents of Russia and Kazakhstan {#nonresidents}
 
-   An invoice is not issued to non-residents of Russia and Kazakhstan
+   No invoice will be issued for non-residents of Russia and Kazakhstan.
 
 {% endlist %}

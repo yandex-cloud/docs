@@ -909,7 +909,7 @@ For more information, see [{#T}](../managed-kafka/security/index.md).
 
 {% include [managed-clickhouse.admin](../_roles/managed-clickhouse/admin.md) %}
 
-For more information, see [{#T}](../managed-clickhouse/security/index.md).
+For more information, see [{#T}](../managed-clickhouse/security.md).
 
 
 

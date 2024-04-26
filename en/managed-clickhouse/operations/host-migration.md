@@ -1,6 +1,6 @@
 # Migrating {{ CH }} cluster hosts to a different availability zone
 
-{{ CH }} and {{ ZK }} hosts of the {{ mch-name }} cluster are located in the {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). You can move hosts from one availability zone to another.
+{{ CH }} and {{ ZK }} hosts of the {{ mch-name }} cluster are located in {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). You can move hosts from one availability zone to another.
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 
@@ -91,7 +91,7 @@
    {{ yc-mdb-ch }} host list --cluster-name <cluster_name>
    ```
 
-   The FQDN is specified in the command output under `NAME`. You can also use a [special FQDN](connect.md#fqdn) for a connection.
+   The FQDN is specified in the command output under `NAME`. You can also use a [special FQDN](connect/fqdn.md#auto) for a connection.
 
 1. Delete the hosts in the source availability zone:
 

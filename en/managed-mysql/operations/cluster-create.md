@@ -16,7 +16,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 {% endnote %}
 
-## How to create a {{ MY }} cluster {#create-cluster}
+## Creating a cluster {#create-cluster}
 
 {% list tabs group=instructions %}
 
@@ -382,6 +382,81 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
 {% endnote %}
 
+
+## Creating a cluster copy {#duplicate}
+
+You can create a {{ MY }} cluster with the settings of another cluster created earlier. To do so, you need to import the configuration of the source {{ MY }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ MY }} cluster has lots of settings and you need to create a similar one.
+
+To create a {{ MY }} cluster copy:
+
+{% list tabs group=instructions %}
+
+- {{ TF }} {#tf}
+
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
+   1. In the same working directory, place a `.tf` file with the following contents:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "old" { }
+      ```
+
+   1. Write the ID of the initial {{ MY }} cluster to the environment variable:
+
+      ```bash
+      export MYSQL_CLUSTER_ID=<cluster_ID>
+      ```
+
+      You can request the ID with a [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
+
+   1. Import the settings of the initial {{ MY }} cluster into the {{ TF }} configuration:
+
+      ```bash
+      terraform import yandex_mdb_mysql_cluster.old ${MYSQL_CLUSTER_ID}
+      ```
+
+   1. Get the imported configuration:
+
+      ```bash
+      terraform show
+      ```
+
+   1. Copy it from the terminal and paste it into the `.tf` file.
+   1. Place the file in the new `imported-cluster` directory.
+   1. Modify the copied configuration so that you can create a new cluster from it:
+
+      * Specify a new cluster name in the `resource` string and the `name` parameter.
+      * Delete the `created_at`, `health`, `id`, and `status` parameters.
+      * In the `host` sections, delete the `fqdn` parameters.
+      * If the `maintenance_window` section specifies the `type = "ANYTIME"` parameter value, delete the `hour` parameter.
+      * (Optional) Make further modifications if you need a customized copy rather than identical one.
+
+   1. In the `imported-cluster` directory, [get the authentication data](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+
+   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf).
+
+   1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
+
+   1. Check that the {{ TF }} configuration files are correct:
+
+      ```bash
+      terraform validate
+      ```
+
+      If there are any errors in the configuration files, {{ TF }} will point them out.
+
+   1. Create the required infrastructure:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
+
+{% endlist %}
 
 ## Examples {#examples}
 

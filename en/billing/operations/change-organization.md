@@ -5,11 +5,12 @@ description: "Follow this guide to change your billing account organization."
 
 # Changing the billing account organization
 
+
 To change the billing account [organization](../concepts/organization.md), a user must have the `billing.accounts.owner` and `organizations.billingAccountSetter` roles. To change the organization:
 
 {% list tabs group=instructions %}
 
-- {{ billing-name }} interface {#billing}
+- {{ billing-interface }} {#billing}
 
    1. Go to [**{{ billing-name }}**](https://billing.yandex.cloud/accounts/).
    1. Select the billing account from the list.

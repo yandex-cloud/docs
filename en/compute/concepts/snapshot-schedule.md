@@ -1,5 +1,6 @@
 # Creating scheduled disk snapshots
 
+
 You can configure automatic [disk snapshot](snapshot.md) creation based on a _schedule_.
 
 In the schedule, you specify:

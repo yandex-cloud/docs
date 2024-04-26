@@ -1,5 +1,6 @@
 # Creating a Python web application with Flask
 
+
 With this tutorial, you will develop a simple web application from scratch: a mini blog where users can create, view, edit, and delete posts. To do this, you will create a {{ compute-full-name }} VM in {{ yandex-cloud }} and run a web server on it.
 
 The web application is written in [Python](https://www.python.org/) and uses the [SQLite](https://sqlite.org/) DBMS to work with data. To develop the frontend, the [Bootstrap toolkit](https://getbootstrap.com/) is used.
@@ -360,7 +361,7 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
 
       {% note info %}
 
-      To effectively track and manage the development process, you can use a version control system. In this case, add the `env` directory to the `.gitignore` file to only track files related to the project.
+      To effectively track and manage the project development process, you can use a version control system. In this case, add the `env` directory to the `.gitignore` file to only track files related to the project.
 
       {% endnote %}
 
@@ -506,7 +507,7 @@ To render templates, you can use the [`render_template()` helper function](https
        return render_template('index.html')
    ```
 
-   In this code:
+   This code does the following:
 
    * The `render_template()` helper function is imported to render HTML templates.
    * The `hello()` function is replaced with the `index()` function that returns the result of invoking the `render_template()` helper function with the `index.html` argument. The function argument points to a template file in the template directory to be used for rendering.
@@ -728,7 +729,7 @@ In other HTML templates, you will need to reuse most of the HTML code from the `
 
    Save and close the `index.html` file.
 
-1. Refresh the main page of your application, `http://<public_IP_address_of_VM>:5000/`.
+1. Refresh the main page of your application, `http://<VM_public_IP_address>:5000/`.
 
    Your page will have a navigation bar and a styled header.
 

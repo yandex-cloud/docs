@@ -6,6 +6,7 @@ noIndex: true
 
 # Transferring data from a {{ metrika }} source endpoint
 
+
 {{ data-transfer-name }} enables you to transfer data from a [{{ metrika }}]({{ metrika-link }}) tag to a {{ yandex-cloud }} managed database.
 
 1. [Explore possible data transfer scenarios](#scenarios).

@@ -1,5 +1,6 @@
 # Disk snapshots
 
+
 In {{ yandex-cloud }}, a _disk snapshot_ is a copy of the disk file system made at a certain point in time.
 
 You can use disk snapshots for various purposes, e.g.:

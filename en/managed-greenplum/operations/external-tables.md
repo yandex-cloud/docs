@@ -32,4 +32,6 @@ For such tables, you can specify external data source settings in the SQL query.
 
 1. [Create an external table](pxf/create-table.md) using PXF.
 
+1. (Optional) [Update the default PXF settings](./pxf/settings.md).
+
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

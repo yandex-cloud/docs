@@ -8,10 +8,10 @@ Enables you to view information about resources.
 
 #### {{ roles-editor }} {#editor}
 
-Allows you to manage resources, e.g., create, edit, and delete them.
+Allows managing (creating, editing, and deleting) resources.
 
 #### {{ roles-admin }} {#admin}
 
 Allows you to manage your resources and access to them.
 
-For more information about primitive roles, see [Roles](../iam/concepts/access-control/roles.md#primitive-roles).
+For more information about primitive roles, see the [{{ yandex-cloud }} role reference](../iam/roles-reference.md#primitive-roles).

@@ -1,6 +1,6 @@
 ---
-title: "Questions and answers about {{ backup-full-name }}"
-description: "This page provides answers to questions about {{ backup-name }}."
+title: "FAQ about {{ backup-full-name }}"
+description: "This page presents FAQ about {{ backup-name }}."
 ---
 
 # All questions about {{ billing-name }}
@@ -13,7 +13,7 @@ description: "This page provides answers to questions about {{ backup-name }}."
 
 {% include notitle [contract](../../_qa/billing/contract.md) %}
 
-## Questions about payment
+## Questions about payments
 
 {% include notitle [payment](../../_qa/billing/payment.md) %}
 

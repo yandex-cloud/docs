@@ -1,6 +1,6 @@
 ---
 title: "Creating a {{ alb-full-name }} target group"
-description: "To create a {{ alb-full-name }} target group, in the management console, select the appropriate folder. In the list of services, select {{ alb-name }}. In the left-hand menu, select Target groups. Click **Create target group**. Enter the name of the target group. Select the VMs. Click **Create**."
+description: "To create a {{ alb-full-name }} target group, in the management console, select the appropriate folder. In the list of services, select {{ alb-name }}. In the left-hand menu, select Target groups. Click **Create target group**. Enter the name of the target group. Select the VM. Click **Create**."
 ---
 
 # Creating an {{ alb-name }} target group
@@ -23,6 +23,8 @@ To create a [target group](../concepts/target-group.md):
       1. (Optional) If the target's [IP address](../../vpc/concepts/address.md) does not belong to [{{ vpc-full-name }}](../../vpc/), select **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
 
          For example, specify a private IPv4 address belonging to your data center connected to {{ yandex-cloud }} through [{{ interconnect-full-name }}](../../interconnect/). The IP address must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
+
+
       1. Click **{{ ui-key.yacloud.alb.button_add-target }}**.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -65,6 +67,7 @@ To create a [target group](../concepts/target-group.md):
       ```
 
       You can also create a target group with target resources residing outside [{{ vpc-full-name }}](../../vpc/), e.g., in your data center connected to {{ yandex-cloud }} via [{{ interconnect-full-name }}](../../interconnect/). The target IP addresses must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
+
 
       Run the following command, specifying the target group name and private IPv4 addresses as parameters:
 
@@ -149,6 +152,7 @@ To create a [target group](../concepts/target-group.md):
         }
       }
       ```
+
 
       Where `yandex_alb_target_group` specifies the target group parameters:
       * `name`: Target group name.

@@ -18,14 +18,20 @@ description: "This page provides a list of step-by-step guides for {{ mch-name }
 * [Managing backups](cluster-backups.md)
 * [Deleting clusters](cluster-delete.md)
 
+## Connecting to a cluster {#connect}
+
+* [Pre-configuration](connect/index.md)
+* [FQDNs of {{ CH }} hosts](connect/fqdn.md)
+* [Connecting to a cluster from applications](connect/clients.md)
+* [Code examples for connecting to a cluster](connect/code-examples.md)
+
 ## Databases {#databases}
 
-* [Connecting to a database in a cluster](connect.md)
 * [{#T}](web-sql-query.md)
 * [Managing databases](databases.md)
 * [Managing users](cluster-users.md)
 
-## Data storage and processing {#data-storage-and-processing}
+## Storing and processing data {#data-storage-and-processing}
 
 * [Adding your own geobase](geobase.md)
 * [Connecting external dictionaries](dictionaries.md)

@@ -19,7 +19,7 @@ To change the name and description of an instance group:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
+   1. In the [management console]({{ link-console-main }}), open the folder containing the instance group you need.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Select the group to update.
@@ -76,7 +76,7 @@ To change the computing resources of an instance group:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
+   1. In the [management console]({{ link-console-main }}), open the folder containing the instance group you need.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Select the group to update.
@@ -131,7 +131,7 @@ To increase the disk size of an instance group:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
+   1. In the [management console]({{ link-console-main }}), open the folder containing the instance group you need.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Select the group to update.

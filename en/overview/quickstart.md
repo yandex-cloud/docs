@@ -6,13 +6,12 @@ description: "In this article, you will learn how to get started with {{ yandex-
 # Getting started with {{ yandex-cloud }}
 
 
+
 The {{ yandex-cloud }} platform has several user interfaces, e.g., the [management console]({{ link-console-main }}) and the [command line interface](../cli/). To access any user interface, you will need a _user account_. This can be a personal Yandex account (Yandex ID) or a Yandex 360 account. For detailed instructions, see help for [Yandex ID](https://yandex.com/support/passport/authorization/registration.html) and [Yandex 360](https://yandex.com/support/business/add-users.html).
 
 ## Creating a billing account {#new-account}
 
 When creating your first billing account linked to your user account, you will get your [initial grant](../getting-started/usage-grant.md).
-
-{% include [main](../_includes/billing/registration-main.md) %}
 
 {% list tabs group=customers %}
 
@@ -48,7 +47,7 @@ However, if your [grant](../getting-started/usage-grant.md) has expired, access 
 
 #### I accidentally switched to a paid account. Did I lose my initial grant? Can I get it back?
 
-No, you cannot switch back to the trial version, but the grant will not be lost. The initial grant will be used up first. For more information about the order in which funds are spent, see [Billing cycle for individuals](../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../billing/payment/billing-cycle-business.md).
+No, you cannot switch back to the trial version, but the grant will not be lost. The initial grant will be spent first. For more information about the order in which funds are spent, see [Billing cycle for individuals](../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../billing/payment/billing-cycle-business.md).
 
 #### I have not used up the initial grant, but my cloud is blocked. What should I do?
 
@@ -66,7 +65,7 @@ When the initial grant expires, the total unused amount is offset, and the acces
 
 #### Is it safe to pay to {{ yandex-cloud }}?
 
-The {{ yandex-cloud }} platform meets the PCI DSS requirements; this is why it is safe to use the cloud services for payment processing. For more information about PCI DSS certification, see [{#T}](../security/conform.md#pci-dss).
+The {{ yandex-cloud }} platform meets the PCI DSS requirements, which makes its cloud services safe for payment processing. For more information about PCI DSS certification, see the [{#T}](../security/conform.md#pci-dss) section.
 
 #### Where do I find my agreement with {{ yandex-cloud }}?
 
@@ -78,7 +77,7 @@ No physical invoice is provided, but you can generate and print it out from the 
 
 #### I need a bilateral contract rather than an offer. Can I have it?
 
-Yes, companies and individual entrepreneurs can sign a bilateral contract. Submit a request using the [Message]({{ link-console-support }}) form. A {{ yandex-cloud }} manager will contact you to discuss the terms.
+Yes, companies and individual entrepreneurs can sign a bilateral contract. To do this, submit a request using the [Message]({{ link-console-support }}) form. A {{ yandex-cloud }} manager will contact you to discuss the terms.
 
 #### How do I get invoiced?
 

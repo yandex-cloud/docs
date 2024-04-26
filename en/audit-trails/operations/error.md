@@ -1,5 +1,6 @@
 # Handling errors
 
+
 If a trail cannot send audit logs to the [destination object](../concepts/trail.md#target), the [trail status](../concepts/trail.md#status) will change to `Error`. This guide contains recommendations on how to recover the trail.
 
 {% note info %}

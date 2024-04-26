@@ -34,7 +34,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    {% endnote %}
 
-## How to create a {{ CH }} cluster {#create-cluster}
+## Creating a cluster {#create-cluster}
 
 {% list tabs group=instructions %}
 
@@ -108,14 +108,14 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       * Configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings), if required.
 
    
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host the cluster and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host the cluster and security groups for cluster network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters of database hosts created together with the cluster. To change the settings of a host, click the ![pencil](../../_assets/console-icons/pencil.svg) icon in the line with its number:
 
       * **{{ ui-key.yacloud.mdb.hosts.dialog.field_zones }}**: Select an [availability zone](../../overview/concepts/geo-scope.md).
       * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}**: Specify a [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
-      * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**: Allow [access](connect.md) to the host from the internet.
+      * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**: Allow [access](connect/index.md) to the host from the internet.
 
       To add hosts to the cluster, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
 
@@ -430,7 +430,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    * Security group identifiers in the `securityGroupIds` parameter.
 
 
-   To allow [connection](connect.md) to cluster hosts from the internet, provide the `true` value in the `hostSpecs.assignPublicIp` parameter.
+   To allow [connection](connect/index.md) to cluster hosts from the internet, provide the `true` value in the `hostSpecs.assignPublicIp` parameter.
 
    Enable user and database management via SQL, if required:
    * `configSpec.sqlUserManagement`: Set `true` to enable [managing users via SQL](cluster-users.md#sql-user-management).
@@ -474,10 +474,87 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 {% note warning %}
 
-If you specified security group IDs when creating a cluster, you may also need to [configure security groups](connect.md#configuring-security-groups) to connect to the cluster.
+If you specified security group IDs when creating a cluster, you may also need to [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 
+
+## Creating a cluster copy {#duplicate}
+
+You can create a {{ CH }} cluster with the settings of another cluster created earlier. To do so, you need to import the configuration of the source {{ CH }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ CH }} cluster has lots of settings and you need to create a similar one.
+
+To create a {{ CH }} cluster copy:
+
+{% list tabs group=instructions %}
+
+- {{ TF }} {#tf}
+
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
+   1. In the same working directory, place a `.tf` file with the following contents:
+
+      ```hcl
+      resource "yandex_mdb_clickhouse_cluster" "old" { }
+      ```
+
+   1. Write the ID of the initial {{ CH }} cluster to the environment variable:
+
+      ```bash
+      export CLICKHOUSE_CLUSTER_ID=<cluster_ID>
+      ```
+
+      You can request the ID with a [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+
+   1. Import the settings of the initial {{ CH }} cluster into the {{ TF }} configuration:
+
+      ```bash
+      terraform import yandex_mdb_clickhouse_cluster.old ${CLICKHOUSE_CLUSTER_ID}
+      ```
+
+   1. Get the imported configuration:
+
+      ```bash
+      terraform show
+      ```
+
+   1. Copy it from the terminal and paste it into the `.tf` file.
+   1. Place the file in the new `imported-cluster` directory.
+   1. Modify the copied configuration so that you can create a new cluster from it:
+
+      * Specify a new cluster name in the `resource` string and the `name` parameter.
+      * Delete the `created_at`, `health`, `id`, and `status` parameters.
+      * In the `host` sections, delete the `fqdn` parameters.
+      * If the `clickhouse.config.merge_tree` section specifies the `max_parts_in_total = 0` parameter value, delete this parameter.
+      * If the `maintenance_window` section specifies the `type = "ANYTIME"` parameter value, delete the `hour` parameter.
+      * If there are `user` sections, add the `name` and `password` parameters to them.
+      * (Optional) Make further modifications if you need a customized copy rather than identical one.
+
+   1. In the `imported-cluster` directory, [get the authentication data](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+
+   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf).
+
+   1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
+
+   1. Check that the {{ TF }} configuration files are correct:
+
+      ```bash
+      terraform validate
+      ```
+
+      If there are any errors in the configuration files, {{ TF }} will point them out.
+
+   1. Create the required infrastructure:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
+{% endlist %}
 
 ## Examples {#examples}
 
@@ -534,7 +611,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Cloud ID: `{{ tf-cloud-id }}`.
    * Folder ID: `{{ tf-folder-id }}`.
    * New cloud network named `cluster-net`.
-      * New [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+      * New [default security group](connect/index.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
    * Number of `{{ host-class }}` class hosts in a new subnet named `cluster-subnet-{{ region-id }}-a`: 1.
 
       Subnet parameters:
@@ -591,7 +668,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
       These subnets will belong to the `cluster-net` network.
 
-      * New [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+      * New [default security group](connect/index.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
    * Local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ CH }} hosts: 32 GB.
    * Local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ ZK }} hosts: 10 GB.
    * Database name: `db1`.

@@ -86,6 +86,8 @@ You can only delete empty buckets. In the management console, information about 
 
    To simultaneously delete multiple buckets, run this command:
 
+   {% include [sa-acl-bucket-list-note.md](../../../_includes/storage/sa-acl-bucket-list-note.md) %}
+
    * **Bash:**
 
       ```bash

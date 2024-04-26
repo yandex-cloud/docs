@@ -18,6 +18,8 @@ By default, {{ objstorage-name }} creates an empty ACL for each new object or bu
 
 You can use ACLs to grant permissions to {{ yandex-cloud }} users, service accounts, and system groups. To do this, you need to know the [permission recipient's ID](#accounts-ids). When granting permissions, you can use [predefined ACLs](#predefined-acls), which contain common permission sets.
 
+{% include [console-sa-acl-note](../console-sa-acl-note.md) %}
+
 To view the ACL structure description, see [ACL XML schema](../../../storage/s3/api-ref/acl/xml-config.md). You can set up to 100 rules per ACL.
 
 {% note info %}

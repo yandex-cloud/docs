@@ -20,8 +20,3 @@ description: "Follow this guide to install dependencies."
 To update the list of installed packages, restart the kernel. To do this, click **Kernel** → **Restart Kernel** in the top panel of the project window.
 
 {% endnote %}
-
-#### What's next {#what-is-next}
-
-* [{#T}](control-compute-resources.md)
-* [{#T}](clear-kernel-state.md)

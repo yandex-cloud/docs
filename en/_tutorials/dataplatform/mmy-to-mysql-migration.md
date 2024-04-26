@@ -18,7 +18,7 @@ There are two ways to migrate data from a {{ mmy-name }} _source cluster_ to a t
 
 * [Transferring data using {{ data-transfer-full-name }}](#data-transfer).
 
-   This method lets you migrate the entire database without interrupting user service.
+   This method allows you to migrate the entire database without interrupting user service.
 
    For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
@@ -41,11 +41,12 @@ Additionally, to migrate data using external {{ MY }} replication:
    * [Add hosts](../../managed-mysql/operations/hosts.md#add) with public IP addresses.
    * [Delete hosts](../../managed-mysql/operations/hosts.md#remove) without public IP addresses.
 * Install [{{ mmy-name }} server SSL certificates](../../managed-mysql/operations/connect.md#get-ssl-cert) on the target cluster's hosts. They are required to connect to the publicly available source cluster.
-* Set up the firewall and [security groups](../../managed-mysql/operations/connect.md#configuring-security-groups), if required, so that you can connect to the source cluster from the target cluster, as well as to each cluster separately, e.g., using the [mysql utility](https://dev.mysql.com/doc/refman/8.0/en/mysql.html).
+* If you need to, set up a firewall and [security groups](../../managed-mysql/operations/connect.md#configuring-security-groups) so you can connect to the source cluster from the target cluster, as well as to each cluster separately, e.g., using the [mysql utility](https://dev.mysql.com/doc/refman/8.0/en/mysql.html).
 * Make sure you can connect to the source cluster's hosts from the target cluster's hosts.
 * Make sure that you can [connect to the source cluster](../../managed-mysql/operations/connect.md) and the target cluster via SSL.
 
 ## Transferring data using {{ data-transfer-full-name }} {#data-transfer}
+
 
 {% include notitle [MMY moving data with Data Transfer](../../_tutorials/dataplatform/datatransfer/managed-mysql-to-mysql.md) %}
 
@@ -236,7 +237,7 @@ Field values show the replication status:
 
 * `Slave_IO_State` and `Slave_SQL_Running_State`: I/O state of the binary log and relay log streams. If replication is successful, both streams are active.
 * `Read_Master_Log_Pos`: The last position read from the master host log.
-* `Seconds_Behind_Master`: The replica's lag behind the master host (in seconds).
+* `Seconds_Behind_Master`: Replica's lag behind the master (seconds).
 * `Last_IO_Error` and `Last_SQL_Error`: Replication errors.
 
 For more information about replication status, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-administration-status.html).

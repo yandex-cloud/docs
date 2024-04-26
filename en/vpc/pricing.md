@@ -20,6 +20,7 @@ In {{ vpc-short-name }}, you pay for the hourly use of public IP addresses.
 
 ## {{ vpc-short-name }} pricing {#prices}
 
+
 ### Public IP addresses {#prices-public-ip}
 
 A public IP address can be in one of the following two states:
@@ -111,6 +112,7 @@ All prices are net of VAT.
 
 
 ## {{ ddos-protection-full-name }} pricing {#prices-ddos-protection}
+
 
 
 All prices are shown without VAT.

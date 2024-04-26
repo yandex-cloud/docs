@@ -31,11 +31,11 @@ Prepare the infrastructure:
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ metrika-endpoint }}` source](../../data-transfer/operations/endpoint/source/metrika.md).
 
-   The hits and sessions data is transferred as separate tables.
+   Hits and sessions are transferred as separate tables.
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the target:
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-CLICKHOUSE }}`.
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-CLICKHOUSE }}`
    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`
 
       Select a target cluster from the list and specify its [connection settings](../../data-transfer/operations/endpoint/target/clickhouse.md).
@@ -58,9 +58,9 @@ A transfer only moves the current data and does not affect historical data. If y
 
 1. Make sure the data from the {{ metrika }} tag has been moved to the {{ mch-name }} database:
 
-   1. [Connect to the cluster](../../managed-clickhouse/operations/connect.md) using `clickhouse-client`:
+   1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`:
 
-   1. Check that the tables with hit and session data appear in the database:
+   1. Check whether the hit and session tables have appeared in the database:
 
       ```sql
       SELECT table FROM system.tables

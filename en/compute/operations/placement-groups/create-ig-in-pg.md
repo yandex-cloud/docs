@@ -1,5 +1,6 @@
 # Creating an instance group in a placement group
 
+
 You can create an [instance group](../../concepts/instance-groups/index.md) in a [placement group](../../concepts/placement-groups.md).
 
 {% list tabs group=instructions %}
@@ -10,7 +11,7 @@ You can create an [instance group](../../concepts/instance-groups/index.md) in a
 
    {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI command to create a placement group:
+   1. View the description of the CLI command to create a placement group:
 
       ```bash
       yc compute placement-group create --help

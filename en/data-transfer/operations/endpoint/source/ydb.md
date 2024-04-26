@@ -3,9 +3,10 @@ title: "How to configure a {{ ydb-full-name }} source endpoint in {{ data-transf
 description: "In this tutorial, you will learn how to set up a {{ ydb-full-name }} source endpoint when creating or updating it in {{ data-transfer-full-name }}."
 ---
 
-# Transferring data from a {{ ydb-name }} source endpoint
+# Transferring data from an {{ ydb-name }} source endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data from a {{ ydb-name }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+
+{{ data-transfer-full-name }} enables you to migrate data from a {{ ydb-name }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ ydb-name }}](#prepare) database for the transfer.

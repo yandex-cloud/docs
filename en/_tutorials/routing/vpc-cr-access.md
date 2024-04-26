@@ -1,5 +1,6 @@
 # Connecting to {{ container-registry-name }} from {{ vpc-name }}
 
+
 To work with [{{ container-registry-name }}](../../container-registry/), cloud resources require internet access. Follow this guide to deploy a cloud infrastructure in {{ yandex-cloud }} to set up access to {{ container-registry-name }} for resources that are hosted in the [{{ vpc-name }}](../../vpc/concepts/) cloud network and have no public IP addresses or access to the internet through a [NAT gateway](../../vpc/concepts/gateways).
 
 {{ container-registry-short-name }} uses [{{ objstorage-name }}](../../storage/) to store Docker images in a registry. This solution also has access to {{ objstorage-name }} for resources in {{ vpc-name }}.
@@ -100,7 +101,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
+      1. In the [management console]({{ link-console-main }}), select a folder where you want to create your service account.
       1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-terraform`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -307,7 +308,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    | `cr_registry_id` | Registry ID in {{ container-registry-short-name }} | `crp1r4h00mj*********` |
    | `path_for_private_ssh_key` | File with a private key used to connect to the NAT instances and test VM over SSH | `./pt_key.pem` |
    | `s3_nlb_ip_address` | IP address of the internal load balancer for {{ objstorage-short-name }} | `10.10.1.200` |
-   | `test_vm_password` | `admin` user password for the test VM | `v3RСqUrQN?x)` |
+   | `test_vm_password` | `admin` user password for the test VM | `v3RCqUrQN?x)` |
    | `vm_username` | NAT instance and test VM user names | `admin` |
 
    {% endcut %}
@@ -332,7 +333,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    dig {{registry}} {{ s3-storage-host }}
    ```
 
-1. Check that the {{ objstorage-name }} and {{ container-registry-name }} domain name in the DNS server response maps to the IP address of the internal load balancer. The output of the type `A` resource records is:
+1. Make sure {{ objstorage-name }} and {{ container-registry-name }} domain names in the DNS server response match the IP addresses of the internal load balancers. The output of the type `A` resource records is:
 
    ```text
    ;; ANSWER SECTION:

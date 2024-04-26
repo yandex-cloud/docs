@@ -3,7 +3,8 @@ title: "{{ managed-prometheus-full-name }}"
 description: "{{ managed-prometheus-full-name }} is a monitoring system compatible with {{ prometheus-name }}. You can use it to collect, store, and read metrics from your containers, applications, and infrastructure. The system uses the {{ prometheus-name }} data model and the {{ promql-name }} query language. Thus, you can work with dashboards existing in {{ grafana-name }}."
 ---
 
-# {{managed-prometheus-full-name}} overview
+# {{ managed-prometheus-full-name }} overview
+
 
 {{ managed-prometheus-full-name }} is a monitoring system compatible with [{{ prometheus-name }}](https://prometheus.io/docs/introduction/overview/). You can use it to collect, store, and read metrics from your containers, applications, and infrastructure. The system uses the {{ prometheus-name }} data model and the [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/) query language. This allows you to work with dashboards existing in [{{ grafana-name }}](https://grafana.com/grafana/).
 
@@ -37,7 +38,7 @@ The system functionality will be enhanced in upcoming releases.
 | Long-term metric storage | Not intended for long-term metric storage. [Third-party solutions](https://prometheus.io/docs/prometheus/latest/storage/#existing-integrations) are used for that. | Long-term metric storage is supported. If [decimation](../../concepts/decimation.md) is used, metrics can be stored for an unlimited amount of time. |
 | Reading metrics | Data and metadata reads via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) are supported. | Data and metadata reads via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) are supported with some [restrictions](querying/grafana.md#restrictions). |
 | Visualization | [Expression browser](https://prometheus.io/docs/visualization/browser/), [Grafana](https://prometheus.io/docs/visualization/grafana/) | [{{ prometheus-name }} data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/) is supported. |
-| Aggregation | Aggregation via recording rules is supported (see [recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/)). | Any existing [recording rule](recording-rules.md) files in YAML format are supported. To upload and manage files, use the {{ monitoring-name }} UI and API. |
+| Aggregation | Aggregation via [recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/) is supported. | Existing [recording rules](recording-rules.md) in YAML format are supported. To upload and manage the files, use the {{ monitoring-name }} UI and API. |
 | Alerting | Aggregation via [alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) is supported. | To be implemented in future versions. Currently, `alerting rules` can be calculated from short-term data on local {{ prometheus-name }} instances. |
 | Integrations | Client [libraries](https://prometheus.io/docs/instrumenting/clientlibs/) and [exporters](https://prometheus.io/docs/instrumenting/exporters/). | Existing libraries and exporters can be used. |
 

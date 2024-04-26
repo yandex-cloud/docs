@@ -5,6 +5,7 @@ description: "In this tutorial, you will learn about the hardware security modul
 
 # Hardware security module (HSM)
 
+
 A hardware security module ([HSM](https://en.wikipedia.org/wiki/Hardware_security_module)) is a specialized computing device that is designed to perform cryptographic operations with a high level of security.
 
 Traditionally, HSMs are used in applications where encryption must provide a level of protection at which the cost and complexity of a successful attack limit potential perpetrators to a small number of highly skilled individuals.

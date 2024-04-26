@@ -1,5 +1,6 @@
 # Publishing game updates using {{ cdn-full-name }}
 
+
 Create and configure a {{ cdn-name }} [CDN resource](../../cdn/concepts/resource.md) to host content that is expected to handle a large number of requests over a short period of time, such as game update files (patches, [DLC](https://en.wikipedia.org/wiki/Downloadable_content), etc.). To prevent CDN servers from increasing the workload on the content origins during this period, files will be [preloaded](../../cdn/concepts/caching.md#prefetch) to the server cache once.
 
 Let's assume a patch is a single file named `ycgame-update-v1.1.exe`. It will be uploaded to a [{{ objstorage-full-name }}](../../storage/) [bucket](../../storage/concepts/bucket.md).
@@ -35,7 +36,7 @@ Make sure you have a domain name and can access the DNS settings on the website 
 The cost of supporting the CDN infrastructure includes:
 * Fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
 * Fee for data storage in {{ objstorage-name }}, operations with data, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* Fee for public DNS queries and [DNS zones](../../dns/concepts/dns-zone.md) if you use [{{ dns-full-name }}](../../dns/) (see [{{ dns-name }} pricing](../../dns/pricing.md)).
+* Fee for public DNS queries and [DNS zones](../../dns/concepts/dns-zone.md) if using [{{ dns-full-name }}](../../dns/) (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 
 ## Add a certificate to {{ certificate-manager-name }} {#add-certificate}
 
@@ -266,7 +267,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
       }
       ```
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
       1. In the command line, go to the directory with the configuration file.
       1. Run a check using this command:
 
@@ -302,10 +303,10 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
    1. Create a CDN resource:
       1. In the ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
       1. Set up the main parameters of the CDN resource as follows:
-         * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`
-         * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`
-         * **{{ ui-key.yacloud.cdn.label_bucket }}**: `<Name_of_bucket_with_files>`
-         * **{{ ui-key.yacloud.cdn.label_section-domain }}**: Primary domain name that you will use to publish patches, such as `cdn.ycprojectblue.example`.
+         * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
+         * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`.
+         * **{{ ui-key.yacloud.cdn.label_bucket }}**: `<Name_of_bucket_with_files>`.
+         * **{{ ui-key.yacloud.cdn.label_section-domain }}**: Primary domain name you will use to publish patches, e.g., `cdn.ycprojectblue.example`.
 
             {% note alert %}
 
@@ -406,7 +407,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
       ```
 
       For more information, see the descriptions of the [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) resources in the {{ TF }} provider documentation.
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 
@@ -482,7 +483,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
    If you use {{ dns-name }}, follow this guide to configure the record:
 
-   {% cut "Guide on configuring DNS records for {{ dns-name }}" %}
+   {% cut "Configuring DNS records for {{ dns-name }}" %}
 
    {% list tabs group=instructions %}
 

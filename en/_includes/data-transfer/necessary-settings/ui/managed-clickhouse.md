@@ -8,6 +8,6 @@
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.security_groups.title }}**: Select the cloud network to host the endpoint and security groups for network traffic. This will allow you to apply the specified security group rules to the VMs and clusters in the selected network without changing their settings. For more information, see [{#T}](../../../../data-transfer/concepts/network.md).
 
-   Make sure the selected security groups are [configured](../../../../managed-clickhouse/operations/connect.md#configuring-security-groups).
+   Make sure the selected security groups are [configured](../../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
 

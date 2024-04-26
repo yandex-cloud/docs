@@ -5,6 +5,7 @@ description: "Use this guide to create an empty disk with a large block."
 
 # Creating an empty disk with a large block
 
+
 {% include [default-catalogue](../../../_includes/compute/disk-blocksize.md) %}
 
 {% list tabs group=instructions %}

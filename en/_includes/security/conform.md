@@ -47,7 +47,7 @@ For more information, see:
 
 ## PCI DSS {#pci-dss}
 
-PCI DSS (Payment Card Industry Data Security Standard) contains a set of requirements for cardholder data protection. They are mandatory and apply to all companies that process data from payment systems like Visa, MasterCard, American Express, JCB, and MIR.
+PCI DSS (Payment Card Industry Data Security Standard) contains a set of requirements for cardholder data protection. They are mandatory and apply to all companies that process data from payment systems like Visa, MasterCard, American Express, JCB, MIR, and others.
 
 By ensuring that our cloud infrastructure meets PCI DSS requirements, we enable {{ yandex-cloud }} clients to use cloud services to process payment card data with verified high levels of security.
 

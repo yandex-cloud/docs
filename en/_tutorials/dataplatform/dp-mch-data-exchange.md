@@ -61,7 +61,7 @@ Prepare the infrastructure:
       * User: `user1`.
 
    
-   1. If you are using security groups in your {{ mch-name }} cluster, make sure they are [set up correctly](../../managed-clickhouse/operations/connect.md#configuring-security-groups) and allow connecting to the cluster.
+   1. If using security groups in your {{ mch-name }} cluster, make sure they are [configured correctly](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) and allow connecting to it.
 
 
 - {{ TF }} {#tf}
@@ -87,7 +87,7 @@ Prepare the infrastructure:
 
    1. In the `data-proc-data-exchange-with-mch.tf` file, specify:
 
-      * `folder_id`: Cloud folder ID, the same one specified in the provider settings.
+      * `folder_id`: Cloud folder ID, same as in the provider settings.
       * `input_bucket`: Name of the bucket for input data.
       * `output_bucket`: Name of the bucket for output data.
       * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. For more information, see [{#T}](../../data-proc/operations/connect.md#data-proc-ssh).
@@ -113,7 +113,7 @@ Prepare the infrastructure:
 
 ### Create a table in the {{ mch-name }} cluster {#prepare-mch}
 
-1. [Connect to](../../managed-clickhouse/operations/connect.md) the `db1` database of the {{ mch-name }} cluster as `user1`.
+1. [Connect to](../../managed-clickhouse/operations/connect/clients.md) the `db1` database of the {{ mch-name }} cluster as `user1`.
 1. Add test data to the database. As an example, a simple table is used with people's names and ages.
 
    1. Create a table:
@@ -253,7 +253,7 @@ Prepare the infrastructure:
 
 1. Wait for the job to complete and make sure the data has been transferred to {{ mch-name }}:
 
-   1. [Connect to](../../managed-clickhouse/operations/connect.md) the `db1` database of the {{ mch-name }} cluster as `user1`.
+   1. [Connect to](../../managed-clickhouse/operations/connect/clients.md) the `db1` database of the {{ mch-name }} cluster as `user1`.
    1. Run the following query:
 
       ```sql

@@ -4,7 +4,8 @@ description: "In this tutorial, you will learn how to set up a {{ yds-full-name 
 ---
 # Transferring data to a {{ yds-full-name }} target endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data to a {{ yds-full-name }} queue and implement various scenarios of data processing and transformation. To implement a transfer:
+
+{{ data-transfer-full-name }} enables you to migrate data to a {{ yds-full-name }} queue and implement various data processing and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Configure one of the supported data sources](#supported-sources).

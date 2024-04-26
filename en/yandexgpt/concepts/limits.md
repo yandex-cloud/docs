@@ -5,7 +5,7 @@ description: "{{ yagpt-full-name }} has quotas and limits. For more information 
 
 # Quotas and limits in {{ yagpt-full-name }}
 
-{% include notitle [preview-stage](../../_includes/yandexgpt/preview.md) %}
+{% include notitle [preview-stage](../../_includes/foundation-models/yandexgpt/preview.md) %}
 
 {{ yagpt-full-name }} has the following limits:
 

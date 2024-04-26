@@ -1,5 +1,6 @@
 # Adding a disk to a placement group
 
+
 {% note warning %}
 
 Due to the technical features of the {{ yandex-cloud }} infrastructure, we cannot guarantee that you will be able to add an existing [non-replicated disk](../../concepts/disk.md#nr-disks) to a [placement group](../../concepts/disk-placement-group.md). However, you will certainly be able to [create](../disk-create/nonreplicated.md#nr-disk-in-group) a [disk](../../concepts/disk.md) directly in the group.

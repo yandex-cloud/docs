@@ -16,4 +16,3 @@ description: "Следуя данной инструкции, вы сможет�
 
 * [{#T}](../data/connect-to-s3.md)
 * [{#T}](../data/connect-to-clickhouse.md)
-* [{#T}](../user-images-cell.md)

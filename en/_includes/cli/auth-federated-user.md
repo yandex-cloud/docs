@@ -1,4 +1,6 @@
 To authenticate using a [SAML-compatible identity federation](../../organization/concepts/add-federation.md):
+
+
 1. Get your federation ID from your administrator.
 1. Launch the profile creation wizard:
 
@@ -56,7 +58,6 @@ To authenticate using a [SAML-compatible identity federation](../../organization
 
 1. View your CLI profile settings:
 
-   
    ```bash
    yc config list
    ```

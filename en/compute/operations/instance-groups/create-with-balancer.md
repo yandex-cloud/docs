@@ -1,5 +1,6 @@
 # Creating a fixed-size instance group with a network load balancer
 
+
 You can create a fixed-size [instance group](../../concepts/instance-groups/index.md) integrated with [{{ network-load-balancer-full-name }}](../../../network-load-balancer/). A {{ network-load-balancer-name }} [target group](../../../network-load-balancer/concepts/target-resources.md) will be automatically created along with the [instance](../../concepts/vm.md) group. You can attach it to your [load balancer](../../../network-load-balancer/concepts/index.md) and distribute the load across the instances in the group at the network level. For more information, see [{#T}](../../concepts/instance-groups/balancers.md).
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
@@ -201,47 +202,47 @@ To create an instance group with a network load balancer:
 
          For more information about the target group settings, see [{#T}](../../concepts/instance-groups/balancers.md#settings-nlb).
 
-     Full code for the `specification.yaml` file:
+      Full code for the `specification.yaml` file:
 
-     ```yaml
-     name: first-fixed-group-with-balancer
-     service_account_id: <service_account_ID>
-     description: "This instance group was created from YAML config."
-     instance_template:
-       platform_id: standard-v3
-       resources_spec:
-         memory: 2g
-         cores: 2
-       boot_disk_spec:
-         mode: READ_WRITE
-         disk_spec:
-           image_id: fdvk34al8k5n********
-           type_id: network-hdd
-           size: 32g
-       network_interface_specs:
-         - network_id: c64mknqgnd8a********
-           primary_v4_address_spec: {}
-           security_group_ids:
-             - enps0ar5s3ti********
-       placement_policy:
+      ```yaml
+      name: first-fixed-group-with-balancer
+      service_account_id: <service_account_ID>
+      description: "This instance group was created from YAML config."
+      instance_template:
+        platform_id: standard-v3
+        resources_spec:
+          memory: 2g
+          cores: 2
+        boot_disk_spec:
+          mode: READ_WRITE
+          disk_spec:
+            image_id: fdvk34al8k5n********
+            type_id: network-hdd
+            size: 32g
+        network_interface_specs:
+          - network_id: c64mknqgnd8a********
+            primary_v4_address_spec: {}
+            security_group_ids:
+              - enps0ar5s3ti********
+        placement_policy:
           placement_group_id: rmppvhrgm77g********
-       deploy_policy:
-         max_unavailable: 1
-         max_expansion: 0
-       scale_policy:
-         fixed_scale:
-           size: 3
-       allocation_policy:
-         zones:
-           - zone_id: {{ region-id }}-a
-             instance_tags_pool:
-             - first
-             - second
-             - third
-       load_balancer_spec:
-         target_group_spec:
-           name: first-target-group
-     ```
+        deploy_policy:
+          max_unavailable: 1
+          max_expansion: 0
+        scale_policy:
+          fixed_scale:
+            size: 3
+        allocation_policy:
+          zones:
+            - zone_id: {{ region-id }}-a
+              instance_tags_pool:
+              - first
+              - second
+              - third
+        load_balancer_spec:
+          target_group_spec:
+            name: first-target-group
+      ```
 
    1. Create an instance group in the default folder:
 
@@ -297,8 +298,8 @@ To create an instance group with a network load balancer:
           }
 
           network_interface {
-            network_id = "${yandex_vpc_network.network-1.id}"
-            subnet_ids = ["${yandex_vpc_subnet.subnet-1.id}"]
+            network_id         = "${yandex_vpc_network.network-1.id}"
+            subnet_ids         = ["${yandex_vpc_subnet.subnet-1.id}"]
             security_group_ids = ["<list_of_security_group_IDs>"]
           }
 
@@ -365,11 +366,11 @@ To create an instance group with a network load balancer:
       ```
 
       Where:
-      * `yandex_iam_service_account`: Description of the [service account](../../../iam/concepts/users/service-accounts.md). All operations with instance groups are performed on behalf of the service account.
+      * `yandex_iam_service_account`: Description of the [service account](../../../iam/concepts/users/service-accounts.md). All operations with VM groups are performed on behalf of the service account.
 
          {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-      * `yandex_resourcemanager_folder_iam_member`: Description of access rights to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
+      * `yandex_resourcemanager_folder_iam_member`: Description of access permissions to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
       * `yandex_compute_instance_group`: Description of the instance group:
          * General information about the instance group:
             * `name`: Name of the instance group.

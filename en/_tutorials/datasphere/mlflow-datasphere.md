@@ -99,7 +99,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
       secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI9hx*****
       ```
 
-   1. Save the ID `key_id` and `secret` key. You will not be able to get the key value again.
+   1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
 
 - API {#api}
 
@@ -109,7 +109,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
 
 ## Create an SSH key pair {#create-ssh-keys}
 
-To connect to a [VM](../../compute/concepts/vm.md) over SSH, you need a key pair: the public key resides on the VM, and the private one is kept by the user. This method is more secure than connecting with login and password.
+To connect to a [VM](../../compute/concepts/vm.md) over SSH, you need a key pair: the public key resides on the VM, while the private one is kept by the user. This method is more secure than connecting with login and password.
 
 {% include [vm-connect-ssh-linux-note](../../_includes/vm-connect-ssh-linux-note.md) %}
 
@@ -231,7 +231,7 @@ To create a key pair:
    * Add the following lines to the file by substituting your VM's internal IP address:
 
       ```bash
-      MLFLOW_S3_ENDPOINT_URL=https://storage.yandexcloud.net/
+      MLFLOW_S3_ENDPOINT_URL=https://{{ s3-storage-host }}/
       MLFLOW_TRACKING_URI=http://<VM_internal_IP>:8000
       ```
 
@@ -290,7 +290,7 @@ For MLFlow to run automatically after the VM restarts, make it the `Systemd` ser
    After=network.target
 
    [Service]
-   Environment=MLFLOW_S3_ENDPOINT_URL=https://storage.yandexcloud.net/
+   Environment=MLFLOW_S3_ENDPOINT_URL=https://{{ s3-storage-host }}/
    Restart=on-failure
    RestartSec=30
    StandardOutput=file:/home/<VM_username>/mlflow_logs/stdout.log
@@ -321,7 +321,7 @@ For MLFlow to run automatically after the VM restarts, make it the `Systemd` ser
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter the secret name: `MLFLOW_S3_ENDPOINT_URL`.
-1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, paste the URL: `https://storage.yandexcloud.net/`.
+1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, paste this URL: `https://{{ s3-storage-host }}/`.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. Create three more secrets:
    * `MLFLOW_TRACKING_URI` set to `http://<VM_internal_IP>:8000`.
@@ -454,4 +454,4 @@ To stop paying for the resources you created:
 * [Delete the database cluster](../../managed-postgresql/operations/cluster-delete.md).
 * [Delete the objects](../../storage/operations/objects/delete-all.md) from the bucket.
 * [Delete the bucket](../../storage/operations/buckets/delete.md).
-* [Delete your project](../../datasphere/operations/projects/delete.md).
+* [Delete the project](../../datasphere/operations/projects/delete.md).

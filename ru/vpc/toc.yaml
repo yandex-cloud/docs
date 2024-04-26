@@ -63,8 +63,12 @@ items:
             href: operations/static-route-create.md
           - name: Создать и настроить NAT-шлюз
             href: operations/create-nat-gateway.md
+          - name: Получить информацию о NAT-шлюзе
+            href: operations/get-info-nat-gateway.md
           - name: Перенести таблицу маршрутизации между каталогами
             href: operations/static-route-move.md
+          - name: Получить информацию о таблице маршрутизации
+            href: operations/route-table-get-info.md
           - name: Перенести NAT-шлюз между каталогами
             href: operations/static-gateway-move.md
       - name: Группы безопасности

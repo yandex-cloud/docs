@@ -1,5 +1,6 @@
 # Activate the paid version
 
+
 You need to activate the paid version within sixty days after the trial period expires. Otherwise, all of your resources are deleted automatically.
 
 {% include [trial-period](../../_includes/trial-period.md) %}
@@ -10,12 +11,12 @@ To upgrade to the paid version:
 
 {% list tabs group=instructions %}
 
-- {{ billing-name }} interface {#billing}
+- {{ billing-interface }} {#billing}
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
    1. Select a billing account.
-   1. On the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.billing.account.switch_overview }}** page, click **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}**.
-   1. Confirm the action by clicking **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}** again.
+   1. On the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page, click **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}**.
+   1. Confirm the action by clicking **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}** again.
 
 {% endlist %}
 

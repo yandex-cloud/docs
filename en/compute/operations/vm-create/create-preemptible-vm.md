@@ -1,5 +1,6 @@
 # Making a VM preemptible
 
+
 You can [create a preemptible](#create-preemptible) [VM](../../concepts/vm.md) or [change the type](#preemptible-to-regular) of an existing one.
 
 ## Creating a preemptible VM {#create-preemptible}
@@ -28,15 +29,15 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
       * {% include [encryption-section-boot](../../../_includes/compute/encryption-section-boot.md) %}
 
         If you want to create a preemptible VM from an existing disk, under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, [add a disk](create-from-disks.md).
-      * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
-      * Enter the disk name.
-      * Select the disk type.
-      * Specify the required block size.
-      * Specify the required disk size.
-      * {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
-      * (Optional) Enable **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}** if you need to automatically delete the disk when deleting the preemptible VM it is attached to.
-      * Select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}` as content.
-      * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
+        * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
+        * Enter the disk name.
+        * Select the disk type.
+        * Specify the required block size.
+        * Specify the required disk size.
+        * {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
+        * (Optional) Enable **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}** if you need to automatically delete the disk when deleting the preemptible VM it is attached to.
+        * Select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}` as content.
+        * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
    1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../concepts/filesystem.md):
       * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
       * In the window that opens, select the file storage.
@@ -228,7 +229,7 @@ To change the type of a VM, for example, make it preemptible:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the VM is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the line with the appropriate VM, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.stop }} **.
+   1. In the line with the appropriate VM, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.stop }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. The VM status will change to `Stopped`.
    1. In the line with the appropriate VM, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, disable the **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}** option.

@@ -1,5 +1,6 @@
 # Creating an autoscaling instance group
 
+
 You can create an [autoscaling](../../concepts/instance-groups/scale.md#auto-scale) [group of identical instances](../../concepts/instance-groups/index.md). This [instance](../../concepts/vm.md) group will scale up or down automatically.
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
@@ -215,8 +216,8 @@ To create an autoscaling instance group:
           }
 
           network_interface {
-            network_id = "${yandex_vpc_network.network-1.id}"
-            subnet_ids = ["${yandex_vpc_subnet.subnet-1.id}"]
+            network_id         = "${yandex_vpc_network.network-1.id}"
+            subnet_ids         = ["${yandex_vpc_subnet.subnet-1.id}"]
             security_group_ids = ["<list_of_security_group_IDs>"]
           }
 
@@ -283,14 +284,14 @@ To create an autoscaling instance group:
       * `yandex_vpc_network`: Description of the cloud network.
       * `yandex_vpc_subnet`: Description of the subnet the instance group will connect to.
 
-       {% note info %}
+         {% note info %}
 
-       If you already have suitable resources, such as a service account, cloud network, and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
+         If you already have suitable resources, such as a service account, cloud network, and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
 
-       {% endnote %}
+         {% endnote %}
 
-     For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-  1. Create resources:
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

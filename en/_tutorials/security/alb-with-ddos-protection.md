@@ -1,5 +1,6 @@
 # Creating a load balancer with DDoS protection
 
+
 In this scenario, you will create an [L7 load balancer](../../application-load-balancer/concepts/index.md) with a listener and [public IP address](../../vpc/concepts/address.md#public-addresses) with [DDoS protection](../../vpc/ddos-protection/index.md).
 
 To create an L7 load balancer with DDoS protection:
@@ -193,7 +194,7 @@ To create an instance group:
          * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, select `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`.
          * Choose the `ddos-sg-vms` security group.
       * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
-         * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+         * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
          * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_key }}** field, paste the contents of the public key file.
 
          To establish an SSH connection, you need to create a key pair. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
@@ -410,11 +411,11 @@ To create a backend group:
       ```
 
       Where:
-      * `--backend-group-name`: Backend group name.
-      * `--name`: Backend name.
-      * `--weight`: Backend weight.
-      * `--port`: Port.
-      * `--target-group-id`: Target group ID.
+      * `--backend-group-name`: Backend group name
+      * `--name`: Backend name
+      * `--weight`: Backend weight
+      * `--port`: Port
+      * `--target-group-id`: Target group ID
       * `--http-healthcheck`: Resource health check parameters:
          * `port`: Port
          * `timeout`: Timeout

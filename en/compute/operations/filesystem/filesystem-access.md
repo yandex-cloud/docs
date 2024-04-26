@@ -5,6 +5,7 @@ description: "Follow this guide to configure file storage access permissions."
 
 # Configuring file storage access permissions
 
+
 To grant a user, group, or [service account](../../../iam/concepts/users/service-accounts.md) access to a [file storage](../../concepts/filesystem.md), assign a [role](../../../iam/concepts/access-control/roles.md) for it.
 
 ## Assigning a role {#access-to-user}

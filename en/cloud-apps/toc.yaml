@@ -1,6 +1,11 @@
 title: Cloud Apps
 stage: preview
 href: index.yaml
+label:
+  title: RU
+  description: The service is available in Russia only.
+  theme: unknown
+  when: region == "kz"
 editable: false
 items:
   - name: Applications

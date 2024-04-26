@@ -1,5 +1,6 @@
 # Creating a non-replicated disk
 
+
 You can create a stand-alone [non-replicated](../../concepts/disk.md#nr-disks) disk or add such a disk to a [disk placement group](../../concepts/disk-placement-group.md).
 
 The size of the [disk](../../concepts/disk.md) must be a multiple of 93 GB.

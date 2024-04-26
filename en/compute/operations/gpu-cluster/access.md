@@ -5,6 +5,7 @@ description: "You can assign or revoke access permissions for a {{ compute-name 
 
 # Configuring GPU cluster access permissions
 
+
 To grant a user, group, or [service account](../../../iam/concepts/users/service-accounts.md) access to a [GPU cluster](../../concepts/gpus.md), assign a [role](../../../iam/concepts/access-control/roles.md) for it.
 
 ## Assigning a role {#add-access}
@@ -19,7 +20,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
    1. Select the GPU cluster you need.
    1. Go to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
    1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-   1. In the window that opens, select a group, user, or service account to be granted access to the GPU cluster.
+   1. In the window that opens, select the group, user, or service account to grant access to the GPU cluster.
    1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [role](../../security/index.md#roles-list).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -93,7 +94,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
    1. Select the GPU cluster you need.
    1. Go to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
    1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-   1. In the window that opens, select a group, user, or service account to be granted access to the GPU cluster.
+   1. In the window that opens, select the group, user, or service account to grant access to the GPU cluster.
    1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [role](../../security/index.md#roles-list).
    1. Use the ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** button to add another role.
    1. Click **{{ ui-key.yacloud.common.save }}**.

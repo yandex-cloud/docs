@@ -7,7 +7,7 @@ editable: false
 
 
 
-## What is included in the {{ sf-name }} cost {#rules}
+## What goes into the cost of using {{ sf-name }} {#rules}
 
 In {{ sf-name }}, you pay for the number of function calls, computing resources allocated for the function, downtime of [provisioned instances](concepts/function.md#provisioned-instances), and outgoing traffic.
 
@@ -33,7 +33,7 @@ Monthly cost = $0.043760 × Memory (GB) × Call processing time (Hours) + $0.128
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
 
-### Example of cost calculation {#price-example}
+### Cost calculation example {#price-example}
 
 {% include [prices-example](../_includes/functions/prices-example.md) %}
 
@@ -54,6 +54,7 @@ However, if the function uses other {{ yandex-cloud }} resources, they are bille
 
 
 ## Pricing {#prices}
+
 
 ### Invoking a function {#invoke}
 
@@ -91,5 +92,4 @@ You pay for the actual number of invocations. For example, given that 1,000,000 
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-
 

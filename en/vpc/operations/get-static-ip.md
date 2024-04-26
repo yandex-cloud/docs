@@ -1,5 +1,6 @@
 # Reserving a static public IP address
 
+
 You can reserve a static public IP address to use later for accessing cloud resources.
 
 {% note info %}

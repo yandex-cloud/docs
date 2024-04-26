@@ -8,7 +8,6 @@ You can use resources in multiple projects without recreating them. To make a re
 
 {{ ml-platform-name }} project resources:
 
-* [Checkpoints](checkpoints.md)
 * [Secrets](secrets.md)
 * [Docker images](docker.md)
 * [Datasets](dataset.md)

@@ -1,6 +1,7 @@
 # Deploying the GlusterFS parallel file system in high availability mode
 
-[GlusterFS](https://en.wikipedia.org/wiki/Gluster#GlusterFS) is a parallel distributed file system with linear scalability. With horizontal scaling, the system provides the cloud with an aggregate bandwidth of tens of GB/s and hundreds of thousands of [IOPS](https://en.wikipedia.org/wiki/IOPS).
+
+[GlusterFS](https://en.wikipedia.org/wiki/GlusterFS) is a parallel distributed file system with linear scalability. With horizontal scaling, the system provides the cloud with an aggregate bandwidth of tens of GB/s and hundreds of thousands of [IOPS](https://en.wikipedia.org/wiki/IOPS).
 
 Use this tutorial to create an infrastructure made up of three segments sharing a common GlusterFS file system. Placing storage [disks](../../compute/concepts/disk.md) in three different [availability zones](../../overview/concepts/geo-scope.md) will ensure high availability and fault tolerance of your file system.
 
@@ -37,7 +38,7 @@ The infrastructure support costs include:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
+      1. In the [management console]({{ link-console-main }}), select a folder where you want to create your service account.
       1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-glusterfs`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -285,7 +286,7 @@ This will create three VMs for hosting client code (`client01`, `client02`, and 
    clush -w @clients mount -t glusterfs gluster01:/regional-volume /mnt/
    ```
 
-## Test the availability and fault tolerance of the solution {#test-glusterfs}
+## Test the solution for availability and fault tolerance {#test-glusterfs}
 
 1. Check the status of the `regional-volume` shared folder:
    ```bash

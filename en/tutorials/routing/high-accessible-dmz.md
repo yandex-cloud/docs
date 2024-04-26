@@ -1,5 +1,6 @@
 # Implementing a secure high-availability network infrastructure with a dedicated DMZ based on the Next-Generation Firewall
 
+
 Using this tutorial, you will deploy a high-availability fail-safe network infrastructure with a dedicated [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment and comprehensive protection based on the [Next-Generation Firewall](https://en.wikipedia.org/wiki/Next-generation_firewall). The infrastructure elements are hosted in two [availability zones](../../overview/concepts/geo-scope.md) and grouped by purpose into individual [folders](../../resource-manager/concepts/resources-hierarchy.md#folder). This solution enables you to publish generally available web resources, such as front-end applications, in a DMZ that is isolated from the internal infrastructure and ensures security and high availability of the entire perimeter.
 
 The solution diagram is given below.
@@ -22,7 +23,7 @@ To deploy a secure high-availability network infrastructure with a dedicated DMZ
 1. [Deploy your resources](#create-resources).
 1. [Set up firewall gateways](#configure-gateways).
 1. [Enable the route-switcher module](#enable-route-switcher).
-1. [Test the performance and fault tolerance of the solution](#test-accessibility).
+1. [Test the solution for performance and fault tolerance](#test-accessibility).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -280,7 +281,7 @@ All the steps described below are completed in the Linux terminal.
    cd yc-dmz-with-high-available-ngfw
    ```
 
-1. Set up the CLI profile to execute operations on behalf of the service account:
+1. Set up the CLI profile to run operations on behalf of the service account:
 
    {% list tabs %}
 
@@ -314,7 +315,7 @@ All the steps described below are completed in the Linux terminal.
          key_algorithm: RSA_2048
          ```
 
-      1. Create a CLI profile to execute operations on behalf of the service account:
+      1. Create a CLI profile to run operations on behalf of the service account:
 
          ```bash
          yc config profile create sa-terraform
@@ -616,7 +617,7 @@ terraform apply
 
 Within 5 minutes, the route-switcher module starts providing fault tolerance of outgoing traffic across the segments.
 
-## Test the performance and fault tolerance of the solution {#test-accessibility}
+## Test the solution for performance and fault tolerance {#test-accessibility}
 
 ### Test the system performance {#test-accessibility}
 

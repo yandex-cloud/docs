@@ -2,7 +2,9 @@
 
 You can upload an object in parts using [multipart upload](../../concepts/multipart.md).
 
-To delete a partially uploaded object:
+{% include [auto-delete-all-multipart](../../../_includes/storage/auto-delete-all-multipart.md) %}
+
+To manually delete a partially uploaded object:
 
 {% list tabs group=instructions %}
 
@@ -44,3 +46,4 @@ To delete a partially uploaded object:
    Use the [abortUpload](../../s3/api-ref/multipart/abortupload.md) S3 API method.
 
 {% endlist %}
+

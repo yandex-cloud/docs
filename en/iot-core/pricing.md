@@ -6,7 +6,7 @@ editable: false
 
 # {{ iot-name }} pricing
 
-## What is included in the {{ iot-name }} cost {#rules}
+## What goes into the cost of using {{ iot-name }} {#rules}
 
 In {{ iot-name }}, you are charged for the number of messages. The message count is rounded up using the following formula:
 
@@ -28,7 +28,7 @@ The [broker](concepts/index.md#broker) is at the [Preview](../overview/concepts/
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-### Example of cost calculation {#price-example}
+### Cost calculation example {#price-example}
 
 {% include [prices-example](../_includes/iot-core/prices-example.md) %}
 
@@ -45,7 +45,8 @@ List of commands charged under {{ iot-name }}:
 
 ## Pricing {#prices}
 
-### Amount of data {#volumes}
+
+### Data volume {#volumes}
 
 
 

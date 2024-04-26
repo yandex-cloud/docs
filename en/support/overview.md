@@ -1,5 +1,5 @@
 
-# Procedure for providing technical support
+# Technical support procedure
 
 
 
@@ -14,13 +14,13 @@ Depending on your service plan, you can contact technical support using one of t
 
 {% include [support-channels](../_includes/support/channels.md) %}
 
-The expected support specialist response time is shown in the table below. A dash in a table cell means the corresponding communication channel is not available for the selected service plan.
+The expected response time is shown in the table below.
 
 | Channel | Basic | Business | Premium |
-|---------------------------|-----------------------------------------------|-----------------------------------------------------------------------|-----------------------------------------------------------------------|
-|                           | For personal and research projects | For professional projects | For business projects with stringent fault tolerance requirements. |
+|----------------------------------------------------------------------------------|-----------------------------------------------|-----------------------------------------------------------------------|-----------------------------------------------------------------------|
+|                                                                                  | For personal and research projects | For professional projects | For business projects with stringent fault tolerance requirements. |
 | Request to [Support Center](support-center.md) | Normal: 24 hours<br>Increase quotas: 30 minutes | Normal: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes | Normal: 2 hours<br>Critical: 15 minutes<br>Increase quotas: 30 minutes |
-| Chat in [Telegram](tg-chat.md) | - | 5 minutes | 5 minutes, a messenger of your choice |
+| Chat in [Telegram](tg-chat.md) | 15 minutes | 5 minutes | 5 minutes, a messenger of your choice |
 
 Only {{ yandex-cloud }} [organization members](../organization/concepts/membership.md) can send requests to support. [Make sure](./support-center.md#before-you-begin) you are making a request on behalf of the right organization. If you have an issue with your infrastructure's production environment, specify _{{ ui-key.support-center.tickets.common.label_ticket-type-critical }}_ for the request type.
 
@@ -28,6 +28,7 @@ Regardless of your service plan, you can request the following from technical su
 
 * [Service logs](request.md#logs) related to your resources and actions in {{ yandex-cloud }}.
 * [Your personal data](request.md#personal) stored by Yandex.
+
 
 
 ## Types of requests to support {#request-types}
@@ -60,9 +61,10 @@ The list of services offered under the Premium plan is not exhaustive and may be
 | Personal technical manager |                                     |                                     | ![image](../_assets/common/yes.svg) |
 
 
-{{ yandex-cloud }} technical support engineers don't address the following issues:
-* Develop software code.
-* Debug your own software.
+
+{{ yandex-cloud }} technical support engineers do not address the following issues:
+* Software code development.
+* Debugging your proprietary software.
 
 Technical support includes diagnosing issues in third-party software used in conjunction with the cloud infrastructure and limited assistance in solving the identified problems. Technical support engineers can help you with the installation, basic setup, and diagnostics of the following software:
 
@@ -71,7 +73,7 @@ Technical support includes diagnosing issues in third-party software used in con
    - [{{ maf-full-name }}](../managed-airflow)
    - [{{ mkf-full-name }}](../managed-kafka/index.yaml)
    - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)
-   - [{{ mgp-full-name }}](../managed-greenplum/index.yaml)
+      - [{{ mgp-full-name }}](../managed-greenplum/index.yaml)
    - [{{ managed-k8s-full-name }}](../managed-kubernetes/index.yaml)
    - [{{ mmg-full-name }}](../managed-mongodb/index.yaml)
    - [{{ mmy-full-name }}](../managed-mysql/index.yaml)
@@ -81,10 +83,13 @@ Technical support includes diagnosing issues in third-party software used in con
 
 {% include [end-of-life](../_includes/compute/end-of-life.md) %}
 
-If the technical support team cannot resolve your third-party software issue, contact the support service of the software vendor. In some cases, contacting the vendor's support service requires a valid technical support contract with the vendor or its partners.
+If the technical support cannot resolve your third-party software issue, contact the software vendor's support service. In some cases, contacting the vendor's support service requires a valid technical support contract with the vendor or its partners.
 
 
 ## How to change your service plan {#change-service-plan}
 
 {% include [change-tariff](../_includes/support/change-pricing.md) %}
+
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}
 

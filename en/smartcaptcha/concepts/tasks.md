@@ -2,21 +2,23 @@
 
 [User validation](./validation.md) consists of two steps. The first step includes a basic check where the user is asked to complete the [main challenge](#main-task). After completing the main challenge, the user's request is automatically sent to {{ captcha-name }}. If the service considers the request suspicious, it will prompt the user to solve an [additional challenge](#additional-task).
 
+If you set the maximum [difficulty level](#additional-task-difficulty) for the captcha, the service will always offer the user an additional high difficulty challenge regardless of the main challenge results.
+
 ## Main challenge {#main-task}
 
 The basic check is carried out when the main challenge is performed.
 
 You can choose between these two types of main challenges in {{ captcha-name }}:
 
-* **Checkbox**: User must click the **I am not a robot** button.
+* **{{ ui-key.yacloud.smartcaptcha.value_pre-check-checkbox }}**: User must click **I am not a robot**.
 
-   {% cut "Checkbox" %}
+   {% cut "{{ ui-key.yacloud.smartcaptcha.value_pre-check-checkbox }}" %}
 
    ![image](../../_assets/smartcaptcha/checkbox-task.gif)
 
    {% endcut %}
 
-* **Slider**: User must move the slider from left to right.
+* **{{ ui-key.yacloud.smartcaptcha.value_pre-check-slider }}**: User must move the slider from left to right.
 
    {% note info %}
 
@@ -24,7 +26,7 @@ You can choose between these two types of main challenges in {{ captcha-name }}:
 
    {% endnote %}
 
-   {% cut "Slider" %}
+   {% cut "{{ ui-key.yacloud.smartcaptcha.value_pre-check-slider }}" %}
 
    ![image](../../_assets/smartcaptcha/slider-task.gif =370x93)
 
@@ -32,13 +34,15 @@ You can choose between these two types of main challenges in {{ captcha-name }}:
 
 ## Additional challenge {#additional-task}
 
-If the service considers the result of the main challenge suspicious, it prompts the user to complete an additional challenge. In this case, the service analyzes user behavior in more detail.
+If the service regards the result of the main challenge seems suspicious, or if the captcha is set to the maximum [difficulty level](#additional-task-difficulty), the user will be offered an additional challenge. In this case, the service analyzes user behavior in more detail.
+
+### Types of additional challenges {#additional-task-types}
 
 There are several types of additional challenges in {{ captcha-name }}:
 
 * ![image](../../_assets/console-icons/text.svg) **Text recognition**: The user has to type a distorted text from the picture into a special field.
 
-   {% cut "Text recognition" %}
+   {% cut "{{ ui-key.yacloud.smartcaptcha.value_challenge-image_text }}" %}
 
    ![image](../../_assets/smartcaptcha/text-task.gif =370x401)
 
@@ -52,7 +56,7 @@ There are several types of additional challenges in {{ captcha-name }}:
 
    {% endnote %}
 
-   {% cut "Silhouettes" %}
+   {% cut "{{ ui-key.yacloud.smartcaptcha.value_challenge-silhouettes }}" %}
 
    ![image](../../_assets/smartcaptcha/silhouette-task.gif)
 
@@ -66,8 +70,17 @@ There are several types of additional challenges in {{ captcha-name }}:
 
    {% endnote %}
 
-   {% cut "Kaleidoscope" %}
+   {% cut "{{ ui-key.yacloud.smartcaptcha.value_challenge-kaleidoscope }}" %}
 
    ![image](../../_assets/smartcaptcha/kaleidoscope-task.gif =370x405)
 
    {% endcut %}
+
+## Difficulty levels of captcha challenges {#task-difficulty}
+
+There are several difficulty levels for challenges in {{ captcha-name }}:
+
+* **{{ ui-key.yacloud.smartcaptcha.value_complexity-easy }}**. Low level main challenge threshold. When completing an additional challenge, users will be offered simple images for recognition of text, silhouettes, or kaleidoscope.
+* **{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}**. Medium level main challenge threshold. When completing an additional challenge, users will be offered medium level images for recognition of text, silhouettes, or kaleidoscope.
+* **{{ ui-key.yacloud.smartcaptcha.value_complexity-hard }}**. High level main challenge threshold. When completing an additional challenge, users will be offered high level images for recognition of text, silhouettes, or kaleidoscope.
+* **{{ ui-key.yacloud.smartcaptcha.value_complexity-force_hard }}**. The additional challenge is required regardless of the results of the main one. The main challenge threshold and the difficulty level of the additional challenge images are the same as for the **{{ ui-key.yacloud.smartcaptcha.value_complexity-hard }}** value.

@@ -1,5 +1,6 @@
 # Regular recognition of audio files from {{ objstorage-full-name }}
 
+
 The {{ speechkit-short-name }} [asynchronous recognition API](../../speechkit/stt/api/transcribation-api.md) is integrated with {{ objstorage-full-name }}. This enables you to set up automatic recognition of audio files of [supported formats](../../speechkit/formats.md) that are regularly uploaded to {{ objstorage-name }} buckets. A cloud function in {{ sf-full-name }} regularly checks a bucket for audio files and sends them to the {{ speechkit-short-name }} API for recognition. The recognition result and status are saved to the same {{ objstorage-name }} bucket.
 
 To set up automatic audio file recognition using {{ speechkit-short-name }}:

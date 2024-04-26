@@ -1,12 +1,13 @@
 # Billing cycle for individuals
 
-The diagram shows the cycle of debiting funds from an individual's bank card, as well as suspending and blocking the use of resources.
+
+The diagram shows the cycle of debiting an individual's bank card, as well as suspending and blocking the use of resources.
 
 ![image](../../_assets/billing/billing-cycle-individual.svg)
 
 1. You create a paid account.
-1. If you get a grant, you use it. The grant amount is reduced as {{ yandex-cloud }} service resources are consumed.
-1. The grant amount and its validity period is checked throughout the reporting period. <br/>They are described in the table below.
+1. If you get a grant, you are free to use it. The grant amount is reduced progressively as you consume the resources of {{ yandex-cloud }} services.
+1. The grant amount and validity period are checked throughout the reporting period. <br/>They are described in the table below.
 
    | Grant amount | Description |
    ----- | -----

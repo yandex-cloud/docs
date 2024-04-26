@@ -10,6 +10,13 @@ title: "Как получить информацию о секрете в {{ loc
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
+    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. В меню слева выберите **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
+    1. Нажмите на имя нужного секрета.
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -46,11 +53,23 @@ title: "Как получить информацию о секрете в {{ loc
           - example-key
       ```
 
+- API {#api}
+
+  Чтобы получить информацию о секрете, воспользуйтесь методом REST API [get](../api-ref/Secret/get.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Get](../api-ref/grpc/secret_service.md#Get).
+
 {% endlist %}
 
 ## Получить содержимое секрета {#secret-contents}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
+    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. В меню слева выберите **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
+    1. Нажмите на имя нужного секрета.
+    1. В разделе **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}** нажмите на нужную версию секрета.
 
 - CLI {#cli}
 
@@ -79,11 +98,23 @@ title: "Как получить информацию о секрете в {{ loc
           text_value: example-value
       ```
 
+- API {#api}
+
+  Чтобы получить содержимое секрета, воспользуйтесь методом REST API [get](../api-ref/Payload/get.md) для ресурса [Payload](../api-ref/Payload/index.md) или вызовом gRPC API [PayloadService/Get](../api-ref/grpc/payload_service.md#Get).
+
 {% endlist %}
 
 ## Просмотреть права доступа к секрету {#secret-access}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
+    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. В меню слева выберите **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
+    1. Нажмите на имя нужного секрета.
+    1. На панели слева выберите раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
 
 - CLI {#cli}
 
@@ -112,5 +143,9 @@ title: "Как получить информацию о секрете в {{ loc
       | viewer  | federatedUser | ajej2i98kcjd******** | 
       +---------+---------------+----------------------+
       ```
+
+- API {#api}
+
+  Чтобы посмотреть права доступа к секрету, воспользуйтесь методом REST API [ListAccessBindings](../api-ref/Secret/listAccessBindings.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/ListAccessBindings](../api-ref/grpc/secret_service.md#ListAccessBindings).
 
 {% endlist %}

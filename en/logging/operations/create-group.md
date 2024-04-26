@@ -18,6 +18,8 @@ description: "In this tutorial, you will learn how to create a log group in {{ c
 
    1. Set the log group record retention period.
    1. (Optional) Select a [data stream](../../data-streams/concepts/glossary.md#stream-concepts) or create a new one.
+
+
    1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
 
 - CLI {#cli}
@@ -52,7 +54,8 @@ description: "In this tutorial, you will learn how to create a log group in {{ c
       > * `aws_stream`: Stream name
       > * `{{ region-id }}`: Availability zone
       > * `aoeu1kuk2dht********`: Folder ID
-      > * `cc8029jgtuab********`: {{ ydb-full-name }} database ID
+      > * `cc8029jgtuab********`: {{ ydb-full-name }} Database ID
+
 
 
    Result:

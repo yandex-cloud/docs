@@ -1,5 +1,6 @@
 # Committed volume of services
 
+
 {% include [cvos-term](../_includes/cvos-term.md) %}
 
 {% note info %}
@@ -14,7 +15,7 @@ The amount of the guaranteed discount depends on the amount of service resources
 
 ## Purchase and validity period {#how-to-enable}
 
-You can view the available offers and purchase a CVoS in {{ billing-name }} under **{{ ui-key.yacloud.billing.account.switch_offers }}**.
+You can view the available offers and purchase a CVoS in {{ billing-name }} under **{{ ui-key.yacloud_billing.billing.account.switch_offers }}**.
 
 When [purchasing a CVoS](../operations/purchase-cvos.md), you yourself should choose the following:
 * Validity period: 6 months or 1 year.
@@ -95,7 +96,6 @@ Prices for services that you can purchase a CVoS for:
 * [{{ compute-name }}](../../compute/pricing.md#cvos)
 * [{{ mkf-name }}](../../managed-kafka/pricing.md#cvos)
 * [{{ mch-name }}](../../managed-clickhouse/pricing.md#cvos)
-* [{{ mgp-name }}](../../managed-greenplum/pricing/index.md#cvos)
 * [{{ mmy-name }}](../../managed-mysql/pricing.md#cvos)
 * [{{ mos-name }}](../../managed-opensearch/pricing.md#cvos)
 * [{{ mpg-name }}](../../managed-postgresql/pricing.md#cvos)

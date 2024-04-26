@@ -16,4 +16,3 @@ You can also invoke the **Clear All Outputs** command by right-clicking on any c
 
 * [{#T}](../data/connect-to-s3.md)
 * [{#T}](../data/connect-to-clickhouse.md)
-* [{#T}](../user-images-cell.md)
