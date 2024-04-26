@@ -1,17 +1,18 @@
 # Trail
 
+
 A trail is an {{ at-name }} resource for collecting and delivering audit logs of {{ yandex-cloud }} resources to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md), a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md), or a {{ yds-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts).
 
 ## Audit log collection scope {#collecting-area}
 
 In the trail settings, you can choose where to collect audit logs from:
-* Organization: Audit logs of service resources in selected clouds of the organization hosting the trail.
-* Cloud: Audit logs of service resources that are located in selected folders of the cloud hosting the trail.
-* Folder: Audit logs from the folder hosting the trail.
+* Organization: Audit logs of service resources in selected clouds of the organization in which the trail is located.
+* Cloud: Audit logs of service resources that are located in selected folders of the cloud in which the trail us located.
+* Folder: Collect audit logs from the folder hosting the trail.
 
-The trail will collect audit logs of all the [resources](./events.md) within the specified scope, including resources added to this scope after the trail was created, and upload them to a bucket, a log group, or a data stream.
+A trail will collect the audit logs of all the [resources](./events.md) found in a specified area, including resources added to this area after the trail was created, and upload them to a bucket, a log group, or a data stream.
 
-If resources are added to the audit log collection scope after the trail was created, the trail will automatically start collecting audit logs for them.
+If resources are added to the audit log collection scope after a trail is created, the trail will automatically start collecting audit logs for them.
 
 ## Destination object {#target}
 
@@ -23,7 +24,7 @@ When uploading audit logs to a bucket, {{ at-name }} generates audit log files a
 
 The type of destination object determines the structure and content of the message used by {{ at-name }} to transmit audit logs:
 * If the destination object is a bucket, the message is a file containing a [JSON object](./format.md#scheme) array of the audit log.
-* If the destination object is a log group, the message includes a single JSON object of the audit log.
+* If the destination object is a log group, the message includes only one JSON object of the audit log.
 * If the destination object is a data stream, the messages containing JSON objects of the audit log are sent to the stream.
 
 Each trail runs independently of one another. Using multiple trails, you can differentiate access to various log groups for users and services according to your information security policy.
@@ -44,7 +45,7 @@ The trail contains all the audit log settings:
       * **{{ ui-key.yacloud.audit-trails.label_stream-name }}**: Data stream name
 * **{{ ui-key.yacloud.audit-trails.label_service-account }}** section: Service account to use for uploading audit logs to a bucket, a log group, or a data stream. If the account needs more roles, a warning with a list of roles will show up.
 * **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}** section:
-   * **Status**: Toggles the collection of management event audit logs.
+   * **Status**: Enables/disables the collection of management event audit logs.
    * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`, `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`, or `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}` values.
    * For the `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}` value:
       * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}**: Name of the current organization. The value is populated automatically.
@@ -54,8 +55,8 @@ The trail contains all the audit log settings:
    * For the `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}` parameter:
       * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Name of the folder hosting the trail. The value is populated automatically.
 * **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** section:
-   * **Status**: Toggles the collection of data event audit logs.
-   * List of [services](../../audit-trails/concepts/events-data-plane.md#services) for each of which you need to separately set the data event audit log collection [scope](../../audit-trails/concepts/trail.md#collecting-area) and objects.
+   * **Status**: Enables/disables the collection of data event audit logs.
+   * List of [services](../../audit-trails/concepts/events-data-plane.md#services) for each of which you need to separately set the service-level audit log collection [scope](../../audit-trails/concepts/trail.md#collecting-area) and objects.
 
 ## What's next {#whats-next}
 

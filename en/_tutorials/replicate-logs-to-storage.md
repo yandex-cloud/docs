@@ -1,5 +1,6 @@
 # Replicating logs to {{ objstorage-name }} using Fluent Bit
 
+
 Data aggregators enable you to transmit data (for example, logs) from the [VM instances](../compute/concepts/vm.md) to the log monitoring and data storage services.
 
 In this tutorial, you will learn how to replicate VM logs automatically to an {{ objstorage-name }} bucket using the [Fluent Bit](https://fluentbit.io) logging processor.
@@ -127,11 +128,11 @@ If you are running Fluent Bit version below 1.9 that comes with the `td-agent-bi
    Where:
 
    * `data-stream`: {{ yds-name }} data stream ID.
-      > For example, if your stream ID is `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/logs-stream`, it breaks down into the following parts:
-      > * `logs-stream`: Name of the stream.
-      > * `{{ region-id }}`: Region.
-      > * `aoeu1kuk2dht********`: Folder ID.
-      > * `cc8029jgtuab********`: {{ ydb-short-name }} database ID.
+      > For example, your stream ID will appear as `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/logs-stream` if:
+      > * `logs-stream`: Stream name
+      > * `{{ region-id }}`: Region
+      > * `aoeu1kuk2dht********`: Folder ID
+      > * `cc8029jgtuab********`: {{ ydb-short-name }} Database ID
 
    For more information on how to install Fluent Bit, see the [official documentation](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/configuration-file).
 

@@ -9,7 +9,9 @@ When creating a VM, you can choose the {{ yandex-cloud }} [availability zone](..
 
 You can move a VM instance to a different availability zone by running a [CLI command](../../../cli/cli-ref/managed-services/compute/instance/relocate.md) or creating its copy in the appropriate availability zone using [disk snapshots](../../concepts/snapshot.md).
 
+
 {% include [relocate-note](../../../_includes/compute/relocate-note.md) %}
+
 
 {% note warning %}
 

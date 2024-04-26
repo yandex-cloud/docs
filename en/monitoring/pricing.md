@@ -80,6 +80,7 @@ Where:
 
 ## Pricing {#prices}
 
+
 ### {{ monitoring-short-name }} API
 
 

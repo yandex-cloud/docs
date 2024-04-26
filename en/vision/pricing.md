@@ -21,4 +21,5 @@ Each successful request for image recognition performed using any [recognition m
 
 
 
+
 {% include notitle [usd.md](../_pricing/vision/usd.md) %}

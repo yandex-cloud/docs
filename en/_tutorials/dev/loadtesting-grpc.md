@@ -1,5 +1,6 @@
 # Load testing a gRPC service
 
+
 You can use {{ load-testing-name }} for service load testing via [gRPC](https://grpc.io/docs/) with the [Pandora](../../load-testing/concepts/load-generator.md#pandora) [load generator](../../load-testing/concepts/load-generator.md).
 
 To perform load testing:
@@ -22,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 If the [agent](../../load-testing/concepts/agent.md) is hosted on {{ yandex-cloud }}, a fee is charged for computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
-At the [Preview](../../overview/concepts/launch-stages.md) stage, using {{ load-testing-name }} is free of charge.
+At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testing-name }} is free of charge.
 
 
 ## Prepare a test target {#target-prepare}
@@ -125,7 +126,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
       1. Under **Attached files**, click **Select files** and select the `data.json` file you saved earlier.
       1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
          * In the **{{ ui-key.yacloud.load-testing.field_settings-type }}** field, select **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
-         * In the configuration input field, specify the test thread settings in `yaml` format:
+         * In the configuration input field, specify the testing thread settings in `yaml` format:
 
             ```yaml
             pandora:

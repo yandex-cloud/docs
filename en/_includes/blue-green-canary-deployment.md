@@ -1,5 +1,6 @@
 # Enabling blue-green and canary deployment of web service versions
 
+
 Configure web service architecture to switch between versions using the commonly adopted deployment models: [blue-green deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html) and [canary deployment](https://martinfowler.com/bliki/CanaryRelease.html).
 
 Both models use two backends: a blue and a green one. First you deploy a stable version generally available to users on one backend (e.g., the blue one). Then you use the other backend (the green one) to test the next version. When the testing is complete, the backends switch roles:
@@ -210,7 +211,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
       Learn more in the description of the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -246,18 +247,18 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Create a "blue" bucket for the backend stable version:
+   1. Create a blue bucket for the backend stable version:
 
       1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
       1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
       1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
-   1. Similarly, create a "green" bucket for the backend test version.
+   1. Similarly, create a green bucket for the backend test version.
 
 - AWS CLI {#cli}
 
-   1. Create a "blue" bucket for the backend stable version:
+   1. Create a blue bucket for the backend stable version:
 
       ```bash
       aws --endpoint-url https://{{ s3-storage-host }} \
@@ -279,11 +280,11 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
         --acl public-read
       ```
 
-   1. Similarly, create a "green" bucket for the backend test version and enable public access to it.
+   1. Similarly, create a green bucket for the backend test version and enable public access to it.
 
 - {{ TF }} {#tf}
 
-   1. Add the parameters of the "blue" (backend stable version) and "green" (backend test version) buckets to the configuration file:
+   1. Add the parameters of the blue (backend stable version) and green (backend test version) buckets to the configuration file:
 
       ```hcl
       ...
@@ -301,7 +302,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
       For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -372,13 +373,13 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-      1. Select the "blue" bucket.
+      1. Select the blue bucket.
       1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the `index.html` file for version 1.
-      1. Similarly, upload the `index.html` version 2 file to the "green" bucket.
+      1. Similarly, upload the `index.html` version 2 file to the green bucket.
 
    - AWS CLI {#cli}
 
-      1. Upload the `index.html` version 1 file to the "blue" bucket:
+      1. Upload the `index.html` version 1 file to the blue bucket:
 
          ```bash
          aws --endpoint-url https://{{ s3-storage-host }} \
@@ -406,7 +407,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
    - {{ TF }} {#tf}
 
-      1. To the configuration file, add the parameters of the `v1/index.html` and `v2/index.html` files uploaded to the "blue" and "green" buckets, respectively:
+      1. To the configuration file, add the parameters of the `v1/index.html` and `v2/index.html` files uploaded to the blue and green buckets, respectively:
 
          ```hcl
          ...
@@ -426,7 +427,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
          For more information about the `yandex_storage_object` resource, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_object).
 
-      1. Make sure the configuration files are valid.
+      1. Make sure the configuration files are correct.
 
          1. In the command line, go to the directory where you created the configuration file.
          1. Run a check using this command:
@@ -589,7 +590,7 @@ To create security groups:
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_security_group).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -843,7 +844,7 @@ To create security groups:
 
       Learn more in the description of the [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) resources in the {{ TF }} provider documentation.
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -1066,7 +1067,7 @@ To create security groups:
 
       For more information about the `yandex_alb_load_balancer` resource, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -1253,7 +1254,7 @@ To create security groups:
 
       For more information, see the descriptions of the [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) resources in the {{ TF }} provider documentation.
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -1340,7 +1341,7 @@ To configure DNS:
 
    If you use {{ dns-name }}, follow this guide to configure the record:
 
-   {% cut "Guide on configuring DNS records for {{ dns-name }}" %}
+   {% cut "Configuring DNS records for {{ dns-name }}" %}
 
    {% list tabs group=instructions %}
 
@@ -1431,7 +1432,7 @@ To configure DNS:
 
          Learn more in the description of the [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset) resources in the {{ TF }} provider documentation.
 
-      1. Make sure the configuration files are valid.
+      1. Make sure the configuration files are correct.
 
          1. In the command line, go to the directory where you created the configuration file.
          1. Run a check using this command:

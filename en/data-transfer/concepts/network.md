@@ -9,7 +9,7 @@ If hosts are referenced by domain names in the endpoint settings, the DNS server
 
 {% note info %}
 
-The subnets selected for both the endpoints of a single transfer must belong to the same availability zone.
+The subnets selected for both endpoints of the same transfer must belong to the same availability zone.
 
 {% endnote %}
 
@@ -19,7 +19,7 @@ You can only specify a subnet for endpoints with the **On-Premise** connection t
 
 {% note info %}
 
-In the event that both the transfer endpoints are MDB clusters and the source and target subnets' availability zones do not intersect, you will not be able to initiate a transfer. There are two workarounds for this situation:
+If both endpoints of the transfer are MDB clusters, and the [availability zones](../../overview/concepts/geo-scope.md) of the source and target subnets do not intersect, you will not be able to initiate a transfer. There are two workarounds for this situation:
 
 * Adding a host to one of the clusters and selecting an appropriate availability zone.
 * Configuring one of the endpoints as **On-Premise** and connecting it to any subnet with an availability zone matching that of the other endpoint. If there is no suitable network, create a new one in a required zone and specify it in the On-Premise endpoint settings.

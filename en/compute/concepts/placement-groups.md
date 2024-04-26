@@ -8,7 +8,7 @@ To learn about the limits on the number of VM placement groups, see [Quotas](../
 
 ## Spread placement {#spread}
 
-_Spread placement_ is a strategy for VM placement that ensures that each instance is hosted in a separate server rack in one of the availability zones. If one rack fails, the others continue to run normally.
+_Spread placement_ is a VM placement strategy ensuring that each instance is hosted on a separate server rack in one of the [availability zones](../../overview/concepts/geo-scope.md). If one rack fails, the others continue to run normally.
 
 By grouping VMs based on the spread placement strategy, you can ensure a high level of fault tolerance and reduce the risk of concurrent failure of VMs hosted on the same server rack. However, the placement requirements are more demanding, so a physical resource shortage is more likely for VMs in a placement group rather than for the same number of ungrouped VMs.
 
@@ -26,10 +26,10 @@ A single placement group may contain up to 5 partitions. To learn about the limi
 
 You can manage placement groups that follow the partition placement strategy using the [CLI](../../cli/quickstart.md) and [API](../api-ref/).
 
-![placement-groups-vm-partition](../../_assets/compute/placement-groups-vm-partition.svg).
+![placement-groups-vm-partition](../../_assets/compute/placement-groups-vm-partition.svg)
 
 ## See also {#see-also}
 
-* [How to create a placement group](../operations/placement-groups/create.md).
-* [How to add a VM to a placement group](../operations/placement-groups/add-vm.md).
-* [How to create a VM in a placement group](../operations/placement-groups/create-vm-in-pg.md).
+* [How to create a placement group](../operations/placement-groups/create.md)
+* [How to add a VM instance to a placement group](../operations/placement-groups/add-vm.md)
+* [How to create a VM in a placement group](../operations/placement-groups/create-vm-in-pg.md)

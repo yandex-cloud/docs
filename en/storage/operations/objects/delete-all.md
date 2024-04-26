@@ -5,6 +5,8 @@ description: "Follow this guide to delete all objects."
 
 # Deleting all objects in a bucket
 
+{% include [auto-delete-all-multipart](../../../_includes/storage/auto-delete-all-multipart.md) %}
+
 To clear a bucket and not [pay](../../pricing.md) for storage:
 
 {% list tabs group=instructions %}

@@ -8,7 +8,7 @@ This section describes how to set up application health check for an existing gr
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
+   1. In the [management console]({{ link-console-main }}), open the folder containing the instance group you need.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Select the group to update.
@@ -48,7 +48,7 @@ This section describes how to set up application health check for an existing gr
    1. Get a list of instance groups in the default folder:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
-   1. Select the group `ID` or `NAME` (for example, `first-instance-group`).
+   1. Select the group `ID` or `NAME`, e.g., `first-instance-group`.
    1. [Get information](get-info.md) about the instance group.
    1. Create a YAML file with any name (for example, `group.yaml`) and, based on the information received, describe:
 

@@ -1,5 +1,6 @@
 # Developing custom integrations in {{ api-gw-name }}
 
+
 Using serverless technology, you can create your own integration with {{ yandex-cloud }} services.
 
 User integration is a {{ sf-full-name }} [function](../../functions/concepts/function.md) or {{ serverless-containers-full-name }} [container](../../serverless-containers/concepts/container.md) designed to perform common tasks.
@@ -259,7 +260,7 @@ To prepare configuration files for {{ TF }}:
    Save the parameters:
    * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md).
    * `cloud-id`: [Cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) ID.
-   * `folder-id`: ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+   * `folder-id`: [Folder](../../resource-manager/concepts/resources-hierarchy.md#folder) ID.
 1. Create the `crud-api` folder and open it:
 
    ```bash

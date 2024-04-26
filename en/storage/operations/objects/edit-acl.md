@@ -22,6 +22,12 @@ To control access to an object in an {{ objstorage-name }} bucket, you can use a
 
    1. In the **{{ ui-key.yacloud.storage.permissions-dialog.label_title }}** window that opens, grant or revoke the appropriate permissions.
 
+      {% note info %}
+
+      {% include [console-sa-acl-note](../../../_includes/storage/console-sa-acl-note.md) %}
+
+      {% endnote %}
+
 - {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}

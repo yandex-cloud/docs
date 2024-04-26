@@ -24,7 +24,6 @@ A new version of a function is created when secrets are transmitted. You cannot 
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
 
       You can transmit multiple secrets to a function. To do this, click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
-
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**. A new version of the function with the specified secrets will be created.
 
 - CLI {#cli}
@@ -54,7 +53,6 @@ A new version of a function is created when secrets are transmitted. You cannot 
    ```
 
    Where:
-
    * `--function-name`: Function name.
    * `--runtime`: Runtime environment.
    * `--entrypoint`: Entry point specified in the `<function_file_name>`.`<handler_name>` format.
@@ -107,12 +105,14 @@ A new version of a function is created when secrets are transmitted. You cannot 
       ```
 
       Where:
-
       * `secrets`: Section with secret settings. It contains the following parameters:
          * `id`: Secret ID. This is a required parameter.
          * `version_id`: Secret version ID. This is a required parameter.
          * `key`: Key of one of the key-value pairs contained in the version of the secret to be stored in the environment variable. This is a required parameter.
          * `environment_variable`: Name of the environment variable that will store the secret. This is a required parameter.
+
+      For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
+
    1. Apply the changes:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

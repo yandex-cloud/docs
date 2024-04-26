@@ -36,12 +36,10 @@ description: "The page contains all guides on working with {{ ml-platform-full-n
 * [{#T}](projects/gpu-performance-check.md)
 * [{#T}](projects/get-notebook-cell-ids.md)
 * [{#T}](projects/install-dependencies.md)
-* [{#T}](projects/clear-kernel-state.md)
 * [{#T}](projects/snippets.md)
 * [{#T}](projects/clear-outputs.md)
 * [{#T}](projects/work-with-git.md)
 * [{#T}](projects/work-with-jobs.md)
-* [{#T}](user-images-cell.md)
 * [{#T}](projects/templates.md)
 * [{#T}](projects/remote-connect.md)
 

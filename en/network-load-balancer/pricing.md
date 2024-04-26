@@ -13,6 +13,7 @@ For a network load balancer with a public IP address, you additionally pay for o
 
 ## Pricing {#prices}
 
+
 ### Incoming and outgoing traffic {#prices-traffic}
 
 You are charged for traffic coming to the IP address and port specified as the network load balancer's listener. Any other traffic directed to the load balancer is not accepted and is not charged.

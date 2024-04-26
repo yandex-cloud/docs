@@ -4,6 +4,7 @@ If there are insufficient hardware resources in an availability zone, creating a
 
 ## Solution {#issue-resolution}
 
+
 The possible ways to solve this issue include:
 
 {% cut "Select a different availability zone" %}

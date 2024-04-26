@@ -1,9 +1,10 @@
 ---
 title: "How to create a secret"
-description: "This guide describes how you can create a secret."
+description: "Follow this guide to create a secret."
 ---
 
 # Creating secrets
+
 
 {% include [secret-create](../../_includes/lockbox/secret-create.md) %}
 

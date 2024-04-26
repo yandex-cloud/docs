@@ -3,7 +3,7 @@ title: "Questions and answers about {{ yandex-cloud }} technical support"
 description: "This page presents questions and answers about {{ yandex-cloud }} technical support."
 ---
 
-# Questions and answers about {{ yandex-cloud }} technical support
+# FAQ about {{ yandex-cloud }} technical support
 
 {% note info %}
 
@@ -13,14 +13,14 @@ This section offers tips and recommendations on contacts with the technical supp
 
 #### How do I contact technical support? {#support-channels}
 
-You can contact technical support under [Support]({{ link-console-support }}) in the management console.
+You can contact technical support in the [Support]({{ link-console-support }}) section of the management console.
 
 
 #### How do I contact technical support if I cannot log in to the management console? {#requesting-support-without-ui}
 
 If you are unable to access your Yandex account, see our [troubleshooting guide](https://yandex.com/support/passport/troubleshooting/problems.html) in the Yandex ID Help.
 
-If you successfully logged in to your Yandex account but are unable to connect to the {{ yandex-cloud }} management console, contact technical support by email at [{{ link-support-mail }}](mailto:{{ link-support-mail }}).
+If you successfully logged in to your Yandex account but are unable to connect to the {{ yandex-cloud }} management console, contact technical support at [{{ link-support-mail }}](mailto:{{ link-support-mail }}).
 
 
 #### What kinds of issues and cases does technical support resolve? {#support-cases-types}
@@ -34,7 +34,6 @@ Regardless of your service plan, you can request the following from technical su
 * [Your personal data](request.md#personal) stored by Yandex.
 
 
-
 #### How quickly does technical support respond? {#reaction-time}
 
 
@@ -46,11 +45,12 @@ The response time depends on your service plan. For more information about servi
 
 #### How quickly can technical support solve an identified problem? {#resolution-time}
 
-The resolution time is individual for each case and depends on the nature of the problem. Problems with apps and services can have various causes. This makes it difficult to estimate how long it will take. The technical support team works closely with you to identify the cause of the problem and fix it as quickly as possible.
+The resolution time will vary case by case depending on the nature of the problem. Problems with apps and services can have various causes. This makes it difficult to estimate how long it will take. The technical support team will work closely with you to troubleshoot your issues as quickly as possible.
 
 #### How many times can I contact technical support? {#support-requests-limit}
 
 There is no limit to the number of times you can contact technical support.
+
 
 #### How can I get help with architecture-related tasks? {#help-with-arch-tasks}
 
@@ -74,14 +74,12 @@ Technical support includes troubleshooting third-party software that is used in 
 
 #### What happens if you cannot solve my third-party software problems? {#unresolved-third-party-issues}
 
-If the technical support team cannot resolve your third-party software issue, you need to contact the support service of the software vendor. In some cases, contacting a vendor's support service requires a valid contract for technical support with the vendor or their partners.
-
+If the technical support team cannot resolve your third-party software issue, contact the support service of the software vendor. In some cases, contacting the vendor's support service requires a valid technical support contract with the vendor or its partners.
 
 #### How do I change my technical support service plan? {#change-pricing-plan}
 
 Only the organization owner or administrator can change the technical support service plan. See [Changing your service plan](support-center.md#change-pricing) for details.
 
 See [Requesting technical support](overview.md). Service plan upgrades are effective immediately; downgrades take effect on the first day of the following month.
-
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

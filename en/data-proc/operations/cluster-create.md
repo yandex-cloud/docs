@@ -518,7 +518,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
       For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
 
-   1. Check the {{ TF }} configuration files for errors:
+   1. Check that the {{ TF }} configuration files are correct:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -629,9 +629,8 @@ To create a {{ dataproc-name }} cluster copy:
          ```
 
       * (Optional) Make further modifications if you need a customized copy rather than identical one.
-
-   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. In the `imported-cluster` directory, [get the authentication data](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf).
    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

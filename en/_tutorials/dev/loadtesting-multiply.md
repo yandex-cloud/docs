@@ -1,5 +1,6 @@
 # Load testing using multiple agents
 
+
 You can use {{ load-testing-name }} to test the service with multiple [testing agents](../../load-testing/concepts/agent.md).
 
 Load testing using multiple agents is used when:
@@ -26,7 +27,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 If the agent is hosted on {{ yandex-cloud }}, a fee is charged for computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
-At the [Preview](../../overview/concepts/launch-stages.md) stage, using {{ load-testing-name }} is free of charge.
+At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testing-name }} is free of charge.
 
 ## Prepare the infrastructure {#infrastructure-prepare}
 
@@ -66,8 +67,8 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, using {{ load-
       This will allow you to connect to the agent over SSH and manage tests from the console or collect debugging information.
 
 In this example, the load will be applied to an external service named `example.myservice.ru`. For more information about setting up security groups for testing the services running inside the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), see:
-* [{#T}](../../load-testing/operations/security-groups-agent.md)
-* [{#T}](../../load-testing/operations/security-groups-target.md)
+* [{#T}](../../load-testing/operations/security-groups-agent.md).
+* [{#T}](../../load-testing/operations/security-groups-target.md).
 
 ## Create test agents {#create-agents}
 
@@ -136,7 +137,7 @@ If you need to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) 
          * **{{ ui-key.yacloud.load-testing.field_target-port }}**: Set to `80` (default port for the HTTP protocol).
          * **Testing threads**: `1000`.
 
-         This means that the load generator can simultaneously process 1,000 operations (create 1,000 connections or wait for 1,000 responses from the service at the same time). You can learn more about testing pipelines [here](../../load-testing/concepts/testing-stream.md).
+         This means that the load generator can simultaneously process 1,000 operations: either create 1,000 connections or wait for 1,000 responses from the service at the same time. You can learn more about testing pipelines [here](../../load-testing/concepts/testing-stream.md).
 
          {% note warning %}
 

@@ -1,6 +1,13 @@
 # Migrating data from {{ ES }} to {{ mos-full-name }}
 
 
+{% note info %}
+
+{{ mes-full-name }} is unavailable as of April 11, 2024.
+
+{% endnote %}
+
+
 There are three mechanisms to migrate data from a source {{ ES }} cluster to a target {{ mos-full-name }} cluster:
 
 * [{{ data-transfer-full-name }} service](../../data-transfer/index.yaml)

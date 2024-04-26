@@ -111,7 +111,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
-      Check that you can use it to [connect to the {{ mch-name }} cluster over SSL](../../managed-clickhouse/operations/connect.md#connection-string).
+      Check that you can use it to [connect to the {{ mch-name }} cluster over SSL](../../managed-clickhouse/operations/connect/clients.md).
 
    - [jq](https://stedolan.github.io/jq/) for JSON file stream processing.
 
@@ -195,7 +195,7 @@ The {{ mch-name }} cluster will insert data into tables run on the `Kafka` engin
 
 For each {{ KF }} topic, create a separate table in your {{ mch-name }} cluster to write incoming data to:
 
-1. [Connect](../../managed-clickhouse/operations/connect.md#connection-string) to the `db1` database of the {{ mch-name }} cluster using `clickhouse-client`.
+1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database of the {{ mch-name }} cluster using `clickhouse-client`.
 1. Run the following query:
 
    ```sql
@@ -292,7 +292,7 @@ Since {{ CH }} can read a message from a topic only once, we do not recommend re
 
 To create a materialized view:
 
-1. [Connect](../../managed-clickhouse/operations/connect.md#connection-string) to the `db1` database of the {{ mch-name }} cluster using `clickhouse-client`.
+1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database of the {{ mch-name }} cluster using `clickhouse-client`.
 1. Run the following queries for each table on the `Kafka` engine:
 
    ```sql
@@ -318,7 +318,7 @@ To create a materialized view:
 
 To get all the data from the appropriate materialized view:
 
-1. [Connect](../../managed-clickhouse/operations/connect.md#connection-string) to the `db1` database of the {{ mch-name }} cluster using `clickhouse-client`.
+1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database of the {{ mch-name }} cluster using `clickhouse-client`.
 1. Run the following query:
 
    ```sql
@@ -350,8 +350,8 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
-   1. Delete the configuration file `data-from-kafka-to-clickhouse.tf`.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
+   1. Delete the `data-from-kafka-to-clickhouse.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash

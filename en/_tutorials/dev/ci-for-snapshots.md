@@ -1,5 +1,6 @@
 # Creating test VMs via {{ GL }} CI
 
+
 You can use {{ yandex-cloud }} to automate routine tasks, such as running a specific script after each commit in the `master` branch in a Git repository. The example below creates and tests a [VM](../../compute/concepts/vm.md) following each commit.
 
 To configure Continuous Integration (CI) for VM [disk snapshots](../../compute/concepts/snapshot.md):
@@ -20,7 +21,7 @@ If you no longer need the VMs you created, [delete them](#clear-out).
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 Before creating a VM:
-1. Go to the [management console]({{ link-console-main }}) {{ yandex-cloud }} and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to perform your steps in.
+1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to perform your steps in.
 1. Make sure the selected folder has a [network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) you can connect the VM to. To do this, select **{{ vpc-name }}** on the folder page. If the list contains a network, click its name to see the list of subnets. If there is neither network nor subnet, [create them](../../vpc/quickstart.md).
 
 
@@ -45,7 +46,7 @@ Create a VM to deploy the test application to, a set of components required for 
    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 1. In **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the subnet to connect the VM to once it is created.
-1. Enter the VM access information:
+1. Specify the VM access data:
    * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
    * To the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
@@ -279,11 +280,11 @@ You can set up CI in {{ yandex-cloud }} by using a public image with {{ GL }} pr
    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 1. In **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the subnet to connect the VM to once it is created.
-1. Enter the VM access information:
+1. Specify the VM access data:
    * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
    * To the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
-      You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection yourself. To create keys, use third-party tools, such as `ssh-keygen` (on Linux or macOS) or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (on Windows).
+      You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair yourself. To create keys, use third-party tools, such as `ssh-keygen` (on Linux or macOS) or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (on Windows).
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 It may take a few minutes to create the VM. When the VM status changes to `RUNNING`, you can start configuring it.
@@ -304,8 +305,8 @@ To set {{ GL }} up and configure the CI process, create a new project and enter 
 1. Copy the password (without spaces) from the `Password` row to the clipboard or a separate file.
 1. Open `http://<VM_public_IP_address>` in your browser. This will take you to the {{ GL }} web interface.
 1. Log in using the administrator account:
-   * **Username or email**: `root`
-   * **Password**: Password you copied earlier
+   * **Username or email**: `root`.
+   * **Password**: Password you copied earlier.
 
    If you are unable to log in, [reset the administrator account password](https://docs.gitlab.com/ee/security/reset_user_password.html#reset-your-root-password).
 1. [Change the administrator account password](https://docs.gitlab.com/ee/user/profile/#change-your-password).

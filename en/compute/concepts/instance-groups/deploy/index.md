@@ -5,6 +5,7 @@ description: "An instance group is updated in two steps: first, its instances ar
 
 # Updating instance groups
 
+
 Creating and updating instances in a group is done in two steps:
 1. Instances are [allocated to zones](./zones.md).
 1. The [deployment algorithm](./deploy.md) starts.
@@ -15,6 +16,6 @@ To learn about the implications of updating or changing an instance group, see t
 
 {% note info %}
 
-If for an instance group, [processes are paused](../stopping-pausing.md) ([status](../statuses.md#group-statuses) is `PAUSED`), it is not updated.
+If for an instance group, [processes are paused](../stopping-pausing.md) (the [status](../statuses.md#group-statuses) is `PAUSED`), it is not updated.
 
 {% endnote %}

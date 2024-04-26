@@ -1,5 +1,6 @@
 # Allocation policy
 
+
 When creating an instance group, you can choose the {{ yandex-cloud }} regions and [availability zones](../../../../overview/concepts/geo-scope.md) to host your VM instances and list tags for VM instances within each availability zone.
 
 A _region_ is a location where you deploy your VM instances. Each region consists of one or more _zones_. Only one region is currently available.

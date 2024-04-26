@@ -5,6 +5,7 @@ description: "Follow this tutorial to set up a secure connection between the clo
 
 # Setting up network connectivity with IPsec gateways on your own using {{ yandex-cloud }}
 
+
 You can set up a secure connection between the cloud infrastructure and a corporate data center yourself using IPsec gateways according to the following [chart](index.md):
 
 {% include notitle [ipsec-vpn](../../../_tutorials/infrastructure/ipsec/ipsec-vpn.md) %}

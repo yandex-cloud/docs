@@ -1,5 +1,5 @@
 ---
-title: "{{ yandex-cloud }} partner program. Questions and answers"
+title: "{{ yandex-cloud }} partner program. FAQ"
 description: "I cannot log in to the partner portal. What should I do? How do I contact the {{ yandex-cloud }} partner program team? How do I connect to the Telegram chat for {{ yandex-cloud }} partners? Find the answers to these and other questions in this article."
 ---
 
@@ -15,7 +15,7 @@ If you received a welcome email saying that you joined the program with a link t
 
 #### How do I contact the {{ yandex-cloud }} partner program team? {#contacts}
 
-You can ask questions about grants or how to use {{ yandex-cloud }} via the [support service]({{ link-console-support }}) in the {{ yandex-cloud }} console. The support team will call in the partner program team if necessary.
+You can ask your questions on grants or using {{ yandex-cloud }} by contacting [support]({{ link-console-support }}) in the console {{ yandex-cloud }}. The support team will call in the partner program team if necessary.
 
 You can ask questions about the terms of the program or share your opinion at [yc-partners@yandex-team.ru](mailto:Yc-partners@yandex-team.ru) or in the partner chat.
 

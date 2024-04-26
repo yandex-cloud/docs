@@ -1,6 +1,6 @@
 {% list tabs group=instructions %}
 
-- {{ billing-name }} interface {#billing}
+- {{ billing-interface }} {#billing}
 
    1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
    1. Accounts [added to an organization](../../billing/concepts/organization.md) will have its ID in the **{{ ui-key.yacloud_billing.billing.account.overview.account-data_label_organization }}** column.

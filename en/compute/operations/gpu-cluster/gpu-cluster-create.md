@@ -5,11 +5,6 @@ description: "Follow this guide to create a GPU cluster."
 
 # Creating a GPU cluster
 
-{% note info %}
-
-[GPU clusters](../../concepts/gpus.md#gpu-clusters) will be [publicly available](../../../overview/concepts/launch-stages.md) and billable starting September 1, 2023.
-
-{% endnote %}
 
 {% note info %}
 

@@ -1,1 +1,1 @@
-Under one Yandex account, all payers must be either residents of Russia, residents of Kazakhstan, or residents of other countries.
+Within a single user account, all payers must contract with the same legal entity and pay in the same currency.

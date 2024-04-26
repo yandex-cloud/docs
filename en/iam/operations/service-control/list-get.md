@@ -1,6 +1,9 @@
 # Getting information about service accesses
 
+
+
 {% include notitle [preview](../../../_includes/note-preview.md) %}
+
 
 In Yandex Identity and Access Management, you can manage [service access](../../concepts/service-control.md) to resources in the cloud.
 

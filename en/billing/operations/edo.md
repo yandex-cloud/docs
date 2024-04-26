@@ -1,4 +1,6 @@
 # Enabling electronic document management
+
+
 Businesses and individual entrepreneurs that are residents of Russia can use the electronic document management (EDM) service in {{ yandex-cloud }}.
 With EDM, you can get [closing reporting documents](../concepts/edo.md#document).
 

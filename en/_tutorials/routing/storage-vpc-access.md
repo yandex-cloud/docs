@@ -1,5 +1,6 @@
 # Connecting to {{ objstorage-name }} from {{ vpc-name }}
 
+
 In {{ yandex-cloud }}, you can connect to [{{ objstorage-full-name }}](../../storage/) via the appropriate [API endpoint](../../api-design-guide/concepts/endpoints.md) whose FQDN is then translated to a public IP using the DNS service.
 
 This article describes how to deploy a cloud infrastructure in {{ yandex-cloud }} to set up access to {{ objstorage-name }} for resources that are hosted in a {{ vpc-short-name }} [cloud network](../../vpc/concepts/network.md#network) and have no public IPs or access to the internet through a [NAT gateway](../../vpc/concepts/gateways.md).
@@ -25,7 +26,7 @@ For the cloud network with the resources hosted in [{{ dns-name }}](../../dns/co
 
 To deploy the NAT instances, use a [NAT instance based on Ubuntu 22.04 LTS](/marketplace/products/yc/nat-instance-ubuntu-22-04-lts) image from {{ marketplace-name }}. It provides translation of source and target IPs to ensure traffic routing to the {{ objstorage-name }} public IP.
 
-By placing the NAT instances in multiple [availability zones](../../overview/concepts/geo-scope.md), you can ensure fault-tolerant access to {{ objstorage-name }}. By increasing the number of NAT instances, you can upscale the solution when the load grows. When calculating the number of NAT instances, consider the [locality of traffic handling by the internal load balancer](../../network-load-balancer/concepts/specifics.md#nlb-int-locality).
+By placing the NAT instances in multiple [availability zones](../../overview/concepts/geo-scope.md), you can ensure fault-tolerant access to {{ objstorage-name }}. By increasing the number of NAT instances, you can scale the solution up when the load grows. When calculating the number of NAT instances, consider the [locality of traffic handling by the internal load balancer](../../network-load-balancer/concepts/specifics.md#nlb-int-locality).
 
 [{{ objstorage-name }} access policies](../../storage/concepts/policy.md) allow actions with buckets only from the public IPs of NAT instances. Bucket access is only granted to the cloud resources using this solution. You cannot connect to a bucket in {{ objstorage-name }} via a public API endpoint. You can disable this limitation in the {{ TF }} configuration file, if required.
 
@@ -76,10 +77,10 @@ warp get \
 
 To deploy the solution and test it:
 
-1. [Prepare your cloud](#prepare-cloud)
-1. [Prepare an environment for deploying the resources](#setup-environment)
-1. [Deploy the solution](#deploy)
-1. [Test the solution](#check)
+1. [Prepare your cloud](#prepare-cloud).
+1. [Prepare an environment for deploying the resources](#setup-environment).
+1. [Deploy the solution](#deploy).
+1. [Test the solution](#check).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -157,7 +158,7 @@ The infrastructure support costs include:
    | `yc_availability_zones` | N/A | [List of availability zones](../../overview/concepts/geo-scope.md) for deploying NAT instances | `list(string)` | `["{{ region-id }}-a", "{{ region-id }}-b"]` |
    | `subnet_prefix_list` | N/A | List of prefixes of cloud subnets to host the NAT instances (one subnet in each availability zone from the `yc_availability_zones` list. The prefixes should be listed as {{ region-id }}-a, {{ region-id }}-b, and so on). | `list(string)` | `["10.10.1.0/24", "10.10.2.0/24"]` |
    | `nat_instances_count` | N/A | Number of NAT instances to deploy. We recommend setting an even number to evenly distribute the instances across the availability zones. | `number` | `4` |
-   | `bucket_private_access` | N/A | Only allow bucket access from the public IPs of NAT instances. If `true`, access is limited. To cancel the limit, set `false`. | `bool` | `true` |
+   | `bucket_private_access` | N/A | Only allow bucket access from the public IPs of NAT instances. If `true`, access is limited. To remove the limit, set `false`. | `bool` | `true` |
    | `bucket_console_access` | N/A | Allow bucket access via the {{ yandex-cloud }} management console. If `true`, access is allowed. To disable it, set `false`. This parameter is mandatory if the `bucket_private_access` parameter is set to `true`. | `bool` | `true` |
    | `mgmt_ip` | Yes | Public IP of your workstation where you are deploying the infrastructure using {{ TF }}. It is used to allow your workstation to perform actions with the bucket when deploying {{ TF }}. This parameter is mandatory if the `bucket_private_access` parameter is set to `true`. | `string` | `"A.A.A.A"` |
    | `trusted_cloud_nets` | Yes | List of aggregated prefixes of cloud subnets that {{ objstorage-name }} access is allowed for. It is used in the rule for incoming traffic of security groups for the NAT instances. | `list(string)` | `["10.0.0.0/8", "192.168.0.0/16"]` |
@@ -185,7 +186,7 @@ The infrastructure support costs include:
    terraform apply
    ```
 
-1. Once the `terraform apply` process is completed, the command line will output information required to connect to the test VM and test operations with {{ objstorage-name }}. You can then view this information by running the `terraform output` command.
+1. Once the `terraform apply` process is completed, the command line will output information required to connect to the test VM and test operations with {{ objstorage-name }}. Afterwards, you can view this information by running the `terraform output` command.
 
    {% cut "Information about resources deployed" %}
 
@@ -214,7 +215,7 @@ The infrastructure support costs include:
    dig {{ s3-storage-host }}
    ```
 
-1. Check that the {{ objstorage-name }} domain name in the DNS server response corresponds to the IP address of the internal load balancer. The output of the `A` resource record is:
+1. Make sure {{ objstorage-name }} domain name in the DNS server response matches the IP address of the internal load balancer. The output of the `A` resource record is:
 
    ```text
    ;; ANSWER SECTION:

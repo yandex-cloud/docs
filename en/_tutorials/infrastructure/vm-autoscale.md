@@ -1,5 +1,6 @@
 # Running instance groups with auto scaling
 
+
 In this tutorial, you will deploy an [instance group with an automatic scaling policy](../../compute/concepts/instance-groups/scale.md#auto-scale) applied if the permitted load is exceeded.
 
 VM instances will be deployed in two [availability zones](../../overview/concepts/geo-scope.md) and their load will be balanced with a [{{ network-load-balancer-full-name }}](../../network-load-balancer/) [network load balancer](../../network-load-balancer/concepts/index.md).
@@ -353,9 +354,9 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
          * Click **{{ ui-key.yacloud.common.add }}**.
       1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
       1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** field, select the `auto-group-tg` instance group and click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**. In the window that opens, specify:
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}**: `tcp`.
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `80`.
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}**: `tcp`
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `80`
          * Click **{{ ui-key.yacloud.common.apply }}**.
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -477,8 +478,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
 
 ### Test auto scaling {#check-highload}
 
-To test auto scaling for your instance group, increase the CPU utilization of each instance. In the `specification.yaml` file, the parameter `scale_policy.auto_scale.cpu_utilization_rule.utilization_target` has the value `40`: it means that the target utilization level is 40% CPU. If you exceed the target utilization, the number of VMs in the group will increase.
-
+To test auto scaling for your instance group, increase the CPU utilization of each instance. In the `specification.yaml` file, the `scale_policy.auto_scale.cpu_utilization_rule.utilization_target` parameter has the value of `40`: it means that the target utilization level is 40% CPU. If you exceed the target utilization, the number of VMs in the group will increase.
 1. Increase the utilization of the instance group.
 
    To do this, save the script named `load.sh` in the home directory. The script sends requests to the instance group through 12 threads for 10 minutes. Each VM instance utilizes 20% CPU on each core that processes the request. The instance group utilization is 240% CPU at any given time. To be sure that requests are evenly distributed across the instances in the group, the script executes multiple parallel requests utilizing 20% CPU rather than one request utilizing 240% CPU.

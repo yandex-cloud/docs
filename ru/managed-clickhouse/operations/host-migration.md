@@ -1,7 +1,7 @@
 # Миграция хостов кластера {{ CH }} в другую зону доступности
 
 
-Хосты {{ CH }} и {{ ZK }} кластера {{ mch-name }} располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Хосты можно перенести из одной зоны в другую.
+Хосты {{ CH }} и {{ ZK }} кластера {{ mch-name }} располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Хосты {{ CH }} и {{ ZK }} можно перенести из одной зоны в другую с помощью этой инструкции, а хосты c {{ CK }} — с помощью обращения в [службу поддержки]({{ link-console-support }}).
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 

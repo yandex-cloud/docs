@@ -40,23 +40,100 @@ How the serial console works depends on the operating system settings. {{ comput
 
 {% endnote %}
 
-Run this command:
+To connect to the VM, you need its ID. For information on how to get VM ID, see [{#T}](../vm-info/get-info.md).
 
-```bash
-ssh -t -p 9600 -o IdentitiesOnly=yes -i <private_SSH_key_path> <VM_ID>.<username>@{{ serial-ssh-host }}
-```
+Your next steps depend on whether [OS Login](../../../organization/concepts/os-login.md) access is enabled for the VM. If OS Login access is [enabled](../vm-connect/enable-os-login.md) for the VM, you can connect to the serial console using an exported SSH certificate. SSH keys are used to connect to VMs with OS Login access disabled.
 
-Where:
+Some OSs may request user credentials for access to a VM. So you need to create a local user password before connecting to the serial consoles of such VMs.
 
-  * `private_SSH_key_path`: Path to the private part of the [SSH key](../vm-connect/ssh.md#creating-ssh-keys) created when [creating the VM](../vm-create/create-linux-vm.md).
-  * `VM_ID`: VM ID. For information about how to get a VM's ID, see [{#T}](../vm-info/get-info.md).
-  * `username`: Administrator name specified when creating the VM.
+{% list tabs %}
 
-Connection command example:
+- With an SSH key
 
-```bash
-ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 fhm0b28lgfp4********.yc-user@{{ serial-ssh-host }}
-```
+   1. Create a local user password on the VM:
+      1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
+      1. {% include [create-serial-console-user](../../../_includes/compute/create-serial-console-user.md) %}
+      1. Disconnect from the VM. To do this, enter the `logout` command.
+
+   1. Connect to the VM.
+
+      Connection command example:
+
+      ```bash
+      ssh -t -p 9600 -o IdentitiesOnly=yes -i <private_SSH_key_path> <VM_ID>.<username>@{{ serial-ssh-host }}
+      ```
+
+
+
+      Where:
+      * `private_SSH_key_path`: Path to the private part of the [SSH key](../vm-connect/ssh.md#creating-ssh-keys) created when [creating the VM](../vm-create/create-linux-vm.md).
+      * `VM_ID`: VM ID. For information on how to get VM ID, see [{#T}](../vm-info/get-info.md).
+      * `username`: Administrator name specified when creating the VM.
+
+      ```bash
+      ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 fhm0b28lgfp4********.yc-user@{{ serial-ssh-host }}
+      ```
+
+      When connecting, the system may request a username and password to authenticate on the VM. Enter the username and password you created earlier to gain access to the serial console.
+
+- With an SSH certificate via OS Login
+
+   1. {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. Create a local user password on the VM:
+      1. [Connect](../vm-connect/os-login.md) to a VM via OS Login.
+      1. {% include [create-serial-console-user](../../../_includes/compute/create-serial-console-user.md) %}
+      1. Disconnect from the VM. To do this, enter the `logout` command.
+
+   1. Get a list of VMs in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+
+      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
+
+   1. {% include [enable-os-login-serial-console-auth](../../../_includes/compute/enable-os-login-serial-console-auth.md) %}
+
+   1. [Export](../vm-connect/os-login-export-certificate.md) the OS Login certificate specifying your organization ID:
+
+      ```bash
+      yc compute ssh certificate export \
+        --organization-id <organization_ID>
+      ```
+
+      Result:
+
+      ```text
+      Identity: /home/myuser/.ssh/yc-organization-id-bpfaidqca8vd********-yid-orgusername
+      Certificate: /home/myuser/.ssh/yc-organization-id-bpfaidqca8vd********-yid-orgusername-cert.pub
+      ```
+
+      You can get the organization ID in [{{org-full-name}}]({{link-org-main}}) or using the `yc organization-manager organization list` CLI command.
+
+      The exported certificate is valid for one hour.
+
+   1. Connect to the VM.
+
+      Connection command example:
+
+      ```bash
+      ssh -t -p 9600 -i <SSH_certificate_path> <VM_ID>.<OS_Login_username>@{{ serial-ssh-host }}
+      ```
+
+      Where:
+      * `<SSH_certificate_path>`: Path to the exported SSH certificate, the value of the `Identity` field.
+      * `<VM_ID>`: ID of the virtual machine whose serial console you want to connect to.
+      * `<OS_Login_username>`: OS Login user ID in the organization. You can find the OS Login username at the end of the exported certificate name after the organization ID.
+         You can also get the username in [{{org-full-name}}]({{link-org-main}}) in the user profile on the **{{ ui-key.yacloud_org.page.user.title_tab-os-login }}** tab.
+
+      Example for a user with the `yid-orgusername` username and a VM with the `epd22a2tj3gd********` ID:
+
+      ```bash
+      ssh -p 9600 -i /home/myuser/.ssh/yc-organization-id-bpfaidqca8vd********-yid-orgusername epd22a2tj3gd********.yid-orgusername@{{ serial-ssh-host }}
+      ```
+
+      When connecting, the system may request a username and password to authenticate on the VM. Enter the username and password you created earlier to gain access to the serial console.
+
+{% endlist %}
 
 You can also connect to the serial console using [SSH keys for other users](../vm-connect/ssh.md#vm-authorized-keys).
 
@@ -65,10 +142,8 @@ You can also connect to the serial console using [SSH keys for other users](../v
 * If you connect to the serial console and nothing appears on the screen:
    * Press **Enter**.
    * Restart the VM (for VMs created before February 22, 2019).
-* If the OS requests user credentials to provide access to the VM, enter the login and password.
-   * On a Linux VM, set a user password first. Run the `sudo passwd <username>` command. For more information, see [Getting started with the serial console](./index.md#linux-configuration).
-   * On a Windows VM, enter your username, domain (VM name), and password. For more information, see [Starting your terminal in the Windows serial console (SAC)](./windows-sac.md).
-* If you see the `Warning: remote host identification has changed!` error when connecting, run the `ssh-keygen -R <VM_IP_address>` command.
+* If you see the `Warning: remote host identification has changed!` error when connecting with an SSH key, run the `ssh-keygen -R <VM_IP_address>` command.
+* If you see the `Permission denied (publickey).` error when connecting with an SSH certificate, make sure OS Login authorization is enabled for the VM when connecting to the serial console and that the certificate is not expired. If required, enable OS Login authorization for the VM when connecting to the serial console or re-export the SSH certificate.
 
 ## Disconnecting from the serial console {#turn-off-serial-console}
 

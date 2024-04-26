@@ -1,5 +1,6 @@
 # JMeter load testing
 
+
 {{ load-testing-name }} can be used for testing a fixed-load service over HTTPS using the [JMeter](../../load-testing/concepts/load-generator.md#jmeter) [load generator](../../load-testing/concepts/load-generator.md).
 
 To perform load testing:
@@ -20,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 If the [agent](../../load-testing/concepts/agent.md) is hosted on {{ yandex-cloud }}, a fee is charged for computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
-At the [Preview](../../overview/concepts/launch-stages.md) stage, using {{ load-testing-name }} is free of charge.
+At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testing-name }} is free of charge.
 
 ## Prepare a test target {#target-prepare}
 
@@ -158,7 +159,7 @@ This example creates a single thread group with one HTTP request (a `sleep` requ
    * **Response time limit**: `100ms`
    * **Window duration**: `10s`
 
-   This criterion stops the test if the 75th percentile exceeds 100 milliseconds for 10 seconds (for 10 seconds, the processing time of 25% of queries exceeds 100 milliseconds).
+   This criterion stops the test if 75th percentile exceeds 100 milliseconds for 10 seconds (for 10 seconds, the processing time of 25% of queries exceeds 100 milliseconds).
 
 1. Under **{{ ui-key.yacloud.load-testing.meta-section }}**, specify the name, description, and number of the test version. This will make the report easier to read.
 1. Click **{{ ui-key.yacloud.common.create }}**.

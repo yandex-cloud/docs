@@ -1,5 +1,6 @@
 # Static access keys compatible with the AWS API
 
+
 A static access key is required to authenticate a [service account](../users/service-accounts.md) in [AWS-compatible APIs](#supported-services).
 
 It consists of two parts:

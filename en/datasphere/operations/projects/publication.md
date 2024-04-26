@@ -23,7 +23,3 @@ The link is copied to the clipboard.
 The link is valid for a week.
 
 {% endnote %}
-
-## What's next {#what-is-next}
-
-- [{#T}](clear-kernel-state.md)

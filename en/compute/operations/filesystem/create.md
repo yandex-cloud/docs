@@ -5,6 +5,7 @@ description: "Follow this guide to create a file storage."
 
 # Creating a file storage
 
+
 To create a file [storage](../../concepts/filesystem.md):
 
 {% list tabs group=instructions %}
@@ -51,7 +52,7 @@ To create a file [storage](../../concepts/filesystem.md):
         labels = {
           <key_of_label_1> = "<value_of_label_1>"
           <key_of_label_2> = "<value_of_label_2>"
-       }
+        }
       }
       ```
 

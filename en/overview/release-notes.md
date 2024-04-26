@@ -2,6 +2,7 @@
 
 To see what changed in the {{ yandex-cloud }} services and tools, see the links below.
 
+
 ## Infrastructure and network {#infrastructure-network}
 
 * [{{ alb-full-name }}](../application-load-balancer/release-notes.md)
@@ -49,10 +50,10 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 ## Machine learning {#ml-ai}
 
 * [{{ ml-platform-full-name }}](../datasphere/release-notes.md)
+* [{{ foundation-models-full-name }}](../foundation-models/release-notes/index.md)
 * {{ speechkit-full-name }}: [Speech recognition](../speechkit/release-notes-stt.md) and [synthesis](../speechkit/release-notes-tts.md)
 * [{{ sk-hybrid-full-name }}](../speechkit-hybrid/release-notes.md)
 * [{{ vision-full-name }}](../vision/release-notes.md)
-* [{{ yagpt-full-name }}](../yandexgpt/release-notes.md)
 
 ## Business tools {#business-tools}
 

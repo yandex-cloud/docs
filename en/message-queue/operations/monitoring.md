@@ -20,7 +20,7 @@ To view this information:
 
 **Sent messages stats** contains charts with information about sending messages:
 
-* **Sent messages, count**: The number of messages sent to the queue per unit of time.
+* **Sent messages, count**: Number of messages sent to the queue per unit of time.
 
 * **Sent messages, size**: The total size of messages sent to the queue per unit of time (in bytes).
 
@@ -32,7 +32,7 @@ To view this information:
 
    {% include [ymq-monitoring-query-duration.md](../../_includes/message-queue/ymq-monitoring-query-duration.md) %}
 
-* **SendMessage errors**: The number of errors while executing `SendMessage` and `SendMessageBatch` requests.
+* **SendMessage errors**: Number of errors when executing the `SendMessage` and `SendMessageBatch` requests.
 
 ## Receiving messages {#receive}
 
@@ -40,9 +40,9 @@ To view this information:
 
 * **Received messages, size**: The total size of messages received from the queue per unit of time (in bytes).
 
-* **Received messages, count**: The number of messages received from the queue per unit of time.
+* **Received messages, count**: Number of messages received from the queue per unit of time.
 
-* **Messages in flight, count**: The number of messages that have been received by consumers, but not yet deleted from the queue (haven't reached the end of their [visibility timeout](../concepts/visibility-timeout.md)).
+* **Messages in flight, count**: Number of messages received by recipients but not deleted from the queue (that are still within the [visibility timeout](../concepts/visibility-timeout.md) window).
 
 * **ReceiveMessages requests**: Total number of [ReceiveMessage](../api-ref/message/ReceiveMessage) requests and number of requests with empty responses.
 
@@ -52,16 +52,16 @@ To view this information:
 
    {% include [ymq-monitoring-query-duration.md](../../_includes/message-queue/ymq-monitoring-query-duration.md) %}
 
-* **ReceiveMessage errors**: The number of errors while executing `ReceiveMessage` requests.
+* **ReceiveMessage errors**: Number of errors when executing the `ReceiveMessage` requests.
 
-* **Message processing on client duration**: Time the consumer spent handling messages.
+* **Message processing on client duration**: Message processing time spent by the recipient.
 
    {% include [ymq-monitoring-message-duration.md](../../_includes/message-queue/ymq-monitoring-message-duration.md) %}
 
-* **Receive attempts per message, count**: The number of registered attempts to receive a message.
+* **Receive attempts per message, count**: Number of registered attempts to receive a message.
 
-   The value increases if a message was received by the consumer but returned to the queue after the [visibility timeout](../concepts/visibility-timeout.md) expired. The lines on the chart correspond to the number of receive attempts:
-    
+   The value increases if a message was received by the recipient but returned to the queue after the [visibility timeout](../concepts/visibility-timeout.md) expired. The lines on the chart correspond to the number of receive attempts:
+
     * 0-1
     * 2
     * 3-5
@@ -80,18 +80,18 @@ To view this information:
 
    {% include [ymq-monitoring-query-duration.md](../../_includes/message-queue/ymq-monitoring-query-duration.md) %}
 
-* **DeleteMessage errors**: The number of errors while executing `DeleteMessage` and `DeleteMessageBatch` requests.
+* **DeleteMessage errors**: Number of errors when executing the `DeleteMessage` and `DeleteMessageBatch` requests.
 
-* **Purged messages, count**: Number of messages purged from the queue in a unit of time using [PurgeQueue](../api-ref/queue/PurgeQueue) queue purge method.
+* **Purged messages, count**: Number of messages purged from the queue in a unit of time using the [PurgeQueue](../api-ref/queue/PurgeQueue) method.
 
 ## Overall queue metrics {#queue}
 
 **Overall queue stats** contains charts with general information about processes in queues:
 
-* **Messages in queue, count**: The number of messages that are currently enqueued.
+* **Messages in queue, count** (metric name: `queue.messages.stored_count`): Number of messages currently enqueued. Measured in `pcs`, number of.
 
-* **Age of oldest message in queue**: The retention time of the oldest message in the queue.
+* **Age of oldest message in queue** (metric name: `queue.messages.oldest_age_milliseconds`): Retention time of the oldest message in the queue. The metric name is obsolete and its `milliseconds` part does not reflect the current units of measure. Currently, the metric is measured in seconds (`s`).
 
-* **Message reside duration**: The time it takes to handle messages in the queue.
+* **Message reside duration** (metric names: `p99` for the 99th percentile, `p95` for the 95th percentile, `p90` for the 90th percentile, `p50` for the 50th percentile): Enqueued metrics processing time. Measured in milliseconds (`ms`).
 
    {% include [ymq-monitoring-message-duration.md](../../_includes/message-queue/ymq-monitoring-message-duration.md) %}

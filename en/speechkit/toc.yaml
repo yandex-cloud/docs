@@ -1,5 +1,10 @@
 title: '{{ speechkit-full-name }}'
 href: index.yaml
+label:
+  title: RU
+  description: The service is available in Russia only.
+  theme: unknown
+  when: region == "kz"
 items:
   - name: '{{ speechkit-name }} technology overview'
     href: overview.md
@@ -109,16 +114,16 @@ items:
                 href: tts-v3/api-ref/grpc/index.md
               - name: Synthesizer
                 href: tts-v3/api-ref/grpc/tts_service.md
-      - name: API v3 REST
-        items:
-          - name: Overview
-            href: tts-v3/api-ref/index.md
-          - name: Synthesizer
+          - name: API v3 REST
             items:
               - name: Overview
-                href: tts-v3/api-ref/Synthesizer/index.md
-              - name: utteranceSynthesis
-                href: tts-v3/api-ref/Synthesizer/utteranceSynthesis.md
+                href: tts-v3/api-ref/index.md
+              - name: Synthesizer
+                items:
+                  - name: Overview
+                    href: tts-v3/api-ref/Synthesizer/index.md
+                  - name: utteranceSynthesis
+                    href: tts-v3/api-ref/Synthesizer/utteranceSynthesis.md
   - name: SDK
     items:
       - name: About the Python SDK

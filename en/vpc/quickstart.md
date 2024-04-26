@@ -4,7 +4,7 @@ Create a [cloud network and subnet](concepts/network.md) in an empty cloud and r
 
 {% note info %}
 
-You can automatically create a cloud network and subnets in all availability zones when [creating a folder](../resource-manager/operations/folder/create.md) or [creating a VM](../compute/quickstart/quick-create-linux.md).
+You can automatically create a cloud network and subnets in all [availability zones](../overview/concepts/geo-scope.md) when [creating a folder](../resource-manager/operations/folder/create.md) or [creating a VM](../compute/quickstart/quick-create-linux.md).
 
 {% endnote %}
 

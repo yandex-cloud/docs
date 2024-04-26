@@ -17,6 +17,14 @@
 | Number of requests per hour, asynchronous mode (request) | 5,000 | 5,000 |
 | Number of tokenization requests per second | 50 | 50 |
 
+##### Image generation {#yandexart-quotas-generation}
+
+| Type of limit | Value |
+----- | -----
+| Number of generation requests per minute | 10 |
+| Number of generation requests per day | 500 |
+| Number of result requests per second | 50 |
+
 #### Limits {#yandexgpt-limits}
 
 ##### Text vectorization {#yandexgpt-limits-vectorization}
@@ -32,3 +40,11 @@
 | Number of tokens per response | 2,000 | 2,000 |
 | Total number of tokens | {{ yagpt-max-tokens }} | {{ yagpt-max-tokens }} |
 | Number of free requests per hour for users without a billing account. Available only in the management console | {{ gpt-freetier }} | — |
+
+##### Image generation {#yandexart-limits-generation}
+
+| Type of limit | Value |
+----- | -----
+| Maximum prompt length | 500 characters |
+| Number of free requests per minute for users without a billing account. Available only in the management console | 2 |
+| Number of free requests per day for users without a billing account. Available only in the management console | {{ art-freetier }} |

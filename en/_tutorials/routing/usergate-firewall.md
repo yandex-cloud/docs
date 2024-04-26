@@ -1,5 +1,6 @@
 # Creating and configuring a UserGate gateway in firewall mode
 
+
 [UserGate](https://www.usergate.com/products/enterprise-firewall) is a next-generation firewall created by a Russia-based company Usergate.
 
 You will create a UserGate virtual machine in {{ yandex-cloud }} and set up the gateway for firewall mode. To learn about advanced UserGate features, take the free course [UserGate Getting Started](https://university.tssolution.ru/usergate-getting-started-v6).
@@ -112,7 +113,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
       Learn more in the description of the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -225,7 +226,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
       * Select the `usergate-network` network and the `usergate-subnet-{{ region-id }}-a` subnet.
       * In the **Public address** field, select from a list of reserved IPs.
 
-   1. Under **Access**, specify the information required to access the instance:
+   1. Under **Access**, specify the information required to access the VM:
 
       * Enter the username in the **Login** field.
       * In the **SSH key** field, paste the contents of the public key file.
@@ -326,7 +327,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
       To learn more, see the [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance) resource description in the {{ TF }} provider documentation.
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory with the configuration file.
       1. Run a check using this command:
@@ -582,7 +583,7 @@ Create a [static route](../../vpc/concepts/static-routes.md):
 
       For more information about the `yandex_vpc_route_table` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_route_table).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:

@@ -190,7 +190,7 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
 
 ## Set up the mapping of data from {{ objstorage-full-name }} to the {{ mch-name }} cluster {#create-view}
 
-1. To create a view based on the imported data, [connect to the {{ mch-name }} cluster database](../../managed-clickhouse/operations/connect.md) and run the SQL query:
+1. To create a view based on the imported data, [connect to the {{ mch-name }} cluster database](../../managed-clickhouse/operations/connect/clients.md) and run the SQL query:
 
    ```sql
    CREATE view db1.v$google_top_rising_terms on cluster on cluster '{cluster}' AS

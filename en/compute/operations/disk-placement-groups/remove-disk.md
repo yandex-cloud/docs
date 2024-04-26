@@ -1,5 +1,6 @@
 # Removing a disk from a placement group
 
+
 Remove a [non-replicated disk](../../concepts/disk.md#nr-disks) from a [placement group](../../concepts/disk-placement-group.md). You can then [permanently delete](../disk-control/delete.md) the [disk](../../concepts/disk.md) or add it back to the placement group.
 
 {% list tabs group=instructions %}

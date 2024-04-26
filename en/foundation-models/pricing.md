@@ -6,7 +6,9 @@ editable: false
 
 {{ foundation-models-full-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. The service is at the Preview stage and is billed according to the [Special Terms of Use](https://yandex.ru/legal/cloud_specialterms/?lang=en#index__section_fk5_d4c_cgb). You can find {{ yagpt-full-name }} usage details in {{ billing-name }} as {{ foundation-models-full-name }} resource usage.
 
-In the [management console]({{ link-console-main }}/link/yandexgpt), {{ gpt-freetier }} free prompts per hour are available to new users without a [billing account](../billing/concepts/billing-account.md).
+In the [management console]({{ link-console-main }}/link/yandexgpt), new users without a [billing account](../billing/concepts/billing-account.md) have access to models for testing:
+* {{ yagpt-full-name }}: {{ gpt-freetier }} free requests per hour.
+* {{ yandexart-name }}: {{ art-freetier }} free requests per hour.
 
 ## What goes into the cost of using {{ foundation-models-full-name }} {#rules}
 
@@ -25,11 +27,17 @@ The number of [prompt](concepts/index.md) and response [tokens](concepts/yandexg
 
 The number of billing units is based on the overall number of prompt and response tokens and is rounded up to a whole number after applying the multiplier.
 
-The use of summary models and models tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-lite }} rules.
+#### Fine-tuned models {#rules-tuned-generating}
+
+The use of summary models is charged according to the {{ gpt-lite }} policy. The use of models fine-tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} policy.
 
 ### Text vectorization {#rules-embedding}
 
-The cost of providing text as vectors, i.e., getting text embeddings, depends on the size of the text submitted for vectorization.
+The cost of text vectorization (getting text embeddings) depends on the size of the text submitted for vectorization.
+
+### Image generation {#rules-image-generation}
+
+At the [Preview](../overview/concepts/launch-stages.md) stage, {{ yandexart-name }} is free of charge.
 
 ### Internal server errors {#error-request}
 
@@ -58,13 +66,8 @@ Where:
 
 ## Pricing {#prices}
 
+
 ### Text generation in {{ yagpt-full-name }} {#pricing-generating}
-
-{% note warning %}
-
-The prices below will take effect on March 25, 2024.
-
-{% endnote %}
 
 
 

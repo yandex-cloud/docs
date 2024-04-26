@@ -390,6 +390,16 @@ fqdn | FQDN хоста
 | `system.uptime`<br/>`DGAUGE`, % | Коэффициент отказоустойчивости. | 
 
 ## Метрики PXF {#managed-greenplum-pxf-metrics}
+
+PXF помечает все метрики, которые он возвращает, меткой `application` со значением `pxf-service`.
+
+Дополнительные метки:
+
+* `profile` — имя профиля PXF.
+* `segment` — идентификатор сегмента базы данных, обрабатывающего определенный блок данных.
+* `server` — имя сервера, с которым PXF взаимодействует для доступа к данным.
+* `user` — имя пользователя, выполнившего операцию.
+
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `pxf.jvm_memory_committed_bytes`<br/>`DGAUGE`, байты | Размер выделенной операционной системой памяти для JVM PXF. | 
@@ -401,6 +411,11 @@ fqdn | FQDN хоста
 | `pxf.log4j2_events_total`<br/>`DGAUGE`, штуки | Общее количество событий Log4j2 в JVM PXF. | 
 | `pxf.process_files_max_files`<br/>`DGAUGE`, штуки | Максимальное количество одновременно открытых файлов в процессе PXF. | 
 | `pxf.process_files_open_files`<br/>`DGAUGE`, штуки | Количество текущих открытых файлов в процессе PXF. | 
+| `pxf.pxf_bytes_receivced_total`<br/>`DGAUGE`, байты | Количество байтов, полученнных PXF. | 
+| `pxf.pxf_bytes_sent_total`<br/>`DGAUGE`, байты | Количество байтов, отправленных PXF. | 
+| `pxf.pxf_fragments_sent`<br/>`DGAUGE`, штуки | Количество фрагментов данных, отправленных PXF.<br/>Дополнительная метка: `outcome`. Принимает значение `success`, если успешно отправлены все данные фрагмента, `error`, если нет. | 
+| `pxf.pxf_records_receivced_total`<br/>`DGAUGE`, штуки | Количество записей, полученнных PXF. | 
+| `pxf.pxf_records_sent_total`<br/>`DGAUGE`, штуки | Количество записей, отправленных PXF. | 
 | `pxf.tomcat_connections_config_max_connections`<br/>`DGAUGE`, штуки | Максимальное количество соединений в настройках Tomcat PXF. | 
 | `pxf.tomcat_connections_current_connections`<br/>`DGAUGE`, штуки | Количество текущих соединений в Tomcat PXF. | 
 | `pxf.tomcat_connections_keepalive_current_connections`<br/>`DGAUGE`, штуки | Количество текущих соединений keepalive в Tomcat PXF. | 

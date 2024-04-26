@@ -55,7 +55,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
 - SQL {#sql}
 
-   1. [Connect](connect.md) to the required database of the {{ mch-name }} cluster using `clickhouse-client`.
+   1. [Connect](connect/clients.md) to the required database of the {{ mch-name }} cluster using `clickhouse-client`.
    1. Run the `SHOW DICTIONARIES` [query]({{ ch.docs }}/sql-reference/statements/show/#show-dictionaries).
 
 {% endlist %}
@@ -124,7 +124,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
    {% endnote %}
 
-   1. [Connect](connect.md) to the required database of the {{ mch-name }} cluster using `clickhouse-client`.
+   1. [Connect](connect/clients.md) to the required database of the {{ mch-name }} cluster using `clickhouse-client`.
    1. Run the [DDL query]({{ ch.docs }}/sql-reference/statements/create/dictionary/) and specify [dictionary settings](#settings-sql):
 
       ```sql
@@ -177,7 +177,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
 - SQL {#sql}
 
-   1. [Connect](connect.md) to the required database of the {{ mch-name }} cluster using `clickhouse-client`.
+   1. [Connect](connect/clients.md) to the required database of the {{ mch-name }} cluster using `clickhouse-client`.
    1. Run the `DROP DICTIONARY <DB_name>.<dictionary_name>` [query]({{ ch.docs }}/sql-reference/statements/drop/#drop-dictionary).
 
 {% endlist %}

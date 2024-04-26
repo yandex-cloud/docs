@@ -1,5 +1,6 @@
 # Updating an instance group under load
 
+
 Using this step-by-step guide, you will configure an [instance group](../../compute/concepts/instance-groups/index.md) and check its operation when updating the configuration. To do this:
 1. [Prepare your cloud](#before-you-begin).
 1. [Prepare the environment](#create-environment).
@@ -403,7 +404,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder where the load balancer is stored.
+      1. In the [management console]({{ link-console-main }}), select the folder that houses the load balancer.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
       1. Copy the **{{ ui-key.yacloud.load-balancer.network-load-balancer.column_ip-address }}** of the `load-generator` load balancer.
 

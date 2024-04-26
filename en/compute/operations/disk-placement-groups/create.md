@@ -5,6 +5,7 @@ description: "Follow this guide to create a disk placement group."
 
 # Creating a disk placement group
 
+
 To create a [placement group](../../concepts/disk-placement-group.md) for [non-replicated disks](../../concepts/disk.md#nr-disks):
 
 {% list tabs group=instructions %}
@@ -80,12 +81,12 @@ To create a [placement group](../../concepts/disk-placement-group.md) for [non-r
       Result:
 
       ```text
-      +----------------------+---------------------+---------------+--------+---------------+
-      |          ID          |        NAME         |      ZONE     | STATUS |   STRATEGY    |
-      +----------------------+---------------------+---------------+--------+---------------+
+      +----------------------+---------------------+-------------------+--------+---------------+
+      |          ID          |        NAME         |       ZONE        | STATUS |   STRATEGY    |
+      +----------------------+---------------------+-------------------+--------+---------------+
       | epd3oalmkmbp******** | drbasic-partition-1 | {{ region-id }}-b | READY  | PARTITION [3] |
       | epdn7r7co1v4******** | drbasic-spread-2    | {{ region-id }}-b | READY  | SPREAD        |
-      +----------------------+---------------------+---------------+--------+---------------+
+      +----------------------+---------------------+-------------------+--------+---------------+
       ```
 
    1. Get information about your disk placement group by specifying its name:

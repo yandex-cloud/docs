@@ -1,5 +1,6 @@
 # Questions about payments
 
+
 #### Who can pay for resources? {#how-to-buy}
 
 Resources are paid for by crediting funds to an individual [personal account](../../billing/concepts/personal-account.md) as per the [contract](../../billing/concepts/contract.md). Funds can be credited to a personal account by individual entrepreneurs, businesses, and individuals.
@@ -27,15 +28,6 @@ The minimum payment amount is $1.
 
 {% list tabs group=residents %}
 
-- Residents of Russia {#russia}
-
-   You must pay for {{ yandex-cloud }} resources in rubles (₽), regardless of your legal status ([billing account type](../../billing/concepts/billing-account.md#ba-types)).
-
-   {% include [rb payment](../../_includes/billing/rb-payment.md) %}
-
-- Residents of Kazakhstan {#kazakhstan}
-
-   You must pay for {{ yandex-cloud }} resources in tenge (₸), regardless of your legal status ([billing account type](../../billing/concepts/billing-account.md#ba-types)).
 
 - Non-residents of Russia and Kazakhstan {#nonresidents}
 
@@ -45,7 +37,7 @@ The minimum payment amount is $1.
 
 
 
-#### I linked a card to my billing business account. When will money be debited from it? {#unlink-card}
+#### I linked a card to my business billing account. When will money be debited from it? {#unlink-card}
 
 If this is your trial period, funds will not be debited from the bank card you linked.
 Since you do not automatically upgrade to the paid version at the end of the trial period, funds are only debited after activating the paid version and using {{ yandex-cloud }} services.
@@ -68,13 +60,13 @@ For more information, see [Pricing](../../billing/pricing.md).
 
 #### If I pay an invoice by bank transfer after the end of the reporting period, will my resources be blocked? {#payment-delay}
 
-According to the [offer](https://yandex.ru/legal/cloud_oferta/?lang=en), you can pay within 14 calendar days (not including public holidays) after the reporting period ends. If you pay within this time period, your resources will not be blocked. Please note that it takes up to three business days for funds to arrive. Do not delay the payment.
+According to the [offer]({{ billing-oferta-url }}?lang=en), you can pay within 14 calendar days (not counting public holidays) after the reporting period ends. If you pay within this time period, your resources will not be blocked. Remember that it takes up to three business days for your payment to get through, so do not postpone it.
 
 #### What goes into the cost of using {{ marketplace-full-name }}? {#marketplace}
 
-The cost of using {{ marketplace-full-name }} is the total cost of using {{ marketplace-full-name }} products. To review the items that make up the usage costs in detail, see the [details](../../billing/operations/check-charges.md) in {{ billing-name }} with grouping by product.
+The cost of using {{ marketplace-full-name }} is the total cost of using {{ marketplace-full-name }} products. For in-depth review of the items adding up the usage cost, see the [details](../../billing/operations/check-charges.md) in {{ billing-name }} with grouping by product selected.
 
 
-#### Is it possible to withdraw money from the balance? {#refund}
+#### Can I withdraw money from my account? {#refund}
 
-To withdraw any funds that will not be used for {{ yandex-cloud }} services, please [refer]({{ link-console-support }}) to the **{{ ui-key.yacloud.component.navigation-menu.label_help-center }}** section in the management console or send an email to [{{ link-support-mail }}](mailto:{{ link-support-mail }}).
+To recover your money not spent on {{ yandex-cloud }} services, [refer]({{ link-console-support }}) to the **{{ ui-key.yacloud.component.navigation-menu.label_help-center }}** section in the management console or email to [{{ link-support-mail }}](mailto:{{ link-support-mail }}).

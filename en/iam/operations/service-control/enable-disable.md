@@ -1,6 +1,9 @@
 # Granting and revoking service access
 
+
+
 {% include notitle [preview](../../../_includes/note-preview.md) %}
+
 
 In Yandex Identity and Access Management, you can grant and revoke [service access](../../concepts/service-control.md) to resources in the cloud.
 

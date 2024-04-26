@@ -28,7 +28,7 @@ In the {{ ml-platform-name }} interface, create a new fine-tuned foundation mode
 
 ## Fine-tuning capabilities {#tuning-abilities}
 
-{% include [tuning-abilities](../../../_includes/yandexgpt/tuning-abilities.md) %}
+{% include [tuning-abilities](../../../_includes/foundation-models/yandexgpt/tuning-abilities.md) %}
 
 ## Requests to a fine-tuned model {#requests}
 

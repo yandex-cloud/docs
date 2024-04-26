@@ -5,6 +5,8 @@ description: "Follow this guide to delete a billing account."
 
 # Deleting a billing account
 
+
+
 To delete a {{ yandex-cloud }} billing account you no longer need:
 
 {% include [delete-account](../../_includes/billing/delete-account.md) %}

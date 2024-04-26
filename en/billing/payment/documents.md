@@ -6,6 +6,7 @@ Soft and hard copies of a document are identical. To prepare your financial repo
 
 {% list tabs group=residents %}
 
+
 - Residents of Russia {#russia}
 
    Russian residents can:
@@ -25,9 +26,10 @@ Soft and hard copies of a document are identical. To prepare your financial repo
 
    {% include [billing.accounts.account](../../_includes/billing/accountant-role.md) %}
 
+
 - Residents of Kazakhstan {#kazakhstan}
 
-   1. If you have used your personal account funds during the reporting period, a copy of the acceptance certificate will be sent to the email address specified in the payer's card in [Yandex Balance](../concepts/reporting-period.md) within seven (7) business days after the end of the [reporting period](https://balance.yandex.com). You can [download the acceptance certificate](../operations/download-reporting-docs.md) yourself in {{ billing-name }}.
+   1. If you have used your personal account funds during the reporting period, a copy of the completion report will be sent to the email address specified in the payer's card in [Yandex Balance](../concepts/reporting-period.md) within seven (7) business days after the end of the [reporting period](https://balance.yandex.com). You can [download the completion report](../operations/download-reporting-docs.md) yourself in {{ billing-name }}.
    1. By courier service within a month following the reporting period, with all signatures and stamps, to the mailing address specified at the account registration.
    1. Electronic tax invoices (e-invoices) are forwarded to the Information System for Collection and Processing of E-invoices within 15 calendar days of the sale date.
    1. On the first day of each month, a [payment invoice](../concepts/bill.md) is sent to the customer's [contact email address]({{ link-console-main }}/settings). It includes the total amount due.
@@ -38,8 +40,6 @@ Soft and hard copies of a document are identical. To prepare your financial repo
    1. Within seven (7) business days after the end of the reporting period, {{ yandex-cloud }} sends an invoice for the amount of monthly consumption to the email address specified in [Yandex Balance](https://balance.yandex.com).
 
    **Reconciliation reports**
-   Reports are generated upon [request to the technical support]({{ link-console-support }}/create-ticket).
+   Reports are generated upon [request to support]({{ link-console-support }}).
 
 {% endlist %}
-
-

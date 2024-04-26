@@ -147,7 +147,7 @@
   | 4                          | `1610612736` (1,5 ГБ) | `2684354560` (2,5 ГБ) |
   | ≥ 8                        | `0,5 × RAM`           | `0,8 × RAM`           |
 
-  Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
+  Подробнее см. в [рекомендациях по настройке параметра](../../managed-mysql/qa/configuring.md#innodb-buffer-pool-size) и в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
 
 - **Innodb compression level**{#setting-innodb-compression-level} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 

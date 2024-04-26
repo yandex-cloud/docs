@@ -5,6 +5,7 @@ description: "Follow this guide to to configure disk snapshot schedules."
 
 # Configuring disk snapshot schedules
 
+
 For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [snapshot](../../concepts/snapshot.md) creation:
 
 * [{#T}](#add-schedule).
@@ -50,7 +51,7 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
         created_at: "2022-10-13T14:37:44Z"
         name: disk-2
         type_id: network-hdd
-        zone_id: {{ region-id }}-b
+        zone_id: {{ region-id }}-a
         size: "21474836480"
         block_size: "4096"
         product_ids:
@@ -224,7 +225,7 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
         created_at: "2022-10-13T14:37:44Z"
         name: disk-2
         type_id: network-hdd
-        zone_id: {{ region-id }}-b
+        zone_id: {{ region-id }}-a
         size: "21474836480"
         block_size: "4096"
         product_ids:

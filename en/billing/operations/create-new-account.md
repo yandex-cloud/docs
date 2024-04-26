@@ -5,6 +5,7 @@ description: "Follow this guide to create a new billing account."
 
 # Creating a new billing account
 
+
 Cloud members can create one or more [billing accounts](../concepts/billing-account.md).
 
 {% list tabs group=customers %}

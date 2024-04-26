@@ -16,5 +16,4 @@ You cannot change the configuration of computing resources while preserving the 
 #### What's next {#what-is-next}
 
 * [{#T}](install-dependencies.md)
-* [{#T}](clear-kernel-state.md)
 * [{#T}](export.md)

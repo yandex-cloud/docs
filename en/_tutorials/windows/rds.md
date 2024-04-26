@@ -4,6 +4,7 @@
 {% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
 
 
+
 This scenario describes how to deploy Microsoft Windows Server Datacenter with pre-installed Remote Desktop Services in {{ yandex-cloud }}. The Microsoft Windows Server with Remote Desktop Services instance consists of a single server with Remote Desktop Services and Active Directory installed. Images are available with preset quotas for 5, 10, 25, 50, and 100 users. Select the version with the necessary quota. All examples are given for a server with a quota for five users.
 
 {% note warning %}
@@ -412,7 +413,7 @@ Add the server to the Terminal Server License Servers group in the Active Direct
    - PowerShell {#powershell}
 
       ```powershell
-      & secedit /export /cfg sec_conf_export.ini /areas user_rights
+      & secedit /export /cfg sec_conf_export.ini  /areas user_rights
       $secConfig = Get-Content sec_conf_export.ini
       $SID = 'S-1-5-32-555'
       $secConfig = $secConfig -replace '^SeRemoteInteractiveLogonRight .+', "`$0,*$SID"

@@ -30,7 +30,7 @@ A DNS record is added to one of the [private zones](dns-zone.md#private-zones) t
 
 When creating a VM group, the name specified in the [VM template](../../compute/concepts/instance-groups/instance-template.md) will apply to all the VMs in the group. As a result, the created records will have the same FQDNs but different IPs.
 
-To generate unique names, you can use [variables](../../compute/concepts/instance-groups/variables-in-the-template.md) in the template. For example, if you specify a record name like `web_server_{instance.index}`, you can create records with unique names of instances from a group. If you set a name like `web_server_{instance.zone_id}`, you can create records for all instances within a single availability zone.
+To generate unique names, you can use [variables](../../compute/concepts/instance-groups/variables-in-the-template.md) in the template. For example, if the record name is `web_server_{instance.index}`, you can create records with unique names of the group's VMs. If the name is `web_server_{instance.zone_id}`, you can create records common for all VMs in the same [availability zone](../../overview/concepts/geo-scope.md).
 
 #### See also {#see-also}
 

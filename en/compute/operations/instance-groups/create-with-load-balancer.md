@@ -1,5 +1,6 @@
 # Creating a fixed-size instance group with an L7 load balancer
 
+
 You can create a fixed-size [instance group](../../concepts/instance-groups/index.md) integrated with [{{ alb-full-name }}](../../../application-load-balancer/). An {{ alb-name }} [target group](../../../application-load-balancer/concepts/target-group.md) will be automatically created along with the [VM](../../concepts/vm.md) instance group. You can attach it to your [load balancer](../../../application-load-balancer/concepts/index.md) and distribute the load across the instances in the group at the application level. For more information, see [{#T}](../../concepts/instance-groups/balancers.md).
 
 {% include [alb-warning.md](../../../_includes/instance-groups/alb-warning.md) %}
@@ -59,10 +60,10 @@ To create an instance group with an L7 load balancer:
       * In **{{ ui-key.yacloud.compute.groups.create.field_deploy-startup-duration }}**, specify the period after which the VM instance will start receiving the load.
       * In the **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-deleting }}** field, specify how many instances can be stopped at the same time.
       * In the **{{ ui-key.yacloud.compute.groups.create.field_deploy-strategy }}** field, specify one of the [strategies](../../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy):
-         * `{{ ui-key.yacloud.compute.groups.create.value_strategy-proactive }}`: {{ ig-name }} selects which instances to stop when updating or reducing the group on its own.
-         * `{{ ui-key.yacloud.compute.groups.create.value_strategy-opportunistic }}`: {{ ig-name }} waits for the instances to stop on their own or by the user.
+         * `{{ ui-key.yacloud.compute.groups.create.value_strategy-proactive }}`: {{ ig-name }} itself chooses which instances to stop when updating or scaling down the group.
+         * `{{ ui-key.yacloud.compute.groups.create.value_strategy-opportunistic }}`: {{ ig-name }} waits for the instances to stop on their own or be stopped by the user.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_scale }}**:
-      * Select the `{{ ui-key.yacloud.compute.groups.create.value_scale-fixed }}`[scaling type](../../../compute/concepts/instance-groups/scale.md).
+      * Select the `{{ ui-key.yacloud.compute.groups.create.value_scale-fixed }}` [scaling type](../../../compute/concepts/instance-groups/scale.md).
       * Specify the instance group size.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_alb }}**, enable the **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** option.
    1. Specify the target group settings. For more information, see [{#T}](../../concepts/instance-groups/balancers.md#settings-alb).
@@ -201,47 +202,47 @@ To create an instance group with an L7 load balancer:
 
          For more information about the target group settings, see [{#T}](../../concepts/instance-groups/balancers.md#settings-alb).
 
-     Full code for the `specification.yaml` file:
+      Full code for the `specification.yaml` file:
 
-     ```yaml
-     name: first-fixed-group-with-l7-balancer
-     service_account_id: <service_account_ID>
-     description: "This instance group was created from YAML config."
-     instance_template:
-       platform_id: standard-v3
-       resources_spec:
-         memory: 2g
-         cores: 2
-       boot_disk_spec:
-         mode: READ_WRITE
-         disk_spec:
-           image_id: fdvk34al8k5n********
-           type_id: network-hdd
-           size: 32g
-       network_interface_specs:
-         - network_id: c64mknqgnd8a********
-           primary_v4_address_spec: {}
-           security_group_ids:
-             - enps0ar5s3ti********
-       placement_policy:
+      ```yaml
+      name: first-fixed-group-with-l7-balancer
+      service_account_id: <service_account_ID>
+      description: "This instance group was created from YAML config."
+      instance_template:
+        platform_id: standard-v3
+        resources_spec:
+          memory: 2g
+          cores: 2
+        boot_disk_spec:
+          mode: READ_WRITE
+          disk_spec:
+            image_id: fdvk34al8k5n********
+            type_id: network-hdd
+            size: 32g
+        network_interface_specs:
+          - network_id: c64mknqgnd8a********
+            primary_v4_address_spec: {}
+            security_group_ids:
+              - enps0ar5s3ti********
+        placement_policy:
           placement_group_id: rmppvhrgm77g********
-     deploy_policy:
-       max_unavailable: 1
-       max_expansion: 0
-     scale_policy:
+      deploy_policy:
+        max_unavailable: 1
+        max_expansion: 0
+      scale_policy:
         fixed_scale:
-         size: 3
-     allocation_policy:
-       zones:
-         - zone_id: {{ region-id }}-a
-           instance_tags_pool:
-           - first
-           - second
-           - third
-     application_load_balancer_spec:
-       target_group_spec:
-         name: first-target-group
-     ```
+          size: 3
+      allocation_policy:
+        zones:
+          - zone_id: {{ region-id }}-a
+            instance_tags_pool:
+            - first
+            - second
+            - third
+      application_load_balancer_spec:
+        target_group_spec:
+          name: first-target-group
+      ```
 
    1. Create an instance group in the default folder:
 
@@ -298,8 +299,8 @@ To create an instance group with an L7 load balancer:
           }
 
           network_interface {
-            network_id = "${yandex_vpc_network.network-1.id}"
-            subnet_ids = ["${yandex_vpc_subnet.subnet-1.id}"]
+            network_id         = "${yandex_vpc_network.network-1.id}"
+            subnet_ids         = ["${yandex_vpc_subnet.subnet-1.id}"]
             security_group_ids = ["<list_of_seciruty_group_IDs>"]
           }
 
@@ -346,7 +347,7 @@ To create an instance group with an L7 load balancer:
 
          {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-      * `yandex_resourcemanager_folder_iam_member`: Description of access rights to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
+      * `yandex_resourcemanager_folder_iam_member`: Description of access permissions to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
       * `yandex_compute_instance_group`: Description of the instance group:
          * General information about the instance group:
             * `name`: Name of the instance group.

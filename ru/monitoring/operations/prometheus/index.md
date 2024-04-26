@@ -3,7 +3,7 @@ title: "{{ managed-prometheus-full-name }}"
 description: "{{ managed-prometheus-full-name }} — система мониторинга, совместимая с {{ prometheus-name }}. С помощью нее можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных {{ prometheus-name }} и язык запросов {{ promql-name }}, что позволяет работать с уже существующими дашбордами в {{ grafana-name }}."
 ---
 
-# Обзор {{managed-prometheus-full-name}}
+# Обзор {{ managed-prometheus-full-name }}
 
 
 {{ managed-prometheus-full-name }} — система мониторинга, совместимая с [{{ prometheus-name }}](https://prometheus.io/docs/introduction/overview/). С помощью нее можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных {{ prometheus-name }} и язык запросов [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/), что позволяет работать с уже существующими дашбордами в [{{ grafana-name }}](https://grafana.com/grafana/).

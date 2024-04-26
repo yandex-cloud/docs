@@ -8,7 +8,6 @@
 
 Ресурсы проектов {{ ml-platform-name }}:
 
-* [Контрольные точки](checkpoints.md)
 * [Секреты](secrets.md)
 * [Docker-образы](docker.md)
 * [Датасеты](dataset.md)

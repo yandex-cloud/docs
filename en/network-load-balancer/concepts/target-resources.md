@@ -16,6 +16,7 @@ If you need to include a VM in multiple target groups, you can create a VM with 
 
 ## Load balancing {#distribution}
 
+
 Placing resources in different availability zones ensures fault tolerance of a service running a network load balancer. If resources are available in all availability zones and are ready to receive traffic, the traffic is distributed across all zones. If all targets in an availability zone fail, the traffic will no longer be routed to this zone and will be distributed across the remaining zones.
 
 The traffic is always distributed roughly equally between availability zones. If the number of target resources behind the network load balancer varies across the zones, the load on individual resources in each zone will also be different.

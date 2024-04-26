@@ -1,5 +1,6 @@
 # Creating a bastion host
 
+
 If you have ever had an interest in early modern fortifications, the word _bastion_ should sound familiar to you. A bastion is a structure projecting outward from the outer wall of a fortification. Just like early modern fortresses, computer networks require multi-layer protection against external attacks. Such network bastions are called bastion hosts, and they form part of a network perimeter.
 
 A bastion host is a virtual machine with a public IP address assigned to it to enable SSH access. With a bastion host configured, you get sort of a [jump server](https://en.wikipedia.org/wiki/Jump_server) allowing you to establish secure connections to virtual machines that have no public IP addresses. In this guide, you will learn how to deploy a bastion host and secure your access to remote virtual machines residing inside your virtual private cloud (VPC).

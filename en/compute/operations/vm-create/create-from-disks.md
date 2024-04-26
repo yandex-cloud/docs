@@ -5,6 +5,7 @@ description: "Use this guide to create a VM from a set of existing disks."
 
 # Creating a VM from a set of disks
 
+
 You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts/disk.md). Make sure the disks reside in one of the [availability zones](../../../overview/concepts/geo-scope.md) and are not added to other VMs.
 
 {% include [disk-auto-delete](../../_includes_service/disk-auto-delete.md) %}

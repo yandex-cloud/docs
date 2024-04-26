@@ -4,9 +4,9 @@ title: "Preemptible VMs in {{ compute-full-name }}"
 
 # Preemptible VMs
 
-*Preemptible VMs* are VM instances that may be forcibly stopped at any time. This can occur in two cases:
-* If 24 hours passed after the VM was started.
-* If there are insufficient resources to launch a regular VM in the same availability zone. Such an event is usually unlikely, but this may vary day to day.
+*Preemptible VMs* are VM instances that may be forcibly stopped at any time. This can happen in these two cases:
+* If 24 hours elapsed since the VM was started.
+* If there is a lack of resources to launch a regular VM in the same [availability zone](../../overview/concepts/geo-scope.md). Such an event is usually unlikely, but this may vary day to day.
 
 Preemptible VMs are available at a [lower price](../pricing.md#prices-instance-resources) than regular ones. However, they do not provide fault-tolerance.
 

@@ -59,6 +59,7 @@ Where:
 
 ### Pricing {#prices}
 
+
 #### Cost per unit of written data {#event}
 
 The first 2,000,000 units of written data per month are free of charge.

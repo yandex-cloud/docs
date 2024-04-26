@@ -5,7 +5,8 @@ description: "Follow this guide to configure a {{ yds-full-name }} source endpoi
 
 # Transferring data from a {{ yds-full-name }} source endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data from a {{ yds-name }} queue and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+
+{{ data-transfer-full-name }} enables you to migrate data from an {{ yds-name }} queue and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ yds-name }}](#prepare) database for the transfer.

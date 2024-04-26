@@ -63,15 +63,15 @@ In [streaming mode](stt/streaming.md), billing begins when a [message with recog
 
 {% endnote %}
 
-> **Examples:**
+> **Examples**:
 >
 > * One audio fragment that is 37 seconds long is billed as 45 seconds.
 >
->    **Explanation:** The audio is divided into two 15-second segments and one 7-second segment. The length of the last segment is rounded up to 15 seconds. Thus, we have three segments, 15 seconds each.
+>    **Explanation**: The audio is divided into two 15-second segments and one 7-second segment. The length of the last segment is rounded up to 15 seconds. Thus, we have three segments, 15 seconds each.
 >
 > * Two audio fragments that are 5 and 8 seconds long are billed as 30 seconds.
 >
->    **Explanation:** The length of each audio is rounded up to 15 seconds. Thus, we have two segments, 15 seconds each.
+>    **Explanation**: The length of each audio is rounded up to 15 seconds. Thus, we have two segments, 15 seconds each.
 
 #### Asynchronous recognition {#rules-stt-long}
 
@@ -81,7 +81,7 @@ The billing unit is a one-second segment of a two-channel audio file. Shorter se
 
 The minimum billable amount is 15 seconds for every pair of channels. Shorter audio fragments are billed as 15 seconds.
 
-**Examples of rounding audio length:**
+**Examples of rounding audio length**:
 
 | Length | Number of channels | Seconds charged |
 --- | --- | ---
@@ -107,9 +107,9 @@ The cost of an empty request to any type of speech recognition is equal to that 
 
 The cost of using {{ speechkit-short-name }} for speech synthesis using the API v1 with the following parameters:
 
-* **Number of characters sent per month:** 2,023
+* **Number of characters sent per month**: 2,023
 
-Cost calculation:
+The cost is calculated as follows:
 
 > 2,023 × (10.56 / 1,000,000) = $&nbsp;0.02
 >
@@ -126,7 +126,7 @@ The cost of using {{ speechkit-short-name }} for speech synthesis using the API�
 * **Number of requests sent**: 3
 * **Number of characters in requests**: 150, 300, 600
 
-Cost calculation:
+The cost is calculated as follows:
 
 > (1 + 2 + 3) × 0.001280 = $&nbsp;0.00768
 >
@@ -142,10 +142,10 @@ Where:
 
 The cost of using {{ speechkit-short-name }} for streaming speech recognition with the following parameters:
 
-* **Number of audio fragments:** 2
-* **Audio fragment duration:** 5 seconds, 37 seconds
+* **Number of audio fragments**: 2
+* **Audio fragment duration**: 5 seconds, 37 seconds
 
-Cost calculation:
+The cost is calculated as follows:
 
 > ((1 + 1) + (3 + 1)) × 0.001280 = $&nbsp;0.00768
 >
@@ -160,10 +160,10 @@ Where:
 
 The cost of using {{ speechkit-short-name }} for synchronous speech recognition with the following parameters:
 
-* **Number of audio fragments:** 2
-* **Audio fragment duration:** 5 seconds, 37 seconds
+* **Number of audio fragments**: 2
+* **Audio fragment duration**: 5 seconds, 37 seconds
 
-Cost calculation:
+The cost is calculated as follows:
 
 > (1 + 3) × 0.001280 = $&nbsp;0.00512
 >
@@ -178,11 +178,11 @@ Where:
 
 The cost of using {{ speechkit-short-name }} for asynchronous speech recognition with the following parameters:
 
-* **Number of audio fragments:** 4
-* **Audio fragment duration:** 5 seconds, 5 seconds, 15.5 seconds, 15.5 seconds
-* **Number of channels in audio fragments:** 1, 3, 2, 4
+* **Number of audio fragments**: 4
+* **Audio fragment duration**: 5 seconds, 5 seconds, 15.5 seconds, 15.5 seconds
+* **Number of channels in audio fragments**: 1, 3, 2, 4
 
-Cost calculation:
+The cost is calculated as follows:
 
 > (15 + 30 + 16 + 32) × 0.000128 = $&nbsp;0.011904
 >
@@ -199,11 +199,11 @@ Where:
 
 The cost of using {{ speechkit-short-name }} for asynchronous speech recognition in deferred mode with the following parameters:
 
-* **Number of audio fragments:** 3
-* **Audio fragment duration:** 2 seconds, 14 seconds, 19.5 seconds
-* **Number of channels in audio fragments:** 2, 3, 4
+* **Number of audio fragments**: 3
+* **Audio fragment duration**: 2 seconds, 14 seconds, 19.5 seconds
+* **Number of channels in audio fragments**: 2, 3, 4
 
-Cost calculation:
+The cost is calculated as follows:
 
 > (15 + 30 + 40) × 0.000032 = $&nbsp;0.00272
 >
@@ -217,6 +217,7 @@ Where:
 
 
 ## Pricing {#prices}
+
 
 ### Speech synthesis {#prices-tts}
 

@@ -77,6 +77,8 @@ items:
     href: pricing.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Release notes
+    href: release-notes.md
   - name: FAQ
     href: qa/index.md
 base: en/managed-gitlab

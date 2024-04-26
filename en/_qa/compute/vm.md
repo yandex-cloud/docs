@@ -32,11 +32,11 @@ You can also create a [NAT instance](../../vpc/tutorials/nat-instance) to use mu
 
 To increase [quotas](../../compute/concepts/limits.md#compute-quotas), submit a request on [this page]({{ link-console-quotas }}). Select the service (or services) and specify which quota values you need.
 
-After creating the request, the message appears in the [support section]({{ link-console-support }}) where you can track its status. In some cases, it may be necessary to get approval from the service to ensure the availability of resources and/or to increase your account balance.
+After creating the request, you will be able to view it and track its status in the [support section]({{ link-console-support }}). In some cases, it may be necessary to get approval from the service to ensure the availability of resources and/or to increase your account balance.
 
 #### Is nested virtualization supported? Can I host my VMs inside other VMs? {#nested-virtualization}
 
-Nested virtualization is not supported for security reasons. If you did not find a suitable public image for a VM, you can upload your own image and create a VM based on it. Follow this guide: [{#T}](../../compute/operations/vm-create/create-from-user-image.md).
+Nested virtualization is not supported for security reasons. If you did not find a suitable public image for a VM, you can upload your own image and create a VM based on it. See [{#T}](../../compute/operations/vm-create/create-from-user-image.md).
 
 #### Is data saved when I edit my VM parameters? {#data-saved-after-change-parameters}
 

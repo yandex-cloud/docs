@@ -6,6 +6,7 @@ description: "In this tutorial, you will learn in which {{ yandex-cloud }} servi
 # Integration with {{ yandex-cloud }} services
 
 
+
 You can use {{ certificate-manager-name }} certificates in the following {{ yandex-cloud }} services:
 * [{{ objstorage-full-name }}](#os).
 * [{{ alb-full-name }}](#alb).

@@ -4,6 +4,7 @@ title: "Dedicated hosts in {{ compute-full-name }}"
 
 # Dedicated hosts
 
+
 A _dedicated host_ is a physical server that is intended solely for hosting your VMs in {{ yandex-cloud }}. VMs on dedicated hosts have all features of regular VMs; additionally, they are physically isolated from other users' VMs. You can also distinguish your VMs used for different projects:
 
 ![Dedicated host](../../_assets/compute/dedicated-host.svg "Dedicated host")

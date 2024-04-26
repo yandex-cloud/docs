@@ -1,12 +1,15 @@
 # Adding a VM to a GPU cluster
 
+
 In [GPU clusters](../../concepts/gpus.md#gpu-clusters), you can only create [VMs](../../concepts/vm.md) running on the [{{ a100-epyc }}](../../concepts/vm-platforms.md#gpu-platforms) [platform](../../concepts/vm-platforms.md) with 8 GPUs. You will need to prepare a [disk](../../concepts/disk.md) [image](../../concepts/image.md) with drivers by following [this guide](../image-create/custom-image.md) and use it when creating your VM.
+
 
 {% note info %}
 
 GPU clusters are now only available in the `{{ region-id }}-a` [availability zone](../../../overview/concepts/geo-scope.md). You can only add a VM to a GPU cluster from the same availability zone.
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 
@@ -90,13 +93,13 @@ GPU clusters are now only available in the `{{ region-id }}-a` [availability zon
       * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
       * `yandex_vpc_subnet`: Description of the [subnet](../../../vpc/concepts/network.md#subnet) your VM will be created in.
 
-      {% note info %}
+         {% note info %}
 
-      If you already have suitable resources, such as a cloud network and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
+         If you already have suitable resources, such as a cloud network and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
 
-      {% endnote %}
+         {% endnote %}
 
-      For more information about the `yandex_compute_instance` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/compute_instance).
+         For more information about the `yandex_compute_instance` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/compute_instance).
    1. Under `metadata`, specify your username and path to the public SSH key. For more information, see [{#T}](../../../compute/concepts/vm-metadata.md).
    1. Create resources:
 

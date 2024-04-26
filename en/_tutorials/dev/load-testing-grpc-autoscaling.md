@@ -1,5 +1,6 @@
 # Deploying and load testing a gRPC service with scaling
 
+
 Use this tutorial to deploy an autoscalable [gRPC](https://grpc.io/docs/) service in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) using an [{{ alb-full-name }}](../../application-load-balancer/) [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to perform load testing of the service.
 
 To deploy the service and perform load testing:
@@ -223,10 +224,10 @@ This instruction will use a gRPC service as a test target.
    ```
 
    Where:
-   * `load_balancer` is the L7 load balancer ID.
-   * `backend_group` is the [backend group](../../application-load-balancer/concepts/backend-group.md) ID.
+   * `load_balancer`: L7 load balancer ID.
+   * `backend_group`: [Backend group](../../application-load-balancer/concepts/backend-group.md) ID.
 
-   You can find them in the {{ alb-name }} console or by running the commands:
+   You can find them in the {{ alb-name }} console or by running these commands:
 
    ```bash
    yc alb load-balancer list

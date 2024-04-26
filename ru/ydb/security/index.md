@@ -64,7 +64,7 @@ sourcePath: overlay/security/start_auth.md
 
 ### Примитивные роли {#primitive-roles}
 
-#### {{roles-auditor}} {#auditor}
+#### {{ roles-auditor }} {#auditor}
 
 {% include [roles-auditor](../../_includes/roles-auditor.md) %}
 

@@ -45,6 +45,7 @@ If there are multiple organizations registered in your account, you can [move](.
 
 ## Collaboration and business intelligence services {#collaboration}
 
+
 Collaboration services and business intelligence tools are available to all organizations and connect automatically when any organization user logs in for the first time.
 
 * [{{ tracker-full-name }}]({{ link-tracker }}) is a service to manage your organization's tasks and projects. {{ tracker-name }} will help you allocate resources, set tasks, and track task implementation.

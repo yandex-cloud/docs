@@ -5,6 +5,7 @@ description: "Follow this guide to move VMs behind a {{ network-load-balancer-fu
 
 # Moving a VM to a target group in a new availability zone
 
+
 {% note info %}
 
 {% include [zone-c-deprecation](../../_includes/vpc/zone-c-deprecation.md) %}

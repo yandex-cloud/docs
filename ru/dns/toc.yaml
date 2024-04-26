@@ -20,10 +20,12 @@ items:
             href: operations/zone-create-public.md
           - name: Изменить зону DNS
             href: operations/zone-update.md
-          - name: Удалить зону DNS
-            href: operations/zone-delete.md
+          - name: Настроить права доступа к зоне DNS
+            href: operations/zone-access.md
           - name: Посмотреть операции с зонами DNS
             href: operations/operation-logs.md
+          - name: Удалить зону DNS
+            href: operations/zone-delete.md
       - name: Получение информации о зоне DNS
         items:
           - name: Получить список зон DNS

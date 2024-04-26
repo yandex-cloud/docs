@@ -1,5 +1,6 @@
 # Creating triggers that invoke {{ sf-name }} functions to stop VM instances and send Telegram notifications
 
+
 In this tutorial, you will create a serverless infrastructure that will stop running virtual machines when [budget](../../billing/concepts/budget.md) thresholds are exceeded and send Telegram notifications to the user.
 
 The [budget trigger](../../functions/concepts/trigger/budget-trigger.md) will invoke the {{ sf-name }} [function](../../functions/concepts/function.md), and this function will stop the {{ compute-name }} [virtual machines](../../compute/concepts/vm.md#project) and send a message to the {{ message-queue-full-name }} [queue](../../message-queue/concepts/queue.md).
@@ -559,7 +560,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
    1. Save the API token obtained in the previous step to the `TELEGRAM_BOT_API_TOKEN` environment variable:
 
       ```bash
-      export TELEGRAM_BOT_API_TOKEN=<Telegram-API_token>
+      export TELEGRAM_BOT_API_TOKEN=<Telegram_API_token>
       ```
 
    1. Go to the `yc-telegram-bot-with-trigger-for-budget/steps/6-register-telegram-bot` directory and run the following command:

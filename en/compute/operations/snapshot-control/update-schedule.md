@@ -5,6 +5,7 @@ description: "Follow this guide to change a disk snapshot schedule in {{ compute
 
 # Changing a disk snapshot schedule
 
+
 ## Changing basic settings {#update-basic-parameters}
 
 To change basic settings of a [disk snapshot](../../concepts/snapshot.md) [schedule](../../concepts/snapshot-schedule.md):
@@ -124,10 +125,10 @@ To change basic settings of a [disk snapshot](../../concepts/snapshot.md) [sched
         snapshot_count = 1
 
         snapshot_spec {
-            description = "snapshot-description"
-            labels = {
-              snapshot-label = "my-snapshot-label-value"
-            }
+          description = "snapshot-description"
+          labels = {
+            snapshot-label = "my-snapshot-label-value"
+          }
         }
 
         disk_ids = ["test_disk_id", "another_test_disk_id"]
@@ -367,5 +368,5 @@ To edit a list of disks for which snapshots are scheduled:
 
 #### What's next {#what-is-next}
 
-* [{#T}](stop-and-start-schedule.md)
-* [{#T}](delete-schedule.md)
+* [{#T}](stop-and-start-schedule.md).
+* [{#T}](delete-schedule.md).

@@ -1,5 +1,6 @@
 # Assigning a domain name to a VM with a web server
 
+
 In this tutorial, you will assign your own domain name to a [VM](../../compute/concepts/vm.md) with a web server. You can use any domain name registrar to register your domain name.
 
 To create a VM, this tutorial uses a public [LAMP](/marketplace/products/yc/lamp) image with a pre-installed [Apache HTTP server](https://httpd.apache.org/). Using a public [LEMP](/marketplace/products/yc/lemp) image with an [NGINX](https://www.nginx.com/) web server is also possible.
@@ -249,7 +250,7 @@ Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.m
 
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the `yc-user` name.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `yc-user`.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) created earlier.
 
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -450,7 +451,7 @@ In your DNS zone, create a [type A resource record](../../dns/concepts/resource-
       * `<domain_name>`: Domain name that must end with a dot. For example, for the `example.com` domain, the correct value is `example.com.`
       * `<VM_IP_address>`: [Public IP address](../../vpc/concepts/address.md#public-addresses) of the web server.
 
-         You can find the IP address of the VM in the [management console]{{ link-console-main }} section on its page in the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** or use the `yc compute instance get <VM_name>` CLI command.
+         You can find the IP address of the VM in the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section on its page in the [management console]({{ link-console-main }}) or use the `yc compute instance get <VM_name>` CLI command.
 
    Result:
 
@@ -506,7 +507,7 @@ To create an infrastructure for assigning a domain name to a VM with a web serve
    - Ready-made archive
 
       1. Create a directory for the file with the infrastructure description.
-      1. Download the [archive](https://{{ s3-storage-host }}/doc-files/???) (??? KB).
+      1. Download the [archive](https://{{ s3-storage-host }}/doc-files/???) (2 KB).
       1. Unpack the archive to the directory. As a result, it should contain the `bind-domain-to-vm.tf` configuration file and the `bind-domain-to-vm.auto.tfvars` user data file.
 
    - Creating files manually

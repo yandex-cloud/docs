@@ -5,6 +5,7 @@ description: "Follow this guide to create and set up a NAT gateway."
 
 # Setting up a NAT gateway
 
+
 The minimum required [roles](../security/#roles-list) to create and configure a NAT gateway are `vpc.admin` and `vpc.gateways.user`.
 
 To create and set up a NAT gateway:

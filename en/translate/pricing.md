@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Pricing for {{ translate-name }}
+# {{ translate-name }} pricing
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
@@ -18,6 +18,7 @@ The cost for using Yandex Translate is calculated based on the total number of c
 {% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 
 ## Pricing {#prices}
+
 
 ### Text translation and language detection {#prices-translate-detect}
 

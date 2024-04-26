@@ -9,7 +9,7 @@ When the [storage](../concepts/storage.md) is more than 97% full, the host autom
 To avoid issues with writing to the database, use one of the following methods:
 
 
-* [Set up alerts in {{ monitoring-full-name }}](#set-alert) to monitor storage usage.
+* [Set up alerts in {{ monitoring-full-name }}](#set-alert) to monitor storage utilization.
 
 
 * [Manually get the cluster out of the read-only mode](#read-only-solutions) and free up the storage space by deleting some data.
@@ -35,12 +35,12 @@ To avoid issues with writing to the database, use one of the following methods:
 
       * `disk.free_bytes` label
 
-   1. **{{ ui-key.yacloud_monitoring.alert.title_conditions }}**: Set the `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` condition for the percentage of free disk space to trigger the alert:
+   1. **{{ ui-key.yacloud_monitoring.alert.title_conditions }}**: Set the `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` condition for free disk space utilization percentage to trigger the alert:
 
-      * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}` (a minimum metric value for the period)
-      * **{{ ui-key.yacloud_monitoring.alert.status_warn }}**: `90` (90% of storage size)
-      * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}**: `95` (95% of storage size)
-      * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**: Required period to update a metric value
+      * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}` (minimum metric value for the period).
+      * **{{ ui-key.yacloud_monitoring.alert.status_warn }}**: `90` (90% of storage size).
+      * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}**: `95` (95% of storage size).
+      * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**: Preferred period to update the metric value.
 
    1. Add the previously created notification channel.
 
@@ -156,7 +156,7 @@ To disable the read-only mode:
 
    To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New storage size in the `configSpec.resources.diskSize` parameter.
    * List of settings to update (in this case, `configSpec.resources.diskSize`) in the `updateMask` parameter.
 
@@ -180,16 +180,16 @@ To disable the read-only mode:
 
    1. Go to the folder page and select **{{ mpg-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
-   1. Under **Automatic increase of storage size**:
+   1. Under **{{ ui-key.yacloud.postgresql.cluster.section_disk-scaling }}**:
 
-      1. In the **Increase size** field, set the storage usage percentage to trigger storage increase. You can set the increase rules:
+      1. In the **{{ ui-key.yacloud.postgresql.cluster.field_thresholds }}** field, set the storage utilization percentage to trigger storage increase. You can configure the increase to take place:
 
-         * In the next maintenance window
-         * Immediately
+         * During the next [maintenance window](../concepts/maintenance.md#maintenance-window).
+         * Right away.
 
-         You can enable both rules, but the threshold for immediate increase should be higher than the threshold for increase during the maintenance window.
+         You can enable both rules, but the threshold for immediate increase should be higher than that for increase during the maintenance window.
 
-      1. In the **New storage size** field, specify the storage size to apply when any of the given conditions is met.
+      1. In the **{{ ui-key.yacloud.postgresql.cluster.field_diskSizeLimit }}** field, specify the maximum storage size that can be set if increasing storage size automatically.
 
    1. Click **Save changes**.
 
@@ -207,13 +207,13 @@ To disable the read-only mode:
       {{ yc-mdb-pg }} cluster update --help
       ```
 
-   1. Set a new storage size and conditions for increasing it in the update cluster command.
+   1. Set the maximum storage size and conditions for its increase in the update cluster command.
 
-      Make sure it is larger than the `disk_size` value in the cluster properties. The percentage for increasing the storage size immediately should be higher than that for increasing it during the next maintenance window.
+      Make sure the maximum storage size is greater than the `disk_size` value in the cluster properties. The percentage for immediate increase should be higher than that for increase during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
 
       ```bash
       {{ yc-mdb-pg }} cluster update <cluster_ID_or_name> \
-          --disk-size-autoscaling disk-size-limit=<new_storage_size_in_bytes>,`
+          --disk-size-autoscaling disk-size-limit=<max_storage_size_in_bytes>,`
                                  `planned-usage-threshold=<percentage_for_scheduled_increase>,`
                                  `emergency-usage-threshold=<percentage_for_immediate_increase>
       ```
@@ -228,4 +228,4 @@ To disable the read-only mode:
 
 {% include [storage-resize-maintenance](../../_includes/mdb/mpg/storage-resize-maintenance.md) %}
 
-{% include [storage-resize-reset](../../_includes/mdb/mpg/storage-resize-reset.md) %}
+{% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}

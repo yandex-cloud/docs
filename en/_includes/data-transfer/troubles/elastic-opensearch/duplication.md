@@ -13,7 +13,7 @@ Generation is performed as follows:
 1. The resulting string is converted by the [url.QueryEscape](https://pkg.go.dev/net/url#QueryEscape) function.
 1. If the length of the resulting string does not exceed 512 characters, it is used as the `_id`. If it is longer than 512 characters, it is hashed with [SHA-1](https://datatracker.ietf.org/doc/html/rfc3174) and the resulting hash is used as the `_id`.
 
-As a result, documents with the identical primary keys are assigned new IDs when the data is transferred again, and the document transferred last overwrites the existing one.
+As a result, documents with the same primary keys will receive the same ID when the data is transferred again, and the document transferred last will overwrite the existing one.
 
 **Solution:**
 

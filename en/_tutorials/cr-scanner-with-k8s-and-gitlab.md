@@ -1,5 +1,6 @@
 # Scanning {{ container-registry-name }} for vulnerabilities during continuous deployment of {{ managed-k8s-name }} applications using {{ GL }}
 
+
 You can scan [Docker images](../container-registry/concepts/docker-image.md) for [vulnerabilities](../container-registry/concepts/vulnerability-scanner.md) in [{{ container-registry-full-name }}](../container-registry/) when continuously deploying [{{ managed-k8s-full-name }}](../managed-kubernetes/) applications via {{ GL }}.
 
 To do this, use Continuous Integration (CI) to create a special script in {{ GL }} that will run after each commit:

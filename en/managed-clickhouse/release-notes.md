@@ -18,7 +18,7 @@ This section contains {{ mch-name }} release notes.
 * You can now create {{ ZK }} hosts with [non-replicated SSD storage](concepts/storage.md).
 * You can now set up {{ ZK }} hosts when restoring a cluster from a backup.
 * You can now set up hybrid storage when restoring a cluster from a backup. {{ tag-con }} {{ tag-api }}
-* You can now run SQL queries from your browser using a [built-in SQL editor](./operations/connect.md#inline-editor).
+* You can now run SQL queries from your browser using a [built-in SQL editor](./operations/connect/clients.md#inline-editor).
 * Added **Data parts**, **Databases**, **Inode usage**, **Rows of MergeTree tables**, and **Tables** charts on the [cluster monitoring](operations/monitoring.md#monitoring-cluster) page.
 * The **Failed insert queries per host**, **Failed queries per host**, and **Failed select queries per host** charts now show the percentage of failed queries rather than their number.
 * The **Max replication queue across tables** chart now shows the total replication queue of all tables and is called **Replication queue**.

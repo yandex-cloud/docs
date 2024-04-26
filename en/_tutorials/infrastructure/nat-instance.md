@@ -1,5 +1,6 @@
 # Routing through a NAT instance
 
+
 A _NAT instance_ is a special [VM](../../compute/concepts/vm.md) with pre-configured routing and [IP address](../../vpc/concepts/address.md) translation rules.
 
 {{ yandex-cloud }} allows you to configure internet connections for multiple VMs via a NAT instance using [static routing](../../vpc/concepts/static-routes.md). In this case, only one public IP address is used: the one assigned to the NAT instance.
@@ -24,7 +25,7 @@ You can also deploy the infrastructure for hosting a NAT instance via {{ TF }} u
 
 The cost of NAT instance support includes:
 * Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
@@ -51,7 +52,7 @@ To create a security group:
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the `my-vpc` network.
       1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
 
-         | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+         | Traffic<br>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
          | --- | --- | --- | --- | --- | --- |
          | Outgoing | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
          | Incoming | `ssh` | `22` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
@@ -92,7 +93,7 @@ To create a security group:
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `nat-instance-sg` group you created earlier.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-      * Paste the contents of the public SSH key file in the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection yourself.
+      * Paste the contents of the public SSH key file in the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair yourself.
 
          {% note info %}
 
@@ -121,7 +122,7 @@ To create a security group:
    1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
       * In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter a VM name for the NAT instance, such as `nat-instance`.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select the availability zone where the `public-subnet` is located.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select the availability zone where `public-subnet` is located.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [NAT instance](/marketplace/products/yc/nat-instance-ubuntu-18-04-lts) image.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select a subnet for the NAT instance, such as `public-subnet`.
@@ -216,7 +217,6 @@ You can also use the created route for other subnets in the same network, except
    When you type **yes**, the command may not be displayed in the terminal, but it will run anyway.
 
    {% endnote %}
-
 
 1. Make sure the test VM is connected to the internet via the public IP address of the NAT instance. Run this command:
 

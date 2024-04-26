@@ -5,6 +5,7 @@ description: "In this tutorial, you will learn about the implementation of a net
 
 # Implementation specifics
 
+
 ## Listener in all availability zones {#nlb-vip}
 
 The [traffic listener](listener.md) IP address will be externally announced as a `/32` prefix from all {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). If one of the availability zones goes down, the network equipment redirects incoming traffic to the listener's IP address in the running availability zones.
@@ -34,7 +35,7 @@ Traffic path from a client application to the web service:
 1. Traffic from the `1.2.3.4:30325` client application (any socket/port number can be used) is sent as a sequence of IP packets to the load balancer, and the `158.160.0.x:443` traffic listener receives it.
 1. The listener calculates the hash function with `5-tuple` addressing from the parameters of the received IP packet and directs the traffic to the `vm-a1` VM in the target group. At the same time, the virtual network retains the information that traffic bound for the `158.160.0.x:443` listener was sent to the `10.0.1.1:8443` resource.
 1. The `vm-a1` VM processes the received request and sends the response back to the client application using its IP `10.0.1.1`.
-1. The virtual network is aware that the traffic from the client application was previously received by the load balancer's listener and sent for processing to the `vm-a1` VM (see 2). This information enables a virtual network to change the sender's address and port (perform [Source NAT](https://en.wikipedia.org/wiki/Network_address_translation) for all outgoing packets from `10.0.1.1:8443` to `158.160.0.x:443`. The traffic is then sent to the destination address according to routing policies and reaches the client application.
+1. The virtual network is aware that the traffic from the client application was previously received by the load balancer's listener and sent for processing to the `vm-a1` VM (see 2). This information enables a virtual network to change the sender's address and port (perform [Source NAT](https://en.wikipedia.org/wiki/Network_address_translation)) for all outgoing packets from `10.0.1.1:8443` to `158.160.0.x:443`. The traffic is then sent to the destination address according to routing policies and reaches the client application.
 1. Traffic goes to the destination address according to routing policies and reaches the client application.
 
 {% note info %}

@@ -11,23 +11,23 @@ If you use an existing billing account to pay for {{ yandex-cloud }} service usa
 If you already have a user account, log in to the management console and create a [billing account](../../billing/concepts/billing-account.md):
 
 1. Make sure that your current phone number is linked to your user account.
-1. In the management console, go to [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}).
-1. On the **{{ ui-key.yacloud.billing.label_accounts }}** page, click **{{ ui-key.yacloud.billing.accounts.button_create }}**. Fill in your information:
+1. In the management console, go to [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}).
+1. On the **{{ ui-key.yacloud_billing.billing.title_accounts }}** page, click **{{ ui-key.yacloud_billing.billing.accounts.main-banner_button_create }}**. Fill in your information:
    * Select the payer country.
    * Specify the name of the billing account to be displayed in the list of billing accounts.
 1. If you see a list of available payers in the **{{ ui-key.yacloud_billing_account.cloud-billing-account.section_persons }}** section, you can select one of them or add a new one.
 1. To add a new payer, select **{{ ui-key.yacloud_billing_account.cloud-billing-account.section_person-type }}**: `{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.person-type-company }}`.
 
-   * Select a payment method: `{{ ui-key.yacloud.billing.account.overview.payment-type_label_card }}` or `{{ ui-key.yacloud.billing.account.overview.payment-type_label_invoice }}`. You can [change your payment method](../../billing/operations/change-payment-method.md) any time after creating a billing account.
+   * Select a payment method: `{{ ui-key.yacloud_billing.billing.account.overview.payment-type_label_card }}` or `{{ ui-key.yacloud_billing.billing.account.overview.payment-type_label_invoice }}`. You can [change your payment method](../../billing/operations/change-payment-method.md) any time after creating a billing account.
    * Enter the legal information of your organization.
 
       {% include [billing-note](../../_includes/marketplace/billing-note.md) %}
 
-   * If you select the `{{ ui-key.yacloud.billing.account.overview.payment-type_label_card }}` payment method, link your corporate bank card:
+   * If you select the `{{ ui-key.yacloud_billing.billing.account.overview.payment-type_label_card }}` payment method, link your corporate bank card:
 
       {% include [pin-card-data](../../_includes/billing/pin-card-data.md) %}
 
-      * Confirm the card is a corporate one and you are authorized to use it.
+      * Confirm that the card is a corporate one and you are authorized to use it.
 
       {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
@@ -35,4 +35,4 @@ If you already have a user account, log in to the management console and create 
 
    * Click **{{ ui-key.yacloud.common.create }}**.
 
-   If you select the `{{ ui-key.yacloud.billing.account.overview.payment-type_label_invoice }}` payment method, you will receive an email with further instructions at the email address specified in your user account. In this case, it may take up to three business days to activate your billing account.
+   If you select the `{{ ui-key.yacloud_billing.billing.account.overview.payment-type_label_invoice }}` payment method, further instructions will be emailed to you at the address specified in your user account. In this case, it may take up to three business days to activate your billing account.

@@ -41,12 +41,12 @@ The internal load balancer's listener is assigned a random IP address from the r
 
             {% note info %}
 
-            By default, the listener uses TCP. To use UDP, [submit a request to technical support]({{ link-console-support }}/create-ticket).
+            By default, the listener uses TCP. To use UDP, [submit a request to technical support]({{ link-console-support }}).
 
             {% endnote %}
 
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** where the listener will listen for incoming traffic. The acceptable values are from `1` to `32767`.
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** the load balancer will redirect traffic to. The acceptable values are from `1` to `32767`.
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** where the listener will listen for incoming traffic. The possible values are from `1` to `32,767`.
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** the load balancer will redirect traffic to. The possible values are from `1` to `32,767`.
       1. Click **{{ ui-key.yacloud.common.add }}**.
    1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** add a [target group](../concepts/target-resources.md):
       1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
@@ -58,7 +58,7 @@ The internal load balancer's listener is assigned a random IP address from the r
       1. (Optional) Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**. In the window that opens, specify the [resource health check](../concepts/health-check.md) settings:
          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}**.
          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_http }}` or `{{ ui-key.yacloud.common.label_tcp }}`. For health checks to use HTTP, specify the URL to check in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** field.
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** for health checks. The acceptable values are from `1` to `32767`.
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** for health checks. PThe possible values are from `1` to `32,767`.
          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}**: Response timeout in seconds.
          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}**: Health check interval in seconds.
          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}**: Number of successful checks required to consider a virtual machine ready to receive traffic.
@@ -107,8 +107,8 @@ The internal load balancer's listener is assigned a random IP address from the r
       * `--type`: Load balancer type.
       * `--listener`: Listener parameters:
          * `name`: Listener name.
-         * `port`: Port where the load balancer will accept incoming traffic. The acceptable values are from `1` to `32767`.
-         * `target-port`: Port to which the load balancer will redirect traffic. The acceptable values are from `1` to `32767`.
+         * `port`: Port where the load balancer will accept incoming traffic. The possible values are from `1` to `32,767`.
+         * `target-port`: Port to which the load balancer will redirect traffic. The possible values are from `1` to `32,767`.
          * `protocol`: Protocol the listener will use (`TCP` or `UDP`).
          * `internal-subnet-id`: Subnet ID.
          * `internal-ip-version`: Version of the internal IP address (`ipv4` or `ipv6`).

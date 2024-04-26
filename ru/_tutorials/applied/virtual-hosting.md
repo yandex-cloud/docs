@@ -35,7 +35,9 @@ description: "Из данной инструкции вы узнаете, как
 В стоимость поддержки виртуального хостинга входят:
 * Плата за постоянно запущенные [ВМ](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 * Плата за использование [публичного статического IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-
+* Плата за использование вычислительных ресурсов [L7-балансировщика](../../application-load-balancer/concepts/index.md) (см. [тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
+* Плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы используете [{{ dns-full-name }}](../../dns/) (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
+  
 ## Создайте облачную сеть {#create-network}
 
 Все ресурсы, созданные в сценарии, будут относиться к одной [облачной сети](../../vpc/concepts/network.md).
@@ -405,3 +407,4 @@ description: "Из данной инструкции вы узнаете, как
    1. [Удалите](../../application-load-balancer/operations/backend-group-delete.md) группы бэкендов `vhosting-bg-a` и `vhosting-bg-b`.
 1. [Удалите](../../compute/operations/instance-groups/delete.md) группы ВМ `vhosting-ig-a` и `vhosting-ig-b`.
 1. [Удалите](../../vpc/operations/address-delete.md) зарезервированный статический публичный адрес.
+1. Если вы использовали {{ dns-full-name }}, то [удалите](../../dns/operations/resource-record-delete.md) DNS-записи и [удалите](../../dns/operations/zone-delete.md) DNS-зону.

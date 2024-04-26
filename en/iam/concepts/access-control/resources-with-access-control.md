@@ -5,6 +5,7 @@ description: "In this tutorial, you will learn for which {{ yandex-cloud }} reso
 
 # List of resources that you can assign roles for
 
+
 Resources for which you can [assign](../../operations/roles/grant.md), [review](../../operations/roles/get-assigned-roles.md), and [revoke](../../operations/roles/revoke.md) roles:
 
 **{{ resmgr-name }}**

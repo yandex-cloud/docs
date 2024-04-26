@@ -60,9 +60,53 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
       * `environment-variable`: Name of the environment variable to store the secret.
       * `id`: Secret ID.
       * `version-id`: Secret version ID.
-      * `key`: Key of one of the key-value pairs contained in the secret version.
+      * `key`: Key of one of the key-value pairs in the secret version.
 
       You can transmit multiple secrets to a container. To do this, specify the `--secret` parameter as many times as needed.
+
+- {{ TF }} {#tf}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   1. Open the {{ TF }} configuration file and add the `secrets` section to the function description:
+
+      ```hcl
+      resource "yandex_serverless_container" "test-container" {
+        name               = "<container_name>"
+        memory             = <memory_size>
+        service_account_id = "<service_account_ID>"
+        secrets {
+          id                   = "<secret_ID>"
+          version_id           = "secret_version_ID>"
+          key                  = "<secret_1_key>"
+          environment_variable = "<environment_variable_1_name>"
+        }
+        secrets {
+          id                   = "<secret_ID>"
+          version_id           = "<secret_version_ID>"
+          key                  = "<secret_2_key>"
+          environment_variable = "<environment_variable_2_name>"
+        }
+        image {
+          url = "<Docker_image_URL>"
+        }
+      }
+      ```
+
+      Where:
+      * `secrets`: Section with secret settings. It contains the following parameters:
+         * `id`: Secret ID. This is a required parameter.
+         * `version_id`: Secret version ID. This is a required parameter.
+         * `key`: Key of one of the key-value pairs contained in the version of the secret to be stored in the environment variable. This is a required parameter.
+         * `environment_variable`: Name of the environment variable that will store the secret. This is a required parameter.
+
+      For more information about the `yandex_serverless_container` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/serverless_container).
+
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+   You can check the function update and its configuration in the [management console]({{ link-console-main }}).
 
 - API {#api}
 

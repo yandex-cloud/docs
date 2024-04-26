@@ -176,6 +176,7 @@ datasource:
 
 ## Install drivers to enable compatibility with GPUs {#gpu-drivers}
 
+
 If working with a VM requires a [GPU](../../concepts/gpus.md), [install NVIDIA drivers](../vm-operate/install-nvidia-drivers.md) while preparing the image.
 
 ## Create an image file {#create-image-file}

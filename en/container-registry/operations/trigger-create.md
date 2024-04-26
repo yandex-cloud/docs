@@ -5,4 +5,5 @@ description: "Create a trigger for {{ container-registry-name }} to invoke a fun
 
 # Creating a trigger for a registry
 
+
 {% include [container-registry](../../_includes/functions/cr-trigger-create.md) %}

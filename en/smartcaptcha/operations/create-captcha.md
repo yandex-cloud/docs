@@ -23,10 +23,11 @@ description: "Follow this guide to create a CAPTCHA."
 
       * **{{ ui-key.yacloud.smartcaptcha.label_main-challenge }}**: Type of the [main challenge](../concepts/tasks.md#main-task) to complete by the user.
       * **{{ ui-key.yacloud.smartcaptcha.label_additional-challenge }}**: Type of the [additional challenge](../concepts/tasks.md#additional-task) to complete by the user.
-      * **{{ ui-key.yacloud.smartcaptcha.label_complexity }}**: Complexity of the challenge provided to the user:
+      * **{{ ui-key.yacloud.smartcaptcha.label_complexity }}**: [Difficulty level](../concepts/tasks.md#task-difficulty) of the challenge the user will be offered:
          * `{{ ui-key.yacloud.smartcaptcha.value_complexity-easy }}`: Simple challenge.
-         * `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`: Intermediate complexity challenge.
+         * `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`: Medium level challenge.
          * `{{ ui-key.yacloud.smartcaptcha.value_complexity-hard }}`: Difficult challenge.
+         * `{{ ui-key.yacloud.smartcaptcha.value_complexity-force_hard }}`: Difficult challenge. The user is required to solve an additional challenge, regardless of the results of the main one.
 
          You can see a sample challenge in the preview window.
       * **{{ ui-key.yacloud.smartcaptcha.label_no-hostname-check }}**: Option disabling [domain validation](../concepts/domain-validation.md).

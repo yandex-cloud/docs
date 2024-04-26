@@ -1,5 +1,6 @@
 # Developing a Telegram bot for text recognition in images, audio synthesis and recognition
 
+
 In this tutorial, you will create a bot for Telegram that can:
 
 * [Synthesize speech](../../speechkit/tts/index.md) from a message text using the {{ speechkit-full-name }} [API v1](../../speechkit/tts/request.md).

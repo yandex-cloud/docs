@@ -1,5 +1,6 @@
 # Allocating instances across zones
 
+
 Allocation of instances across zones depends on the [group scaling type](../scale.md).
 
 ## In manually scaled groups {#fixed-scale}
@@ -20,7 +21,7 @@ If the group size is not a multiple of the number of zones, some zones will host
 
 ### Examples {#ex-fixed-scale}
 
-If you listed zones in the `[{{ region-id }}-d, {{ region-id }}-a]` order in the YAML specification, and the size of the group is 4, then after allocation you will have two instances in each zone:
+If you listed zones in the `[{{ region-id }}-d, {{ region-id }}-a]` order in the YAML specification, and the size of the group is 4, then after allocation you will have two VM instances in each zone:
 
 
 | Step | {{ region-id }}-d | {{ region-id }}-a | Left |
@@ -64,7 +65,7 @@ The number of instances in zones is determined by the [automatic scaling](../sca
 
 **The `min_zone_size` restriction is taken into account during allocation**
 
-Let's say `min_zone_size` is equal to 2, and the automatic scaling algorithm calculated that you need 0 instances in the zone. In this case, you'll have 2 instances in the zone, because that's the minimum allowed number of instances in the zone.
+Let's say `min_zone_size` is equal to 2, and the automatic scaling algorithm calculated that you need 0 instances in the zone. In this case, you will have 2 instances in the zone, because that is the minimum allowed number of instances in the zone.
 
 **The `min_zone_size` and `max_size` restrictions are taken into account during allocation**
 

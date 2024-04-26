@@ -52,13 +52,13 @@ Prepare the infrastructure:
       * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Bucket you created for output data.
       * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`.
       * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-sg`.
-      * **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** is enabled.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}**: Enabled.
 
    1. [Create a {{ mch-name }} cluster](../managed-clickhouse/operations/cluster-create.md) in any suitable [configuration](../managed-clickhouse/concepts/instance-types.md) with the following settings:
 
-      * With public access to cluster hosts
-      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
-      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`
+      * With public access to cluster hosts.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`.
 
 - {{ TF }} {#tf}
 
@@ -83,8 +83,8 @@ Prepare the infrastructure:
 
    1. Specify the following in the `s3-dataproc-ch.tf` file:
 
-      * `folder_id`: Cloud folder ID, the same as specified in the provider settings.
-      * `input-bucket`: Name of the bucket for input data.
+      * `folder_id`: Cloud folder ID, same as in the provider settings.
+      * `input-bucket`: Name of the bucket for input datа.
       * `output-bucket`: Name of the bucket for output data.
       * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. For more information, see [{#T}](../data-proc/operations/connect.md#data-proc-ssh).
       * `ch_password`: {{ CH }} user password.
@@ -226,7 +226,7 @@ Transfer the joined table from {{ objstorage-name }} to {{ CH }}:
 1. [Create a PySpark job](../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file (`s3a://<input_bucket_name>/scripts/parquet-to-ch.py`) in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field.
 1. Wait for the job to complete and make sure the joined table has been moved to the cluster:
 
-   1. [Connect to](../managed-clickhouse/operations/connect.md) the `db1` database of the {{ mch-name }} cluster as `user1`.
+   1. [Connect to](../managed-clickhouse/operations/connect/clients.md) the `db1` database of the {{ mch-name }} cluster as `user1`.
    1. Run the following query:
 
       ```sql

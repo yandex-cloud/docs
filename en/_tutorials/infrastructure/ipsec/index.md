@@ -1,5 +1,6 @@
 # Setting up network connectivity between cloud and remote resources with IPsec gateways
 
+
 Network connectivity between your corporate data center and cloud resources must be properly protected. To enable such protection, you can use secure connections.
 
 One of the technologies used for that is an internet connection based on IPsec gateways over the IPsec protocol. [IPsec](https://www.ietf.org/rfc/rfc2401.txt) is widely used on a variety of network devices, both physical and virtual ones.

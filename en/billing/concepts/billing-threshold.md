@@ -35,7 +35,7 @@ The billing threshold is enabled automatically after the [paid version is activa
 
 {% note info %}
 
-The billing threshold cannot be disabled and is valid until [the billing account is deleted](../operations/delete-account.md). To change the billing threshold, create a [new support request]({{ link-console-support }}/create-ticket).
+The billing threshold cannot be disabled and is valid until [the billing account is deleted](../operations/delete-account.md). To change the billing threshold, create a [new support request]({{ link-console-support }}).
 
 {% endnote %}
 

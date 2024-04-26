@@ -5,6 +5,7 @@ description: "In this guide, you will learn how to build a virtual hosting of se
 
 # Setting up virtual hosting
 
+
 This use case describes how to set up virtual hosting, i.e., how to use [{{ alb-full-name }}](../../application-load-balancer/) to host multiple websites with different domain names on the same [IP address](../../vpc/concepts/address.md).
 
 As examples, we will use three domain names: `site-a.com`, `site-b.com`, and `default.com`.
@@ -101,7 +102,7 @@ To create security groups:
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
          * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
          * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the VMs from the current group or the selected security group.
-         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule that allows a load balancer to check the health of VMs.
+         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health check VMs.
       1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all the rules from the table.
       1. Click **{{ ui-key.yacloud.common.save }}**.
    1. In the same way, create a security group for the VM named `vhosting-sg-vms` with the same `vhosting-network` network and the following rules:
@@ -165,7 +166,7 @@ To create an instance group for `site-a.com`:
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** named `vhosting-network` that you [created earlier](#create-network) and its [subnets](../../vpc/concepts/network.md#subnet).
    1. In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, select `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`.
    1. Select the [previously created](#create-security-groups) `vhosting-sg-vms` security group.
-   1. Enter the VM access information:
+   1. Specify the VM access data:
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_key }}** field, paste the contents of the public key file.
 
@@ -352,7 +353,7 @@ To configure the DNS for `site-a.com`:
 1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
 1. Copy the IP address of the load balancer that you created.
 1. On the site of your DNS hosting provider, go to the DNS settings.
-1. Create or edit the A record for `site-a.com` so that it links to the copied IP address:
+1. Create or edit the A record for `site-a.com` so that it points to the copied IP address:
 
    ```text
    site-a.com. A <L7_load_balancer_IP_address>
@@ -360,7 +361,7 @@ To configure the DNS for `site-a.com`:
 
    If you use {{ dns-full-name }}, follow this guide to configure the record:
 
-   {% cut "Guide on configuring DNS records for {{ dns-name }}" %}
+   {% cut "Configuring DNS records for {{ dns-name }}" %}
 
    {% list tabs group=instructions %}
 

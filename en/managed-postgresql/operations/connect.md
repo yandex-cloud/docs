@@ -26,7 +26,7 @@ Rule settings depend on the connection method you select:
 
 - Over the internet {#internet}
 
-   [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic on port 6432 from any IP. To do this, create the following rule for incoming traffic:
+   [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port 6432 from any IP. To do this, create the following rule for incoming traffic:
 
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `6432`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
@@ -35,7 +35,7 @@ Rule settings depend on the connection method you select:
 
 - From a VM in {{ yandex-cloud }} {#cloud}
 
-   1. [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic on port 6432 from the security group where the VM is located. To do this, create the following rule for incoming traffic in these groups:
+   1. [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port 6432 from the security group where the VM is located. To do this, create the following rule for incoming traffic in these groups:
 
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `6432`.
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
@@ -52,7 +52,7 @@ Rule settings depend on the connection method you select:
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
-         This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
+         This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to a VM over SSH.
 
       * For outgoing traffic:
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
@@ -297,8 +297,8 @@ You can only use [{{ google-looker }}](https://lookerstudio.google.com/overview)
 
 To connect to a {{ mpg-name }} cluster from a Docker container, add the following lines to the Dockerfile:
 
-{% list tabs group=connection %}
 
+{% list tabs group=connection %}
 
 - Connecting without SSL {#without-ssl}
 
@@ -308,7 +308,6 @@ To connect to a {{ mpg-name }} cluster from a Docker container, add the followin
    ```
 
    You can find an example of a connection from {{ serverless-containers-full-name }} in [this tutorial](../../serverless-containers/tutorials/pg-connect.md).
-
 
 - Connecting via SSL {#with-ssl}
 
@@ -323,7 +322,8 @@ To connect to a {{ mpg-name }} cluster from a Docker container, add the followin
 
 {% endlist %}
 
-## Sample connection strings {#connection-string}
+
+## Examples of connection strings {#connection-string}
 
 {% include [conn-strings-environment](../../_includes/mdb/mpg-conn-strings-env.md) %}
 

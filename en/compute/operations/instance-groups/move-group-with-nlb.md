@@ -5,6 +5,7 @@ description: "In this article, you will learn how to move a {{ compute-full-name
 
 # Moving an instance group with a network load balancer to a different availability zone
 
+
 {% note info %}
 
 {% include [zone-c-deprecation](../../../_includes/vpc/zone-c-deprecation.md) %}
@@ -60,12 +61,12 @@ To move an [instance group](../../concepts/instance-groups/index.md) with a [{{ 
                Result:
 
                ```text
-               +----------------------+---------------+-------------+----------+----------------+------------------------+----------+
-               |          ID          |     NAME      |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
-               +----------------------+---------------+-------------+----------+----------------+------------------------+----------+
+               +----------------------+---------------+-----------------+----------+----------------+------------------------+----------+
+               |          ID          |     NAME      |    REGION ID    |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
+               +----------------------+---------------+-----------------+----------+----------------+------------------------+----------+
                | enp2btm6uvdr******** | nlb-34aa5-db1 | {{ region-id }} | INTERNAL |              0 |                        |  ACTIVE  |
                | enpvg9o73hqh******** | test-balancer | {{ region-id }} | EXTERNAL |              0 |                        |  ACTIVE  |
-               +----------------------+---------------+-------------+----------+----------------+------------------------+----------+
+               +----------------------+---------------+-----------------+----------+----------------+------------------------+----------+
                ```
 
             1. Get the listener name:
@@ -118,9 +119,9 @@ To move an [instance group](../../concepts/instance-groups/index.md) with a [{{ 
                ```bash
                yc load-balancer network-load-balancer add-listener <balancer_name> \
                  --listener name=<listener_name>,`
-                           `port=<port>,`
-                           `target-port=<target_port>,`
-                           `internal-subnet-id=<subnet_ID>
+                            `port=<port>,`
+                            `target-port=<target_port>,`
+                            `internal-subnet-id=<subnet_ID>
                ```
 
                Where:
@@ -156,15 +157,15 @@ To move an [instance group](../../concepts/instance-groups/index.md) with a [{{ 
             1. Open the {{ TF }} file that contains the balancer configuration and modify the `name` and `subnet_id` filed values in the `listener` section:
 
                ```hcl
-               listener { 
-                 name = "<new_listener_name>" 
-                 port = 80 
-                 target_port = 81 
-                 protocol = "tcp" 
-                 internal_address_spec { 
-                   subnet_id = "<subnet_ID_in_target_availability_zone>" 
-                   ip_version = "ipv4" 
-                 } 
+               listener {
+                 name = "<new_listener_name>"
+                 port = 80
+                 target_port = 81
+                 protocol = "tcp"
+                 internal_address_spec {
+                   subnet_id = "<subnet_ID_in_target_availability_zone>"
+                   ip_version = "ipv4"
+                 }
                }
                ```
 

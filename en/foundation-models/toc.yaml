@@ -1,11 +1,18 @@
 title: Yandex Foundation Models
 href: index.yaml
 stage: preview
+label:
+  title: RU
+  description: The service is available in Russia only.
+  theme: unknown
+  when: region == "kz"
 items:
   - name: Getting started
     items:
       - name: Getting started with {{ yagpt-full-name }}
-        href: quickstart/quickstart-yandexgpt.md
+        href: quickstart/yandexgpt.md
+      - name: Getting started with {{ yandexart-name }}
+        href: quickstart/yandexart.md
   - name: Step-by-step guides
     items:
       - name: All guides
@@ -22,18 +29,30 @@ items:
             href: operations/yandexgpt/async-request.md
           - name: Disabling request logging
             href: operations/yandexgpt/disable-logging.md
+      - name: '{{ yandexart-name }}'
+        items:
+          - name: Generating an image
+            href: operations/yandexart/request.md
   - name: Concepts
     items:
       - name: About {{ foundation-models-full-name }}
         href: concepts/index.md
       - name: '{{ yagpt-full-name }}'
         items:
+          - name: '{{ yagpt-full-name }} overview'
+            href: concepts/yandexgpt/index.md
           - name: Models
             href: concepts/yandexgpt/models.md
           - name: Tokens
             href: concepts/yandexgpt/tokens.md
       - name: Embeddings
         href: concepts/embeddings.md
+      - name: '{{ yandexart-name }}'
+        items:
+          - name: '{{ yandexart-name }} overview'
+            href: concepts/yandexart/index.md
+          - name: Models
+            href: concepts/yandexart/models.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Tutorials
@@ -104,6 +123,26 @@ items:
                 href: embeddings/api-ref/grpc/index.md
               - name: EmbeddingsService
                 href: embeddings/api-ref/grpc/embedding_service.md
+      - name: '{{ yandexart-name }}'
+        items:
+          - name: REST
+            items:
+              - name: Overview
+                href: image-generation/api-ref/index.md
+              - name: ImageGenerationAsync
+                items:
+                  - name: Overview
+                    href: image-generation/api-ref/ImageGenerationAsync/index.md
+                  - name: generate
+                    href: image-generation/api-ref/ImageGenerationAsync/generate.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: image-generation/api-ref/grpc/index.md
+              - name: ImageGenerationAsyncService
+                href: image-generation/api-ref/grpc/image_generation_service.md
+              - name: OperationService
+                href: image-generation/api-ref/grpc/operation_service.md
       - name: API v1alpha (deprecated)
         items:
           - name: REST

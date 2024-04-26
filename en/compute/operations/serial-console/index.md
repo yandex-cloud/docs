@@ -1,5 +1,6 @@
 # Getting started with the serial console
 
+
 The serial console allows you to access a [VM](../../concepts/vm.md) regardless of the [network](../../../vpc/concepts/network.md#network) or OS status. For example, you can use the console to troubleshoot VM issues or when there are problems with SSH access.
 
 To use the serial console, you need the `сompute.admin` or `{{ roles-editor }}` [role](../../security/index.md).

@@ -1,5 +1,6 @@
 # Billing cycle for businesses and individual entrepreneurs
 
+
 The diagram shows the cycle of issuing and paying invoices for businesses and individual entrepreneurs, as well as suspending and blocking access to the use of resources.
 
 ![image](../../_assets/billing/billing-cycle-business-credit.svg)
@@ -8,7 +9,7 @@ The diagram shows the cycle of issuing and paying invoices for businesses and in
 
    {% include [billing-how-to-use-grant](../../_includes/billing-how-to-use-grant.md) %}
 
-1. If you get a grant, you use it. The grant amount is reduced progressively as you consume the resources of {{ yandex-cloud }} services.
+1. If you get a grant, you are free to use it. The grant amount is reduced progressively as you consume the resources of {{ yandex-cloud }} services.
 
 1. The grant amount and validity period are checked throughout the reporting period.
 

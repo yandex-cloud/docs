@@ -1,5 +1,6 @@
 # How to create a Telegram bot
 
+
 Serverless technologies enable you to create a Telegram bot that will respond to chat messages.
 
 
@@ -295,7 +296,7 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
 Talk to the bot:
 
 1. Open Telegram and search for the bot using the previously created `username` as its username.
-1. Send the message `/start` in the chat.
+1. Send a message saying `/start` to the chat.
 
    The bot must respond with:
 
@@ -314,7 +315,7 @@ Talk to the bot:
    I can say Hello and nothing more
    ```
 
-1. Send any text message in the chat. The bot must respond with an image and `Hello, <username>`.
+1. Send any text message to the chat. The bot must respond with an image and `Hello, <username>`.
 
 ## How to delete the resources you created {#clear-out}
 

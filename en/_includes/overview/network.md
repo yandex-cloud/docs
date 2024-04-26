@@ -2,7 +2,7 @@
 
 A {{ yandex-cloud }} network is formed of two large parts:
 
-* [Physical network](#underlay): Hardware network within [data centers](../../overview/concepts/geo-scope.md) and a transport network between the data centers and external network and internet [connection points](../../interconnect/concepts/pops.md). A physical network is often referred to as *underlay*.
+* [Physical network](#underlay): Hardware network within [data centers](../../overview/concepts/geo-scope.md), transport network between data centers and at the external network and internet [connection points](../../interconnect/concepts/pops.md). A physical network is often referred to as *underlay*.
 * [Virtual network](#overlay): Network that works on top of the physical network infrastructure. [Virtual Private Cloud (VPC)](../../vpc/concepts/) services provide users with:
   * IP connectivity between cloud resources.
   * Access to the internet for cloud resources.
@@ -12,6 +12,7 @@ A {{ yandex-cloud }} network is formed of two large parts:
 Below is an overview of the [physical network](#underlay) and [virtual network](#overlay) in {{ yandex-cloud }}. For more information about network components, see [Extra materials](#refs).
 
 ## Physical network in {{ yandex-cloud }} {#underlay}
+
 
 The {{ yandex-cloud }} physical network can be presented as follows:
 
@@ -37,6 +38,8 @@ Likewise, inbound traffic to the cloud resources is distributed more or less eve
 
 All availability zones have the same weight: they provide identical network connectivity, i.e., the same data exchange rate and throughput. Traffic delays from an external resource to the cloud resources in different availability zones may differ slightly.
 
+
+
 ## Virtual network in {{ yandex-cloud }} {#overlay}
 
 The {{ yandex-cloud }} virtual network includes a set of [{{ vpc-name }}](../../vpc/concepts/) network functions and allows users:
@@ -47,9 +50,11 @@ The {{ yandex-cloud }} virtual network includes a set of [{{ vpc-name }}](../../
 
 The virtual network in {{ yandex-cloud }} is built on selected components of the [Tungsten Fabric](https://github.com/tungstenfabric/opencontrails-docs) project (formerly known as OpenContrail).
 
+
 The {{ yandex-cloud }} virtual network can be presented as follows:
 
 ![VPC-Infra](../../_assets/overview/vpcinfra.svg)
+
 
 The {{ yandex-cloud }} virtual network architecture has the following key components:
 
@@ -81,9 +86,11 @@ Each network function within CloudGate runs on a separate group of service VMs i
 
 ## Types of networking {#flows}
 
+
 Data centers are directly associated with the {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md).
 
 The above diagram shows the main types of networking between VMs in the {{ yandex-cloud }} virtual network:
+
 
 #### Traffic between VMs in a single availability zone {#between-vm-in-one-az}
 
@@ -92,6 +99,7 @@ Traffic from `VM-A1` to `VM-A2` in availability zone A will be routed as follows
 1. `VM-A1` → `VRouter on Server-A1`.
 1. `Server-A1` → `Server-A2` (within availability zone A).
 1. `VRouter on Server-A2` → `VM-A2`.
+
 
 #### Traffic between VMs in different availability zones {#between-vm-in-different-az}
 
@@ -102,6 +110,7 @@ Traffic from `VM-A2` in availability zone A to `VM-B1` in availability zone B wi
 1. Boundary network equipment of the transport network of availability zone A → Boundary network equipment of the transport network of availability zone B.
 1. Availability zone B boundary network equipment → `Server-B1`.
 1. `VRouter on Server-B1` → `VM-B1`.
+
 
 #### VM traffic to the internet via a NAT gateway {#from-vm-to-internet-via-nat-gateway}
 
@@ -120,7 +129,9 @@ Traffic from `VM-A1` to the internet via the NAT gateway will be routed as follo
    1. The only transport used for networking is `Unicast`. There is no support for `Multicast`.
    1. Network protocols that require a single virtual IP address (VIP) across VMs, such as HSRP, VRRP, or GLBP, are not supported.
 
+
 ## Extra materials {#refs}
 
 * [Yandex Cloud network infrastructure overview (2019)](https://habr.com/ru/companies/yandex/articles/437816/)
 * [Yandex Cloud's Virtual Private Cloud overview (2020)](https://habr.com/ru/companies/yandex/articles/487694/)
+

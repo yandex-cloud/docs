@@ -1,5 +1,6 @@
 # Building a CI/CD pipeline in {{ GL }} using serverless products
 
+
 You can build a continuous integration / continuous delivery (CI/CD) pipeline using serverless products.
 
 As a project example, we will use a web app based on [Django](https://www.djangoproject.com/) that simulates a shopping cart in an online store. Product descriptions are stored in a database, while the product cart status is stored by the service in a user session. The Django app is deployed in a [{{ serverless-containers-name }} container](../../serverless-containers/concepts/container.md) with secrets securely delivered to the app using [{{ lockbox-name }}](../../lockbox/). [{{ api-gw-full-name }}](../../api-gateway/) accepts user requests and redirects them to the app's container.

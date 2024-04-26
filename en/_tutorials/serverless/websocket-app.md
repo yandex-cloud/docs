@@ -1,5 +1,6 @@
 # Creating an interactive serverless application using WebSocket
 
+
 In this tutorial, you will deploy an online game based on Node.js using WebSocket.
 
 The game's static resources will be stored in a {{ objstorage-name }} bucket and its data in {{ ydb-name }} databases. The game data will be transferred in {{ yds-name }} streams and handled by {{ sf-name }} functions. For messaging between the app components, we will use a {{ message-queue-name }} queue. Secrets are securely delivered to the app using {{ lockbox-name }}. An {{ api-gw-name }} API gateway will accept user requests and redirect them to {{ sf-name }} functions.
@@ -15,7 +16,7 @@ To create an online game:
 1. [Deploy the project](#app-deploy).
 1. [Create access keys for service accounts](#create-extra-sa-keys).
 1. [Create a new secret version and deploy your project again](#update-and-deploy).
-1. [Create a {{ api-gw-full-name }} API gateway](#apigw-create).
+1. [Create an {{ api-gw-full-name }} API gateway](#apigw-create).
 1. [Connect a domain to a Telegram bot](#api-gw-connect).
 1. [Test your application](#test-api).
 
@@ -227,7 +228,7 @@ Register your bot in Telegram and get a token.
 
 {% list tabs group=authentication %}
 
-- Federated accounts {#federated-account}
+- Federated account {#federated-account}
 
    Get an IAM token and save it to the `YC_IAM_TOKEN` variable:
 
@@ -704,7 +705,7 @@ The following service accounts were created when deploying the project:
    npm run deploy
    ```
 
-## Create a {{ api-gw-name }} API gateway {#apigw-create}
+## Create an {{ api-gw-name }} API gateway {#apigw-create}
 
 The following service accounts were created when deploying the project:
 * `apigw-s3-viewer` with the `storage.viewer` role to read objects from the {{ objstorage-name }} bucket.

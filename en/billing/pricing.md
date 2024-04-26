@@ -4,7 +4,9 @@ editable: false
 
 # {{ yandex-cloud }} pricing policy
 
+
 In {{ yandex-cloud }}, you can use resources of both billable and non-billable services. The fee for using {{ billing-name }} is included in the service price and is not charged separately.
+
 
 ## Non-billable services {#free}
 
@@ -21,8 +23,10 @@ The following services are always free of charge:
 * {{ preview-stage }} [{{ maf-full-name }}](../managed-airflow/pricing.md)
 * {{ preview-stage }} [{{ metadata-hub-name }}](../metadata-hub/pricing.md)
 * {{ preview-stage }} [{{ postbox-name }}](../postbox/pricing.md)
+* {{ preview-stage }} [{{ sws-full-name }}](../smartwebsecurity/pricing.md)
+* {{ preview-stage }} [{{ speechsense-full-name }}](../speechsense/pricing.md)
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)
-* {{ preview-stage }}[{{ websql-full-name }}](../websql/pricing.md)
+* {{ preview-stage }} [{{ websql-full-name }}](../websql/pricing.md)
 * [{{ wiki-full-name }}](../wiki/pricing.md)
 
 Services at the [Preview](../overview/concepts/launch-stages.md) stage are labeled as {{ preview-stage }}.

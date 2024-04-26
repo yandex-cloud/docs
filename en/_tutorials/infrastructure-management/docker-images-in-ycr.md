@@ -1,5 +1,6 @@
 # Storing {{ mgl-full-name }} Docker images in {{ container-registry-full-name }}
 
+
 [{{ container-registry-name }}](https://docs.gitlab.com/ee/user/packages/container_registry/) is integrated in {{ GL }}. It enables you to store Docker images for each of your projects in {{ GL }}.
 
 You can use [{{ container-registry-full-name }}](../../container-registry/index.yaml) instead of {{ GL }} {{ container-registry-name }}. This service enables you to store Docker images in the cloud or distribute them across {{ yandex-cloud }} managed services, for example, [{{ managed-k8s-full-name }}](../../managed-kubernetes/index.yaml) or [{{ mgl-full-name }}](../../managed-gitlab/index.yaml).

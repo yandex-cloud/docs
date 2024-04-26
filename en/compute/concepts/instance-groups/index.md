@@ -1,5 +1,6 @@
 # {{ ig-name }} concepts
 
+
 {% note info %}
 
 {% include [zone-c-deprecation](../../../_includes/vpc/zone-c-deprecation.md) %}

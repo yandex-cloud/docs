@@ -4,10 +4,10 @@ You are charged based on the test runtime.
 
 | Service                            | Cost per hour, without VAT |
 | -----------------------------------| ---------------------------|
-| Running a test, up to 50 hours     | Free of charge             |
-| Running a test, 50 hours or longer | $14.40                     |
+| Tests, up to 50 hours     | Free of charge             |
+| Tests, 50 hours or longer | $14.40                     |
 
-> For example, running a 60-hour test would cost:
+> For example, a total of 60 hours of tests will cost:
 >
 > (50 * 0) + (10 * 14.40) = $144
 
@@ -20,6 +20,6 @@ You are charged based on the runtime of tests whose results will be stored.
 | Storing results, up to 600 hours of test runtime   | Free of charge              |
 | Storing results, 600 hours of test runtime or more | $1.44                       |
 
-> For example, storing the results of a 640-hour test for one month would cost:
+> For example, storing the results of a total of 640 hours of tests for one month will cost:
 >
 > (600 * 0) + (40 * 1.44) = $57.6

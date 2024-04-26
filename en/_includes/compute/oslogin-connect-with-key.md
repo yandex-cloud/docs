@@ -2,7 +2,7 @@ You can use a custom SSH key to connect to VMs with OS Login access enabled. To 
 
 1. [Enable](../../organization/operations/os-login-access.md) access via OS Login at the organization level.
 
-   To connect to a VM via OS Login using an SSH key over the YC CLI, enable **Access via OS Login using SSH keys**.
+   To connect to a VM via OS Login using an SSH key over the YC CLI, enable **{{ ui-key.yacloud_org.form.oslogin-settings.title_user-ssh-key-settings }}**.
 
 1. Get a list of all VMs in the default folder:
 

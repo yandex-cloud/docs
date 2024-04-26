@@ -81,7 +81,7 @@ All actions with {{ compute-name }} resources are logged as a list of operations
        folder_id: b1g86q4m5vej********
        created_at: "2023-10-02T13:19:45Z"
        name: rewq
-       zone_id: {{ region-id }}-b
+       zone_id: {{ region-id }}-a
        platform_id: standard-v3
        resources:
          memory: "2147483648"

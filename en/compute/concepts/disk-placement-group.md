@@ -1,5 +1,6 @@
 # Non-replicated disk placement groups
 
+
 When creating [non-replicated disks](disk.md#disks_types), resources are automatically distributed across the {{ yandex-cloud }} physical infrastructure. Your disks might get hosted on the same physical media. To make multiple disk failures less likely, you can combine your disks into _placement groups_.
 
 Grouping non-replicated disks reduces the risk of their simultaneous failure. However, the placement requirements are more demanding, so a physical resource shortage is more likely for non-replicated disks in a placement group rather than for the same number of ungrouped disks. You might fail to create a non-replicated disk in a placement group, but succeed to create one outside the group without any issue.

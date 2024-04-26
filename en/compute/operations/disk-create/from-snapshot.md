@@ -29,7 +29,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
    1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to place the disk in.
    1. Set the disk parameters: [disk type](../../concepts/disk.md#disks_types), [block size](../../concepts/disk.md#maximum-disk-size), and [disk size](../../concepts/disk.md#maximum-disk-size).
    1. In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` and then select the snapshot you need from the list below. Use the filter to find the snapshot.
-   1. If required, select a [schedule](../../concepts/snapshot-schedule.md) for automatic snapshot creation, or set up a new schedule. For more information about setting up schedules, see the [guide](../snapshot-control/create-schedule.md).
+   1. If required, select a [schedule](../../concepts/snapshot-schedule.md) for automatic snapshot creation, or set up a new schedule. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
 
       {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
@@ -123,6 +123,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
 {% endlist %}
 
 Once created, the disk will get the `CREATING` status. Wait until the disk status changes to `READY` before using it.
+
 
 #### See also {#see-also}
 

@@ -57,7 +57,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       No shard groups are needed for [classic sharding](#shard-example).
 
    
-  1. If you are using security groups, [configure them](../../managed-clickhouse/operations/connect.md#configuring-security-groups) so that you can connect to the cluster from the internet.
+  1. If using security groups, [configure them](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) to be able to connect to the cluster from the internet.
 
 
 - {{ TF }} {#tf}
@@ -98,7 +98,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Set up clickhouse-client {#deploy-clickhouse-client}
 
-[Install and configure clickhouse-client](../../managed-clickhouse/operations/connect.md) to connect to your database.
+[Install and configure clickhouse-client](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to connect to your database.
 
 ## Create tables with data {#create-tables}
 
@@ -116,7 +116,7 @@ In this example, a distributed table that we create based on `hits_v1` uses all 
 
 Before operating a distributed table:
 
-1. [Connect](../../managed-clickhouse/operations/connect.md) to the `tutorial` database.
+1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
 1. Create a [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table named `hits_v1`, which will run on all cluster hosts:
 
    ```sql
@@ -130,7 +130,7 @@ Before operating a distributed table:
 
 To create the `hits_v1_distributed` distributed table in the cluster:
 
-1. [Connect](../../managed-clickhouse/operations/connect.md) to the `tutorial` database.
+1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
 1. Create a table on the [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) engine:
 
    ```sql
@@ -157,7 +157,7 @@ In this example:
 
 Before operating a distributed table:
 
-1. [Connect](../../managed-clickhouse/operations/connect.md) to the `tutorial` database.
+1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
 1. Create a [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table named `hits_v1`, which will use all of the hosts of the `sgroup` shard group in the cluster:
 
    ```sql
@@ -171,7 +171,7 @@ Before operating a distributed table:
 
 To create the `tutorial.hits_v1_distributed` distributed table in the cluster:
 
-1. [Connect](../../managed-clickhouse/operations/connect.md) to the `tutorial` database.
+1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
 1. Create a table on the [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) engine:
 
    ```sql
@@ -191,7 +191,7 @@ In this example:
 
 Before operating a distributed table:
 
-1. [Connect](../../managed-clickhouse/operations/connect.md) to the `tutorial` database.
+1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
 1. Create a [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) table named `hits_v1`, which will use all of the hosts of the `sgroup_data` shard group in the cluster:
 
    ```sql
@@ -207,7 +207,7 @@ Before operating a distributed table:
 
 To create the `tutorial.hits_v1_distributed` distributed table in the cluster:
 
-1. [Connect](../../managed-clickhouse/operations/connect.md) to the `tutorial` database.
+1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
 1. Create a table on the [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) engine:
 
    ```sql
@@ -219,7 +219,7 @@ To create the `tutorial.hits_v1_distributed` distributed table in the cluster:
 
 ## Test the tables {#sharding-test}
 
-To check the health of the created distributed table named `tutorial.hits_v1_distributed`:
+To test your new distributed table named `tutorial.hits_v1_distributed`:
 
 1. Load the `hits_v1` test dataset:
 
@@ -272,7 +272,7 @@ Delete the resources you no longer need to avoid paying for them:
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the configuration file (`simple-sharding.tf`, `sharding-with-group.tf`, or `advanced-sharding-with-groups.tf`).
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

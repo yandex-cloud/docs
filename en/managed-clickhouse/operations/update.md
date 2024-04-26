@@ -59,7 +59,7 @@ When changing the host class:
 
 * Your single-host cluster will be unavailable for a few minutes with database connections terminated.
 * In a multi-host cluster, hosts will be stopped and updated one by one. When stopped, a host will be unavailable for a few minutes.
-* Using a [special FQDN](./connect.md#fqdn) does not guarantee a stable database connection: user sessions may be terminated.
+* Using a [special FQDN](connect/fqdn.md#auto) does not guarantee a stable database connection: user sessions may be terminated.
 
 We recommend changing the host class only when the cluster has no active workload.
 
@@ -655,7 +655,7 @@ Changing some [cluster-level settings](../concepts/settings-list.md#dbms-cluster
    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * Settings for access from other  services and access to SQL queries from the  management console in the `configSpec.access` parameter.
+   * Settings for access from other services  and access to SQL queries from the management console  in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
@@ -795,7 +795,7 @@ Changing some [cluster-level settings](../concepts/settings-list.md#dbms-cluster
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 

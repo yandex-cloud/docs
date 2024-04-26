@@ -10,7 +10,6 @@ description: "In this article, you will learn how to work with the {{ billing-na
 
 * [{#T}](spell-out-bill.md)
 * [{#T}](download-reporting-docs.md)
-* [{#T}](edo.md)
 
 
 ## Managing a billing account {#account}

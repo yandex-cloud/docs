@@ -1,4 +1,4 @@
-## Setting up a direct trunk connection {#trunk-create}
+## Setting up a direct trunk {#trunk-create}
 
 This guide explains how to set up a direct trunk.
 
@@ -20,7 +20,7 @@ This guide explains how to set up a direct trunk.
 
 ### Contacting tech support to set up a new trunk {#trunk-ticket}
 
-Create a [new support request]({{ link-console-support }}/create-ticket) to reserve a port on the {{ yandex-cloud }} equipment and set up a trunk.
+Create a [new support request]({{ link-console-support }}) to reserve a port on the {{ yandex-cloud }} equipment and set up a trunk.
 
 {% note warning %}
 
@@ -117,9 +117,9 @@ Request and set up a cross connect between your equipment and {{ yandex-cloud }}
 
 {% note alert %}
 
-A cross-connect to a port of the {{ yandex-cloud }} equipment is enabled **only by the technical staff at the point of presence**, without engaging the {{ yandex-cloud }} technical specialists.
+A cross connection to a {{ yandex-cloud }} equipment port can only be enabled **by the maintenance crew at the point of presence**, without engaging the {{ yandex-cloud }} engineers.
 
-If required, the technical staff at the point of presence may request additional approval from {{ yandex-cloud }} duty engineers for cross-connecting the client's equipment to the {{ yandex-cloud }} equipment port.
+If required, the maintenance crew at the point of presence may request additional approval from {{ yandex-cloud }} duty engineers for cross-connecting the client equipment to the {{ yandex-cloud }} equipment port.
 
 {% endnote %}
 

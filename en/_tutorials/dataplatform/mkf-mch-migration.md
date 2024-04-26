@@ -33,7 +33,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. If you are using security groups, configure them to enable connecting to the clusters from the internet:
 
       * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
-      * [{{ mch-name }}](../../managed-clickhouse/operations/connect.md#configuring-security-groups).
+      * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
 
 - {{ TF }} {#tf}
@@ -117,7 +117,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
-      Check that you can use it to [connect to the {{ mch-name }} cluster over SSL](../../managed-clickhouse/operations/connect.md#connection-string).
+      Check that you can use it to [connect to the {{ mch-name }} cluster over SSL](../../managed-clickhouse/operations/connect/clients.md).
 
    * [jq](https://stedolan.github.io/jq/) for JSON file stream processing.
 
@@ -222,7 +222,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
       * (Optional): **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**: `JSON`
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**: `JSON`.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
             Create and upload the `json_schema.json` file in JSON format:
@@ -326,7 +326,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
 1. Make sure the data from the source {{ mkf-name }} cluster has been moved to the {{ mch-name }} database:
 
-   1. [Connect to the cluster](../../managed-clickhouse/operations/connect.md) using `clickhouse-client`:
+   1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`:
 
    1. Run the following query:
 
@@ -350,7 +350,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
 1. Make sure that the new values are now in the {{ mch-name }} database:
 
-   1. [Connect to the cluster](../../managed-clickhouse/operations/connect.md) using `clickhouse-client`:
+   1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`:
 
    1. Run the following query:
 

@@ -83,7 +83,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-short-name }}.
       1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
-      1. If you are using security groups in your {{ mch-name }} cluster, make sure they are [set up correctly](../../managed-clickhouse/operations/connect.md#configuring-security-groups) and allow connecting to the cluster.
+      1. If using security groups in your {{ mch-name }} cluster, make sure they are [configured correctly](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) and allow connecting to it.
 
    - {{ TF }} {#tf}
 
@@ -110,7 +110,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. In the `ya-direct-to-mch.tf` file, specify the following variables:
 
-         * `folder_id`: Cloud folder ID, the same one specified in the provider settings.
+         * `folder_id`: Cloud folder ID, same as in the provider settings.
          * `app_token`: Application debug token.
          * `bucket_name`: {{ objstorage-short-name }} bucket name. The name must be unique within the service.
          * `ch_password`: {{ mch-name }} cluster admin user password.
@@ -183,7 +183,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. In the `ya-direct-to-mch.tf` file, specify the following variables:
 
          * `path_to_zip_cf`: Path to the ZIP archive file with the function code.
-         * `create_function`: Set the value to `1` to enable function creation.
+         * `create_function`: Set to `1` for creating a function.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -213,7 +213,7 @@ You will see a Parquet file in the bucket.
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public part of the service account static key. You may [copy it from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Private part of the service account static key. You may [copy it from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}**: `https://storage.yandexcloud.net`.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}**: `ru-central1`.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}**: `{{ region-id }}`.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.parquet.title }}`.
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.schema.title }}**: `{"Id": "int64", "Name": "string"}`.
    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}**: Name of the Parquet file in the bucket, e.g., `ac05e4fe818e463f88a8a299d290734d.snappy.parquet`.
@@ -239,7 +239,7 @@ You will see a Parquet file in the bucket.
       1. In the `ya-direct-to-mch.tf` file, specify the following variables:
 
          * `source_endpoint_id`: Source endpoint ID.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -259,7 +259,7 @@ You will see a Parquet file in the bucket.
 
 1. Make sure the {{ objstorage-name }} source data was transferred to the {{ mch-name }} database:
 
-   1. [Connect to the cluster](../../managed-clickhouse/operations/connect.md) using `clickhouse-client`:
+   1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`:
 
    1. Run the following query:
 
@@ -269,7 +269,7 @@ You will see a Parquet file in the bucket.
 
       Where `ac05e4fe818e463f88a8a299d290734d` is the Parquet file name.
 
-      {% cut "Sample response" %}
+      {% cut "Response example" %}
 
       ```sql
       ┌─────Id─┬─Name────────────────────────┬─__file_name─────────────────────────────────────┬─__row_index─┐
@@ -303,7 +303,7 @@ Delete the other resources depending on how they were created:
 
 - {{ TF }} {#tf}
 
-   1. [Delete objects from the bucket](../../storage/operations/objects/delete.md).
+   1. [Delete the objects from the bucket](../../storage/operations/objects/delete.md).
    1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `ya-direct-to-mch.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:

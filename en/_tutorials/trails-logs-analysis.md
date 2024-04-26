@@ -1,5 +1,6 @@
 # Uploading audit logs to {{ mch-name }} and data visualization in {{ datalens-name }}
 
+
 Upload management event [audit logs](../audit-trails/concepts/format.md) from a folder to [{{ mch-full-name }}](../managed-clickhouse/) and analyze the resource use in [{{ datalens-full-name }}]({{ link-datalens-main }}).
 1. [Prepare your cloud](#before-begin).
 1. [Prepare the environment](#environment-preparing).

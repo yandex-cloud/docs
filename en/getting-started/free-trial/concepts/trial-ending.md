@@ -1,6 +1,7 @@
 # End of trial period
 
 
+
 Your trial period will end automatically depending on the payment method you selected when [creating your billing account for businesses](../../../billing/quickstart/index.md).
 
 | Payment method | Terms of termination |

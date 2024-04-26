@@ -1,5 +1,6 @@
 # Loading data from {{ objstorage-full-name }} to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
+
 You can migrate data from {{ objstorage-name }} to the {{ mgp-name }} table using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
@@ -23,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`.
 
       
-      1. If you are using security groups in a cluster, make sure they are [configured correctly](../../managed-greenplum/operations/connect.md#configuring-security-groups) and allow connecting to it.
+      1. If using security groups in your cluster, make sure they are [configured correctly](../../managed-greenplum/operations/connect.md#configuring-security-groups) and allow connecting to it.
 
 
       1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md).
@@ -125,8 +126,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}**: `table1`.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` and specify field names and data types:
 
-      * `Id`: `Int64`.
-      * `Name`: `UTF8`.
+      * `Id`: `Int64`
+      * `Name`: `UTF8`
 
    Leave the default values for the other parameters.
 
@@ -186,7 +187,7 @@ Check the transfer performance by testing the copy and replication processes.
    SELECT * FROM public.table1;
    ```
 
-   {% cut "Sample response" %}
+   {% cut "Response example" %}
 
    ```sql
      __file_name  | __row_index | Id |  Name
@@ -214,7 +215,7 @@ Check the transfer performance by testing the copy and replication processes.
       SELECT * FROM public.table1;
       ```
 
-      {% cut "Sample response" %}
+      {% cut "Response example" %}
 
       ```sql
         __file_name  | __row_index | Id |  Name

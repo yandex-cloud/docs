@@ -1,5 +1,6 @@
 # Setting up PT Application Firewall
 
+
 [PT Application Firewall](https://www.ptsecurity.com/ww-en/products/af/) is a [web application firewall](https://en.wikipedia.org/wiki/Web_application_firewall) that ensures continuous protection for web applications, users, and network infrastructure while helping meet security standards.
 
 In this tutorial, you will deploy a test infrastructure with PT Application Firewall for web applications and a test [damn vulnerable web application (DVWA)](https://github.com/digininja/DVWA#damn-vulnerable-web-application) and then test its features for protection against standard web attacks.
@@ -45,7 +46,7 @@ The infrastructure support costs include:
 
    {% note info %}
 
-   A public and a private IP addresses are assigned to the VM at creation. Write them down, as you will need them to access the VM and set up the firewall.
+   A public and a private IP addresses are assigned to the VM when you create it. Write them down, as you will need them to access the VM and set up the firewall.
 
    {% endnote %}
 
@@ -108,7 +109,7 @@ The infrastructure support costs include:
 
    {% note info %}
 
-   A public and a private IP addresses are assigned to the VM at creation. It is recommended to [make the public IP address static](../../vpc/operations/set-static-ip.md).
+   A public and a private IP addresses are assigned to the VM when you create it. It is recommended to [make the public IP address static](../../vpc/operations/set-static-ip.md).
 
    {% endnote %}
 

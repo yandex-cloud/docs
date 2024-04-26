@@ -4,7 +4,8 @@ description: "In this tutorial, you will learn how to set up a {{ ydb-name }} ta
 ---
 # Transferring data to a {{ ydb-name }} target endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data to a {{ ydb-name }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+
+{{ data-transfer-full-name }} enables you to migrate data to a {{ ydb-name }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Configure one of the supported data sources](#supported-sources).
