@@ -34,7 +34,7 @@ Make sure that:
    * Over the specified protocol: HTTP or HTTPS.
    * With the specified value of the `Host` HTTP header and other headers.
 
-Also check the {{ cdn-name }} status on the [{{ yandex-cloud }} special page](https://status.cloud.yandex.com/dashboard?service=cloud%20cdn).
+Also check the {{ cdn-name }} status on the [{{ yandex-cloud }} special page](https://status.yandex.cloud/en/dashboard?service=cloud%20cdn).
 
 ## Updated settings aren't applied to the resource {#changes-not-applied}
 

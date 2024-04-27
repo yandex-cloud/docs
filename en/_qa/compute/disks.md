@@ -159,7 +159,7 @@ A snapshot is created asynchronously. You can resume writing data to your disk i
 
 This is not supported yet. However, you can copy data from a VM using application software, such as rsync, dd, or GNU Wget.
 
-If you would like us to implement downloading or manually exporting VM images and disk snapshots to external resources or a local device, [suggest](https://cloud.yandex.ru/features) this idea or vote for a similar one. We regularly review all the suggestions and add them to our development roadmap. We will notify you as soon as the idea you suggested or voted for has been implemented.
+If you would like us to implement downloading or manually exporting VM images and disk snapshots to external resources or a local device, [suggest](https://yandex.cloud/ru/features) this idea or vote for a similar one. We regularly review all the suggestions and add them to our development roadmap. We will notify you as soon as the idea you suggested or voted for has been implemented.
 
 #### How do I detect processes that put a heavy load on a disk? {#disk-heavy-load}
 

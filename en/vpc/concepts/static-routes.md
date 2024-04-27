@@ -47,7 +47,7 @@ If you need granular routing at the virtual network level, use {{ vpc-short-name
 
 {{ vpc-short-name }} route tables enable you to control the routing of IPv4 traffic for VM instances. {{ vpc-name }} does not currently support IPv6 protocol.
 
-{{ vpc-short-name }} route tables are created within [cloud networks](https://cloud.yandex.ru/docs/vpc/concepts/network#network) and can be applied to any [subnet](https://cloud.yandex.ru/docs/vpc/concepts/network#subnet) on the same network. You cannot apply a route table to subnets belonging to a different cloud network.
+{{ vpc-short-name }} route tables are created within [cloud networks](./network.md#network) and can be applied to any [subnet](./network.md#subnet) on the same network. You cannot apply a route table to subnets belonging to a different cloud network.
 
 A {{ vpc-short-name }} route table can include one or multiple entries. Each entry defines a static route within the virtual network.
 

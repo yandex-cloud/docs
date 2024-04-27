@@ -94,7 +94,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    Where `client_id` is the ID of the created application from the **ClientID** field.
 
 1. Log in under the {{ tracker-short-name }} account to be used for data visualization.
-1. Save the received [OAuth token](https://cloud.yandex.ru/docs/tracker/concepts/access#section_about_OAauth).
+1. Save the received [OAuth token](../../tracker/concepts/access.md#section_about_OAauth).
 
 ## Create a {{ sf-name }} function for importing the data {#function-import}
 

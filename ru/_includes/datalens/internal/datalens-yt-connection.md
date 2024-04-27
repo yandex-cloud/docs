@@ -1,6 +1,6 @@
 Чтобы создать подключение к {{ ytsaurus-name }} CHYT:
 
-1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
+1. Перейдите на [страницу подключений]({{ link-datalens-main }}/connections).
 1. Нажмите кнопку **Создать подключение**.
 1. Выберите подключение **{{ ytsaurus-name }} CHYT**.
 

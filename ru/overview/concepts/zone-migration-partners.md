@@ -4,14 +4,14 @@
 
 |№|Наименование|
 |:---:|:---|
-|1|[Softline](https://cloud.yandex.ru/ru/partners/catalogue/softline)|
-|2|[WONE IT](https://cloud.yandex.ru/ru/partners/catalogue/softwareone)|
-|3|[Neoflex](https://cloud.yandex.ru/ru/partners/catalogue/neoflex)|
-|4|[Аплана Диджитал](https://cloud.yandex.ru/ru/partners/catalogue/aplanadigital)|
-|5|[Интернет-Эксперт](https://cloud.yandex.ru/ru/partners/catalogue/i-ex)|
-|6|[ITSumma](https://cloud.yandex.ru/ru/partners/catalogue/itsumma)|
-|7|[Energy time](https://cloud.yandex.ru/ru/partners/catalogue/energytime)|
+|1|[Softline](https://yandex.cloud/ru/partners/catalogue/softline)|
+|2|[WONE IT](https://yandex.cloud/ru/partners/catalogue/softwareone)|
+|3|[Neoflex](https://yandex.cloud/ru/partners/catalogue/neoflex)|
+|4|[Аплана Диджитал](https://yandex.cloud/ru/partners/catalogue/aplanadigital)|
+|5|[Интернет-Эксперт](https://yandex.cloud/ru/partners/catalogue/i-ex)|
+|6|[ITSumma](https://yandex.cloud/ru/partners/catalogue/itsumma)|
+|7|[Energy time](https://yandex.cloud/ru/partners/catalogue/energytime)|
 
-Полный список партнеров вы можете найти в [каталоге партнеров](https://cloud.yandex.ru/ru/partners/catalogue?type=partners).
+Полный список партнеров вы можете найти в [каталоге партнеров](https://yandex.cloud/ru/partners/catalogue?type=partners).
 
-Если у вас возникли вопросы, свяжитесь с нами с помощью [формы](https://cloud.yandex.ru/ru/blog#contact-form).
+Если у вас возникли вопросы, свяжитесь с нами с помощью [формы](https://yandex.cloud/ru/blog#contact-form).

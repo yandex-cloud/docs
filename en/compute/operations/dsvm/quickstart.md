@@ -41,7 +41,7 @@ To run public {{ jlab }} notebook execute:
     jupyter notebook --no-browser
 
 Description and help:
-    https://cloud.yandex.com/docs/compute/operations/dsvm/
+    https://yandex.cloud/en/docs/compute/operations/dsvm/
 
 #####################################################################
 ```

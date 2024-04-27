@@ -40,7 +40,7 @@
 
     1. Выберите опцию **Будут выполнены условия** → **Все**.
 
-    1. [Добавьте условие](https://cloud.yandex.ru/docs/tracker/user/set-condition) **Тип** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldEquals }}** → **Задача**.
+    1. [Добавьте условие](./user/set-condition.md) **Тип** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldEquals }}** → **Задача**.
 
     1. Добавьте условие **Статус** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** → **Требуется информация**.
     

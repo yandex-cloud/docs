@@ -379,7 +379,7 @@ All the steps described below are completed in the Linux terminal.
    | Parameter<br>name | Change<br>required | Description | Type | Example |
    | ----------- | ----------- | ----------- | ----------- | ----------- |
    | `cloud_id` | Yes | ID of your cloud in Yandex Cloud | `string` | `b1g8dn6s3v2eiid9dbci` |
-   | `az_name` | - | Yandex Cloud <a href="https://cloud.yandex.ru/docs/overview/concepts/geo-scope">availability zone</a> to host your resources | `string` | `{{ region-id }}-d` |
+   | `az_name` | - | Yandex Cloud <a href="https://yandex.cloud/en/docs/overview/concepts/geo-scope">availability zone</a> to host your resources | `string` | `{{ region-id }}-d` |
    | `security_segment_names` | - | List of segment names. The first segment is for management resources, the second for resources with public internet access, the third for a DMZ. If you need more segments, add them at the end of the list. When adding a segment, make sure to specify the subnet prefix in `subnet_prefix_list`. | `list(string)` | `["mgmt", "public", "dmz"]` |
    | `subnet_prefix_list` | - | List of subnet prefixes as indicated in the `security_segment_names` list. Specify one prefix for each segment. | `list(string)` | `["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]` |
    | `public_app_port` | - | TCP port for a DMZ application open for outside internet connection | `number` | `80` |
@@ -445,7 +445,7 @@ All the steps described below are completed in the Linux terminal.
 
 This guide describes how to configure firewalls with basic access control and NAT policies required for performance testing but insufficient for [production deployment](#deployment-requirements).
 
-Learn more about Check Point capabilities and configuration with our free course, [A Deep Dive into Network Security](https://cloud.yandex.ru/training/network-security).
+Learn more about Check Point capabilities and configuration with our free course, [A Deep Dive into Network Security](https://yandex.cloud/ru/training/network-security).
 
 ### Connect to the control segment via a VPN {#connect-via-vpn}
 

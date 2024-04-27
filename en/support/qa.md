@@ -60,7 +60,7 @@ To get help with architecture-related tasks, use the feedback form on the techni
 
 Technical support includes troubleshooting third-party software that is used in conjunction with the cloud infrastructure and limited assistance in solving identified problems. Technical support engineers can help you with the installation, basic setup, and diagnostics of the following software:
 
-- [Operating systems](https://cloud.yandex.ru/marketplace?categories=os) on {{ yandex-cloud }} VM instances created from public images provided by {{ yandex-cloud }}.
+- [Operating systems](https://yandex.cloud/en/marketplace?categories=os) on {{ yandex-cloud }} VM instances created from public images provided by {{ yandex-cloud }}.
 - Databases and cluster management systems created in:
    - [{{ mkf-full-name }}](../managed-kafka/index.yaml)
    - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)

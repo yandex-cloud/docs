@@ -52,7 +52,7 @@ Copying the [Files](../operations/connection/create-file.md) and [Google Sheets]
 
 To copy or transfer an object to a workbook:
 
-1. Find the object you want to transfer or copy to a workbook on the [navigation page](https://datalens.yandex.ru/navigation).
+1. Find the object you want to transfer or copy to a workbook on the [navigation page]({{ link-datalens-main }}/navigation).
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the object and select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Migrating to a workbook**.
 1. Select a migration method and click **Select**.
 1. In the window with a list of linked objects, click **Next**.
@@ -65,7 +65,7 @@ If after migration you want your workbook to include only certain transferred ob
 
 Let's create a workbook with a dataset. For source objects, we will use a [ready-made dataset]({{ link-datalens-main }}/marketplace/f2e0000r63qkp2ywqpco) of a fictional company from the {{ datalens-short-name }} {{ marketplace-short-name }}.
 
-1. On the [navigation page](https://datalens.yandex.ru/navigation), find **Sample Superstore Dataset**.
+1. On the [navigation page]({{ link-datalens-main }}/navigation), find **Sample Superstore Dataset**.
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the dataset and select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Transfer to workbook**.
 1. In the window that opens, you will see a list of linked objects that will be transferred.
 

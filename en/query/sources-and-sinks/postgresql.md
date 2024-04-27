@@ -1,6 +1,6 @@
 # Working with {{ mpg-name }} databases
 
-This section describes the basic information about working with [{{ mpg-name }}](https://cloud.yandex.ru/services/managed-postgresql).
+This section describes the basic information about working with [{{ mpg-name }}](https://yandex.cloud/en/services/managed-postgresql).
 
 Example of reading data from {{ mpg-name }}:
 

@@ -145,11 +145,7 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
    1. In the **Client type** field, select **SAML**.
 
-   1. In the **Client ID** field, enter the URL to redirect users to after successful authentication:
-
-      ```text
-      https://{{ auth-host }}/federations/<federation_ID>
-      ```
+   1. In the **Client ID** field, enter the ACS URL to redirect users to after successful authentication.
 
       {% cut "How to get the federation ID" %}
 
@@ -157,12 +153,28 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
       {% endcut %}
 
+      
+      {% cut "How to get the federation ACS URL" %}
+
+      {% include [get-acs-url](../../../../_includes/organization/get-acs-url.md) %}
+
+      {% endcut %}
+
+
    1. Click **Next**.
-   1. Specify the `https://{{ auth-host }}/federations/<federation_ID>` redirect URL in the following fields:
+   1. Specify the redirect ACS URL in the following fields:
 
       * **Home URL**
       * **Valid Redirect URIs**
       * **IDP Initiated SSO Relay State**
+
+      
+      {% cut "How to get the federation ACS URL" %}
+
+      {% include [get-acs-url](../../../../_includes/organization/get-acs-url.md) %}
+
+      {% endcut %}
+
 
    1. Click **Save**.
 
@@ -214,7 +226,16 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 1. Add a mapper to the {{ keycloak }} application:
 
    1. On the left panel, select **Clients** and select the previously created application from the list.
-   1. Navigate to the **Client scopes** tab and select `https://{{ auth-host }}/federations/<federation_ID>-dedicated` from the list.
+   1. Navigate to the **Client scopes** tab and select ACS URL with `-dedicated` postfix `<ACS_URL>-dedicated` from the list.
+
+      
+      {% cut "How to get the federation ACS URL" %}
+
+      {% include [get-acs-url](../../../../_includes/organization/get-acs-url.md) %}
+
+      {% endcut %}
+
+
    1. On the **Mappers** tab, click **Configure a new mapper**. Select **Group list** from the drop-down list.
    1. Specify the following mapper settings:
 
@@ -243,7 +264,7 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 1. Follow the URL to log in to the management console:
 
    ```text
-   https://{{ console-host }}/federations/<federation_ID>
+   {{ link-console-main }}/federations/<federation_ID>
    ```
 
    {% cut "How to get the federation ID" %}
@@ -256,6 +277,6 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
 1. Enter the username and password for the test federated user (`demo_user1`) and click **Sign in**.
 
-   On successful authentication, the IdP server will redirect you to the `https://{{ auth-host }}/federations/<federation_ID>` URL you had specified in the {{ keycloak }} settings, and from there to the [management console]({{ link-console-main }}) home page.
+   On successful authentication, the IdP server will redirect you to the ACS URL you had specified in the {{ keycloak }} settings, and from there to the [management console]({{ link-console-main }}) home page.
 
 1. Ensure that the created user (`demo_user1`) belongs to `yc_demo_group` and is authorized to view resources in accordance with the role assigned to the group.

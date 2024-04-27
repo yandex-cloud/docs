@@ -1,4 +1,4 @@
-# Referenced connection &lt;connection id> cannot be loaded: access denied
+# Referenced connection <connection_ID> cannot be loaded: access denied
 
 `ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED`
 

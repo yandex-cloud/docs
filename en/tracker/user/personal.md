@@ -33,11 +33,11 @@ To set up the interface theme and how the issues will be opened on the page:
 
 1. Select a theme under **{{ ui-key.yacloud.settings.switch_appearance }}**.
 
-1. To open an issue in the right-hand panel when you click its name or key (e.g., **TEST-123**), select **Yes**.
+1. For the issue to open in the right panel when you click its name or key (for example, **TEST-123**), select **Yes**.
 
 ## Setting the user display type {#sec_display}
 
-By default, the **Reporter**, **Assignee**, and **Followers** fields display the first and last name of the users. If you want to display their usernames or profile pictures instead, change the user display mode.
+By default, the **Author**, **Assignee**, and **Followers** fields display the users' first and last names. If you want to display their usernames or profile pictures instead, change the user display mode.
 
 {% cut "Screenshot" %}
 
@@ -49,8 +49,8 @@ To change the method of display:
 
 1. Click the link [{{ link-settings }}]({{ link-settings }}).
 
-1. Under **User display**, choose the display method you prefer:
-   - Select **Display login instead of name** to show usernames instead of real names in system fields within issues.
+1. Under **User display**, choose your preferred display method:
+   - Select **Display login instead of name** to show usernames instead of real names in system issue fields.
 
       {% cut "Screenshot" %}
 
@@ -58,7 +58,7 @@ To change the method of display:
 
       {% endcut %}
 
-   - Select **Show avatars instead of names** to show only avatars in user list fields. This setting does not affect the **Reporter** and **Assignee** fields.
+   - Select **Show avatars instead of names** to show only avatars in the user list fields. This setting does not affect the **Reporter** and **Assignee** fields.
 
       {% cut "Screenshot" %}
 

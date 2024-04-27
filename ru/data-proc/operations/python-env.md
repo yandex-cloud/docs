@@ -79,7 +79,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 ### Использование виртуального окружения при обычном запуске PySpark-заданий {#launch-common}
 
-При [создании задания PySpark](https://cloud.yandex.ru/docs/data-proc/operations/jobs-pyspark#create) укажите следующие значения для [свойств Spark](https://spark.apache.org/docs/latest/configuration.html) на уровне задания:
+При [создании задания PySpark](./jobs-pyspark.md#create) укажите следующие значения для [свойств Spark](https://spark.apache.org/docs/latest/configuration.html) на уровне задания:
 
 * `spark.submit.deployMode=cluster` — режим размещения драйвера.
 

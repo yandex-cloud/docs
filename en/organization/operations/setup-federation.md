@@ -407,7 +407,7 @@ The process for setting up a SAML application is IdP-specific and may vary. Here
 Set up the SAML application for the message to contain:
 
 * The ID from the SAML authentication request sent by {{ yandex-cloud }} in the `Response` and `SubjectConfirmationData` elements of the `InResponseTo` attribute.
-* URL specified as `https://{{ auth-host }}/federations/<federation_ID>` in the following elements:
+* ACS URL in the following elements:
 
    * In the `Destination` attribute of `Response`
    * In the `Recipient` attribute of `SubjectConfirmationData`
@@ -418,6 +418,14 @@ Set up the SAML application for the message to contain:
    {% include [get-federation-id](../../_includes/organization/get-federation-id.md) %}
 
    {% endcut %}
+
+   
+   {% cut "How to get the federation ACS URL" %}
+
+   {% include [get-acs-url](../../_includes/organization/get-acs-url.md) %}
+
+   {% endcut %}
+
 
 * The user's unique ID in the `NameID` element. We recommend using the User Principal Name (UPN) or email address as the ID.
 * Your IdP's redirect URL for user authentication in the `Issuer` element.
@@ -465,7 +473,7 @@ Test that federated authentication works properly:
 1. Follow the URL to log in to the management console:
 
    ```url
-   https://{{ console-host }}/federations/<federation_ID>
+   {{ link-console-main }}/federations/<federation_ID>
    ```
 
    {% cut "How to get the federation ID" %}
@@ -479,6 +487,6 @@ Test that federated authentication works properly:
 1. Enter your authentication data. By default, you must enter the UPN and password.
 1. Click **Sign in**.
 
-1. On successful authentication, the IdP server will redirect you to the `https://{{ auth-host }}/federations/<federation_ID>` URL that you specified in the server settings, and then, to the management console home page.
+1. On successful authentication, the IdP server will redirect you to the ACS URL that you specified in the server settings, and then, to the management console home page.
 
 Make sure you are logged in to the console as a federated user.

@@ -187,7 +187,7 @@ TLS-протокол используется для защиты сетевых
 
 ## TLS в {{ yandex-cloud }} {#yandex-cloud-tls}
 
-{{ yandex-cloud}} предлагает сервис для получения, обновления и добавления собственных TLS-сертификатов — [{{ certificate-manager-full-name }}](https://cloud.yandex.ru/services/certificate-manager). [Создайте первый сертификат](../certificate-manager/quickstart/index.md), чтобы использовать TLS в своих облачных сервисах:
+{{ yandex-cloud}} предлагает сервис для получения, обновления и добавления собственных TLS-сертификатов — [{{ certificate-manager-full-name }}](https://yandex.cloud/ru/services/certificate-manager). [Создайте первый сертификат](../certificate-manager/quickstart/index.md), чтобы использовать TLS в своих облачных сервисах:
 
 * **{{ objstorage-full-name }}**
 

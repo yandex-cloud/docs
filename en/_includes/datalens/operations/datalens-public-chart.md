@@ -2,7 +2,7 @@
 {% include [datalens-workbooks-collections-select-note](./datalens-workbooks-collections-select-note.md) %}
 
 
-1. On the [navigation page](https://datalens.yandex.ru/navigation), find the chart you need and open it.
+1. On the [navigation page]({{ link-datalens-main }}/navigation), find the chart you need and open it.
 1. At the top of the wizard interface, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/nodes-right.svg) **Public access**.
 1. In the window that opens, set up public access as follows:
 

@@ -47,7 +47,7 @@
   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-  1. Скачайте в ту же рабочую директорию файл конфигурации [velero-backup.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/velero-backup.tf).
+  1. Скачайте в ту же рабочую директорию файл конфигурации [velero-backup.tf](https://github.com/yandex-cloud-examples/yc-mk8s-velero-backup/blob/main/velero-backup.tf).
 
      В этом файле описаны:
      * [Сеть](../../vpc/concepts/network.md#network).

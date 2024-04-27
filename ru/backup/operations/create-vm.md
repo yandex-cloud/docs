@@ -115,7 +115,7 @@ description: "Следуя данной инструкции, вы сможет�
       * `--service-account-name` — имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) с ролью `backup.editor`.
       * `--ssh-key` — путь к файлу с [открытым SSH-ключом](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
 
-      В этом примере создается ВМ на базе ОС [Ubuntu 20.04](https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts):
+      В этом примере создается ВМ на базе ОС [Ubuntu 20.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts):
 
       ```bash
       yc compute instance create \

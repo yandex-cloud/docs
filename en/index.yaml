@@ -42,7 +42,7 @@ links:
   - title: Container Solution
     description: VM use cases
     href: cos/
-  - title: Data Proc
+  - title: '{{ dataproc-name }}'
     description: Apache Hadoop® cluster management
     href: data-proc/
   - title: DataLens

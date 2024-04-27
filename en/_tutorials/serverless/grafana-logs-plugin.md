@@ -1,7 +1,7 @@
 # Visualizing logs in {{ grafana-name }} using the {{ cloud-logging-full-name }} plugin
 
 
-The [{{ cloud-logging-full-name }} plugin for {{ grafana-name }}](https://github.com/yandex-cloud/grafana-logs-plugin/tree/master) is an extension for {{ grafana-name }} that allows you to add [{{ cloud-logging-name }}](https://cloud.yandex.ru/services/logging) as a data source.
+The [{{ cloud-logging-full-name }} plugin for {{ grafana-name }}](https://github.com/yandex-cloud/grafana-logs-plugin/tree/master) is an extension for {{ grafana-name }} that allows you to add [{{ cloud-logging-name }}](https://yandex.cloud/en/services/logging) as a data source.
 
 To visualize logs:
 

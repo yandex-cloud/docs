@@ -10,7 +10,7 @@ description: "Членство в организации позволяет по
 * [сервисы {{ yandex-cloud }}]({{ link-cloud-services }});
 * сервисы для совместной работы и бизнес-аналитики: [{{ tracker-full-name }}]({{ link-tracker }}), [{{ wiki-full-name }}]({{ link-wiki }}), [{{ forms-full-name }}]({{ link-forms-b2b }}), [{{ datalens-full-name }}]({{ link-datalens-main }}) и [{{ ml-platform-full-name }}]({{ link-datasphere-main }}).
 
-Пользователи, не являющиеся членами организации, не могут получать доступ к ресурсам внутри организации. Исключение составляют ресурсы, доступ к которым выдан для [системных групп](https://cloud.yandex.ru/docs/iam/concepts/access-control/system-group) `{{ subjects-allUsers }}` и `{{ subjects-allAuthenticatedUsers }}`.
+Пользователи, не являющиеся членами организации, не могут получать доступ к ресурсам внутри организации. Исключение составляют ресурсы, доступ к которым выдан для [системных групп](../../iam/concepts/access-control/system-group.md) `{{ subjects-allUsers }}` и `{{ subjects-allAuthenticatedUsers }}`.
 
 Членами организации могут быть:
 

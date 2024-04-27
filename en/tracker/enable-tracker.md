@@ -30,4 +30,4 @@ To get started, configure {{ tracker-full-name }} via the web interface:
 
 1. [Configure {{ tracker-name }} for your team](quick-start.md).
 
-To learn more about using {{ tracker-full-name }}, check out the course: [Getting started with {{ tracker-full-name }}](https://cloud.yandex.ru/training/tracker?utm_source=product&utm_medium=documentation).
+To learn more about using {{ tracker-full-name }}, check out the course: [Getting started with {{ tracker-full-name }}](https://yandex.cloud/ru/training/tracker?utm_source=product&utm_medium=documentation).

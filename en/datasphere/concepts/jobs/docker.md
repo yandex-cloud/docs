@@ -26,7 +26,7 @@ You can also use a different Docker image to run a job by specifying it under `e
 
 * External image
 
-   You can use any preferred image registry ([{{ container-registry-full-name }}](https://cloud.yandex.ru/ru/services/container-registry), [Docker Hub](https://hub.docker.com/), [Docker — Private Registries](https://www.geeksforgeeks.org/docker-private-registries/), etc.) by specifying the username and password to access the image.
+   You can use any preferred image registry ([{{ container-registry-full-name }}](https://yandex.cloud/en/services/container-registry), [Docker Hub](https://hub.docker.com/), [Docker — Private Registries](https://www.geeksforgeeks.org/docker-private-registries/), etc.) by specifying the username and password to access the image.
 
    ```text
    env:

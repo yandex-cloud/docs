@@ -600,7 +600,7 @@ Parameter descriptions:
         # The output format to convert the incoming set of metrics to.
         # Exactly one of the nested elements must be specified.
         format: # required
-          # Convert the {{ monitoring-full-name }} format (https://cloud.yandex.com/docs/monitoring/api-ref/MetricsData/write) to JSON
+          # Convert the {{ monitoring-full-name }} format (https://yandex.cloud/en/docs/monitoring/api-ref/MetricsData/write) to JSON
           json:
               # Indicates whether to merge metrics with the same set of labels.
               # Possible values: default (merging disabled), merge_metrics (merging enabled).
@@ -644,7 +644,7 @@ The filter allows you to decrease the set of metrics being transferred based on 
     plugin: filter_metrics
     config:
         # Condition for metrics to be left. All other metrics are filtered out.
-        # You can find the syntax description here: https://cloud.yandex.com/docs/monitoring/concepts/querying#selectors
+        # You can find the syntax description here: https://yandex.cloud/en/docs/monitoring/concepts/querying#selectors
         match: "{name=gauge-*}" # required
 ```
 
@@ -685,7 +685,7 @@ Parameter descriptions:
 
     config:
       # Restrict the filter only to the metrics that satisfy this condition.
-      # A description of the syntax can be found at https://cloud.yandex.ru/docs/monitoring/concepts/querying#selectors
+      # A description of the syntax can be found at https://yandex.cloud/en/docs/monitoring/concepts/querying#selectors
       match: "{name=gauge-*}" # optional parameter, not specified by default, filter applies to all metrics
 
       # Description of label transformations as "label name: expression".
@@ -918,7 +918,7 @@ Parameter descriptions:
 
 #### yc_logs output {#yc_logs_output}
 
-Output used for sending metrics to {{ cloud-logging-full-name }} via [gRPC](https://cloud.yandex.ru/docs/logging/api-ref/grpc/log_ingestion_service).
+Output used for sending metrics to {{ cloud-logging-full-name }} via [gRPC](../../../../logging/api-ref/grpc/log_ingestion_service.md).
 
 {% note info %}
 

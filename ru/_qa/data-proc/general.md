@@ -48,7 +48,7 @@ previously initiated loading for a different type with name "com/amazonaws/auth/
 
 Кроме того, для работы с заданиями (jobs) рекомендуется использовать [бакеты {{ objstorage-full-name }}](../../storage/concepts/bucket.md). Вы можете [загружать в них скрипты](../../storage/operations/objects/upload.md) для запуска заданий. Эти скрипты хранятся в виде объектов, на которые можно [получать ссылки](../../storage/operations/objects/link-for-download.md). В результате вместо ссылки вида `file:/` вы можете использовать ссылки из {{ objstorage-name }} в своих заданиях.
 
-#### Почему возникает ошибка `Create Data Proc cluster Error: 0 Address space exhausted`, и как ее исправить? {#addresses-exhausted}
+#### Почему возникает ошибка `Create {{ dataproc-name }} cluster Error: 0 Address space exhausted`, и как ее исправить? {#addresses-exhausted}
 
 Ошибка означает, что закончились свободные IP-адреса в подсети кластера {{ dataproc-name }}, которые можно выделить хостам кластера. Чтобы проверить количество доступных адресов, [посмотрите список используемых адресов](../../vpc/operations/subnet-used-addresses.md) в подсети и ее маску.
 

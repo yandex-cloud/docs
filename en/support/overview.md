@@ -68,7 +68,7 @@ The list of services offered under the Premium plan is not exhaustive and may be
 
 Technical support includes diagnosing issues in third-party software used in conjunction with the cloud infrastructure and limited assistance in solving the identified problems. Technical support engineers can help you with the installation, basic setup, and diagnostics of the following software:
 
-- [Operating systems](https://cloud.yandex.ru/marketplace?categories=os) on {{ yandex-cloud }} VM instances created from public images provided by {{ yandex-cloud }}.
+- [Operating systems](https://yandex.cloud/en/marketplace?categories=os) on {{ yandex-cloud }} VM instances created from public images provided by {{ yandex-cloud }}.
 - Databases and cluster management systems created in:
    - [{{ maf-full-name }}](../managed-airflow)
    - [{{ mkf-full-name }}](../managed-kafka/index.yaml)

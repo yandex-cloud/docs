@@ -52,7 +52,7 @@
 
 Чтобы копировать или перенести объект в воркбук:
 
-1. На [странице навигации](https://datalens.yandex.ru/navigation) найдите объект, который хотите перенести или скопировать в воркбук.
+1. На [странице навигации]({{ link-datalens-main }}/navigation) найдите объект, который хотите перенести или скопировать в воркбук.
 1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) у объекта и выберите ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Мигрировать в воркбук**.
 1. Выберите способ миграции и нажмите кнопку **Выбрать**.
 1. В открывшемся окне со списком связанных объектов нажмите кнопку **Далее**.
@@ -65,7 +65,7 @@
 
 Рассмотрим создание воркбука с датасетом. В качестве исходных объектов будет использоваться [готовый набор данных]({{ link-datalens-main }}/marketplace/f2e0000r63qkp2ywqpco) вымышленной компании из {{ datalens-short-name }} {{ marketplace-short-name }}.
 
-1. На [странице навигации](https://datalens.yandex.ru/navigation) найдите датасет **Sample Superstore Dataset**.
+1. На [странице навигации]({{ link-datalens-main }}/navigation) найдите датасет **Sample Superstore Dataset**.
 1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) у датасета и выберите ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Перенос в воркбук**.
 1. В открывшемся окне вы увидите список связанных объектов, которые будут перенесены.
 

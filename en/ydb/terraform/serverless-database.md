@@ -38,6 +38,6 @@ Save the file and run the `terraform validate` command. This command checks all 
 
 If there are no errors, run the `terraform plan` command. This command will create a plan for infrastructure changes and generate a report with the resources to be created. No real cloud resources are created at this stage. To apply changes and create actual cloud resources, use the `terraform apply` command. To confirm the action, enter `yes` in the terminal.
 
-Terraform will create all the required resources. You can check the changes using the [management console](https://console.cloud.yandex.com/) or this Yandex Cloud CLI command: `yc ydb database get <database_name>`. The terminal will display information about the created database.
+Terraform will create all the required resources. You can check the changes using the [management console]({{ link-console-main }}/) or this Yandex Cloud CLI command: `yc ydb database get <database_name>`. The terminal will display information about the created database.
 
 If you need to change the parameters of the created database, edit the configuration file and run this command sequence: `terraform validate`, `terraform plan`, and `terraform apply`. For example, you can change the database name (name), the data storage limit (`storage_size_limit`), etc. Warning: If you change the database ID (`"database1"` in this case) the database will be recreated, and its data will be lost.

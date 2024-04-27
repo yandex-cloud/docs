@@ -26,7 +26,7 @@
 
 * произвольный образ из внешнего источника
 
-  Вы можете использовать любой реестр образов ([{{ container-registry-full-name }}](https://cloud.yandex.ru/ru/services/container-registry), [Docker Hub](https://hub.docker.com/), [Docker — Private Registries](https://www.geeksforgeeks.org/docker-private-registries/) и т.п.), указав логин и пароль для доступа к образу.
+  Вы можете использовать любой реестр образов ([{{ container-registry-full-name }}](https://yandex.cloud/ru/services/container-registry), [Docker Hub](https://hub.docker.com/), [Docker — Private Registries](https://www.geeksforgeeks.org/docker-private-registries/) и т.п.), указав логин и пароль для доступа к образу.
   
   ```text
   env:
