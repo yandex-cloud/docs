@@ -305,7 +305,7 @@ type APIGatewayRequest struct {
 	Parameters           map[string]string   `json:"parameters"`
 	MultiValueParameters map[string][]string `json:"multiValueParameters"`
 
-	Body            []byte `json:"body"`
+	Body            string `json:"body"`
 	IsBase64Encoded bool   `json:"isBase64Encoded,omitempty"`
 
 	RequestContext interface{} `json:"requestContext"`
