@@ -4,7 +4,7 @@ To create a {{ ytsaurus-name }} CHYT connection:
 {% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
 
 
-1. Go to the [connections page](https://datalens.yandex.ru/connections).
+1. Go to the [connections page]({{ link-datalens-main }}/connections).
 1. Click **Create connection**.
 1. Select **{{ ytsaurus-name }} CHYT** as the connection type.
 

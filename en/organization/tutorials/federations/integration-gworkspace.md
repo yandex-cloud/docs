@@ -361,17 +361,21 @@ Once you have created a federation, complete the creation of the SAML applicatio
 
 1. In the **Service provider information** step, specify information about {{ yandex-cloud }} that acts as a service provider:
 
-   * In the **ACS URL** and **Object ID** fields, enter the URL to redirect users to after successful authentication:
-
-      ```
-      https://{{ auth-host }}/federations/<federation_ID>
-      ```
+   * In the **ACS URL** and **Object ID** fields, enter the ACS URL to redirect users to after successful authentication.
 
       {% cut "How to get a federation ID" %}
 
       {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
 
       {% endcut %}
+
+      
+      {% cut "How to get the federation ACS URL" %}
+
+      {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
+
+      {% endcut %}
+
 
    * Enable **Signed Response**.
 
@@ -515,7 +519,7 @@ When you finish configuring the server, test that everything works properly:
 1. Follow the URL to log in to the management console:
 
    ```
-   https://{{ console-host }}/federations/<federation_ID>
+   {{ link-console-main }}/federations/<federation_ID>
    ```
 
    {% cut "How to get a federation ID" %}
@@ -528,7 +532,7 @@ When you finish configuring the server, test that everything works properly:
 
 1. Enter your credentials and click **Sign in**.
 
-On successful authentication, the IdP server will redirect you back to the `https://{{ auth-host }}/federations/<federation_ID>` URL that you specified in the Google Workspace settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you can see that you are logged in to the console as a federated user.
+On successful authentication, the IdP server will redirect you back to the ACS URL that you specified in the Google Workspace settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you can see that you are logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 

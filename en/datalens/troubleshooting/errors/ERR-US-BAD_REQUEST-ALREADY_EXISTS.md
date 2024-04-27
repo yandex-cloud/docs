@@ -1,4 +1,4 @@
-# Could not create &lt;object type>
+# Failed to create <object_type>
 
 `ERR.US.BAD_REQUEST.ALREADY_EXISTS`
 

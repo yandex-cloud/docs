@@ -120,7 +120,7 @@ The job `config.yaml` file contains multiple sections.
 
 1. The `working-storage` section defines the working directory parameters. By default, the working directory is created on the system disk, with a size of about 20 GB. If you need more space to complete the job, you can create another working directory from 100 GB to 10 TB in size. Then, {{ ml-platform-name }} will connect it to the VM as a secondary disk and remove it after completing the job.
 
-   Extra storage is charged in accordance with the [data storage pricing policy](https://cloud.yandex.ru/ru/docs/datasphere/pricing#prices-jobs).
+   Extra storage is charged in accordance with the [data storage pricing policy](../../pricing.md#prices-jobs).
 
 #### See also {#see-also}
 

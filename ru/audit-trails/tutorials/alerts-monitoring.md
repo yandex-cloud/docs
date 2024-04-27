@@ -1,6 +1,6 @@
 # Настройка алертов в {{ monitoring-full-name }}
 
-Из руководства вы узнаете, как отслеживать состояние [трейлов](https://cloud.yandex.ru/docs/audit-trails/concepts/trail) с помощью [алертов](https://cloud.yandex.ru/docs/monitoring/concepts/alerting#alert).
+Из руководства вы узнаете, как отслеживать состояние [трейлов](../concepts/trail.md) с помощью [алертов](../../monitoring/concepts/alerting.md#alert).
 
 Чтобы начать отслеживать статус трейлов:
 

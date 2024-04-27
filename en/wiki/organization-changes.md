@@ -42,7 +42,7 @@ The {{ ya-360 }} organization features can be enhanced with the {{ org-full-name
 
 1. Send the organization IDs to the service via the [feedback form](https://forms.yandex.ru/surveys/6768):
    * [Find out the {{ ya-360 }} organization ID](https://admin.yandex.ru/company-profile).
-   * [Find out the {{ org-full-name }} organization ID](https://org.cloud.yandex.ru/settings).
+   * [Find out the {{ org-full-name }} organization ID]({{ link-org-settings }}).
 
 You will receive a response from the service once the simultaneous use of your organizations is set up.
 

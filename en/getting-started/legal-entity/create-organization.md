@@ -11,7 +11,7 @@ After registering, you become the organization owner. You will be able to manage
 ## Edit organization data {#change}
 
 1. Log in to [{{org-full-name}}]({{ link-org-main }}) as the organization's administrator.
-1. In the left-hand panel, select [Organization information](https://org.cloud.yandex.ru/settings) ![icon-settings](../../_assets/console-icons/circle-info.svg).
+1. In the left-hand panel, select [Organization information]({{ link-org-settings }}) ![icon-settings](../../_assets/console-icons/circle-info.svg).
 1. To change the organization name and description, click **{{ ui-key.yacloud_org.page.settings.action.edit }}** in the top-right corner.
 1. Change the organization name, technical name, or description.
 1. Click **{{ ui-key.yacloud_org.forms.action.save }}**.

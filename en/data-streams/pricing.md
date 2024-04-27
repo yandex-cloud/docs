@@ -95,6 +95,6 @@ Data is stored for up to 7 days.
 ## Pricing based on actual usage {#on-demand}
 
 If pricing based on the actual usage is used:
-* Data streams stored in [{{ ydb-short-name }} serverless databases](https://cloud.yandex.ru/docs/ydb/concepts/serverless-and-dedicated#serverless) are charged for based on the [pricing policy for {{ ydb-short-name }} serverless mode](../ydb/pricing/serverless.md).
+* Data streams stored in [{{ ydb-short-name }} serverless databases](../ydb/concepts/serverless-and-dedicated.md#serverless) are charged for based on the [pricing policy for {{ ydb-short-name }} serverless mode](../ydb/pricing/serverless.md).
 
-* Data streams stored in [{{ ydb-short-name }} dedicated databases](https://cloud.yandex.ru/docs/ydb/concepts/serverless-and-dedicated#dedicated) are not charged for separately (you only pay for a dedicated database, see the [pricing policy for dedicated databases](https://cloud.yandex.ru/docs/ydb/pricing/dedicated)).
+* Data streams stored in [{{ ydb-short-name }} dedicated databases](../ydb/concepts/serverless-and-dedicated.md#dedicated) are not charged for separately (you only pay for a dedicated database, see the [pricing policy for dedicated databases](../ydb/pricing/dedicated.md)).

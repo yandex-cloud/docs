@@ -10,7 +10,7 @@ The partner program will enable you to:
 
 To get a partner status:
 
-1. [Apply](https://cloud.yandex.ru/partners#partners-form) for a partner status. You will receive a welcome email at the email address specified in your application.
+1. [Apply](https://yandex.cloud/ru/partners#partners-form) for a partner status. You will receive a welcome email at the email address specified in your application.
 1. In the received email, click **Gain access to training**. You will receive an email with access details for the partner program training course at the email address specified in your application.
 1. Complete the training.
 1. [Create a billing account](../billing/operations/create-new-account.md).

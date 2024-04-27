@@ -36,7 +36,7 @@
   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
-  1. Скачайте в ту же рабочую директорию файл конфигурации [k8s-validate-cr-image.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/managed-kubernetes/k8s-validate-cr-image.tf).
+  1. Скачайте в ту же рабочую директорию файл конфигурации [k8s-validate-cr-image.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cr-images-verification/blob/main/k8s-validate-cr-image.tf).
 
      В этом файле описаны:
      * [Сеть](../../vpc/concepts/network.md#network).

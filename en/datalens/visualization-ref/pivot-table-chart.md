@@ -47,7 +47,7 @@ Pivot tables make it easier to work with large amounts of data and let you analy
 | Strings | Dimensions |
 | Measures | Measures. If you add more than one measure to a section, the **Columns** section contains the [Measure Names](../concepts/chart/measure-values.md) dimension that defines the location of the measure headers. [Measure Names](../concepts/chart/measure-values.md) can be moved to **Rows**. |
 | Colors | Measure. Affects shading of all cells containing indicators. It may only contain one measure. |
-| Sorting | Dimensions and measures specified in the **Columns** and **Rows** sections.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) descending. To change the sorting direction, click the icon. Sorting by measure only impacts a request to the source and does not affect the pivot table. |
+| Sorting | Dimensions and measures specified in the **Columns** and **Rows** sections.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon. Sorting by measure only impacts a request to the source and does not affect the pivot table. |
 | Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a pivot table {#create-diagram}
@@ -109,7 +109,7 @@ To set the width of any column to `Auto`, click **Reset**.
 1. In the field settings window, enable **Sub-totals**.
 1. Click **Apply**.
 
-The table will show columns and/or rows with **Total <field name>**.
+The table will show columns and/or rows with **Total <field_name>**.
 
 To output the common **Total** row, enable **Sub-totals** in the settings for the first fields under **Columns** and **Rows**.
 

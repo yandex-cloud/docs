@@ -1,4 +1,4 @@
-# Connecting to {{ datalens-name }}
+# Connecting to a data source
 
 _Connections_ contain information about data source access parameters, such as the DB host IP address and port.
 

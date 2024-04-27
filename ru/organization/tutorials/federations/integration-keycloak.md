@@ -655,17 +655,21 @@
 
       1. На панели слева выберите **Clients**. Нажмите кнопку **Create client**.
 
-      1. В поле **Client ID** укажите URL, на который пользователи будут перенаправляться после аутентификации:
-
-         ```
-         https://{{ auth-host }}/federations/<ID_федерации>
-         ```
+      1. В поле **Client ID** укажите ACS URL, на который пользователи будут перенаправляться после аутентификации.
       
          {% cut "Как получить ID федерации" %}
       
          {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
       
          {% endcut %}
+
+         
+         {% cut "Как получить ACS URL федерации" %}
+
+         {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
+
+         {% endcut %}
+
 
       1. В поле **Client type** выберите вариант **saml**.
 
@@ -675,17 +679,21 @@
 
       1. На панели слева выберите **Clients**. Нажмите кнопку **Create**.
 
-      1. В поле **Client ID** укажите URL, на который пользователи будут перенаправляться после аутентификации:
-
-         ```
-         https://{{ auth-host }}/federations/<ID_федерации>
-         ```
+      1. В поле **Client ID** укажите ACS URL, на который пользователи будут перенаправляться после аутентификации.
 
          {% cut "Как получить ID федерации" %}
 
          {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
 
          {% endcut %}
+
+         
+         {% cut "Как получить ACS URL федерации" %}
+
+         {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
+
+         {% endcut %}
+
 
       1. В поле **Client Protocol** выберите вариант **saml**.
 
@@ -695,7 +703,7 @@
 
 1. Настройте параметры SAML-приложения на вкладке **Settings**:
 
-    1. Укажите URL для перенаправления, `https://{{ auth-host }}/federations/<ID_федерации>`, в полях:
+    1. Укажите ACS URL для перенаправления, в полях:
 
        {% list tabs %}
 
@@ -712,6 +720,14 @@
          * **IDP Initiated SSO Relay State**.
 
        {% endlist %}
+
+       
+       {% cut "Как получить ACS URL федерации" %}
+
+       {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
+
+       {% endcut %}
+
 
     1. Включите опции:
        * **Include AuthnStatement**;
@@ -960,7 +976,7 @@
 1. Перейдите по URL для входа в консоль:
 
    ```
-   https://{{ console-host }}/federations/<ID_федерации>
+   {{ link-console-main }}/federations/<ID_федерации>
    ```
 
    {% cut "Как получить ID федерации" %}
@@ -973,4 +989,4 @@
 
 1. Введите данные для аутентификации и нажмите кнопку **Sign in**.
 
-После успешной аутентификации IdP-сервер перенаправит вас по URL `https://{{ auth-host }}/federations/<ID_федерации>`, который вы указали в настройках Keycloak, а после — на главную страницу [консоли управления]({{ link-console-main }}). В правом верхнем углу вы сможете увидеть, что вошли в консоль от имени федеративного пользователя.
+После успешной аутентификации IdP-сервер перенаправит вас по ACS URL, который вы указали в настройках Keycloak, а после — на главную страницу [консоли управления]({{ link-console-main }}). В правом верхнем углу вы сможете увидеть, что вошли в консоль от имени федеративного пользователя.

@@ -79,7 +79,7 @@ To use the prepared virtual environment in the {{ dataproc-name }} cluster, gran
 
 ### Using a virtual environment at regular runs of PySpark jobs {#launch-common}
 
-When [creating a PySpark job](https://cloud.yandex.ru/docs/data-proc/operations/jobs-pyspark#create), set the following [Spark property](https://spark.apache.org/docs/latest/configuration.html) values at the job level:
+When [creating a PySpark job](./jobs-pyspark.md#create), set the following [Spark property](https://spark.apache.org/docs/latest/configuration.html) values at the job level:
 
 * `spark.submit.deployMode=cluster`: Driver deploy mode.
 

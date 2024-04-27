@@ -162,7 +162,7 @@ Requirements for program participants:
 
 ## Partner catalog {#catalog}
 
-[Partner catalog](https://cloud.yandex.ru/ru/partners/catalogue) is a showcase of {{ yandex-cloud }}-based partner solutions and services built around customer needs. The catalog features companies {{ yandex-cloud }} recommends for implementing turnkey projects of various complexity levels. Each one of them has a track of record of completed projects based on cloud technologies, as well as a team of certified experts.
+[Partner catalog](https://yandex.cloud/ru/partners/catalogue) is a showcase of {{ yandex-cloud }}-based partner solutions and services built around customer needs. The catalog features companies {{ yandex-cloud }} recommends for implementing turnkey projects of various complexity levels. Each one of them has a track of record of completed projects based on cloud technologies, as well as a team of certified experts.
 
 Benefits of being listed in the catalog:
 

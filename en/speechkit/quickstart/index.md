@@ -1,6 +1,6 @@
 # Getting started with {{ speechkit-name }}
 
-You can test speech recognition and synthesis on the {{ speechkit-name }} [demo page](https://cloud.yandex.com/services/speechkit#demo). For information on pricing, see [{#T}](../pricing.md).
+You can test speech recognition and synthesis on the {{ speechkit-name }} [demo page](https://yandex.cloud/en/services/speechkit#demo). For information on pricing, see [{#T}](../pricing.md).
 
 ## Getting started {#before-you-begin}
 

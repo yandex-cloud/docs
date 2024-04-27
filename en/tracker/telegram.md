@@ -40,7 +40,7 @@ To learn more about setting up a Telegram bot, please visit [https://core.telegr
 
    1. Select the option **Conditions to be met** → **All**.
 
-   1. [Add the condition:](https://cloud.yandex.ru/docs/tracker/user/set-condition) **Type** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldEquals }}** → **Issue**.
+   1. [Add the condition:](./user/set-condition.md) **Type** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldEquals }}** → **Issue**.
 
    1. Add the condition: **Status** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** → **Need info**.
 

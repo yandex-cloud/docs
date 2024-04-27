@@ -36,7 +36,7 @@ A customer with the `Verification required` status must confirm their readiness 
 {% note warning %}
 
 The email is only sent once.
-If the customer fails to follow the link provided in the email or cannot find the email, you can, on your own, create a partnership confirmation link and send it to the customer. To do this, in `https://partners.cloud.yandex.ru/invite/accept/subaccount_ID`, replace `subaccont_ID` with the partner ID in `dn2...` format.
+If the customer fails to follow the link provided in the email or cannot find the email, you can, on your own, create a partnership confirmation link and send it to the customer. To do this, in `{{ link-cloud-partners }}invite/accept/subaccount_ID`, replace `subaccont_ID` with the partner ID in `dn2...` format.
 The partnership will be confirmed when the customer logs in to their account using this link.
 
 {% endnote %}

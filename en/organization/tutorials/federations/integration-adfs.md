@@ -375,17 +375,21 @@ Create a relying party trust for the federation you created in the cloud:
 
 1. In the next step, you are asked to specify a certificate for signing tokens. This step is optional, so click **Next**.
 
-1. In the Configure URL step, select **Enable support for the SAML 2.0 WebSSO protocol** and specify the URL to redirect users to after successful authentication:
-
-   ```
-   https://{{ auth-host }}/federations/<federation_ID>
-   ```
+1. In the Configure URL step, select **Enable support for the SAML 2.0 WebSSO protocol** and specify the ACS URL to redirect users to after successful authentication.
 
    {% cut "How to get a federation ID" %}
 
    {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
 
    {% endcut %}
+
+   
+   {% cut "How to get the federation ACS URL" %}
+
+   {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
+
+   {% endcut %}
+
 
    
    ![image](../../../_assets/iam/federations/specify-console-sso-link.png)
@@ -587,7 +591,7 @@ Now that you finished configuring authentication with Active Directory, test tha
 1. Follow the URL to log in to the management console:
 
    ```
-   https://{{ console-host }}/federations/<federation_ID>
+   {{ link-console-main }}/federations/<federation_ID>
    ```
 
    {% cut "How to get a federation ID" %}
@@ -602,7 +606,7 @@ Now that you finished configuring authentication with Active Directory, test tha
 
 1. Enter your authentication data. By default, you must enter the UPN and password. Then click **Sign in**.
 
-1. On successful authentication, AD FS will redirect you to the `https://{{ auth-host }}/federations/<federation_ID>` URL that you specified in the AD FS server settings and then to the management console home page. In the top-right corner, you can see that you are logged in to the console under an Active Directory account.
+1. On successful authentication, AD FS will redirect you to the ACS URL that you specified in the AD FS server settings and then to the management console home page. In the top-right corner, you can see that you are logged in to the console under an Active Directory account.
 
 #### What's next {#what-is-next}
 

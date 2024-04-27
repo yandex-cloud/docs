@@ -1,6 +1,6 @@
 # Работа с базами данных {{ mch-name }}
 
-В этом разделе описана основная информация про работу с [{{ mch-name }}](https://cloud.yandex.ru/services/managed-clickhouse).
+В этом разделе описана основная информация про работу с [{{ mch-name }}](https://yandex.cloud/ru/services/managed-clickhouse).
 
 Пример чтения данных из {{ mch-name }}:
 

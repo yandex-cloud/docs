@@ -244,7 +244,7 @@ Add users to the IdP server:
 
       1. Confirm you want to create a federation.
 
-      This will create a federation in the specified organization. You can check the new federation and its settings in the organization's {{ ui-key.yacloud_org.pages.federations }}({{ link-org-federations }}) section.
+      This will create a federation in the specified organization. You can check the new federation and its settings in the organization's [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) section.
 
 - API {#api}
 
@@ -392,17 +392,21 @@ Once you have created a federation, complete the creation of the SAML applicatio
 
 1. Open the **SAML-based sign-on** SAML application settings page.
 
-1. In Section **1. Basic SAML** configuration, specify information on {{ yandex-cloud }} acting as the service provider. To do this, in the **ID (entity)** and **Response URL (assertion consumer service URL)** fields, enter the URL to redirect users to after successful authentication:
-
-   ```
-   https://{{ auth-host }}/federations/<federation_ID>
-   ```
+1. In Section **1. Basic SAML** configuration, specify information on {{ yandex-cloud }} acting as the service provider. To do this, in the **ID (entity)** and **Response URL (assertion consumer service URL)** fields, enter the ACS URL to redirect users to after successful authentication.
 
    {% cut "How to get a federation ID" %}
 
    {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
 
    {% endcut %}
+
+   
+   {% cut "How to get the federation ACS URL" %}
+
+   {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
+
+   {% endcut %}
+
 
 1. Click **Save**.
 
@@ -521,7 +525,7 @@ When you finish setting up SSO, test that everything works properly:
 1. Follow the URL to log in to the management console:
 
    ```
-   https://{{ console-host }}/federations/<federation_ID>
+   {{ link-console-main }}/federations/<federation_ID>
    ```
 
    {% cut "How to get a federation ID" %}
@@ -534,7 +538,7 @@ When you finish setting up SSO, test that everything works properly:
 
 1. Enter your credentials and click **Next**.
 
-On successful authentication, the IdP server will redirect you to the `https://{{ auth-host }}/federations/<federation_ID>` URL that you specified in the Azure AD settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will see being logged in to the console as a federated user.
+On successful authentication, the IdP server will redirect you to the ACS URL that you specified in the Azure AD settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will see being logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 

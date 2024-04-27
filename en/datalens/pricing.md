@@ -36,7 +36,7 @@ From April 23 to June 1, 2024, you will be able to test these service plans for 
     * Secure private object embedding.
     * [SLA](https://yandex.com/legal/cloud_sla_datalens).
     * Enterprise authentication and SSO.
-    * [Business technical support plan](../support/pricing.md#business) (only applies to {{ datalens-name }}) and has priority over the Community plan when processing support requests.
+    * [Business technical support plan](../support/pricing.md#business) (only covers {{ datalens-name }}) and priority over the Community plan when processing support requests.
 
 ## Pricing policy as of June 1, 2024 {#service-plan-cost}
 

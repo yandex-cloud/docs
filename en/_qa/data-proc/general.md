@@ -38,7 +38,7 @@ This error occurs because the [lightweight clusters](../../data-proc/concepts/in
 
 We also recommend using [{{ objstorage-full-name }} buckets](../../storage/concepts/bucket.md) to work with jobs. You can [upload scripts to them](../../storage/operations/objects/upload.md) to run jobs. These scripts are stored as objects one can [get links](../../storage/operations/objects/link-for-download.md) to. As a result, you can use links from {{ objstorage-name }} instead of `file:/` format links in your jobs.
 
-#### Why does the `Create Data Proc cluster Error: 0 Address space exhausted` error occur and how do I fix it? {#addresses-exhausted}
+#### Why does the `Create {{ dataproc-name }} cluster Error: 0 Address space exhausted` error occur and how do I fix it? {#addresses-exhausted}
 
 The error means that your {{ dataproc-name }} cluster's subnet has run out of IPs that can be allocated to cluster hosts. To check how many IPs are available, [view the list of addresses used](../../vpc/operations/subnet-used-addresses.md) in the subnet and its mask.
 

@@ -1,6 +1,6 @@
 # Alert settings in {{ monitoring-full-name }}
 
-In this tutorial, you will learn how to track the status of [trails](https://cloud.yandex.ru/docs/audit-trails/concepts/trail) using [alerts](https://cloud.yandex.ru/docs/monitoring/concepts/alerting#alert).
+In this tutorial, you will learn how to track the status of [trails](../concepts/trail.md) using [alerts](../../monitoring/concepts/alerting.md#alert).
 
 To start tracking the status of trails:
 

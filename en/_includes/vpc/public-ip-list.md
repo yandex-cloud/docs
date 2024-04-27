@@ -4,7 +4,7 @@ For {{ yandex-cloud }} network resources, one can use two types of IP addresses:
 
 * IP addresses used by {{ yandex-cloud }} to run services, e.g., to write [audit logs](../../audit-trails/concepts/format.md) in {{ at-name }}.
 
-## Service IP addresses for users
+## Service IP addresses for users {#user-ips}
 
 The following IP address ranges are assigned to resources that are available to users:
 
@@ -38,7 +38,7 @@ For example, the resources assigned such IP address ranges are:
 * NAT instances
 * {{ network-load-balancer-name }} and {{ alb-name }} load balancers
 
-## IP addresses used by {{ yandex-cloud }}
+## IP addresses used by {{ yandex-cloud }} {#yandex-cloud-ips}
 
 The following IP address ranges are assigned to the resources that support {{ yandex-cloud }} operation:
 

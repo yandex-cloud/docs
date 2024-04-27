@@ -56,7 +56,7 @@ Set up {{ datalens-short-name }} depending on your experience:
 
 To connect to the **Heat Maps** dashboard:
 
-1. Follow the [link](https://datalens.yandex.ru/connections/new/smb_heatmaps) and click **Get token**.
+1. Follow the [link]({{ link-datalens-main }}/connections/new/smb_heatmaps) and click **Get token**.
 
    ![image](../../_assets/datalens/solution-heatmap/heat-map-connection.png)
 

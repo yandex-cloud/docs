@@ -649,17 +649,21 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
       1. In the left-hand panel, select **Clients**. Click **Create client**.
 
-      1. In the **Client ID** field, enter the URL to redirect users to after successful authentication:
-
-         ```
-         https://{{ auth-host }}/federations/<federation_ID>
-         ```
+      1. In the **Client ID** field, enter the ACS URL to redirect users to after successful authentication.
 
          {% cut "How to get a federation ID" %}
 
          {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
 
          {% endcut %}
+
+         
+         {% cut "How to get the federation ACS URL" %}
+
+         {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
+
+         {% endcut %}
+
 
       1. In the **Client type** field, select **saml**.
 
@@ -669,17 +673,21 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
       1. In the left-hand panel, select **Clients**. Click **Create**.
 
-      1. In the **Client ID** field, enter the URL to redirect users to after successful authentication:
-
-         ```
-         https://{{ auth-host }}/federations/<federation_ID>
-         ```
+      1. In the **Client ID** field, enter the ACS URL to redirect users to after successful authentication.
 
          {% cut "How to get a federation ID" %}
 
          {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
 
          {% endcut %}
+
+         
+         {% cut "How to get the federation ACS URL" %}
+
+         {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
+
+         {% endcut %}
+
 
       1. In the **Client Protocol** field, select **saml**.
 
@@ -689,7 +697,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
 1. Set up the SAML application parameters in the **Settings** tab:
 
-   1. Specify the `https://{{ auth-host }}/federations/<federation_ID>` redirect URL in the following fields:
+   1. Specify the ACS  redirect URL in the following fields:
 
       {% list tabs %}
 
@@ -706,6 +714,14 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
          * **IDP Initiated SSO Relay State**
 
       {% endlist %}
+
+      
+      {% cut "How to get the federation ACS URL" %}
+
+      {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
+
+      {% endcut %}
+
 
    1. Enable the following options:
       * **Include AuthnStatement**
@@ -954,7 +970,7 @@ When you finish setting up SSO, test that everything works properly:
 1. Follow the URL to log in to the management console:
 
    ```
-   https://{{ console-host }}/federations/<federation_ID>
+   {{ link-console-main }}/federations/<federation_ID>
    ```
 
    {% cut "How to get a federation ID" %}
@@ -967,4 +983,4 @@ When you finish setting up SSO, test that everything works properly:
 
 1. Enter your credentials and click **Sign in**.
 
-On successful authentication, the IdP server will redirect you to the `https://{{ auth-host }}/federations/<federation_ID>` URL that you specified in the Keycloak settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will see being logged in to the console as a federated user.
+On successful authentication, the IdP server will redirect you to the ACS URL that you specified in the Keycloak settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will see being logged in to the console as a federated user.

@@ -600,7 +600,7 @@ flow_control:  # необязательный
         # Выходной формат, в который нужно преобразовать входящий набор метрик.
         # Должен быть указан ровно один из вложенных элементов.
         format:  # обязательный
-          # Преобразовать в json формат {{ monitoring-full-name }} (https://cloud.yandex.ru/docs/monitoring/api-ref/MetricsData/write)
+          # Преобразовать в json формат {{ monitoring-full-name }} (../../../api-ref/MetricsData/write.md)
           json:
               # Нужно ли склеивать метрики с одним и тем же набором меток.
               # Возможные значения: default (не склеивать), merge_metrics (склеивать).
@@ -644,7 +644,7 @@ flow_control:  # необязательный
     plugin: filter_metrics
     config:
         # Условие на метрики, которые нужно оставить. Все остальные будут отфильтрованы.
-        # Описание синтаксиса можно найти здесь https://cloud.yandex.ru/docs/monitoring/concepts/querying#selectors
+        # Описание синтаксиса можно найти здесь https://yandex.cloud/ru/docs/monitoring/concepts/querying#selectors
         match: "{name=gauge-*}"  # обязательный
 ```
 
@@ -684,8 +684,8 @@ flow_control:  # необязательный
     plugin: transform_metric_labels
 
     config:
-      # Ограничить пременение фильтра только теми метриками, которые удовлетворяют данному условию.
-      # Описание синтаксиса можно найти здесь https://cloud.yandex.ru/docs/monitoring/concepts/querying#selectors
+      # Ограничить применение фильтра только теми метриками, которые удовлетворяют данному условию.
+      # Описание синтаксиса можно найти здесь https://yandex.cloud/ru/docs/monitoring/concepts/querying#selectors
       match: "{name=gauge-*}"  # необязательный параметр, по умолчанию не задан, фильтр применяется ко всем метрикам
 
       # Описание преобразований меток в формате "имя метки: выражение".
@@ -918,7 +918,7 @@ output:
 
 #### Выход yc_logs {#yc_logs_output}
 
-Выход для отправки метрик в {{ cloud-logging-full-name }} по протоколу [grpc](https://cloud.yandex.ru/docs/logging/api-ref/grpc/log_ingestion_service).
+Выход для отправки метрик в {{ cloud-logging-full-name }} по протоколу [grpc](../../../../logging/api-ref/grpc/log_ingestion_service.md).
 
 {% note info %}
 

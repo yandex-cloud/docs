@@ -26,7 +26,7 @@ positional arguments:
 options:
   -h, --help            show this help message and exit
   -t TOKEN, --token TOKEN
-                        YC OAuth token, see https://cloud.yandex.com/docs/iam/concepts/authorization/oauth-token
+                        YC OAuth token, see https://yandex.cloud/en/docs/iam/concepts/authorization/oauth-token
   -l {ERROR,WARNING,INFO,DEBUG}, --log-level {ERROR,WARNING,INFO,DEBUG}
                         Logging level
   --log-config LOG_CONFIG

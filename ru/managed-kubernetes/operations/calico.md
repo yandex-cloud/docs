@@ -42,7 +42,7 @@ description: "Следуя данной инструкции, вы сможет�
      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-     1. Скачайте в ту же рабочую директорию файл конфигурации [кластера {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) [k8s-calico.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-calico.tf). В файле описаны:
+     1. Скачайте в ту же рабочую директорию файл конфигурации [кластера {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) [k8s-calico.tf](https://github.com/yandex-cloud-examples/yc-mk8s-calico/blob/main/k8s-calico.tf). В файле описаны:
         * [Сеть](../../vpc/operations/network-create.md).
         * Подсеть.
         * Кластер {{ managed-k8s-name }}.

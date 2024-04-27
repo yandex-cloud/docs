@@ -2,7 +2,7 @@
 {% include [datalens-workbooks-collections-select-note](./datalens-workbooks-collections-select-note.md) %}
 
 
-1. На [странице навигации](https://datalens.yandex.ru/navigation) найдите дашборд и откройте его.
+1. На [странице навигации]({{ link-datalens-main }}/navigation) найдите дашборд и откройте его.
 1. В верхней части интерфейса дашборда нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/nodes-right.svg) **Публичный доступ**.
 1. В открывшемся окне настройте публичный доступ:
 
