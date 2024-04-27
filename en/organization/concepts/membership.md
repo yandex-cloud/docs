@@ -10,7 +10,7 @@ description: "Organization membership opens up access to services within the org
 * [{{ yandex-cloud }} services]({{ link-cloud-services }}).
 * Collaboration and business intelligence services: [{{ tracker-full-name }}]({{ link-tracker }}), [{{ wiki-full-name }}]({{ link-wiki }}), [{{ forms-full-name }}]({{ link-forms-b2b }}), [{{ datalens-full-name }}]({{ link-datalens-main }}), and [{{ ml-platform-full-name }}]({{ link-datasphere-main }}).
 
-Non-members of an organization cannot gain access to the resources within the organization. An exception is the resources access to which is granted to the `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}` [system groups](https://cloud.yandex.ru/docs/iam/concepts/access-control/system-group).
+Non-members of an organization cannot gain access to the resources within the organization. An exception is the resources access to which is granted to the `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}` [system groups](../../iam/concepts/access-control/system-group.md).
 
 Organization membership may be held by:
 

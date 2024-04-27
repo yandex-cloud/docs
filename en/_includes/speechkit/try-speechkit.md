@@ -1,1 +1,1 @@
-To try out the Text-to-Speech and Speech-to-Text product demos, visit the [{{ speechkit-name }} page](https://cloud.yandex.ru/services/speechkit#demo) on our website.
+To try out the Text-to-Speech and Speech-to-Text product demos, visit the [{{ speechkit-name }} page](https://yandex.cloud/en/services/speechkit#demo) on our website.

@@ -33,7 +33,7 @@ To have the parameter value inserted into the dataset-based selector when you cl
 
 {% endnote %}
 
-The first address string parameter is separated from the dashboard path using `?` and the remaining parameters using `&`. For instance, `https://datalens.yandex.ru/test-dashboard?tab=test&OrderID=123456789` contains values for the `tab` and `OrderID` parameters.
+The first address string parameter is separated from the dashboard path using `?` and the remaining parameters using `&`. For instance, `{{ link-datalens-main }}/test-dashboard?tab=test&OrderID=123456789` contains values for the `tab` and `OrderID` parameters.
 
 The parameter values specified in the link will take priority. For example, if the dashboard settings have the `region` parameter set to `RU` and the dashboard link indicates `?region=KZ`, the `KZ` value is inserted into widgets.
 
@@ -52,13 +52,13 @@ You can pass a parameter value to a wizard chart using a field's ID ([see the in
 
 This parameter is used to specify an offset relative to the current point in time in one of the following formats:
 
-* `__relative_<sign><amount><unit>`
-* `__relative_<sign><amount><unit>_<casting type><unit>`
+* `__relative_<sign><number><unit>`
+* `__relative_<sign><number><unit>_<casting_type><unit>`
 
 Where:
 
-* Sign: `+` or `-`
-* Units:
+* `<sign>`: `+` or `-`
+* `<unit>`:
    * `y`: Year
    * `Q`: Quarter
    * `M`: Month
@@ -68,7 +68,7 @@ Where:
    * `m`: Minute
    * `s`: Second
    * `ms`: Millisecond
-* Casting type:
+* `<casting_type>`:
    * `s`: To the start
    * `e`: To the end
 
@@ -103,7 +103,7 @@ For dashboard widgets, parameters are applied in the following order (values fro
 1. [Chart parameters](#params-chart) from dashboard settings.
 1. [Dashboard parameters](#params-dash).
 1. Dasboard [selector](./selector.md) values.
-1. Parameters specified in a dashboard link, such as `https://datalens.yandex.ru/test-dashboard?OrderID=123456789`.
+1. Parameters specified in a dashboard link, such as `{{ link-datalens-main }}/test-dashboard?OrderID=123456789`.
 1. Values from the `state` parameter in a dashboard link. {{ datalens-short-name }} remembers the selector settings and writes them to a special parameter named `state` and shown in the browser address bar. To share the current dashboard state, just copy the resulting link. This way, you can show the dashboard with required data directly instead of describing the filter settings.
 
 ## Parameter limitations {#params-restrictions}

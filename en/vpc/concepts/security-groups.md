@@ -291,8 +291,8 @@ resource yandex_vpc_security_group vm_group_sg {
 
 In {{ yandex-cloud }}, you can work with security groups using:
 
-* [Management console](https://console.cloud.yandex.ru/folders/{folder-id}/vpc/security-groups/)
-* [Command line interface (CLI)](https://cloud.yandex.ru/docs/cli/cli-ref/managed-services/vpc/security-group/)
+* [Management console]({{ link-console-main }}/folders/{folder-id}/vpc/security-groups/)
+* [Command line interface (CLI)](../../cli/cli-ref/managed-services/vpc/security-group/index.md)
 * {{ TF }}:
    * [Security Group](https://terraform-provider.yandexcloud.net/Resources/vpc_security_group)
    * [Security Group Rule](https://terraform-provider.yandexcloud.net/Resources/vpc_security_group_rule)

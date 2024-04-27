@@ -45,7 +45,7 @@ To view detailed error information, follow the link by clicking the error code:
 | [ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.BFB_UNSELECTED_DIMENSION](ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-BFB_UNSELECTED_DIMENSION.md) | Window function has unselected dimension |
 | [ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.NO_AGG](ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-NO_AGG.md) | Window function has no aggregated expressions among its arguments |
 | [ERR.DS_API.INVALID_GROUP_BY_CONFIGURATION](ERR-DS_API-INVALID_GROUP_BY_CONFIGURATION.md) | Invalid grouping configuration |
-| [ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED](ERR-DS_API-REFERENCED_ENTRY_ACCESS_DENIED.md) | Referenced <connection id> cannot be loaded: access denied |
+| [ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED](ERR-DS_API-REFERENCED_ENTRY_ACCESS_DENIED.md) | Referenced connection <connection_ID> cannot be loaded: access denied |
 | [ERR.DS_API.REFERENCED_ENTRY_NOT_FOUND](ERR-DS_API-REFERENCED_ENTRY_NOT_FOUND.md) | Accessing a nonexistent object |
 | [ERR.DS_API.REQUEST_TIMEOUT](ERR-DS_API-REQUEST_TIMEOUT.md) | Backend app request timeout exceeded |
 | [ERR.DS_API.ROW_COUNT_LIMIT](ERR-DS_API-ROW_COUNT_LIMIT.md) | Received too many result data rows |
@@ -56,4 +56,4 @@ To view detailed error information, follow the link by clicking the error code:
 | [ERR.DS_API.US.BAD_REQUEST](ERR-DS_API-US-BAD_REQUEST.md) | Object request error |
 | [ERR.FILE.INVALID_LINK.YADOCS_INVALID_PUBLIC_LINK_PREFIX](ERR-FILE-INVALID_LINK-YADOCS_INVALID_PUBLIC_LINK_PREFIX.md) | Incorrect Yandex Documents link format |
 | [ERR.FILE.UNSUPPORTED_DOCUMENT](ERR-FILE-UNSUPPORTED_DOCUMENT.md) | File check failed |
-| [ERR.US.BAD_REQUEST.ALREADY_EXISTS](ERR-US-BAD_REQUEST-ALREADY_EXISTS.md) | Failed to create <object type> |
+| [ERR.US.BAD_REQUEST.ALREADY_EXISTS](ERR-US-BAD_REQUEST-ALREADY_EXISTS.md) | Failed to create <object_type> |

@@ -16,7 +16,7 @@
 
 * [Почему возникает ошибка `Using fileUris is forbidden on lightweight cluster`, и как ее исправить?](#file-uri)
 
-* [Почему возникает ошибка `Create Data Proc cluster Error: 0 Address space exhausted`, и как ее исправить?](#addresses-exhausted)
+* [Почему возникает ошибка `Create {{ dataproc-name }} cluster Error: 0 Address space exhausted`, и как ее исправить?](#addresses-exhausted)
 
 * [Как исправить ошибку при создании базы данных в {{ metastore-full-name }}?](#create-db-in-hive)
 

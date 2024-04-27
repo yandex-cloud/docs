@@ -56,7 +56,7 @@
 
 Для подключения к дашборду **Тепловые карты**:
 
-1. Перейдите по [ссылке](https://datalens.yandex.ru/connections/new/smb_heatmaps) и нажмите кнопку **Получить токен**. 
+1. Перейдите по [ссылке]({{ link-datalens-main }}/connections/new/smb_heatmaps) и нажмите кнопку **Получить токен**. 
 
    ![image](../../_assets/datalens/solution-heatmap/heat-map-connection.png)
 

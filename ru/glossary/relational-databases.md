@@ -97,7 +97,7 @@ _Реляционная база данных_ — это составленна
 ## Интересное по теме {#interesting}
 
 * Записи вебинаров:
-    * [Когда и как мигрировать на {{ ydb-short-name }}](https://cloud.yandex.ru/events/767)
-    * [Управляемый сервис {{ ydb-short-name }}: настройка, применение, мониторинг](https://cloud.yandex.ru/events/597)
-* История успеха [Как Авто.ру провел экзамен по ПДД с помощью serverless-технологий](https://cloud.yandex.ru/cases/autoru)
+    * [Когда и как мигрировать на {{ ydb-short-name }}](https://yandex.cloud/ru/events/767)
+    * [Управляемый сервис {{ ydb-short-name }}: настройка, применение, мониторинг](https://yandex.cloud/ru/events/597)
+* История успеха [Как Авто.ру провел экзамен по ПДД с помощью serverless-технологий](https://yandex.cloud/ru/cases/autoru)
 * Новость в блоге [Распределенная СУБД {{ ydb-short-name }} выходит в open source](../../blog/posts/2022/04/ydb-available-in-open-source)

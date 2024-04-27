@@ -1,6 +1,6 @@
 # Начало работы со {{ speechkit-name }}
 
-Вы можете протестировать распознавание и синтез речи в сервисе {{ speechkit-name }} на [странице демо](https://cloud.yandex.ru/services/speechkit#demo). О стоимости использования сервиса читайте в разделе [{#T}](../pricing.md).
+Вы можете протестировать распознавание и синтез речи в сервисе {{ speechkit-name }} на [странице демо](https://yandex.cloud/ru/services/speechkit#demo). О стоимости использования сервиса читайте в разделе [{#T}](../pricing.md).
 
 ## Перед началом работы {#before-you-begin}
 

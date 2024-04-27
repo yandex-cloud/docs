@@ -94,7 +94,7 @@ description: "Для визуализация данных из {{ tracker-short
     Где `client_id` — идентификатор созданного приложения в поле **ClientID**.
 
 1. Авторизуйтесь с помощью учетной записи {{ tracker-short-name }}, которая будет использоваться для визуализации.
-1. Сохраните полученный [OAuth токен](https://cloud.yandex.ru/docs/tracker/concepts/access#section_about_OAauth).
+1. Сохраните полученный [OAuth токен](../../tracker/concepts/access.md#section_about_OAauth).
 
 ## Создайте функцию {{ sf-name }} для импорта данных {#function-import}
 

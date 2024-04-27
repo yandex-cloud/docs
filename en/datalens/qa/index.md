@@ -1,5 +1,5 @@
 ---
-title: "{{ datalens-full-name }}. Questions and answers"
+title: "{{ datalens-full-name }}. FAQ"
 description: "How do I get the logs of my activity in {{ datalens-full-name }}? Find the answer to this and other questions in this article."
 ---
 
@@ -9,7 +9,8 @@ This section includes answers to frequently asked user questions about {{ datale
 
 Sections:
 
-* [Permissions](permissions.md)
+* [Access permissions](permissions.md)
+* [Billing and payment](pricing.md)
 * [Connections](connections.md)
 * [Datasets](datasets.md)
 * [Charts](charts.md)

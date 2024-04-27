@@ -18,7 +18,11 @@
 {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
 #### Существует ли минимальная сумма платежа? {#minimum}
-Минимальная сумма платежа составляет 10 ₽.
+Минимальная сумма платежа составляет в зависимости от валюты:
+
+* 10 ₽;
+* 60 ₸;
+* $1.
 
 #### Как изменить платежные реквизиты? {#change-requisites}
 
@@ -28,12 +32,16 @@
 
 {% list tabs group=residents %}
 
-
  - Резиденты Российской Федерации {#russia}
 
    Ресурсы {{ yandex-cloud }} можно оплачивать только в рублях (₽), вне зависимости от юридического статуса ([типа платежного аккаунта](../../billing/concepts/billing-account.md#ba-types)).
 
    {% include [rb payment](../../_includes/billing/rb-payment.md) %}
+
+
+ - Резиденты Республики Казахстан {#kazakhstan}
+
+   Ресурсы {{ yandex-cloud }} можно оплачивать только в тенге (₸), вне зависимости от юридического статуса ([типа платежного аккаунта](../../billing/concepts/billing-account.md#ba-types)).
 
 
  - Нерезиденты Российской Федерации {#nonresidents}

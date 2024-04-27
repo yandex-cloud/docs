@@ -44,7 +44,7 @@
      1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
      1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-     1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-gateway-api.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-gateway-api.tf). В файле описаны:
+     1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-gateway-api.tf](https://github.com/yandex-cloud-examples/yc-mk8s-gateway-api/blob/main/k8s-gateway-api.tf). В файле описаны:
         * Сеть.
         * Подсеть.
         * Кластер {{ k8s }}.

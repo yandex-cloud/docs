@@ -88,9 +88,7 @@ items:
             href: operations/applications/velero-yc-csi.md
       - name: Сетевые сценарии
         items:
-          - name: >-
-              "Обеспечение доступа к приложению, запущенному в кластере {{ k8s
-              }}"
+          - name: Обеспечение доступа к приложению, запущенному в кластере {{ k8s }}
             href: operations/create-load-balancer.md
           - name: Настройка контроллера сетевых политик Calico
             href: operations/calico.md

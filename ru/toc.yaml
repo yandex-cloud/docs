@@ -35,7 +35,7 @@ items:
     href: container-registry/index.yaml
   - name: Container Solution
     href: cos/index.yaml
-  - name: Data Proc
+  - name: Yandex Data Proc
     href: data-proc/index.yaml
   - name: Data Transfer
     href: data-transfer/index.yaml

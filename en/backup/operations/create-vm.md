@@ -114,7 +114,7 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
       * `service-account-name`: Name of the [service account](../../iam/concepts/users/service-accounts.md) with the `backup.editor` role.
       * `ssh-key`: Path to the file with the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). The VM will automatically create a user named `yc-user` for this key.
 
-      In this example, a VM running on [Ubuntu 20.04](https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts) is created:
+      In this example, a VM running on [Ubuntu 20.04](https://yandex.cloud/en/marketplace/products/yc/ubuntu-20-04-lts) is created:
 
       ```bash
       yc compute instance create \

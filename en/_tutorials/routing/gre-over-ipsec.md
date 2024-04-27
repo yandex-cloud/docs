@@ -5,7 +5,7 @@ To enable secure communication between remote resources and data transmission vi
 
 To extend the IPsec features, it is handy to use the [GRE](https://en.wikipedia.org/wiki/Generic_Routing_Encapsulation) protocol in the GRE over IPsec configuration. GRE encapsulates network packets in IP packets, which enables you to transmit any traffic over IPsec.
 
-In this example, you will create a secure GRE over IPsec tunnel between two [Cisco CSR 1000v](https://cloud.yandex.ru/marketplace/products/yc/cisco-csr) virtual routers hosted in different [virtual networks](../../vpc/concepts/network.md) and [availability zones](../../overview/concepts/geo-scope.md) in {{ yandex-cloud }}.
+In this example, you will create a secure GRE over IPsec tunnel between two [Cisco CSR 1000v](https://yandex.cloud/en/marketplace/products/yc/cisco-csr) virtual routers hosted in different [virtual networks](../../vpc/concepts/network.md) and [availability zones](../../overview/concepts/geo-scope.md) in {{ yandex-cloud }}.
 
 IPsec settings are provided for NAT-T ([NAT Traversal](https://ru.wikipedia.org/wiki/NAT_traversal)) mode, since {{ yandex-cloud }} uses [NAT](https://ru.wikipedia.org/wiki/NAT), while GRE does not support using ports. This mode enables router IP address translation with NAT when using a GRE over IPsec tunnel. This makes the tunnel configuration described in our example suitable for both the cloud infrastructure in {{ yandex-cloud }} and remote resources placed behind the device providing the NAT functionality.
 

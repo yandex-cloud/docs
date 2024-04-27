@@ -1,7 +1,7 @@
 # Визуализация логов в {{ grafana-name }} с помощью плагина {{ cloud-logging-full-name }}
 
 
-[Плагин {{ cloud-logging-full-name }} для {{ grafana-name }}](https://github.com/yandex-cloud/grafana-logs-plugin/tree/master) — расширение для {{ grafana-name }}, с помощью которого можно добавить [{{ cloud-logging-name }}](https://cloud.yandex.ru/services/logging) в качестве источника данных.
+[Плагин {{ cloud-logging-full-name }} для {{ grafana-name }}](https://github.com/yandex-cloud/grafana-logs-plugin/tree/master) — расширение для {{ grafana-name }}, с помощью которого можно добавить [{{ cloud-logging-name }}](https://yandex.cloud/ru/services/logging) в качестве источника данных.
 
 Чтобы визуализировать логи:
 

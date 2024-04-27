@@ -3,6 +3,6 @@
 
 Подробнее узнать об использовании сервиса {{ tracker-full-name }} можно в следующем курсe:
 
-[**Основы работы с {{ tracker-full-name }}**](https://cloud.yandex.ru/training/tracker?utm_source=product&utm_medium=documentation)
+[**Основы работы с {{ tracker-full-name }}**](https://yandex.cloud/ru/training/tracker?utm_source=product&utm_medium=documentation)
 
 В бесплатном курсе вы узнаете, как устроен сервис, как построить систему управления проектами по различным методологиям с помощью инструментов {{ tracker-full-name }}. Вы сможете настроить {{ tracker-name }} для совместной работы команд и автоматизировать рутину для экономии времени с помощью триггеров, автодействий и макросов.

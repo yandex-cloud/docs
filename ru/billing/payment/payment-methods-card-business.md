@@ -4,6 +4,8 @@
 
 {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
+{% include [billing-account-payers](../../billing/_includes/billing-account-payers.md) %}
+
 ## Привязка банковской карты {#pin-card}
 
 При [создании](../quickstart/index.md) платежного аккаунта необходимо привязать банковскую карту.

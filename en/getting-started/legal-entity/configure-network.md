@@ -30,7 +30,7 @@ For your internet service to run, you need two static public IP addresses: one t
    1. In the [management console]({{ link-console-main }}), open your folder and click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
    1. Enter the VM name: `web-node-a`.
    1. Select the `{{ region-id }}-a` availability zone.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**, and select the [Drupal](https://cloud.yandex.com/en-ru/marketplace/products/f2e90bncf96u25a9cirp) image.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**, and select the [Drupal](https://yandex.cloud/en/marketplace/products/f2e90bncf96u25a9cirp) image.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the `subnet-a` subnet. Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, select `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`.
    1. In the **{{ ui-key.yacloud.compute.instances.create.section_access }}** field, enter the login and SSH key to access the VM.
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -49,7 +49,7 @@ To provide secure access to your resources, create an IPSec instance.
    1. In the [management console]({{ link-console-main }}), open your folder and click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
    1. Enter the VM name: `vpc`.
    1. Select the `{{ region-id }}-a` availability zone.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**, and select the [IPSec instance](https://cloud.yandex.com/marketplace/products/f2e70ohdvsd0jgp2302j) image.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**, and select the [IPSec instance](https://yandex.cloud/en/marketplace/products/f2e70ohdvsd0jgp2302j) image.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the `subnet-a` subnet. Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, select a reserved IP address from the list.
    1. In the **{{ ui-key.yacloud.compute.instances.create.section_access }}** field, enter the login and SSH key to access the VM.
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.

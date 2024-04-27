@@ -55,7 +55,7 @@ links:
   - title: Container Solution
     description: Сценарии использования виртуальных машин
     href: cos/
-  - title: Data Proc
+  - title: '{{ dataproc-name }}'
     description: Управление кластерами Apache Hadoop®
     href: data-proc/
   - title: DataLens

@@ -39,7 +39,7 @@ To grant full access to six or more users, you need to [add a billing account](b
 ## Authorizing a user to invite new users {#invite-users}
 
 For a user to invite new users to the organization, administrator rights are required:
-* In {{ org-full-name }}, [assign](https://org.cloud.yandex.ru/acl) the `admin` and `organization-manager.organizations.owner` roles to the user.
+* In {{ org-full-name }}, [assign]({{ link-org-acl }}) the `admin` and `organization-manager.organizations.owner` roles to the user.
 * In {{ ya-360 }}, make the user an administrator.
 
 

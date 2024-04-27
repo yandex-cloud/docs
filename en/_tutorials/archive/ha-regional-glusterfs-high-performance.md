@@ -183,13 +183,13 @@ The infrastructure support costs include:
       {% note info %}
 
       In this use case, we will deploy 30 VMs. You can change this number depending on the requirements for the final storage size or total bandwidth.
-      The maximum aggregate bandwidth of the entire system is calculated as the product of each segment's bandwidth (450 MB/s for [network SSDs](https://cloud.yandex.ru/docs/compute/concepts/disk#disks-types)) and the number of segments (30), which is about 13.5 GB/s.
+      The maximum aggregate bandwidth of the entire system is calculated as the product of each segment's bandwidth (450 MB/s for [network SSDs](../../compute/concepts/disk.md#disks-types)) and the number of segments (30), which is about 13.5 GB/s.
       The system capacity is calculated as the product of the number of segments (30) and the size of each storage (1 TB), which amounts to 30 TB.
 
       {% endnote %}
 
    1. If you chose a non-default name when creating the SSH key pair, under `local_pubkey_path`, change `default` to `<path_to_the_public_SSH_key>`.
-   1. If you need enhanced performance without guaranteed data durability, you can use [non-replicated SSDs](https://cloud.yandex.ru/docs/compute/concepts/disk#nr-disks). To do this, under `disk_type`, change `default` to `network-ssd-nonreplicated`. In addition, make sure the `default` value under `disk_size` is a multiple of 93.
+   1. If you need enhanced performance without guaranteed data durability, you can use [non-replicated SSDs](../../compute/concepts/disk.md#nr-disks). To do this, under `disk_type`, change `default` to `network-ssd-nonreplicated`. In addition, make sure the `default` value under `disk_size` is a multiple of 93.
 
 ## Deploy your resources {#deploy-resources}
 

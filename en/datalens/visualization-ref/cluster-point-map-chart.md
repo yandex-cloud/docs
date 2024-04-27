@@ -2,6 +2,12 @@
 
 A point map with clusters differs from a [regular point map](point-map-chart.md) in clustering adjacent points. On the map, a cluster is represented as a donut chart with the number of points displayed in the center.
 
+{% note info %}
+
+The cluster center only displays the number of points entering this cluster. You cannot choose a different metric, e.g., the sum of values across all points.
+
+{% endnote %}
+
 The behavior of points varies depending on the map scale:
 
 * When scaling down, points are clustered.
@@ -21,11 +27,11 @@ Limitations:
 * The **Point size**, **Tooltips**, and **Signatures** sections only apply to individual points.
 * You can only add a dimension to the **Color** section.
 
-| Wizard section | Description |
+| Wizard<br/> section | Description |
 ----- | ----
 | Points with clusters (Geopoints) | Measure with the type [Geopoint](../concepts/data-types#geopoint). |
 | Point size | Measure. Sets a point size depending on the measure value. |
-| Colors | Dimension. Affects the intensity of point fill. |
+| Colors | Dimension. Sets cluster chart segmentation. |
 | Labels | Measure. Displayed as text on a point. When used, point size control is blocked. |
 | Tooltips | Dimension or measure. A tooltip that appears when you hover over a point. |
 | Layer filters | Dimension or measure. Used as a filter for the current layer. |

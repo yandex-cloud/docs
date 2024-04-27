@@ -50,7 +50,7 @@ Thumbor удобно использовать для подготовки изо
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Скачайте в ту же рабочую директорию файл конфигурации [k8s-for-thumbor.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-for-thumbor.tf).
+   1. Скачайте в ту же рабочую директорию файл конфигурации [k8s-for-thumbor.tf](https://github.com/yandex-cloud-examples/yc-mk8s-thumbor/blob/main/k8s-for-thumbor.tf).
 
       В этом файле описаны:
 
@@ -154,7 +154,7 @@ Thumbor удобно использовать для подготовки изо
 
       Загрузить объекты в бакет можно только после его создания, поэтому для загрузки изображений используется отдельный файл конфигурации.
 
-      1. В рабочую директорию с файлом `k8s-for-thumbor.tf` скачайте файл конфигурации [images-for-thumbor.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/images-for-thumbor.tf). В этом файле описаны объекты {{ objstorage-name }} — скачанные изображения, которые будут загружены в бакет.
+      1. В рабочую директорию с файлом `k8s-for-thumbor.tf` скачайте файл конфигурации [images-for-thumbor.tf](https://github.com/yandex-cloud-examples/yc-mk8s-thumbor/blob/main/images-for-thumbor.tf). В этом файле описаны объекты {{ objstorage-name }} — скачанные изображения, которые будут загружены в бакет.
       1. Укажите в файле `images-for-thumbor.tf` относительные или абсолютные пути до изображений. Например, если изображения хранятся в одной директории с файлами конфигурации, укажите:
 
          * `poster_rodents_bunnysize.jpg`

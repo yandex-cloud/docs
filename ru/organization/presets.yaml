@@ -1,10 +1,10 @@
 default:
   service-name: Yandex Cloud Organization
-  link-org-users: https://org.cloud.yandex.ru/users
-  link-org-settings: https://org.cloud.yandex.ru/settings
-  link-org-federations: https://org.cloud.yandex.ru/federations
-  link-org-services: https://org.cloud.yandex.ru/services
-  link-org-groups: https://org.cloud.yandex.ru/groups
+  link-org-users: https://org.yandex.cloud/users
+  link-org-settings: https://org.yandex.cloud/settings
+  link-org-federations: https://org.yandex.cloud/federations
+  link-org-services: https://org.yandex.cloud/services
+  link-org-groups: https://org.yandex.cloud/groups
   link-passport: https://passport.yandex.ru/
   login-example: login@yandex.ru
   yandex-domain: yandex.ru

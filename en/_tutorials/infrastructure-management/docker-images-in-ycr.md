@@ -221,7 +221,7 @@ Each commit is followed by a build script: To check the script's results:
 
 1. Make sure that the `build` step has the `passed` status. This means that the CI script has been executed successfully.
 
-1. Go to the [management console](https://console.cloud.yandex.com/), then open the {{ container-registry-full-name }} registry.
+1. Go to the [management console]({{ link-console-main }}/), then open the {{ container-registry-full-name }} registry.
 
    If the script completes successfully, a new repository is added to the registry. New Docker images from the {{ GL }} project are added to this repository at each commit.
 
@@ -298,7 +298,7 @@ To make sure that the image scan was successful:
 
 1. In the left-hand panel in {{ GL }}, select **CI/CD** → **Pipelines** in the drop-down menu.
 1. Make sure that the `build` and `test` steps have the `passed` status. This means that the CI script has been executed successfully.
-1. Go to the [management console](https://console.cloud.yandex.com/), then open the {{ container-registry-full-name }} registry.
+1. Go to the [management console]({{ link-console-main }}/), then open the {{ container-registry-full-name }} registry.
 1. Open your repository with Docker images from the {{ GL }} project.
 1. Go to the folder with the {{ GL }} project name.
 1. Make sure that the **{{ ui-key.yacloud.cr.image.label_scan-status }}** column includes **{{ ui-key.yacloud.cr.image.label_scan-status-READY }}**.

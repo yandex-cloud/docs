@@ -39,7 +39,7 @@
 ## Дать право пользователю приглашать новых пользователей {#invite-users}
 
 Чтобы пользователь мог пригласить новых пользователей в организацию, он должен обладать правами администратора:
-* В {{ org-full-name }} [назначьте](https://org.cloud.yandex.ru/acl) пользователю роли `admin` и `organization-manager.organizations.owner`;
+* В {{ org-full-name }} [назначьте]({{ link-org-acl }}) пользователю роли `admin` и `organization-manager.organizations.owner`;
 * В {{ ya-360 }} назначьте пользователя администратором.
 
 

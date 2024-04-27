@@ -14,7 +14,7 @@
 
 * [Why does the `Using fileUris is forbidden on lightweight cluster` error occur and how do I fix it?](#file-uri)
 
-* [Why does the `Create Data Proc cluster Error: 0 Address space exhausted` error occur and how do I fix it?](#addresses-exhausted)
+* [Why does the `Create {{ dataproc-name }} cluster Error: 0 Address space exhausted` error occur and how do I fix it?](#addresses-exhausted)
 
 * [Why is my cluster's status `Unknown`?](#unknown)
 

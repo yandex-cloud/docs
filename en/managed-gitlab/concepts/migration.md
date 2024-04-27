@@ -29,7 +29,7 @@ There are two packages available for migration in {{ mgl-name }}:
    To use the basic package, you must meet at least one of these conditions:
 
    * Your {{ GL }} instance type determining the [number of cores (vCPU) and amount of memory (RAM)](../../compute/concepts/vm-platforms.md) is `s2.small` or higher.
-   * Your {{ yandex-cloud }} [service plan](https://cloud.yandex.ru/support) is either <q>Business</q> or <q>Premium</q>.
+   * Your {{ yandex-cloud }} [service plan](https://yandex.cloud/en/support) is either <q>Business</q> or <q>Premium</q>.
 
 * **Extended package**: You tell our technical support which instance settings you need and how you prefer to run your migration. Next, they help you to perform the migration and give you instance setup advice within a single request. The support also helps you to set the [approval rules](approval-rules.md) and resolve the related issues. As a result, you can move your data to the cloud and customize your instance faster compared to the basic package.
 

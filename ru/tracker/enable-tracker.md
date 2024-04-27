@@ -30,4 +30,4 @@
 
 1. [Настройте {{ tracker-name }} для вашей команды](quick-start.md).
 
-Подробнее узнать об использовании сервиса {{ tracker-full-name }} можно в курсе: [Основы работы с {{ tracker-full-name }}](https://cloud.yandex.ru/training/tracker?utm_source=product&utm_medium=documentation).
+Подробнее узнать об использовании сервиса {{ tracker-full-name }} можно в курсе: [Основы работы с {{ tracker-full-name }}](https://yandex.cloud/ru/training/tracker?utm_source=product&utm_medium=documentation).

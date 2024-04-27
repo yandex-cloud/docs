@@ -7,7 +7,7 @@ Features:
 * The **X**, **Sort**, and **Filters** sections are the same for all layers.
 * You can add, delete, reorder and rename layers.
 * Each layer is executed with a separate query in the database.
-* The number of layers is unlimited.
+* The maximum number of layers is 5.
 
 {% note info %}
 
@@ -54,7 +54,7 @@ You can display additional lines calculated using [window functions](../../datal
 
 | Wizard<br/>section | Description |
 ----- | ----
-| X | Dimension. You can only specify one field here. This dimension is usually a date. If this is the case, make sure to specify the `Date` data type for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years. For more information, see [{#T}](../concepts/chart/settings.md#field-settings). The **Х** section is common for all layers. |
+| X | Dimension. You can only specify one field here. This dimension is usually a date. If this is the case, make sure to specify the `Date` data type for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years. For more information, see [{#T}](../concepts/chart/settings.md#field-settings). The **X** section is common for all layers. |
 | Layer section | Allows you to add, delete, reorder and rename layers. You can select a chart type for a layer: [line chart](line-chart.md), [column chart](column-chart.md), or [area chart](area-chart.md). The list of other sections depends on the layer chart type you select. |
 
 ## Creating a combined chart {#create-diagram}

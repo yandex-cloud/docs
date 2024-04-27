@@ -807,6 +807,8 @@ items:
             href: qa/index.md
           - name: Permissions
             href: qa/permissions.md
+          - name: Billing and payment
+            href: qa/pricing.md
           - name: Connections
             href: qa/connections.md
           - name: Datasets
@@ -928,7 +930,7 @@ items:
       - name: Received too many result data rows
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-ROW_COUNT_LIMIT.md
-      - name: Referenced connection <connection id> cannot be loaded access denied
+      - name: Referenced connection <connection_ID> cannot be loaded access denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_ACCESS_DENIED.md
       - name: Request size limit exceeded
@@ -978,7 +980,7 @@ items:
       - name: YT table has no schema. Only schematized tables are supported
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md
-      - name: Could not create <object type>
+      - name: Failed to create <object_type>
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md
       - name: Object request error

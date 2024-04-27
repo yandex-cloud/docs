@@ -26,7 +26,7 @@
     - {{ TF }} {#tf}
 
         1. {% include [terraform-install](../../../_includes/terraform-install.md) %}
-        1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и укажите значения параметров.
+        1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf). Поместите его в отдельную рабочую директорию и укажите значения параметров.
         1. Скачайте в ту же рабочую директорию файл конфигурации [data-transfer-os-mos.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-opensearch-from-onprem-to-cloud/blob/main/data-transfer-os-mos.tf).
 
             В этом файле описаны:

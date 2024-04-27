@@ -423,7 +423,7 @@ You can switch the **Number of accidents by region** chart to **Death rate by re
 
 Sometimes, heat maps are not very informative. Upload the polygon reference and add a chart with a color fill for Russian regions.
 
-1. Download the [**Regions.csv**](https://{{ s3-storage-host }}/doc-files/Regions.csv) file.
+1. Download the [**Regions.csv**](https://storage.yandexcloud.net/doc-files/Regions.csv) file.
 1. Open the `dtp_data` connection.
 1. Click **Upload files** and select the downloaded file.
 1. Take a look at a preview of the file data. For the **Column header** parameter, set the **Yes** value.

@@ -43,7 +43,7 @@ To simplify the comparison of different values and make the information easier t
 
 | Wizard<br/>section | Description |
 ----- | ----
-| Columns | Dimensions and measures to be used as columns. Field names are used as column headers. |
+| Columns | Dimensions and measures to be used as columns. The field name appears in the column header. You can use [markup functions](../function-ref/markup-functions.md) in columns. |
 | Colors | Measure. Affects shading of all cells within a row. It may only contain one measure. |
 | Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon. |
 | Filters | Dimension or measure. Used as a filter. |

@@ -81,7 +81,7 @@ Once the billing account is created, [link it to {{ tracker-name }}](#bind). You
 
 ## Edit a billing account {#edit}
 
-1. To open the billing account editing section, follow the [link](http://billing.cloud.yandex.ru/) to the {{ yandex-cloud }} **Billing** section. All your billing accounts are listed on the page.
+1. To open the billing account editing section, follow the [link](https://billing.yandex.cloud) to the {{ yandex-cloud }} **Billing** section. All your billing accounts are listed on the page.
 
 1. Select the billing account that you want to edit.
 

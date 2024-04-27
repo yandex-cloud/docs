@@ -116,8 +116,8 @@ default:
   datalens-name: DataLens
   datalens-short-name: DataLens
   dataproc-full-name: Yandex Data Proc
-  dataproc-name: Data Proc
-  dataproc-short-name: Data Proc
+  dataproc-name: Yandex Data Proc
+  dataproc-short-name: Yandex Data Proc
   dd: Dedicated
   ddos-protection-full-name: Yandex DDoS Protection
   ddos-protection-name: DDoS Protection
@@ -232,36 +232,37 @@ default:
   license-manager: License Manager
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
-  link-auth-logout: https://auth.cloud.yandex.ru/logout
-  link-calc: https://cloud.yandex.ru/prices#calculator
+  link-auth-logout: https://auth.yandex.cloud/logout
+  link-calc: https://yandex.cloud/ru/prices#calculator
   link-cloud-aup: https://yandex.ru/legal/cloud_aup/?lang=ru
   link-cloud-calculator: /prices#calculator
-  link-cloud-communications: https://console.cloud.yandex.ru/folders?openSettings=communications
-  link-cloud-desktop-showcase: https://console.cloud.yandex.ru/showcase/cloud-desktop
+  link-cloud-communications: https://console.yandex.cloud/folders?openSettings=communications
+  link-cloud-desktop-showcase: https://console.yandex.cloud/showcase/cloud-desktop
   link-cloud-marketplace: /marketplace
-  link-cloud-notifications: https://console.cloud.yandex.ru/cloud?section=notifications
+  link-cloud-notifications: https://console.yandex.cloud/cloud?section=notifications
   link-cloud-oauth: >-
     https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
-  link-cloud-partners: https://partners.cloud.yandex.ru/
+  link-cloud-partners: https://partners.yandex.cloud/
   link-cloud-services: /services
   link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=ru
-  link-console-access-management: https://console.cloud.yandex.ru/iam
+  link-console-access-management: https://console.yandex.cloud/iam
   link-console-billing: https://billing.yandex.cloud/accounts
-  link-console-cloud: https://console.cloud.yandex.ru/cloud
-  link-console-iam-users: https://console.cloud.yandex.ru/iam?section=users
+  link-console-cloud: https://console.yandex.cloud/cloud
+  link-console-iam-users: https://console.yandex.cloud/iam?section=users
   link-console-main: https://console.yandex.cloud
-  link-console-quotas: https://console.cloud.yandex.ru/cloud?section=quotas
-  link-console-settings: https://console.cloud.yandex.ru/settings
-  link-console-support: https://support-center.cloud.yandex.ru
-  link-datalens-main: https://datalens.yandex.ru
-  link-datalens-settings: https://datalens.yandex.ru/settings
+  link-console-quotas: https://console.yandex.cloud/cloud?section=quotas
+  link-console-settings: https://console.yandex.cloud/settings
+  link-console-support: https://support.yandex.cloud
+  link-datalens-main: https://datalens.yandex.cloud
+  link-datalens-settings: https://datalens.yandex.cloud/settings
   link-datasphere-main: https://datasphere.yandex.cloud
-  link-docs: https://cloud.yandex.ru/docs
+  link-docs: https://yandex.cloud/ru/docs
   link-forms-b2b: https://forms.yandex.ru/cloud/admin
-  link-monitoring: https://monitoring.cloud.yandex.ru
-  link-org-acl: https://org.cloud.yandex.ru/acl
-  link-org-main: https://org.cloud.yandex.ru/
-  link-org-users: https://org.cloud.yandex.ru/users
+  link-monitoring: https://monitoring.yandex.cloud
+  link-org-acl: https://org.yandex.cloud/acl
+  link-org-main: https://org.yandex.cloud/
+  link-org-settings: https://org.yandex.cloud/settings
+  link-org-users: https://org.yandex.cloud/users
   link-passport-login: https://passport.yandex.ru/auth
   link-pci-dss-en: >-
     https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Guide_EN.pdf
@@ -270,7 +271,7 @@ default:
   link-saml: https://ru.wikipedia.org/wiki/SAML
   link-sla-greenplum: https://yandex.ru/legal/cloud_sla_greenplum/
   link-sla-kafka: https://yandex.ru/legal/cloud_sla_kfk/
-  link-speechsense-main: https://speechsense.cloud.yandex.ru/
+  link-speechsense-main: https://speechsense.yandex.cloud/
   link-support-mail: cloud@support.yandex.ru
   link-tracker: https://tracker.yandex.ru/
   link-wiki: https://wiki.yandex.ru/
@@ -680,7 +681,7 @@ default:
   vpc-name: Virtual Private Cloud
   vpc-short-name: VPC
   websql-full-name: Yandex WebSQL
-  websql-link: https://websql.cloud.yandex.ru
+  websql-link: https://websql.yandex.cloud
   websql-name: WebSQL
   wiki-full-name: Yandex Wiki
   wiki-name: Wiki
