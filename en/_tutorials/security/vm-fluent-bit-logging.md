@@ -248,35 +248,37 @@ To set up log transfer:
    sudo apt-get update
    ```
 
-1. Install the `td-agent-bit` package:
+1. Install the `fluent-bit` package:
 
    ```bash
-   sudo apt-get install td-agent-bit
+   sudo apt-get install fluent-bit
    ```
 
-1. Start `td-agent-bit`:
+1. Start `fluent-bit`:
 
    ```bash
-   sudo systemctl start td-agent-bit
+   sudo systemctl start fluent-bit
    ```
 
-1. Recheck the `td-agent-bit` service status, it should be active:
+1. Recheck the `fluent-bit` service status, it should be active:
 
    ```bash
-   systemctl status td-agent-bit
+   systemctl status fluent-bit
    ```
 
    Result:
 
    ```bash
-   ● td-agent-bit.service - TD Agent Bit
-        Loaded: loaded (/lib/systemd/system/td-agent-bit.service; disabled; vendor preset: enabled)
-        Active: active (running) since Wed 2022-02-02 12:09:11 UTC; 56s ago
-      Main PID: 7365 (td-agent-bit)
-         Tasks: 3 (limit: 2311)
-        Memory: 4.9M
-        CGroup: /system.slice/td-agent-bit.service
-                └─7365 /opt/td-agent-bit/bin/td-agent-bit -c /etc/td-agent-bit/td-agent-bit.conf
+    ● fluent-bit.service - Fluent Bit
+         Loaded: loaded (/lib/systemd/system/fluent-bit.service; disabled; vendor preset: enabled)
+         Active: active (running) since Tue 2024-04-30 09:00:58 UTC; 3h 35min ago
+           Docs: https://docs.fluentbit.io/manual/
+       Main PID: 589764 (fluent-bit)
+          Tasks: 9 (limit: 2219)
+         Memory: 18.8M
+            CPU: 2.543s
+         CGroup: /system.slice/fluent-bit.service
+                 └─589764 /opt/fluent-bit/bin/fluent-bit -c //etc/fluent-bit/fluent-bit.conf
    ```
 
 ## Enable the plugin {#connect-plugin}
@@ -291,28 +293,33 @@ To set up log transfer:
 
    ```bash
    cd fluent-bit-plugin-yandex/
-   export fluent_bit_version=1.8.6
+   export fluent_bit_version=3.0.3
+   export golang_version=1.22.2
    export plugin_version=dev
-   CGO_ENABLED=1 go build     -buildmode=c-shared \
+   CGO_ENABLED=1 go build -buildmode=c-shared \
      -o ./yc-logging.so \
      -ldflags "-X main.PluginVersion=${plugin_version}" \
      -ldflags "-X main.FluentBitVersion=${fluent_bit_version}"
    ```
 
-1. Compile the `yc-logging.so` library:
+   Where:
+   * `fluent_bit_version`: Version of installed `fluent-bit` package. To check it manually run `/opt/fluent-bit/bin/fluent-bit --version`.
+   * `golang_version`: Version of the Go compiler. To check it manually run `go version`.
+
+1. Copy the `yc-logging.so` to `fluent-bit` library folder:
 
    ```bash
-   sudo cp yc-logging.so /usr/lib/td-agent-bit/yc-logging.so
+   sudo cp yc-logging.so /usr/lib/fluent-bit/plugins/yc-logging.so
    ```
 
-1. To the `/etc/td-agent-bit/plugins.conf` file with plugin settings, add the path to the `yc-logging.so` library:
+1. To the `/etc/fluent-bit/plugins.conf` file with plugin settings, add the path to the `yc-logging.so` library:
 
    ```
    [PLUGINS]
-       Path /usr/lib/td-agent-bit/yc-logging.so
+       Path /usr/lib/fluent-bit/plugins/yc-logging.so
    ```
 
-1. To the `/etc/td-agent-bit/td-agent-bit.conf` file, add the `td-agent-bit` service settings:
+1. To the `/etc/fluent-bit/fluent-bit.conf` file, add the `fluent-bit` service settings:
 
 
    ```
@@ -336,10 +343,10 @@ To set up log transfer:
    * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to whose [default log group](../../logging/concepts/log-group.md) the logs will be sent.
    * `authorization`: Authorization settings. Specify `instance-service-account` to log in under the service account that you provided under **{{ ui-key.yacloud.compute.instances.create.section_access }}** when [creating a VM](#before-you-begin).
 
-1. Restart the `td-agent-bit` service:
+1. Restart the `fluent-bit` service:
 
    ```bash
-   sudo systemctl restart td-agent-bit
+   sudo systemctl restart fluent-bit
    ```
 
 ## View the logs {#read-logs}
@@ -348,7 +355,7 @@ To set up log transfer:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder that you specified in the `td-agent-bit` service settings.
+   1. In the [management console]({{ link-console-main }}), go to the folder that you specified in the `fluent-bit` service settings.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
    1. Click the row with the `default` log group.
    1. Go to the **{{ ui-key.yacloud.common.logs }}** tab.
@@ -365,7 +372,7 @@ To set up log transfer:
    yc logging read --folder-id=<folder_ID>
    ```
 
-   Where `--folder-id` is the folder ID specified in the `td-agent-bit` service settings.
+   Where `--folder-id` is the folder ID specified in the `fluent-bit` service settings.
 
 - API {#api}
 
