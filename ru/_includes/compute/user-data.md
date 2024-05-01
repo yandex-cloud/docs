@@ -5,7 +5,7 @@
        groups: sudo
        shell: /bin/bash
        sudo: 'ALL=(ALL) NOPASSWD:ALL'
-       ssh-authorized-keys:
+       ssh_authorized_keys:
          - <публичный_SSH-ключ_1>
          - <публичный_SSH-ключ_2>
          - ...
