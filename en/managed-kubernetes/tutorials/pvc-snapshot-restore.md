@@ -18,7 +18,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Manually {#manual}
 
-      [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration with {{ k8s }} version 1.20 or higher.
+      1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration with {{ k8s }} version 1.20 or higher.
+
+      1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
    - {{ TF }} {#tf}
 
@@ -30,12 +34,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) cluster configuration file to the same working directory. The file describes:
          * Network.
          * Subnet.
-         * Default security group and rules needed to run the cluster:
-            * Rules for service traffic.
-            * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` (through ports 443 and 6443).
          * {{ managed-k8s-name }} cluster.
          * Service account required to create a {{ managed-k8s-name }} cluster and node group.
-      1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file:
+         * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+
+            {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+      1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file.
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash

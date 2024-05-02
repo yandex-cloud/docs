@@ -7,9 +7,9 @@ description: "Follow this guide to integrate a {{ managed-k8s-full-name }} clust
 
 
 To integrate a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) into a private corporate DNS [zone](../../dns/concepts/dns-zone.md):
-1. [{#T}](#setup-zone)
-1. [{#T}](#create-pod)
-1. [{#T}](#verify-dns)
+1. [{#T}](#setup-zone).
+1. [{#T}](#create-pod).
+1. [{#T}](#verify-dns).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -25,7 +25,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
-      1. [Configure {{ managed-k8s-name }} cluster security groups and node groups](../operations/connect/security-groups.md). The [security group](../../vpc/concepts/security-groups.md) of the {{ managed-k8s-name }} cluster must allow incoming connections on ports `443` and `6443`.
+      1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
    - {{ TF }} {#tf}
 
@@ -37,13 +39,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. The file describes:
          * [Network](../../vpc/concepts/network.md#network).
          * [Subnet](../../vpc/concepts/network.md#subnet).
-         * Default [security group](../../vpc/concepts/security-groups.md) and [rules](../operations/connect/security-groups.md) needed to run the {{ managed-k8s-name }} cluster:
-            * Rules for service traffic.
-            * Rules for accessing the {{ k8s }} API and managing the {{ managed-k8s-name }} cluster with `kubectl` (through ports 443 and 6443).
          * {{ managed-k8s-name }} cluster.
          * {{ managed-k8s-name }} node group.
          * [Service account](../../iam/concepts/users/service-accounts.md) required to create the {{ managed-k8s-name }} cluster and node group.
-      1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file.
+         * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+
+            {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+      1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file:
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
@@ -179,5 +182,5 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    {% endlist %}
 
-1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md) with the DNS server.
+1. [Delete a VM](../../compute/operations/vm-control/vm-delete.md) with the DNS server.
 1. [Delete the DNS zone](../../dns/operations/zone-delete.md).

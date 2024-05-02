@@ -8,7 +8,7 @@
 Чтобы записывать логи, необходимо:
 * определить _исходный_ бакет, действия с которым необходимо логировать;
 * создать _целевой_ бакет, куда будут записываться логи;
-* [включить механизм логирования](../operations/buckets/enable-logging.md);
+* [включить механизм логирования](../operations/buckets/enable-logging.md#enable) с помощью [консоли управления]({{ link-console-main }}), [AWS CLI](../tools/aws-cli.md), [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md) или API;
 * (опционально) выбрать префикс [ключа](../concepts/object.md#key) объекта.
 
 ## Требования {#requirements}

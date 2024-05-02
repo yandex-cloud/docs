@@ -19,6 +19,11 @@ If you no longer need the resources you created, [delete them](#delete-resources
 1. [Create a {{ managed-k8s-name }} node group](../operations/node-group/node-group-create.md) with the following settings:
    * **{{ ui-key.yacloud.k8s.node-group.overview.label_platform }}**: Select `{{ ui-key.yacloud.component.compute.resources.value_platform-tab-gpu }}` → `Intel Broadwell with NVIDIA® Tesla v100`.
    * **{{ ui-key.yacloud.component.compute.resources.field_gpus }}**: Specify the required number of GPUs.
+
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Create a pod with a GPU {#create-pod-gpu}

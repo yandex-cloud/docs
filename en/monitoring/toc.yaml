@@ -38,6 +38,8 @@ items:
             href: operations/dashboard/copy.md
           - name: Adding widgets to a dashboard
             href: operations/dashboard/add-widget.md
+          - name: Adding a dashboard parameter
+            href: operations/dashboard/add-parameters.md
           - name: Deleting widgets from a dashboard
             href: operations/dashboard/delete-widget.md
           - name: Deleting dashboards

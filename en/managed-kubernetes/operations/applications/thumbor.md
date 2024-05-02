@@ -26,6 +26,10 @@ Thumbor features:
 
 1. [Set the bucket object read access rights](../../../storage/operations/objects/edit-acl.md) for the service account.
 
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
@@ -40,6 +44,9 @@ Thumbor features:
    * **Allow unsigned URLs (unsafe)**: Select this option if you did not specify a security key at the previous step.
    * **Subfolder in the bucket**: Specify the name of the bucket folder (without the ending `/` symbol) where images are located.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+
+   For Thumbor to operate, a {{ k8s }} service of the `LoadBalancer` type and the corresponding [{{ network-load-balancer-full-name }} load balancer](../../../network-load-balancer) will be created automatically.
+
 1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Installation using a Helm chart {#helm-install}
@@ -89,15 +96,9 @@ Thumbor features:
 
    {% endlist %}
 
+   For Thumbor to operate, a {{ k8s }} service of the `LoadBalancer` type and the corresponding [{{ network-load-balancer-full-name }} load balancer](../../../network-load-balancer) will be created automatically.
+
 ## Accessing the application {#app-access}
-
-Once the application is installed, a [{{ network-load-balancer-full-name }} network load balancer](../../../network-load-balancer/) is deployed automatically. The application is accessed over HTTP.
-
-{% note info %}
-
-Before using the application, make sure that the proper [rules for connecting to services from the internet](../connect/security-groups.md#rules-nodes) are set up for your cluster.
-
-{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -120,6 +121,8 @@ Before using the application, make sure that the proper [rules for connecting to
   1. Open `http://<load_balancer_IP>/unsafe/<bucket_image_name>` in the browser address bar.
 
 {% endlist %}
+
+{% include [Configuring security groups if resource is unavailable](../../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
 Learn more about working with images, in the [Thumbor documentation](https://thumbor.readthedocs.io/en/latest/imaging.html).
 

@@ -13,6 +13,34 @@
      1. В строке нужного файлового хранилище нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
      1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
 
+   - CLI {#cli}
+
+     {% include [cli-install](../../../_includes/cli-install.md) %}
+
+     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+     1. Посмотрите описание команды [CLI](../../../cli/) для удаления файлового хранилища:
+
+        ```bash
+        yc compute filesystem delete --help
+        ```
+
+     1. Получите список файловых хранилищ в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию:
+
+        {% include [compute-filesystem-list](../../_includes_service/compute-filesystem-list.md) %}
+
+     1. Выполните команду, указав имя или идентификатор файлового хранилища, которое требуется удалить:
+
+        ```bash
+        yc compute filesystem delete <имя_или_идентификатор_файлового_хранилища>
+        ```
+
+     1. Убедитесь, что файловое хранилище было удалено:
+
+        ```bash
+        yc compute filesystem list
+        ```
+
    - {{ TF }} {#tf}
 
      {% include [terraform-install](../../../_includes/terraform-install.md) %}

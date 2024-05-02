@@ -110,20 +110,40 @@ items:
         href: concepts/limits.md
   - name: Tools for {{ managed-k8s-name }}
     items:
+      - name: Overview
+        href: tools/index.md
       - name: Ingress controller
         items:
           - name: Overview
             href: tools/k8s-ingress-controller/index.md
           - name: How it works
             href: tools/k8s-ingress-controller/principles.md
+          - name: Resource configuration
+            items:
+              - name: Ingress
+                href: k8s-ref/ingress.md
+              - name: HttpBackendGroup
+                href: k8s-ref/http-backend-group.md
+              - name: IngressClass
+                href: k8s-ref/ingress-class.md
+              - name: Service for Ingress
+                href: k8s-ref/service-for-ingress.md
       - name: Gateway API
-        href: tools/k8s-gateway-api/index.md
-      - name: Required settings
         items:
-          - name: Security groups
-            href: tools/k8s-ingress-controller/security-groups.md
-          - name: Service account
-            href: tools/k8s-ingress-controller/service-account.md
+          - name: Overview
+            href: tools/k8s-gateway-api/index.md
+          - name: Resource configuration
+            items:
+              - name: Gateway
+                href: k8s-ref/gateway.md
+              - name: HTTPRoute
+                href: k8s-ref/http-route.md
+              - name: Service for Gateway API
+                href: k8s-ref/service-for-gateway.md
+      - name: Security groups' settings
+        href: tools/k8s-ingress-controller/security-groups.md
+      - name: Working with service accounts
+        href: tools/k8s-ingress-controller/service-account.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -272,24 +292,6 @@ items:
     href: at-ref.md
   - name: L7 load balancer logs
     href: logs-ref.md
-  - name: '{{ managed-k8s-name }} tool reference'
-    items:
-      - name: Overview
-        href: k8s-ref/index.md
-      - name: Ingress controller
-        items:
-          - name: Ingress
-            href: k8s-ref/ingress.md
-          - name: HttpBackendGroup
-            href: k8s-ref/http-backend-group.md
-      - name: Gateway API
-        items:
-          - name: Gateway
-            href: k8s-ref/gateway.md
-          - name: HTTPRoute
-            href: k8s-ref/http-route.md
-      - name: Service
-        href: k8s-ref/service.md
   - name: Release notes
     href: release-notes.md
 base: en/application-load-balancer

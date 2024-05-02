@@ -6,13 +6,11 @@
 The application image contains a pre-installed build of HashiCorp Vault with added support for [Auto Unseal](https://developer.hashicorp.com/vault/docs/concepts/seal#auto-unseal) via [{{ kms-full-name }}](../../../kms/). The build is based on [HashiCorp Vault](https://github.com/hashicorp/vault/tags) of the appropriate version.
 
 To install HashiCorp Vault:
-1. [Create a service account and keys](#sa-keys-create).
-1. [Install HashiCorp Vault](#install).
+1. [Prepare everything you need to get started](#before-you-begin).
+1. Install HashiCorp Vault using [{{ marketplace-full-name }}](#marketplace-install) or [Helm](#helm-install).
 1. [Initialize the vault](#vault-init).
 
-{% include [Install kubectl to get started](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
-
-## Creating a service account and keys {#sa-keys-create}
+## Getting started {#before-you-begin}
 
 To use HashiCorp Vault, you need:
 * [Service account](../../../iam/concepts/users/service-accounts.md) with the `kms.keys.encrypterDecrypter` [role](../../../iam/concepts/access-control/roles.md)
@@ -52,6 +50,12 @@ To use HashiCorp Vault, you need:
    ```
 
    You can fetch the folder ID with a [list of folders](../../../resource-manager/operations/folder/get-id.md).
+
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 

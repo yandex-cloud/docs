@@ -5,10 +5,14 @@
 
 ## Getting started {#before-you-begin}
 
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. Open the {{ GL }} administration panel in your browser:
    * If {{ GL }} is deployed on a [{{ compute-full-name }}](../../../compute/) [instance](../../../compute/concepts/vm.md), use its [public IP](../../../compute/concepts/network.md#public-ip).
    * If {{ GL }} is deployed in [{{ mgl-full-name }}](../../../managed-gitlab/), use the [instance FQDN](../../../compute/concepts/network.md##hostname).
-1. Obtain a registration token:
+1. Get a registration token in the administration panel:
    * To configure {{ GLR }} throughout the [{{ GL }} instance](../../../managed-gitlab/concepts/index.md) ({{ GL }} administrator access required):
      1. Click **Menu** and select the **Admin** option.
      1. Choose **CI/CD** → **Runners**.

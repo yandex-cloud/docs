@@ -13,6 +13,11 @@
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
 1. Make sure that the {{ managed-k8s-name }} cluster is located in the same [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) as the [{{ dns-name }} public zone](../../../dns/concepts/dns-zone.md#public-zones).
+
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [kubectl-install](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Create](../../../iam/operations/sa/create.md) a service account to run cert-manager.
 1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the service account the `dns.editor` role for the folder hosting the public DNS zone.

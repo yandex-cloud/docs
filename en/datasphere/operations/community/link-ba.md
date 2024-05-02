@@ -10,11 +10,11 @@ If the selected billing account is suspended or has an overdue debt, you cannot 
 
 {% endnote %}
 
-Only the community's administrator can link a billing account to it. To work with billing accounts, you also [need the role](../../../billing/security/) `editor` or higher. If you are an administrator in your community, but you do not have access to billing accounts in your organization, please contact your organization's administrator in {{ yandex-cloud }}.
+Only the community's administrator can link a billing account to it. To work with billing accounts, you also [need the `editor` role](../../../billing/security/) or higher. If you are an administrator in your community, but you do not have access to billing accounts in your organization, please contact your organization's administrator in {{ yandex-cloud }}.
 
 {% note tip %}
 
-You can only manage a billing account if you have a [Yandex account](../../../iam/concepts/index.md#passport). If you use {{ yandex-cloud }} via an [identity federation](../../../organization/concepts/add-federation.md), [contact]({{ link-console-support }}) support.
+You can only manage a billing account if you have a [Yandex account](../../../iam/concepts/users/accounts.md#passport). If you use {{ yandex-cloud }} through an [identity federation](../../../organization/concepts/add-federation.md), [contact]({{ link-console-support }}) support.
 
 {% endnote %}
 

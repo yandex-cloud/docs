@@ -188,10 +188,10 @@ The infrastructure support cost for this tutorial includes:
 
 ### Download a project {#download-project}
 
-Clone a repository with the `yc-serverless-serverless-game` project:
+Clone a repository with the `yc-serverless-game` project:
 
 ```bash
-git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-serverless-serverless-game.git
+git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
 ```
 
 ### Register the Telegram bot {#create-bot}
@@ -436,7 +436,7 @@ Create a database named `game-data` to store the game data and a database named 
 
 ### Create a table {#ydb-table-create}
 
-1. Go to the `files` directory in the `yc-serverless-serverless-game` folder.
+1. Go to the `files` folder inside the `yc-serverless-game` directory.
 
 1. Create a table using the `db-example.sql` file:
 
@@ -561,7 +561,7 @@ Create a database named `game-data` to store the game data and a database named 
 
 ## Deploy the project {#app-deploy}
 
-1. Go to the `files` directory in the `yc-serverless-serverless-game` folder.
+1. Go to the `files` folder inside the `yc-serverless-game` directory.
 
 1. Change the configuration for {{ objstorage-name }}. Since the bucket name must be unique, replace it with a custom bucket name in the following files:
 
@@ -588,7 +588,7 @@ Create a database named `game-data` to store the game data and a database named 
    echo $APP_ENV
    ```
 
-1. Build and deploy the project. In the `yc-serverless-serverless-game` folder root, run the following commands one by one:
+1. Build and deploy the project. In the `yc-serverless-game` directory root, run the following commands one by one:
 
    ```bash
    nvm use
@@ -699,7 +699,7 @@ The following service accounts were created when deploying the project:
       {'key': 'yds_writer_key_secret', 'text_value': '$YDS_WRITER_KEY_SECRET'}]"
       ```
 
-1. Go to the `yc-serverless-serverless-game` folder root and deploy the project again:
+1. Go to the `yc-serverless-game` directory root and deploy the project again:
 
    ```bash
    npm run deploy
@@ -723,7 +723,7 @@ The following service accounts were created when deploying the project:
    >> ~/.bashrc && . ~/.bashrc
    ```
 
-1. Make changes to the API gateway specification. Go to the `files` directory in the `yc-serverless-serverless-game` folder and run this command:
+1. Make changes to the API gateway specification. Go to the `files` folder inside the `yc-serverless-game` directory and run this command:
 
    ```bash
    cp apigw-example.yml apigw.yml

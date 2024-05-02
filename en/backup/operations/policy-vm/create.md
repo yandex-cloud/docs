@@ -53,6 +53,7 @@ description: "In this tutorial, you will learn how to create a backup policy in 
       ```
 
       Where:
+
       * `--name`: Name of the backup policy being created.
       * `--settings-from-file`: Path to the backup policy configuration file in JSON format.
 
@@ -128,7 +129,7 @@ description: "In this tutorial, you will learn how to create a backup policy in 
 
      ```hcl
      resource "yandex_backup_policy" "my_policy" {
-         archive_name                      = "[<Machine Name>]-[<Plan ID>]-[<Unique ID>]a"
+         archive_name                      = "[Machine Name]-[Plan ID]-[Unique ID]a"
          cbt                               = "USE_IF_ENABLED"
          compression                       = "NORMAL"
          fast_backup_enabled               = true
@@ -184,6 +185,7 @@ description: "In this tutorial, you will learn how to create a backup policy in 
      ```
 
      Where:
+
       * `archive_name`: Generated archive names. This is an optional parameter. The parameter variables include:
          * `Machine Name`: [VM](../../../compute/concepts/vm.md) name.
          * `Plan ID`: Plan ID.
@@ -273,5 +275,5 @@ description: "In this tutorial, you will learn how to create a backup policy in 
 
 #### See also {#see-also}
 
-* [{#T}](update.md)
-* [{#T}](delete.md)
+* [{#T}](update.md).
+* [{#T}](delete.md).

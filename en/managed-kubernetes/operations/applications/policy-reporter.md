@@ -11,28 +11,32 @@ To use Policy Reporter, install [Kyverno](/marketplace/products/yc/kyverno) or a
 
 ## Getting started {#before-you-begin}
 
-To export policy results, set up external storage:
+1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
-* **{{ objstorage-name }}**
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. {% include [cli-install](../../../_includes/cli-install.md) %}
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
-      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-   1. [Create a service account](../../../iam/operations/sa/create.md) with the `storage.uploader` [role](../../../iam/concepts/access-control/roles.md). You need it to access {{ objstorage-name }}.
-   1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the [service account](../../../iam/concepts/users/service-accounts.md) in JSON format and save it to the `sa-key.json` file:
+1. To export policy results, set up external storage:
 
-      ```bash
-      yc iam access-key create \
-        --service-account-name=<service_account_name> \
-        --format=json > sa-key.json
-      ```
+   * **{{ objstorage-name }}**
 
-   1. [Create a bucket](../../../storage/operations/buckets/create.md) with restricted access in {{ objstorage-name }}.
+      1. [Create a service account](../../../iam/operations/sa/create.md) with the `storage.uploader` [role](../../../iam/concepts/access-control/roles.md). You need it to access {{ objstorage-name }}.
+      1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the [service account](../../../iam/concepts/users/service-accounts.md) in JSON format and save it to the `sa-key.json` file:
 
-* **{{ yds-name }}**
+         ```bash
+         yc iam access-key create \
+           --service-account-name=<service_account_name> \
+           --format=json > sa-key.json
+         ```
 
-   [Create a data stream](../../../data-streams/quickstart/create-stream.md).
+      1. [Create a bucket](../../../storage/operations/buckets/create.md) with restricted access in {{ objstorage-name }}.
+
+   * **{{ yds-name }}**
+
+      [Create a data stream](../../../data-streams/quickstart/create-stream.md).
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 

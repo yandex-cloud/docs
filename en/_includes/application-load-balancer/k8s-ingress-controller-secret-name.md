@@ -1,5 +1,1 @@
-{% note warning %}
-
-The `secretName` field only supports references to certificates from {{ certificate-manager-name }} in `yc-certmgr-cert-id-<certificate_ID>` format. Do not enter {{ k8s }} internal secrets in this field.
-
-{% endnote %}
+If a certificate is not added to {{ certificate-manager-name }} yet, specify a {{ k8s }} secret containing the certificate in the `secretName` field. {{ alb-name }} Ingress controller will automatically add the certificate to {{ certificate-manager-name }}.

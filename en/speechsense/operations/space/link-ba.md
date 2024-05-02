@@ -4,7 +4,7 @@ The {{ yandex-cloud }} [billing account](../../../billing/concepts/billing-accou
 
 {% note info %}
 
-You can only manage a billing account if you have a [Yandex account](../../../iam/concepts/index.md#passport). If you use {{ yandex-cloud }} through an [identity federation](../../../organization/concepts/add-federation.md), [contact]({{ link-console-support }}) support.
+You can only manage a billing account if you have a [Yandex account](../../../iam/concepts/users/accounts.md#passport). If you use {{ yandex-cloud }} through an [identity federation](../../../organization/concepts/add-federation.md), [contact]({{ link-console-support }}) support.
 
 {% endnote %}
 

@@ -11,6 +11,10 @@ Jaeger is able to use the following types of data storage:
 
 ### Getting started {#before-you-begin}
 
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. Install the [`jq` utility](https://stedolan.github.io/jq/) for JSON filtering:
@@ -101,6 +105,10 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 ## Installation using a Helm chart {#helm-install}
 
 1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. {% include [install-kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 

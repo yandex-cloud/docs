@@ -36,7 +36,11 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/backup.md) 
      --format=json > sa-key.json
    ```
 
-1. [Create an {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md).
+1. [Create a {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md).
+
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 

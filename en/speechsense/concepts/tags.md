@@ -10,8 +10,8 @@ After a tag is created, [activate it in the project](../operations/project/tag/c
 
 After a tag is activated, [assign a channel to it](../operations/project/tag/change.md#tag-channel). Depending on the channel, {{ speechsense-name }} will search for keywords in different parts of the recording:
 
-* **Agent and customer**: Anywhere in the recording.
-* **Agent**: Agent's speech only.
+* **Operator and customer**: Anywhere in the recording.
+* **Operator**: Agent's speech only.
 * **Customer**: Customer's speech only.
 
 For example, if the tag has the **Customer** channel assigned, and the tag keyword is present in the agent's speech only, the tag is not given to the call recording.
@@ -33,5 +33,5 @@ To create, edit, or delete tags, follow [this guide](../operations/index.md).
 ## Where tags are displayed {#display}
 
 * On the **Tags** tab in the project or space.
-* In the [dialog filters](dialogs.md#filters) available on the **Dialogs** tab and in the list of [estimation parameters in reports](reports.md#parameters).
+* In the [dialog filters](dialogs.md#filters) available on the **Dialogs** tab and in the list of [estimation parameters in reports](reports/evaluation-form.md#parameters).
 * On the page of the dialog the tag is assigned to.

@@ -102,7 +102,7 @@ items:
             href: operations/data/connect-to-ya-disk.md
           - name: Connecting to Google Drive
             href: operations/data/connect-to-google-drive.md
-      - name: Deploying models
+      - name: '{{ ds-inf }}'
         items:
           - name: Creating a node
             href: operations/deploy/node-create.md

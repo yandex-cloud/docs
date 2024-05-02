@@ -83,7 +83,7 @@ To restore a VM from a backup of another VM:
       ```bash
       yc backup backups recover \
         --source-backup-id <backup_ID> \
-        --destination-instance-id <target_VM_instance_ID>
+        --destination-instance-id <target_VM_ID>
       ```
 
       Where:

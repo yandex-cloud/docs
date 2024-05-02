@@ -15,6 +15,10 @@ To set up a local DNS in a [{{ managed-k8s-name }} cluster](../concepts/index.md
    Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**, select **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
 1. [Create a node group](node-group/node-group-create.md) of any suitable configuration.
 
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. Retrieve the service [IP address](../../vpc/concepts/address.md) for `kube-dns`:

@@ -12,7 +12,7 @@
 
       Service port name.
 
-      The name must match one of the port names specified in the `spec.ports.name` fields of the `Service` resource. For more detail, please see the [resource specification](../../application-load-balancer/k8s-ref/service.md).
+      The name must match one of the port names specified in the `spec.ports.name` fields of the `Service` resource. For more information, see the [resource specification](../../application-load-balancer/k8s-ref/service-for-ingress.md).
 
       Either a name or a `number` must be specified for the service port but not both.
 
@@ -20,6 +20,6 @@
 
       Service port number.
 
-      The number must match one of the port numbers specified in the `spec.ports.port` fields of the `Service` resource. For more detail, please see the [resource specification](../../application-load-balancer/k8s-ref/service.md).
+      The number must match one of the port numbers specified in the `spec.ports.port` fields of the `Service` resource. For more information, see the [resource specification](../../application-load-balancer/k8s-ref/service-for-ingress.md).
 
       Either a number or a `name` must be specified for the service port but not both.

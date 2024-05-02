@@ -2,7 +2,7 @@
 
 {% include notitle [preview-stage](../../_includes/foundation-models/yandexgpt/preview.md) %}
 
-In this section, you will learn how to use the {{ yandexart-name }} neural network to generate images.
+In this section, you will learn how to use the {{ yandexart-name }} neural network for generating images.
 
 In the [management console]({{ link-console-main }}/link/foundation-models/yandexart), {{ art-freetier }} free requests per day are available to new users without a [billing account](../../billing/concepts/billing-account.md). To access the API and increase usage [quotas](../concepts/limits.md), [link](../../billing/operations/pin-cloud.md) your billing account to the cloud.
 
@@ -53,13 +53,13 @@ To improve the quality of generated responses, {{ yandexart-name }} logs user pr
    1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `{{ roles-yaart-user }}` role or higher.
    1. In the list of services, select **{{ foundation-models-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/palette.svg) **{{ yandexart-name }}**.
-   1. In the input field, describe the image you want to generate. You should use vivid and detailed descriptions, specify styles if you want your image styled in a certain way.
-   1. Leave the [**Seed** parameter](../concepts/yandexart/index.md) random or specify any value.
-   1. Click **Generate**. Image generation is going to take some time. The output will be presented in the left portion of the screen.
+   1. In the input field, describe the image you want to generate. You should use vivid and detailed descriptions, specify styles if you want to get an image of a certain style.
+   1. Leave the [**seed** parameter](../concepts/yandexart/index.md) random or specify some value.
+   1. Click **Generate**. Generating an image takes some time. The response will appear in the left part of the screen.
 
 - API {#api}
 
-   1. Create a file with the request body (for example, `prompt.json`).
+   1. Create a file with the request body, e.g., `prompt.json`:
 
       ```json
       {
@@ -70,15 +70,16 @@ To improve the quality of generated responses, {{ yandexart-name }} logs user pr
       "messages": [
         {
           "weight": 1,
-          "text": "a pattern of pastel colored succulents of various sorts, hd full wallpaper, sharp focus, many complex details, picture depth, top view"
+          "text": "a pattern of pastel colored succulents of various sorts, hd full wallpaper, sharp focus, many intricate details, picture depth, top view"
         }
       ]
       }
       ```
 
-      {% include [api-parameters](../../_includes/foundation-models/yandexgpt/api-parameters.md) %}
+      {% include [api-parameters](../../_includes/foundation-models/yandexart/api-parameters.md) %}
 
-   1. To request the neural network using the [ImageGenerationAsync.generate](../image-generation/api-ref/ImageGenerationAsync/generate.md) method, run the following command:
+   1. To send a request to the neural network using the [ImageGenerationAsync.generate](../image-generation/api-ref/ImageGenerationAsync/generate.md) method, run the following command:
+
 
       ```bash
       curl --request POST \
@@ -89,7 +90,7 @@ To improve the quality of generated responses, {{ yandexart-name }} logs user pr
 
       Where:
 
-      * `<IAM_token_value>`: IAM token you got for your account.
+      * `<IAM_token_value>`: IAM token obtained for your account.
       * `prompt.json`: JSON file with request parameters.
 
       The service will return the ID of your request in response:
@@ -99,7 +100,7 @@ To improve the quality of generated responses, {{ yandexart-name }} logs user pr
       "id":"fbveu1sntj**********","description":"","createdAt":null,"createdBy":"","modifiedAt":null,"done":false,"metadata":null}
       ```
 
-   1. Generating an image takes some time. Wait for 10 seconds and send your request to get the generation result. When the image is ready, you will get the result in a [Base64-encoded](https://en.wikipedia.org/wiki/Base64) file named `image.jpeg`.
+   1. Generating an image takes some time. Wait for 10 seconds and send a request to get a generation result. When the image is ready, you will get the result in a [Base64-encoded](https://en.wikipedia.org/wiki/Base64) file named `image.jpeg`.
 
       ```bash
       curl -X GET -H "Authorization: Bearer <IAM_token_value>" https://llm.api.cloud.yandex.net:443/operations/<request_ID> | jq -r '.response | .image' | base64 -d > image.jpeg
@@ -108,10 +109,10 @@ To improve the quality of generated responses, {{ yandexart-name }} logs user pr
       Where:
 
       * `<IAM_token_value>`: IAM token received [before you started](#before-begin).
-      * `<request_ID>`: `id` field value obtained in response to the generation request.
+      * `<request_ID>`: Value of the `id` field obtained in the response to the generation request.
 
 
-      **Result**:
+      **Result:**
 
       ![succulent](../../_assets/yandexgpt/succulent.jpeg)
 

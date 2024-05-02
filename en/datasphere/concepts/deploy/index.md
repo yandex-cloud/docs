@@ -24,9 +24,28 @@ The maximum size of a request to and a response from the node API is 16 MB.
 
 To create a node, specify your organization's cloud [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the node will deploy its instances and store its logs. In the folder, [set up a subnet](../../../vpc/operations/subnet-create.md) with internet access via a [NAT gateway](../../../vpc/operations/create-nat-gateway.md) and create a [service account](../../../iam/operations/sa/create.md) with the `vpc.user` [role](../../../vpc/security/index.md#vpc-user). Specify this service account in the [{{ ml-platform-name }} project settings](../../operations/projects/update.md).
 
-### Node from models {#models-node}
+### Node from a model {#models-node}
 
-With nodes from [models](../models/index.md), you can [deploy](../../operations/deploy/node-create.md#from-model) your models saved in {{ ml-platform-name }} as a service and access them via the API. {{ ml-platform-name }} will all by itself deploy the [Triton Inference Server](https://developer.nvidia.com/triton-inference-server), define the model's API, and provide monitoring for the node and the Triton server.
+With nodes from [models](../models/index.md), you can [deploy](../../operations/deploy/node-create.md#from-model) your models saved in {{ ml-platform-name }} as a service accessible via the API. You can create a node from the following models:
+
+* [LightGBM](https://lightgbm.readthedocs.io)
+* [ONNX](https://onnx.ai/)
+* [Tensorflow.Keras](https://keras.io)
+* [TensorFlow](https://www.tensorflow.org)
+* [PyTorch](https://pytorch.org)
+* [XGBoost](https://lightgbm.readthedocs.io)
+
+If you want to deploy a model that is not supported by the Triton server, you can [convert](https://onnx.ai/sklearn-onnx/auto_tutorial/plot_gexternal_catboost.html) it to ONNX format or deploy a [model based on a Docker image](#docker-node).
+
+To [create a node](../../operations/deploy/node-create.md#from-model) from a model trained outside of {{ ml-platform-name }}, load the model from the file to a variable in the notebook and then [create](../../operations/data/models.md#create) a {{ ml-platform-name }} model from this variable.
+
+{{ ml-platform-name }} uses [Triton Inference Server](https://developer.nvidia.com/triton-inference-server) to deploy nodes from models. You can deploy multiple models saved to {{ ml-platform-name }} on a single node. {{ ml-platform-name }} itself will figure out the input and output parameters, ensure the model API operation, and then provide monitoring for both the node and the Triton server.
+
+{% note info %}
+
+When deploying PyTorch models, {{ ml-platform-name }} cannot automatically figure out the input and output parameters.
+
+{% endnote %}
 
 ### Node from a Docker image {#docker-node}
 
@@ -73,4 +92,6 @@ An _alias_ is a special resource used for publishing and updating a service. It 
 
 * [{#T}](../../operations/deploy/node-create.md)
 * [{#T}](../../operations/deploy/alias-create.md)
+* [{#T}](../../tutorials/node-from-model.md)
 * [{#T}](../../tutorials/node-from-docker.md)
+* [{#T}](../../tutorials/node-from-docker-fast-api.md)

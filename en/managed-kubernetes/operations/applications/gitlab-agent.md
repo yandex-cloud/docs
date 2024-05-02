@@ -1,6 +1,7 @@
 # Installing the {{ GL }} Agent
 
 
+
 The [{{ GL }} Agent](/marketplace/products/yc/gitlab-agent) is used to connect a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) to {{ GL }}. You can deploy the application in a [{{ mgl-full-name }}](../../../managed-gitlab/) [instance](../../../managed-gitlab/concepts/index.md#instance) or in a standalone {{ GL }} instance.
 
 The {{ GL }} Agent enables you to:
@@ -17,29 +18,33 @@ The {{ GL }} Agent does not execute CI/CD pipelines. To do this, install [{{ GL 
 
 ## Getting started {#before-you-begin}
 
-{% include [cli-install](../../../_includes/cli-install.md) %}
+1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
 {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-To install the {{ GL }} Agent:
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
-1. [Create a {{ mgl-name }} instance](../../../managed-gitlab/operations/instance/instance-create.md) or a standalone instance.
-1. Create an agent configuration file in the repository:
-   1. Open your [{{ GL }} instance](../../../managed-gitlab/concepts/index.md#instance) and go to your project.
-   1. In the `main` branch, create a new `.gitlab/agents/<{{ GL }}_agent_name>` folder.
-   1. In the `<{{ GL }}_agent_name>` folder, create an empty `config.yaml` file.
-1. Register the agent in {{ GL }} and get an access token:
-   1. Open your {{ GL }} instance and go to your project.
-   1. Click **Infrastructure** and select **{{ k8s }} clusters**.
-   1. Click **Connect a cluster** and select the agent name: `<{{ GL }}_agent_name>`.
-   1. Click **Register**.
-   1. {{ GL }} will create a token required to install the application. Store the token in a secure place.
+   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-{% note info %}
+1. Prepare for {{ GL }} Agent installation:
 
-For more information about setting up and registering an agent, see the [{{ GL }} documentation](https://docs.gitlab.com/ee/user/clusters/agent/install/).
+    1. [Create a {{ mgl-name }} instance](../../../managed-gitlab/operations/instance/instance-create.md) or a standalone instance.
+    1. Create an agent configuration file in the repository:
+       1. Open your [{{ GL }} instance](../../../managed-gitlab/concepts/index.md#instance) and go to your project.
+       1. In the `main` branch, create a new `.gitlab/agents/<{{ GL }}_agent_name>` folder.
+       1. In the `<{{ GL }}_agent_name>` folder, create an empty `config.yaml` file.
+    1. Register the agent in {{ GL }} and get an access token:
+       1. Open your {{ GL }} instance and go to your project.
+       1. Click **Infrastructure** and select **{{ k8s }} clusters**.
+       1. Click **Connect a cluster** and select the agent name: `<{{ GL }}_agent_name>`.
+       1. Click **Register**.
+       1. {{ GL }} will create a token required to install the application. Store the token in a secure place.
 
-{% endnote %}
+    {% note info %}
+
+    For more information about setting up and registering an agent, see the [{{ GL }} documentation](https://docs.gitlab.com/ee/user/clusters/agent/install/).
+
+    {% endnote %}
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 

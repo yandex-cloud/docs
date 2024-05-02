@@ -47,8 +47,6 @@ Billing account data may be used to generate financial statements. Therefore, th
 
 When these terms expire, the billing account is irrevocably deleted.
 
-To stop working with the platform and delete your profile:
-
 
 
 To delete a {{ yandex-cloud }} billing account you no longer need:

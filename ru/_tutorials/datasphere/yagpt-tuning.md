@@ -93,12 +93,9 @@
 
 1. Задайте **{{ ui-key.yc-ui-datasphere.foundation-model.learning-rate }}**. Темп обучения определяет размер шага на каждой итерации при поиске оптимального решения. При высоких значениях модель будет быстрее сходиться, но увеличится риск переобучения модели.
 
-1. В блоке **{{ ui-key.yc-ui-datasphere.foundation-model.data-for-tuning }}**:
+1. В блоке **{{ ui-key.yc-ui-datasphere.foundation-model.data-for-tuning }}** прикрепите файл JSON с парами запросов и ответов в поле **{{ ui-key.yc-ui-datasphere.foundation-model.samples-file }}**.
 
-    * В поле **{{ ui-key.yc-ui-datasphere.foundation-model.samples-file }}** прикрепите файл JSON с парами запросов и ответов.
-    * В поле **{{ ui-key.yc-ui-datasphere.foundation-model.instruction }}** опишите условия выполнения задания, контекст, возможные ограничения или задайте стиль ответа. Это необязательный пункт, но после запуска дообучения инструкцию будет нельзя изменить. Эта инструкция станет частью дообученной модели.
-
-1. Нажмите **{{ ui-key.yc-ui-datasphere.foundation-model.start-tuning }}** и дождитесь окончания дообучения.
+1. Нажмите **{{ ui-key.yc-ui-datasphere.foundation-model.start-tuning }}** и дождитесь окончания дообучения. Это может занять несколько часов.
 
 1. Чтобы проверить статус дообученной модели:
 

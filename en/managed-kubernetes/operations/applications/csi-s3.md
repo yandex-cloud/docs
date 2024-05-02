@@ -3,11 +3,15 @@
 
 [Container Storage Interface for S3](/marketplace/products/yc/csi-s3) (_CSI_) enables you to dynamically reserve [buckets](../../../storage/concepts/bucket.md) of S3-compatible storages and mount them in [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) [pods](../../concepts/index.md#pod) as [persistent volumes](../../concepts/volume.md#persistent-volume) (_PersistentVolume_). The connection is made using the [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) implementation of the [GeeseFS](https://github.com/yandex-cloud/geesefs) file system.
 
-## Creating a service account {#create-sa-key}
+## Getting started {#before-you-begin}
 
 1. [Create](../../../iam/operations/sa/create.md) a service account with the `storage.editor` [role](../../../storage/security/index.md#storage-editor).
 1. [Create](../../../iam/operations/sa/create-access-key.md) a static access key for the service account. Save the key ID and secret key, you will need them when installing the application.
 1. (Optional) To make new volumes fit into a single bucket with different prefixes, [create](../../../storage/operations/buckets/create.md) a {{ objstorage-full-name }} bucket. Save the bucket name, you will need it when installing the application. Skip this step if you need to create a separate bucket for each volume.
+
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 

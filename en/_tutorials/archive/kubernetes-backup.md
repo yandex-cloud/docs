@@ -28,6 +28,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
       If you intend to use your clusters within the {{ yandex-cloud }} network, there is no need to allocate a public IP address to them. To allow connections from outside the network, assign a public IP to the clusters.
 
    1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in each cluster and allocate a public IP address to each group.
+
+   1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+      You must configure these security groups for each cluster and node group.
+
+      {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
    1. [Create a bucket in {{ objstorage-name }}](../../storage/operations/buckets/create.md).
    1. [Create a service account](../../iam/operations/sa/create.md) with the `compute.admin` [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to work with Velero.
    1. Grant the [service account](../../iam/concepts/users/service-accounts.md) **READ and WRITE** permissions to a [bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }}. To do this, [configure the bucket ACL](../../storage/operations/buckets/edit-acl.md).
@@ -45,11 +52,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
       This file describes:
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security groups](../../vpc/concepts/security-groups.md) and rules required for running {{ managed-k8s-name }} clusters:
-         * Rules for service traffic.
-         * Rule for connecting to services from the internet.
       * Two {{ managed-k8s-name }} clusters and their node groups.
       * [Service account](../../iam/concepts/users/service-accounts.md) required to use the {{ managed-k8s-name }} clusters and node groups.
+      * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-with-audience-lvl3.md) %}
+
+         These security groups will be used by both clusters.
+
+         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
       * Service account with the `compute.admin` [role](../../iam/concepts/access-control/roles.md) to work with Velero.
       * Static access key for the service account used to work with Velero.
       * [Bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }}.

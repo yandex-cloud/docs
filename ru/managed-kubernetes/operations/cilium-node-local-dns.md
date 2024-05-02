@@ -10,10 +10,12 @@
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) и [назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md) `k8s.tunnelClusters.agent` и `vpc.publicAdmin`.
+1. [Создайте группу безопасности](../../vpc/operations/security-group-create.md) и добавьте в нее [правила](connect/security-groups.md), которые разрешают служебный трафик внутри кластера и доступ к API {{ k8s }}.
 1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации.
 
-   В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}** выберите опцию **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
-1. [Создайте группу узлов](node-group/node-group-create.md) любой подходящей конфигурации.
+   При создании укажите сервисный аккаунт и группу безопасности, подготовленные заранее. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}** выберите опцию **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
+
+1. [Создайте группу узлов](node-group/node-group-create.md) любой подходящей конфигурации. При создании укажите группу безопасности, подготовленную заранее.
 
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
@@ -31,7 +33,7 @@
 
 1. Создайте файл `node-local-dns.yaml`. В настройках DaemonSet `node-local-dns` укажите IP-адрес сервиса `kube-dns`:
 
-   `node-local-dns.yaml`
+   {% cut "node-local-dns.yaml" %}
 
    ```yaml
    ---
@@ -202,6 +204,8 @@
                - key: Corefile
                  path: Corefile.base
    ```
+
+   {% endcut %}
 
 1. Создайте файл `node-local-dns-lrp.yaml`:
 

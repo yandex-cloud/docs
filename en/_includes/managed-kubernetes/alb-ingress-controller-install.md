@@ -9,6 +9,12 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 
    {% include [default-catalogue](../default-catalogue.md) %}
 
+1. {% include [check-sg-prerequsites](./security-groups/check-sg-prerequsites-lvl3.md) %}
+
+   Also [make sure](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) that you have configured the security groups required for {{ alb-name }}.
+
+   {% include [sg-common-warning](./security-groups/sg-common-warning.md) %}
+
 1. [Create a service account](../../iam/operations/sa/create.md) for the ingress controller to run and [assign the following roles to it](../../iam/operations/sa/assign-role-for-sa.md):
    * `alb.editor`: To create the required resources.
    * `vpc.publicAdmin`: To manage [external connectivity](../../vpc/security/index.md#roles-list).
@@ -71,12 +77,14 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 
 ## See also {#see-also}
 
-* [Description of Ingress controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in the {{ k8s }} documentation.
+* Description of Ingress controllers in documentation:
+
+   * [{{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/)
+   * [{{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md)
 
 
 * [Manual for configuring the {{ alb-name }} Ingress controller](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
 * [Manual for configuring logging for {{ alb-name }} Ingress controllers](../../managed-kubernetes/tutorials/alb-ingress-controller-log-options.md).
 
 
-* [Reference for the {{ alb-name }} Ingress controller](../../application-load-balancer/k8s-ref/index.md).
 * [Restrictions when updating the ALB Ingress Controller](../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md).

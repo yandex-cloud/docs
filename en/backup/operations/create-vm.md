@@ -98,21 +98,22 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
       ```
 
       Where:
-      * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-      * `name`: Name of the new VM.
+
+      * `--folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
+      * `--name`: Name of the new VM.
 
          {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-      * `zone`: [Availability zone](../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
+      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
       * `subnet-name`: Name of the selected [subnet](../../vpc/concepts/network.md#subnet).
       * `security-group-ids`: ID of the [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
       * `image-id`: OS [image](../../compute/concepts/image.md) ID.
       * `size`: Boot disk size.
-      * `cores`: [Number of vCPUs](../../compute/concepts/vm.md) in your VM.
-      * `core-fraction`: Guaranteed vCPU performance in %.
-      * `memory`: [Amount of RAM](../../compute/concepts/vm.md) in your VM.
-      * `service-account-name`: Name of the [service account](../../iam/concepts/users/service-accounts.md) with the `backup.editor` role.
-      * `ssh-key`: Path to the file with the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). The VM will automatically create a user named `yc-user` for this key.
+      * `--cores`: [Number of vCPUs](../../compute/concepts/vm.md) in the VM.
+      * `--core-fraction`: Guaranteed vCPU share in %.
+      * `--memory`: VM [RAM size](../../compute/concepts/vm.md).
+      * `--service-account-name`: Name of the [service account](../../iam/concepts/users/service-accounts.md) with the `backup.editor` role.
+      * `--ssh-key`: Path to the file with the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). The VM will automatically create a user named `yc-user` for this key.
 
       In this example, a VM running on [Ubuntu 20.04](https://yandex.cloud/en/marketplace/products/yc/ubuntu-20-04-lts) is created:
 
@@ -122,7 +123,7 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
         --name my-vm \
         --zone {{ region-id }}-b \
         --network-interface subnet-name=my-vpc-{{ region-id }}-b,nat-ip-version=ipv4,security-group-ids=abcd3570sbqg******** \
-        --create-boot-disk image-id=fd8ecgtorub9r4609man,size=25 \
+        --create-boot-disk image-id=fd8ecgtorub9********,size=25 \
         --cores 2 \
         --core-fraction 100 \
         --memory 4 \

@@ -24,6 +24,10 @@ To use Istio, you need a node group with at least 6 GB of RAM.
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Install kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}

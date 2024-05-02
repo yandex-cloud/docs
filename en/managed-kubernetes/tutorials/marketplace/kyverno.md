@@ -20,7 +20,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
       1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
       1. [Create a {{ managed-k8s-name }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration.
-      1. [Create a rule for connecting to the services from the internet](../../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes) and apply it to the {{ managed-k8s-name }} cluster's node group.
+      1. {% include [configure-sg-manual](../../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+         {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
    - {{ TF }} {#tf}
 
@@ -32,12 +34,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) cluster configuration file to the same working directory. The file describes:
          * [Network](../../../vpc/concepts/network.md#network).
          * [Subnet](../../../vpc/concepts/network.md#subnet).
-         * [Security group](../../operations/connect/security-groups.md) and the rules required for a {{ managed-k8s-name }} cluster, node group, and instance:
-            * Rules for service traffic.
-            * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
-            * Rules for connecting to services from the internet.
          * {{ managed-k8s-name }} cluster.
          * [Service account](../../../iam/concepts/users/service-accounts.md) required to use the {{ managed-k8s-name }} cluster and node group.
+         * {% include [configure-sg-terraform](../../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+
+            {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
       1. Specify the following in the configuration file:
          * [Folder ID](../../../resource-manager/operations/folder/get-id.md).
          * [{{ k8s }} version](../../concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.

@@ -17,7 +17,7 @@ When designing your infrastructure in {{ yandex-cloud }}, plan for the maximum l
 Quotas serve as a soft restriction for requesting resources and enable {{ yandex-cloud }} to guarantee service stability: with quotas, new users cannot take up too much resources for testing purposes.
 
 
-If you are willing to use more resources, you can increase them in the following ways:
+If ready to use more resources, you can increase the quotas in the following ways:
 
 * [Generate a request for a quota increase]({{ link-console-quotas }}). You must have the `quota-manager.requestOperator` [role](../../iam/roles-reference.md#quota-manager-requestoperator) or higher (`editor` or `admin`).
 * Contact [support]({{ link-console-support }}) and tell us which quotas you need to increase and by how much.
