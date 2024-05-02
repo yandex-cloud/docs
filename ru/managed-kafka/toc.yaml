@@ -116,6 +116,8 @@ items:
         href: concepts/topics.md
       - name: Брокеры
         href: concepts/brokers.md
+      - name: Протокол {{ kraft-short-name }}
+        href: concepts/kraft.md
       - name: Производители и потребители
         href: concepts/producers-consumers.md
       - name: Управление схемами данных

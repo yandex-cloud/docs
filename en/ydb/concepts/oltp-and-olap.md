@@ -28,7 +28,7 @@ When operating within the same database, OLAP and OLTP workloads share common da
 
 {% endnote %}
 
-## Column tables {#column_table}
+## Column-oriented tables {#column_table}
 
 It is recommended to store the data used in OLAP workloads in [column tables]({{ ydb.docs }}/concepts/datamodel/table#column-tables).
 

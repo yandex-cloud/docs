@@ -56,7 +56,7 @@ In this section, you will learn:
 
 ## What roles do I need {#required-roles}
 
-The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, you can assign the `editor` role instead of the `viewer` one.
+The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, you can assign the `editor` role instead of `viewer`.
 
 | Action | Methods | Required roles |
 ----- | ----- | -----
@@ -69,6 +69,7 @@ The table below lists the roles needed to perform a particular action. You can a
 | Get the status of target groups | `getTargetStates` | `alb.viewer` |
 | Add, update, and remove listeners | `addListener`, `updateListener`, `removeListener` | `alb.editor` |
 | Add, update, and remove an SNI match | `addSniMatch`, `updateSniMatch`, `removeSniMatch` | `alb.editor` |
+| Getting certificates for listeners with TLS encryption | `addListener`, `updateListener` | `certificate-manager.certificates.downloader` |
 | Stop and start an L7 load balancer | `stop`, `start` | `alb.editor` |
 | **Manage HTTP routers** | |
 | [Create an HTTP router](../operations/http-router-create.md) | `create` | `alb.editor` |

@@ -1,6 +1,6 @@
 ---
-title: "About {{ yagpt-full-name }}"
-description: "{{ yagpt-full-name }} is the API of a neural network geared to address various needs related to creating text content. {{ yagpt-name }} can generate product descriptions, articles, news stories, newsletters, blog posts, and many other types of texts. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. With a more specific request, you are more likely to get the result you expect."
+title: "About {{ foundation-models-full-name }}"
+description: "{{ foundation-models-full-name }} is a service that provides access to the APIs of large neural networks that can generate high-quality texts and images. {{ yagpt-full-name }} can generate product descriptions, articles, news stories, newsletters, blog posts, and many other types of texts. {{ yandexart-name }} can create an image by description. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. With a more specific request, you are more likely to get the result you expect."
 ---
 
 # About {{ foundation-models-full-name }}
@@ -9,7 +9,11 @@ description: "{{ yagpt-full-name }} is the API of a neural network geared to add
 
 {{ foundation-models-full-name }} comprises several large generative neural networks and allows you to leverage their capabilities for your business development.
 
-The {{ yagpt-name }} neural network is geared to address various needs related to creating text content. {{ yagpt-full-name }} can generate product descriptions, articles, news stories, newsletters, blog posts, and many other types of texts. The quality of the neural network's response is directly dependent on the accuracy of the instructions you provide: the more accurate the input, the more likely you are to get the result you expect.
+The {{ yagpt-name }} neural network is geared to address various needs related to creating text content. {{ yagpt-full-name }} can generate product descriptions, articles, news stories, newsletters, blog posts, and many other types of texts. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. With a more specific request, you are more likely to get the result you expect.
+
+{{ foundation-models-name }} provides the [API](../embeddings/api-ref/index.md) to work with _embeddings_, i.e., vector representations of text. It can be used to classify information, compare and match texts, or search through a knowledge base of your own. For more information on embeddings and the Embeddings API, see [{#T}](./embeddings.md).
+
+The {{ yandexart-name }} neural network will help you create detailed and realistic images based on a text request. You can see request examples in {{ yandexart-name }} prompt library.
 
 {{ foundation-models-name }} provides the [API](../embeddings/api-ref/index.md) to work with _embeddings_, i.e., vector representations of text. It can be used to classify information, compare and match texts, or search through a knowledge base of your own. For more information on embeddings and the Embeddings API, see [{#T}](./embeddings.md).
 
@@ -28,4 +32,3 @@ Different models support different operating modes.
 Generative models are managed using _prompts_. A good prompt should contain the context of your request to the model (instruction) and the actual task the model should complete based on the provided context. The more specific your prompt, the more accurate will be the results returned by the model.
 
 Apart from the prompt, other request parameters will impact the model's output too. Use {{ foundation-models-name }} Playground in the [management console]({{ link-console-main }}) to test your requests.
-

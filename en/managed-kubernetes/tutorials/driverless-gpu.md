@@ -20,7 +20,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create a node group](../operations/node-group/node-group-create.md) on a platform with a GPU, and enable **{{ ui-key.yacloud.k8s.node-groups.create.field_driverless-gpu }}**.
 
-1. {% include [Настройка kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Install the GPU Operator {#install-gpu-operator}
 

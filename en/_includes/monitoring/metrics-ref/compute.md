@@ -48,6 +48,7 @@ If the disk name is set, it will be returned in a response from the service. If 
 | `disk_write_ops`<br>`DGAUGE`, operations/s | Number of VM disk write operations per second. <br>Labels:<br>- *device*: Disk ID.<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
 | `disk_write_ops_failed`<br>`DGAUGE`, operations/s | Number of failed VM disk write operations per second.<br>Labels:<br>- *device*: Disk ID.<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
 | `disk_write_ops_in_flight`<br>`DGAUGE`, operations/s | Number of concurrent VM disk writes per second.<br>Labels:<br>- *device*: Disk ID.<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
+| `maintenance_event` | `1` if a [maintenance event](../../../compute/concepts/vm-policies) is active on the VM.<br>Labels:<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`.<br>- *type*: Maintenance event type. The available values are `migrate`, `restart`. |
 | `network_connections.quota_utilization`<br>`DGAUGE`, % | VM network connection [quota]({{ link-console-quotas }}) utilization, from 0% to 100%. <br>Labels:<br>- *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
 | `network_received_bytes`<br>`DGAUGE`, bytes/s | Number of bytes per second received on the VM network interface.<br>Labels:<br>- *interface_number*: VM network interface ID.<br> - *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
 | `network_received_packets`<br>`DGAUGE`, packets/s | Number of packets per second received on the VM network interface.<br>Labels:<br>- *interface_number*: VM network interface ID.<br> - *resource_id*: VM ID.<br>- *resource_type*: Resource type. The only available value is `vm`. |
@@ -62,17 +63,18 @@ Common labels for all file storage metrics:
 ----|----
 | filestore | [File storage](../../../compute/concepts/filesystem.md) ID |
 | instance | [VM](../../../compute/concepts/vm.md) name |
+
 | Metric name<br>Type, units of measurement | Description<br>Labels |
---- | ---  
+--- | ---
 | `filestore.read_bytes`<br>`RATE`, bytes/s | Average number of bytes read from a file storage |
 | `filestore.read_bytes_burst`<br>`DGAUGE`, bytes/s | Maximum number of bytes read from a file storage |
-| `filestore.read_errors`<br>`RATE`, operations/s | Number of read operations from a file storage that ended with an error. |
+| `filestore.read_errors`<br>`RATE`, operations/s | Number of read operations from a file storage that ended with an error |
 | `filestore.read_latency`<br>`RATE`, milliseconds | Histogram of the distribution of processing time for read requests from a file storage. Special `bin` label: Histogram buckets. |
 | `filestore.read_ops`<br>`RATE`, operations/s | Average number of read operations from a file storage |
 | `filestore.read_ops_burst`<br>`DGAUGE`, operations/s | Maximum number of read operations from a file storage |
 | `filestore.write_bytes`<br>`RATE`, bytes/s | Average number of bytes written to a file storage |
 | `filestore.write_bytes_burst`<br>`DGAUGE`, bytes/s | Maximum number of bytes written to a file storage |
-| `filestore.write_errors`<br>`RATE`, operations/s | Number of write operations to a file storage that ended with an error. |
+| `filestore.write_errors`<br>`RATE`, operations/s | Number of write operations to a file storage that ended with an error |
 | `filestore.write_latency`<br>`RATE`, milliseconds | Histogram of the distribution of processing time for write requests to a file storage. Special `bin` label: Histogram buckets. |
 | `filestore.write_ops`<br>`RATE`, operations/s | Average number of write operations to a file storage |
 | `filestore.write_ops_burst`<br>`DGAUGE`, operations/s | Maximum number of write operations to a file storage |

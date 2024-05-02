@@ -23,6 +23,16 @@
 
    {% list tabs group=instructions %}
 
+   - Консоль управления {#console}
+
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится исходный бакет.
+      1. Выберите сервис **{{ objstorage-name }}**.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
+      1. Включите опцию **{{ ui-key.yacloud.storage.server-logs.label_server-logs }}**.
+      1. Выберите **{{ ui-key.yacloud.storage.server-logs.label_target-bucket }}**.
+      1. В поле **{{ ui-key.yacloud.storage.server-logs.label_prefix }}** укажите префикс, с которым будут сохраняться логи.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
    - AWS CLI {#cli}
 
      Чтобы включить логирование с помощью [AWS CLI](../../tools/aws-cli.md):
@@ -59,12 +69,6 @@
 
    - {{ TF }} {#tf}
 
-     {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
-
-     
-     {% include [terraform-install](../../../_includes/terraform-install.md) %}
-
-
      Чтобы включить механизм логирования в бакете, который вы хотите отслеживать:
 
      1. Откройте файл конфигурации {{ TF }} и добавьте блок `logging` во фрагмент с описанием бакета.
@@ -96,8 +100,6 @@
         * `target_prefix` — [префикс ключа](../../concepts/server-logs.md#key-prefix) для объектов с логами, например `logs/`.
 
         Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
-
-
 
         {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -131,6 +133,13 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+   1. В [консоли управления]({{ link-console-main }}) перейдите в исходный бакет.
+   1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
+   1. В списке **{{ ui-key.yacloud.storage.server-logs.label_target-bucket }}** содержится имя целевого бакета.
+   1. В поле **{{ ui-key.yacloud.storage.server-logs.label_prefix }}** содержится префикс, с которым сохраняются логи.
+
 - AWS CLI {#cli}
 
    Чтобы получить настройки логирования с помощью [AWS CLI](../../tools/aws-cli.md):
@@ -154,6 +163,40 @@
        }
    }
    ```
+
+- {{ TF }} {#tf}
+
+  Чтобы получить настройки логирования в бакете, который вы хотите отслеживать:
+
+     1. Откройте файл конфигурации {{ TF }} и найдите блок `logging` в фрагменте с описанием бакета.
+
+        ```hcl
+        resource "yandex_storage_bucket" "log_bucket" {
+          access_key = "<идентификатор_статического_ключа>"
+          secret_key = "<секретный_ключ>"
+          bucket     = "<имя_бакета_для_хранения_логов>"
+        }
+
+        resource "yandex_storage_bucket" "bucket" {
+          access_key = "<идентификатор_статического_ключа>"
+          secret_key = "<секретный_ключ>"
+          bucket     = "<имя_исходного_бакета>"
+          acl        = "private"
+
+          logging {
+            target_bucket = yandex_storage_bucket.log_bucket.id
+            target_prefix = "log/"
+          }
+        }
+        ```
+
+        Где:
+        * `access_key` — идентификатор статического ключа доступа.
+        * `secret_key` — значение секретного ключа доступа.
+        * `target_bucket` — указание на бакет для хранения логов.
+        * `target_prefix` — [префикс ключа](../../concepts/server-logs.md#key-prefix) для объектов с логами, например `logs/`.
+
+        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
 
 - API {#api}
 
@@ -184,9 +227,23 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится целевой бакет с логами.
   1. Выберите сервис **{{ objstorage-name }}**.
-  1. Нажмите на имя целевого бакета с логами.
-  1. Нажмите на имя объекта с префиксом `logs/`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.file.button_download }}**.
+  1. Выберите целевой бакет с логами.
+  1. Перейдите в папку `logs/`.
+  1. Напротив объекта с логами, который вы хотите скачать, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.file.button_download }}**.
+  
+  {% note info %}
+
+  Также чтобы скачать объекты с помощью графического интерфейса, вы можете использовать инструменты [CyberDuck](../../tools/cyberduck.md) или [WinSCP](../../tools/winscp.md).
+
+  {% endnote %}
+
+- AWS CLI {#cli}
+
+  Чтобы получить логи с помощью [AWS CLI](../../tools/aws-cli.md), скачайте объекты с префиксом `logs/`, следуя [инструкции](../objects/download.md#cli). 
+
+- API {#api}
+
+  Воспользуйтесь методом S3 API [get](../../s3/api-ref/object/get.md) сервиса Object.
 
 {% endlist %}
 
@@ -196,17 +253,32 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится исходный бакет.
+  1. Выберите сервис **{{ objstorage-name }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
+  1. Выключите опцию **{{ ui-key.yacloud.storage.server-logs.label_server-logs }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+- AWS CLI {#cli}
+
+  Чтобы выключить логирование с помощью [AWS CLI](../../tools/aws-cli.md), воспользуйтесь командой:
+
+     ```bash
+     aws s3api put-bucket-logging \
+         --bucket <имя_бакета> \
+         --endpoint-url https://{{ s3-storage-host }} \
+         --bucket-logging-status {}
+     ```
+
+     Где `--bucket` — имя исходного бакета, для которого нужно выключить логирование действий.
+
 - {{ TF }} {#tf}
-
-  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
-
-  
-  {% include [terraform-install](../../../_includes/terraform-install.md) %}
-
 
   Чтобы выключить механизм логирования:
 
-  1. Откройте файл конфигураций {{ TF }} и удалите блок `logging` во фрагменте с описанием бакета.
+  1. В файле конфигураций {{ TF }} удалите блок `logging` во фрагменте с описанием бакета.
 
       {% cut "Пример описания бакета в конфигурации {{ TF }}" %}
 
@@ -234,7 +306,9 @@
 
       {% endcut %}
 
-  {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+  1. Примените изменения в конфигурации:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
   Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 

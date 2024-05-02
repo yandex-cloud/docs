@@ -7,7 +7,7 @@ Partners pay for the services consumed by their customers. Under the VAR program
 Program participants:
 
 * Partner: Business that is a resident of the Russian Federation and provides services using {{ yandex-cloud }} technologies.
-* Customer: Business that purchases {{ yandex-cloud }} services from a partner (a partner's subaccount).
+* Customer: Business that purchases {{ yandex-cloud }} services from a partner (partner's subaccount).
 
 For more information on the tools offered by the program, see [{#T}](./var-tools.md).
 
@@ -69,6 +69,6 @@ You can withdraw your commissions credited as rebates through the partner portal
 
 To leave the program, notify [technical support]({{ link-console-support }}) in writing at least thirty calendar days ahead of the date.
 
-### Why can partner status be revoked {#recall}
+### Why can partner status be revoked? {#recall}
 
 {{ yandex-cloud }} reserves the right to unilaterally revoke partner status for non-compliance with the terms and conditions of the partner agreement.

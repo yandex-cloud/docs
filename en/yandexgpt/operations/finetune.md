@@ -70,7 +70,7 @@ You can send requests to fine-tuned models in {{ yagpt-name }}. Requests to the 
              - SSH support is built into Unix and Linux operating systems, as well as in Windows with free SSH clients.\n
              - SSH operation involves an SSH server and an SSH client, which establish a secure connection for transmitting encrypted data.\n
              - The reliability of SSH is ensured by user authentication and processing of transmitted data.\n
-             - The SSH server supports three methods of authentication: by IP address, by login/password, and by key.\n
+             - The SSH server supports three authentication methods: by IP address, by login/password, and by key.\n
              - SSH keys provide a high degree of protection and convenience for use in scripts to automate routine operations."
            },
            "status": "ALTERNATIVE_STATUS_FINAL"

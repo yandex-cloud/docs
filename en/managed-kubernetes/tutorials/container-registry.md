@@ -1,7 +1,7 @@
 # Integration with {{ container-registry-name }}
 
 
-[{{ container-registry-full-name }}](../../container-registry/) is a service for storing and distributing [Docker images](../../container-registry/concepts/docker-image.md). Integration with it allows {{ managed-k8s-name }} to run [pods](../concepts/index.md#pod) with applications from Docker images stored in the {{ container-registry-name }} [registry](../../container-registry/concepts/registry.md). To interact with {{ container-registry-name }}, [set up](#config-ch) Docker Credential Helper. It allows you to access private registries via a [service account](../../iam/concepts/users/service-accounts.md).
+[{{ container-registry-full-name }}](../../container-registry/) is a service for storing and distributing [Docker images](../../container-registry/concepts/docker-image.md). Integration with it allows {{ managed-k8s-name }} to run [pods](../concepts/index.md#pod) with applications from Docker images stored in the {{ container-registry-name }} [registry](../../container-registry/concepts/registry.md). To interact with {{ container-registry-name }}, [set up](#config-ch) Docker credential helper. It allows you to access private registries via a [service account](../../iam/concepts/users/service-accounts.md).
 
 To integrate {{ managed-k8s-name }} with {{ container-registry-name }}:
 1. [Create service accounts](#create-sa).
@@ -253,14 +253,11 @@ Build a Docker image and push it to the registry.
 
 ## Connect to the {{ managed-k8s-name }} cluster {#cluster-connect}
 
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. [Configure security groups](../../managed-kubernetes/operations/connect/security-groups.md#rules-master) for the {{ managed-k8s-name }} cluster.
-
-   {% note warning %}
-
-   [Security group](../../vpc/concepts/security-groups.md) settings may prevent connection to the {{ managed-k8s-name }} cluster.
-
-   {% endnote %}
 
 ## Run the test app {#test-app}
 

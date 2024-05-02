@@ -5,7 +5,7 @@ The `Gateway` resource defines the rules for receiving incoming traffic and sele
 
 `Gateway` is designed for cluster operators. Application developers should use `HTTPRoute`.
 
-`Gateway` is a {{ k8s }} resource specified by the [{{ k8s }} Gateway API project](https://gateway-api.sigs.k8s.io/). This reference describes fields and annotations of the resource that the {{ alb-name }} Gateway API interfaces with. For a complete reference for the resource, see the [{{ k8s }} Gateway AP documentation](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.Gateway).
+`Gateway` is a {{ k8s }} resource specified by the [{{ k8s }} Gateway API project](https://gateway-api.sigs.k8s.io/). Below, you can find the descriptions of the resource fields and annotations the {{ alb-name }} Gateway API interfaces with. For a full description of the resource configuration, see the [{{ k8s }} Gateway API documentation](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.Gateway).
 
 ## Gateway {#gateway}
 
@@ -32,7 +32,7 @@ Where:
 
       Resource name. For more information about the format, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-      Does not match the balancer name in {{ alb-name }}.
+      This name is not the balancer name in {{ alb-name }}.
 
    * `namespace` (`string`)
 
@@ -105,7 +105,7 @@ Where:
 
       Internal name of the listener.
 
-      It is only used for {{ k8s }} needs and does not match the listener name in {{ alb-name }}.
+      This name only serves the {{ k8s }} needs and is not the listener name in {{ alb-name }}.
 
       A name should have the domain format, i.e., correspond to the following regular expression:
 
@@ -182,7 +182,7 @@ Where:
 
       Rules for selecting routes for the listener (`HTTPRoute` resources). These routes are used for creating [HTTP routers](../../../application-load-balancer/concepts/http-router.md) and [backend groups](../../../application-load-balancer/concepts/backend-group.md) linked to the listener.
 
-      To have the `HTTPRoute` selected, its [specification](../../../application-load-balancer/k8s-ref/http-route.md#spec) (the `spec.parentRefs` field) must refer to the `Gateway` resource.
+      To have the `HTTPRoute` selected, its [configuration](../../../application-load-balancer/k8s-ref/http-route.md#spec) (the `spec.parentRefs` field) must refer to the `Gateway` resource.
 
       * `namespaces` (`RouteNamespaces`)
 

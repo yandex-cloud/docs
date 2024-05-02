@@ -1,7 +1,5 @@
 # Mounting a bucket to a container
 
-{% include [read-note](../../_includes/functions/read-note.md) %}
-
 Mounting buckets allows you to access them through the file system interface. In the container revision settings, the user can specify one or more mount paths. Use this path to access the directory in which the bucket is mounted. Do not use this path for anything other than an empty directory; otherwise, the container initialization may result in an error, and the mounted buckets will become unavailable.
 
 You can mount the whole bucket or a specific [folder](../../storage/concepts/object#folder).

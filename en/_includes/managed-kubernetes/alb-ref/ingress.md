@@ -1,9 +1,9 @@
 # Ingress resource fields and annotations
 
 
-The `Ingress` resource defines the rules for distributing incoming traffic between {{ k8s }} services. The [{{ alb-name }} Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) uses these rules to create a [load balancer](../../../application-load-balancer/concepts/application-load-balancer.md) with the requisite listeners and [HTTP routers](../../../application-load-balancer/concepts/http-router.md). The [services](../../../application-load-balancer/k8s-ref/service.md) acting as {{ alb-name }} backends may be specified in `Ingress` directly or as part of [`HttpBackendGroup` backend groups](../../../application-load-balancer/k8s-ref/http-backend-group.md).
+The `Ingress` resource defines the rules for distributing incoming traffic between {{ k8s }} services. The [{{ alb-name }} Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) uses these rules to create a [load balancer](../../../application-load-balancer/concepts/application-load-balancer.md) with the requisite listeners and [HTTP routers](../../../application-load-balancer/concepts/http-router.md). The [services](../../../application-load-balancer/k8s-ref/service-for-ingress.md) acting as {{ alb-name }} backends may be specified in `Ingress` directly or as part of [`HttpBackendGroup` backend groups](../../../application-load-balancer/k8s-ref/http-backend-group.md).
 
-`Ingress` is a {{ k8s }} standard resource. This reference describes the resource's fields and annotations the {{ alb-name }} Ingress controller interfaces with. For a complete reference for the resource, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/).
+`Ingress` is a {{ k8s }} standard resource. Below, you can find the descriptions of the resource fields and annotations the {{ alb-name }} Ingress controller interfaces with. For a full description of the resource configuration, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/).
 
 ## Ingress {#ingress}
 
@@ -84,6 +84,7 @@ annotations:
   ingress.alb.yc.io/internal-alb-subnet: <string>
   ingress.alb.yc.io/protocol: <string>
   ingress.alb.yc.io/group-settings-name: <string>
+  ingress.alb.yc.io/group-order: <string>
   ingress.alb.yc.io/transport-security: <string> # Only up to but excluding version 0.2.0.
   ingress.alb.yc.io/prefix-rewrite: <string>
   ingress.alb.yc.io/upgrade-types: <string>
@@ -100,7 +101,7 @@ annotations:
 || **Field**      | **Value or type**   | **Description**          ||
 || `name`         | `string`            | **Required**
 [Resource name](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names)
-Does not match the load balancer name in Application Load Balancer ||
+This name is not the balancer name in {{ alb-name }}. ||
 || `annotations`  | `map[string]string` | **Required**
 [Resource annotations](#annotations)                               ||
 |#
@@ -179,11 +180,19 @@ You can provide the following annotations for the `ObjectMeta` object:
 
    To specify the settings, create an additional resource named [IngressGroupSettings](#groupsettings).
 
+* **ingress.alb.yc.io/group-order** {#annot-group-order}
+
+   The sequence number of the `Ingress` resource. If you specify sequence numbers for multiple resources in an Ingress group, it will define the order for adding internal traffic routes. `Ingress` resources are sorted in nondecreasing order.
+
+   Annotation does not apply to routes specified by a single `Ingress` resource.
+
+   Specify an integer in the annotation value. By default, it is set to `0`.
+
 * **ingress.alb.yc.io/transport-security** {#annot-transport-security}
 
    {% note warning %}
 
-   In [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) version 0.2.0 and later, use annotation only in the [Service](../../../application-load-balancer/k8s-ref/service.md#metadata) object.
+   In [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) version 0.2.0 and later, use annotation only in the [Service](../../../application-load-balancer/k8s-ref/service-for-ingress.md#metadata) object.
 
    If you specify an annotation in the `Ingress` resources that use a single service with the same settings for backend groups, such annotation will apply correctly. However, this mechanism is obsolete and will not be supported going forward.
 
@@ -311,6 +320,7 @@ You can provide the following annotations for the `ObjectMeta` object:
 ## IngressSpec {#spec}
 
 ```yaml
+ingressClassName: <string>
 tls:
   - <IngressTLS>
   - ...
@@ -320,9 +330,11 @@ rules:
 ```
 
 #|
-|| **Field** | **Value or type**     | **Description** ||
+|| **Field**          | **Value or type**    | **Description** ||
+|| `ingressClassName` | `string`             | Name of the [IngressClass](../../../application-load-balancer/k8s-ref/ingress-class.md) resource which the `Ingress` resource refers to.
 
-|| `tls`     | `[]IngressTLS`        | **Required**
+An `IngressClass` is required to route traffic within a single application using multiple Ingress controllers. If you do not use the `ingressClassName` parameter but use multiple Ingress controllers, create an `IngressClass` resource to apply by default. ||
+|| `tls`              | `[]IngressTLS`        | **Required**
 [Incoming HTTPS traffic settings](#tls): domain name collections and the relevant TLS certificates.
 
 If the filed is specified, two types of [listeners](../../../application-load-balancer/concepts/application-load-balancer.md#listener) will be created for the load balancer: some will be receiving HTTPS traffic on port 443, others will redirect HTTP requests (port 80) to HTTPS. At the same time, the traffic distribution rules for the same domain names, if explicitly specified in other `Ingress` resources without the `tls` field, will be prioritized over HTTP-to-HTTPS redirects.
@@ -350,7 +362,7 @@ secretName: <string>
 || **Field**   | **Value or type** | **Description** ||
 
 || `hosts`     | `[]string`        | **Required**
-Domain names covered by the `secretName` TLS certificate.
+Domain names the `secretName` TLS certificate corresponds to.
 
 The load balancer will create a dedicated listener for each domain name used as a value for the Server Name Indication (SNI) TLS extension.
 
@@ -383,7 +395,7 @@ In [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) ver
 || **Field** | **Value or type**      | **Description** ||
 
 || `host`    | `string`               | **Required**
-Domain name (value of the `Host` header for HTTP/1.1 or the `:authority` pseudo-header for HTTP/2) covered by the rule.
+Domain name (the value of the `Host` header for HTTP/1.1 or the `:authority` pseudo-header for HTTP/2) the rule applies to.
 
 {% include [k8s-ingress-controller-hostnames-wildcard](../../application-load-balancer/k8s-ingress-controller-hostnames-wildcard.md) %}
 
@@ -395,7 +407,7 @@ Rule for distribution of incoming requests with the domain name specified in the
 ||
 
 || `http.paths` | `[]HTTPIngressPath`  | **Required**
-List of routes: requested resources covered by the rule and the corresponding backends.
+List of routes: the requested resources the rule applies to and their corresponding backends.
 
 The sequence of routes on the list is important: they are matched against an incoming request in turn, and the first match is used for routing. Therefore, we recommend placing the most specific routes at the top of the list. This logic is different from what is described in the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/#multiple-matches) which prioritizes routes with the longest paths (`rules.http.paths.path` field).
 
@@ -428,7 +440,7 @@ In addition to distributing traffic, the type also affects the path or call name
 ||
 
 || `http.paths.backend` | `IngressBackend`  | **Required**
-Reference to a [backend or a group of backends](#backend) to process requests with the specified domain name and URI path or gRPC call name.
+Reference to a [backend or group of backends](#backend) to process requests with the specified domain name and URI path or gRPC call name.
 
 |#
 
@@ -452,7 +464,7 @@ resource:
 || `service`    | `IngressServiceBackend`        | **Required**
 Reference to the [{{ k8s }} service](../../../managed-kubernetes/concepts/index.md#service) expected to process requests as a backend.
 
-The `Service` resource this field points to must be described as in the [specification](../../../application-load-balancer/k8s-ref/service.md).
+The `Service` resource this field refers to must be described in line with the [standard configuration](../../../application-load-balancer/k8s-ref/service-for-ingress.md).
 
 For the `spec.rules.http.paths` list element, you must specify either a service backend or a backend group (`resource`) but not both.
 
@@ -463,14 +475,14 @@ For the `spec.rules.http.paths` list element, you must specify either a service 
 || `resource`   | `TypedLocalObjectReference`     | **Required**
 Reference to a backend group to process requests.
 
-The Ingress controller implements the `HttpBackendGroup` resource that this field points to as a [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). It must be described as in the [specification](../../../application-load-balancer/k8s-ref/http-backend-group.md).
+The Ingress controller implements the `HttpBackendGroup` resource that this field points to as a [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). It must be described in line with the [standard configuration](../../../application-load-balancer/k8s-ref/http-backend-group.md).
 
 For the `spec.rules.http.paths` list element, you must specify either a backend group or a service backend (`service`) but not both.
 
 * `kind`: `HttpBackendGroup`
 * `name` (`string`): Backend group name
 
-   The name must match the value specified in the `metadata.name` field of the `HttpBackendGroup` resource. For more information, see the [resource specification](../../../application-load-balancer/k8s-ref/http-backend-group.md).
+   The name must match the value specified in the `metadata.name` field of the `HttpBackendGroup` resource. For more information, see the [resource configuration](../../../application-load-balancer/k8s-ref/http-backend-group.md).
 
 * `apiGroup`: `alb.yc.io`
 

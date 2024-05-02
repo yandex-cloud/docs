@@ -5,7 +5,7 @@
 
 The External Secrets Operator with {{ lockbox-name }} support enables you to configure syncing [{{ lockbox-name }} secrets](../../../lockbox/concepts/secret.md) with [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) [secrets](../../concepts/encryption.md).
 
-## Creating a service account {#create-sa-key}
+## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -15,13 +15,17 @@ The External Secrets Operator with {{ lockbox-name }} support enables you to con
 1. Assign the required [role](../../../lockbox/security/index.md#service-roles) to the [service account](../../../iam/concepts/users/service-accounts.md):
    * [For a previously created secret](../../../lockbox/operations/secret-access.md).
    * [For all secrets](../../../iam/operations/sa/assign-role-for-sa.md) of a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) or [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud).
-1. Create an [authorized key](../../../iam/concepts/authorization/key.md) and save it to a file named `sa-key.json`:
+1. Create an [authorized key](../../../iam/concepts/authorization/key.md) for the service account and save it to the `sa-key.json` file:
 
    ```bash
    yc iam key create \
      --service-account-name <service_account_name> \
      --output sa-key.json
    ```
+
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 ## Installing the External Secrets Operator through {{ marketplace-full-name }} {#marketplace-install}
 

@@ -16,7 +16,7 @@ The following services are currently available within the platform:
 | [{{ alb-full-name }}](../../application-load-balancer/index.yaml) | Service for distributing incoming traffic between web application components |
 | [{{ at-full-name }}](../../audit-trails/index.yaml) | Service for collecting and exporting audit logs |
 | [{{ certificate-manager-full-name }}](../../certificate-manager/index.yaml) | Service for managing TLS certificates |
-| [{{ cloud-apps-full-name }}](../../cloud-apps/index.yaml) | {{ preview-stage }} Service for deploying applications based on {{ yandex-cloud }}. |
+| [{{ cloud-apps-full-name }}](../../cloud-apps/index.yaml) | {{ preview-stage }} Service for deploying applications based on {{ yandex-cloud }} |
 | [{{ backup-full-name }}](../../backup/index.yaml) | Service for backing up {{ yandex-cloud }} resources |
 | [{{ billing-name }}](../../billing/index.yaml) | Service for payments and viewing expense details |
 | [{{ cdn-full-name }}](../../cdn/index.yaml) | Service for setting up a content delivery network (CDN) |
@@ -59,20 +59,20 @@ The following services are currently available within the platform:
 | [{{ monitoring-full-name }}](../../monitoring/index.yaml) | Service for collecting and visualizing metrics |
 | [{{ network-load-balancer-full-name }}](../../network-load-balancer/index.yaml) | Service for distributing network load across cloud resources |
 | [{{ objstorage-full-name }}](../../storage/index.yaml) | All-purpose scalable cloud object storage |
-| [{{ yq-full-name }}](../../query/index.yaml) | Service for running queries using the common SQL dialect |
+| [{{ yq-full-name }}](../../query/index.yaml) | Service for running queries using a common SQL dialect |
 | [{{ resmgr-full-name }}](../../resource-manager/index.yaml) | Cloud resource management service |
-| [{{ search-api-full-name }}](../../search-api/index.yaml) | Service for making search queries |
+| [{{ search-api-full-name }}](../../search-api/index.yaml) | Search query service |
 | [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) | Serverless launch of containerized applications |
-| [{{ captcha-full-name }}](../../smartcaptcha/index.yaml) | System user identification |
-| [{{ sws-full-name }}](../../smartwebsecurity/index.yaml) | Service for protection against DDoS attacks at application level L7 of the OSI model |
-| [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/index.yaml) | Speech recognition and synthesis technologies |
-| [{{ speechsense-full-name }}](../../speechsense/index.yaml) | {{ preview-stage }} Speech analytics service for analyzing voice and text communication channels |
-| [{{ tracker-full-name }}](../../tracker/index.yaml) | Service for business collaboration and workflows |
+| [{{ captcha-full-name }}](../../smartcaptcha/index.yaml) | Service for identifying system users |
+| [{{ sws-full-name }}](../../smartwebsecurity/index.yaml) | Service for protection against DDoS attacks at the L7 application level of the OSI model |
+| [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/index.yaml) | Speech recognition and synthesis technology service |
+|[{{ speechsense-full-name }}](../../speechsense/index.yaml) | {{ preview-stage }} Speech analytics service for analyzing voice and text communication channels |
+| [{{ tracker-full-name }}](../../tracker/index.yaml) | Service for collaboration and organization of processes in a company |
 | [{{ translate-full-name }}](../../translate/index.yaml) | Machine translation service |
 | [{{ vpc-full-name }}](../../vpc/index.yaml) | Cloud network management service |
 | [{{ vision-full-name }}](../../vision/index.yaml) | Computer vision service for image analysis |
 | [{{ websql-full-name }}](../../websql/index.yaml) | {{ preview-stage }} Service for connecting to managed database clusters |
-| [{{ wiki-full-name }}](../../wiki/index.yaml) | Service for creating corporate databases |
+| [{{ wiki-full-name }}](../../wiki/index.yaml) | Service for creating a corporate database |
 | [{{ yagpt-full-name }}](../../yandexgpt/index.yaml) | {{ preview-stage }} Generative language model for business |
 
 

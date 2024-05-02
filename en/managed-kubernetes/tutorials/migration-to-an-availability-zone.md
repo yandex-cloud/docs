@@ -439,7 +439,21 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
 
    This way, you will disable the pods that use disks. In addition, running this command saves a [PersistentVolumeClaim](../concepts/volume.md#persistent-volume) (PVC) {{ k8s }} API object.
 
-1. Create a snapshot that represents a point-in-time copy of the [PersistentVolume](../concepts/volume.md#persistent-volume) (PV). For more information about snapshots, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
+1. For the [PersistentVolume](../concepts/volume.md#persistent-volume) object (PV) associated with `PersistentVolumeClaim`, change the value of the `persistentVolumeReclaimPolicy` parameter from `Delete` to `Retain` to prevent accidental data loss.
+
+   1. Get the name of the `PersistentVolume` object:
+
+      ```bash
+      kubectl get pv
+      ```
+
+   1. Edit the `PersistentVolume` object:
+
+      ```bash
+      kubectl edit pv <PV_name>
+      ```
+
+1. Create a snapshot representing a point-in-time copy of the `PersistentVolume` disk. For more information about snapshots, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
 
    1. Get the name of the `PersistentVolumeClaim`:
 
@@ -453,12 +467,14 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
       apiVersion: snapshot.storage.k8s.io/v1
       kind: VolumeSnapshot
       metadata:
-         name: new-snapshot-test
+         name: new-snapshot-test-<number>
       spec:
          volumeSnapshotClassName: yc-csi-snapclass
          source:
             persistentVolumeClaimName: <PVC_name>
       ```
+
+      If you are creating several snapshots for different `PersistentVolumeClaim` objects, specify the `<number>` (consecutive number) to make a unique `metadata.name` value for each snapshot.
 
    1. Create a snapshot:
 
@@ -507,7 +523,7 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
       apiVersion: v1
       kind: PersistentVolume
       metadata:
-         name: new-pv-test
+         name: new-pv-test-<number>
       spec:
          capacity:
             storage: <PersistentVolume_size>
@@ -533,6 +549,8 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
          | `network-nvme` | `yc-network-nvme` |
          | `network-hdd` | `yc-network-hdd` |
 
+      If you are creating several `PersistentVolume` objects, specify the `<number>` (consecutive number) to make a unique `metadata.name` value for each snapshot.
+
    1. Create a `PersistentVolume` object:
 
       ```bash
@@ -545,7 +563,7 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
       kubectl get pv
       ```
 
-      The `new-pv-test` object will appear in the command's output.
+      The `new-pv-test-<number>` object will appear in the command's output.
 
 1. Create a `PersistentVolumeClaim` object from the new `PersistentVolume`:
 
@@ -563,7 +581,7 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
             requests:
                storage: <PV_size>
          storageClassName: <disk_type>
-         volumeName: new-pv-test
+         volumeName: new-pv-test-<number>
       ```
 
       In the file, set the following parameters:
@@ -571,6 +589,7 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
       * `metadata.name`: Name of the `PersistentVolumeClaim` that you used to create the snapshot. You can get this name by running the `kubectl get pvc` command.
       * `spec.resources.requests.storage`: Size of the `PersistentVolume`; matches the size of the created disk.
       * `spec.storageClassName`: Disk type of the `PersistentVolume`; matches the disk type of the new `PersistentVolume`.
+      * `spec.volumeName`: Name of the `PersistentVolume` object based on which the `PersistentVolumeClaim` object is created. You can get this name by running the `kubectl get pv` command.
 
    1. Delete the original `PersistentVolumeClaim` so you can replace it:
 
@@ -616,3 +635,17 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
    ```
 
    The output of this command displays the nodes on which your pods are currently running.
+
+1. Delete the unused `PersistentVolume` object (having the `Released` status).
+
+   1. Get the name of the `PersistentVolume` object:
+
+      ```bash
+      kubectl get pv
+      ```
+
+   1. Delete the `PersistentVolume` object:
+
+      ```bash
+      kubectl delete pv <PV_name>
+      ```

@@ -12,6 +12,12 @@ Once you install the Gateway API, you can use it to create a resource named `Gat
 * The `Gateway` resource is managed by the cluster operator. This resource describes how incoming traffic is received and the rules for selecting routes for the traffic (`HTTPRoute` resources). To receive traffic through `Gateway`, an [L7 load balancer](../../concepts/application-load-balancer.md) is created. To route the traffic, [HTTP routers](../../concepts/http-router.md) are linked to the load balancer.
 * The `HTTPRoute` resources are managed by the developers of the applications representing the {{ k8s }} services. `HTTPRoute` is a description of the route for the received incoming traffic. Based on this description, the traffic can be routed to a {{ k8s }} service acting as a backend or redirected to another URI. The `HTTPRoute` is used to create virtual hosts and routes in HTTP routers and [backend groups](../../concepts/backend-group.md).
 
+For full configuration of the resources for Gateway API, see the following sections:
+
+* [Gateway](../../k8s-ref/gateway.md): Rules for receiving incoming traffic and selecting routes (`HTTPRoute`) for the traffic.
+* [HTTPRoute](../../k8s-ref/http-route.md): Rules for routing traffic across backends or redirecting it.
+* [Service](../../k8s-ref/service-for-gateway.md): Description of {{ k8s }} services used as backends.
+
 ## Sample configuration {#example}
 
 Below is a sample configuration of `Gateway` and `HTTPRoute` resources. It will be used to create a load balancer to receive HTTPS traffic and to distribute it to two services based on the URI request path.

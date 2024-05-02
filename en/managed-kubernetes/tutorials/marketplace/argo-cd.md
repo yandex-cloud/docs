@@ -35,7 +35,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
       {% endnote %}
 
    1. [Create a {{ managed-k8s-name }} cluster](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for the resources and nodes.
-   1. [Configure security groups](../../operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster.
+
+   1. {% include [configure-sg-manual](../../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+      {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
    1. [Configure a security group](../../../managed-gitlab/operations/configure-security-group.md) for the [{{ mgl-name }} instance](../../../managed-gitlab/concepts/index.md#instance).
    1. [Create a registry in {{ container-registry-full-name }}](../../../container-registry/operations/registry/registry-create.md).
    1. [Save the ID of the registry created](../../../container-registry/operations/registry/registry-list.md#registry-get), as you will need it at the next steps.
@@ -50,15 +54,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. Download the [k8s-argocd.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-argocd.tf) {{ managed-k8s-name }} cluster configuration file to the same working directory. The file describes:
       * [Network](../../../vpc/concepts/network.md#network).
       * [Subnet](../../../vpc/concepts/network.md#subnet).
-      * [Security group](../../../vpc/concepts/security-groups.md) and the [rules](../../operations/connect/security-groups.md) required for the {{ managed-k8s-name }} cluster, node group, {{ mgl-name }} instance, and [{{ container-registry-name }} registry](../../../container-registry/concepts/registry.md):
-         * Rules for service traffic.
-         * Rules for accessing the {{ k8s }} API and managing a {{ managed-k8s-name }} cluster with `kubectl` through ports 443 and 6443.
-         * Rules for connecting to a Git repository over SSH on port 22.
-         * Rules that allow HTTP and HTTPS traffic through ports 80 and 443.
-         * Rules for connecting to {{ container-registry-name }} through port 5050.
       * {{ managed-k8s-name }} cluster.
       * [Service account](../../../iam/concepts/users/service-accounts.md) for {{ managed-k8s-name }} resources and nodes.
       * {{ container-registry-name }} registry.
+      * {% include [configure-sg-terraform](../../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+
+         These security groups also contain the rules required for {{ mgl-name }} instance and [{{ container-registry-name }} registry](../../../container-registry/concepts/registry.md).
+
+         {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
    1. Specify the following in the configuration file:
       * [Folder ID](../../../resource-manager/operations/folder/get-id.md).
       * [{{ k8s }} version](../../concepts/release-channels-and-updates.md) for a {{ managed-k8s-name }} cluster and node groups.

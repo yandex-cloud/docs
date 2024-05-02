@@ -25,7 +25,7 @@ To get a partner status:
 
    * Billing account type: [Business account](../billing/concepts/billing-account.md#ba-types).
    * Business account registered for a business that is a resident of the Russian Federation.
-   * Payment method: **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_invoice }}**.
+   * Payment method: **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}**.
 
 1. [Upgrade](../billing/operations/activate-commercial.md) you billing account from the trial period to the paid version. When upgrading to the paid version, grants remain on your account and you can use them to pay for services.
 1. Please wait for the manager's feedback and approval of your application: this may take up to seven business days.

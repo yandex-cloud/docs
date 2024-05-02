@@ -224,10 +224,14 @@ default:
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
   KF: Apache Kafka®
+  kf:
+    docs: https://kafka.apache.org/documentation/
   KFC: Kafka Connect
   kms-full-name: Yandex Key Management Service
   kms-name: Key Management Service
   kms-short-name: KMS
+  kraft-name: Apache Kafka® Raft
+  kraft-short-name: KRaft
   lang: ru
   license-manager: License Manager
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
@@ -4218,33 +4222,10 @@ default:
         value_retention-save-last-f: Только последнюю
       billing:
         account:
-          budgets:
-            button_create: Создать бюджет
-            label_budgets: Бюджеты
-            label_type: Тип бюджета
-            label_type-balance: Остаток средств
-            label_type-cost: Стоимость потребления
-            label_type-expense: К оплате
-            reset-period_value_custom: Настраиваемый
-          button_billing-payment-action: Перейти на платную версию
-          create-new:
-            payment-type_label_invoice: Банковский перевод
-          dashboard-overview:
-            button_refill: Пополнить баланс
-            popup-refill_button_company-action: Выписать счет
-            popup-refill_button_individual-action: Пополнить баланс
           dashboard-resources:
             section_resources: Облака
           detail:
             tab_product: По продуктам
-          history:
-            column_date: Дата платежа
-            column_description: Описание
-            column_money: Сумма платежа
-            column_status: Статус
-          overview:
-            payment-type_label_card: Банковская карта
-            payment-type_label_invoice: Банковский перевод
           reconciliation-reports:
             action_download-with-facsimile: Скачать подписанный акт
             action_download-without-facsimile: Скачать акт без подписи
@@ -4253,12 +4234,8 @@ default:
             field_actions: Действия
             value_completed: Готово
           switch_acts: Отчётные документы
-          switch_history: История платежей
           switch_offers: Резервируемое потребление
-          switch_overview: Данные аккаунта
           tab_reconciliation-reports-title: Акты сверки
-        accounts:
-          button_empty-billing-create: Создать
         label_accounts: Аккаунты
         label_service: Биллинг
       cdn:
@@ -6358,6 +6335,7 @@ default:
           switch_https: HTTPS
           switch_lifecycle: Жизненный цикл
           switch_policy: Политика доступа
+          switch_server-logs: Логирование
           switch_settings: Настройки
           switch_website: Веб-сайт
           website:
@@ -6400,6 +6378,10 @@ default:
           button_add: Добавить
           button_save: Сохранить
           label_title: Редактирование ACL
+        server-logs:
+          label_prefix: Префикс
+          label_server-logs: Запись логов
+          label_target-bucket: Бакет для хранения логов
         switch_buckets: Бакеты
       support:
         ticket:
@@ -7628,7 +7610,6 @@ default:
         billing: Биллинг
         bucket: Бакет
         build: Собрать
-        cell: Ячейка
         clone: Клонировать
         communication: Общение
         copy-link: Копировать ссылку

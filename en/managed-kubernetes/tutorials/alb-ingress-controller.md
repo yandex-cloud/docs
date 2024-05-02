@@ -8,21 +8,24 @@ To set up access to the applications running in your {{ managed-k8s-name }} clus
 1. [{#T}](#configure-group).
 1. [{#T}](#verify-setup).
 
+For full configuration of the resources for the {{ alb-name }} Ingress controller, see the following sections:
+
+* [Ingress](../alb-ref/ingress.md): Backend traffic distribution and Ingress controller configuration rules.
+* [HttpBackendGroup](../alb-ref/http-backend-group.md): Combining backends into groups.
+* [IngressClass](../alb-ref/ingress-class.md): Managing multiple Ingress controllers in a {{ k8s }} cluster.
+* [Service](../alb-ref/service-for-ingress.md): Description of {{ k8s }} services used as backends.
+
 ## Getting started {#before-you-begin}
 
 1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
 1. If you already have a certificate for the domain zone, [add its details](../../certificate-manager/operations/import/cert-create.md) to the [{{ certificate-manager-full-name }}](../../certificate-manager/) service. Alternatively, you can [add a new Let's Encrypt® certificate](../../certificate-manager/operations/managed/cert-create.md).
 1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
 1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
-1. Create [security group](../../vpc/concepts/security-groups.md) rules to allow:
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-   * [Incoming and outgoing service traffic](../operations/connect/security-groups.md#rules-internal) for your {{ managed-k8s-name }} cluster and node group.
-   * Incoming traffic for the node group:
+   {% include [configure-sg-alb-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-manual.md) %}
 
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `10501-10502`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: Specify the ranges of subnet IP addresses to be used when [creating an Ingress controller](#create-ingress-and-apps), e.g., `10.96.0.0/16` or `10.112.0.0/16`.
+   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. [Install the {{ alb-name }} Ingress controller](../operations/applications/alb-ingress-controller.md).
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
@@ -338,7 +341,7 @@ Command result:
 
          {% note warning %}
 
-         In [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) version 0.2.0 and later, you can only use an annotation in the [Service](../../application-load-balancer/k8s-ref/service.md#metadata) object.
+         In [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) version 0.2.0 and later, you can only use an annotation in the [Service](../../application-load-balancer/k8s-ref/service-for-ingress.md#metadata) object.
 
          If you annotate `Ingress` resources that use a single service with the same settings for backend groups, such annotation will apply correctly. However, this mechanism is obsolete and will not be supported going forward.
 
@@ -370,7 +373,9 @@ Command result:
 
       {% endnote %}
 
-      For more information about the Ingress resource settings, see [{#T}](../alb-ref/ingress.md).
+      If you use several Ingress controllers, create an [Ingress class](../alb-ref/ingress-class.md) resource for each of them. In the `Ingress` configuration, specify the `IngressClass` you need in the `spec.ingressClassName` field.
+
+      For more information about the `Ingress` resource settings, see [{#T}](../alb-ref/ingress.md).
 
    1. Create an Ingress controller and applications:
 
@@ -707,15 +712,19 @@ Specifying a name for the Ingress group settings using the `ingress.alb.yc.io/gr
 
       Make sure the applications are accessible via {{ alb-name }} and return pages with `This is APP#1` and `This is APP#2` text, respectively.
 
+      {% include [Configuring security groups if resource is unavailable](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
+
    - Backend group
 
-      Open the application URI in your browser:
+      Open the application's URI in your browser:
 
       ```http
       https://<your_domain>/app1
       ```
 
       Make sure that the target resources are accessible via {{ alb-name }}.
+
+      {% include [Configuring security groups if resource is unavailable](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
    {% endlist %}
 

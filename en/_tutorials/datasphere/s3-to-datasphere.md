@@ -180,7 +180,7 @@ To move data from your local disk to {{ objstorage-name }}, configure the `rclon
 1. Open the command prompt in your working directory as an admin user and run the following command:
 
    ```powershell
-   psexec -i -s cmd.exe
+   .\psexec -i -s cmd.exe
    ```
 
 1. In the console that opens, run `whoami` and make sure that the session has been started by the system user.
@@ -193,7 +193,7 @@ To move data from your local disk to {{ objstorage-name }}, configure the `rclon
 1. Follow the prompts to create a new connection profile:
    1. Select creation of a new profile: enter `n` in the terminal.
    1. Enter the connection name: `s3-connect`.
-   1. Select the storage type: enter `5` in the terminal.
+   1. Select the storage type: enter `4` in the terminal.
    1. Select a provider: enter `1` in the terminal.
    1. Select manual entry of credentials: enter `1` in the terminal.
    1. Enter the secret key ID in the terminal.

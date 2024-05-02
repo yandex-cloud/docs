@@ -2,7 +2,7 @@
 
 [API v1alpha](../api-ref/v1alpha/) is deprecated and will be discontinued soon. To work with {{ yagpt-name }}, use [YandexGPT API v1](../text-generation/api-ref/) and [Embeddings API v1](../embeddings/api-ref/). In the new API version, the maximum total number of [tokens](../concepts/yandexgpt/tokens.md) allowed per user request and model response is {{ yagpt-max-tokens }}.
 
-If your product adopts methods of the obsolete API, migrate it to the new interface. Below is the detailed overview of the changes required for the REST API. Similar changes apply to the gRPC API.
+If your product adopts methods of the obsolete API, migrate it to the new interface. See the detailed overview of the changes required for the REST API below. Similar changes apply to the gRPC API.
 
 ## Model selection {#model-choice}
 
@@ -30,75 +30,77 @@ In YandexGPT API v1 and Embeddings API v1, specify the [model](../concepts/yande
    General request structure:
 
    #|
-   ||**API v1alpha**|**YandexGPT API v1**||
-   ||```json
+   || **API v1alpha** |  **YandexGPT API v1** ||
+   ||
+   ```json
    {
-   "model": "string",
-   "generationOptions": {
-   "partialResults": true,
-   "temperature": "number",
-   "maxTokens": "integer"
-   },
+     "model": "string",
+     "generationOptions": {
+       "partialResults": true,
+       "temperature": "number",
+       "maxTokens": "integer"
+     },
 
-   /*
-   includes only one of the fields:
-   either `instructionText` or `instructionUri`
-   */
+     // only one of the fields: `instructionText` or `instructionUri`
+     "instructionText": "string",
+     "instructionUri": "string",
 
-   "instructionText": "string",
-   "instructionUri": "string",
-
-   /* end of the list of possible fields */
-
-   "requestText": "string"
+     "requestText": "string"
    }
-   ```|```json
+   ```
+   |
+   ```json
    {
-   "modelUri": "string",
-   "completionOptions": {
-   "stream": true,
-   "temperature": "number",
-   "maxTokens": "integer"
-   },
-   "messages": [
-   {
-   "role": "string",
-   "text": "string"
+     "modelUri": "string",
+     "completionOptions": {
+       "stream": true,
+       "temperature": "number",
+       "maxTokens": "integer"
+     },
+     "messages": [
+       {
+         "role": "string",
+         "text": "string"
+       }
+     ]
    }
-   ]
-   }
-   ```||
+   ```
+   ||
    |#
 
    Request body fields:
 
    #|
    || **API v1alpha** | **YandexGPT API v1** | **Description** ||
-   || model | modelUri|[ID of the model](../concepts/yandexgpt/models.md) to use for response generation. The parameter contains the {{ yandex-cloud }} [folder ID](../../resource-manager/operations/folder/get-id.md) or the ID of the model [fine-tuned](../tutorials/yagpt-tuning.md) with {{ ml-platform-name }}.||
-   || instructionText | ```json
+   || model | modelUri|[ID of the model](../concepts/yandexgpt/models.md) to use for response generation. The parameter contains the [ID of a {{ yandex-cloud }} folder](../../resource-manager/operations/folder/get-id.md) or the ID of a model [fine-tuned](../tutorials/yagpt-tuning.md) in {{ ml-platform-name }}.||
+   || instructionText |
+   ```json
    "messages": [
      {
        "role": "system",
        "text": "string"
      }
    ]
-   ``` | In YandexGPT API v1, the `messages` section is a list of messages defining the request context for the model.
+   ```
+   | In YandexGPT API v1, the `messages` section is the list of messages setting the request context for the model.
    * `role`: When the value is `system`, it allows you to set the request context and define the model's behavior.
    * `text`: Text that defines the request context. ||
    || instructionUri | modelUri | YandexGPT API v1 does not use the `instructionUri` parameter; to specify the URI, use `modelUri`.||
-   || requestText | ```json
+   || requestText |
+   ```json
    "messages": [
      {
        "role": "user",
        "text": "string"
      }
    ]
-   ``` | In YandexGPT API v1, the `messages` section is a list of messages defining the request context for the model.
+   ```
+   | In YandexGPT API v1, the `messages` section is the list of messages setting the request context for the model.
    * `role`: When the value is `user`, it allows sending user messages to the model.
    * `text`: Text message of the request.||
-   ||partialResults|stream|It enables streaming of partially generated text. The possible values are `true` and `false`.||
-   ||generationOptions|completionOptions|Specifies the request configuration parameters.||
-   ||maxTokens|maxTokens|The `maxTokens` parameter name has remained the same, but its purpose has changed. In **API v1alpha**, the `maxTokens` parameter defined the limit on the total number of tokens per request and response. In **YandexGPT API v1**, `maxTokens` means the maximum number of tokens in the response only.||
+   || partialResults | stream | It enables streaming of partially generated text. It may take either the `true` or `false` value. ||
+   || generationOptions | completionOptions | It sets the request configuration parameters. ||
+   || maxTokens | maxTokens | The `maxTokens` parameter name has remained the same, but its value has changed. In **API v1alpha**, the `maxTokens` parameter was limiting the total number of tokens in both request and response. In **YandexGPT API v1**, `maxTokens` is the maximum number of tokens only in response.||
    |#
 
    **TextGeneration.chat (chat mode)**
@@ -113,7 +115,8 @@ In YandexGPT API v1 and Embeddings API v1, specify the [model](../concepts/yande
 
    #|
    || **API v1alpha**|**YandexGPT API v1** ||
-   || ```json
+   ||
+   ```json
    {
      "model": "string",
      "generationOptions": {
@@ -129,7 +132,9 @@ In YandexGPT API v1 and Embeddings API v1, specify the [model](../concepts/yande
      ],
      "instructionText": "string"
    }
-   ``` | ```json
+   ```
+   |
+   ```json
    {
      "modelUri": "string",
      "completionOptions": {
@@ -144,28 +149,31 @@ In YandexGPT API v1 and Embeddings API v1, specify the [model](../concepts/yande
        }
      ]
    }
-   ```||
+   ```
+   ||
    |#
 
    Request body fields:
 
    #|
    || **API v1alpha** | **YandexGPT API v1** | **Description** ||
-   || model | modelUri | [ID of the model](../concepts/yandexgpt/models.md) to use for response generation. The parameter contains the {{ yandex-cloud }} [folder ID](../../resource-manager/operations/folder/get-id.md) or the ID of a model [fine-tuned](../tutorials/yagpt-tuning.md) in {{ ml-platform-name }}.||
-   ||instructionText|```json
+   || model | modelUri | [ID of the model](../concepts/yandexgpt/models.md) to be used to generate the response. The parameter contains the [ID of a {{ yandex-cloud }} folder](../../resource-manager/operations/folder/get-id.md) or the ID of a model [fine-tuned](../tutorials/yagpt-tuning.md) in {{ ml-platform-name }}. ||
+   || instructionText |
+   ```json
    "messages": [
      {
        "role": "system",
        "text": "string"
      }
    ]
-   ```|In YandexGPT API v1, the `messages` section is a list of messages defining the request context for the model.
+   ```
+   | In YandexGPT API v1, the `messages` section is the list of messages setting the request context for the model.
    * `role`: When the value is `system`, it allows you to set the request context and define the model's behavior.
-   * `text`: Text that defines the request context.||
-   ||partialResults|stream|It enables streaming of partially generated text. Possible values are `true` or `false`.||
-   ||generationOptions|completionOptions|It sets the request's configuration parameters.||
-   ||maxTokens|maxTokens|The name of the `maxTokens` parameter remains the same, but the value has changed. In **API v1alpha**, the `maxTokens` parameter defined the limit on the total number of tokens per request and response. In **YandexGPT API v1**, the value of `maxTokens` is the maximum number of tokens per response only.||
-   ||role|role|The name of the `role` parameter remains the same, but the list of possible values has changed. In **API v1alpha**, the possible values of the parameter were `Assistant` and `User`. In **YandexGPT API v1**, the possible values of the parameter are `assistant`, `user`, and `system`.||
+   * `text`: Text that defines the request context. ||
+   || partialResults | stream | It enables streaming of partially generated text. It may take either the `true` or `false` value.||
+   || generationOptions | completionOptions | It sets the request configuration parameters. ||
+   || maxTokens | maxTokens | The `maxTokens` parameter name has remained the same, but the value has changed. In **API v1alpha**, the `maxTokens` parameter was limiting the total number of tokens in both request and response. In **YandexGPT API v1**, `maxTokens` is the maximum number of tokens only in response. ||
+   || role | role | The name of the `role` parameter has remained the same, but the list of possible values has changed. In **API v1alpha**, the possible values of the parameter were `Assistant` and `User`. In **YandexGPT API v1**, the possible values of the parameter are `assistant`, `user`, and `system`. ||
    |#
 
 - Asynchronous mode
@@ -180,74 +188,76 @@ In YandexGPT API v1 and Embeddings API v1, specify the [model](../concepts/yande
 
    #|
    ||**API v1alpha**|**YandexGPT API v1**||
-   ||```json
+   ||
+   ```json
    {
-   "model": "string",
-   "generationOptions": {
-   "partialResults": true,
-   "temperature": "number",
-   "maxTokens": "integer"
-   },
+     "model": "string",
+     "generationOptions": {
+       "partialResults": true,
+       "temperature": "number",
+       "maxTokens": "integer"
+     },
 
-   /*
-   includes only one of the fields:
-   either `instructionText` or `instructionUri`
-   */
+     // only one of the fields: `instructionText` or `instructionUri`
+     "instructionText": "string",
+     "instructionUri": "string",
 
-   "instructionText": "string",
-   "instructionUri": "string",
-
-   /* end of the list of possible fields */
-
-   "requestText": "string"
+     "requestText": "string"
    }
-   ```|```json
+   ```
+   |
+   ```json
    {
-   "modelUri": "string",
-   "completionOptions": {
-   "stream": true,
-   "temperature": "number",
-   "maxTokens": "integer"
-   },
-   "messages": [
-   {
-   "role": "string",
-   "text": "string"
+     "modelUri": "string",
+     "completionOptions": {
+       "stream": true,
+       "temperature": "number",
+       "maxTokens": "integer"
+     },
+     "messages": [
+       {
+         "role": "string",
+         "text": "string"
+       }
+     ]
    }
-   ]
-   }
-   ```||
+   ```
+   ||
    |#
 
    Request body fields:
 
    #|
-   ||**API v1alpha**|**YandexGPT API v1**|**Description**||
-   ||model|modelUri|[ID of the model](../concepts/yandexgpt/models.md) to use for response generation. The parameter contains the {{ yandex-cloud }} [folder ID](../../resource-manager/operations/folder/get-id.md) or the ID of a model [fine-tuned](../tutorials/yagpt-tuning.md) in {{ ml-platform-name }}.||
-   ||instructionText|```json
+   || **API v1alpha** | **YandexGPT API v1** | **Description** ||
+   || model | modelUri | [ID of the model](../concepts/yandexgpt/models.md) to be used to generate the response. The parameter contains the [ID of a {{ yandex-cloud }} folder](../../resource-manager/operations/folder/get-id.md) or the ID of a model [fine-tuned](../tutorials/yagpt-tuning.md) in {{ ml-platform-name }}. ||
+   || instructionText |
+   ```json
    "messages": [
      {
        "role": "system",
        "text": "string"
      }
    ]
-   ```|In YandexGPT API v1, the `messages` section is a list of messages defining the request context for the model.
+   ```
+   | In YandexGPT API v1, the `messages` section is the list of messages setting the request context for the model.
    * `role`: When the value is `system`, it allows you to set the request context and define the model's behavior.
-   * `text`: Text that defines the request context.||
-   ||instructionUri|modelUri|In YandexGPT API v1, the `instructionUri` parameter is not used; instead, the `modelUri` parameter defines the URI.||
-   ||requestText|```json
+   * `text`: Text that defines the request context. ||
+   || instructionUri | modelUri | YandexGPT API v1 does not use the `instructionUri` parameter; to specify the URI, use `modelUri`. ||
+   || requestText |
+   ```json
    "messages": [
      {
        "role": "user",
        "text": "string"
      }
    ]
-   ```|In YandexGPT API v1, the `messages` section is a list of messages defining the request context for the model.
+   ```
+   | In YandexGPT API v1, the `messages` section is the list of messages setting the request context for the model.
    * `role`: When the value is `user`, it allows sending user messages to the model.
    * `text`: Text message of the request.||
-   ||partialResults|stream|It enables streaming of partially generated text. Possible values are `true` or `false`.||
-   ||generationOptions|completionOptions|It sets the request's configuration parameters.||
-   ||maxTokens|maxTokens|The name of the `maxTokens` parameter remains the same, but the value has changed. In **API v1alpha**, the `maxTokens` parameter defined the limit on the total number of tokens per request and response. In **YandexGPT API v1**, the value of `maxTokens` is the maximum number of tokens per response only.||
+   ||partialResults|stream|It enables streaming of partially generated text. It may take either the `true` or `false` value.||
+   ||generationOptions|completionOptions|It sets the request configuration parameters.||
+   ||maxTokens|maxTokens|The `maxTokens` parameter name has remained the same, but the value has changed. In **API v1alpha**, the `maxTokens` parameter was limiting the total number of tokens in both request and response. In **YandexGPT API v1**, `maxTokens` is the maximum number of tokens only in response.||
    |#
 
 {% endlist %}
@@ -269,35 +279,39 @@ In YandexGPT API v1 and Embeddings API v1, specify the [model](../concepts/yande
    General request structure:
 
    #|
-   ||**API v1alpha**|**YandexGPT API v1**||
-   ||```json
+   || **API v1alpha** | **YandexGPT API v1** ||
+   ||
+   ```json
    {
      "model": "string",
      "text": "string"
    }
-   ```|```json
+   ```
+   |
+   ```json
    {
-   "modelUri": "string",
-   "completionOptions": {
-   "stream": true,
-   "temperature": "number",
-   "maxTokens": "integer"
-   },
-   "messages": [
-   {
-   "role": "string",
-   "text": "string"
+     "modelUri": "string",
+     "completionOptions": {
+       "stream": true,
+       "temperature": "number",
+       "maxTokens": "integer"
+     },
+     "messages": [
+       {
+         "role": "string",
+         "text": "string"
+       }
+     ]
    }
-   ]
-   }
-   ```||
+   ```
+   ||
    |#
 
    Request body fields:
 
    #|
-   ||**API v1alpha**|**YandexGPT API v1**|**Description**||
-   ||model|modelUri|[ID of the model](../concepts/yandexgpt/models.md) to use for response generation. The parameter contains the {{ yandex-cloud }} [folder ID](../../resource-manager/operations/folder/get-id.md) or the ID of a model [fine-tuned](../tutorials/yagpt-tuning.md) in {{ ml-platform-name }}.||
+   || **API v1alpha** | **YandexGPT API v1** | **Description** ||
+   || model | modelUri | [ID of the model](../concepts/yandexgpt/models.md) to be used to generate the response. The parameter contains the [ID of a {{ yandex-cloud }} folder](../../resource-manager/operations/folder/get-id.md) or the ID of a model [fine-tuned](../tutorials/yagpt-tuning.md) in {{ ml-platform-name }}. ||
    |#
 
 - Tokenizer.tokenize
@@ -313,25 +327,29 @@ In YandexGPT API v1 and Embeddings API v1, specify the [model](../concepts/yande
    General request structure remains the same:
 
    #|
-   ||**API v1alpha**|**YandexGPT API v1**||
-   ||```json
+   || **API v1alpha** | **YandexGPT API v1** ||
+   ||
+   ```json
    {
      "model": "string",
      "text": "string"
    }
-   ```|```json
+   ```
+   |
+   ```json
    {
-   "modelUri": "string",
-   "text": "string"
+     "modelUri": "string",
+     "text": "string"
    }
-   ```||
+   ```
+   ||
    |#
 
    Request body fields:
 
    #|
-   ||**API v1alpha**|**YandexGPT API v1**|**Description**||
-   ||model|modelUri|[ID of the model](../concepts/yandexgpt/models.md) to use for response generation. The parameter contains the {{ yandex-cloud }} [folder ID](../../resource-manager/operations/folder/get-id.md) or the ID of a model [fine-tuned](../tutorials/yagpt-tuning.md) in {{ ml-platform-name }}.||
+   || **API v1alpha** | **YandexGPT API v1** | **Description** ||
+   || model | modelUri | [ID of the model](../concepts/yandexgpt/models.md) to be used to generate the response. The parameter contains the [ID of a {{ yandex-cloud }} folder](../../resource-manager/operations/folder/get-id.md) or the ID of a model [fine-tuned](../tutorials/yagpt-tuning.md) in {{ ml-platform-name }}. ||
    |#
 
 {% endlist %}
@@ -347,26 +365,30 @@ API endpoint:
 General request structure:
 
 #|
-||**API v1alpha**|**Embeddings API v1**||
-||```json
+|| **API v1alpha** | **Embeddings API v1** ||
+||
+```json
 {
   "embeddingType": "string",
   "model": "string",
   "text": "string"
 }
-```|```json
+```
+|
+```json
 {
-"modelUri": "string",
-"text": "string"
+  "modelUri": "string",
+  "text": "string"
 }
-```||
+```
+||
 |#
 
 Request body fields:
 
 #|
-||**API v1alpha**|**Embeddings API v1**|**Description**||
-||model|—|In Embeddings API v1, the `modelUri` parameter defines the model for text vectorization.||
-||`"embeddingType" = "EMBEDDING_TYPE_QUERY"`|`"modelUri" = "emb://<folder_ID>/text-search-query/latest"`|Vectorization of short texts, such as search requests, queries, etc.||
-||`"embeddingType" = "EMBEDDING_TYPE_DOCUMENT"`|`"modelUri" = "emb://<folder_ID>/text-search-doc/latest"`|Vectorization of large source texts, e.g., documentation articles.||
+|| **API v1alpha** | **Embeddings API v1** | **Description** ||
+|| model | — | In Embeddings API v1, the `modelUri` parameter defines the model for text vectorization. ||
+|| `"embeddingType" = "EMBEDDING_TYPE_QUERY"` | `"modelUri" = "emb://<folder_ID>/text-search-query/latest"` | Vectorization of short texts, such as search requests, queries, etc. ||
+|| `"embeddingType" = "EMBEDDING_TYPE_DOCUMENT"` | `"modelUri" = "emb://<folder_ID>/text-search-doc/latest"` | Vectorization of large source texts, e.g., documentation articles. ||
 |#

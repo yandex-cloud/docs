@@ -16,7 +16,12 @@ When testing is complete, [delete the created resources](#clear-out) if you no l
 ## Prepare your cloud {#prepare-cloud}
 
 1. Register a [domain name](../../dns/concepts/resource-record.md) for your website.
-1. [Create a security group](../../vpc/operations/security-group-create.md) with the rules described in [{#T}](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+   {% include [configure-sg-alb-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-manual.md) %}
+
+   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. [Set up the {{ managed-k8s-name }} cluster](../../managed-kubernetes/quickstart.md).
 1. [Install Metrics Provider](../../managed-kubernetes/operations/applications/metrics-provider.md).
 1. Install the Ingress controller:
