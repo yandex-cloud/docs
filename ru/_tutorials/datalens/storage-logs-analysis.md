@@ -61,7 +61,9 @@
      ```
 
 - {{ TF }} {#tf}
-
+  
+  {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
+  
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Добавьте в конфигурационный файл параметры бакета:
@@ -92,6 +94,15 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите бакет, логи которого хотите записывать.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.  
+  1. Включите опцию **{{ ui-key.yacloud.storage.server-logs.label_server-logs }}**.
+  1. Выберите **{{ ui-key.yacloud.storage.server-logs.label_target-bucket }}**.
+  1. В поле **{{ ui-key.yacloud.storage.server-logs.label_prefix }}** укажите префикс `s3-logs/`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
 - AWS CLI {#cli}
 
   1. Создайте файл `log-config.json` со следующим содержимым:
@@ -115,6 +126,45 @@
      ```
 
      Где `--bucket` — имя бакета, для которого надо включить логирование действий.
+
+- {{ TF }} {#tf}
+  
+
+  Чтобы включить механизм логирования в бакете, который вы хотите отслеживать:
+
+     1. Откройте файл конфигурации {{ TF }} и добавьте блок `logging` во фрагмент с описанием бакета.
+
+        ```hcl
+        resource "yandex_storage_bucket" "bucket-logs" {
+          access_key = "<идентификатор_статического_ключа>"
+          secret_key = "<секретный_ключ>"
+          bucket     = "<имя_бакета_для_хранения_логов>"
+        }
+
+        resource "yandex_storage_bucket" "bucket" {
+          access_key = "<идентификатор_статического_ключа>"
+          secret_key = "<секретный_ключ>"
+          bucket     = "<имя_исходного_бакета>"
+          acl        = "private"
+
+          logging {
+            target_bucket = yandex_storage_bucket.bucket-logs.id
+            target_prefix = "s3-logs/"
+          }
+        }
+        ```
+
+        Где:
+        * `access_key` — идентификатор статического ключа доступа.
+        * `secret_key` — значение секретного ключа доступа.
+        * `target_bucket` — указание на бакет для хранения логов.
+        * `target_prefix` — [префикс ключа](../../storage/concepts/server-logs.md#key-prefix) для объектов с логами.
+
+        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+
+        {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 

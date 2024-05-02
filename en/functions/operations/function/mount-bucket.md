@@ -5,8 +5,6 @@ description: "Follow this guide to mount a bucket to a function."
 
 # Mounting a bucket to a function
 
-{% include [read-note](../../../_includes/functions/read-note.md) %}
-
 {% list tabs group=instructions %}
 
 - Management console {#console}

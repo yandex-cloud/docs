@@ -9,6 +9,14 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 {% endnote %}
 
+## Release on 03/04/2024 {#030424}
+
+1. Updated [configurations](concepts/data-proc-template.md#configurations) of {{ dataproc-name }} temporary clusters.
+1. Now you can use XGBoost and LightGBM models to deploy [nodes from models](concepts/deploy/index.md#models-node).
+1. Added delivering input variables in [fulfillment APIs](api-ref/overview.md#notebook).
+1. Improved [creating nodes](operations/deploy/node-create.md#from-docker) from Docker images.
+1. Fixed bugs and added minor improvements in service performance.
+
 ## Release on 27/03/2024 {#270324}
 
 Model tuning in {{ ml-platform-name }} now works based on the new {{ gpt-pro }} model.

@@ -15,15 +15,11 @@ To set the time interval more precisely, you can use the timeline located above 
 
 ## Dashboard parameters {#parameterization}
 
-Parameters let you create interactive dashboards whose content changes depending on the user's choice. For example, a dashboard that shows aggregated information about the status of a VM can be parameterized using the VM ID.
+Parameters allow you to create dashboards with customizable interactive content. For example, a dashboard presenting aggregated VM status information can be parameterized using the VM ID.
 
-Parameters are displayed as drop-down menus above dashboard widgets. When you select a parameter value, the dashboard is updated and the selected value is substituted in data queries.
+Parameters are displayed as drop-down menus above dashboard widgets. When you select a parameter value, the dashboard is updated and the selected value is substituted in data queries. [How to add a dashboard parameter](../../operations/dashboard/add-parameters.md).
 
-The following types of dashboards are available:
-
-* *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}*: Parameter takes a set of values of the specified label.
-* *{{ ui-key.yacloud_monitoring.component.parametrizer.type.custom }}*: Parameter takes a set of fixed comma-separated values.
-* *{{ ui-key.yacloud_monitoring.component.parametrizer.type.text-field }}*: Parameter takes the only value specified in the text field.
+{% include [dash-parameters](../../../_includes/monitoring/dash-parameters.md) %}
 
 For parameters of the *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* and *{{ ui-key.yacloud_monitoring.component.parametrizer.type.custom }}* type, the *{{ ui-key.yacloud_monitoring.component.parametrizer.dashboard.multivalue-key-value }}* setting is available to select multiple parameter values at the same time.
 
@@ -46,7 +42,7 @@ You can only use parameter value substitution in label values when making querie
 * Substituting label values in queries.
    > In the `"cpu.iowait"{folderId="aoe6mk1r3b47********", service="not_var{{myparm}}", host="*"}` query, the `service` label value is substituted with the `myparm` parameter value.
 
-Substituting parameter values in query strings looks like this:
+Substituting parameter values in query strings when [adding a widget to the dashboard](../../operations/dashboard/add-widget.md) looks like this:
 
 ![Substituting parameter values in query strings](../../../_assets/monitoring/query_string_templating_2023.png "Substituting parameter values in query strings")
 

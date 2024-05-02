@@ -33,6 +33,10 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 * [{{ managed-k8s-full-name }}](../managed-kubernetes/release-notes.md)
 * [{{ serverless-containers-full-name }}](../serverless-containers/release-notes.md)
 
+## Developer tools {#dev-tools}
+
+* [{{ mgl-full-name }}](../managed-gitlab/release-notes.md)
+
 ## Serverless computing {#serverless}
 
 * [{{ api-gw-full-name }}](../api-gateway/release-notes.md)

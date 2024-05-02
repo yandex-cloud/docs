@@ -19,7 +19,7 @@ Do not manually update {{ alb-name }} resources created by the controller's prim
 
 The primary pod manages the {{ alb-name }} resource architecture using the following principles:
 
-* Load balancers and HTTP routers to accept and distribute traffic to backend groups are created based on `Ingress` resources. All the `Ingress` fields utilized by the controller are described in the [reference](../../k8s-ref/ingress.md).
+* Load balancers and HTTP routers to accept and distribute traffic to backend groups are created based on [Ingress](../../k8s-ref/ingress.md) resources.
 
    If several `Ingress` resources have the same `ingress.alb.yc.io/group-name` annotation values, they are combined in a single load balancer.
 
@@ -33,7 +33,7 @@ The primary pod manages the {{ alb-name }} resource architecture using the follo
             secretName: yc-certmgr-cert-id-<certificate_ID>
       ```
 
-      Where `secretName` is the ID of the certificate from {{ certificate-manager-full-name }}.
+      Where `secretName` is the reference to the certificate from {{ certificate-manager-full-name }}.
 
       This will create two types of listeners for the load balancer: one will accept HTTPS traffic on port 443 while the other will redirect HTTP requests (port 80) to HTTPS with the `301 Moved Permanently` status code. The traffic distribution rules for the same domain names that are explicitly specified in other `Ingress` resources lacking the `spec.tls` field, will be given priority with respect to HTTP-to-HTTPS redirects.
 
@@ -47,13 +47,13 @@ The primary pod manages the {{ alb-name }} resource architecture using the follo
 
       In [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) versions prior to 0.2.0, each backend group corresponds to a bundle of `host`, `http.paths.path`, and `http.paths.pathType` parameters in the `Ingress` rules. In versions 0.2.0 and later, the backend group corresponds to the `backend.service` parameter. This may cause collisions when updating the ALB Ingress Controller. To avoid them, [find out whether upgrade restrictions apply](../../operations/k8s-ingress-controller-upgrade.md) to your infrastructure.
 
-   * Based on `HttpBackendGroup` resources that support explicit backend group descriptions. These are [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) from the API `alb.yc.io` group exposed by an Ingress controller. All the `HttpBackendGroup` fields are described in the [reference](../../k8s-ref/http-backend-group.md).
+   * Based on [HttpBackendGroup](../../k8s-ref/http-backend-group.md) resources that support explicit backend group descriptions. These are [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) from the API `alb.yc.io` group exposed by an Ingress controller.
 
       You need to refer to `HttpBackendGroup` in the `Ingress` rules same as to services (`spec.rules[*].http.paths[*].backend.resource`).
 
       {% include [k8s-ingress-controller-backend-group-features](../../../_includes/application-load-balancer/k8s-ingress-controller-backend-group-features.md) %}
 
-* Services referenced in `Ingress` or in `HttpBackendGroup` are deployed to backends. These can be configured using `Service` resources. All the `Service` fields utilized by the controller are described in the [reference](../../k8s-ref/service.md).
+* Services referenced in `Ingress` or in `HttpBackendGroup` are deployed to backends. These can be configured using [Service](../../k8s-ref/service-for-ingress.md) resources.
 
    {% include [k8s-ingress-controller-nodeport-note](../../../_includes/application-load-balancer/k8s-ingress-controller-nodeport-note.md) %}
 
@@ -61,10 +61,10 @@ The primary pod manages the {{ alb-name }} resource architecture using the follo
 
 | {{ alb-name }} | {{ k8s }} |
 | ----- | ----- |
-| [Load balancer](../../concepts/application-load-balancer.md) | `Ingress` resource collection ([reference](../../k8s-ref/ingress.md)) with identical `ingress.alb.yc.io/group-name` annotation values |
+| [Load balancer](../../concepts/application-load-balancer.md) | [Ingress](../../k8s-ref/ingress.md) resources with identical `ingress.alb.yc.io/group-name` annotation values |
 | HTTP router [virtual hosts](../../concepts/http-router.md#virtual-host) | `Ingress.spec.rules` |
 | Virtual host [routes](../../concepts/http-router.md#routes) | `Ingress.spec.rules[*].http.paths` |
-| [Backend group](../../concepts/backend-group.md) | `HttpBackendGroup` ([reference](../../k8s-ref/http-backend-group.md)) or [service](../../../managed-kubernetes/concepts/index.md#service) collection ([reference](../../k8s-ref/service.md)) |
+| [Backend group](../../concepts/backend-group.md) | [HttpBackendGroup](../../k8s-ref/http-backend-group.md) or [services](../../k8s-ref/service-for-ingress.md) |
 | [Target group](../../concepts/target-group.md) | Cluster [node group](../../../managed-kubernetes/concepts/index.md#node-group) |
 
 ## IDs of load balancer resources in a {{ k8s }} cluster {#alb-ids}

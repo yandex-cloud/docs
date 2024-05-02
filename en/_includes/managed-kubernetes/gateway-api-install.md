@@ -11,18 +11,22 @@ In {{ managed-k8s-name }}, the Gateway API launches [{{ alb-full-name }}](../../
    {% include [default-catalogue](../default-catalogue.md) %}
 
 1. [Create a service account](../../iam/operations/sa/create.md) required for the Gateway API.
-1. [Assign it the roles](../../iam/operations/sa/assign-role-for-sa.md):
+1. [Assign the following roles to the service account](../../iam/operations/sa/assign-role-for-sa.md):
    * `alb.editor`: To create the required resources.
    * `vpc.publicAdmin`: To manage [external connectivity](../../vpc/security/index.md#roles-list).
    * `certificate-manager.admin`: To use [certificates](../../certificate-manager/concepts/index.md#types) registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
    * `compute.viewer`: To use {{ managed-k8s-name }} cluster [nodes](../../managed-kubernetes/concepts/index.md#node-group) in balancer [target groups](../../application-load-balancer/concepts/target-group.md).
-1. Create an [authorized key](../../iam/operations/authorized-key/create.md) and save it to a file named `key.json`:
+1. Create an [authorized key](../../iam/operations/authorized-key/create.md) for the service account and save it to the `sa-key.json` file:
 
    ```bash
    yc iam key create \
      --service-account-name <name_of_service_account_for_Gateway_API> \
      --output sa-key.json
    ```
+
+1. {% include [check-sg-prerequsites](./security-groups/check-sg-prerequsites-lvl3.md) %}
+
+   {% include [sg-common-warning](./security-groups/sg-common-warning.md) %}
 
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
@@ -65,5 +69,4 @@ In {{ managed-k8s-name }}, the Gateway API launches [{{ alb-full-name }}](../../
 ## See also {#see-also}
 
 * [Gateway API project description](https://gateway-api.sigs.k8s.io/).
-* [{{ alb-name }} documentation](../../application-load-balancer/).
-* [Reference of {{ alb-name }} tools for {{ managed-k8s-name }}](../../application-load-balancer/k8s-ref/index.md).
+* [Gateway API description and configuration](../../application-load-balancer/tools/k8s-gateway-api/index.md) in the {{ alb-name }} documentation.

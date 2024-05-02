@@ -2,6 +2,10 @@ Prometheus Operator with {{ monitoring-full-name }} support makes it easy to ins
 
 ## Getting started {#before-you-begin}
 
+1. {% include [check-sg-prerequsites](./security-groups/check-sg-prerequsites-lvl3.md) %}
+
+   {% include [sg-common-warning](./security-groups/sg-common-warning.md) %}
+
 1. On the {{ monitoring-full-name }} [home page]({{ link-monitoring }}), select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** in the left-hand panel.
 1. In the **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.write }}** tab, find the URL of the endpoint to write metrics to:
 

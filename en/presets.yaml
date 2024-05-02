@@ -225,6 +225,8 @@ default:
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
   KF: Apache Kafka®
+  kf:
+    docs: https://kafka.apache.org/documentation/
   KFC: Kafka Connect
   kms-full-name: Yandex Key Management Service
   kms-name: Key Management Service
@@ -4218,33 +4220,10 @@ default:
         value_retention-save-last-f: Only the last
       billing:
         account:
-          budgets:
-            button_create: Create budget
-            label_budgets: Budgets
-            label_type: Budget type
-            label_type-balance: Balance
-            label_type-cost: Cost
-            label_type-expense: Due and payable
-            reset-period_value_custom: Custom
-          button_billing-payment-action: Switch to the paid version
-          create-new:
-            payment-type_label_invoice: Bank transfer
-          dashboard-overview:
-            button_refill: Top up account
-            popup-refill_button_company-action: Issue receipt
-            popup-refill_button_individual-action: Top up account
           dashboard-resources:
             section_resources: Clouds
           detail:
             tab_product: By product
-          history:
-            column_date: Payment date
-            column_description: Description
-            column_money: Payment amount
-            column_status: Status
-          overview:
-            payment-type_label_card: Bank card
-            payment-type_label_invoice: Wire transfer
           reconciliation-reports:
             action_download-with-facsimile: Download signed report
             action_download-without-facsimile: Download unsigned report
@@ -4253,12 +4232,8 @@ default:
             field_actions: Actions
             value_completed: Done
           switch_acts: Reporting documents
-          switch_history: Payment history
           switch_offers: Committed volume of services
-          switch_overview: Account info
           tab_reconciliation-reports-title: Reconciliation reports
-        accounts:
-          button_empty-billing-create: Create
         label_accounts: Accounts
         label_service: Billing
       cdn:
@@ -6356,6 +6331,7 @@ default:
           switch_https: HTTPS
           switch_lifecycle: Lifecycle
           switch_policy: Access policy
+          switch_server-logs: Logging
           switch_settings: Settings
           switch_website: Website
           website:
@@ -6398,6 +6374,10 @@ default:
           button_add: Add
           button_save: Save
           label_title: ACL editing
+        server-logs:
+          label_prefix: Prefix
+          label_server-logs: Write logs
+          label_target-bucket: Bucket for log storage
         switch_buckets: Buckets
       support:
         ticket:
@@ -7628,7 +7608,6 @@ default:
         billing: Billing
         bucket: Bucket
         build: Build
-        cell: Cell
         clone: Clone
         communication: Communications
         copy-link: Copy link

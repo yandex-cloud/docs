@@ -17,19 +17,17 @@ Metrics are described in the documentation for services, such as:
 * [{{ mmy-full-name }}](../../managed-mysql/operations/monitoring.md).
 * [{{ mrd-full-name }}](../../managed-redis/operations/monitoring.md).
 
-Important metrics are displayed on each service's dashboard. For a full list of metrics for each service, see **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**. To export a full list of metrics, follow the [instructions](../../monitoring/operations/metric/list.md).
+Important metrics are displayed on each service's dashboard. For a full list of metrics for each service, see **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**. To export a full list of metrics, follow this [guide](../../monitoring/operations/metric/list.md).
 
 #### How do I set up units on a chart? {#graph-units}
 
 Units are set up in the **{{ ui-key.yacloud_monitoring.wizard.tab.axes }}** tab when editing a chart. You can select the unit type, set the number format, scale (linear or logarithmic), and the maximum and minimum values.
-
 
 #### How are maximum/peak values displayed on a chart? {#graph-peaks}
 
 {{ monitoring-name }} receives metrics for a certain period of time in groups and averages the values when creating a point. When choosing a shorter time interval, the number of values in the sample increases and the peak values on the chart may grow.
 
 This also works in the opposite direction: when choosing a larger time interval, the point peak values are smoothed out and may not be visible on the chart.
-
 
 #### The chart is missing or looks cropped. Why? {#graph-lost}
 

@@ -63,10 +63,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * Specify the previously created service account for nodes.
       * Allocate it a public IP address to grant internet access to the node group and allow pulling Docker images and components.
 
-   1. Configure security groups:
+   1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-      * [For the {{ managed-k8s-name }} cluster and node group](../operations/connect/security-groups.md).
-      * [For the {{ alb-name }} load balancers](../../application-load-balancer/concepts/application-load-balancer.md#security-groups).
+      {% include [configure-sg-alb-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-manual.md) %}
+
+      {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
    1. [Create a custom {{ cloud-logging-name }} log group](../../logging/operations/create-group.md).
 
@@ -83,8 +84,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security groups](../../vpc/concepts/security-groups.md) and rules required for the operation of the [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) and [{{ alb-name }} load balancers](../../application-load-balancer/concepts/application-load-balancer.md).
       * {{ managed-k8s-name }} cluster.
+      * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+
+         {% include [configure-sg-alb-tf](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-tf.md) %}
+
+         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
       * [Service account](../../iam/concepts/users/service-accounts.md) for {{ managed-k8s-name }} resources and nodes.
       * Service account for the operation of the {{ alb-name }} Ingress controller.
       * [Custom {{ cloud-logging-name }} log group](../../logging/concepts/log-group.md).
@@ -357,7 +363,7 @@ Create three [Ingress](https://kubernetes.io/docs/concepts/services-networking/i
 
       {% note warning %}
 
-      In [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) version 0.2.0 and later, you can only use an annotation in the [Service](../../application-load-balancer/k8s-ref/service.md#metadata) object.
+      In [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) version 0.2.0 and later, you can only use an annotation in the [Service](../../application-load-balancer/k8s-ref/service-for-ingress.md#metadata) object.
 
       If you annotate `Ingress` resources that use a single service with the same settings for backend groups, such annotation will apply correctly. However, this mechanism is obsolete and will not be supported going forward.
 

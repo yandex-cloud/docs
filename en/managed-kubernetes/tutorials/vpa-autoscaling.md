@@ -15,10 +15,9 @@ description: "Follow this guide to configure the automatic management of pod res
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. [Create security groups](../operations/connect/security-groups.md):
-   * `sg-k8s`: For [master and node group](../operations/connect/security-groups.md#rules-internal).
-   * `k8s-public-services`: For [public access to services from the internet](../operations/connect/security-groups.md#rules-nodes).
-   * `k8s-master-whitelist`: For [accessing the {{ k8s }} API](../operations/connect/security-groups.md#rules-master).
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create). Use these settings:
 
@@ -226,6 +225,8 @@ To test {{ k8s-vpa }}, `nginx` application workload will be simulated.
    To increase load and accelerate the execution of the scenario, run several processes in separate windows.
 
    {% endnote %}
+
+   {% include [Configuring security groups if resource is unavailable](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
 1. After several minutes, review the recommendation provided by {{ k8s-vpa }} after the workload is created:
 

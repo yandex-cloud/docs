@@ -72,7 +72,13 @@ items:
       - name: Dialog tags
         href: concepts/tags.md
       - name: Reports
-        href: concepts/reports.md
+        items:
+          - name: Overview
+            href: concepts/reports/index.md
+          - name: Evaluation form
+            href: concepts/reports/evaluation-form.md
+          - name: Usage details
+            href: concepts/reports/details.md
       - name: Supported audio formats
         href: concepts/formats.md
   - name: API reference
@@ -85,6 +91,8 @@ items:
             href: api-ref/grpc/index.md
           - name: TalkService
             href: api-ref/grpc/talk_service.md
+  - name: '{{ at-name }} events'
+    href: at-ref.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

@@ -13,12 +13,11 @@ noIndex: true
 
 * [Ingress](ingress.md): Backend traffic distribution rules.
 * [HttpBackendGroup](http-backend-group.md): Combining backends into groups.
+* [IngressClass](ingress-class.md): Managing multiple Ingress controllers in a {{ k8s }} cluster.
+* [Service](service-for-ingress.md): Description of [{{ k8s }} services](../concepts/index.md#service) used as backends. It is different from the `Service` resource for Gateway API: the Ingress controller services support annotations.
 
 ## Gateway API resources {#gateway-api}
 
 * [Gateway](gateway.md): Rules for receiving incoming traffic and selecting routes (`HTTPRoute`) for the traffic.
 * [HTTPRoute](http-route.md): Rules for routing traffic across backends or redirecting it.
-
-## Common resources {#common}
-
-* [Service](service.md): Description of [{{ k8s }} services](../concepts/index.md#service) used as backends.
+* [Service](service-for-gateway.md): Description of {{ k8s }} services used as backends.

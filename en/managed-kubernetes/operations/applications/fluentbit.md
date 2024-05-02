@@ -5,15 +5,19 @@
 
 [The plugin for {{ cloud-logging-name }}](/marketplace/products/yc/fluent-bit) enables you to export logs generated in a {{ managed-k8s-name }} cluster, including at the [pod](../../concepts/index.md#pod) level, to [{{ cloud-logging-full-name }}](../../../logging/).
 
-## Creating a service account {#create-sa-key}
+## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
 1. [Create a service account](../../../iam/operations/sa/create.md), which is required for Fluent Bit.
-1. [Assign it the](../../../iam/operations/sa/assign-role-for-sa.md) `logging.writer` and `monitoring.editor` roles.
-1. Create an [authorized key](../../../iam/operations/sa/create-access-key.md) and save it to a file named `sa-key.json`:
+1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the `logging.writer` and `monitoring.editor` roles to the service account.
+1. [Create an authorized key](../../../iam/operations/sa/create-access-key.md) for the service account and save it to the `key.json` file.
+
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 

@@ -40,20 +40,17 @@ You can send requests to fine-tuned models in {{ yagpt-name }}. Requests to the 
 1. To send the request to the model, run this command:
 
    ```bash
-   export FOLDER_ID=<folder_ID>
-   export IAM_TOKEN=<IAM_token>
    curl --request POST \
      -H "Content-Type: application/json" \
-     -H "Authorization: Bearer ${IAM_TOKEN}" \
-     -H "x-folder-id: ${FOLDER_ID}" \
+     -H "Authorization: Bearer <IAM_token>" \
      -d "@<path_to_json_file>" \
      "https://llm.{{ api-host }}/foundationModels/v1/completion"
    ```
 
    Where:
 
-   * `FOLDER_ID`: ID of the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
-   * `IAM_TOKEN`: IAM token received [before starting](#before-begin).
+   * `<path_to_json_file>`: Relative or absolute path to the file containing the body of request to the model.
+   * `<IAM_token>`: Value of the IAM token you get [before you start](#before-begin).
 
    Here is an example result for the SSH protocol article:
 
@@ -70,7 +67,7 @@ You can send requests to fine-tuned models in {{ yagpt-name }}. Requests to the 
              - SSH support is built into Unix and Linux operating systems, as well as in Windows with free SSH clients.\n
              - SSH operation involves an SSH server and an SSH client, which establish a secure connection for transmitting encrypted data.\n
              - The reliability of SSH is ensured by user authentication and processing of transmitted data.\n
-             - The SSH server supports three methods of authentication: by IP address, by login/password, and by key.\n
+             - The SSH server supports three authentication methods: by IP address, by login/password, and by key.\n
              - SSH keys provide a high degree of protection and convenience for use in scripts to automate routine operations."
            },
            "status": "ALTERNATIVE_STATUS_FINAL"

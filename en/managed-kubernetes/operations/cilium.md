@@ -17,6 +17,10 @@ To use the Cilium network policy controller in a cluster:
 
 1. [Create a node group](node-group/node-group-create.md) of any suitable configuration.
 
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Install and configure Hubble {#install-hubble}

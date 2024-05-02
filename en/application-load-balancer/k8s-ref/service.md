@@ -1,1 +1,0 @@
-{% include [service](../../_includes/managed-kubernetes/alb-ref/service.md) %}

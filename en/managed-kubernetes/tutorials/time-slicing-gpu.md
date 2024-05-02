@@ -19,6 +19,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create a {{ managed-k8s-name }} node group](../operations/node-group/node-group-create.md) with the [NVIDIA® Tesla® T4 GPU](../../compute/concepts/gpus.md#tesla-t4).
 
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Настройка kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Configure Time-Slicing GPUs {#configure-time-slicing}

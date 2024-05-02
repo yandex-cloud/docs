@@ -99,20 +99,21 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
       ```
 
       Where:
-      * `name`: VM name.
+
+      * `--name`: VM name.
 
          {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-      * `zone`: [Availability zone](../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
+      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
       * `subnet-name`: Name of the selected [subnet](../../vpc/concepts/network.md#subnet).
       * `security-group-ids`: ID of the [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
       * `image-id`: OS [image](../../compute/concepts/image.md) ID.
       * `size`: Boot disk size.
-      * `cores`: [Number of vCPUs](../../compute/concepts/vm.md) in your VM.
-      * `core-fraction`: Guaranteed vCPU performance in %.
-      * `memory`: [Amount of RAM](../../compute/concepts/vm.md) in your VM.
-      * `service-account-name`: Name of the [service account](../../iam/concepts/users/service-accounts.md) with the `backup.editor` role.
-      * `user-data`: Path to the previously created file with a script for installing the {{ backup-name }} agent on your VM.
+      * `--cores`: [Number of vCPUs](../../compute/concepts/vm.md) in the VM.
+      * `--core-fraction`: Guaranteed vCPU share in %.
+      * `--memory`: VM [RAM size](../../compute/concepts/vm.md).
+      * `--service-account-name`: Name of the [service account](../../iam/concepts/users/service-accounts.md) with the `backup.editor` role.
+      * `--user-data`: Path to the previously created file with a script for installing the {{ backup-name }} agent on your VM.
 
       In this example, a VM running on Windows Server 2022 is created:
 

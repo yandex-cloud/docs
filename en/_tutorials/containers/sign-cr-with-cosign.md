@@ -23,6 +23,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       You can use the same service account for both operations.
    1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating the cluster, specify the previously created service accounts for the resources and nodes.
+
+   1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+      {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
    1. [Create a registry in {{ container-registry-name }}](../../container-registry/operations/registry/registry-create.md).
 
 - {{ TF }} {#tf}
@@ -36,12 +41,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
       This file describes:
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security group](../../managed-kubernetes/operations/connect/security-groups.md) and rules required for the {{ managed-k8s-name }} cluster to operate:
-         * Rules for service traffic.
-         * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
+      * {{ container-registry-name }} registry.
       * {{ managed-k8s-name }} cluster.
       * Service account required for the {{ managed-k8s-name }} cluster and node group to operate.
-      * {{ container-registry-name }} registry.
+      * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+
+         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
    1. In the `k8s-validate-cr-image.tf` file, specify:
       * [Folder ID](../../resource-manager/operations/folder/get-id.md).
       * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.

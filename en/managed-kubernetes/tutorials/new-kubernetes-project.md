@@ -293,8 +293,13 @@ To create a service account that lets nodes download the necessary Docker images
 
 ## Connect to the {{ managed-k8s-name }} cluster {#cluster-connect}
 
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+   {% include [configure-sg-alb-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-manual.md) %}
+
+   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. [Configure {{ managed-k8s-name }} cluster security groups and node groups](../operations/connect/security-groups.md). A security group for a group of nodes must allow incoming TCP traffic from the load balancer subnets on ports 10501 and 10502 or from the load balancer security group (you will need to specify the subnets and the group to create a load balancer later).
 
 ## Create resources {{ container-registry-name }} {#create-cr-res}
 
@@ -493,6 +498,8 @@ To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [f
 
       Based on the load balancer configuration, an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) will be automatically deployed.
 1. Follow the `https://<domain_name>` link and make sure that your application is published.
+
+   {% include [Configuring security groups if resource is unavailable](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
 ## Delete the resources you created {#clear-out}
 

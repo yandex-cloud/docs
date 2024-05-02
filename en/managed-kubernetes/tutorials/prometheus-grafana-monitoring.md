@@ -5,14 +5,18 @@
 In this article, you will learn how to set up the [{{ prometheus-name }}](https://prometheus.io/) metrics collection system and the [{{ grafana-name }}](https://grafana.com/) visualization system in a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster). The [Trickster caching proxy](https://github.com/trickstercache/trickster) will be installed to speed up the transfer of metrics.
 
 To set up the {{ managed-k8s-name }} cluster monitoring system:
-* [{#T}](#install-prometheus)
-* [{#T}](#install-trickster)
-* [{#T}](#install-grafana)
-* [{#T}](#configure-grafana)
+* [{#T}](#install-prometheus).
+* [{#T}](#install-trickster).
+* [{#T}](#install-grafana).
+* [{#T}](#configure-grafana).
 
 ## Getting started {#before-you-begin}
 
 1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration with internet access.
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. {% include [Install Helm](../../_includes/managed-kubernetes/helm-install.md) %}
 
@@ -261,6 +265,8 @@ To install {{ grafana-name }}:
    export GRAFANA_PORT=$(kubectl get service/grafana -o jsonpath='{.spec.ports[0].port}') && \
    echo http://$GRAFANA_IP:$GRAFANA_PORT
    ```
+
+   {% include [Configuring security groups if resource is unavailable](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
 1. In the browser window that opens, enter your `admin/admin` username and password and then set a new password for the `admin` user.
 1. [Add a data source](https://grafana.com/docs/grafana/latest/datasources/add-a-data-source/) with the `{{ prometheus-name }}` type and the following settings:

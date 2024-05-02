@@ -31,6 +31,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * In the management console, select **{{ ui-key.yacloud.k8s.clusters.create.field_network-policy }}**.
          * Using the CLI, set the `--enable-network-policy` flag.
          * Using the [create](../api-ref/Cluster/create.md) method for the [Cluster](../api-ref/Cluster) resource.
+      1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
    - {{ TF }} {#tf}
 
@@ -42,11 +45,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. Download the [k8s-calico.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-calico.tf) configuration file of the [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) to the same working directory. The file describes:
          * [Network](../../vpc/operations/network-create.md).
          * Subnet.
-         * [Security group](connect/security-groups.md) and rules needed to run the {{ managed-k8s-name }} cluster:
-            * Rules for service traffic.
-            * Rules for accessing the {{ k8s }} API and managing the {{ managed-k8s-name }} cluster with `kubectl` through ports 443 and 6443.
          * {{ managed-k8s-name }} cluster.
          * [Service account](../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and [node group](../concepts/index.md#node-group).
+         * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+
+            {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
       1. Specify the following in the configuration file:
          * [Folder ID](../../resource-manager/operations/folder/get-id.md).
          * [{{ k8s }} version](../concepts/release-channels-and-updates.md) for a {{ managed-k8s-name }} cluster and node groups.

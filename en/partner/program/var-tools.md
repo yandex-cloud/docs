@@ -20,7 +20,7 @@ Order registration is a partner protection tool to reward a partner for bringing
 
 Order registration conditions:
 
-* Order target consumption starts from 30,000 rubles per month.
+* Target consumption for an order starts from 30,000 rubles per month.
 * You are registering an order with a new {{ yandex-cloud }} customer.
 
    {% note info %}
@@ -57,7 +57,7 @@ To register an order:
    1. In the left-hand panel, select ![icon](../../_assets/console-icons/layout-header-side-content.svg) **Dashboard**.
    1. Select the customer's account from the list and click it.
    1. In the window that opens, click ![image](../../_assets/plus-sign.svg) **Create cloud**. You will be redirected to the customer's billing account page in {{ billing-name }}.
-   1. Under **{{ ui-key.yacloud.billing.account.dashboard-resources.section_resources }}**, click **{{ ui-key.yacloud.common.create }}**.
+   1. Under **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_clouds }}**, click **{{ ui-key.yacloud.common.create }}**.
    1. Enter a name for the cloud.
    1. In the **{{ ui-key.yacloud.iam.cloud.create.popup-create-cloud_label_organization }}** field, select the [organization](../../organization/quickstart.md) named `For subaccount 'Customer_name'`.
    1. Click **{{ ui-key.yacloud.iam.cloud.create.popup-create-cloud_button_add }}**.

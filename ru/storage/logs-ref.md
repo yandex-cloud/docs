@@ -68,7 +68,7 @@
 | `GET` | `BUCKET_WEBSITES` | Вывод конфигурации хостинга статического сайта для бакета. |
 | `DELETE` | `BUCKET_WEBSITES` | Удаление конфигурации хостинга статических сайтов для бакета. |
 | `GET` | `BUCKET_LOGGING` | Вывод настроек логирования действий с бакетом. |
-| `PUT` | `BUCKET_LOGGING` | Включение и выключение механизма логирования действий с бакетом. |
+| `PUT` | `BUCKET_LOGGING` | [Включение](operations/buckets/enable-logging.md#enable) и [выключение](operations/buckets/enable-logging.md#stop-logging) механизма логирования действий с бакетом. |
 | `PUT` | `BUCKETPOLICY` | Применение [политики доступа](concepts/policy.md) к заданному бакету. |
 | `GET` | `BUCKETPOLICY` | Вывод политики доступа для заданного бакета. |
 | `DELETE` | `BUCKETPOLICY` | Удаление политики доступа заданного бакета. |

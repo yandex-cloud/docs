@@ -33,8 +33,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
       1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
       1. [Create a {{ k8s }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration.
-      1. [Configure security groups](../../operations/connect/security-groups.md#rules-internal) for the network traffic of your {{ managed-k8s-name }} cluster.
-      1. [Create a rule for connecting to the services from the internet](../../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes), then apply it to the cluster's node group.
+      1. {% include [configure-sg-manual](../../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+         {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
    - {{ TF }} {#tf}
 
@@ -46,12 +47,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. Download the [k8s-gateway-api.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-gateway-api.tf) cluster configuration file to the same working directory. The file describes:
          * Network.
          * Subnet.
-         * [Security group](../../operations/connect/security-groups.md) and rules required for cluster and node group operation:
-            * [Rules for service traffic](../../operations/connect/security-groups.md#rules-internal).
-            * [Rules for accessing the {{ k8s }} API and managing a cluster](../../operations/connect/security-groups.md#rules-master) with `kubectl` through ports `443` and `6443`.
-            * [Rules for accessing services from the Internet](../../operations/connect/security-groups.md#rules-nodes).
          * {{ k8s }} cluster.
-         * Service account required to use the {{ k8s }} cluster and node group.
+         * Service account required for the {{ k8s }} cluster and node group to operate.
+         * {% include [configure-sg-terraform](../../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+
+            {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
       1. Specify the following in the configuration file:
          * [Folder ID](../../../resource-manager/operations/folder/get-id.md).
          * {{ k8s }} version for the {{ k8s }} cluster and node groups.
@@ -486,6 +487,8 @@ Two applications will be created to test the Gateway API (`tutum/hello-world` an
 To test your Gateway API operation, follow these links in your browser:
 * `app.prod.<name_of_your_DNS_zone>`
 * `dev.prod.<name_of_your_DNS_zone>`
+
+{% include [Configuring security groups if resource is unavailable](../../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
 ## Delete the resources you created {#clear-out}
 

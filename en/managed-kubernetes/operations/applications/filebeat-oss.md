@@ -1,7 +1,7 @@
 # Installing Filebeat OSS
 
 
-[Filebeat OSS](https://www.elastic.co/beats/filebeat) is a plugin for collecting and forwarding logs to the {{ OS }} ecosystem. Installed in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster), Filebeat OSS collects cluster and [pod](../../concepts/index.md#pod) logs, and forwards them to [{{ mos-full-name }}](../../../managed-opensearch/).
+[Filebeat OSS](https://www.elastic.co/beats/filebeat) is a plugin for collecting and forwarding logs to the {{ OS }} ecosystem. Installed in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster), Filebeat OSS collects cluster and [pods](../../concepts/index.md#pod) logs and forwards them to [{{ mos-full-name }}](../../../managed-opensearch/).
 
 ## Getting started {#before-you-begin}
 
@@ -10,6 +10,11 @@
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
 1. Make sure that the {{ managed-k8s-name }} cluster is located in the same [cloud network](../../../vpc/concepts/network.md) as the [{{ mos-name }} cluster](../../../managed-opensearch/concepts/index.md).
+
+1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
+
+   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. Enable the compatibility mode to support the Filebeat OSS client in {{ OS }}. For this, run the following query:
 
    ```bash

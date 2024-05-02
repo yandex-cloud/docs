@@ -11,15 +11,15 @@ To create an additional cloud:
 
 - Management console {#console}
 
-      1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
-   1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, select a billing account.
-   1. Under **{{ ui-key.yacloud.billing.account.dashboard-resources.section_resources }}**, click **{{ ui-key.yacloud.common.create }}**.
-   1. Enter the name of the cloud. The naming requirements are as follows:
+  1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
+  1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, select a billing account.
+  1. Under **{{ ui-key.yacloud.billing.account.dashboard-resources.section_resources }}**, click **{{ ui-key.yacloud.common.create }}**.
+  1. Enter the name of the cloud. The naming requirements are as follows:
 
-      {% include [name-format.md](../../../_includes/name-format.md) %}
+     {% include [name-format.md](../../../_includes/name-format.md) %}
 
-   1. Enter the organization you are going to link the cloud to.
-   1. Click **{{ ui-key.yacloud.common.create }}**. The `default` folder page in the new cloud opens.
+  1. Enter the organization you are going to link the cloud to.
+  1. Click **{{ ui-key.yacloud.common.create }}**. The `default` folder page in the new cloud opens.
 
 - {{ TF }} {#tf}
 

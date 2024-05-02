@@ -46,9 +46,9 @@ Where:
 
       Resource name. For more information about the format, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-      You must specify this name in the `spec.rules.http.paths.backend.resource.name` field of the `Ingress` resource (see the [reference](../../../application-load-balancer/k8s-ref/ingress.md)).
+      You must specify this name in the `spec.rules.http.paths.backend.resource.name` field of the `Ingress` resource (see the [configuration](../../../application-load-balancer/k8s-ref/ingress.md)).
 
-      It does not match the backend group name in {{ alb-name }}.
+      This name is not the backend group name in {{ alb-name }}.
 
 * `spec` (`HttpBackendGroupSpec`)
 
@@ -80,7 +80,7 @@ Where:
 
          Reference to the [{{ k8s }} service](../../../managed-kubernetes/concepts/index.md#service) expected to process requests as a backend.
 
-         The `Service` resource this field points to must be described as in the [specification](../../../application-load-balancer/k8s-ref/service.md).
+         The `Service` resource this field refers to must be described in line with the [standard configuration](../../../application-load-balancer/k8s-ref/service-for-ingress.md).
 
          A backend must either have a service or an {{ objstorage-name }} bucket specified (`storageBucket`) but not both.
 

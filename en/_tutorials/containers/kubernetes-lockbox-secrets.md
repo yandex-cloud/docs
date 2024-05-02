@@ -44,7 +44,11 @@ The cost of resources for syncing secrets includes:
       {% endnote %}
 
    1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md#node-group-create). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for the resources and nodes.
-   1. [Configure security groups](../../managed-kubernetes/operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster.
+
+   1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+      {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
    1. [Create a {{ lockbox-name }} secret](../../lockbox/operations/secret-create.md) with the following properties:
       * **{{ ui-key.yacloud.common.name }}**: `lockbox-secret`.
       * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Enter the `password` non-secret ID.
@@ -63,13 +67,13 @@ The cost of resources for syncing secrets includes:
       This file describes:
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security group](../../managed-kubernetes/operations/connect/security-groups.md) and rules required for a {{ managed-k8s-name }} cluster and node group:
-         * Rules for service traffic.
-         * Rules for accessing the {{ k8s }} API and managing a {{ managed-k8s-name }} cluster with `kubectl` through ports 443 and 6443.
-         * Rules for connecting to services from the internet.
+      * {{ lockbox-name }} secret.
       * {{ managed-k8s-name }} cluster.
       * [Service account](../../iam/concepts/users/service-accounts.md) for {{ managed-k8s-name }} resources and nodes.
-      * {{ lockbox-name }} secret.
+      * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+
+         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
    1. Specify the following in the configuration file:
       * [Folder ID](../../resource-manager/operations/folder/get-id.md).
       * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.

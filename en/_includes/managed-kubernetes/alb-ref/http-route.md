@@ -1,11 +1,12 @@
 # HTTPRoute resource fields
 
 
-The `HTTPRoute` resource defines the rules for routing traffic to backends that are {{ k8s }} services ([`Service` resources](../../../application-load-balancer/k8s-ref/service.md)) or redirecting it. `HTTPRoute` receives incoming traffic from the [`Gateway` resources](../../../application-load-balancer/k8s-ref/gateway.md) whose requirements it meets.
+
+The `HTTPRoute` resource defines the rules for routing traffic to backends that are {{ k8s }} services ([Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md) resources) or for redirecting traffic. `HTTPRoute` receives incoming traffic from the [`Gateway` resources](../../../application-load-balancer/k8s-ref/gateway.md) whose requirements it meets.
 
 `HTTPRoute` is designed for application developers. Cluster operators should use `Gateway`.
 
-`HTTPRoute` is a {{ k8s }} resource specified by the [{{ k8s }} Gateway API project](https://gateway-api.sigs.k8s.io/). This reference describes fields and annotations of the resource that the {{ alb-name }} Gateway API interfaces with. For a complete reference for the resource, see the [{{ k8s }} Gateway AP documentation](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.HTTPRoute).
+`HTTPRoute` is a {{ k8s }} resource specified by the [{{ k8s }} Gateway API project](https://gateway-api.sigs.k8s.io/). Below, you can find the descriptions of the resource fields and annotations the {{ alb-name }} Gateway API interfaces with. For a full description of the resource configuration, see the [{{ k8s }} Gateway API documentation](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.HTTPRoute).
 
 ## HTTPRoute {#httproute}
 
@@ -30,7 +31,7 @@ Where:
 
       Resource name. For more information about the format, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-      Does not match the route name in {{ alb-name }}.
+      This name is not the route name in {{ alb-name }}.
 
    * `namespace` (`string`)
 
@@ -82,9 +83,9 @@ Where:
 
 * `parentRefs` (`[]ParentReference`, required)
 
-   List of `Gateway` resources (or their listeners from the `spec.listeners` field, see the [reference](../../../application-load-balancer/k8s-ref/gateway.md#spec)), that `HTTPRoute` should be linked to.
+   List of `Gateway` resources (or their listeners from the `spec.listeners` field, see the [reference](../../../application-load-balancer/k8s-ref/gateway.md#spec)), that `HTTPRoute` must be linked to.
 
-   The route should also meet the rules described in the `Gateway` [specification](../../../application-load-balancer/k8s-ref/gateway.md#spec) (the `spec.listeners.allowedRoutes` field).
+   The route must also comply with the rules described in the `Gateway` [configuration](../../../application-load-balancer/k8s-ref/gateway.md#spec) (the `spec.listeners.allowedRoutes` field).
 
    * `namespace` (`string`)
 
@@ -158,7 +159,7 @@ Where:
 
       List of [{{ k8s }} services](../../../managed-kubernetes/concepts/index.md#service) to handle requests as a backend.
 
-      The `Service` resource this field points to must be described as in the [specification](../../../application-load-balancer/k8s-ref/service.md).
+      The `Service` resource this field refers to must be described in line with the [standard configuration](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
 
       * `name` (`string`)
 
@@ -172,7 +173,7 @@ Where:
 
          Service port number.
 
-         The number must match one of the port numbers specified in the `spec.ports.port` fields of the `Service` resource. For more information, see the [resource specification](../../../application-load-balancer/k8s-ref/service.md).
+         The number must match one of the port numbers specified in the `spec.ports.port` fields of the `Service` resource. For more information, see the [resource configuration](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
 
          The field is designed for the Gateway API operation and does not match any of the {{ alb-name }} resource fields.
 

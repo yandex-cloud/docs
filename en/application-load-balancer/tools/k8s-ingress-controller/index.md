@@ -5,6 +5,13 @@
 
 After installing the controller, you will be able to use it to create an [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource to handle incoming traffic. Based on the `Ingress` configuration, an [L7 load balancer](../../concepts/application-load-balancer.md) will be deployed automatically with all the requisite {{ alb-name }} resources.
 
+For full configuration of the resources for the {{ alb-name }} Ingress controller, see the following sections:
+
+* [Ingress](../../k8s-ref/ingress.md): Backend traffic distribution and Ingress controller configuration rules.
+* [HttpBackendGroup](../../k8s-ref/http-backend-group.md): Combining backends into groups.
+* [IngressClass](../../k8s-ref/ingress-class.md): Managing multiple Ingress controllers in a {{ k8s }} cluster.
+* [Service](../../k8s-ref/service-for-ingress.md): Description of {{ k8s }} services used as backends.
+
 ## Sample configuration {#example}
 
 Below is an abbreviated sample configuration for an `Ingress` resource. It will be used to create a load balancer to receive HTTPS traffic and to distribute it to two services based on the URI request path.
@@ -68,6 +75,10 @@ To install the {{ alb-name }} Ingress controller, you need:
 * Cluster namespace to store the [service account](service-account.md) key.
 
 To learn how to install the Ingress controller, see [this guide](../../operations/k8s-ingress-controller-install.md).
+
+## Traffic routing using multiple Ingress controllers {#ingress-class}
+
+For a single application, you can use multiple Ingress controllers, such as {{ alb-name }} and NGINX. To correctly route traffic in such infrastructure, create an [IngressClass](../../../application-load-balancer/k8s-ref/ingress-class.md) resource for each Ingress controller. In the `Ingress` resource, specify the `IngressClass` your `Ingress` resource refers to in the `spec.ingressClassName` field. On GitHub, you can find an [example](https://github.com/yandex-cloud-examples/yc-mk8s-with-ingress-class) of how to configure `Ingress` resources and route traffic using multiple Ingress controllers.
 
 #### See also {#see-also}
 

@@ -1,6 +1,6 @@
 # Getting authentication credentials
 
-To authenticate in {{ yandex-cloud }} and manage YDB databases using {{ TF }}, you can use a [service account](../../iam/concepts/users/service-accounts.md), [Yandex account](../../iam/concepts/index.md#passport), or [federated account](../../iam/concepts/index.md#saml-federation). To authenticate and work in {{ TF }} with YDB, you will also need the {{ yandex-cloud }} CLI. If you do not have it yet, follow [this guide](../../cli/quickstart.md#install) to install it.
+To authenticate in {{ yandex-cloud }} and manage YDB databases using {{ TF }}, you can use a [service account](../../iam/concepts/users/service-accounts.md), a [Yandex account](../../iam/concepts/users/accounts.md#passport), or a [federated account](../../iam/concepts/users/accounts.md#saml-federation). To authenticate and work in {{ TF }} with YDB, you will also need the {{ yandex-cloud }} CLI. If you do not have it yet, follow [this guide](../../cli/quickstart.md#install) to install it.
 
 You can create and set up a service account by following this guide:
 1. In the management console, select the folder to create a service account in.

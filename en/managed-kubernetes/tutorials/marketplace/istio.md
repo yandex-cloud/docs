@@ -40,7 +40,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. [Create a {{ k8s }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../../managed-kubernetes/operations/node-group/node-group-create.md) with at least 6 GB of RAM.
 
-      1. [Configure security groups](../../operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster.
+      1. {% include [configure-sg-manual](../../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+         {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
    - {{ TF }} {#tf}
 
@@ -53,11 +55,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          * [Network](../../../vpc/concepts/network.md#network).
          * [Subnet](../../../vpc/concepts/network.md#subnet).
-         * [Security group](../../../vpc/concepts/security-groups.md) and the [rules](../../operations/connect/security-groups.md) required for the {{ managed-k8s-name }} cluster, node group, and {{ container-registry-full-name }} container:
-            * Rules for service traffic.
-            * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
          * {{ k8s }} cluster.
          * [Service account](../../../iam/concepts/users/service-accounts.md) required to use the {{ managed-k8s-name }} cluster and node group.
+         * {% include [configure-sg-terraform](../../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+
+            {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
       1. In `k8s-cluster.tf`, specify:
 
@@ -212,6 +214,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
    ```
 
 1. To run the web app, paste the obtained IP into the browser address bar.
+
+   {% include [Configuring security groups if resource is unavailable](../../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
    Each time the page is refreshed, its content will be updated. Depending on the version of the pod processing your request, you will see:
 

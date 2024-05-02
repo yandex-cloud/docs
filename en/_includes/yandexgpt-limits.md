@@ -38,6 +38,7 @@
 | Type of limit | {{ gpt-pro }} and fine-tuned models | {{ gpt-lite }} |
 ----- | ----- | -----
 | Number of tokens per response | 2,000 | 2,000 |
+| Maximum number of token per response in the management console | 500 | 500 |
 | Total number of tokens | {{ yagpt-max-tokens }} | {{ yagpt-max-tokens }} |
 | Number of free requests per hour for users without a billing account. Available only in the management console | {{ gpt-freetier }} | — |
 

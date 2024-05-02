@@ -26,17 +26,17 @@ A _connection_ is a {{ speechsense-name }} entity that contains:
 * Record types: audio or text messages.
 * Record metadata received from PBX, CRM systems, or other sources.
 
-   Metadata includes parameters such as names and IDs of the operator and client, conversation date, and conversation language. You can use metadata to generate [reports](reports.md) for analyzing a [dialog](dialogs.md) or a group of dialogs.
+   Metadata includes parameters such as names and IDs of the agent and customer, conversation date, and conversation language. You can use metadata to generate [reports](reports/index.md) for analyzing a [dialog](dialogs.md) or a group of dialogs.
 
 If groups of dialogs have different metadata sets or record types, you can create a separate connection for each group.
 
 ### Project {#project}
 
-A _project_ is an isolated {{ speechsense-name }} entity within which you can manage dialogs. For example, in a project, you can [view a dialog](../operations/data/manage-dialogs.md#view-dialog) or [build a report](../operations/data/manage-reports.md#build-a-report). In the {{ yandex-cloud }} resource hierarchy, {{ speechsense-name }} projects are on the same level as [{{ ml-platform-name }} projects](../../datasphere/concepts/project) and [folders](../../resource-manager/concepts/resources-hierarchy.md#folder).
+A _project_ is an isolated {{ speechsense-name }} entity within which you can manage dialogs. For example, in a project, you can [view a dialog](../operations/data/manage-dialogs.md#view-dialog) or [build a report](../operations/data/manage-reports.md). In the {{ yandex-cloud }} resource hierarchy, {{ speechsense-name }} projects are on the same level as [{{ ml-platform-name }} projects](../../datasphere/concepts/project.md) and [folders](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-A project can be viewed as a slice of data uploaded to a connection. When [creating a project](../operations/project/create.md), you select a connection and [set up filters for dialogs](dialogs.md#filters). As a result, filtered dialogs from the connection are added to the project.
+A project can be viewed as a cross-section of data uploaded to a connection. When [creating a project](../operations/project/create.md), you select a connection and [set up filters for dialogs](dialogs.md#filters). As a result, filtered dialogs from the connection are added to the project.
 
-Use multiple projects to group dialogs. For example, you can designate a separate project for each client or product of your company.
+Use multiple projects to group dialogs. For example, you can designate a separate project for each of your company's customers or products.
 
 ## Inheritance of access rights {#access-rights-inheritance}
 

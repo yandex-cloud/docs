@@ -20,7 +20,7 @@ With {{ speechsense-name }}, you can:
 There are various ways to work with dialogs:
 
 * [Find a dialog and view it](../operations/data/manage-dialogs.md) in the dialog list.
-* [Generate a report](../operations/data/manage-reports.md) and [go to the dialogs](../operations/data/manage-reports.md#go-to-a-dialog) from it. In this case, the dialog list will be filtered as per the report criteria.
+* [Build a report](../operations/data/manage-reports.md) based on dialogs.
 
 ## Dialog filtering {#filters}
 
