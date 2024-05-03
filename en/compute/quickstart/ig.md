@@ -97,7 +97,7 @@ To create an instance group:
       * Specify the interval, in seconds, for sending health check requests.
       * Set the healthy threshold, which is the number of successful checks required in order to consider the VM ready to receive traffic.
       * Set the unhealthy threshold, which is the number of failed checks after which no traffic will be routed to the VM.
-1. Click **{{ ui-key.yacloud.compute.groups.create.button_create }}**.
+1. Click **{{ ui-key.yacloud.common.create }}**.
 
 The instance group will appear in the list.
 

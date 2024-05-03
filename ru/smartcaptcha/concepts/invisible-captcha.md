@@ -15,37 +15,67 @@
       src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"
       defer
     ></script>
-
-    <div id="captcha-container"></div>
     ```
 
 1. Отрисовать виджет капчи в невидимом режиме.
 
     ```html
+    <form id="form">
+      <div id="captcha-container"></div>
+      <input type="submit" />
+    </form>
+    
     <script>
-      function onloadFunction() {
-        if (!window.smartCaptcha) {
-          return;
-        }
+    const form = document.getElementById('form');
 
-        window.smartCaptcha.render('captcha-container', {
-          sitekey: '<ключ_клиентской_части>',
-          invisible: true, // Сделать капчу невидимой
-          callback: callback,
-        });
+    function onloadFunction() {
+      if (!window.smartCaptcha) {
+        return;
       }
 
-      function callback(token) {
-        console.log(token);
-      }
+      window.smartCaptcha.render('captcha-container', {
+        sitekey: '<ключ_клиентской_части>',
+        invisible: true, // Сделать капчу невидимой
+        callback: callback,
+      });
+    }
+
+    function callback(token) {
+      form.submit();
+    }
     </script>
     ```
 
 1. Вызвать `window.smartCaptcha.execute()`, когда {{ captcha-name }} должна начать валидацию пользователя. Например, при нажатии **submit** в форме.
 
     ```html
+    <form id="form">
+      <div id="captcha-container"></div>
+      <input type="submit" onsubmit="handleSubmit()" />
+    </form>
+    
     <script>
-    function handleSubmit() {
+    const form = document.getElementById('form');
+
+    function onloadFunction() {
+      if (!window.smartCaptcha) {
+        return;
+      }
+
+      window.smartCaptcha.render('captcha-container', {
+        sitekey: '<ключ_клиентской_части>',
+        invisible: true, // Сделать капчу невидимой
+        callback: callback,
+      });
+    }
+
+    function callback(token) {
+      form.submit();
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+    
       if (!window.smartCaptcha) {
         return;
       }
@@ -53,13 +83,8 @@
       window.smartCaptcha.execute();
     }
     </script>
-
-    <form id="form">
-      <div id="captcha-container"></div>
-     <input type="submit" onsubmit="handleSubmit()" />
-   </form>
-   ```
-
+    ```
+    
 ## Уведомление об обработке данных {#data-processing-notice}
 
 По умолчанию на странице с невидимой капчей появляется блок со ссылкой, которая ведет на документ [Уведомление об условиях обработки данных сервисом](https://yandex.ru/legal/smartcaptcha_notice/).

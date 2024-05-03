@@ -296,8 +296,8 @@ An example of a delivery route that uses a named pipe:
     plugin: console
   channel:
     pipe:
-      pipe_ref:
-        name: named_pipe
+      - pipe_ref:
+          name: named_pipe
     output:
       plugin: debug
 ```
@@ -600,9 +600,9 @@ Parameter descriptions:
         # The output format to convert the incoming set of metrics to.
         # Exactly one of the nested elements must be specified.
         format: # required
-          # Convert the {{ monitoring-full-name }} format (https://yandex.cloud/en/docs/monitoring/api-ref/MetricsData/write) to JSON
+          # Convert the {{ monitoring-full-name }} format (../../../api-ref/MetricsData/write.md) to JSON
           json:
-              # Indicates whether to merge metrics with the same set of labels.
+              # Whether you need to merge metrics with the same tags.
               # Possible values: default (merging disabled), merge_metrics (merging enabled).
               merging_mode: default # optional, default value is default (merging disabled)
 
@@ -684,11 +684,11 @@ Parameter descriptions:
     plugin: transform_metric_labels
 
     config:
-      # Restrict the filter only to the metrics that satisfy this condition.
-      # A description of the syntax can be found at https://yandex.cloud/en/docs/monitoring/concepts/querying#selectors
-      match: "{name=gauge-*}" # optional parameter, not specified by default, filter applies to all metrics
+      # The filter will only apply to those metrics that meet this condition.
+      # You can learn more about the syntax here: https://yandex.cloud/en/docs/monitoring/concepts/querying#selectors
+      match: "{name=gauge-*}" # Optional parameter which is not specified by default, which means the filter applies to all metrics
 
-      # Description of label transformations as "label name: expression".
+      # Metric conversion description in "metric name: expression" format.
       # Label name: label that is being assigned a new value.
       # Expression: text string describing the new value.
       # This string can refer to current label values using the "{my_label}" syntax,

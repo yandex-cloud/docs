@@ -56,7 +56,7 @@ description: "Следуя данной инструкции, вы сможет�
       * {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
 
 
-      * (Опционально) Включите опцию **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}**, если нужно автоматически удалять диск при удалении ВМ, к которой он будет подключен.
+      * (Опционально) Включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, если нужно автоматически удалять диск при удалении ВМ, к которой он будет подключен.
       * Выберите наполнение `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}`.
       * Выберите нужный образ.
       * Нажмите **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.

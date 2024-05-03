@@ -10,7 +10,7 @@
       1. In the ![endpoint](../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}** tab, click **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
       1. In the **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** field, select `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
       1. Enter the endpoint name, for example, `logs-source`.
-      1. In the **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** list, select `{{ ui-key.yacloud.data-transfer.label_endpoint-type-YDS_ru }}`.
+      1. In the **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** list, select `Yandex Data Streams`.
       1. Select the database you specified in the settings of the stream you previously created.
       1. Enter the stream name: `logs-stream`.
       1. Select the previously created `logs-sa` service account.
@@ -20,7 +20,7 @@
       1. In the ![endpoint](../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}** tab, click **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
       1. In the **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** field, select `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
       1. Enter the endpoint name, for example, `logs-receiver`.
-      1. In the **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** list, select `{{ ui-key.yacloud.data-transfer.label_endpoint-type-OBJECT_STORAGE }}`.
+      1. In the **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** list, select `Object Storage`.
       1. Enter the name of the previously created bucket.
       1. Select the previously created `logs-sa` service account.
       1. In the **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** field, select `JSON`.

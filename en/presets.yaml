@@ -3691,6 +3691,9 @@ default:
         label_service: Yandex Cloud Billing
         switch_accounts: List of accounts
         title_accounts: Billing accounts
+      component:
+        iam-delete-folder-or-cloud-dialog:
+          label_delete-now: Delete now
     yacloud_components:
       acl:
         action:
@@ -4043,7 +4046,7 @@ default:
         section_webserver: Web server configuration
         section_workers: Worker configuration
       alb:
-        button_add-backend: Add backend
+        button_add-backend: Create backend
         button_add-discard-rule: Add discard rule
         button_add-healthcheck: Add health check
         button_add-listener: Add listener
@@ -4379,14 +4382,13 @@ default:
             label_password: Password
             label_username: Database username
           format-schemas:
+            button_action-delete-format-schema: Delete
+            button_action-edit-format-schema: Edit
             button-action_add-format-schema: Add schema
             dialog:
               field_format-schema-uri: URL
               label_add: Add
               title_add: Add schema
-            table:
-              button_action-delete-format-schema: Delete
-              button_action-edit-format-schema: Edit
           ml-models:
             button_action-delete-ml-model: Delete
             button_action-edit-ml-model: Edit
@@ -4449,7 +4451,6 @@ default:
         label_subnet: Subnet
         label_tcp: TCP
         label_udp: UDP
-        label_value: Value
         labels: Labels
         logs: Logs
         metadata: Metadata
@@ -4484,7 +4485,6 @@ default:
         select: Select
         start: Start
         stop: Stop
-        table-config: Table settings
         type: Type
         units:
           label_gigabyte: GB
@@ -4536,7 +4536,6 @@ default:
             field_memory: RAM
             field_platform: Platform
             field_preemptible: Preemptible
-            label_platform-standard-v2: Intel Cascade Lake
             label_sw-accelerated-net: Software accelerated network
             value_platform-tab-gpu: With GPU
         console-dashboard:
@@ -4559,7 +4558,6 @@ default:
           title_recovery-container: To recover
         iam-delete-folder-or-cloud-dialog:
           field_folder-delete-after: Folder deletion period
-          label_delete-now: Delete now
         image-field:
           button_custom-image: Enter link
         internal-v4-address-field:
@@ -4596,8 +4594,6 @@ default:
           button_create-key: Create key
           button_create-key-new: Create new key
           label_no-symmetric-key: Not selected
-        table-input:
-          popup_title: Add row
         vpc-security-group-select:
           label_add-security-group: Add security group
         vpc:
@@ -4614,19 +4610,15 @@ default:
             field_zone: Availability zone
           network-select:
             button_create-network: Create network
-            button_create-subnetwork: Add subnet
+            button_create-subnetwork: Create subnet
       compute:
         attach-disk:
           button_attach: Attach
-          field_auto-delete: Delete automatically
           field_instance: VM
         button_relocate-to-another-zone: Relocate to another zone
         disk-form:
-          field_name: Name
           field_size: Size
-          field_source: Contents
           field_type: Type
-          value_source-none: Empty
         disk:
           overview:
             label_status: Status
@@ -4643,6 +4635,8 @@ default:
           field_new-availability-zone: New availability zone
           label_disk-used: Active
           popup_detach-disk_button_detach: Detach
+        field_additional: Additional
+        field_disk-autodelete: Delete along with the virtual machine
         group:
           edit:
             label_title: Changing an instance group
@@ -4651,9 +4645,6 @@ default:
             section_base: General information
             section_instances-state: VM states
           switch_instances: List of VMs
-          switch_logs: Logs
-          switch_monitoring: Monitoring
-          switch_operations: Operations
         groups:
           button_action-pause: Pause
           button_action-resume: Resume
@@ -4661,8 +4652,6 @@ default:
           button_action-stop: Stop group
           button_create: Create group of virtual machines
           create:
-            button_create: Create
-            button_create-account: Create account
             button_edit: Save
             button_instance_empty-create: Define
             field_alb-pre-checks-timeout: Traffic timeout
@@ -4702,7 +4691,6 @@ default:
             field_warmup-duration: Instance warmup period
             field_zone: Availability zone
             label_custom-metrics: Metrics
-            label_instance-net: Network settings
             metric-type-cpu: CPU
             metric-type-custom: Custom
             section_alb: Integration with Application Load Balancer
@@ -4732,7 +4720,6 @@ default:
         images:
           button_action-image: Create image
           button_upload: Upload image
-          column_id: ID
           label_title: Images
           popup-confirm_button_delete: Delete
           popup-upload_button_upload: Upload
@@ -4747,7 +4734,6 @@ default:
           label_vm: Virtual machine instance
           overview:
             button_action-edit: Edit VM
-            button_action-stop: Stop
             button_add-public-ip: Add public IP address
             button_edit-network-interface: Edit network interface
             button_remove-public-ip: Disassociate public IP address
@@ -4762,9 +4748,6 @@ default:
           switch_console: Serial console
           switch_disks: Disks
           switch_file-storages: File storages
-          switch_monitoring: Monitoring
-          switch_operations: Operations
-          switch_overview: Overview
           switch_service-console: Serial port
         instances:
           button_action-restart: Restart
@@ -4773,14 +4756,12 @@ default:
           button_start-instance-relocation: Start relocation
           create-disk:
             button_create: Add
-            field_additional: Advanced
-            field_auto-delete: Delete with the VM
-            field_boot-type: Disk designation
+            field_name: Name
             field_source: Contents
             label_title: Add a secondary disk
-            value_boot-disk: Boot
             value_source-disk: Disk
             value_source-image: Image
+            value_source-none: Empty
             value_source-snapshot: Snapshot
           create:
             button_choose: Choose
@@ -4872,8 +4853,6 @@ default:
           button_create: Create
           button_menu-create-disk-placement-group: Non-replicated disk placement group
           button_menu-create-instance-placement-group: Virtual machine placement group
-          create:
-            button_create: Create
           label_tab-disks: Non-replicated disk placement groups
           label_tab-instances: Virtual machine placement groups
         snapshots-schedules:
@@ -4972,15 +4951,6 @@ default:
         label_connector-status-DONE: Completed
         label_connector-status-RUNNING: Replicating
         label_connectors: Transfers
-        label_endpoint-type-CLICKHOUSE: ClickHouse
-        label_endpoint-type-GREENPLUM: Greenplum
-        label_endpoint-type-KAFKA: Kafka
-        label_endpoint-type-MONGO_V2: MongoDB
-        label_endpoint-type-MYSQL: MySQL
-        label_endpoint-type-OBJECT_STORAGE: Object Storage
-        label_endpoint-type-POSTGRES: PostgreSQL
-        label_endpoint-type-YDB: YDB
-        label_endpoint-type-YDS_ru: Yandex Data Streams
         label_endpoints: Endpoints
         label_monitoring: Monitoring
       dataproc:
@@ -5851,6 +5821,7 @@ default:
           network_field_form-type: Network ID format
           network_field_subnetwork: Subnet
           new_section_resource: Resources
+          resource_presets_field_gen_v2: Intel Cascade Lake
           resource_presets_field_gen_v3: Intel Ice Lake
           resource_presets_field-generation: Platform
           resource_presets_field-type: Type
@@ -5950,8 +5921,6 @@ default:
             action_delete: Delete
             title_node-groups: Node groups
             title_virtual-node-group: Virtual node group
-        title_dashboards: Dashboards
-        title_data-node: Data node
         title_opensearch-dashboards-section: OpenSearch Dashboards
       postgresql:
         cluster:
@@ -6431,12 +6400,12 @@ default:
         label_network: Network
         network:
           overview:
-            button_create_subnetwork: Add subnet
+            button_create_subnetwork: Create subnet
             column_subnetwork_id: ID
             section_subnetworks: Subnets
           security-groups:
             button_add-rule: Add rule
-            button_create: Create group
+            button_create: Create security group
             forms:
               button_add-cidr: Add CIDR
               button_select-all-port-range: Select the full range
@@ -8003,7 +7972,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: 1.14.4
+        tag: 1.14.5
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
@@ -8047,7 +8016,7 @@ default:
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
-        tag: 1.18.0-1a
+        tag: 1.21.2-1
     yc_kyverno:
       helmChart:
         name: cr.yandex/yc-marketplace/multi-kyverno

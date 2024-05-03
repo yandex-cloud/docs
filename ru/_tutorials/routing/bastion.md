@@ -188,14 +188,14 @@
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** выберите продукт **NAT-инстанс на основе Ubuntu 22.04 LTS**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** настройте первый сетевой интерфейс:
 
-     * **{{ ui-key.yacloud.compute.groups.create.label_instance-net }}** — `bastion-external-segment`.
+     * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `bastion-external-segment`.
      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — выберите из списка [зарезервированный ранее IP-адрес](#get-static-ip).
      * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
      * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — `secure-bastion-sg`.
 
   1. Нажмите **{{ ui-key.yacloud.compute.instances.create.label_add-network-interface }}** и настройте второй сетевой интерфейс:
 
-     * **{{ ui-key.yacloud.compute.groups.create.label_instance-net }}** — `bastion-internal-segment`.
+     * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `bastion-internal-segment`.
      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
      * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** — `172.16.16.254`.
      * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — `internal-bastion-sg`.
@@ -242,7 +242,7 @@ ssh -i ~/.ssh/<приватный_ключ> bastion@<публичный_IP_ад�
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите произвольную операционную систему.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** настройте сетевой интерфейс:
 
-     * **{{ ui-key.yacloud.compute.groups.create.label_instance-net }}** — `bastion-internal-segment`.
+     * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `bastion-internal-segment`.
      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
      * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
      * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — `internal-bastion-sg`.

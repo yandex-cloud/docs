@@ -7,7 +7,7 @@ description: "In this tutorial, you will learn how to edit a dynamic table in {{
 
 ## General settings {#general-settings}
 
-To edit a [table](pages-types.md#grid), open it and click ![](../_assets/wiki/svg/wysiwyg/grid-settings.svg) **{{ ui-key.yacloud.common.table-config }}**s in the top-right corner. Select an action:
+To edit a [table](pages-types.md#grid), open it and click ![](../_assets/wiki/svg/wysiwyg/grid-settings.svg) **Table settings**s in the top-right corner. Select an action:
 
 * [Set up columns](#column-transfer).
 * [Use default sorting](#sort-line).
@@ -130,7 +130,7 @@ The data type can only be selected when creating a column.
 
 ## Adding and deleting rows {#edit-line}
 
-* To create a new row, click ![](../_assets/wiki/svg/add.svg) **{{ ui-key.yacloud.component.table-input.popup_title }}** at the bottom of the table.
+* To create a new row, click ![](../_assets/wiki/svg/add.svg) **Add row** at the bottom of the table.
 
 * To delete a row, hover over it and click ![](../_assets/wiki/svg/delete-line.svg) **Delete row**.
 
@@ -148,7 +148,7 @@ To sort table rows:
 
 To add multiple filters:
 
-1. In the top-right corner, click ![](../_assets/wiki/svg/wysiwyg/grid-settings.svg) **{{ ui-key.yacloud.common.table-config }}**.
+1. In the top-right corner, click ![](../_assets/wiki/svg/wysiwyg/grid-settings.svg) **Table settings**.
 
 1. Click **Default order**.
 

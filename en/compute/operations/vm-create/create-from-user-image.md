@@ -53,7 +53,7 @@ Make sure the uploaded image is in the `READY` status.
       * {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
 
 
-      * (Optional) Enable the **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}** option if you need to automatically delete the disk when deleting the VM it will be attached to.
+      * (Optional) Enable the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** option if you need to automatically delete the disk when deleting the VM it will be attached to.
       * Select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` as content.
       * Select the image you need.
       * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.

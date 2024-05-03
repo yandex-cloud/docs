@@ -162,7 +162,7 @@
 
 1. [Создайте эндпоинт-источник](../../../data-transfer/operations/endpoint/index.md#create) для каждого запланированного трансфера и укажите параметры эндпоинта:
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ ui-key.yacloud.data-transfer.label_endpoint-type-MONGO_V2 }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `MongoDB`.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}`.
 
@@ -180,7 +180,7 @@
 
 1. [Создайте эндпоинт-приемник](../../../data-transfer/operations/endpoint/index.md#create) для каждого запланированного трансфера и укажите параметры эндпоинта:
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ ui-key.yacloud.data-transfer.label_endpoint-type-MONGO_V2 }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `MongoDB`.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}`.
 

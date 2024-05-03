@@ -23,7 +23,7 @@
     1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации.
     1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
-        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ ui-key.yacloud.data-transfer.label_endpoint-type-CLICKHOUSE }}`.
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `ClickHouse`.
         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseSource.connection.title }}**:

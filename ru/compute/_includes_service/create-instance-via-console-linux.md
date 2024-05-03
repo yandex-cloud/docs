@@ -29,7 +29,7 @@
      * {% include [encryption-section-secondary](../../_includes/compute/encryption-section-secondary.md) %}
 
 
-     * (Опционально) В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_additional }}** включите опцию **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}**, если нужно автоматически удалять диск при удалении ВМ, к которой он будет подключен.
+     * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, если нужно автоматически удалять диск при удалении ВМ, к которой он будет подключен.
      * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}`.
      * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 

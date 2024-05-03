@@ -122,7 +122,7 @@ This tutorial assumes [username and password-based authorization](../../iot-core
    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** field, select `PRODUCTION`.
    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select `12`.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
-      * Specify the `{{ ui-key.yacloud.component.compute.resources.label_platform-standard-v2 }}` platform.
+      * Specify the `{{ ui-key.yacloud.mdb.forms.resource_presets_field_gen_v2 }}` platform.
       * Select the `burstable` type.
       * Specify the `b2.medium` class.
 

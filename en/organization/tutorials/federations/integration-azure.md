@@ -114,7 +114,7 @@ Add users to the IdP server:
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. See the description of the create federation command:
+   1. View the description of the create federation command:
 
       ```
       yc organization-manager federation saml create --help
@@ -163,7 +163,7 @@ Add users to the IdP server:
 
          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-      * `--sso-binding`: Specify the Single Sign-on binding type. Most identity providers support the `POST` binding type.
+      * `--sso-binding`: Specify the single sign-on binding type. Most identity providers support the `POST` binding type.
 
       * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
@@ -177,7 +177,7 @@ Add users to the IdP server:
       * `description`: Federation description.
       * `organization_id`: Organization ID.
       * `labels`: Set of key/value label pairs assigned to the federation.
-      * `issuer`: IdP server ID to be used for authentication.
+      * `issuer`: ID of the IdP server to use for authentication.
 
          Use the link from the **Azure AD ID** field on the Azure AD **SAML-based sign-on** page. The link should have the following format:
 
@@ -185,7 +185,7 @@ Add users to the IdP server:
          https://sts.windows.net/<SAML_application_ID>/
          ```
 
-      * `sso_binding`: Specify the Single Sign-on binding type. Most identity providers support the `POST` binding type.
+      * `sso_binding`: Specify the single sign-on binding type. Most identity providers support the `POST` binding type.
       * `sso_url`: URL of the page the browser redirects the user to for authentication.
 
          Use the link from the **Login URL** field on the Azure AD **SAML-based sign-on** page. The link should have the following format:
@@ -223,7 +223,7 @@ Add users to the IdP server:
       }
       ```
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -272,14 +272,13 @@ Add users to the IdP server:
       * `organizationId`: Organization ID.
 
       * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
+         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
-      * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
+      * `cookieMaxAge`: Time before the browser asks the user to re-authenticate.
 
-      * `issuer`: IdP server ID to be used for authentication.
+      * `issuer`: ID of the IdP server to use for authentication.
 
          Use the link from the **Azure AD ID** field on the Azure AD **SAML-based sign-on** page. The link should have the following format:
 
@@ -297,7 +296,7 @@ Add users to the IdP server:
 
          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-      * `ssoBinding`: Specify the Single Sign-on binding type. Most identity providers support the `POST` binding type.
+      * `ssoBinding`: Specify the single sign-on binding type. Most identity providers support the `POST` binding type.
 
       * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
@@ -538,7 +537,7 @@ When you finish setting up SSO, test that everything works properly:
 
 1. Enter your credentials and click **Next**.
 
-On successful authentication, the IdP server will redirect you to the ACS URL that you specified in the Azure AD settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will see being logged in to the console as a federated user.
+On successful authentication, the IdP server will redirect you to the ACS URL that you specified in the Azure AD settings, and then, to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will see being logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 

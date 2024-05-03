@@ -470,7 +470,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, click ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
       1. Select the `auto-group` instance group.
-      1. Go to the **{{ ui-key.yacloud.compute.group.switch_monitoring }}** tab.
+      1. Go to the **{{ ui-key.yacloud.common.monitoring }}** tab.
 
          The load balancer sent the request to an instance in the group. In the availability zone this instance belongs to, the average CPU utilization is higher than in other zones (see the **Average CPU utilization in zone** chart).
 
@@ -522,9 +522,9 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, click ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
       1. Select the `auto-group` instance group.
-      1. Go to the **{{ ui-key.yacloud.compute.group.switch_monitoring }}** tab.
+      1. Go to the **{{ ui-key.yacloud.common.monitoring }}** tab.
          The chart **Number of instances in zone** shows how the number of instances changed in each availability zone. The chart **Average CPU utilization in zone** shows average CPU utilization in each availability zone.
-      1. Go to the **{{ ui-key.yacloud.compute.group.switch_logs }}** tab.
+      1. Go to the **{{ ui-key.yacloud.common.logs }}** tab.
          The page displays messages relating to auto scaling of the instance group.
 
       The total utilization of 240% CPU was evenly distributed between two VMs in two availability zones and exceeded the target utilization of 40% CPU. [{{ compute-full-name }}](../../compute/) created one more VM in each availability zone to result in four VMs in the group. When the script stopped utilizing the CPU, {{ compute-name }} automatically decreased the number of instances in the group to two.

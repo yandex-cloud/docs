@@ -81,7 +81,7 @@ Where:
 
 ## `test_auto_scale` key {#test-auto-scale-policy}
 
-The `test_auto_scale` key defines a fixed-size instance group with auto scaling testing enabled. The **{{ ui-key.yacloud.compute.group.switch_monitoring }}** tab charts display the recommended increase or decrease in the number of instances depending on the value of the selected metric, while the actual number of instances always remains equal to the value specified in the `size` key. You can create a group with the required number of instances within the available [quotas and limits](../../limits.md).
+The `test_auto_scale` key defines a fixed-size instance group with auto scaling testing enabled. The **{{ ui-key.yacloud.common.monitoring }}** tab charts display the recommended increase or decrease in the number of instances depending on the value of the selected metric, while the actual number of instances always remains equal to the value specified in the `size` key. You can create a group with the required number of instances within the available [quotas and limits](../../limits.md).
 
 ```yaml
 scale_policy:

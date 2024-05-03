@@ -116,7 +116,7 @@ Learn more about other cluster updates:
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. To change the class of {{ ES }} hosts with the *Data node* role:
-      1. Select the **{{ ui-key.yacloud.opensearch.title_data-node }}** tab.
+      1. Select the **Data node** tab.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the class for the host.
    1. To change the class of {{ ES }} hosts with the *Master node* role:
       1. Go to the **Master node** tab.
@@ -221,7 +221,7 @@ Learn more about other cluster updates:
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. To increase disk size for {{ ES }} hosts with the *Data node* role:
-      1. Select the **{{ ui-key.yacloud.opensearch.title_data-node }}** tab.
+      1. Select the **Data node** tab.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, specify the disk size.
    1. To increase disk size for {{ ES }} hosts with the *Master node* role:
       1. Go to the **Master node** tab.

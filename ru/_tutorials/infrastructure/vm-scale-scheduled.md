@@ -535,7 +535,7 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Выберите группу `vm-scale-scheduled-ig`.
-  1. Убедитесь, что в блоке **{{ ui-key.yacloud.compute.group.overview.section_instances-state }}** каждые две минуты изменяется количество ВМ: увеличивается с 2 до 3, затем уменьшается с 3 до 2 и т. д. Также вы можете проверить обновление группы на вкладке ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.compute.group.switch_operations }}**.
+  1. Убедитесь, что в блоке **{{ ui-key.yacloud.compute.group.overview.section_instances-state }}** каждые две минуты изменяется количество ВМ: увеличивается с 2 до 3, затем уменьшается с 3 до 2 и т. д. Также вы можете проверить обновление группы на вкладке ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
 - CLI {#cli}
 

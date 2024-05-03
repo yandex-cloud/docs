@@ -115,15 +115,15 @@ If you already have an active {{ keycloak }} server, check the {{ keycloak }} se
 
 To make sure that {{ org-name }} can verify the {{ keycloak }} server certificate during authentication, add the certificate to the federation:
 
-  1. In the panel on the left, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg) and select the federation to add the certificate to (`demo-federation`).
+1. In the panel on the left, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../../_assets/organization/icon-federation.svg) and select the federation to add the certificate to (`demo-federation`).
 
-  1. At the bottom of the page, click **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
+1. At the bottom of the page, click **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
 
-  1. Enter a name for the certificate and specify the path to the `keycloak-cert.cer` file.
+1. Enter a name for the certificate and specify the path to the `keycloak-cert.cer` file.
 
 {% note tip %}
 
-To avoid authentication interruptions when the certificate expires, add multiple certificates to the federation: the current one and those to be used after it. If one certificate turns invalid, {{ yandex-cloud }} will attempt to verify the signature with another one.
+To ensure the authentication is not interrupted when the certificate expires, add multiple certificates to the federation, i.e., both the current one and those to use afterwards. If one certificate turns invalid, {{ yandex-cloud }} will attempt to verify the signature with another one.
 
 {% endnote %}
 
@@ -162,7 +162,7 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
 
    1. Click **Next**.
-   1. Specify the redirect ACS URL in the following fields:
+   1. Specify the ACS redirect URL, in the following fields:
 
       * **Home URL**
       * **Valid Redirect URIs**
@@ -198,15 +198,15 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
 1. (Optional) If you enabled the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** option when [creating a federation](#create-federation) in {{ org-full-name }}, set up digital signature verification in the SAML application:
 
-    1. On the **Keys** tab of the SAML application, check that the **Client Signature Required** option is enabled.
-    1. Click the **Import key** button under the automatically generated certificate and select **Certificate PEM** in the **Archive Format** field.
-    1. Click **Browse** and select the certificate to use for signing authentication requests. The certificate is available on the {{ org-full-name }} federation information page in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
-    1. Click **Import**.
-    1. Enable the **Encrypt Assertions** option.
-    1. In the window that opens, select the **Generate** method and click **Confirm**.
-    1. Click **Import key** under the generated certificate and select **Certificate PEM** in the **Archive Format** field.
-    1. Click **Browse** and select the certificate to use for signing authentication requests. The certificate is available on the {{ org-full-name }} federation information page in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
-    1. Click **Import**.
+   1. On the **Keys** tab of the SAML application, check that the **Client Signature Required** option is enabled.
+   1. Click the **Import key** button under the automatically generated certificate and select **Certificate PEM** in the **Archive Format** field.
+   1. Click **Browse** and select the certificate to use for signing authentication requests. The certificate is available on the {{ org-full-name }} federation information page in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
+   1. Click **Import**.
+   1. Enable the **Encrypt Assertions** option.
+   1. In the window that opens, select the **Generate** method and click **Confirm**.
+   1. Click **Import key** under the generated certificate and select **Certificate PEM** in the **Archive Format** field.
+   1. Click **Browse** and select the certificate to use for signing authentication requests. The certificate is available on the {{ org-full-name }} federation information page in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
+   1. Click **Import**.
 
 ## Set up group mapping on the {{ keycloak }} side {#kc-mapping}
 
@@ -226,7 +226,7 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 1. Add a mapper to the {{ keycloak }} application:
 
    1. On the left panel, select **Clients** and select the previously created application from the list.
-   1. Navigate to the **Client scopes** tab and select ACS URL with `-dedicated` postfix `<ACS_URL>-dedicated` from the list.
+   1. Navigate to the **Client scopes** tab and select the ACS URL with the `-dedicated` suffix: `<ACS_URL>-dedicated`.
 
       
       {% cut "How to get the federation ACS URL" %}
@@ -277,6 +277,6 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
 1. Enter the username and password for the test federated user (`demo_user1`) and click **Sign in**.
 
-   On successful authentication, the IdP server will redirect you to the ACS URL you had specified in the {{ keycloak }} settings, and from there to the [management console]({{ link-console-main }}) home page.
+   On successful authentication, the IdP server will redirect you to the ACS URL that you specified in the {{ keycloak }} settings, and then to the [management console]({{ link-console-main }}) home page.
 
 1. Ensure that the created user (`demo_user1`) belongs to `yc_demo_group` and is authorized to view resources in accordance with the role assigned to the group.

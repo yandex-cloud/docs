@@ -86,10 +86,10 @@ To create a VM:
    1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select a public [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) image.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**. In the **{{ ui-key.yacloud.compute.instances.create-disk.label_title }}** window, specify the [disk](../../compute/concepts/disk.md) settings for data storage:
-      * **{{ ui-key.yacloud.compute.disk-form.field_name }}**: `fileserver-tutorial-disk`
+      * **{{ ui-key.yacloud.compute.instances.create-disk.field_name }}**: `fileserver-tutorial-disk`
       * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`
       * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `100 {{ ui-key.yacloud.common.units.label_gigabyte }}`
-      * **{{ ui-key.yacloud.compute.disk-form.field_source }}**: `{{ ui-key.yacloud.compute.disk-form.value_source-none }}`
+      * **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}**: `{{ ui-key.yacloud.compute.instances.create-disk.value_source-none }}`
 
       Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:

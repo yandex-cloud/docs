@@ -54,7 +54,7 @@ description: "Среда выполнения выбирается при соз
 | Java 21 | `java21` | Нет | Да |
 | **.NET Core** |  |  |
 | .NET Core 3.1 | `dotnetcore31` | Нет | Нет |
-| .NET Core 6 | `dotnet6` | Нет | Да |
+| .NET Core 6 | `dotnet6` | Нет | Нет |
 | .NET Core 8 | `dotnet8` | Нет | Да |
 | **R** |  |  |
 | R 4.2 | `r42` | Нет | Нет |

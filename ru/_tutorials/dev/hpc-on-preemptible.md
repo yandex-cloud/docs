@@ -90,13 +90,12 @@
 1. Перейдите в раздел **{{ ui-key.yacloud.compute.switch_groups }}** и нажмите **{{ ui-key.yacloud.compute.groups.button_create }}**.
 1. Создайте [группу ВМ](../../compute/concepts/instance-groups/index.md):
    * В поле **{{ ui-key.yacloud.compute.groups.create.field_name }}** укажите имя будущей группы ВМ, например `compute-group`.
-   * В поле **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** добавьте [сервисный аккаунт](../../compute/concepts/instance-groups/access.md) к данной группе ВМ. Если у вас нет сервисного аккаунта, нажмите **{{ ui-key.yacloud.compute.groups.create.button_create-account }}**, укажите его имя и нажмите на кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+   * В поле **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** добавьте [сервисный аккаунт](../../compute/concepts/instance-groups/access.md) к данной группе ВМ. Если у вас нет сервисного аккаунта, нажмите **{{ ui-key.yacloud.component.service-account-select.button_create-account-new }}**, укажите его имя и нажмите на кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
    * В поле **{{ ui-key.yacloud.compute.groups.create.field_zone }}** выберите зону, в которой находится ВМ `master-node`. Зоны доступности должны совпадать, чтобы минимизировать задержки при взаимодействии ВМ.
    * В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**. Откроется экран создания [шаблона](../../compute/concepts/instance-groups/instance-template.md).
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** выберите **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**. В открывшемся окне укажите:
-       * **{{ ui-key.yacloud.compute.instances.create-disk.field_boot-type }}** — `{{ ui-key.yacloud.compute.instances.create-disk.value_boot-disk }}`.
        * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — [SSD](../../compute/concepts/disk.md#disks-types).
-       * **{{ ui-key.yacloud.compute.disk-form.field_source }}** — из созданного [снимка](../../compute/concepts/snapshot.md) `master-node-snapshot`.
+       * **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** — из созданного [снимка](../../compute/concepts/snapshot.md) `master-node-snapshot`.
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** задайте конфигурацию, аналогичную конфигурации основной ВМ:
        * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
        * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.

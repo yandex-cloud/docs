@@ -4,7 +4,7 @@
 1. [Prepare the target cluster](../../../data-transfer/operations/prepare.md#target-mg).
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-MONGO_V2 }}`
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MongoDB`
    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.on_premise.title }}`
 
       Specify the parameters for connecting to the source cluster.
@@ -17,7 +17,7 @@
 
 1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-MONGO_V2 }}`
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MongoDB`
    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}`
 
       Specify the ID of the target cluster.

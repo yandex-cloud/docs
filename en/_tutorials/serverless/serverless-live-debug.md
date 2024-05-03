@@ -349,7 +349,7 @@ Delete the folder with the resources required for interactive debugging of {{ sf
 
    1. In the [management console]({{ link-console-cloud }}), select `live-debug`.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the folder and select **{{ ui-key.yacloud.common.delete }}**.
-   1. In the **{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.field_folder-delete-after }}** field, select `{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`.
+   1. In the **{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.field_folder-delete-after }}** field, select `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`.
    1. Click **{{ ui-key.yacloud.common.delete }}**.
 
 - API {#api}

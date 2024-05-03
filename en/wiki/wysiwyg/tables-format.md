@@ -73,7 +73,7 @@ description: "In this tutorial, you will learn how to use tables and tables of c
 
    To embed a dynamic table in a page:
 
-   1. Open the table you need and click ![](../../_assets/wiki/svg/new-settings.svg) **{{ ui-key.yacloud.common.table-config }}** in the top-right corner.
+   1. Open the table you need and click ![](../../_assets/wiki/svg/new-settings.svg) **Table settings** in the top-right corner.
 
    1. Select **</> Copy embed code**.
 
