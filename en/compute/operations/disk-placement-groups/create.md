@@ -29,7 +29,7 @@ To create a [placement group](../../concepts/disk-placement-group.md) for [non-r
    1. Select a placement strategy: [spread](../../concepts/disk-placement-group.md#spread) or [partition](../../concepts/disk-placement-group.md#partition).
 
       If you select the partition placement strategy, specify the number of partitions for non-replicated disks.
-   1. Click **{{ ui-key.yacloud.compute.placement-groups.create.button_create }}**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 

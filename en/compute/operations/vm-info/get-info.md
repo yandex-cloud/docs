@@ -16,11 +16,11 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
    For more information about a certain VM, click the line with its name.
 
    Tabs:
-   * **{{ ui-key.yacloud.compute.instance.switch_overview }}** shows general information about the VM, including the [IP addresses](../../../vpc/concepts/address.md) assigned to it.
+   * **{{ ui-key.yacloud.common.overview }}** shows general information about the VM, including the [IP addresses](../../../vpc/concepts/address.md) assigned to it.
    * **{{ ui-key.yacloud.compute.instance.switch_disks }}** provides information about the [disks](../../concepts/disk.md) attached to the VM.
    * **{{ ui-key.yacloud.compute.instance.switch_file-storages }}** provides information about the [file storage](../../concepts/filesystem.md) attached.
-   * **{{ ui-key.yacloud.compute.instance.switch_operations }}** lists operations on the VM and resources attached to it, such as disks.
-   * **{{ ui-key.yacloud.compute.instance.switch_monitoring }}** shows information about resource consumption on the VM. You can only get this information from the management console or from inside the VM.
+   * **{{ ui-key.yacloud.common.operations-key-value }}** lists operations on the VM and resources attached to it, such as disks.
+   * **{{ ui-key.yacloud.common.monitoring }}** shows information about resource consumption on the VM. You can only get this information from the management console or from inside the VM.
    * **{{ ui-key.yacloud.compute.instance.switch_console }}** provides access to the [serial console](../../operations/serial-console/index.md) if enabled when [creating](../../operations/index.md#vm-create) the VM.
    * **{{ ui-key.yacloud.compute.instance.switch_service-console }}** provides information that the VM outputs to the serial port. To get this information via the API or CLI, follow the [{#T}](get-serial-port-output.md) guide.
 

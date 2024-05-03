@@ -10,7 +10,7 @@
   
   1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) напротив каталога и выберите **{{ ui-key.yacloud.common.delete }}**.
   
-  1. Укажите срок удаления каталога — период, после которого каталог будет удален. Выберите один из возможных периодов или `{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. Срок удаления каталога по умолчанию — 7 дней.
+  1. Укажите срок удаления каталога — период, после которого каталог будет удален. Выберите один из возможных периодов или `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. Срок удаления каталога по умолчанию — 7 дней.
 
   1. Нажмите **{{ ui-key.yacloud.common.delete }}**.
 

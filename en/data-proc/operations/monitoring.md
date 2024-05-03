@@ -40,7 +40,7 @@ To view detailed information about the state of individual {{ dataproc-name }} h
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
-   1. Open the VM of the host you want to monitor and select the **{{ ui-key.yacloud.compute.instance.switch_monitoring }}** tab.
+   1. Open the VM of the host you want to monitor and select the **{{ ui-key.yacloud.common.monitoring }}** tab.
 
    The tab displays charts with information on VM resource usage:
 

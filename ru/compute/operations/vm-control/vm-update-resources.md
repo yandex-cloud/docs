@@ -15,7 +15,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Нажмите на имя нужной ВМ.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.button_action-stop }}**.
+  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
   1. Подождите пока ВМ перейдет в статус `Stopped` и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
   1. Измените [конфигурацию](../../concepts/performance-levels.md) ВМ в блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
@@ -100,7 +100,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Нажмите на имя нужной ВМ.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.button_action-stop }}**.
+  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
   1. Подождите пока ВМ перейдет в статус `Stopped` и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
   1. Измените [конфигурацию](../../concepts/performance-levels.md) ВМ в блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
@@ -181,7 +181,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Нажмите на имя нужной ВМ.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.button_action-stop }}**.
+  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
   1. Подождите, пока ВМ перейдет в статус `Stopped`, и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
   1. Измените [конфигурацию](../../concepts/performance-levels.md) ВМ. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** укажите необходимое количество GPU.
@@ -259,7 +259,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Нажмите на имя нужной ВМ.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.button_action-stop }}**.
+  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
   1. Подождите пока ВМ перейдет в статус `Stopped` и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** включите опцию **{{ ui-key.yacloud.component.compute.resources.label_sw-accelerated-net }}**.

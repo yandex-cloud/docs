@@ -61,7 +61,7 @@ To create a new table:
 
    {% cut "Create rows" %}
 
-   To create a new row, click ![](../_assets/wiki/svg/add.svg) **{{ ui-key.yacloud.component.table-input.popup_title }}** at the bottom of the table.
+   To create a new row, click ![](../_assets/wiki/svg/add.svg) **Add row** at the bottom of the table.
 
    {% endcut %}
 

@@ -16,7 +16,7 @@
         1. [Подготовьте кластер-приемник](../../../data-transfer/operations/prepare.md#target-pg).
         1. [Создайте эндпоинт для источника](../../../data-transfer/operations/endpoint/index.md#create) со следующими параметрами:
 
-             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ ui-key.yacloud.data-transfer.label_endpoint-type-POSTGRES }}`.
+             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `PostgreSQL`.
              * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`.
 
            Укажите параметры подключения к кластеру-источнику.

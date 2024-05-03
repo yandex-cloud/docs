@@ -470,7 +470,7 @@
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. На панели слева нажмите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
      1. Выберите группу ВМ `auto-group`.
-     1. Перейдите на вкладку **{{ ui-key.yacloud.compute.group.switch_monitoring }}**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
 
         Балансировщик направил запрос на одну из ВМ группы. В зоне доступности этой ВМ среднее потребление CPU (график **Average CPU utilization in zone**) выше, чем в других.
 
@@ -522,9 +522,9 @@
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. На панели слева нажмите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
      1. Выберите группу ВМ `auto-group`.
-     1. Перейдите на вкладку **{{ ui-key.yacloud.compute.group.switch_monitoring }}**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
         На графике **Number of instance in zone** отображены изменения количества ВМ в каждой зоне доступности. На графике **Average CPU utilization in zone** — средняя CPU-нагрузка в каждой зоне доступности.
-     1. Перейдите на вкладку **{{ ui-key.yacloud.compute.group.switch_logs }}**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.common.logs }}**.
         На странице отображены сообщения о действиях в рамках автоматического масштабирования группы ВМ.
 
      Суммарная нагрузка в 240% CPU равномерно распределилась между двумя ВМ в двух зонах доступности и превысила целевой уровень нагрузки в 40% CPU. [{{ compute-full-name }}](../../compute/) создал по дополнительной ВМ в каждой зоне доступности и в группе стало четыре ВМ. Когда скрипт перестал создавать CPU-нагрузку, {{ compute-name }} автоматически уменьшил количество ВМ в группе до двух.

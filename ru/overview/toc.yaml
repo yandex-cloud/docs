@@ -18,6 +18,8 @@ items:
             href: concepts/zone-migration.md
           - name: Миграция ресурсов с помощью партнеров
             href: concepts/zone-migration-partners.md
+          - name: Последствия принудительной миграции из зоны {{ region-id }}-c
+            href: concepts/zone-migration-consequences.md
       - name: Устройство сети
         href: concepts/network.md
       - name: Взаимодействие пользователей и ресурсов

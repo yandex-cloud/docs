@@ -10,7 +10,7 @@
       1. На вкладке ![endpoint](../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}** нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
       1. В поле **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** выберите `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
       1. Введите имя эндпоинта, например `logs-source`.
-      1. В списке **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** выберите `{{ ui-key.yacloud.data-transfer.label_endpoint-type-YDS_ru }}`.
+      1. В списке **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** выберите `Yandex Data Streams`.
       1. Выберите базу данных, которую указали в настройках потока данных, созданного ранее.
       1. Введите имя потока данных `logs-stream`.
       1. Выберите созданный ранее сервисный аккаунт `logs-sa`.
@@ -20,7 +20,7 @@
       1. На вкладке ![endpoint](../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}** нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
       1. В поле **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** выберите `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
       1. Введите имя эндпоинта, например `logs-receiver`.
-      1. В списке **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** выберите `{{ ui-key.yacloud.data-transfer.label_endpoint-type-OBJECT_STORAGE }}`.
+      1. В списке **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** выберите `Object Storage`.
       1. Введите имя созданного ранее бакета.
       1. Выберите созданный ранее сервисный аккаунт `logs-sa`.
       1. В поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** выберите `JSON`.

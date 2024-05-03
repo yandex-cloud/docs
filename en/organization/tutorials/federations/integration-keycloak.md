@@ -697,7 +697,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
 1. Set up the SAML application parameters in the **Settings** tab:
 
-   1. Specify the ACS  redirect URL in the following fields:
+   1. Specify the ACS redirect URL, in the following fields:
 
       {% list tabs %}
 

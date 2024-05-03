@@ -133,7 +133,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-      * `--sso-binding`: Specify the Single Sign-on binding type. Most identity providers support the `POST` binding type.
+      * `--sso-binding`: Specify the single sign-on binding type. Most identity providers support the `POST` binding type.
 
       * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
@@ -155,7 +155,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
          https://accounts.google.com/o/saml2?idpid=<SAML_application_ID>
          ```
 
-      * `sso_binding`: Specify the Single Sign-on binding type. Most identity providers support the `POST` binding type.
+      * `sso_binding`: Specify the single sign-on binding type. Most identity providers support the `POST` binding type.
       * `sso_url`: URL of the page the browser redirects the user to for authentication.
 
          Use this as the destination when copying the link from the **SSO URL** field on the Google Workspace **Google IdP information** page. The link should have the following format:
@@ -265,7 +265,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-      * `ssoBinding`: Specify the Single Sign-on binding type. Most identity providers support the `POST` binding type.
+      * `ssoBinding`: Specify the single sign-on binding type. Most identity providers support the `POST` binding type.
 
       * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
@@ -532,7 +532,7 @@ When you finish configuring the server, test that everything works properly:
 
 1. Enter your credentials and click **Sign in**.
 
-On successful authentication, the IdP server will redirect you back to the ACS URL that you specified in the Google Workspace settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you can see that you are logged in to the console as a federated user.
+On successful authentication, the IdP server will redirect you back to the ACS URL that you specified in the Google Workspace settings, and then, to the [management console]({{ link-console-main }}) home page. In the top-right corner, you can see that you are logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 

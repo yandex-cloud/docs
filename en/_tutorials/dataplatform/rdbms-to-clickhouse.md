@@ -106,7 +106,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}**: `pg-user`
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}**: `<user_password>`
 
-      1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/clickhouse.md) of the `{{ ui-key.yacloud.data-transfer.label_endpoint-type-CLICKHOUSE }}` type and specify the cluster connection parameters in it:
+      1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/clickhouse.md) of the `ClickHouse` type and specify the cluster connection parameters in it:
 
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}**: `<name_of_{{ CH }}_target_cluster>` from the drop-down list
