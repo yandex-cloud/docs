@@ -18,7 +18,7 @@ Create a [placement group](../../concepts/placement-groups.md).
       {% include [name-format](../../../_includes/name-format.md) %}
 
    1. (Optional) Add a placement group description.
-   1. Click **{{ ui-key.yacloud.compute.placement-groups.create.button_create }}**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 

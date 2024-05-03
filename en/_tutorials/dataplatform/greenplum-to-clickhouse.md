@@ -68,7 +68,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/greenplum.md) of the `{{ GP }}` type, and specify the cluster connection settings in it.
 
-1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/clickhouse.md) of the `{{ ui-key.yacloud.data-transfer.label_endpoint-type-CLICKHOUSE }}` type.
+1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/clickhouse.md) of the `ClickHouse` type.
 
 1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the [{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}](../../data-transfer/concepts/index.md#transfer-type) type that will use the created endpoints.
 

@@ -29,7 +29,7 @@ To follow the steps in this section, you will need:​
 
 1. Valid certificate used for signing in the AD FS service. If you do not have a valid SSL certificate, get one.
 
-   The subject name in the certificate must contain the FQDN of the Identity Provider (IdP) server, for example, `fs.contoso.com`, to prevent the browser from blocking the authentication page.
+   To prevent the browser from blocking the authentication page, make sure the subject name in the certificate contains the IdP server's FQDN, e.g., `fs.contoso.com`.
 
 ## Create a federation in your organization {#create-federation}
 
@@ -606,7 +606,7 @@ Now that you finished configuring authentication with Active Directory, test tha
 
 1. Enter your authentication data. By default, you must enter the UPN and password. Then click **Sign in**.
 
-1. On successful authentication, AD FS will redirect you to the ACS URL that you specified in the AD FS server settings and then to the management console home page. In the top-right corner, you can see that you are logged in to the console under an Active Directory account.
+1. On successful authentication, the AD FS server will redirect you to the ACS URL that you specified in the server settings, and then, to the management console home page. In the top-right corner, you can see that you are logged in to the console under an Active Directory account.
 
 #### What's next {#what-is-next}
 

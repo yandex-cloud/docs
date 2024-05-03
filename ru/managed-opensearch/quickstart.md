@@ -41,7 +41,7 @@ description: "В этой инструкции вы научитесь созд�
 1. Задайте параметры кластера.
 
     
-    Чтобы получить доступ к веб-интерфейсу {{ OS }} Dashboards, запросите публичный доступ — для этого в блоке **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }}** с типом группы **{{ ui-key.yacloud.opensearch.title_dashboards }}** выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+    Чтобы получить доступ к веб-интерфейсу {{ OS }} Dashboards, запросите публичный доступ — для этого в блоке **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }}** с типом группы **Dashboards** выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
     {% include [mos-tip-public-dashboards](../_includes/mdb/mos/public-dashboards.md) %}
 

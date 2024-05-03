@@ -18,7 +18,7 @@
      {% include [name-format](../../../_includes/name-format.md) %}
 
   1. (Опционально) Добавьте описание группы размещения.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.placement-groups.create.button_create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 

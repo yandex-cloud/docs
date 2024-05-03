@@ -188,14 +188,14 @@ After you created the subnet and security group, proceed to create a virtual ser
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the **NAT instance powered by Ubuntu 22.04 LTS** product.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, configure the first network interface:
 
-      * **{{ ui-key.yacloud.compute.groups.create.label_instance-net }}**: `bastion-external-segment`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `bastion-external-segment`.
       * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: Select from the list the [IP address](#get-static-ip) reserved earlier.
       * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: `secure-bastion-sg`.
 
    1. Click **{{ ui-key.yacloud.compute.instances.create.label_add-network-interface }}** and configure the second network interface:
 
-      * **{{ ui-key.yacloud.compute.groups.create.label_instance-net }}**: `bastion-internal-segment`
+      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `bastion-internal-segment`
       * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`
       * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `172.16.16.254`
       * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: `internal-bastion-sg`
@@ -242,7 +242,7 @@ If you already have a virtual machine, add a new network interface to it. If not
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an operating system.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, configure a network interface:
 
-      * **{{ ui-key.yacloud.compute.groups.create.label_instance-net }}**: `bastion-internal-segment`
+      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `bastion-internal-segment`
       * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`
       * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`
       * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: `internal-bastion-sg`

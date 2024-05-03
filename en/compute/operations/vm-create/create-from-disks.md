@@ -35,7 +35,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
       * Specify the required block size.
       * Specify the required disk size.
       * {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
-      * (Optional) Enable the **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}** option if you need to automatically delete the disk when deleting the VM it will be attached to.
+      * (Optional) Enable the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** option if you need to automatically delete the disk when deleting the VM it will be attached to.
       * Select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}` as content.
       * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
    1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../concepts/filesystem.md):

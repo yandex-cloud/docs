@@ -116,7 +116,7 @@ keywords:
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
   1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
   1. Чтобы изменить класс хостов {{ ES }} с ролью *Data node*:
-     1. Выберите вкладку **{{ ui-key.yacloud.opensearch.title_data-node }}**.
+     1. Выберите вкладку **Data node**.
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите нужный класс для хоста.
   1. Чтобы изменить класс хостов {{ ES }} с ролью *Master node*:
      1. Выберите вкладку **Master node**.
@@ -221,7 +221,7 @@ keywords:
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
   1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
   1. Чтобы увеличить размер диска для хостов {{ ES }} с ролью *Data node*:
-     1. Выберите вкладку **{{ ui-key.yacloud.opensearch.title_data-node }}**.
+     1. Выберите вкладку **Data node**.
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}** укажите необходимый размер диска.
   1. Чтобы увеличить размер диска для хостов {{ ES }} с ролью *Master node*:
      1. Выберите вкладку **Master node**.

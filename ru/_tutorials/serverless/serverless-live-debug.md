@@ -349,7 +349,7 @@
 
   1. В [консоли управления]({{ link-console-cloud }}) выберите каталог `live-debug`. 
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) напротив каталога и выберите **{{ ui-key.yacloud.common.delete }}**.
-  1. В поле **{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.field_folder-delete-after }}** выберите `{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`.
+  1. В поле **{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.field_folder-delete-after }}** выберите `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`.
   1. Нажмите **{{ ui-key.yacloud.common.delete }}**.
 
 - API {#api}

@@ -7,7 +7,7 @@ description: "Из статьи вы узнаете, как редактиров
 
 ## Общие настройки {#general-settings}
 
-Чтобы изменить [таблицу](pages-types.md#grid), откройте ее и в правом верхнем углу нажмите кнопку ![](../_assets/wiki/svg/wysiwyg/grid-settings.svg) **{{ ui-key.yacloud.common.table-config }}**. Выберите действие:
+Чтобы изменить [таблицу](pages-types.md#grid), откройте ее и в правом верхнем углу нажмите кнопку ![](../_assets/wiki/svg/wysiwyg/grid-settings.svg) **Настройки таблицы**. Выберите действие:
 
   * [Настроить столбцы](#column-transfer);
   * [Сортировка по умолчанию](#sort-line);
@@ -129,7 +129,7 @@ description: "Из статьи вы узнаете, как редактиров
 
 ## Добавить и удалить строки {#edit-line}
 
-* Чтобы создать новую строку, внизу таблицы нажмите ![](../_assets/wiki/svg/add.svg) **{{ ui-key.yacloud.component.table-input.popup_title }}**.
+* Чтобы создать новую строку, внизу таблицы нажмите ![](../_assets/wiki/svg/add.svg) **Добавить строку**.
 
 * Чтобы удалить строку, наведите на нее курсор и нажмите значок ![](../_assets/wiki/svg/delete-line.svg) **Удалить строку**.
 
@@ -147,7 +147,7 @@ description: "Из статьи вы узнаете, как редактиров
 
 Чтобы добавить несколько фильтров:
 
-1. В правом верхнем углу таблицы нажмите кнопку ![](../_assets/wiki/svg/wysiwyg/grid-settings.svg) **{{ ui-key.yacloud.common.table-config }}**.
+1. В правом верхнем углу таблицы нажмите кнопку ![](../_assets/wiki/svg/wysiwyg/grid-settings.svg) **Настройки таблицы**.
 
 1. Нажмите кнопку **Сортировка по умолчанию**.
 

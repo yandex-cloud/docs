@@ -16,11 +16,11 @@
   Для получения подробной информации о ВМ нажмите на строку с ее именем.
 
   На вкладке:
-  * **{{ ui-key.yacloud.compute.instance.switch_overview }}** приводится общая информация о ВМ, в том числе [IP-адреса](../../../vpc/concepts/address.md), присвоенные ВМ.
+  * **{{ ui-key.yacloud.common.overview }}** приводится общая информация о ВМ, в том числе [IP-адреса](../../../vpc/concepts/address.md), присвоенные ВМ.
   * **{{ ui-key.yacloud.compute.instance.switch_disks }}** приводится информация о [дисках](../../concepts/disk.md), подключенных к ВМ.
   * **{{ ui-key.yacloud.compute.instance.switch_file-storages }}** приводится информация о подключенных [файловых хранилищах](../../concepts/filesystem.md).
-  * **{{ ui-key.yacloud.compute.instance.switch_operations }}** приводится список операций с ВМ и подключенными к ней ресурсами, например дисками.
-  * **{{ ui-key.yacloud.compute.instance.switch_monitoring }}** приводится информация о потреблении ресурсов на ВМ. Эту информацию можно получить только в консоли управления или изнутри ВМ.
+  * **{{ ui-key.yacloud.common.operations-key-value }}** приводится список операций с ВМ и подключенными к ней ресурсами, например дисками.
+  * **{{ ui-key.yacloud.common.monitoring }}** приводится информация о потреблении ресурсов на ВМ. Эту информацию можно получить только в консоли управления или изнутри ВМ.
   * **{{ ui-key.yacloud.compute.instance.switch_console }}** предоставлен доступ к [серийной консоли](../../operations/serial-console/index.md), если при [создании](../../operations/index.md#vm-create) ВМ вы разрешили к ней доступ.
   * **{{ ui-key.yacloud.compute.instance.switch_service-console }}** приводится информация, которую ВМ выводит в последовательный порт. Чтобы получить эту информацию через API или CLI, воспользуйтесь инструкцией [{#T}](get-serial-port-output.md).
 

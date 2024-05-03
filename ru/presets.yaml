@@ -3693,6 +3693,9 @@ default:
         label_service: Yandex Cloud Billing
         switch_accounts: Список аккаунтов
         title_accounts: Платёжные аккаунты
+      component:
+        iam-delete-folder-or-cloud-dialog:
+          label_delete-now: Удалить сейчас
     yacloud_components:
       acl:
         action:
@@ -4045,7 +4048,7 @@ default:
         section_webserver: Конфигурация веб-сервера
         section_workers: Конфигурация воркеров
       alb:
-        button_add-backend: Добавить бэкенд
+        button_add-backend: Создать бэкенд
         button_add-discard-rule: Добавить правило отбрасывания логов
         button_add-healthcheck: Добавить проверку состояния
         button_add-listener: Добавить обработчик
@@ -4381,14 +4384,13 @@ default:
             label_password: Пароль
             label_username: Имя пользователя БД
           format-schemas:
+            button_action-delete-format-schema: Удалить
+            button_action-edit-format-schema: Изменить
             button-action_add-format-schema: Добавить схему
             dialog:
               field_format-schema-uri: URL
               label_add: Добавить
               title_add: Добавление схемы
-            table:
-              button_action-delete-format-schema: Удалить
-              button_action-edit-format-schema: Изменить
           ml-models:
             button_action-delete-ml-model: Удалить
             button_action-edit-ml-model: Изменить
@@ -4451,7 +4453,6 @@ default:
         label_subnet: Подсеть
         label_tcp: TCP
         label_udp: UDP
-        label_value: Значение
         labels: Метки
         logs: Логи
         metadata: Метаданные
@@ -4486,7 +4487,6 @@ default:
         select: Выбрать
         start: Запустить
         stop: Остановить
-        table-config: Настройки таблицы
         type: Тип
         units:
           label_gigabyte: ГБ
@@ -4538,7 +4538,6 @@ default:
             field_memory: RAM
             field_platform: Платформа
             field_preemptible: Прерываемая
-            label_platform-standard-v2: Intel Cascade Lake
             label_sw-accelerated-net: Программно-ускоренная сеть
             value_platform-tab-gpu: Есть GPU
         console-dashboard:
@@ -4561,7 +4560,6 @@ default:
           title_recovery-container: К восстановлению
         iam-delete-folder-or-cloud-dialog:
           field_folder-delete-after: Срок удаления каталога
-          label_delete-now: Удалить сейчас
         image-field:
           button_custom-image: Укажите ссылку
         internal-v4-address-field:
@@ -4598,8 +4596,6 @@ default:
           button_create-key: Создать ключ
           button_create-key-new: Создать новый
           label_no-symmetric-key: Не выбрано
-        table-input:
-          popup_title: Добавить строку
         vpc-security-group-select:
           label_add-security-group: Добавить группу безопасности
         vpc:
@@ -4616,19 +4612,15 @@ default:
             field_zone: Зона доступности
           network-select:
             button_create-network: Создать сеть
-            button_create-subnetwork: Добавить подсеть
+            button_create-subnetwork: Создать подсеть
       compute:
         attach-disk:
           button_attach: Подключить
-          field_auto-delete: Автоматическое удаление
           field_instance: ВМ
         button_relocate-to-another-zone: Перенести в другую зону
         disk-form:
-          field_name: Имя
           field_size: Размер
-          field_source: Наполнение
           field_type: Тип
-          value_source-none: Пустой
         disk:
           overview:
             label_status: Статус
@@ -4645,6 +4637,8 @@ default:
           field_new-availability-zone: Новая зона доступности
           label_disk-used: Подключен
           popup_detach-disk_button_detach: Отсоединить
+        field_additional: Дополнительно
+        field_disk-autodelete: Удалять вместе с виртуальной машиной
         group:
           edit:
             label_title: Изменение группы виртуальных машин
@@ -4653,9 +4647,6 @@ default:
             section_base: Общая информация
             section_instances-state: Состояния виртуальных машин
           switch_instances: Список ВМ
-          switch_logs: Логи
-          switch_monitoring: Мониторинг
-          switch_operations: Операции
         groups:
           button_action-pause: Приостановить процессы
           button_action-resume: Возобновить процессы
@@ -4663,8 +4654,6 @@ default:
           button_action-stop: Остановить группу
           button_create: Создать группу виртуальных машин
           create:
-            button_create: Создать
-            button_create-account: Создать аккаунт
             button_edit: Сохранить
             button_instance_empty-create: Задать
             field_alb-pre-checks-timeout: Время ожидания трафика
@@ -4704,7 +4693,6 @@ default:
             field_warmup-duration: Время на разогрев ВМ
             field_zone: Зона доступности
             label_custom-metrics: Метрики
-            label_instance-net: Сетевые настройки
             metric-type-cpu: CPU
             metric-type-custom: Пользовательская
             section_alb: Интеграция с Application Load Balancer
@@ -4734,7 +4722,6 @@ default:
         images:
           button_action-image: Создать образ
           button_upload: Загрузить образ
-          column_id: Идентификатор
           label_title: Образы
           popup-confirm_button_delete: Удалить
           popup-upload_button_upload: Загрузить
@@ -4749,7 +4736,6 @@ default:
           label_vm: Виртуальная машина
           overview:
             button_action-edit: Изменить ВМ
-            button_action-stop: Остановить
             button_add-public-ip: Добавить публичный IP-адрес
             button_edit-network-interface: Изменить сетевой интерфейс
             button_remove-public-ip: Отвязать публичный IP-адрес
@@ -4764,9 +4750,6 @@ default:
           switch_console: Серийная консоль
           switch_disks: Диски
           switch_file-storages: Файловые хранилища
-          switch_monitoring: Мониторинг
-          switch_operations: Операции
-          switch_overview: Обзор
           switch_service-console: Последовательный порт
         instances:
           button_action-restart: Перезапустить
@@ -4775,14 +4758,12 @@ default:
           button_start-instance-relocation: Начать перенос
           create-disk:
             button_create: Добавить
-            field_additional: Дополнительно
-            field_auto-delete: Удалять вместе с ВМ
-            field_boot-type: Назначение диска
+            field_name: Имя
             field_source: Наполнение
             label_title: Добавление дополнительного диска
-            value_boot-disk: Загрузочный
             value_source-disk: Диск
             value_source-image: Образ
+            value_source-none: Пустой
             value_source-snapshot: Снимок
           create:
             button_choose: Выбрать
@@ -4876,8 +4857,6 @@ default:
           button_create: Создать
           button_menu-create-disk-placement-group: Группу размещения нереплицируемых дисков
           button_menu-create-instance-placement-group: Группу размещения виртуальных машин
-          create:
-            button_create: Создать
           label_tab-disks: Группы размещения нереплицируемых дисков
           label_tab-instances: Группы размещения виртуальных машин
         snapshots-schedules:
@@ -4976,15 +4955,6 @@ default:
         label_connector-status-DONE: Завершен
         label_connector-status-RUNNING: Реплицируется
         label_connectors: Трансферы
-        label_endpoint-type-CLICKHOUSE: ClickHouse
-        label_endpoint-type-GREENPLUM: Greenplum
-        label_endpoint-type-KAFKA: Kafka
-        label_endpoint-type-MONGO_V2: MongoDB
-        label_endpoint-type-MYSQL: MySQL
-        label_endpoint-type-OBJECT_STORAGE: Object Storage
-        label_endpoint-type-POSTGRES: PostgreSQL
-        label_endpoint-type-YDB: YDB
-        label_endpoint-type-YDS_ru: Yandex Data Streams
         label_endpoints: Эндпоинты
         label_monitoring: Мониторинг
       dataproc:
@@ -5855,6 +5825,7 @@ default:
           network_field_form-type: Формат указания сети
           network_field_subnetwork: Подсеть
           new_section_resource: Ресурсы
+          resource_presets_field_gen_v2: Intel Cascade Lake
           resource_presets_field_gen_v3: Intel Ice Lake
           resource_presets_field-generation: Платформа
           resource_presets_field-type: Тип
@@ -5954,8 +5925,6 @@ default:
             action_delete: Удалить
             title_node-groups: Группы хостов
             title_virtual-node-group: Группа виртуальных хостов
-        title_dashboards: Dashboards
-        title_data-node: Data node
         title_opensearch-dashboards-section: OpenSearch Dashboards
       postgresql:
         cluster:
@@ -6435,12 +6404,12 @@ default:
         label_network: Сеть
         network:
           overview:
-            button_create_subnetwork: Добавить подсеть
+            button_create_subnetwork: Создать подсеть
             column_subnetwork_id: Идентификатор
             section_subnetworks: Подсети
           security-groups:
             button_add-rule: Добавить правило
-            button_create: Создать группу
+            button_create: Создать группу безопасности
             forms:
               button_add-cidr: Добавить CIDR
               button_select-all-port-range: Выбрать весь диапазон
@@ -8005,7 +7974,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: 1.14.4
+        tag: 1.14.5
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
@@ -8049,7 +8018,7 @@ default:
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
-        tag: 1.18.0-1a
+        tag: 1.21.2-1
     yc_kyverno:
       helmChart:
         name: cr.yandex/yc-marketplace/multi-kyverno

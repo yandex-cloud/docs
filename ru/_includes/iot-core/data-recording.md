@@ -122,7 +122,7 @@
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** выберите `PRODUCTION`.
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите `12`.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
-        * Укажите платформу `{{ ui-key.yacloud.component.compute.resources.label_platform-standard-v2 }}`.
+        * Укажите платформу `{{ ui-key.yacloud.mdb.forms.resource_presets_field_gen_v2 }}`.
         * Выберите тип `burstable`.
         * Укажите класс `b2.medium`.
 

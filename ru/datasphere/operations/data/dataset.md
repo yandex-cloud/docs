@@ -207,6 +207,12 @@
 
 Чтобы датасет стал доступен для работы в другом проекте, администратор проекта должен [добавить](../projects/use-shared-resource.md) его на вкладке **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}**.
 
+## Деактивировать датасет {#deactivate}
+
+1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
+1. На странице проекта в блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
+1. В строке с нужным датасетом нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.deactivate }}**.
+
 ## Удалить датасет {#delete}
 
 Вы можете удалить датасет, только если он:

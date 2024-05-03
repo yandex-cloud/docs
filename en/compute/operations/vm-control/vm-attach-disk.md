@@ -33,7 +33,7 @@ You can only attach a local disk to a VM on a [dedicated host](../../concepts/de
 
 
       * Enter a device name.
-      * Enable the **{{ ui-key.yacloud.compute.attach-disk.field_auto-delete }}** option if needed.
+      * Enable the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** option if needed.
    1. Click **{{ ui-key.yacloud.compute.attach-disk.button_attach }}**.
 
 - CLI {#cli}

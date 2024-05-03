@@ -41,7 +41,7 @@ These instructions assume that you are connecting to the cluster from the intern
 1. Set the cluster parameters.
 
    
-   To get access to the {{ OS }} Dashboards web interface, request public access. To do this, go to **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }}** with the **{{ ui-key.yacloud.opensearch.title_dashboards }}** group type and select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+   To get access to the {{ OS }} Dashboards web interface, request public access. To do this, go to **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }}** with the **Dashboards** group type and select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
    {% include [mos-tip-public-dashboards](../_includes/mdb/mos/public-dashboards.md) %}
 

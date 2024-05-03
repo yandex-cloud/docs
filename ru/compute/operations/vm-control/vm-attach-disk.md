@@ -33,7 +33,7 @@
 
 
      * Укажите название устройства.
-     * При необходимости включите опцию **{{ ui-key.yacloud.compute.attach-disk.field_auto-delete }}**.
+     * При необходимости включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.attach-disk.button_attach }}**.
 
 - CLI {#cli}
