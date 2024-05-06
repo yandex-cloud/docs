@@ -49,7 +49,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
       {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -61,7 +61,6 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
    To create a trigger that invokes a function, run this command:
 
-   
    ```bash
    yc serverless trigger create logging \
      --name <trigger_name> \
@@ -80,7 +79,6 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
      --dlq-service-account-id <service_account_ID>
    ```
 
-
    Where:
 
    * `--name`: Trigger name.
@@ -94,7 +92,6 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
    Result:
 
-   
    ```text
    id: a1sfe084v4**********
    folder_id: b1g88tflru**********
@@ -127,7 +124,6 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
    status: ACTIVE
    ```
 
-
 - {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -136,78 +132,64 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
    To create a trigger for {{ cloud-logging-name }}:
 
-   1. In the configuration file, describe the trigger parameters.
+   1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
 
-      Here is an example of the configuration file structure:
-
-      ```hcl
+      ```
       resource "yandex_function_trigger" "my_trigger" {
         name        = "<trigger_name>"
         description = "<trigger_description>"
-        logging {
-           group_id       = "<log_group_name>"
-           resource_types = [ "<resource_type>" ]
-           resource_ids   = [ "<resource_ID>" ]
-           levels         = [ "INFO", "ERROR" ]
-           stream_names   = [ "<logging_stream>" ]
-           batch_cutoff   = 1
-           batch_size     = 1
-        }
         function {
            id                 = "<function_ID>"
            service_account_id = "<service_account_ID>"
+           retry_attempts     = "<number_of_retry_invocation_attempts>"
+           retry_interval     = "<interval_between_retry_attempts>"
+        }
+        logging {
+           group_id       = "<log_group_ID>"
+           resource_types = [ "<resource_type>" ]
+           resource_ids   = [ "<resource_ID>" ]
+           levels         = [ "INFO", "ERROR" ]
+           stream_names   = [ "<log_stream>" ]
+           batch_cutoff   = "<timeout>"
+           batch_size     = "<event_batch_size>"
+        }
+        dlq {
+          queue_id           = "<queue_ID>"
+          service_account_id = "<service_account_ID>"
         }
       }
       ```
 
       Where:
 
-      * `name`: Trigger name. The name format is as follows:
+      {% include [tf-function-params](../../../_includes/functions/tf-function-params.md) %}
 
-         {% include [name-format](../../../_includes/name-format.md) %}
+      * `logging`: Trigger parameters:
 
-      * `description`: Trigger description.
-      * `logging`: Logging parameters, which will activate the trigger when added to the log group, and the batch message settings:
          * `group_id`: Log group ID.
          * `resource_types`: Resource types, e.g., `resource_types = [ "serverless.function" ]` for {{ sf-name }} functions. You can specify multiple types.
          * `resource_ids`: IDs of your resources or {{ yandex-cloud }} resources, e.g., `resource_ids = [ "<function_ID>" ]` functions. You can specify multiple IDs.
          * `levels`: Logging levels. For example, `levels = [ "INFO", "ERROR"]`.
          * `stream_names`: Log streams.
+
             A trigger fires when the specified log group receives records that match all of the following parameters: `resource-ids`, `resource-types`, `stream-names`, and `levels`. If a parameter is not specified, the trigger fires for any value of the parameter.
-         * `batch_cutoff`: Maximum wait time. Acceptable values are from 0 to 60 seconds. The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function or container. At the same time, the number of messages does not exceed the specified `batch-size` group.
-         * `batch_size`: Message batch size. Acceptable values are from 1 to 100.
-      * `function`: Settings for the function, which will be activated by the trigger:
-         * `id`: Function ID.
-         * `service_account_id`: ID of the service account with rights to invoke a function.
 
-      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+         * `batch_cutoff`: Maximum wait time. Acceptable values are from 0 to 60 seconds. The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function. At the same time, the number of messages does not exceed the specified `batch-size`.
+         * `batch_size`: Message batch size. Acceptable values are from 1 to 10.
 
-   1. Make sure the configuration files are correct.
+      {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run a check using this command:
+      For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-         ```
-         terraform plan
-         ```
+   1. Create resources:
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   1. Deploy cloud resources.
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
-      1. If the configuration does not contain any errors, run this command:
-
-         ```
-         terraform apply
-         ```
-
-      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
-
-         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
-
-         ```
-         yc serverless trigger get <trigger_ID>
-         ```
+      ```bash
+      yc serverless trigger get <trigger_ID>
+      ```
 
 - API {#api}
 

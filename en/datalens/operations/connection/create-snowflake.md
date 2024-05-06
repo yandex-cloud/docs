@@ -7,12 +7,8 @@ description: "Follow this guide to create a Snowflake connection."
 
 To create a Snowflake connection:
 
-
-{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
-
-
-1. Go to the [connections page]({{ link-datalens-main }}/connections).
-1. Click **Create connection**.
+1. Go to the [connections page](https://datalens.yandex.ru/connections).
+1. Click **Create connection**.
 1. Select a **Snowflake** connection.
 1. Fill out the fields in the **Authentication** section.
 
@@ -47,7 +43,7 @@ To create a Snowflake connection:
    * **Database name**: [Name](https://docs.snowflake.com/en/sql-reference/sql/create-database#create-database) of the database you are connecting to.
    * **Database schema**: Database [schema](https://docs.snowflake.com/en/sql-reference/sql/create-schema#create-schema).
    * **Warehouse**: [Storage](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#create-warehouse) used by the database.
-   * **User role**: [Role of the user](https://docs.snowflake.com/en/sql-reference/sql/create-role#create-role) who has rights to access the database you are connecting to.
+   * **User role**: [Role of the user](https://docs.snowflake.com/en/sql-reference/sql/create-role#create-role) who has access to the database you are connecting to.
 
-1. Check the connection and click **Create connection**.
+1. Check the connection and click **Create connection**. If you use a new {{ datalens-short-name }} object model with [workbooks and collections](../../../datalens/workbooks-collections/index.md), select or create a workbook to save the connection to.
 1. Enter a name for the connection and click **Create**.

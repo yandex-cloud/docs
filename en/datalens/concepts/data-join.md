@@ -73,6 +73,7 @@ In some charts based on a dataset with [joined tables](#ui-join), you can only u
 
 Optimization is used under the following conditions:
 
+* The **Optimize link** option is enabled in the [table link settings](../operations/dataset/join-data.md).
 * A chart only uses fields of one of the joined tables.
 * There are no fields from the other tables in any of the chart sections.
 * Fields from the other tables are not used in the chart's calculated fields.

@@ -6,17 +6,16 @@ description: "Follow this guide to manage a transfer."
 # Managing transfer process
 
 You can:
+* [Get a list of transfers](#list)
+* [Create a transfer](#create)
+* [Update a transfer](#update)
+* [Activate a transfer](#activate)
+* [Deactivate a transfer](#deactivate)
+* [Delete a transfer](#delete)
 
-* [Retrieve a transfer list](#list).
-* [Create a transfer](#create).
-* [Update a transfer](#update).
-* [Activate a transfer](#activate).
-* [Deactivate a transfer](#deactivate).
-* [Delete a transfer](#delete).
+For more information about [transfer](../concepts/index.md#transfer) statuses, possible operations on transfers, and limits, see [{#T}](../concepts/transfer-lifecycle.md).
 
-For more information about transfer states, operations applicable to transfers, and existing limitations, please see [{#T}](../concepts/transfer-lifecycle.md).
-
-To move a transfer and endpoints to a different [availability zone](../../overview/concepts/geo-scope.md), follow this [guide](endpoint/migration-to-an-availability-zone.md).
+To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different [availability zone](../../overview/concepts/geo-scope.md), follow [this guide](endpoint/migration-to-an-availability-zone.md).
 
 ## Getting a list of transfers {#list}
 
@@ -33,7 +32,7 @@ To move a transfer and endpoints to a different [availability zone](../../overvi
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get a list of transfers in a folder, run the following command:
+    To get a list of transfers in a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), run the following command:
 
     ```bash
     {{ yc-dt }} transfer list
@@ -57,43 +56,33 @@ To move a transfer and endpoints to a different [availability zone](../../overvi
    1. Select the source endpoint or [create](./endpoint/index.md#create) a new one.
    1. Select the target endpoint or [create](./endpoint/index.md#create) a new one.
    1. Specify the transfer parameters:
-
       * **{{ ui-key.yacloud.common.name }}**.
       * (Optional) **{{ ui-key.yacloud.common.description }}**.
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.type.title }}**:
-
          * {{ dt-type-copy }}: Creates a full copy of data without receiving further updates from the source.
-
             * {% include [field periodic snapshot](../../_includes/data-transfer/fields/periodic-snapshot.md) %}
-
-            * {% include [field incremental tables](../../_includes/data-transfer/fields/incremental-tables.md) %}
-
-            * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
-
-         * {{ dt-type-repl }}: Allows you to receive data updates from the source and apply them to the target (without creating a full copy of the source data).
-
-            * {% include [field parallel repl](../../_includes/data-transfer/fields/parallel-repl.md) %}
-
-         * {{ dt-type-copy-repl }}: Creates a full copy of the source data and keeps it up-to-date.
-
-            * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
+               * {% include [field incremental tables](../../_includes/data-transfer/fields/incremental-tables.md) %}
+               * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
+            * {{ dt-type-repl }}: Allows you to receive data updates from the source and apply them to the target (without creating a full copy of the source data).
+               * {% include [field parallel repl](../../_includes/data-transfer/fields/parallel-repl.md) %}
+            * {{ dt-type-copy-repl }}: Creates a full copy of the source data and keeps it up-to-date.
+               * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
 
 
       * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}**: Specify the full path to each object to be transferred. Only objects from this list will be transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
 
          Enter the full name of the object. Depending on the source type, use the appropriate naming convention:
-
          * {{ CH }}: `<database_name>.<table_path>`
          * {{ GP }}: `<schema_name>.<table_path>`
          * {{ MG }}: `<database_name>.<collection_path>`
          * {{ MY }}: `<database_name>.<table_path>`
-         * {{ PG }}: `<schema_name>.<table path>`
+         * {{ PG }}: `<schema_name>.<table_path>`
          * {{ ydb-short-name }}: table path
          * Oracle: `<schema_name>.<table_path>`
 
          If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will end with an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately; an inactive one will terminate as soon as activated.
 
-      * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}**: Rules for [transforming data](../concepts/data-transformation.md). This setting only appears when the source and target are of different types. Some transformers may have limitations and only apply to some source-target pairs.
+      * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}**: [Data transformation](../concepts/data-transformation.md) rules. This setting only appears when the source and target are of different types. Some transformers may have limitations and only apply to some source-target pairs.
 
          {% include [list-of-transformers](../../_includes/data-transfer/list-of-transformers.md) %}
 

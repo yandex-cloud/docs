@@ -43,7 +43,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -113,6 +113,83 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
    status: ACTIVE
    ```
 
+
+- {{ TF }} {#tf}
+
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   To create a trigger for {{ container-registry-name }}:
+
+   1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+
+      ```
+      resource "yandex_function_trigger" "my_trigger" {
+        name = "<trigger_name>"
+        container {
+          id                 = "<container_ID>"
+          service_account_id = "<service_account_ID>"
+          retry_attempts     = "<number_of_retry_invocation_attempts>"
+          retry_interval     = "<interval_between_retry_attempts>"
+        }
+        container_registry {
+          registry_id      = "<registry_ID>"
+          image_name       = "<image_name>"
+          tag              = "<image_tag>"
+          create_image     = true
+          delete_image     = true
+          create_image_tag = true
+          delete_image_tag = true
+          batch_cutoff     = "<timeout>"
+          batch_size       = "<event_batch_size>"
+        }
+        dlq {
+          queue_id           = "<queue_ID>"
+          service_account_id = "<service_account_ID>"
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Trigger name. The name format is as follows:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      * `container-name`: Container parameters:
+
+         {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
+
+         {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
+
+      * `container_registry`: Trigger parameters:
+
+         * `registry_id`: Registry ID
+         * `image_name`: Docker image name
+         * `tag`: Docker image tag
+         * Select one or more event types to be handled by the trigger:
+
+            * `create_image`: Trigger will invoke the container when a new Docker image is created in the registry. It may take either the `true` or `false` value.
+            * `delete_image`: Trigger will invoke the container when a Docker image is deleted from the registry. It may take either the `true` or `false` value.
+            * `create_image_tag`: Trigger will invoke the container when a new Docker image tag is created in the registry. It may take either the `true` or `false` value.
+            * `delete_image_tag`: Trigger will invoke the container when a Docker image tag is deleted from the registry. It may take either the `true` or `false` value.
+
+         {% include [tf-batch-msg-params](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
+
+         {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
+
+      For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+
+      ```bash
+      yc serverless trigger get <trigger_ID>
+      ```
 
 - API {#api}
 

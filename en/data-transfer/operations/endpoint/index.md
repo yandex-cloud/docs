@@ -1,6 +1,6 @@
 # Managing endpoints
 
-The source [endpoint](../../concepts/index.md#endpoint) describes the settings of the database that information will be transferred from using {{ data-transfer-name }}, while the target endpoint, the database you are going to transfer the data to. You can [create](#create), [edit](#update), [clone](#clone), or [delete](#delete) such endpoints.
+The source [endpoint](../../concepts/index.md#endpoint) describes the settings of the database from which the information will be transferred using {{ data-transfer-name }}, while the target endpoint, the database you are going to transfer the data to. You can [create](#create), [edit](#update), [clone](#clone), or [delete](#delete) such endpoints.
 
 ## Getting a list of endpoints {#list}
 
@@ -17,7 +17,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   To get a list of transfers in a folder, run the following command:
+   To get a list of [transfers](../../concepts/index.md#transfer) in a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), run the following command:
 
    ```bash
    {{ yc-dt }} endpoint list
@@ -30,6 +30,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 {% endlist %}
 
 ## Creating an endpoint {#create}
+
 
 {% include [access-requirements](../../../_includes/data-transfer/note-on-required-role.md) %}
 
@@ -55,15 +56,13 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
    {% note info %}
 
-   You can create endpoints using the CLI commands only for {{ CH }}, {{ MG }}, {{ MY }}, and {{ PG }} sources and targets.
+   You can create endpoints using the [CLI](../../../cli/) commands only for sources and targets of the {{ CH }}, {{ MG }}, {{ MY }}, and {{ PG }} types.
 
    {% endnote %}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-   To create an endpoint:
 
    1. View a description of the CLI create endpoint command:
 
@@ -98,8 +97,6 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
-   To create an endpoint:
-
    1. Create a configuration file with a description of your endpoint.
 
       Here is an example of the configuration file structure:
@@ -127,7 +124,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-      
+   
    1. For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 
@@ -140,8 +137,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
     {% endnote %}
 
     Use the [create](../../api-ref/Endpoint/create) API method and include the following information in the request:
-
-    * ID of the folder to host the endpoint, in the `folderId` parameter.
+    * ID of the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to contain the endpoint in the `folderId` parameter.
     * Endpoint name in the `name` parameter.
     * Endpoint description in the `description` parameter.
     * Endpoint parameters in the `settings` parameter.
@@ -152,12 +148,13 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
 ## Updating the endpoint {#update}
 
+
 {% include [access-requirements](../../../_includes/data-transfer/note-on-required-role.md) %}
 
 
 {% note info %}
 
-You cannot change the endpoint and database types. For some endpoints, you cannot change the connection type, either.
+You cannot change the endpoint type and the database type. For some endpoints, you cannot change the connection type, either.
 
 {% endnote %}
 
@@ -198,9 +195,9 @@ You cannot change the endpoint and database types. For some endpoints, you canno
 
       ```bash
       {{ yc-dt }} transfer update <endpoint_type> <endpoint_ID> \
-         --name <endpoint_name> \
-         --description <endpoint_description> \
-         <endpoint_parameters>
+        --name <endpoint_name> \
+        --description <endpoint_description> \
+        <endpoint_parameters>
       ```
 
       You can view the endpoint type and parameters in the settings section for the appropriate data source or target. You can get the endpoint ID with a [list of endpoints in the folder](#list).
@@ -247,7 +244,7 @@ Editing the endpoint settings of a transfer with the {{ dt-type-repl }} type and
 
 {% note info %}
 
-You cannot change the endpoint and database types when cloning.
+When cloning, you cannot change the endpoint type and the database type.
 
 {% endnote %}
 

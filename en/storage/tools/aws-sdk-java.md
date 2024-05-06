@@ -1,5 +1,6 @@
 # AWS SDK for Java
 
+
 The [AWS SDK for Java](https://aws.amazon.com/ru/sdk-for-java/) is a set of tools for developers working with AWS services.
 
 ## Getting started {#before-you-begin}
@@ -8,7 +9,7 @@ The [AWS SDK for Java](https://aws.amazon.com/ru/sdk-for-java/) is a set of tool
 
 {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-## Installing {#installation}
+## Installation {#installation}
 
 {% include [install-java-sdk](../../_includes/aws-tools/install-java-sdk.md)%}
 

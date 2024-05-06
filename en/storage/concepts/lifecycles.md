@@ -4,7 +4,7 @@
 
 Types of actions:
 
-* Change the [storage class](./storage-class.md) of objects or their non-current [versions](./versioning.md) to a "colder" one.
+* Change the [storage class](./storage-class.md) of objects or their non-current [versions](./versioning.md) to a "colder" one. You can set the change of the storage class to `ICE` using YC CLI, AWS CLI, {{ TF }}, and the API.
 * Delete objects or their non-current versions.
 * Delete incomplete multipart uploads.
 

@@ -6539,7 +6539,6 @@ default:
           label_endpoint: Эндпоинт
           label_serverless-billing: Тарификация
           label_serverless-limits: Ограничения
-          label_title: Обзор
           section_connection: Соединение
         sql:
           button_run: Выполнить
@@ -7620,7 +7619,6 @@ default:
         resume: Продолжить
         save: Сохранить
         shared-with-project-resources: Доступные
-        show-additional-parameters: Показать дополнительные параметры
         spaces: Сообщества
         submit: Подтвердить
         suspend: Приостановить

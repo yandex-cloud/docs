@@ -193,40 +193,38 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 
 ## Deploy the service in {{ ml-platform-name }} {#deploy}
 
-1. Open the {{ ml-platform-name }} [home page]({{ link-datasphere-main }}).
-1. In the left-hand panel, select ![image](../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. {% include [ui-find-community](../../_includes/datasphere/ui-find-community.md) %}
 1. Select a community with a billing account linked.
 1. [Create a project](../../datasphere/operations/projects/create.md) named `Node from Docker`.
 1. [In the project settings](../../datasphere/operations/projects/update.md), specify:
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**: `data-folder`
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}**: `sa-for-datasphere`
 1. [Create](../../datasphere/operations/data/secrets.md) a secret named `key-for-sa` to store the full contents of the authorized key file for the `sa-for-datasphere` service account.
-1. Create a node by clicking **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}** in the top-right corner of the project page and selecting **{{ ui-key.yc-ui-datasphere.resources.node }}**.
-1. Specify the basic node parameters:
-   * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: Select **{{ ui-key.yc-ui-datasphere.common.docker }}**.
-   * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}**: `fastapi`.
-   * Under **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}**, specify the path to the {{ container-registry-name }} image in the `cr.yandex/<registry_ID>/<image_name>:<tag>` format. You can get it in the management console by copying the full value (along with the tag) on the repository page. You can also fill out this field manually. You can get the registry ID in the CLI by running the `yc container registry list` command.
-   * Click **{{ ui-key.yc-ui-datasphere.common.show-additional-parameters }}** and specify:
-      * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}**: `json_key`
-      * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}**: Select `key-for-sa`
-   * Under **{{ ui-key.yc-ui-datasphere.new-node.title.endpoint }}**:
-      * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.type }}**: Select **HTTP**
-      * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.port }}**: 9875
-   * Under **{{ ui-key.yc-ui-datasphere.new-node.title.telemetry }}**:
-      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: Select **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.prometheus }}**
-      * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.http-path }}**: `/metrics`
-      * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.port }}**: 9875
-   * Under **{{ ui-key.yc-ui-datasphere.new-node.title.healthcheck }}**:
-      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.type }}**: Select **HTTP**
-      * **{{ ui-key.yc-ui-datasphere.common.port }}**: 9875
-      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.path }}**: `0.0.0.0`
-      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.timeout }}**: 1
-      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.interval }}**: 15
-      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.fails-threshold }}**: 3
+1. Create a node. To do this, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}** in the top-right corner of the project page. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.node }}**. Specify the node settings:
+   1. In the **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}** field, enter the node name: `fastapi`.
+   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}**:
+      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: Select **{{ ui-key.yc-ui-datasphere.common.docker }}**.
+      * **{{ ui-key.yc-ui-datasphere.new-node.source }}**: Select **{{ ui-key.yc-ui-datasphere.new-node.ycr }}**.
+      * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.image-path }}**: Specify the path to the {{ container-registry-name }} image in the `cr.yandex/<registry_ID>/<image_name>:<tag>` format. You can get it in the management console by copying the full value on the repository page. You can also fill out this field manually. You can get the registry ID in the CLI by running the `yc container registry list` command.
+      * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}**: Select `key-for-sa`.
+   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.endpoint }}**:
+      * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.type }}**: Select **HTTP**.
+      * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.port }}**: 9875.
+   1. Enable **{{ ui-key.yc-ui-datasphere.new-node.title.telemetry }}** and specify:
+      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: Select **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.prometheus }}**.
+      * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.http-path }}**: `/metrics`.
+      * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.port }}**: 9875.
+   1. Enable **{{ ui-key.yc-ui-datasphere.new-node.title.healthcheck }}** and specify:
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.type }}**: Select **HTTP**.
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.path }}**: `0.0.0.0`.
+      * **{{ ui-key.yc-ui-datasphere.common.port }}**: 9875.
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.timeout }}**: 1.
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.interval }}**: 15.
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.fails-threshold }}**: 3.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.passes-threshold }}**: 3
-1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select `data-folder`.
-1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select the `g1.1` [configuration](../../datasphere/concepts/configurations.md).
-1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
+   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select `data-folder`.
+   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select the `g1.1` [configuration](../../datasphere/concepts/configurations.md).
+   1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 ## Run a health check for the service you deployed {#check-node}
 

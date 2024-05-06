@@ -26,7 +26,7 @@ To create a connection to Yandex Documents:
 
          {% note info %}
 
-         You can also get a link to the file in Yandex Disk. For more information, see [documentation](https://yandex.com/support/disk/share/sharing.html#how-to-share).
+         You can also get a link to the file in Yandex Disk. For more information, see the [documentation](https://yandex.com/support/disk/share/sharing.html#how-to-share).
 
          {% endnote %}
 
@@ -58,7 +58,7 @@ To create a connection to Yandex Documents:
 
 1. Set the **Show column headers** option to **Yes** or **No**.
 1. (Optional) Enable automatic updates for the spreadsheet data. To do this, in the top-right corner, select **Update automatically**. The spreadsheet data will be updated once in 30 minutes or less often. To update the data manually, click **Update data**.
-1. Click **Create connection**.
+1. Click **Create connection**. If you use a new {{ datalens-short-name }} object model with [workbooks and collections](../../../datalens/workbooks-collections/index.md), select or create a workbook to save the connection to.
 1. Enter a name for the connection and click **Create**.
 
 You can add, rename, and delete files in the connection.
@@ -72,4 +72,4 @@ Consider the following limitations when creating a connection to Yandex Document
 * Maximum size per sheet: 200 MB.
 * Maximum number of columns per sheet: 300.
 * Minimum number of rows per table: 2. In a table with one row, you cannot specify column types because you cannot tell a header from a data row.
-* The link to the file in Yandex Documents must be in the `https://disk.yandex.ru/i/id` format. If the link contains `/d` instead of `/i`, an error will occur. [What to do if the _Invalid link format_ error occurs](../../qa/connections.md#yadocs-error-link).
+* The link to the file in Yandex Documents must be in the `https://disk.yandex.ru/i/id` format. If the link contains `/d` instead of `/i`, an error will occur. [What to do if the _Invalid link format_ error occurs](../../qa/connections.md#yadocs-error-link)

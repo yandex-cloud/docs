@@ -39,8 +39,14 @@ Limitations:
 
 ## Creating a point map with clusters {#create-diagram}
 
-1. On the {{ datalens-full-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
-1. Under **Dataset**, select a dataset for visualization. If you do not have a dataset, [create one](../operations/dataset/create.md).
+
+{% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
+
+
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
+1. Click **Create chart** → **Chart**.
+1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize. If you do not have a dataset, [create one](../operations/dataset/create.md).
 1. Select the **Map** chart type.
 1. Select the **Points with clusters (Geopoints)** layer type.
 1. Drag a dimension with the [Geopoint](../concepts/data-types#geopoint) type from the dataset to the layer type selection section.

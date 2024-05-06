@@ -19,12 +19,14 @@ The following connection types are available in {{ datalens-short-name }}:
 * [Google Sheets](../operations/connection/create-google-sheets.md)
 * [BigQuery](../operations/connection/create-big-query.md)
 * [{{ prometheus-name }}](../operations/connection/create-prometheus.md)
- * [Yandex Monitoring](../operations/connection/create-monitoring.md)
- * [Bitrix24](../operations/connection/create-bitrix24.md)
- * [Podcasts Analytics](../operations/connection/create-podcasts.md)
+* [{{ yq-full-name }}](../operations/connection/create-yandex-query.md)
+* [Yandex Monitoring](../operations/connection/create-monitoring.md)
+* [Bitrix24](../operations/connection/create-bitrix24.md)
+* [Analytics Podcasts](../operations/connection/create-podcasts.md)
 * [Metrica](../operations/connection/create-metrica-api.md)
 * [AppMetrica](../operations/connection/create-appmetrica.md)
-* [Yandex Cloud Billing](../operations/connection/create-cloud-billing.md)
+* [{{ billing-name }}](../operations/connection/create-cloud-billing.md)
+* [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md)
 
 
 

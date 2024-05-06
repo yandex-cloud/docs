@@ -24,6 +24,7 @@ When [multiple source tables](../../concepts/dataset/settings.md#multi-table) ar
    1. Select the join type: `inner`, `left`, `right`, or `full`.
    1. Select the fields to join the tables on. You can only link fields with the same data type.
    1. If required, link other fields in the tables. To do this, click **Add link**.
+   1. Optionally, you can disable the **Optimize link** option to make the link required. In this case, the `JOIN` operation will run even if you select fields from only one table.
    1. Click **Apply**.
 
 1. Repeat steps 4 and 5 to add tables.
@@ -43,7 +44,7 @@ When [multiple source tables](../../concepts/dataset/settings.md#multi-table) ar
 
    ![image](../../../_assets/datalens/operations/join-data/add-table-4.png)
 
-   You can replace a previously added table. When dragging a new table, hover it over the icon with circular arrows to the right of the table being replaced to turn the icon background blue, then release.
+   You can replace a previously added table. When dragging a new table, hover it over the icon with circular arrows to the right of the table you are replacing for the icon background to turn blue, then release.
 
    ![image](../../../_assets/datalens/operations/join-data/change-table.png)
 

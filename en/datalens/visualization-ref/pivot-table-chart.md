@@ -39,9 +39,9 @@ Pivot tables make it easier to work with large amounts of data and let you analy
 
 {% endcut %}
 
-## Sections in the wizard {#wizard-sections}
+## Wizard sections {#wizard-sections}
 
-| Wizard<br/>section | Description |
+| Wizard<br/> section | Description |
 ----- | ----
 | Columns | Dimensions |
 | Strings | Dimensions |
@@ -60,8 +60,14 @@ Not supported in [QL charts](../concepts/chart/index.md#sql-charts).
 
 To create a pivot table:
 
-1. On the {{ datalens-full-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
-1. Under **Dataset**, select a dataset for visualization.
+
+{% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
+
+
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
+1. Click **Create chart** → **Chart**.
+1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
 1. Select the **Pivot table** chart type.
 1. Drag a dimension from the dataset to the **Columns** section.
 1. Drag a dimension from the dataset to the **Rows** section.

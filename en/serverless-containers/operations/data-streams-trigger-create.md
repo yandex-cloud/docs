@@ -60,7 +60,7 @@ To create a trigger, you need:
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -128,6 +128,76 @@ To create a trigger, you need:
            service-account-id: aje3lebfemh2********
    status: ACTIVE
    ```
+
+- {{ TF }} {#tf}
+
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   To create a trigger for {{ yds-name }}:
+
+   1. In the configuration file, describe the trigger parameters:
+
+      ```
+      resource "yandex_function_trigger" "my_trigger" {
+        name = "<trigger_name>"
+        container {
+          id                 = "<container_name>"
+          service_account_id = "<service_account_ID>"
+          retry_attempts     = "<number_of_retry_invocation_attempts>"
+          retry_interval     = "<interval_between_retry_attempts>"
+        }
+        data_streams {
+          stream_name        = "<data_stream_name>"
+          database           = "<database_location>"
+          service_account_id = "<service_account_ID>"
+          batch_cutoff       = "<timeout>"
+          batch_size         = "<event_batch_size>"
+        }
+        dlq {
+          queue_id           = "<queue_ID>"
+          service_account_id = "<service_account_ID>"
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Trigger name. The name format is as follows:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      * `container-name`: Container parameters:
+
+         {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
+
+         {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
+
+      * `data_streams`: Trigger parameters:
+
+         * `stream_name`: Data stream name.
+         * `database`: Location of the {{ ydb-short-name }} database that the {{ yds-name }} stream is linked to.
+
+            To find out where the database is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, in the `database` parameter, e.g., `/ru-central1/b1gia87mba**********/etn7hehf6g*******`.
+
+         * `service_account_id`: Service account with permissions to read from and write to the {{ yds-name }} stream.
+
+         {% include [tf-batch-msg-params](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
+
+      {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
+
+      For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+
+      ```bash
+      yc serverless trigger list
+      ```
 
 - API {#api}
 

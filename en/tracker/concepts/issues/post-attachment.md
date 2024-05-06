@@ -1,9 +1,9 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/issues/post-attachment.md
 ---
-# Attach a file to an issue using an API request
+# Attaching a file to an issue using an API request
 
-Use this request to attach a file to an issue.
+Use this request to attach a file to an [issue](../../about-tracker.md#task). The **Attachments** tab will display the attached file.
 
 ## Request format {#query}
 

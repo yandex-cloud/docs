@@ -1,6 +1,6 @@
 ---
 title: "{{ datalens-full-name }} workbooks and collections"
-description: "In this tutorial, you will learn what workbooks and collections are, what specifics they have, and how to get started with them."
+description: "In this tutorial, you will learn about workbooks and collections, their specifics, and how to start using them."
 ---
 
 # Workbooks and collections {{ datalens-short-name }}
@@ -42,6 +42,12 @@ Object storage in workbooks and in folders of the old object model does not over
 * An object from a workbook cannot be moved to a folder.
 
 ## How to enable workbooks and collections {#enable-workbooks}
+
+{% note info %}
+
+Only workbooks are available in new {{ datalens-short-name }} instances.
+
+{% endnote %}
 
 To get started with workbooks:
 

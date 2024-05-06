@@ -18,7 +18,7 @@ In this section, you will learn:
 
 Using the {{ yandex-cloud }} console or the YC CLI, you can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or an individual bucket. These assigned roles will also apply to nested resources.
 
-For information about managing access to buckets and objects, see [{#T}](../concepts/acl.md).
+To learn how to manage access to buckets and objects in them, see [{#T}](../concepts/acl.md).
 
 ## Which roles exist in the service {#roles-list}
 

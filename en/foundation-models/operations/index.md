@@ -7,12 +7,12 @@ description: "The page presents all the guides on how to use {{ foundation-model
 
 ## Step-by-step guides for {{ yagpt-full-name }} {#yandexgpt-api}
 
-* [{#T}](./yandexgpt/create-chat.md)
 * [{#T}](./yandexgpt/create-prompt.md)
+* [{#T}](./yandexgpt/create-chat.md)
 * [{#T}](./yandexgpt/async-request.md)
 * [{#T}](./yandexgpt/finetune.md)
 * [{#T}](./yandexgpt/disable-logging.md)
 
-## Step-by-step guide for {{ yandexart-name }} {#yandexart}
+## Step-by-step guides for {{ yandexart-name }} {#yandexart}
 
 [{#T}](./yandexart/request.md)

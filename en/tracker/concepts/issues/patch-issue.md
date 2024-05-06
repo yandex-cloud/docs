@@ -51,9 +51,11 @@ Authorization: OAuth <OAuth_token>
 | [parent](#req-parent) | Parent issue. | Object or string |
 | description | Issue description. | String |
 | [sprint](#req-sprint) | Block with information about sprints. | Array of objects or strings |
-| [type](#req-type) | Issue type. | Can be set as an object, a string (if the issue type key is provided), or a number (if the issue type ID is provided). |
-| [priority](#req-priority) | Issue priority. | Can be set as an object, a string (if the priority key is provided), or a number (if the priority ID is provided). |
-| [followers](#req-followers) | IDs or usernames of issue followers. | Array of objects or strings |
+| [type](#req-type) | Issue type | Can be set as an object, a string (if the issue type key is provided), or a number (if the issue type ID is provided). |
+| [priority](#req-priority) | Issue priority | Can be set as an object, a string (if the priority key is provided), or a number (if the priority ID is provided). |
+| [followers](#req-followers) | IDs or usernames of issue followers | Array of objects or strings |
+| attachmentIds | Array of IDs of temporary files [preloaded](./temp-attachment.md) into {{ tracker-name }}. The listed files will be attached to the issue and displayed in the **Attachments** tab. | Array of strings |
+| descriptionAttachmentIds | Array of IDs of temporary files [preloaded](./temp-attachment.md) into {{ tracker-name }}. The listed files will be attached to the issue and displayed in its description. | Array of strings |
 
 `parent` **object fields** {#req-parent}
 
@@ -66,9 +68,9 @@ Authorization: OAuth <OAuth_token>
 
 | Parameter | Description | Data type |
 ----- | ----- | -----
-| id | Sprint ID. You can get sprint information using the [request](../../get-sprints.md). | Number |
+| id | Sprint ID. You can get the sprint information using the [request](../../get-sprints.md). | Number |
 
-`type` {#req-type} **object fields**
+`type` **object fields** {#req-type}
 
 | Parameter | Description | Data type |
 ----- | ----- | -----
@@ -96,10 +98,10 @@ The request body includes a JSON object with the [IDs of updated fields and thei
 
 {% endcut %}
 
-> Example 1: Change the name, description, type, and priority of an issue.
+> Example 1: Changing the name, description, type, and priority of an issue.
 >
 > - An HTTP PATCH method is used.
-> - We are editing the TEST-1 issue.
+> - We are editing the **TEST-1** issue.
 > - New issue type: **Error**.
 > - New issue priority: **Low**.
 >
@@ -123,18 +125,18 @@ The request body includes a JSON object with the [IDs of updated fields and thei
 > }
 > ```
 
-> Example 2: Change the parent issue, add it to sprints, and add followers.
+> Example 2: Changing the parent issue, add it to sprints, and add followers.
 >
 > - An HTTP PATCH method is used.
-> - We are editing the TEST-1 issue.
-> - New parent issue: TEST-2.
+> - We are editing the **TEST-1** issue.
+> - New parent issue: **TEST-2**.
 > - The issue is added to sprints with ID 3 and ID 2. The sprints must be on different boards.
 > - Followers added: `userlogin-1` and `userlogin-2`.
 >
 > ```
 > PATCH /v2/issues/TEST-1
 > Host: {{ host }}
-> Authorization: OAuth <OAuth token>
+> Authorization: OAuth <OAuth_token>
 > {{ org-id }}
 >
 > {
@@ -144,6 +146,28 @@ The request body includes a JSON object with the [IDs of updated fields and thei
 >     "followers": {
 >         "add": ["userlogin-1", "userlogin-2"]
 >         }
+> }
+> ```
+
+> Example 3: Attaching files to an issue description
+>
+> - An HTTP PATCH method is used.
+> - We are editing the **TEST-3** issue.
+> - First, you should [upload the temporary files](./temp-attachment.md) and specify their IDs.
+> - Temporary files will be attached to the issue description.
+>
+>
+> ```
+> PATCH /v2/issues/TEST-3
+> Host: {{ host }}
+> Authorization: OAuth <OAuth_token>
+> {{ org-id }}
+>
+> {
+>     "descriptionAttachmentIds":[
+>        4512********,
+>        4514********
+>     ]
 > }
 > ```
 

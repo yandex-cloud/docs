@@ -39,11 +39,11 @@ To simplify the comparison of different values and make the information easier t
 * [Setting up a field fill color](#set-field-colour).
 * [Adding a linear indicator to a column with a measure](#add-linear-indicator).
 
-## Sections in the wizard {#wizard-sections}
+## Wizard sections {#wizard-sections}
 
-| Wizard<br/>section | Description |
+| Wizard<br/> section | Description |
 ----- | ----
-| Columns | Dimensions and measures to be used as columns. The field name appears in the column header. You can use [markup functions](../function-ref/markup-functions.md) in columns. |
+| Columns | Dimensions and measures to be used as columns. You can see the field name in the column header. You can use [markup functions](../function-ref/markup-functions.md) in columns. |
 | Colors | Measure. Affects shading of all cells within a row. It may only contain one measure. |
 | Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon. |
 | Filters | Dimension or measure. Used as a filter. |
@@ -52,8 +52,12 @@ To simplify the comparison of different values and make the information easier t
 
 To create a table:
 
+
+{% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
+
+
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![image](../../_assets/console-icons/chart-column.svg) **Charts**.
+1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
 1. Click **Create chart** → **Chart**.
 1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
 1. Select the **Table** chart type.

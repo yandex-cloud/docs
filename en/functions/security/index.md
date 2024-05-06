@@ -14,7 +14,9 @@ In this section, you will learn:
 
 ## Which resources you can assign a role for {#resources}
 
-Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), and [function](../concepts/function.md). Roles assigned to a cloud or folder also affect the functions that are located there.
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+You can assign a role for a [function](../concepts/function.md) via the YC CLI or the {{ yandex-cloud }} API.
 
 ## Which roles exist in the service {#roles-list}
 

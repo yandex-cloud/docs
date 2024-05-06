@@ -9,22 +9,28 @@ A heat map helps find dependencies that can be hidden due to overlapping map poi
 ![heat-map](../../_assets/datalens/visualization-ref/heatmap/heatmap.png)
 
 
-## Sections in the wizard {#wizard-sections}
+## Wizard sections {#wizard-sections}
 
-| Section<br/> in the wizard | Description |
+| Wizard<br/> section | Description |
 ----- | ----
-| Heat map (Geopoints) | Measure with the type [Geopoint](../concepts/data-types.md#geopoint). |
+| Heat map (Geopoints) | Measure of the [Geopoint](../concepts/data-types.md#geopoint) type |
 | Colors | Dimension or measure. Affects the intensity of point fill. |
 | Layer filters | Dimension or measure. Used as a filter for the current layer. |
 | Filters | Dimension or measure. Used as a filter for the entire chart. |
 
 ## Creating a heat map {#create-diagram}
 
-1. On the {{ datalens-full-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
-1. Under **Dataset**, select a dataset for visualization. If you do not have a dataset, [create one](../operations/dataset/create.md).
+
+{% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
+
+
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
+1. Click **Create chart** → **Chart**.
+1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize. If you do not have a dataset, [create one](../operations/dataset/create.md).
 1. Select the **Map** chart type.
 1. Select the **Heat map (Geopoints)** layer type.
-1. Drag a dimension with the [Geopoint](../concepts/data-types.md#geopoint) type from the dataset to the layer type selection section.
+1. Drag a dimension of the [Geopoint](../concepts/data-types.md#geopoint) type from the dataset to the layer type selection section.
 1. Change the weight of the points on the heat map. To do this, drag the measure to the **Colors** section.
 
 You can also:

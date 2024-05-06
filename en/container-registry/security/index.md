@@ -14,7 +14,12 @@ In this section, you will learn:
 
 ## Which resources you can assign a role for {#resources}
 
-You can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), [registry](../concepts/registry.md), or [repository](../concepts/repository.md). These roles also apply to nested resources.
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+You can also assign a role for individual resources of the service. The list of such resources depends on the {{ yandex-cloud }} interfaces you use to assign roles:
+
+* In the management console, you can only assign roles for a [registry](../concepts/registry.md).
+* Through the YC CLI or the {{ yandex-cloud }} API, you can assign roles for a registry or [repository](../concepts/repository.md).
 
 ## Which roles exist in the service {#roles-list}
 
@@ -56,7 +61,7 @@ For more information about service roles, see [{#T}](../../iam/concepts/access-c
 
 ## What roles do I need {#choosing-roles}
 
-The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, you can assign the `editor` role instead of the `viewer` one.
+The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, you can assign the `editor` role instead of `viewer`.
 
 
 | Action | Methods | Required roles |

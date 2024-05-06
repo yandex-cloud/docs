@@ -9,7 +9,7 @@ Create a [trigger](../concepts/trigger/iot-core-trigger.md) for an {{ iot-name }
 
 {% note warning %}
 
-The trigger must be in the same cloud with the registry or device it reads messages from.
+The trigger must be in the same cloud as the registry or device whose topic it reads messages from.
 
 {% endnote %}
 
@@ -17,7 +17,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
 {% include [trigger-before-you-begin](../../_includes/serverless-containers/trigger-before-you-begin.md) %}
 
-* [Registry](../../iot-core/concepts/index.md#registry) or [device](../../iot-core/concepts/index.md#device) from whose topics the trigger will receive copies of messages. If you have neither:
+* [Registry](../../iot-core/concepts/index.md#registry) or [device](../../iot-core/concepts/index.md#device) from whose topics the trigger will receive message copies. If you have neither:
 
    * [Create a registry](../../iot-core/operations/registry/registry-create.md).
    * [Create a device](../../iot-core/operations/device/device-create.md).
@@ -52,7 +52,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -161,6 +161,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
          {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
 
       * `iot`: Trigger parameters:
+
          * `registry-id`: [Registry ID](../../iot-core/operations/registry/registry-list.md).
          * `device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you are creating a trigger for a registry topic, you can omit this parameter.
          * `topic`: MQTT topic you want to create a trigger for. This is an optional parameter. If this parameter is skipped, the trigger fires for all registry or device topics.

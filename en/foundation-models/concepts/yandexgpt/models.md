@@ -1,6 +1,6 @@
 # {{ yagpt-full-name }} models
 
-{{ yagpt-full-name }} provides access to large textual generative neural networks: the standard {{ gpt-lite }} suitable for real-time tasks, the large {{ yagpt-name }} 3-based {{ gpt-pro }}, which is more accurate dealing with sophisticated prompts, and the special {{ gpt-lite }}-based summary model.
+{{ yagpt-full-name }} provides access to large text generative neural networks: the standard {{ gpt-lite }} suitable for real-time tasks, the large {{ yagpt-name }} 3-based {{ gpt-pro }}, which is more accurate when it comes to sophisticated prompts, and the special {{ gpt-lite }}-based summary model.
 
 If out-of-the-box models are not enough, you can [fine-tune](../../tutorials/yagpt-tuning) {{ gpt-pro }} in [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) for it to better respond to your requests.
 
@@ -13,7 +13,7 @@ To [access](../../operations/yandexgpt/create-prompt.md) your model via the API,
 | {{ gpt-pro }} | 3 | `gpt://<folder_ID>/yandexgpt/latest` | [Asynchronous, synchronous](../index.md#working-mode) |
 | {{ gpt-lite }} | 2 | `gpt://<folder_ID>/yandexgpt-lite/latest` | Asynchronous, synchronous |
 | Summary | 2 | `gpt://<folder_ID>/summarization/latest` | Asynchronous, synchronous |
-| Model fine-tuned in {{ ml-platform-full-name}} | 3 | `ds://<fine_tuned_model_ID>` | Synchronous |
+| Model fine-tuned in {{ ml-platform-full-name}} | 3 | `ds://<fine_tuned_model_ID>` | Asynchronous, synchronous |
 
 Modified models share usage [quotas](../limits.md#quotas) with their basic models.
 

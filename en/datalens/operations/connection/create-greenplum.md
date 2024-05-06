@@ -12,10 +12,6 @@ description: "In this tutorial, you will learn how to connect to {{ GP }} in {{ 
 To create a {{ GP }} connection:
 
 
-{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
-
-
-
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
 
 
@@ -58,7 +54,7 @@ To create a {{ GP }} connection:
    {% endlist %}
 
 
-1. Click **Create connection**.
+1. Click **Create connection**. If you use a new {{ datalens-short-name }} object model with [workbooks and collections](../../../datalens/workbooks-collections/index.md), select or create a workbook to save the connection to.
 1. Enter a name for the connection and click **Create**.
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}

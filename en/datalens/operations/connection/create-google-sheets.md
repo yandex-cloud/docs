@@ -15,10 +15,6 @@ Before creating a connection, learn about the [limitations](#restrictions).
 To create a Google Sheets connection:
 
 
-{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
-
-
-
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
 
 
@@ -57,8 +53,8 @@ To create a Google Sheets connection:
    {% endnote %}
 
 1. Set the **Show column headers** option to **Yes** or **No**.
-1. (Optional) Enable automatic updates for the spreadsheet data. To do this, in the top right corner, select **Update automatically**. The spreadsheet data will be updated once in 30 minutes or less often. To update the data manually, click **Update data**.
-1. Click **Create connection**.
+1. (Optional) Enable automatic updates for the spreadsheet data. To do this, in the top-right corner, select **Update automatically**. The spreadsheet data will be updated once in 30 minutes or less often. To update the data manually, click **Update data**.
+1. Click **Create connection**. If you use a new {{ datalens-short-name }} object model with [workbooks and collections](../../../datalens/workbooks-collections/index.md), select or create a workbook to save the connection to.
 1. Give your connection a name and click **Create**. The connection will appear in the list.
 
 You can add, rename, and delete files in the connection.
@@ -67,7 +63,7 @@ You can add, rename, and delete files in the connection.
 
 If a Google Sheets spreadsheet contains empty cells, {{ datalens-name }} may incorrectly display column headers and miss the first several rows.
 
-To fix this, you need to fill empty cells in your Google Sheets spreadsheet with any appropriate values, such as `unavailable`, `none`, and `unknown`.
+To fix this, you need to fill empty cells in your Google Sheets spreadsheet with any appropriate values, e.g., `unavailable`, `none`, `unknown`.
 
 To quickly populate empty cells in a Google Sheets spreadsheet:
 1\. Highlight the entire Google Sheets sheet.

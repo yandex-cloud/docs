@@ -16,7 +16,9 @@ In this section, you will learn:
 
 ## Which resources you can assign a role for {#resources}
 
-You can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or separate [connection](../operations/connection-access.md). These roles also apply to nested resources.
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+You can assign a role for a [connection](../concepts/connection-manager.md) in the management console.
 
 ## Roles existing in {{ connection-manager-name }} {#roles-list}
 

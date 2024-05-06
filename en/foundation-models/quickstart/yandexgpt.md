@@ -46,6 +46,8 @@ To get started in {{ yandex-cloud }}:
 
 ## Generate the text {#generate-text}
 
+{% include [logging](../../_includes/foundation-models/yandexgpt/logging-disclaimer.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -60,7 +62,7 @@ To get started in {{ yandex-cloud }}:
 
 - API {#api}
 
-   1. Create a file with the request body (for example, `prompt.json`).
+   1. Create a file with the request body, e.g., `prompt.json`:
 
       ```json
       {

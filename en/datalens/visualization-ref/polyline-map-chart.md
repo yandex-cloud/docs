@@ -20,11 +20,11 @@ You can color polyline segments in one of the following ways:
 
   ![polyline-map-color-dimensions](../../_assets/datalens/visualization-ref/polyline-map-chart/polyline-map-color-dimensions.png)
 
-## Sections in the wizard {#wizard-sections}
+## Wizard sections {#wizard-sections}
 
-| Section<br/> in the wizard | Description |
+| Wizard<br/> section | Description |
 ----- | ----
-| Polylines	(Geopoints) | Measure with the type [Geopoint](../concepts/data-types.md#geopoint). |
+| Polylines	(Geopoints) | Measure of the [Geopoint](../concepts/data-types.md#geopoint) type |
 | Measures | Measure. The value displayed when you hover over a point. |
 | Grouping | Dimension. Defines a group of points forming a polyline. |
 | Colors | Dimension or measure. Affects the intensity of line segment fill. A segment is filled in from the originating point. |
@@ -36,8 +36,14 @@ You can color polyline segments in one of the following ways:
 
 To create a polyline map:
 
-1. On the {{ datalens-full-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
-1. Under **Dataset**, select a dataset for visualization.
+
+{% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
+
+
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
+1. Click **Create chart** → **Chart**.
+1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
 1. Select the **Map** chart type.
 1. Select the **Polylines (Geopoints)** layer type.
 1. Drag a dimension with the [Geopoint](../concepts/data-types.md#geopoint) type from the dataset to the layer type selection section.

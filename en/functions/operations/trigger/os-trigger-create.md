@@ -45,7 +45,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
       {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -71,7 +71,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
      --invoke-function-service-account-id <service_account_ID> \
      --retry-attempts 1 \
      --retry-interval 10s \
-     --dlq-queue-id <Dead_Letter_Queue_ID> \
+     --dlq-queue-id <dead-letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
 
@@ -128,21 +128,25 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
    To create a trigger for {{ objstorage-name }}:
 
-   1. In the configuration file, describe the trigger parameters.
+   1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
 
-      Here is an example of the configuration file structure:
-
-      ```hcl
+      ```
       resource "yandex_function_trigger" "my_trigger" {
         name        = "<trigger_name>"
         description = "<trigger_description>"
-        object_storage {
-           bucket_id = "<bucket_ID>"
-           create    = true
-           update    = true
-        }
         function {
           id                 = "<function_ID>"
+          service_account_id = "<service_account_ID>"
+          retry_attempts     = "<number_of_retry_invocation_attempts>"
+          retry_interval     = "<interval_between_retry_attempts>"
+        }
+        object_storage {
+          bucket_id = "<bucket_ID>"
+          create    = true
+          update    = true
+        }
+        dlq {
+          queue_id           = "<queue_ID>"
           service_account_id = "<service_account_ID>"
         }
       }
@@ -150,51 +154,30 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
       Where:
 
-      * `name`: Trigger name. The name format is as follows:
+      {% include [tf-function-params](../../../_includes/functions/tf-function-params.md) %}
 
-         {% include [name-format](../../../_includes/name-format.md) %}
+      * `object_storage`: Trigger parameters:
 
-      * `description`: Trigger description.
-      * `object_storage`: Storage parameters:
          * `bucket_id`: Bucket ID.
          * Select one or more [event](../../concepts/trigger/os-trigger.md#event) types to be handled by the trigger:
+
             * `create`: The trigger will invoke the function when a new object is created in the storage. It may take either the `true` or `false` value.
             * `update`: The trigger will invoke the function when a new object is updated in the storage. It may take either the `true` or `false` value.
             * `delete`: The trigger will invoke the function when a new object is deleted from the storage. It may take either the `true` or `false` value.
-         * `prefix`: [Prefix](../../concepts/trigger/os-trigger.md#filter) for filtering.
-         * `suffix`: [Suffix](../../concepts/trigger/os-trigger.md#filter) for filtering.
-      * `function`: Settings for the function, which will be activated by the trigger:
-         * `id`: Function ID.
-         * `service_account_id`: ID of the service account with rights to invoke a function.
 
-      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+      {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-   1. Make sure the configuration files are correct.
+      For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run a check using this command:
+   1. Create resources:
 
-         ```
-         terraform plan
-         ```
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
-   1. Deploy cloud resources.
-
-      1. If the configuration does not contain any errors, run this command:
-
-         ```
-         terraform apply
-         ```
-
-      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
-
-         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
-
-         ```
-         yc serverless trigger get <trigger_ID>
-         ```
+      ```bash
+      yc serverless trigger get <trigger_ID>
+      ```
 
 - API {#api}
 

@@ -12,7 +12,7 @@ Foundation model tuning is at the [Preview](../../../overview/concepts/launch-st
 
 [In the **Foundation models** section]({{ link-datasphere-main }}/foundation-models/ygpt), you can find models deployed in {{ yandex-cloud }}. You can use them in {{ ml-platform-name }} as is or tune them on your own data to make model responses more tailored to your specific tasks.
 
-The {{ gpt-pro }} model is now available for tuning. You can access the tuned model from the {{ ml-platform-name }} project and through the [{{ yagpt-full-name }} service API](../../../yandexgpt/api-ref/authentication.md).
+The {{ gpt-pro }} model is now available for tuning. You can access the tuned model from the {{ ml-platform-name }} project and through the [{{ foundation-models-full-name }} service API](../../../foundation-models/api-ref/authentication.md).
 
 {% note warning %}
 
@@ -21,6 +21,8 @@ The {{ gpt-pro }} model is now available for tuning. You can access the tuned mo
 {% endnote %}
 
 ## Data required for {{ gpt-pro }} tuning {#yagpt-tuning}
+
+{% include [logging](../../../_includes/foundation-models/yandexgpt/logging-disclaimer.md) %}
 
 {% include [fine-tuning-file-requirements](../../../_includes/datasphere/fine-tuning-file-requirements.md) %}
 
@@ -32,6 +34,6 @@ In the {{ ml-platform-name }} interface, create a new fine-tuned foundation mode
 
 ## Requests to a fine-tuned model {#requests}
 
-You can send requests to a fine-tuned model through the {{ ml-platform-name }} Playground interface or the [API v1](../../../yandexgpt/text-generation/api-ref/index.md) from {{ ml-platform-name }} and other applications in synchronous mode. In Playground, requests are made on behalf of a user with the model access flag set. You can send requests through Playground to the original or fine-tuned model to compare the results.
+You can send requests to a fine-tuned model through the {{ ml-platform-name }} Playground interface or the [API v1](../../../foundation-models/text-generation/api-ref/index.md) from {{ ml-platform-name }} and other applications in synchronous mode. In Playground, requests are made on behalf of a user with the model access flag set. You can send requests through Playground to the original or fine-tuned model to compare the results.
 
 To make API requests, add a user account or service account you are going to use to submit requests to the list of {{ ml-platform-name }} project members. The account must have the `ai.languageModels.user` role.

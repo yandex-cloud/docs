@@ -26,27 +26,33 @@ You can use a gradient in a chart by adding a measure to the **Color** section. 
 
 ![scatter-chart](../../_assets/datalens/visualization-ref/scatter-chart/gradient-scatter-chart.png)
 
-## Sections in the wizard {#wizard-sections}
+## Wizard sections {#wizard-sections}
 
-| Wizard section | Description |
+| Wizard<br/> section | Description |
 ----- | ----
 | X | Dimension or measure. Sets the X-axis value. |
 | Y | Dimension or measure. Sets the Y-axis value. |
 | Points | Dimension. Specifies the number of points on the chart. |
 | Point size | Measure. Sets a point size depending on the measure value. |
 | Colors | Dimension or measure. Affects the color of points. |
-| Sorting | Dimension. Can only use a dimension from the X axis. Affects the sorting of the X axis. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) descending. To change the sorting direction, click the icon. |
+| Sorting | Dimension. Can only use a dimension from the X axis. Affects the sorting of the X axis. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon. |
 | Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a scatter chart {#create-diagram}
 
 To create a scatter chart:
 
-1. On the {{ datalens-full-name }} [home page]({{link-datalens-main}}), click **Create chart**.
-1. Under **Dataset**, select a dataset for visualization. If you do not have a dataset, [create one](../operations/dataset/create.md).
+
+{% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
+
+
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
+1. Click **Create chart** → **Chart**.
+1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize. If you do not have a dataset, [create one](../operations/dataset/create.md).
 1. Select **Scatter chart** as the chart type.
 1. Drag a dimension from the dataset to the **X** section.
-1. Drag one or more measures from the dataset to the **Y** section. The values will be represented as points at the intersection of the X and Y coordinates.
+1. Drag one or more measures from the dataset to the **Y** section. The values will be displayed as points at the intersection of the X and Y axes.
 
 You can also:
 

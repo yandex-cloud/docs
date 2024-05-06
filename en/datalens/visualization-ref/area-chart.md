@@ -2,7 +2,7 @@
 
 This chart shows how a measure changed over time. The area between the axis and the line is filled with colors, which shows the volume. If multiple data categories are displayed, they overlap. The top line represents all data.
 
-It is handy to use this type of chart when it is important to see totals by category, e.g., total sales broken down by product categories.
+It is handy to use this type of chart when it is important to see totals by category, e.g., total sales by product category.
 
 ![area-chart-groupped](../../_assets/datalens/visualization-ref/area-chart/area-chart-groupped.png)
 
@@ -29,7 +29,7 @@ When building a chart, make sure to select measures carefully. For example, do n
 
 ## Sections in the wizard {#wizard-sections}
 
-| Wizard section | Description |
+| Wizard<br/> section | Description |
 ----- | ----
 | X | Dimension. You can only specify one field here. This dimension is usually a date. If this is the case, make sure to specify the `Date` data type for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years. For more information, see [{#T}](../concepts/chart/settings.md#field-settings). |
 | Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md). |
@@ -43,11 +43,17 @@ When building a chart, make sure to select measures carefully. For example, do n
 
 To create an area chart:
 
-1. On the {{ datalens-full-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
-1. Under **Dataset**, select a dataset for visualization.
+
+{% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
+
+
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
+1. Click **Create chart** → **Chart**.
+1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
 1. Select **Stacked area chart** as the chart type.
 1. Drag a dimension from the dataset to the **X** section. The values will be displayed in the lower part of the chart on the X axis.
-1. Drag one or more measures from the dataset to the **Y** section. The values are displayed as areas along the Y axis.
+1. Drag one or more measures from the dataset to the **Y** section. The values will be displayed as areas along the Y axis.
 
 ### Configuring the display of `null` values {#null-settings}
 

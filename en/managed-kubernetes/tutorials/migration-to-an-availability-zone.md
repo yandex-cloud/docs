@@ -336,17 +336,21 @@ The internal IP address for the regional master host is assigned automatically i
 
 ## Migrate the node group and the pod workloads to a different availability zone {#transfer-a-node-group}
 
-Node group migration works differently depending on the type of workload in the pods:
+[Prepare a node group](#prepare) and proceed to migration using one of the following methods:
 
-* [Stateless workload](#stateless): The functioning of applications in the pods during migration depends on how the workload is distributed among the cluster nodes. If the pods reside both in the node group you are migrating and the groups for which the availability zone remains the same, the applications will continue to run. If the pods only reside in the group you are migrating, both the pods and the applications in them will have to be stopped for a short while.
+* Migrating a node group directly to the new availability zone. It depends on the type of workload in the pods:
 
-   Examples of stateless workloads include the web server, {{ alb-full-name }} [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), and REST API applications.
+   * [Stateless workload](#stateless): The functioning of applications in the pods during migration depends on how the workload is distributed among the cluster nodes. If the pods reside both in the node group you are migrating and the groups for which the availability zone remains the same, the applications will continue to run. If the pods only reside in the group you are migrating, both the pods and the applications in them will have to be stopped for a short while.
 
-* [Stateful workloads](#stateful): The pods and applications will have to be stopped for a short while, regardless of how the workload is distributed among the cluster nodes.
+      Examples of stateless workloads include the web server, {{ alb-full-name }} [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), and REST API applications.
 
-   Examples of stateful workloads include databases and storages.
+   * [Stateful workloads](#stateful): The pods and applications will have to be stopped for a short while, regardless of how the workload is distributed among the cluster nodes.
 
-### Migrating a stateless workload {#stateless}
+      Examples of stateful workloads include databases and storages.
+
+* [Gradually migrating a stateless and stateful workload](#gradual-migration) to the new node group. It involves creating a new node group in the new availability zone and gradually discontinuing the old nodes. This way, you can monitor the workload transfer.
+
+### Getting started {#prepare}
 
 1. Check if the `nodeSelector`, `affinity`, or `topology spread constraints` strategies are being used to assign the pods to the group's nodes. For more information on strategies, see [{#T}](../concepts/usage-recommendations.md#high-availability) and the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/). To check how a pod is assigned to its associated node and unlink them:
 
@@ -399,6 +403,10 @@ Node group migration works differently depending on the type of workload in the 
       1. Check and update the configuration of each pod by repeating these steps.
 
    {% endlist %}
+
+1. Transfer persistent data, such as databases, message queues, monitoring and log servers, to the new availability zone.
+
+### Migrating a stateless workload {#stateless}
 
 1. Create a subnet in the new availability zone and migrate the node group:
 
@@ -649,3 +657,29 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
       ```bash
       kubectl delete pv <PV_name>
       ```
+
+### Gradually migrating a stateless and stateful workload {#gradual-migration}
+
+1. [Create a new {{ managed-k8s-name }} node group](../operations/node-group/node-group-create.md#node-group-create) in the new availability zone.
+
+1. Disable running new pods in the old node group:
+
+   ```bash
+   kubectl cordon -l yandex.cloud/node-group-id=<old_node_group_ID>
+   ```
+
+1. For each node in the old node group, run the following command:
+
+   ```bash
+   kubectl drain <node_name> --ignore-daemonsets --delete-emptydir-data
+   ```
+
+   The pods will gradually move to the new node group.
+
+1. Make sure the pods are running in the new node group:
+
+   ```bash
+   kubectl get po --output wide
+   ```
+
+1. [Delete the old node group](../operations/node-group/node-group-delete.md).

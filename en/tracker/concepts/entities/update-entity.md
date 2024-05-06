@@ -5,7 +5,7 @@ sourcePath: en/tracker/api-ref/concepts/entities/update-entity.md
 
 Use this request to update information about an entity: a [project](../../manager/project-new.md) or [project portfolio](../../manager/portfolio.md).
 
-The request is a unified method for updating project and portfolio information – more flexible and functional than the [updating project information](../projects/update-project.md) API.
+The request is a unified method for updating project and portfolio information, more flexible and functional than the [update project information](../projects/update-project.md) API.
 
 ## Request format {#query}
 
@@ -16,7 +16,7 @@ To update an entity, use an HTTP `PATCH` request. Request parameters are provide
 ```json
 PATCH /{{ ver }}/entities/<entity_type>/<entity_ID>
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 
 {
@@ -24,14 +24,26 @@ Authorization: OAuth <OAuth token>
    {
       "summary": "<new_name>",
       "teamAcceess": true
-	},
-   "comment":"<comment>",
+   },
+   "comment": "<comment>",
    "links":
    [
       {
          "relationship": "<link>",
          "entity": "<linked_entity_ID>"
       }
+   ],
+   "attachmentIds":
+   [
+      "<ID_of_temporary_file_1>",
+      "<ID_of_temporary_file_2>",
+      ...
+   ],
+   "descriptionAttachmentIds":
+   [
+      "<ID_of_temporary_file_3>",
+      "<ID_of_temporary_file_4>",
+      ...
    ]
 }
 ```
@@ -46,8 +58,8 @@ Authorization: OAuth <OAuth token>
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| [fields](./about-entities.md#query-params) | Additional entity fields to be included into the response. | String |
-| expand | Additional information to be included into the response:<ul><li>`attachments`: Attached files</li></ul> | String |
+| [fields](./about-entities.md#query-params) | Additional entity fields to include in the response | String |
+| expand | Additional information to include in the response:<ul><li>`attachments`: Attached files</li></ul> | String |
 
 {% endcut %}
 
@@ -57,39 +69,41 @@ Authorization: OAuth <OAuth token>
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| [fields](./about-entities.md#query-body-params) | Object with entity settings. | Object |
-| comment | Comment. | String |
-| links | Array of objects with settings of links to other entities. | Array of objects |
+| [fields](./about-entities.md#query-body-params) | Object with entity settings | Object |
+| comment | Comment | String |
+| links | Array of objects with settings of links to other entities | Array of objects |
+| attachmentIds | Array of IDs of temporary files [preloaded](../issues/temp-attachment.md) into {{ tracker-name }}. The listed files will be attached to the entity and displayed in the **Attachments** tab. | Array of strings |
+| descriptionAttachmentIds | Array of IDs of temporary files [preloaded](../issues/temp-attachment.md) into {{ tracker-name }}. The listed files will be attached to the entity and displayed in the **About project** or **About portfolio** tab. | Array of strings |
 
-`Fields` **object fields**
+`fields` **object fields**
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| summary | Name (required field). | String |
-| queues | Queue (required for projects if the `teamAccess` field is not set). | String |
-| teamAccess | Access (required for projects if the `queues` field is not set). | Logical |
-| description | Description. | String |
-| author | Author (user ID). | Number |
-| lead | Responsible person (user ID). | Number |
-| teamUsers | Members (array of user IDs). | Array of numbers |
-| clients | Clients (array of user IDs). | Array of numbers |
-| followers | Followers (array of user IDs). | Array of numbers |
-| start | Start date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | Date |
-| end | Deadline in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | Date |
-| tags | Tags. | Array of strings |
-| parentEntity | Parent entity (portfolio) ID. | Number |
+| summary | Name (required field) | String |
+| queues | Queue (required for projects if the `teamAccess` field is not set) | String |
+| teamAccess | Access (required for projects if the `queues` field is not set) | Boolean |
+| description | Description | String |
+| author | Author (user ID) | Number |
+| lead | Responsible person (user ID) | Number |
+| teamUsers | Participants (array of user IDs) | Array of numbers |
+| clients | Customers (array of user IDs) | Array of numbers |
+| followers | Followers (array of user IDs) | Array of numbers |
+| start | Start date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | Date |
+| end | Deadline in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | Date |
+| tags | Tags | Array of strings |
+| parentEntity | Parent entity (portfolio) ID | Number |
 | entityStatus | Status:<ul><li>draft: Draft</li><li>in_progress: In progress</li><li>launched: New</li><li>postponed: Postponed</li><li>at_risk: At risk</li><li>blocked: Blocked</li><li>according_to_plan: According to plan</li></ul> | String |
 
-**links** `array object fields`
+`links` **array object fields**
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| relationship | Link type. e.g.:<ul><li>`relates`</li><li>`is dependent by`</li><li>`depends on`</li></ul>. | String |
-| entity | Linked entity's ID. | String |
+| relationship | Link type, e.g.:<ul><li>`relates`</li><li>`is dependent by`</li><li>`depends on`</li></ul>. | String |
+| entity | Linked entity's ID | String |
 
 {% endcut %}
 
-> Example: Renaming a project and leaving a comment
+> Example 1: Renaming a project and leaving a comment
 >
 > - An HTTP PATCH method is used.
 > - The project is renamed to **Test 2**.
@@ -108,6 +122,26 @@ Authorization: OAuth <OAuth token>
 >        "summary":"Test 2",
 >     },
 >     "comment":"Project renamed"
+> }
+> ```
+
+> Example 2: Attaching files to a project description
+>
+> - An HTTP PATCH method is used.
+> - First, [upload the temporary files](../issues/temp-attachment.md) and specify their IDs.
+> - Temporary files will be attached to the project description.
+>
+> ```
+> PATCH /v2/entities/project/655f8cc523db213********?expand=attachments HTTP/1.1
+> Host: {{ host }}
+> Authorization: OAuth <OAuth_token>
+> {{ org-id }}
+>
+> {
+>     "descriptionAttachmentIds":[
+>        4519********,
+>        4522********
+>     ]
 > }
 > ```
 
@@ -160,25 +194,25 @@ Authorization: OAuth <OAuth token>
 
    | Parameter | Description | Data type |
    -------- | -------- | ----------
-   | self | Address of the API resource with information about the project. | String |
-   | id | Entity ID. | String |
+   | self | Address of the API resource with information about the project | String |
+   | id | Entity ID | String |
    | version | Project version. Each change of the parameters increases the version number. | Number |
    | shortId | Project or portfolio ID | String |
-   | entityType | Entity type. | String |
-   | createdBy | Block with information about the user who created the entity. | Object |
-   | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | String |
-   | updatedAt | Date when the entity was last updated, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | String |
-   | attachments | Array of objects with information about the attachment. | Array of objects |
+   | entityType | Entity type | String |
+   | createdBy | Block with information about the entity creator | Object |
+   | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
+   | updatedAt | Date when the entity was last updated, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
+   | attachments | Array of objects with information about the attachment | Array of objects |
 
    `createdBy` **object fields**
 
    | Parameter | Description | Data type |
    -------- | -------- | ----------
-   | self | Address of the API resource with information about the user who created the entity. | String |
-   | id | User ID. | Number |
-   | display | Displayed user name. | String |
-   | cloudUid | User unique ID in {{ org-full-name }}. | String |
-   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
+   | self | Address of the API resource with information about the entity creator | String |
+   | id | User ID | Number |
+   | display | Displayed user name | String |
+   | cloudUid | Unique user ID in {{ org-full-name }} | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID | String |
 
    {% endcut %}
 

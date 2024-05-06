@@ -88,7 +88,7 @@ This type of chart is used to see the contribution of each measure to the total 
 
 ## Sections in the wizard {#wizard-sections}
 
-| Wizard section | Description |
+| Wizard<br/> section | Description |
 ----- | ----
 | Y | Dimensions. You can specify one or two dimensions. |
 | X | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md). You can move [Measure Names](../concepts/chart/measure-values.md) to the Y axis. |
@@ -101,8 +101,14 @@ This type of chart is used to see the contribution of each measure to the total 
 
 To create a bar chart:
 
-1. On the {{ datalens-full-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
-1. Under **Dataset**, select a dataset for visualization.
+
+{% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
+
+
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
+1. Click **Create chart** → **Chart**.
+1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
 1. Select **Line chart** as the chart type.
 1. Drag one or more dimensions from the dataset to the **Y** section. The values will be displayed on the Y axis.
 1. Drag one or more measures from the dataset to the **X** section.

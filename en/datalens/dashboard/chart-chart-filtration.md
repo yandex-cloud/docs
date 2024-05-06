@@ -28,7 +28,7 @@ Filtering is available for the following types of charts created using the [wiza
 * [Bar chart](../visualization-ref/bar-chart.md)
 * [Scatter chart](../visualization-ref/scatter-chart.md)
 * [Pie chart](../visualization-ref/pie-chart.md)
-* [Donut chart](../visualization-ref/ring-chart.md)
+* [Ring chart](../visualization-ref/ring-chart.md)
 * [Table](../visualization-ref/table-chart.md)
 * [Pivot table](../visualization-ref/pivot-table-chart.md)
 

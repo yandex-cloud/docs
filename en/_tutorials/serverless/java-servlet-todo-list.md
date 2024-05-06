@@ -136,7 +136,7 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
    1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
    1. Enter `add-task` as a function name, and add a function description.
    1. Click **{{ ui-key.yacloud.common.create }}**.
-   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select the `java11` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select the `java21` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
    1. Prepare the function code. To do this, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` in the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field.
    1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** field, click **Attach file** and select the `servlet.zip` archive you downloaded.
    1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, enter `yandex.cloud.examples.serverless.todo.AddTaskServlet`.
@@ -175,12 +175,12 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
       ```bash
       yc serverless function version create \
         --function-name=add-task \
-        --runtime java11 \
+        --runtime java21 \
         --entrypoint yandex.cloud.examples.serverless.todo.AddTaskServlet \
         --memory 128m \
         --execution-timeout 10s \
         --source-path ./servlet.zip \
-        --environment DATABASE=<DB_name>,ENDPOINT=<YDB_endpoint>
+        --environment DATABASE=<database_name>,ENDPOINT=<YDB_endpoint>
       ```
 
       Where:

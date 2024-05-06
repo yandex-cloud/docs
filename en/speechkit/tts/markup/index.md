@@ -1,6 +1,8 @@
 # Text markup for speech synthesis
 
-You can control pronunciation during speech synthesis by marking up text to synthesize. {{ speechkit-full-name }} fully supports markup for texts in Russian only. Some pronunciation control features are also supported for other languages.
+You can control pronunciation during speech synthesis by marking up the text you want to synthesize. {{ speechkit-full-name }} fully supports markup for texts in Russian only. Some pronunciation control features are also supported for other languages.
+
+{% include [note-not-silence](../../../_includes/speechkit/note-templates-markup.md) %}
 
 For Russian and Kazakh, {{ speechkit-full-name }} supports the synthesis of normalized text:
 

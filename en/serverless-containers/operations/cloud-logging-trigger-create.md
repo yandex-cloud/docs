@@ -47,7 +47,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -59,7 +59,6 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
    To create a trigger that invokes a container, run this command:
 
-   
    ```bash
    yc serverless trigger create logging \
      --name <trigger_name> \
@@ -78,7 +77,6 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
      --dlq-service-account-id <service_account_ID>
    ```
 
-
    Where:
 
    * `--name`: Trigger name.
@@ -92,7 +90,6 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
    Result:
 
-   
    ```text
    id: a1s5msktijh2********
    folder_id: b1gmit33hgh2********
@@ -123,7 +120,6 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
            service-account-id: aje3lebfemh2********
    status: ACTIVE
    ```
-
 
 - {{ TF }} {#tf}
 
@@ -173,11 +169,13 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
          {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
 
       * `logging`: Trigger parameters:
+
          * `group_id`: Log group ID.
          * `resource_types`: Types of resources, e.g., {{ sf-name }} functions. This is an optional parameter.
          * `resource_ids`: IDs of your resources or {{ yandex-cloud }} resources, e.g., {{ sf-name }} functions. This is an optional parameter.
          * `levels`: Logging levels. This is an optional parameter.
          * `stream_names`: Log streams. This is an optional parameter.
+
             A trigger fires when records are added to the specified log group that satisfy all of the following parameters: `resource_ids`, `resource_types`, `stream_names`, and `levels`. If a parameter is not specified, the trigger fires for any value of the parameter.
 
          {% include [tf-batch-msg-params](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
