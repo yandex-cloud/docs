@@ -17,7 +17,6 @@ To create a trigger, you need:
 
    * To invoke a container.
    * To read from the queue the trigger receives messages from.
-   * (Optional) To write to a [dead letter queue](../../serverless-containers/concepts/dlq.md).
 
    You can use the same service account or different ones. If you do not have a service account, [create one](../../iam/operations/sa/create.md).
 
@@ -49,10 +48,10 @@ To create a trigger, you need:
 
    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
-      * Batch size. The values may range from 1 to 10. The default value is 1.
+      * Batch size. The values may range from 1 to 1,000. The default value is 1.
       * Maximum wait time. The values may range from 0 to 20 seconds. The default value is 10 seconds.
 
-      The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. However, the number of messages does not exceed the specified group size.
+      The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. However, the number of messages does not exceed the specified batch size.
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
@@ -85,9 +84,9 @@ To create a trigger, you need:
       {% include [ymq-id](../../_includes/serverless-containers/ymq-id.md) %}
 
    * `--invoke-container-id`: Container ID.
-   * `--queue-service-account-name`: Service account with rights to read messages from the queue.
-   * `--invoke-container-service-account-id`: Service account with rights to invoke the container.
-   * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
+   * `--queue-service-account-name`: Service account with permissions to read messages from the queue.
+   * `--invoke-container-service-account-id`: Service account with permissions to invoke the container.
+   * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 to 1,000. The default value is 1.
    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The number of messages cannot exceed `batch-size`.
 
    Result:
@@ -144,18 +143,20 @@ To create a trigger, you need:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
-      * `container`: Settings for the container that will be activated by the trigger:
+      * `container`: Container parameters:
 
          {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
 
       * `message_queue`: Trigger parameters:
+
          * `queue_id`: Queue ID.
 
             {% include [ymq-id](../../_includes/serverless-containers/ymq-id.md) %}
 
          * `service_account_id`: Service account with permissions to read messages from the queue.
 
-         {% include [tf-batch-msg-params](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
+         * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch_cutoff` and sends them to a container. The number of messages cannot exceed `batch_size`.
+         * `batch_size`: Message batch size. This is an optional parameter. The values may range from 1 to 1,000. The default value is 1.
 
       For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 

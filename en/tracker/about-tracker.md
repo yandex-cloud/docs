@@ -19,7 +19,7 @@ Additional elements, such as components, issue boards, and dashboards, allow you
 
 ![](../_assets/tracker/concept-structure.png)
 
-#### Issue
+#### Issue {#task}
 
 To manage your team's workload via {{ tracker-name }}, you need to break it down into smaller chunks called issues. These may include adding a new feature to your app, managing a support service request from a client, creating a new logo, or applying for a business trip.
 
@@ -27,7 +27,7 @@ An issue has a name, assignee, deadline, and other parameters. Issues may be lin
 
 If you want your team member to do some work, create an issue and make this employee the issue's assignee.
 
-#### Queue
+#### Queue {#queue}
 
 Queues combine issues that share a common topic (be it a process, product, and so on) and let users configure a [workflow](#process) for the issues. In each queue, you can set up the stages of working with issues, rules for automatic issue processing, and issue access rights.
 

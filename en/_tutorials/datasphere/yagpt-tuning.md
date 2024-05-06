@@ -1,4 +1,4 @@
-In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) you can [tune](../../datasphere/concepts/models/foundation-models.md#tuning-abilities) the [{{ gpt-pro }}](../../yandexgpt/concepts/index.md) neural network to adhere to the specified answer format or text analysis principles to make it more tailored to your specific tasks. To do this, prepare a file with pairs of prompts and reference responses and start tuning. You cannot train the model on new information, e.g., a support service knowledge base.
+In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) you can [tune](../../datasphere/concepts/models/foundation-models.md#tuning-abilities) the [{{ gpt-pro }}](../../foundation-models/concepts/yandexgpt/models.md) neural network to adhere to the specified answer format or text analysis principles to make it more tailored to your specific tasks. To do this, prepare a file with pairs of prompts and reference responses and start tuning. You cannot train the model on new information, e.g., a support service knowledge base.
 
 {% note info %}
 
@@ -8,7 +8,7 @@ Foundation model tuning is at the [Preview](../../overview/concepts/launch-stage
 
 {% note info %}
 
-{{ yagpt-full-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage.
+{{ foundation-models-full-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}
 
@@ -74,6 +74,8 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
 {% endlist %}
 
 ## Prepare data for model training {#create-data}
+
+{% include [logging](../../_includes/foundation-models/yandexgpt/logging-disclaimer.md) %}
 
 {% include [fine-tuning-file-requirements](../../_includes/datasphere/fine-tuning-file-requirements.md) %}
 
@@ -188,7 +190,7 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
     print(res.json())
     ```
 
-   For more information about parameters of requests to fine-tuned models, see the [{{ yagpt-full-name }} documentation](../../yandexgpt/concepts/index.md).
+   For more information about parameters of requests to fine-tuned models, see the [{{ foundation-models-full-name }} documentation](../../foundation-models/concepts/yandexgpt/index.md).
 
 - cURL {#curl}
 
@@ -207,7 +209,7 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
         "messages": [
             {
             "role": "user",
-            "text": "<request_text>"
+            "text": "<prompt_text>"
             }
         ]
         }
@@ -237,7 +239,7 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
             },
             {
             "role": "user",
-            "text": "<request_text>"
+            "text": "<prompt_text>"
             }
         ]
         }

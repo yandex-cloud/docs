@@ -3,7 +3,7 @@ sourcePath: en/tracker/api-ref/concepts/issues/temp-attachment.md
 ---
 # Uploading a temporary file
 
-Use this request to upload temporary files. Use this request to upload a file to {{ tracker-name }} first, and then attach it when creating an [issue](create-issue.md) or adding a [comment](add-comment.md).
+Use this request to upload temporary files. Use this request to upload a file to {{ tracker-name }} first and then attach it when editing an [issue](patch-issue.md), [comment](edit-comment.md), or [entity](../entities/update-entity.md).
 
 ## Request format {#query}
 
@@ -55,7 +55,7 @@ Content-Type: multipart/form-data
 
 | Parameter | Description | Data type |
 ----- | ----- | -----
-| \<new_file_name\> | New name that a file will be stored on the server as | String |
+| filename | New name that a file will be stored on the server under | String |
 
 {% endcut %}
 

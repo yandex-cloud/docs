@@ -4,6 +4,7 @@ __system: {"dislikeVariants": ["There is no answer to my question","These recomm
 ---
 # Uploading a file via an HTML form
 
+
 This section describes how to upload files from the browser to {{ objstorage-name }} using an HTML form.
 
 {% note info %}

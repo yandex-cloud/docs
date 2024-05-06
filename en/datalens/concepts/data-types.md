@@ -126,7 +126,13 @@ DATETRUNC(#2018-07-12 11:07:13#, "month", 4)
 
 This type means a date with a specified time (the value is not converted to [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)).
 
-When using date and time in formulas, make sure to put `##` (double hash) before and after the value, e.g., `DATEADD(##2018-01-12 01:02:03##, "second", 6)`.
+{% note info %}
+
+Field selectors with this type are always in line with the time zone of the data source regardless of the field time zone.
+
+{% endnote %}
+
+When using date and time in formulas, make sure to put `##` (double hash) before and after the value, e.g., `DATEADD(#2018-01-12 01:02:03#, "second", 6)`.
 
 You can convert the source data type to `Date and time` using the [DATETIME](../function-ref/DATETIME.md) and [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md) functions.
 

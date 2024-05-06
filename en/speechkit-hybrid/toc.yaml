@@ -14,8 +14,12 @@ items:
     hidden: true
   - name: Service architecture
     href: architecture.md
-  - name: Getting started
-    href: quickstart.md
+  - name: Creating a demo stand
+    items:
+      - name: Creating a {{ sk-hybrid-name }} stand
+        href: quickstart.md
+      - name: Troubleshooting
+        href: quickstart-debugging.md
   - name: Speech recognition
     items:
       - name: About the technology

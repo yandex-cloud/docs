@@ -1,8 +1,8 @@
 # Tree chart ![](../../_assets/datalens/treemap.svg)
 
-A tree chart displays hierarchy data as a set of nested rectangles. Each hierarchy level corresponds to a dimension and is represented as a colored rectangle with nested rectangles. The size of each rectangle depends on the measure value: the higher the value, the larger the size. A chart does not take up much space on a dashboard even if there is a large amount of data.
+A tree chart displays hierarchy data as a set of nested rectangles. Each hierarchy level corresponds to a dimension and is shown as a colored rectangle with nested rectangles. The size of each rectangle depends on the measure value: the higher the value, the larger the size. A chart does not take up much space on a dashboard, even if it contains a lot of data.
 
-For example, you can use a tree chart to visually represent sales by product category and subcategory.
+For example, you can use a tree chart to visualize sales by product category and subcategory.
 
 ![tree-chart](../../_assets/datalens/visualization-ref/tree-chart/tree-chart.png)
 
@@ -19,26 +19,32 @@ For example, you can use a tree chart to visually represent sales by product cat
 
 {% endcut %}
 
-## Sections in the wizard {#wizard-sections}
+## Wizard sections {#wizard-sections}
 
-| Section<br/> in the wizard | Description |
+| Wizard<br/> section | Description |
 ----- | ----
 | Dimensions | Dimensions. Determines the hierarchy tree of nested rectangles. |
 | Size | Measure. One measure that determines the area of a rectangle. |
 | Colors | Dimension or measure. Affects the shading of rectangles in a chart. |
-| Chart filters | Dimension or measure. Used as a filter. |
+| Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a tree chart {#create-diagram}
 
 To create a tree chart:
 
-1. On the {{ datalens-full-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
-1. Under **Dataset**, select a dataset for visualization.
+
+{% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
+
+
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
+1. Click **Create chart** → **Chart**.
+1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
 1. Select **Tree chart** as the chart type.
 1. Drag one or more dimensions from the dataset to the **Dimensions** section.
-1. Drag a measure from the dataset to the **Size** section. The values are displayed as rectangles. The areas of the rectangles are proportional to the corresponding values of the selected measure.
-1. Drag a measure or dimension from the **Dimensions** section to the **Colors** section. As a result, the rectangles are colored depending on the value of the added measure or dimension. A dimension that you can add to the **Colors** section must be from the **Dimensions **section.
-1. Drag a dimension or measure from the dataset to the **Chart filters** section. The field can be empty. In this case, no filters are applied.
+1. Drag a measure from the dataset to the **Size** section. The values will be displayed as rectangles. The areas of the rectangles are proportional to the corresponding values of the selected measure.
+1. Drag a measure or dimension from the **Dimensions** section to the **Color** section. As a result, the rectangles will be colored depending on the value of the added measure or dimension. A dimension that you can add to the **Color** section must be from the **Dimensions **section.
+1. Drag a dimension or measure from the dataset to the **Filters** section. The field can be empty. In this case, no filters are applied.
 
 ## Recommendations {#recommendations}
 

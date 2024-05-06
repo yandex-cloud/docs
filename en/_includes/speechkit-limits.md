@@ -3,7 +3,7 @@
 
 | Type of limit | Value |
 ----- | -----
-| API v2 [**Streaming recognition mode**](../{{ speechkit-slug }}/stt/streaming.md) |
+| [**Streaming recognition mode**](../{{ speechkit-slug }}/stt/streaming.md) |
 | Requests per second | 40 |
 | Number of concurrently running streams | 60 |
 | [**Synchronous recognition**](../{{ speechkit-slug }}/stt/request.md) |

@@ -7,10 +7,6 @@ description: "Follow this guide to create a {{ prometheus-name }} connection."
 
 To create a {{ prometheus-name }} connection:
 
-
-{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
-
-
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
 1. Click **Create connection**.
 1. Select the **{{ prometheus-name }}** source.
@@ -24,7 +20,7 @@ To create a {{ prometheus-name }} connection:
    * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
    * **HTTPS**: Enable the secure connection option if your server supports HTTPS.
 
-1. Click **Create connection**.
-1. Enter the connection name and click **Create**.
+1. Click **Create connection**. If you use a new {{ datalens-short-name }} object model with [workbooks and collections](../../../datalens/workbooks-collections/index.md), select or create a workbook to save the connection to.
+1. Enter a name for the connection and click **Create**.
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}

@@ -112,23 +112,27 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
 
    To create a trigger for {{ iot-name }}:
 
-   1. In the configuration file, describe the trigger parameters.
+   1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
 
-      Here is an example of the configuration file structure:
-
-      ```hcl
+      ```
       resource "yandex_function_trigger" "my_trigger" {
         name        = "<trigger_name>"
         description = "<trigger_description>"
+        function {
+          id                 = "<function_ID>"
+          service_account_id = "<service_account_ID>"
+          retry_attempts     = "<number_of_retry_invocation_attempts>"
+          retry_interval     = "<interval_between_retry_attempts>"
+        }
         iot {
           registry_id  = "<registry_ID>"
           device_id    = "<device_ID>"
           topic        = "<topic_ID>"
-          batch_cutoff = 10
-          batch_size   = 1
+          batch_cutoff = "<timeout>"
+          batch_size   = "<event_batch_size>"
         }
-        function {
-          id                 = "<function_ID>"
+        dlq {
+          queue_id           = "<queue_ID>"
           service_account_id = "<service_account_ID>"
         }
       }
@@ -136,48 +140,29 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
 
       Where:
 
-      * `name`: Trigger name. The name format is as follows:
+      {% include [tf-function-params](tf-function-params.md) %}
 
-         {% include [name-format](../../_includes/name-format.md) %}
+      * `iot`: Trigger parameters:
 
-      * `description`: Trigger description.
-      * `iot`: Topic parameters:
          * `registry-id`: [Registry ID](../../iot-core/operations/registry/registry-list.md).
          * `device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you are creating a trigger for a registry topic, you can omit this parameter.
-         * `topic`: ID of the topic you want to create a trigger for. If no topic is set, the trigger fires for all registry or device topics.
-      * `function`: Settings for the function, which will be activated by the trigger:
-         * `id`: Function ID.
-         * `service_account_id`: ID of the [service account](../../iam/concepts/users/service-accounts.md) with permissions to invoke the function.
-      * `batch_cutoff`: Maximum wait time. Acceptable values are from 1 to 60 seconds. The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. At the same time, the number of messages does not exceed the specified `batch-size` group.
-      * `batch_size`: Message batch size. Acceptable values are from 1 to 10.
+         * `topic`: ID of the [topic](../../iot-core/concepts/topic/) you want to create a trigger for. If no topic is set, the trigger fires for all registry or device topics.
+         * `batch_cutoff`: Maximum wait time. Acceptable values are from 1 to 60 seconds. The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function. At the same time, the number of messages does not exceed the specified `batch-size`.
+         * `batch_size`: Message batch size. Acceptable values are from 1 to 10.
 
-      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
-   1. Make sure the configuration files are correct.
+      {% include [tf-dlq-params](../serverless-containers/tf-dlq-params.md) %}
 
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run a check using this command:
+      For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-         ```bash
-         terraform plan
-         ```
+   1. Create resources:
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   1. Deploy cloud resources.
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-      1. If the configuration does not contain any errors, run this command:
-
-         ```bash
-         terraform apply
-         ```
-
-      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
-
-         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
-
-         ```bash
-         yc serverless trigger get <trigger_ID>
-         ```
+      ```bash
+      yc serverless trigger get <trigger_ID>
+      ```
 
 - API {#api}
 

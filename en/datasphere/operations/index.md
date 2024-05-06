@@ -29,6 +29,7 @@ description: "The page contains all guides on working with {{ ml-platform-full-n
 * [{#T}](projects/delete.md)
 * [{#T}](projects/delete-user.md)
 * [{#T}](projects/use-shared-resource.md)
+* [{#T}](projects/debugging-tools.md)
 
 ## Working in a notebook {#notebook}
 

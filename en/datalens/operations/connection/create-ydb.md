@@ -1,6 +1,6 @@
 ---
 title: "How to create a {{ ydb-name }} connection"
-description: "This guide describes how you can create a {{ ydb-name }} connection."
+description: "Follow this guide to create a {{ ydb-name }} connection."
 ---
 
 # Creating a {{ ydb-name }} connection
@@ -16,10 +16,6 @@ To write subqueries in datasets and queries in QL charts, use [YQL syntax](https
 {% endnote %}
 
 To create a {{ ydb-name }} connection:
-
-
-{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
-
 
 
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
@@ -46,7 +42,7 @@ To create a {{ ydb-name }} connection:
    * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
    * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
-1. Click **Create connection**.
+1. Click **Create connection**. If you use a new {{ datalens-short-name }} object model with [workbooks and collections](../../../datalens/workbooks-collections/index.md), select or create a workbook to save the connection to.
 1. Enter a name for the connection and click **Create**.
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}

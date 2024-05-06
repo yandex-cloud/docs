@@ -11,7 +11,11 @@ In this section, you will learn:
 
 ## Which resources you can assign a role for {#resources}
 
-Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or [custom log group](../concepts/log-group.md). Roles assigned for a cloud or folder also apply to their log groups.
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+You can assign a role via the YC CLI or {{ yandex-cloud }} API for individual resources of the service:
+
+{% include notitle [logging-resources](../../_includes/iam/resources-with-access-control/logging.md) %}
 
 ## Which roles exist in the service {#roles-list}
 

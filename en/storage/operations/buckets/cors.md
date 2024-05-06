@@ -7,7 +7,7 @@
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the bucket you want to configure CORS for.
-   1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.cors.label_title }}**.
+   1. In the left-hand menu, select **{{ ui-key.yacloud.storage.bucket.cors.label_title }}**.
    1. Click **{{ ui-key.yacloud.storage.bucket.cors.button_cors_empty-create }}**.
    1. This will open a page where you can add, delete, and edit configuration rules. For a detailed description of the configuration fields, see [{#T}](../../s3/api-ref/cors/xml-config.md).
 
@@ -40,12 +40,12 @@
       ```
 
    1. Using the `NAME` column, save the name of the bucket to set up the CORS configuration in.
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
-      yc storage bucket update
+      yc storage bucket update \
         --name <bucket_name> \
-        --cors <CORS_parameter>=<value>,<CORS_parameter>=<value>,...
+        --cors <CORS_parameter>='[<values>]',<CORS_parameter>='[<values>]',...
       ```
 
       Where:
@@ -57,7 +57,7 @@
          * `expose-headers`: List of headers that can be displayed in a JavaScript app in the browser. This is an optional parameter.
          * `max-age-seconds`: Time in seconds during which the results of requests to an object are cached by the browser. This is an optional parameter.
 
-         The lists are enclosed in square brackets, their items are comma-separated with no spaces, e.g., `allowed-methods=[method-get,method-head],allowed-origins=[example.com]`.
+         Parameter values are specified in quotes and square brackets. List items in values are separated by commas with no spaces, e.g., `--cors allowed-methods='[method-get,method-head]',allowed-origins='[example.com]'`.
 
          Permissions specified in the command override the current CORS settings of the bucket. You can retrieve the current permissions using the `yc storage bucket get <bucket_name> --full` command.
 
@@ -85,7 +85,7 @@
 
    To upload a configuration via the [AWS CLI](../../tools/aws-cli.md):
 
-   1. Describe the CORS object configurations in JSON format. Here is an example:
+   1. Describe the CORS object configurations in JSON format. For example:
 
       ```json
       {
@@ -164,7 +164,7 @@
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 

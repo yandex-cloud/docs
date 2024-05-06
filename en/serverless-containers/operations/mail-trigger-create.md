@@ -55,7 +55,7 @@ To create a trigger, you need:
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -67,7 +67,6 @@ To create a trigger, you need:
 
    To create a trigger that invokes a container, run this command:
 
-   
    ```bash
    yc serverless trigger create mail \
      --name <trigger_name> \
@@ -77,12 +76,11 @@ To create a trigger, you need:
      --attachements-service-account-id <service_account_ID> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
-     --retry-attempts 1 \
-     --retry-interval 10s \
-     --dlq-queue-id <dead_letter_queue_ID> \
+     --retry-attempts <number_of_invocation_retries> \
+     --retry-interval <interval_between_invocation_retries> \
+     --dlq-queue-id <dead-letter_queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
-
 
    Where:
 
@@ -96,7 +94,6 @@ To create a trigger, you need:
 
    Result:
 
-   
    ```
    id: a1sfe084v4h2********
    folder_id: b1g88tflruh2********
@@ -123,6 +120,129 @@ To create a trigger, you need:
    status: ACTIVE
    ```
 
+- {{ TF }} {#tf}
+
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   To create an email trigger that invokes a container:
+
+   1. In the configuration file, describe the trigger parameters:
+
+      ```hcl
+      resource "yandex_function_trigger" "my_trigger" {
+        name = "<trigger_name>"
+        container {
+          id                 = "<container_ID>"
+          service_account_id = "<service_account_ID>"
+          retry_attempts     = <number_of_invocation_retries>
+          retry_interval     = <interval_between_invocation_retries>
+        }
+        mail {
+          attachments_bucket_id = "<bucket_name>"
+          service_account_id    = "<service_account_ID>"
+          batch_cutoff          = <timeout>
+          batch_size            = <event_batch_size>
+        }
+        dlq {
+          queue_id           = "<queue_ID>"
+          service_account_id = "<service_account_ID>"
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Trigger name. The name format is as follows:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      * `container-name`: Container parameters:
+
+         {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
+
+         {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
+
+      * `mail`: Trigger parameters:
+
+         * `attachments_bucket_id`: Name of the bucket to save email attachments to. This is an optional parameter.
+         * `service_account_id`: ID of the service account authorized to upload objects to the {{ objstorage-name }} bucket. This is an optional parameter.
+         * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The number of messages cannot exceed `batch-size`.
+         * `batch_size`: Message batch size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
+
+      {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
+
+      For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+   You can check the trigger update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+
+   ```bash
+   yc serverless trigger get <trigger_ID>
+   ```
+
+- {{ TF }} {#tf}
+
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   To create an email trigger that invokes a container:
+
+   1. In the configuration file, describe the trigger parameters:
+
+      ```hcl
+      resource "yandex_function_trigger" "my_trigger" {
+        name = "<trigger_name>"
+        container {
+          id                 = "<container_ID>"
+          service_account_id = "<service_account_ID>"
+          retry_attempts     = <number_of_invocation_retries>
+          retry_interval     = <interval_between_invocation_retries>
+        }
+        mail {
+          attachments_bucket_id = "<bucket_name>"
+          service_account_id    = "<service_account_ID>"
+          batch_cutoff          = <timeout>
+          batch_size            = <event_batch_size>
+        }
+        dlq {
+          queue_id           = "<queue_ID>"
+          service_account_id = "<service_account_ID>"
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Trigger name. The name format is as follows:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      * `container`: Settings for the container that will be activated by the trigger:
+
+         * `id`: Container ID.
+         * `service_account_id`: ID of the service account with rights to invoke the container.
+         * `retry_attempts`: Number of invocation retries before the trigger moves a message to the dead-letter queue. This is an optional parameter. The values may range from 1 to 5. The default value is 1.
+         * `retry_intervall`: Time to retry invoking the container if the current attempt fails. This is an optional parameter. The values may range from 10 to 60 seconds. The default value is 10 seconds.
+
+      {% include [trigger-tf-param](../../_includes/functions/trigger-tf-param.md) %}
+
+      For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+   You can check the trigger update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+
+   ```bash
+   yc serverless trigger get <trigger_ID>
+   ```
 
 - API {#api}
 

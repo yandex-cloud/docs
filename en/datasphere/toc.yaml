@@ -54,6 +54,8 @@ items:
             href: operations/projects/delete-user.md
           - name: Using shared resources
             href: operations/projects/use-shared-resource.md
+          - name: Troubleshooting
+            href: operations/projects/debugging-tools.md
       - name: '{{ ds-nb }}'
         items:
           - name: Connecting to JupyterLab from a local IDE
@@ -74,6 +76,9 @@ items:
             href: operations/projects/work-with-git.md
           - name: Running a job in {{ ml-platform-name }} Jobs
             href: operations/projects/work-with-jobs.md
+          - name: Running a Docker container in a separate cell
+            href: operations/user-images-cell.md
+            hidden: true
           - name: Setting up template-based notebook creation
             href: operations/projects/templates.md
       - name: Working with resources

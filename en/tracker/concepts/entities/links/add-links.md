@@ -34,7 +34,7 @@ Authorization: OAuth <OAuth_token>
 | Parameter | Description | Data type |
 ----- | ----- | -----
 | relationship | Link type: <ul><li>`is dependent by`: Current entity is a blocker.</li><li>`depends on`: Current entity depends on the linked one.</li><li>`relates`: Simple link.</li></ul> | String |
-| entity | ID of the entity you are establishing a link with. | String |
+| entity | ID of the entity you are establishing a link with. Instead, you can use the project or portfolio ID (the `shortId` field value) in the request. | String |
 
 {% endcut %}
 

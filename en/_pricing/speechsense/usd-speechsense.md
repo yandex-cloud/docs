@@ -5,7 +5,7 @@
 
 {% note warning %}
 
-The prices below are effective as of May 14, 2024.
+The prices below are effective as of May 16, 2024.
 
 {% endnote %}
 

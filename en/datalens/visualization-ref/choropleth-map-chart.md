@@ -17,9 +17,9 @@ A choropleth map is used for estimating the value of a measure within a territor
 
 ## Wizard sections {#wizard-sections}
 
-| Wizard section | Description |
+| Wizard<br/> section | Description |
 | ----- | ---- |
-| Polygons (Geopolygons) | Measure with the type [Geopolygon](../concepts/data-types.md#geopolygon). |
+| Polygons (Geopolygons) | Measure of the [Geopolygon](../concepts/data-types.md#geopolygon) type |
 | Colors | Dimension or measure. Affects the color and intensity of area fill. |
 | Tooltips | Dimension or measure. A tooltip that appears when you hover over an area. |
 | Layer filters | Dimension or measure. Used as a filter for the current layer. |
@@ -27,11 +27,17 @@ A choropleth map is used for estimating the value of a measure within a territor
 
 ## Creating a choropleth map {#create-diagram}
 
-1. On the {{ datalens-full-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
-1. Under **Dataset**, select a dataset for visualization. If you do not have a dataset, [create one](../operations/dataset/create.md).
+
+{% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
+
+
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
+1. Click **Create chart** → **Chart**.
+1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize. If you do not have a dataset, [create one](../operations/dataset/create.md).
 1. Select the **Map** chart type.
 1. Select **Polygons (Geopolygons)** as the layer type.
-1. Drag a dimension with the [Geopolygon](../concepts/data-types.md#geopolygon) type from the dataset to the layer type selection section.
+1. Drag a dimension of the [Geopolygon](../concepts/data-types.md#geopolygon) type from the dataset to the layer type selection section.
 1. Color the polygons on the map. Move the measure or dimension to the **Colors** section.
 1. Add tooltips to show the dimension and measure values when hovering over a polygon.
 

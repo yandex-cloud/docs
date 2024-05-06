@@ -25,6 +25,12 @@ To assign a user a role for the cloud:
 
 For more information about assigning roles, see the [{{ iam-full-name }}](../../iam/operations/roles/grant.md) documentation.
 
+## Which resources you can assign a role for {#resources}
+
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+You can assign a role for an [API gateway](../concepts/index.md) via the YC CLI or the {{ yandex-cloud }} API.
+
 ## Which roles exist in the service {#roles-list}
 
 The list below shows all roles that are considered when verifying access rights in the {{ api-gw-name }} service.

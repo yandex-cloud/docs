@@ -796,8 +796,10 @@ items:
     href: pricing.md
   - name: История изменений
     items:
-      - name: Март 2024
+      - name: Апрель 2024
         href: release-notes/index.md
+      - name: Март 2024
+        href: release-notes/2403.md
       - name: Февраль 2024
         href: release-notes/2402.md
       - name: Январь 2024

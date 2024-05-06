@@ -7,6 +7,6 @@ description: "This guide describes how you can add a product from {{ marketplace
 
 {% include [name-format](../../../_includes/datalens/operations/datalens-add-marketplace-product.md) %}
 
-#### See also
+#### See also {#see-also}
 
 - [{#T}](../../concepts/marketplace.md)

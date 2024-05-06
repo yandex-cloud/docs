@@ -1,5 +1,6 @@
 # AWS SDK for Go
 
+
 The [AWS SDK for Go](https://aws.amazon.com/ru/sdk-for-go/) is a set of tools for developers working with AWS services in Go.
 
 ## Getting started {#before-you-begin}
@@ -8,7 +9,7 @@ The [AWS SDK for Go](https://aws.amazon.com/ru/sdk-for-go/) is a set of tools fo
 
 {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-## Installing {#installation}
+## Installation {#installation}
 
 {% include [install-go-sdk](../../_includes/aws-tools/install-go-sdk.md)%}
 
@@ -68,7 +69,7 @@ func main() {
 }
 ```
 
- Getting a list of objects in a bucket:
+Getting a list of objects in a bucket:
 
 ```go
 package main

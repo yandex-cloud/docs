@@ -5,6 +5,10 @@ description: "This page presents {{ foundation-models-full-name }} release notes
 
 # {{ foundation-models-full-name }} release notes
 
+## Release on 19/04/2024 {#190424}
+
+Added the ability to send asynchronous requests to {{ yagpt-name }} models fine-tuned in {{ ml-platform-name }}.
+
 ## Release on 09/04/2024 {#090424}
 
 1. Added [generation of images](../concepts/yandexart/index.md) based on text description. The {{ yandexart-name }} model works in asynchronous mode and is available in the management console in [{{ foundation-models-name }} Playground]({{ link-console-main }}/link/foundation-models) and via the [API](../image-generation/api-ref/index.md).

@@ -16,13 +16,13 @@ This chart shows the proportion of different categories using donut segments. Th
 
 {% endcut %}
 
-## Sections in the wizard {#wizard-sections}
+## Wizard sections {#wizard-sections}
 
-| Wizard section | Description |
+| Wizard<br/> section | Description |
 ----- | ----
 | Color | Dimension. You can only specify one field here. |
-| Measures | Affects the size of donut segments. The total value of a measure is displayed in the center of a ring. You can only specify one field here. |
-| Sorting | A measure or dimension from the **Color** section. Affects segment sorting. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) descending. To change the sorting direction, click the icon. |
+| Measures | Affects the size of ring segments. The total value of a measure is displayed in the center of a ring. You can only specify one field here. |
+| Sorting | Measure or dimension from the **Color** section. Affects segment sorting. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon. |
 | Labels | Measure. Displays measure values on the chart. To add callouts with category names to the chart, drag the [Measure Names](../concepts/chart/measure-values.md) dimension to this section. |
 | Filters | Dimension or measure. Used as a filter. |
 
@@ -30,11 +30,17 @@ This chart shows the proportion of different categories using donut segments. Th
 
 To create a donut chart:
 
-1. On the {{ datalens-full-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
-1. Under **Dataset**, select a dataset for visualization.
+
+{% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
+
+
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
+1. Click **Create chart** → **Chart**.
+1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
 1. Select **Donut chart** as the chart type.
 1. Drag a dimension or measure from the dataset to the **Color** section.
-1. Drag a measure from the dataset to the **Measures** section. The values are displayed as donut chart segments.
+1. Drag a measure from the dataset to the **Measures** section. The values will be displayed as donut chart segments.
 
 To disable displaying a number in the center:
 

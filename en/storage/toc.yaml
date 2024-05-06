@@ -140,6 +140,8 @@ items:
           Loading data to {{ ydb-full-name }} using {{ data-transfer-full-name
           }}
         href: tutorials/object-storage-to-ydb.md
+      - name: Hosting a static Gatsby-based website in {{ objstorage-name }}
+        href: tutorials/gatsby-static-website.md
   - name: Concepts
     items:
       - name: Overview

@@ -11,7 +11,7 @@ The service is provided free of charge without limitations on the number of user
 
 ## Pricing policy as of April 23, 2024 {#service-plans}
 
-Starting April 23, 2024, {{ datalens-full-name }} is introducing the Community and Business service plans offering different service packages. The selected plan covers an organization and can only be changed by its owner or administrator.
+Starting April 23, 2024, {{ datalens-full-name }} is introducing the Community and Business service plans offering different service packages. The plan you choose covers your organization and can only be [changed](./settings/service-plan.md#change-service-plan) by its owner or administrator.
 
 From April 23 to June 1, 2024, you will be able to test these service plans for functionality at no charge. This will help you to choose a plan that best fits your needs. After the free trial ends, [service plan charge](#service-plan-cost) will be introduced.
 
@@ -30,13 +30,13 @@ From April 23 to June 1, 2024, you will be able to test these service plans for 
 
    * [Basic technical support plan](../support/pricing.md#base)
 
-* **Business**: Suitable for enterprise deployments and business scenarios. Includes the whole Community feature set, plus:
-    * {{ datalens-name }} UI customization.
-    * {{ datalens-name }} usage statistics.
-    * Secure private object embedding.
+* **Business**: Suitable for enterprise deployments and business scenarios. It includes all Community features, as well as:
+    * {{ datalens-name }} [UI customization](./settings/ui-customization.md).
+    * {{ datalens-name }} [usage statistics](./operations/connection/create-usage-tracking.md).
+    * [Secure embedding](./dashboard/embedded-objects.md#private-embedding) for private objects.
     * [SLA](https://yandex.com/legal/cloud_sla_datalens).
     * Enterprise authentication and SSO.
-    * [Business technical support plan](../support/pricing.md#business) (only covers {{ datalens-name }}) and priority over the Community plan when processing support requests.
+    * [Business technical support plan](../support/pricing.md#business) (only applies to {{ datalens-name }}) and priority over the Community plan when processing support requests.
 
 ## Pricing policy as of June 1, 2024 {#service-plan-cost}
 

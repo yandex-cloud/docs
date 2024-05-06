@@ -35,6 +35,7 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 | {{ data-transfer-full-name }}           | [gRPC](../data-transfer/api-ref/grpc/)<br>[REST](../data-transfer/api-ref/) |
 | {{ iam-full-name }}                     | [gRPC](../iam/api-ref/grpc/)<br>[REST](../iam/api-ref/) |
 | {{ iot-full-name }}                     | [Devices gRPC](../iot-core/api-ref/grpc/)<br>[Devices REST](../iot-core/api-ref/)<br>[Broker gRPC](../iot-core/broker/api-ref/grpc/)<br>[Broker REST](../iot-core/broker/api-ref/) |
+| {{ foundation-models-full-name }}                   | [YandexGPT API gRPC](../foundation-models/text-generation/api-ref/grpc/)<br>[YandexGPT API REST](../foundation-models/text-generation/api-ref/)<br>[Embeddings gRPC](../foundation-models/embeddings/api-ref/grpc/)<br>[Embeddings REST](../foundation-models/embeddings/api-ref/)<br>[YandexART gRPC](../foundation-models/image-generation/api-ref/grpc/)<br>[YandexART REST](../foundation-models/image-generation/api-ref/) |
 | {{ kms-full-name }}                     | [gRPC](../kms/api-ref/grpc/)<br>[REST](../kms/api-ref/) |
 | {{ load-testing-full-name }}            | [gRPC](../load-testing/user/api-ref/grpc/)<br>[REST](../load-testing/user/api-ref/) |
 | {{ lockbox-name }} {{ tag-preview }} | [gRPC](../lockbox/api-ref/grpc/)<br>[REST](../lockbox/api-ref/) |
@@ -62,7 +63,6 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 | {{ translate-full-name }}               | [gRPC](../translate/api-ref/grpc/)<br>[REST](../translate/api-ref/) |
 | {{ vision-full-name }}                  | [gRPC](../vision/api-ref/grpc/)<br>[REST](../vision/api-ref/Vision)<br>[Classifier gRPC](../vision/classifier/api-ref/grpc/) |
 | {{ vpc-full-name }}                     | [gRPC](../vpc/api-ref/grpc/)<br>[REST](../vpc/api-ref/) |
-| {{ yagpt-full-name }}                   | [YandexGPT gRPC](../yandexgpt/text-generation/api-ref/grpc/)<br>[YandexGPT REST](../yandexgpt/text-generation/api-ref/)<br>[Embeddings gRPC](../yandexgpt/embeddings/api-ref/grpc/)<br>[Embeddings REST](../yandexgpt/embeddings/api-ref/) |
 
 
 {% include [Greenplum trademark](../_includes/mdb/mgp/trademark.md) %}

@@ -17,7 +17,7 @@ To create a trigger, you need:
 
    * To invoke a function.
    * To read from the stream that activates the trigger when data is sent there.
-   * (Optional) To write to the Dead Letter Queue.
+   * (Optional) To write to the dead-letter queue.
 
    You can use the same service account or different ones. If you do not have a service account, [create one](../../../iam/operations/sa/create.md).
 
@@ -62,7 +62,7 @@ To create a trigger, you need:
 
       {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -131,6 +131,69 @@ To create a trigger, you need:
            service_account_id: aje07l4q4v**********
    status: ACTIVE
    ```
+
+- {{ TF }} {#tf}
+
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+   To create a trigger for {{ yds-name }}:
+
+   1. In the configuration file, describe the trigger parameters:
+
+      ```
+      resource "yandex_function_trigger" "my_trigger" {
+        name = "<trigger_name>"
+        function {
+          id                 = "<function_ID>"
+          service_account_id = "<service_account_ID>"
+          retry_attempts     = "<number_of_retry_invocation_attempts>"
+          retry_interval     = "<interval_between_retry_attempts>"
+        }
+        data_streams {
+          stream_name        = "<data_stream_name>"
+          database           = "<database_location>"
+          service_account_id = "<service_account_ID>"
+          batch_cutoff       = "<wait_time>"
+          batch_size         = "<event_batch_size>"
+        }
+        dlq {
+          queue_id           = "<queue_ID>"
+          service_account_id = "<service_account_ID>"
+        }
+      }
+      ```
+
+      Where:
+
+      {% include [tf-function-params](../../../_includes/functions/tf-function-params.md) %}
+
+      * `data_streams`: Trigger parameters:
+
+         * `stream_name`: Data stream name.
+         * `database`: Location of the {{ ydb-short-name }} database that the {{ yds-name }} stream is linked to.
+
+            To find out where the database is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, in the `database` parameter, e.g., `/ru-central1/b1gia87mba**********/etn7hehf6g*******`.
+
+         * `service_account_id`: Service account with permissions to read from and write to the {{ yds-name }} stream.
+
+         * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch_cutoff` and sends them to a function. The number of messages cannot exceed `batch_size`.
+         * `batch_size`: Message batch size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
+
+      {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
+
+      For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+
+      ```bash
+      yc serverless trigger list
+      ```
 
 - API {#api}
 

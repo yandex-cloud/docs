@@ -11,11 +11,11 @@ This map is used to monitor how points are distributed across the area. For exam
 ![point-chart](../../_assets/datalens/visualization-ref/point-chart/point-chart.png)
 
 
-## Sections in the wizard {#wizard-sections}
+## Wizard sections {#wizard-sections}
 
-| Wizard section | Description |
+| Wizard<br/> section | Description |
 ----- | ----
-| Points (Geopoints) | Measure with the type [Geopoint](../concepts/data-types.md#geopoint). |
+| Points (Geopoints) | Measure of the [Geopoint](../concepts/data-types.md#geopoint) type |
 | Point size | Measure. Sets a point size depending on the measure value. |
 | Colors | Dimension or measure. Affects the intensity of point fill. |
 | Labels | Measure. Displayed as text on a point. When used, point size control is blocked. |
@@ -25,8 +25,14 @@ This map is used to monitor how points are distributed across the area. For exam
 
 ## Creating a point map {#create-diagram}
 
-1. On the {{ datalens-full-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
-1. Under **Dataset**, select a dataset for visualization. If you do not have a dataset, [create one](../operations/dataset/create.md).
+
+{% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
+
+
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
+1. Click **Create chart** → **Chart**.
+1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize. If you do not have a dataset, [create one](../operations/dataset/create.md).
 1. Select the **Map** chart type.
 1. Select the **Points (Geopoints)** layer type.
 1. Drag a dimension with the [Geopoint](../concepts/data-types.md#geopoint) type from the dataset to the layer type selection section.
