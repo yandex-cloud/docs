@@ -112,7 +112,7 @@
 
 1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}**.
-1. На вкладке **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}** в поле **Срез** выберите значение _WAIT_EVENT_TYPE_.
+1. На вкладке **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}** в поле **Срез** выберите значение **WAIT_EVENT_TYPE**.
 
     * Обратите внимание на график **Lock**. Он показывает количество запросов, которые в выбранный период находились в состоянии блокировки.
     * Чтобы получить детальную информацию о запросах, выполнявшихся в выбранный период, перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}**.

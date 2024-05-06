@@ -1,5 +1,6 @@
 # AWS Command Line Interface (AWS CLI)
 
+
 [AWS CLI](https://aws.amazon.com/cli/) is a command line interface for working with AWS services. To learn [how to run commands](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html), see the official Amazon documentation.
 
 To work with {{ objstorage-name }} via the AWS CLI, you can use the following sets of commands:
@@ -23,11 +24,7 @@ To configure the AWS CLI, enter the `aws configure` command. The command request
 1. `AWS Secret Access Key`: the contents of the static key.
 1. `Default region name`: `{{ region-id }}` region.
 
-   {% note info %}
-
    To work with {{ objstorage-name }}, always specify `{{ region-id }}` as the region. A different region value may lead to an authorization error.
-
-   {% endnote %}
 
 1. Leave the other parameter values unchanged.
 
@@ -98,7 +95,7 @@ Give consideration to the AWS CLI specifics when using {{ objstorage-name }}:
       {{ storage-aws-cli-alias }} ls
       ```
 
-   * (Supported by the AWS CLI versions 1.29.0, 2.13.0, and higher). In the `.aws/credentials` configuration file, add the `endpoint_url` parameter:
+   * In the `.aws/config` configuration file, add the `endpoint_url` parameter (this is supported by the AWS CLI versions 1.29.0, 2.13.0, and higher):
 
       ```text
       endpoint_url = https://{{ s3-storage-host }}

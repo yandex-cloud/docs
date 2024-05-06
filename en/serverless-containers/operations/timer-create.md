@@ -39,7 +39,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -51,7 +51,6 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
    To create a trigger that invokes a container, run this command:
 
-   
    ```bash
    yc serverless trigger create timer \
      --name <timer_name> \
@@ -65,7 +64,6 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
      --dlq-service-account-id <service_account_ID>
    ```
 
-
    Where:
 
    * `--name`: Timer name.
@@ -76,7 +74,6 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
    Result:
 
-   
    ```text
    id: a1s5msktijh2********
    folder_id: b1gmit33hgh2********
@@ -98,7 +95,6 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
    status: ACTIVE
    ```
 
-
 - {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -111,16 +107,16 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
-        name = "<timer_name>"
-        timer {
-          cron_expression = "<cron_expression>"
-          payload         = "<message>"
-        }
+        name = "<trigger_name>"
         container {
           id                 = "<container_ID>"
           service_account_id = "<service_account_ID>"
           retry_attempts     = <number_of_retry_invocation_attempts>
           retry_interval     = <interval_between_retry_attempts>
+        }
+        timer {
+          cron_expression = "<cron_expression>"
+          payload         = "<message>"
         }
         dlq {
           queue_id           = "<DLQ_ID>"
@@ -131,19 +127,20 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
       Where:
 
-      * `name`: Timer name. The name format is as follows:
+      * `name`: Trigger name. The name format is as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
-
-      * `timer`: Trigger parameters:
-         * `cron_expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
-         * `payload`: Message to be delivered to the function if the timer triggers. The string length must not exceed 4,096 characters.
 
       * `container-name`: Container parameters:
 
          {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
 
          {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
+
+      * `timer`: Trigger parameters:
+
+         * `cron_expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
+         * `payload`: Message to deliver to the container if the timer gets triggered. The string length must not exceed 4,096 characters.
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 

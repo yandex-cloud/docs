@@ -1,19 +1,19 @@
 ---
-title: "How to send a request in chat mode {{ yagpt-full-name }}"
+title: "How to send a series of requests in chat mode to {{ yagpt-full-name }}"
 description: "Follow this guide to learn how to use {{ yagpt-full-name }} in chat mode."
 ---
 
-# Sending requests in chat mode
+# How to create a chat with {{ yagpt-name }}
 
-To generate text in [chat mode](../../concepts/index.md#working-mode), deliver a list of messages that provide the context for the model, in the [completion](../../text-generation/api-ref/TextGeneration/completion.md) method.
+{{ yagpt-full-name }} models do not retain the context of previous messages, so to make a dialog with the model, you need to save the message history on the client side and send it with each request to the model. The [chat](../../concepts/yandexgpt/index.md) available in {{ foundation-models-name }} Playground consists of a series of prompts where the context of each new request includes the model's responses to previous ones. {{ yagpt-full-name }} models can handle a context of up to {{ yagpt-max-tokens }} tokens.
 
-## Getting started {#before-begin}
+To create a chat with the model in your application and avoid delays in responses, send prompts in [synchronous](../../concepts/index.md#working-mode) mode using the [completion](../../text-generation/api-ref/TextGeneration/completion.md) method.
 
-{% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
+To create a chat:
 
-## Send a request to the model {#request}
+1. {% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
 
-1. Create a file with the request body, e.g., `body.json`:
+1. Prepare a model request file, e.g., `body.json`:
 
    ```json
    {
@@ -30,15 +30,7 @@ To generate text in [chat mode](../../concepts/index.md#working-mode), deliver a
        },
        {
          "role": "user",
-         "text": "Hello! How do I prepare for exams?"
-       },
-       {
-         "role": "assistant",
-         "text": "Hello! Which subjects are you studying?"
-       },
-       {
-         "role": "user",
-         "text": "Mathematics and physics"
+         "text": "Hello! What fields of science did Albert Einstein study?"
        }
      ]
    }
@@ -70,7 +62,7 @@ To generate text in [chat mode](../../concepts/index.md#working-mode), deliver a
       Where:
 
       * `FOLDER_ID`: ID of the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
-      * `IAM_TOKEN`: IAM token received [before starting](#before-begin).
+      * `IAM_TOKEN`: IAM token of your account.
 
    - Python 3 {#python}
 
@@ -124,7 +116,7 @@ To generate text in [chat mode](../../concepts/index.md#working-mode), deliver a
          export IAM_TOKEN=<IAM_token>
          ```
 
-         **Authentication using an API key:**
+         **Authentication using an API key (for service accounts only):**
 
          ```bash
          export API_KEY=<API_key>
@@ -138,7 +130,9 @@ To generate text in [chat mode](../../concepts/index.md#working-mode), deliver a
 
    {% endlist %}
 
-   The service will respond with the generated text:
+1. In response to the request, the model will return the generated text:
+
+   {% cut "Result:" %}
 
    ```json
    {
@@ -147,26 +141,148 @@ To generate text in [chat mode](../../concepts/index.md#working-mode), deliver a
          {
            "message": {
              "role": "assistant",
-             "text": "1. Make a study plan. Figure how much time you can dedicate to studying every day, and allocate it between mathematics and physics.\n\n
-           2. Study the subjects one by one. Begin with math, then move on to physics, and review them in the same order. This way, you will not forget what you have already learned.\n\n
-             3. Use textbooks and study guides. They will assist you in understanding complex topics and grasping the fundamental principles.\n\n
-             4. Solve problems and do exercises. This will help solidify your knowledge and teach you how to apply it in practice.\n\n
-             5. Do not forget to take breaks. Constant studying can be exhausting, so take breaks every 30 or 40 minutes and engage in physical exercise or yoga.\n\n
-             6. Do not be afraid to make mistakes. Mistakes are okay. They show you where you have gaps in your knowledge and help fill them.\n\n
-             7. Check your knowledge regularly. This will help assess your progress and identify which topics require additional attention.\n\n
-             8. Do not overwhelm yourself. If you are tired or not in the studying mood, do not push yourself too much. Better take a break and return to your studies rejuvenated.\n\n
-             9. Do not forget about a healthy lifestyle. Proper nutrition, sleep, and physical activity will help you absorb information better and be more attentive during exams.\n\n
-             10. Finally, and most importantly, stay calm. Worrying may interfere with your ability to concentrate and understand the subject. Remember, exams are just a test of your knowledge and skills, not the end of the world. Good luck with your exams!"
+             "text": "Albert Einstein was an outstanding physicist, whose works in theoretical physics, theoretical mechanics, and philosophy of science became fundamental. He dedicated his career to studying the fundamentals of the Universe, including the theory of relativity, both special and general. Additionally, Albert Einstein studied:\n\n* thermodynamics,\n* statistical mechanics,\n* electromagnetism,\n* quantum theory,\n* special relativity, and more.\n\n His general relativity works found wide recognition and had a profound influence on the development of modern physics."
            },
            "status": "ALTERNATIVE_STATUS_FINAL"
          }
        ],
        "usage": {
-         "inputTextTokens": "44",
-         "completionTokens": "323",
-         "totalTokens": "367"
+         "inputTextTokens": "28",
+         "completionTokens": "110",
+         "totalTokens": "138"
        },
-       "modelVersion": "06.12.2023"
+       "modelVersion": "18.01.2024"
      }
    }
    ```
+
+   {% endcut %}
+
+   Save the `message` record value for use in subsequent requests.
+
+1. Add the `message` record value obtained as a result of the previous request to the model, as well as the new user question, to the end of the `messages` array in the request file:
+
+   ```json
+   {
+     "modelUri": "gpt://<folder_ID>/yandexgpt-lite",
+     "completionOptions": {
+       "stream": false,
+       "temperature": 0.6,
+       "maxTokens": "2000"
+     },
+     "messages": [
+       {
+         "role": "system",
+         "text": "You are a smart assistant"
+       },
+       {
+         "role": "user",
+         "text": "Hello! What fields of science did Albert Einstein study?"
+       },
+       {
+         "role": "assistant",
+         "text": "Albert Einstein was an outstanding physicist, whose works in theoretical physics, theoretical mechanics, and philosophy of science became fundamental. He dedicated his career to studying the fundamentals of the Universe, including the theory of relativity, both special and general. Additionally, Albert Einstein studied:\n\n* thermodynamics,\n* statistical mechanics,\n* electromagnetism,\n* quantum theory,\n* special relativity, and more.\n\n His general relativity works found wide recognition and had a profound influence on the development of modern physics."
+       },
+       {
+         "role": "user",
+         "text": "What important discoveries did he make?"
+       }
+     ]
+   }
+   ```
+
+1. Send a new request to the model, repeating step 3 of this guide. In response to your request, the model will again return the generated text:
+
+   {% cut "Result:" %}
+
+   ```json
+   {
+     "result": {
+       "alternatives": [
+         {
+           "message": {
+             "role": "assistant",
+             "text": "Here are some discoveries commonly associated with the name of Albert Einstein:\n1. **Special theory of relativity (STR)**: Theory describing motion, laws of mechanics, and spatiotemporal relationships at random velocities less than the speed of light in a vacuum.\n1. **General theory of relativity (GTR)**: Geometric theory of gravitation based on the prediction of the interrelation between the spacetime, matter, and energy coordinates.\n1. **Quantum theory of the photoelectric effect**: Explanation of the photoelectric effect, the phenomenon of electron emission from matter under the influence of electromagnetic radiation.\n1. **Brownian motion**: Phenomenon of the chaotic, random movement of microscopic particles suspended in a liquid or a gas, caused by the thermal motion of molecules in the surrounding medium.\n1. **Equivalence principle**: Idea that gravitational and inertial mass are different aspects of the same physical quantity.\n1. **Cosmological solutions of the GTR equations**: Contribution to the theory of the structure and dynamics of the universe.\n1. **Nuclear model of the atom: Description of the atom structure based on protons, neutrons, and electrons.\nThese are just some of the discoveries made by Albert Einstein. His contributions to science and philosophy are immense, and his research continues to influence our ideas of nature and the universe."
+           },
+           "status": "ALTERNATIVE_STATUS_FINAL"
+         }
+       ],
+       "usage": {
+         "inputTextTokens": "154",
+         "completionTokens": "278",
+         "totalTokens": "432"
+       },
+       "modelVersion": "18.01.2024"
+     }
+   }
+   ```
+
+   {% endcut %}
+
+   Once again, save the `message` record value for use in subsequent requests.
+
+1. Continue to expand the request context with the received responses and user questions:
+
+   ```json
+   {
+     "modelUri": "gpt://<folder_ID>/yandexgpt-lite",
+     "completionOptions": {
+       "stream": false,
+       "temperature": 0.6,
+       "maxTokens": "2000"
+     },
+     "messages": [
+       {
+         "role": "system",
+         "text": "You are a smart assistant"
+       },
+       {
+         "role": "user",
+         "text": "Hello! What fields of science did Albert Einstein study?"
+       },
+       {
+         "role": "assistant",
+         "text": "Albert Einstein was an outstanding physicist, whose works in theoretical physics, theoretical mechanics, and philosophy of science became fundamental. He dedicated his career to studying the fundamentals of the Universe, including the theory of relativity, both special and general. Additionally, Albert Einstein studied:\n\n* thermodynamics,\n* statistical mechanics,\n* electromagnetism,\n* quantum theory,\n* special relativity, and more.\n\n His general relativity works found wide recognition and had a profound influence on the development of modern physics."
+       },
+       {
+         "role": "user",
+         "text": "What important discoveries did he make?"
+       },
+       {
+         "role": "assistant",
+         "text": "Here are some discoveries commonly associated with the name of Albert Einstein:\n1. **Special theory of relativity (STR)**: Theory describing motion, laws of mechanics, and spatiotemporal relationships at random velocities less than the speed of light in a vacuum.\n1. **General theory of relativity (GTR)**: Geometric theory of gravitation based on the prediction of the interrelation between the spacetime, matter, and energy coordinates.\n1. **Quantum theory of the photoelectric effect**: Explanation of the photoelectric effect, the phenomenon of electron emission from matter under the influence of electromagnetic radiation.\n1. **Brownian motion**: Phenomenon of the chaotic, random movement of microscopic particles suspended in a liquid or a gas, caused by the thermal motion of molecules in the surrounding medium.\n1. **Equivalence principle**: Idea that gravitational and inertial mass are different aspects of the same physical quantity.\n1. **Cosmological solutions of the GTR equations**: Contribution to the theory of the structure and dynamics of the universe.\n1. **Nuclear model of the atom: Description of the atom structure based on protons, neutrons, and electrons.\nThese are just some of the discoveries made by Albert Einstein. His contributions to science and philosophy are immense, and his research continues to influence our ideas of nature and the universe."
+       },
+       {
+         "role": "user",
+         "text": "Provide me with a shorter response"
+       }
+     ]
+   }
+   ```
+
+   {% cut "Result:" %}
+
+   ```json
+   {
+     "result": {
+       "alternatives": [
+         {
+           "message": {
+             "role": "assistant",
+             "text": "Albert Einstein was an outstanding physicist who studied the fundamentals of the universe, including the theory of relativity, thermodynamics, and electromagnetism.\n\nSome of his well-known discoveries include the following: special and general theories of relativity, quantum theory of the photoelectric effect, and others."
+           },
+           "status": "ALTERNATIVE_STATUS_FINAL"
+         }
+       ],
+       "usage": {
+         "inputTextTokens": "452",
+         "completionTokens": "54",
+         "totalTokens": "506"
+       },
+       "modelVersion": "18.01.2024"
+     }
+   }
+   ```
+
+   {% endcut %}
+

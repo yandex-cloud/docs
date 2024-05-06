@@ -38,7 +38,7 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -50,7 +50,6 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
 
    To create a trigger that invokes a container, run this command:
 
-   
    ```bash
    yc serverless trigger create billing-budget \
      --name <trigger_name> \
@@ -64,7 +63,6 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
      --dlq-service-account-id <service_account_ID>
    ```
 
-
    Where:
 
    * `--name`: Trigger name.
@@ -75,7 +73,6 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
 
    Result:
 
-   
    ```text
    id: a1sfe084v4h2********
    folder_id: b1g88tflruh2********
@@ -96,7 +93,6 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
            service-account-id: aje3932acdh2********
    status: ACTIVE
    ```
-
 
 - API {#api}
 

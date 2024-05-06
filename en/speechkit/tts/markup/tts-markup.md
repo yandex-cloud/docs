@@ -18,7 +18,11 @@ Pausing is available for testing in all languages the speech synthesis is suppor
 | [Place emphasis](#accent) | `<[accented]>` or `**emphasized word**` |
 | [Use phonetic pronunciation](#phoneme) | `[[ <word_phonemes_separated_with_spaces> ]]` |
 
+{% include [note-templates-markup](../../../_includes/speechkit/note-templates-markup.md) %}
+
 ### Apply stress {#a}
+
+Currently, this feature works only for Russian.
 
 Use `+` before a stressed vowel any time you need to define the correct way to pronounce a word, such as:
 
@@ -44,6 +48,8 @@ Stop. sil<[300]> Think about it!
 
 Text to synthesize may not contain markup characters only. You cannot use {{ speechkit-name }} to generate a file with silence instead of speech.
 
+Pauses set at the beginning and end of a sentence will be ignored.
+
 {% endnote %}
 
 ### Set a pause depending on the context {#context-pause}
@@ -55,6 +61,8 @@ Frost and sun; <[medium]> a wonderful day!
 ```
 
 ### Place emphasis {#accent}
+
+Currently, this feature works only for Russian.
 
 To define emphasis, you can use the `<[accented]>` tag or highlight a word like this: ``**accented**``. For example:
 

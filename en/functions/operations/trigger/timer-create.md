@@ -41,7 +41,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
       {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -108,65 +108,53 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   To create a trigger that launches a function:
+   To create a timer:
 
-   1. In the configuration file, describe the trigger parameters:
-
-      * `name`: Timer name. The name format is as follows:
-
-         {% include [name-format](../../../_includes/name-format.md) %}
-
-      * `description`: Trigger description.
-      * `timer`: Trigger settings:
-         * `cron_expression`: Function invocation schedule specified as a [cron expression](../../concepts/trigger/timer.md#cron-expression).
-         * `payload`: Message to be delivered to the function if the timer triggers. The string length must not exceed 4,096 characters.
-      * `function`: Settings for the function, which will be activated by the trigger:
-         * `id`: Function ID.
-
-      Here is an example of the configuration file structure:
+   1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
-        name        = "<timer_name>"
+        name        = "<trigger_name>"
         description = "<trigger_description>"
+        function {
+          id                 = "<function_ID>"
+          service_account_id = "<service_account_ID>"
+          retry_attempts     = "<number_of_retry_invocation_attempts>"
+          retry_interval     = "<interval_between_retry_attempts>"
+        }
         timer {
-          cron_expression = "* * * * ? *"
+          cron_expression = "<cron_expression>"
           payload         = "<message>"
         }
-        function {
-          id = "<function_ID>"
+        dlq {
+          queue_id           = "<queue_ID>"
+          service_account_id = "<service_account_ID>"
         }
       }
       ```
 
-      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+      Where:
 
-   1. Make sure the configuration files are correct.
+      {% include [tf-function-params](../../../_includes/functions/tf-function-params.md) %}
 
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run a check using this command:
+      * `timer`: Trigger parameters:
 
-         ```
-         terraform plan
-         ```
+         * `cron_expression`: Function invocation schedule specified as a [cron expression](../../concepts/trigger/timer.md#cron-expression).
+         * `payload`: Message to be delivered to the function if the timer triggers. The string length must not exceed 4,096 characters.
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-   1. Deploy cloud resources.
+      For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-      1. If the configuration does not contain any errors, run this command:
+   1. Create resources:
 
-         ```
-         terraform apply
-         ```
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
-         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
-
-         ```
-         yc serverless trigger get <trigger_ID>
-         ```
+      ```bash
+      yc serverless trigger get <trigger_ID>
+      ```
 
 - API {#api}
 

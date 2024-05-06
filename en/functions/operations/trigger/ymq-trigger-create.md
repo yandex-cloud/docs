@@ -17,7 +17,6 @@ To create a trigger, you need:
 
    * To invoke a function.
    * To read from the queue the trigger receives messages from.
-   * (Optional) To write to a [Dead Letter Queue](../../concepts/dlq.md).
 
    You can use the same service account or different ones. If you do not have a service account, [create one](../../../iam/operations/sa/create.md).
 
@@ -49,10 +48,10 @@ To create a trigger, you need:
 
    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
-      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_ymq-cutoff }}**. The values may range from 0 to 20 seconds. The default value is 10 seconds.
-      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**. The values may range from 1 to 10. The default value is 1.
+      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_ymq-cutoff }}**.​ The values may range from 0 to 20 seconds. The default value is 10 seconds.
+      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**.​ The values may range from 1 to 1,000. The default value is 1.
 
-      The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function. However, the number of messages does not exceed the specified group size.
+      The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function. However, the number of messages does not exceed the specified batch size.
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
@@ -92,9 +91,9 @@ To create a trigger, you need:
       1. You can see the queue ID under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** in the **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}** field.
 
    * `--invoke-function-id`: Function ID.
-   * `--queue-service-account-name`: Service account with rights to read messages from the queue.
-   * `--invoke-function-service-account-id`: Service account with rights to invoke the function.
-   * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
+   * `--queue-service-account-name`: Service account with permissions to read messages from the queue.
+   * `--invoke-function-service-account-id`: Service account with permissions to invoke the function.
+   * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 to 1,000. The default value is 1.
    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The number of messages cannot exceed `batch-size`.
 
    Result:
@@ -123,77 +122,65 @@ To create a trigger, you need:
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   To create a trigger for the message queue:
+   To create a trigger for {{ message-queue-name }}:
 
    1. In the configuration file, describe the trigger parameters:
 
-      * `name`: Timer name. The name format is as follows:
+      ```
+      resource "yandex_function_trigger" "my_trigger" {
+        name        = "<trigger_name>"
+        description = "<trigger_description>"
+        function {
+          id                 = "<function_ID>"
+          service_account_id = "<service_account_ID>"
+        }
+        message_queue {
+          queue_id           = "<queue_ID>"
+          service_account_id = "<service_account_ID>"
+          batch_size         = "<timeout>"
+          batch_cutoff       = "<event_batch_size>"
+      }
+      ```
+
+      Where:
+
+      * `name`: Trigger name. The name format is as follows:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
       * `description`: Trigger description.
-      * `message_queue`: Message queue parameters:
-         * `queue_id`: Queue ID.
+
+      * `function`: Function parameters:
+
+         * `id`: Function ID.
+         * `service_account_id`: ID of the service account with permissions to invoke the function.
+
+      * `message_queue`: Trigger parameters:
+
+         * `queue_id`: Message queue ID.
 
             To find out the queue ID:
 
             1. In the [management console]({{ link-console-main }}), select the folder containing the queue.
             1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
-            1. Select the desired queue.
+            1. Select the queue.
             1. You can see the queue ID under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** in the **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}** field.
 
-         * `service_account_id`: ID of the service account with rights to invoke a function.
+         * `service_account_id`: ID of the service account with permissions to read messages from the queue.
          * `batch_size`: Message batch size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
-         * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The timer groups messages for a period not exceeding `batch-cutoff` and sends them to a function or container. The number of messages cannot exceed `batch-size`.
-      * `function`: Settings for the function, which will be activated by the trigger:
-         * `id`: Function ID.
+         * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The number of messages cannot exceed `batch-size`.
 
-      Here is an example of the configuration file structure:
+      For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-      ```hcl
-      resource "yandex_function_trigger" "my_trigger" {
-        name        = "<timer_name>"
-        description = "<trigger_description>"
-        message_queue {
-          queue_id           = "<queue_ID>"
-          service_account_id = "<service_account_ID>"
-          batch_size         = "1"
-          batch_cutoff       = "10"
-        }
-        function {
-          id = "<function_ID>"
-        }
-      }
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+
+      ```bash
+      yc serverless trigger get <trigger_ID>
       ```
-
-      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
-
-   1. Make sure the configuration files are correct.
-
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run a check using this command:
-
-         ```
-         terraform plan
-         ```
-
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
-   1. Deploy cloud resources.
-
-      1. If the configuration does not contain any errors, run this command:
-
-         ```
-         terraform apply
-         ```
-
-      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
-
-         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
-
-         ```
-         yc serverless trigger get <trigger_ID>
-         ```
 
 - API {#api}
 

@@ -23,15 +23,26 @@ When the tables are [joined](../data-join.md), a link is created between them. W
 Tables are linked automatically by the first match in the field name and field data type.
 
 In this case, you can:
-- Edit fields in the link.
-- Add new links or delete existing links.
-- Change the type of `JOIN` (`INNER`, `LEFT`, `RIGHT`, or `FULL`) in the link.
+
+* Edit fields in the link.
+* Add new links or delete existing links.
+* Change the type of the `JOIN` operator in the link (`INNER`, `LEFT`, `RIGHT`, or `FULL`).
+* Manage link optimization.
 
 `JOIN` is used if a query made from a chart accesses fields of two or more dataset tables.
 
 `JOIN` is not used if:
-- The dataset contains one table.
-- The dataset contains multiple tables but the query accesses the fields of only one of those tables.
+
+* The dataset contains one table.
+* The dataset contains multiple tables; however, when link optimization is enabled, the query accesses the fields of only one of those tables.
+
+To manage the link behavior when [joining data from multiple tables](../../operations/dataset/join-data.md), use the **Optimize link** option in the link settings. The option is enabled by default for all links in the dataset: the `JOIN` operator is applied when a query accesses fields from two or more linked tables. You can disable the option for each individual link to make such link a required one. In this case, the `JOIN` operation will run even if you select fields from only one table.
+
+{% note info %}
+
+If you disable optimization, it may take more time to run a query.
+
+{% endnote %}
 
 For more information about optimization when using `JOIN`s, see [{#T}](../data-join.md#join-optimization).
 
@@ -39,8 +50,8 @@ For more information about optimization when using `JOIN`s, see [{#T}](../data-j
 
 The fields define the structure and format of the dataset. The following types of fields are available:
 
-- **Dimension**: Contains values that define data parameters, such as city, date of purchase, or product category. The aggregation function is not applied to fields with a dimension; otherwise, the field becomes a measure. In the interface, dimensions are displayed in green.
-- **Measure**: Contains numeric values the aggregation functions (information) apply to, such as the amount of clicks and the number of click-throughs. If you remove the aggregation function from this field, it will become a dimension. In the interface, measures are displayed in blue.
+* **Dimension**: Contains values that define data parameters, such as a city, date of purchase, or product category. The aggregation function is not applied to fields with a dimension; otherwise, the field becomes a measure. In the interface, dimensions are displayed in green.
+* **Measure**: Contains numeric values the aggregation functions (information) apply to, such as the amount of clicks and the number of click-throughs. If you remove the aggregation function from this field, it will become a dimension. In the interface, measures are displayed in blue.
 
 In the dataset creation interface and wizard, you can duplicate fields, create fields, and use [aggregation functions](#aggregation).
 

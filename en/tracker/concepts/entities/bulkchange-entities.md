@@ -31,13 +31,19 @@ Authorization: OAuth <OAuth_token>
 }
 ```
 
+{% note info %}
+
+You can use the project or portfolio ID (the `shortId` field value) instead of the entity ID.
+
+{% endnote %}
+
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 {% cut "Resource" %}
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
-| \<entity_type> | Entity ID:<ul><li>Project for a project</li><li>Portfolio for a portfolio</li></ul> | String |
+| \<entity_type> | Entity type:<ul><li>Project for a project</li><li>Portfolio for a portfolio</li></ul> | String |
 
 {% endcut %}
 
@@ -55,15 +61,15 @@ Authorization: OAuth <OAuth_token>
 | Parameter | Description | Data type |
 -------- | -------- | ----------
 | fields | Object with key-value pairs. | Object |
-| comment | Comment. | String |
-| links | Array of objects with settings of links to other entities. | Array of objects |
+| comment | Comment | String |
+| links | Array of objects with settings of links to other entities | Array of objects |
 
 `links` **array object fields**
 
 | Parameter | Description | Data type |
 -------- | -------- | ----------
 | relationship | Link type, e.g.:<ul><li>`relates`</li><li>`is dependent by`</li><li>`depends on`</li></ul> | String |
-| entity | Linked entity's ID. | String |
+| entity | Linked entity's ID | String |
 
 {% endcut %}
 
@@ -121,22 +127,22 @@ Authorization: OAuth <OAuth_token>
 
    | Parameter | Description | Data type |
    -------- | -------- | ----------
-   | id | Bulk request ID. | String |
-   | self | Address of the API resource with information about the bulk request. | String |
-   | createdBy | Block with information about the user who created the bulk request. | Object |
-   | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | String |
-   | status | Bulk request status. | String |
-   | statusText | Interpretation of the bulk request status. | String |
+   | id | Bulk request ID | String |
+   | self | Address of the API resource with information about the bulk request | String |
+   | createdBy | Block with information about the user who created the bulk request | Object |
+   | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
+   | status | Bulk request status | String |
+   | statusText | Interpretation of the bulk request status | String |
 
    `createdBy` **object fields**
 
    | Parameter | Description | Data type |
    -------- | -------- | ----------
-   | self | Address of the API resource with information about the user who created the entity. | String |
-   | id | User ID. | Number |
-   | display | Displayed user name. | String |
-   | cloudUid | User unique ID in {{ org-full-name }}. | String |
-   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
+   | self | Address of the API resource with information about the entity creator | String |
+   | id | User ID | Number |
+   | display | Displayed user name | String |
+   | cloudUid | Unique user ID in {{ org-full-name }} | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID | String |
 
    {% endcut %}
 

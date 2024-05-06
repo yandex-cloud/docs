@@ -43,7 +43,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -55,7 +55,6 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
    To create a trigger that invokes a container, run this command:
 
-   
    ```bash
    yc serverless trigger create object-storage \
      --name <trigger_name> \
@@ -73,7 +72,6 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
      --dlq-service-account-id <service_account_ID>
    ```
 
-
    Where:
 
    * `--name`: Trigger name.
@@ -88,7 +86,6 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
    Result:
 
-   
    ```text
    id: a1s5msktijh2********
    folder_id: b1gmit33hgh2********
@@ -117,7 +114,6 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
            service-account-id: aje3932acdh2********
    status: ACTIVE
    ```
-
 
 - {{ TF }} {#tf}
 
@@ -160,15 +156,17 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
          {% include [name-format](../../_includes/name-format.md) %}
 
-      * `container`: Settings for the container that will be activated by the trigger:
+      * `container`: Container parameters:
 
          {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
 
          {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
 
       * `object_storage`: Trigger parameters:
+
          * `bucket_id`: Bucket ID.
          * Select one or more [event](../concepts/trigger/os-trigger.md#event) types to be handled by the trigger:
+
             * `create`: Trigger will invoke the container when a new object is created in the storage. It may take either the `true` or `false` value.
             * `update`: Trigger will invoke the container when a new object is updated in the storage. It may take either the `true` or `false` value.
             * `delete`: Trigger will invoke the container when a new object is deleted from the storage. It may take either the `true` or `false` value.

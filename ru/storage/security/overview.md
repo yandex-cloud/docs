@@ -76,7 +76,8 @@
 * аккаунт на Яндексе;
 * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md);
 * [федеративный пользователь](../../iam/concepts/federations.md);
-* анонимный пользователь.
+* анонимный пользователь;
+* [группа пользователей](../../organization/concepts/groups.md).
 
 Доступ выдается на [бакет](../concepts/bucket.md), [объект](../concepts/object.md) или группу объектов.
 

@@ -12,6 +12,8 @@ Access to the {{ brand-voice-name }} service is available on request. To get acc
 {% endnote %}
 
 
+Currently, this feature works only for Russian.
+
 ## Source data for pattern-based synthesis {#income-data}
 
 Each request sent for pattern-based synthesis must include:
@@ -67,5 +69,5 @@ The logical stress should not fall on the variable part of the phrase.
 * API v3:
 
    * [{{ brand-voice-premium }} and {{ brand-voice-core }}](api/tts-templates.md).
-   * [{{ brand-voice-cc-name }}](api/tts-templates-bvcc.md).
+   * [{{ brand-voice-cc-name }}](api/tts-templates-bvcc.md)​.
 

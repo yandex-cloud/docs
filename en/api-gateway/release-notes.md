@@ -1,5 +1,14 @@
 # {{ api-gw-full-name }} release notes
 
+## March 2024 {#march-2024}
+
+### Updates {#updates}
+
+* Added the `default_object` parameter to the OpenAPI specification extension for [integration with {{ objstorage-full-name }}](concepts/extensions/object-storage.md).
+* Added parameter substitution support to `error_object` and `default_object` in the OpenAPI specification extension for integration with {{ objstorage-full-name }}.
+* Added support for provision of the `Via` and `Www-Authenticate` headers from integrations' responses.
+* Added support for automatic sending of an integration's response to a web socket within the `x-yc-apigateway-websocket-connect` [operation](concepts/extensions/websocket.md#connect).
+
 ## January–February 2024 {#jan-feb-2024}
 
 ### Updates {#updates}

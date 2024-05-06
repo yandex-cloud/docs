@@ -250,7 +250,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
 
    {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
-   To add [DNS records](../../../dns/concepts/resource-record.md), pass their settings in the `nodeTemplate.v4AddressSpec.dnsRecordSpecs` parameter. In a DNS record's FQDN, you can use the `nodeTemplate.name` node name template with variables.
+   To add [DNS records](../../../dns/concepts/resource-record.md), provide their settings in the `nodeTemplate.v4AddressSpec.dnsRecordSpecs` parameter. In a DNS record's FQDN, you can use the `nodeTemplate.name` node name template with variables.
 
 {% endlist %}
 

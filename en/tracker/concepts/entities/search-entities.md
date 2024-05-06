@@ -5,7 +5,7 @@ sourcePath: en/tracker/api-ref/concepts/entities/search-entities.md
 
 Use this request to get a list of entities that meet specific criteria.
 
-The request is a unified method for getting a list of projects and portfolios – more flexible and functional than the [getting the list of projects](../projects/get-projects.md) API.
+The request is a unified method for getting a list of projects and portfolios, more flexible and functional than the [get project list](../projects/get-projects.md) API.
 
 ## Request format {#query}
 
@@ -68,8 +68,8 @@ The request body contains information required to search for entities:
 | input | Substring in the entity name | String |
 | filter | Issue filtering parameters. The parameter can specify any field key and value for filtering. | Object |
 | orderBy | Issue sorting parameters. The parameter can specify any field key for sorting. | String |
-| orderAsc | Sorting direction | Logical |
-| rootOnly | Output only entities that are not nested | Logical |
+| orderAsc | Sorting direction | Boolean |
+| rootOnly | Output only entities that are not nested. | Logical |
 
 {% note warning %}
 
@@ -88,7 +88,7 @@ Entity field keys and value keys, e.g., statuses, sometimes differ from similar 
 > ```
 > POST /v2/entities/project/_search?fields=entityStatus&author&followers HTTP/1.1
 > Host: {{ host }}
-> Authorization: OAuth <OAuth-token>
+> Authorization: OAuth <OAuth_token>
 > {{ org-id }}
 >
 > {
@@ -109,12 +109,30 @@ Entity field keys and value keys, e.g., statuses, sometimes differ from similar 
 > ```
 > POST /v2/entities/project/_search?fields=entityStatus&author HTTP/1.1
 > Host: {{ host }}
-> Authorization: OAuth <OAuth-token>
+> Authorization: OAuth <OAuth_token>
 > {{ org-id }}
 >
 > {
 >   "orderBy": "entityStatus",
 >   "orderAsc":true
+> }
+> ```
+
+> Example 3: Getting a list of nested projects for the specified portfolio using a filter
+>
+> - An HTTP POST method is used.
+> - The response should only contain the nested projects for the parent portfolio with the specified ID.
+>
+> ```
+> POST /v2/entities/project/_search HTTP/1.1
+> Host: {{ host }}
+> Authorization: OAuth <OAuth_token>
+> {{ org-id }}
+>
+> {
+>   "filter": {
+>     "parentEntity": "65868add99a40477********"
+>   },
 > }
 > ```
 
@@ -178,25 +196,25 @@ Entity field keys and value keys, e.g., statuses, sometimes differ from similar 
 
    | Parameter | Description | Data type |
    -------- | -------- | ----------
-   | self | Address of the API resource with information about the project. | String |
-   | id | Entity ID. | String |
+   | self | Address of the API resource with information about the project | String |
+   | id | Entity ID | String |
    | version | Entity version. Each change of the parameters increases the version number. | Number |
    | shortId | Project or portfolio ID | String |
-   | entityType | Entity type. | String |
-   | createdBy | Block with information about the user who created the entity. | Object |
-   | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | String |
-   | updatedAt | Date when the entity was last updated, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | String |
+   | entityType | Entity type | String |
+   | createdBy | Block with information about the entity creator | Object |
+   | createdAt | Entity creation date in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
+   | updatedAt | Date when the entity was last updated, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format | String |
    | fields | Object with additional fields | Object |
 
    `createdBy` **object fields**
 
    | Parameter | Description | Data type |
    -------- | -------- | ----------
-   | self | Address of the API resource with information about the user who created the entity. | String |
-   | id | User ID. | Number |
-   | display | Displayed user name. | String |
-   | cloudUid | User unique ID in {{ org-full-name }}. | String |
-   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID. | String |
+   | self | Address of the API resource with information about the entity creator | String |
+   | id | User ID | Number |
+   | display | Displayed user name | String |
+   | cloudUid | Unique user ID in {{ org-full-name }} | String |
+   | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID | String |
 
    {% endcut %}
 

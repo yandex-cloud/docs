@@ -1,5 +1,6 @@
 # AWS SDK for JavaScript
 
+
 The [AWS SDK for JavaScript](https://aws.amazon.com/sdk-for-javascript/) is a set of developer tools to work AWS services, which is compatible with {{ objstorage-full-name }}.
 
 ## Getting started {#before-you-begin}
@@ -8,7 +9,7 @@ The [AWS SDK for JavaScript](https://aws.amazon.com/sdk-for-javascript/) is a se
 
 {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-## Installing {#installation}
+## Installation {#installation}
 
 {% include [install-js-sdk](../../_includes/aws-tools/install-js-sdk.md) %}
 

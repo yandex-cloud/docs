@@ -13,8 +13,8 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 1. Updated [configurations](concepts/data-proc-template.md#configurations) of {{ dataproc-name }} temporary clusters.
 1. Now you can use XGBoost and LightGBM models to deploy [nodes from models](concepts/deploy/index.md#models-node).
-1. Added delivering input variables in [fulfillment APIs](api-ref/overview.md#notebook).
-1. Improved [creating nodes](operations/deploy/node-create.md#from-docker) from Docker images.
+1. Added the option to deliver input variables in [fulfillment APIs](api-ref/overview.md#notebook).
+1. Improved [node creation](operations/deploy/node-create.md#from-docker) from Docker images.
 1. Fixed bugs and added minor improvements in service performance.
 
 ## Release on 27/03/2024 {#270324}
@@ -54,7 +54,7 @@ The Serverless mode is no longer supported.
 
 ## Release on 10/10/2023 {#101023}
 
-1. You can test fine-tuned {{ yagpt-name }} models right in {{ ml-platform-name }}. {{ yagpt-name }} {{ ml-platform-name }} Playground is available after fine-tuning to users with access to [{{ yagpt-name }}](../yandexgpt/).
+1. You can test fine-tuned {{ yagpt-name }} models right in {{ ml-platform-name }}. {{ yagpt-name }} Playground in {{ ml-platform-name }} is available after fine-tuning to users with access to {{ yagpt-full-name }}.
 1. You can now [connect](operations/projects/remote-connect.md) your {{ ml-platform-name }} project to {{ jlab }}Lab from a local IDE.
 1. Fixed bugs and added minor improvements in platform performance.
 

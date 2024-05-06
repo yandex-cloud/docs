@@ -12,3 +12,4 @@ Number of concurrent [Docker image](../container-registry/concepts/docker-image.
 | Maximum size of a single layer of a Docker image | 150 GB |
 | Maximum number of Docker images in a single [repository](../container-registry/concepts/repository.md) that can be checked by a trial run of the [Docker image lifecycle policy](../container-registry/concepts/lifecycle-policy.md) | 50,000 |
 | Maximum size of a Docker image to scan | 2 GB |
+| Maximum number of Docker images to [scan](../container-registry/operations/scanning-docker-image.md) per request | 10,000 |

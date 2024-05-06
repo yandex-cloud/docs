@@ -26,11 +26,11 @@ You are separately charged for [data storage](#storage) in datasets and project 
 
 ### Running jobs in {{ ml-platform-name }} Jobs {#jobs}
 
-When you run computations remotely using [{{ ml-platform-name }} Jobs](concepts/jobs/index.md), you pay for the computation time in the selected computing resource configuration. You also pay for [storing data](#prices-jobs) required to run jobs: their cache, logs, input data, and execution results.
+When you run computations remotely using [{{ ml-platform-name }} Jobs](concepts/jobs/index.md), you pay for the computation time in the selected computing resource configuration. You also pay for [storing data](#prices-storage) required to run jobs: their cache, logs, input data, and execution results.
 
 ### {{ ds-inf }} {#node}
 
-When deploying models with {{ ds-inf }}, you pay for the uptime of each node instance: from its start to deletion.
+When deploying models in {{ ds-inf }}, you pay for the uptime of each node instance: from its start to deletion.
 
 ### Using {{ dataproc-name }} clusters {#data-proc}
 

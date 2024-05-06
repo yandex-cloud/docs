@@ -1,5 +1,6 @@
 # AWS SDK for .NET
 
+
 The [AWS SDK for NET](https://aws.amazon.com/sdk-for-net/) is a set of tools for developers working with AWS services.
 
 ## Getting started {#before-you-begin}
@@ -8,7 +9,7 @@ The [AWS SDK for NET](https://aws.amazon.com/sdk-for-net/) is a set of tools for
 
 {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-## Installing {#installation}
+## Installation {#installation}
 
 {% include [install-net-sdk](../../_includes/aws-tools/install-net-sdk.md)%}
 

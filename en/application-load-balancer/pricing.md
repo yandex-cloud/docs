@@ -14,7 +14,7 @@ The amount of resources used is defined as the number of [resource units](concep
 
 {% include [lcu-thresholds](../_includes/application-load-balancer/lcu-thresholds.md) %}
 
-You can set a limit on the number of load balancer resource units in its [autoscaling settings](concepts/application-load-balancer.md#lcu-scaling-settings). The default minimum number of units per availability zone is 2, while the total number of units across all zones is not limited.
+You can set a limit on the number of load balancer resource units in its [autoscaling settings](concepts/application-load-balancer.md#lcu-scaling-settings). The default minimum number of units per availability zone is 2, while the total number of units across all zones is not limited. You cannot set a minimum value below 2.
 
 The load balancer usage is charged on an hourly basis. You pay for the maximum number of resource units that were running for an hour. When [creating](operations/application-load-balancer-create.md) an L7 load balancer, the estimated cost is displayed in the [management console]({{ link-console-main }}) on the right.
 
@@ -51,7 +51,7 @@ Calculating the cost per month (30 days) with the same hourly load:
 
 Where:
 * $0.142080: Cost of using a load balancer per hour.
-* 720: Number of hours in a month.
+* 720: Number of hours per month.
 
 
 

@@ -49,13 +49,13 @@ base64 -i recording-rule.yaml
 1. Create or replace a recording rule file:
 
 ```bash
-export IAM_TOKEN=CggaATEVAgA...
+export IAM_TOKEN=<IAM_token>
 
 curl -X PUT \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
     -d "@body.json"  \
-    "https://monitoring.{{ api-host }}/prometheus/workspaces/$WORKSPACE/extensions/v1/rules"
+    "https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules"
 ```
 
 If the request is successful, you will get the `204` HTTP code, if not, the error text.

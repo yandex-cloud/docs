@@ -7,7 +7,7 @@ You do not upgrade to the paid version automatically after the trial period ends
 
 Upgrading to the paid version with the **{{ ui-key.yacloud_billing.billing.account.overview.payment-type_label_card }}** payment method involves the risk of your billing account balance becoming negative.
 
-We recommend you to keep track of the money you spend from your personal account and top up your balance so it is always positive. If your personal account balance exceeds the [billing threshold](../../../billing/concepts/billing-threshold.md) and you fail to pay the resulting arrears before the deadline set out in the agreement, {{ yandex-cloud }} reserves the right to change the status of your billing account to `SUSPENDED`.
+We recommend you to keep track of the money you spend from your personal account and maintain a positive balance manually. If your personal account balance exceeds the [billing threshold](../../../billing/concepts/billing-threshold.md) or you fail to pay the arrears within the timeline set forth in the agreement, {{ yandex-cloud }} reserves the right to change the status of your billing account to `SUSPENDED`.
 
 To control spending on {{ yandex-cloud }} resources more effectively, we recommend using a [budget](../../../billing/concepts/budget.md).
 

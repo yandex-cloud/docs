@@ -156,4 +156,4 @@ To add your [domain](operations/hosting/own-domain.md) to a [bucket](concepts/bu
 
 #### How do I get access to {{ objstorage-name }} from a {{ vpc-name }} cloud network? {#qa-from-vpc}
 
-For resources that are hosted in a {{ vpc-short-name }} cloud network and have no public IPs or access to the internet, you can [set up a connection](../tutorials/routing/storage-vpc-access.md) to {{ objstorage-name }} via the appropriate [API endpoint](../api-design-guide/concepts/endpoints.md). The FQDN of the endpoint will be translated to a public IP using the DNS service.
+For resources hosted in a {{ vpc-short-name }} cloud network and having no public IP addresses or no access to the internet, you can [set up a connection](../tutorials/routing/storage-vpc-access.md) to {{ objstorage-name }} via an [API endpoint](../api-design-guide/concepts/endpoints.md). FQDN of the endpoint will be translated to a public IP using DNS.

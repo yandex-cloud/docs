@@ -110,6 +110,8 @@ items:
                 href: operations/connection/chyt/chyt-global-join.md
               - name: Recommendations
                 href: operations/connection/chyt/chyt-recommendations.md
+          - name: Creating a {{ datalens-short-name }} Usage Analytics connection
+            href: operations/connection/create-usage-tracking.md
           - name: Creating a connection to a file
             href: operations/connection/create-file.md
           - name: Creating a connection to Yandex Documents
@@ -120,6 +122,8 @@ items:
             href: operations/connection/create-big-query.md
           - name: Creating a {{ prometheus-name }} connection
             href: operations/connection/create-prometheus.md
+          - name: Creating a {{ yq-full-name }} connection
+            href: operations/connection/create-yandex-query.md
           - name: Creating a {{ monitoring-full-name }} connection
             href: operations/connection/create-monitoring.md
           - name: Creating a Bitrix24 connection
@@ -130,7 +134,7 @@ items:
             href: operations/connection/create-metrica-api.md
           - name: Creating an AppMetrica connection
             href: operations/connection/create-appmetrica.md
-          - name: Creating a {{ yandex-cloud }} Billing connection
+          - name: Creating a {{ billing-name }} connection
             href: operations/connection/create-cloud-billing.md
           - name: Creating a Snowflake connection
             href: operations/connection/create-snowflake.md
@@ -748,7 +752,7 @@ items:
             href: operations/dashboard/dash-settings.md
           - name: Widget display order on a mobile device
             href: operations/dashboard/display-modes.md
-  - name: Access settings
+  - name: Access management
     items:
       - name: Overview
         href: security/index.md
@@ -776,6 +780,12 @@ items:
         href: security/row-level-security.md
       - name: Public access
         href: concepts/datalens-public.md
+  - name: Service settings
+    items:
+      - name: Configuring a service plan
+        href: settings/service-plan.md
+      - name: UI customization
+        href: settings/ui-customization.md
   - name: Marketplace
     items:
       - name: Overview
@@ -930,7 +940,7 @@ items:
       - name: Received too many result data rows
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-ROW_COUNT_LIMIT.md
-      - name: Referenced connection <connection_ID> cannot be loaded access denied
+      - name: Referenced connection <connection_ID> cannot be loaded. Access denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_ACCESS_DENIED.md
       - name: Request size limit exceeded

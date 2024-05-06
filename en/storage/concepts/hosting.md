@@ -99,7 +99,7 @@ When hosting a website, you can:
 * [Support multiple domain names](../operations/hosting/multiple-domains.md).
 * [Use your own domain](../operations/hosting/own-domain.md).
 
-   To use HTTPS with your own domain, specify the [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) of the required domain in the bucket name.
+   To use HTTPS with your own domain, specify the FQDN of the required domain in the bucket name.
 
 You can manage {{ dns-full-name }} domains in the bucket settings or in [{{ dns-name }}](../../dns/operations/index.md).
 
