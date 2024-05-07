@@ -5,7 +5,7 @@ description: "В этой инструкции вы создадите и про
 
 # Начало работы с {{ api-gw-name }}
 
-В этой инструкции вы создадите и протестируете работу разных типов расширений: сначала вы сконфигурируете [API-шлюз](../concepts/index.md) для получения [статического ответа](../concepts/extensions/dummy.md), а затем добавите интеграцию для [вызова функции](../concepts/extensions/cloud-functions.md).
+В этой инструкции вы создадите и протестируете работу разных типов расширений: сначала вы сконфигурируете [API-шлюз](../concepts/index.md) для получения [статического ответа](../concepts/extensions/dummy.md), а затем добавите интеграцию для [вызова функции](../concepts/extensions/cloud-functions.md). Для обращения к API-шлюзу потребуется [curl](https://curl.haxx.se).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -27,39 +27,39 @@ description: "В этой инструкции вы создадите и про
   1. (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_description }}** введите описание.
   1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию:
 
-     ```yaml
-     openapi: "3.0.0"
-     info:
-       version: 1.0.0
-       title: Test API
-     paths:
-       /hello:
-         get:
-           summary: Say hello
-           operationId: hello
-           parameters:
-             - name: user
-               in: query
-               description: User name to appear in greetings
-               required: false
-               schema:
-                 type: string
-                 default: 'world'
-           responses:
-             '200':
-               description: Greeting
-               content:
-                 'text/plain':
-                    schema:
-                      type: "string"
-           x-yc-apigateway-integration:
-             type: dummy
-             http_code: 200
-             http_headers:
-               'Content-Type': "text/plain"
-             content:
-               'text/plain': "Hello, {user}!\n"
-     ```
+      ```yaml
+      openapi: "3.0.0"
+      info:
+        version: 1.0.0
+        title: Test API
+      paths:
+        /hello:
+          get:
+            summary: Say hello
+            operationId: hello
+            parameters:
+              - name: user
+                in: query
+                description: User name to appear in greetings
+                required: false
+                schema:
+                  type: string
+                  default: 'world'
+            responses:
+              '200':
+                description: Greeting
+                content:
+                  'text/plain':
+                      schema:
+                        type: "string"
+            x-yc-apigateway-integration:
+              type: dummy
+              http_code: 200
+              http_headers:
+                'Content-Type': "text/plain"
+              content:
+                'text/plain': "Hello, {user}!\n"
+      ```
 
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
@@ -77,25 +77,35 @@ description: "В этой инструкции вы создадите и про
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится API-шлюз.
 1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** и нажмите на созданный API-шлюз.
-1. Скопируйте значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** и сформируйте ссылку вида: `https://<домен>/hello?user=API`. Должна получиться ссылка вида:
+1. Сохраните значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}**.
+1. Установите утилиту [curl](https://curl.haxx.se).
+1. Обратитесь к API-шлюзу с помощью curl, используя одну из команд:
 
-   ```http request
-   https://falrnjna8r5v********.apigw.yandexcloud.net/hello?user=API
-   ```
+    * ```bash
+      curl <служебный_домен>/hello?user=API
+      ```
 
-1. Обратитесь к API-шлюзу с помощью [curl](https://curl.haxx.se), используя одну из команд:
+    * ```bash
+      curl <служебный_домен>/hello
+      ```
 
-   ```bash
-   curl https://falrnjna8r5v********.apigw.yandexcloud.net/hello?user=API
-   curl https://falrnjna8r5v********.apigw.yandexcloud.net/hello
-   ```
+    Где `<служебный_домен>` — значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}**, сохраненное ранее.
 
-   Результат:
+    Например:
+    
+    ```bash
+    curl https://d5dm1lba80md********.apigw.yandexcloud.net/hello?user=API
+    ```
 
-   ```text
-   Hello, API!
-   Hello, world!
-   ```
+    Результат:
+
+    * ```text
+      Hello, API!
+      ```
+
+    * ```text
+      Hello, world!
+      ```
 
 ## Добавьте интеграцию с функцией {#functions}
 
@@ -109,34 +119,34 @@ description: "В этой инструкции вы создадите и про
 
   Чтобы создать функцию:
   1. Создайте функцию:
-     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана функция.
-     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
-     1. Выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_serverless-functions }}**.
-     1. В поле **{{ ui-key.yacloud.common.name }}** введите `list`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-     1. [Сделайте](../../functions/operations/function/function-public.md) функцию публичной.
-  1. Создайте версию функции: 
-     1. В открывшемся окне выберите созданную функцию.
-     1. В разделе **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
-     1. В открывшемся окне в поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** выберите среду выполнения `nodejs12`.
-     1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
-     1. Ниже в редакторе нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**.
-        1. В открывшемся окне введите имя файла `index.js`.
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-     1. Вставьте следующий код в файл `index.js`:
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана функция.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
+      1. Выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_serverless-functions }}**.
+      1. В поле **{{ ui-key.yacloud.common.name }}** введите `list`.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Создайте версию функции:
+      1. Выберите среду выполнения `nodejs18`.
+      1. Выключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+      1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
+      1. Ниже в редакторе нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**.
+          1. В открывшемся окне введите имя файла `index.js`.
+          1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+      1. Вставьте следующий код в файл `index.js`:
 
-        ```js
-        module.exports.handler = async (event) => {
-          return {
-            "statusCode": 200,
-            "headers": {"content-type": "application/json"},
-            "body": "[0, 1, 2]"
+          ```js
+          module.exports.handler = async (event) => {
+            return {
+              "statusCode": 200,
+              "headers": {"content-type": "application/json"},
+              "body": "[0, 1, 2]"
+            };
           };
-        };
-        ```
+          ```
 
-     1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** введите `index.handler`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+      1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** введите `index.handler`.
+      1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+  1. [Сделайте](../../functions/operations/function/function-public.md) функцию публичной.
 
 - {{ TF }} {#tf}
 
@@ -162,7 +172,7 @@ description: "В этой инструкции вы создадите и про
        name               = "test-function"
        description        = "Test function"
        user_hash          = "first-function"
-       runtime            = "nodejs12"
+       runtime            = "nodejs18"
        entrypoint         = "index.handler"
        memory             = "128"
        execution_timeout  = "10"
@@ -386,7 +396,15 @@ description: "В этой инструкции вы создадите и про
 Обратитесь к API-шлюзу:
 
 ```bash
-curl https://falrnjna8r5v********.apigw.yandexcloud.net/numbers
+curl <служебный_домен>/numbers
+```
+
+Где `<служебный_домен>` — значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}**, сохраненное [ранее](#api-gw-test).
+
+Например:
+
+```bash
+curl https://d5dm1lba80md********.apigw.yandexcloud.net/numbers
 ```
 
 Результат:
