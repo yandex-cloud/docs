@@ -11,8 +11,8 @@
 Для передачи управления доменом выполните следующие действия:
 
 1. Делегируйте домен на серверы Yandex Cloud. Для этого укажите адреса серверов имен Yandex Cloud в NS-записях вашего регистратора:
-    `ns1.yandexcloud.net.`
-    `ns2.yandexcloud.net.`;
+    `ns1.{{ dns-ns-host-sld }}.`
+    `ns2.{{ dns-ns-host-sld }}.`;
 2. [Создайте публичную зону DNS](../../../dns/operations/zone-create-public.md) для вашего домена.
 3. [Создайте необходимые ресурсные записи](../../../dns/operations/resource-record-create.md).
 ​
