@@ -55,6 +55,12 @@ done
 * `--json_payload` — дополнительные данные сообщения в формате JSON;
 * `--folder-id` — идентификатор каталога, в котором создана лог-группа.
 
+{% note info %}
+
+   Флаги `--group-name`, `--message`, `--json-payload` можно опустить и указать только значения параметров. Например: `cloud-logging-group "test_message" '{"request_id": "1234", "host":"test_host"}'`.
+
+   {% endnote %}
+
 ## Подключите {{ yq-name }} к потоку данных {#connect-query}
 
 1. [Создайте соединение](../operations/connection.md#create) с именем `cloud-logging-connection` и типом `{{ ui-key.yql.yq-connection.datastreams.select-item }}`.

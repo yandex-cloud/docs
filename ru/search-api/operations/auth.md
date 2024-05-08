@@ -12,14 +12,20 @@ API-ключи не имеют срока действия. Если ваш кл
 1. [Получите API-ключ](../../iam/operations/api-key/create.md).
 1. Полученные значения передавайте в каждом запросе. 
    
-   * Для [POST-запросов](../concepts/post-request.md) передавайте значения идентификатора каталога и API-ключа в заголовке `Authorization` в следующем формате:
+  * Для [POST-запросов](../concepts/post-request.md) передавайте значения идентификатора каталога и API-ключа в заголовке `Authorization` в следующем формате:
 
-     ```curl
-     Authorization: Api-Key <API-ключ>
-     ```
+    ```curl
+    Authorization: Api-Key <API-ключ>
+    ```
 
-   * Для [GET-запросов](../concepts/get-request.md) передавайте значения идентификатора каталога и API-ключа в полях `folderid` и `apikey` запроса:
+    Идентификатор каталога должен передаваться в теле запроса в поле `folderid`:
+
+    ```httpget
+    https://yandex.<домен>/search/xml?folderid=<идентификатор_каталога>
+    ```
+
+  * Для [GET-запросов](../concepts/get-request.md) передавайте значения идентификатора каталога и API-ключа в теле запроса в полях `folderid` и `apikey`:
    
-     ```curl
-     curl 'https://yandex.ru/search/xml?folderid=<идентификатор_каталога>&apikey=<значение_API-ключа>&query=<текст_поискового_запроса>'
-     ```
+    ```curl
+    curl 'https://yandex.<домен>/search/xml?folderid=<идентификатор_каталога>&apikey=<значение_API-ключа>&query=<текст_поискового_запроса>'
+    ```

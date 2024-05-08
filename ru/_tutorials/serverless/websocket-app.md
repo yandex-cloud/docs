@@ -36,7 +36,7 @@
 * плата за хранение секрета (см. [тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md));
 * плата за хранение данных и операции с данными (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md));
 * плата за запросы к созданным API-шлюзам и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md));
-* плата за запросы к очередям и иcходящий трафик (см. [тарифы {{ message-queue-full-name }}](../../message-queue/pricing.md));
+* плата за запросы к очередям и исходящий трафик (см. [тарифы {{ message-queue-full-name }}](../../message-queue/pricing.md));
 * плата за вызовы функций и вычислительные ресурсы, выделенные для выполнения функций (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
 
 ## Подготовьте окружение {#prepare}
@@ -189,7 +189,7 @@
 
 ### Скачайте проект {#download-project}
 
-Клонируйте репозиторий с проектом `yc-serverless-game`:
+Клонируйте [репозиторий](https://github.com/yandex-cloud-examples/yc-serverless-game) `yc-serverless-game`:
 
 ```bash
 git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
@@ -566,7 +566,6 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
 
 1. Измените конфигурацию для {{ objstorage-name }}. Так как имя бакета должно быть уникальным, замените имя бакета на собственное в следующих файлах:
 
-
     * файл `serverless.yaml`:
        
         ```yaml
@@ -599,6 +598,36 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
     npm run build
     npm run deploy
     ```
+
+При развертывании проекта в вашем рабочем каталоге будут созданы следующие ресурсы:
+
+* Функции {{ sf-name }}:
+
+  * `get-state`
+  * `get-config`
+  * `move`
+  * `capture`
+  * `state-change`
+  * `login`
+  * `auth`
+  * `ws-connect`
+  * `ws-message`
+  * `ws-disconnect`
+
+* Сервисные аккаунты:
+
+  * `functions-sa` с ролью `editor`
+  * `triggers-sa` с ролью `serverless.functions.invoker`
+  * `yds-reader-sa` с ролью `yds.admin`
+  * `yds-writer-sa` с ролью `yds.writer`
+  * `ymq-reader-sa` с ролью `ymq.reader`
+  * `ymq-writer-sa` с ролью `ymq.writer`
+  * `apigw-s3-viewer` с ролью `storage.viewer`
+  * `apigw-fn-caller` с ролью `serverless.functions.invoker`
+
+* Бакет {{ objstorage-name }} с именем, которое вы указали в файле `serverless.yaml`
+
+* Очередь {{ message-queue-name }} — `capturing-queue`
 
 ## Создайте ключи доступа для сервисных аккаунтов {#create-extra-sa-keys}
 

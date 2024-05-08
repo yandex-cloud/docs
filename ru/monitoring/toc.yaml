@@ -82,6 +82,8 @@ items:
                 href: concepts/data-collection/unified-agent/configuration.md
               - name: Рекомендации по использованию агента
                 href: concepts/data-collection/unified-agent/best-practices.md
+              - name: Удаление
+                href: concepts/data-collection/unified-agent/delete.md
       - name: Язык запросов
         href: concepts/querying.md
       - name: Алертинг
