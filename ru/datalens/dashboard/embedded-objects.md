@@ -27,6 +27,12 @@
 <iframe frameborder="0" src="https://datalens.yandex/bdzix********?_embedded=1&_no_controls=1&_lang=ru&_theme=dark"></iframe>
 ```
 
+Примеры публичных встроенных чартов и дашбордов:
+
+* Кинопоиск — публичная статистика [оценок фильмов](https://www.kinopoisk.ru/votes/) и [рейтинг фильмографии](https://www.kinopoisk.ru/name/37859/) актеров.
+* [Аудитория Яндекс Директа](https://yandex.ru/adv/products/platforms) — результат исследования Яндекса.
+* [Каталог школ с прикрепленными домами](https://gradstat.ru/) — сервис городских данных для родителей.
+
 
 
 ## Встраивание непубличных чартов {#private-embedding}

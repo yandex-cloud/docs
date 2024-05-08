@@ -8,7 +8,13 @@ items:
       - name: Создание балансировщика с защитой от DDoS
         href: security/alb-with-ddos-protection.md
       - name: Терминирование TLS-соединений
-        href: security/tls-termination.md
+        items:
+          - name: Обзор
+            href: security/tls-termination/index.md
+          - name: Консоль управления
+            href: security/tls-termination/console.md
+          - name: '{{ TF }}'
+            href: security/tls-termination/terraform.md
       - name: Передача логов с виртуальной машины в {{ cloud-logging-name }}
         href: security/vm-fluent-bit-logging.md
       - name: Запись логов балансировщика в {{ PG }}

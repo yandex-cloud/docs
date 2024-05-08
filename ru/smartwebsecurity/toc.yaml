@@ -54,6 +54,36 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: SecurityProfileService
+            href: api-ref/grpc/security_profile_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: SecurityProfile
+            items:
+              - name: Overview
+                href: api-ref/SecurityProfile/index.md
+              - name: create
+                href: api-ref/SecurityProfile/create.md
+              - name: delete
+                href: api-ref/SecurityProfile/delete.md
+              - name: get
+                href: api-ref/SecurityProfile/get.md
+              - name: list
+                href: api-ref/SecurityProfile/list.md
+              - name: update
+                href: api-ref/SecurityProfile/update.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}

@@ -4737,9 +4737,11 @@ default:
             button_add-public-ip: Add public IP address
             button_edit-network-interface: Edit network interface
             button_remove-public-ip: Disassociate public IP address
+            field_ua-enabled: Agent for delivering metrics
             label_network-interface: Network interface
             label_public-ipv4: Public IPv4
             popup-confirm_button_remove-one-to-one-nat: Delete
+            section_monitoring: Monitoring
             section_network: Network
           service-console:
             raw-mode: Raw mode

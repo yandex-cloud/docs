@@ -100,6 +100,12 @@
          --until 'YYYY-MM-DDThh:mm:ssZ'
       ```
 
+   {% note info %}
+
+   Флаг `--group-id` можно опустить и указать сразу идентификатор лог-группы.
+
+   {% endnote %}
+
       Чтобы получить FQDN хоста:
 
       1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
