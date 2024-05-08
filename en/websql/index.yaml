@@ -10,6 +10,10 @@ description:
     execute SQL queries. The service works in the browser, does not require
     additional authorization and offers convenient hints for working with SQL
     commands.
+  - >-
+    Yandex WebSQL supports the following database versions: <ul> <li>PostgreSQL:
+    12, 13, 14, 15, 16.</li> <li>MySQL: 5, 8.</li> <li>ClickHouse®: 23, 24.</li>
+    </ul>
 meta:
   title: Yandex WebSQL
 links:
