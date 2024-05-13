@@ -21,7 +21,10 @@
       {% endnote %}
 
    1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for the resources and nodes.
-   1. [Configure security groups](../../managed-kubernetes/operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster.
+   1. {% include [configure-sg-manual](../managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+      {% include [sg-common-warning](../managed-kubernetes/security-groups/sg-common-warning.md) %}
+
    1. [Configure a security group](../../managed-gitlab/operations/configure-security-group.md) for the [{{ mgl-name }} instance](../../managed-gitlab/concepts/index.md#instance).
    1. [Create a registry in {{ container-registry-full-name }}](../../container-registry/operations/registry/registry-create.md).
    1. [Create an authorized key](../../iam/operations/authorized-key/create.md) for the service account with the `{{ roles-cr-pusher }}` role and save it to the `key.json` file:
@@ -46,10 +49,13 @@
       This file describes:
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Default security group](../../vpc/concepts/security-groups.md) and rules needed to run the [{{ mgl-name }} instance](../../managed-gitlab/concepts/index.md#instance).
-      * [Security group](../../vpc/concepts/security-groups.md) and rules required for running the [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
-      * {{ managed-k8s-name }} cluster.
+      * [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster)
       * [Service account](../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and [node group](../../managed-kubernetes/concepts/index.md#node-group).
+      * {% include [configure-sg-terraform](../managed-kubernetes/security-groups/configure-sg-tf-with-audience-lvl3.md) %}
+
+         {% include [sg-common-warning](../managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+      * [Default security group](../../vpc/concepts/security-groups.md) and rules needed to run the [{{ mgl-name }} instance](../../managed-gitlab/concepts/index.md#instance).
       * [{{ container-registry-full-name }}](../../container-registry/) [registry](../../container-registry/concepts/registry.md).
       * [Authorized key](../../iam/concepts/authorization/key.md) for the service account. This key is required to access the registry from {{ GL }}.
       * Local `key.json` file with authorized key data.

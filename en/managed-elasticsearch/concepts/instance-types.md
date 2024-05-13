@@ -10,7 +10,7 @@ keywords:
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
-The host class determines the computing power allocated for each host with the specific role in the cluster. When you change the host class for a role in the cluster, the configuration of all hosts with this role that were previously created in the cluster changes accordingly. For more information about roles, see [{#T}](./index.md).
+The host class determines the computing power allocated for each host with the specific role in the cluster. When you change the host class for a role in the cluster, the configuration of all hosts with this role that were previously created in the cluster changes accordingly. For more information about roles, see [Resource relationships in the service](./index.md).
 
 The following [disk types](./storage.md) are available to hosts with the [Data node role](./hosts-roles.md):
 
@@ -22,7 +22,7 @@ The following [disk types](./storage.md) are available to hosts with the [Data n
 For hosts with the Master node role, the only available storage type is network SSD (`network-ssd`).
 
 
-The available storage size does not depend on the host class. For storage limitations, see [{#T}](limits.md).
+The available storage size does not depend on the host class. For storage limitations, see [Quotas and limits](limits.md).
 
 
 ## Available host classes {#available-flavors}
@@ -36,7 +36,7 @@ The full list of possible host configurations on each platform is provided below
 
 {% include [instance-types-code](../../_includes/mdb/mes-instance-types-code.md) %}
 
-| Host class name | Number of vCPUs | Guaranteed vCPU performance | RAM, GB | Disk <br>size, GB |
+| Host class name | Number of vCPUs | Guaranteed vCPU share | RAM, GB | Disk <br>size, GB |
 |-------------------|-----------------|---------------------------|---------|----------------------|
 | **Intel Cascade Lake** |
 | m2.micro | 2 | 100% | 16 | 10 - 8184 |

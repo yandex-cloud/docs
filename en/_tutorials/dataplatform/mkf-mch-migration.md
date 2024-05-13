@@ -1,5 +1,6 @@
 # Delivering data from an {{ KF }} queue to {{ CH }} using {{ data-transfer-full-name }}
 
+
 A {{ mch-name }} cluster can get data from {{ KF }} topics in real time. Managed Service for ClickHouse automatically inserts data sent to {{ CH }} tables on the [`Kafka` engine]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
 
 To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
@@ -326,7 +327,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
 1. Make sure the data from the source {{ mkf-name }} cluster has been moved to the {{ mch-name }} database:
 
-   1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`:
+   1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`.
 
    1. Run the following query:
 
@@ -350,7 +351,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
 1. Make sure that the new values are now in the {{ mch-name }} database:
 
-   1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`:
+   1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`.
 
    1. Run the following query:
 

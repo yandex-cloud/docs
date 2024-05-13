@@ -2,7 +2,7 @@ title: Yandex DataSphere
 href: index.yaml
 label:
   title: RU
-  description: The service is available in Russia only.
+  description: This service is only available in Russia.
   theme: unknown
   when: region == "kz"
 items:
@@ -74,8 +74,6 @@ items:
             href: operations/projects/clear-outputs.md
           - name: Working with Git
             href: operations/projects/work-with-git.md
-          - name: Running a job in {{ ml-platform-name }} Jobs
-            href: operations/projects/work-with-jobs.md
           - name: Running a Docker container in a separate cell
             href: operations/user-images-cell.md
             hidden: true
@@ -129,6 +127,12 @@ items:
             href: operations/deploy/alias-delete.md
           - name: Sending a request to an alias
             href: operations/deploy/alias-api.md
+      - name: '{{ ds-jobs }}'
+        items:
+          - name: Running a job in {{ ml-platform-name }} Jobs
+            href: operations/projects/work-with-jobs.md
+          - name: Working with Visual Studio Code jobs
+            href: operations/projects/jobs-toolkit.md
       - name: Shared access
         items:
           - name: Publishing a notebook

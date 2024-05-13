@@ -1,6 +1,7 @@
 # Disk types in {{ mrd-name }}
 
 
+
 {{ mrd-name }} allows you to use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located in the database host servers.
 
 {% include [storage-type](../../_includes/mdb/mrd/storage-type.md) %}

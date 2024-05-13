@@ -44,6 +44,7 @@ VMs for cluster hosts can be hosted on:
 
 * *Dedicated {{ yandex-cloud }} hosts*:
 
+
    These are physical servers that only host your VMs. Such VMs ensure the operation of both the cluster and your other services that support dedicated hosts. The hosts are selected from *dedicated host groups* specified when creating a cluster.
 
    A cluster with multiple broker hosts needs at least three groups of dedicated hosts for its operation. This is required for deploying {{ ZK }} hosts.

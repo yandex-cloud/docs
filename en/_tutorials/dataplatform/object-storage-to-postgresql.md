@@ -1,5 +1,6 @@
 # Migrating data from {{ objstorage-full-name }} to {{ mpg-full-name }} using {{ data-transfer-full-name }}
 
+
 You can migrate data from {{ objstorage-full-name }} to the {{ mpg-name }} table using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
@@ -47,7 +48,7 @@ Prepare the infrastructure:
       * [Subnet](../../vpc/concepts/network.md#subnet).
       * [Security group](../../vpc/concepts/security-groups.md) required to connect to a cluster.
       * Service account to be used to create and access the bucket.
-      * {{ lockbox-name }} secret, which will store the static key of the service account to configure the source endpoint.
+      * {{ lockbox-name }} secret which will store the static key of the service account to configure the source endpoint.
       * {{ objstorage-name }} source bucket.
       * {{ mpg-name }} target cluster.
       * Target endpoint.
@@ -55,7 +56,7 @@ Prepare the infrastructure:
 
    1. In the `objstorage-to-postgres.tf` file, specify:
 
-      * `folder_id`: Cloud directory ID, the same one specified in the provider settings.
+      * `folder_id`: Cloud folder ID, the same one specified in the provider settings.
       * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
       * `pg_password`: {{ PG }} user password.
 
@@ -97,15 +98,15 @@ Prepare the infrastructure:
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: Bucket name in {{ objstorage-name }}.
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public part of the service account static key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Private part of the service account static key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
-   * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}**: `https://storage.yandexcloud.net`.
+   * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}**: `https://{{ s3-storage-host }}`.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}**: `{{ region-id }}`.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.csv.title }}`.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.delimiter.title }}**: Comma mark (`,`).
    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}**: CSV file name in a bucket, e.g., `demo_data.csv`.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` and specify field names and data types:
 
-      * `Id`: `Int64`.
-      * `Name`: `UTF8`.
+      * `Id`: `Int64`
+      * `Name`: `UTF8`
 
    Leave the default values for the other parameters.
 
@@ -130,7 +131,7 @@ Prepare the infrastructure:
       1. In the `objstorage-to-postgres.tf` file, specify the variables:
 
          * `source_endpoint_id`: ID of the source endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 

@@ -16,7 +16,7 @@ In this section, you can find {{ mch-name }} pricing [rules](#rules) and [effect
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
-## What is included in the {{ mch-short-name }} cost {#rules}
+## What goes into the cost of using {{ mch-short-name }} {#rules}
 
 The {{ mch-name }} usage cost is based on:
 
@@ -61,13 +61,13 @@ You are charged for the following:
 
 * The size of [local](concepts/storage.md#local-storage-features) and [network](concepts/storage.md) storage used for data backups:
 
-   * Backups are stored free of charge as long as the combined size of the database and all backups is smaller than the selected storage size.
+   * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
 
    * If the combined size of the database and all backups exceeds the cluster storage size, you only pay for the portion in excess of the storage size.
 
-   * During an automatic backup, {{ mch-short-name }} does not create a new copy but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
+   * During an automatic backup, {{ mch-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
 
-   * The number of hosts in the cluster does not affect the size of the storage and, consequently, of free backups.
+   * The number of hosts in a cluster does not affect the storage size and, therefore, the free volume of backups.
 
    For example, if there are N free GB of space in the cluster, the first N GB of backups are stored free of charge.
 
@@ -77,9 +77,9 @@ You are charged for the following:
 
    * The cost of using {{ objstorage-name }} considers both the space used by the backups and the space used by the data itself.
 
-   * During an automatic backup, {{ mch-short-name }} does not create a new copy but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
+   * During an automatic backup, {{ mch-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
 
-The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The cost is specified for one month of use and based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 ### Example of cluster cost calculation {#example}
 
@@ -158,6 +158,7 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 
 ## Pricing {#prices}
+
 
 
 All prices are shown without VAT.

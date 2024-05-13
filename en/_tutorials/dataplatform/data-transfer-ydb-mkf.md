@@ -1,5 +1,6 @@
 # Delivering data from {{ mkf-full-name }} to {{ ydb-full-name }}
 
+
 You can track data changes in a {{ ydb-name }} _source_ and send them to a {{ mkf-name }} _target cluster_ using [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC). This data is automatically added to {{ mkf-short-name }} topics with {{ ydb-name }} table names.
 
 {% include [CDC-YDB](../../_includes/data-transfer/note-ydb-cdc.md) %}
@@ -195,7 +196,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          * `source_endpoint_id`: ID of the source endpoint.
          * `target_endpoint_id`: ID of the target endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -413,7 +414,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
-1. If you created the service account along with the source endpoint, [delete it](../../iam/operations/sa/delete.md).
+1. If you created a service account together with the source endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 Delete the other resources depending on how they were created:
 

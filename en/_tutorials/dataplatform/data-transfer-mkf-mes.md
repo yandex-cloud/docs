@@ -1,5 +1,6 @@
 # Delivering data from an {{ KF }} queue to {{ ES }} using {{ data-transfer-full-name }}
 
+
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
 A {{ mes-name }} cluster can get data from {{ KF }} topics in real time.
@@ -154,7 +155,7 @@ You can provide data to the {{ mes-name }} cluster as the `admin` user with the 
 
 1. [Create a role]({{ links.es.docs }}/kibana/current/xpack-security.html#_roles_2) with the `create_index` and `write` privileges for all indexes (`*`).
 
-1. [Create a user](../../managed-elasticsearch/operations/cluster-users.md) and assign the user this role.
+1. [Create a user](../../managed-elasticsearch/operations/cluster-users.md) and assign this role to them.
 
 ## Prepare and activate the transfer {#prepare-transfer}
 
@@ -255,7 +256,7 @@ You can provide data to the {{ mes-name }} cluster as the `admin` user with the 
 
          * `source_endpoint_id`: ID of the source endpoint.
          * `target_endpoint_id`: ID of the target endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -269,7 +270,7 @@ You can provide data to the {{ mes-name }} cluster as the `admin` user with the 
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      1. The transfer is activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+      1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
    {% endlist %}
 

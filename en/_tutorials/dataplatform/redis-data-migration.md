@@ -1,5 +1,6 @@
 # Migrating a database from a third-party {{ RD }} cluster to {{ mrd-full-name }}
 
+
 For data migration, {{ RD }} uses a _logical dump_: this is a file with a sequence of commands to restore the state of databases in the cluster. There are several ways to create a dump. The following example will use [redis-dump-go](https://github.com/yannh/redis-dump-go/).
 
 {% note info %}
@@ -38,7 +39,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select **{{ ui-key.yacloud.compute.instances.create.image_value_os-products }}** → [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
       * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`
+         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
          * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
          * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: Select the same security group as for the {{ mrd-name }} cluster.
 
@@ -340,7 +341,7 @@ Delete the resources you no longer need to avoid paying for them:
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the configuration file (`redis-cluster-non-sharded.tf` or `redis-cluster-sharded.tf`).
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

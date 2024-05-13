@@ -5,6 +5,7 @@ description: "{{ RD }} is a high-performance DBMS for storing key-value data tha
 
 # Resource relationships in {{ mrd-name }}
 
+
 {{ RD }} is a high-performance DBMS for storing key-value data that runs in RAM. {{ mrd-name }} allows you to easily create {{ RD }} host clusters with a high level of fault tolerance.
 
 The main entity used in {{ mrd-name }} is a _database cluster_.

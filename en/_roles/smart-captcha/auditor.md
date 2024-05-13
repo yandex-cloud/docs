@@ -1,1 +1,1 @@
-The `smart-captcha.auditor` role enables you to view CAPTCHA information and permissions.
+The `smart-captcha.auditor` role enables viewing info on [CAPTCHAs](../../smartcaptcha/concepts/validation.md) and [access bindings](../../iam/concepts/access-control/index.md#access-bindings) to them.

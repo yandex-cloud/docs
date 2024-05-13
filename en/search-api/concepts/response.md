@@ -1,6 +1,6 @@
-# Response format
+# Text search response format
 
-In response to a search query, {{ search-api }} returns a UTF-8 encoded XML file with search results.
+In response to a text search query, {{ search-api }} returns an XML file encoded in [UTF-8](https://en.wikipedia.org/wiki/UTF-8) containing the search results.
 
 {% note alert %}
 
@@ -8,9 +8,9 @@ You can get a maximum of 1,000 search results per search query. Depending on the
 
 {% endnote %}
 
-Files consist of grouping tags such as [request](#request) (aggregate information on search query parameters) and [response](#response-el) (search query handling results).
+Files consist of grouping tags such as [request](#request-el) (aggregate information on search query parameters) and [response](#response-el) (search query handling results).
 
-Below, you can find a general structure of a resulting XML document with sample values.
+Below is the general structure of the resulting XML document with examples of values.
 
 {% note warning %}
 
@@ -18,7 +18,7 @@ This structure is provided for information purposes only and contains mutually e
 
 {% endnote %}
 
-## Response format {#response-format}
+## Response structure {#response-format}
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -69,7 +69,7 @@ This structure is provided for information purposes only and contains mutually e
                <url>https://www.yandex.ru/</url>
                <domain>www.yandex.ru</domain>
                <title>&quot;<hlword>Yandex</hlword>&quot; is a search engine and a web portal</title>
-               <headline>Search across the internet based on the user region.</headline>
+               <headline>Search accross the internet based on the user region.</headline>
                <modtime>20060814T040000</modtime>
                <size>26938</size>
                <charset>utf-8</charset>
@@ -81,7 +81,7 @@ This structure is provided for information purposes only and contains mutually e
                    <lang>ru</lang>
                </properties>
                <mime-type>text/html</mime-type>
-               <saved-copy-url>https://hghltd.yandex.net/yandbtm?text=yandex&amp;url=https%3A%2F%2Fwww.yandex.ru%2F&amp;fmode=inject&amp;mime=html&amp;l10n=ru&amp;sign=e3737561fc3d1105967d1ce6*******&amp;keyno=0</saved-copy-url>
+               <saved-copy-url>https://hghltd.yandex.net/yandbtm?text=yandex&url=https%3A%2F%2Fwww.yandex.ru%2F&fmode=inject&mime=html&l10n=ru&sign=e3737561fc3d1105967d1ce6********&keyno=0</saved-copy-url>
             </doc>
          </group>
       </grouping>
@@ -95,10 +95,10 @@ This structure is provided for information purposes only and contains mutually e
 
 The `request` group provides aggregate information about request parameters. It may be missing if there are errors in the response.
 
-The `request` tags are described in the table below.
+### request {#request-el}
 
 #|
-|| **Request group tags** | **Description** | **Attributes** ||
+|| **`request` group tags** | **Description** | **Attributes** ||
 || query | Text of the sent search query | N/A ||
 || page | Number of the returned page with search results. Page numbering starts from zero (the `0` value stands for page 1). | N/A ||
 || sortby |
@@ -113,14 +113,14 @@ Result sorting parameters. The possible values include:
 || maxpassages | Maximum number of passages that can be provided per search result | N/A||
 || groupings |
 
-Contains grouping parameters in the [groupby](#request-groupby) tag
+Contains grouping parameters in the `groupby` tag
 | N/A ||
 || groupby | Parameters for grouping found search results |
-* `mode`: [Grouping method](post-request.md#post-mode).
+* `mode`: [Grouping method](post-request.md#groupby).
 * `attr`: Service attribute.
 * `groups-on-page`: Maximum number of groups that can be returned per page with search results.
 * `docs-in-group`: Maximum number of documents that can be returned per group. Any group may contain fewer documents than set by this parameter.
-* `curcateg`: Service attribute set to `-1`.
+* `curcateg`: Service attribute which takes the `-1` value.
 ||
 |#
 
@@ -143,7 +143,7 @@ https://yandex.com.tr/search/xml?l10n=en&user=xml-search-user&key=03.79031114:b6
 ```
 
 
-## `response` {#response-el}
+### response {#response-el}
 
 This group has the results of handling the search query, the information on which is provided in the [request](#request_params) child tags.
 
@@ -155,7 +155,7 @@ This group consists of the following sections:
 * [`misspell / reask` section](#misspell-block)
 * [`results` section](#results-block)
 
-### General information about search results {#basic-search-info}
+#### General information about search results {#basic-search-info}
 
 The table below lists the tags used in the appropriate section.
 
@@ -180,7 +180,7 @@ In some cases, the tag is mutually exclusive with other tags of the `response` g
 || found-human | String in the language matching the selected [search type](../operations/registration.md). It shows the number of found documents and contains related information. | N/A ||
 |#
 
-### Misspell / reask section {#misspell-block}
+#### misspell / reask {#misspell-block}
 
 This section is optional and is only used if a typo is detected (`misspell`) or fixed (`reask`) in the query.
 
@@ -207,7 +207,7 @@ The possible values include:
 * `Misspell`: Typo
 * `KeyboardLayout`: Incorrect keyboard layout
 * `Volapyuk`: Query is made in Russian transliterated into English. It is used if `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }} (yandex.ru)` is selected for [search type](../operations/registration.md#search-type).
-| N/A
+| Missing
 ||
 || source-text |
 Source query text.
@@ -224,7 +224,7 @@ It contains the fixed search query text. In most cases, it matches the value pro
 || text | Fixed search query text | N/A ||
 |#
 
-### `results` section {#results-block}
+#### results {#results-block}
 
 This section is optional and only used if any results are found for a query.
 
@@ -240,14 +240,14 @@ This is a grouping tag. Child tags contain information about search parameters a
 |
 The following attributes show rules for grouping the found documents:
 
-* `mode`: [Grouping method](post-request.md#post-mode).
+* `mode`: [Grouping method](post-request.md#groupby).
 * `attr`: Service attribute that depends on the `mode` attribute value.
 * `groups-on-page`: Number of groups returned per page with search results.
 * `docs-in-group`: Number of documents returned per group.
-* `curcateg`: Service attribute sets to `-1`
+* `curcateg`: Service attribute which takes the `-1` value.
 ||
 || found | Estimate of the number of created groups |
-`priority`: Service attribute The possible values include:
+`priority`: Service attribute. The possible values include:
 
 * `phrase`
 * `strict`
@@ -365,3 +365,9 @@ It determines the document language.
 ||
 || saved-copy-url | URL of the saved document copy | N/A ||
 |#
+
+#### See also {#see-also}
+
+* [{#T}](./get-request.md)
+* [{#T}](./post-request.md)
+* [{#T}](../operations/searching.md)

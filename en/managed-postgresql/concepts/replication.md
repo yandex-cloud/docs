@@ -59,9 +59,9 @@ Synchronization of data writes in {{ PG }} is ensured by syncing the [write-ahea
 
 If you want to ensure the ongoing consistency of data reads between the master and quorum replica, set `synchronous_commit` to `remote_apply` [in the cluster settings](../operations/update.md#change-postgresql-config). With this parameter value, a data write is not considered successful until the quorum replica applies the changes from the WAL. In this case, the read operation performed on the master and the synchronous quorum returns the same result.
 
-The disadvantage of it is that the write operations to the cluster will take longer. If the master and the quorum replica are located in different availability zones, the latency of transaction confirmation cannot be less than the round-trip time (RTT) between data centers. As a result, when writing data to a single thread with the `AUTOCOMMIT` mode enabled, the cluster performance will degrade.
+The downside is that the write operations to the cluster will take longer. If the master and the quorum replica are located in different [availability zones](../../overview/concepts/geo-scope.md), the transaction confirmation latency cannot be less than the round-trip time (RTT) between data centers. As a result, when writing data to a single thread with the `AUTOCOMMIT` mode enabled, cluster performance will degrade.
 
-To enhance the performance, write data to multiple threads whenever possible, [disable `AUTOCOMMIT`](https://www.postgresql.org/docs/current/ecpg-sql-set-autocommit.html), and group queries within a transaction.
+To enhance performance, write data to multiple threads whenever possible, [disable `AUTOCOMMIT`](https://www.postgresql.org/docs/current/ecpg-sql-set-autocommit.html), and group queries within a transaction.
 
 ## Logical decoding {#logical-decoding}
 

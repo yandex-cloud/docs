@@ -8,7 +8,7 @@ The method creates a data query and runs it. After that, the query status change
 
 `POST` query to `/queries?project={folder_id}`, where `{folder_id}` is the folder ID.
 
-The request body contains data in JSON format:
+The query body contains data in JSON format:
 
 ```json
 {
@@ -46,7 +46,7 @@ Query:
 
 ```json
 curl -X 'POST' \
-  'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries?project=b1gaue5b382mmmlolb1k' \
+  'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries?project=b1gaue5b382m********' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -61,6 +61,6 @@ Response:
 
 ```json
 {
-  "id": "csqugo80f0l35isue09b"
+  "id": "csqugo80f0l3********"
 }
 ```

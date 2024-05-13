@@ -5,4 +5,4 @@ description: "Следуя данному руководству, вы смож�
 
 # Дообучение модели {{ yagpt-full-name }}
 
-{% include [yagpt-tuning](../../_tutorials/datasphere/yagpt-tuning.md) %}
+{% include [yagpt-tuning](../../_tutorials/ml-ai/yagpt-tuning.md) %}

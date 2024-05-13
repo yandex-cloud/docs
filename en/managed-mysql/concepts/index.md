@@ -22,6 +22,7 @@ VMs for cluster hosts can be hosted on:
 
 * _Dedicated {{ yandex-cloud }} hosts_.
 
+
    These are physical servers that only host your VMs. VMs on dedicated hosts have all features of regular VMs; additionally, they are physically isolated from other users' VMs.
 
    Dedicated hosts are selected from _dedicated host groups_ specified when creating a cluster.

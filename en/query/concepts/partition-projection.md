@@ -103,15 +103,15 @@ In general, partition projection setup is as follows:
 $projection =
 @@
 {
-    "projection.enabled" : <true|false>,
+    "projection.enabled" : <availability_of_partition_projection>,
 
-    "projection.<field1_name>.type" : "<type>",
-    "projection.<field1_name>...." : "<extended_properties>",
+    "projection.<field_1_name>.type" : "<type>",
+    "projection.<field_1_name>...." : "<properties>",
 
-    "projection.<field2_name>.type" : "<type>",
-    "projection.<field2_name>...." : "<extended_properties>",
+    "projection.<field_2_name>.type" : "<type>",
+    "projection.<field_2_name>...." : "<properties>",
 
-    "storage.location.template" : ".../${field2}/${field1}/..."
+    "storage.location.template" : ".../${<field_2_name>}/${<field_1_name>}/..."
 }
 @@;
 
@@ -121,8 +121,8 @@ FROM
     <connection>.<path>
 WITH
 (
-    schema=(<fields>, <field1>, <field2>),
-    partitioned_by=(field1, field2),
+    schema=(<fields>, <field_1>, <field_2>),
+    partitioned_by=(<field_1_name>, <field_2_name>),
     projection=$projection
 )
 ```
@@ -132,8 +132,8 @@ WITH
 | Field name | Field description | Acceptable values |
 |----|----|----|
 | `projection.enabled` | Shows if partition projection is enabled | true, false |
-| `projection.<field1_name>.type` | Field data type | integer, enum, or date |
-| `projection.<field1_name>.XXX` | Type properties |
+| `projection.<field_1_name>.type` | Field data type | integer, enum, or date |
+| `projection.<field_1_name>.XXX` | Type properties |
 
 ### Field of integer type {#integer_type}
 
@@ -175,4 +175,4 @@ Used for columns whose values can be represented as a date.
 
 | Field name | Field description | Sample value |
 |----|----|----|
-| `storage.location.template` | Folder name path template. Use the `${<field_name...>}/${<field_name...>}` format | `root/a/${year}/b/${month}/d`<br/>`${year}/${month}` |
+| `storage.location.template` | Folder name path template. It is set as `${<field_name...>}/${<field_name...>}` | `root/a/${year}/b/${month}/d`<br/>`${year}/${month}` |

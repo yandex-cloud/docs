@@ -17,7 +17,7 @@ By default, {{ tracker-name }} sends you notifications about changes to issues i
 Notifications include the information about any issue changes and are sent to the mailbox linked to your account.
 
 
-If you aren't happy with the standard notification rules, you can edit them:
+If not satisfied with the standard notification rules, you can edit them:
 
 - [{#T}](subscribe.md)
 - [Receive regular update digests](notification-digest.md)
@@ -27,7 +27,7 @@ If you aren't happy with the standard notification rules, you can edit them:
 ## Notification center {#notif_center}
 
 
-The {{ tracker-name }} notification center receives notifications from other {{ yandex-cloud }} services.
+The {{ tracker-name }} notification center receives notifications from other {{ yandex-cloud }} services as well.
 
 
 

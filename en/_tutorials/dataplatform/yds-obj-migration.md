@@ -1,3 +1,5 @@
+
+
 With {{ data-transfer-name }}, you can transfer data from a [{{ yds-name }} data stream](../../data-streams/concepts/glossary.md#stream-concepts) to an {{ objstorage-full-name }} bucket.
 
 1. [Prepare a {{ yds-name }} data stream](#prepare-source).
@@ -92,7 +94,7 @@ Prepare the infrastructure:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `JSON`
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `JSON`.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
             Create and upload the `json_schema.json` file in JSON format:

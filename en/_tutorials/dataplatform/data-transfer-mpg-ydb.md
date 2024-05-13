@@ -1,5 +1,6 @@
 # Delivering data from {{ mpg-full-name }} to {{ ydb-full-name }}
 
+
 A {{ ydb-name }} cluster can get data from {{ PG }} databases in real time. This data is automatically added to {{ ydb-short-name }} tables with names of source schemas and tables.
 
 To run data delivery:
@@ -224,7 +225,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) and [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
    1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for the source and target.
-   1. If you created the service account along with the target endpoint, [delete it](../../iam/operations/sa/delete.md).
+   1. If you created a service account together with the target endpoint, [delete it](../../iam/operations/sa/delete.md).
    1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
    1. [Delete the {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
 

@@ -8,7 +8,7 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## What is included in the {{ dataproc-name }} cost {#rules}
+## What goes into the cost of using {{ dataproc-name }} {#rules}
 
 The total cost of using {{ dataproc-name }} includes:
 
@@ -33,7 +33,7 @@ The amount of storage requested for each cluster host is charged under {{ comput
 
 ### Using {{ cloud-logging-full-name }} {#rules-logs}
 
-Receiving and storing logs is paid based on the {{ cloud-logging-full-name }} [pricing rules](../logging/pricing.md).
+You pay for receiving and storing your logs based on the {{ cloud-logging-full-name }} [pricing policy](../logging/pricing.md).
 
 
 
@@ -108,6 +108,7 @@ Receiving and storing logs is paid based on the {{ cloud-logging-full-name }} [p
 This functionality is at the [Preview](../overview/concepts/launch-stages.md) stage and is free of charge.
 
 ## Pricing {#prices}
+
 
 ### Host computing resources {#prices-hosts}
 

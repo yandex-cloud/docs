@@ -20,46 +20,46 @@ To set up sending of notification about issue status changes in the queue:
 
    **About all issues in the queue**
 
-   1. Go to the **All issues** tab.
+   1. Go to the **All issues** tab and click **Add**.
 
-   1. List the names of the logins of users who need to send notifications.
+   1. In the window that opens, list logins or names of users to notify. Click **Apply**.
 
-   1. Select in which cases the users will be notified:
-
-      - **Creating issues**: Users only get notifications when new issues are created.
-
-      - **{{ ui-key.startrek-backend.profiles.category.everything }}**: Users are notified of any changes to issues.
-
-   **About issues related to a specific version**
-
-   You can set up sending of notifications about the issues whose properties include a certain version.
-
-   1. Go to the **Issues for a specific version** tab.
-
-   1. Select a version.
-
-   1. List the names of the logins of users who need to send notifications.
-
-   1. Select in which cases the users will be notified:
+   1. You will see these users listed on the **All issues** tab. Select in which cases the users will be notified:
 
       - **Creating issues**: Users only get notifications when new issues are created.
 
-      - **{{ ui-key.startrek-backend.profiles.category.everything }}**: Users are notified of any changes to issues.
+      - **All notifications**: Users get notifications of any changes to issues.
 
    **About issues related to a specific component**
 
    You can set up sending of notifications about the issues whose properties include a certain component:
 
-   1. Go to the **Issues with the required component** tab.
+   1. Go to the **Components** tab. The **All** section lists all the components in the queue and the **Components with notifications** section, the components with configured notifications.
 
-   1. Select the component.
+   1. Select the component you want to subscribe users to and click **Add**.
 
-   1. List the names of the logins of users who need to send notifications.
+   1. List the names or logins of users to notify. Click **Apply**.
 
-   1. Select in which cases the users will be notified:
+   1. You will see these users added to the component list on the **Components** tab. Select in which cases the users will be notified:
 
       - **Creating issues**: Users only get notifications when new issues are created.
 
-      - **{{ ui-key.startrek-backend.profiles.category.everything }}**: Users are notified of any changes to issues.
+      - **All notifications**: Users get notifications of any changes to issues.
+
+   **About issues related to a specific version**
+
+   You can set up sending of notifications about the issues whose properties include a certain version.
+
+   1. Go to the **Versions** tab. The **All** section lists all the versions in the queue and the **Versions with notifications** section, the versions with configured notifications.
+
+   1. Select the version you want to subscribe users to and click **Add**.
+
+   1. List the names or logins of users to notify. Click **Apply**.
+
+   1. You will see these users added to the version list on the **Versions** tab. Select in which cases the users will be notified:
+
+      - **Creating issues**: Users only get notifications when new issues are created.
+
+      - **All notifications**: Users get notifications of any changes to issues.
 
 1. Click **Save**.

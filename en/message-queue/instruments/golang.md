@@ -22,8 +22,8 @@ github.com/aws/aws-sdk-go-v2/service/sqs v1.26.0
 Set the environment variables:
 
 ```
-export AWS_ACCESS_KEY_ID="<access key ID>"
-export AWS_SECRET_ACCESS_KEY="<secret key>"
+export AWS_ACCESS_KEY_ID="<access_key_ID>"
+export AWS_SECRET_ACCESS_KEY="<secret_key>"
 ```
 
 ## Example {#sample}

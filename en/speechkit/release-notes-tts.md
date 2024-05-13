@@ -6,23 +6,27 @@ For more information about voice models, see [About technology](tts/index.md#voi
 
 ## Current version {#current}
 
+### Release on 15/04/24 {#150424}
+
+Fixed a bug of synthesizing speech at too fast a rate.
+
+## Previous versions {#previous}
+
 ### Release on 09/04/24 {#090424}
 
 In API v1, `marina` is now the default voice.
 
-## Previous versions {#previous}
-
 ### Release on 03/04/24 {#030424}
 
-Changed the default voice in API v3. All synthesis project without an explicitly specified voice will now use the `marina` voice.
+Changed the default voice in the API v3. All synthesis projects without an explicitly specified voice will now use the `marina` voice.
 
 ### Release on 20/02/24 {#200224}
 
-Improved the [voices](tts/voices.md): `masha`, `marina`, `anton`, `alexander`, `dasha`, `julia`.
+Improved the following [voices](tts/voices.md): `masha`, `marina`, `anton`, `alexander`, `dasha`, `julia`.
 
 ### Release on 06/02/24 {#060224}
 
-Added [REST API v3](./tts-v3/api-ref/index.md) support.
+Added the [REST API v3](./tts-v3/api-ref/index.md) support.
 
 ### Release on 10/01/24 {#100124}
 
@@ -43,7 +47,7 @@ Improved the quality of speech synthesis for all languages except Russian.
 
 ### Release on 27/07/23 {#270723}
 
-1. Added the `pitch_shift` parameter to [API v3](tts-v3/api-ref/grpc/tts_service.md). You can use it to increase the pitch contour of an entire synthesized audio by a fixed value in Hz. Shifting the contour makes a voice sound more lively.
+1. Added the `pitch_shift` parameter to the [API v3](tts-v3/api-ref/grpc/tts_service.md). You can use it to increase the pitch contour of an entire synthesized audio by a fixed value in Hz. Shifting the contour makes a voice sound more lively.
 1. Seven new [voices](tts/voices.md) are now available for speech synthesis in Russian: `dasha`, `julia`, `lera`, `marina`, `alexander`, `kirill`, and `anton`.
 
 ### Release on 19/06/23 {#190623}

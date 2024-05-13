@@ -1,5 +1,6 @@
 # Migrating to {{ mes-full-name }} using the Reindex API
 
+
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
 {{ mes-name }} clusters support _reindexing_ via the [Reindex API]({{ links.es.reindex-api }}). You can specify another {{ ES }} cluster as your data reindexing source. This type of reindexing is referred to as _remote_. It can be used to move existing indexes, aliases, or data streams from a third party _source_ to a {{ mes-name }} _target cluster_.
@@ -35,11 +36,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create a role](https://www.elastic.co/guide/en/kibana/current/xpack-security.html#_roles_2) with the `create_index` and `write` privileges for all indexes (`*`).
 
-1. [Create a user](../../managed-elasticsearch/operations/cluster-users.md) and assign the user this role.
+1. [Create a user](../../managed-elasticsearch/operations/cluster-users.md) and assign this role to them.
 
    {% note tip %}
 
-   In {{ mes-name }} clusters, you can use the Reindex API as the `admin` user with the `superuser` role, but it is more secure to create separate users with limited privileges for each task. For more information, see [{#T}](../../managed-elasticsearch/operations/cluster-users.md).
+   In {{ mes-name }} clusters, you can use Reindex API as the `admin` user with the `superuser` role; however, it is more secure to create separate users with limited privileges for each job. For more information, see [{#T}](../../managed-elasticsearch/operations/cluster-users.md).
 
    {% endnote %}
 

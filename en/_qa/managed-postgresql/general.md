@@ -21,7 +21,7 @@ When creating clusters, {{ mpg-short-name }} allocates resources, installs the D
 
 For the created and running databases, {{ mpg-short-name }} automatically creates backups and applies fixes and updates to the DBMS.
 
-{{ mpg-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
+{{ mpg-short-name }} also allows you to replicate data between database hosts (both within and across [availability zones](../../overview/concepts/geo-scope.md)) and automatically routes the load to a backup replica in the event of a failure.
 
 #### Which tasks are best addressed using {{ mpg-short-name }}, and which using VMs with databases? {#mdb-advantage}
 
@@ -40,12 +40,12 @@ A _database cluster_ is one or more database hosts between which replication can
 {{ mpg-short-name }} is available to any registered {{ yandex-cloud }} user.
 
 To create a database cluster in {{ mpg-short-name }}, you must define its characteristics:
-* [Host class](../../managed-postgresql/concepts/instance-types.md) (performance characteristics such as CPUs, memory, and so on).
+* [Host class](../../managed-postgresql/concepts/instance-types.md) (performance characteristics, such as CPUs, memory, etc.).
 * Storage size (reserved in full when you create the cluster).
-* The network your cluster will be connected to.
-* The number of hosts for the cluster and the availability zone for each host.
+* Network your cluster will be connected to.
+* Number of hosts for the cluster and the availability zone for each host.
 
-For detailed instructions, see [{#T}](../../managed-postgresql/quickstart.md).
+For a detailed guide, see [{#T}](../../managed-postgresql/quickstart.md).
 
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
 
@@ -67,7 +67,7 @@ You can connect to {{ mpg-short-name }} databases using standard DBMS methods.
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
-MDB technical and organizational limits are given in [{#T}](../../managed-postgresql/concepts/limits.md).
+You can find MDB technical and organizational limitations in [{#T}](../../managed-postgresql/concepts/limits.md).
 
 #### How are DB clusters maintained? {#service-window}
 
@@ -91,15 +91,15 @@ Please contact 1C tech support for settings optimized for cluster operation.
 
 #### What happens when a new DBMS version is released? {#new-version}
 
-The database software is updated when new minor versions are released. The owners of the affected DB clusters receive advanced notice of expected work times and DB availability.
+The database software is updated when new minor versions are released. Owners of the affected DB clusters are notified of expected work times and DB availability in advance.
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
 One month after the database version becomes deprecated, {{ mpg-short-name }} automatically sends email notifications to the owners of DB clusters created with this version.
 
-New hosts can no longer be created using deprecated DBMS versions. Database clusters are automatically upgraded to the next supported version: seven days after notification for minor versions and one month for major versions. Deprecated major versions are upgraded even if you disabled automatic updates.
+New hosts can no longer be created using deprecated DBMS versions. Database clusters are automatically upgraded to the next supported version seven days after notification for minor versions and one month after notification for major versions. Deprecated major versions are going to be upgraded even if you have disabled automatic updates.
 
-#### How is the cost of usage calculated for a database host? {#db-cost}
+#### How do you calculate usage cost for a database host? {#db-cost}
 
 In {{ mpg-short-name }}, the usage cost is calculated based on the following parameters:
 
@@ -142,11 +142,11 @@ A read-only replica is a host in a {{ PG }} DB cluster that can only be read. It
 
 For all DBMS types, you can track:
 * CPU, memory, network, or disk usage, in absolute terms.
-* The amount of data in the DB cluster and the remaining free space in data storage.
+* Amount of data in the DB cluster and the remaining free space in the data storage.
 
 For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ PG }}, you can track:
-* Average query execution time
-* Number of queries per second
+* Average query execution time.
+* Number of requests per second.
 * Number of errors in logs, etc.
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
@@ -184,7 +184,7 @@ Yes, you can both copy data from a table to a local file and populate a table wi
 * To run `VACUUM FULL`, the user must have the [`mdb_admin` role](../../managed-postgresql/concepts/roles#mdb-admin). The VACUUM FULL command does not affect system views.
 * In {{ PG }} version 14, the functionality of the `INDEX_CLEANUP` parameter is enhanced: it now has the `AUTO` value by default. This means that the `VACUUM` command skips index cleanup if it is considered unfeasible. To ensure backward compatibility with the previous {{ PG }} versions, set `INDEX_CLEANUP` to `ON`.
 
-#### Why is a cluster working slowly even though it still has free computing resources? {#throttling}
+#### Why is the cluster slow even though the computing resources are not used fully? {#throttling}
 
 {% include [throttling](../throttling.md) %}
 

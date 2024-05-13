@@ -31,6 +31,8 @@ items:
             href: operations/api-gw-monitoring.md
           - name: Посмотреть журнал выполнения
             href: operations/api-gw-logs.md
+          - name: Отключить домен
+            href: operations/api-gw-domain-detach.md
           - name: Миграция в зону {{ region-id }}-d
             href: operations/api-gw-migration.md
           - name: Удалить API-шлюз

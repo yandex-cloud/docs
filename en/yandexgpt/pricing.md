@@ -31,7 +31,7 @@ The use of summary models is charged according to the {{ gpt-lite }} policy. The
 
 ### Text vectorization {#rules-embedding}
 
-The cost of providing text as vectors, i.e., getting text embeddings, depends on the size of the text submitted for vectorization.
+The cost of text vectorization (getting text embeddings) depends on the size of the text submitted for vectorization.
 
 ### Internal server errors {#error-request}
 

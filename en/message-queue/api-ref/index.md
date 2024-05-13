@@ -68,10 +68,10 @@ Example of a successful response:
 <?xml version="1.0" encoding="UTF-8"?>
 <CreateQueueResponse>
    <CreateQueueResult>
-      <QueueUrl>https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000me07ol/sample-queue</QueueUrl>
+      <QueueUrl>https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue</QueueUrl>
    </CreateQueueResult>
    <ResponseMetadata>
-      <RequestId>3c9b76fb-f35fb266-48e9c5bf-faca-ddc10b592cfce6ffdf83329a2062f99b</RequestId>
+      <RequestId>3c9b76fb-f35fb266-48e9c5bf-faca-ddc10b592cfce6ffdf83329a********</RequestId>
    </ResponseMetadata>
 </CreateQueueResponse>
 ```
@@ -103,6 +103,6 @@ Sample error response:
          Must be an alphanumeric String of 1 to 80 in length.
       </Message>
    </Error>
-   <RequestId>42d59b56-7407-4c4a-be0f-4c88daeea257</RequestId>
+   <RequestId>42d59b56-7407-4c4a-be0f-4c88********</RequestId>
 </ErrorResponse>
 ```

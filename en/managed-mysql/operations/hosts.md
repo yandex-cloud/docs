@@ -5,7 +5,7 @@ description: "In this tutorial, you will learn how to manage {{ MY }} cluster ho
 
 # Managing {{ MY }} cluster hosts
 
-You can add and remove cluster hosts and manage their settings. To move cluster hosts to a different availability zone, read this [guide](host-migration.md).
+You can add and remove cluster hosts and manage their settings. For information about moving cluster hosts to a different [availability zone](../../overview/concepts/geo-scope.md), see [this guide](host-migration.md).
 
 ## Getting a list of cluster hosts {#list}
 
@@ -138,7 +138,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-   1. Add a `host` block to the {{ mmy-name }} cluster description.
+   1. Add the `host` block to the {{ mmy-name }} cluster description:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {

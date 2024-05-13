@@ -9,11 +9,11 @@ description: "This guide describes how you can update {{ ES }} versions and edit
 
 In the {{ mes-name }} cluster, you can [update the version](#version-update) and [update the edition](#start-edition-update) of {{ ES }}.
 
-To learn more about updates within one version and host maintenance, see [{#T}](../concepts/maintenance.md).
+To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
 ## Updating the {{ ES }} version {#version-update}
 
-You can update a {{ mes-name }} cluster to a later [{{ ES }} version](../concepts/update-policy.md#versioning-policy).
+You can update a {{ mes-name }} cluster to a newer [{{ ES }} version](../concepts/update-policy.md#versioning-policy).
 
 ### Viewing a list of available {{ ES }} versions {#version-list}
 
@@ -27,7 +27,7 @@ You can update a {{ mes-name }} cluster to a later [{{ ES }} version](../concept
 
 {% endlist %}
 
-### Before updating the version {#before-version-update}
+### Before a version upgrade {#before-version-update}
 
 Make sure this does not affect your applications:
 
@@ -74,7 +74,7 @@ Make sure this does not affect your applications:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mes-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
 
@@ -107,7 +107,7 @@ Make sure this does not affect your applications:
 
       {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
-   * The new {{ ES }} version in the `configSpec.version` parameter.
+   * New {{ ES }} version in the `configSpec.version` parameter.
    * List of cluster configuration fields to update in the `updateMask` parameter (in this case, `configSpec.version`).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -164,7 +164,7 @@ You can change the [{{ ES }} edition](../concepts/es-editions.md) used by the cl
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Add the `config.edition` field to the {{ mes-name }} cluster description or edit it (if it exists):
 

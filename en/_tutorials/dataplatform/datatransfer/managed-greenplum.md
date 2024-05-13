@@ -1,5 +1,6 @@
 # Migrating data from a third-party {{ GP }} or {{ PG }} cluster to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
+
 You can migrate your database from a third-party {{ GP }} or {{ PG }} cluster to {{ mgp-name }} using {{ data-transfer-full-name }}. This method allows you to:
 
 * Migrate the database without interrupting user service.

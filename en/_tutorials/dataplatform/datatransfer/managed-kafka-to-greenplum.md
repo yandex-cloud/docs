@@ -1,3 +1,5 @@
+
+
 You can set up data transfer from a {{ mkf-full-name }} topic to {{ mgp-full-name }} using {{ data-transfer-full-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
@@ -168,7 +170,7 @@ Create a file named `sample.json` with test data on your running instance:
 
          * `kf_source_endpoint_id`: ID of the source endpoint.
          * `gp_target_endpoint_id`: ID of the target endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -182,7 +184,7 @@ Create a file named `sample.json` with test data on your running instance:
 
          {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-      1. The transfer is activated automatically. Wait for its status to change to {{ dt-status-repl }}.
+      1. The transfer will be activated automatically. Wait for its status to change to {{ dt-status-repl }}.
 
    {% endlist %}
 

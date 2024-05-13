@@ -1,1 +1,1 @@
-{% include [MLFlow+datasphere](../../_tutorials/datasphere/mlflow-datasphere.md) %}
+{% include [MLFlow+datasphere](../../_tutorials/ml-ai/mlflow-datasphere.md) %}

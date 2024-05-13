@@ -5,6 +5,7 @@ description: "Use this tutorial to create a {{ MY }} cluster with a single or mu
 
 # Creating a {{ MY }} cluster
 
+
 A {{ MY }} cluster consists of one or more database hosts. In multi-host clusters, [semi-synchronous replication](../concepts/replication.md) is configured automatically.
 
 For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md).
@@ -314,7 +315,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
          Acceptable values are from `7` to `60`. The default value is `7`.
 
-      * To enable statistics collection for [cluster performance diagnostics](performance-diagnostics.md), add the `performance_diagnostics` section to your {{ mmy-name }} cluster:
+      * To enable statistics collection for [cluster performance diagnostics](performance-diagnostics.md), add the `performance_diagnostics` section to your {{ mmy-name }} cluster description:
 
          ```hcl
          resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -603,6 +604,7 @@ To create a {{ MY }} cluster copy:
 {% endlist %}
 
 ### Creating a multi-host cluster {#creating-multiple-hosts-cluster}
+
 
 {% list tabs group=instructions %}
 

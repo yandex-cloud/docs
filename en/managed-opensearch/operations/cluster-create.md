@@ -9,6 +9,7 @@ keywords:
 
 # Creating an {{ OS }} cluster
 
+
 A {{ mos-name }} cluster is a group of multiple linked {{ OS }} and [dashboards]({{ os.docs }}/dashboards/index/) hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the `DATA` role. To learn more about roles in the cluster, see [Host roles](../concepts/host-roles.md).
 
 Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
@@ -60,7 +61,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
          {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
-      1. Specify how hosts should be distributed across availability zones and subnets.
+      1. Specify how hosts should be distributed across [availability zones](../../overview/concepts/geo-scope.md) and subnets.
 
       1. Select the number of hosts to create.
 

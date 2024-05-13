@@ -59,7 +59,7 @@
   1. В списке сервисов выберите **{{ container-registry-name }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.cr.overview.button_create }}**.
   1. Задайте имя реестра, например `datasphere-registry`, и нажмите кнопку **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
-  
+
 {% endlist %} 
 
 ### Создайте сервисный аккаунт для проекта {{ ml-platform-name }} {#create-sa}
@@ -116,11 +116,11 @@
 1. Склонируйте [репозиторий на GitHub](https://github.com/yandex-cloud-examples/yc-datasphere-fastapi-service-deploy) и поместите файлы в созданную папку.
 1. Запустите [Docker Desktop](https://docs.docker.com/desktop/).
 1. В командной оболочке перейдите в папку, где хранится созданный вами Dockerfile.
-   
+
    ```bash
    cd docker-images
    ```
-   
+
 1. Соберите Docker-образ:
 
    ```bash
@@ -136,29 +136,29 @@
 - CLI {#cli}
 
    1. [Задайте](../../cli/operations/profile/manage-properties.md) каталог `data-folder` каталогом по умолчанию:
-   
+
       ```bash
       yc config set folder-id <идентификатор_каталога>
       ```
 
    1. [Аутентифицируйтесь в {{ container-registry-name }}](../../container-registry).
-   
+
       1. Получите [IAM-токен](../../iam/concepts/authorization/iam-token.md) для своего пользовательского аккаунта:
-      
+
       ```bash
       yc iam create-token
       ```
       
       В ответе будет IAM-токен. Если вы аутентифицируетесь от имени федеративного аккаунта, CLI перенаправит вас в консоль управления для аутентификации, а после этого пришлет IAM-токен.
-   
+
       {% note info %}
-   
+
       {% include [iam-token-note](../../_includes/iam/iam-token-note.md) %}
-      
+
       {% endnote %}
-   
+
       1. Выполните команду, подставив вместо `<IAM-токен>` значение токена, которое вы получили на предыдущем шаге:
-      
+
       ```bash
       docker login \
         --username iam \

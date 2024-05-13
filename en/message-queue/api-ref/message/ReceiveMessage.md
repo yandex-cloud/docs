@@ -72,7 +72,7 @@ For a list of errors common for all methods, see [{#T}](../common-errors.md).
 ```
 Action=ReceiveMessage
 &Version=2012-11-05
-&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
 &AttributeName.1=All
 &MessageAttributeName.1=All
 &VisibilityTimeout=15
@@ -86,9 +86,9 @@ For more information about forming requests, see [General API request format](..
 <ReceiveMessageResponse>
     <ReceiveMessageResult>
         <Message>
-            <MessageId>cddcbbe4-b0571f5c-d7b94ce4-1523191</MessageId>
+            <MessageId>cddcbbe4-b0571f5c-d7b94ce4***-*****</MessageId>
             <ReceiptHandle>EAEgrOGOhogtKAA</ReceiptHandle>
-            <MD5OfBody>3e25960a79dbc69b674cd4ec67a72c62</MD5OfBody>
+            <MD5OfBody>3e25960a79dbc69b674cd4ec********</MD5OfBody>
             <Body>Hello world</Body>
             <Attribute>
                 <Name>ApproximateFirstReceiveTimestamp</Name>
@@ -105,7 +105,7 @@ For more information about forming requests, see [General API request format](..
         </Message>
     </ReceiveMessageResult>
     <ResponseMetadata>
-        <RequestId>213c792a-2afa2234-4759dbc3-e5b8ef8-fc90fde14cdc1371b11d6453cc55a75b</RequestId>
+        <RequestId>213c792a-2afa2234-4759dbc3-e5b8ef8-fc90fde14cdc1371b11d6453********</RequestId>
     </ResponseMetadata>
 </ReceiveMessageResponse>
 ```

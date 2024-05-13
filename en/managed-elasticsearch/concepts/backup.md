@@ -19,7 +19,7 @@ You can create backups both automatically and [manually](../operations/cluster-b
 
 Backups are only created on running clusters.
 
-For more information about creating a backup manually, see [{#T}](../operations/cluster-backups.md).
+For more information about creating a backup manually, see [Managing backups](../operations/cluster-backups.md).
 
 ## Storing backups {#storage}
 
@@ -33,7 +33,7 @@ Storing backups in {{ mes-name }}:
 
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-   For more information, see the [{{ mes-name }} pricing policy](../pricing.md#rules-storage).
+   For more information, see [Pricing policy](../pricing.md#rules-storage).
 
 ## Checking backup recovery {#capabilities}
 

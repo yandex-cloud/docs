@@ -218,7 +218,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
 - Node.js {#nodejs}
 
-  Install the necessary dependencies:
+  Set the required dependencies:
 
   ```bash
   npm install --save axios form-data
@@ -236,9 +236,9 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
   const formData = new FormData();
 
-  formData.append('text', "I'm Yandex Sp+eechkit. I can turn any text into speech. Now y+ou can, too!");
-  formData.append('voice', 'john');
-  formData.append('lang', 'en-US');
+  formData.append('voice', 'filipp');
+  formData.append('text', 'I'm Yandex Speechk+it. I can turn any text into speech. Now y+ou can, too!');
+  formData.append('lang', 'ru-RU');
   formData.append('folderId', FOLDER_ID);
 
   const headers = {
@@ -256,11 +256,11 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
   Where:
 
-  * `IAM_TOKEN` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
-  * `FOLDER_ID` — [Folder ID](../../../resource-manager/operations/folder/get-id.md).
-  * `text` — Text in [TTS markup](../markup/tts-markup.md) for synthesis.
-  * `lang` — [Language](../index.md#langs) of the text.
-  * `voice` — [Voice](../voices.md) for speech synthesis.
+  * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
+  * `FOLDER_ID`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
+  * `TEXT`: Text in [TTS markup](../markup/tts-markup.md) for synthesis.
+  * `lang`: [Language](../index.md#langs) of the text.
+  * `voice`: [Voice](../voices.md) for speech synthesis.
 
   The synthesized speech will be written to the `speech.ogg` file in the directory that you sent your request from.
 

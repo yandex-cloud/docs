@@ -28,7 +28,7 @@ If successful, an HTTP response with code 200 and query information is returned.
         "position": {
           "row": 0,
           "column": 0,
-          "file": "string" 
+          "file": "string"
         },
         "message": "string",
         "end_position": {
@@ -59,16 +59,16 @@ If successful, an HTTP response with code 200 and query information is returned.
 
 | Field | Description |
 | ----- | ----- |
-| `name` | Query name |
-| `type` | Query type: `STREAMING` or `ANALYTICS` |
-| `text` | Query text |
-| `description` | Query description |
-| `meta.started_at` | Query execution start time |
-| `meta.finished_at` | Query execution end time |
-| `issues` | If the query fails, you'll see an object named [`Issue`](../index.md#issue) |
-| `result_sets` | An array of query execution results |
-| `result_sets[].rows` | The number of rows with query execution results |
-| `result_sets[].truncated` | The number of rows with query execution results exceeded the limit and was truncated |
+| `name` | Query name. |
+| `type` | Query type: `STREAMING` or `ANALYTICS`. |
+| `text` | Query text. |
+| `description` | Query description. |
+| `meta.started_at` | Query execution start time. |
+| `meta.finished_at` | Query execution end time. |
+| `issues` | If there are execution errors, contains an object named [`Issue`](../index.md#issue). |
+| `result_sets` | Array of query execution results. |
+| `result_sets[].rows` | Number of rows with query execution results. |
+| `result_sets[].truncated` | The number of rows with query execution results exceeded the limit and was truncated. |
 
 ## Example {#example}
 
@@ -76,7 +76,7 @@ Query:
 
 ```json
 curl -X 'GET' \
-  'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries/cseugn35bc3r5lrmbnt7?project=b1gaue5b382mmmlolb1k' \
+  'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries/cseugn35bc3r********?project=b1gaue5b382m********' \
   -H 'accept: application/json'
 ```
 
@@ -100,6 +100,6 @@ Response:
     }
   ],
   "status": "FINISHED",
-  "id": "csqugo80f0l35isue09b"
+  "id": "csqugo80f0l3********"
 }
 ```

@@ -23,6 +23,7 @@ Each cluster has 16,348 *hash slots* evenly distributed across the shards. Slots
 
 ## Fault tolerance {#failover}
 
+
 All hosts in the cluster use service connections to exchange data about slots and regularly request statuses from each other.
 
 If the majority of master hosts fails to get a response from the host being polled, the host is considered to be down. If it is the master host that is down, one of its replicas becomes master. If all replicas fail or none of them can become master, the host stops receiving queries. However, if a single shard is down, the entire {{ RD }} Cluster may still be working as long as the other shards are available for writing and reading data.

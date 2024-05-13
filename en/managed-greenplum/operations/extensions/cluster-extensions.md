@@ -1,6 +1,6 @@
 # Managing {{ GP }} extensions
 
-{{ mgp-short-name }} supports some {{ GP }} extensions. See [the full list of available extensions and their versions](#greenplum).
+{{ mgp-short-name }} supports some {{ GP }} extensions. For more information, refer to [the full list of available extensions and their versions](#greenplum).
 
 ## Retrieving a list of extensions available to install {#available-extensions}
 
@@ -69,7 +69,7 @@ Contains various internal utilities for {{ GP }}.
 Adds a data type for storing <q>key-value</q> pairs in a single field.
 | 1.3 ||
 || [pgcrypto]({{ gp.docs.pivotal }}/latest/ref_guide/modules/pgcrypto.html)
-Adds data encryption functions. For more information, see [{#T}](./pgcrypto.md).
+Adds data encryption functions. For more information, see [Using pgcrypto](./pgcrypto.md).
 | 1.1 ||
 || [plperl]({{ gp.docs.vmware }}/5/greenplum-database/ref_guide-extensions-pl_perl.html)
 Enables support for the PL/Perl procedural language.
@@ -87,7 +87,7 @@ Adds a wrapper that allows you to access remote {{ PG }} databases.
 Allows you to work with heterogeneous data sources.
 | 2.0 ||
 || uuid-cb
-Enables the generation and validation of unique IDs in compliance with the Russian Central Bank requirements. For more information, see [{#T}](./uuid-cb.md).
+Enables the generation and validation of unique IDs in compliance with the Russian Central Bank requirements. For more information, see [Using uuid-cb](./uuid-cb.md).
 | 1.0 ||
 || [{{ YZ }}](../../tutorials/yezzey.md). {{ yandex-cloud }} extension
 Exports [AO and AOCO tables](../../concepts/tables.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form.

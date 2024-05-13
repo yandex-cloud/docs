@@ -1,4 +1,6 @@
-# Delivering data from an {{ KF }} queue to {{ OS }} using {{ data-transfer-full-name }}
+# Delivering queue data from {{ KF }} to {{ OS }} using {{ data-transfer-full-name }}
+
+
 
 A {{ mos-name }} cluster can get data from {{ KF }} topics in real time.
 
@@ -158,7 +160,7 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
 
 1. [Create a role]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) with the `create_index` and `write` privileges for all indexes (`*`).
 
-1. [Create a user](../../managed-opensearch/operations/cluster-users.md) and assign this role to the user.
+1. [Create a user](../../managed-opensearch/operations/cluster-users.md) and assign this role to them.
 
 ## Configure the target cluster {#configure-target}
 
@@ -170,7 +172,7 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
 
 1. [Create a role]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) with the `create_index` and `write` privileges for all indexes (`*`).
 
-1. [Create a user](../../managed-opensearch/operations/cluster-users.md) and assign this role to the user.
+1. [Create a user](../../managed-opensearch/operations/cluster-users.md) and assign this role to them.
 
 ## Prepare and activate the transfer {#prepare-transfer}
 
@@ -194,7 +196,7 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: `JSON`.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
 
             Insert the data schema in JSON format:
 
@@ -285,7 +287,7 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      1. The transfer is activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+      1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
    {% endlist %}
 

@@ -8,6 +8,7 @@ In text widgets, you can use the following elements:
 
 * [Headers](#headings)
 * [Bold and italics](#emphasizing)
+* [Text color](#text-color)
 * [Lists](#lists)
    * [Simple unordered list](#unordered-list)
    * [Nested unordered list](#unordered-sublist)
@@ -20,6 +21,7 @@ In text widgets, you can use the following elements:
    * [Code block](#codeblock)
 * [Image](#image)
 * [Cuts](#cuts)
+* [Tooltips](#term)
 
 ## Headers {#headings}
 
@@ -57,6 +59,29 @@ Use formatting to highlight key points in your text:
    This text will be _**bold and italic**_.
    This text will be **_bold and italic_**.
    ```
+
+## Text color {#text-color}
+
+You can set the text color this way: `{color}(text)`. The following colors are supported:
+
+* gray
+* yellow
+* orange
+* red
+* green
+* blue
+* violet
+
+For example, the following markup:
+
+```markdown
+This text is {green}(green).
+```
+
+will be displayed as:
+
+This text is <font color="green">green</font>.
+
 
 ## Lists {#lists}
 
@@ -307,3 +332,30 @@ will be displayed as:
 Content to be displayed on click.
 
 {% endcut %}
+
+
+## Tooltips {#term}
+
+Tooltips allow you to display term definitions when clicking a term. Definitions are linked to their respective terms using a term key.
+
+Sample markup:
+
+```markdown
+
+[*term_key]: Term definition which may include _basic_ markup:
+* Lists
+* Links
+* Images, etc.
+
+
+[Term](*term_key) used in the text.
+
+```
+
+
+{% note info %}
+
+Currently, you can only use tooltips in code blocks that do not specify a language.
+
+{% endnote %}
+

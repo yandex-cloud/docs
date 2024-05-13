@@ -1,5 +1,6 @@
 # Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{ data-transfer-full-name }}
 
+
 To transfer data from {{ yandex-direct }} to {{ mch-name }}, you can use {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name }}. To do this:
 
 1. [Transfer your data from {{ yandex-direct }} to {{ objstorage-name }} using {{ sf-name }}](#direct-objstorage).
@@ -212,7 +213,7 @@ You will see a Parquet file in the bucket.
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: Bucket name in {{ objstorage-name }}.
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public part of the service account static key. You may [copy it from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Private part of the service account static key. You may [copy it from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
-   * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}**: `https://storage.yandexcloud.net`.
+   * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}**: `https://{{ s3-storage-host }}`.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}**: `{{ region-id }}`.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.parquet.title }}`.
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.schema.title }}**: `{"Id": "int64", "Name": "string"}`.

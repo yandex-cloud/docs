@@ -16,3 +16,4 @@ The `vpc.auditor` roles allows you to view service metadata, including informati
 * View information on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 {% endcut %}
+
