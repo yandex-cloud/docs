@@ -102,7 +102,7 @@ To start using the client:
 
 1. [Get an OAuth token](#section_about_OAuth) and your organization ID to access the API.
 
-   To find out the organization ID, go to the [settings page {{ tracker-name }}]({{ link-settings }}). The ID is shown in **Organization ID for API**.
+   To find out the organization ID, go to the [{{ tracker-name }} settings page]({{ link-settings }}). The ID is shown in **Organization ID for API**.
 
 1. Initialize the client in your program code:
 

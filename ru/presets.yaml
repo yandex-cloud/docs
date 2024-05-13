@@ -23,6 +23,7 @@ default:
   api-host-lockbox-payload: payload.lockbox.api.cloud.yandex.net
   api-host-mdb: mdb.api.cloud.yandex.net
   api-host-monitoring-1: monitoring.api.cloud.yandex.net
+  api-host-operation: operation.api.cloud.yandex.net
   api-host-sk-stt: stt.api.cloud.yandex.net
   api-host-sk-tts: tts.api.cloud.yandex.net
   api-url-prefix: /docs
@@ -643,7 +644,7 @@ default:
   tf-cloud-id: b1gq90dgh25********
   tf-docs-link: https://terraform-provider.yandexcloud.net
   tf-folder-id: b1gia87mbaom********
-  TF-full: Hashicorp Terraform
+  TF-full: HashiCorp Terraform
   tf-provider-alb-backendgroup: https://terraform-provider.yandexcloud.net/Resources/alb_backend_group
   tf-provider-alb-targetgroup: https://terraform-provider.yandexcloud.net/Resources/alb_target_group
   tf-provider-datasources-link: https://terraform-provider.yandexcloud.net/DataSources
@@ -2765,11 +2766,6 @@ default:
               hold: Приостановлен
             open: Открыт
             resolved: Решен
-      defaults:
-        sla:
-          default:
-            filter:
-              name: Все задачи очереди
       events:
         event:
           IssueCreated: Задача создана
@@ -3016,9 +3012,6 @@ default:
               tested: Протестировано
               testing: Тестируется
           name: Скрам
-      profiles:
-        category:
-          everything: Все события
       roles:
         role:
           name:
@@ -3388,7 +3381,6 @@ default:
       ui_components_page-queue-admin_QueueAdminPageContent:
         menu-item-aliases: Почтовые ящики
         menu-item-autoactions: Автодействия
-        menu-item-calendars: Графики работы
         menu-item-forms: Интеграция форм
         menu-item-permissions: Права доступа
         menu-item-timetracking: Учёт времени
@@ -4237,7 +4229,6 @@ default:
             field_actions: Действия
             value_completed: Готово
           switch_acts: Отчётные документы
-          switch_offers: Резервируемое потребление
           tab_reconciliation-reports-title: Акты сверки
         label_accounts: Аккаунты
         label_service: Биллинг
@@ -5580,6 +5571,7 @@ default:
         label_loggroup: Лог-группа
         label_retention-period: Срок хранения логов
         label_sinks: Приёмники логов
+        label_stream: Поток данных
         label_title: Логирование
       marketplace-v2:
         action_detach-subscription: Отвязать подписку
@@ -5682,7 +5674,6 @@ default:
             label_bucket: Имя бакета
             label_hdd: Хранилище
             label_health: Состояние
-            label_mongodb-pitr: Point-in-time recovery
             label_network: Облачная сеть
             label_service-account: Сервисный аккаунт
             label_services: Сервисы
@@ -5989,6 +5980,7 @@ default:
           button_create: Создать
         gateways:
           domains:
+            button_acton-delete: Отключить
             button_add: Подключить
           form:
             button_create-gateway: Создать
@@ -7974,7 +7966,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: 1.14.5
+        tag: 1.14.6
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3

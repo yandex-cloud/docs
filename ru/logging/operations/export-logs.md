@@ -1,15 +1,15 @@
 ---
-title: "Инструкция о том, как выгружать логи из {{ cloud-logging-name }}"
-description: "Из статьи вы узнаете, как выгружать логи из {{ cloud-logging-name }}."
+title: "Инструкция о том, как выгружать логи из {{ cloud-logging-name }} в {{ objstorage-name }}"
+description: "Из статьи вы узнаете, как выгружать логи из {{ cloud-logging-name }} в {{ objstorage-name }}."
 ---
 
-# Выгрузить логи
+# Выгрузить логи в {{ objstorage-name }}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится приемник логов.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находятся лог-группа и приемник логов.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Выберите лог-группу, из которой хотите выгрузить логи.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.logs }}**.

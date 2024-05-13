@@ -1,3 +1,5 @@
+
+
 You can track data changes in a {{ mmy-name }} _source cluster_ and send them to a {{ yds-name }} _target cluster_ using [Change Data Capture](../../../data-transfer/concepts/cdc.md) (CDC).
 
 To set up CDC using {{ data-transfer-name }}:
@@ -119,7 +121,7 @@ Prepare the infrastructure:
       1. In the `mysql-yds.tf` file, specify the following variables:
 
          * `yds_endpoint_id`: ID of the target endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 

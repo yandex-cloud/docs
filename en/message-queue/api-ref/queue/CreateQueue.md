@@ -45,16 +45,16 @@ Attribute.N.Value (attribute value)
 | `DelaySeconds` | **integer** | Number of seconds to [delay the message from being available for processing](../../concepts/delay-queues.md#delay-queues). Valid values: from 0 to 900 seconds (15 minutes). Default: 0. |
 | `MaximumMessageSize` | **integer** | Maximum message size in bytes. Valid values: from 1024 bytes (1 KB) to 262144 bytes (256 KB). Default: 262144 (256 KB). |
 | `MessageRetentionPeriod` | **integer** | The length of time in seconds to retain a message. Valid values: from 60 seconds (1 minute) to 1209600 seconds (14 days). Default: 345600 (4 days). |
-| `ReceiveMessageWaitTimeSeconds` | **integer** | Wait time for the [ReceiveMessage](../message/ReceiveMessage) action, in seconds. Valid values: from 0 to 20 seconds. Default: 0. |
-| `RedrivePolicy` | **string** | Message redrive policy in [Dead Letter Queue](../../concepts/dlq.md). The source queue and DLQ must be the same type: for FIFO queues, the DLQ must also be a FIFO queue. It includes two parameters: <ul><li>`deadLetterTargetArn`: ARN of the DLQ that messages are moved to. You can get the queue's ARN by calling the [GetQueueAttributes](GetQueueAttributes.md) method.</li><li>`maxReceiveCount` is the maximum number of attempts to read a message from the queue before redriving it to the DLQ. When the `ReceiveCount` value for the message exceeds the value of `maxReceiveCount`, the message is moved to the DLQ.</li></ul> |
+| `ReceiveMessageWaitTimeSeconds` | **integer** | Wait time for the [ReceiveMessage](../message/ReceiveMessage) action, in seconds. The valid values are from 0 to 20 seconds. Default: 0. |
+| `RedrivePolicy` | **string** | Redirect policy for moving messages to a [dead-letter queue](../../concepts/dlq.md). The source queue and DLQ must be the same type: for FIFO queues, the DLQ must also be a FIFO queue. It includes two parameters: <ul><li>`deadLetterTargetArn`: ARN of the DLQ that messages are moved to. You can get the queue's ARN by calling the [GetQueueAttributes](GetQueueAttributes.md) method.</li><li>`maxReceiveCount` is the maximum number of attempts to read a message from the queue before redriving it to the DLQ. When the `ReceiveCount` value for the message exceeds the value of `maxReceiveCount`, the message is moved to the DLQ.</li></ul> |
 | `VisibilityTimeout` | **integer** | [Visibility timeout](../../concepts/visibility-timeout.md) for the queue, specified in seconds. Valid values: from 0 to 43000 seconds. Default: 30. |
 
 #### FIFO queue attributes {#fifo-path-parameters}
 
 | Attribute | Description |
 ----- | -----
-| `FifoQueue` | Returns whether the [queue is FIFO](../../concepts/queue.md#fifo-queues). <p>Valid values: `true` or `false`.</p> <p>If this parameter is not used, a standard queue is created. You cannot change the parameter value for a created queue. When sending messages to a FIFO queue, explicitly specify their `MessageGroupId`.</p> |
-| `ContentBasedDeduplication` | Enables [content-based deduplication](../../concepts/deduplication.md#content-based-deduplication). Valid values: `true` or `false`. |
+| `FifoQueue` | Returns whether the [queue is FIFO](../../concepts/queue.md#fifo-queues). <p>It may take either the `true` or `false` value.</p> <p>If this parameter is not used, a standard queue is created. You cannot change the parameter value for a created queue. When sending messages to a FIFO queue, explicitly specify their `MessageGroupId`.</p> |
+| `ContentBasedDeduplication` | Enables [content-based deduplication](../../concepts/deduplication.md#content-based-deduplication). It may take either the `true` or `false` value. |
 
 #### Non-supported attributes {#non-supported-attributes}
 
@@ -98,12 +98,12 @@ For more information about forming requests, see [General API request format](..
 <CreateQueueResponse>
     <CreateQueueResult>
         <QueueUrl>
-            https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+            https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
         </QueueUrl>
     </CreateQueueResult>
     <ResponseMetadata>
         <RequestId>
-            e4c69a67-f2809a49-6b326386-14d2a08-af8eb419750efa1dbcabf1848a01aefd
+            e4c69a67-f2809a49-6b326386-14d2a08-af8eb419750efa1dbcabf184********
         </RequestId>
     </ResponseMetadata>
 </CreateQueueResponse>

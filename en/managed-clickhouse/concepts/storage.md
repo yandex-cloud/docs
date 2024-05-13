@@ -85,6 +85,7 @@ For more information about storage policies and their settings, see the [{{ CH }
 
 ### Hybrid storage settings {#hybrid-storage-settings}
 
+
 A {{ mch-name }} cluster with enabled hybrid storage has the following settings:
 
 * `data_cache_enabled`: Allows you to cache data requested from object storage in cluster storage. This setting is enabled by default (set to `true`).

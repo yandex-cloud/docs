@@ -14,7 +14,7 @@ In this section, you can find {{ mmg-name }} pricing [rules](#rules) and [effect
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
-## What is included in {{ mmg-short-name }} cost {#rules}
+## What goes into the cost of using {{ mmg-short-name }} {#rules}
 
 The {{ mmg-name }} usage cost is based on:
 
@@ -46,13 +46,13 @@ You are charged for the following:
 
 * Space used by DB backups in excess of the storage amount specified for the cluster.
 
-   * Backups are stored free of charge as long as the combined size of the database and all backups is smaller than the selected storage size.
+   * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
 
-   * During an automatic backup, {{ mmg-short-name }} does not create a new copy but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
+   * During an automatic backup, {{ mmg-short-name }} does not create a new copy but saves changes to the database compared to the previous copy. This means that the storage used by automatic backups increases only in proportion to the volume of changes that are made.
 
    * The number of hosts in the cluster does not affect the size of the storage and, consequently, of free backups.
 
-The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The cost is specified for one month of use and based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 ### Example of cluster cost calculation {#example}
 
@@ -96,6 +96,7 @@ Where:
 
 
 ## Pricing {#prices}
+
 
 
 All prices are shown without VAT.

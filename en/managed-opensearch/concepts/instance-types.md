@@ -1,5 +1,6 @@
 # {{ OS }} host classes
 
+
 The host class determines the computing power allocated for each host group with the specific role in the cluster. When you change the host class for a host group in the cluster, the configuration of all hosts previously created in this group changes accordingly. For more information about host groups, see [{#T}](./host-groups.md).
 
 

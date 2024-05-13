@@ -1,12 +1,13 @@
 # Migrating data to {{ mmg-name }}
 
+
 To migrate your data to {{ mmg-name }}, transfer the data, write-lock the old database, and transfer the load to the target cluster in {{ yandex-cloud }}.
 
 There are two ways to migrate data from a third-party _source cluster_ to a {{ mmg-name }} _target cluster_:
 
 * [Transferring data using {{ data-transfer-full-name }}](#data-transfer).
 
-   This migration method lets you:
+   This migration method allows you to:
 
    * Migrate the database without interrupting user service.
    * Migrate from older {{ MG }} versions to newer versions.

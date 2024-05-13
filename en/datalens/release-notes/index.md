@@ -35,7 +35,7 @@ In a connection to [Bitrix24](../operations/connection/create-bitrix24.md), you 
 
 ### New domain {#new-domain}
 
-Starting March 27, {{ datalens-short-name }} is available at the new address, <https://datalens.yandex.cloud>.
+Starting March 27, {{ datalens-short-name }} is available at the new address, <{{ link-datalens-main }}>.
 
 Users will not experience any change. Old addresses will redirect you automatically. However, you will have to log in once again. For more information, see the [blog](https://yandex.cloud/ru/blog/posts/2024/03/new-domain).
 

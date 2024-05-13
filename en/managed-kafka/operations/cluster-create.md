@@ -1,4 +1,5 @@
-# Creating an {{ KF }} cluster
+# Creating a {{ KF }} cluster
+
 
 A [{{ mkf-name }} cluster](../concepts/index.md) is one or more [broker hosts](../concepts/brokers.md) where [topics and their partitions](../concepts/topics.md) are located. [Producers and consumers](../concepts/producers-consumers.md) can work with these topics by connecting to {{ mkf-name }} cluster hosts.
 

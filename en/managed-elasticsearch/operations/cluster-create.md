@@ -11,11 +11,11 @@ keywords:
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
-A [{{ mes-name }} cluster](../concepts/index.md) is a group of multiple linked {{ ES }} hosts. A {{ mes-name }} cluster provides high search performance by distributing search and indexing tasks across all hosts with the _Data node_ [role](../concepts/hosts-roles.md). To learn more about roles in the {{ mes-name }} cluster, see [{#T}](../concepts/hosts-roles.md).
+A [{{ mes-name }} cluster](../concepts/index.md) is a group of multiple linked {{ ES }} hosts. cluster provides high search performance by distributing search and indexing tasks across all hosts with the _Data node_ [role](../concepts/hosts-roles.md). To learn more about roles in the {{ mes-name }} cluster, see [{#T}](../concepts/hosts-roles.md).
 
 {% note info %}
 
-* The number of hosts with the _Data node_ role you can create together with an {{ ES }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* The number of hosts with the _Data node_ role you can create along with an {{ ES }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
 * Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
 {% endnote %}
@@ -64,7 +64,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
    1. Configure hosts with the _Data node_ role by opening the **Data node** tab:
       1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the platform, host type, and host class.
 
-         The host class defines the technical characteristics of [VM instances](../../compute/concepts/vm.md) {{ ES }} nodes are deployed on. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for a {{ mes-name }} cluster, the characteristics of all existing instances also change.
+         The host class defines the technical characteristics of [VM instances](../../compute/concepts/vm.md) {{ ES }} nodes are deployed on. All available options are listed under [Host classes](../concepts/instance-types.md). When you change the host class for a {{ mes-name }} cluster, the characteristics of all existing instances also change.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
          * Select the [disk type](../concepts/storage.md).
 
@@ -85,7 +85,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
                {% endnote %}
 
-               If public access is enabled for an {{ ES }} host with the _Data node_ role, you can connect to this host, or Kibana hosted on it, over the internet. For more information, see [{#T}](cluster-connect.md).
+               If public access is enabled for an {{ ES }} host with the _Data node_ role, you can connect to this host, or Kibana hosted on it, over the internet. For more information, see [Connecting to a cluster](cluster-connect.md).
 
                {% include [mes-tip-public-kibana](../../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 

@@ -27,7 +27,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 {% note warning %}
 
-This step is available to users who have permission to any Yandex Metrica tag. If do not have permission to a tag, deploy a [dashboard from {{ datalens-short-name }} {{ marketplace-short-name }}]({{ link-datalens-main }}/marketplace/f2e5hpq5mc7bscsjc6jr) and proceed to step 2.
+This step is available to users who have permission to any Yandex Metrica tag. If you do not have permission to a tag, deploy a [dashboard from {{ datalens-short-name }} {{ marketplace-short-name }}]({{ link-datalens-main }}/marketplace/f2e5hpq5mc7bscsjc6jr) and proceed to step 2.
 
 {% endnote %}
 

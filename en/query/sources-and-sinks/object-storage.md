@@ -34,18 +34,18 @@ To create a connection to {{ objstorage-short-name }}:
 SELECT
     <expression>
 FROM
-    <object_storage_connection_name>.`<file_path>`
-WITH(format=<file_format>, <compression> AS compression)
+    <connection>.<path>
+WITH(format=<data_format>, <compression_format> AS compression)
 WHERE
     <filter>;
 ```
 
 Where:
 
-* `object_storage_connection_name`: Name of the storage [connection](#create_connection).
-* `file_path`: Path to a file or files in the bucket. `*` wildcards are supported.
-* `file_format`: File [data format](formats.md#formats).
-* `compression`: File [compression format](formats.md#compression_formats).
+* `<connection>`: Name of the storage [connection](#create_connection).
+* `<path>`: Path to a file or files in the bucket. `*` wildcards are supported.
+* `<data_format>`: File [data format](formats.md#formats).
+* `<compression_format>`: File [compression format](formats.md#compression_formats).
 
 If the data is stored in compressed format, make sure to unpack it for handling. After unpacking, parse the data based on the format used to store it within the files.
 

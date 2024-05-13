@@ -1,5 +1,6 @@
 # Migrating a database from a third-party {{ MY }} cluster to a {{ mmy-full-name }} cluster
 
+
 There are two ways to migrate data from a third-party _source cluster_ to a {{ mmy-name }} _target cluster_:
 
 * [Transferring data using {{ data-transfer-full-name }}](#data-transfer).

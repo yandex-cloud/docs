@@ -23,12 +23,12 @@ Year,Manufacturer,Model,Price
 1999,Chevy,"Venture «Extended Edition»",4900.00
 ```
 
-{% cut "Sample query" %}
+{% cut "Sample request" %}
 
 ```sql
 SELECT
     *
-FROM `connection`.`path`
+FROM <connection>.<path>
 WITH
 (
     format=csv_with_names,
@@ -63,12 +63,12 @@ Year    Manufacturer    Model   Price
 1999    Chevy   "Venture «Extended Edition»"    4900.00
 ```
 
-{% cut "Sample query" %}
+{% cut "Sample request" %}
 
 ```sql
 SELECT
     *
-FROM `connection`.`path`
+FROM <connection>.<path>
 WITH
 (
     format=tsv_with_names,
@@ -124,7 +124,7 @@ Example of correct data (each line contains a separate object in JSON format, bu
 ```sql
 SELECT
     *
-FROM `connection`.`path`
+FROM <connection>.<path>
 WITH
 (
     format=json_each_row,
@@ -158,7 +158,7 @@ Use this format if the built-in features for parsing source data in {{ yq-full-n
 ```sql
 SELECT
     *
-FROM `connection`.`path`
+FROM <connection>.<path>
 WITH
 (
     format=raw,
@@ -193,12 +193,12 @@ Example of correct data (represented as a list of JSON objects):
 ```
 
 
-{% cut "Sample query" %}
+{% cut "Sample request" %}
 
 ```sql
 SELECT
     *
-FROM `connection`.`path`
+FROM <connection>.<path>
 WITH
 (
     format=json_as_string,
@@ -238,7 +238,7 @@ Data compression algorithms supported in Parquet files:
 ```sql
 SELECT
     *
-FROM `connection`.`path`
+FROM <connection>.<path>
 WITH
 (
     format=parquet,

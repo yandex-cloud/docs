@@ -6,7 +6,7 @@ editable: false
 
 {{ foundation-models-full-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. The service is at the Preview stage and is billed according to the [Special Terms of Use](https://yandex.ru/legal/cloud_specialterms/?lang=en#index__section_fk5_d4c_cgb). You can find {{ yagpt-full-name }} usage details in {{ billing-name }} as {{ foundation-models-full-name }} resource usage.
 
-In the [management console]({{ link-console-main }}/link/yandexgpt), new users without a [billing account](../billing/concepts/billing-account.md) can test requests to models as follows:
+In the [management console]({{ link-console-main }}/link/yandexgpt), new users without a [billing account](../billing/concepts/billing-account.md) have access to models for testing:
 * {{ yagpt-full-name }}: {{ gpt-freetier }} free requests per hour.
 * {{ yandexart-name }}: {{ art-freetier }} free requests per day.
 
@@ -29,15 +29,11 @@ The number of billing units is based on the overall number of prompt and respons
 
 #### Fine-tuned models {#rules-tuned-generating}
 
-The use of summary models is charged according to the {{ gpt-lite }} rules. The use of models fine-tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} rules.
+The use of summary models is charged according to the {{ gpt-lite }} policy. The use of models fine-tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} policy.
 
 ### Text vectorization {#rules-embedding}
 
 The cost of text vectorization (getting text embeddings) depends on the size of the text submitted for vectorization.
-
-### Image generation {#rules-image-generation}
-
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ yandexart-name }} is free of charge.
 
 ### Image generation {#rules-image-generation}
 
@@ -70,12 +66,6 @@ Where:
 
 ## Pricing {#prices}
 
-
-### Text generation in {{ yagpt-full-name }} {#pricing-generating}
-
-{% include [kz-preview-prices.md](../_includes/kz-preview-prices.md) %}
-
-The prices below are effective as of March 25, 2024.
 
 ### Text generation in {{ yagpt-full-name }} {#pricing-generating}
 

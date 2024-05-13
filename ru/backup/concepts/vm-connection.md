@@ -33,6 +33,7 @@
 * [CentOS 7 OS Login](/marketplace/products/yc/centos-7-oslogin).
 * [CentOS Stream](/marketplace/products/yc/centos-stream-8).
 * [Astra Linux SE 1.7 «Воронеж»](/marketplace/products/astralinux/alse).
+* [Astra Linux SE 1.7 «Орел»](/marketplace/products/astralinux/alse-orel).
 
 ### Образы на базе Windows {#windows}
 
@@ -48,7 +49,7 @@
 
 {% note info %}
 
-Ubuntu или CentOS должна быть установлена из публичного образа (продукта {{ marketplace-full-name }}). При создании ВМ можно выбрать ОС напрямую либо использовать [образ](../../compute/concepts/image.md) или [снимок диска](../../compute/concepts/snapshot.md) с другой ВМ, если ОС на нее тоже устанавливалась из публичного образа.
+Операционная система должна быть установлена из публичного образа (продукта {{ marketplace-full-name }}). При создании ВМ можно выбрать ОС напрямую либо использовать [образ](../../compute/concepts/image.md) или [снимок диска](../../compute/concepts/snapshot.md) с другой ВМ, если ОС на нее тоже устанавливалась из публичного образа.
 
 {% endnote %}
 

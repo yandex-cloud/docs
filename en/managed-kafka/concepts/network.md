@@ -9,7 +9,7 @@ description: "In this tutorial, you will learn about the basic network interface
 When creating a cluster, you can:
 
 * Set the network for cluster hosts.
-* Specify the availability zones where the cluster hosts will reside.
+* Specify the [availability zones](../../overview/concepts/geo-scope.md) where the cluster hosts will reside.
 * Set subnets in all availability zones.
 * Turn on public access to the cluster from outside {{ yandex-cloud }}.
 

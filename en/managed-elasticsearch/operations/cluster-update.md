@@ -7,19 +7,19 @@ keywords:
   - Elasticsearch
 ---
 
-# Changing {{ ES }} cluster settings
+# Updating {{ ES }} cluster settings
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
 After creating a cluster, you can:
 
 
-* [{#T}](#change-service-account)
+* [Change service account settings](#change-service-account)
 
 
 * [{#T}](#change-resource-preset)
 * [{#T}](#change-disk-size)
-* [{#T}](#change-elasticsearch-config)
+* Configure [{{ ES }} servers](#change-elasticsearch-config) as described in the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html).
 * [{#T}](#change-admin-password)
 * [{#T}](#change-additional-settings)
 
@@ -27,7 +27,7 @@ Learn more about other cluster updates:
 
 * [{#T}](cluster-version-update.md)
 
-* [{#T}](host-migration.md)
+* [Migrating cluster hosts to a different availability zone](host-migration.md).
 
 
 ## Change service account settings {#change-service-account}
@@ -38,7 +38,7 @@ Learn more about other cluster updates:
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
-   1. Select the service account you need from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
+   1. Select the service account you need from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up a service account, see [Configuring access to {{ objstorage-name }} from a cluster](s3-access.md).
 
 - CLI {#cli}
 
@@ -69,7 +69,7 @@ Learn more about other cluster updates:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the `service_account_id` field, enter the service account ID:
 
@@ -151,7 +151,7 @@ Learn more about other cluster updates:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mes-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
 
@@ -263,7 +263,7 @@ Learn more about other cluster updates:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mes-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
 
@@ -437,7 +437,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mes-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
 
@@ -537,7 +537,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mes-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
 

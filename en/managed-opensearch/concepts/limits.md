@@ -6,6 +6,7 @@ description: "{{ mos-name }} has limits and quotas for the number of clusters, t
 
 # Quotas and limits in {{ mos-name }}
 
+
 {{ mos-name }} has the following limits:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}

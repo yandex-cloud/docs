@@ -26,8 +26,6 @@ description: "In this tutorial, you'll learn how to collect and deliver data to 
 1. Click **{{ ui-key.yacloud.data-streams.button_connect }}** and go to the **Logstash** tab.
 1. Copy the sample configuration file and paste it into the `/usr/share/logstash/bin/mypipeline.conf` file.
 
-   {% include [aws-sdk-attr](../../_includes/data-streams/aws-sdk-attr.md) %}
-
    Sample configuration file:
 
    ```text
@@ -39,18 +37,20 @@ description: "In this tutorial, you'll learn how to collect and deliver data to 
    output {
      stdout { codec => rubydebug}
      kinesis {
-       stream_name => "/{{ region-id }}/aoegtvhtp8ob9rqq8sto/cc8004q4lbo6bv9iivr0/test"
+       stream_name => "/{{ region-id }}/aoegtvhtp8ob********/cc8004q4lbo6********/test"
        region => "ru-central-1"
        verify_certificate => false
        codec => json_lines
        randomized_partition_key => true
-       access_key => "<key_id>"
-       secret_key => "<secret>"
+       access_key => "<access_key_ID>"
+       secret_key => "<secret_key>"
        metrics_level => "none"
        endpoint => "https://yds.serverless.yandexcloud.net"
      }
    }
    ```
+
+   {% include [aws-sdk-attr](../../_includes/data-streams/aws-sdk-attr.md) %}
 
 1. Start data delivery:
 
@@ -82,7 +82,7 @@ description: "In this tutorial, you'll learn how to collect and deliver data to 
      "host" => "127.0.0.1",
      "json" => "message"
    }
-   Stage 1 Triggers: { stream: '/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/logstash_stream', manual: 0, count: 0, size: 0, matches: 0, timed: 0, UserRecords: 0, KinesisRecords: 0 }
-   Stage 2 Triggers: { stream: '/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/logstash_stream', manual: 0, count: 0, size: 0, matches: 0, timed: 1, KinesisRecords: 1, PutRecords: 1 }
+   Stage 1 Triggers: { stream: '/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/logstash_stream', manual: 0, count: 0, size: 0, matches: 0, timed: 0, UserRecords: 0, KinesisRecords: 0 }
+   Stage 2 Triggers: { stream: '/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/logstash_stream', manual: 0, count: 0, size: 0, matches: 0, timed: 1, KinesisRecords: 1, PutRecords: 1 }
    (test) Average Processing Time: 723 ms
    ```

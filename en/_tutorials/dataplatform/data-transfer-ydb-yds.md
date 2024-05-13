@@ -1,5 +1,6 @@
 # {{ ydb-short-name }} change data capture and delivery to {{ DS }}
 
+
 A {{ yds-name }} stream can get data from {{ ydb-name }} databases in real time using the [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC) technology.
 
 {% include [CDC-YDB](../../_includes/data-transfer/note-ydb-cdc.md) %}
@@ -158,7 +159,7 @@ Prepare the infrastructure:
 
          * `source_endpoint_id`: ID of the source endpoint.
          * `target_endpoint_id`: ID of the target endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 

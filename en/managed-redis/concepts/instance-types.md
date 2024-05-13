@@ -5,6 +5,7 @@ description: "The host class determines the computing power allocated for each h
 
 # {{ RD }} host classes
 
+
 The host class determines the computing power allocated for each host in a cluster. When you change the class for a cluster, all existing hosts change to match it.
 
 {% note info %}

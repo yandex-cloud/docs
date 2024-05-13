@@ -43,12 +43,12 @@ For more information about forming requests, see [General API request format](..
 <GetQueueUrlResponse>
     <GetQueueUrlResult>
         <QueueUrl>
-            https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+            https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
         </QueueUrl>
     </GetQueueUrlResult>
     <ResponseMetadata>
         <RequestId>
-            9637ef3c-d4356097-ea190ef9-e1d566f-c57b2cd6d7abea7ae7c943717f9aa976
+            9637ef3c-d4356097-ea190ef9-e1d566f-c57b2cd6d7abea7ae7c94371********
         </RequestId>
     </ResponseMetadata>
 </GetQueueUrlResponse>

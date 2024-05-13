@@ -56,13 +56,13 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
       --plugins=<plugin_1_name>,...,<plugin_N_name>
    ```
 
-   You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ mes-name }} cluster description, add the `plugins` field with a list of plugins to the `config` block:
 

@@ -1,6 +1,6 @@
 # Managing {{ RD }} cluster hosts
 
-You can add and remove cluster hosts and manage their settings. To move cluster hosts to a different availability zone, read this [guide](host-migration.md).
+You can add and remove cluster hosts and manage their settings. For information about moving cluster hosts to a different [availability zone](../../overview/concepts/geo-scope.md), see [this guide](host-migration.md).
 
 ## Getting a list of cluster hosts {#list}
 
@@ -144,7 +144,7 @@ Public access to hosts can only be configured for clusters created with enabled 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-   1. Add a `host` block to the {{ mrd-name }} cluster description.
+   1. Add the `host` block to the {{ mrd-name }} cluster description.
 
       ```hcl
       resource "yandex_mdb_redis_cluster" "<cluster_name>" {

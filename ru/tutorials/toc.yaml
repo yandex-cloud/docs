@@ -210,7 +210,7 @@ items:
             href: web/lamp-lemp.md
           - name: Сайт на базе Joomla с БД {{ PG }}
             href: web/joomla-postgresql.md
-          - name: Создание сайта на WordPress
+          - name: Сайт на WordPress
             href: web/wordpress.md
           - name: Сайт на WordPress с БД {{ MY }}
             href: web/wordpress-mysql.md

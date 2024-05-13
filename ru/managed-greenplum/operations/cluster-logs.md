@@ -59,7 +59,7 @@
             * `greenplum-pooler`— лог операций менеджера подключений.
             * `greenplum-pxf` — лог протокола [PXF](../concepts/external-tables.md).
         * `--columns` — список колонок для вывода информации:
-            * `hostname` — [имя хоста](./hosts/cluster-hosts.md#list-hosts).
+            * `hostname` — [имя хоста](./hosts/cluster-hosts.md).
             * `level` — уровень логирования, например, `info`.
             * `pid` — идентификатор серверного процесса текущей сессии.
             * `text` — сообщение, которое выводит компонент.

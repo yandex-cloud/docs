@@ -38,16 +38,16 @@ For the created and running databases, {{ mgp-short-name }} automatically create
 
 To create a database cluster in {{ mgp-short-name }}, you must define its characteristics:
 
-* [Host class](../../managed-greenplum/concepts/instance-types.md) (performance characteristics such as CPUs, memory, and so on).
+* [Host class](../../managed-greenplum/concepts/instance-types.md) (performance characteristics, such as CPUs, RAM, etc.).
 * Storage size (reserved in full when you create the cluster).
-* The network your cluster will be connected to.
-* The number of hosts for a cluster and the cluster availability zone.
+* Network your cluster will be connected to.
+* Number of hosts for a cluster and the cluster availability zone.
 
-For detailed instructions, see  [{#T}](../../managed-greenplum/operations/cluster-create.md).
+For a detailed guide, see [Creating a cluster](../../managed-greenplum/operations/cluster-create.md).
 
 #### What happens when a new DBMS version is released? {#new-version}
 
-The database software is updated when new minor versions are released. The owners of the affected DB clusters receive advanced notice of expected work times and DB availability.
+The database software is updated when new minor versions are released. Owners of the affected DB clusters are notified of expected work times and DB availability in advance.
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 

@@ -1,1 +1,1 @@
-{% include [maxpatrol-siem](../../_tutorials/audit-trails/at-maxpatrol-siem.md) %}
+{% include [maxpatrol-siem](../../_tutorials/security/at-maxpatrol-siem.md) %}

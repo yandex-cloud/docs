@@ -101,11 +101,11 @@ You cannot enable public access to a host once it is created.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mes-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
 
-   1. Add a `host` block to the {{ mes-name }} cluster description.
+   1. Add the `host` block to the {{ mes-name }} cluster description.
 
       ```hcl
       resource "yandex_mdb_elasticsearch_cluster" "<cluster_name>" {
@@ -189,7 +189,7 @@ The following restrictions apply when deleting hosts:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mes-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
 

@@ -208,7 +208,7 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
 
 [Security groups](../../vpc/concepts/security-groups.md) are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are not available on your [network](../../vpc/concepts/network.md#network), all incoming and outgoing traffic for the resources will be allowed. No additional setup is required.
 
-To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
+To enable security groups, [request access to this feature from technical support]({{ link-console-support }}).
 
 {% note warning %}
 

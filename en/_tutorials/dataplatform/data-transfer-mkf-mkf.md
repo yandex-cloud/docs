@@ -1,5 +1,6 @@
 # Migrating data between {{ KF }} clusters using {{ data-transfer-full-name }}
 
+
 You can transfer your data from {{ KF }} topics between one {{ KF }} cluster and another in real time. Among others, the following migration types are supported:
 
 * Between different {{ KF }} versions, e.g., you can migrate topics from version 2.8 to version 3.1.
@@ -151,7 +152,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          * `source_endpoint_id`: ID of the source endpoint.
          * `target_endpoint_id`: ID of the target endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 

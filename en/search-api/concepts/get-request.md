@@ -5,13 +5,17 @@ description: "This article describes how to use GET requests."
 
 # GET requests
 
+{{ search-api-name }} allows you to search the Yandex search database using set parameters and get search results in XML format. You can transmit search parameters to the service in an HTTP request using the GET method. {{ search-api-name }} generates a [response](./response.md) as an XML document.
+
+{% include [text-search-intro](../../_includes/search-api/text-search-intro.md) %}
+
+## Request format {#get-request-format}
+
 {% note warning %}
 
 Special characters provided as parameter values should be replaced with the respective escaped sequences based on percent-encoding. For example, instead of the equals sign (`=`), one should use `%3D`.
 
 {% endnote %}
-
-## Request format {#get-request-format}
 
 ```httpget
 https://yandex.<domain>/search/xml
@@ -66,5 +70,10 @@ Where:
 The following request returns the fifth page of search results for the `<table>` request. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk oblast. Notification language: Russian. A family filter has been applied to the search results. Number of passages: Three. Results are grouped by domain and sorted by relevance. Each group contains three documents, and the number of groups returned per page is five.
 
 ```httpget
-https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&query=%3Ctable%3E&lr=11316&l10n=ru&sortby=rlv&filter=strict&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=5
+https://yandex.ru/search/xml?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&query=%3Ctable%3E&lr=11316&l10n=ru&sortby=rlv&filter=strict&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=4
 ```
+
+#### See also {#see-also}
+
+* [{#T}](./response.md)
+* [{#T}](../operations/searching.md)

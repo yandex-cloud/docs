@@ -26,6 +26,15 @@ To assign a user a role:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
+## Which resources you can assign a role for {#resources}
+
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+You can also assign a role for individual resources of the service. The list of such resources depends on the {{ yandex-cloud }} interfaces you use to assign roles:
+
+* In the management console, you can only assign roles for a [YDB DBMS](../concepts/index.md#ydb).
+* Via the YC CLI or {{ yandex-cloud }} API, you can assign roles for a DBMS and its backup.
+
 ## Which roles exist in the service {#roles-list}
 
 The list below shows all roles that are considered when verifying access rights in the {{ ydb-name }} service.

@@ -36,7 +36,7 @@ The {{ ya-360 }} organization features can be enhanced with the {{ org-full-name
 
    {% note alert %}
 
-   After your organization is created, do not open {{ tracker-name }}, {{ wiki-name }}, and {{ forms-name }} until the setup is complete.
+   After the organization is created, do not open {{ tracker-name }}, {{ wiki-name }}, and {{ forms-name }} until the setup is complete.
 
    {% endnote %}
 

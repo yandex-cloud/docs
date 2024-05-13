@@ -5,7 +5,7 @@ description: "In this tutorial, you will learn how to manage {{ PG }} cluster ho
 
 # Managing {{ PG }} cluster hosts
 
-You can add and remove cluster hosts and manage their settings. To move cluster hosts to a different availability zone, read this [guide](host-migration.md).
+You can add and remove cluster hosts and manage their settings. For information about moving cluster hosts to a different [availability zone](../../overview/concepts/geo-scope.md), see [this guide](host-migration.md).
 
 ## Getting a list of cluster hosts {#list}
 

@@ -1,3 +1,5 @@
+
+
 A {{ mch-name }} cluster can get data from {{ KF }} topics in real time. {{ mch-name }} automatically inserts data sent to {{ CH }} tables on the [`Kafka` engine]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
 
 To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
@@ -92,7 +94,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - [clickhouse-client]({{ ch.docs }}/interfaces/cli/): to connect to the database in the {{ mch-name }} cluster.
 
-      1. Connect the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
+      1. Connect the [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
          ```bash
          sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \

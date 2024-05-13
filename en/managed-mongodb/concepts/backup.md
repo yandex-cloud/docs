@@ -22,12 +22,9 @@ When creating backups and restoring data from them to a given point in time, kee
 
 * It takes some time to create and upload an oplog archive to object storage. This is why the cluster state stored in the object storage may differ from the actual one.
 
-To use PITR, the cluster must meet the following criteria:
+To use PITR, you must disable the [sharding](../tutorials/sharding.md) mechanism in the cluster: PITR works only for a cluster with a single replica set.
 
-* {{ MG }} version in the cluster: 4.2 or higher.
-* [Sharding](../tutorials/sharding.md): Disabled. PITR works only for a cluster with a single replica set.
-
-To restore a cluster from a backup, [follow this guide](../operations/cluster-backups.md#restore).
+To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md#restore).
 
 ## Creating backups {#size}
 

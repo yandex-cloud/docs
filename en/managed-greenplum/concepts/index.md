@@ -16,7 +16,7 @@ If the primary master fails, the standby one takes over. This way, a cluster wit
 Segment hosts have standalone DBMS's (_segments_) deployed on them. They store data fragments and perform most operations for handling queries. Each cluster segment has a replica, i.e., a mirror segment that is located on another host and stores a copy of the data from the main segment.
 
 
-All {{ mgp-name }} cluster hosts are located in a single availability zone: `{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`. You cannot create hosts in `{{ region-id }}-c`, for it is being [deprecated](/blog/posts/2023/08/new-availability-zone). If you have hosts located in this availability zone, [restore your cluster from a backup](../operations/cluster-backups.md#restore). While restoring the cluster, specify a different availability zone.
+All {{ mgp-name }} cluster hosts are located in a single availability zone: `{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`. You cannot create hosts in `{{ region-id }}-c`, for it is being [discontinued](/blog/posts/2023/08/new-availability-zone). If you have hosts located in this availability zone, [restore your cluster from a backup](../operations/cluster-backups.md#restore). While restoring the cluster, specify a different availability zone.
 
 
 VMs for cluster hosts can be hosted on:
@@ -37,7 +37,7 @@ VMs for cluster hosts can be hosted on:
 
 When creating a cluster, specify:
 
-* _Host class_: Template for deploying cluster hosts. For a list of available classes and their specs, see [{#T}](instance-types.md).
+* _Host class_: Template for deploying cluster hosts. For a list of available host classes and their characteristics, see [Host classes](instance-types.md).
 
 * _Environment_: Environment where the cluster will be deployed:
    * `PRODUCTION`: For stable versions of your apps.

@@ -1,4 +1,4 @@
-# Updating {{ GP }} clusters
+# Updating a {{ GP }} cluster
 
 {% include [update](../../_qa/managed-greenplum/update.md) %}
 

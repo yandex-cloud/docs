@@ -102,4 +102,4 @@
 * [Симметричное шифрование в {{ kms-full-name }}](../concepts/symmetric-encryption.md).
 * [Асимметричное шифрование в {{ kms-full-name }}](../concepts/asymmetric-encryption.md).
 * [Управление ключами в KMS](./index.md).
-* [Шифрование секретов в Hashicorp Terraform](../../kms/tutorials/terraform-secret.md).
+* [Шифрование секретов в HashiCorp Terraform](../../kms/tutorials/terraform-secret.md).

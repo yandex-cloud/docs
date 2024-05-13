@@ -1,5 +1,6 @@
 # Migrating collections from {{ MG }} to {{ mmg-name }}
 
+
 To migrate collections stored in a third-party {{ MG }} cluster to a {{ mmg-name }} cluster, you need to directly transfer the data, make the old databases read-only, and transfer the load to the {{ yandex-cloud }} cluster.
 
 ## Getting started {#before-you-begin}

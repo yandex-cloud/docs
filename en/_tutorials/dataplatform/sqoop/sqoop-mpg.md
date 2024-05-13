@@ -1,5 +1,6 @@
 # Importing data from {{ mpg-full-name }} to {{ dataproc-full-name }} using Sqoop
 
+
 {% include [What is the Sqoop](./header.md) %}
 
 ## Getting started {#before-you-begin}
@@ -83,6 +84,8 @@ You can create other resources manually or using {{ TF }}.
    {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
    {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
 
 ## Preparing the source cluster {#prepare}
 

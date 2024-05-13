@@ -103,7 +103,7 @@ For dashboard widgets, parameters are applied in the following order (values fro
 1. [Chart parameters](#params-chart) from dashboard settings.
 1. [Dashboard parameters](#params-dash).
 1. Dasboard [selector](./selector.md) values.
-1. Parameters specified in a dashboard link, such as `{{ link-datalens-main }}/test-dashboard?OrderID=123456789`.
+1. Parameters specified in a dashboard link, e.g, `{{ link-datalens-main }}/test-dashboard?OrderID=123456789`.
 1. Values from the `state` parameter in a dashboard link. {{ datalens-short-name }} remembers the selector settings and writes them to a special parameter named `state` and shown in the browser address bar. To share the current dashboard state, just copy the resulting link. This way, you can show the dashboard with required data directly instead of describing the filter settings.
 
 ## Parameter limitations {#params-restrictions}

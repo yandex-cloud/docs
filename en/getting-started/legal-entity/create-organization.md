@@ -1,4 +1,4 @@
-# Create an organization
+# Creating an organization
 
 1. [Log in]({{ link-passport-login }}) to your Yandex account. If you do not have an account, [create](https://yandex.ru/support/passport/authorization/registration.html) one.
 1. Go to [{{ org-full-name }}]({{ link-org-main }}).

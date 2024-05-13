@@ -16,12 +16,12 @@ pip install pycurl
 Set the environment variables:
 
 ```
-export AWS_ACCESS_KEY_ID="<access key ID>"
-export AWS_SECRET_ACCESS_KEY="<secret key>"
+export AWS_ACCESS_KEY_ID="<access_key_ID>"
+export AWS_SECRET_ACCESS_KEY="<secret_key>"
 export AWS_DEFAULT_REGION="{{ region-id }}"
 ```
 
-## Before you start {#prepare}
+## Getting started {#prepare}
 
 {% include [mq-http-api-preps](../_includes_service/mq-http-api-preps.md)%}
 

@@ -1,3 +1,5 @@
+
+
 You can migrate a database from {{ mpg-full-name }} to {{ objstorage-full-name }} using {{ data-transfer-full-name }}. To do this:
 
 1. [Set up the transfer](#prepare-transfer).
@@ -114,7 +116,7 @@ Prepare the infrastructure:
    1. In the `postgresql-to-objstorage.tf` file, specify the variables:
 
       * `objstorage_endpoint_id`: ID of the target endpoint.
-      * `transfer_enabled`: Set `1` to enable transfer creation.
+      * `transfer_enabled`: Set to `1` to enable transfer creation.
 
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

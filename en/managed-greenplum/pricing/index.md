@@ -14,7 +14,7 @@ In this section, you can find {{ mgp-name }} pricing [rules](#rules) and [effect
 
 {% include [pricing-status-warning](../../_includes/mdb/pricing-status-warning.md) %}
 
-## What is included in {{ mgp-short-name }} cost {#rules}
+## What goes into the cost of using {{ mgp-short-name }} {#rules}
 
 The {{ mgp-name }} usage cost is based on:
 
@@ -37,7 +37,7 @@ There are different ways to calculate the cost depending on the [host type](../c
 
    The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} markup for using these resources.
 
-You can check the supported resource configurations in [{#T}](../concepts/instance-types.md) and see prices for using vCPUs and RAM in the [Prices](#prices) section.
+Supported resource configurations are shown in the [Host classes](../concepts/instance-types.md) section; vCPU and RAM prices are quoted in the [Prices](#prices) section.
 
 The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when the {{ GP }} host is not performing its main functions.
 
@@ -52,17 +52,17 @@ You are charged for the following:
       * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
    * You can only order storage on non-replicated SSDs (`network-ssd-nonreplicated`) in 93 GB increments for clusters with two master hosts.
 
-   To pay less for storage, export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to cold storage in {{ objstorage-full-name }}. The data will be stored in a service bucket in a compressed and encrypted form, which is more cost-efficient. The cost of such storage is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
+   To pay less for storage, export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. The data will be stored in a service bucket in a compressed and encrypted form, which is more cost-efficient. The cost of such storage is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
 
 * Space used by DB backups in excess of the storage amount specified for the cluster.
 
-   * Backups are stored free of charge as long as the combined size of the database and all backups is smaller than the selected storage size.
+   * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
 
-   * During an automatic backup, {{ mgp-name }} does not create a new copy but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
+   * When performing automatic backups, {{ mgp-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
 
-   * The number of hosts in the cluster does not affect the size of the storage or free backups.
+   * The number of hosts in a cluster does not affect the storage size and, therefore, the free volume of backups.
 
-The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The cost is specified for one month of use and based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 ### Example of cluster cost calculation {#example}
 
@@ -133,6 +133,7 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 {% endnote %}
 
 ## Pricing {#prices}
+
 
 
 All prices are shown without VAT.

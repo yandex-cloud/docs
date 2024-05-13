@@ -39,7 +39,11 @@ items:
           - name: Создать приемник логов
             href: operations/create-sink.md
           - name: Выгрузить логи
-            href: operations/export-logs.md
+            items:
+              - name: '{{ objstorage-name }}'
+                href: operations/export-logs.md
+              - name: '{{ yds-name }}'
+                href: operations/export-logs-yds.md
           - name: Получить список приемников логов
             href: operations/list-sink.md
           - name: Получить информацию о приемнике логов

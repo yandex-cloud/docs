@@ -13,12 +13,11 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 Point-in-Time Recovery (PITR) technology lets you restore the cluster state to any point in time between when the oldest backup was created and when the most recent oplog was archived. For more information, see [{#T}](../concepts/backup.md).
 
-For example, if the backup operation ended on August 10, 2020, 12:00 p.m. UTC, the current date is August 15, 2020, 7:00 p.m. UTC, and the latest `oplog` was saved on August 15, 2020, 6:50 p.m. UTC, the cluster can be restored to any state between August 10, 2020, 12:00:01 p.m. UTC and August 15, 2020, 6:50:00 p.m. UTC, inclusive.
+For example, if the backup operation ended on August 10, 2020 at 12:00:00 UTC, the current date is August 15, 2020, 19:00:00 UTC, and the most recent oplog collection was saved on August 15, 2020, 18:50:00 UTC, the cluster can be restored to any state between August 10, 2020, 12:00:01 UTC and August 15, 2020, 18:50:00 UTC, inclusive.
 
 {% note warning %}
 
-* PITR only works for clusters with {{ MG }} version 4.2 and higher.
-* PITR is not supported for clusters with [sharding](../tutorials/sharding.md) enabled. Such clusters can be restored only to the point in time when the selected backup was created.
+PITR is not supported for clusters with [sharding](../tutorials/sharding.md) enabled. Such clusters can be restored only to the point in time when the selected backup was created.
 
 {% endnote %}
 
@@ -30,8 +29,6 @@ When restored to the current state, the new cluster will match the state of:
 
 * Existing cluster at the time of recovery.
 * Deleted cluster at the time of archiving the last oplog.
-
-{% include [mmg-pitr-preview-note](../../_includes/mdb/mmg-pitr-preview-note.md) %}
 
 {% list tabs group=instructions %}
 
@@ -47,6 +44,10 @@ When restored to the current state, the new cluster will match the state of:
 
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
 
+   1. To restore the cluster state to a particular point in time after creating this backup, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly. You can enter the value manually or select it from the drop-down calendar.
+
+      If you do not change the setting, the cluster will be restored to the state when the backup was completed.
+
    1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
    To restore a previously deleted cluster from a backup:
@@ -60,6 +61,10 @@ When restored to the current state, the new cluster will match the state of:
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
+
+   1. To restore the cluster state to a particular point in time after creating this backup, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly. You can enter the value manually or select it from the drop-down calendar.
+
+      If you do not change the setting, the cluster will be restored to the state when the backup was completed.
 
    1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
@@ -293,12 +298,12 @@ Create a new {{ mmg-name }} cluster from a backup with the following test charac
 
 * Backup for recovery: `c9qlk4v13uq7********:...`.
 * Point in time to restore to: `1597060810` (`2020-08-10 12:00:10`).
-* Version: `4.2`.
+* Version: `5.0`.
 * Name of the new cluster: `mynewmg`.
 * Environment: `PRODUCTION`.
 * Network: `{{ network-name }}`.
 * One `{{ host-class }}` host in the `{{ region-id }}-a` availability zone and `b0rcctk2rvtr********` subnet.
-* With 20 GB of SSD network storage (`{{ disk-type-example }}`).
+* Network SSD storage (`{{ disk-type-example }}`): 20 GB.
 * With databases and users that existed in the cluster at the time of recovery.
 
 
@@ -313,7 +318,7 @@ Create a new {{ mmg-name }} cluster from a backup with the following test charac
    {{ yc-mdb-mg }} cluster restore \
       --backup-id c9qlk4v13uq7********:... \
       --recovery-target-timestamp 1597060810 \
-      --mongodb-version 4.2 \
+      --mongodb-version 5.0 \
       --name mynewmg \
       --environment PRODUCTION \
       --network-name {{ network-name }} \

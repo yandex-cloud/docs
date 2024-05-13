@@ -1,5 +1,6 @@
 # Managing {{ ZK }} hosts
 
+
 Single-host [shards](../concepts/sharding.md) are not fault-tolerant and do not offer [data replication](../concepts/replication.md). To make such shards fault-tolerant, add more hosts to them. If a cluster already contains a multi-host shard, you can immediately [add {{ CH }} hosts](hosts.md#add-host) to the appropriate shard. Otherwise, you must first enable fault tolerance and only then will you be able to add {{ CH }} hosts.
 
 {% note warning %}
@@ -23,6 +24,7 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
 ## Getting a list of cluster hosts {#list-hosts}
 
 {% include notitle [get-hosts](../../_includes/mdb/mch/get-hosts.md) %}
+
 
 ## Enabling fault tolerance for the cluster {#add-zk}
 

@@ -4,6 +4,7 @@ noIndex: true
 
 # Loading data from {{ metrika }} to a {{ CH }} data mart using {{ data-transfer-full-name }}
 
+
 {% include [note-metrica-pro](../../_includes/data-transfer/note-metrica-pro.md) %}
 
 With {{ data-transfer-name }}, you can transfer data from a [{{ metrika }}]({{ metrika-link }}) tag to a {{ CH }} cluster. Such a transfer ensures the data transferred from {{ metrika }} are complete and allows:

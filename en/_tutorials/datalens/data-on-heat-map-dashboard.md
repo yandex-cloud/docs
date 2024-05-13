@@ -37,7 +37,7 @@ To visualize and analyze the data, follow these steps:
 1. [Make a dashboard or chart public](#publish-dashboard-chart).
 1. [Add a chart or dashboard to your website](#add-dashboard-chart).
 
-We recommend that you review the [Questions and answers](#qa) section to see answers for common questions that users of supply and demand statistics may have.
+We recommend checking the [FAQ](#qa) section for answers to common questions that users of supply and demand statistics may have.
 
 ## 1. Set up a connection {#configure-connection}
 
@@ -147,7 +147,7 @@ Data in {{ datalens-short-name }} is only available to users of a specific insta
 
 {% list tabs group=datalens_public %}
 
-- Publishing dashboards {#dashboard}
+- Publishing a dashboard {#dashboard}
 
    1. Open the **Supply and demand** dashboard.
    1. At the top of the dashboard interface, click ![image](../../_assets/console-icons/nodes-right.svg).

@@ -27,13 +27,13 @@
 
       * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ с операционной системой Windows Server 2019 или 2022.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите [операционную систему, поддерживаемую в {{ backup-name }}](../concepts/vm-connection.md#windows).
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       1. Выберите подсеть, соответствующую выбранной зоне доступности.
       1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       1. Выберите группу безопасности, настроенную для работы с {{ backup-name }}.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.label_backup }}** включите опцию подключения ВМ к сервису {{ backup-name }}.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите сервисный аккаунт с ролью `backup.editor`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** включите опцию подключения ВМ к сервису {{ backup-name }}.
   1. Укажите другие необходимые параметры ВМ.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
@@ -107,7 +107,7 @@
       * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
       * `subnet-name` — имя выбранной [подсети](../../vpc/concepts/network.md#subnet).
       * `security-group-ids` — идентификатор [группы безопасности](../../vpc/concepts/security-groups.md), настроенной для работы с {{ backup-name }}.
-      * `image-id` — [идентификатор образа](../../compute/concepts/image.md) операционной системы.
+      * `image-id` — [идентификатор образа](../../compute/concepts/image.md) операционной системы. См. [список поддерживаемых ОС на базе Windows](../concepts/vm-connection.md#windows).
       * `size` — размер загрузочного диска.
       * `--cores` — [количество vCPU](../../compute/concepts/vm.md) ВМ.
       * `--core-fraction` — гарантированная доля vCPU в %.

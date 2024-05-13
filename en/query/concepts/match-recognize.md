@@ -13,21 +13,21 @@ The structure of the transmitted data is as follows:
 The body of the SQL query to {{ yql-short-name }} looks like this:
 
 ```sql
-SELECT * FROM bindings.input_stream MATCH_RECOGNIZE ( -- Performing pattern matching from input_stream
-    ORDER BY ts -- Viewing events in ascending order of the ts column value (Timestamp data type)
+SELECT * FROM bindings.input_stream MATCH_RECOGNIZE ( -- performing pattern matching from input_stream
+    ORDER BY ts -- viewing events in ascending order of the ts column value (Timestamp data type)
     MEASURES
-      LAST(B1.ts) AS b1, -- In the query results, we will get the last moment of clicking button 1
-      LAST(B3.ts) AS b3  -- In the query results, we will get the last moment of clicking button 3
+      LAST(B1.ts) AS b1, -- in the query results, we will get the last moment of clicking button 1
+      LAST(B3.ts) AS b3  -- in the query results, we will get the last moment of clicking button 3
 
-    ONE ROW PER MATCH    -- We will get one row of results per found match
-    AFTER MATCH SKIP TO NEXT ROW -- After the pattern is detected, we move to the next row
+    ONE ROW PER MATCH    -- we will get one row of results per found match
+    AFTER MATCH SKIP TO NEXT ROW -- after the pattern is detected, we move to the next row
     PATTERN (
       B1 B2+ B3 -- We look for a pattern in the data consisting of one click on button 1, one or more clicks on button 2, and one click on button 3
     )
     DEFINE
-        B1 AS B1.button = 1, -- We define the B1 condition as clicking button 1 (button field value is 1)
-        B2 AS B2.button = 2, -- We define the B2 condition as clicking button 2 (button field value is 2)
-        B3 AS B3.button = 3  -- We define the B3 condition as clicking button 3 (button field value is 3)
+        B1 AS B1.button = 1, -- we define the B1 condition as clicking button 1 (button field value is 1)
+        B2 AS B2.button = 2, -- we define the B2 condition as clicking button 2 (button field value is 2)
+        B3 AS B3.button = 3  -- we define the B3 condition as clicking button 3 (button field value is 3)
 ) AS MATCHED;
 ```
 
@@ -37,30 +37,30 @@ SELECT * FROM bindings.input_stream MATCH_RECOGNIZE ( -- Performing pattern matc
 The `MATCH_RECOGNIZE` command searches for data based on a given pattern and returns the found results. Here is the SQL syntax of the `MATCH_RECOGNIZE` command:
 ```sql
 MATCH_RECOGNIZE (
-    [ PARTITION BY <partition1> [ ... , <partitionN>] ]
+    [ PARTITION BY <pattern_1> [ ... , <pattern_N>] ]
     ORDER BY orderItem1 [ ... , orderItemN] [ASC]
-    MEASURES LAST(measure_expr1>)|FIRST(measure_expr1>) [AS] <alias1> [ ... , LAST(measure_exprN>)|FIRST(measure_exprN>) [AS] <aliasN>]
+    MEASURES LAST(<variable_1>)|FIRST(<variable_1>) [AS] <column_1_name> [ ... , LAST(<variable_N>)|FIRST(<variable_N>) [AS] <column_N_name>]
     ONE ROW PER MATCH
     [AFTER MATCH SKIP TO NEXT ROW]
-    PATTERN (<row_pattern>)
-    DEFINE <symbol1> AS <expr1>[ ... , <symbolN> AS <exprN>]
+    PATTERN (<search_template>)
+    DEFINE <variable_1> AS <expression1>[ ... , <variable_N> AS <expression_N>]
 )
 ```
 
 Here is a brief description of the SQL syntax elements of the `MATCH_RECOGNIZE` command:
-* [`DEFINE`](#define): Conditions the rows must meet for each variable: `<symbol1> AS <expr1>[ ... , <symbolN> AS <exprN>]`.
-* [`PATTERN`](#pattern): Template for data search. It consists of variables and pattern search rules defined in the `<row_pattern>` expression. `PATTERN` works similarly to [regular expressions](https://ru.wikipedia.org/wiki/Regular_expressions).
+* [`DEFINE`](#define): Conditions the rows must meet for each variable: `<variable_1> AS <expression_1>[ ... , <variable_N> AS <expression_N>]`.
+* [`PATTERN`](#pattern): Template for data search. It consists of variables and search rules of the pattern described in the `<search_template>` expression. `PATTERN` works similarly to [regular expressions](https://ru.wikipedia.org/wiki/Regular_expressions).
 * [`ONE ROW PER MATCH`](#rows_per_match) determines the amount of output data for each found match.
 * [`AFTER MATCH SKIP TO NEXT ROW`](#after_match_skip_to_next_row) defines the method of going to the point of the next match search.
-* [`MEASURES`](#measures) specifies a list of output columns. Each column from the `<expr1> [AS] <alias1> [ ... , <exprN> [AS] <aliasN>]` list is an independent construct that sets output columns and defines expressions for their computation.
-* [`ORDER BY`](#order_by) determines sorting of input data. Pattern search is performed within the data ordered according to the list of columns or expressions listed in `<expr1> [AS] <alias1> [ ... , <exprN> [AS] <aliasN>]`.
-* [`PARTITION BY`](#partition_by) divides the input data flow as per the specified rules in accordance with `<partition1> [... , <partitionN>]`. Pattern search is performed independently in each part.
+* [`MEASURES`](#measures) specifies a list of output columns. Each column from the `<expression_1> [AS] <column_1_name> [ ... , <expression_N> [AS] <column_N_name>]` list is an independent construct that sets output columns and describes expressions for their computation.
+* [`ORDER BY`](#order_by) determines sorting of input data. Pattern search is performed within the data sorted according to the list of columns or expressions listed in `<expression_1> [AS] <column_1_name> [ ... , <expression_N> [AS] <column_N_name>]`.
+* [`PARTITION BY`](#partition_by) divides the input data flow as per the specified rules in accordance with `<pattern_1> [ ... , <pattern_N>]`. Pattern search is performed independently in each part.
 
 
 ### DEFINE {#define}
 
 ```sql
-DEFINE <symbol1> AS <expr1>[, <symbol2> AS <expr2>, ...]
+DEFINE <variable_1> AS <expression_1>[, <variable_2> AS <expression_2>, ...]
 ```
 
 `DEFINE` declares variables that are searched for in the input data. Variables are names of SQL expressions computed over the input data. SQL expressions in `DEFINE` have the same meaning as search expressions in `WHERE` SQL clause. For example, the `button = 1` expression searches for all rows that contain the `button` column with the value of `1`. Any SQL expressions that can be used to perform a search, including aggregation functions like `LAST` or `FIRST`, can act as conditions. For example, one can use such expressions as `button > 2 AND zone_id < 12` or `LAST(button) > 10`.
@@ -100,7 +100,7 @@ DEFINE
 ### PATTERN {#pattern}
 
 ```sql
-PATTERN (<row_pattern>)
+PATTERN (<search_template>)
 ```
 
 The `PATTERN` keyword describes the data search pattern in the format derived from variables in the `DEFINE` section. The `PATTERN` syntax is similar to [regular expression](https://en.wikipedia.org/wiki/Regular_expressions) syntax.
@@ -173,7 +173,7 @@ The input data for all examples are:
  button: 3
  button: 3
  button: 3
- ```
+```
 
 
 ##### **Example 1** {#match-example1}
@@ -284,7 +284,7 @@ Result:
 ### MEASURES {#measures}
 
 ```sql
-MEASURES LAST(measure_expr1>)|FIRST(measure_expr1>) [AS] <alias1> [ ... , LAST(measure_exprN>)|FIRST(measure_exprN>) [AS] <aliasN>]
+MEASURES LAST(<variable_1>)|FIRST(<variable_1>) [AS] <column_1_name> [ ... , LAST(<variable_N>)|FIRST(<variable_N>) [AS] <column_N_name>]
 ```
 
 `MEASURES` describes the set of returned columns when a pattern is found. A set of returned columns should be represented by an SQL expression with the `LAST`/`FIRST` aggregate functions over variables declared in the [`DEFINE`](#define) statement.
@@ -304,7 +304,7 @@ MEASURES
 ```sql
 ORDER BY orderItem1 [ ... , orderItemN] [ASC]
 
-orderItem ::= { <column_alias> | <expr> }
+orderItem ::= { <column_names> | <expression> }
 ```
 
 `ORDER BY` determines sorting of the input data. That is, before all pattern search operations are executed, the data will be pre-sorted according to the specified keys or expressions. The syntax is similar to the `ORDER BY` SQL expression. Sorting is only permitted by fields of the [TimeStamp](https://ydb.tech/en/docs/yql/reference/types/primitive#datetime) type, with only ascending direction (`ASC`) supported.
@@ -321,9 +321,9 @@ ORDER BY CAST(ts AS Timestamp),
 ### PARTITION BY {#partition_by}
 
 ```sql
-PARTITION BY <partition1> [ ... , <partitionN>]
+PARTITION BY <pattern_1> [ ... , <pattern_N>]
 
-partition ::= { <column_alias> | <expr> }
+partition ::= { <column_names> | <expression> }
 ```
 
 `PARTITION BY` is an optional expression. It partitions the input data according to the list of fields specified in this keyword, converting the source data into several independent stream groups, each used for an independent pattern search. If the command is not specified, all data is processed as a single group.

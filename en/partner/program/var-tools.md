@@ -70,7 +70,7 @@ You can also register an order if you have entered into a contract or agreement 
 
 Order registration conditions:
 
-* Order target consumption starts from 30,000 rubles per month.
+* Target consumption for an order starts from 30,000 rubles per month.
 * The customer has not been brought in through a [referral program](../program/referral.md).
 * You already participated in a {{ yandex-cloud }} partner program at the time you won the scheduled procurement.
 

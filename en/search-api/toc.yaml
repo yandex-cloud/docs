@@ -2,7 +2,7 @@ title: Search API
 href: index.yaml
 label:
   title: RU
-  description: The service is available in Russia only.
+  description: This service is only available in Russia.
   theme: unknown
   when: region == "kz"
 items:
@@ -20,18 +20,28 @@ items:
         href: operations/auth.md
       - name: Requesting limits
         href: operations/request-limits.md
+      - name: Performing search queries
+        href: operations/searching.md
       - name: Mobile search results
         href: operations/mobile.md
   - name: Concepts
     items:
       - name: About {{ search-api-name }}
         href: concepts/index.md
-      - name: GET requests
-        href: concepts/get-request.md
-      - name: POST requests
-        href: concepts/post-request.md
-      - name: Response format
-        href: concepts/response.md
+      - name: Text search
+        items:
+          - name: GET requests
+            href: concepts/get-request.md
+          - name: POST requests
+            href: concepts/post-request.md
+          - name: Response format
+            href: concepts/response.md
+      - name: Searching by images
+        items:
+          - name: GET requests
+            href: concepts/pic-search.md
+          - name: Response format
+            href: concepts/pic-response.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

@@ -5,6 +5,7 @@ description: "What is {{ mrd-name }}? Which tasks are best addressed using {{ mr
 
 # General questions about {{ mrd-name }}
 
+
 {% include [general-minitoc](../../_qa/managed-redis/minitoc/general.md) %}
 
 {% include [general](../../_qa/managed-redis/general.md) %}

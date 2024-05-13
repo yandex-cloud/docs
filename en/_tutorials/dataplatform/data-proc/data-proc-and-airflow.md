@@ -1,5 +1,6 @@
 # Automating operations with {{ dataproc-full-name }} using {{ maf-full-name }}
 
+
 {{ maf-full-name }} enables you to create [Directed Acyclic Graphs (DAGs) of tasks](../../../managed-airflow/concepts/index.md) to automate your operations with [{{ dataproc-full-name }}](../../../data-proc/index.yaml). Below is an example of a DAG that includes multiple tasks:
 
 1. Create a {{ dataproc-name }} cluster.
@@ -173,7 +174,7 @@ For DAG tasks, we will use two connections: one for {{ objstorage-name }} and on
       {
          "aws_access_key_id": "<static_key_ID>",
          "aws_secret_access_key": "<secret_key>",
-         "host": "https://storage.yandexcloud.net/"
+         "host": "https://{{ s3-storage-host }}/"
       }
       ```
 

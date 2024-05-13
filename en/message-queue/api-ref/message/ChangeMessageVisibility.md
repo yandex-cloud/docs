@@ -40,7 +40,7 @@ For a list of errors common for all methods, see [{#T}](../common-errors.md).
 ```
 Action=ChangeMessageVisibility
 &Version=2012-11-05
-&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
 &ReceiptHandle=EAIgloPDh4gtKAI
 &VisibilityTimeout=35
 ```
@@ -52,7 +52,7 @@ For more information about forming requests, see [General API request format](..
 ```xml
 <ChangeMessageVisibilityResponse>
     <ResponseMetadata>
-        <RequestId>4ead5a64-f3b95d31-f3705dcf-150cb879-666abba2bcc160987e4d9e4625ab3b9a</RequestId>
+        <RequestId>4ead5a64-f3b95d31-f3705dcf-150cb879-666abba2bcc160987e4d9e46********</RequestId>
     </ResponseMetadata>
 </ChangeMessageVisibilityResponse>
 ```

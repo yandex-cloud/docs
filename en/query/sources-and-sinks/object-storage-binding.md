@@ -48,14 +48,14 @@ To create a binding to read data from {{ objstorage-short-name }}:
 SELECT
     <expression>
 FROM
-    `binding_name`
+    `<binding>`
 WHERE
     <filter>;
 ```
 
 Where:
 
-* `binding_name`: Name of the previously created data binding.
+* `<binding>`: Name of the previously created data binding.
 
 ## Example of reading data using bindings {#binding-example}
 

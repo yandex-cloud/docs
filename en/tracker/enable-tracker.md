@@ -26,7 +26,7 @@ To get started, configure {{ tracker-full-name }} via the web interface:
 
 1. [Add your company's employees to {{ tracker-name }}](add-users.md).
 
-1. Your employees will need [full access to{{ tracker-name }}](access.md) in order to manage issues.
+1. Your employees will need [full access to {{ tracker-name }}](access.md) in order to manage issues.
 
 1. [Configure {{ tracker-name }} for your team](quick-start.md).
 

@@ -30,7 +30,7 @@ To get started with the service:
 
 1. You can connect to an {{ ES }} cluster from both inside and outside {{ yandex-cloud }}:
 
-   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md) virtual machine, which must be in the same network as the cluster.
+   * To connect from inside {{ yandex-cloud }}, create a [Linux-](../compute/quickstart/quick-create-linux.md) virtual machine in the same network as the cluster.
 
    * To connect to a cluster from the internet, when creating a cluster, [request public access](operations/cluster-create.md#change-data-node-settings) to hosts with the [_Data node_ role](concepts/hosts-roles.md#data-node).
 
@@ -45,7 +45,7 @@ These instructions assume that you are connecting to the cluster from the intern
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**. This process is described in detail in [{#T}](operations/cluster-create.md).
+1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
 1. Set the cluster parameters.
 
    To access the Kibana web interface, request public access:

@@ -1,5 +1,6 @@
 # Delivering data from an {{ KF }} queue to {{ DS }}
 
+
 A {{ yds-name }} stream can get data from {{ KF }} topics in real time.
 
 To run data delivery:
@@ -206,7 +207,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          * `source_endpoint_id`: ID of the source endpoint.
          * `target_endpoint_id`: ID of the target endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 

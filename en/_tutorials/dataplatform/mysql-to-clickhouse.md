@@ -1,4 +1,5 @@
-# Asynchronously replicating data from {{ mmy-name }} to {{ mch-name }} using {{ data-transfer-full-name }}
+# Asynchronous replication of data from {{ mmy-name }} to {{ mch-name }} using {{ data-transfer-full-name }}
+
 
 With {{ data-transfer-name }}, you can migrate your database from a {{ MY }} source cluster to {{ CH }}.
 

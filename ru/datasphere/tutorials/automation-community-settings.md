@@ -1,1 +1,1 @@
-{% include [mass-customization-projects](../../_tutorials/datasphere/automation-community-settings.md) %}
+{% include [mass-customization-projects](../../_tutorials/ml-ai/automation-community-settings.md) %}

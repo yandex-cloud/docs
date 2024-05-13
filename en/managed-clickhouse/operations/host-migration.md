@@ -1,6 +1,7 @@
 # Migrating {{ CH }} cluster hosts to a different availability zone
 
-{{ CH }} and {{ ZK }} hosts of the {{ mch-name }} cluster are located in {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). You can move hosts from one availability zone to another.
+
+{{ CH }} and {{ ZK }} hosts of the {{ mch-name }} cluster are located in the {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). You can move hosts from one availability zone to another.
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 

@@ -35,7 +35,7 @@ For a list of possible responses, see [{#T}](../common-errors.md).
 ```
 Action=DeleteMessage
 &Version=2012-11-05
-&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
 &ReceiptHandle=EAEggPjXhogtKAA
 ```
 
@@ -46,7 +46,7 @@ For more information about forming requests, see [General API request format](..
 ```xml
 <DeleteMessageResponse>
     <ResponseMetadata>
-        <RequestId>c79cd3cb-ffb474f7-9d5a8a3e-e5db06c-7c4ef5d027dd4219c28bf6c263f88b93</RequestId>
+        <RequestId>c79cd3cb-ffb474f7-9d5a8a3e-e5db06c-7c4ef5d027dd4219c28bf6c2********</RequestId>
     </ResponseMetadata>
 </DeleteMessageResponse>
 ```

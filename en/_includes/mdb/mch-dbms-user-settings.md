@@ -305,7 +305,7 @@
 
    Defines the number of keys at which two-level aggregation begins.
 
-   The minimum value is `0` (not set), while the default one is `100000`.
+   The minimum value is `0` (not set); default: `100000`.
 
 * **Group by two level threshold bytes**{#setting-group-by-two-level-threshold-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -323,7 +323,7 @@
 
    Sets the minimum interval between progress notifications with the `X-ClickHouse-Progress` HTTP header, in milliseconds.
 
-   The minimum value is `1`, while the default one is `100`.
+   The minimum value is `1`; default: `100`.
 
 * **HTTP receive timeout**{#setting-http-receive-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -335,7 +335,7 @@
 
    Sets the HTTP send timeout (in milliseconds).
 
-   The minimum value is `1`, while the default one is `1800000` (30 minutes).
+   The minimum value is `1`; default: `1800000` (30 minutes).
 
 * **Input format defaults for omitted fields**{#setting-input-format-defaults-for-omitted-fields} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -548,7 +548,7 @@
 
    The setting is useful if queries fail because there is not enough RAM to aggregate a large amount of data. If this is the case, set this parameter to a non-zero value to get {{ CH }} to flush data to disk and perform successful aggregation.
 
-   The minimum value is `0` (`GROUP BY` in external memory is disabled), while the default one is `0`.
+   The minimum value is `0` (`GROUP BY` in external memory disabled); default: `0`.
 
    When using aggregation in the external memory, we recommend setting the value of this setting twice as low as the [Max memory usage](#setting-max-memory-usage) setting value (by default, the maximum memory usage is limited to 10 GB).
 
@@ -616,7 +616,7 @@
 
    If query execution is at one of the stages of sorting or joining and finalizing aggregations, the limit on the maximum query run time will not be checked and may be exceeded.
 
-   The minimum and default value is `0` (no limitation is set).
+   The minimum value is `0` (no limit); default: `600000`.
 
 * **Max expanded ast elements**{#setting-max-expanded-ast-elements} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -702,7 +702,7 @@
 
    Limits the size of the largest part of a query (in bytes) that can be transferred to RAM for parsing using the SQL parser.
 
-   The minimum value is `1`, while the default one is `262144`.
+   The minimum value is `1`; default: `262144`.
 
 * **Max read buffer size**{#setting-max-read-buffer-size} {{ tag-con }}
 
@@ -814,7 +814,7 @@
 
    [Memory overcommit](https://clickhouse.com/docs/en/operations/settings/memory-overcommit) limit (in GB) when the hard memory usage limit is reached at the user level.
 
-   The minimum value is `0` (unlimited). The default value is `1`.
+   The minimum value is `0` (no limit); default: `1`.
 
    For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/settings#memory_overcommit_ratio_denominator).
 
@@ -822,7 +822,7 @@
 
    [Memory overcommit](https://clickhouse.com/docs/en/operations/settings/memory-overcommit) limit (in GB) when the hard memory usage limit is reached globally.
 
-   The minimum value is `0` (unlimited). The default value is `1`.
+   The minimum value is `0` (no limit); default: `1`.
 
    For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/settings#memory_overcommit_ratio_denominator_for_user).
 

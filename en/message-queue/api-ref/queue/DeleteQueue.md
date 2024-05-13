@@ -35,7 +35,7 @@ The method does not return any specific errors. For a list of errors common for 
 ```
 Action=DeleteQueue
 &Version=2012-11-05
-&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
 ```
 
 For more information about forming requests, see [General API request format](../index.md#api-request).
@@ -45,7 +45,7 @@ For more information about forming requests, see [General API request format](..
 ```xml
 <DeleteQueueResponse>
     <ResponseMetadata>
-        <RequestId>d9188512-606825cd-4ff7192b-e6a3ae2-037bd301dbd569121621293337ebea98</RequestId>
+        <RequestId>d9188512-606825cd-4ff7192b-e6a3ae2-037bd301dbd5691216212933********</RequestId>
     </ResponseMetadata>
 </DeleteQueueResponse>
 ```
