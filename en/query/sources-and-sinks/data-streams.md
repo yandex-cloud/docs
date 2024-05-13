@@ -2,7 +2,7 @@
 
 When working with {{ yds-full-name }}, it is convenient to use connections for prototyping and initial setup of connections to data.
 
-[{{ yds-full-name }}](../../data-streams/concepts/index.md) is a service that lets you transfer data streams to multiple applications for processing, with each of them handling the data independently.
+[{{ yds-full-name }}](../../data-streams/concepts/index.md) is a service that allows you to transfer data streams to multiple applications for processing, with each of them handling the data independently.
 
 Example of reading `JSON` data from {{ yds-full-name }}
 
@@ -36,7 +36,7 @@ Data is sent via {{ yds-full-name }} in binary form. Data is read using SQL stat
 SELECT
     <expression>
 FROM
-    <yds_connection_name>.`<stream_name>`
+    <connection>.<stream_name>
 WITH
 (
     format=raw,
@@ -50,8 +50,8 @@ WHERE <filter>;
 
 Where:
 
-- `yds_connection_name`: Name of the {{ yds-short-name }} stream connection created in the previous step.
-- `stream_name`: Name of the stream in {{ yds-short-name }}.
+- `<connection>`: Name of the {{ yds-short-name }} data stream connection created in the previous step.
+- `<stream_name>`: Name of the data stream in {{ yds-short-name }}.
 
 ## Example of reading data
 

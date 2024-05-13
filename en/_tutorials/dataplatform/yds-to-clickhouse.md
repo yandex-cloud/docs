@@ -1,5 +1,6 @@
 # Saving a {{ yds-full-name }} data stream in {{ mch-full-name }}
 
+
 With {{ data-transfer-name }}, you can deliver data from a [data stream {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts) to {{ mch-name }}.
 
 To transfer data:

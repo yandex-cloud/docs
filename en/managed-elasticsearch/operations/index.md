@@ -9,26 +9,26 @@ description: "This section contains step-by-step guides for {{ mes-name }}."
 
 ## Clusters
 
-* [{#T}](cluster-list.md)
-* [{#T}](cluster-create.md)
-* [{#T}](cluster-connect.md)
+* [Information about existing clusters](cluster-list.md)
+* [Creating a cluster](cluster-create.md)
+* [Connecting to a cluster](cluster-connect.md)
 * [{#T}](saml-authentication.md)
-* [{#T}](cluster-update.md)
+* [Changing cluster settings](cluster-update.md)
 * [{#T}](cluster-version-update.md)
-* [{#T}](cluster-plugins.md)
-* [{#T}](cluster-extensions.md)
-* [{#T}](cluster-stop.md)
+* [Managing plugins](cluster-plugins.md)
+* [Managing extensions](cluster-extensions.md)
+* [Stopping and starting clusters](cluster-stop.md)
 * [{#T}](cluster-hosts.md)
-* [{#T}](host-migration.md)
-* [{#T}](cluster-backups.md)
-* [{#T}](s3-access.md)
-* [{#T}](cluster-delete.md)
+* [Migrating cluster hosts to a different availability zone](host-migration.md)
+* [Managing backups](cluster-backups.md)
+* [Setting up access to {{ objstorage-name }}](s3-access.md)
+* [Deleting a cluster](cluster-delete.md)
 
-## Users {{ ES }}
+## {{ ES }} users
 
-* [{#T}](cluster-users.md)
+* [Managing users](cluster-users.md)
 
 ## Logs and monitoring
 
-* [{#T}](cluster-logs.md)
-* [{#T}](monitoring.md)
+* [Viewing cluster logs](cluster-logs.md)
+* [Monitoring the state of clusters and hosts](monitoring.md)

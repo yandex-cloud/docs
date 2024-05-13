@@ -1,3 +1,5 @@
+
+
 You can migrate a database from {{ GP }} to the {{ PG }} cluster using {{ data-transfer-full-name }}.
 
 To transfer a database from {{ GP }} to {{ PG }}:
@@ -97,7 +99,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
          {% note warning %}
 
-         Before configuring regular copying, make sure that the [target endpoint parameters](../../../data-transfer/operations/endpoint/target/postgresql.md#additional-settings) include either a `DROP` or a `TRUNCATE` cleanup policy. Otherwise, data on the target will be duplicated.
+         Before configuring regular copying, make make sure that the [target endpoint parameters](../../../data-transfer/operations/endpoint/target/postgresql.md#additional-settings) include either a `DROP` or a `TRUNCATE` cleanup policy. Otherwise, data on the target will be duplicated.
 
          {% endnote %}
 
@@ -106,7 +108,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
       1. Specify the variables in the `greenplum-postgresql.tf` file:
 
          * `gp_source_endpoint_id`: ID of the source endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 

@@ -1,4 +1,4 @@
-- **Audit log**{#setting-audit-log} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+- **Audit log**{#setting-audit-log} {{ tag-all }}
 
    [Audit system log](https://www.mongodb.com/docs/manual/core/auditing/) settings, which are only available for the {{ mmg-name }} cluster Enterprise version.
 
@@ -20,19 +20,31 @@
 
       For more information, see the [{{ MG }} documentation](https://www.mongodb.com/docs/manual/tutorial/configure-audit-filters/#filter-configuration-at-runtime).
 
-- **Net → Max incoming connections**{#setting-max-incoming-connections} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+- **Net**{#setting-net} {{ tag-all }}
 
-   Maximum number of inbound connections.
+  Networking settings.
 
-   The minimum value is `10`. The maximum value [depends on the selected host class](#settings-instance-dependent) and is equal to the host's RAM volume in MB, with a maximum of `16384`. Default value: `1024`.
+   - **Max incoming connections**{#setting-max-incoming-connections}
 
-   For more information, see [Connection limits](../../managed-mongodb/operations/connect/index.md#connection-limits).
+      Maximum number of inbound connections.
 
-- **Operation profiling**{#setting-operation-profiling} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+      The minimum value is `10`. The maximum value [depends on the selected host class](#settings-instance-dependent) and is equal to the host's RAM volume in MB, with a maximum of `16384`. Default value: `1024`.
+
+      For more information, see [Connection limits](../../managed-mongodb/operations/connect/index.md#connection-limits).
+
+   - **Compression → Compressors**{#setting-compressors}
+
+      Lists the compression methods that a host with the `MONGOD` or `MONGOS` role can use to compress network messages. The ordering of the methods is important.
+
+      The `disabled` value disables compression. The default value is `snappy,zstd,zlib`.
+
+      For more information, see the [{{ MG }} documentation](https://mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-net.compression.compressors).
+
+- **Operation profiling**{#setting-operation-profiling} {{ tag-all }}
 
    {% note info %}
 
-   This setting is unavailable for hosts with the `MONGOS` role in a sharded cluster.
+   These settings are not available for hosts with the `MONGOS` role of a sharded cluster.
 
    {% endnote %}
 
@@ -48,6 +60,14 @@
 
       For more information, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/administration/analyzing-mongodb-performance/#database-profiling).
 
+   - **Slow op sample rate**{#setting-slow-sample-rate}
+
+      The number of slow operations to profile or log. If enabled, this parameter affects diagnostic logging and the profiler.
+
+      The minimum value is `0`, the maximum value is `1`, and the default value is `1`.
+
+      For more information, see the [{{ MG }} documentation](https://mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpSampleRate).
+
    - **Slow op threshold**{#setting-slow-op-threshold}
 
       Sets the operation execution time (in milliseconds). If exceeded, the operation is considered slow.
@@ -56,7 +76,7 @@
 
       For more information, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/tutorial/manage-the-database-profiler/#specify-the-threshold-for-slow-operations).
 
-- **Security**{#setting-security} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+- **Security**{#setting-security} {{ tag-all }}
 
    Settings of storage data encryption at rest, which are only available for the {{ mmg-name }} cluster Enterprise version.
 
@@ -116,7 +136,31 @@
 
          For more information, see the [{{ MG }} documentation](https://www.mongodb.com/docs/manual/reference/program/mongod/#std-option-mongod.--kmipServerName).
 
-- **Storage**{#setting-storage} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+- **Set parameter**{#setting-set-parameter}
+
+   - **Enable flow control**{#setting-enable-flow-control} {{ tag-all }}
+
+      Decides whether or not to control the rate of primary host's write operations. Enabling this parameter ensures that the "majority commited" metric for replica hosts will not exceed the pre-configured value of 10 seconds.
+
+      The default value is `false` (flow control is disabled).
+
+      For more information, see the [{{ MG }} documentation](https://mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.enableFlowControl).
+
+   - **Min snapshot history window in seconds**{#setting-min-snapshot-history-window-in-seconds} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+      {% note info %}
+
+      This setting is available for hosts with the `MONGOS` role only.
+
+      {% endnote %}
+
+      Time, in seconds, for snapshot history to be retained.
+
+      Possible values are zero and higher, the default value is `60`. Increasing this setting value increases disk usage.
+
+      For more information, see the [{{ MG }} documentation](https://mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.minSnapshotHistoryWindowInSeconds).
+
+- **Storage**{#setting-storage} {{ tag-all }}
 
    {% note info %}
 
@@ -162,3 +206,11 @@
          For example, for {{ s1-medium }} class hosts, the maximum value of the setting is `28.8`, the default value is `16`.
 
          For more information, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.engineConfig.cacheSizeGB).
+
+      - **Index config → Prefix compression**{#setting-prefix-compression}
+
+         Enables or disables prefix compression for indexes. Changing the parameter only affects new indexes, not the existing ones.
+
+         The default value is `true` (prefix compression is enabled).
+
+         For more information, see the [{{ MG }} documentation](https://mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.indexConfig.prefixCompression).

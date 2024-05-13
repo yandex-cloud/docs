@@ -3,7 +3,7 @@ title: "How to change {{ GP }} cluster settings in {{ mgp-full-name }}"
 description: "Follow this guide to change {{ GP }} cluster settings."
 ---
 
-# Changing {{ GP }} cluster settings
+# Updating {{ GP }} cluster settings
 
 After creating a cluster, you can:
 

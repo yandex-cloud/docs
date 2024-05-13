@@ -1,6 +1,7 @@
 # Storage in {{ mpg-name }}
 
 
+
 {{ mpg-name }} allows you to use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located in the database host servers.
 
 {% include [storage-type-nrd](../../_includes/mdb/mpg/storage-type.md) %}
@@ -48,7 +49,7 @@ Use one of these methods:
 
 ### Automatic increase of storage size {#auto-rescale}
 
-The storage size auto increase feature allows avoiding its overflow and switch of hosts to read-only mode.
+The storage size auto increase feature allows to avoid its overflowing and hosts entering read-only mode.
 
 Storage size is increased upon reaching a preset threshold that is specified as a percentage of the total storage size. There are two thresholds:
 
@@ -57,7 +58,7 @@ Storage size is increased upon reaching a preset threshold that is specified as 
 
 If both thresholds are set, make sure the second one is higher than the first one.
 
-While increasing storage size, host clusters will be unavailable.
+During the storage size increase process, host clusters will be unavailable.
 
 {% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}
 

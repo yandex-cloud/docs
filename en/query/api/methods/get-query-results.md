@@ -6,9 +6,9 @@ The method returns query execution results. If the query contains multiple `SELE
 
 ## Query {#request}
 
-`GET` query to `/queries/{query_id}/results/{<query_execution_result_number_starting_with_0>}?project={folder_id}`, where `{folder_id}` is the folder ID and `{query_id}` is the query ID.
+`GET`-query to `/queries/{query_id}/results/{<query_execution_result_number_starting_with_0>}?project={folder_id}`, where `{folder_id}` is the folder ID, and the `{query_id}` is the query ID.
 
-Parameters are passed in URLs as query parameters.
+Parameters are provided in URLs as query parameters.
 
 | Parameter | Description | Default value | Limitations |
 | ----- | ----- | ----- | ----- |
@@ -59,7 +59,7 @@ Query:
 
 ```json
 curl -X 'GET' \
-  'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries/cseugn35bc3r5lrmbnt7/results/0?project=b1gaue5b382mmmlolb1k&offset=0&limit=100' \
+  'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries/cseugn35bc3r********/results/0?project=b1gaue5b382m********&offset=0&limit=100' \
   -H 'accept: application/json'
 ```
 

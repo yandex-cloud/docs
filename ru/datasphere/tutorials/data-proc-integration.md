@@ -5,7 +5,7 @@ description: "Следуя инструкции, вы сможете созда�
 
 # Интеграция с сервисом {{ dataproc-full-name }}
 
-{% include notitle [integration with data proc](../../_tutorials/datasphere/data-proc-integration.md) %}
+{% include notitle [integration with data proc](../../_tutorials/ml-ai/data-proc-integration.md) %}
 
 #### См. также {#see-also}
 

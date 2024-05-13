@@ -1,4 +1,4 @@
-# Статический веб-сайт в {{ objstorage-full-name }}
+# Создание статического веб-сайта в {{ objstorage-full-name }}
 
 С помощью этой инструкции вы научитесь загружать [статические файлы](../../storage/concepts/hosting.md) вашего веб-сайта в [{{ objstorage-name }}](../../storage/) и привязывать к [бакету](../../storage/concepts/bucket.md) доменное имя.
 

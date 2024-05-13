@@ -1,5 +1,10 @@
 title: Yandex Managed Service for Apache Airflow™
 href: index.yaml
+label:
+  title: RU
+  description: The service is available in Russia only.
+  theme: unknown
+  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -7,15 +12,15 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Creating clusters
+      - name: Creating a cluster
         href: operations/cluster-create.md
-      - name: Updating clusters
+      - name: Updating a cluster
         href: operations/cluster-update.md
       - name: Working with {{ AF }} interfaces
         href: operations/af-interfaces.md
       - name: Uploading DAG files to a cluster
         href: operations/upload-dags.md
-      - name: Deleting clusters
+      - name: Deleting a cluster
         href: operations/cluster-delete.md
   - name: Concepts
     items:

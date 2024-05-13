@@ -1,5 +1,6 @@
 # Delivering data from an {{ KF }} queue to {{ MY }} using {{ data-transfer-full-name }}
 
+
 A {{ mmy-name }} cluster can get data from {{ KF }} topics in real time.
 
 To run data delivery:
@@ -245,7 +246,7 @@ Create a local `sample.json` file with the following test data:
       1. In the `data-transfer-mkf-mmy.tf` file, specify the variables:
 
          * `source_endpoint_id`: ID of the source endpoint.
-         * `transfer_enabled`: Set `1` for creating a target endpoint and a transfer.
+         * `transfer_enabled`: Set to `1` to create a target endpoint and transfer.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -259,7 +260,7 @@ Create a local `sample.json` file with the following test data:
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      1. The transfer is activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+      1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
    {% endlist %}
 

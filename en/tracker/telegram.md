@@ -38,7 +38,7 @@ To learn more about setting up a Telegram bot, please visit [https://core.telegr
 
 1. Configure trigger conditions so that the trigger is fired when the status of an issue of the **Issue** type changes to **Need info**:
 
-   1. Select the option **Conditions to be met** → **All**.
+   1. Select **Conditions to be met** → **All**.
 
    1. [Add the condition:](./user/set-condition.md) **Type** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldEquals }}** → **Issue**.
 

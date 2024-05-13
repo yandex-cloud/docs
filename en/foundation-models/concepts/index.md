@@ -9,19 +9,15 @@ description: "{{ foundation-models-full-name }} is a service that provides acces
 
 {{ foundation-models-full-name }} comprises several large generative neural networks and allows you to leverage their capabilities for your business development.
 
-The {{ yagpt-name }} neural network is geared to address various needs related to creating text content. {{ yagpt-full-name }} can generate product descriptions, articles, news stories, newsletters, blog posts, and many other types of texts. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. With a more specific request, you are more likely to get the result you expect.
+The {{ yagpt-name }} neural network is geared to address various needs related to creating text content. {{ yagpt-full-name }} can generate product descriptions, articles, news stories, newsletters, blog posts, and many other things. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. With a more specific prompt, you are more likely to get the result you expect.
 
 {{ foundation-models-name }} provides the [API](../embeddings/api-ref/index.md) to work with _embeddings_, i.e., vector representations of text. It can be used to classify information, compare and match texts, or search through a knowledge base of your own. For more information on embeddings and the Embeddings API, see [{#T}](./embeddings.md).
 
-The {{ yandexart-name }} neural network will help you create detailed and realistic images based on a text request. You can see request examples in {{ yandexart-name }} prompt library.
-
-{{ foundation-models-name }} provides the [API](../embeddings/api-ref/index.md) to work with _embeddings_, i.e., vector representations of text. It can be used to classify information, compare and match texts, or search through a knowledge base of your own. For more information on embeddings and the Embeddings API, see [{#T}](./embeddings.md).
-
-The {{ yandexart-name }} neural network will help you create detailed and realistic images based on a text request. You can see request examples in {{ yandexart-name }} prompt library.
+The {{ yandexart-name }} neural network will help you create detailed and realistic images based on a text prompt. You can see prompt examples in the {{ yandexart-name }} prompt library.
 
 The service is dynamically evolving with constant enhancements and refinements to its functionality.
 
-For information on {{ foundation-models-name }} restrictions, refer to [{#T}](limits.md).
+For information on the {{ foundation-models-name }} restrictions, refer to [{#T}](limits.md).
 
 ## {{ foundation-models-name }} working modes {#working-mode}
 

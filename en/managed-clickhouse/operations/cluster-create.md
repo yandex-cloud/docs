@@ -5,6 +5,7 @@ description: "Use this tutorial to create a {{ CH }} cluster with a single or mu
 
 # Creating a {{ CH }} cluster
 
+
 A {{ CH }} cluster consists of one or more database hosts you can configure replication between.
 
 {% note info %}
@@ -259,7 +260,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
             {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
-         * Pass the hybrid storage settings in the respective parameters:
+         * Provide the hybrid storage settings in the relevant parameters:
 
             {% include [Hybrid Storage settings CLI](../../_includes/mdb/mch/hybrid-storage-settings-cli.md) %}
 
@@ -646,6 +647,7 @@ To create a {{ CH }} cluster copy:
 {% endlist %}
 
 ### Creating a multi-host cluster {#creating-a-multi-host-cluster}
+
 
 {% list tabs group=instructions %}
 

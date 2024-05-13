@@ -70,7 +70,7 @@ You pay for the storage allocated for DB clusters.
 * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
 
 
-The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The cost is specified for one month of use and based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 ### Example of cluster cost calculation {#example}
 
@@ -188,6 +188,7 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 
 ## Pricing {#prices}
+
 
 
 All prices are shown without VAT.

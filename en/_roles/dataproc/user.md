@@ -1,1 +1,1 @@
-The `dataproc.user` role provides access to the {{ dataproc-name }} component web interfaces and enables you to create jobs. It includes the `dataproc.viewer` role.
+The `dataproc.user` role provides access to the Yandex Data Proc component web interfaces and enables you to create jobs. It includes the `dataproc.viewer` role.

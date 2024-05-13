@@ -25,6 +25,8 @@
 * при [обращении в поддержку](../operations/dashboard/add-support-message.md). Тогда после нажатия на значок ![image](../../_assets/console-icons/circle-question.svg) в левом нижнем углу экрана и выбора **Создать обращение** пользователь увидит в окне **Информация** дополнительное сообщение.
 * при [ошибке доступа к дашборду](../operations/dashboard/add-access-message.md). В этом случае, если у пользователя нет прав на просмотр дашборда, он увидит сохраненное сообщение.
 
+  {% include [datalens-access-message-note](../../_includes/datalens/datalens-access-message-note.md) %}
+
 ## Настройки загрузки виджетов {#load-settings}
 
 Вы можете повлиять на скорость загрузки виджетов на дашборде. Для этого [измените настройки](../operations/dashboard/dash-settings.md) дашборда в блоке **Прочие настройки**:

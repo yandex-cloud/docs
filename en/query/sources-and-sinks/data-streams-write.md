@@ -37,7 +37,7 @@ To read data from {{ yds-full-name }}:
 Data is sent via {{ yds-full-name }} in binary form. Data is written using SQL statements and generally looks like this:
 
 ```sql
-INSERT INTO <yds_connection_name>.<stream_name>
+INSERT INTO <connection>.<stream_name>
     <expression>
 FROM
    <query>
@@ -45,9 +45,9 @@ FROM
 
 Where:
 
-- `yds_connection_name`: Name of the {{ yds-short-name }} stream connection created in the previous step.
-- `stream_name`: Name of the stream in {{ yds-short-name }}.
-- `query`: {{ yq-full-name }} data source query.
+- `<connection>`: Name of the {{ yds-short-name }} data stream connection created in the previous step.
+- `<stream_name>`: Name of the data stream in {{ yds-short-name }}.
+- `<query>`: {{ yq-full-name }} data source query.
 
 ## Example of writing data
 

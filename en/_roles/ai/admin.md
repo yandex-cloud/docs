@@ -1,4 +1,4 @@
-The `ai.admin`role allows you to use Yandex Translate, Yandex Vision, Yandex SpeechKit, and Yandex Foundation Models.
+The `ai.admin` role allows you to use Yandex Translate, Yandex Vision, Yandex SpeechKit, and Yandex Foundation Models.
 
 Users with this role can:
 * Use Yandex Translate to [translate texts](../../translate/quickstart.md).

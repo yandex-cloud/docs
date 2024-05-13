@@ -6,15 +6,15 @@ To work with {{ message-queue-full-name }} from Python, use [boto3](https://aws.
 
 To install boto, follow the instructions in the developer's repository: [boto3](https://github.com/boto/boto3/blob/develop/README.rst#quick-start), [boto](https://github.com/boto/boto#installation).
 
-## Before you start {#prepare}
+## Getting started {#prepare}
 
 {% include [mq-http-api-preps](../_includes_service/mq-http-api-preps-sdk.md)%}
 
 Set the environment variables:
 
 ```
-export AWS_ACCESS_KEY_ID="<access key ID>"
-export AWS_SECRET_ACCESS_KEY="<secret key>"
+export AWS_ACCESS_KEY_ID="<access_key_ID>"
+export AWS_SECRET_ACCESS_KEY="<secret_key>"
 ```
 ## Example {#sample}
 

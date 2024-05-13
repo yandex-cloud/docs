@@ -19,7 +19,7 @@ description: "In this tutorial, you'll learn how to collect and deliver data to 
    aws kinesis \
      --endpoint https://yds.serverless.yandexcloud.net \
      put-record \
-     --stream-name /{{ region-id }}/aoegtvhtp8ob9rqq8sto/cc8004q4lbo6bv9iivr0/test \
+     --stream-name /{{ region-id }}/aoegtvhtp8ob********/cc8004q4lbo6********/test \
      --cli-binary-format raw-in-base64-out \
      --data '{"user_id":"user1", "score": 100}' \
      --partition-key 1

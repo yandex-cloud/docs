@@ -13,11 +13,11 @@ A {{ mgp-short-name }} cluster includes a minimum of 4 hosts:
 
 You can increase the number of segment hosts up to 32.
 
-For more information, see [{#T}](../../managed-greenplum/concepts/limits.md).
+For more information, see [Quotas and limits](../../managed-greenplum/concepts/limits.md).
 
 #### How many clusters can you create in a single cloud? {#db-limit}
 
-MDB technical and organizational limits are given in [{#T}](../../managed-greenplum/concepts/limits.md).
+For more information on MDB technical and organizational limitations, see [Quotas and limits](../../managed-greenplum/concepts/limits.md).
 
 #### How are DB clusters maintained? {#service-window}
 
@@ -27,20 +27,20 @@ Maintenance in {{ mgp-short-name }} implies:
 * Changes to the host class and storage size.
 * Other {{ mgp-short-name }} maintenance activities.
 
-For more information, see [{#T}](../../managed-greenplum/concepts/maintenance.md).
+For more information, see [Maintenance](../../managed-greenplum/concepts/maintenance.md).
 
 
-#### How is usage cost calculated for a database host? {#db-cost}
+#### How do you calculate usage cost for a database host? {#db-cost}
 
 In {{ mgp-short-name }}, the usage cost is calculated based on the following parameters:
 
 * Selected host class.
 * Size of the storage reserved for the database host.
 * Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-greenplum/pricing/index.md).
-* Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [{#T}](../../managed-greenplum/pricing/index.md).
+* Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour of operation for each host class in [Pricing policy](../../managed-greenplum/pricing/index.md).
 
 
-#### Why is a cluster working slowly even though it still has free computing resources? {#throttling}
+#### Why is the cluster slow even though the computing resources are not used fully? {#throttling}
 
 {% include [throttling](../throttling.md) %}
 

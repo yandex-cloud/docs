@@ -25,5 +25,6 @@ description: "Из статьи вы узнаете, как работать с 
 
 * [{#T}](./create-sink.md)
 * [{#T}](./export-logs.md)
+* [{#T}](./export-logs-yds.md)
 * [{#T}](./list-sink.md)
 * [{#T}](./get-sink.md)

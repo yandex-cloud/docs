@@ -2,6 +2,6 @@ This is a special user that is required for managing clusters and cannot be dele
 
 {% note tip %}
 
-To perform routine tasks, we recommend creating individual users. For more information, see [{#T}](../../managed-elasticsearch/operations/cluster-users.md).
+To perform routine tasks, we recommend creating individual users. For more information, see [Managing users](../../managed-elasticsearch/operations/cluster-users.md).
 
 {% endnote %}

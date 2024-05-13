@@ -23,8 +23,8 @@ When using the HTTP API, some headers are required and others are not.
 
 | Name | Description |
 | --- | --- |
-| `x-request-id` | Used for query diagnostics. Specify any string as a value. We recommend using highly unique values, such as GUID, to avoid collisions with IDs used to diagnose other queries.<br>Type: String.<br>Example: `c8b4c0aa-8fc2-4159-8870-f4cb40b73aae`. |
-| `Idempotency-Key` | [Idempotency key](../../api-design-guide/concepts/idempotency.md). Used in modifying operations. We recommend specifying this parameter to avoid unexpected situations.<br>Type: String, UUID.<br>Example: `Idempotency-Key: c1700de3-b8cb-4d8a-9990-e4ebf052e9aa`. |
+| `x-request-id` | Used for query diagnostics. Specify any string as a value. We recommend using highly unique values, such as GUID, to avoid collisions with IDs used to diagnose other queries.<br>Type: String.<br>Example: `c8b4c0aa-8fc2-4159-8870-f4cb********`. |
+| `Idempotency-Key` | [Idempotency key](../../api-design-guide/concepts/idempotency.md). Used in modifying operations. We recommend specifying this parameter to avoid unexpected situations.<br>Type: String, UUID.<br>Example: `Idempotency-Key: c1700de3-b8cb-4d8a-9990-e4eb********`. |
 
 ## Errors {#errors}
 

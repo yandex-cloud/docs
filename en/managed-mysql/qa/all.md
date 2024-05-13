@@ -1,9 +1,10 @@
 ---
-title: "Questions and answers about {{ mmy-full-name }}®"
-description: "This page provides answers to questions about {{ mmy-short-name }}®."
+title: "FAQ about {{ mmy-full-name }}®"
+description: "This page presents FAQ about {{ mmy-short-name }}®."
 ---
 
-# Questions and answers about {{ mmy-short-name }}®
+# FAQ about {{ mmy-short-name }}®
+
 
 ### General questions {#toc-general}
 

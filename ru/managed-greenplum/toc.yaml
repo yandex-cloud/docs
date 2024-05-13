@@ -26,7 +26,7 @@ items:
             href: operations/cluster-stop.md
           - name: Управление хостами кластера
             items:
-              - name: Просмотр хостов кластера
+              - name: Информация о хостах
                 href: operations/hosts/cluster-hosts.md
               - name: Расширение кластера
                 href: operations/hosts/cluster-expand.md

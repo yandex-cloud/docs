@@ -1,3 +1,5 @@
+
+
 You can set up data transfer from {{ mpg-name }} to {{ mmy-name }} databases using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
@@ -144,7 +146,7 @@ Prepare the infrastructure:
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-   1. The transfer is activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+   1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 {% endlist %}
 

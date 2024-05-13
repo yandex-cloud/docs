@@ -8,7 +8,7 @@ You can perform the following actions on {{ CH }} hosts:
 * [Restart a host](#restart).
 * [Remove a host](#remove-host).
 
-For information about moving {{ CH }} hosts to a different availability zone, see [this guide](host-migration.md#clickhouse-hosts).
+For information about moving {{ CH }} hosts to a different [availability zone](../../overview/concepts/geo-scope.md), see [this guide](host-migration.md#clickhouse-hosts).
 
 {% note warning %}
 

@@ -1,5 +1,6 @@
 # Migrating databases from Google BigQuery to {{ mch-name }}
 
+
 You can migrate a database from Google BigQuery to {{ mch-full-name }} and then use {{ datalens-full-name }} to analyze it.
 
 The table is compressed, then moved to a Google Storage bucket and then — to an {{ objstorage-full-name }} bucket. After that, the data is imported to a {{ mch-name }} cluster where you can analyze it using {{ datalens-full-name }}.

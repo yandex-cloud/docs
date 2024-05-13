@@ -1,4 +1,4 @@
-The `vpc.viewer` role allows you to view information on cloud networks, subnets, route tables, gateways, security groups, and IP addresses, as well as on the quotas and resource operations.
+The `vpc.viewer` role allows you to view information on cloud networks, subnets, route tables, gateways, security groups, and IP addresses, as well as on the quotas and resource operations. 
 
 {% cut "Users with this role can:" %}
 

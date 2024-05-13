@@ -27,11 +27,11 @@ After creating a cluster, you can:
 
 Learn more about other cluster updates:
 
-* [{#T}](cluster-version-update.md).
+* [{#T}](cluster-version-update.md)
 
-* [{#T}](host-migration.md).
+* [{#T}](host-migration.md)
 
-## Change the cluster name and description {#change-name-and-description}
+## Changing the cluster name and description {#change-name-and-description}
 
 {% list tabs group=instructions %}
 
@@ -116,6 +116,7 @@ Learn more about other cluster updates:
 {% endlist %}
 
 ## Changing the host class {#change-resource-preset}
+
 
 {% list tabs group=instructions %}
 
@@ -450,7 +451,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-   * List of cluster configuration fields to be updated in the `updateMask` parameter.
+   * List of cluster configuration fields to update in the `updateMask` parameter.
 
    {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 

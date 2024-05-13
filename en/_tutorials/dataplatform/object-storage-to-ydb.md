@@ -1,5 +1,6 @@
 # Loading data from {{ objstorage-full-name }} to {{ ydb-full-name }} using {{ data-transfer-full-name }}
 
+
 You can migrate data from {{ objstorage-name }} to the {{ ydb-name }} table using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
@@ -38,7 +39,7 @@ Prepare the infrastructure:
       This file describes:
 
       * Service account to use when working with the {{ ydb-name }} bucket and database.
-      * {{ lockbox-name }} secret, which will store the static key of the service account to configure the source endpoint.
+      * {{ lockbox-name }} secret which will store the static key of the service account to configure the source endpoint.
       * {{ objstorage-name }} source bucket.
       * {{ ydb-name }} target cluster.
       * Target endpoint.
@@ -46,7 +47,7 @@ Prepare the infrastructure:
 
    1. In the `object-storage-to-ydb.tf` file, specify the values for these variables:
 
-      * `folder_id`: Cloud directory ID, the same one specified in the provider settings.
+      * `folder_id`: Cloud folder ID, the same one specified in the provider settings.
       * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
 
    1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -96,15 +97,15 @@ Prepare the infrastructure:
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: Bucket name in {{ objstorage-name }}.
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public part of the service account static key. If you created your infrastructure with {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Private part of the service account static key. If you created your infrastructure with {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
-   * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}**: `https://storage.yandexcloud.net`.
+   * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}**: `https://{{ s3-storage-host }}`.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}**: `{{ region-id }}`.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.csv.title }}`.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.delimiter.title }}**: Comma mark (`,`).
    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}**: `table1`.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` and specify field names and data types:
 
-      * `Id`: `Int64`.
-      * `Name`: `UTF8`.
+      * `Id`: `Int64`
+      * `Name`: `UTF8`
 
    Leave the default values for the other parameters.
 
@@ -128,7 +129,7 @@ Prepare the infrastructure:
       1. In the `object-storage-to-ydb.tf` file, specify the values for these parameters:
 
          * `source_endpoint_id`: Source endpoint ID.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -142,7 +143,7 @@ Prepare the infrastructure:
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      1. The transfer is activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+      1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
    {% endlist %}
 
@@ -172,7 +173,7 @@ Check the transfer performance by testing the copy and replication processes.
       SELECT * FROM table1;
       ```
 
-      {% cut "Sample response" %}
+      {% cut "Response example" %}
 
       ```sql
       Id |   Name   |   __file_name    | __row_index
@@ -214,7 +215,7 @@ Check the transfer performance by testing the copy and replication processes.
              SELECT * FROM table1;
          ```
 
-         {% cut "Sample response" %}
+         {% cut "Response example" %}
 
          ```sql
          Id |   Name   |   __file_name    | __row_index

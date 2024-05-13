@@ -2,7 +2,7 @@
 
 To work with queues, the [Laravel](https://laravel.com/) PHP framework provides the [Queue](https://laravel.com/docs/6.x/queues) primitive. As a message broker, you can use {{ message-queue-name }}.
 
-## Installing {#install}
+## Installation {#install}
 
 Install the Laravel software using the [instructions](https://laravel.com/docs/6.x/installation) on the framework's official website.
 
@@ -13,13 +13,13 @@ Install the Laravel software using the [instructions](https://laravel.com/docs/6
 Set the environment variables:
 
 ```
-export AWS_ACCESS_KEY_ID="<access key ID>"
-export AWS_SECRET_ACCESS_KEY="<secret key>"
+export AWS_ACCESS_KEY_ID="<access_key_ID>"
+export AWS_SECRET_ACCESS_KEY="<secret_key>"
 ```
 
 Create a queue in {{ message-queue-name }} and copy the URL.
 
-## Instructions {#sample}
+## Guide {#sample}
 
 In this example, we create a demo job that sums up two numbers and a command that adds the job to a queue in {{ message-queue-name }}.
 
@@ -138,7 +138,7 @@ To use {{ message-queue-name }} with Laravel, follow this guide.
 
 1. Fill in the parameters in the `sqs` section.
 
-   To get values for the `prefix` and `queue` parameters, split the URL of your queue into two parts: the prefix is `https://message-queue.{{ api-host }}/`, while the queue parameter is `b1gvlrnlei4l5idm9cbj/dj6000000000g53305qi` without the leading `/`.
+   To get values for the `prefix` and `queue` parameters, split the URL of your queue into two parts: the prefix is `https://message-queue.{{ api-host }}/`, while the queue parameter is `b1g8ad42m6he********/dj6000000000********` without the leading `/`.
 
    ```
    'sqs' => [
@@ -146,7 +146,7 @@ To use {{ message-queue-name }} with Laravel, follow this guide.
        'key' => env('AWS_ACCESS_KEY_ID'),
        'secret' => env('AWS_SECRET_ACCESS_KEY'),
        'prefix' => env('SQS_PREFIX', 'https://message-queue.{{ api-host }}/'),
-       'queue' => env('SQS_QUEUE', 'b1gvlrnlei4l5idm9cbj/dj6000000000g53305qi/laravel-test'),
+       'queue' => env('SQS_QUEUE', 'b1g8ad42m6he********/dj6000000000********/laravel-test'),
        'region' => env('AWS_DEFAULT_REGION', '{{ region-id }}'),
    ],
    ```

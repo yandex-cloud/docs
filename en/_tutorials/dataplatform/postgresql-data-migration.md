@@ -1,5 +1,6 @@
 # Migrating a database from a third-party {{ PG }} cluster to {{ mpg-name }}
 
+
 There are three ways to migrate data from a third-party _source cluster_ to a {{ mpg-name }} _target cluster_:
 
 * [Transferring data using {{ data-transfer-full-name }}](#data-transfer).

@@ -1,5 +1,6 @@
 # Using hybrid storage in {{ mch-name }}
 
+
 Hybrid storage allows you to store frequently used data on the network disks of the {{ mch-name }} cluster and rarely used data in {{ objstorage-full-name }}. Automatically moving data between these storage levels is only supported for [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
 
 To use hybrid storage:
@@ -177,7 +178,7 @@ To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tu
 ## Check the placement of data in a cluster {#check-table-tiering}
 
 1. [Connect to the database](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client).
-1. Check where the table rows are placed:
+1. Find out where the table rows are placed:
 
    ```sql
    SELECT

@@ -54,7 +54,7 @@ The code is run in the cells with the header:
 
 Where:
 
-* `--cluster`: {{ dataproc-name }} cluster computations will be performed on. This can be:
+* `--cluster`: {{ dataproc-name }} cluster to perform computations on. This can be:
    * Name of the cluster created through the notebook interface.
    * HTTP link to the internal IP address of the `masternode` host, such as `http://10.0.0.8:8998/`.
 * `--session`: Computing session ID. If this parameter is not specified, the default {{ dataproc-name }} cluster session is used.

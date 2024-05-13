@@ -5,6 +5,7 @@ description: "You can create backups and restore clusters from existing PostgreS
 
 # Managing backups in {{ mpg-name }}
 
+
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
 {{ mpg-name }} also creates automatic daily backups. You can set the [backup start time](#set-backup-window) and [retention period](update.md#change-additional-settings).

@@ -166,7 +166,7 @@
    IAM_SECRET = os.environ['IAM_SECRET']
    NODE_ID = os.environ['NODE_ID']
    FOLDER_ID = os.environ['FOLDER_ID']
-   
+
    headers = {
        "Authorization": f"Bearer {IAM_SECRET}", # get IAM token from secrets
        "x-node-id": f"{NODE_ID}", # sample node

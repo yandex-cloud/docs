@@ -26,9 +26,9 @@ To customize the UI:
 
       - Manually
 
-         * **Page background**: Page background color. For a light theme, white is the most commonly used color. Dark themes have more options, from neutral gray shades to warm or cool colors.
          * **Main color**: Used as a background for buttons and controls: switches, checkboxes, and selectors. Additionally, the main color is used as a theme for tooltips.
          * **Main color on hovering the cursor**: When manually customized, you can select any color. When generating a palette, a darker shade of the main color is set automatically.
+         * **Page background**: Page background color. For a light theme, white is the most commonly used color. Dark themes have more options, from neutral gray shades to warm or cool colors.
          * **Additional color**: Used as a background for cards and other elements placed on top of the page background.
          * **Selected elements**: Color for selected elements, e.g., clicked buttons, selected rows, or selected text.
          * **Selected items when hovering the cursor**: Color for selected items (e.g., clicked buttons or selected rows) when hovering over them.

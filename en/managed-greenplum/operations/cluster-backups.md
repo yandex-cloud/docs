@@ -91,7 +91,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
 ## Restoring clusters from backups {#restore}
 
-The Point-in-Time Recovery (PITR) technology enables you to restore cluster state to any recovery point created after saving a backup. For more information, see [{#T}](../concepts/backup.md).
+The Point-in-Time Recovery (PITR) technology enables you to restore cluster state to any recovery point created after saving a backup. For more information, see [Backups](../concepts/backup.md).
 
 When you restore a cluster from a backup, you create a new cluster with the backup data. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
 

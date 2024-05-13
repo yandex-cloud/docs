@@ -23,6 +23,7 @@ default:
   api-host-lockbox-payload: payload.lockbox.api.cloud.yandex.net
   api-host-mdb: mdb.api.cloud.yandex.net
   api-host-monitoring-1: monitoring.api.cloud.yandex.net
+  api-host-operation: operation.api.cloud.yandex.net
   api-host-sk-stt: stt.api.cloud.yandex.net
   api-host-sk-tts: tts.api.cloud.yandex.net
   api-url-prefix: /docs
@@ -2765,11 +2766,6 @@ default:
               hold: On Hold
             open: Open
             resolved: Resolved
-      defaults:
-        sla:
-          default:
-            filter:
-              name: All queue issues
       events:
         event:
           IssueCreated: ' Issue Created'
@@ -3016,9 +3012,6 @@ default:
               tested: Tested
               testing: Testing
           name: Scrum
-      profiles:
-        category:
-          everything: All Events
       roles:
         role:
           name:
@@ -3388,7 +3381,6 @@ default:
       ui_components_page-queue-admin_QueueAdminPageContent:
         menu-item-aliases: Mailboxes
         menu-item-autoactions: Auto actions
-        menu-item-calendars: Schedules
         menu-item-forms: Form integration
         menu-item-permissions: Permissions
         menu-item-timetracking: Time tracking
@@ -4235,7 +4227,6 @@ default:
             field_actions: Actions
             value_completed: Done
           switch_acts: Reporting documents
-          switch_offers: Committed volume of services
           tab_reconciliation-reports-title: Reconciliation reports
         label_accounts: Accounts
         label_service: Billing
@@ -5576,6 +5567,7 @@ default:
         label_loggroup: Log group
         label_retention-period: Log retention
         label_sinks: Sinks
+        label_stream: Stream
         label_title: Logging
       marketplace-v2:
         action_detach-subscription: Unlink subscription
@@ -5678,7 +5670,6 @@ default:
             label_bucket: Bucket name
             label_hdd: Storage
             label_health: State
-            label_mongodb-pitr: Point-in-time recovery
             label_network: Cloud network
             label_service-account: Service account
             label_services: Services
@@ -5985,6 +5976,7 @@ default:
           button_create: Create
         gateways:
           domains:
+            button_acton-delete: Detach
             button_add: Attach
           form:
             button_create-gateway: Create
@@ -7972,7 +7964,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: 1.14.5
+        tag: 1.14.6
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3

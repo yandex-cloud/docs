@@ -7,7 +7,7 @@ description: "Follow this guide to create a Snowflake connection."
 
 To create a Snowflake connection:
 
-1. Go to the [connections page](https://datalens.yandex.ru/connections).
+1. Go to the [connections page]({{ link-datalens-main }}/connections).
 1. Click **Create connection**.
 1. Select a **Snowflake** connection.
 1. Fill out the fields in the **Authentication** section.

@@ -1,9 +1,10 @@
 ---
-title: "Questions and answers about {{ mpg-full-name }}"
-description: "This page provides answers to questions about {{ mpg-short-name }}."
+title: "FAQ about {{ mpg-full-name }}"
+description: "This page presents FAQ about {{ mpg-short-name }}."
 ---
 
-# Questions and answers about {{ mpg-short-name }}
+# FAQ about {{ mpg-short-name }}
+
 
 ### General questions {#toc-general}
 

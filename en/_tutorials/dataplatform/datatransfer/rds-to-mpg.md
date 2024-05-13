@@ -1,3 +1,5 @@
+
+
 To set up data transfers from [Amazon RDS for {{ PG }}](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html) to {{ mpg-name }} databases using {{ data-transfer-name }}:
 
 1. [Prepare the test data](#prepare-data).
@@ -223,7 +225,7 @@ Prepare the infrastructure:
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-   1. The transfer is activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+   1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 {% endlist %}
 
@@ -291,10 +293,10 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - Manually {#manual}
 
-   * [Transfer](../../../data-transfer/operations/transfer.md#delete).
+   * [Transfer](../../../data-transfer/operations/transfer.md#delete)
    * [Endpoints](../../../data-transfer/operations/endpoint/index.md#delete)
    * [Amazon RDS for {{ PG }} instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html)
-   * [{{ mpg-name }} cluster](../../../managed-postgresql/operations/cluster-delete.md).
+   * [{{ mpg-name }} cluster](../../../managed-postgresql/operations/cluster-delete.md)
 
 - {{ TF }} {#tf}
 

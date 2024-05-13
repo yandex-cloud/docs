@@ -1,5 +1,6 @@
 # Migrating {{ mos-name }} cluster host groups to a different availability zone
 
+
 {{ mos-name }} cluster [host groups](../concepts/host-groups.md) reside in {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). To move a host group from one availability zone to another:
 
 {% list tabs group=instructions %}

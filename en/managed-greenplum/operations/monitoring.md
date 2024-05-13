@@ -42,7 +42,7 @@ To view detailed information about the {{ mgp-name }} cluster state:
       * **admin_group**: In the administrative group.
       * **default_group**: In the default group.
 
-   * **Master**: Definition of primary master host.
+   * **Master**: Definition of the primary master host.
 
    * **Master replication lag**: Master replication delay (in bytes).
 
@@ -111,7 +111,7 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-greenplum).
+For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/managed-greenplum-ref.md).
 
 
 ## Cluster state and status {#cluster-health-and-status}

@@ -1,6 +1,6 @@
 ---
 title: "Pricing policy for Managed Service for Elasticsearch"
-description: "In this section, you can find {{ mes-name }} pricing rules and effective prices for the service's resources."
+description: "In this section, you can find {{ mes-name }} pricing rules and effective prices for the service resources."
 editable: false
 ---
 
@@ -40,11 +40,11 @@ The {{ mes-name }} usage cost is based on:
 
 ### Using cluster hosts {#rules-hosts-uptime}
 
-The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources and {{ ES }} edition used. Supported resource configurations are shown in [{#T}](concepts/instance-types.md) while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
+The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources and {{ ES }} edition used. Supported resource configurations are shown in the [Host classes](concepts/instance-types.md) section; vCPU and RAM prices are quoted in the [Prices](#prices) section.
 
 You can select host class both for hosts with the `Data node` role and hosts with the `Master node` role.
 
-The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for time when the {{ ES }} host is not performing its main functions.
+The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when the {{ ES }} host is not performing its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -54,13 +54,13 @@ You are charged for the following:
 
 * Storage taken up by backups over specified cluster storage.
 
-   * Storing backups is free of charge as long as the total amount of data in a cluster together with all the backups stays under the selected storage size.
+   * Backups are stored free of charge as long as the combined size of cluster data and all backups is smaller than the selected storage size.
 
-   * When performing automatic backups, {{ mes-short-name }} does not create a new copy but stores data changes with respect to the previous backup. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
+   * When performing automatic backups, {{ mes-short-name }} does not create a new copy but stores data changes with respect to the previous backup. This means that the storage used by automatic backups increases only in proportion to the volume of changes that are made.
 
-   * The number of hosts in the cluster does not affect the size of the storage or free backups.
+   * The number of hosts in a cluster does not affect the storage size and, therefore, the free volume of backups.
 
-The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The cost is specified for one month of use and based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 ### Example of cluster cost calculation {#example}
 
@@ -70,7 +70,7 @@ The cost of using a cluster with the following parameters for 30 days:
 * **Hosts** with the `Master node` role: 3 `s2.micro` hosts: 2 × 100% vCPU, 8 GB RAM.
 * **Storage**: 100 GB of HDD network storage.
 
-Cost calculation:
+The cost is calculated as follows:
 
 > > 3 × (2 × $0.013440 + 8 × $0.016800) + 3 × (2 × $0.013440 + 8 × $0.016800) = $0.967680
 > 
@@ -99,6 +99,7 @@ Where:
 
 
 ## Pricing {#prices}
+
 
 
 All prices are shown without VAT.

@@ -34,7 +34,7 @@ Metrics are written to {{ monitoring-name }} using the following SQL statement:
 
 ```sql
 INSERT INTO
-        <monitoring_connection_name>.custom
+        <connection>.custom
 SELECT
         <fields>
 FROM
@@ -43,13 +43,13 @@ FROM
 
 Where:
 
-- `monitoring_connection_name`: Name of the {{ monitoring-name }} connection created in the previous step.
-- `fields`: List of fields that contain a timestamp, metrics, and their labels.
-- `query`: {{ yq-full-name }} data source query.
+- `<connection>`: Name of the {{ monitoring-name }} connection created in the previous step.
+- `<fields>`: List of fields that contain a timestamp, metrics, and their labels.
+- `<query>`: {{ yq-full-name }} data source query.
 
 {% note info %}
 
-When writing metrics, use `INSERT INTO <monitoring_connection_name>.custom`, where [`custom`](../../monitoring/api-ref/MetricsData/write.md#query_params) is the name reserved in {{ monitoring-name }} for writing custom metrics.
+When writing metrics, use `INSERT INTO <connection>.custom`, where [`custom`](../../monitoring/api-ref/MetricsData/write.md#query_params) is the name reserved in {{ monitoring-name }} for writing custom metrics.
 
 {% endnote %}
 

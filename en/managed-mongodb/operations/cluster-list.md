@@ -22,11 +22,15 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To request a list of {{ MG }} clusters in the default folder, run the command:
+   To request a list of {{ MG }} clusters in the default folder, run this command:
 
-   ```
+   ```bash
    yc managed-mongodb cluster list
+   ```
 
+   Result:
+
+   ```text
    +----------------------+------------+-----------------------------+--------+---------+
    |          ID          |    NAME    |         CREATED AT          | HEALTH | STATUS  |
    +----------------------+------------+-----------------------------+--------+---------+
@@ -51,14 +55,6 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the cluster name.
 
-   {% note tip %}
-
-   
-   To request access to [Point-in-Time-Recovery](../concepts/backup.md) (PITR) in the [Preview](../../overview/concepts/launch-stages.md) mode, click **Request access** in the **{{ ui-key.yacloud.mdb.cluster.overview.label_mongodb-pitr }}** line and fill out the form.
-
-
-   {% endnote %}
-
 - CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
@@ -67,7 +63,7 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
 
    To get information about a {{ MG }} cluster, run the following command:
 
-   ```
+   ```bash
    {{ yc-mdb-mg }} cluster get <cluster_name_or_ID>
    ```
 
@@ -101,7 +97,7 @@ You can get the cluster ID with a [list of clusters in the folder](#list-cluster
 
    To get a list of operations, run the following command:
 
-   ```
+   ```bash
    {{ yc-mdb-mg }} cluster list-operations <cluster_name_or_ID>
    ```
 

@@ -11,7 +11,7 @@ In this section, you will learn:
 * [Which roles are required](#required-roles) for particular actions.
 
 
-To use the service, log in to the management console with a [Yandex account](../../iam/concepts/index.md#passport) or [federated account](../../iam/concepts/index.md#saml-federation).
+To use the service, log in to the management console with a [Yandex account](../../iam/concepts/users/accounts.md#passport) or [federated account](../../iam/concepts/users/accounts.md#saml-federation).
 
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}

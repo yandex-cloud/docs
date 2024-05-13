@@ -1,5 +1,6 @@
 # Loading data from {{ MY }} to {{ objstorage-full-name }} using {{ data-transfer-full-name }}
 
+
 With {{ data-transfer-name }}, you can transfer data from a {{ mmy-name }} source cluster to {{ objstorage-full-name }} object storage.
 
 To transfer data:
@@ -142,7 +143,7 @@ Prepare the infrastructure:
       1. In the `data-transfer-mmy-objs.tf` file, specify the variables:
 
          * `target_endpoint_id`: ID of the target endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
          * (Optional) `include_tables_regex`, `exclude_tables_regex`: Regular expressions for the tables to be transferred and those not to be transferred.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -194,7 +195,7 @@ Delete the other resources depending on how they were created:
    1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
    1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
    1. [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
-   1. If you created the service account along with the target endpoint, [delete it](../../iam/operations/sa/delete.md).
+   1. If you created a service account together with the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 - {{ TF }} {#tf}
 

@@ -16,4 +16,4 @@ Currently, the following data write formats are supported:
 
 |Compression format|Name in {{ yq-name }}|
 |--|--|
-|[Snappy](https://en.wikipedia.org/wiki/Snappy_(compression))|<No name, by default>|
+|[Snappy](https://en.wikipedia.org/wiki/Snappy_(compression))| No name, by default |

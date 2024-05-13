@@ -35,7 +35,7 @@ Attribute.N.Value (attribute value)
 | `MessageRetentionPeriod` | Returns the length of time, in seconds, for which a message is retained. |
 | `QueueArn` | ARN of the queue used in the `RedrivePolicy` attribute. |
 | `ReceiveMessageWaitTimeSeconds` | Returns the length of time, in seconds, for which the [ReceiveMessage](../message/ReceiveMessage) action waits for a message to arrive. |
-| `RedrivePolicy` | Message redrive policy in [Dead Letter Queue](../../concepts/dlq.md). The source queue and DLQ must be the same type: for FIFO queues, the DLQ must also be a FIFO queue. It includes two parameters: <ul><li>`deadLetterTargetArn`: ARN of the DLQ that messages are moved to.</li> <li>`maxReceiveCount` is the maximum number of attempts to read a message from the queue before redriving it to the DLQ. When the `ReceiveCount` value for the message exceeds the value of `maxReceiveCount`, the message is moved to the DLQ.</li></ul> |
+| `RedrivePolicy` | Redirect policy for moving messages to a [dead-letter queue](../../concepts/dlq.md). The source queue and DLQ must be the same type: for FIFO queues, the DLQ must also be a FIFO queue. It includes two parameters: <ul><li>`deadLetterTargetArn`: ARN of the DLQ that messages are moved to.</li> <li>`maxReceiveCount` is the maximum number of attempts to read a message from the queue before redriving it to the DLQ. When the `ReceiveCount` value for the message exceeds the value of `maxReceiveCount`, the message is moved to the DLQ.</li></ul> |
 | `VisibilityTimeout` | Returns the [visibility timeout](../../concepts/visibility-timeout.md) for the queue, specified in seconds. |
 
 #### FIFO queue attributes {#fifo-path-parameters}
@@ -74,7 +74,7 @@ For a list of errors common for all methods, see [{#T}](../common-errors.md).
 ```
 Action=GetQueueAttributes
 &Version=2012-11-05
-&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
 &AttributeName.1=All
 ```
 
@@ -123,7 +123,7 @@ For more information about forming requests, see [General API request format](..
         </Attribute>
     </GetQueueAttributesResult>
     <ResponseMetadata>
-        <RequestId>a69769e7-d07122f-147f09c0-e1f9d20-2e4fd5bae005ef4e6d639f7946b42bde</RequestId>
+        <RequestId>a69769e7-d07122f-147f09c0-e1f9d20-2e4fd5bae005ef4e6d639f79********</RequestId>
     </ResponseMetadata>
 </GetQueueAttributesResponse>
 ```

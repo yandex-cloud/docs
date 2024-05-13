@@ -80,8 +80,8 @@ FROM
     <connection>.<path>
 WITH
 (
-    schema=(<field1>, <field2>, <field3>),
-    partitioned_by=(field2, field3)
+    schema=(<field_1>, <field_2>, <field_3>),
+    partitioned_by=(<field_2>, <field_3>)
 )
 ```
 

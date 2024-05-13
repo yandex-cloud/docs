@@ -1,9 +1,9 @@
-* `modelUri` — [идентификатор модели](../../../yandexgpt/concepts/models.md), которая будет использоваться для генерации ответа. Параметр содержит [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} или идентификатор [дообученной](../../../yandexgpt/tutorials/yagpt-tuning.md) в {{ ml-platform-name }} модели.
+* `modelUri` — [идентификатор модели](../../../foundation-models/concepts/yandexgpt/models.md), которая будет использоваться для генерации ответа. Параметр содержит [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} или идентификатор [дообученной](../../../foundation-models/tutorials/yagpt-tuning.md) в {{ ml-platform-name }} модели.
 * `completionOptions` — параметры конфигурации запроса:
 
   * `stream` — включает потоковую передачу частично сгенерированного текста. Принимает значения `true` или `false`.
   * `temperature` — чем выше значение этого параметра, тем более креативными и случайными будут ответы модели. Принимает значения от `0` (включительно) до `1` (включительно). Значение по умолчанию: `0.3`.
-  * `maxTokens` — устанавливает ограничение на выход модели в [токенах](../../../yandexgpt/concepts/tokens.md). Максимальное число токенов генерации зависит от модели. Подробнее см. в разделе [{#T}](../../../yandexgpt/concepts/limits.md).
+  * `maxTokens` — устанавливает ограничение на выход модели в [токенах](../../../foundation-models/concepts/yandexgpt/tokens.md). Максимальное число токенов генерации зависит от модели. Подробнее см. в разделе [{#T}](../../../foundation-models/concepts/limits.md).
 
 * `messages` — список сообщений, которые задают контекст для модели:
 

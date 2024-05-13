@@ -5,9 +5,13 @@ description: "This article describes how to use POST requests."
 
 # POST requests
 
+{{ search-api-name }} allows you to search the Yandex search database using set parameters and get search results in XML format. You can transmit search parameters to the service in an HTTP request using the POST method. {{ search-api-name }} generates a [response](./response.md) as an XML document.
+
+{% include [text-search-intro](../../_includes/search-api/text-search-intro.md) %}
+
 {% note warning %}
 
-Special characters provided as parameter values in the request body should be replaced with respective escaped sequences based on XML encoding. For example, instead of ampersand (`&`), one should use `&amp;`.
+Special characters provided as parameter values in the request body should be replaced with respective escaped sequences based on XML encoding. For example, instead of the ampersand (`&`), one should use the `&amp;` sequence.
 
 {% endnote %}
 
@@ -25,7 +29,11 @@ https://yandex.<domain>/search/xml
 
 {% include [name-and-key](../../_includes/search-api/key.md) %}
 
-Provide the API key value in the `Authorization` header. Fore more information, see [Authentication in {{ search-api-name }}](../operations/auth.md).
+[Provide](../operations/auth.md) the API key value in the `Authorization` header in the following format:
+
+```
+Authorization: Api-Key <API_key>
+```
 
 {% include [filter](../../_includes/search-api/filter.md) %}
 
@@ -102,9 +110,14 @@ Request body:
   <query><table></query>
   <sortby order="descending">tm</sortby>
   <maxpassages>2</maxpassages>
-  <page>5</page>
+  <page>4</page>
   <groupings>
     <groupby attr="d" mode="deep" groups-on-page="10" docs-in-group="3" />
   </groupings>
 </request>
 ```
+
+#### See also {#see-also}
+
+* [{#T}](./response.md)
+* [{#T}](../operations/searching.md)

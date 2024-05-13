@@ -24,7 +24,7 @@ Prices are applied differently depending on the cluster status:
 
 
 
-## What is included in {{ mos-short-name }} cost {#rules}
+## What goes into the cost of using {{ mos-short-name }} {#rules}
 
 The {{ mos-name }} usage cost is based on:
 
@@ -55,13 +55,13 @@ You are charged for the following:
 
 * Storage taken up by backups over specified cluster storage.
 
-   * Storing backups is free of charge as long as the total amount of data in a cluster together with all the backups stays under the selected storage size.
+   * Backups are stored free of charge as long as the combined size of cluster data and all backups is smaller than the selected storage size.
 
-   * When performing automatic backups, {{ mos-short-name }} does not create a new copy but stores data changes with respect to the previous backup. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
+   * When performing automatic backups, {{ mos-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
 
-   * The number of hosts in the cluster does not affect the size of the storage or free backups.
+   * The number of hosts in a cluster does not affect the storage size and, therefore, the free volume of backups.
 
-The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The cost is specified for one month of use and based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
@@ -78,6 +78,7 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 
 ## Pricing {#prices}
+
 
 
 All prices are shown without VAT.

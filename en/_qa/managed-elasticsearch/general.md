@@ -6,11 +6,11 @@ Maintenance in {{ mes-short-name }} implies:
 * Changes to the host class and storage size.
 * Other {{ mes-short-name }} maintenance activities.
 
-For more information, see [{#T}](../../managed-elasticsearch/concepts/maintenance.md).
+For more information, see [Maintenance](../../managed-elasticsearch/concepts/maintenance.md).
 
 #### Is cluster backup enabled by default? {#default-backup}
 
-Yes, backup is enabled by default. For {{ mes-name }} clusters, a complete backup is performed every hour, and all the indexes are saved. This helps restore a cluster's state from any available backup.
+Yes, backup is enabled by default. For {{ mes-name }} clusters, a full backup takes place once per hour and saves all indexes. This helps restore a cluster's state from any available backup.
 
 Backups are kept for seven days.
 
@@ -52,7 +52,7 @@ Thresholds are set in bytes only. For example, the recommended values for a 100Â
 * `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}`: `96,636,764,160` bytes (90%)
 * `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}`: `85,899,345,920`Â bytes (80%)
 
-#### Why is a cluster working slowly even though it still has free computing resources? {#throttling}
+#### Why is the cluster slow even though the computing resources are not used fully? {#throttling}
 
 {% include [throttling](../throttling.md) %}
 

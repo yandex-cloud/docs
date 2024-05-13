@@ -98,6 +98,61 @@ title: "Как получить информацию о секрете в {{ loc
           text_value: example-value
       ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы получить содержимое секрета с помощью {{ TF }}:
+
+  1. Добавьте в конфигурационный файл {{ TF }} блоки `data` и `output`:
+
+     ```hcl
+     data "yandex_lockbox_secret_version" "my_secret_version" {
+       secret_id  = "<идентификатор_секрета>"
+       version_id = "<идентификатор_версии>"
+     }
+     
+     output "my_secret_entries" {
+       value = data.yandex_lockbox_secret_version.my_secret_version.entries
+     }
+     ```
+
+     Где:
+     * `data "yandex_lockbox_secret_version"` — описание секрета в качестве источника данных:
+       * `secret_id` — идентификатор секрета.
+       * `version_id` — идентификатор версии секрета. Необязательный параметр. По умолчанию используется текущая версия секрета.
+     * `output "my_secret_entries"` — выходная переменная, которая хранит содержимое секрета:
+       * `value` — возвращаемое значение.
+
+     Более подробно о параметрах источника данных `yandex_lockbox_secret_version` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_lockbox_secret_version).
+
+  1. Создайте ресурсы:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} создаст все требуемые ресурсы и отобразит значения выходных переменных в терминале. Чтобы проверить результат, выполните команду:
+
+     ```bash
+     terraform output
+     ```
+
+     Результат:
+
+     ```text
+     my_secret_entries = [
+       {
+         key        = "example-key"
+         text_value = "example-value"
+       },
+       {
+         key        = "example-key"
+         text_value = "example-value"
+       },
+     ]
+     ```
+
 - API {#api}
 
   Чтобы получить содержимое секрета, воспользуйтесь методом REST API [get](../api-ref/Payload/get.md) для ресурса [Payload](../api-ref/Payload/index.md) или вызовом gRPC API [PayloadService/Get](../api-ref/grpc/payload_service.md#Get).

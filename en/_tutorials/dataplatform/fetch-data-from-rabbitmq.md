@@ -1,5 +1,6 @@
 # Fetching data from {{ RMQ }} to {{ mch-full-name }}
 
+
 A {{ mch-name }} cluster can get data from {{ RMQ }} in real time. {{ mch-name }} automatically inserts data sent to specific {{ RMQ }} queue exchanges into a table run on the [{{ RMQ }} engine]({{ ch.docs }}/engines/table-engines/integrations/rabbitmq/).
 
 To set up data delivery from {{ RMQ }} to {{ mch-name }}:

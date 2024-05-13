@@ -5,6 +5,7 @@ description: "Use this tutorial to create a {{ RD }} cluster with a single or mu
 
 # Creating a {{ RD }} cluster
 
+
 A {{ RD }} cluster is one or more database hosts between which you can configure replication. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and asynchronously duplicates changes on replicas.
 
 For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md).
@@ -491,6 +492,7 @@ To create a {{ RD }} cluster copy:
 {% endlist %}
 
 ### Creating sharded clusters {#creating-a-sharded-cluster}
+
 
 {% list tabs group=instructions %}
 

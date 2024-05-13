@@ -5,6 +5,7 @@ description: "Follow this guide to create a {{ PG }} cluster with a single or mu
 
 # Creating a {{ PG }} cluster
 
+
 A {{ PG }} cluster is one or more [database hosts](../concepts/index.md) between which you can configure [replication](../concepts/replication.md). Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and duplicates changes on replicas. The transaction is confirmed if the data is written to [disk](../concepts/storage.md) both on the master host and on a certain number of replicas sufficient to establish a quorum.
 
 {% note info %}

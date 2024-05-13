@@ -1,5 +1,6 @@
 # Deploying the UI for {{ KF }}
 
+
 You can install the [UI for {{ KF }}](https://docs.kafka-ui.provectus.io/overview/readme) for your {{ mkf-name }} cluster. With a web interface, you can track data streams, troubleshoot, manage [brokers](../../managed-kafka/concepts/brokers.md), cluster, [producers, and consumers](../../managed-kafka/concepts/producers-consumers.md).
 
 
@@ -53,8 +54,8 @@ Prepare the infrastructure:
       * Default security group and rules required to connect to the cluster and VM from the internet.
 
 
-      * {{ mkf-name }} cluster.
-      * {{ KF }} user.
+      * {{ mkf-name }} cluster
+      * {{ KF }} user
 
    1. Specify the variable values in the `kafka-ui-via-docker.tf` file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -150,7 +151,7 @@ When deploying {{ KF }} in a Docker container, TrustStore commands run on a VM.
 
    Once started, the command does not terminate. While it is running, the UI for {{ KF }} is available.
 
-1. On a local machine, go to `http://<VM_public_IP_address>:8080` in your browser. The UI for {{ KF }} with {{ mkf-name }} cluster data will open.
+1. On a local machine, go to `http://<VM_public_IP_address>:8080` in your browser. The {{ KF }} web interface with {{ mkf-name }} cluster data will open.
 
    You can find the VM's public IP address in the management console, on the VM page.
 
@@ -379,10 +380,10 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
    Delete:
 
    
-   1. {{ mkf-name }} [cluster](../../managed-kafka/operations/cluster-delete.md).
-   1. [Virtual machine](../../compute/operations/vm-control/vm-delete.md).
-   1. {{ managed-k8s-name }} [node group](../../managed-kubernetes/operations/node-group/node-group-delete.md).
-   1. {{ managed-k8s-name }} [cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+   1. {{ mkf-name }} [cluster](../../managed-kafka/operations/cluster-delete.md)
+   1. [Virtual machine](../../compute/operations/vm-control/vm-delete.md)
+   1. {{ managed-k8s-name }} [node group](../../managed-kubernetes/operations/node-group/node-group-delete.md)
+   1. {{ managed-k8s-name }} [cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md)
 
 
 - {{ TF }} {#tf}

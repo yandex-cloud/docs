@@ -12,7 +12,7 @@ In this section, you will learn:
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#required-roles) for particular actions.
 
-To use the service, log in to the management console with a [Yandex account](../../iam/concepts/index.md#passport) or [federated account](../../iam/concepts/index.md#saml-federation).
+To use the service, log in to the management console with a [Yandex account](../../iam/concepts/users/accounts.md#passport) or [federated account](../../iam/concepts/users/accounts.md#saml-federation).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -69,7 +69,7 @@ The chart below shows which roles are available in the service and how they inhe
 
 ## Roles required {#required-roles}
 
-To use the service, you need the `{{ roles.mos.editor }}` [role](../../iam/concepts/access-control/roles.md) or higher for the folder where a cluster is created. The `{{ roles.mos.viewer }}` role only enables you to view the cluster list.
+To use the service, you need the `{{ roles.mos.editor }}` [role](../../iam/concepts/access-control/roles.md) or higher for the folder where the cluster is created. With the`{{ roles.mos.viewer }}` role, you can only view the list of clusters.
 
 You can always assign a role with more permissions. For instance, you can assign `{{ roles.mos.admin }}` instead of `{{ roles.mos.editor }}`.
 

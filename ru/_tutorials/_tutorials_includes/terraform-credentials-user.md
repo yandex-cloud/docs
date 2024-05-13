@@ -8,7 +8,7 @@
 
 {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-Если вы используете федеративный аккаунт, [аутентифицируйтесь](../../cli/operations/authentication/federated-user.md) в CLI от имени федеративного пользователя.
+Если вы используете федеративный аккаунт, [аутентифицируйтесь](../../cli/operations/authentication/federated-user.md) в [CLI](../../cli/) от имени федеративного пользователя.
 
 Добавьте аутентификационные данные в переменные окружения:
 

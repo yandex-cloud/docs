@@ -70,3 +70,10 @@
 Модель вернула ответ в формате JSON, где перенос строки заменен на `\n`, а кавычки экранированы.
 
 Если с помощью промта вам не удается добиться желаемого результата, попробуйте [дообучить](../../tutorials/yagpt-tuning.md) модель в [{{ ml-platform-full-name}}]({{ link-datasphere-main }}).
+
+#### См. также {#see-also}
+
+* [{#T}](../../prompts/yandexgpt/index.md).
+* [{#T}](../../operations/yandexgpt/create-prompt.md).
+* [{#T}](../../operations/yandexgpt/create-chat.md).
+* [{#T}](../../operations/yandexgpt/async-request.md).

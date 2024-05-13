@@ -1,8 +1,10 @@
-# Exporting {{ GP }} data to a cold storage
+# Exporting {{ GP }} data to cold storage
+
+
 
 {{ mgp-full-name }} data is stored on cluster disks. With a {{ yandex-cloud }} [{{ YZ }} extension](https://github.com/yezzey-gp/yezzey/), you can move this data to a cold storage in {{ objstorage-full-name }}. This way, it will be stored in a service bucket in a compressed and encrypted form. It is a convenient option if you need to store your data for a long time without using it much. This will make data storage [less costly](../../../storage/pricing.md).
 
-{{ YZ }} supports append-optimized (AO) and append-optimized column-oriented (AOCO) tables. For more information about the tables, see [{#T}](../../../managed-greenplum/concepts/tables.md) and the [{{ GP }} documentation](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-ddl-ddl-storage.html).
+{{ YZ }} supports append-optimized (AO) and append-optimized column-oriented (AOCO) tables. For more information about the tables, see [Data storage types](../../../managed-greenplum/concepts/tables.md) and the [{{ GP }} documentation](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-ddl-ddl-storage.html).
 
 
 {% note info %}
@@ -12,7 +14,7 @@ The functionality is supported for clusters with {{ GP }} version 6.25 or higher
 {% endnote %}
 
 
-To transfer your data from {{ mgp-name }} cluster disks to the cold storage in {{ objstorage-name }}:
+To transfer your data from {{ mgp-name }} cluster disks to a cold storage in {{ objstorage-name }}:
 
 1. [Transfer a {{ GP }} table to {{ objstorage-name }}](#transfer).
 1. [Check the result](#check).
@@ -77,7 +79,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    INSERT INTO ao_table SELECT * FROM GENERATE_SERIES(1, 10000);
    ```
 
-1. Transfer the `ao_table` data to the cold storage in {{ objstorage-name }}:
+1. Transfer the `ao_table` data to a cold storage in {{ objstorage-name }}:
 
    ```bash
    SELECT yezzey_define_offload_policy('ao_table');
@@ -99,7 +101,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       SELECT * FROM yezzey_offload_relation_status_per_filesegment('ao_table');
       ```
 
-   If there are non-zero values in each `external_bytes` column in the command output, the table is transferred to the cold storage in {{ objstorage-name }}.
+   If there are non-zero values in each `external_bytes` column in the command output, the table is transferred to a cold storage in {{ objstorage-name }}.
 
 1. Check which table segment files are now in {{ objstorage-name }}:
 

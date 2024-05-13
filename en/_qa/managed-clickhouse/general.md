@@ -25,7 +25,7 @@ When creating clusters, {{ mch-short-name }} allocates resources, installs the D
 
 For the created and running databases, {{ mch-short-name }} automatically creates backups and applies fixes and updates to the DBMS.
 
-{{ mch-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
+{{ mch-short-name }} also allows you to replicate data between database hosts (both within and across [availability zones](../../overview/concepts/geo-scope.md)) and automatically routes the load to a backup replica in the event of a failure.
 
 #### Which tasks are best addressed using {{ mch-short-name }}, and which using VMs with databases? {#mdb-advantage}
 

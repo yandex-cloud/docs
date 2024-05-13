@@ -55,12 +55,12 @@ But first allow network access from {{ yq-full-name }} to {{ mpg-name }} cluster
 Here is the SQL query format used to access {{ PG }}:
 
 ```sql
-SELECT * FROM postgresql_mdb_connection.<table>
+SELECT * FROM <connection>.<table_name>
 ```
 
 Where:
-* `postgresql_mdb_connection`: Name of the created database connection.
-* `<table>`: Name of the table in the database.
+* `<connection>`: Name of the established database connection.
+* `<table_name>`: Name of the table in the database.
 
 ## Limitations {#limits}
 
@@ -77,7 +77,7 @@ Limitations:
 
 ## Supported data types {#supported_types}
 
-Below is a table of correspondence between {{ PG }} types and {{ yq-full-name }} types.
+The table below shows how {{ PG }} types and {{ yq-full-name }} types map.
 
 | Data type {{ PG }} | Data type {{ yq-full-name }} | Notes |
 |---|----|------|

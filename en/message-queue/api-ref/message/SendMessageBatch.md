@@ -51,10 +51,10 @@ For a list of errors common for all methods, see [{#T}](../common-errors.md).
 ```
 Action=SendMessageBatch
 &Version=2012-11-05
-&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
-&SendMessageBatchRequestEntry.1.Id=123qwe
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
+&SendMessageBatchRequestEntry.1.Id=123********
 &SendMessageBatchRequestEntry.1.MessageBody=HelloWorld
-&SendMessageBatchRequestEntry.2.Id=321ewq
+&SendMessageBatchRequestEntry.2.Id=321********
 &SendMessageBatchRequestEntry.2.MessageBody=WorldHello
 ```
 
@@ -66,18 +66,18 @@ For more information about forming requests, see [General API request format](..
 <SendMessageBatchResponse>
     <SendMessageBatchResult>
         <SendMessageBatchResultEntry>
-            <Id>321ewq</Id>
-            <MD5OfMessageBody>aa1e70b237224fdeff0d04e86dec57ac</MD5OfMessageBody>
-            <MessageId>13b0e327-8aa4cd4e-92feed42-15ccbec</MessageId>
+            <Id>321********</Id>
+            <MD5OfMessageBody>aa1e70b237224fdeff0d04e8********</MD5OfMessageBody>
+            <MessageId>13b0e327-8aa4cd4e-92feed42***-*****</MessageId>
         </SendMessageBatchResultEntry>
         <SendMessageBatchResultEntry>
-            <Id>123qwe</Id>
-            <MD5OfMessageBody>68e109f0f40ca72a15e05cc22786f8e6</MD5OfMessageBody>
-            <MessageId>10e93fc8-266eb1c1-15e67924-15cf4d4</MessageId>
+            <Id>123********</Id>
+            <MD5OfMessageBody>68e109f0f40ca72a15e05cc2********</MD5OfMessageBody>
+            <MessageId>10e93fc8-266eb1c1-15e67924***-*****</MessageId>
         </SendMessageBatchResultEntry>
     </SendMessageBatchResult>
     <ResponseMetadata>
-        <RequestId>7b4175bf-4a7a7572-94e7a240-15ccbeb-c3d59faf841a51e0fd1184b1505d606a</RequestId>
+        <RequestId>7b4175bf-4a7a7572-94e7a240-15ccbeb-c3d59faf841a51e0fd1184b1********</RequestId>
     </ResponseMetadata>
 </SendMessageBatchResponse>
 ```

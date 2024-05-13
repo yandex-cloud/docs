@@ -13,11 +13,11 @@
      
      Идентификатор каталога понадобится, чтобы получить URI модели.
 
-  1. При обращении к {{ yandexart-name }} через API в заголовке `Authorization` каждого запроса указывайте IAM-токен;
+  1. При обращении к {{ foundation-models-name }} через API в заголовке `Authorization` каждого запроса указывайте IAM-токен;
 
-     ```json
-     x-folder-id: <идентификатор_каталога>
-     ```
+      ```bash
+      Authorization: Bearer <IAM-токен>
+      ```
 
 - Сервисный аккаунт {#service-account}
 
@@ -36,7 +36,7 @@
          Authorization: Bearer <IAM-токен>
          ```
 
-   * С помощью [API-ключей](../../iam/concepts/authorization/api-key).
+   * С помощью [API-ключей](../../iam/concepts/authorization/api-key.md).
 
      {% include [api-keys-disclaimer](../../_includes/iam/api-keys-disclaimer.md) %}
 

@@ -1,5 +1,10 @@
 title: Yandex Managed Service for Greenplum®
 href: index.yaml
+label:
+  title: RU
+  description: The service is available in Russia only.
+  theme: unknown
+  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -105,7 +110,9 @@ items:
         href: tutorials/greenplum-to-clickhouse.md
       - name: Migrating a database from {{ MY }} to {{ GP }}
         href: tutorials/mmy-to-mgp.md
-      - name: Exporting {{ GP }} data to cold storage in {{ objstorage-full-name }}
+      - name: >-
+          Exporting {{ GP }} data to a cold storage in {{ objstorage-full-name
+          }}
         href: tutorials/yezzey.md
       - name: >-
           Loading data from {{ objstorage-full-name }} to {{ mgp-name }} using
@@ -143,7 +150,7 @@ items:
         href: concepts/pooling.md
       - name: Maintenance
         href: concepts/maintenance.md
-      - name: Greenplum® settings
+      - name: '{{ GP }} settings'
         href: concepts/settings-list.md
   - name: Access management
     href: security/index.md

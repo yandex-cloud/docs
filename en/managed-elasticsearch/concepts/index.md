@@ -13,7 +13,7 @@ description: "{{ ES }} is a specialized distributed document storage system. Whe
 
 When [creating a cluster](../operations/cluster-create.md), specify the following:
 
-- _Host class_: VM template for deploying the cluster hosts. For a list of available host classes and their specs, see [{#T}](instance-types.md).
+- _Host class_: VM template for deploying the cluster hosts. For a list of available host classes and their specs, see [Host classes](instance-types.md).
 
 - _Host roles_: [_Data node_](hosts-roles.md#data-node) or [_Master node_](hosts-roles.md#master-node).
 

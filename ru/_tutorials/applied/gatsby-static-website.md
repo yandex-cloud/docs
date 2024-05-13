@@ -8,7 +8,7 @@ keywords:
   - gatsby сайт
 ---
 
-# Хостинг статического сайта на фреймворке Gatsby в {{ objstorage-name }} 
+# Хостинг статического сайта на фреймворке Gatsby в {{ objstorage-full-name }} 
 
 С помощью этого руководства вы разместите свой статический сайт, созданный на фреймворке [Gatsby](https://www.gatsbyjs.com/docs), в сервисе {{ objstorage-name }} и настроите доступ к нему по HTTPS-протоколу. 
 

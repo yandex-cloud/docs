@@ -4,7 +4,7 @@ For all DBMS types, you can track:
 
 * CPU, memory, network, or disk usage, in absolute terms.
 * Memory, network, or disk usage as a percentage of the set limits for the corresponding cluster host class.
-* The amount of data in the DB cluster and the remaining free space in data storage.
+* Amount of data in the DB cluster and the remaining free space in the data storage.
 
 For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ GP }}, you can track:
 
@@ -14,6 +14,6 @@ For DB hosts, you can track metrics specific to the corresponding type of DBMS. 
 
 You can monitor with a minimum resolution of 5 seconds.
 
-For more information about monitoring, see [{#T}](../../managed-greenplum/operations/monitoring.md).
+For more information about monitoring, see [Monitoring cluster and host state](../../managed-greenplum/operations/monitoring.md).
 
 {% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}

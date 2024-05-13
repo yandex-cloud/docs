@@ -19,11 +19,11 @@ For a list of supported formats and data compression algorithms, see [{#T}](#wri
 It is convenient to write data using connections for prototyping and initial setup of data write operations. Before writing data to a bucket, create a [connection](object-storage.md#create_connection) to {{ objstorage-short-name }} and use the following SQL statement:
 
 ```sql
-INSERT INTO `<connection_name>`.`<bucket_path>`
+INSERT INTO <connection>.<path>
     WITH
     (
-        format='<format>',
-        compression='<compression>'
+        format='<data_format>',
+        compression='<compression_format>'
     )
 SELECT
     <expression>
@@ -33,9 +33,9 @@ FROM
 
 Where:
 
-* `connection_name`: Name of the connection to {{ objstorage-short-name }}.
-* `bucket_path`: Path within the bucket to write data to.
-* `query`: {{ yq-name }} data source query.
+* `<connection>`: Name of the connection to {{ objstorage-short-name }}.
+* `<path>`: Path within the bucket to write data to.
+* `<query>`: {{ yq-name }} data source query.
 
 ### Example {#connection-write-example}
 
@@ -61,7 +61,7 @@ Where:
 If you need to make data writes on a regular basis, it is handy to use bindings. This helps avoid entering all the details of handling this data in each query. Before writing data to a bucket, create a [data binding](object-storage-binding.md) in {{ objstorage-short-name }} and use the following SQL statement:
 
 ```sql
-INSERT INTO `<binding_name>`
+INSERT INTO `<binding>`
 SELECT
     <expression>
 FROM
@@ -70,8 +70,8 @@ FROM
 
 Where:
 
-* `binding_name`: Name of binding to {{ objstorage-short-name }} data.
-* `query`: {{ yq-name }} data source query.
+* `<binding>`: Name of a binding to {{ objstorage-short-name }} data.
+* `<query>`: {{ yq-name }} data source query.
 
 ### Example {#bindings-write-example}
 

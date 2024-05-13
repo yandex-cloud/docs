@@ -8,6 +8,7 @@
 
 ## Selecting disk type during cluster creation {#storage-type-selection}
 
+
 The number of broker hosts that can be created along with an {{ KF }} cluster depends on the selected disk type:
 
 * With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more broker hosts.
