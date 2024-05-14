@@ -18,7 +18,7 @@ For more information about {{ k8s }} events, see [Collecting, monitoring, and an
 
 ### Collecting events {#collect}
 
-The main tool for collecting {{ yandex-cloud }} level logs is [{{ at-full-name }}](../../audit-trails/concepts/index.md). This service allows you to collect audit logs about events happening to {{ yandex-cloud }} resources and upload these logs to {{ objstorage-full-name }} buckets or {{ cloud-logging-name }} log groups for further analysis or export. For more information, refer to [this guide](../../audit-trails/quickstart.md) on how to start collecting logs. You can also learn more about the [event format](../../audit-trails/concepts/format.md) or check out the [event reference](../../audit-trails/concepts/events.md).
+The main tool for collecting {{ yandex-cloud }} level logs is [{{ at-full-name }}](../../audit-trails/concepts/index.md). This service allows you to collect audit logs about events happening to {{ yandex-cloud }} resources and upload these logs to {{ objstorage-full-name }} buckets or {{ cloud-logging-name }} log groups for further analysis or export. See [this guide](../../audit-trails/quickstart.md) on how to start collecting logs. You can also learn more about the [event format](../../audit-trails/concepts/format.md) or check out the [event reference](../../audit-trails/concepts/events.md).
 
 {% note info %}
 
@@ -52,7 +52,7 @@ Solutions for exporting {{ yandex-cloud }} audit logs are available for the foll
 
    ![](../../_assets/overview/solution-library-icon.svg)[Solution: Collecting, monitoring, and analyzing audit logs in Splunk SIEM](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-splunk)
 
-Utilities like [GeeseFS](../../storage/tools/geesefs.md) or [s3fs](../../storage/tools/s3fs.md) can help set up export to any SIEM. They allow you to mount an {{ objstorage-full-name }} bucket as a VM's local disk. Next, you need to install a SIEM connector on the VM and configure reading JSON files from the bucket.
+You can use the [GeeseFS](../../storage/tools/geesefs.md) or [s3fs](../../storage/tools/s3fs.md) utilities to set up export to any SIEM. They allow you to mount an {{ objstorage-full-name }} bucket as your VM's local disk. Next, you need to install a SIEM connector on the VM and configure reading JSON files from the bucket.
 
 #### Metrics {{ monitoring-full-name }}
 
@@ -89,4 +89,4 @@ Currently, {{ vpc-short-name }} network traffic event logs (Flow Logs) can only 
 
 ## Time synchronization {#time-synch}
 
-To get the exact time of OS- and application-level events, configure clock synchronization by following the [instructions](../../compute/tutorials/ntp.md).
+To get the exact time of OS- and application-level events, configure clock synchronization by following [this guide](../../compute/tutorials/ntp.md).

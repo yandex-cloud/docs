@@ -40,6 +40,8 @@ items:
         href: concepts/index.md
       - name: Секрет
         href: concepts/secret.md
+      - name: Интеграция с сервисами {{ yandex-cloud }}
+        href: concepts/services.md
   - name: Практические руководства
     items:
       - name: Все руководства

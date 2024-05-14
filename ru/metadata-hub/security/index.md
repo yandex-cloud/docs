@@ -16,15 +16,17 @@ description: "Управление доступом в сервисе {{ metadat
 
 ## На какие ресурсы можно назначить роль {#resources}
 
-{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+Роль можно назначить на [организацию](../../organization/quickstart.md), [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) или [подключение](../concepts/connection-manager.md). Роли, назначенные на организацию, облако или каталог, действуют и на вложенные ресурсы.
 
-На [подключение](../concepts/connection-manager.md) можно назначить роль в консоли управления.
+Роль на подключение можно назначить в консоли управления.
 
 ## Какие роли действуют в сервисе {{ connection-manager-name }}{#roles-list}
 
 Для управления правами доступа к подключениям вы можете использовать роли сервиса {{ metadata-hub-full-name }} (_сервисные роли_) и роли {{ yandex-cloud }} (_примитивные роли_).
 
 ### Сервисные роли для управления подключениями с помощью {{ connection-manager-full-name }} {#service-roles}
+
+С помощью сервисных ролей {{ connection-manager-full-name }} вы сможете просматривать несекретные данные подключений и управлять подключениями. Просматривать секретные данные подключений, такие как пароли доступа к БД, можно в сервисе [{{ lockbox-full-name }}](../../lockbox/index.yaml). Для этого дополнительно необходима [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
 
 #### connection-manager.auditor {#connection-manager-auditor}
 

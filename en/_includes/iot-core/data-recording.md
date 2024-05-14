@@ -352,8 +352,8 @@ The trigger will accept copies of messages from the device topic and pass them t
 
 To shut down the infrastructure and stop paying for the resources you created:
 
-1. [Delete](../../iot-core/operations/device/device-delete.md) a device.
-1. [Delete](../../iot-core/operations/registry/registry-delete.md) a registry.
-1. [Delete](../../managed-postgresql/operations/cluster-delete.md) a {{ PG }} cluster.
-1. [Delete](../../functions/operations/trigger/trigger-delete.md) a trigger.
-1. [Delete](../../functions/operations/function/function-delete.md) a function.
+1. [Delete](../../iot-core/operations/device/device-delete.md) the device.
+1. [Delete](../../iot-core/operations/registry/registry-delete.md) the registry.
+1. [Delete](../../managed-postgresql/operations/cluster-delete.md) the {{ PG }} cluster.
+1. [Delete](../../functions/operations/trigger/trigger-delete.md) the trigger.
+1. [Delete](../../functions/operations/function/function-delete.md) the function.

@@ -2,7 +2,7 @@ title: '{{ serverless-containers-full-name }}'
 href: index.yaml
 label:
   title: RU
-  description: The service is available in Russia only.
+  description: This service is only available in Russia.
   theme: unknown
   when: region == "kz"
 items:

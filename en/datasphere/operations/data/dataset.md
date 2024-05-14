@@ -207,6 +207,12 @@ On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-reso
 
 To make a dataset available for use in another project, the project administrator should [add](../projects/use-shared-resource.md) it to the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
 
+## Deactivating a dataset {#deactivate}
+
+1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
+1. On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
+1. In the line with the appropriate dataset, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.deactivate }}**.
+
 ## Deleting a dataset {#delete}
 
 You can delete a dataset only if it is:

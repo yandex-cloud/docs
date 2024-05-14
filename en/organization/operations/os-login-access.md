@@ -30,10 +30,10 @@ To enable OS Login access at the organization level:
       * **{{ ui-key.yacloud_org.form.oslogin-settings.title_ssh-certificate-settings }}**.
          The option allows you to connect to a VM or {{ k8s }} cluster node with an OS Login certificate [via the YC CLI](../../compute/operations/vm-connect/os-login.md#connect-via-cli) or a [standard SSH client](../../compute/operations/vm-connect/os-login.md#connect-via-exported-certificate).
 
-      * **Access via OS Login using SSH keys**.
+      * **{{ ui-key.yacloud_org.form.oslogin-settings.title_user-ssh-key-settings }}**.
          The option allows you to connect to a VM or {{ k8s }} cluster node via the YC CLI with an [SSH key](../../compute/operations/vm-connect/os-login.md#connect-via-key) stored in an organization user profile.
 
-      * **Allowing users to upload their own SSH keys**.
+      * **{{ ui-key.yacloud_org.form.oslogin-settings.title_allow-edit-own-keys }}**.
          The option is available if OS Login access with SSH keys is enabled.
          It allows users to [upload](./add-ssh.md) public SSH keys to their profile to connect to VMs or {{ k8s }} cluster nodes on their own.
 

@@ -13,7 +13,7 @@ Labels are subject to the following restrictions:
    * May contain lowercase Latin letters, numbers, hyphens, and underscores.
    * Must start with a letter.
 * The value:
-   * It may be up to 63 characters long.
+   * May be up to 63 characters long.
    * May contain lowercase Latin letters, numbers, hyphens, and underscores.
 
 ## Services that support labels {#services}

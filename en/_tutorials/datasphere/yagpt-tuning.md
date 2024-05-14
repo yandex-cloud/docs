@@ -93,12 +93,9 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
 
 1. Set **{{ ui-key.yc-ui-datasphere.foundation-model.learning-rate }}**. The learning rate determines the step size at each iteration when searching for the optimal solution. The higher the value, the faster the model will converge, but also the higher the risk of model tuning.
 
-1. Under **{{ ui-key.yc-ui-datasphere.foundation-model.data-for-tuning }}**:
+1. Under **{{ ui-key.yc-ui-datasphere.foundation-model.data-for-tuning }}**, attach a JSON file with request and response pairs in the **{{ ui-key.yc-ui-datasphere.foundation-model.samples-file }}** field.
 
-    * In the **{{ ui-key.yc-ui-datasphere.foundation-model.samples-file }}** field, attach your JSON file with query/response pairs.
-    * In the **{{ ui-key.yc-ui-datasphere.foundation-model.instruction }}** field, describe the task conditions, context, and possible limitations, or set the response style. This step is optional; however, after you run tuning, you will not be able to change the instruction. The instruction will be part of the fine-tuned model.
-
-1. Click **{{ ui-key.yc-ui-datasphere.foundation-model.start-tuning }}** and wait for the model to be tuned.
+1. Click **{{ ui-key.yc-ui-datasphere.foundation-model.start-tuning }}** and wait for the model to be tuned. This may take several hours.
 
 1. To check the status of your fine-tuned model:
 
@@ -144,7 +141,7 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
                 "role": "user",
                 "text": "<prompt_text>"
                 }
-            ]            
+            ]
     }
     headers = {"Authorization" : "Bearer " + '<IAM_token>',
             "x-folder-id": "<folder_ID>", }

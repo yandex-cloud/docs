@@ -7,7 +7,7 @@ description: "Follow this guide to add SSH keys to a user profile that will allo
 
 Upload SSH keys to the organization user profile in {{ org-name }} to use them to connect to virtual machines and {{ managed-k8s-full-name }} cluster nodes with [OS Login](../concepts/os-login.md) access enabled.
 
-To add an SSH key to a user profile, make sure the **OS Login access using SSH keys** option is [enabled](./os-login-access.md) at the organization level. If required, [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a new SSH key pair.
+To add an SSH key to a user profile, make sure the **{{ ui-key.yacloud_org.form.oslogin-settings.title_user-ssh-key-settings }}** option is [enabled](./os-login-access.md) at the organization level. If required, [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a new SSH key pair.
 
 To add an SSH key to an organization user profile:
 
@@ -176,4 +176,4 @@ To add an SSH key to an organization user profile:
 
 {% endlist %}
 
-To allow users to upload SSH keys to their own profiles, [enable](./os-login-access.md) the **Allow users to upload their own SSH keys** option.
+To allow users to upload SSH keys to their own profiles, [enable](./os-login-access.md) the **{{ ui-key.yacloud_org.form.oslogin-settings.title_allow-edit-own-keys }}** option.
