@@ -28,7 +28,7 @@ items:
           "Creating an instance group from a {{ coi }} with multiple Docker
           containers"
         href: tutorials/ig-with-containers.md
-      - name: Updating a VM with a {{ coi }}
+      - name: Updating a VM from a {{ coi }}
         href: tutorials/vm-update.md
       - name: Configuring data output from a Docker container to a serial port
         href: tutorials/serial-port.md

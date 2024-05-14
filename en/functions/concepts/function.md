@@ -41,7 +41,10 @@ When creating a new version, it's assigned the `$latest` tag by default.
 
 ### Model description {#model-desc}
 
-To enable a function call, describe a _handler_ in it. It is defined when writing code. The handler handles the data received by invoking respective functions and methods in the code. The handler should accept the data that comes with function requests and the context provided by {{ sf-name }}.
+To enable a function call, describe a _handler_ in it. It is defined when writing code. The handler handles the data received by invoking respective functions and methods in the code. The handler should accept the data that comes with function requests and the context provided by {{ sf-name }}. Some [runtime environments](runtime/index.md) have requirements for an absolute path to the handler file:
+
+* Python, Go, Java: No `.` in the file name before the extension, e.g., `.handler.py`.
+* .NET Core: No `.` in the file name before the extension and at the beginning of the name of the directory containing the handler file, e.g., `.handler.cs` or `.test/handler.cs`.
 
 _Context_ allows your function code to interact with {{ sf-name }}. For example, the function can use it to find how much time is left before {{ sf-name }} completes its execution.
 

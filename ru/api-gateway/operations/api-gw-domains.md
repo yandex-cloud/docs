@@ -60,7 +60,7 @@
         1. В строке с доменом нажмите кнопку **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
         1. Если у вас нет DNS-зоны, имя которой совпадает с доменом, создайте ее. Для этого нажмите **{{ ui-key.yacloud.dns.button_zone-create }}**.
         1. Если необходимо, в поле **{{ ui-key.yacloud.dns.label_form-ttl }}** выберите другое значение.
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
         
 - API {#api}
 

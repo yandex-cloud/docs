@@ -141,7 +141,7 @@
                 "role": "user",
                 "text": "<текст_запроса>"
                 }
-            ]            
+            ]
     }
     headers = {"Authorization" : "Bearer " + '<IAM-токен>',
             "x-folder-id": "<идентификатор_каталога>", }
@@ -178,7 +178,7 @@
                 "role": "user",
                 "text": "<текст_запроса>"
                 }
-            ]    
+            ]
     }
     headers = {"Authorization" : "Bearer " + '<IAM-токен>',
                        "x-folder-id": "<идентификатор_каталога>", }

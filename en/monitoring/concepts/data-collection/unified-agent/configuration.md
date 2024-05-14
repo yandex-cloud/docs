@@ -71,7 +71,7 @@ status: # optional
   # You can disable status viewing with the "false" value.
   enabled: true # optional, true by default
 
-  # Host for viewing the status, null/empty string/::: on all interfaces.
+  # Host for viewing the status, null/empty string/:: — on all interfaces.
   # For security reasons, the status service is only available locally by default.
   host: localhost # optional
 
@@ -599,8 +599,8 @@ Parameter descriptions:
     config:
         # The output format to convert the incoming set of metrics to.
         # Exactly one of the nested elements must be specified.
-        format: # required
-          # Convert the {{ monitoring-full-name }} format (../../../api-ref/MetricsData/write.md) to JSON
+        format:  # Required
+          # Convert to JSON {{ monitoring-full-name }} (../../../api-ref/MetricsData/write.md)
           json:
               # Whether you need to merge metrics with the same tags.
               # Possible values: default (merging disabled), merge_metrics (merging enabled).
@@ -644,8 +644,8 @@ The filter allows you to decrease the set of metrics being transferred based on 
     plugin: filter_metrics
     config:
         # Condition for metrics to be left. All other metrics are filtered out.
-        # You can find the syntax description here: https://yandex.cloud/en/docs/monitoring/concepts/querying#selectors
-        match: "{name=gauge-*}" # required
+        # You can learn more about the syntax here: https://yandex.cloud/en/docs/monitoring/concepts/querying#selectors
+        match: "{name=gauge-*}" # Required
 ```
 
 #### match filter {#match_filter}

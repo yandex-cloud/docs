@@ -18,6 +18,8 @@ items:
             href: concepts/zone-migration.md
           - name: Migrating resources through partners
             href: concepts/zone-migration-partners.md
+          - name: Consequences of forced migration from the {{ region-id }}-c zone
+            href: concepts/zone-migration-consequences.md
       - name: Network overview
         href: concepts/network.md
       - name: User interaction with resources

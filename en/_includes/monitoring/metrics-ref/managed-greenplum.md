@@ -1,4 +1,4 @@
-The name of the metric is written in the `name` label.
+The metric name is written in the `name` label.
 
 Common labels for all {{ mgp-name }} metrics:
 
@@ -146,7 +146,7 @@ Additional labels: `dev`: Disk ID in the system.
 | `net.ip_forwarding`<br/>`DGAUGE` | IP forwarding status (SNMP): `0` for disabled, `1` for enabled |
 | `net.ip_forwdatagrams`<br/>`DGAUGE`, number | Number of input packets for which this object was not their final IP destination resulting in an attempt to find a route to forward them to that final destination. In objects which do not act as IP Gateways, this counter will include only those packets that were source-routed through this object, and for which the source route parameter was processed successfully. |
 | `net.ip_fragcreates`<br/>`DGAUGE`, number | Number of IP packet fragments generated as a result of fragmentation in this object |
-| `net.ip_fragfails`<br/>`DGAUGE`, number | Number of IP packets dropped because they were subject to fragmenting in this object but could not be fragmented, e.g., due to the Do Not Fragment flag. |
+| `net.ip_fragfails`<br/>`DGAUGE`, number | Number of IP packets dropped because they were subject to fragmenting in this object but could not be fragmented, e.g., due to the Do Not Fragment flag |
 | `net.ip_fragoks`<br/>`DGAUGE`, number | Number of successfully fragmented IP packets |
 | `net.ip_inaddrerrors`<br/>`DGAUGE`, number | Number of input packets dropped because the IP address in their IP header's destination field was not a valid address to be received in this object. This count includes invalid addresses, such as `0.0.0.0`, and addresses of unsupported classes, e.g., Class E. For objects that are not IP Gateways and, as such, do not forward packets, this counter includes packets dropped because the destination address was not a local one. |
 | `net.ip_indelivers`<br/>`DGAUGE`, number | Total number of IP packets delivered |
@@ -390,17 +390,32 @@ Additional labels: `dev`: Disk ID in the system.
 | `system.uptime`<br/>`DGAUGE`, % | Uptime percentage |
 
 ## PXF metrics {#managed-greenplum-pxf-metrics}
+
+PXF labels all metrics it returns with the `application` label set to `pxf-service`.
+
+Additional labels:
+
+* `profile`: PXF profile name.
+* `segment`: ID of the database segment processing a specific data part.
+* `server`: Name of the server PXF works with to access data.
+* `user`: Name of the user running the operation.
+
 | Name<br/>Type, unit | Description |
 | ----- | ----- |
 | `pxf.jvm_memory_committed_bytes`<br/>`DGAUGE`, bytes | JVM PFX memory allocated by the OS |
 | `pxf.jvm_memory_max_bytes`<br/>`DGAUGE`, bytes | Maximum available JVM PXF memory |
 | `pxf.jvm_memory_used_bytes`<br/>`DGAUGE`, bytes | JVM PFX memory used |
-| `pxf.jvm_threads_daemon_threads`<br/>`DGAUGE`, number | Number of  JVM PXF daemon threads |
+| `pxf.jvm_threads_daemon_threads`<br/>`DGAUGE`, number | Number of JVM PXF daemon threads |
 | `pxf.jvm_threads_live_threads`<br/>`DGAUGE`, number | Number of active JVM PXF threads |
 | `pxf.jvm_threads_states_threads`<br/>`DGAUGE`, number | Number of JVM PXF threads in each state |
 | `pxf.log4j2_events_total`<br/>`DGAUGE`, number | Total number of Log4j2 events in JVM PXF |
 | `pxf.process_files_max_files`<br/>`DGAUGE`, number | Maximum number of simultaneously open files during the PXF process |
 | `pxf.process_files_open_files`<br/>`DGAUGE`, number | Current number of open files during the PXF process |
+| `pxf.pxf_bytes_receivced_total`<br/>`DGAUGE`, bytes | Number of bytes received by PXF |
+| `pxf.pxf_bytes_sent_total`<br/>`DGAUGE`, bytes | Number of bytes sent by PXF |
+| `pxf.pxf_fragments_sent`<br/>`DGAUGE`, number | Number of data fragments sent by PXF.<br/>Additional label: `outcome`. It takes the `success` value if all fragment data is successfully sent, and the `error` value, if not. |
+| `pxf.pxf_records_receivced_total`<br/>`DGAUGE`, number | Number of records received by PXF |
+| `pxf.pxf_records_sent_total`<br/>`DGAUGE`, number | Number of records sent by PXF |
 | `pxf.tomcat_connections_config_max_connections`<br/>`DGAUGE`, number | Maximum number of connections in Tomcat PXF settings |
 | `pxf.tomcat_connections_current_connections`<br/>`DGAUGE`, number | Current number of connections in Tomcat PXF |
 | `pxf.tomcat_connections_keepalive_current_connections`<br/>`DGAUGE`, number | Current number of keepalive connections in Tomcat PXF |
