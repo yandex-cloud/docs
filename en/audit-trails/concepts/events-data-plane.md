@@ -17,6 +17,7 @@ On this page, you will find events for the following services:
 * [{{ mmy-name }}](#mmy)
 * [{{ mpg-name }}](#mpg)
 * [{{ objstorage-name }}](#objstorage)
+* [{{ speechsense-name }}](#speechsense)
 
 ## {{ dns-name }} {#dns}
 
@@ -65,3 +66,9 @@ Service name: `mdb.postgresql`.
 Service name: `storage`.
 
 {% include [storage-events-dp](../../_includes/audit-trails/events/storage-events-dp.md) %}
+
+## {{ speechsense-name }} {#speechsense}
+
+Service name: `speechsense`.
+
+{% include [speechsense-events-dp](../../_includes/audit-trails/events/speechsense-events-dp.md) %}

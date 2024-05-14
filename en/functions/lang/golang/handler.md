@@ -1,6 +1,6 @@
-# Function request handler in Go
+# Request handler for a function in Go
 
-A _request handler_ is a method used to process each Go function call. When creating a function version, you should specify the entry point that consists of the file name and request handler name, e.g., `index.Handler`.
+A _request handler_ is a method used to process each Go function call. When creating a function version, you should specify the entry point that consists of the file name and the request handler name, e.g., `index.Handler`. The name of the handler file must contain no `.` before the extension, e.g., `.handler.go`.
 
 * To work properly, the handler must reside in the `main` package.
 * To make the handler available outside the module (file), export it by typing the first letter of its name in uppercase.
@@ -14,9 +14,9 @@ At any given time, a single function instance processes only one request. This a
 ## Cloud Functions signature {#functions}
 
 When calling the handler, the runtime environment may pass the following arguments:
-1. The invocation context (the `context` parameter).
+1. Invocation context (`context` parameter).
 
-   The context contains the necessary information about the function version. The structure of this object is described in [{#T}](context.md).
+   The context contains the requred information about the function version. The structure of this object is described in [{#T}](context.md).
    If the second argument (HTTP request body) is present, the invocation context must be the first in the list of arguments.
 1. HTTP request body (`request` parameter).
 
@@ -27,13 +27,13 @@ All the above arguments are **optional**.
 If the argument responsible for the request body is missing, any function input data is **ignored**.
 
 The runtime environment returns the function execution result as a data set:
-1. The response body (the `response` value).
+1. Response body (`response` value).
 
    The body can be represented by an array of bytes, a string, a custom type, or a pointer to it, as well as an [empty interface](https://go.dev/tour/methods/14). In the first two cases, to get the correct response, you should run functions by specifying the `?integration=raw` request string parameter. Learn more about invoking functions in the [relevant section](../../concepts/function-invoke.md#http). In the other cases, the response value is converted to an object of the corresponding type using the `json.Unmarshal` method and returned as a JSON document.
 
-1. An error (the `error` value).
+1. Error (`error` value).
 
-   If an error occurs when calling a function, it's recommended to return an appropriate error message. If `error != nil`, the response body, if any, is ignored. **Important**: An error is a **mandatory** return value. In other words, if the response body is missing, an error must be returned as the only return value of the function, otherwise the error must be the last on the list of return values.
+   If an error occurs when invoking a function, it is recommended to return an appropriate error message. If `error != nil`, the response body, if any, is ignored. **Important**: An error is a **mandatory** return value. In other words, if the response body is missing, an error must be returned as the only return value of the function; otherwise, the error must be the last on the list of return values.
 
 ## Standard Go signature {#go}
 

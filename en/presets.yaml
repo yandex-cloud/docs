@@ -316,6 +316,7 @@ default:
   m2-xlarge: m2.xlarge (12 vCPU, 96 GB)
   maf-full-name: Yandex Managed Service for Apache Airflow™
   maf-name: Managed Service for Apache Airflow™
+  maf-short-name: Managed Service for Apache Airflow™
   managed-k8s-full-name: Yandex Managed Service for Kubernetes
   managed-k8s-name: Managed Service for Kubernetes
   managed-prometheus-full-name: Yandex Managed Service for Prometheus®
@@ -4215,8 +4216,6 @@ default:
         value_retention-save-last-f: Only the last
       billing:
         account:
-          dashboard-resources:
-            section_resources: Clouds
           detail:
             tab_product: By product
           reconciliation-reports:
@@ -4229,7 +4228,6 @@ default:
           switch_acts: Reporting documents
           tab_reconciliation-reports-title: Reconciliation reports
         label_accounts: Accounts
-        label_service: Billing
       cdn:
         button_activate-shielding: Activate
         button_add-domain: Add domain name
@@ -7643,7 +7641,6 @@ default:
         external-ide-vm-configuration: VM configuration for remote connection
       foundation-model:
         data-for-tuning: Data for tuning
-        instruction: Instruction
         learning-rate: Learning rate
         samples-file: File with samples
         start-tuning: Start tuning

@@ -56,6 +56,9 @@ The system functionality will be enhanced in upcoming releases.
 
 {% include [quotes-limits-def.md](../../../_includes/quotes-limits-def.md) %}
 
+If you need more resources, contact technical support at [{{ link-support-mail }}](mailto:{{ link-support-mail }}) and tell us which quotas you want increased and by how much.
+
+
 ### Quotas per endpoint {#quotas-per-endpoint}
 
 | Type of limit | Value |

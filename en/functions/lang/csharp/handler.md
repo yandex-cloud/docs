@@ -1,7 +1,6 @@
-# {{ sf-name }} call handler in C#
+# Request handler for a {{ sf-name }} function in C#
 
-A _call handler_ is a method used to handle each C# function call. When creating a function version, you need to specify the entry point: the name of the class that contains the handler (e.g., `FunctionNamespace.Handler`).
-
+A _request handler_ is a method used to process each C# function call. When creating a function version, you should specify the entry point, i.e., the name of the class containing the handler, e.g., `FunctionNamespace.Handler`. The name of the handler file must contain no `.` before the extension and at the beginning of the name of the directory containing the handler file, e.g., `.handler.cs` or `.test/handler.cs`.
 
 {% note info %}
 
@@ -9,9 +8,4 @@ At any given time, a single function instance processes only one request. This a
 
 {% endnote %}
 
-
-Depending on the programming model, the handler can accept and return different data. For more detail on this and on available ways to set a call handler, see the [relevant section](model/index.md).
-
-
-
-
+Depending on the programming model, the handler can accept and return different data. For more information about this and available ways to set the request handler, see the [relevant section](model/index.md).

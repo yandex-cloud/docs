@@ -1,6 +1,6 @@
-# Python function request handler
+# Request handler for a function in Python
 
-A _request handler_ is a method used to process each Python function call. When creating a function version, you should specify an entry point that consists of a file name and a request handler name, e.g., `main.handler`.
+A _request handler_ is a method used to process each Python function call. When creating a function version, you should specify the entry point that consists of the file name and the request handler name, e.g., `main.handler`. The name of the handler file must contain no `.` before the extension, e.g., `.handler.py`.
 
 {% note info %}
 
@@ -14,7 +14,7 @@ When invoking the handler, the runtime provides the following arguments:
    * If a function was invoked with the `?integration=raw` request string parameter, the HTTP request body is provided to the function as is (unprocessed).
 1. [Invocation context](context.md) (`context` parameter).
 
-   The context contains the necessary information about the function version. The structure of this object is described in [{#T}](context.md).
+   The context contains the requred information about the function version. The structure of this object is described in [{#T}](context.md).
 
 ## Handler types {#type}
 

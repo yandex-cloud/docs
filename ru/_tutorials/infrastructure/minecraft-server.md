@@ -1,3 +1,18 @@
+---
+title: "Игровой сервер Minecraft в облаке {{ yandex-cloud }}"
+description: "Игровой сервер в облаке — это мощное решение для эффективной игры в Minecraft. Следуйте этому руководству, чтобы настроить и развернуть свой собственный сервер на платформе {{ yandex-cloud }}."
+keywords:
+  - minecraft
+  - сервер minecraft
+  - игровой сервер minecraft
+  - игровой сервер
+  - игровой сервер в облаке
+  - игровой сервер {{ yandex-cloud }}
+  - развертывание игрового сервера
+  - настройка игрового сервера
+  - minecraft в {{ yandex-cloud }}
+---
+
 # Развертывание сервера Minecraft в {{ yandex-cloud }}
 
 С помощью руководства вы развернете сервер [Minecraft](https://www.minecraft.net/) ([Java Edition](https://www.minecraft.net/en-us/store/minecraft-java-edition/)) актуальной версии в {{ yandex-cloud }} на [виртуальной машине](../../compute/concepts/vm.md) с Ubuntu 22.04.

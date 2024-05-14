@@ -12,10 +12,10 @@ The {{ yandex-cloud }} team has prepared a set of solutions for exporting audit 
 
 <small>How to choose an architecture</small>
 
-As of today, solutions have been prepared for the following SIEM systems:
-* [{{ mos-full-name }}](../tutorials/trails-logs-opensearch.md).
-* [ArcSight](../tutorials/export-logs-to-arcsight.md).
-* [Splunk](../tutorials/export-logs-to-splunk.md).
-* [MaxPatrol SIEM](../tutorials/maxpatrol.md).
+As of today, we have solutions for the following SIEMs:
+* [{{ mos-full-name }}](../tutorials/trails-logs-opensearch.md)
+* [ArcSight](../tutorials/export-logs-to-arcsight.md)
+* [Splunk](../tutorials/export-logs-to-splunk.md)
+* [MaxPatrol SIEM](../tutorials/maxpatrol.md)
 
 All the solutions provide continuous delivery of audit log files from buckets to the SIEM system and also contain correlation rules, dashboards, and preset queries to search for important security events. The {{ yandex-cloud }} team supports and regularly updates all the solutions.

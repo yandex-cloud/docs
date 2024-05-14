@@ -317,6 +317,7 @@ default:
   m2-xlarge: m2.xlarge (12 vCPU, 96 ГБ)
   maf-full-name: Yandex Managed Service for Apache Airflow™
   maf-name: Managed Service for Apache Airflow™
+  maf-short-name: Managed Service for Apache Airflow™
   managed-k8s-full-name: Yandex Managed Service for Kubernetes
   managed-k8s-name: Managed Service for Kubernetes
   managed-prometheus-full-name: Yandex Managed Service for Prometheus®
@@ -4217,8 +4218,6 @@ default:
         value_retention-save-last-f: Только последнюю
       billing:
         account:
-          dashboard-resources:
-            section_resources: Облака
           detail:
             tab_product: По продуктам
           reconciliation-reports:
@@ -4231,7 +4230,6 @@ default:
           switch_acts: Отчётные документы
           tab_reconciliation-reports-title: Акты сверки
         label_accounts: Аккаунты
-        label_service: Биллинг
       cdn:
         button_activate-shielding: Включить
         button_add-domain: Добавить доменное имя
@@ -7645,7 +7643,6 @@ default:
         external-ide-vm-configuration: Конфигурация ВМ для удаленного подключения
       foundation-model:
         data-for-tuning: Данные для дообучения
-        instruction: Инструкция
         learning-rate: Темп обучения
         samples-file: Файл с примерами
         start-tuning: Запустить дообучение

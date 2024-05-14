@@ -54,6 +54,18 @@ items:
             href: operations/alert/create-channel.md
           - name: Удаление алерта
             href: operations/alert/delete-alert.md
+  - name: Агент сбора метрик
+    items:
+      - name: Обзор
+        href: concepts/data-collection/unified-agent/index.md
+      - name: Установка и запуск
+        href: concepts/data-collection/unified-agent/installation.md
+      - name: Конфигурирование
+        href: concepts/data-collection/unified-agent/configuration.md
+      - name: Рекомендации по использованию агента
+        href: concepts/data-collection/unified-agent/best-practices.md
+      - name: Удаление
+        href: concepts/data-collection/unified-agent/delete.md
   - name: Концепции
     items:
       - name: Обзор сервиса
@@ -70,20 +82,6 @@ items:
             href: concepts/visualization/widget.md
           - name: Дашборд
             href: concepts/visualization/dashboard.md
-      - name: Передача метрик
-        items:
-          - name: Агент для поставки метрик
-            items:
-              - name: Обзор
-                href: concepts/data-collection/unified-agent/index.md
-              - name: Установка и запуск
-                href: concepts/data-collection/unified-agent/installation.md
-              - name: Конфигурирование
-                href: concepts/data-collection/unified-agent/configuration.md
-              - name: Рекомендации по использованию агента
-                href: concepts/data-collection/unified-agent/best-practices.md
-              - name: Удаление
-                href: concepts/data-collection/unified-agent/delete.md
       - name: Язык запросов
         href: concepts/querying.md
       - name: Алертинг
@@ -222,6 +220,8 @@ items:
         href: metrics-ref/captcha-ref.md
       - name: '{{ sws-name }}'
         href: metrics-ref/smartwebsecurity-ref.md
+      - name: '{{ unified-agent-short-name }}'
+        href: metrics-ref/unifiedagent-ref.md
   - name: История изменений
     href: release-notes.md
   - name: Вопросы и ответы

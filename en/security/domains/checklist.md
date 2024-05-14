@@ -93,7 +93,7 @@ description: "In this tutorial, you will learn about {{ yandex-cloud }} security
 * **Exporting {{ at-name }} events to SIEM**.
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Exporting to ArcSight](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-arcsight)
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Exporting to Splunk](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-splunk)
-  You can export event data to any SIEM using s3fs, see the [instructions](../../storage/tools/s3fs.md).
+  You can export event data to any SIEM using s3fs, see this [guide](../../storage/tools/s3fs.md).
 * **Use cases**.
   ![](../../_assets/overview/solution-library-icon.svg)[Use cases and important security events in audit logs](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/_use_cases_and_searches)
 * **Responding to {{ at-name }} with {{ sf-name }}**:

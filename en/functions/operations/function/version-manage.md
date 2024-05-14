@@ -16,7 +16,7 @@ description: "Follow this guide to create a function version."
 When creating a version, set the following parameters:
 
 * _{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}_: Provides additional libraries and environment variables that can be accessed from the function code. It corresponds to the programming language that your function is written in. For more information, see [Runtime environment](../../concepts/runtime/index.md).
-* _{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}_: Function to be invoked as a handler. To read more about the handler, see [Programming model](../../concepts/function.md#programming-model).
+* _{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}_: Function to be invoked as a [handler](../../concepts/function.md#programming-model).
 * _{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}_: Maximum function execution time, after which the service will terminate its execution without waiting for a response. It includes the time of the first initialization when the function is first run.
 
 {% list tabs group=instructions %}
@@ -104,10 +104,10 @@ When creating a version, set the following parameters:
       * `yandex_function`: Description of the function being created and its source code.
          * `name`: Function name.
          * `description`: Text description of the function.
-         * `user_hash`: Arbitrary string that identifies the function version. When the function changes, update this string, too. The function will update when this string is updated.
+         * `user_hash`: Any string to identify the function version. When the function changes, update this string, too. The function will update when this string is updated.
          * `runtime`: Function [runtime environment](../../concepts/runtime/index.md).
          * `entrypoint`: Function name in the source code that will serve as an entry point to the applications.
-         * `memory`: Amount of memory allocated for function execution, in MB.
+         * `memory`: Amount of memory allocated for the function, in MB.
          * `execution_timeout`: Function execution timeout.
          * `service_account_id`: ID of the service account to invoke the function under.
          * `content`: Function source code.

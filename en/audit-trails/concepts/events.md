@@ -15,41 +15,42 @@ On this page, you will find events for the following services:
 * [{{ alb-name }}](#alb)
 * [{{ at-name }}](#audit-trails)
 * [{{ certificate-manager-name }}](#certificate-manager)
-* [{{ cloud-apps-name }}](#cloud-apps)
-* [{{ dns-name }}](#dns)
-* [{{ sf-name }}](#functions)
 * [{{ backup-name }}](#backup)
 * [{{ cdn-name }}](#cdn)
+* [{{ dns-name }}](#dns)
+* [{{ sf-name }}](#functions)
 * [{{ cloud-logging-name }}](#cloud-logging)
 * [{{ marketplace-name }}](#marketplace)
+* [{{ org-name }}](#organization)
+* [{{ cloud-apps-name }}](#cloud-apps)
 * [{{ compute-name }}](#compute)
 * [{{ container-registry-name }}](#container-registry)
 * [{{ dataproc-name }}](#dataproc)
-* [{{ data-transfer-name }}](#datatransfer)
 * [{{ ml-platform-name }}](#datasphere)
+* [{{ data-transfer-name }}](#datatransfer)
 * [{{ iam-name }}](#iam)
 * [{{ iot-name }}](#iot)
 * [{{ kms-name }}](#kms)
 * [{{ load-testing-name }}](#loadtesting)
 * [{{ lockbox-name }}](#lockbox)
-* [{{ mkf-short-name }}](#managed-service-for-kafka)
 * [{{ mch-short-name }}](#managed-service-for-clickhouse)
 * [{{ mgl-full-name }}](#managed-service-for-gitlab)
 * [{{ mgp-short-name }}](#managed-service-for-greenplum)
-* [{{ mmg-short-name }}](#managed-service-for-mongodb)
+* [{{ mkf-short-name }}](#managed-service-for-kafka)
 * [{{ managed-k8s-name }}](#managed-service-for-kubernetes)
+* [{{ mmg-short-name }}](#managed-service-for-mongodb)
 * [{{ mmy-short-name }}](#managed-service-for-mysql)
+* [{{ mos-short-name }}](#managed-service-for-opensearch)
 * [{{ mpg-short-name }}](#managed-service-for-postgresql)
 * [{{ mrd-short-name }}](#managed-service-for-redis)
-* [{{ mos-short-name }}](#managed-service-for-opensearch)
 * [{{ network-load-balancer-name }}](#network-load-balancer)
 * [{{ objstorage-name }}](#objstorage)
+* [{{ resmgr-name }}](#resmgr)
 * [{{ search-api-name }}](#searchapi)
 * [{{ serverless-containers-name }}](#serverless-containers)
-* [{{ org-name }}](#organization)
-* [{{ resmgr-name }}](#resmgr)
-* [{{ sws-name }}](#smartwebsecurity)
 * [{{ captcha-name }}](#smartcaptcha)
+* [{{ sws-name }}](#smartwebsecurity)
+* [{{ speechsense-name }}](#speechsense)
 * [{{ vpc-name }}](#vpc)
 * [{{ ydb-short-name }}](#ydb)
 * [{{ yq-short-name }}](#yq)
@@ -59,7 +60,6 @@ On this page, you will find events for the following services:
 Service name: `serverless.apigateway`.
 
 {% include [api-gw-events](../../_includes/audit-trails/events/api-gw-events.md) %}
-
 
 ## {{ alb-name }} {#alb}
 
@@ -79,12 +79,12 @@ Service name: `audittrails`.
 | `UpdateTrail` | Editing a trail |
 | `UpdateTrailAccessBindings` | Updating access bindings for a trail |
 
-## {{ sf-name }} {#functions}
 
-Service name: `serverless`.
+## {{ certificate-manager-name }} {#certificate-manager}
 
-{% include [functions-events](../../_includes/audit-trails/events/functions-events.md) %}
+Service name: `certificatemanager`.
 
+{% include [cm-events](../../_includes/audit-trails/events/cm-events.md) %}
 
 ## {{ backup-name }} {#backup}
 
@@ -99,11 +99,37 @@ Service name: `cdn`.
 
 {% include [cdn-events](../../_includes/audit-trails/events/cdn-events.md) %}
 
-## {{ certificate-manager-name }} {#certificate-manager}
+## {{ dns-name }} {#dns}
 
-Service name: `certificatemanager`.
+Service name: `dns`.
 
-{% include [cm-events](../../_includes/audit-trails/events/cm-events.md) %}
+{% include [dns-events](../../_includes/audit-trails/events/dns-events.md) %}
+
+## {{ sf-name }} {#functions}
+
+Service name: `serverless`.
+
+{% include [functions-events](../../_includes/audit-trails/events/functions-events.md) %}
+
+
+## {{ cloud-logging-name }} {#cloud-logging}
+
+Service name: `logging`.
+
+{% include [logging-events](../../_includes/audit-trails/events/logging-events.md) %}
+
+
+## {{ marketplace-name }} {#marketplace}
+
+Service name: `marketplace.licensemanager`.
+
+{% include [marketplace-events](../../_includes/audit-trails/events/marketplace-events.md) %}
+
+## {{ org-name }} {#organization}
+
+The name of the service is `organizationmanager`.
+
+{% include [org-events](../../_includes/audit-trails/events/org-events.md) %}
 
 ## {{ cloud-apps-name }} {#cloud-apps}
 
@@ -116,25 +142,6 @@ Service name: `cloudapps`.
 | `SetApplicationAccessBindings` | Setting application access bindings |
 | `UpdateApplicationAccessBindings` | Updating application access bindings |
 | `UpdateCloudApplication` | Updating an application |
-
-## {{ dns-name }} {#dns}
-
-Service name: `dns`.
-
-{% include [dns-events](../../_includes/audit-trails/events/dns-events.md) %}
-
-## {{ cloud-logging-name }} {#cloud-logging-name}
-
-Service name: `logging`.
-
-{% include [logging-events](../../_includes/audit-trails/events/logging-events.md) %}
-
-
-## {{ marketplace-name }} {#marketplace}
-
-Service name: `marketplace.licensemanager`.
-
-{% include [marketplace-events](../../_includes/audit-trails/events/marketplace-events.md) %}
 
 ## {{ compute-name }} {#compute}
 
@@ -196,17 +203,12 @@ Service name: `lockbox`.
 
 {% include [lockbox-events](../../_includes/audit-trails/events/lockbox-events.md) %}
 
-## {{ mkf-short-name }} {#managed-service-for-kafka}
-
-Service name: `mdb.kafka`.
-
-{% include [managed-kafka-events](../../_includes/audit-trails/events/managed-kafka-events.md) %}
-
 ## {{ mch-short-name }} {#managed-service-for-clickhouse}
 
 Service name: `mdb.clickhouse`.
 
 {% include [mch-events](../../_includes/audit-trails/events/mch-events.md) %}
+
 
 
 ## {{ mgl-name }} {#managed-service-for-gitlab}
@@ -222,6 +224,18 @@ Service name: `mdb.greenplum`.
 
 {% include [mgp-events](../../_includes/audit-trails/events/managed-greenplum-events.md) %}
 
+## {{ mkf-short-name }} {#managed-service-for-kafka}
+
+Service name: `mdb.kafka`.
+
+{% include [managed-kafka-events](../../_includes/audit-trails/events/managed-kafka-events.md) %}
+
+## {{ managed-k8s-name }} {#managed-service-for-kubernetes}
+
+Service name: `k8s`.
+
+{% include [managed-k8s-events](../../_includes/audit-trails/events/managed-k8s-events.md) %}
+
 
 ## {{ mmg-short-name }} {#managed-service-for-mongodb}
 
@@ -230,17 +244,17 @@ Service name: `mdb.mongodb`.
 {% include [mongodb-events](../../_includes/audit-trails/events/mongodb-events.md) %}
 
 
-## {{ managed-k8s-name }} {#managed-service-for-kubernetes}
-
-Service name: `k8s`.
-
-{% include [managed-k8s-events](../../_includes/audit-trails/events/managed-k8s-events.md) %}
-
 ## {{ mmy-short-name }} {#managed-service-for-mysql}
 
 Service name: `mdb.mysql`.
 
 {% include [mysql-events](../../_includes/audit-trails/events/mysql-events.md) %}
+
+## {{ mos-short-name }} {#managed-service-for-opensearch}
+
+Service name: `mdb.opensearch`.
+
+{% include [mos-events](../../_includes/audit-trails/events/mos-events.md) %}
 
 ## {{ mpg-short-name }} {#managed-service-for-postgresql}
 
@@ -254,13 +268,6 @@ Service name: `mdb.redis`.
 
 {% include [mrd-events](../../_includes/audit-trails/events/mrd-events.md) %}
 
-
-## {{ mos-short-name }} {#managed-service-for-opensearch}
-
-Service name: `mdb.opensearch`.
-
-{% include [mos-events](../../_includes/audit-trails/events/mos-events.md) %}
-
 ## {{ network-load-balancer-name }} {#network-load-balancer}
 
 Service name: `loadbalancer`.
@@ -272,6 +279,12 @@ Service name: `loadbalancer`.
 Service name: `storage`.
 
 {% include [storage-events](../../_includes/audit-trails/events/storage-events.md) %}
+
+## {{ resmgr-name }} {#resmgr}
+
+Service name: `resourcemanager`.
+
+{% include [resmgr-events](../../_includes/audit-trails/events/resmgr-events.md) %}
 
 ## {{ search-api-name }} {#searchapi}
 
@@ -285,17 +298,11 @@ Service name: `serverless.containers`.
 
 {% include [serverless-containers-events](../../_includes/audit-trails/events/serverless-containers-events.md) %}
 
-## {{ org-name }} {#organization}
+## {{ captcha-name }} {#smartcaptcha}
 
-The name of the service is `organizationmanager`.
+Service name: `smartcaptcha`.
 
-{% include [org-events](../../_includes/audit-trails/events/org-events.md) %}
-
-## {{ resmgr-name }} {#resmgr}
-
-Service name: `resourcemanager`.
-
-{% include [resmgr-events](../../_includes/audit-trails/events/resmgr-events.md) %}
+{% include [captcha-events](../../_includes/audit-trails/events/captcha-events.md) %}
 
 ## {{ sws-name }} {#smartwebsecurity}
 
@@ -303,17 +310,18 @@ Service name: `smartwebsecurity`.
 
 {% include [sws-events](../../_includes/audit-trails/events/sws-events.md) %}
 
-## {{ captcha-name }} {#smartcaptcha}
+## {{ speechsense-name }} {#speechsense}
 
-Service name: `smartcaptcha`.
+Service name: `speechsense`.
 
-{% include [captcha-events](../../_includes/audit-trails/events/captcha-events.md) %}
+{% include [org-events](../../_includes/audit-trails/events/speechsense-events.md) %}
 
 ## {{ vpc-name }} {#vpc}
 
 Service name: `network`.
 
 {% include [vpc-events](../../_includes/audit-trails/events/vpc-events.md) %}
+
 
 ## {{ ydb-short-name }} {#ydb}
 
