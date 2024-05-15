@@ -8,6 +8,6 @@
 
 * [How does replication work for {{ MG }}?](#replication)
 
-* [What limitations are imposed on {{ MG }} database clusters?](#cluster-limitations)
+* [What limitations do {{ MG }} clusters have?](#cluster-limitations)
 
 * [Why is the cluster slow even though the computing resources are not used fully?](#throttling)

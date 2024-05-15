@@ -7,7 +7,7 @@ description: "In this tutorial, you will learn how to edit a dynamic table in {{
 
 ## General settings {#general-settings}
 
-To edit a [table](pages-types.md#grid), open it and click ![](../_assets/wiki/svg/wysiwyg/grid-settings.svg) **Table settings**s in the top-right corner. Select an action:
+To edit a [table](pages-types.md#grid), open it and click ![](../_assets/wiki/svg/wysiwyg/grid-settings.svg) **Table settings** in the top-right corner. Select an action:
 
 * [Set up columns](#column-transfer).
 * [Use default sorting](#sort-line).
@@ -173,7 +173,7 @@ To filter a table:
 
    1. Select ![](../_assets/wiki/svg/link.svg) **Copy embed code**.
 
-   1. In the window that opens, select the options from among the following:
+   1. In the window that opens, select the options from the following:
       * **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-code-form.read_only }}**.
       * **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-code-form.show_line_nums }}**.
       * **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-code-form.can_sort }}**.

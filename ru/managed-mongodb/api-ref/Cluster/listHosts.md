@@ -52,7 +52,13 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/m
       "subnetId": "string",
       "assignPublicIp": true,
       "shardName": "string",
-      "type": "string"
+      "type": "string",
+      "hostParameters": {
+        "hidden": true,
+        "secondaryDelaySecs": "string",
+        "priority": "number",
+        "tags": "object"
+      }
     }
   ],
   "nextPageToken": "string"
@@ -70,13 +76,18 @@ hosts[].<br>resources | **object**<br><p>Resources allocated to the MongoDB host
 hosts[].<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 hosts[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 hosts[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
-hosts[].<br>role | **string**<br><p>Role of the host in the cluster.</p> <ul> <li>ROLE_UNKNOWN: Role of the host in the cluster is unknown.</li> <li>PRIMARY: Host is the primary MongoDB server in the cluster.</li> <li>SECONDARY: Host is a secondary MongoDB server in the cluster.</li> </ul> 
-hosts[].<br>health | **string**<br><p>Status code of the aggregated health of the host.</p> <ul> <li>HEALTH_UNKNOWN: Health of the host is unknown.</li> <li>ALIVE: The host is performing all its functions normally.</li> <li>DEAD: The host is inoperable, and cannot perform any of its essential functions.</li> <li>DEGRADED: The host is degraded, and can perform only some of its essential functions.</li> </ul> 
+hosts[].<br>role | **string**<br><p>Role of the host in the cluster. If the field has default value, it is not returned in the response.</p> <ul> <li>ROLE_UNKNOWN: Role of the host in the cluster is unknown. Default value.</li> <li>PRIMARY: Host is the primary MongoDB server in the cluster.</li> <li>SECONDARY: Host is a secondary MongoDB server in the cluster.</li> </ul> 
+hosts[].<br>health | **string**<br><p>Aggregated health of the host. If the field has default value, it is not returned in the response.</p> <ul> <li>HEALTH_UNKNOWN: Health of the host is unknown. Default value.</li> <li>ALIVE: The host is performing all its functions normally.</li> <li>DEAD: The host is inoperable, and cannot perform any of its essential functions.</li> <li>DEGRADED: The host is degraded, and can perform only some of its essential functions.</li> </ul> 
 hosts[].<br>services[] | **object**<br><p>Services provided by the host.</p> 
-hosts[].<br>services[].<br>type | **string**<br><p>Type of the service provided by the host.</p> <ul> <li>MONGOD: The host is running a mongod daemon.</li> <li>MONGOS: The host is running a mongos daemon.</li> <li>MONGOCFG: The host is running a MongoDB config server.</li> </ul> 
-hosts[].<br>services[].<br>health | **string**<br><p>Status code of server availability.</p> <ul> <li>HEALTH_UNKNOWN: Health of the server is unknown.</li> <li>ALIVE: The server is working normally.</li> <li>DEAD: The server is dead or unresponsive.</li> </ul> 
+hosts[].<br>services[].<br>type | **string**<br><p>Type of the service provided by the host. If the field has default value, it is not returned in the response.</p> <ul> <li>TYPE_UNSPECIFIED: Service type of the host is unspecified. Default value. - MONGOD: The host is running a mongod daemon.</li> <li>MONGOS: The host is running a mongos daemon.</li> <li>MONGOCFG: The host is running a MongoDB config server.</li> </ul> 
+hosts[].<br>services[].<br>health | **string**<br><p>Aggregated health of the service. If the field has default value, it is not returned in the response.</p> <ul> <li>HEALTH_UNKNOWN: Health of the server is unknown.</li> <li>ALIVE: The server is working normally.</li> <li>DEAD: The server is dead or unresponsive.</li> </ul> 
 hosts[].<br>subnetId | **string**<br><p>ID of the subnet that the host belongs to.</p> 
 hosts[].<br>assignPublicIp | **boolean** (boolean)<br><p>Flag showing public IP assignment status to this host.</p> 
 hosts[].<br>shardName | **string**<br><p>Shard which this host belongs to.</p> 
-hosts[].<br>type | **string**<br><p>Host type</p> <ul> <li>MONGOD: A mongod host.</li> <li>MONGOS: A mongos host.</li> <li>MONGOCFG: A mongocfg host.</li> <li>MONGOINFRA: A mongoinfra (mongos+mongocfg) host.</li> </ul> 
+hosts[].<br>type | **string**<br><p>Host type. If the field has default value, it is not returned in the response.</p> <ul> <li>TYPE_UNSPECIFIED: Type of the host is unspecified. Default value. - MONGOD: A mongod host.</li> <li>MONGOS: A mongos host.</li> <li>MONGOCFG: A mongocfg host.</li> <li>MONGOINFRA: A mongoinfra (mongos+mongocfg) host.</li> </ul> 
+hosts[].<br>hostParameters | **object**<br><p>Host parameters</p> 
+hosts[].<br>hostParameters.<br>hidden | **boolean** (boolean)
+hosts[].<br>hostParameters.<br>secondaryDelaySecs | **string** (int64)
+hosts[].<br>hostParameters.<br>priority | **number** (double)
+hosts[].<br>hostParameters.<br>tags | **object**
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-mongodb/api-ref/Cluster/listHosts#query_params">pageSize</a>, use the <a href="/docs/managed-mongodb/api-ref/Cluster/listHosts#responses">nextPageToken</a> as the value for the <a href="/docs/managed-mongodb/api-ref/Cluster/listHosts#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-mongodb/api-ref/Cluster/listHosts#responses">nextPageToken</a> to continue paging through the results.</p> 

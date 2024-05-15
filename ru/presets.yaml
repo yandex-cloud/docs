@@ -1455,6 +1455,12 @@ default:
         standard|pricingRate:
           10|string: "0,39\_₽"
         standard|string: Не тарифицируется
+      list:
+        cold|string: "1,18\_₽"
+        ice|string: "2,36\_₽"
+        standard|pricingRate:
+          10|string: "0,48\_₽"
+        standard|string: Не тарифицируется
       network:
         inet:
           egress|pricingRate:
@@ -1488,6 +1494,9 @@ default:
           10|string: "0,48\_₽"
         standard|string: Не тарифицируется
     bucket:
+      transition:
+        cold|string: "1,18\_₽"
+        ice|string: "2,36\_₽"
       used_space:
         cold|month|string: "1,07\_₽"
         ice|month|string: "0,5350\_₽"
@@ -1505,6 +1514,21 @@ default:
     standard:
       fixed_consumption:
         v1|int|string: Не тарифицируется
+  sku|RUB|sws:
+    profile:
+      v1|string: "250,00\_₽"
+    requests:
+      v1|int|string: Не тарифицируется
+      v1|pricingRate:
+        '0':
+          01|string: "25\_000,00\_₽"
+        1|string: "3\_500,00\_₽"
+        10|string: "200,00\_₽"
+        100|string: "140,00\_₽"
+        1000|string: "50,00\_₽"
+        10000|string: "25,00\_₽"
+    rule:
+      v1|string: "50,00\_₽"
   sku|RUB|v1:
     commitment:
       selfcheckout:
@@ -1877,6 +1901,95 @@ default:
       cpu|string: "0,013440\_$"
       disk|month|string: "0,104080\_$"
       ram|string: "0,003600\_$"
+  sku|USD|interconnect:
+    trunk:
+      direct:
+        100gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "15\_360,000000\_$"
+        100mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "88,560000\_$"
+        10gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "1\_713,528000\_$"
+        1gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "353,808000\_$"
+        200mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "165,304000\_$"
+        20gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "3\_387,600000\_$"
+        2gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "667,072000\_$"
+        300mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "230,224000\_$"
+        30gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "5\_022,224000\_$"
+        3gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "939,784000\_$"
+        400mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "283,336000\_$"
+        40gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "6\_617,400000\_$"
+        4gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "1\_171,960000\_$"
+        500mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "324,624000\_$"
+        50gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "8\_173,120000\_$"
+        50mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "44,280000\_$"
+        5gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "1\_363,584000\_$"
+      hosted_connections:
+        v1|string: "0,960000\_$"
+      physical_port:
+        1000base_lx:
+          monthly_usage:
+            v1|string: "18,600000\_$"
+        100gbase_er4:
+          monthly_usage:
+            v1|string: "180,000000\_$"
+        100gbase_lr4:
+          monthly_usage:
+            v1|string: "155,504000\_$"
+        10gbase_er:
+          monthly_usage:
+            v1|string: "20,104000\_$"
+        10gbase_lr:
+          monthly_usage:
+            v1|string: "18,600000\_$"
   sku|USD|kms:
     api:
       v1:
@@ -2336,6 +2449,12 @@ default:
         standard|pricingRate:
           10|string: "0,003120\_$"
         standard|string: Не тарифицируется
+      list:
+        cold|string: "0,009440\_$"
+        ice|string: "0,018880\_$"
+        standard|pricingRate:
+          10|string: "0,003840\_$"
+        standard|string: Не тарифицируется
       network:
         inet:
           egress|pricingRate:
@@ -2369,6 +2488,9 @@ default:
           10|string: "0,003840\_$"
         standard|string: Не тарифицируется
     bucket:
+      transition:
+        cold|string: "0,009440\_$"
+        ice|string: "0,018880\_$"
       used_space:
         cold|month|string: "0,008560\_$"
         ice|month|string: "0,004280\_$"
@@ -2386,6 +2508,21 @@ default:
     standard:
       fixed_consumption:
         v1|string: Не тарифицируется
+  sku|USD|sws:
+    profile:
+      v1|string: "2,000000\_$"
+    requests:
+      v1|pricingRate:
+        '0':
+          01|string: "200,000000\_$"
+        1|string: "28,000000\_$"
+        10|string: "1,600000\_$"
+        100|string: "1,120000\_$"
+        1000|string: "0,400000\_$"
+        10000|string: "0,200000\_$"
+      v1|string: Не тарифицируется
+    rule:
+      v1|string: "0,400000\_$"
   sku|USD|v1:
     commitment:
       selfcheckout:
@@ -6378,9 +6515,11 @@ default:
           value_gateway: Шлюз
           value_ip-address: IP-адрес
         addresses:
+          button_action-disable-protection: Выключить защиту от удаления
           button_action-dynamic: Сделать динамическим
           button_action-static: Сделать статическим
           button_create: Зарезервировать адрес
+          popup-confirm_button_disable-protection: Выключить
           popup-confirm_button_dynamic: Изменить
           popup-confirm_button_static: Изменить
           popup-create_button_create: Зарезервировать

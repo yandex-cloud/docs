@@ -24,7 +24,7 @@
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) `dataproc-s3-sa` и назначьте ему роли `dataproc.agent` и `storage.uploader`.
     1. В {{ objstorage-full-name }} [создайте бакет](../../../storage/operations/buckets/create.md) `dataproc-bucket` и предоставьте сервисному аккаунту разрешение `READ и WRITE` для этого бакета.
@@ -114,7 +114,7 @@
         * **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}** у подкластеров {{ dataproc-name }} — `dataproc-subnet`.
         * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** у хоста-мастера — включен.
 
-* {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
@@ -284,7 +284,7 @@
 
     {% list tabs group=instructions %}
 
-    * Вручную {#manual}
+    - Вручную {#manual}
 
         1. [Кластеры {{ dataproc-name }}](../../../data-proc/operations/cluster-delete.md).
         1. [Бакет {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
@@ -295,7 +295,7 @@
         1. [Сеть](../../../vpc/operations/network-delete.md).
         1. [Сервисный аккаунт](../../../iam/operations/sa/delete.md).
 
-    * {{ TF }} {#tf}
+    - {{ TF }} {#tf}
 
         1. [Удалите объекты](../../../storage/operations/objects/delete.md) из бакета.
         1. В терминале перейдите в директорию с планом инфраструктуры.

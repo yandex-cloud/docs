@@ -15,7 +15,7 @@
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
     1. [Создайте кластер-приемник {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
 
@@ -35,7 +35,7 @@
 
     1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта `storage-viewer`.
 
-* С помощью {{ TF }} {#tf}
+- С помощью {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -125,7 +125,7 @@
 
     {% list tabs group=instructions %}
 
-    * Вручную {#manual}
+    - Вручную {#manual}
 
         1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/clickhouse.md#endpoint-settings) типа `{{ CH }}` и укажите в нем параметры подключения к кластеру:
 
@@ -139,7 +139,7 @@
 
         1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-    * С помощью {{ TF }} {#tf}
+    - С помощью {{ TF }} {#tf}
 
         1. Укажите в файле `object-storage-to-clickhouse.tf` значения параметров:
 
@@ -236,13 +236,13 @@
 
     {% list tabs group=instructions %}
 
-    * Вручную {#manual}
+    - Вручную {#manual}
 
         * [Эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
         * [Кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
         * [Бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
 
-    * С помощью {{ TF }} {#tf}
+    - С помощью {{ TF }} {#tf}
 
         Если вы создавали ресурсы с помощью {{ TF }}:
 

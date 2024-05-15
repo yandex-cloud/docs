@@ -42,7 +42,7 @@ hostSpecs[] | **object**<br><p>Required. One or more configurations of hosts to 
 hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides.</p> <p>The maximum string length in characters is 50.</p> 
 hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet the host resides in.</p> <p>The maximum string length in characters is 50.</p> 
 hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>The flag that defines whether a public IP address is assigned to the host.</p> <p>If the value is ``true``, then this host is available on the Internet via it's public IP address.</p> 
-hostSpecs[].<br>type | **string**<br><p>Required. Host type.</p> <ul> <li>DATA_NODE: the host is an Elasticsearch data node.</li> <li>MASTER_NODE: the host is an Elasticsearch master node.</li> </ul> 
+hostSpecs[].<br>type | **string**<br><p>Required. Host type.</p> <ul> <li>TYPE_UNSPECIFIED: Host type is unspecified. Default value. - DATA_NODE: The host is an Elasticsearch data node.</li> <li>MASTER_NODE: The host is an Elasticsearch master node.</li> </ul> 
 hostSpecs[].<br>shardName | **string**<br><p>The shard name to create on the host.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
  
 ## Response {#responses}

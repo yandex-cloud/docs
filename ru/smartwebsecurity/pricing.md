@@ -21,7 +21,7 @@ editable: false
 
 {% include [rub-requests](../_pricing/smartwebsecurity/rub-requests.md) %}
 
-Оплачивается фактическое количество запросов.
+{% include [sum-cloud-account](../_includes/smartwebsecurity/sum-cloud-account.md) %}
 
 > Например, итоговая стоимость отправки на анализ в {{ sws-name }} 315,04 млн запросов в месяц составит: 
 > 0,01 × 0,00 ₽ + 0,99 × 25 000,00 ₽ + 9 × 3500,00 ₽ + 90 × 200,00 ₽ + 215,04 × 140,00 ₽ = 104 355,60 ₽, вкл. НДС.

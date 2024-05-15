@@ -19,22 +19,59 @@
       * `--network-id`: ID of the network the new subnet belongs to.
       * `--range`: List of IPv4 addresses for outgoing and incoming traffic, e.g., `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
 
-   1. Migrate a node group:
+   1. Move the node group to the new availability zone. The example below shows a command for moving a group residing in a single zone:
 
       ```bash
       {{ yc-k8s }} node-group update \
          --id <node_group_ID> \
          --location zone=<availability_zone>,subnet-id=<subnet_ID> \
-         --network-interface subnets=<subnet_ID>
+         --network-interface subnets=<subnet_ID>,`
+              `ipv4-address=nat,`
+              `security-group-ids=[<security_group_IDs>]
       ```
+
+      Where:
+
+      * `id`: ID of the node group to move to a different availability zone.
+      * `zone`: Availability zone you want to move your node group to (`{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`).
+      * `subnet-id` and `subnets`: ID of the new subnet you created earlier.
+      * `ipv4-address`: Method of assigning an IPv4 address. The `nat` value allows assigning public and internal IP addresses to nodes.
+      * `security-group-ids`: List of [security group](../../managed-kubernetes/operations/connect/security-groups.md) IDs.
+
+      {% note warning %}
+
+      If you want to keep the values of other network parameters for the node group, specify them in the `network-interface` parameter as well. Otherwise, the group can be recreated with default values. For more information, see [Updating a Managed Service for Kubernetes node group](../../managed-kubernetes/operations/node-group/node-group-update.md).
+
+      {% endnote %}
+
+      It is important to provide the `ipv4-address` and `security-group-ids` parameters in the command: this will assign public IP addresses to the node group and keep security groups within it.
 
       This command recreates the nodes within their group in the specified availability zone and subnet. When recreating, the deployment settings are considered: the maximum number of nodes by which you can increase or decrease the group size versus the original node count.
 
-      In the command, set the following parameter values:
+      {% cut "How to move a node group residing in different availability zones" %}
 
-      * `--id`: ID of the node group to migrate to a different availability zone.
-      * `zone`: Availability zone you want to move your node group to (`{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`).
-      * `subnet-id` and `subnets`: ID of the new subnet you created earlier.
+      In this case, use the following command:
+
+      ```bash
+      {{ yc-k8s }} node-group update \
+         --id <node_group_ID> \
+         --location zone=<availability_zone>,subnet-id=<subnet_ID> \
+         ...
+         --location zone=<availability_zone>,subnet-id=<subnet_ID> \
+         --network-interface subnets=[<subnet_IDs>],`
+              `ipv4-address=nat,`
+              `security-group-ids=[<security_group_IDs>]
+      ```
+
+      Where:
+
+      * `id`: ID of the node group to move to a different availability zone.
+      * `zone`: Availability zone (`{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`). Specify the `location` parameters for each availability zone that will host the node group.
+      * `subnet-id` and `subnets`: IDs of the subnets for the specified availability zones.
+      * `ipv4-address`: Method of assigning an IPv4 address. The `nat` value allows assigning public and internal IP addresses to nodes.
+      * `security-group-ids`: List of [security group](../../managed-kubernetes/operations/connect/security-groups.md) IDs.
+
+      {% endcut %}
 
 - {{ TF }} {#tf}
 

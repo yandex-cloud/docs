@@ -8,11 +8,11 @@ description: "This page provides a list of step-by-step guides for {{ dataproc-n
 ## {{ dataproc-name }} clusters
 
 * [Information about existing clusters](cluster-list.md)
-* [Creating clusters](cluster-create.md)
+* [Creating a cluster](cluster-create.md)
 * [Connecting to a cluster](connect.md)
 * [Updating a cluster](cluster-update.md)
 * [Migrating a lightweight cluster to a different availability zone](migration-to-an-availability-zone.md)
-* [Deleting clusters](cluster-delete.md)
+* [Deleting a cluster](cluster-delete.md)
 
 ## Subclusters {{ dataproc-name }}
 
@@ -43,6 +43,7 @@ description: "This page provides a list of step-by-step guides for {{ dataproc-n
 
 * [{#T}](./metastore/cluster-create.md)
 * [{#T}](./metastore/dataproc-connect.md)
+* [{#T}](./metastore/export-and-import.md)
 * [{#T}](./metastore/cluster-delete.md)
 
 ## Logs and monitoring

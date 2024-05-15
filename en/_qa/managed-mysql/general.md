@@ -63,7 +63,7 @@ The minimum number of hosts depends on the selected type of [storage](../../mana
 
 The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
 
-For more information, see [{#T}](../../managed-mysql/concepts/limits.md).
+For more information, see [Quotas and limits](../../managed-mysql/concepts/limits.md).
 
 #### How can I access a running DB host? {#db-access}
 
@@ -85,7 +85,7 @@ Maintenance in {{ mmy-short-name }} implies:
 - Changes to the host class and storage size.
 - Other {{ mmy-short-name }} maintenance activities.
 
-For more information, see [{#T}](../../managed-mysql/concepts/maintenance.md).
+For more information, see [Maintenance](../../managed-mysql/concepts/maintenance.md).
 
 #### Which {{ MY }} version does {{ mmy-short-name }} use? {#dbms-version}
 
@@ -111,7 +111,7 @@ In {{ mmy-short-name }}, the usage cost is calculated based on the following par
 - Selected host class.
 - Size of the storage reserved for the database host.
 - Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-mysql/pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [{#T}](../../managed-mysql/pricing.md).
+- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour of operation for each host class in [Pricing policy](../../managed-mysql/pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
@@ -142,7 +142,7 @@ For all DBMS types, you can track:
 
 For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ MY }}, you can track:
 - Average query execution time.
-- Number of requests per second.
+- Number of queries per second.
 - Number of errors in logs, etc.
 
 Monitoring can be performed with a minimum granularity of 5 seconds.

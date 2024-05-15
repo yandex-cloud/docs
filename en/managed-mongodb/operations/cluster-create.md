@@ -51,7 +51,7 @@ A {{ MG }} cluster is one or more database hosts between which you can configure
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-      * Select the storage size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
+      * Select the storage size to be used for data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
 
@@ -59,7 +59,7 @@ A {{ MG }} cluster is one or more database hosts between which you can configure
 
          {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
-      * User name
+      * Username
       * User password; minimum 8 characters long
 
    
@@ -153,10 +153,6 @@ A {{ MG }} cluster is one or more database hosts between which you can configure
 
       * `--mongod-disk-type`: Disk type.
 
-        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
-
-      * `--mongod-disk-type`: Disk type.
-
          {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
 
@@ -205,23 +201,10 @@ A {{ MG }} cluster is one or more database hosts between which you can configure
           version = "<{{ MG }}_version>"
         }
 
-        database {
-          name = "<DB_name>"
-        }
-
-        user {
-          name     = "<username>"
-          password = "<user_password>"
-          permission {
-            database_name = "<DB_name>"
-            roles         = [ "<list_of_user_roles>" ]
-          }
-        }
-
         resources_mongod {
           resource_preset_id = "<host_class>"
           disk_type_id       = "<disk_type>"
-          disk_size          = <storage_size_GB>
+          disk_size          = <storage_size_in_GB>
         }
 
         host {
@@ -229,6 +212,24 @@ A {{ MG }} cluster is one or more database hosts between which you can configure
           subnet_id        = "<subnet_ID>"
           assign_public_ip = <public_access>
         }
+      }
+
+      resource "yandex_mdb_mongodb_database" "<DB_name>" {
+        cluster_id = "<cluster_ID>"
+        name       = "<DB_name>"
+      }
+
+      resource "yandex_mdb_mongodb_user" "<username>" {
+        cluster_id = <cluster_ID>
+        name       = "<username>"
+        password   = "<password>"
+        permission {
+          database_name = "<DB_name>"
+          roles         = [ "<list_of_user_roles>" ]
+        }
+        depends_on = [
+          yandex_mdb_mongodb_database.<DB_name>
+        ]
       }
 
       resource "yandex_vpc_network" "<network_name>" { name = "<network_name>" }
@@ -314,9 +315,9 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ MG }} cluster with the settings of another cluster created earlier. To do so, you need to import the configuration of the source {{ MG }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ MG }} cluster has lots of settings and you need to create a similar one.
+You can create an {{ MG }} cluster with the settings of another cluster created earlier. To do so, you need to import the configuration of the source {{ MG }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ MG }} cluster has lots of settings and you need to create a similar one.
 
-To create a {{ MG }} cluster copy:
+To create an {{ MG }} cluster copy:
 
 {% list tabs group=instructions %}
 
@@ -362,11 +363,11 @@ To create a {{ MG }} cluster copy:
       * In the `host` sections, delete the `health` and `name` parameters.
       * If the `maintenance_window` section specifies the `type = "ANYTIME"` parameter value, delete the `hour` parameter.
       * Delete all `user` sections (if any). You can add database users using the separate `yandex_mdb_mongodb_user` resource.
-      * (Optional) Make further modifications if you need a customized copy rather than identical one.
+      * (Optional) Make further modifications if you are looking for more customization.
 
    1. In the `imported-cluster` directory, [get the authentication data](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 
-   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf).
+   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 
@@ -475,18 +476,6 @@ To create a {{ MG }} cluster copy:
        version = "{{ versions.tf.latest }}"
      }
 
-     database {
-       name = "db1"
-     }
-
-     user {
-       name     = "user1"
-       password = "user1user1"
-       permission {
-         database_name = "db1"
-       }
-     }
-
      resources_mongod {
        resource_preset_id = "{{ host-class }}"
        disk_type_id       = "{{ disk-type-example }}"
@@ -497,6 +486,23 @@ To create a {{ MG }} cluster copy:
        zone_id   = "{{ region-id }}-a"
        subnet_id = yandex_vpc_subnet.mysubnet.id
      }
+   }
+
+   resource "yandex_mdb_mongodb_database" "db1" {
+     cluster_id = yandex_mdb_mongodb_cluster.mymg.id
+     name       = "db1"
+   }
+
+   resource "yandex_mdb_mongodb_user" "user1" {
+     cluster_id = yandex_mdb_mongodb_cluster.mymg.id
+     name       = "user1"
+     password   = "user1user1"
+     permission {
+       database_name = "db1"
+     }
+     depends_on = [
+       yandex_mdb_mongodb_database.db1
+     ]
    }
 
    resource "yandex_vpc_network" "mynet" {
@@ -530,7 +536,7 @@ To create a {{ MG }} cluster copy:
 
 ### Creating sharded clusters {#creating-a-sharded-cluster}
 
-You can create {{ mmg-name }} clusters with [standard](#std-sharding) or [advanced](#adv-sharding) sharding. For more information about sharding types, see [{#T}](../concepts/sharding.md#shard-management).
+You can create {{ mmg-name }} clusters with [standard](#std-sharding) or [advanced](#adv-sharding) sharding. For more information about sharding types, see [Sharding management](../concepts/sharding.md#shard-management).
 
 #### Standard sharding {#std-sharding}
 
@@ -614,18 +620,6 @@ Network characteristics:
        version = "{{ versions.tf.latest }}"
      }
 
-     database {
-       name = "db1"
-     }
-
-     user {
-       name     = "user1"
-       password = "user1user1"
-       permission {
-         database_name = "db1"
-       }
-     }
-
      resources_mongod {
        resource_preset_id = "{{ host-class }}"
        disk_type_id       = "{{ disk-type-example }}"
@@ -661,6 +655,23 @@ Network characteristics:
        subnet_id = yandex_vpc_subnet.mysubnet.id
        type      = "mongoinfra"
      }
+
+   resource "yandex_mdb_mongodb_database" "db1" {
+     cluster_id = yandex_mdb_mongodb_cluster.mymg.id
+     name       = "db1"
+   }
+
+   resource "yandex_mdb_mongodb_user" "user1" {
+     cluster_id = yandex_mdb_mongodb_cluster.mymg.id
+     name       = "user1"
+     password   = "user1user1"
+     permission {
+       database_name = "db1"
+     }
+     depends_on = [
+       yandex_mdb_mongodb_database.db1
+     ]
+   }
 
    resource "yandex_vpc_network" "mynet" {
      name = "mynet"
@@ -778,18 +789,6 @@ Network characteristics:
        version = "{{ versions.tf.latest }}"
      }
 
-     database {
-       name = "db1"
-     }
-
-     user {
-       name     = "user1"
-       password = "user1user1"
-       permission {
-         database_name = "db1"
-       }
-     }
-
      resources_mongod {
        resource_preset_id = "{{ host-class }}"
        disk_type_id       = "{{ disk-type-example }}"
@@ -843,6 +842,23 @@ Network characteristics:
        subnet_id = yandex_vpc_subnet.mysubnet.id
        type      = "mongocfg"
      }
+   }
+
+   resource "yandex_mdb_mongodb_database" "db1" {
+     cluster_id = yandex_mdb_mongodb_cluster.mymg.id
+     name       = "db1"
+   }
+
+   resource "yandex_mdb_mongodb_user" "user1" {
+     cluster_id = yandex_mdb_mongodb_cluster.mymg.id
+     name       = "user1"
+     password   = "user1user1"
+     permission {
+       database_name = "db1"
+     }
+     depends_on = [
+       yandex_mdb_mongodb_database.db1
+     ]
    }
 
    resource "yandex_vpc_network" "mynet" {

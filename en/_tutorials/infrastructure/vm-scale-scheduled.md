@@ -617,7 +617,7 @@ To set up scaling for your instance group using {{ TF }}:
    {% endlist %}
 
 1. In the `vm-scale-scheduled.tf` file, paste the following values in the `locals` section:
-   * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) (if you are using a [Yandex account](../../iam/concepts/index.md#passport)) or [{{ iam-full-name }} token](../../iam/concepts/authorization/iam-token.md) (if you are using a Yandex account or [federated account](../../iam/concepts/index.md#saml-federation)) to access {{ yandex-cloud }}. The {{ iam-name }} token is valid for up to 12 hours but cannot exceed the federation cookie lifetime.
+   * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) (if you are using a [Yandex account](../../iam/concepts/users/accounts.md#passport)) or [{{ iam-full-name }} token](../../iam/concepts/authorization/iam-token.md) (if you are using a Yandex account or [federated account](../../iam/concepts/users/accounts.md#saml-federation)) to access {{ yandex-cloud }}. The {{ iam-name }} token is valid for up to 12 hours but cannot exceed the federation cookie lifetime.
    * `cloud_id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) to create resources in.
    * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create resources in.
    * `username`: Name of the user to be created on the VM. Make up a name.

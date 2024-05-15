@@ -6,7 +6,7 @@ description: "Follow this guide to create a {{ PG }} cluster with a single or mu
 # Creating a {{ PG }} cluster
 
 
-A {{ PG }} cluster is one or more [database hosts](../concepts/index.md) between which you can configure [replication](../concepts/replication.md). Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and duplicates changes on replicas. The transaction is confirmed if the data is written to [disk](../concepts/storage.md) both on the master host and on a certain number of replicas sufficient to establish a quorum.
+A {{ PG }} cluster is one or more [database hosts](../concepts/index.md) between which you can configure [replication](../concepts/replication.md). Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and duplicates changes on replicas. The transaction is confirmed if the data is written to [disk](../concepts/storage.md) both on the master host and on a certain number of replicas, sufficient to establish a quorum.
 
 {% note info %}
 
@@ -63,7 +63,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
       * In the **{{ ui-key.yacloud.postgresql.cluster.field_thresholds }}** field, set the conditions to:
 
-         * Increase the storage size during the [next maintenance window](../concepts/maintenance.md#maintenance-window) when the used storage space exceeds the specified percentage (%).
+         * Increase the storage size during the [next maintenance window](../concepts/maintenance.md#maintenance-window) if the storage is more than the specified percent (%) full.
          * Increase the storage size right away if the storage is more than the specified percent (%) full.
 
          You can set both conditions, but the threshold for immediate increase must be higher than that for increase during the maintenance window.
@@ -182,7 +182,9 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
       * `assign-public-ip`: Internet access to the host, `true` or `false`.
 
 
-      * `deletion-protection`: Cluster deletion protection, `true` or `false`.
+      * `deletion-protection`: Protection of the cluster, its databases, and users against deletion. It may take either the `true` or `false` value.
+
+         By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
 
       
       You need to specify the `subnet-id` if the selected [availability zone](../../overview/concepts/geo-scope.md) has two or more subnets.
@@ -303,7 +305,10 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
       * `assign_public_ip`: Internet access to the host, `true` or `false`.
 
 
-      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+      * `deletion_protection`: Protection of the cluster, its databases, and users against deletion. It may take either the `true` or `false` value.
+
+         By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
+
       * `version`: {{ PG }} version, {{ pg.versions.tf.str }}.
       * `pool_discard`: Odyssey `pool_discard` parameter, `true` or `false`.
       * `pooling_mode`: Pooling mode: `SESSION`, `TRANSACTION`, or `STATEMENT`.
@@ -340,6 +345,10 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
       {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
    * Cluster configuration in the `configSpec` parameter.
+   * Protection of the cluster, its databases, and users against deletion in the `deletionProtection` parameter: `true` or `false`.
+
+      By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
+
    * Configuration of the cluster hosts in one or more `hostSpecs` parameters.
 
    
@@ -392,7 +401,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ PG }} cluster with the settings of another cluster created earlier. To do so, you need to import the configuration of the source {{ PG }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ PG }} cluster has lots of settings and you need to create a similar one.
+You can create a {{ PG }} cluster with the settings of another one created earlier. To do so, you need to import the configuration of the source {{ PG }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ PG }} cluster has lots of settings and you need to create a similar one.
 
 To create a {{ PG }} cluster copy:
 
@@ -440,11 +449,11 @@ To create a {{ PG }} cluster copy:
       * In the `host` sections, delete the `fqdn` and `role` parameters.
       * If the `disk_size_autoscaling` section specifies the `disk_size_limit = 0` parameter value, delete this section.
       * If the `maintenance_window` section specifies the `type = "ANYTIME"` parameter value, delete the `hour` parameter.
-      * (Optional) Make further modifications if you need a customized copy rather than identical one.
+      * (Optional) Make further modifications if you are looking for more customization.
 
    1. In the `imported-cluster` directory, [get the authentication data](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 
-   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf).
+   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 
@@ -487,7 +496,7 @@ To create a {{ PG }} cluster copy:
    * Network SSD storage (`{{ disk-type-example }}`): 20 GB
    * User: `user1`, with the `user1user1` password
    * Database: `db1` owned by `user1`
-   * Protection against accidental cluster deletion: Enabled
+   * Protection of the cluster, its DBs, and users against accidental deletion: Enabled
 
 
    Run the following command:
@@ -528,7 +537,7 @@ To create a {{ PG }} cluster copy:
    * Network SSD storage (`{{ disk-type-example }}`): 20 GB
    * User: `user1`, with the `user1user1` password
    * Database: `db1` owned by `user1`
-   * Protection against accidental cluster deletion: Enabled
+   * Protection of the cluster, its DBs, and users against accidental deletion: Enabled
 
    The configuration file for this cluster is as follows:
 

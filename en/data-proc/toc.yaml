@@ -66,6 +66,8 @@ items:
             href: operations/metastore/cluster-create.md
           - name: Connecting {{ dataproc-name }} to {{ metastore-name }}
             href: operations/metastore/dataproc-connect.md
+          - name: Exporting and importing a {{ metastore-name }} cluster
+            href: operations/metastore/export-and-import.md
           - name: Deleting a {{ metastore-name }} cluster
             href: operations/metastore/cluster-delete.md
       - name: Logs and monitoring
@@ -134,6 +136,10 @@ items:
         href: tutorials/airflow-automation.md
       - name: Shared use of tables through {{ metastore-name }}
         href: tutorials/dataproc-to-dataproc.md
+      - name: >-
+          Transferring metadata between {{ dataproc-name }} clusters using {{
+          metastore-name }}
+        href: tutorials/metastore-import.md
   - name: Concepts
     items:
       - name: Resource relationships

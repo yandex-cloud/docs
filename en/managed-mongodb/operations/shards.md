@@ -16,7 +16,7 @@ After [cluster sharding](../concepts/sharding.md) is enabled:
 
 The {{ mmg-name }} interface lets you quickly create a [{{ MG }} sharding infrastructure](../concepts/sharding.md#shard-management).
 
-To learn how to directly shard your {{ MG }} database and collections, see [{#T}](../tutorials/sharding.md).
+To learn how to directly shard your {{ MG }} database and collections, see [Sharding collections](../tutorials/sharding.md).
 
 To enable sharding, you need:
 * At least 3 `MONGOINFRA` hosts for standard sharding.
@@ -41,7 +41,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
       * **{{ ui-key.yacloud.mongodb.cluster.shards.label_custom }}**: Using `MONGOS` and `MONGOCFG` hosts.
 
 
-         For more information, see [{#T}](../concepts/sharding.md).
+         For more information, see [Sharding](../concepts/sharding.md).
 
       {% note warning %}
 
@@ -139,7 +139,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For information on how to create this file, see [{#T}](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
    1. Add additional resources to the configuration file.
 
@@ -323,7 +323,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For information on how to create this file, see [{#T}](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
    1. Add to the {{ mmg-name }} cluster description the required number of `host` blocks of the `MONGOD` type set in the `type` parameter and the shard name specified in the `shard_name` parameter:
 
@@ -355,7 +355,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
    * Cluster ID in the `clusterId` parameter.
    * Name of the shard in the `shardName` parameter.
-   * In the array of `hostSpecs` parameters, the shard host configuration.
+   * Shard host configuration in the array of `hostSpecs` parameters.
 
    You can get the shard name with a [list of cluster shards](#list-shards) and the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -363,7 +363,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
 ## Deleting a shard {#delete-shard}
 
-You can delete a shard from a {{ MG }} cluster provided that it's not the only shard in it. To replace the only shard in a cluster, first create a new shard and then remove the old one.
+You can delete a shard from a {{ MG }} cluster if it is not the only shard in it. To replace the only shard in a cluster, first create a new shard and then remove the old one.
 
 {% note info %}
 
@@ -399,7 +399,7 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For information on how to create this file, see [{#T}](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
    1. Delete all shard-related `host` sections from the {{ mmg-name }} cluster description.
    1. Make sure the settings are correct.

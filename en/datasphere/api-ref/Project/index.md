@@ -73,6 +73,8 @@ Method | Description
 [execute](execute.md) | Executes code of the specified notebook using configuration defined in the project settings. If the default project configuration is not specified, `c1.4` is used.
 [get](get.md) | Returns the specified project.
 [getCellOutputs](getCellOutputs.md) | Returns outputs of the specified cell. Deprecated
+[getRestrictions](getRestrictions.md) | Get current project restrictions.
+[getRestrictionsMeta](getRestrictionsMeta.md) | Get meta information about available restrictions.
 [getStateVariables](getStateVariables.md) | Returns state variables of the specified notebook. Deprecated
 [getUnitBalance](getUnitBalance.md) | Returns the unit balance of the specified project.
 [list](list.md) | Lists projects for the specified community.
@@ -80,6 +82,7 @@ Method | Description
 [open](open.md) | Opens the specified project.
 [removeResource](removeResource.md) | Removes shared resource from project
 [setAccessBindings](setAccessBindings.md) | Sets access bindings for the project.
+[setRestrictions](setRestrictions.md) | Set project restrictions.
 [setUnitBalance](setUnitBalance.md) | Sets the unit balance of the specified project.
 [update](update.md) | Updates the specified project.
 [updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the project.

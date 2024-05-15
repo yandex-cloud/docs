@@ -1455,6 +1455,12 @@ default:
         standard|pricingRate:
           10|string: ₽0.39
         standard|string: Free
+      list:
+        cold|string: ₽1.18
+        ice|string: ₽2.36
+        standard|pricingRate:
+          10|string: ₽0.48
+        standard|string: Free
       network:
         inet:
           egress|pricingRate:
@@ -1488,6 +1494,9 @@ default:
           10|string: ₽0.48
         standard|string: Free
     bucket:
+      transition:
+        cold|string: ₽1.18
+        ice|string: ₽2.36
       used_space:
         cold|month|string: ₽1.07
         ice|month|string: ₽0.5350
@@ -1505,6 +1514,21 @@ default:
     standard:
       fixed_consumption:
         v1|int|string: Free
+  sku|RUB|sws:
+    profile:
+      v1|string: ₽250.00
+    requests:
+      v1|int|string: Free
+      v1|pricingRate:
+        '0':
+          01|string: ₽25000.00
+        1|string: ₽3500.00
+        10|string: ₽200.00
+        100|string: ₽140.00
+        1000|string: ₽50.00
+        10000|string: ₽25.00
+    rule:
+      v1|string: ₽50.00
   sku|RUB|v1:
     commitment:
       selfcheckout:
@@ -1877,6 +1901,95 @@ default:
       cpu|string: $0.013440
       disk|month|string: $0.104080
       ram|string: $0.003600
+  sku|USD|interconnect:
+    trunk:
+      direct:
+        100gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: $15360.000000
+        100mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: $88.560000
+        10gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: $1713.528000
+        1gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: $353.808000
+        200mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: $165.304000
+        20gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: $3387.600000
+        2gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: $667.072000
+        300mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: $230.224000
+        30gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: $5022.224000
+        3gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: $939.784000
+        400mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: $283.336000
+        40gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: $6617.400000
+        4gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: $1171.960000
+        500mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: $324.624000
+        50gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: $8173.120000
+        50mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: $44.280000
+        5gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: $1363.584000
+      hosted_connections:
+        v1|string: $0.960000
+      physical_port:
+        1000base_lx:
+          monthly_usage:
+            v1|string: $18.600000
+        100gbase_er4:
+          monthly_usage:
+            v1|string: $180.000000
+        100gbase_lr4:
+          monthly_usage:
+            v1|string: $155.504000
+        10gbase_er:
+          monthly_usage:
+            v1|string: $20.104000
+        10gbase_lr:
+          monthly_usage:
+            v1|string: $18.600000
   sku|USD|kms:
     api:
       v1:
@@ -2336,6 +2449,12 @@ default:
         standard|pricingRate:
           10|string: $0.003120
         standard|string: Free
+      list:
+        cold|string: $0.009440
+        ice|string: $0.018880
+        standard|pricingRate:
+          10|string: $0.003840
+        standard|string: Free
       network:
         inet:
           egress|pricingRate:
@@ -2369,6 +2488,9 @@ default:
           10|string: $0.003840
         standard|string: Free
     bucket:
+      transition:
+        cold|string: $0.009440
+        ice|string: $0.018880
       used_space:
         cold|month|string: $0.008560
         ice|month|string: $0.004280
@@ -2386,6 +2508,21 @@ default:
     standard:
       fixed_consumption:
         v1|string: Free
+  sku|USD|sws:
+    profile:
+      v1|string: $2.000000
+    requests:
+      v1|pricingRate:
+        '0':
+          01|string: $200.000000
+        1|string: $28.000000
+        10|string: $1.600000
+        100|string: $1.120000
+        1000|string: $0.400000
+        10000|string: $0.200000
+      v1|string: Free
+    rule:
+      v1|string: $0.400000
   sku|USD|v1:
     commitment:
       selfcheckout:
@@ -6374,9 +6511,11 @@ default:
           value_gateway: Gateway
           value_ip-address: IP address
         addresses:
+          button_action-disable-protection: Disable deletion protection
           button_action-dynamic: Make dynamic
           button_action-static: Make static
           button_create: Reserve address
+          popup-confirm_button_disable-protection: Disable
           popup-confirm_button_dynamic: Change
           popup-confirm_button_static: Change
           popup-create_button_create: ' Reserve'

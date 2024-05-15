@@ -6,13 +6,13 @@ For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc
 
 #### How do I set the SQL mode (sql_mode)? {#sql-mode}
 
-Follow the instructions in [Managing databases](../../managed-mysql/operations/databases.md#sql-mode).
+Follow the steps described in [Managing databases](../../managed-mysql/operations/databases.md#sql-mode).
 
 #### What value should I set for innodb_buffer_pool_size? {#innodb-buffer-pool-size}
 
 Recommended parameter range:
 * Minimum 25% of host RAM.
-* Maximum 85% of host RAM provided that at least 1 to 1.6 GB are free for query execution, monitoring, and system processes.
+* Maximum 75% of host RAM provided that at least 1 to 1.6 GB are free for running queries, monitoring, and system processes.
 
 #### How do I disable InnoDB strict mode? {#innodb-strict-mode}
 

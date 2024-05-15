@@ -1,7 +1,7 @@
 # Authenticating as a user
 
 
-To get started with {{ yandex-cloud }}, you need a [Yandex account](../../../iam/concepts/index.md#passport).
+To get started with {{ yandex-cloud }}, you need a [Yandex account](../../../iam/concepts/users/accounts.md#passport).
 
 You can authenticate in the [profile creation](../profile/profile-create.md#interactive-create) wizard using the `yc init` command or following these steps:
 

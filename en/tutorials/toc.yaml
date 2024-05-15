@@ -100,7 +100,7 @@ items:
           - name: Scheduled scaling of instance groups
             href: infrastructure-management/vm-scale-scheduled.md
           - name: >-
-              Automatically scaling an instance group to handle messages from a
+              Automatically scaling an instance group to process messages from a
               queue in {{ message-queue-name }}
             href: infrastructure-management/autoscale-monitoring.md
           - name: Updating an instance group under load
@@ -204,6 +204,8 @@ items:
             href: web/bind-domain-vm.md
           - name: Creating a Python web application with Flask
             href: web/flask.md
+          - name: Hosting a static Gatsby website
+            href: web/gatsby-static-website.md
       - name: 1C
         items:
           - name: 1C-Bitrix online store
@@ -228,6 +230,8 @@ items:
             href: infrastructure-management/sap.md
           - name: Developing a Telegram bot for text and audio recognition
             href: ml-ai/recognizer-bot.md
+          - name: Deploying a Minecraft server in {{ yandex-cloud }}
+            href: infrastructure/minecraft-server.md
   - name: Building a data platform
     items:
       - name: All tutorials
@@ -355,11 +359,17 @@ items:
       - name: Automating operations with {{ dataproc-name }} using {{ maf-name }}
         href: dataplatform/data-proc-and-airflow.md
       - name: >-
+          Transferring metadata between {{ dataproc-name }} clusters using {{
+          metastore-name }}
+        href: dataplatform/metastore-import.md
+      - name: >-
           Migrating collections from a third-party {{ MG }} cluster to {{
           mmg-name }}
         href: dataplatform/mongodb-migration-with-data-transfer.md
       - name: Migrating data to {{ mmg-name }}
         href: dataplatform/mongodb-data-migration.md
+      - name: Migrating a {{ mmg-name }} cluster from 4.4 to 6.0
+        href: dataplatform/mongodb-versions.md
       - name: Sharding {{ MG }} collections
         href: dataplatform/mongodb-sharding.md
       - name: '{{ MG }} performance analysis and tuning'

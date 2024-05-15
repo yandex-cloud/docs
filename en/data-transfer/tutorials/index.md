@@ -14,6 +14,7 @@ Migration is a task that involves transferring data from one data storage to ano
 * [Migrating {{ CH }} clusters](managed-clickhouse.md)
 * [Migrating {{ GP }} clusters](managed-greenplum.md)
 * [Migrating {{ MG }} clusters](managed-mongodb.md)
+* [Migrating {{ MG }} cluster from 4.4 to 6.0](mongodb-versions.md)
 * [Migrating data from AWS RDS for {{ PG }}](rds-to-mpg.md)
 * [Migrating {{ OS }} clusters](os-to-mos.md)
 

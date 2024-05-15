@@ -22,7 +22,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
 
    
-   1. If you are using security groups, [configure them](../../managed-kafka/operations/connect.md#configuring-security-groups) so that you can connect to the cluster from the internet.
+   1. If using security groups, [configure them](../../managed-kafka/operations/connect/index.md#configuring-security-groups) to be able to connect to the cluster from the internet.
 
 
 - {{ TF }} {#tf}
@@ -223,7 +223,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-1. If you created the service account along with the target endpoint, [delete it](../../iam/operations/sa/delete.md).
+1. If you created a service account together with the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 Delete the other resources depending on how they were created:
 

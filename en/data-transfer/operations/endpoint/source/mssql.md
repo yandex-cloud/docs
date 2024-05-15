@@ -67,4 +67,6 @@ Configure one of the supported data targets:
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
 
+{% include [Internet access](../../../../_includes/data-transfer/notes/internet-access.md) %}
+
 After configuring the data source and target, [create and start the transfer](../../transfer.md#create).

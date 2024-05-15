@@ -82,8 +82,8 @@ hosts[].<br>resources | **object**<br><p>Resources allocated to the OpenSearch h
 hosts[].<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources allocated to a host.</p> 
 hosts[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage used by the host, in bytes.</p> 
 hosts[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage used by the host: ``network-hdd``, ``network-ssd`` or ``local-ssd``.</p> 
-hosts[].<br>type | **string**<br><p>Type of the host.</p> <ul> <li>TYPE_UNSPECIFIED: The type is not specified. - OPENSEARCH: An OpenSearch type host.</li> <li>DASHBOARDS: A Dashboards type host.</li> </ul> 
-hosts[].<br>health | **string**<br><p>Status code of the aggregated health of the host.</p> <ul> <li>UNKNOWN: Health of the host is unknown.</li> <li>ALIVE: The host is performing all its functions normally.</li> <li>DEAD: The host is inoperable and cannot perform any of its essential functions.</li> <li>DEGRADED: The host is working below capacity or not fully functional.</li> </ul> 
+hosts[].<br>type | **string**<br><p>Type of the host. If the field has default value, it is not returned in the response.</p> <ul> <li>TYPE_UNSPECIFIED: Type of the host is unspecified. Default value. - OPENSEARCH: An OpenSearch type host.</li> <li>DASHBOARDS: A Dashboards type host.</li> </ul> 
+hosts[].<br>health | **string**<br><p>Aggregated health of the host. If the field has default value, it is not returned in the response.</p> <ul> <li>UNKNOWN: Health of the host is unknown. Default value.</li> <li>ALIVE: The host is performing all its functions normally.</li> <li>DEAD: The host is inoperable and cannot perform any of its essential functions.</li> <li>DEGRADED: The host is working below capacity or not fully functional.</li> </ul> 
 hosts[].<br>subnetId | **string**<br><p>ID of the subnet that the host belongs to.</p> 
 hosts[].<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether a public IP is assigned to the host.</p> 
 hosts[].<br>system | **object**<br><p>Resources used by the host.</p> <p>Resources used by the host.</p> 

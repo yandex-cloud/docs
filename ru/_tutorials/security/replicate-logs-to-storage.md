@@ -16,7 +16,7 @@
 1. [Настройте окружение](#setup).
 1. [Создайте бакет {{ objstorage-name }}, в котором будут храниться логи](#create-bucket).
 1. [Создайте поток данных {{ yds-name }}](#create-stream).
-1. [Создайте трансфер {{data-transfer-name}}](#create-transfer).
+1. [Создайте трансфер {{ data-transfer-name }}](#create-transfer).
 1. [Установите Fluent Bit](#install-fluent-bit).
 1. [Подключите Fluent Bit к потоку данных](#connect).
 1. [Проверьте отправку и получение данных](#check-ingestion).

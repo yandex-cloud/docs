@@ -7,7 +7,14 @@ label:
   when: region == "kz"
 items:
   - name: Начало работы
-    href: quickstart.md
+    expanded: true
+    items:
+      - name: Обзор
+        href: quickstart/index.md
+      - name: Начало работы cо {{ sws-name }}
+        href: quickstart.md
+      - name: Начало работы с WAF
+        href: quickstart/quickstart-waf.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -38,12 +45,17 @@ items:
     items:
       - name: Создание L7-балансировщика с профилем безопасности
         href: tutorials/balancer-with-sws-profile.md
+      - name: Создание L7-балансировщика с защитой от DDoS на уровне L3 модели OSI
+        href: tutorials/alb-with-ddos-protection.md
   - name: Концепции
+    expanded: true
     items:
       - name: Обзор
         href: concepts/index.md
       - name: Профили безопасности
         href: concepts/profiles.md
+      - name: WAF
+        href: concepts/waf.md
       - name: Правила
         href: concepts/rules.md
       - name: Условия

@@ -27,6 +27,36 @@ To add a new user (`user2`) to an existing cluster with read-only access to the 
      --permission database=db1,role=read
    ```
 
+- {{ TF }} {#tf}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about how to create this file, see [Creating clusters](../../managed-mongodb/operations/cluster-create.md).
+
+   1. Add the `yandex_mdb_mongodb_user` resource.
+
+      ```hcl
+      resource "yandex_mdb_mongodb_user" "user2" {
+        cluster_id = <cluster_ID>
+        name       = "user2"
+        password   = "<password>"
+        permission {
+          database_name = "db1"
+          roles         = [ "read" ]
+        }
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mongodb_user).
+
 {% endlist %}
 
 ### Modify user permissions {#update-user-read-only}
@@ -59,22 +89,19 @@ To grant read-only access to the `db2` database to `user1` of `cluster1`:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](../../managed-mongodb/operations/cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](../../managed-mongodb/operations/cluster-create.md).
 
-   1. In the {{ mmg-name }} cluster description, find the `user` block for `user1`.
+   1. Find the `yandex_mdb_mongodb_user` resource.
    1. Add a `permission` section:
 
       ```hcl
-      resource "yandex_mdb_mongodb_cluster" "cluster1" {
-        ...
-        user {
-          name     = "user1"
-          password = "<password>"
-          ...
-          permission {
-            database_name = "db2"
-            roles         = [ "read" ]
-          }
+      resource "yandex_mdb_mongodb_user" "user1" {
+        cluster_id = <cluster_ID>
+        name     = "user1"
+        password = "<password>"
+        permission {
+          database_name = "db2"
+          roles         = [ "read" ]
         }
       }
       ```
@@ -87,6 +114,6 @@ To grant read-only access to the `db2` database to `user1` of `cluster1`:
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mongodb_user).
 
 {% endlist %}

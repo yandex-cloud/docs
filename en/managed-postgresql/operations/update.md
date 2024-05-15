@@ -40,7 +40,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 When changing the host class:
 
 * Your single-host cluster will be unavailable for a few minutes with database connections terminated.
-* Your multi-host cluster will get a new master host. Its hosts will be stopped and updated one by one. Once stopped, a host will be unavailable for a few minutes.
+* Your multi-host cluster will get a new master host. Its hosts will be stopped and updated one by one. When stopped, a host will be unavailable for a few minutes.
 * Using a [special FQDN](./connect.md#special-fqdns) does not guarantee a stable database connection: user sessions may be terminated.
 
 We recommend changing the host class only when the cluster has no active workload.
@@ -312,6 +312,10 @@ You can change the DBMS settings of the hosts in your cluster.
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
+      By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
+
+      If the parameter is changed on a running cluster, only users and databases with the **Same as cluster** protection will inherit the new value.
+
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    * `--performance-diagnostics`: [Statistics collection](./performance-diagnostics.md#activate-stats-collector) settings:
@@ -392,7 +396,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    1. {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
 
-   1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
+   1. To enable protection of the cluster, its databases, and users against accidental deletion, add the `deletion_protection` field set to `true` to your cluster description:
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
@@ -401,7 +405,11 @@ You can change the DBMS settings of the hosts in your cluster.
       }
       ```
 
-      Where `deletion_protection` is cluster deletion protection, `true` or `false`.
+      Where `deletion_protection` is the protection of the cluster, its databases, and users against deletion. It may take either the `true` or `false` value.
+
+      By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
+
+      If the parameter is changed on a running cluster, only users and databases with the **Same as cluster** protection will inherit the new value.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -424,7 +432,11 @@ You can change the DBMS settings of the hosts in your cluster.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * [Connection pooler mode](../concepts/pooling.md) in the `configSpec.poolerConfig.poolingMode` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
-   * Cluster deletion protection settings in the `deletionProtection` parameter.
+   * Settings for protection of the cluster, its databases, and users against deletion in the `deletionProtection` parameter: `true` or `false`.
+
+      By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
+
+      If the parameter is changed on a running cluster, only users and databases with the **Same as cluster** protection will inherit the new value.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 

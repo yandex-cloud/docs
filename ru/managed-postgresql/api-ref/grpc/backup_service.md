@@ -41,6 +41,7 @@ size | **int64**<br>Size of backup, in bytes
 type | enum **BackupCreationType**<br>How this backup was created (manual/automatic/etc...) <ul><li>`AUTOMATED`: Backup created by automated daily schedule</li><li>`MANUAL`: Backup created by user request</li></ul>
 method | enum **BackupMethod**<br>Method of backup creation <ul><li>`BASE`: Base backup</li><li>`INCREMENTAL`: Delta (incremental) PostgreSQL backup</li></ul>
 journal_size | **int64**<br>Size of the journal associated with backup, in bytes 
+status | enum **BackupStatus**<br>Status of backup <ul><li>`DONE`: Backup is done</li><li>`CREATING`: Backup is creating</li></ul>
 
 
 ## List {#List}
@@ -79,6 +80,7 @@ size | **int64**<br>Size of backup, in bytes
 type | enum **BackupCreationType**<br>How this backup was created (manual/automatic/etc...) <ul><li>`AUTOMATED`: Backup created by automated daily schedule</li><li>`MANUAL`: Backup created by user request</li></ul>
 method | enum **BackupMethod**<br>Method of backup creation <ul><li>`BASE`: Base backup</li><li>`INCREMENTAL`: Delta (incremental) PostgreSQL backup</li></ul>
 journal_size | **int64**<br>Size of the journal associated with backup, in bytes 
+status | enum **BackupStatus**<br>Status of backup <ul><li>`DONE`: Backup is done</li><li>`CREATING`: Backup is creating</li></ul>
 
 
 ## Delete {#Delete}

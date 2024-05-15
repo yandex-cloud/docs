@@ -8,6 +8,14 @@ If a resource has child resources, all permissions from the parent resource will
 
 For more information about access control in {{ yandex-cloud }}, see the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/index.md).
 
+## Which resources you can assign a role for {#resources}
+
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+You can assign a role via the YC CLI or {{ yandex-cloud }} API for individual resources of the service:
+
+{% include notitle [organization-resources](../../_includes/iam/resources-with-access-control/organization.md) %}
+
 ## Which roles exist in the service {#roles-list}
 
 ### Service roles {#service-roles}
@@ -98,7 +106,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
       * `<resource>`: Resource category. For an organization, `organization` is the category of importance.
       * `<resource_name_or_ID>`: Resource name or ID. Refer to an organization by its [technical name](../operations/org-profile.md).
       * `--role`: Role ID, e.g., `organization-manager.admin`.
-      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) to whom the role is assigned.
+      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
 
       For example, assign the administrator role for the organization with the `bpf3crucp1v2********` ID:
 
@@ -135,7 +143,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -230,7 +238,7 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
 
    To revoke a role from a subject, delete the corresponding access binding for the appropriate resource:
 
-   1. View the roles and assignees for a resource:
+   1. View the roles and assignees for the resource:
 
       ```bash
       yc <service_name> <resource> list-access-bindings <resource_name_or_ID>
@@ -282,7 +290,7 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
 
    To revoke a resource role from a subject, delete the corresponding access binding:
 
-   1. View the roles and assignees for a resource using the `listAccessBindings` method. For example, to view the roles in the organization with the `bpf3crucp1v2********` ID:
+   1. View the roles and assignees for the resource using the `listAccessBindings` method. For example, to view the roles in the organization with the `bpf3crucp1v2********` ID:
 
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********

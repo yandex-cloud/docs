@@ -104,7 +104,7 @@
 
 ### Создайте группу узлов {#node-group-create}
 
-Чтобы [создать группу узлов {{ managed-k8s-name }}]((../../managed-kubernetes/operations/node-group/node-group-create.md)):
+Чтобы [создать группу узлов {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-group/node-group-create.md):
 
 {% list tabs group=instructions %}
 

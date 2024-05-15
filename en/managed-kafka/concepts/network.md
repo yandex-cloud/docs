@@ -20,7 +20,7 @@ If there are {{ ZK }} hosts in the cluster, each of the three {{ ZK }} hosts wil
 
 {{ mkf-short-name }} generates the name of each cluster host when creating it. This name will be the host's fully qualified domain name (FQDN). The host name and, consequently, FQDN cannot be changed.
 
-To learn how to get a host FQDN, see [this guide](../operations/connect.md#fqdn).
+To learn how to get a host FQDN, see [this guide](../operations/connect/fqdn.md).
 
 
 You can use the FQDN to access the host within a single cloud network. For more information, see the [{{ vpc-full-name }} documentation](../../vpc/).
@@ -39,7 +39,7 @@ When you delete a cluster with public access enabled, all public IP addresses as
 
 {% note tip %}
 
-When connecting to a cluster from within its cloud network, make sure to [configure](../operations/connect.md#configuring-security-groups) security groups both for the cluster and for the connecting host.
+When connecting to a cluster from within its cloud network, make sure to [configure](../operations/connect/index.md#configuring-security-groups) security groups both for the cluster and for the connecting host.
 
 {% endnote %}
 

@@ -1,9 +1,9 @@
 ---
-title: "Deleting a MySQL cluster"
-description: "After you delete a MySQL database cluster, its backups are kept for 7 days for recovery purposes. To restore a deleted cluster from its backup, you will need its ID; therefore, safely save the cluster ID before deleting the cluster."
+title: "Deleting a {{ MY }} cluster"
+description: "After you delete a {{ MY }} cluster, its backups are kept for seven days for recovery purposes. To restore a deleted cluster from its backup, you will need its ID; therefore, securely save the cluster ID before deleting the cluster."
 ---
 
-# Deleting {{ MY }} clusters
+# Deleting a {{ MY }} cluster
 
 ## Before deleting a cluster {#before-you-delete}
 

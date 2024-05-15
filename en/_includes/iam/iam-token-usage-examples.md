@@ -4,18 +4,20 @@ Save the IAM token to a variable in the CLI and use it in other requests from th
 
 - Bash {#bash}
 
-  ```bash
-  export IAM_TOKEN=`yc iam create-token`
-  curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-    https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
-  ```
+   ```bash
+   export IAM_TOKEN=`yc iam create-token`
+   curl -X GET \
+     -H "Authorization: Bearer ${IAM_TOKEN}" \
+     https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
+   ```
 
 - PowerShell {#powershell}
 
-  ```powershell
-  $IAM_TOKEN=yc iam create-token
-  curl.exe -H "Authorization: Bearer $IAM_TOKEN" https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
-  ```
+   ```powershell
+   $IAM_TOKEN=yc iam create-token
+   curl.exe -X GET `
+     -H "Authorization: Bearer $IAM_TOKEN" `
+     https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
+   ```
 
 {% endlist %}
-

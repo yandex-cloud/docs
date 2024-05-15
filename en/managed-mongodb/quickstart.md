@@ -12,7 +12,7 @@ To get started with the service:
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if you are not signed up yet.
 
 1. If you do not have a folder yet, create one:
 
@@ -46,13 +46,13 @@ To get started with the service:
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Set the cluster parameters and click **{{ ui-key.yacloud.mdb.clusters.button_create }}**. This process is described in detail in [{#T}](operations/cluster-create.md).
+1. Set the cluster parameters and click **{{ ui-key.yacloud.mdb.clusters.button_create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
 1. Wait until the cluster is ready: its status on the {{ mmg-short-name }} dashboard will change to **Running** and its state to **Alive**. This may take some time.
 
 ## Connect to the DB {#connect}
 
 
-1. If you are using security groups for a cloud network, [configure them](operations/connect/index.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
+1. If using security groups for a cloud network, [configure](operations/connect/index.md#configuring-security-groups) them to enable all relevant traffic between the cluster and the connecting host.
 
 
 1. Get an SSL certificate:

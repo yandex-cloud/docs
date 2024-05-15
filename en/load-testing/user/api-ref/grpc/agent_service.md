@@ -50,6 +50,7 @@ metadata | **map<string,string>**<br>The metadata `key:value` pairs that will be
 boot_disk_spec | **[compute.v1.AttachedDiskSpec](./agent/create_compute_instance#v1)**<br>Required. Boot disk to attach to the instance. 
 network_interface_specs[] | **[compute.v1.NetworkInterfaceSpec](./agent/create_compute_instance#v1)**<br>Network configuration for the instance. Specifies how the network interface is configured to interact with other services on the internal network and on the internet. Currently only one network interface is supported per instance. The number of elemets must be exactly 1.
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
+platform_id | **string**<br>ID of the [Compute VM platform](docs/compute/concepts/vm-platforms) on which the agent will be created. Default value: "standard-v2" 
 
 
 ### Operation {#Operation}
@@ -233,6 +234,7 @@ metadata | **map<string,string>**<br>The metadata `key:value` pairs that will be
 boot_disk_spec | **[compute.v1.AttachedDiskSpec](./agent/create_compute_instance#v1)**<br>Required. Boot disk to attach to the instance. 
 network_interface_specs[] | **[compute.v1.NetworkInterfaceSpec](./agent/create_compute_instance#v1)**<br>Network configuration for the instance. Specifies how the network interface is configured to interact with other services on the internal network and on the internet. Currently only one network interface is supported per instance. The number of elemets must be exactly 1.
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
+platform_id | **string**<br>ID of the [Compute VM platform](docs/compute/concepts/vm-platforms) on which the agent will be created. Default value: "standard-v2" 
 
 
 ### Operation {#Operation2}

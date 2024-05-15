@@ -50,6 +50,8 @@ service_account_id | **string**<br>ID of the service account that the API key be
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 description | **string**<br>Description of the API key. 0-256 characters long. 
 last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last authentication using this API key. 
+scope | **string**<br>Scope of the API key. 0-256 characters long. 
+expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>API key expiration timestamp. 
 
 
 ## Get {#Get}
@@ -74,6 +76,8 @@ service_account_id | **string**<br>ID of the service account that the API key be
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 description | **string**<br>Description of the API key. 0-256 characters long. 
 last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last authentication using this API key. 
+scope | **string**<br>Scope of the API key. 0-256 characters long. 
+expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>API key expiration timestamp. 
 
 
 ## Create {#Create}
@@ -88,6 +92,8 @@ Field | Description
 --- | ---
 service_account_id | **string**<br>ID of the service account to create an API key for. To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. If not specified, it defaults to the subject that made the request. The maximum string length in characters is 50.
 description | **string**<br>Description of the API key. The maximum string length in characters is 256.
+scope | **string**<br>Scope of the API key. The maximum string length in characters is 256.
+expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>API key expiration timestamp, if not specified, then the API key doesn't expire 
 
 
 ### CreateApiKeyResponse {#CreateApiKeyResponse}
@@ -107,6 +113,8 @@ service_account_id | **string**<br>ID of the service account that the API key be
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 description | **string**<br>Description of the API key. 0-256 characters long. 
 last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last authentication using this API key. 
+scope | **string**<br>Scope of the API key. 0-256 characters long. 
+expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>API key expiration timestamp. 
 
 
 ## Update {#Update}
@@ -160,6 +168,8 @@ service_account_id | **string**<br>ID of the service account that the API key be
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 description | **string**<br>Description of the API key. 0-256 characters long. 
 last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for the last authentication using this API key. 
+scope | **string**<br>Scope of the API key. 0-256 characters long. 
+expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>API key expiration timestamp. 
 
 
 ## Delete {#Delete}

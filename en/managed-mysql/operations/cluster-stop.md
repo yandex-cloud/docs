@@ -1,11 +1,11 @@
 ---
-title: "Stopping and starting {{ MY }} clusters in {{ mmy-name }}"
-description: "You can stop and restart a {{ MY }} database cluster, if you need to. You are not charged while your cluster is stopped: you continue to pay only for the storage size and backups."
+title: "Stopping and starting a {{ MY }} cluster in {{ mmy-name }}"
+description: "You can stop and restart a {{ MY }} cluster, if required. You are not charged while your cluster is stopped: you continue to pay only for the storage size and backups."
 ---
 
 # Stopping and starting {{ MY }} clusters
 
-You can stop and restart a {{ MY }} DB cluster, if required. You are not charged while your cluster is stopped: you continue to pay only for the storage size and backups based on the [pricing policy](../pricing.md#prices-storage).
+You can stop and restart {{ MY }} clusters, if required. You are not charged while your cluster is stopped: you continue to pay only for the storage size and backups based on the [pricing policy](../pricing.md#prices-storage).
 
 {% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
 

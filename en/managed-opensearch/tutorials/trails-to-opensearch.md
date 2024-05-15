@@ -4,4 +4,4 @@
 
 You will learn how to set up the export of logs from {{ at-name }} with just a few steps, while using [{{ yds-full-name }}](../../data-streams/index.yaml) and [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) and selecting {{ mos-full-name }} as a SIEM system to analyze logs and respond to security events.
 
-{% include notitle [trails-logs-opensearch](../../_tutorials/trails-logs-opensearch.md) %}
+{% include notitle [trails-logs-opensearch](../../_tutorials/security/trails-logs-opensearch.md) %}

@@ -526,14 +526,14 @@
 
   ```sql
   select * from trail_data.trail_logs_stream
-  where event_type = '{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder' and  JSONExtractString(details, 'folder_name') = '<имя_каталога>'
+  where event_type = '{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder' and JSONExtractString(details, 'folder_name') = '<имя_каталога>'
   ```
 
 * Какие действия совершал конкретный пользователь за период времени (требуется указать Name ID пользователя и дату):
 
   ```sql
   select * from trail_data.trail_logs_stream
-  where subject_name = '<Name_ID_пользователя>' and  event_time >= 2022-06-26
+  where subject_name = '<Name_ID_пользователя>' and event_time >= 2022-06-26
   ```
 
 * Срабатывание при создании [ключей](../../iam/concepts/index.md#keys) для сервисных аккаунтов:

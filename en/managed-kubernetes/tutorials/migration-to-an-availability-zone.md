@@ -18,6 +18,12 @@ To migrate {{ managed-k8s-name }} resources from one availability zone to anothe
 
 {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+If you have already installed the CLI, update to its latest version.
+
+```bash
+yc components update
+```
+
 ## Migrate your master host to a different availability zone {#transfer-a-master}
 
 Migration of a [master host](../concepts/index.md#master) depends on its type: [zonal](#zonal) or [regional](#regional).

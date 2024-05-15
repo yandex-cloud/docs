@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/delete.md
 ---
 
 # Virtual Private Cloud API, REST: SecurityGroup.delete
-
+Deletes the specified security group.
  
 
  
@@ -17,7 +17,7 @@ DELETE https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}
  
 Parameter | Description
 --- | ---
-securityGroupId | <p>Required.</p> 
+securityGroupId | <p>Required. ID of the security group to delete.</p> <p>To get a address ID make a [SecurityGroup.List] request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -35,6 +35,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * `thumbor-sa` service account for Thumbor.
 
    1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration.
+
+   1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+      {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
    1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-full-name }}.
    1. [Grant the `thumbor-sa` service account](../../storage/operations/objects/edit-acl.md) the `READ` permission for the bucket.
 
@@ -45,30 +50,27 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [k8s-for-thumbor.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-for-thumbor.tf) configuration file to the same working directory.
+   1. Download the [k8s-for-thumbor.tf](https://github.com/yandex-cloud-examples/yc-mk8s-thumbor/blob/main/k8s-for-thumbor.tf) configuration file to the same working directory.
 
       This file describes:
 
       * Network.
       * Subnet.
-      * [Security groups and rules](../../managed-kubernetes/operations/connect/security-groups.md) for multiple functions:
-
-         * Network load balancer.
-         * Traffic transfer between the [master](../../managed-kubernetes/concepts/index.md#master) and [nodes](../../managed-kubernetes/concepts/index.md#node-group).
-         * Traffic transfer between [pods](../../managed-kubernetes/concepts/index.md#pod) and [services](../../managed-kubernetes/concepts/index.md#service).
-         * Health checking of nodes using ICMP requests from the subnets within {{ yandex-cloud }}.
-         * Connections to services from the internet.
-
       * Service accounts for different services:
 
          * For {{ managed-k8s-name }} cluster and node group.
          * For Thumbor.
          * To create {{ objstorage-name }} buckets.
 
-      * {{ managed-k8s-name }} cluster
-      * Node group
-      * Static access key for bucket creation
-      * Bucket
+      * {{ managed-k8s-name }} cluster.
+      * Node group.
+
+      * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+
+         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+      * Static access key for bucket creation.
+      * Bucket.
 
    1. In `k8s-for-thumbor.tf`, specify:
 
@@ -152,7 +154,7 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
 
       You can only upload objects to a bucket after you create it. Therefore, a separate configuration file is used for uploading images.
 
-      1. Download the `images-for-thumbor.tf` configuration file to the working directory containing the [k8s-for-thumbor.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/images-for-thumbor.tf) file. This file describes {{ objstorage-name }} objects, i.e., downloaded images to be uploaded to the bucket.
+      1. Download the `images-for-thumbor.tf` configuration file to the working directory containing the [k8s-for-thumbor.tf](https://github.com/yandex-cloud-examples/yc-mk8s-thumbor/blob/main/images-for-thumbor.tf) file. This file describes {{ objstorage-name }} objects, i.e., downloaded images to be uploaded to the bucket.
       1. Specify relative or absolute paths to the images in the `images-for-thumbor.tf` file. For example, if your images are stored in the same directory as the configuration files, specify:
 
          * `poster_rodents_bunnysize.jpg`
@@ -299,6 +301,8 @@ Open your website at the URL:
 * `https://<resource_domain_name>/unsafe/800x600/filters:watermark(cc.xlarge.png,-10,10,80,15)/poster_rodents_bunnysize.jpg`
 
 You will see the prepared images of different sizes. Each image carries a [Creative Commons](https://en.wikipedia.org/wiki/Creative_Commons) watermark.
+
+{% include [Configuring security groups if the resource is unavailable](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
 ## Delete the resources you created {#clear-out}
 

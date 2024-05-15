@@ -1,1 +1,1 @@
-Customers with tax residency in the Republic of Belarus can pay for {{ yandex-cloud }} services using Visa, Mastercard, and Belcard cards issued in the Republic of Belarus and Mir cards issued in the Russian Federation.
+Customers with tax residency in the Republic of Belarus can pay for {{ yandex-cloud }} services with their Belcard cards issued in the Republic of Belarus or Mir cards issued in the Russian Federation.

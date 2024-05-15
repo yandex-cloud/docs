@@ -663,7 +663,7 @@ clusters[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp of th
 clusters[].<br>name | **string**<br><p>Name of the cluster.</p> 
 clusters[].<br>description | **string**<br><p>Description of the cluster.</p> 
 clusters[].<br>labels | **object**<br><p>Custom labels for the cluster as ``key:value`` pairs.</p> 
-clusters[].<br>environment | **string**<br><p>Deployment environment of the cluster.</p> <ul> <li>PRODUCTION: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li> </ul> 
+clusters[].<br>environment | **string**<br><p>Deployment environment of the MySQL cluster.</p> <ul> <li>PRODUCTION: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li> </ul> 
 clusters[].<br>monitoring[] | **object**<br><p>Monitoring systems data that is relevant to the cluster.</p> 
 clusters[].<br>monitoring[].<br>name | **string**<br><p>Name of the monitoring system.</p> 
 clusters[].<br>monitoring[].<br>description | **string**<br><p>Description of the monitoring system.</p> 

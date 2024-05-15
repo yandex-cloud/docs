@@ -62,7 +62,9 @@ The cost includes:
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-install](../../_includes/terraform-install.md) %}
+  {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Add bucket parameters to the configuration file:
 
@@ -92,9 +94,18 @@ The cost includes:
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the bucket whose logs you want to write.
+  1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}** tab.
+  1. Enable **{{ ui-key.yacloud.storage.server-logs.label_server-logs }}**.
+  1. Select **{{ ui-key.yacloud.storage.server-logs.label_target-bucket }}**.
+  1. In the **{{ ui-key.yacloud.storage.server-logs.label_prefix }}** field, specify the `s3-logs/` prefix.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
+
 - AWS CLI {#cli}
 
-  1. Create a `log-config.json` file with the following content:
+  1. Create the `log-config.json` file with the following contents:
 
      ```json
      {
@@ -114,7 +125,45 @@ The cost includes:
        --bucket-logging-status file://log-config.json
      ```
 
-      Where `--bucket` is the name of the bucket you need action logging enabled for.
+      Where `--bucket` is the name of the bucket to enable action logging for.
+
+- {{ TF }} {#tf}
+
+   To enable logging for a bucket that you wish to monitor:
+
+   1. Open the {{ TF }} configuration file and add the `logging` section to the fragment describing the bucket.
+
+      ```hcl
+      resource "yandex_storage_bucket" "bucket-logs" {
+        access_key = "<static_key_ID>"
+        secret_key = "<secret_key>"
+        bucket     = "<name_of_bucket_to_store_logs>"
+      }
+
+      resource "yandex_storage_bucket" "bucket" {
+        access_key = "<static_key_ID>"
+        secret_key = "<secret_key>"
+        bucket     = "<source_bucket_name>"
+        acl        = "private"
+
+        logging {
+          target_bucket = yandex_storage_bucket.bucket-logs.id
+          target_prefix = "s3-logs/"
+        }
+      }
+      ```
+
+      Where:
+      * `access_key`: ID of the static access key.
+      * `secret_key`: Value of the secret access key.
+      * `target_bucket`: Reference to the bucket that will store logs.
+      * `target_prefix`: [Key prefix](../../storage/concepts/server-logs.md#key-prefix) for objects with logs.
+
+      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+
+      {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -315,7 +364,7 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
         vhost String                -- Virtual host of request.
                                     -- Possible values:
                                     -- * {{ s3-storage-host }}.
-                                    -- * <bucket name>.{{ s3-storage-host }}.
+                                    -- * <bucket_name>.{{ s3-storage-host }}.
                                     -- * {{ s3-web-host }}.
                                     -- * <bucket_name>.{{ s3-web-host }}.
      )

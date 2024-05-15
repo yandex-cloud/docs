@@ -110,16 +110,16 @@
          --header 'Content-Type: application/json' \
          --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc/?pretty' -d'
          {
-               "name" : "Alice",
-               "age" : "30"
+               "name": "Alice",
+               "age": "30"
          }
          ' && \
     curl --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --header 'Content-Type: application/json' \
          --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc/?pretty' -d'
          {
-               "name" : "Robert",
-               "age" : "32"
+               "name": "Robert",
+               "age": "32"
          }
          '
     ```

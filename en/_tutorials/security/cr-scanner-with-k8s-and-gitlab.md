@@ -1,12 +1,12 @@
 # Scanning {{ container-registry-name }} for vulnerabilities during continuous deployment of {{ managed-k8s-name }} applications using {{ GL }}
 
 
-You can scan [Docker images](../container-registry/concepts/docker-image.md) for [vulnerabilities](../container-registry/concepts/vulnerability-scanner.md) in [{{ container-registry-full-name }}](../container-registry/) when continuously deploying [{{ managed-k8s-full-name }}](../managed-kubernetes/) applications via {{ GL }}.
+You can scan [Docker images](../../container-registry/concepts/docker-image.md) for [vulnerabilities](../../container-registry/concepts/vulnerability-scanner.md) in [{{ container-registry-full-name }}](../../container-registry/) when continuously deploying [{{ managed-k8s-full-name }}](../../managed-kubernetes/) applications via {{ GL }}.
 
 To do this, use Continuous Integration (CI) to create a special script in {{ GL }} that will run after each commit:
 1. Building an application into a Docker image and pushing the image to {{ container-registry-name }}.
 1. Scanning Docker images in {{ container-registry-name }} for vulnerabilities.
-1. Deploying an application from a Docker image in a [{{ managed-k8s-name }} cluster](../managed-kubernetes/concepts/index.md#kubernetes-cluster) using the {{ yandex-cloud }} tools.
+1. Deploying an application from a Docker image in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) using the {{ yandex-cloud }} tools.
 
 To set up the vulnerability scanner:
 1. [Create a {{ GL }} instance](#create-gitlab).
@@ -20,17 +20,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-begin}
 
-{% include [deploy-infrastructure](../_includes/managed-gitlab/deploy-infrastructure.md) %}
+{% include [deploy-infrastructure](../../_includes/managed-gitlab/deploy-infrastructure.md) %}
 
-{% include [prepare](../_includes/managed-gitlab/prepare.md) %}
+{% include [prepare](../../_includes/managed-gitlab/prepare.md) %}
 
-{% include [create-gitlab](../_includes/managed-gitlab/create-gitlab.md) %}
+{% include [create-gitlab](../../_includes/managed-gitlab/create-gitlab.md) %}
 
-{% include [Create a project](../_includes/managed-gitlab/initialize.md) %}
+{% include [Create a project](../../_includes/managed-gitlab/initialize.md) %}
 
-{% include [app-create](../_includes/managed-gitlab/app-create.md) %}
+{% include [app-create](../../_includes/managed-gitlab/app-create.md) %}
 
-{% include [create glr](../_includes/managed-gitlab/k8s-runner.md) %}
+{% include [create glr](../../_includes/managed-gitlab/k8s-runner.md) %}
 
 ## Set up {{ k8s }} authentication in {{ GL }} {#gitlab-authentication}
 
@@ -40,11 +40,11 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
 - Service account token {#token}
 
-   {% include notitle [k8s-get-token](../_includes/managed-gitlab/k8s-get-token.md) %}
+   {% include notitle [k8s-get-token](../../_includes/managed-gitlab/k8s-get-token.md) %}
 
 - {{ GLA }} {#gla}
 
-   {% include notitle [create gla](../_includes/managed-gitlab/k8s-agent.md) %}
+   {% include notitle [create gla](../../_includes/managed-gitlab/k8s-agent.md) %}
 
 {% endlist %}
 
@@ -59,20 +59,20 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
       - Service account token {#token}
 
-        * `KUBE_URL`: [{{ managed-k8s-name }} master](../managed-kubernetes/concepts/index.md#master) address. You can retrieve it using the following command:
+         * `KUBE_URL`: [{{ managed-k8s-name }} master address](../../managed-kubernetes/concepts/index.md#master). You can retrieve it using the following command:
 
-          ```bash
-          yc managed-kubernetes cluster get <cluster_name_or_ID> --format=json \
-             | jq -r .master.endpoints.external_v4_endpoint
-          ```
+            ```bash
+            yc managed-kubernetes cluster get <cluster_name_or_ID> --format=json \
+               | jq -r .master.endpoints.external_v4_endpoint
+            ```
 
-        * `KUBE_TOKEN`: Token that will use {{ GL }} to apply the configuration. Use the token obtained earlier.
+         * `KUBE_TOKEN`: Token that will use {{ GL }} to apply the configuration. Use the token obtained earlier.
 
       - {{ GLA }} {#gla}
 
       {% endlist %}
 
-      * `CI_REGISTRY`: Address of the previously created [registry](../container-registry/concepts/registry.md) in `{{ registry }}/<registry_ID>` format.
+      * `CI_REGISTRY`: Address of the previously created [registry](../../container-registry/concepts/registry.md) in `{{ registry }}/<registry_ID>` format.
       * `CI_REGISTRY_KEY`: Key that {{ GL }} will use to access the registry. Copy the contents of the previously obtained `key.json` static key file to access the registry.
 
       To add a variable:
@@ -81,14 +81,14 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
       * Click **Add variable**.
 1. Create the CI script's configuration file:
    1. In the left-hand panel in {{ GL }}, go to **Repository** and click the **Files** tab.
-   1. Click ![image](../_assets/console-icons/plus.svg) to the right of the project name and select **New file** from the drop-down menu.
+   1. Click ![image](../../_assets/console-icons/plus.svg) to the right of the project name and select **New file** from the drop-down menu.
    1. Name the file as `.gitlab-ci.yml`. Add the steps to build and push a Docker image, scan it for vulnerabilities, and update the application configuration in the {{ managed-k8s-name }} cluster. The file structure depends on the {{ k8s }} authentication method in {{ GL }}:
 
       {% list tabs group=gl_auth %}
 
       - Service account token {#token}
 
-        {% cut ".gitlab-ci.yml" %}
+         {% cut ".gitlab-ci.yml" %}
 
          ```yaml
          stages:
@@ -151,11 +151,11 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
              - kubectl apply -f k8s.yaml
          ```
 
-        {% endcut %}
+         {% endcut %}
 
       - {{ GLA }} {#gla}
 
-        {% cut ".gitlab-ci.yml" %}
+         {% cut ".gitlab-ci.yml" %}
 
          ```yaml
          stages:
@@ -214,9 +214,9 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
              - cat k8s.yaml | sed -e "s,__VERSION__,${CI_REGISTRY}/${CI_COMMIT_REF_SLUG}:${CI_COMMIT_SHA}," | kubectl apply -f -
          ```
 
-        {% endcut %}
+         {% endcut %}
 
-        Replace `<GitLab_Agent_name>` with the agent name in {{ mgl-name }}.
+         Replace `<GitLab_Agent_name>` with the agent name in {{ mgl-name }}.
 
       {% endlist %}
 
@@ -224,12 +224,12 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
    1. Click **Commit changes**.
 
    In the `.gitlab-ci.yml` file, the following steps of the CI script are described:
-   * Build a Docker image using the `Dockerfile` and push the image to {{ container-registry-name }}.
-   * Scan the Docker image for vulnerabilities in {{ container-registry-name }}.
-   * Set up an environment to work with {{ k8s }} and apply `k8s.yaml` configurations to {{ managed-k8s-name }} clusters. This way, the application is deployed on the previously created {{ managed-k8s-name }} cluster.
+   * Building a Docker image using the `Dockerfile` and pushing the image to {{ container-registry-name }}.
+   * Scanning the Docker image for vulnerabilities in {{ container-registry-name }}.
+   * Setting up an environment to work with {{ k8s }} and applying `k8s.yaml` configurations to {{ managed-k8s-name }} clusters. This way, the application is deployed on the previously created {{ managed-k8s-name }} cluster.
 
 ## Check the result {#check-result}
 
 After saving the `.gitlab-ci.yml` configuration file, the build script will start. To check its results, select **CI/CD** → **Pipelines** in the drop-down menu in the left-hand panel in {{ GL }}. Vulnerability scanning is performed at the second stage (`test`).
 
-{% include [clear-out](../_includes/managed-gitlab/clear-out.md) %}
+{% include [clear-out](../../_includes/managed-gitlab/clear-out.md) %}

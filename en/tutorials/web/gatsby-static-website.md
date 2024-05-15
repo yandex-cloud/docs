@@ -1,0 +1,1 @@
+{% include [gatsby-static-website](../../_tutorials/applied/gatsby-static-website.md) %}

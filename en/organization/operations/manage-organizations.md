@@ -12,7 +12,7 @@ Follow [this guide](enable-org.md) to create your first organization.
 
 {% note info %}
 
-Only users with Yandex accounts can create organizations. [Federated users](../../iam/concepts/index.md#saml-federation) cannot create an organization.
+Only users with Yandex accounts can create organizations. [Federated users](../../iam/concepts/users/accounts.md#saml-federation) cannot create an organization.
 
 {% endnote %}
 

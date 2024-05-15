@@ -1,1 +1,1 @@
-`--deletion-protection`: Cluster protection from accidental deletion by a user: `true` or `false`.
+`--deletion-protection`: Protection of the cluster, its databases, and users against accidental deletion, `true` or `false`.

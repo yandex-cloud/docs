@@ -182,7 +182,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       * `--host`: Host parameters:
          * `type`: Host type: `clickhouse` or `zookeeper`.
          * `zone-id`: Availability zone.
-         * `assign-public-ip`: Flag enabling online access to the host by a public IP, `true` or `false`.
+         * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
 
       
       * `--clickhouse-disk-type`: Disk type.
@@ -531,11 +531,11 @@ To create a {{ CH }} cluster copy:
       * If the `clickhouse.config.merge_tree` section specifies the `max_parts_in_total = 0` parameter value, delete this parameter.
       * If the `maintenance_window` section specifies the `type = "ANYTIME"` parameter value, delete the `hour` parameter.
       * If there are `user` sections, add the `name` and `password` parameters to them.
-      * (Optional) Make further modifications if you need a customized copy rather than identical one.
+      * (Optional) Make further modifications if you are looking for more customization.
 
    1. In the `imported-cluster` directory, [get the authentication data](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 
-   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf).
+   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 

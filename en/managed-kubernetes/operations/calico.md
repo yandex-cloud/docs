@@ -27,7 +27,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
    - Manually {#manual}
 
       1. [Create a cloud network](../../vpc/operations/network-create.md) and [subnet](../../vpc/operations/subnet-create.md).
-      1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](node-group/node-group-create.md) in any suitable configuration. When creating a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster), activate the Calico network policy controller:
+      1. [Create a security group](../../vpc/operations/security-group-create.md) and add [rules](connect/security-groups.md) allowing service traffic within the cluster and access to the {{ k8s }} API.
+      1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](node-group/node-group-create.md) in any suitable configuration. When creating these, specify the network, subnet, and security group prepared in advance. Also, enable the Calico network policy controller in the cluster:
          * In the management console, select **{{ ui-key.yacloud.k8s.clusters.create.field_network-policy }}**.
          * Using the CLI, set the `--enable-network-policy` flag.
          * Using the [create](../api-ref/Cluster/create.md) method for the [Cluster](../api-ref/Cluster) resource.
@@ -42,7 +43,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
       1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-      1. Download the [k8s-calico.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-calico.tf) configuration file of the [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) to the same working directory. The file describes:
+      1. Download the [k8s-calico.tf](https://github.com/yandex-cloud-examples/yc-mk8s-calico/blob/main/k8s-calico.tf) configuration file of the [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) to the same working directory. The file describes:
          * [Network](../../vpc/operations/network-create.md).
          * Subnet.
          * {{ managed-k8s-name }} cluster.
@@ -166,7 +167,7 @@ EOF
 Network policies are created:
 
 ```text
-networkpolicy.networking.k8s.io/default-deny created
+networkpolicy.networking.k8s.io/deny created
 ```
 
 ### Test whether isolation works {#test-isolation}
@@ -226,11 +227,19 @@ Allow access to the nginx web server using network policies. Network policies wi
      podSelector:
        matchLabels:
          app: nginx
+     policyTypes:
+     - Ingress
+     - Egress
      ingress:
        - from:
          - podSelector:
              matchLabels:
                run: access
+     egress:
+       - to:
+         - podSelector:
+             matchLabels:
+               app: nginx
    EOF
    ```
 

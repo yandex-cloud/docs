@@ -40,9 +40,9 @@ For more information about how replication works in {{ MG }}, read the [relevant
 - Each cluster may have a maximum of five hosts.
 - The maximum storage capacity for each {{ MG }} cluster is 605 GB.
 
-For more information about {{ mmg-short-name }} limits, see [{#T}](../../managed-mongodb/concepts/limits.md).
+For more information on {{ mmg-short-name }} limits, see [Quotas and limits](../../managed-mongodb/concepts/limits.md).
 
-#### Why is a cluster working slowly even though it still has free computing resources? {#throttling}
+#### Why is the cluster slow even though the computing resources are not used fully? {#throttling}
 
 {% include [throttling](../throttling.md) %}
 

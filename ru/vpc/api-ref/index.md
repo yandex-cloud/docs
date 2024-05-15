@@ -12,5 +12,5 @@ Resource | Description
 [Gateway](Gateway/index.md) | 
 [Network](Network/index.md) | A set of methods for managing Network resources.
 [RouteTable](RouteTable/index.md) | A set of methods for managing RouteTable resources.
-[SecurityGroup](SecurityGroup/index.md) | 
+[SecurityGroup](SecurityGroup/index.md) | A set of methods for managing SecurityGroup resources.
 [Subnet](Subnet/index.md) | A set of methods for managing Subnet resources.

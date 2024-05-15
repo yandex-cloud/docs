@@ -2,7 +2,7 @@
 
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, configure access to BigQuery.
 
-{{ data-transfer-full-name }} enables you to upload data from BigQuery storage to {{ yandex-cloud }} managed databases and implement various scenarios of data processing and transformation. To implement a transfer:
+{{ data-transfer-full-name }} enables you to upload data from BigQuery storage to {{ yandex-cloud }} managed databases and implement various data processing and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Prepare the BigQuery database](#prepare) for the transfer.
@@ -47,5 +47,7 @@ Configure one of the supported data targets:
 * [{{ PG }}](../target/postgresql.md).
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+
+{% include [Internet access](../../../../_includes/data-transfer/notes/internet-access.md) %}
 
 After configuring the data source and target, [create and start the transfer](../../transfer.md#create).

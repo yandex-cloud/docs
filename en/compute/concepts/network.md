@@ -36,7 +36,7 @@ The VM's public IP address is mapped to its internal IP address through NAT. Thi
 
 ## Host name and internal FQDN {#hostname}
 
-When creating a VM, it is assigned a host name and internal FQDN that can be used to access a certain VM from another VM within the same [cloud network](../../vpc/concepts/network.md).
+When creating a VM, it is assigned a host name and internal FQDN that can be used to access one VM from another within the same [cloud network](../../vpc/concepts/network.md).
 
 Once the VM is created, you cannot change its host name and internal FQDN.
 

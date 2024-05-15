@@ -14,7 +14,11 @@ In this section, you will learn:
 
 ## Which resources you can assign a role for {#resources}
 
-Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or [key](../concepts/key). These roles also apply to nested resources. For example, the editor role includes all viewer role permissions. You can find the description of each role under the chart.
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+In the management console, you can assign a role through the YC CLI or the {{ yandex-cloud }} API for individual resources of the service:
+
+{% include notitle [kms-resources](../../_includes/iam/resources-with-access-control/kms.md) %}
 
 ## Which roles exist in the service {#roles-list}
 

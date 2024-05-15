@@ -2,10 +2,12 @@
 1. Get an OAuth token from Yandex.OAuth. To do this, follow the [link]({{ link-cloud-oauth }}), click **Allow**, and copy the OAuth token obtained.
 1. Exchange the OAuth token for an IAM token:
 
-   * Using [curl](https://curl.haxx.se) in Bash or CMD:
+   * Using [curl](https://curl.haxx.se) in Bash:
 
       ```bash
-      curl -d "{\"yandexPassportOauthToken\":\"<OAuth_token>\"}" "https://iam.{{ api-host }}/iam/v1/tokens"
+      curl -X POST \
+        -d '{"yandexPassportOauthToken":"<OAuth_token>"}' \
+        https://iam.{{ api-host }}/iam/v1/tokens
       ```
    * Using the built-in PowerShell function:
 

@@ -29,7 +29,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 
 
-1. If you are using security groups, [configure them](../../../managed-kafka/operations/connect.md#configuring-security-groups) to allow all required traffic between the {{ mkf-name }} cluster and the VM.
+1. If you are using security groups, [configure them](../../../managed-kafka/operations/connect/index.md#configuring-security-groups) to allow all required traffic between the {{ mkf-name }} cluster and the VM.
 
 1. In the VM security group, [add a rule](../../../vpc/operations/security-group-add-rule.md) for incoming traffic that allows connections via port `8081` which is used by the producer and consumer to access the schema registry:
 
@@ -79,7 +79,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         python3-pip --yes
    ```
 
-1. [Get an SSL certificate](../../../managed-kafka/operations/connect.md#get-ssl-cert).
+1. [Get an SSL certificate](../../../managed-kafka/operations/connect/index.md#get-ssl-cert).
 
 1. Create secure storage for the certificate:
 

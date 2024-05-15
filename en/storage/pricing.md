@@ -110,12 +110,7 @@ Storage_cost = Cost_per_GB_per_month × 15 × 12 / 24 / 30
 
 {% note info %}
 
-Data operations that result in an error are charged only in the following cases:
-
-* Error code 403 for GET, HEAD, and OPTIONS operations.
-* Error code 404 for PUT, POST, GET, HEAD, OPTIONS, PATCH, LIST, and TRANSITION operations.
-
-Prices for standard storage are applied when calculating costs.
+The GET, HEAD, OPTIONS, PATCH, POST and PUT operations that produce 403 or 404 errors are charged. When calculating costs, prices for standard storage are applied.
 
 {% endnote %}
 

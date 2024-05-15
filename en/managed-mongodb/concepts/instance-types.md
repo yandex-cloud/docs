@@ -13,7 +13,7 @@ The host class also determines which [disk types](./storage.md) are available:
 * **s1**, **s2**, **s3**, **m2**, **m3**, and **c3**: `network-ssd`, `network-hdd`, `local-ssd`, and `network-ssd-nonreplicated`.
 * **b1**, **b2**, **b3**: `network-ssd`, `network-hdd`.
 
-For storage limitations, see [{#T}](limits.md).
+For storage size limitations, see [Quotas and limits](limits.md).
 
 
 ## Available host classes {#available-flavors}

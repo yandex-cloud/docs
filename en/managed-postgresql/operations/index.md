@@ -8,16 +8,16 @@ description: "This page provides a list of step-by-step guides for {{ mpg-name }
 ## Clusters
 
 * [Getting information on existing clusters](cluster-list.md)
-* [Creating clusters](cluster-create.md)
+* [Creating a cluster](cluster-create.md)
 * [Updating cluster settings](update.md)
-* [Stopping and starting clusters](cluster-stop.md)
+* [Stopping and starting a cluster](cluster-stop.md)
 * [Managing cluster hosts](hosts.md)
 * [Migrating cluster hosts to a different availability zone](host-migration.md)
 * [Managing replication slots](replication-slots.md)
 * [Managing backups](cluster-backups.md)
 * [Managing disk space](storage-space.md)
 * [Upgrading the {{ PG }} version](cluster-version-update.md)
-* [Deleting clusters](cluster-delete.md)
+* [Deleting a cluster](cluster-delete.md)
 
 ## Databases
 
@@ -31,12 +31,13 @@ description: "This page provides a list of step-by-step guides for {{ mpg-name }
 * [Managing users](cluster-users.md)
 * [Assigning privileges and roles to users](grant.md)
 
-## {{ PG }} extensions
+## {{ PG }} extensions and dictionaries
 
 * [Managing extensions](./extensions/cluster-extensions.md)
 * [Using pg_cron](./extensions/pg_cron.md)
 * [Using pgaudit](./extensions/pgaudit.md)
 * [Using pgcrypto](./extensions/pgcrypto.md)
+* [Using a Hunspell dictionary for full-text search](./extensions/hunspell.md)
 
 ## Logs and monitoring
 

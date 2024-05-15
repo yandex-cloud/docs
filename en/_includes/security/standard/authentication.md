@@ -4,7 +4,7 @@ In {{ yandex-cloud }}, identification, authentication, and access control is per
 
 The platform works with three categories of users:
 
-* [Yandex accounts](../../../iam/concepts/index.md#passport): Accounts in Yandex ID.
+* [Yandex accounts](../../../iam/concepts/users/accounts.md#passport): Yandex ID accounts.
 * [Federated accounts](../../../iam/concepts/#saml-federation): Accounts in a corporate [SAML-compatible identity federation](../../../organization/concepts/add-federation.md), such as Active Directory.
 * [Service accounts](../../../iam/concepts/#sa): Accounts that can be used by a program to manage resources.
 
@@ -107,7 +107,7 @@ Remove all the accounts that have a Yandex ID from your organization, except tho
 
 #### 1.3 Only appropriate administrators can manage {{ iam-short-name }} group membership {#iam-admins}
 
-You can conveniently control access to resources via [user groups](../../../iam/operations/groups/create.md). Make sure to control access rights to a group as a resource. Users with access permissions to the group can manage other users' membership in the group. Users are granted these permissions in the following cases:
+You can conveniently control access to resources via [user groups](../../../iam/operations/groups/create.md). Make sure to control access to a group as a resource. Users with access permissions to the group can manage other users' membership in the group. Users are granted these permissions in the following cases:
 
 * The user is assigned the `organization-manager.groups.memberAdmin` role for an organization.
 * The user is assigned the `organization-manager.groups.memberAdmin` role for a specific group as a resource.

@@ -32,5 +32,5 @@ To set a different bank card:
 
 ## Deleting a bank card {#remove-card}
 
-You can unlink a bank card only from an inactive billing account.
-To inactivate an account and delete a bank card from your account profile, please contact the [technical support service]({{ link-console-support }}).
+You can unlink a bank card only from an [inactive billing account](delete-account.md).
+To delete a bank card from your account profile, please contact the [technical support service]({{ link-console-support }}).

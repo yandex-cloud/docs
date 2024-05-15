@@ -201,9 +201,9 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
 
 ## Increasing the size of a Linux disk partition {#change-part-size-linux}
 
-After increasing the disk size, you also need to increase its partition and file system. For boot disks, this happens automatically after you restart the VM.
+After increasing the disk size, you also need to increase the size of its partitions and file systems. For boot disks, this happens automatically after you restart the VM.
 
-If the disk partition has not increased, or if you mean to increase the size of a non-boot disk, do it manually. The procedure depends on the file system:
+You can also increase the size of any disk of the VM without restarting it. The workflow depends on the file system of the disk partition you need:
 
 {% list tabs %}
 
@@ -232,31 +232,35 @@ If the disk partition has not increased, or if you mean to increase the size of 
       └─vdb1 252:17   0  32G  0 part /data
       ```
 
-      Disk partitions are listed in the `NAME` column. Partition mount points are shown in the `MOUNTPOINT` column.
-   1. If the `MOUNTPOINT` column contains a value for your partition, the partition is mounted. Unmount it:
+      Disk partitions are listed in the `NAME` column. If the `MOUNTPOINT` column contains a value for the partition you need, it means the partition is mounted.
 
-      ```bash
-      sudo umount /data
-      ```
+   1. Unmount the partition if you want to check and restore its file system before changing the partition size. Otherwise, proceed to the next step.
 
-      Where `/data` is the partition mount point.
-   1. Check and restore the file system:
+      1. Unmount the disk:
 
-      ```bash
-      sudo e2fsck -f /dev/vdb1
-      ```
+         ```bash
+         sudo umount /data
+         ```
 
-      Result:
+         Where `/data` is the partition mount point.
 
-      ```text
-      e2fsck 1.44.1 (24-Mar-2018)
-      Pass 1: Checking inodes, blocks, and sizes
-      Pass 2: Checking directory structure
-      Pass 3: Checking directory connectivity
-      Pass 4: Checking reference counts
-      Pass 5: Checking group summary information
-      /dev/vdb1: 11/2097152 files (0.0% non-contiguous), 143890/8388352 blocks
-      ```
+      1. Check and restore the file system:
+
+         ```bash
+         sudo e2fsck -f /dev/vdb1
+         ```
+
+         Result:
+
+         ```text
+         e2fsck 1.44.1 (24-Mar-2018)
+         Pass 1: Checking inodes, blocks, and sizes
+         Pass 2: Checking directory structure
+         Pass 3: Checking directory connectivity
+         Pass 4: Checking reference counts
+         Pass 5: Checking group summary information
+         /dev/vdb1: 11/2097152 files (0.0% non-contiguous), 143890/8388352 blocks
+         ```
 
    1. Change the partition size:
 
@@ -289,10 +293,10 @@ If the disk partition has not increased, or if you mean to increase the size of 
       The filesystem on /dev/vdb1 is now 16776955 (4k) blocks long.
       ```
 
-   1. If you unmounted a partition before checking, remount it:
+   1. If you ran a file system check and unmounted the partition, mount it again:
 
       ```bash
-      sudo mount /data
+      sudo mount /dev/vdb1 /data
       ```
 
    1. Make sure that the partition increased:
@@ -338,6 +342,7 @@ If the disk partition has not increased, or if you mean to increase the size of 
       ```
 
       Disk partitions are listed in the `NAME` column. Partition mount points are shown in the `MOUNTPOINT` column.
+
    1. Run this command:
 
       ```bash

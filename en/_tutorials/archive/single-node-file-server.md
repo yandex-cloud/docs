@@ -294,7 +294,7 @@ After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the followi
       1. From the command line, run:
 
          ```bash
-         net use x: \\<VM_public_IP_address>\<folder_name>
+         net use x: \\<VM_public_IP_address>\folder_name
          ```
 
       Now you have the disk X with the test folder and file.

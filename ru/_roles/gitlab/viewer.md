@@ -1,3 +1,3 @@
-Роль `gitlab.viewer` позволяет просматривать список инстансов Managed Service for GitLab, информацию о каждом инстансе и его резервных копиях.
+Роль `gitlab.viewer` позволяет просматривать информацию об [инстансах](../../managed-gitlab/concepts/index.md#instance) Managed Service for GitLab и [квотах](../../managed-gitlab/concepts/limits.md#quotas) сервиса.
 
-Включает в себя роль `gitlab.auditor`.
+Включает разрешения, предоставляемые ролью `gitlab.auditor`.

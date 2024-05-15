@@ -6,6 +6,14 @@ All actions with {{ lockbox-name }} resources are logged as a list of operations
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+   1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
+   1. Click the name of the secret you need.
+   1. In the left-hand panel, select the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** section.
+
 - CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}

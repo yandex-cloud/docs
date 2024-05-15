@@ -38,7 +38,7 @@ The infrastructure support costs include:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
+      1. In the [management console]({{ link-console-main }}), select a folder where you want to create your service account.
       1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-glusterfs`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -96,7 +96,7 @@ The infrastructure support costs include:
 
    {% endlist %}
 
-1. Set up the CLI profile to execute operations on behalf of the service account:
+1. Set up the CLI profile to run operations on behalf of the service account:
 
    {% list tabs group=instructions %}
 
@@ -110,9 +110,9 @@ The infrastructure support costs include:
          --output key.json
          ```
          Where:
-         * `service-account-id`: ID of your service account
-         * `folder-id`: ID of the folder where the service account was created
-         * `output`: Name of the file with the authorized key
+         * `service-account-id`: ID of your service account.
+         * `folder-id`: ID of the folder in which the service account was created.
+         * `output`: Name of the file with the authorized key.
 
          Result:
          ```
@@ -122,7 +122,7 @@ The infrastructure support costs include:
          key_algorithm: RSA_2048
          ```
 
-      1. Create a CLI profile to execute operations on behalf of the service account:
+      1. Create a CLI profile to run operations on behalf of the service account:
          ```
          yc config profile create sa-glusterfs
          ```
@@ -156,7 +156,7 @@ The infrastructure support costs include:
 
 ## Prepare an environment for deploying the resources {#setup-environment}
 
-1. SSH:
+1. Create an SSH key pair:
    ```bash
    ssh-keygen -t ed25519
    ```
@@ -292,16 +292,16 @@ This will create 30 VMs for hosting client code (`client01`, `client02`, etc.) i
    clush -w gluster01 gluster volume set stripe-volume performance.cache-invalidation on
    clush -w gluster01 gluster volume set stripe-volume performance.md-cache-timeout 600
    clush -w gluster01 gluster volume set stripe-volume performance.stat-prefetch on
-   clush -w gluster01 gluster volume set stripe-volume server.allow-insecure on   
+   clush -w gluster01 gluster volume set stripe-volume server.allow-insecure on
    clush -w gluster01 gluster volume set stripe-volume network.inode-lru-limit 200000
    clush -w gluster01 gluster volume set stripe-volume features.shard-block-size 128MB
    clush -w gluster01 gluster volume set stripe-volume features.shard on
    clush -w gluster01 gluster volume set stripe-volume features.cache-invalidation-timeout 600
-   clush -w gluster01 gluster volume set stripe-volume storage.fips-mode-rchecksum on  
+   clush -w gluster01 gluster volume set stripe-volume storage.fips-mode-rchecksum on
    ```
 1. Mount the `stripe-volume` shared folder on the client VMs:
    ```bash
-   clush -w gluster01  gluster volume start stripe-volume      
+   clush -w gluster01  gluster volume start stripe-volume
    clush -w @clients mount -t glusterfs gluster01:/stripe-volume /mnt/
    ```
 

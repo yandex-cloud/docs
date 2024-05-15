@@ -118,6 +118,8 @@ You are charged for using disks whether the VM is running or not.
 
 If you created an image or snapshot, you pay for the storage of this object separately depending on its size.
 
+After deleting a VM instance, you will still be charged for disks, snapshots, and images. If you no longer need these resources, delete them.
+
 The cost is specified for one month of use. You are charged per second of usage.
 
 {% note warning %}

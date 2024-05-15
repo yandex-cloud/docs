@@ -32,6 +32,8 @@ You can also use a [ready-made configuration file](#terraform) to deploy the inf
 The cost of virtual hosting includes:
 * Fee for continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using a [public static IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using computing resources of the [L7 load balancer](../../application-load-balancer/concepts/index.md) (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for public DNS queries and [DNS zones](../../dns/concepts/dns-zone.md) if using [{{ dns-full-name }}](../../dns/) (see [pricing {{ dns-name }}](../../dns/pricing.md)).
 
 ## Create a cloud network {#create-network}
 
@@ -112,7 +114,7 @@ To create security groups:
       1. Click **{{ ui-key.yacloud.common.save }}**.
    1. In the same way, create a security group named `mysite-sg-vms` for the VM and a network named `mysite-network` with the following rules:
 
-      | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>destination | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+      | Traffic<br>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br>destination | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
       | `Incoming` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `mysite-sg-balancer` |
       | `Incoming` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
@@ -182,7 +184,7 @@ To create a [VM group](../../compute/concepts/instance-groups/index.md) for `my-
 
       {% note alert %}
 
-      Once created, the VM is assigned an IP address and a [host name (FQDN)](../../compute/concepts/network.md#hostname) for connections. If you selected **{{ ui-key.yacloud.compute.instances.create.value_address-none }}** in the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, you will not be able to access the VM from the internet.
+      Once created, the VM gets an IP address and a [host name (FQDN)](../../compute/concepts/network.md#hostname) for connections. If you selected **{{ ui-key.yacloud.compute.instances.create.value_address-none }}** in the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, you will not be able to access the VM from the internet.
 
       {% endnote %}
 
@@ -305,7 +307,6 @@ To create an HTTP router:
       1. In the **{{ ui-key.yacloud.alb.label_protocol-type }}** field, select `{{ ui-key.yacloud.alb.label_proto-http-tls }}`.
       1. Under **{{ ui-key.yacloud.alb.section_default-sni-match }}**, select the `mysite-cert` certificate and the `mysite-router` HTTP router.
       1. Add an SNI match for `my-site.com`:
-
          1. Click **{{ ui-key.yacloud.alb.button_add-sni-match }}**.
          1. Specify the **{{ ui-key.yacloud.common.name }}** for the SNI match: `mysite-sni`.
          1. In the **{{ ui-key.yacloud.alb.label_server-names }}** field, enter `my-site.com`.
@@ -377,6 +378,7 @@ To shut down the hosting and stop paying for the created resources:
 
 1. [Delete](../../compute/operations/instance-groups/delete.md) the `mysite-ig` instance group.
 1. [Delete](../../vpc/operations/address-delete.md) the static public IP address you reserved.
+1. If you used {{ dns-full-name }}, [delete](../../dns/operations/resource-record-delete.md) the DNS records and [delete](../../dns/operations/zone-delete.md) the DNS zone.
 
 ## How to create an infrastructure using {{ TF }} {#terraform}
 

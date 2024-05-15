@@ -1,6 +1,12 @@
-# {{ websql-full-name }} release notes
+# {{ websql-full-name }} release notes: 2024
 
-## March 2024 {#mar-2024}
+## April {#april}
+
+### Fixed issues {#fixes-april}
+
+1. Fixed a bug that caused the interface to become unavailable when selecting a high-contrast theme in the management console.
+
+## March {#mar}
 
 ### New features {#new-features-mar}
 
@@ -8,7 +14,7 @@
 
 1. In the [query editor](../operations/query-executor.md), added role tips for {{ PG }} databases.
 
-## February 2024 {#feb-2024}
+## February {#feb}
 
 ### New features {#new-features-feb}
 
@@ -22,7 +28,7 @@
 
 Fixed the incorrect display of variables when opening [saved queries](../operations/history.md).
 
-## January 2024 {#jan-2024}
+## January {#jan}
 
 ### New features {#new-features-jan}
 

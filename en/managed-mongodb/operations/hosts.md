@@ -129,7 +129,7 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
    To add a host to your {{ mmg-name }} cluster:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. Add the following to the {{ mmg-name }} cluster description:
       * Resources corresponding to the sharding type, if you are adding a host to a sharded cluster:
          * `resources_mongoinfra`: For standard sharding.
@@ -255,7 +255,7 @@ From a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you may
    To remove a host from a {{ mmg-name }} cluster:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. Delete the corresponding `host` block from the {{ mmg-name }} cluster description.
    1. Make sure the settings are correct.
 

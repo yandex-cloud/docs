@@ -30,12 +30,18 @@ items:
             href: operations/host-migration.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
-      - name: Topics
+      - name: Connection
         items:
-          - name: Connecting to cluster topics
-            href: operations/connect.md
-          - name: Working with topics and partitions
-            href: operations/cluster-topics.md
+          - name: Pre-configuration
+            href: operations/connect/index.md
+          - name: FQDNs of hosts
+            href: operations/connect/fqdn.md
+          - name: Connecting from applications
+            href: operations/connect/clients.md
+          - name: Code snippets
+            href: operations/connect/code-examples.md
+      - name: Managing topics
+        href: operations/cluster-topics.md
       - name: Managing users
         href: operations/cluster-accounts.md
       - name: Managing connectors
@@ -254,7 +260,7 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
-  - name: '{{ monitoring-name }} metrics'
+  - name: '{{ monitoring-full-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md

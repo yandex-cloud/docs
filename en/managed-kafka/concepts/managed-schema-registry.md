@@ -39,7 +39,7 @@ Schema information is posted to a [service topic](./topics.md#service-topics) ca
 To enable management, activate the option when [creating](../operations/cluster-create.md) or [updating](../operations/cluster-update.md#change-additional-settings) a cluster.
 
 
-To work with {{ mkf-msr }}, you need an advanced [security group configuration](../operations/connect.md#configuring-security-groups).
+To work with {{ mkf-msr }}, you need an advanced [security group configuration](../operations/connect/index.md#configuring-security-groups).
 
 
 ## {{ mkf-msr }} subjects {#subjects}
@@ -49,7 +49,7 @@ The schemas use _[subjects](https://docs.confluent.io/platform/current/schema-re
 Subject access depends on permissions [granted](../operations/cluster-accounts.md#grant-permission) to the {{ KF }} user:
 
 * The `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER` role for a specific topic allows the user to manage the `<topic_name>-key`, `<topic_name>-value`, and `<topic_name>` subjects.
-* The `ACCESS_ROLE_CONSUMER` or the `ACCESS_ROLE_PRODUCER` role for a `<prefix>*` topic allows the user to manage subjects of the same `<prefix>*` type. Topic and subject names start with the same prefix.
+* The `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER` role for a `<prefix>*` topic allows the user to manage subjects of the same `<prefix>*` type. Topic and subject names start with the same prefix.
 * The `ACCESS_ROLE_ADMIN` role allows the user to manage all subjects in an {{ mkf-name }} cluster.
 
 ## Authorization in {{ mkf-msr }} {#msr-auth}

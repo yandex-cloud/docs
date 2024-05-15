@@ -20,7 +20,7 @@ By using service accounts you can flexibly configure access rights to resources 
 ## How service accounts differ from other accounts {#sa-difference}
 
 * Currently, you cannot use service accounts to log in to the [management console]({{ link-console-main }}). We assume that programs, rather than users, perform operations on behalf of service accounts.
-* The service account is a resource. You can [assign](../../operations/sa/set-access-bindings.md) and [revoke](../../operations/roles/revoke.md) users' roles for a service account. For example, you can allow other people to use this service account to access {{ yandex-cloud }}.
+* The service account is a resource. You can [assign](../../operations/sa/set-access-bindings.md) and [revoke](../../operations/roles/revoke.md) users' roles for a service account. For example, you can allow other people to use this service account to access {{ yandex-cloud }}. To assign a role for a service account, you need the `iam.serviceAccounts.admin` role.
 * You can create [keys](#sa-key) for the service account to [authenticate in {{ yandex-cloud }}](../authorization/index.md#sa) via the API, CLI, or other tools. Those keys are deleted when you delete the service account.
 * You can link your service account to [virtual machines](../../../compute/operations/vm-connect/auth-inside-vm.md) and [functions](../../../functions/operations/function-sa.md) that you run your program from.
 

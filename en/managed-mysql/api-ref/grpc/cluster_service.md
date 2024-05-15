@@ -55,7 +55,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
+environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
@@ -182,7 +182,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
+environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring1)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig1)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
@@ -293,7 +293,7 @@ folder_id | **string**<br>Required. ID of the folder to create the cluster in. <
 name | **string**<br>Required. Name of the cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster2)**<br>Deployment environment of the cluster. 
+environment | **[Cluster.Environment](#Cluster2)**<br>Deployment environment of the MySQL cluster. 
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>Configuration of the cluster. 
 database_specs[] | **[DatabaseSpec](#DatabaseSpec)**<br>Configuration of databases in the cluster. 
 user_specs[] | **[UserSpec](#UserSpec)**<br>Configuration of database users in the cluster. 
@@ -428,7 +428,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
+environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring2)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
@@ -615,7 +615,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
+environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring3)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig3)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
@@ -750,7 +750,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
+environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring4)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig4)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
@@ -893,7 +893,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
+environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring5)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig5)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
@@ -1039,7 +1039,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
+environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring6)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig6)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
@@ -1183,7 +1183,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
+environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring7)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig7)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
@@ -1295,7 +1295,7 @@ time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buff
 name | **string**<br>Required. Name of the new MySQL cluster the backup will be restored to. The name must be unique within the folder. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the new cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the new cluster as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster8)**<br>Deployment environment for the new cluster. 
+environment | **[Cluster.Environment](#Cluster8)**<br>Deployment environment of the new cluster. 
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>Configuration of the new cluster. 
 host_specs[] | **[HostSpec](#HostSpec)**<br>Configuration of hosts in the new cluster. 
 network_id | **string**<br>ID of the network to create the new cluster in. The maximum string length in characters is 50.
@@ -1393,7 +1393,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
+environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring8)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig8)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
@@ -1512,7 +1512,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
+environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring9)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig9)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
@@ -1656,7 +1656,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
+environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring10)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig10)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
@@ -1893,6 +1893,7 @@ source_cluster_id | **string**<br>ID of the cluster that the backup was created 
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp (the time when the backup operation was started). 
 size | **int64**<br>Size of backup, in bytes 
 type | enum **BackupCreationType**<br>How this backup was created (manual/automatic/etc...) <ul><li>`AUTOMATED`: Backup created by automated daily schedule</li><li>`MANUAL`: Backup created by user request</li></ul>
+status | enum **BackupStatus**<br>Status of backup <ul><li>`DONE`: Backup is done</li><li>`CREATING`: Backup is creating</li></ul>
 
 
 ## ListHosts {#ListHosts}
@@ -1926,8 +1927,8 @@ name | **string**<br>Name of the host. <br>This name is assigned by the platform
 cluster_id | **string**<br>ID of the cluster the host belongs to. 
 zone_id | **string**<br>ID of the availability zone where the host resides. 
 resources | **[Resources](#Resources11)**<br>Resources allocated to the host. 
-role | enum **Role**<br>Role of the host in the cluster. <ul><li>`ROLE_UNKNOWN`: Role of the host is unknown.</li><li>`MASTER`: Host is the master.</li><li>`REPLICA`: Host is a replica.</li></ul>
-health | enum **Health**<br>Aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: Host is performing all its functions normally.</li><li>`DEAD`: Host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: Host is degraded, and can perform only some of its essential functions.</li><li>`READONLY`: Host is alive, but in read-only mode.</li></ul>
+role | enum **Role**<br>Role of the host in the cluster. If the field has default value, it is not returned in the response. <ul><li>`ROLE_UNKNOWN`: Role of the host is unknown. Default value.</li><li>`MASTER`: Host is the master.</li><li>`REPLICA`: Host is a replica.</li></ul>
+health | enum **Health**<br>Aggregated health of the host. If the field has default value, it is not returned in the response. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown. Default value.</li><li>`ALIVE`: Host is performing all its functions normally.</li><li>`DEAD`: Host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: Host is degraded, and can perform only some of its essential functions.</li><li>`READONLY`: Host is alive, but in read-only mode.</li></ul>
 services[] | **[Service](#Service)**<br>List of services provided by the host. 
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 assign_public_ip | **bool**<br>Flag that shows if public IP address is assigned to the host so that the host can be accessed from the internet. 
@@ -1949,8 +1950,8 @@ disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Type of the service provided by the host. <ul><li>`MYSQL`: The host is a MySQL server.</li></ul>
-health | enum **Health**<br>Aggregated health of the service. <ul><li>`HEALTH_UNKNOWN`: Health of the service is unknown.</li><li>`ALIVE`: The service is working normally.</li><li>`DEAD`: The service is dead or unresponsive.</li><li>`READONLY`: The service is in read-only mode.</li></ul>
+type | enum **Type**<br>Type of the service provided by the host. If the field has default value, it is not returned in the response. <ul><li>`TYPE_UNSPECIFIED`: Service type of the host is unspecified. Default value.</li><li>`MYSQL`: The host is a MySQL server.</li></ul>
+health | enum **Health**<br>Aggregated health of the service. If the field has default value, it is not returned in the response. <ul><li>`HEALTH_UNKNOWN`: Health of the service is unknown. Default value.</li><li>`ALIVE`: The service is working normally.</li><li>`DEAD`: The service is dead or unresponsive.</li><li>`READONLY`: The service is in read-only mode.</li></ul>
 
 
 ## AddHosts {#AddHosts}

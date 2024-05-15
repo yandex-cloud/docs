@@ -11,7 +11,7 @@
 
 The number of hosts you can create together with a {{ MY }} cluster depends on the selected disk type:
 
-* With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts.
+* With local SSDs (`local-ssd`) or non-replicated SSDs (`network-ssd-nonreplicated`), you can create a cluster with three or more hosts.
 
    This cluster will be fault-tolerant.
 
@@ -19,6 +19,6 @@ The number of hosts you can create together with a {{ MY }} cluster depends on t
 
 * With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of hosts within the [current quota](./limits.md).
 
-For more information about limits on the number of hosts per cluster, see [{#T}](./limits.md).
+For more information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
 
 

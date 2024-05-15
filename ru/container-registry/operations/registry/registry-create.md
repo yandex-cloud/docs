@@ -13,7 +13,7 @@
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
-  1. (опционально) Добавьте метки.
+  1. (Опционально) Добавьте метки.
   1. Нажмите кнопку **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
 
 - CLI {#cli}

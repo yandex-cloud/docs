@@ -12,6 +12,6 @@ Service | Description
 [GatewayService](./gateway_service.md) | 
 [NetworkService](./network_service.md) | A set of methods for managing Network resources.
 [RouteTableService](./route_table_service.md) | A set of methods for managing RouteTable resources.
-[SecurityGroupService](./security_group_service.md) | 
+[SecurityGroupService](./security_group_service.md) | A set of methods for managing SecurityGroup resources.
 [SubnetService](./subnet_service.md) | A set of methods for managing Subnet resources.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

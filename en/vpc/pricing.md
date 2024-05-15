@@ -18,6 +18,8 @@ In {{ vpc-short-name }}, you pay for the hourly use of public IP addresses.
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
+After deleting or stopping resources, you will continue to pay for the reserved public IP addresses. If you no longer need the IP addresses, delete them.
+
 ## {{ vpc-short-name }} pricing {#prices}
 
 
