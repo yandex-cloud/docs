@@ -85,7 +85,7 @@ You can add and remove databases, view information about them, and manage some d
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Add the `yandex_mdb_mysql_database` resource:
 
@@ -148,7 +148,7 @@ You can add and remove databases, view information about them, and manage some d
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Delete the `yandex_mdb_mysql_database` resource with the name of the database to delete.
 
@@ -167,7 +167,7 @@ You can add and remove databases, view information about them, and manage some d
    To delete a database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/database_service.md#Delete) gRPC API call and provide the following in the request:
 
    * ID of the cluster where the database is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Database name, in the `databaseName` parameter. To find out the database name, [retrieve a list of databases in the cluster](#list-db).
+   * Database name in the `databaseName` parameter. To find out the database name, [retrieve a list of databases in the cluster](#list-db).
 
 {% endlist %}
 
@@ -215,7 +215,7 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](./cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](./cluster-create.md).
 
    1. Set the SQL modes in the `sql_mode` parameter under `mysql_config`, e.g.:
 
@@ -250,7 +250,7 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
       * `configSpec.mysqlConfig_5_7.sqlMode` for {{ MY }} 5.7.
       * `configSpec.mysqlConfig_8_0.sqlMode` for {{ MY }} 8.0.
 
-   * List of settings you want to update, in the `updateMask` parameter.
+   * List of settings to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

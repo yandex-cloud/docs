@@ -3,7 +3,7 @@ title: "How to change {{ MG }} cluster settings in {{ mmg-full-name }}"
 description: "Follow this guide to change {{ MG }} cluster settings."
 ---
 
-# Changing {{ MG }} cluster settings
+# Updating {{ MG }} cluster settings
 
 After creating a cluster, you can:
 
@@ -113,7 +113,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ mmg-name }} cluster description, edit the value of the `resource_preset_id` parameter for `resources_mongod`, `resources_mongoinfra`, `resources_mongos`, or `resources_mongocfg`. The resource type depends on the [sharding type](../concepts/sharding.md#shard-management).
 
@@ -225,7 +225,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ mmg-name }} cluster description, edit the value of the `disk_size` parameter for `resources_mongod`, `resources_mongoinfra`, `resources_mongos`, or `resources_mongocfg`. The resource type depends on the [sharding type](../concepts/sharding.md#shard-management).
 
@@ -361,7 +361,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    * `--backup-retain-period`: The retention period for automatic backups (in days)
       
-      The `<retention_period>` parameter value must be in the range from {{ mmg-backup-retention-min }} to {{ mmg-backup-retention-max }} (the default value is {{ mmg-backup-retention }}). This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). For more information, see [{#T}](../concepts/backup.md).
+      The `<retention_period>` parameter value must be in the range from {{ mmg-backup-retention-min }} to {{ mmg-backup-retention-max }} (the default value is {{ mmg-backup-retention }}). This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). For more information, see [Backups](../concepts/backup.md).
 
 
       Changing the retention period affects both new automatic backups and existing backups.
@@ -374,7 +374,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-   * `--performance-diagnostics`: Specify the parameter to use the [{#T}](performance-diagnostics.md) tool in the cluster. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
+   * `--performance-diagnostics`: Specify this parameter to use the [Performance diagnostics](performance-diagnostics.md) tool in the cluster. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -386,7 +386,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. To change the backup start time, add a block named `backup_window_start` to the {{ mmg-name }} cluster description under `cluster_config`:
 
@@ -549,7 +549,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ mmg-name }} cluster description, change the `security_group_ids` parameter value:
 

@@ -1,6 +1,6 @@
 ---
 title: "Getting started with {{ mmy-full-name }}"
-description: "In this tutorial, you'll learn how to create a {{ MY }} cluster and connect to it."
+description: "Follow this guide to create a {{ MY }} cluster and connect to it."
 ---
 
 # Getting started with {{ mmy-name }}®
@@ -12,7 +12,7 @@ To get started with the service:
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if you are not signed up yet.
 1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
@@ -27,7 +27,7 @@ To get started with the service:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 1. Install the required dependencies and the {{ MY }} client:
 
    ```bash
@@ -40,7 +40,7 @@ To get started with the service:
 1. In the management console, select the folder where you want to create a DB cluster.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Set the {{ mmy-name }} cluster parameters and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. This process is described in detail in [{#T}](operations/cluster-create.md).
+1. Set the {{ mmy-name }} cluster parameters and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
 1. Wait until the {{ mmy-name }} cluster is ready: its status on the {{ mmy-name }} dashboard will change to **Running** and its state to **Alive**. This may take some time.
 
 ## Connect to the DB {#connect}

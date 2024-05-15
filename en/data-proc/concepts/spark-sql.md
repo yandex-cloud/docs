@@ -156,7 +156,7 @@ chmod 555 /usr/local/bin/jq /usr/local/bin/yq
 
 # Checking the requirement to set labels.
 MUSTLABEL=N
-if [ ! -z "$SUBCLUSTER_NAME" ]; then
+if [ ! -z "$NAME_TO_LABEL" ]; then
   # Getting the subcluster name from the VM metadata.
   curl -H Metadata-Flavor:Google 'http://169.254.169.254/computeMetadata/v1/instance/?alt=json&recursive=true' -o /tmp/host-meta.json
   jq -r .attributes.'"user-data"' /tmp/host-meta.json >/tmp/host-userdata.yaml

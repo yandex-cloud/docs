@@ -6,7 +6,7 @@ editable: false
 
 # {{ mmy-name }} pricing
 
-In this section, you can find {{ mmy-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
+In this section, you can find {{ mmy-name }} pricing [rules](#rules) and [effective prices](#prices) for the service resources.
 
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
@@ -40,14 +40,14 @@ There are different ways to calculate the cost depending on the [host type](conc
 
   The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../compute/pricing.md#prices) and {{ mmy-name }} markup for using these resources.
 
-You can check the supported resource configurations in [{#T}](concepts/instance-types.md) and see prices for using vCPUs and RAM in the [Prices](#prices) section.
+Supported resource configurations are shown in the [Host classes](concepts/instance-types.md) section; vCPU and RAM prices are quoted in the [Prices](#prices) section.
 
 
-The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when the {{ MY }} host is not performing its main functions.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You are not paying for the time when the {{ MY }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
-You are charged for the following:
+You pay for the following:
 
 * Storage allocated for DB clusters.
 
@@ -63,7 +63,7 @@ You are charged for the following:
 
    * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
 
-   * The number of hosts in the cluster does not affect the size of the storage and, consequently, of free backups.
+   * The number of hosts in a cluster does not affect the storage size and, therefore, the free volume of backups.
 
 The cost is specified for one month of use and based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 

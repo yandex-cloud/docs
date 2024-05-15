@@ -16,7 +16,8 @@ A set of methods for managing PostgreSQL Backup resources.
   "size": "string",
   "type": "string",
   "method": "string",
-  "journalSize": "string"
+  "journalSize": "string",
+  "status": "string"
 }
 ```
  
@@ -31,6 +32,7 @@ size | **string** (int64)<br><p>Size of backup, in bytes</p>
 type | **string**<br><p>How this backup was created (manual/automatic/etc...)</p> <ul> <li>AUTOMATED: Backup created by automated daily schedule</li> <li>MANUAL: Backup created by user request</li> </ul> 
 method | **string**<br><p>Method of backup creation</p> <ul> <li>BASE: Base backup</li> <li>INCREMENTAL: Delta (incremental) PostgreSQL backup</li> </ul> 
 journalSize | **string** (int64)<br><p>Size of the journal associated with backup, in bytes</p> 
+status | **string**<br><p>Status of backup</p> <ul> <li>DONE: Backup is done</li> <li>CREATING: Backup is creating</li> </ul> 
 
 ## Methods {#methods}
 Method | Description

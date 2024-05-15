@@ -4,7 +4,7 @@
 
 {% list tabs group=instructions %}
 
-* Консоль управления {#console}
+- Консоль управления {#console}
 
     Чтобы изменить настройки PXF:
 
@@ -28,7 +28,7 @@
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-* CLI {#cli}
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -74,7 +74,7 @@
 
         Имя кластера можно [получить со списком кластеров в каталоге](../cluster-list.md#list-clusters).
 
-* {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
     Чтобы изменить настройки PXF:
 
@@ -126,7 +126,7 @@
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-* API {#api}
+- API {#api}
 
     Чтобы изменить настройки PXF, воспользуйтесь методом REST API [update](../../api-ref/Cluster/update.md) для ресурса [Cluster](../../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 

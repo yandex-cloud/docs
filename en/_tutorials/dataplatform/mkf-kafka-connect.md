@@ -194,7 +194,7 @@ Create a `/var/log/sample.json` file with test data. This file contains data fro
         /etc/kafka-connect-worker/file-connector.properties
    ```
 
-1. Connect to the cluster [using kcat](../../managed-kafka/operations/connect.md#bash) and retrieve data from the cluster topic:
+1. Connect to the cluster [using kcat](../../managed-kafka/operations/connect/clients.md#bash-zsh) and retrieve data from the cluster topic:
 
    ```bash
    kafkacat -C \

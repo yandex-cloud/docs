@@ -142,6 +142,8 @@ items:
             href: operations/vm-guest-agent/check.md
           - name: Установить агент
             href: operations/vm-guest-agent/install.md
+          - name: Сбросить пароль администратора
+            href: operations/vm-guest-agent/reset-password.md
           - name: Удалить агент
             href: operations/vm-guest-agent/uninstall.md
       - name: Создание диска

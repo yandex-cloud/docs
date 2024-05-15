@@ -65,10 +65,10 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
          * `standard`: Standard storage
          * `cold`: Cold storage
          * `ice`: Ice storage
-      * `--max_size`: Maximum bucket size (bytes) `0`: No limit
-      * `--public-read`: Flag to enable public read access to bucket objects.
+      * `--max_size`: Maximum bucket size (bytes). `0`: No limit.
+      * `--public-read`: Flag to enable public access to read bucket objects.
       * `--public-list`: Flag to enable public access to view the list of bucket objects.
-      * `--public-config-read`: Flag to enable public read access to the bucket configuration.
+      * `--public-config-read`: Flag to enable public access to read the bucket configuration.
 
       The `name` parameter is required. Other parameters are optional. By default, the `--max-size` parameter is set to `0` and public access to the bucket is disabled.
 
@@ -108,7 +108,11 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+   
    {% include [terraform-install](../../_includes/terraform-install.md) %}
+
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 

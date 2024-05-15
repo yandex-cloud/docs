@@ -50,13 +50,20 @@ You can add, rename, and remove databases, as well as view information about the
    1. If the new database does not have an owner among its current users, [add such a user](cluster-users.md#adduser).
    1. Select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.databases.button_add }}**.
-   1. Specify the database settings.
+   1. Specify the database settings:
 
       * Name
 
          {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-      * Owner.
+      * Owner
+
+      * Deletion protection
+
+         The possible values include:
+         - **Same as cluster**
+         - **Enabled**
+         - **Disabled**
 
       * (Optional) Template: The name of one of the existing databases from which the data schema needs to be copied. All connections to the template database will be closed while the new database is being created.
 
@@ -125,10 +132,13 @@ You can add, rename, and remove databases, as well as view information about the
         lc_collate  = "<collation_locale>"
         lc_type     = "<character_set_locale>"
         template_db = "<template_DB_name>"
+        deletion_protection = <deletion_protection>
       }
       ```
 
-      Where `owner` is the DB owner username that must be specified in the `yandex_mdb_postgresql_user` resource.
+      Where:
+      * `owner`: Owner username that must be specified in the `yandex_mdb_postgresql_user` resource.
+      * `deletion_protection`: DB deletion protection. It may take the `true`, `false`, or `unspecified` value (inherited from the cluster). The default value is `unspecified`.
 
       {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
@@ -152,6 +162,7 @@ You can add, rename, and remove databases, as well as view information about the
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New database settings in the `databaseSpec` parameter.
+   * Deletion protection type in the `deletionProtection` parameter. The possible values are `true` and `false`. The default value is `unspecified` (inherited from the cluster).
 
       {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
@@ -206,12 +217,62 @@ You can add, rename, and remove databases, as well as view information about the
 
 {% endlist %}
 
-## Deleting a database {#remove-db}
+## Configuring deletion protection {#update-db-deletion-protection}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required DB row and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+   1. Select the appropriate value in the **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** field.
+   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
+
+- {{ TF }} {#tf}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+   1. Find the `yandex_mdb_postgresql_database` resource of the DB.
+
+   1. Add the `deletion_protection` parameter. The possible values are `true`, `false`, or `unspecified` (inherited from the cluster). The default value is `unspecified`.
+
+      ```hcl
+      resource "yandex_mdb_postgresql_database" "<database_name>" {
+        ...
+        deletion_protection = <deletion_protection>
+        ...
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+- API {#api}
+
+   To configure DB deletion protection, use the [update](../api-ref/Database/update.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) gRPC API call and provide the following in the request:
+
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Database name, in the `databaseName` parameter. To find out the database name, [request a list of databases in the cluster](#list-db).
+   * `updateMask` parameter with the `deletionProtection` value.
+   * New value of the `deletionProtection` parameter. The possible values are `true` and `false`. The default value is `unspecified` (inherited from the cluster).
+
+{% endlist %}
+
+## Deleting a database {#remove-db}
+
+A DB can be protected against deletion. To delete such a DB, [disable the protection](#update-db-deletion-protection) first.
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+   To delete a database:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required DB row, select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**, and confirm the deletion.
@@ -233,6 +294,7 @@ You can add, rename, and remove databases, as well as view information about the
 
 - {{ TF }} {#tf}
 
+   To delete a database:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about how to create this file, see [Creating clusters](cluster-create.md).

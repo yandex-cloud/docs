@@ -63,7 +63,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
          {% endnote %}
 
       1. Select [security groups](../../vpc/concepts/security-groups.md) for the {{ mkf-name }} cluster's network traffic.
-      1. To access broker hosts from the internet, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. In this case, you can only connect to them over an SSL connection. For more information, see [Connecting to topics in a cluster](connect.md).
+      1. To access broker hosts from the internet, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. In this case, you can only connect to them over an SSL connection. For more information, see [Connecting to topics in a cluster](connect/clients.md).
 
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
@@ -290,16 +290,16 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
 {% note warning %}
 
-If you specified security group IDs when creating a {{ mkf-name }} cluster, you may also need to [configure security groups](connect.md#configuring-security-groups) to connect to the cluster.
+If you specified security group IDs when creating a {{ mkf-name }} cluster, you may also need to [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ KF }} cluster with the settings of another cluster created earlier. To do so, you need to import the configuration of the source {{ KF }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ KF }} cluster has lots of settings and you need to create a similar one.
+You can create an {{ KF }} cluster with the settings of another cluster created earlier. To do so, you need to import the configuration of the source {{ KF }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ KF }} cluster has lots of settings and you need to create a similar one.
 
-To create a {{ KF }} cluster copy:
+To create an {{ KF }} cluster copy:
 
 {% list tabs group=instructions %}
 
@@ -322,7 +322,7 @@ To create a {{ KF }} cluster copy:
         export KAFKA_CLUSTER_ID=<cluster_ID>
         ```
 
-      You can request the ID with a [list of clusters in the folder](../../managed-kafka/operations/cluster-list.md#list-clusters).
+        You can request the ID with a [list of clusters in the folder](../../managed-kafka/operations/cluster-list.md#list-clusters).
 
    1. Import the settings of the initial {{ KF }} cluster into the {{ TF }} configuration:
 
@@ -344,11 +344,11 @@ To create a {{ KF }} cluster copy:
       * Delete the `created_at`, `health`, `host`, `id`, and `status` parameters.
       * Add the `subnet_ids` parameter with the list of subnet IDs for each availability zone.
       * If the `maintenance_window` section specifies the `type = "ANYTIME"` parameter value, delete the `hour` parameter.
-      * (Optional) Make further modifications if you need a customized copy rather than identical one.
+      * (Optional) Make further modifications if you are looking for more customization.
 
    1. In the `imported-cluster` directory, [get the authentication data](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 
-   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf).
+   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 

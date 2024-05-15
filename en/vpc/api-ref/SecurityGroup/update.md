@@ -4,7 +4,8 @@ sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/update.md
 ---
 
 # Virtual Private Cloud API, REST: SecurityGroup.update
-
+Updates the specified security group.
+Method starts an asynchronous operation that can be cancelled while it is in progress.
  
 
  
@@ -17,7 +18,7 @@ PATCH https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}
  
 Parameter | Description
 --- | ---
-securityGroupId | <p>Required.</p> 
+securityGroupId | <p>Required. ID of the security group to update.</p> <p>To get the security group ID make a <a href="/docs/vpc/api-ref/SecurityGroup/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  
@@ -60,24 +61,24 @@ securityGroupId | <p>Required.</p>
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-name | **string**
-description | **string**
-labels | **object**
-ruleSpecs[] | **object**<br><p>all existing rules will be replaced with given list</p> 
-ruleSpecs[].<br>description | **string**
-ruleSpecs[].<br>labels | **object**
-ruleSpecs[].<br>direction | **string**<br>Required.
-ruleSpecs[].<br>ports | **object**
-ruleSpecs[].<br>ports.<br>fromPort | **string** (int64)<br><p>Acceptable values are 0 to 65535, inclusive.</p> 
-ruleSpecs[].<br>ports.<br>toPort | **string** (int64)<br><p>Acceptable values are 0 to 65535, inclusive.</p> 
-ruleSpecs[].<br>protocolName | **string** <br>`ruleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br>
-ruleSpecs[].<br>protocolNumber | **string** (int64) <br>`ruleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br>
-ruleSpecs[].<br>cidrBlocks | **object** <br>`ruleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
-ruleSpecs[].<br>cidrBlocks.<br>v4CidrBlocks[] | **string**
-ruleSpecs[].<br>cidrBlocks.<br>v6CidrBlocks[] | **string**
-ruleSpecs[].<br>securityGroupId | **string** <br>`ruleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
-ruleSpecs[].<br>predefinedTarget | **string** <br>`ruleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
+updateMask | **string**<br><p>Field mask that specifies which attributes of the Address should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+name | **string**<br><p>New name for the security group. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``.</p> 
+description | **string**<br><p>New description of the security group.</p> <p>The maximum string length in characters is 256.</p> 
+labels | **object**<br><p>Security group labels as ``key:value`` pairs.</p> <p>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label:</p> <ol> <li>Get the current set of labels with a <a href="/docs/vpc/api-ref/SecurityGroup/get">get</a> request.</li> <li>Add or remove a label in this set.</li> <li>Send the new set in this field.</li> </ol> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
+ruleSpecs[] | **object**<br><p>Updated rule list. All existing rules will be replaced with given list.</p> 
+ruleSpecs[].<br>description | **string**<br><p>Description of the security rule.</p> <p>The maximum string length in characters is 256.</p> 
+ruleSpecs[].<br>labels | **object**<br><p>Rule labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
+ruleSpecs[].<br>direction | **string**<br>Required. The direction of network traffic allowed by this rule.<br><ul> <li>INGRESS: Allows ingress traffic.</li> <li>EGRESS: Allows egress traffic.</li> </ul> 
+ruleSpecs[].<br>ports | **object**<br>The range of ports that allow traffic to pass through. Null value means any port.
+ruleSpecs[].<br>ports.<br>fromPort | **string** (int64)<br><p>The lowest port in the range.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
+ruleSpecs[].<br>ports.<br>toPort | **string** (int64)<br><p>The highest port in the range.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
+ruleSpecs[].<br>protocolName | **string** <br>`ruleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br><br><p>Protocol name.</p> 
+ruleSpecs[].<br>protocolNumber | **string** (int64) <br>`ruleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br><br><p>Protocol number from <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">IANA protocol numbers</a>.</p> 
+ruleSpecs[].<br>cidrBlocks | **object**<br>CIDR blocks to allow to recieve or send traffic. <br>`ruleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
+ruleSpecs[].<br>cidrBlocks.<br>v4CidrBlocks[] | **string**<br><p>IPv4 CIDR blocks to allow traffic to.</p> 
+ruleSpecs[].<br>cidrBlocks.<br>v6CidrBlocks[] | **string**<br><p>IPv6 CIDR blocks to allow traffic to.</p> 
+ruleSpecs[].<br>securityGroupId | **string** <br>`ruleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br><br><p>ID of the security group to add rule to.</p> 
+ruleSpecs[].<br>predefinedTarget | **string** <br>`ruleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br><br><p>Predefined target. See <a href="/docs/vpc/concepts/security-groups#security-groups-rules">security groups rules</a> for more information.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

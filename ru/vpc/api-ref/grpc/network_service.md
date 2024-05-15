@@ -100,7 +100,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder for this request to create a network in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
-name | **string**<br>Name of the network. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the network. The name must be unique within the folder. Value must match the regular expression ` \|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])? `.
 description | **string**<br>Description of the network. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
@@ -157,7 +157,7 @@ Field | Description
 --- | ---
 network_id | **string**<br>Required. ID of the Network resource to update. To get the network ID use a [NetworkService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Network resource are going to be updated. 
-name | **string**<br>Name of the network. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the network. The name must be unique within the folder. Value must match the regular expression ` \|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])? `.
 description | **string**<br>Description of the network. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
@@ -315,49 +315,49 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-id | **string**<br> 
-folder_id | **string**<br> 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br> 
-description | **string**<br> 
-labels | **map<string,string>**<br> 
-network_id | **string**<br> 
-status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li></ul>
-rules[] | **[SecurityGroupRule](#SecurityGroupRule)**<br> 
-default_for_network | **bool**<br> 
+id | **string**<br>ID of the security group. 
+folder_id | **string**<br>ID of the folder that the security group belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the security group. 1-63 characters long. 
+description | **string**<br>Description of the security group. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+network_id | **string**<br>ID of the network that the security group belongs to. 
+status | enum **Status**<br>Security group status. <ul><li>`CREATING`: Security group is being created.</li><li>`ACTIVE`: Security is active and it's rules are applied to the network interfaces.</li><li>`UPDATING`: Security group is updating. Updating is a long operation because we must update all instances in SG.</li><li>`DELETING`: Instance is being deleted.</li></ul>
+rules[] | **[SecurityGroupRule](#SecurityGroupRule)**<br>List of the security group rules. 
+default_for_network | **bool**<br>Flag that indicates that the security group is the default for the network. 
 
 
 ### SecurityGroupRule {#SecurityGroupRule}
 
 Field | Description
 --- | ---
-id | **string**<br> 
-description | **string**<br> 
-labels | **map<string,string>**<br> 
-direction | enum **Direction**<br>Required.  
-ports | **[PortRange](#PortRange)**<br> 
-protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
-protocol_number | **int64**<br> 
+id | **string**<br>ID of the rule. 
+description | **string**<br>Description of the rule. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+direction | enum **Direction**<br>Required. The direction of network traffic allowed by this rule. <ul><li>`INGRESS`: Allows ingress traffic.</li><li>`EGRESS`: Allows egress traffic.</li></ul>
+ports | **[PortRange](#PortRange)**<br>The range of ports that allow traffic to pass through. Null value means any. 
+protocol_name | **string**<br>Protocol name. Null value means any protocol. Values from [IANA](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml). 
+protocol_number | **int64**<br>Protocol number from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml). 
 target | **oneof:** `cidr_blocks`, `security_group_id` or `predefined_target`<br>
-&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks)**<br> 
-&nbsp;&nbsp;security_group_id | **string**<br> 
-&nbsp;&nbsp;predefined_target | **string**<br> 
+&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks)**<br>CIDR blocks to allow to recieve or send traffic. 
+&nbsp;&nbsp;security_group_id | **string**<br>ID of the security group to add rule to. 
+&nbsp;&nbsp;predefined_target | **string**<br>Predefined target. See [security groups rules](/docs/vpc/concepts/security-groups#security-groups-rules) for more information. 
 
 
 ### PortRange {#PortRange}
 
 Field | Description
 --- | ---
-from_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
-to_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
+from_port | **int64**<br>The lowest port in the range. Acceptable values are 0 to 65535, inclusive.
+to_port | **int64**<br>The highest port in the range. Acceptable values are 0 to 65535, inclusive.
 
 
 ### CidrBlocks {#CidrBlocks}
 
 Field | Description
 --- | ---
-v4_cidr_blocks[] | **string**<br> 
-v6_cidr_blocks[] | **string**<br> 
+v4_cidr_blocks[] | **string**<br>IPv4 CIDR blocks to allow traffic to. 
+v6_cidr_blocks[] | **string**<br>IPv6 CIDR blocks to allow traffic to. 
 
 
 ## ListRouteTables {#ListRouteTables}

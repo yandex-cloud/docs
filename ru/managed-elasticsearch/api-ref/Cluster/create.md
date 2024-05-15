@@ -101,7 +101,7 @@ folderId | **string**<br><p>Required. ID of the folder to create the Elasticsear
 name | **string**<br><p>Required. Name of the Elasticsearch cluster. The name must be unique within the folder.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 description | **string**<br><p>Description of the Elasticsearch cluster.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Custom labels for the Elasticsearch cluster as ``key:value`` pairs.</p> <p>For example, "project": "mvp" or "source": "dictionary".</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
-environment | **string**<br><p>Deployment environment of the Elasticsearch cluster.</p> <ul> <li>PRODUCTION: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li> </ul> 
+environment | **string**<br><p>Deployment environment of the Elasticsearch cluster.</p> <ul> <li>PRODUCTION: Stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li> </ul> 
 configSpec | **object**<br><p>Required. Elasticsearch and hosts configuration for the cluster.</p> 
 configSpec.<br>version | **string**<br><p>Elasticsearch version.</p> 
 configSpec.<br>elasticsearchSpec | **object**<br><p>Configuration and resource allocation for Elasticsearch nodes.</p> 
@@ -130,7 +130,7 @@ hostSpecs[] | **object**<br><p>Required. One or more configurations of hosts to 
 hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides.</p> <p>The maximum string length in characters is 50.</p> 
 hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet the host resides in.</p> <p>The maximum string length in characters is 50.</p> 
 hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>The flag that defines whether a public IP address is assigned to the host.</p> <p>If the value is ``true``, then this host is available on the Internet via it's public IP address.</p> 
-hostSpecs[].<br>type | **string**<br><p>Required. Host type.</p> <ul> <li>DATA_NODE: the host is an Elasticsearch data node.</li> <li>MASTER_NODE: the host is an Elasticsearch master node.</li> </ul> 
+hostSpecs[].<br>type | **string**<br><p>Required. Host type.</p> <ul> <li>TYPE_UNSPECIFIED: Host type is unspecified. Default value. - DATA_NODE: The host is an Elasticsearch data node.</li> <li>MASTER_NODE: The host is an Elasticsearch master node.</li> </ul> 
 hostSpecs[].<br>shardName | **string**<br><p>The shard name to create on the host.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 networkId | **string**<br><p>Required. ID of the network to create the Elasticsearch cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 

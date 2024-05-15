@@ -68,7 +68,7 @@ For more information, see [{#T}](concepts/server-logs.md).
 | `GET` | `BUCKET_WEBSITES` | Outputting a static website hosting configuration for a bucket. |
 | `DELETE` | `BUCKET_WEBSITES` | Deleting a static website hosting configuration for a bucket. |
 | `GET` | `BUCKET_LOGGING` | Outputting settings for bucket actions logging. |
-| `PUT` | `BUCKET_LOGGING` | Enabling and disabling bucket actions logging. |
+| `PUT` | `BUCKET_LOGGING` | [Enabling](operations/buckets/enable-logging.md#enable) and [disabling](operations/buckets/enable-logging.md#stop-logging) bucket actions logging. |
 | `PUT` | `BUCKETPOLICY` | Applying [bucket policies](concepts/policy.md) to the specified bucket. |
 | `GET` | `BUCKETPOLICY` | Outputting bucket policies for the specified bucket. |
 | `DELETE` | `BUCKETPOLICY` | Deleting bucket policies for the specified bucket. |

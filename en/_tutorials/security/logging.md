@@ -268,11 +268,11 @@ To create an instance group:
       - Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       - In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
-         You need to create a key pair for the SSH connection yourself. See [Connecting to a VM via SSH](../../compute/operations/vm-connect/ssh.md).
+         You need to create a key pair for the SSH connection yourself. See the [section on how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
 
       {% note alert %}
 
-      The IP address and host name (FQDN) to connect to the VM are assigned on VM creation. If you selected **{{ ui-key.yacloud.compute.instances.create.value_address-none }}** in the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, you will not be able to access the VM from the internet.
+      Once created, the VM gets an IP address and a host name (FQDN) for connections. If you selected **{{ ui-key.yacloud.compute.instances.create.value_address-none }}** in the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, you will not be able to access the VM from the internet.
 
       {% endnote %}
 

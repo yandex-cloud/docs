@@ -269,8 +269,8 @@ items:
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf.md
       - name: >-
-          Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью {{
-          data-transfer-name }}
+          "Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью {{
+          data-transfer-name }}"
         href: dataplatform/data-transfer-mmy.md
       - name: Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью Debezium
         href: dataplatform/debezium-mmy.md

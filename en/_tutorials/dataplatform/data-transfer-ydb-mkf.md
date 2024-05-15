@@ -28,7 +28,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
 
       
-      1. If you are using security groups, [configure them so that you can connect to the cluster from the internet](../../managed-kafka/operations/connect.md#configuring-security-groups).
+      1. If you are using security groups, [configure them so that you can connect to the cluster from the internet](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 
 
       1. Configure {{ KF }} topics in the target cluster. The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) used. Data topic names are generated in `<topic_prefix>.<{{ ydb-short-name}}_table_name>` format. In this tutorial, we will use the `cdc` prefix as an example.
@@ -108,7 +108,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    sudo apt update && sudo apt install --yes kafkacat
    ```
 
-   Check that you can use it to [connect to the {{ mkf-name }} target cluster over SSL](../../managed-kafka/operations/connect.md#connection-string).
+   Check that you can use it to [connect to the {{ mkf-name }} target cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
 ## Prepare the source {#prepare-source}
 

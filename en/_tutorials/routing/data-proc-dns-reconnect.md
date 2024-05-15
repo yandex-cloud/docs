@@ -54,16 +54,16 @@ Prepare the infrastructure:
 
    1. [Create a {{ dataproc-name }} cluster](../../data-proc/operations/cluster-create.md) with any suitable configuration with the following settings:
 
-      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `data-proc-sa`
-      * **{{ ui-key.yacloud.mdb.forms.config_field_form-bucket-type }}**: `{{ ui-key.yacloud.forms.label_form-list }}`
-      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select the created bucket
-      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `data-proc-network`
-      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `data-proc-security-group`
+      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `data-proc-sa`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_form-bucket-type }}**: `{{ ui-key.yacloud.forms.label_form-list }}`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select the created bucket.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `data-proc-network`.
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `data-proc-security-group`.
 
 - {{ TF }} {#tf}
 
    1. If you do not have {{ TF }} yet, [set up and configure](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) it.
-   1. [Download the file with the provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. [Download the file with the provider settings](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [data-proc-dns-connect.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/data-proc-dns-connect.tf) configuration file to the same working directory.
 
       The file describes:

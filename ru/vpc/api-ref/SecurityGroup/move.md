@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/move.md
 ---
 
 # Virtual Private Cloud API, REST: SecurityGroup.move
-
+Moves security groups to another folder.
  
 
  
@@ -17,7 +17,7 @@ POST https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}:move
  
 Parameter | Description
 --- | ---
-securityGroupId | <p>Required.</p> 
+securityGroupId | <p>Required. ID of the security group to move.</p> 
  
 ## Body parameters {#body_params}
  
@@ -30,7 +30,7 @@ securityGroupId | <p>Required.</p>
  
 Field | Description
 --- | ---
-destinationFolderId | **string**<br><p>Required.</p> 
+destinationFolderId | **string**<br><p>Required. ID of the folder to move security group to.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

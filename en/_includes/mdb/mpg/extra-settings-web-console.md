@@ -43,4 +43,8 @@
 
 - {% include [Deletion protection](../console/deletion-protection.md) %}
 
+   By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](../../../managed-postgresql/operations/cluster-users.md) and [Database management](../../../managed-postgresql/operations/databases.md) sections.
+
+   If the parameter is changed on a running cluster, only users and databases with the **Same as cluster** protection will inherit the new value.
+
    {% include [deletion-protection-limits](../deletion-protection-limits-db.md) %}

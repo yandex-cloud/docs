@@ -50,7 +50,7 @@ To set up DNS query caching:
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [k8s-node-local-dns.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/managed-kubernetes/k8s-node-local-dns.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. The file describes:
+   1. Download the [k8s-node-local-dns.tf](https://github.com/yandex-cloud-examples/yc-mk8s-node-local-dns-cache/blob/main/k8s-node-local-dns.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. The file describes:
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
       * {{ managed-k8s-name }} cluster.

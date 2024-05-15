@@ -18,7 +18,11 @@ For more information, see [How to pay for resources](../../billing/payment/index
 {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
 #### Is there a minimum payment amount? {#minimum}
-The minimum payment amount is $1.
+Depending on the currency, the minimum payment amount is:
+
+* ₽10
+* ₸60
+* $1
 
 #### How can I change my payment details? {#change-requisites}
 
@@ -27,6 +31,17 @@ The minimum payment amount is $1.
 #### In which currency can I pay for {{ yandex-cloud }}? {#currency}
 
 {% list tabs group=residents %}
+
+- Residents of Russia {#russia}
+
+   You can only pay for {{ yandex-cloud }} resources in rubles (₽), regardless of your legal status ([billing account type](../../billing/concepts/billing-account.md#ba-types)).
+
+   {% include [rb payment](../../_includes/billing/rb-payment.md) %}
+
+
+- Residents of Kazakhstan {#kazakhstan}
+
+   You can only pay for {{ yandex-cloud }} resources in tenge (₸), regardless of your legal status ([billing account type](../../billing/concepts/billing-account.md#ba-types)).
 
 
 - Non-residents of Russia and Kazakhstan {#nonresidents}

@@ -10,10 +10,10 @@ After creating a {{ mkf-name }} cluster, you can:
 
 * [{#T}](#change-brokers)
 * [{#T}](#change-zookeeper)
-* [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md)).
-* [{#T}](#change-additional-settings).
+* [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md))
+* [{#T}](#change-additional-settings)
 * [{#T}](#change-kafka-settings)
-* [{#T}](#move-cluster) from the current folder to another one.
+* [{#T}](#move-cluster) from the current folder to another one
 * [{#T}](#change-sg-set)
 
 To move a cluster to a different [availability zone](../../overview/concepts/geo-scope.md), follow [this guide](host-migration.md). You will thus move the cluster hosts.
@@ -409,7 +409,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
 
 {% endlist %}
 
-You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 
 ## Changing additional cluster settings {#change-additional-settings}
@@ -742,5 +742,5 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 {% endlist %}
 
-You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 

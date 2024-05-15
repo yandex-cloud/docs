@@ -26,7 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. In the same availability zone, [create a {{ mpg-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md#create-cluster) with any appropriate configuration, `pg-user` as the admin username, and hosts located in the public domain.
 
       1. Make sure that the cluster security groups are set up correctly and allow connecting to them:
-         * [{{ mkf-name }}](../../../managed-kafka/operations/connect.md#configuring-security-groups).
+         * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
          * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups).
 
    - {{ TF }} {#tf}
@@ -76,7 +76,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       sudo apt update && sudo apt install --yes kafkacat
       ```
 
-      Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../../managed-kafka/operations/connect.md#connection-string).
+      Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
    * [jq](https://stedolan.github.io/jq/) for JSON file stream processing.
 
@@ -239,7 +239,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
    ```
 
-   To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../../managed-kafka/operations/connect.md).
+   To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../../managed-kafka/operations/connect/clients.md).
 
 1. Make sure the data from the source {{ mkf-name }} cluster has been moved to the {{ mpg-name }} database:
 

@@ -23,7 +23,7 @@ The {{ sws-name }} cost depends on the following parameters:
 
 {% include [usd-requests](../_pricing/smartwebsecurity/usd-requests.md) %}
 
-You pay for the actual number of requests.
+{% include [sum-cloud-account](../_includes/smartwebsecurity/sum-cloud-account.md) %}
 
 > For example, the total cost of sending 315.04 million requests per month to {{ sws-name }} for analysis will be:
 > 0.01 × $0.000000 + 0.99 × $200.000000 + 9 × $28.000000 + 90 × $1.600000 + 215.04 × $1.120000 = $834.844800 excluding VAT.

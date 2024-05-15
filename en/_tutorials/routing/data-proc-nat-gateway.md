@@ -39,12 +39,12 @@ You have to create:
 
       * Rule for outgoing HTTPS traffic:
 
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`.
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
-      * A rule that allows access to NTP servers for time syncing:
+      * Rule that allows access to NTP servers for time syncing:
 
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `123`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}`
@@ -63,16 +63,16 @@ You have to create:
 
    1. [Create a {{ dataproc-name }} cluster](../../data-proc/operations/cluster-create.md) with any suitable configuration with the following settings:
 
-      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `data-proc-sa`
-      * **{{ ui-key.yacloud.mdb.forms.config_field_form-bucket-type }}**: `{{ ui-key.yacloud.forms.label_form-list }}`
-      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select the created bucket
-      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `data-proc-network`
-      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `data-proc-security-group`
+      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `data-proc-sa`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_form-bucket-type }}**: `{{ ui-key.yacloud.forms.label_form-list }}`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select the created bucket.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `data-proc-network`.
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `data-proc-security-group`.
 
 - {{ TF }} {#tf}
 
    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-   1. [Download the file with the provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. [Download the file with the provider settings](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. [Download the cluster configuration file](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/data-proc-nat-gateway.tf) to the same working directory.
 
       The file describes:

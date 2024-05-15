@@ -5,7 +5,7 @@ description: "You can create backups and restore clusters from existing MySQL ba
 
 # Managing backups in {{ mmy-name }}
 
-You can create backups and restore clusters from existing backups, including point-in-time recovery. For more information, see [{#T}](../concepts/backup.md).
+You can create backups and restore clusters from existing backups, including point-in-time recovery. For more information, see [Backups](../concepts/backup.md).
 
 {{ mmy-name }} also creates automatic daily backups. You can set the [backup start time](#set-backup-window).
 
@@ -244,7 +244,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       * `--resource-preset`: [Host class](../concepts/instance-types.md#available-flavors).
       * `--disk-size`: Storage size in GB.
-      * `disk-type`: [Disk type](../concepts/storage.md):
+      * `--disk-type`: [Disk type](../concepts/storage.md):
 
          
          * `network-hdd`
@@ -260,7 +260,7 @@ For a new cluster, you should set all the parameters that are required at creati
    * Existing cluster from a backup.
    * Cluster created and deleted via the management console, CLI, or API.
 
-   To restore a cluster, you will need the backup ID. Retrieve a list of available {{ MY }} cluster backups [using the CLI](#list-backups):
+   To restore a cluster, you will need the backup ID. Get a list of available {{ MY }} cluster backups [using the CLI](#list-backups):
 
    ```bash
    {{ yc-mdb-my }} backup list
@@ -295,7 +295,7 @@ For a new cluster, you should set all the parameters that are required at creati
       }
       ```
 
-      In the `time` parameter, specify the time point, in the `yyyy-mm-ddThh:mm:ss` format, to which you want to restore the {{ MY }} cluster, starting from the creation of the selected backup.
+      In the `time` parameter, specify the time point, in `yyyy-mm-ddThh:mm:ss` format, to restore the {{ MY }} cluster to, starting from the selected backup's creation time.
 
       {% note info %}
 
@@ -385,7 +385,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Add a block named `backup_window_start` to the {{ mmy-name }} cluster description:
 

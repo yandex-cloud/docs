@@ -19,6 +19,9 @@ A set of methods for managing Community resources.
 | [UpdateAccessBindings](#UpdateAccessBindings) | Updates access bindings for specified community. |
 | [AddResource](#AddResource) | Adds shared resource to community |
 | [RemoveResource](#RemoveResource) | Removes shared resource from community |
+| [GetRestrictionsMeta](#GetRestrictionsMeta) | Get meta information about available restrictions. |
+| [GetRestrictions](#GetRestrictions) | Get current community restrictions. |
+| [SetRestrictions](#SetRestrictions) | Set community restrictions. |
 
 ## Calls CommunityService {#calls}
 
@@ -468,5 +471,106 @@ metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffer
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+## GetRestrictionsMeta {#GetRestrictionsMeta}
+
+Get meta information about available restrictions.
+
+**rpc GetRestrictionsMeta ([google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)) returns ([GetRestrictionsMetaResponse](#GetRestrictionsMetaResponse))**
+
+### GetRestrictionsMetaResponse {#GetRestrictionsMetaResponse}
+
+Field | Description
+--- | ---
+restrictions_meta[] | **[RestrictionMeta](#RestrictionMeta)**<br>List of restrictions. 
+
+
+### RestrictionMeta {#RestrictionMeta}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of restriction. 
+value_type | enum **RestrictionValueType**<br>Value type of restriction. 
+
+
+## GetRestrictions {#GetRestrictions}
+
+Get current community restrictions.
+
+**rpc GetRestrictions ([GetCommunityRestrictionsRequest](#GetCommunityRestrictionsRequest)) returns ([RestrictionsResponse](#RestrictionsResponse))**
+
+### GetCommunityRestrictionsRequest {#GetCommunityRestrictionsRequest}
+
+Field | Description
+--- | ---
+community_id | **string**<br>Required. ID of the community. 
+
+
+### RestrictionsResponse {#RestrictionsResponse}
+
+Field | Description
+--- | ---
+restrictions[] | **[Restriction](#Restriction)**<br>List of restrictions. 
+
+
+### Restriction {#Restriction}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of restriction. 
+bool_value[] | **bool**<br>List of boolean restriction values. Empty if value type is not boolean. 
+long_value[] | **int64**<br>List of long restriction values. Empty if value type is not long. 
+string_value[] | **string**<br>List of string restriction values. Empty if value type is not string. 
+
+
+## SetRestrictions {#SetRestrictions}
+
+Set community restrictions.
+
+**rpc SetRestrictions ([SetCommunityRestrictionsRequest](#SetCommunityRestrictionsRequest)) returns ([operation.Operation](#Operation7))**
+
+Response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[RestrictionsResponse](#RestrictionsResponse1)<br>
+
+### SetCommunityRestrictionsRequest {#SetCommunityRestrictionsRequest}
+
+Field | Description
+--- | ---
+community_id | **string**<br>Required. ID of the community. 
+restrictions[] | **[Restriction](#Restriction1)**<br>List of restrictions to set. 
+
+
+### Restriction {#Restriction1}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of restriction. 
+bool_value[] | **bool**<br>List of boolean restriction values. Empty if value type is not boolean. 
+long_value[] | **int64**<br>List of long restriction values. Empty if value type is not long. 
+string_value[] | **string**<br>List of string restriction values. Empty if value type is not string. 
+
+
+### Operation {#Operation7}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RestrictionsResponse](#RestrictionsResponse1)>**<br>if operation finished successfully. 
+
+
+### RestrictionsResponse {#RestrictionsResponse1}
+
+Field | Description
+--- | ---
+restrictions[] | **[Restriction](#Restriction2)**<br>List of restrictions. 
 
 

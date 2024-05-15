@@ -15,37 +15,67 @@ Invisible CAPTCHA is only connected using the [advanced method](./widget-methods
      src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"
      defer
    ></script>
-
-   <div id="captcha-container"></div>
    ```
 
 1. Render the CAPTCHA widget in invisible mode.
 
    ```html
+   <form id="form">
+     <div id="captcha-container"></div>
+     <input type="submit" />
+   </form>
+
    <script>
-     function onloadFunction() {
-       if (!window.smartCaptcha) {
-         return;
-       }
+   const form = document.getElementById('form');
 
-       window.smartCaptcha.render('captcha-container', {
-         sitekey: '<client_part_key>',
-         invisible: true, // Make captcha invisible
-         callback: callback,
-       });
+   function onloadFunction() {
+     if (!window.smartCaptcha) {
+       return;
      }
 
-     function callback(token) {
-       console.log(token);
-     }
+     window.smartCaptcha.render('captcha-container', {
+       sitekey: '<client_part_key>',
+       invisible: true, // Make captcha invisible
+       callback: callback,
+     });
+   }
+
+   function callback(token) {
+     form.submit();
+   }
    </script>
    ```
 
 1. Call `window.smartCaptcha.execute()` when {{ captcha-name }} is to start validating the user. For example, when clicking the **submit** button.
 
    ```html
+   <form id="form">
+     <div id="captcha-container"></div>
+     <input type="submit" onsubmit="handleSubmit()" />
+   </form>
+
    <script>
-   function handleSubmit() {
+   const form = document.getElementById('form');
+
+   function onloadFunction() {
+     if (!window.smartCaptcha) {
+       return;
+     }
+
+     window.smartCaptcha.render('captcha-container', {
+       sitekey: '<client_part_key>',
+       invisible: true, // Make captcha invisible
+       callback: callback,
+     });
+   }
+
+   function callback(token) {
+     form.submit();
+   }
+
+   function handleSubmit(event) {
+     event.preventDefault();
+
      if (!window.smartCaptcha) {
        return;
      }
@@ -53,11 +83,6 @@ Invisible CAPTCHA is only connected using the [advanced method](./widget-methods
      window.smartCaptcha.execute();
    }
    </script>
-
-   <form id="form">
-     <div id="captcha-container"></div>
-    <input type="submit" onsubmit="handleSubmit()" />
-   </form>
    ```
 
 ## Data processing notice {#data-processing-notice}

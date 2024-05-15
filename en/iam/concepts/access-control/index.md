@@ -33,7 +33,7 @@ For example, you were given the right to create folders in the cloud and you wer
 
 ### Resources that roles can be assigned for {#resource}
 
-You can assign roles for a [cloud](../../../resource-manager/operations/cloud/set-access-bindings.md), [folder](../../../resource-manager/operations/folder/set-access-bindings.md), and other resources from the [list](resources-with-access-control.md). If you need to grant access to a resource that is not on the list, e.g., a [{{ mpg-full-name }} cluster](../../../managed-postgresql/concepts/index.md), assign the role to the parent resource it [inherits](#inheritance) permissions from. {{ mpg-name }} clusters inherit access permissions from their folder.
+You can assign roles for a [cloud](../../../resource-manager/operations/cloud/set-access-bindings.md), [folder](../../../resource-manager/operations/folder/set-access-bindings.md), and other resources from the [list](resources-with-access-control.md). If you need to grant access to a resource that is not on the list, assign the role for the parent resource it [inherits](#inheritance) permissions from. For example, [{{ mpg-full-name }} clusters](../../../managed-postgresql/concepts/index.md) inherit access permissions from their folder.
 
 ### Role {#role}
 
@@ -47,7 +47,7 @@ To find out what roles exist and what permissions they include, see [{#T}](roles
 
 Roles are assigned to subjects. The following subject types are available:
 
-* `userAccount`: [Yandex account](../index.md#passport) added to {{ yandex-cloud }}.
+* `userAccount`: [Yandex account](../users/accounts.md#passport) added to {{ yandex-cloud }}.
 * `serviceAccount`: [Service account](../users/service-accounts.md) created in {{ yandex-cloud }}.
 
    {% include [include](../../../_includes/sa-assign-role-note.md) %}

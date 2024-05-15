@@ -406,7 +406,7 @@
 
      {% endlist %}
 
-3. Перезапустите Nginx и PHP-FPM:
+1. Перезапустите Nginx и PHP-FPM:
 
    {% list tabs group=operating_system %}
 

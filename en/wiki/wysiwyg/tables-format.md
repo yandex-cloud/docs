@@ -63,7 +63,7 @@ description: "In this tutorial, you will learn how to use tables and tables of c
       {{grid page="{{ wiki-pagename }}/grid-2021-01-24t163048" width="100%"}}
       ```
 
-      The created table will become a subсluster of the current page.
+      The created table will become a subcluster of the current page.
 
    1. Click **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-settings.save }}**.
 

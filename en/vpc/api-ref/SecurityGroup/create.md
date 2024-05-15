@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/create.md
 ---
 
 # Virtual Private Cloud API, REST: SecurityGroup.create
-
+Creates a security group in the specified folder and network.
  
 
  
@@ -55,25 +55,25 @@ POST https://vpc.{{ api-host }}/vpc/v1/securityGroups
  
 Field | Description
 --- | ---
-folderId | **string**<br><p>Required.</p> 
-name | **string**
-description | **string**
-labels | **object**
-networkId | **string**<br><p>Required.</p> 
-ruleSpecs[] | **object**
-ruleSpecs[].<br>description | **string**
-ruleSpecs[].<br>labels | **object**
-ruleSpecs[].<br>direction | **string**<br>Required.
-ruleSpecs[].<br>ports | **object**
-ruleSpecs[].<br>ports.<br>fromPort | **string** (int64)<br><p>Acceptable values are 0 to 65535, inclusive.</p> 
-ruleSpecs[].<br>ports.<br>toPort | **string** (int64)<br><p>Acceptable values are 0 to 65535, inclusive.</p> 
-ruleSpecs[].<br>protocolName | **string** <br>`ruleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br>
-ruleSpecs[].<br>protocolNumber | **string** (int64) <br>`ruleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br>
-ruleSpecs[].<br>cidrBlocks | **object** <br>`ruleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
-ruleSpecs[].<br>cidrBlocks.<br>v4CidrBlocks[] | **string**
-ruleSpecs[].<br>cidrBlocks.<br>v6CidrBlocks[] | **string**
-ruleSpecs[].<br>securityGroupId | **string** <br>`ruleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
-ruleSpecs[].<br>predefinedTarget | **string** <br>`ruleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
+folderId | **string**<br><p>Required. ID of the folder for this request to create a security group in. To get the folder ID, use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+name | **string**<br><p>Name of the security group. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``.</p> 
+description | **string**<br><p>Description of the security group.</p> <p>The maximum string length in characters is 256.</p> 
+labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
+networkId | **string**<br><p>Required. ID of the Network to create security group for.</p> 
+ruleSpecs[] | **object**<br><p>Security rules specifications.</p> 
+ruleSpecs[].<br>description | **string**<br><p>Description of the security rule.</p> <p>The maximum string length in characters is 256.</p> 
+ruleSpecs[].<br>labels | **object**<br><p>Rule labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
+ruleSpecs[].<br>direction | **string**<br>Required. The direction of network traffic allowed by this rule.<br><ul> <li>INGRESS: Allows ingress traffic.</li> <li>EGRESS: Allows egress traffic.</li> </ul> 
+ruleSpecs[].<br>ports | **object**<br>The range of ports that allow traffic to pass through. Null value means any port.
+ruleSpecs[].<br>ports.<br>fromPort | **string** (int64)<br><p>The lowest port in the range.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
+ruleSpecs[].<br>ports.<br>toPort | **string** (int64)<br><p>The highest port in the range.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
+ruleSpecs[].<br>protocolName | **string** <br>`ruleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br><br><p>Protocol name.</p> 
+ruleSpecs[].<br>protocolNumber | **string** (int64) <br>`ruleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br><br><p>Protocol number from <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">IANA protocol numbers</a>.</p> 
+ruleSpecs[].<br>cidrBlocks | **object**<br>CIDR blocks to allow to recieve or send traffic. <br>`ruleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
+ruleSpecs[].<br>cidrBlocks.<br>v4CidrBlocks[] | **string**<br><p>IPv4 CIDR blocks to allow traffic to.</p> 
+ruleSpecs[].<br>cidrBlocks.<br>v6CidrBlocks[] | **string**<br><p>IPv6 CIDR blocks to allow traffic to.</p> 
+ruleSpecs[].<br>securityGroupId | **string** <br>`ruleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br><br><p>ID of the security group to add rule to.</p> 
+ruleSpecs[].<br>predefinedTarget | **string** <br>`ruleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br><br><p>Predefined target. See <a href="/docs/vpc/concepts/security-groups#security-groups-rules">security groups rules</a> for more information.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

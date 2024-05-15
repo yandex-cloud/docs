@@ -20,7 +20,7 @@ Prepare the infrastructure:
    1. [Create a {{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable configuration with the following settings:
 
       * Number of {{ CH }} hosts: At least two, which is required to enable replication in the cluster.
-      * With public access to cluster hosts.
+      * Public access to cluster hosts: Allowed.
       * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`.
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`.
@@ -58,7 +58,7 @@ Prepare the infrastructure:
 
    1. In the `object-storage-to-clickhouse.tf` file, specify:
 
-      * `folder_id`: Cloud folder ID, the same one specified in the provider settings.
+      * `folder_id`: Cloud folder ID, same as in the provider settings.
       * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
       * `ch_password`: {{ CH }} user password.
 

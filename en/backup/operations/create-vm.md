@@ -26,9 +26,9 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
       * Enter a name and description for the VM. The naming requirements are as follows:
 
-        {% include [name-format](../../_includes/name-format.md) %}
+         {% include [name-format](../../_includes/name-format.md) %}
 
-        {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
+         {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
       * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
 
@@ -76,8 +76,8 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
       |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
       | b0c6n43f9lgh******** | default-{{ region-id }}-d     | enpe3m3fa00u******** |                | {{ region-id }}-d     | [10.***.0.0/24] |
-      | e2l2da8a20b3******** | default-{{ region-id }}-b     | enpe3m3fa00u******** |                | {{ region-id }}-b | [10.***.0.0/24] |
-      | e9bnlm18l70a******** | default-{{ region-id }}-a     | enpe3m3fa00u******** |                | {{ region-id }}-a | [10.***.0.0/24] |
+      | e2l2da8a20b3******** | default-{{ region-id }}-b     | enpe3m3fa00u******** |                | {{ region-id }}-b     | [10.***.0.0/24] |
+      | e9bnlm18l70a******** | default-{{ region-id }}-a     | enpe3m3fa00u******** |                | {{ region-id }}-a     | [10.***.0.0/24] |
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
       ```
 

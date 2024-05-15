@@ -11,7 +11,11 @@ To view the permissions granted to an account for a resource, retrieve the list 
 1. For the cloud that the folder belongs to.
 1. For the organization that the cloud belongs to.
 
-You can view a list of inherited roles for the folder or the cloud in the management console, in the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section of the corresponding folder or cloud.
+You can view a list of inherited roles for the folder or the cloud in the management console, in the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section of the folder or cloud.
+
+[Learn](../../concepts/access-control/resources-with-access-control.md) which resources you can assign a role for.
+
+To view assigned roles:
 
 {% list tabs group=instructions %}
 
@@ -19,7 +23,7 @@ You can view a list of inherited roles for the folder or the cloud in the manage
 
    In the management console, you can view roles only for the folder, cloud, or organization. To view roles for other resources, use the CLI or API.
 
-   To view the roles of a [user with a Yandex account](../../concepts/index.md#passport), [federated user](../../concepts/index.md#saml-federation), or [service account](../../concepts/users/service-accounts.md):
+   To view the roles of a [user with a Yandex account](../../concepts/users/accounts.md#passport), [federated user](../../concepts/users/accounts.md#saml-federation), or [service account](../../concepts/users/service-accounts.md):
 
    {% include [include](../../../_includes/iam/configure-roles-console.md) %}
 

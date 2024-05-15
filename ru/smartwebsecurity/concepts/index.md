@@ -8,8 +8,13 @@
 
 ![schema](../../_assets/smartwebsecurity/schema.svg)
 
+Для защиты ваших веб-приложений от внешних угроз в {{ sws-name }} также реализован межсетевой экран [Web Application Firewall (WAF)](waf.md). 
+
+{% include [note-preview-waf](../../_includes/smartwebsecurity/note-preview-waf.md) %}
+
 Логи {{ sws-name }} передаются в сервис [{{ cloud-logging-full-name }}](../../logging/).
 
 Метрики {{ sws-name }} передаются в сервис [{{ monitoring-full-name }}](../../monitoring/).
 
 Аудитные логи {{ sws-name }} передаются в сервис [{{ at-full-name }}](../../audit-trails/).
+

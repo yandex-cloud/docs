@@ -35,7 +35,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       
       1. To connect to the cluster from the user's local machine, configure security groups:
 
-         * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
+         * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
          * [{{ mmg-name }}](../../managed-mongodb/operations/connect/index.md#configuring-security-groups).
 
 
@@ -91,7 +91,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       sudo apt update && sudo apt install --yes kafkacat
       ```
 
-      Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect.md#connection-string#bash).
+      Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
    - [jq](https://stedolan.github.io/jq/) for JSON file stream processing.
 
@@ -233,7 +233,7 @@ Create a local `sample.json` file with the following test data:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}**: Enter the user password.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.database.title }}**: `db1`.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.database.title }}**: `db1`
 
 1. Create a transfer:
 
@@ -286,7 +286,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
    ```
 
-   To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect.md).
+   To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
 1. Check that the `sensors` collection in the {{ mmg-name }} cluster contains the sent data:
 

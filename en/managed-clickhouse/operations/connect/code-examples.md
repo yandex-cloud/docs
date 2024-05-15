@@ -5,17 +5,18 @@ description: "Use these examples to connect to a database in a {{ CH }} cluster 
 
 # Code examples for connecting to a {{ CH }} cluster
 
-You can only connect to public {{ CH }} cluster hosts with your SSL certificates. Before connecting, [prepare your certificates](index.md#get-ssl-cert).
+You can connect to public {{ CH }} cluster hosts only if you use [SSL certificates](index.md#get-ssl-cert). The examples below assume that `{{ crt-local-file-root }}` and `{{ crt-local-file-int }}` certificates are:
 
-In the examples below, it is assumed that the `{{ crt-local-file-root }}` and `{{ crt-local-file-int }}` certificates:
-* Are located in the `{{ crt-local-dir }}` directory (for Ubuntu).
-* Are imported to the Trusted Root Certificate store (for Windows).
+* Located in the `{{ crt-local-dir }}` folder (for Ubuntu).
+* Imported to the trusted root certificate store (for Windows).
 
-Connecting without any SSL certificates is only supported for non-public hosts. For connections to the database, traffic inside the virtual network is not encrypted in this case.
+Connecting without SSL certificates is only supported for non-public hosts. For connections to the database, traffic inside the virtual network is not encrypted in this case.
 
-{% include [see-fqdn-in-console](../../../_includes/mdb/see-fqdn-in-console.md) %}
+Before connecting, [configure security groups](index.md#configure-security-groups) for the cluster, if required.
 
 If the connection to the cluster and the test query are successful, the {{ CH }} version is output.
+
+{% include [see-fqdn-in-console](../../../_includes/mdb/see-fqdn-in-console.md) %}
 
 The examples for Linux were tested in the following environment:
 
@@ -28,6 +29,11 @@ The examples for Linux were tested in the following environment:
 * Go: `1.13.8`
 * Ruby: `2.7.0p0`
 * unixODBC: `2.3.6`
+
+The examples for Windows were tested in the following environment:
+
+* A local machine with Windows 10 Pro build `19042.1052`
+* PowerShell: `5.1.19041`
 
 ## Go {#go}
 

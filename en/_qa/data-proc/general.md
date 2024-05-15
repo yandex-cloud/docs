@@ -28,6 +28,16 @@ To increase the maximum IOPS and bandwidth values and make throttling less likel
 
 Since the script runtime environment is Linux (Ubuntu), scripts created in Windows may end with an error saying `^M: bad interpreter` due to using the `CR/LF` newline character (in Linux, it is `LF`). To fix the error, save the script file in Linux format. For more information, see [{#T}](../../data-proc/concepts/init-action.md#syntax-errors).
 
+#### When I run a PySpark job, I get an error related to `com/amazonaws/auth/AWSCredentialsProvider`. How do I fix this? {#sharedPrefixes-property}
+
+If a {{ dataproc-name }} cluster is connected to a {{ metastore-name }} cluster, you may get the following error when running PySpark jobs:
+
+```text
+previously initiated loading for a different type with name "com/amazonaws/auth/AWSCredentialsProvider";
+```
+
+To fix this, [add](../../data-proc/operations/cluster-update.md) the `spark:spark.sql.hive.metastore.sharedPrefixes` property with the `com.amazonaws,ru.yandex.cloud` value to the {{ dataproc-name }} cluster.
+
 #### Why does the `NAT should be enabled on the subnet` error occur and how do I fix it? {#nat}
 
 This error occurs when trying to create a {{ dataproc-name }} cluster in a subnet with no NAT gateway configured. To fix it, [configure a network for {{ dataproc-name }}](../../data-proc/tutorials/configure-network.md).
@@ -48,6 +58,22 @@ To fix the error, do one of the following:
 * Create a subnet with CIDR that suits your cluster's configuration. Next, create a {{ dataproc-name }} cluster in the new subnet.
 
 For more information about subnet sizes, see the [{{ vpc-full-name }}](../../vpc/concepts/network.md#subnet) documentation.
+
+#### How do I fix the error I get when creating a database in {{ metastore-full-name }}? {#create-db-in-hive}
+
+The error occurs if you use the following syntax to create a database:
+
+```sql
+CREATE DATABASE IF NOT EXISTS <database_name>;
+```
+
+{{ metastore-name }} does not allow creating a database or table in Hive: they are stored in a [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md) linked to a {{ dataproc-name }} cluster. To create a database, use the following syntax:
+
+```sql
+CREATE DATABASE IF NOT EXISTS <database_name> LOCATION <database_location>;
+```
+
+In the `LOCATION` parameter, specify the path to the bucket and the database in it in the following format: `s3a://<bucket_name>/<folder_name>/<database_name>`. Specifying a folder is optional; however, objects will load into a folder faster than into the bucket root.
 
 #### Why is my cluster's status `Unknown`? {#unknown}
 

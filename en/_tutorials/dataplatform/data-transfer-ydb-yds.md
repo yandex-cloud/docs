@@ -89,8 +89,8 @@ Prepare the infrastructure:
          ```bash
          ydb \
            --endpoint <endpoint> \
-           --database <name> \
-           --yc-token-file <path> \
+           --database <database_name> \
+           --yc-token-file <path_to_OAuth_token> \
            yql -s "SELECT 1;"
          ```
 
@@ -214,7 +214,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
-1. If you created the service accounts along with the endpoints, [delete them](../../iam/operations/sa/delete.md).
+1. If you created service accounts together with the endpoints, [delete them](../../iam/operations/sa/delete.md).
 
 Delete the other resources depending on how they were created:
 

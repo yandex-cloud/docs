@@ -78,6 +78,7 @@ description: "Пошаговые инструкции по работе и уп�
 
 * [{#T}](vm-guest-agent/check.md)
 * [{#T}](vm-guest-agent/install.md)
+* [{#T}](vm-guest-agent/reset-password.md)
 * [{#T}](vm-guest-agent/uninstall.md)
 
 ## Создание диска {#disk-create}

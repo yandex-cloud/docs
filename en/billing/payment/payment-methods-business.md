@@ -8,7 +8,7 @@ To have funds transferred, you should first receive a [payment invoice](../conce
 
 
 * Payment amount.
-* Banking information of  or Iron Hive doo Beograd (Serbia) (for non-residents of Russia and Kazakhstan).
+* Banking information of Yandex.Cloud LLC (Russia) and Belarus, Cloud Services Kazakhstan LLP (Kazakhstan), and Iron Hive doo Beograd (Serbia) for non-residents of Russia and Kazakhstan.
 * Your company or individual entrepreneur TIN.
 * [Personal account number](../concepts/personal-account.md#id) in the payment details.
 * [Contract number](../concepts/contract.md) in the payment details.
@@ -24,7 +24,7 @@ Payment invoices must be paid before the deadline stipulated in the [agreement](
 
 {% note info %}
 
-We recommend that you track spending on your personal account and [top up the balance so that it is always positive](../operations/pay-the-bill.md). If the personal account balance drops to zero or exceeds the billing threshold, {{ yandex-cloud }} reserves the right to change the status of your billing account to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md#conditions). For more information, see [Billing cycle](../payment/billing-cycle-business.md).
+We recommend keeping track of the money you spend from your personal account and [top up your balance so it is always positive](../operations/pay-the-bill.md). If the personal account balance drops to zero or exceeds the billing threshold, {{ yandex-cloud }} reserves the right to change the status of your billing account to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md#conditions). For more information, see [Billing cycle](../payment/billing-cycle-business.md).
 
 {% endnote %}
 
