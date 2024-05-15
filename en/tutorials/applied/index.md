@@ -18,8 +18,9 @@ description: "This page provides a list of tutorials on creating sites, using 1C
 * [Setting up virtual hosting](../web/virtual-hosting.md)
 * [Assigning a domain name to a VM with a web server](../web/bind-domain-vm.md)
 * [Creating a Python web application with Flask](../web/flask.md)
+* [{#T}](../web/gatsby-static-website.md)
 
-## 1С {#1c}
+## 1C {#1c}
 
 * [1C-Bitrix Online Store: Website Management](../internet-store/bitrix-shop.md)
 * [Creating a cluster of 1C:Enterprise Linux servers with {{ mpg-full-name }}](../infrastructure-management/1c-postgresql-linux.md)

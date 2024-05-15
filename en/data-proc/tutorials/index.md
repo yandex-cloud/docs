@@ -16,6 +16,7 @@ description: "Various {{ dataproc-full-name }} use cases in {{ yandex-cloud }}."
 * [{#T}](./s3-dataproc-ch.md)
 * [{#T}](./airflow-automation.md)
 * [{#T}](./dataproc-to-dataproc.md)
+* [{#T}](./metastore-import.md)
 
 ## Working with jobs {#jobs}
 

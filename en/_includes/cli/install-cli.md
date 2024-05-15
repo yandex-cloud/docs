@@ -4,10 +4,16 @@
 
    1. Run this command:
 
+
+      
+      
       ```bash
       curl -sSL https://{{ s3-storage-host }}{{ yc-install-path }} | bash
       ```
-      The script will install the CLI and add the executable file path to the environment variable `PATH`.
+
+
+
+      The script will install the CLI and add the executable file path to the `PATH` environment variable.
 
       {% note info %}
 
@@ -29,14 +35,19 @@
 
    1. Run this command:
 
+
+      
+      
       ```bash
       curl -sSL https://{{ s3-storage-host }}{{ yc-install-path }} | bash
       ```
 
-      The script will install the CLI and add the executable file path to the environment variable `PATH`.
+
+
+      The script will install the CLI and add the executable file path to the `PATH` environment variable.
    1. Restart your terminal for the changes to take effect.
 
-   The CLI supports command completion for the `bash` and `zsh` shell. To enable command completion:
+   The CLI supports command autocompletion for the `bash` and `zsh` command shells. To enable command autocompletion:
 
    1. Install the [Homebrew](https://brew.sh) package manager.
    1. Install the `zsh-completion` package:
@@ -77,22 +88,35 @@
 
       1. Run this command:
 
-         ```
+
+         
+         
+         ```bash
          iex (New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}')
          ```
+
+
+
       1. The installation script will ask whether to add the path to `yc` to the PATH variable:
 
          ```
          Add yc installation dir to your PATH? [Y/n]
          ```
       1. Enter `Y`. After this, you can use the {{ yandex-cloud }} CLI without restarting the command shell.
-   - To install using command line:
+
+   - To install using the command line:
 
       1. Run this command:
 
-         ```
+
+         
+         
+         ```bash
          @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
          ```
+
+
+
       1. The installation script will ask whether to add the path to `yc` to the PATH variable:
 
          ```

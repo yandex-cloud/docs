@@ -15,11 +15,12 @@ description: "In this tutorial, you will learn how to set up a {{ MG }} target e
 1. [Perform required operations with the database](../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) and [control the transfer](../../monitoring.md).
 1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
 
-## Scenarios for transferring data to {{ PG }} {#scenarios}
+## Scenarios for transferring data to {{ MG }} {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
    * [Migrating the {{ MG }} cluster](../../../tutorials/managed-mongodb.md).
+   * [Migrating {{ MG }} cluster from 4.4 to 6.0](../../../tutorials/mongodb-versions.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
 
@@ -31,10 +32,10 @@ For a detailed description of possible {{ data-transfer-full-name }} data transf
 
 Configure one of the supported data sources:
 
-* [{{ MG }}](../source/mongodb.md).
-* [Airbyte](../../../transfer-matrix.md#airbyte).
-* [{{ DS }}](../source/data-streams.md).
-* [{{ KF }}](../source/kafka.md).
+* [{{ MG }}](../source/mongodb.md)​
+* [Airbyte](../../../transfer-matrix.md#airbyte)
+* [{{ DS }}](../source/data-streams.md)​
+* [{{ KF }}](../source/kafka.md)​
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
 

@@ -1822,8 +1822,8 @@ cluster_id | **string**<br>ID of the Redis cluster. The ID is assigned by MDB at
 zone_id | **string**<br>ID of the availability zone where the Redis host resides. 
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 resources | **[Resources](#Resources11)**<br>Resources allocated to the Redis host. 
-role | enum **Role**<br>Role of the host in the cluster. <ul><li>`ROLE_UNKNOWN`: Role of the host in the cluster is unknown.</li><li>`MASTER`: Host is the master Redis server in the cluster.</li><li>`REPLICA`: Host is a replica (standby) Redis server in the cluster.</li></ul>
-health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded, and can perform only some of its essential functions.</li></ul>
+role | enum **Role**<br>Role of the host in the cluster. If the field has default value, it is not returned in the response. <ul><li>`ROLE_UNKNOWN`: Role of the host in the cluster is unknown. Default value.</li><li>`MASTER`: Host is the master Redis server in the cluster.</li><li>`REPLICA`: Host is a replica (standby) Redis server in the cluster.</li></ul>
+health | enum **Health**<br>Aggregated health of the host. If the field has default value, it is not returned in the response. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown. Default value.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded, and can perform only some of its essential functions.</li></ul>
 services[] | **[Service](#Service)**<br>Services provided by the host. 
 shard_name | **string**<br> 
 replica_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>A replica with a low priority number is considered better for promotion. A replica with priority of 0 will never be selected by Redis Sentinel for promotion. Works only for non-sharded clusters. Default value is 100. 
@@ -1843,8 +1843,8 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Type of the service provided by the host. <ul><li>`REDIS`: The host is a Redis server.</li><li>`ARBITER`: The host provides a Sentinel-only service (a quorum node).</li><li>`REDIS_CLUSTER`: The host is a Redis Cluster node.</li></ul>
-health | enum **Health**<br>Status code of server availability. <ul><li>`HEALTH_UNKNOWN`: Health of the server is unknown.</li><li>`ALIVE`: The server is working normally.</li><li>`DEAD`: The server is dead or unresponsive.</li></ul>
+type | enum **Type**<br>Type of the service provided by the host. If the field has default value, it is not returned in the response. <ul><li>`TYPE_UNSPECIFIED`: Service type of the host is unspecified. Default value.</li><li>`REDIS`: The host is a Redis server.</li><li>`ARBITER`: The host provides a Sentinel-only service (a quorum node).</li><li>`REDIS_CLUSTER`: The host is a Redis Cluster node.</li></ul>
+health | enum **Health**<br>Aggregated health of the service. If the field has default value, it is not returned in the response. <ul><li>`HEALTH_UNKNOWN`: Health of the server is unknown. Default value.</li><li>`ALIVE`: The server is working normally.</li><li>`DEAD`: The server is dead or unresponsive.</li></ul>
 
 
 ## AddHosts {#AddHosts}

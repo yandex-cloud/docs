@@ -15,7 +15,6 @@ To get authenticated using a [Yandex account](../../iam/concepts/index.md#passpo
    yc init
    ```
 
-1. Select the profile you want to set up authentication for or create a new one. If it is your first time running the `yc init` command, this step will be skipped.
 
 1. Select the profile you want to set up authentication for or create a new one. If it is your first time running the `yc init` command, this step will be skipped.
 

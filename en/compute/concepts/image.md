@@ -35,7 +35,7 @@ All images belonging to the same family must be in the same folder.
 
 {% endnote %}
 
-> Let's assume you want to upload an image of your operating system to {{ yandex-cloud }}. When creating an image, specify a family, e.g., `best-linux-distro`. This will allow other users to get the latest version of your operating system by specifying the family and image folder ID in the [request](../api-ref/Image/getLatestByFamily.md).
+> Let's assume you want to [upload](../operations/image-create/upload.md) an image of your operating system to {{ yandex-cloud }}. When creating an image, specify a family, e.g., `best-linux-distro`. This will allow other users to get the latest version of your operating system by specifying the family and image folder ID in the [request](../api-ref/Image/getLatestByFamily.md).
 
 ## Public images {#public}
 
@@ -70,3 +70,10 @@ Fast deployment is achieved by using multiple layers for storing data in a stora
 Regular images from {{ marketplace-name }} are already optimized for deployment. To optimize your image, select the **{{ ui-key.yacloud.compute.images.popup-upload_field_pooled }}** option when uploading the image.
 
 By default, optimized images have a zero [quota](../concepts/limits.md#compute-quotas). To increase the [quota]({{ link-console-quotas }}), contact [support](../../support/overview.md).
+
+## See also {#see-also}
+
+* Learn how to create a VM from a [custom](../operations/vm-create/create-from-user-image.md) or [public](../operations/images-with-pre-installed-software/create.md) image.
+* [{#T}](../operations/image-create/custom-image.md).
+* [{#T}](../operations/image-control/import.md).
+* [{#T}](../operations/image-control/access.md).

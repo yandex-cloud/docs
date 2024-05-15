@@ -14,7 +14,7 @@ To get started with the service:
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if you are not signed up yet.
 
 1. If you do not have a folder yet, create one:
 
@@ -88,7 +88,7 @@ You can connect the producer and consumer to the cluster on behalf of one user. 
 To connect to a cluster:
 
 
-1. If you are using security groups for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
+1. If using security groups for a cloud network, [configure them](operations/connect/index.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
 
 
 1. Install an SSL certificate on the VM:
@@ -111,9 +111,9 @@ To connect to a cluster:
 
    {% include [fqdn](../_includes/mdb/mkf/fqdn-host.md) %}
 
-For more information about connecting to a {{ mkf-name }} cluster, see [Connecting to topics in a cluster](operations/connect.md).
+For more information about connecting to a {{ mkf-name }} cluster, see [Connecting to topics in a cluster](operations/connect/clients.md).
 
 ## What's next {#whats-next}
 
 * Read about [service concepts](concepts/index.md).
-* Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to a cluster](operations/connect.md).
+* Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to a cluster](operations/connect/index.md).

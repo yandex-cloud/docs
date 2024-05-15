@@ -16,6 +16,8 @@ In this section, you will learn:
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
+You can assign a role for a [DNS zone](../concepts/dns-zone.md) through the YC CLI or {{ yandex-cloud }} API.
+
 ## Which roles exist in the service {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}

@@ -52,7 +52,7 @@ items:
             href: operations/cluster-users.md
           - name: Assigning privileges and roles
             href: operations/grant.md
-      - name: PostgreSQL extensions
+      - name: '{{ PG }} extensions and dictionaries'
         items:
           - name: Managing extensions
             href: operations/extensions/cluster-extensions.md
@@ -62,6 +62,8 @@ items:
             href: operations/extensions/pgaudit.md
           - name: pgcrypto
             href: operations/extensions/pgcrypto.md
+          - name: Hunspell dictionaries for full-text search
+            href: operations/extensions/hunspell.md
       - name: Logs and monitoring
         items:
           - name: Viewing cluster logs

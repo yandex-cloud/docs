@@ -4,14 +4,15 @@ Individuals can top up their personal account and pay for the resources they use
 
 {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
+{% include [billing-account-payers](../../billing/_includes/billing-account-payers.md) %}
+
 ## Linking a bank card {#pin-card}
 
 When [creating](../quickstart/index.md) a billing account, you need to link a bank card.
 
 {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
-You cannot unlink a bank card from your billing account. Instead, you can change the [linked card](../operations/pin-card.md) in the billing account settings. If you delete the card linked to your {{ yandex-cloud }} billing account from [Yandex ID](https://passport.yandex.com/profile), your billing account may get locked (by changing its [status to `SUSPENDED`](../concepts/billing-account-statuses.md)) when debiting.
-
+You cannot unlink a bank card from an active billing account. Instead, you can [change the linked card](../operations/pin-card.md). If you delete the card linked to your {{ yandex-cloud }} billing account from [Yandex ID](https://passport.yandex.com/profile), your billing account may get locked (by changing its [status to `SUSPENDED`](../concepts/billing-account-statuses.md)) when debiting. You can [delete the card](../operations/pin-card.md#remove-card) only after you [inactivate the billing account](../operations/delete-account.md).
 
 ## Personal account top-up {#refill}
 

@@ -1,9 +1,9 @@
 ---
 title: "Questions and answers about {{ vpc-full-name }}"
-description: "This page presents questions and answers about {{ vpc-name }}."
+description: "See this page for {{ vpc-name }} FAQs."
 ---
 
-# Questions and answers about {{ vpc-name }}
+# FAQ about {{ vpc-name }}
 
 #### What is {{ vpc-short-name }}? {#what-is-vpc}
 
@@ -39,10 +39,10 @@ Subnets can only use private IPv4 addresses from the ranges defined by [RFC 1918
 
 #### Why is my connection for {{ yandex-cloud }} services slow? {#low-connection}
 
-{{ yandex-cloud }} doesn't impose any limits on connection speed. Please provide the following information to help troubleshoot potential problems:
-* The direction of the connection that is producing the issue: local to the cloud network, cloud network to the internet, or the internet to the cloud network.
+{{ yandex-cloud }} does not impose any limits on the connection speed. Please provide the following information to help troubleshoot potential problems:
+* Direction of the connection that is producing the issue: local to the cloud network, cloud network to the internet, or the internet to the cloud network.
 * Type of traffic producing the issue: incoming or outgoing.
-* Source and target settings: virtual machine IDs, IPs, FQDNs.
+* Source and target parameters: VM IDs, IP addresses,FQDNs.
 * Output for the `mtr <target_IP_or_domain>` command.
 * Speed results from [Yandex.Internetometer](https://yandex.com/internet/), including Technical Information.
 

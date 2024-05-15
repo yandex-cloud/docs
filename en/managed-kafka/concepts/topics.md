@@ -7,7 +7,7 @@ description: "In this tutorial, you will learn about topics and partitions avail
 
 ## Topics {#topics}
 
-A topic is a way to group message streams into categories. [Producers](producers-consumers.md) [publish](../operations/connect.md) messages of a certain category to a topic, while [consumers](producers-consumers.md) [subscribe](../operations/connect.md) to this topic and pull messages from it. For each topic, {{ KF }} keeps a message log that can be divided into multiple partitions.
+A topic is a way to group message streams into categories. [Producers](producers-consumers.md) publish messages of a certain category to a topic, while [consumers](producers-consumers.md) subscribe to this topic and read messages from it. For each topic, {{ KF }} keeps a message log that can be divided into multiple partitions.
 
 For example, if the data producer is an online store, you can create separate topics for logging user actions, storing data about their shopping cart, keeping records about transactions, etc.
 

@@ -3,13 +3,13 @@ title: "How to manage topics and {{ KF }} cluster partitions in {{ mkf-full-name
 description: "Follow this guide to manage topics and partitions."
 ---
 
-# Working with topics and partitions
+# Managing {{ KF }} topics
 
 A {{ mkf-name }} cluster provides two ways for you to manage topics and partitions (which can be used separately or combined):
-* Using native {{ yandex-cloud }} interfaces, such as CLI, API, or management console. Use this method if you want to create, delete, and configure topics and partitions using {{ mkf-name }} features.
-* Using the [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi). Select this method if you wish to use your existing solution to manage topics and partitions.
+* Using native {{ yandex-cloud }} interfaces, such as the CLI, API, or management console. Use this method if you want to create, delete, and configure topics and partitions using {{ mkf-name }} features.
+* Using the [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi). Select this method if you prefer to use your existing solution to manage topics and partitions.
 
-## Managing topics and partitions with the {{ KF }} Admin API {#admin-api}
+## Managing topics via the {{ KF }} Admin API {#admin-api}
 
 To manage topics via the [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi):
 1. [Create](cluster-accounts.md#create-user) a cluster admin user.

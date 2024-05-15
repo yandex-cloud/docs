@@ -77,16 +77,14 @@ You can add and remove databases, as well as view information about them.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
-   1. Add a `database` block to the {{ mmg-name }} cluster description:
+   1. Add the `yandex_mdb_mongodb_database` resource:
 
       ```hcl
-      resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
-        ...
-        database {
-          name = "<DB_name>"
-        }
+      resource "yandex_mdb_mongodb_database" "<DB_name>" {
+        cluster_id = "<cluster_ID>"
+        name       = "<DB_name>"
       }
       ```
 
@@ -100,9 +98,7 @@ You can add and remove databases, as well as view information about them.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mongodb_database).
 
 - API {#api}
 
@@ -144,9 +140,9 @@ You can add and remove databases, as well as view information about them.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
-   1. Delete the `database` block with the DB name from the {{ mmg-name }} cluster description.
+   1. Delete the `yandex_mdb_mongodb_database` resource with the name of the database you want to delete.
 
    1. Make sure the settings are correct.
 
@@ -156,16 +152,14 @@ You can add and remove databases, as well as view information about them.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mongodb_database).
 
 - API {#api}
 
    To delete a database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/database_service.md#Delete) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-   * Database name, in the `databaseName` parameter.
+   * Database name in the `databaseName` parameter.
 
 {% endlist %}
 

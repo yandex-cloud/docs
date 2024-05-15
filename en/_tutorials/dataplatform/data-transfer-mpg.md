@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. If you are using security groups, configure them to enable connecting to the clusters from the internet:
 
    * [Guide for {{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups)
-   * [Guide for {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups)
+   * [Guide for {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups)
 
 
 1. Install the `kcat` (`kafkacat`) [utility](https://github.com/edenhill/kcat) and [PostgreSQL command-line client](https://www.postgresql.org/download/) on the local machine. For example, in Ubuntu 20.04, run:
@@ -102,7 +102,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
    * Source endpoint:
 
-      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `PostgreSQL`
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `PostgreSQL`.
       * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: Select the [created](#before-you-begin) {{ mpg-name }} cluster.
@@ -113,7 +113,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
    * Target endpoint:
 
-      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
       * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the target cluster.

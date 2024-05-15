@@ -2,6 +2,12 @@
 
 This section describes how to assign [roles](../../concepts/access-control/roles.md) for the [service account](../../concepts/users/service-accounts.md) as a resource. To assign the service account a role for another resource, follow the guide in [{#T}](assign-role-for-sa.md).
 
+{% note info %}
+
+To assign a role for a service account, you need the `iam.serviceAccounts.admin` role.
+
+{% endnote %}
+
 ## Assign a role to a service account {#assign-role-to-sa}
 
 {% list tabs group=instructions %}
@@ -31,7 +37,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
       yc iam service-account add-access-binding --help
       ```
 
-   1. Select a service account (for example, `my-robot`):
+   1. Select a service account, e.g., `my-robot`:
 
       ```bash
       yc iam service-account list
@@ -114,7 +120,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
       For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -356,7 +362,8 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
     {% note alert %}
 
-    The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
+    The `setAccessBindings` method completely rewrites access permissions to the resource. All current resource roles will be deleted.
+
 
     {% endnote %}
 

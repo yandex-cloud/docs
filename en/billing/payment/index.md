@@ -5,11 +5,13 @@ Resources are paid for by crediting funds to a personal account as per the contr
 Individuals:
 * [Payment cycle](billing-cycle-individual.md)
 * [Paying by bank card](payment-methods-individual.md)
+* [Promo code activation](../operations/activate-promocode.md)
 
 Businesses and individual entrepreneurs:
 * [Payment cycle](billing-cycle-business.md)
 * [Paying by bank card](payment-methods-card-business.md)
 * [Bank account transfers](payment-methods-business.md)
 * [Reporting documents](documents.md)
+* [Promo code activation](../operations/activate-promocode.md)
 
 

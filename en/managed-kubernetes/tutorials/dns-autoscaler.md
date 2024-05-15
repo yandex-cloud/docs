@@ -13,8 +13,8 @@ description: "Follow this guide to set up automatic DNS scaling by cluster size 
 The number of replicas is calculated [by the formulas](#parameters).
 
 To automate DNS scaling:
-1. [{#T}](#configure-autoscaler).
-1. [{#T}](#test-autoscaler).
+1. [{#T}](#configure-autoscaler)
+1. [{#T}](#test-autoscaler)
 
 If you no longer need automatic scaling, [disable it](#disable-autoscaler).
 
@@ -43,7 +43,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
       1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-      1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. The file describes:
+      1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-infrastructure/blob/main/k8s-cluster.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. The file describes:
          * [Network](../../vpc/concepts/network.md#network).
          * [Subnet](../../vpc/concepts/network.md#subnet).
          * {{ managed-k8s-name }} cluster.

@@ -28,6 +28,52 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
+- CLI {#cli}
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   To change the PXF settings:
+
+   1. View a description of the update cluster configuration CLI command:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster update --help
+      ```
+
+   1. Specify PXF settings:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster update <cluster_name_or_ID> \
+         --pxf-connection-timeout=<read_request_timeout> \
+         --pxf-upload-timeout=<write_request_timeout> \
+         --pxf-max-threads=<maximum_number_of_Apache_Tomcat®_threads> \
+         --pxf-pool-allow-core-thread-timeout=<whether_timeout_for_streaming_threads_is_permitted> \
+         --pxf-poll-core-size=<number_of_streaming_threads> \
+         --pxf-pool-queue-capacity=<capacity_of_pool_queue_for_streaming_threads> \
+         --pxf-pool-max-size=<maximum_number_of_streaming_threads> \
+         --pxf-xmx=<initial_size_of_JVM_heap> \
+         --pxf-xms=<maximum_size_of_JVM_heap>
+      ```
+
+      Where:
+
+      * `pxf-connection-timeout`: Timeout for connection to the Apache Tomcat® server when making read requests, in seconds. The values may range from `5` to `600`.
+      * `pxf-upload-timeout`: Timeout for connection to the Apache Tomcat® server when making write requests, in seconds. The values may range from `5` to `600`.
+      * `pxf-max-threads`: Maximum number of the Apache Tomcat® threads. The values may range from `1` to `1024`.
+
+         To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation.
+
+      * `pxf-pool-allow-core-thread-timeout`: Determines whether the timeout for core streaming threads is permitted. The default value is `false`.
+      * `pxf-poll-core-size`: Number of core streaming threads per pool. The values may range from `1` to `1024`.
+      * `pxf-pool-queue-capacity`: Maximum number of requests you can add to a pool queue for core streaming threads. The values may range from zero upward. If `0`, no pool queue is generated.
+      * `pxf-pool-max-size`: Maximum allowed number of core streaming threads. The values may range from `1` to `1024`.
+      * `pxf-xmx`: Initial size of the JVM heap for the PXF daemon, in megabytes. The values may range from `64` to `16384`.
+      * `pxf-xms`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The values may range from `64` to `16384`.
+
+      You can [retrieve the cluster name with a list of clusters in the folder](../cluster-list.md#list-clusters).
+
 - {{ TF }} {#tf}
 
    To change the PXF settings:
@@ -65,7 +111,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
          To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation.
 
-      * `pool_allow_core_thread_timeout`: Determines whether a timeout for core streaming threads is permitted or not. The default value is `false`.
+      * `pool_allow_core_thread_timeout`: Determines whether a timeout for core streaming threads is allowed. The default value is `false`.
       * `pool_core_size`: Number of core streaming threads per pool. The values may range from `1` to `1024`.
       * `pool_queue_capacity`: Maximum number of requests you can add to a pool queue for core streaming threads. The values may range from zero upward. If `0`, no pool queue is generated.
       * `pool_max_size`: Maximum allowed number of core streaming threads. The values may range from `1` to `1024`.

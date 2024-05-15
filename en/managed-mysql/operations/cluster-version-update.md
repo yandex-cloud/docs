@@ -1,4 +1,4 @@
-# {{ MY }} version upgrade
+# Upgrading {{ MY }} version
 
 You can upgrade a {{ mmy-name }} cluster to any supported minor or major version.
 
@@ -6,11 +6,11 @@ In single-host clusters, the only master host is brought out of its running stat
 
 In multi-host clusters, upgrades follow the procedure below:
 
-1. The replicas are withdrawn from service one by one for an upgrade. Their queue positions are random. Following an upgrade, the replicas are put back online.
+1. The replicas are withdrawn from service one by one for an upgrade. The replicas are queued randomly. Following an upgrade, the replicas are put back online.
 1. A master host is closed for writes. A [new master host is selected](../concepts/replication.md#master-failover) from among the replicas and opened for writes. As a result, the cluster is updated with minimal downtime.
 1. The original master host is shut down, upgraded, and resumes its operation as a replica. It does not take back its role as a master.
 
-To learn more about updates within one version and host maintenance, see [{#T}](../concepts/maintenance.md).
+To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
 {% note alert %}
 
@@ -36,7 +36,7 @@ Make sure the update does not affect your applications:
 - Management console {#console}
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. Select the appropriate cluster from the list and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. Select the cluster from the list and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select a new version number.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -64,7 +64,7 @@ Make sure the update does not affect your applications:
       {{ yc-mdb-my }} cluster get <cluster_name_or_ID>
       ```
 
-   1. Start the {{ MY }} upgrade:
+   1. Run the {{ MY }} upgrade:
 
       ```bash
       {{ yc-mdb-my }} cluster update <cluster_name_or_ID> \
@@ -77,7 +77,7 @@ Make sure the update does not affect your applications:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Add the `version` field to the `yandex_mdb_mysql_cluster` resource or change the field value if it already exists:
 
@@ -105,7 +105,7 @@ Make sure the update does not affect your applications:
 
    To upgrade a cluster to a specific {{ MY }} version, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * {{ MY }} version number in the `configSpec.version` parameter.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 

@@ -7,7 +7,23 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ## Current version {#latest-release}
 
-### Version 0.123.0 (08.04.24) {#version0.123.0}
+### Version 0.124.0 (22/04/24) {#version0.124.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### Managed database services {#managed-db}
+
+**{{ mgp-name }}**
+
+* Added the `yc managed-greenplum hba-rules` command tree with the `get`, `list`, `delete`, `create`, and `update` commands.
+
+**{{ mch-name }}**
+
+* Labeled the `--shard-name` parameter of the `yc managed-clickhouse cluster create` command as deprecated. We recommend using the `shard-name` argument of the `--host` parameter.
+
+## Previous releases {#previous-releases}
+
+### Version 0.123.0 (08/04/24) {#version0.123.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
@@ -33,8 +49,6 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 #### Changes to the CLI {#cli}
 
 * Added the documentation and installation script fixes to help configure autocompletion for `yc` in CentOS-based Linux distributions.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.122.0 (27/03/24) {#version0.122.0}
 

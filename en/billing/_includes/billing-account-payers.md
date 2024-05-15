@@ -1,1 +1,1 @@
-Within a single user account, all payers must contract with the same legal entity and pay in the same currency.
+Within a single user account, all payers must pay in the same currency.

@@ -22,7 +22,7 @@ items:
             href: operations/update.md
           - name: Stopping and starting clusters
             href: operations/cluster-stop.md
-          - name: Managing MySQL hosts
+          - name: Managing cluster hosts
             href: operations/hosts.md
           - name: Migrating hosts to a different availability zone
             href: operations/host-migration.md

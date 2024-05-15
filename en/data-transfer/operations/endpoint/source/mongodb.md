@@ -20,6 +20,7 @@ description: "In this tutorial, you will learn how to set up a {{ MG }} source e
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
    * [Migrating the {{ MG }} cluster](../../../tutorials/managed-mongodb.md).
+   * [Migrating {{ MG }} cluster from 4.4 to 6.0](../../../tutorials/mongodb-versions.md).
 
 1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
 

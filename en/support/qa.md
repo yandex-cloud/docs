@@ -1,5 +1,5 @@
 ---
-title: "Questions and answers about {{ yandex-cloud }} technical support"
+title: "FAQ about {{ yandex-cloud }} technical support"
 description: "This page presents questions and answers about {{ yandex-cloud }} technical support."
 ---
 
@@ -7,7 +7,7 @@ description: "This page presents questions and answers about {{ yandex-cloud }} 
 
 {% note info %}
 
-This section offers tips and recommendations on contacts with the technical support team. For problems related to {{ yandex-cloud }} services, visit the [Support Center]({{ link-console-support }}).
+This section offers tips and recommendations on contacts with technical support. For problems related to {{ yandex-cloud }} services, visit the [Support Center]({{ link-console-support }}).
 
 {% endnote %}
 
@@ -74,7 +74,7 @@ Technical support includes troubleshooting third-party software that is used in 
 
 #### What happens if you cannot solve my third-party software problems? {#unresolved-third-party-issues}
 
-If the technical support team cannot resolve your third-party software issue, contact the support service of the software vendor. In some cases, contacting the vendor's support service requires a valid technical support contract with the vendor or its partners.
+If the technical support cannot resolve your third-party software issue, contact the software vendor's support service. In some cases, contacting the vendor's support service requires a valid technical support contract with the vendor or its partners.
 
 #### How do I change my technical support service plan? {#change-pricing-plan}
 

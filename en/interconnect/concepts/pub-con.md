@@ -13,7 +13,7 @@ Below, you can see the list of {{ yandex-cloud }} services you can access throug
 
 {% include [svc-list](../../_includes/interconnect/svc-list.md) %}
 
-Technically, a public connection ensures connectivity between your infrastructure and the IP address to which the respective service's `API Endpoint FQDN` is converted. FQDN is converted to IP through DNS.
+Technically, a public connection ensures connectivity between your infrastructure and the IP address to which the respective service's `API Endpoint FQDN` is converted. FQDN is converted to an IP address through DNS.
 
 For example, if you want to get access from your infrastructure to [{{ objstorage-name }}](../../storage/) through a service connection, the {{ yandex-cloud }} equipment will announce the `{{ cic-pbc-svc1-ip }}` prefix to your router over BGP. This prefix refers to the `{{ s3-storage-host }}` API Endpoint FQDN of [{{ objstorage-name }}](../../storage/).
 

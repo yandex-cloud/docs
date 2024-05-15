@@ -2100,8 +2100,8 @@ name | **string**<br>Required. Name of the OpenSearch host. <br>The host name is
 cluster_id | **string**<br>Required. ID of the OpenSearch cluster. The ID is assigned by the platform at creation time. 
 zone_id | **string**<br>ID of the availability zone the OpenSearch host belongs to. 
 resources | **[Resources](#Resources10)**<br>Resources allocated to the OpenSearch host. 
-type | enum **Type**<br>Type of the host. <ul><li>`TYPE_UNSPECIFIED`: The type is not specified.</li><li>`OPENSEARCH`: An OpenSearch type host.</li><li>`DASHBOARDS`: A Dashboards type host.</li></ul>
-health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is working below capacity or not fully functional.</li></ul>
+type | enum **Type**<br>Type of the host. If the field has default value, it is not returned in the response. <ul><li>`TYPE_UNSPECIFIED`: Type of the host is unspecified. Default value.</li><li>`OPENSEARCH`: An OpenSearch type host.</li><li>`DASHBOARDS`: A Dashboards type host.</li></ul>
+health | enum **Health**<br>Aggregated health of the host. If the field has default value, it is not returned in the response. <ul><li>`UNKNOWN`: Health of the host is unknown. Default value.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is working below capacity or not fully functional.</li></ul>
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the host. 
 system | **[SystemMetrics](#SystemMetrics)**<br>Resources used by the host. 

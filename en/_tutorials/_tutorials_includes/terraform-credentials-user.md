@@ -1,6 +1,6 @@
 {% note warning %}
 
-Managing resources under a user's [Yandex account](../../iam/concepts/index.md#passport) or [federated account](../../iam/concepts/index.md#saml-federation) is less secure than under a [service account](../../iam/concepts/users/service-accounts.md).
+Managing resources under a user's [Yandex account](../../iam/concepts/users/accounts.md#passport) or [federated account](../../iam/concepts/users/accounts.md#saml-federation) is less secure than under a [service account](../../iam/concepts/users/service-accounts.md).
 
 {% endnote %}
 

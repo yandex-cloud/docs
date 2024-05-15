@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. If you are using security groups, configure them to enable connecting to the clusters from the internet:
 
    * [Guide for {{ mmy-name }}](../../managed-mysql/operations/connect.md#configuring-security-groups)
-   * [Guide for {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups)
+   * [Guide for {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups)
 
 
 1. Install the `kcat` (`kafkacat`) [utility](https://github.com/edenhill/kcat) and the [MySQL command-line tool](https://www.mysql.com/downloads/) on the local machine. For example, in Ubuntu 20.04, run:

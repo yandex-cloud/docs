@@ -8,7 +8,7 @@ By default, logging is disabled. Once you enable this option, {{ objstorage-name
 To start writing logs, do the following:
 * Define the _source_ bucket you want to log the actions with.
 * Create a _target_ bucket where you want to save the logs.
-* [Enable logging](../operations/buckets/enable-logging.md).
+* [Enable logging](../operations/buckets/enable-logging.md#enable) using the [management console]({{ link-console-main }}), [AWS CLI](../tools/aws-cli.md), [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md), or API.
 * Select the prefix of the object [key](../concepts/object.md#key) (optional).
 
 ## Prerequisites {#requirements}

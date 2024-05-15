@@ -1,33 +1,32 @@
 ---
 title: "Connecting to a {{ CH }} cluster in {{ mch-full-name }}"
-description: "In this tutorial, you will connect to a database in a {{ CH }} cluster from dedicated applications, browser, or graphical IDEs."
+description: "Follow this guide to connect to a database in a {{ CH }} cluster using command line tools, browser, graphical IDEs, and Docker container."
 ---
 
 # Connecting to a {{ CH }} cluster from applications
 
-This section provides settings for connecting to {{ mch-name }} cluster hosts using [command line tools](#command-line-tools), [graphical IDEs](#ide), [browser](#browser), and [Docker container](#docker).
+This section provides settings for connecting to {{ mch-name }} cluster hosts using [command line tools](#command-line-tools), [graphical IDEs](#ide), [browser](#browser), and [Docker container](#docker). To learn how to connect from your application code, see [Code examples](code-examples.md).
 
-To learn how to connect to cluster hosts from your application code, see [Code examples](code-examples.md).
+You can connect to public {{ CH }} cluster hosts only if you use [SSL certificates](index.md#get-ssl-cert). The examples below assume that `{{ crt-local-file-root }}` and `{{ crt-local-file-int }}` certificates are:
 
-Before you start, perform the [pre-configuration](index.md) as needed: configure cluster security groups and obtain SSL certificates.
+* Located in the `{{ crt-local-dir }}` folder (for Ubuntu).
+* Imported to the trusted root certificate store (for Windows).
+
+Connecting without SSL certificates is only supported for non-public hosts. For connections to the database, traffic inside the virtual network is not encrypted in this case.
+
+Before connecting, [configure security groups](index.md#configure-security-groups) for the cluster, if required.
 
 The examples for Linux were tested in the following environment:
+
 * {{ yandex-cloud }} virtual machine running Ubuntu 20.04 LTS
 * Bash: `5.0.16`
 
 The examples for Windows were tested in the following environment:
+
 * A local machine with Windows 10 Pro build `19042.1052`
 * PowerShell: `5.1.19041`
 
 ## Command line tools {#command-line-tools}
-
-You can only connect to public {{ CH }} cluster hosts with your SSL certificates. Before connecting, [prepare your certificates](index.md#get-ssl-cert).
-
-In the examples below, it is assumed that the `{{ crt-local-file-root }}` and `{{ crt-local-file-int }}` certificates:
-* Are located in the `{{ crt-local-dir }}` directory (for Ubuntu).
-* Are imported to the Trusted Root Certificate store (for Windows).
-
-Connecting without any SSL certificates is only supported for non-public hosts. For connections to the database, traffic inside the virtual network is not encrypted in this case.
 
 {% include [see-fqdn-in-console](../../../_includes/mdb/see-fqdn-in-console.md) %}
 

@@ -111,7 +111,8 @@ POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent
         ]
       }
     ],
-    "serviceAccountId": "string"
+    "serviceAccountId": "string",
+    "platformId": "string"
   },
   "agentVersion": "string",
   "labels": "object"
@@ -183,6 +184,7 @@ computeInstanceParams.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>d
 computeInstanceParams.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>When set to true, also create PTR DNS record (optional)</p> 
 computeInstanceParams.<br>networkInterfaceSpecs[].<br>securityGroupIds[] | **string**<br><p>ID's of security groups attached to the interface</p> 
 computeInstanceParams.<br>serviceAccountId | **string**<br><p>ID of the service account to use for <a href="/docs/compute/operations/vm-connect/auth-inside-vm">authentication inside the instance</a>. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request.</p> 
+computeInstanceParams.<br>platformId | **string**<br><p>ID of the <a href="docs/compute/concepts/vm-platforms">Compute VM platform</a> on which the agent will be created. Default value: "standard-v2"</p> 
 agentVersion | **string**<br><p>Version of the agent.</p> <p>If not provided, the most recent agent version will be used.</p> 
 labels | **object**<br><p>Agent labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
  

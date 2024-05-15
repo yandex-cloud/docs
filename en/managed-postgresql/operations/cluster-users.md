@@ -31,7 +31,7 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
    To get a list of cluster users, run the following command:
 
    ```
-   {{ yc-mdb-pg }} user list
+   {{ yc-mdb-pg }} user list \
         --cluster-name <cluster_name>
    ```
 
@@ -60,6 +60,12 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
 
+   1. Select the deletion protection type.
+
+      The possible values include:
+      - **Same as cluster**
+      - **Enabled**
+      - **Disabled**
    1. Select one or more databases that the user should have access to:
       1. In the **{{ ui-key.yacloud.mdb.dialogs.popup_field_permissions }}** field, click ![image](../../_assets/console-icons/plus.svg) to the right of the drop-down list.
       1. Select the database from the drop-down list.
@@ -77,10 +83,10 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
    To create a user in a cluster, run the command:
 
    ```
-   {{ yc-mdb-pg }} user create <username>
-        --cluster-name <cluster_name>
-        --password=<password>
-        --permissions=<DB_list>
+   {{ yc-mdb-pg }} user create <username> \
+        --cluster-name <cluster_name> \
+        --password=<password> \
+        --permissions=<DB_list> \
         --conn-limit=<maximum_number_of_connections>
    ```
 
@@ -117,6 +123,7 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
         grants     = [ "<role1>","<role2>" ]
         login      = <permission_to_log_in_to_DB>
         conn_limit = <maximum_number_of_connections>
+        deletion_protection = <deletion_protection>
         settings   = {
           <DB_settings>
         }
@@ -126,7 +133,9 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
       }
       ```
 
-      Where `login` indicates whether logging in to the DB is allowed: `true` or `false`.
+      Where:
+      * `login`: Toggles the permission to log in to the DB. It may take either the `true` or `false` value.
+      * `deletion_protection`: User deletion protection. It may take the `true`, `false`, or `unspecified` value (inherited from the cluster). The default value is `unspecified`.
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
 
@@ -148,6 +157,7 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
       {% include [username-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
 
+   * Deletion protection type in the `deletionProtection` parameter. The possible values are `true` and `false`. The default value is `unspecified` (inherited from the cluster).
    * One or more databases that the user must have access to, in one or more `userSpec.permissions.databaseName` parameters.
    * Maximum number of connections for the user in the `userSpec.connLimit` parameter.
 
@@ -181,8 +191,8 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
    To change the user's password, run the command:
 
    ```
-   {{ yc-mdb-pg }} user update <username>
-       --cluster-name=<cluster_name>
+   {{ yc-mdb-pg }} user update <username> \
+       --cluster-name=<cluster_name> \
        --password=<new_password>
    ```
 
@@ -273,8 +283,8 @@ For information on setting up user privileges and roles, see [Assigning privileg
    1. To set up the user's permissions to access certain databases, run the command, listing the database names in the `--permissions` parameter:
 
       ```
-      {{ yc-mdb-pg }} user update <username>
-          --cluster-name=<cluster_name>
+      {{ yc-mdb-pg }} user update <username> \
+          --cluster-name=<cluster_name> \
           --permissions=<DB_list>
       ```
 
@@ -292,11 +302,11 @@ For information on setting up user privileges and roles, see [Assigning privileg
    1. To change the [{{ PG }} settings](../concepts/settings-list.md#dbms-user-settings) for the user, pass their parameters in the command:
 
       ```
-      {{ yc-mdb-pg }} user update <username>
-           --cluster-name=<cluster_name>
-           --<setting_1>=<value_1>
-           --<setting_2>=<value_2>
-           --<setting_3>=<list_of_values>
+      {{ yc-mdb-pg }} user update <username> \
+           --cluster-name=<cluster_name> \
+           --<setting_1>=<value_1> \
+           --<setting_2>=<value_2> \
+           --<setting_3>=<list_of_values> \
            ...
       ```
 
@@ -364,13 +374,70 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
    {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
+
+
 {% endlist %}
 
-## Deleting a user {#removeuser}
+## Configuring deletion protection {#update-user-deletion-protection}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+   1. Configure user deletion protection. To do this, select the relevant value in the **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** field.
+   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
+
+- {{ TF }} {#tf}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+   1. Find the `yandex_mdb_postgresql_user` resource of the desired user.
+
+   1. Add the `deletion_protection` parameter. Possible values: `true`, `false`, or `unspecified` (inherited from the cluster). The default value is `unspecified`.
+
+      ```hcl
+      resource "yandex_mdb_postgresql_user" "<username>" {
+        ...
+        deletion_protection = <deletion_protection>
+        ...
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+- API {#api}
+
+   To configure user deletion protection in a cluster, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
+
+   * ID of the cluster in which the user is located, in the `clusterId `parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Username in the `userName` parameter. To get the username, [retrieve a list of users in the cluster](#list-users).
+   * `updateMask` parameter with the `deletionProtection` value.
+   * New value of the `deletionProtection` parameter. The possible values are `true` and `false`. The default value is `unspecified` (inherited from the cluster).
+
+   {% include [Сброс настроек изменяемого объекта](../../_includes/note-api-updatemask.md) %}
+
+
+
+{% endlist %}
+
+## Deleting a user {#removeuser}
+
+A user can be protected against deletion. To delete such a user, [disable the protection](#update-user-deletion-protection) first.
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+   To delete a user:
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
@@ -386,13 +453,15 @@ For information on setting up user privileges and roles, see [Assigning privileg
    To remove a user, run:
 
    ```
-   {{ yc-mdb-pg }} user delete <username>
+   {{ yc-mdb-pg }} user delete <username> \
       --cluster-name <cluster_name>
    ```
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }} {#tf}
+
+   To delete a user:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

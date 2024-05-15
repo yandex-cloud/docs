@@ -14,15 +14,17 @@ In this section, you will learn:
 
 ## Which resources you can assign a role for {#resources}
 
-Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or secret. These roles also apply to nested resources.
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-{% include [roles-intro](../../_includes/roles-intro.md) %}
-
-![image](../../_assets/lockbox/service-roles-hierarchy.svg)
+You can assign a role for a [secret](../concepts/secret.md) in the management console, via the YC CLI or {{ yandex-cloud }} API.
 
 ## Which roles exist in the service {#roles-list}
 
 You can manage access to secrets using both service and primitive roles.
+
+{% include [roles-intro](../../_includes/roles-intro.md) %}
+
+![image](../../_assets/lockbox/service-roles-hierarchy.svg)
 
 ### Service roles {#service-roles}
 
@@ -52,7 +54,7 @@ You can manage access to secrets using both service and primitive roles.
 
 ## What roles do I need {#choosing-roles}
 
-The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, you can assign the `editor` role instead of the `viewer` one.
+The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, you can assign the `editor` role instead of `viewer`.
 
 | Action | `{{ roles-lockbox-admin }}` | `{{ roles-lockbox-editor }}` | `{{ roles-lockbox-viewer }}` | `{{ roles-lockbox-payloadviewer }}` | `kms.keys.encrypterDecrypter` |
 ----- | ----- | ----- | ----- | ----- | -----

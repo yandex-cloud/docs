@@ -3,7 +3,7 @@ title: "How to manage connections. Step-by-step guides"
 description: "Step-by-step guide on using {{ connection-manager-name }} in {{ yandex-cloud }}. In this tutorial, you will learn how to create connections."
 ---
 
-# Creating a connection
+# Create a connection
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
@@ -28,7 +28,7 @@ Create connections to user database installations:
   1. Specify the connection parameters:
      * Database server host address.
      * Port number for connection.
-     * For a TLS connection, if your organization has no authorization center (CA) of its own, download a certificate from the CA that had issued the server's TLS certificate. If your organization has an internal CA of its own, use certificates issued by this CA for TSL.
+     * For a TLS connection, if your organization has no certificate authority (CA) of its own, download a certificate from the CA that issued the server's TLS certificate. If your organization has an internal CA of its own, use certificates issued by this CA for TSL.
   1. Specify a **Username** for authentication and the method for setting the password:
       * **Enter manually**: Enter the password value manually.
       * **Generate**: Specify the options for automatic generation of the [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password.
@@ -52,7 +52,7 @@ Create connections to user database installations:
    1. Specify the connection parameters:
       * Database server host address.
       * Port number for connection.
-      * For a TLS connection, if your organization has no authorization center (CA) of its own, download a certificate from the CA that had issued the server's TLS certificate. If your organization has an internal CA of its own, use certificates issued by this CA for TSL.
+      * For a TLS connection, if your organization has no certificate authority (CA) of its own, download a certificate from the CA that issued the server's TLS certificate. If your organization has an internal CA of its own, use certificates issued by this CA for TSL.
    1. Specify a **Username** for authentication and the method for setting the password:
       * **Enter manually**: Enter the password value manually.
       * **Generate**: Specify the options for automatic generation of the [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password.
@@ -75,9 +75,9 @@ Create connections to user database installations:
     1. Optionally add a connection description and [label](../../resource-manager/concepts/labels.md).
     1. Specify the connection parameters:
         * [Shard](../../managed-clickhouse/operations/shards.md#list-shards) name.
-        * FQDN or IP addresses of hosts included in the shard.
+        * FQDNs or IP addresses of the hosts in the shard.
         * HTTP or TCP port number for the connection.
-        * For a TLS connection, if your organization has no authorization center (CA) of its own, download a certificate from the CA that had issued the server's TLS certificate. If your organization has an internal CA of its own, use certificates issued by this CA for TSL.
+        * For a TLS connection, if your organization has no certificate authority (CA) of its own, download a certificate from the CA that issued the server's TLS certificate. If your organization has an internal CA of its own, use certificates issued by this CA for TSL.
     1. Specify a **Username** for authentication and the method for setting the password:
         * **Enter manually**: Enter the password value manually.
         * **Generate**: Specify the options for automatic generation of the [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password.

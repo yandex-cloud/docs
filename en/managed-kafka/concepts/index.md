@@ -14,7 +14,7 @@ Each {{ mkf-name }} cluster consists of one or more [broker hosts](brokers.md), 
 If all broker hosts are created in the same availability zone, you cannot change their number.
 
 
-Cluster hosts accept [connections](../operations/connect.md) from clients, such as data [producer](producers-consumers.md) and [consumer](producers-consumers.md) applications. Producers send messages to certain cluster topics and consumers read messages from them. This makes sure you will not need to re-configure consumers if the producer changes.
+Cluster hosts accept [connections](../operations/connect/clients.md) from clients, such as data [producer](producers-consumers.md) and [consumer](producers-consumers.md) applications. Producers send messages to certain cluster topics and consumers read messages from them. Thus you will not need to reconfigure consumers if the producer changes.
 
 Depending on the number of broker hosts in the cluster, {{ ZK }} is automatically configured and hosted:
 

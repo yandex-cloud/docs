@@ -2784,9 +2784,9 @@ Field | Description
 name | **string**<br>Required. Name of the Greenplum® host. <br>The host name is assigned by the platform at creation time and cannot be changed. <br>The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. The maximum string length in characters is 63.
 cluster_id | **string**<br>ID of the Greenplum® cluster. The ID is assigned by the platform at creation time. 
 zone_id | **string**<br>ID of the availability zone the Greenplum® host belongs to. 
-type | enum **Type**<br>Type of the host. <ul><li>`TYPE_UNSPECIFIED`: The type is not specified.</li><li>`MASTER`: A Greenplum® master host.</li><li>`REPLICA`: A Greenplum® master replica host.</li><li>`SEGMENT`: A Greenplum® segment host.</li></ul>
+type | enum **Type**<br>Type of the host. If the field has default value, it is not returned in the response. <ul><li>`TYPE_UNSPECIFIED`: Host type is not specified. Default value.</li><li>`MASTER`: A Greenplum® master host.</li><li>`REPLICA`: A Greenplum® master replica host.</li><li>`SEGMENT`: A Greenplum® segment host.</li></ul>
 resources | **[Resources](#Resources7)**<br>Resources allocated to the Greenplum® host. 
-health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is working below capacity or not fully functional.</li><li>`UNBALANCED`: One or more segments are not in the preferred role.</li></ul>
+health | enum **Health**<br>Aggregated health of the host. If the field has default value, it is not returned in the response. <ul><li>`UNKNOWN`: Health of the host is unknown. Default value.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is working below capacity or not fully functional.</li><li>`UNBALANCED`: One or more segments are not in the preferred role.</li></ul>
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the host. 
 
@@ -2830,9 +2830,9 @@ Field | Description
 name | **string**<br>Required. Name of the Greenplum® host. <br>The host name is assigned by the platform at creation time and cannot be changed. <br>The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. The maximum string length in characters is 63.
 cluster_id | **string**<br>ID of the Greenplum® cluster. The ID is assigned by the platform at creation time. 
 zone_id | **string**<br>ID of the availability zone the Greenplum® host belongs to. 
-type | enum **Type**<br>Type of the host. <ul><li>`TYPE_UNSPECIFIED`: The type is not specified.</li><li>`MASTER`: A Greenplum® master host.</li><li>`REPLICA`: A Greenplum® master replica host.</li><li>`SEGMENT`: A Greenplum® segment host.</li></ul>
+type | enum **Type**<br>Type of the host. If the field has default value, it is not returned in the response. <ul><li>`TYPE_UNSPECIFIED`: Host type is not specified. Default value.</li><li>`MASTER`: A Greenplum® master host.</li><li>`REPLICA`: A Greenplum® master replica host.</li><li>`SEGMENT`: A Greenplum® segment host.</li></ul>
 resources | **[Resources](#Resources8)**<br>Resources allocated to the Greenplum® host. 
-health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is working below capacity or not fully functional.</li><li>`UNBALANCED`: One or more segments are not in the preferred role.</li></ul>
+health | enum **Health**<br>Aggregated health of the host. If the field has default value, it is not returned in the response. <ul><li>`UNKNOWN`: Health of the host is unknown. Default value.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is working below capacity or not fully functional.</li><li>`UNBALANCED`: One or more segments are not in the preferred role.</li></ul>
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the host. 
 

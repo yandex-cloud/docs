@@ -22,7 +22,7 @@
 
 - {% include [datatransfer access](console/datatransfer-access.md) %}
 
-- **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}**: Enable this option to use the [{#T}](../../managed-mysql/operations/performance-diagnostics.md) tool in the cluster.
+- **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}**: Enable this option to use the [Performance diagnostics](../../managed-mysql/operations/performance-diagnostics.md) tool in the cluster.
 
 - {% include [Deletion protection](console/deletion-protection.md) %}
 

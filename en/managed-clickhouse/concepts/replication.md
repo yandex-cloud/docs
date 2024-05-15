@@ -24,6 +24,7 @@ Using {{ CK }} is associated with the following limitations:
 * {{ CK }} support cannot be enabled or disabled after creating a cluster.
 * To use {{ CK }}, you need {{ CH }} {{ mch-ck-version }} or higher.
 * You cannot switch clusters using {{ ZK }} hosts to {{ CK }}.
+* To [migrate a host](../operations/host-migration.md) from {{ CK }} to a different availability zone, you need to contact [support]({{ link-console-support }}).
 
 For more information about {{ CK }}, see the [{{ CH }} documentation]({{ ch.docs }}/operations/clickhouse-keeper/).
 
@@ -34,7 +35,7 @@ If the cluster was created without {{ CK }} support, before adding new hosts to 
 You can enable fault tolerance and configure {{ ZK }} hosts [after creating a cluster](../operations/zk-hosts.md#add-zk) with a single host.
 
 
-You can also configure {{ ZK }} hosts immediately when creating a cluster with multiple hosts. In which case:
+You can also configure {{ ZK }} hosts immediately when creating a cluster with multiple hosts. Note that:
 
 * If a cluster in the [virtual network](../../vpc/concepts/network.md) has subnets in each [availability zone](../../overview/concepts/geo-scope.md), a {{ ZK }} host is automatically added to each subnet if you do not explicitly specify the settings for such hosts. You can explicitly specify three {{ ZK }} hosts and their settings when creating a cluster, if required.
 * If a cluster in the virtual network has subnets only in certain availability zones, you need to explicitly specify three {{ ZK }} hosts and their settings when creating a cluster.

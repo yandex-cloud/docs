@@ -1,63 +1,32 @@
-### Bash {#bash}
+---
+title: "Code examples for connecting to an {{ KF }} cluster in {{ mkf-full-name }}"
+description: "Use these examples to connect to a database in an {{ KF }} cluster from your application code."
+---
 
-To connect to an {{ KF }} cluster from the command line, use `kafkacat`, an open source application that can work as a universal data producer or consumer. For more information, see the [documentation](https://github.com/edenhill/kafkacat).
+# Code examples for connecting to a {{ KF }} cluster
 
-Before connecting, install the dependencies:
+You can connect to public {{ KF }} cluster hosts only if you use an [SSL certificate](index.md#get-ssl-cert). The examples below assume that the `{{ crt-local-file }}` certificate is located in the directory:
 
-```bash
-sudo apt update && sudo apt install -y kafkacat
-```
+* `{{ crt-local-dir }}` for Ubuntu.
+* `$HOME\.kafka\` for Windows.
 
-{% list tabs group=connection %}
+Connecting without an SSL certificate is only supported for non-public hosts. For connections to the database, traffic inside the virtual network is not encrypted in this case.
 
-- Connecting without SSL {#without-ssl}
+Before connecting, [configure security groups](index.md#configuring-security-groups) for the cluster, if required.
 
-   1. Run this command for receiving messages from a topic:
+{% include [see-fqdn-in-console](../../../_includes/mdb/see-fqdn-in-console.md) %}
 
-      ```bash
-      kafkacat -C \
-               -b <broker_FQDN>:9092 \
-               -t <topic_name> \
-               -X security.protocol=SASL_PLAINTEXT \
-               -X sasl.mechanism=SCRAM-SHA-512 \
-               -X sasl.username="<consumer_username>" \
-               -X sasl.password="<consumer_password>" -Z
-      ```
+Examples were tested in the following environment:
 
-      The command will continuously read new messages from the topic.
+* {{ yandex-cloud }} virtual machine running Ubuntu 20.04 LTS
+* Bash: `5.0.16`
+* Python: `3.8.2`, pip3: `20.0.2`.
+* Node.JS: `10.19.0`, npm: `6.14.4`.
+* OpenJDK: `11.0.8`, Maven: `3.6.3`.
+* Go: `1.13.8`.
+* mono-complete: `6.8.0.105`.
 
-   1. In a separate terminal, run the command for sending a message to a topic:
-
-      ```bash
-      echo "test message" | kafkacat -P \
-             -b <broker_FQDN>:9092 \
-             -t <topic_name> \
-             -k key \
-             -X security.protocol=SASL_PLAINTEXT \
-             -X sasl.mechanism=SCRAM-SHA-512 \
-             -X sasl.username="<consumer_username>" \
-             -X sasl.password="<producer_username>" -Z
-      ```
-
-- Connecting via SSL {#with-ssl}
-
-   1. Run this command for receiving messages from a topic:
-
-      {% include [default-get-string](./mkf/default-get-string.md) %}
-
-      The command will continuously read new messages from the topic.
-
-   1. In a separate terminal, run the command for sending a message to a topic:
-
-      {% include [default-get-string](./mkf/default-send-string.md) %}
-
-{% endlist %}
-
-{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
-
-{% include [shell-howto](../../_includes/mdb/mkf/connstr-shell-howto.md) %}
-
-### C# {#csharp}
+## C# {#csharp}
 
 Before connecting:
 
@@ -101,7 +70,7 @@ Before connecting:
 
 - Connecting without SSL {#without-ssl}
 
-   1. Example code for delivering messages to a topic:
+   1. Code example for delivering messages to a topic:
 
       `cs-project/producer/Program.cs`
 
@@ -224,7 +193,7 @@ Before connecting:
 
 - Connecting via SSL {#with-ssl}
 
-   1. Example code for delivering messages to a topic:
+   1. Code example for delivering messages to a topic:
 
       `cs-project/producer/Program.cs`
 
@@ -351,11 +320,11 @@ Before connecting:
 
 {% endlist %}
 
-{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+{% include [fqdn](../../../_includes/mdb/mkf/fqdn-host.md) %}
 
-{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
+{% include [code-howto](../../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
-### Go {#go}
+## Go {#go}
 
 Before connecting:
 
@@ -428,7 +397,7 @@ Before connecting:
 
 - Connecting without SSL {#without-ssl}
 
-   1. Example code for delivering a message to a topic:
+   1. Code example for delivering a message to a topic:
 
       `producer/main.go`
 
@@ -508,7 +477,7 @@ Before connecting:
             conf.ClientID = "sasl_scram_client"
             conf.Metadata.Full = true
             conf.Net.SASL.Enable = true
-            conf.Net.SASL.User =  "<consumer_name>"
+            conf.Net.SASL.User = "<consumer_name>"
             conf.Net.SASL.Password = "<consumer_password>"
             conf.Net.SASL.Handshake = true
             conf.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
@@ -580,7 +549,7 @@ Before connecting:
 
 - Connecting via SSL {#with-ssl}
 
-   1. Example code for delivering a message to a topic:
+   1. Code example for delivering a message to a topic:
 
       `producer/main.go`
 
@@ -682,7 +651,7 @@ Before connecting:
             conf.ClientID = "sasl_scram_client"
             conf.Metadata.Full = true
             conf.Net.SASL.Enable = true
-            conf.Net.SASL.User =  "<consumer_username>"
+            conf.Net.SASL.User = "<consumer_username>"
             conf.Net.SASL.Password = "<consumer_password>"
             conf.Net.SASL.Handshake = true
             conf.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
@@ -769,11 +738,11 @@ Before connecting:
 
 {% endlist %}
 
-{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+{% include [fqdn](../../../_includes/mdb/mkf/fqdn-host.md) %}
 
-{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
+{% include [code-howto](../../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
-### Java {#java}
+## Java {#java}
 
 Before connecting:
 
@@ -887,7 +856,7 @@ Before connecting:
 
 - Connecting without SSL {#without-ssl}
 
-   1. Example code for delivering messages to a topic:
+   1. Code example for delivering messages to a topic:
 
       `producer/src/java/com/example/App.java`
 
@@ -1015,9 +984,9 @@ Before connecting:
       cd /etc/security
       ```
 
-   1. {% include [keytool-importcert](./keytool-importcert.md) %}
+   1. {% include [keytool-importcert](../../../_includes/mdb/keytool-importcert.md) %}
 
-   1. Example code for delivering messages to a topic:
+   1. Code example for delivering messages to a topic:
 
       `producer/src/java/com/example/App.java`
 
@@ -1147,11 +1116,11 @@ Before connecting:
 
 {% endlist %}
 
-{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+{% include [fqdn](../../../_includes/mdb/mkf/fqdn-host.md) %}
 
-{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
+{% include [code-howto](../../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
-### Node.js {#nodejs}
+## Node.js {#nodejs}
 
 Before connecting, install the dependencies:
 
@@ -1164,7 +1133,7 @@ npm install node-rdkafka
 
 - Connecting without SSL {#without-ssl}
 
-   1. Example code for delivering messages to a topic:
+   1. Code example for delivering messages to a topic:
 
       `producer.js`
 
@@ -1259,7 +1228,7 @@ npm install node-rdkafka
 
 - Connecting via SSL {#with-ssl}
 
-   1. Example code for delivering messages to a topic:
+   1. Code example for delivering messages to a topic:
 
       `producer.js`
 
@@ -1358,113 +1327,11 @@ npm install node-rdkafka
 
 {% endlist %}
 
-{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+{% include [fqdn](../../../_includes/mdb/mkf/fqdn-host.md) %}
 
-{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
+{% include [code-howto](../../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
-### PowerShell {#powershell}
-
-Before connecting:
-
-1. Install the latest available version of [Microsoft OpenJDK](https://docs.microsoft.com/en-us/java/openjdk/download).
-
-1. Download the [archive with binary files](https://kafka.apache.org/downloads) for the {{ KF }} version run by the cluster. Your Scala version is irrelevant.
-
-1. Unpack the archive.
-
-   {% note tip %}
-
-   Unpack the {{ KF }} files to the root directory of the disk, for example, `C:\kafka_2.12-2.6.0\`.
-
-   If the path to the executable and batch files of {{ KF }} is too long, you will get the error `The input line is too long` when trying to run the files.
-
-   {% endnote %}
-
-{% list tabs group=connection %}
-
-- Connecting without SSL {#without-ssl}
-
-   1. Run this command for receiving messages from a topic:
-
-      ```powershell
-      <path_to_the_directory_with_Apache_Kafka_files>\bin\windows\kafka-console-consumer.bat `
-          --bootstrap-server <broker_FQDN>:9092 `
-          --topic <topic_name> `
-          --property print.key=true `
-          --property key.separator=":" `
-          --consumer-property security.protocol=SASL_PLAINTEXT `
-          --consumer-property sasl.mechanism=SCRAM-SHA-512 `
-          --consumer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<consumer_username>' password='<consumer_password>';"
-      ```
-
-      The command will continuously read new messages from the topic.
-
-   1. In a separate terminal, run the command for sending a message to a topic:
-
-      ```powershell
-      echo "key:test message" | <path_to_the_directory_with_Apache_Kafka_files>\bin\windows\kafka-console-producer.bat `
-          --bootstrap-server <broker_FQDN>:9092 `
-          --topic <topic_name> `
-          --property parse.key=true `
-          --property key.separator=":" `
-          --producer-property acks=all `
-          --producer-property security.protocol=SASL_PLAINTEXT `
-          --producer-property sasl.mechanism=SCRAM-SHA-512 `
-          --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<producer_login>' password='<producer_password>';"
-      ```
-
-- Connecting via SSL {#with-ssl}
-
-   1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ KF }} driver can use this certificate for secure connections to the cluster hosts. Set the password using the `-storepass` parameter for additional storage protection:
-
-      ```powershell
-      keytool.exe -importcert -alias {{ crt-alias }} `
-        --file $HOME\.kafka\{{ crt-local-file }} `
-        --keystore $HOME\.kafka\ssl `
-        --storepass <certificate_store_password> `
-        --noprompt
-      ```
-
-   1. Run this command for receiving messages from a topic:
-
-      ```powershell
-      <path_to_the_directory_with_Apache_Kafka_files>\bin\windows\kafka-console-consumer.bat `
-          --bootstrap-server <broker_FQDN>:9091 `
-          --topic <topic_name> `
-          --property print.key=true `
-          --property key.separator=":" `
-          --consumer-property security.protocol=SASL_SSL `
-          --consumer-property sasl.mechanism=SCRAM-SHA-512 `
-          --consumer-property ssl.truststore.location=$HOME\.kafka\ssl `
-          --consumer-property ssl.truststore.password=<certificate_store_password> `
-          --consumer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<consumer_username>' password='<consumer_password>';"
-      ```
-
-      The command will continuously read new messages from the topic.
-
-   1. In a separate terminal, run the command for sending a message to a topic:
-
-      ```powershell
-      echo "key:test message" | <path_to_the_directory_with_Apache_Kafka_files>\bin\windows\kafka-console-producer.bat `
-          --bootstrap-server <broker_FQDN>:9091 `
-          --topic <topic_name> `
-          --property parse.key=true `
-          --property key.separator=":" `
-          --producer-property acks=all `
-          --producer-property security.protocol=SASL_SSL `
-          --producer-property sasl.mechanism=SCRAM-SHA-512 `
-          --producer-property ssl.truststore.location=$HOME\.kafka\ssl `
-          --producer-property ssl.truststore.password=<certificate_store_password> `
-          --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<producer_password>' password='<producer_password>';"
-      ```
-
-{% endlist %}
-
-{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
-
-{% include [shell-howto](../../_includes/mdb/mkf/connstr-shell-howto.md) %}
-
-### Python (kafka-python) {#kafka-python}
+## Python (kafka-python) {#kafka-python}
 
 Before connecting, install the dependencies:
 
@@ -1477,7 +1344,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
 
 - Connecting without SSL {#without-ssl}
 
-   1. Example code for delivering a message to a topic:
+   1. Code example for delivering a message to a topic:
 
       `producer.py`
 
@@ -1529,7 +1396,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
 
 - Connecting via SSL {#with-ssl}
 
-   1. Example code for delivering a message to a topic:
+   1. Code example for delivering a message to a topic:
 
       `producer.py`
 
@@ -1583,11 +1450,11 @@ pip3 install kafka-python lz4 python-snappy crc32c
 
 {% endlist %}
 
-{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+{% include [fqdn](../../../_includes/mdb/mkf/fqdn-host.md) %}
 
-{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
+{% include [code-howto](../../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
-### Python (confluent-kafka) {#confluent-kafka-python}
+## Python (confluent-kafka) {#confluent-kafka-python}
 
 Before connecting, install the dependencies:
 
@@ -1666,7 +1533,7 @@ pip install confluent_kafka
 
 - Connecting via SSL {#with-ssl}
 
-   1. Example code for delivering a message to a topic:
+   1. Code example for delivering a message to a topic:
 
       `producer.py`
 
@@ -1735,6 +1602,6 @@ pip install confluent_kafka
 
 {% endlist %}
 
-{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+{% include [fqdn](../../../_includes/mdb/mkf/fqdn-host.md) %}
 
-{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
+{% include [code-howto](../../../_includes/mdb/mkf/connstr-code-howto.md) %}

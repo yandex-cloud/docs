@@ -39,7 +39,7 @@ After a backup is created, it is compressed for storage. To find out its exact s
 
 Backups are only created on running clusters. If you do not use a {{ mmg-short-name }} cluster 24/7, check the [backup start time settings](../operations/update.md#change-additional-settings).
 
-For more information about creating a backup manually, see [{#T}](../operations/cluster-backups.md).
+For more information about creating a backup manually, see [Managing backups](../operations/cluster-backups.md).
 
 ## Storing backups {#storage}
 
@@ -58,7 +58,7 @@ Storing backups in {{ mmg-name }}:
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-   For more information, see the [{{ mmg-name }} pricing policy](../pricing.md#rules-storage).
+   For more information, see [Pricing policy](../pricing.md#rules-storage).
 
 ## Checking backup recovery {#capabilities}
 

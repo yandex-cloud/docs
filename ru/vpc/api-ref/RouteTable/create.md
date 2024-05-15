@@ -42,7 +42,7 @@ POST https://vpc.{{ api-host }}/vpc/v1/routeTables
 Field | Description
 --- | ---
 folderId | **string**<br><p>Required. ID of the folder that the route table belongs to. To get the folder ID use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Name of the route table. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
+name | **string**<br><p>Name of the route table. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``.</p> 
 description | **string**<br><p>Description of the route table.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels, ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 networkId | **string**<br><p>Required. ID of the network the route table belongs to.</p> <p>The maximum string length in characters is 50.</p> 

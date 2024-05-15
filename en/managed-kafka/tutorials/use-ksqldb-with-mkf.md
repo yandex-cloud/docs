@@ -22,20 +22,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 
 1. [Create topics](../../managed-kafka/operations/cluster-topics.md#create-topic) in a {{ mkf-name }} cluster:
-   1. A service topic named `_confluent-ksql-default__command_topic` with the following settings:
-      * Replication factor: `1`.
-      * Number of partitions: `1`.
-      * Log cleanup policy: `Delete`.
-      * Log retention, ms: `-1`.
-      * Minimum number of in-sync replicas: `1`.
-   1. A service topic named `default_ksql_processing_log` for maintaining ksqlDB logs. The topic may have any settings.
-   1. A data storage topic named `locations`. The topic may have any settings.
+   1. Service topic named `_confluent-ksql-default__command_topic` with the following settings:
+      * Replication factor: `1`
+      * Number of partitions: `1`
+      * Log cleanup policy: `Delete`
+      * Log retention, ms: `-1`
+      * Minimum number of in-sync replicas: `1`
+   1. Service topic named `default_ksql_processing_log` for writing ksqlDB logs. The topic may have any settings.
+   1. Data storage topic named `locations`. The topic may have any settings.
 
 1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) named `ksql` and assign it the [ACCESS_ROLE_PRODUCER](../operations/cluster-accounts#grant-permission) and `ACCESS_ROLE_CONSUMER` roles for all topics.
 
 1. Check that you can connect to the ksqlDB server.
 
-1. Install the `kafkacat` utility on the ksqlDB server and check that you can use it to [connect to the {{ mkf-name }} cluster over SSL](../../managed-kafka/operations/connect.md#get-ssl-cert).
+1. Install the `kafkacat` utility on the ksqlDB server and check that you can use it to [connect to the {{ mkf-name }} cluster over SSL](../operations/connect/clients.md#bash-zsh).
 
 1. Install the [jq](https://stedolan.github.io/jq/) utility for stream processing JSON files on the ksqlDB server.
 
@@ -97,7 +97,7 @@ In the example, geodata is written to the {{ KF }} `locations` topic in JSON for
 * `latitude`: Latitude.
 * `longitude`: Longitude.
 
-This data will be transmitted as {{ KF }} messages. Each message will contain a JSON object as the following string:
+This data will be transmitted as {{ KF }} messages. Each message will contain a JSON object as a string in the following format:
 
 ```json
 {"profileId": "c2309eec", "latitude": 37.7877, "longitude": -122.4205}
@@ -185,7 +185,7 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
    ```
 
-   Information is sent using the `ksql` user. To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../operations/connect.md).
+   Information is sent using the `ksql` user. To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../operations/connect/clients.md).
 
 1. Make sure that the [session](#create-kf-table) displays the data sent to the topic:
 

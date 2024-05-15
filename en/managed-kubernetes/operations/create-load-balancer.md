@@ -72,7 +72,7 @@ Prepare the required infrastructure:
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [k8s-load-balancer.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/managed-kubernetes/k8s-load-balancer.tf) {{ managed-k8s-name }} cluster configuration file to the same working directory. The file describes:
+   1. Download the [k8s-load-balancer.tf](https://github.com/yandex-cloud-examples/yc-mk8s-load-balancer/blob/main/k8s-load-balancer.tf) {{ managed-k8s-name }} cluster configuration file to the same working directory. The file describes:
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
       * {{ managed-k8s-name }} cluster.
@@ -132,19 +132,19 @@ Prepare the required infrastructure:
 
    - CLI {#cli}
 
-     {% include [cli-install](../../_includes/cli-install.md) %}
+      {% include [cli-install](../../_includes/cli-install.md) %}
 
-     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-     ```bash
-     kubectl apply -f hello.yaml
-     ```
+      ```bash
+      kubectl apply -f hello.yaml
+      ```
 
-     Result:
+      Result:
 
-     ```bash
-     deployment.apps/hello created
-     ```
+      ```bash
+      deployment.apps/hello created
+      ```
 
    {% endlist %}
 
@@ -154,45 +154,45 @@ Prepare the required infrastructure:
 
    - CLI {#cli}
 
-     ```bash
-     kubectl describe deployment hello
-     ```
+      ```bash
+      kubectl describe deployment hello
+      ```
 
-     Result:
+      Result:
 
-     ```text
-     Name:                   hello
-     Namespace:              default
-     CreationTimestamp:      Wed, 28 Oct 2020 23:15:25 +0300
-     Labels:                 <none>
-     Annotations:            deployment.kubernetes.io/revision: 1
-     Selector:               app=hello
-     Replicas:               2 desired | 2 updated | 2 total | 1 available | 1 unavailable
-     StrategyType:           RollingUpdate
-     MinReadySeconds:        0
-     RollingUpdateStrategy:  25% max unavailable, 25% max surge
-     Pod Template:
-       Labels:  app=hello
-       Containers:
-        hello-app:
-         Image:        {{ registry }}/crpjd37scfv653nl11i9/hello:1.1
-         Port:         <none>
-         Host Port:    <none>
-         Environment:  <none>
-         Mounts:       <none>
-       Volumes:        <none>
-     Conditions:
-       Type           Status  Reason
-       ----           ------  ------
-       Available      False   MinimumReplicasUnavailable
-       Progressing    True    ReplicaSetUpdated
-     OldReplicaSets:  <none>
-     NewReplicaSet:   hello-******** (2/2 replicas created)
-     Events:
-       Type    Reason             Age   From                   Message
-       ----    ------             ----  ----                   -------
-       Normal  ScalingReplicaSet  10s   deployment-controller  Scaled up replica set hello-******** to 2
-     ```
+      ```text
+      Name:                   hello
+      Namespace:              default
+      CreationTimestamp:      Wed, 28 Oct 2020 23:15:25 +0300
+      Labels:                 <none>
+      Annotations:            deployment.kubernetes.io/revision: 1
+      Selector:               app=hello
+      Replicas:               2 desired | 2 updated | 2 total | 1 available | 1 unavailable
+      StrategyType:           RollingUpdate
+      MinReadySeconds:        0
+      RollingUpdateStrategy:  25% max unavailable, 25% max surge
+      Pod Template:
+        Labels:  app=hello
+        Containers:
+         hello-app:
+          Image:        {{ registry }}/crpjd37scfv653nl11i9/hello:1.1
+          Port:         <none>
+          Host Port:    <none>
+          Environment:  <none>
+          Mounts:       <none>
+        Volumes:        <none>
+      Conditions:
+        Type           Status  Reason
+        ----           ------  ------
+        Available      False   MinimumReplicasUnavailable
+        Progressing    True    ReplicaSetUpdated
+      OldReplicaSets:  <none>
+      NewReplicaSet:   hello-******** (2/2 replicas created)
+      Events:
+        Type    Reason             Age   From                   Message
+        ----    ------             ----  ----                   -------
+        Normal  ScalingReplicaSet  10s   deployment-controller  Scaled up replica set hello-******** to 2
+      ```
 
    {% endlist %}
 
@@ -233,15 +233,15 @@ When you create a service of the `LoadBalancer` type, the {{ yandex-cloud }} con
 
    - CLI {#cli}
 
-     ```bash
-     kubectl apply -f load-balancer.yaml
-     ```
+      ```bash
+      kubectl apply -f load-balancer.yaml
+      ```
 
-     Result:
+      Result:
 
-     ```bash
-     service/hello created
-     ```
+      ```bash
+      service/hello created
+      ```
 
    {% endlist %}
 
@@ -257,33 +257,33 @@ When you create a service of the `LoadBalancer` type, the {{ yandex-cloud }} con
 
    - CLI {#cli}
 
-     ```bash
-     kubectl describe service hello
-     ```
+      ```bash
+      kubectl describe service hello
+      ```
 
-     Result:
+      Result:
 
-     ```text
-     Name:                     hello
-     Namespace:                default
-     Labels:                   <none>
-     Annotations:              <none>
-     Selector:                 app=hello
-     Type:                     LoadBalancer
-     IP:                       172.20.169.7
-     LoadBalancer Ingress:     130.193.50.111
-     Port:                     plaintext 80/TCP
-     TargetPort:               8080/TCP
-     NodePort:                 plaintext 32302/TCP
-     Endpoints:                10.1.130.4:8080
-     Session Affinity:         None
-     External Traffic Policy:  Cluster
-     Events:
-       Type    Reason                Age    From                Message
-       ----    ------                ----   ----                -------
-       Normal  EnsuringLoadBalancer  2m43s  service-controller  Ensuring load balancer
-       Normal  EnsuredLoadBalancer   2m17s  service-controller  Ensured load balancer
-     ```
+      ```text
+      Name:                     hello
+      Namespace:                default
+      Labels:                   <none>
+      Annotations:              <none>
+      Selector:                 app=hello
+      Type:                     LoadBalancer
+      IP:                       172.20.169.7
+      LoadBalancer Ingress:     130.193.50.111
+      Port:                     plaintext 80/TCP
+      TargetPort:               8080/TCP
+      NodePort:                 plaintext 32302/TCP
+      Endpoints:                10.1.130.4:8080
+      Session Affinity:         None
+      External Traffic Policy:  Cluster
+      Events:
+        Type    Reason                Age    From                Message
+        ----    ------                ----   ----                -------
+        Normal  EnsuringLoadBalancer  2m43s  service-controller  Ensuring load balancer
+        Normal  EnsuredLoadBalancer   2m17s  service-controller  Ensured load balancer
+      ```
 
    {% endlist %}
 
@@ -293,18 +293,18 @@ When you create a service of the `LoadBalancer` type, the {{ yandex-cloud }} con
 
    - CLI {#cli}
 
-     ```bash
-     curl http://130.193.50.111
-     ```
+      ```bash
+      curl http://130.193.50.111
+      ```
 
-     Where `130.193.50.111` is the public IP address from the `LoadBalancer Ingress` field.
+      Where `130.193.50.111` is the public IP address from the `LoadBalancer Ingress` field.
 
-     Result:
+      Result:
 
-     ```text
-     Hello, world!
-     Running in 'hello-********'
-     ```
+      ```text
+      Hello, world!
+      Running in 'hello-********'
+      ```
 
    {% endlist %}
 

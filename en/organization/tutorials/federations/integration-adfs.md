@@ -375,7 +375,7 @@ Create a relying party trust for the federation you created in the cloud:
 
 1. In the next step, you are asked to specify a certificate for signing tokens. This step is optional, so click **Next**.
 
-1. In the Configure URL step, select **Enable support for the SAML 2.0 WebSSO protocol** and specify the ACS URL to redirect users to after successful authentication.
+1. In the _Configure URL_ step, select **Enable support for the SAML 2.0 WebSSO protocol** and specify the ACS URL to redirect users to after successful authentication.
 
    {% cut "How to get a federation ID" %}
 

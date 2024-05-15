@@ -69,7 +69,7 @@ You can manage user permissions at the level of an individual database by updati
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Find the desired user's `yandex_mdb_mysql_user` resource and change the list of their privileges for the required database in the `roles` parameter:
 
@@ -105,7 +105,7 @@ You can manage user permissions at the level of an individual database by updati
    To update user privileges, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
 
    * ID of the cluster in which the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Username, in the `userName` parameter. To find out the name, [get a list of users in the cluster](cluster-users.md#list-users).
+   * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](cluster-users.md#list-users).
    * Name of the database where you want to update the list of user privileges, in the `permissions.databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
    * New list of user privileges as an array in the `permissions.roles` parameter.
    * List of user configuration fields to update (`permissions` in this case) in the `updateMask` parameter.

@@ -9,7 +9,7 @@ Learn how to authenticate in the CLI:
 - [As a service account](#auth-as-sa).
 - [As a service account from inside a VM](#vm-auth-as-sa).
 
-[Service accounts](../../../iam/concepts/users/service-accounts.md) are different from [user accounts](../../../iam/concepts/index.md#passport) or [federated user accounts](../../../iam/concepts/federations.md). You cannot use service accounts to log in to the [management console]({{ link-console-main }}), but you can use them to manage resources in {{ yandex-cloud }}.
+[Service accounts](../../../iam/concepts/users/service-accounts.md) are different from [user accounts](../../../iam/concepts/users/accounts.md#passport) or [federated user accounts](../../../iam/concepts/federations.md). You cannot use service accounts to log in to the [management console]({{ link-console-main }}), but you can use them to manage resources in {{ yandex-cloud }}.
 
 ## Getting started {#before-begin}
 

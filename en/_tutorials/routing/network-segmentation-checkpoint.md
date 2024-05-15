@@ -131,7 +131,7 @@ All the steps described below are completed in the Linux terminal.
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
+   1. In the [management console]({{ link-console-main }}), select a folder where you want to create your service account.
    1. In the **Service accounts** tab, click **Create service account**.
    1. Enter a name for the service account, e.g., `sa-terraform`.
 
@@ -271,7 +271,7 @@ All the steps described below are completed in the Linux terminal.
 
 ## Deploy your resources {#create-resources}
 
-1. Clone this GitHub [repository](https://github.com/yandex-cloud-examples/yc-network-segmentation-with-checkpoint) and go to the `yc-network-segmentation-with-checkpoint` script directory:
+1. Clone this GitHub [repository](https://github.com/yandex-cloud-examples/yc-network-segmentation-with-checkpoint) and go to the `yc-network-segmentation-with-checkpoint` directory:
 
    ```bash
    git clone https://github.com/yandex-cloud-examples/yc-network-segmentation-with-checkpoint.git
@@ -549,9 +549,8 @@ In the same way, configure the `eth1` and `eth2` network interfaces:
    | dmz | 10.160.1.0 | 255.255.255.0 |
 
    For the DMZ network, set up Automatic Hide NAT to hide the addresses of internet-facing VMs hosted in the DMZ segment behind the IP address of the FW gateway in the public segment. To do this:
-
-1. In the `dmz` interface editing dialog box, go to the **NAT** tab.
-1. Activate **Add automatic address translation rules**, select **Hide** from the drop-down list and enable **Hide behind the gateway**.
+   1. In the `dmz` interface editing dialog box, go to the **NAT** tab.
+   1. Activate **Add automatic address translation rules**, select **Hide** from the drop-down list and enable **Hide behind the gateway**.
 
 1. In the **Objects** drop-down list at the top left, select **New Host...** and create the `dmz-web-server` and `FW-public-IP` hosts with the following data:
 

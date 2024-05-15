@@ -1,7 +1,7 @@
 # Migrating {{ CH }} cluster hosts to a different availability zone
 
 
-{{ CH }} and {{ ZK }} hosts of the {{ mch-name }} cluster are located in the {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). You can move hosts from one availability zone to another.
+{{ CH }} and {{ ZK }} hosts of the {{ mch-name }} cluster are located in {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). Follow this guide to migrate {{ CH }} and {{ ZK }} hosts to a different availability zone. If you want to migrate {{ CK }} hosts, contact [support]({{ link-console-support }}).
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 
@@ -135,10 +135,6 @@
 1. Wait until the cluster status changes to **Alive**. In the management console, go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 ## Migrating {{ ZK }} hosts {#zookeeper-hosts}
-
-1. Make sure the migration will only include [replicated tables](../concepts/replication.md#replicated-tables) on the `ReplicatedMergeTree` family engine.
-
-   Non-replicated tables will be lost during migration.
 
 1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move cluster hosts to.
 1. Add a host to your cluster:

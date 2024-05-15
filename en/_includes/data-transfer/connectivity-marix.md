@@ -27,8 +27,7 @@ R: [Replicate](../../data-transfer/concepts/transfer-lifecycle.md#replication)
 CR: [Copy and replicate](../../data-transfer/concepts/transfer-lifecycle.md#copy-and-replication)
 
 
-^1^ This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
-^2^ This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and is available upon request. Contact [support]({{ link-console-support }}) or your account manager.
+^1^ This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and is available upon request. To get such access, contact [support]({{ link-console-support }}) or your account manager.
 
 #### Airbyte® endpoints {#airbyte}
 

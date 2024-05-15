@@ -47,17 +47,17 @@ The list of services offered under the Premium plan is not exhaustive and may be
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|
 | Restore access to the management console | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Provide links to documentation | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Diagnose errors in {{ yandex-cloud }} services and fix identified problems not related to third-party software | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Diagnose errors in {{ yandex-cloud }} services and fix problems not related to third-party software | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Ask questions related to payments for resources | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Address frequently asked questions (including general questions like How does this work? and What is it?) about {{ yandex-cloud }} services and features | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Address questions or provide assistance when setting up {{ yandex-cloud }} services | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Address requests about your data in {{ yandex-cloud }}, including requests for personal data | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Address FAQs (including general questions like **How does this work?** and **What is it?**) about {{ yandex-cloud }} services and features | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Consult and provide assistance configuring {{ yandex-cloud }} services | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Inquire about your data in {{ yandex-cloud }}, including personal data | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Provide recommendations for service recovery in the event of a critical incident | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Provide general recommendations about architecture |                                     | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Provide general recommendations about the architecture |                                     | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Address questions configuring third-party software and troubleshooting compatibility issues (provide reference to open sources of information) |                                     | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Provide recommendations for fixing problems with operating systems and their components |                                     | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Provide recommendations for troubleshooting third-party software compatibility issues (direct help solving) |                                     |                                     | ![image](../_assets/common/yes.svg) |
-| Directly consult with a dedicated support engineer on how to solve architecture-related tasks based on your {{ yandex-cloud }} service usage scenario |                                     |                                     | ![image](../_assets/common/yes.svg) |
+| Directly consult with a dedicated support engineer on architecture-related tasks based on your {{ yandex-cloud }} service usage scenario |                                     |                                     | ![image](../_assets/common/yes.svg) |
 | Personal technical manager |                                     |                                     | ![image](../_assets/common/yes.svg) |
 
 
@@ -92,4 +92,3 @@ If the technical support cannot resolve your third-party software issue, contact
 
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}
-

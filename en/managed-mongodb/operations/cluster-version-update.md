@@ -12,13 +12,13 @@ You can only upgrade to a version that immediately follows the current one, such
 
 {% endnote %}
 
-## Before updating the version {#before-update}
+## Before a version upgrade {#before-update}
 
 Make sure this does not affect your applications:
 
 1. See the {{ MG }} [changelog](https://docs.mongodb.com/manual/release-notes/) to check how updates might affect your applications.
 1. Try updating the version on a test cluster. You can deploy it from a backup of the main cluster.
-1. [Create a backup](cluster-backups.md) of the main cluster before updating the version.
+1. [Create a backup](cluster-backups.md) of the main cluster directly before the version upgrade.
 
 ## Upgrading a cluster {#start-update}
 
@@ -31,7 +31,7 @@ Make sure this does not affect your applications:
    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select a new version number.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-   Once the upgrade is launched, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+   As soon as you run the upgrade, the cluster enters the **UPDATING** status. Wait for the operation to complete and then check the cluster version.
 
 - CLI {#cli}
 
@@ -47,7 +47,7 @@ Make sure this does not affect your applications:
       {{ yc-mdb-mg }} cluster get <cluster_name_or_ID>
       ```
 
-   1. Start the {{ MG }} upgrade:
+   1. Run the {{ MG }} upgrade:
 
       ```bash
       {{ yc-mdb-mg }} cluster update <cluster_name_or_ID> \
@@ -69,7 +69,7 @@ Make sure this does not affect your applications:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. To the {{ mmg-name }} cluster description, add the `version` field or change its value if it is already there:
 

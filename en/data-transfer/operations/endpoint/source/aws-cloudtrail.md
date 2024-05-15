@@ -1,6 +1,6 @@
 # Transferring data from an AWS CloudTrail source endpoint
 
-{{ data-transfer-full-name }} enables you to upload audit logs from an AWS CloudTrail database to the {{ yandex-cloud }} managed databases and implement various data processing and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to upload audit logs the AWS CloudTrail database to {{ yandex-cloud }} managed databases and implement various data processing and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Prepare the AWS CloudTrail database](#prepare) for the transfer.
@@ -47,6 +47,8 @@ Configure one of the supported data targets:
 * [{{ PG }}](../target/postgresql.md).
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+
+{% include [Internet access](../../../../_includes/data-transfer/notes/internet-access.md) %}
 
 After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
 

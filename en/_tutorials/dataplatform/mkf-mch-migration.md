@@ -33,7 +33,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    
    1. If you are using security groups, configure them to enable connecting to the clusters from the internet:
 
-      * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
+      * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
       * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
 
@@ -95,7 +95,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       sudo apt update && sudo apt install --yes kafkacat
       ```
 
-      Check that you can use it to [connect to {{ mkf-name }} clusters over SSL](../../managed-kafka/operations/connect.md#connection-string).
+      Check that you can use it to [connect to {{ mkf-name }} clusters over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
    * [clickhouse-client]({{ ch.docs }}/interfaces/cli/): to connect to the database in the {{ mch-name }} cluster.
 

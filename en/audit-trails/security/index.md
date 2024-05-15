@@ -14,7 +14,9 @@ In this section, you will learn:
 
 ## Which resources you can assign a role for {#resources}
 
-In the {{ yandex-cloud }} console, you can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Roles assigned for clouds or folders also apply to the trails in them.
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+You can assign a role for a [trail](../concepts/trail.md) via the YC CLI or the {{ yandex-cloud }} API.
 
 ## Which roles exist in the service {#roles-list}
 

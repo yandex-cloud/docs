@@ -35,9 +35,12 @@ Method | Description
 [create](create.md) | Creates community in specified organization.
 [delete](delete.md) | Deletes specified community.
 [get](get.md) | Returns community.
+[getRestrictions](getRestrictions.md) | Get current community restrictions.
+[getRestrictionsMeta](getRestrictionsMeta.md) | Get meta information about available restrictions.
 [list](list.md) | List communities in specified organization.
 [listAccessBindings](listAccessBindings.md) | Lists access bindings for specified community.
 [removeResource](removeResource.md) | Removes shared resource from community
 [setAccessBindings](setAccessBindings.md) | Sets access bindings for specified community.
+[setRestrictions](setRestrictions.md) | Set community restrictions.
 [update](update.md) | Updates specified community.
 [updateAccessBindings](updateAccessBindings.md) | Updates access bindings for specified community.

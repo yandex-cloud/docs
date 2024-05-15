@@ -26,7 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    - {{ TF }} {#tf}
 
       1. {% include [terraform-install](../../../_includes/terraform-install.md) %}
-      1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and specify the parameter values.
+      1. Download the [file with provider settings](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf). Place it in a separate working directory and specify the parameter values.
       1. Download the [data-transfer-os-mos.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-opensearch-from-onprem-to-cloud/blob/main/data-transfer-os-mos.tf) configuration file to the same working directory.
 
          This file describes:
@@ -110,8 +110,8 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
         --header 'Content-Type: application/json' \
         --request POST 'https://<{{ OS }}_DATA_host_address>:{{ port-mos }}/people/_doc/?pretty' -d'
         {
-              "name" : "Alice",
-              "age" : "30"
+              "name": "Alice",
+              "age": "30"
         }
         ' && \
    curl --user <source_cluster_username>:<source_cluster_user_password> \

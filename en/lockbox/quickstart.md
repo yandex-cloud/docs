@@ -18,19 +18,23 @@ Versions can't be changed. Whenever you need to change the number of key-value p
 
 {% include [secret-create](../_includes/lockbox/secret-create.md) %}
 
-## Get the content of the secret {#get}
+## Getting the contents of a secret {#get}
 
 ### Roles required to get a secret {#roles}
 
 {% include [lockbox-and-kms-roles](../_includes/lockbox/lockbox-and-kms-roles.md) %}
 
-### Get the content of the secret {#payload}
-
-To get the content of the secret, access it using the API. If you make a request without specifying a version, the content of the current (latest) version is returned.
-
-You can use this logic in scripts, services, and applications where you need to use the content of your secret.
+### Get the contents of the secret {#payload}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+   1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
+   1. Click the name of the secret you need.
+   1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click the secret version you need.
 
 - CLI {#cli}
 
@@ -84,7 +88,11 @@ You can use this logic in scripts, services, and applications where you need to 
 
 - API {#api}
 
-   To get the content of the secret:
+   If you make a request without specifying a version, the contents of the current (latest) version is returned.
+
+   You can use this logic in scripts, services, and applications where you need to use the contents of your secret.
+
+   To get the contents of the secret:
    1. [Get an IAM token](../iam/operations/iam-token/create.md) required for authentication and save it to the variable:
 
       ```

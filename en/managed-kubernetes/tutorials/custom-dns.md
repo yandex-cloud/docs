@@ -36,7 +36,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
       1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-      1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. The file describes:
+      1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-infrastructure/blob/main/k8s-cluster.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. The file describes:
          * [Network](../../vpc/concepts/network.md#network).
          * [Subnet](../../vpc/concepts/network.md#subnet).
          * {{ managed-k8s-name }} cluster.
@@ -182,5 +182,5 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    {% endlist %}
 
-1. [Delete a VM](../../compute/operations/vm-control/vm-delete.md) with the DNS server.
+1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md) with the DNS server.
 1. [Delete the DNS zone](../../dns/operations/zone-delete.md).

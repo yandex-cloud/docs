@@ -7,30 +7,30 @@ description: "This page provides a list of step-by-step guides for {{ mmy-name }
 
 ## Clusters
 
-* [{#T}](cluster-list.md)
-* [{#T}](cluster-create.md)
-* [{#T}](update.md)
-* [{#T}](cluster-stop.md)
-* [{#T}](hosts.md)
-* [{#T}](host-migration.md)
-* [{#T}](cluster-backups.md)
+* [Information about existing clusters](cluster-list.md)
+* [Creating a cluster](cluster-create.md)
+* [Updating cluster settings](update.md)
+* [Stopping and starting clusters](cluster-stop.md)
+* [Managing cluster hosts](hosts.md)
+* [Migrating cluster hosts to a different availability zone](host-migration.md)
+* [Managing backups](cluster-backups.md)
 * [{#T}](cluster-version-update.md)
-* [{#T}](cluster-delete.md)
+* [Deleting a cluster](cluster-delete.md)
 
 ## Databases
 
-* [{#T}](connect.md)
-* [{#T}](web-sql-query.md)
-* [{#T}](databases.md)
+* [Connecting to a database in a cluster](connect.md)
+* [SQL queries in the management console](web-sql-query.md)
+* [Managing databases](databases.md)
 
-## Users {{ MY }}
+## {{ MY }} users
 
-* [{#T}](cluster-users.md)
-* [{#T}](grant.md)
+* [Managing users](cluster-users.md)
+* [Managing user permissions](grant.md)
 
 ## Logs and monitoring
 
-* [{#T}](cluster-logs.md)
-* [{#T}](performance-diagnostics.md)
-* [{#T}](monitoring.md)
+* [Viewing cluster logs](cluster-logs.md)
+* [Performance diagnostics](performance-diagnostics.md)
+* [Monitoring the state of clusters and hosts](monitoring.md)
 * [{#T}](datalens-connect.md)

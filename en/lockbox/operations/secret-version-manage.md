@@ -103,6 +103,26 @@ Secret version control enables you to:
    1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, you will see a list of all secret versions with information about them.
    1. Click a version to see the details about its key-value pairs.
 
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   1. View the description of the CLI command to view secret versions:
+
+      ```bash
+      yc lockbox secret list-version --help
+      ```
+
+   1. Run this command:
+
+      ```bash
+      yc lockbox secret list-version <secret_name>
+      ```
+
+   It will return information about all versions of the secret, key names included. Secret version values will not be displayed.
+
 - API {#api}
 
    To get information about a version, use the [listVersions](../api-ref/Secret/listVersions.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/ListVersions](../api-ref/grpc/secret_service.md#ListVersions) gRPC API call.
@@ -126,6 +146,45 @@ Secret version control enables you to:
       * **{{ ui-key.yacloud.lockbox.forms.label_value }}**: Explicitly represented secret data.
          You can create multiple key-value pairs per version.
    1. Click **{{ ui-key.yacloud.lockbox.button_add-version }}**.
+
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   1. View the description of the CLI command to create a new secret version:
+
+      ```bash
+      yc lockbox secret add-version --help
+      ```
+
+   1. Run this command:
+
+      ```bash
+      yc lockbox secret add-version <secret_name> \
+        --description <secret_version_description> \
+        --payload "<array_with_secret_version_contents>" \
+        --base-version-id <ID_of_existing_secret_version>
+      ```
+
+      Where:
+      * `<secret_name>`: Name of the secret to create a version for.
+      * `--description`: Description of the new secret version (optional).
+      * `--payload`: Contents of the new secret version as a YAML or JSON array.
+      * `--base-version-id`: ID of the secret version used to create a new secret. If this parameter is not specified, the new version will be created based on the current version.
+
+      Result:
+
+      ```bash
+      id: e6qor8pe3ju7********
+      secret_id: e6qkkp3k29jf********
+      created_at: "2024-04-25T13:49:26.621Z"
+      status: ACTIVE
+      payload_entry_keys:
+        - secret-key1
+        - secret-key2
+      ```
 
 - API {#api}
 

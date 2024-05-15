@@ -22,10 +22,16 @@ You can automatically install the {{ backup-name }} agent when creating a VM fro
 
 ### Linux-based images {#linux}
 
+* [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts)
+* [Ubuntu 22.04 LTS OS Login](/marketplace/products/yc/ubuntu-2204-lts-oslogin)
 * [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts)
+* [Ubuntu 20.04 LTS OS Login](/marketplace/products/yc/ubuntu-2004-lts-oslogin)
 * [Ubuntu 18.04 LTS](/marketplace/products/yc/ubuntu-18-04-lts)
+* [Ubuntu 18.04 LTS OS Login](/marketplace/products/yc/ubuntu-1804-lts-oslogin)
 * [Ubuntu 16.04 LTS](/marketplace/products/yc/ubuntu-26-04-lts)
 * [CentOS 7](/marketplace/products/yc/centos-7)
+* [CentOS 7 OS Login](/marketplace/products/yc/centos-7-oslogin)
+* [CentOS Stream](/marketplace/products/yc/centos-stream-8)
 
 ### Windows-based images {#windows}
 
@@ -58,7 +64,7 @@ If you have issues while installing the agent, [contact]({{ link-console-support
 
 Going forward, {{ backup-name }} will support Ubuntu 22.04.
 
-## Service accounts {#sa}
+## Service account {#sa}
 
 [Service account](../../iam/concepts/users/service-accounts.md) is a special account on behalf of which VM backups are created and uploaded to a {{ backup-name }} storage.
 

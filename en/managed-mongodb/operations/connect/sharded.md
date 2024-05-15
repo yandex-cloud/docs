@@ -39,7 +39,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 - DBeaver {#dbeaver}
 
-   Connections to {{ MG }} clusters are only available in [commercial versions of DBeaver](https://dbeaver.com/buy/).
+   Connections to {{ MG }} clusters are only available in [DBeaver business editions](https://dbeaver.com/buy/).
 
    To connect to a cluster:
 
@@ -69,7 +69,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 {% include [How to connect from a Dockerfile](../../../_includes/mdb/mmg/docker-and-mongodb.md) %}
 
-## Sample connection strings {#connection-string}
+## Examples of connection strings {#connection-string}
 
 {% include [conn-strings-environment](../../../_includes/mdb/mdb-conn-strings-env.md) %}
 

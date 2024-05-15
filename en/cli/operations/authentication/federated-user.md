@@ -1,6 +1,6 @@
 # Authenticating as a federated user
 
-You can use a [federated account](../../../iam/concepts/index.md#saml-federation) to work with {{ yandex-cloud }} if your company has an [identity federation](../../../iam/concepts/federations.md) set up. In this case, a personal [Yandex account](../../../iam/concepts/index.md#passport) is not required.
+You can use a [federated account](../../../iam/concepts/users/accounts.md#saml-federation) to work with {{ yandex-cloud }} if your company has an [identity federation](../../../iam/concepts/federations.md) set up. In this case, no personal [Yandex account](../../../iam/concepts/users/accounts.md#passport) is required.
 
 {% note info %}
 

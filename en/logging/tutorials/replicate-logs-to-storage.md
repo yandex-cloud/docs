@@ -1,1 +1,1 @@
-{% include [replicate-logs-to-storage](../../_tutorials/replicate-logs-to-storage.md) %}
+{% include [replicate-logs-to-storage](../../_tutorials/security/replicate-logs-to-storage.md) %}

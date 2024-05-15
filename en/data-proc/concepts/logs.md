@@ -9,7 +9,7 @@ All log entries sent by the cluster contain [regular filtering parameters](../..
 
 {{ dataproc-name }} log entries also contain additional parameters:
 
-* `hostname`: Host FQDN.
+* `hostname`: Host FQDN
 * `log_type`: [Type of entries](#log-types) in cluster logs.
 
 ## Types of log entries {{ dataproc-name }} {#types}
@@ -22,7 +22,7 @@ Depending on the subcluster role, the following types of entries are used for co
    * `cloud-init`: {{ dataproc-name }} clusters with the [image version](../concepts/environment.md) of 2.0 or higher.
    * `salt-minion`: Initialization log of the {{ dataproc-name }} cluster service.
    * `syslog`: System log.
-   * `telegraf`: Log of sending {{ dataproc-name }} cluster metrics to [{{ monitoring-name }}](../../monitoring/).
+   * `telegraf`: Log of outgoing {{ dataproc-name }} cluster metrics sent to [{{ monitoring-name }}](../../monitoring/).
 
 * Master host:
    * `flume`: {{ dataproc-name }} clusters with [image version](../concepts/environment.md) below 2.0.

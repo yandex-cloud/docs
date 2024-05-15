@@ -15,7 +15,7 @@ When the service receives your request with the `Idempotency-Key` header, it che
 
 {% note info %}
 
-AI services, such as {{ yagpt-full-name }}, {{ speechkit-full-name }}, {{ translate-full-name }}, and {{ vision-full-name }}, do no support idempotency even with the `Idempotency-Key` header.
+AI services, such as {{ foundation-models-full-name }}, {{ speechkit-full-name }}, {{ translate-full-name }}, and {{ vision-full-name }}, do no support idempotency even with the `Idempotency-Key` header.
 
 {% endnote %}
 
@@ -49,4 +49,4 @@ At the same time, another client restarts this VM, e.g., using the UI console.
 
 However, when the first client reconnects to the internet, they will resend the stop VM request. Since there is no `Idempotency-Key` header, the VM that the second client needs will be stopped.
 
-If the first client had provided the `Idempotency-Key` in its stop VM requests, the VM would not have been stopped when the request was resent.
+If the first client had provided `Idempotency-Key` in their stop VM requests, the VM would not be stopped when resending the request.

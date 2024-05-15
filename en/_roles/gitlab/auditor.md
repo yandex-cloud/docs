@@ -1,1 +1,1 @@
-The `gitlab.auditor` role enables you to view the Managed Service for GitLab instance list and information on each instance and its backups.
+The `gitlab.auditor` role enables viewing info on the Managed Service for GitLab [instances](../../managed-gitlab/concepts/index.md#instance) and [quotas](../../managed-gitlab/concepts/limits.md#quotas).

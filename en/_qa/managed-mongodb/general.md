@@ -45,12 +45,12 @@ A _database cluster_ is one or more database hosts between which replication can
 
 To create a database cluster in {{ mmg-short-name }}, you must define its characteristics:
 
-- [Host class](../../managed-mongodb/concepts/instance-types.md) (performance characteristics such as CPUs, memory, and so on).
+- [Host class](../../managed-mongodb/concepts/instance-types.md) (performance characteristics, such as CPUs, RAM, etc.).
 - [Disk type](../../managed-mongodb/concepts/storage.md) and size (reserved in full when creating a cluster).
-- The network your cluster will be connected to.
-- The number of hosts for the cluster and the availability zone for each host.
+- Network your cluster will be connected to.
+- Number of hosts for the cluster and the availability zone for each host.
 
-For detailed instructions, see [{#T}](../../managed-mongodb/quickstart.md).
+For a detailed guide, see [{#T}](../../managed-mongodb/quickstart.md).
 
 
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
@@ -61,7 +61,7 @@ The minimum number of hosts per cluster depends on the following:
 
 The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
 
-For more information, see [{#T}](../../managed-mongodb/concepts/limits.md).
+For more information, see [Quotas and limits](../../managed-mongodb/concepts/limits.md).
 
 
 #### How can I access a running DB host? {#db-access}
@@ -73,7 +73,7 @@ You can connect to {{ mmg-short-name }} databases using standard DBMS methods.
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
-MDB technical and organizational limits are given in [{#T}](../../managed-mongodb/concepts/limits.md).
+For more information on MDB technical and organizational limitations, see [Quotas and limits](../../managed-mongodb/concepts/limits.md).
 
 
 #### How are DB clusters maintained? {#service-window}
@@ -84,7 +84,7 @@ Maintenance in {{ mmg-short-name }} implies:
 - Changes to the host class and storage size.
 - Other {{ mmg-short-name }} maintenance activities.
 
-For more information, see [{#T}](../../managed-mongodb/concepts/maintenance.md).
+For more information, see [Maintenance](../../managed-mongodb/concepts/maintenance.md).
 
 #### Which {{ MG }} version does {{ mmg-short-name }} use? {#dbms-version}
 
@@ -93,24 +93,24 @@ For more information, see [{#T}](../../managed-mongodb/concepts/maintenance.md).
 
 #### What happens when a new DBMS version is released? {#new-version}
 
-When new minor versions are released, the cluster software is updated after a short testing period. The owners of the affected DB clusters receive advanced notice of expected work times and DB availability.
+When new minor versions are released, the cluster software is updated after a short testing period. Owners of the affected DB clusters are notified of expected work times and DB availability in advance.
 
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
 One month after the database version becomes deprecated, {{ mmg-short-name }} automatically sends email notifications to the owners of DB clusters created with this version.
 
-New hosts can no longer be created using deprecated DBMS versions. Database clusters are automatically upgraded to the next supported version: seven days after notification for minor versions and one month for major versions. Deprecated major versions are upgraded even if you disabled automatic updates.
+New hosts can no longer be created using deprecated DBMS versions. Database clusters are automatically upgraded to the next supported version seven days after notification for minor versions and one month after notification for major versions. Deprecated major versions are going to be upgraded even if you have disabled automatic updates.
 
 
-#### How is the cost of usage calculated for a database host? {#db-cost}
+#### How do you calculate usage cost for a database host? {#db-cost}
 
 In {{ mmg-short-name }}, the usage cost is calculated based on the following parameters:
 
 - Selected host class.
 - Size of the storage reserved for the database host.
 - Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-mongodb/pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [{#T}](../../managed-mongodb/pricing.md).
+- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour of operation for each host class in [Pricing policy](../../managed-mongodb/pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
@@ -137,7 +137,7 @@ For all DBMS types, you can track:
 
 - CPU, memory, network, or disk usage, in absolute terms.
 - Memory, network, or disk usage as a percentage of the set limits for the corresponding cluster host class.
-- The amount of data in the DB cluster and the remaining free space in data storage.
+- Amount of data in the DB cluster and the remaining free space in the data storage.
 
 For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ MG }}, you can track:
 - Number of requests per second.
