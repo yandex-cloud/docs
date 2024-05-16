@@ -108,8 +108,8 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
       Where `source_url` is the link to the image in {{ objstorage-name }}.
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-   1. Make sure the configuration files are valid.
+      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+   1. Make sure the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 

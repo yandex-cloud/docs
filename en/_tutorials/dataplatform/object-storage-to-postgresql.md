@@ -25,7 +25,7 @@ Prepare the infrastructure:
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`
 
    
-   1. If you are using security groups in a cluster, make sure they are [configured correctly](../../managed-postgresql/operations/connect.md#configuring-security-groups) and allow connecting to it.
+   1. If using security groups in your cluster, make sure they are [configured correctly](../../managed-postgresql/operations/connect.md#configuring-security-groups) and allow connecting to it.
 
 
    1. [Create an {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md).

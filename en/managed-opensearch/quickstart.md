@@ -6,15 +6,15 @@ description: "In this tutorial, you will learn how to create an {{ OS }} cluster
 # Getting started with {{ mos-name }}
 
 To get started with the service:
-1. [{#T}](#create-cluster).
-1. [{#T}](#configure-security-groups).
-1. [{#T}](#connect).
-1. [{#T}](#dashboards-connect).
+1. [{#T}](#create-cluster)
+1. [{#T}](#configure-security-groups)
+1. [{#T}](#connect)
+1. [{#T}](#dashboards-connect)
 
 
 ## Getting started {#before-you-begin}
 
-1. Log in to the [management console]({{ link-console-main }}) or register if you haven't yet.
+1. Log in to the [management console]({{ link-console-main }}) or sign up if you do not have an account yet.
 
 1. If you do not have a folder yet, create one:
 
@@ -41,7 +41,7 @@ These instructions assume that you are connecting to the cluster from the intern
 1. Set the cluster parameters.
 
    
-   To get access to the {{ OS }} Dashboards web interface, request public access. To do this, go to **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }}** with the **Dashboards** group type and select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+   To gain access to the {{ OS }} Dashboards web interface, request public access. To do this, navigate to **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }}** with the **Dashboards** group type and select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
    {% include [mos-tip-public-dashboards](../_includes/mdb/mos/public-dashboards.md) %}
 

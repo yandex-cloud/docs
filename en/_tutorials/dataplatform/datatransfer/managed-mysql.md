@@ -16,11 +16,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Manually {#manual}
 
-      1. Create a [{{ mmy-name }} target cluster](../../../managed-mysql/operations/cluster-create.md) with any suitable configuration. In which case:
+      1. Create a [{{ mmy-name }} target cluster](../../../managed-mysql/operations/cluster-create.md) with any suitable configuration. Note that:
 
          * The {{ MY }} version must be the same or higher than the version in the source cluster.
 
-            Transferring data with a step-up in {{ MY }} major version is possible but not guaranteed. For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
+            Transferring data with {{ MY }} major version upgrade is possible but not guaranteed. For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
 
             You [cannot](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html) perform migration while downgrading {{ MY }} version.
 

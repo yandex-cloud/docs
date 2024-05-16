@@ -164,7 +164,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       * `--host`: Host parameters:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
          * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
-         * `assign-public-ip`: Internet access to the host via a public IP, `true` or `false`.
+         * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
          * `type`: Host role, `datanode` or `masternode`.
       * `--datanode-resource-preset`: Host class with the Data node role.
       * `--datanode-disk-size`: Storage size in gigabytes for hosts with the Data node role.
@@ -294,7 +294,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 - API {#api}
 
    To create a {{ mes-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
-   * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ mes-name }} cluster should be placed, in the `folderId` parameter.
+   * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the {{ mes-name }} cluster in the `folderId` parameter.
    * {{ mes-name }} cluster name in the `name` parameter.
    * {{ ES }} version in the `configSpec.version` parameter.
    * {{ ES }} edition in the `configSpec.edition` parameter.

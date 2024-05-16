@@ -5,7 +5,7 @@ description: "{{ KF }} is a distributed publish-subscribe messaging system for s
 
 # Resource relationships in {{ mkf-name }}
 
-{{ mkf-full-name }} helps you deploy and maintain clusters of {{ versions.console.str }} {{ KF }} servers in the {{ yandex-cloud }} infrastructure.
+{{ mkf-full-name }} helps you deploy and maintain clusters of {{ KF }} server versions 2.8, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, and 3.6 in the {{ yandex-cloud }} infrastructure.
 
 {{ KF }} is a distributed cross-application communication system that uses the _publication-subscription_ principle.
 
@@ -16,15 +16,25 @@ If all broker hosts are created in the same availability zone, you cannot change
 
 Cluster hosts accept [connections](../operations/connect/clients.md) from clients, such as data [producer](producers-consumers.md) and [consumer](producers-consumers.md) applications. Producers send messages to certain cluster topics and consumers read messages from them. Thus you will not need to reconfigure consumers if the producer changes.
 
-Depending on the number of broker hosts in the cluster, {{ ZK }} is automatically configured and hosted:
+## Host configuration depending on {{ KF }} version {#version}
+
+Different {{ KF }} versions use different tools to store cluster metadata, state, and configuration:
+
+* Versions 3.5 or lower use [{{ ZK }}](#zookeeper).
+* Versions 3.6 or higher use [{{ kraft-name }}](#kraft).
+
+The number and type of hosts are different between the two cases.
+
+### Host configuration in clusters with {{ ZK }} {#zookeeper}
+
+{{ ZK }} is automatically configured and placed in a cluster based on the number of broker hosts:
 
 * If the {{ KF }} cluster consists of one broker host, {{ ZK }} is hosted on the same host.
 * If the {{ KF }} cluster consists of two or more hosts, {{ ZK }} is hosted separately from brokers on three additional hosts. These hosts are added to the cluster automatically.
 
-You cannot delete {{ ZK }} hosts. The number of {{ ZK }} hosts is permanent. {{ mkf-name }} uses {{ ZK }} to store cluster statuses and configurations.
+You cannot delete {{ ZK }} hosts. The number of {{ ZK }} hosts is fixed.
 
-
-You can change the {{ ZK }} host settings using the [CLI](../operations/cluster-update.md).
+[Learn how to create a {{ mkf-name }} cluster](../operations/cluster-create.md#create-cluster) with {{ ZK }}.
 
 {% note info %}
 
@@ -35,6 +45,14 @@ You can change the {{ ZK }} host settings using the [CLI](../operations/cluster-
 * [Disk type](storage.md): Fast network disks
 
 {% endnote %}
+
+### Host configuration in clusters with {{ kraft-name }} {#kraft}
+
+The [{{ kraft-name }} protocol](kraft.md) (abbreviated as {{ kraft-short-name }}) is used to store metadata instead of {{ ZK }}; therefore, {{ ZK }} hosts are not used in {{ KF }} 3.6 or higher.
+
+{% include [kraft-cluster-topology](../../_includes/mdb/mkf/kraft-cluster-topology.md) %}
+
+## Hosting cluster hosts {#hosting}
 
 VMs for cluster hosts can be hosted on:
 * *Regular {{ yandex-cloud }} hosts*:
@@ -47,9 +65,9 @@ VMs for cluster hosts can be hosted on:
 
    These are physical servers that only host your VMs. Such VMs ensure the operation of both the cluster and your other services that support dedicated hosts. The hosts are selected from *dedicated host groups* specified when creating a cluster.
 
-   A cluster with multiple broker hosts needs at least three groups of dedicated hosts for its operation. This is required for deploying {{ ZK }} hosts.
+   A cluster with multiple broker hosts needs at least three groups of dedicated hosts for its operation. This is required for the deployment of {{ ZK }} hosts.
 
-   Such a placement option makes sure the VMs are physically isolated. A {{ mkf-name }} cluster using dedicated hosts includes all features of a regular cluster.
+   This placement option ensures physical isolation of the VMs. A {{ mkf-name }} cluster using dedicated hosts includes all features of a regular cluster.
 
    For more information, see [{#T}](../../compute/concepts/dedicated-host.md).
 

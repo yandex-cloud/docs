@@ -74,7 +74,7 @@ To view detailed information about the state of individual {{ dataproc-name }} h
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#data-proc).
+For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/data-proc-ref.md).
 
 
 ## Cluster state and status {#cluster-health-and-status}

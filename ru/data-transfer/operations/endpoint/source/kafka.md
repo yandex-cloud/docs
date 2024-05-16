@@ -65,6 +65,41 @@ description: "Из статьи вы узнаете, как задать нас�
 
     {% include [Managed Kafka UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-kafka.md) %}
 
+- {{ TF }} {#tf}
+
+    * Тип эндпоинта — `kafka_source`.
+
+    {% include [Managed Kafka Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-kafka-source.md) %}
+
+    Пример структуры конфигурационного файла:
+
+    
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
+      name = "<имя_эндпоинта>"
+      settings {
+        kafka_source {
+          security_groups = ["<список_идентификаторов_групп_безопасности>"]
+          connection {
+            cluster_id = "<идентификатор_кластера>"
+          }
+          auth {
+            <метод_аутентификации>
+          }
+          topic_names = ["<список_имен_топиков>"]
+          <расширенные_настройки_эндпоинта>
+        }
+      }
+    }
+    ```
+
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+
+- API {#api}
+
+    {% include [Managed Kafka API](../../../../_includes/data-transfer/necessary-settings/api/managed-kafka-source.md) %}
+
 {% endlist %}
 
 ### Пользовательская инсталляция {#on-premise}
@@ -76,6 +111,44 @@ description: "Из статьи вы узнаете, как задать нас�
 - Консоль управления {#console}
 
     {% include [On premise Kafka UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-kafka.md) %}
+
+- {{ TF }} {#tf}
+
+    * Тип эндпоинта — `kafka_source`.
+
+    {% include [On-premise Kafka Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-kafka-source.md) %}
+
+    Пример структуры конфигурационного файла:
+
+    
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
+      name = "<имя_эндпоинта>"
+      settings {
+        kafka_source {
+          security_groups = ["<список_идентификаторов_групп_безопасности>"]
+          connection {
+            on_premise {
+              broker_urls = ["<список_IP-адресов_или_FQDN_хостов-брокеров>"]
+              subnet_id  = "<идентификатор_подсети_c_хостами-брокерами>"
+            }
+          }
+          auth = {
+            <метод_аутентификации>
+          }
+          topic_names = ["<список_имен_топиков>"]
+          <расширенные_настройки_эндпоинта>
+        }
+      }
+    }
+    ```
+
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+
+- API {#api}
+
+    {% include [On-premise Kafka API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-kafka-source.md) %}
 
 {% endlist %}
 
@@ -121,7 +194,19 @@ description: "Из статьи вы узнаете, как задать нас�
 
     
     * {% include [conversion-rules](../../../../_includes/data-transfer/fields/yds/ui/conversion-rules.md) %}
-    
+
+- {{ TF }} {#tf}
+
+    * {% include [transformers](../../../../_includes/data-transfer/fields/transformers-and-parsers/terraform/transformers.md) %}
+
+    * {% include [parsers](../../../../_includes/data-transfer/fields/transformers-and-parsers/terraform/parsers.md) %}
+
+- API {#api}
+
+    * {% include [transformers](../../../../_includes/data-transfer/fields/transformers-and-parsers/api/transformers.md) %}
+
+    * {% include [parsers](../../../../_includes/data-transfer/fields/transformers-and-parsers/api/parsers.md) %}
+
 {% endlist %}
 
 ## Настройка приемника данных {#supported-targets}

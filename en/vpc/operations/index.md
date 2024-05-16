@@ -37,7 +37,9 @@ description: "This page provides a list of step-by-step guides for {{ vpc-name }
 
 - [{#T}](static-route-create.md)
 - [{#T}](create-nat-gateway.md)
+- [{#T}](get-info-nat-gateway.md)
 - [{#T}](static-route-move.md)
+- [{#T}](route-table-get-info.md)
 - [{#T}](static-gateway-move.md)
 
 ## Security groups {#security-groups}

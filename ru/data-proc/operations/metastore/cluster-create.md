@@ -5,7 +5,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Создание кластера {{ metastore-full-name }}
 
-{% include [Доступ по запросу](../../../_includes/note-preview-by-request.md) %}
+{% include [Preview](../../../_includes/note-preview.md) %}
 
 Подробнее о кластерах {{ metastore-name }} в сервисе {{ dataproc-name }} см. в разделе [{#T}](../../concepts/metastore.md).
 

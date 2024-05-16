@@ -63,8 +63,12 @@ items:
             href: operations/static-route-create.md
           - name: Creating and setting up a NAT gateway
             href: operations/create-nat-gateway.md
+          - name: Getting information about a NAT gateway
+            href: operations/get-info-nat-gateway.md
           - name: Moving a route table between folders
             href: operations/static-route-move.md
+          - name: Getting information about a route table
+            href: operations/route-table-get-info.md
           - name: Moving a NAT gateway between folders
             href: operations/static-gateway-move.md
       - name: Security groups
