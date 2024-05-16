@@ -22,7 +22,7 @@ items:
             href: operations/cluster-update.md
           - name: Updating the {{ KF }} version
             href: operations/cluster-version-update.md
-          - name: Stopping and starting clusters
+          - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
           - name: Managing {{ KF }} hosts
             href: operations/cluster-hosts.md
@@ -116,6 +116,8 @@ items:
         href: concepts/topics.md
       - name: Brokers
         href: concepts/brokers.md
+      - name: '{{ kraft-short-name }} protocol'
+        href: concepts/kraft.md
       - name: Producers and consumers
         href: concepts/producers-consumers.md
       - name: Managing data schemas

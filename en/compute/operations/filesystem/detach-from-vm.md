@@ -1,13 +1,13 @@
 ---
-title: "How to detach file storage from a VM in {{ compute-full-name }}"
-description: "Follow this guide to detach file storage from a VM."
+title: "How to detach a file storage from a VM in {{ compute-full-name }}"
+description: "Follow this guide to detach a file storage from a VM."
 ---
 
-# Detaching file storage from a VM
+# Detaching a file storage from a VM
 
 1. Unmount the [file storage](../../concepts/filesystem.md) from the [VM](../../concepts/vm.md):
    1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
-   1. If you added a line to the `/etc/fstab` file for automatically mounting file storage to the VM at startup (for example, when [attaching storage to a VM](attach-to-vm.md)), delete the line.
+   1. If you had added a line to the `/etc/fstab` file to automatically mount a file storage to the VM at startup (for example, when [attaching a storage to the VM](attach-to-vm.md)), delete this line.
    1. Run this command:
 
       ```bash
@@ -20,7 +20,7 @@ description: "Follow this guide to detach file storage from a VM."
       df -T
       ```
 
-      As a result, there should be no `virtiofs`-type file system corresponding to file storage:
+      As a result, there should be no `virtiofs` type file system corresponding to the file storage:
 
       ```text
       Filesystem        Type         1K-blocks    Used Available Use% Mounted on
@@ -47,6 +47,58 @@ description: "Follow this guide to detach file storage from a VM."
       1. Go to the **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}** tab.
       1. In the line of the appropriate VM, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.nfs.button_detach-instance-from-the-filesystem }}**.
       1. In the window that opens, confirm the detach operation.
+
+   - CLI {#cli}
+
+      {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+      1. View the description of the [CLI](../../../cli/) command to attach a file storage to a VM:
+
+         ```bash
+         yc compute instance detach-filesystem --help
+         ```
+
+      1. Get a list of file storages in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+
+         {% include [compute-filesystem-list](../../_includes_service/compute-filesystem-list.md) %}
+
+      1. Get a list of VMs in the default folder:
+
+         ```bash
+         yc compute instance list
+         ```
+
+         Result:
+
+         ```text
+         +----------------------+-------+---------------+---------+--------------+-------------+
+         |          ID          | NAME  |    ZONE ID    | STATUS  |  EXTERNAL IP | INTERNAL IP |
+         +----------------------+-------+---------------+---------+--------------+-------------+
+         | epdj4upltbiv******** | vm-01 | {{ region-id }}-a | RUNNING | 51.250.**.** | 192.168.*.* |
+         | 1pc3088tkv4m******** | vm-02 | {{ region-id }}-a | RUNNING | 84.201.**.** | 192.168.*.* |
+         +----------------------+-------+---------------+---------+--------------+-------------+
+         ```
+
+      1. Detach a file storage from a VM:
+
+         ```bash
+         yc compute instance detach-filesystem \
+           --id <VM_ID> \
+           --filesystem-id <file_storage_ID>
+         ```
+
+         Where:
+         * `--id`: VM ID.
+
+            Instead of an ID, you can specify the VM name in the `--name` parameter.
+
+         * `--filesystem-id`: File storage ID.
+
+            Instead of an ID, you can specify the file storage name in the `--filesystem-name` parameter.
+
+         As a result, the command will output the updated VM configuration. The detached file storage must not be featured in the `filesystems` section of the resulting configuration.
 
    - {{ TF }} {#tf}
 

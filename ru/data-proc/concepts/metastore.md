@@ -5,7 +5,7 @@ description: "В сервисе {{ dataproc-name }} вы можете созда
 
 # Кластеры {{ metastore-full-name }}
 
-{% include [Доступ по запросу](../../_includes/note-preview-by-request.md) %}
+{% include [Preview](../../_includes/note-preview.md) %}
 
 В сервисе {{ dataproc-name }} вы можете [создавать кластеры {{ metastore-full-name }}](../operations/metastore/cluster-create.md).
 

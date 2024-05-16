@@ -20,7 +20,12 @@ To move a cluster to a different [availability zone](../../overview/concepts/geo
 
 ## Changing the broker host class and number {#change-brokers}
 
-You cannot increase the number of {{ KF }} broker hosts unless a cluster includes at least two broker hosts in different availability zones. You cannot have fewer broker hosts. To meet the cluster [fault tolerance conditions](../concepts/index.md#fault-tolerance), you need at least three broker hosts.
+You can increase the number of broker hosts if the following conditions are met:
+
+* The cluster uses {{ KF }} 3.5 or lower. Clusters with {{ KF }} 3.6 or higher use the [{{ kraft-name }} protocol](../concepts/kraft.md), so the number of hosts in such clusters is fixed.
+* The cluster contains at least two broker hosts in different availability zones.
+
+You cannot have fewer broker hosts. To meet the cluster [fault tolerance conditions](../concepts/index.md#fault-tolerance), you need at least three broker hosts.
 
 {% list tabs group=instructions %}
 
@@ -589,7 +594,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
       For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
-   1. In the {{ mkf-name }} cluster description, modify the values of the parameters in the `kafka.kafka_config` section (the example does not contain an exhaustive list of the [settings](../concepts/settings-list.md#cluster-settings)):
+   1. In the {{ mkf-name }} cluster description, modify the values of the parameters in the `kafka.kafka_config` section (the example contains only some of the [settings](../concepts/settings-list.md#cluster-settings)):
 
       ```hcl
       resource "yandex_mdb_kafka_cluster" "<cluster_name>" {

@@ -31,7 +31,7 @@ _Smart Protection_ — правило, которое отправляет тр�
 
 {% include [note-preview-waf](../../_includes/smartwebsecurity/note-preview-waf.md) %}
 
-Для проверки запросов соответствующих правилам Smart Protection и Web Application Firewall вы можете использовать следующие варианты капчи:
+Для проверки запросов, соответствующих правилам Smart Protection и Web Application Firewall, вы можете использовать следующие варианты капчи {{ captcha-name }}:
 
 {% include [captcha-integration](../../_includes/smartwebsecurity/captcha-integration.md) %}
 

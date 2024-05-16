@@ -6,7 +6,7 @@ description: "Follow this guide to change your billing account organization."
 # Changing the billing account organization
 
 
-To change the billing account [organization](../concepts/organization.md), a user must have the `billing.accounts.owner` and `organizations.billingAccountSetter` roles. To change the organization:
+To change the billing account [organization](../concepts/organization.md), the user must have the `billing.accounts.owner` role for the billing account and the `organization-manager.admin` role for the organization. To change the organization:
 
 {% list tabs group=instructions %}
 

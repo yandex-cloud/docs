@@ -29,6 +29,38 @@
 
 {% endlist %}
 
+## Получить детальную информацию об эндпоинте {#get}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**..
+    1. Нажмите на имя нужного эндпоинта.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    Чтобы получить информацию об эндпоинте, выполните команду:
+
+    ```bash
+    {{ yc-dt }} endpoint get <идентификатор_эндпоинта>
+    ```
+
+    Идентификатор эндпоинта можно получить со [списком эндпоинтов в каталоге](#list).
+
+- API {#api}
+
+    Воспользуйтесь методом API [get](../../api-ref/Endpoint/get.md) и передайте значение идентификатора эндпоинта в параметре `endpointId` запроса.
+
+    Чтобы узнать идентификатор эндпоинта, [получите список эндпоинтов в каталоге](#list).
+
+{% endlist %}
+
 ## Создать эндпоинт {#create}
 
 

@@ -159,7 +159,6 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
 
 ## Identity document {#identity-document}
 
-{% include [kz-preview](../../_includes/kz-preview.md) %}
 
 When creating a VM, an identity document that stores information about the VM is generated. It contains IDs of the VM, Marketplace product, disk image, etc. VMs can request information about themselves from the metadata service.
 

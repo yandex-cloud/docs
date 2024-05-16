@@ -20,10 +20,12 @@ items:
             href: operations/zone-create-public.md
           - name: Updating a DNS zone
             href: operations/zone-update.md
-          - name: Deleting a DNS zone
-            href: operations/zone-delete.md
+          - name: Configuring DNS zone access permissions
+            href: operations/zone-access.md
           - name: Viewing operations with DNS zones
             href: operations/operation-logs.md
+          - name: Deleting a DNS zone
+            href: operations/zone-delete.md
       - name: Getting information about a DNS zone
         items:
           - name: Getting a list of DNS zones

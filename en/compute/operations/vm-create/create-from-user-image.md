@@ -295,7 +295,7 @@ Make sure the uploaded image is in the `READY` status.
 
       {% endnote %}
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
    1. Create resources:
 

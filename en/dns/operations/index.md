@@ -10,6 +10,8 @@ description: "Step-by-step guides for working with DNS zones and resource record
 - [{#T}](zone-create-private.md)
 - [{#T}](zone-create-public.md)
 - [{#T}](zone-update.md)
+- [{#T}](zone-access.md)
+- [{#T}](operation-logs.md)
 - [{#T}](zone-delete.md)
 
 ## Getting information about a DNS zone {#zone-info}
