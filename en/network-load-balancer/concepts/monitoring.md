@@ -6,8 +6,8 @@ description: "The network load balancer sends the processed_bytes and processed_
 # Monitoring
 
 The network load balancer sends the following metrics to [{{ monitoring-full-name }}](../../monitoring/concepts/index.md):
-* `processed_bytes`: Traffic in bytes that passed through the load balancer, both egress and ingress. The traffic includes IP headers. The traffic excludes health checks.
-* `processed_packets`: Traffic in packets passed through the load balancer, both egress and ingress. This includes IP headers. This excludes traffic for health checks.
+* `processed_bytes`: Traffic in bytes routed through the load balancer, both ingress and egress. This includes IP headers. This excludes traffic for health checks.
+* `processed_bytes`: Traffic in packets routed through the load balancer, both ingress and egress. This includes IP headers. This excludes traffic for health checks.
 
 {% note info %}
 

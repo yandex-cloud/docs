@@ -189,6 +189,12 @@ Creating a NAT instance automatically configures only a single network interface
 
 You can also use the created route for other subnets in the same network, except for the subnet where the NAT instance is located.
 
+{% note warning %}
+
+Do not link the route table to the subnet where the NAT instance is located. Otherwise, route loops will occur, where the NAT instance will direct packets to itself rather than to the local network.
+
+{% endnote %}
+
 ## Test the NAT instance {#test-nat-instance}
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM via a private IP address, using the NAT instance as a jump host:

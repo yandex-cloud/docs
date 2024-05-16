@@ -4,7 +4,7 @@ After creating a [file storage](../../concepts/filesystem.md), you can change it
 
 {% note info %}
 
-You can only change the storage size using the [CLI](../../../cli/) or API.
+You can only change the storage size using the [CLI](../../../cli/) or API. You can only change the storage size by increasing it. You cannot decrease it.
 
 {% endnote %}
 

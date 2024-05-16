@@ -183,8 +183,8 @@ To update the contents of a schema that is already connected to the cluster:
 
    * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
    * Format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas).
-   * The new link to the file in {{ objstorage-full-name }} in the `uri` parameter.
-   * List of cluster configuration fields to be updated in the `updateMask` parameter.
+   * New link to the file in {{ objstorage-full-name }} in the `uri` parameter.
+   * List of cluster configuration fields to update in the `updateMask` parameter.
 
       {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 

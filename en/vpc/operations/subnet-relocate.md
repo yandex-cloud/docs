@@ -9,6 +9,8 @@ description: "Follow this guide to move a subnet to a different availability zon
 
 [Subnets](../concepts/network.md) can be moved to a different [availability zone](../../overview/concepts/geo-scope.md). You can only migrate empty subnets not hosting any VM instances or other resources.
 
+Make sure the subnet does not include addresses of target load balancer groups either. They prevent migration. Remove unused [target groups](../../network-load-balancer/operations/target-group-delete.md) or individual addresses.
+
 To move a subnet to a different availability zone:
 
 {% list tabs group=instructions %}

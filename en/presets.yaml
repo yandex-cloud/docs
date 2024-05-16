@@ -232,6 +232,8 @@ default:
   kms-full-name: Yandex Key Management Service
   kms-name: Key Management Service
   kms-short-name: KMS
+  kraft-name: Apache Kafka® Raft
+  kraft-short-name: KRaft
   lang: en
   license-manager: License Manager
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud

@@ -76,9 +76,9 @@ To create an image from a disk snapshot:
       }
       ```
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -108,4 +108,4 @@ To create an image from a disk snapshot:
 
 {% endlist %}
 
-An image just created will have the `CREATING` status. Wait until the image status changes to `READY` before using it.
+Once created, the image will have the `CREATING` status. Wait until the image status changes to `READY` before using it.

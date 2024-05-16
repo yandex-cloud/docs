@@ -77,10 +77,10 @@ A transfer only moves the current data and does not affect historical data. If y
       └─────────────────────────────┘
       ```
 
-   1. Make sure the tables with hit and session data contain the tag data:
+   1. Check whether the hit and session tables contain data from the tag:
 
       ```sql
-      SELECT * FROM <name_of_the_table_with_hit_or_session_data>
+      SELECT * FROM <name_of_hit_or_session_table>
       ```
 
 ## Delete the resources you created {#clear-out}

@@ -16,15 +16,16 @@
 ----- | -----
 | Minimum CIDR size for a subnet | /28 |
 | Maximum CIDR size for a subnet | /16 |
-| Maximum number of TCP/UDP connections per VM^*^ | 50,000 |
+| Maximum number of VM connections when using custom security groups^1^ ^2^ | 350,000 |
 | Supported network and transport layer protocols | IP, ICMP, TCP, UDP, GRE, ESP, AH |
 | Maximum number of rules per security group | 50 |
 | Maximum number of CIDRs per rule | 50 |
 | Size of the DNS server IP address list | 100 characters |
-| Maximum number of DNS requests to a DNS server (second address [in a subnet](../vpc/concepts/network.md#subnet)) | 1,000 requests per second. |
+| Maximum number of DNS requests to a DNS server (second address [in a subnet](../vpc/concepts/network.md#subnet)) | 1,000 requests per second |
 | Maximum number of NAT gateways | 20 |
 
-^*^ All TCP/IP and UDP connections opened and half-opened within 180 seconds are taken into account. If there are no data or keep-alive packets in the connection during this time, it is forcibly closed.
+^1^ All TCP and UDP connections opened and half-opened within 180 seconds are taken into account. If there are no data or keep-alive packets in the connection during this time, it is forcibly closed.
+^2^ The old network diagram had a limit of 50,000 connections.
 
 #### Outgoing traffic filtering {#vpc-egress-traffic-filter}
 

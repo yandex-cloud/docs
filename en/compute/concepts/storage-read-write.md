@@ -1,8 +1,8 @@
 # Read and write operations
 
-There are technical restrictions on reads and writes that apply to [disks](disk.md) and [file storages](filesystem.md). Such limitations apply to the entire disk or storage and each allocation unit (a unit of disk space allocation). The allocation unit size depends on the [disk or storage type](../concepts/limits.md#compute-limits-disks).
+There are some technical restrictions on reads and writes that apply to [disks](disk.md) and [file storages](filesystem.md). The restrictions apply both to the entire disk or storage and to each individual disk space allocation unit. The allocation unit size depends on the [disk or storage type](../concepts/limits.md#compute-limits-disks).
 
-The maximum read and write operation parameters are the following:
+The maximum read and write operation parameters are as follows:
 * Maximum IOPS: Maximum number of read and write operations per second.
 * Maximum bandwidth: Total number of bytes that can be read or written per second.
 
@@ -33,7 +33,7 @@ To achieve the maximum possible bandwidth, we recommend performing 4 MB reads an
 
 Disk or storage performance depends on its size: with more allocation units, you get higher IOPS and bandwidth values.
 
-For small HDDs, there is a feature that boosts their performance to that of 1 TB disks for peak loads. When a small disk operates at the [basic performance level](../concepts/limits.md#compute-limits-disks) for 12 hours, it accumulates <q>credits for operations</q>. These are spent automatically when the load increases, e.g., when a VM boots up. Small HDDs can work at increased performance for about 30 minutes a day. <q>Credits for operations</q> can be spent all at once or in small intervals. For HDD storages, this feature is unavailable.
+For smaller HDDs, there is a performance boosting mechanism in place for them to operate on a par with 1 TB disks during peak load periods. By operating at the [basic performance level](../concepts/limits.md#compute-limits-disks) for 12 hours, a smaller HDD accumulates "credits for operations". These will be automatically spent when the load increases, e.g., when the VM starts. Such HDDs can be boosted for about 30 minutes a day. "Credits for operations" can be spent in one go or in small intervals. This feature is not available for HDD storages.
 
 ### Testing disk performance {#test-performance}
 
