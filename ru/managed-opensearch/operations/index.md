@@ -7,25 +7,25 @@ description: "На странице представлен список поша
 
 ## Кластеры
 
-* [{#T}](cluster-list.md)
-* [{#T}](cluster-create.md)
-* [{#T}](connect.md)
+* [Информация об имеющихся кластерах](cluster-list.md)
+* [Создание кластера](cluster-create.md)
+* [Подключение к кластеру](connect.md)
 * [{#T}](saml-authentication.md)
-* [{#T}](update.md)
+* [Изменение настроек кластера](update.md)
 * [{#T}](cluster-version-update.md)
-* [{#T}](plugins.md)
-* [{#T}](cluster-stop.md)
-* [{#T}](host-groups.md)
-* [{#T}](host-migration.md)
-* [{#T}](cluster-backups.md)
-* [{#T}](s3-access.md)
-* [{#T}](cluster-delete.md)
+* [Управление плагинами](plugins.md)
+* [Остановка и запуск кластера](cluster-stop.md)
+* [Управление группами хостов](host-groups.md)
+* [Миграция групп хостов в другую зону доступности](host-migration.md)
+* [Управление резервными копиями](cluster-backups.md)
+* [Настройка доступа к {{ objstorage-name }}](s3-access.md)
+* [Удаление кластера](cluster-delete.md)
 
 ## Пользователи {{ OS }}
 
-* [{#T}](cluster-users.md)
+* [Управление пользователями](cluster-users.md)
 
 ## Логи и мониторинг
 
-* [{#T}](cluster-logs.md)
-* [{#T}](monitoring.md)
+* [Просмотр логов кластера](cluster-logs.md)
+* [Мониторинг состояния кластера и хостов](monitoring.md)

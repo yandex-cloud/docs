@@ -126,6 +126,7 @@ WAF могут быть аппаратными, программными и об
 
 {{ yandex-cloud }} предлагает пять продуктов для защиты ваших веб-приложений:
 
+1. [WAF в {{ sws-full-name }}](../smartwebsecurity/concepts/waf.md) (на стадии [Preview](../overview/concepts/launch-stages.md)) — межсетевой экран, предоставляющий набор базовых правил [OWASP Core Rule Set](https://coreruleset.org/) для защиты веб-приложений. 
 1. [Вебмониторэкс API Security](/marketplace/products/webmonitorx/node) — решение для защиты веб‑приложений и API от хакерских атак и автоматического поиска уязвимостей.
 1. [SolidWall WAF](/marketplace/products/solidsoft/solidwall-waf) — самый мощный файрвол от {{ yandex-cloud }}, который контролирует процесс работы приложений и выявляет уязвимости бизнес-логики.
 1. [Nemesida AI MLC](/marketplace/products/pentestit/nwaf-mlc) — ВМ для построения поведенческих моделей и выявления прочих аномалий.

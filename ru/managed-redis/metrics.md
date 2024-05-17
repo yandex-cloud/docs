@@ -4,4 +4,4 @@
 
 {% include [managed-redis](../_includes/monitoring/metrics-ref/managed-redis.md) %}
 
-Подробности см. в [{#T}](./operations/monitoring.md).
+Подробности см. в [Мониторинг состояния кластера и хостов](./operations/monitoring.md).

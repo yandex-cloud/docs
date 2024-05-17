@@ -6,7 +6,7 @@
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
 1. Введите имя и описание группы узлов {{ managed-k8s-name }}.
 1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** выберите версию {{ k8s }} для узлов {{ managed-k8s-name }}.
-1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_container-runtime }}** выберите `{{ ui-key.yacloud.k8s.node-groups.create.label_runtime-DOCKER }}` или `{{ ui-key.yacloud.k8s.node-groups.create.label_runtime-CONTAINERD }}`.
+1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_container-runtime }}** выберите `{{ ui-key.yacloud.k8s.node-groups.create.label_runtime-CONTAINERD }}`.
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}** выберите его тип:
    * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-fixed }}` — чтобы количество узлов {{ managed-k8s-name }} в группе оставалось неизменным. Укажите количество узлов {{ managed-k8s-name }} в группе.
 

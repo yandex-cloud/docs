@@ -27,7 +27,7 @@
 
      ```bash
      {{ yc-k8s }} node-group create \
-       --allowed-unsafe-sysctls=<имена_небезопасных_параметров_ядра> \
+       --allowed-unsafe-sysctls <имена_небезопасных_параметров_ядра> \
        --cluster-name <имя_кластера> \
        --cores <количество_vCPU> \
        --core-fraction <гарантированная_доля_vCPU> \
@@ -41,7 +41,7 @@
        --network-acceleration-type <тип_ускорения_сети> \
        --network-interface security-group-ids=[<идентификаторы_групп_безопасности>],subnets=[<имена_подсетей>],ipv4-address=<способ_назначения_IP-адреса> \
        --platform-id <идентификатор_платформы> \
-       --container-runtime <среда_запуска_контейнеров> \
+       --container-runtime containerd \
        --preemptible \
        --public-ip \
        --template-labels <облачные_метки_группы_узлов> \
@@ -78,7 +78,7 @@
        {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
      * `--platform-id` — [платформа](../../../compute/concepts/vm-platforms.md) для узлов {{ managed-k8s-name }}.
-     * `--container-runtime` — [среда запуска контейнеров](../../concepts/index.md#config), `docker` или `containerd`.
+     * `--container-runtime` — среда запуска контейнеров [containerd](https://containerd.io/).
      * `--preemptible` — флаг, который указывается, если виртуальные машины должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md).
      * `--public-ip` — флаг, который указывается, если группе узлов {{ managed-k8s-name }} требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
      * `--template-labels` — [облачные метки группы узлов](../../../resource-manager/concepts/labels.md) в формате `<имя_метки>=<значение_метки>`. Можно указать несколько меток через запятую.
@@ -120,7 +120,7 @@
      * Имя группы узлов {{ managed-k8s-name }}.
      * Идентификатор [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) в параметре `cluster_id`.
      * [Платформу](../../../compute/concepts/vm-platforms.md) для узлов {{ managed-k8s-name }}.
-     * Настройку [среды запуска контейнеров](../../concepts/index.md#config) в параметре `container_runtime`.
+     * Настройку среды запуска контейнеров в параметре `container_runtime`.
      * [Облачные метки группы узлов](../../../resource-manager/concepts/labels.md) в блоке `nodeTemplate.labels`.
      * Настройки масштабирования в блоке `scale_policy`.
 
@@ -136,7 +136,7 @@
          platform_id = "<платформа_для_узлов>"
          network_acceleration_type = "<тип_ускорения_сети>"
          container_runtime {
-          type = "<среда_запуска_контейнеров>"
+           type = "containerd"
          }
          labels {
            "<имя_метки>"="<значение_метки>"
@@ -165,9 +165,7 @@
 
          {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
-       * `container_runtime`:
-         * `type` — [среда запуска контейнеров](../../concepts/index.md#config): `docker` или `containerd`.
-
+       * `container_runtime`, `type` — среда запуска контейнеров [containerd](https://containerd.io/).
        * `labels` — [облачные метки группы узлов](../../../resource-manager/concepts/labels.md). Можно указать несколько меток через запятую.
        * `scale_policy` – настройки масштабирования.
 
@@ -227,7 +225,7 @@
 
     {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
-  * [Среду запуска контейнеров](../../concepts/index.md#config) в параметре `nodeTemplate.containerRuntimeSettings.type`.
+  * Среду запуска контейнеров [containerd](https://containerd.io/) в параметре `nodeTemplate.containerRuntimeSettings.type`.
   * [Облачные метки группы узлов](../../../resource-manager/concepts/labels.md) в параметре `nodeTemplate.labels`.
   * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.
   * [Настройки размещения](../../../overview/concepts/geo-scope.md) группы узлов {{ managed-k8s-name }} в параметрах `allocationPolicy`.
