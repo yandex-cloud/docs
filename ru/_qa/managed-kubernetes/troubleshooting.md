@@ -297,3 +297,7 @@ Failed to pull image "{{ registry }}/***": rpc error: code = Unknown desc = Erro
 Если вы назначили публичные IP-адреса узлам кластера и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее см. в [документации сервиса {{ vpc-full-name }}](../../vpc/concepts/static-routes.md#internet-routes).
 
 {% endnote %}
+
+#### Почему я не могу выбрать Docker в качестве среды запуска контейнеров? {#docker-runtime}
+
+Среда запуска контейнеров Docker не поддерживается в кластерах с версией {{ k8s }} 1.24 и выше. Доступна только среда [containerd](https://containerd.io/).

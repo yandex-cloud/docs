@@ -230,7 +230,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
          {% endnote %}
 
-      * `--services`: List of [components](../concepts/environment.md) that you want to use in the {{ dataproc-name }} cluster. If this parameter is omitted, the default set will be used: `hdfs`, `yarn`, `mapreduce`, `tez`, and `spark`.
+      * `--services`: List of [components](../concepts/environment.md) that you want to use in the {{ dataproc-name }} cluster. If this parameter is omitted, the default set will be used: `yarn`, `tez`, and `spark`.
       * `--ssh-public-keys-file`: Full path to the file with the public part of the SSH key for access to the {{ dataproc-name }} cluster hosts. For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
       * `--subcluster`: Parameters of {{ dataproc-name }} subclusters:
          * `name`: {{ dataproc-name }} subcluster name.

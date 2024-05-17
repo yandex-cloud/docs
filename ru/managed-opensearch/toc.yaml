@@ -30,9 +30,9 @@ items:
                 href: operations/update.md
               - name: Обновление версии {{ OS }}
                 href: operations/cluster-version-update.md
-              - name: Управление плагинами {{ OS }}
+              - name: Управление плагинами
                 href: operations/plugins.md
-          - name: Управление хостами {{ OS }}
+          - name: Управление хостами кластера
             items:
               - name: Управление группами хостов
                 href: operations/host-groups.md
@@ -46,7 +46,7 @@ items:
             href: operations/s3-access.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
-      - name: Управление пользователями {{ OS }}
+      - name: Управление пользователями
         href: operations/cluster-users.md
       - name: Логи и мониторинг
         items:

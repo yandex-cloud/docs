@@ -391,6 +391,7 @@ default:
   mqtt-server-address: mqtt.cloud.yandex.net
   mqtt-server-port: 8883
   mrd-full-name: Yandex Managed Service for Redis
+  mrd-host-class: hm2.nano
   mrd-memory-used: 75%
   mrd-name: Managed Service for Redis
   mrd-short-name: Managed Service for Redis
