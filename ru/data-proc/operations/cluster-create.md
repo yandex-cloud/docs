@@ -230,7 +230,7 @@
 
        {% endnote %}
 
-     * `--services` — список [компонентов](../concepts/environment.md), которые вы хотите использовать в кластере {{ dataproc-name }}. Если не указать этот параметр, будет использоваться набор по умолчанию: `hdfs`, `yarn`, `mapreduce`, `tez`, `spark`.
+     * `--services` — список [компонентов](../concepts/environment.md), которые вы хотите использовать в кластере {{ dataproc-name }}. Если не указать этот параметр, будет использоваться набор по умолчанию: `yarn`, `tez`, `spark`.
      * `--ssh-public-keys-file` — полный путь к файлу с публичной частью [SSH-ключа](../../glossary/ssh-keygen.md), который будет использоваться для доступа к хостам кластера {{ dataproc-name }}. Как создать и использовать SSH-ключи, читайте в [документации {{ compute-full-name }}](../../compute/operations/vm-connect/ssh.md).
      * `--subcluster` — параметры подкластеров {{ dataproc-name }}:
        * `name` — имя подкластера {{ dataproc-name }}.
@@ -342,8 +342,8 @@
      Пример структуры конфигурационного файла, в котором описывается облачная сеть с одной подсетью:
 
      ```hcl
-     resource "yandex_vpc_network" "test_network" { 
-       name = "<имя_сети>" 
+     resource "yandex_vpc_network" "test_network" {
+       name = "<имя_сети>"
      }
 
      resource "yandex_vpc_subnet" "test_subnet" {

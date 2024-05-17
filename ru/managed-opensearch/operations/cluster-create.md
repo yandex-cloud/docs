@@ -14,7 +14,7 @@ keywords:
 
 Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
 
-Подробнее см. в разделе [{#T}](../concepts/index.md).
+Подробнее см. в разделе [Взаимосвязь ресурсов сервиса](../concepts/index.md).
 
 ## Создать кластер {#create-cluster}
 

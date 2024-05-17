@@ -38,7 +38,7 @@ keywords:
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
-    1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта см. в разделе [{#T}](s3-access.md).
+    1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к {{ objstorage-name }}](s3-access.md).
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -56,7 +56,7 @@ keywords:
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    Подробнее о настройке сервисного аккаунта см. в разделе [{#T}](s3-access.md).
+    Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к {{ objstorage-name }}](s3-access.md).
 
 - {{ TF }} {#tf}
 
@@ -73,7 +73,7 @@ keywords:
         }
         ```
 
-        Подробнее о настройке сервисного аккаунта см. в разделе [{#T}](s3-access.md).
+        Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к {{ objstorage-name }}](s3-access.md).
 
     1. Проверьте корректность настроек.
 
@@ -90,7 +90,7 @@ keywords:
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Идентификатор сервисного аккаунта, используемого для работы с кластером, в параметре `serviceAccountId`.
 
-    Подробнее о настройке сервисного аккаунта см. в разделе [{#T}](s3-access.md).
+    Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к {{ objstorage-name }}](s3-access.md).
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

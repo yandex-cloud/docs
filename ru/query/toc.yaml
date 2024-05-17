@@ -124,6 +124,8 @@ items:
     href: pricing.md
   - name: Справочник
     items:
+      - name: SDK
+        href: SDK/SDK.md
       - name: HTTP API
         items:
           - name: Обзор

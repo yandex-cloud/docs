@@ -7,28 +7,28 @@ description: "На странице представлен список поша
 
 ## Кластеры
 
-* [{#T}](cluster-list.md)
-* [{#T}](cluster-create.md)
-* [{#T}](update.md)
+* [Информация об имеющихся кластерах](cluster-list.md)
+* [Создание кластера](cluster-create.md)
+* [Изменение настроек кластера](update.md)
 * [{#T}](cluster-version-update.md)
-* [{#T}](cluster-stop.md)
-* [{#T}](hosts.md)
-* [{#T}](host-migration.md)
-* [{#T}](cluster-backups.md)
-* [{#T}](cluster-delete.md)
+* [Остановка и запуск кластера](cluster-stop.md)
+* [Управление хостами кластера](hosts.md)
+* [Миграция хостов в другую зону доступности](host-migration.md)
+* [Управление резервными копиями](cluster-backups.md)
+* [Удаление кластера](cluster-delete.md)
 
 ## Базы данных
 
 * [{#T}](connect/index.md)
-* [{#T}](connect/non-sharded.md)
-* [{#T}](connect/sharded.md)
+* [Подключение к нешардированному кластеру](connect/non-sharded.md)
+* [Подключение к шардированному кластеру](connect/sharded.md)
 
 ## Шардирование и отказоустойчивость
 
-* [{#T}](shards.md)
+* [Управление шардами](shards.md)
 * [{#T}](failover.md)
 
 ## Логи и мониторинг
 
-* [{#T}](cluster-logs.md)
-* [{#T}](monitoring.md)
+* [Просмотр логов кластера](cluster-logs.md)
+* [Мониторинг состояния кластера и хостов](monitoring.md)
