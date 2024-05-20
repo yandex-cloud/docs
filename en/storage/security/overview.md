@@ -77,6 +77,7 @@ Access grantees include:
 * [Service account](../../iam/concepts/users/service-accounts.md)
 * [Federated user](../../iam/concepts/federations.md)
 * Anonymous user
+* [User group](../../organization/concepts/groups.md)
 
 Access is granted to a [bucket](../concepts/bucket.md), [object](../concepts/object.md), or a group of objects.
 

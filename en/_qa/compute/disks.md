@@ -20,7 +20,9 @@ sudo growpart /dev/vda 2
 sudo resize2fs /dev/vda2
 ```
 
-For non-bootable disks, the partition size won't expand automatically. Use standard OS tools for this purpose (for example, `parted`).
+For non-bootable disks, the partition size is not automatically increased. Use standard operating system tools for working with disks and their partitions, e.g., `parted`, `fdisk`, `cfdisk`, `sfdisk`, `growpart`. For more information, see [{#T}](../../compute/operations/disk-control/update.md#change-part-size-linux).
+
+To avoid accidentally losing data when resizing, we recommend that you first [create](../../compute/operations/disk-control/create-snapshot.md) a disk snapshot.
 
 #### How do I upload a custom image? {#load-image}
 

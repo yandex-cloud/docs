@@ -82,7 +82,6 @@ will be displayed as:
 
 This text is <font color="green">green</font>.
 
-
 ## Lists {#lists}
 
 You can use multiple list types to arrange the data on the dashboard.
@@ -317,9 +316,9 @@ For example, the following markup:
 
 ```markdown
 
-{% cut "Title of the text to cut" %}
+{% cut "Cut title" %}
 
-Content to be displayed on click.
+Content displayed on click.
 
 {% endcut %}
 
@@ -327,9 +326,9 @@ Content to be displayed on click.
 
 will be displayed as:
 
-{% cut "Title of the text to cut" %}
+{% cut "Cut title" %}
 
-Content to be displayed on click.
+Content displayed on click.
 
 {% endcut %}
 

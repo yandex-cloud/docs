@@ -82,6 +82,8 @@ items:
                 href: concepts/data-collection/unified-agent/configuration.md
               - name: Best practices for using the agent
                 href: concepts/data-collection/unified-agent/best-practices.md
+              - name: Deletion
+                href: concepts/data-collection/unified-agent/delete.md
       - name: Query language
         href: concepts/querying.md
       - name: Alerting

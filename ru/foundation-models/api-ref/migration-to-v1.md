@@ -1,6 +1,6 @@
 # Миграция с API v1alpha на YandexGPT API v1 и Embeddings API v1
 
-[API версии v1alpha](../api-ref/v1alpha/) устарел и в ближайшее время перестанет поддерживаться. Для работы с {{ yagpt-name }} используйте [YandexGPT API v1](../text-generation/api-ref/) и [Embeddings API v1](../embeddings/api-ref/). Максимальное суммарное количество [токенов](../concepts/yandexgpt/tokens.md), которое может содержаться в запросе пользователя и ответе модели в новой версии API, составляет {{ yagpt-max-tokens }}.
+[API версии v1alpha](../api-ref/v1alpha/) устарел и больше не поддерживается. Для работы с {{ yagpt-name }} используйте [YandexGPT API v1](../text-generation/api-ref/) и [Embeddings API v1](../embeddings/api-ref/). Максимальное суммарное количество [токенов](../concepts/yandexgpt/tokens.md), которое может содержаться в запросе пользователя и ответе модели в новой версии API, составляет {{ yagpt-max-tokens }}.
 
 Если ваш продукт использует методы устаревшего API, переведите его на использование нового интерфейса. Подробный обзор необходимых изменений для REST API приведен ниже. Изменения для gRPC API аналогичны.
 

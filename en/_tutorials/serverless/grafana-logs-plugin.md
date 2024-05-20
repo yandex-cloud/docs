@@ -452,9 +452,15 @@ The cost of resources includes a fee for logging operations and log storage in a
       * `--message`: Message
       * `--level`: Logging level
 
+   {% note info %}
+
+   You can skip the `--group-name` and `--message` flags and specify only the parameter values, e.g., `grafana-plugin "My message"`.
+
+   {% endnote %}
+
 - API {#api}
 
-   To add entries to the log group, use the [LogIngestionService/Write](../../logging/api-ref/grpc/log_ingestion_service.md#Write) gRPC API call.
+   To add records to the log group, use the [LogIngestionService/Write](../../logging/api-ref/grpc/log_ingestion_service.md#Write) gRPC API call.
 
 {% endlist %}
 

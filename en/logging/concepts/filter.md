@@ -30,9 +30,9 @@ You can filter log group records using the filter expression language. With the 
 
    To set a filter using the filter expression language, run the command:
 
-    ```
-    yc logging read --group-name=default --filter="<filter>"
-    ```
+   ```
+   yc logging read --group-name=default --filter="<filter>"
+   ```
 
    {% note info %}
 
@@ -70,8 +70,6 @@ You can filter log group records using the filter expression language. With the 
 >   level >= INFO
 >   ```
 
-{% endlist %}
-
 ## Filter parameters {#parameters}
 
 | Parameter | Filter format | Description | Sample filter |
@@ -85,6 +83,9 @@ You can filter log group records using the filter expression language. With the 
 | `ingested_at` | ```parameter <comparison operator> "value"``` | Search for records delivered to the {{ cloud-logging-name }} system within the specified interval. | ```ingested_at = "2023-06-22T05:15:03Z"``` |
 | `saved_at` | ```parameter <comparison operator> "value"``` | Search for records saved to the {{ cloud-logging-name }} database within the specified interval. | ```saved_at >= 1622198048``` |
 | `level` | ```parameter <comparison operator> "value"``` | Search for records with the specified logging levels. Possible logging levels: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. | ```level >= WARN``` |
+| `stream_name` | ```parameter <comparison operator> "value"``` | Search for records by custom log streams. | ```stream_name = input``` |
+| `request_id` | ```parameter <comparison operator> "value"``` | Search for records by the request ID in `json_playload`. | ```request_id <= "145"``` |
+
 
 ### Parameter value requirements {#requirements}
 
@@ -104,12 +105,19 @@ Possible types of `timestamp`, `ingested_at`, and `saved_at` parameter values:
    saved_at >= 1622198048
    ```
 
-### Multiple parameter values {#multiple-values}
+### Searching for occurrences {#multiple-values}
 
 To filter records by multiple values of the same parameter, list the values one by one:
 ```
 parameter: "value1" "value2" "value3"
 ```
+
+For case-sensitive search, use the `:!` operator:
+```
+parameter:! "vAlUe1" "vaLuE2"
+```
+
+Search for boolean values and floating-point and fixed-point numbers works as search for substring matching across multiple strings.
 
 ## Comparison operators {#comparison-operations}
 

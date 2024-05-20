@@ -12,6 +12,12 @@ To [run a job](../../operations/projects/work-with-jobs.md), set up a Python vir
 
 You can find jobs in the **{{ ml-platform-name }} Jobs** tab of a project. Their progress and results will be available under **Run history**.
 
+{% note tip %}
+
+For long-running jobs, we recommend saving intermediate results in the S3 object storage.
+
+{% endnote %}
+
 ## Job configuration file {#config}
 
 When creating a job, specify its parameters in the `config.yaml` file: a [configuration of computing resources](../configurations.md) that will be used for job execution and required files with input data. Depending on the settings specified in the configuration file, {{ ml-platform-name }} analyzes the job, identifies dependencies, [deploys the environment](environment.md) on the VM, and runs the job code. Job execution results are saved in the {{ ml-platform-name }} project files listed in the job configuration.

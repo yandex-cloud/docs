@@ -4,10 +4,10 @@ _[{{ kraft-name }}](https://docs.confluent.io/platform/current/kafka-metadata/kr
 
 {{ kraft-short-name }} поддержан в кластерах {{ mkf-name }} с версией {{ KF }} 3.6 и выше. [{{ ZK }} используется](index.md#zookeeper) только в более ранних версиях.
 
-{{ ZK }} заменяется на {{ kraft-short-name }}, потому что:
+Причины замены {{ ZK }} на {{ kraft-short-name }}:
 
 * {{ ZK }} устарел в версиях {{ KF }} 3.5 и выше;
-* с версией 4.0 {{ ZK }} не будет поддерживаться в {{ KF }}.
+* с версией {{ KF }} 4.0 поддержка {{ ZK }} прекратится.
 
 ## Топология кластера {{ mkf-name }} {#cluster-topology}
 
@@ -15,13 +15,13 @@ _[{{ kraft-name }}](https://docs.confluent.io/platform/current/kafka-metadata/kr
 
 ## Преимущества и недостатки {{ kraft-name }} {#pros-and-cons}
 
-Преимущества {{ kraft-short-name }} объясняются тем, что {{ KF }} больше не зависит от внешней системы {{ ZK }}. В результате:
+Преимущества {{ kraft-short-name }} связаны с тем, что {{ KF }} больше не зависит от внешней системы {{ ZK }}:
 
 * Не нужно доплачивать за хосты {{ ZK }}.
 * Для информационной безопасности используется один механизм вместо нескольких.
 * Управлять кластером с {{ kraft-short-name }} проще, так как в кластере нет хостов {{ ZK }}.
 * Повышается отказоустойчивость кластера, в случае сбоя кластер восстанавливается почти мгновенно.
-* Можно создавать и управлять бо́льшим количеством партиций в кластере.
+* Можно создавать бо́льшее количество партиций в кластере.
 
 Подробнее см. на [сайте](https://developer.confluent.io/learn/kraft/#benefits-of-kafkas-new-quorum-controller) и в [документации](https://docs.confluent.io/platform/current/kafka-metadata/kraft.html) Confluent.
 

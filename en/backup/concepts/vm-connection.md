@@ -28,10 +28,11 @@ You can automatically install the {{ backup-name }} agent when creating a VM fro
 * [Ubuntu 20.04 LTS OS Login](/marketplace/products/yc/ubuntu-2004-lts-oslogin)
 * [Ubuntu 18.04 LTS](/marketplace/products/yc/ubuntu-18-04-lts)
 * [Ubuntu 18.04 LTS OS Login](/marketplace/products/yc/ubuntu-1804-lts-oslogin)
-* [Ubuntu 16.04 LTS](/marketplace/products/yc/ubuntu-26-04-lts)
+* [Ubuntu 16.04 LTS](/marketplace/products/yc/ubuntu-16-04-lts)
 * [CentOS 7](/marketplace/products/yc/centos-7)
 * [CentOS 7 OS Login](/marketplace/products/yc/centos-7-oslogin)
 * [CentOS Stream](/marketplace/products/yc/centos-stream-8)
+* [Astra Linux SE 1.7 Voronezh](/marketplace/products/astralinux/alse)
 
 ### Windows-based images {#windows}
 

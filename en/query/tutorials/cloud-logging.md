@@ -14,11 +14,11 @@ In this use case, you will send {{ cloud-logging-short-name }} logs to a {{ yds-
 
 To implement this use case:
 
-1. [{#T}](#create-yds-stream).
-1. [{#T}](#create-log-group).
-1. [{#T}](#send-to-loggroup).
-1. [{#T}](#connect-query).
-1. [{#T}](#query).
+1. [{#T}](#create-yds-stream)
+1. [{#T}](#create-log-group)
+1. [{#T}](#send-to-loggroup)
+1. [{#T}](#connect-query)
+1. [{#T}](#query)
 
 ## Getting started {#before-you-begin}
 
@@ -54,6 +54,12 @@ done
 * `--message`: Message text.
 * `--json_payload`: Additional message data in JSON format.
 * `--folder-id`: ID of the folder where the log group was created.
+
+{% note info %}
+
+You can skip the `--group-name`, `--message`, and `--json-payload` flags and specify only the parameter values, e.g., `cloud-logging-group "test_message" '{"request_id": "1234", "host":"test_host"}'`.
+
+{% endnote %}
 
 ## Connect {{ yq-name }} to your data stream {#connect-query}
 

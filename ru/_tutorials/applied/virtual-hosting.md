@@ -231,7 +231,7 @@ description: "Из данной инструкции вы узнаете, как
 
 Чтобы загрузить файл на ВМ:
 
-{% include [upload-files](../_common/upload-web-site-files.md) %}
+{% include [upload-files](../_tutorials_includes/upload-web-site-files.md) %}
 
 Повторите этот процесс с нужными файлами для каждой ВМ из групп `vhosting-ig-a` и `vhosting-ig-b`.
 

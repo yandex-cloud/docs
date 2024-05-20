@@ -87,8 +87,8 @@ To create a public [DNS zone](../concepts/dns-zone.md):
           label1 = "test-public"
         }
 
-        zone   = "test.example-public2.com."
-        public = true
+        zone    = "test.example-public2.com."
+        public  = true
       }
 
       resource "yandex_dns_recordset" "rs1" {
@@ -135,4 +135,4 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 
 {% endlist %}
 
-To get access to public zone domain names, you need to delegate the domain. Specify the addresses of `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` servers in your personal dashboard at your registrar.
+To get access to public zone domain names, you need to delegate the domain. Specify the addresses of the `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` servers in your personal dashboard at your registrar.
