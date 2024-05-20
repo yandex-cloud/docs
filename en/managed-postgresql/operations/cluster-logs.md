@@ -4,6 +4,7 @@
 
 {% include [log-duration](../../_includes/mdb/log-duration.md) %}
 
+
 ## Getting a cluster log {#get-log}
 
 {% list tabs group=instructions %}

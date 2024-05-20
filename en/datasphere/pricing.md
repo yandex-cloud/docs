@@ -54,57 +54,6 @@ If you need to store large amounts of data, you can use {{ objstorage-full-name 
 
 The monthly usage rate is based on 720 hours per month.
 
-## Examples of cost calculation {#price-example}
-
-### {{ ds-nb }} {#price-example-notebook}
-
-Cost of using {{ ml-platform-name }} with the following parameters:
-
-* **Computing resources:** g1.1 configuration with 8 CPUs and 1 GPU.
-* **VM usage time:** 10 minutes.
-
-The cost is calculated as follows:
-
-> 72 × 600 = 43,200 units for VM usage
-> 43,200 × 0.0000096 = $0.4147200
->
-> Total: $0.4147200 is the cost of using {{ ml-platform-name }}.
-
-Where:
-* 72: Number of units per g1.1 configuration.
-* 600: VM usage time in seconds.
-* $0.0000096: Cost per unit.
-
-### {{ ds-inf }} {#price-example-node}
-
-Cost of using {{ ds-inf }} with the following parameters:
-
-* **Number of instances per node:** 2.
-* **Instance configuration:** g1.1 with 8 CPUs and 1 GPU.
-* **Node runtime:** 2 days 3 hours 36 minutes.
-
-Converting node runtime into seconds:
-
-> 2 × (24 × 60 × 60) + 3 × (60 × 60) + 36 × 60 =172,800 + 10,800 + 2,160= 185,760
-
-Where:
-* (24 × 60 × 60): Number of seconds in 24 hours.
-* (60 × 60): Number of seconds in 1 hour.
-* 60: Number of seconds in 1 minute.
-
-The cost is calculated as follows:
-
-> 72 × 185,760 × 2 = 26,749,440 units for running a node
-> 26,749,440 × 0.0000096 = $256.7946240
->
-> Total cost of using {{ ml-platform-name }}: $256.7946240.
-
-Where:
-* 72: Number of units per g1.1 configuration.
-* 185,760 : Node runtime in seconds.
-* 2: Number of instances per node.
-* $0.0000096: Cost per unit.
-
 ## Pricing {#prices}
 
 
@@ -132,3 +81,53 @@ The prices of the configurations are valid for computations in [{{ ds-nb }}](con
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 
+## Examples of cost calculation {#price-example}
+
+### {{ ds-nb }} {#price-example-notebook}
+
+Cost of using {{ ml-platform-name }} with the following parameters:
+
+* **Computing resources**: g1.1 configuration with 8 CPUs and 1 GPU.
+* **VM usage time**: 10 minutes.
+
+The cost is calculated as follows:
+
+> 72 × 600 = 43,200 units for VM usage
+> 43,200 × 0.0000096 = $&nbsp;0.4147200
+>
+> Total: $&nbsp;0.4147200 is the cost of using {{ ml-platform-name }}.
+
+Where:
+* 72: Number of units per g1.1 configuration.
+* 600: VM usage time in seconds.
+* $0.0000096: Cost per unit.
+
+### {{ ds-inf }} {#price-example-node}
+
+Cost of using {{ ds-inf }} with the following parameters:
+
+* **Number of instances per node**: 2.
+* **Instance configuration**: g1.1 with 8 CPUs and 1 GPU.
+* **Node runtime**: 2 days 3 hours 36 minutes.
+
+Converting node runtime into seconds:
+
+> 2 × (24 × 60 × 60) + 3 × (60 × 60) + 36 × 60 = 172,800 + 10,800 + 2,160= 185,760
+
+Where:
+* (24 × 60 × 60): Number of seconds in 24 hours.
+* (60 × 60): Number of seconds in 1 hour.
+* 60: Number of seconds in 1 minute.
+
+The cost is calculated as follows:
+
+> 72 × 185,760 × 2 = 26,749,440 units for running a node
+> 26,749,440 × 0.0000096 = $&nbsp;256.7946240
+>
+> Total cost of using {{ ml-platform-name }}: $&nbsp;256.7946240.
+
+Where:
+* 72: Number of units per g1.1 configuration.
+* 185,760: Node runtime in seconds.
+* 2: Number of instances per node.
+* $0.0000096: Cost per unit.

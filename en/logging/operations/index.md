@@ -25,5 +25,6 @@ description: "In this article, you will learn how to work with {{ cloud-logging-
 
 * [{#T}](./create-sink.md)
 * [{#T}](./export-logs.md)
+* [{#T}](./export-logs-yds.md)
 * [{#T}](./list-sink.md)
 * [{#T}](./get-sink.md)

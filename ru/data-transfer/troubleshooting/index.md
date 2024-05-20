@@ -137,6 +137,8 @@
 
 {% include [conn-duration-quota](../../_includes/data-transfer/troubles/postgresql/conn-duration-quota.md) %}
 
+{% include [conn-limit](../../_includes/data-transfer/troubles/postgresql/conn-limit.md) %}
+
 {% include [view](../../_includes/data-transfer/troubles/postgresql/view.md) %}
 
 {% include [constraint](../../_includes/data-transfer/troubles/postgresql/constraint.md) %}

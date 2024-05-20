@@ -31,6 +31,8 @@ items:
             href: operations/api-gw-monitoring.md
           - name: Viewing execution logs
             href: operations/api-gw-logs.md
+          - name: Disconnecting a domain
+            href: operations/api-gw-domain-detach.md
           - name: Migration to the {{ region-id }}-d availability zone
             href: operations/api-gw-migration.md
           - name: Deleting an API gateway

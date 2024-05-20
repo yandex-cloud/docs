@@ -5191,7 +5191,12 @@ default:
             title_current-state: Текущее состояние
             title_states-history: История состояний
           pxf:
+            action_create-datasource: Добавить источник данных
             action_edit-settings: Изменить настройки PXF
+            value_hdfs: HDFS
+            value_hive: Hive
+            value_jdbc: JDBC
+            value_s3: S3
           user-auth:
             action_add-rule: Добавить правило
             action_edit-rules: Редактировать правила
@@ -8103,7 +8108,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: 1.14.6
+        tag: 1.14.7
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
@@ -8160,11 +8165,11 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/metric-provider/chart/metric-provider
-        tag: 0.1.11
+        tag: 0.1.12
     yc_node-local-dns:
       helmChart:
-        name: cr.yandex/yc-marketplace/k8s.gcr.io/node-local-dns/chart
-        tag: '1.5'
+        name: cr.yandex/yc-marketplace/yandex-cloud/node-local-dns
+        tag: 1.5.1
     yc_policy-reporter:
       helmChart:
         name: cr.yandex/yc-marketplace/policy-reporter

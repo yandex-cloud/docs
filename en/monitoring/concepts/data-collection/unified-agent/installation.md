@@ -35,9 +35,9 @@ Prior to installing {{ unified-agent-full-name }}, follow these steps:
 
 Install {{ unified-agent-short-name }} using one of the following methods:
 
-{% list tabs %}
+{% list tabs group=unified_agent %}
 
-- Docker image
+- Docker image {#docker}
 
    {{ unified-agent-short-name }} is distributed as a Docker image. The image is published in the `{{ registry }}/yc` repository with the `unified_agent` name and `latest` tag. The image includes a binary file with the agent and a configuration file used to set up the agent [for Linux system metric delivery](../../../operations/unified-agent/linux_metrics.md) in {{ monitoring-full-name }}.
 
@@ -88,7 +88,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
    For more information about agent configuration, see [{#T}](./configuration.md).
 
-- deb package
+- deb package {#deb}
 
    {{ unified-agent-short-name }} is distributed as a deb package for Ubuntu 14.04 or higher. The package contains a binary file with the agent and an empty configuration file located at `/etc/yandex/unified_agent/config.yml`.
 
@@ -116,7 +116,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
    sudo dpkg -i yandex-unified-agent_21.02.03_amd64.deb
    ```
 
-   To make sure {{ unified-agent-short-name }} is successfully installed and running, run the `systemctl status unified-agent` command. Sample command output:
+   To make sure {{ unified-agent-short-name }} is successfully installed and running, run the `systemctl status unified-agent` command. Command output example:
 
    ```bash
    user@my-vm:~$ systemctl status unified-agent
@@ -132,7 +132,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
    After installing the package, edit the `/etc/yandex/unified_agent/config.yml` configuration file, e.g., by setting up the agent for [delivering Linux system metrics](../../../operations/unified-agent/linux_metrics.md). For more information about agent configuration, see [{#T}](./configuration.md).
 
-- Binary file
+- Binary file {#binary}
 
    {{ unified-agent-short-name }} is distributed as a binary file built for the x86-64/amd64 architecture for Ubuntu 14.04 or higher.
 
@@ -157,8 +157,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
    Where `--config` is the path to the configuration file.
 
-
-- When creating a VM
+- When creating a VM {#vm}
 
    You can install the agent when creating a VM in the [management console]({{ link-console-main }}). To do this, enable the **{{ ui-key.yacloud.compute.instances.create.unified-agent }}** option under **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}**. The agent is installed automatically with the default configuration file that will send [basic VM metrics](./configuration.md#linux_metrics_input) and [agent health metrics](./configuration.md#agent_metrics_input). You will be [charged](../../../pricing.md) for metric delivery.
 
@@ -173,7 +172,6 @@ Install {{ unified-agent-short-name }} using one of the following methods:
    To install the agent and send metrics properly, make sure the created VM has access to the internet.
 
    You are responsible for updating and maintaining the agent.
-
 
 {% endlist %}
 

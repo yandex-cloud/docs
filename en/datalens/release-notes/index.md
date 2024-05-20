@@ -1,48 +1,60 @@
 ---
-title: "{{ datalens-full-name }} release notes for March 2024"
-description: "Check out {{ datalens-full-name }} release notes for March 2024."
+title: "{{ datalens-full-name }} release notes for April 2024"
+description: "Check out {{ datalens-full-name }} release notes for April 2024."
 ---
 
-# {{ datalens-full-name }} release notes: March 2024
+# {{ datalens-full-name }} release notes: April 2024
 
 
-* [Updates](#top-news)
-* [Fixes and improvements](#fixes)
+* [Changes in basic features](#base)
+* [Changes available with the _Business_ service plan](#business)
 
-## Updates {#top-news}
-
-### Filtering charts by charts {#chart-filtration}
-
-Added the option to [filter charts by charts](../dashboard/chart-chart-filtration.md). A chart with filtering configured can now be used as a selector for other charts.
-
-You can enable filtering for a chart in the widget settings on the dashboard. To apply filtering, click an individual item in the filtering chart, e.g., a point on a graph, a column, or a pie chart segment. The linked charts will then be filtered by the selected dimensions.
-
-### Connecting to Yandex Documents {#yadocs-connection}
-
-Added a new connection type: [Yandex Documents](../operations/connection/create-yadocs.md).
-
-### Uploading Excel files {#file-connection}
-
-Added the option to upload `Excel` files for the [Files](../operations/connection/create-file.md) connection type.
-
-### Configuring links on the dashboard {#dashboard-link-settings}
-
-Updated the [link](../dashboard/link.md) management interface on the dashboard. To configure links, switch to the dashboard edit mode and click ![image](../../_assets/datalens/links.svg) to the right of the widget you need.
-
-### Joining tables in a connection to Bitrix24 {#bitrix24-join}
-
-In a connection to [Bitrix24](../operations/connection/create-bitrix24.md), you can now [join data](../concepts/data-join.md#ui-join) from multiple tables.
-
-### New domain {#new-domain}
-
-Starting March 27, {{ datalens-short-name }} is available at the new address, <{{ link-datalens-main }}>.
-
-Users will not experience any change. Old addresses will redirect you automatically. However, you will have to log in once again. For more information, see the [blog](https://yandex.cloud/ru/blog/posts/2024/03/new-domain).
+## Changes in basic features {#base}
 
 
-## Fixes and improvements {#fixes}
+### Auto height of the _Text_ and _Heading_ widgets {#text-title-auto-height}
+
+Added the auto height setting for the [Text](../dashboard/widget.md#text) and [Heading](../dashboard/widget.md#title) widgets. To enable auto height, while in dashboard edit mode, click ![image](../../_assets/console-icons/gear.svg), enable **Auto height** and click **Save**.
+
+### Selecting a text color in Markdown {#colors-markdown}
+
+Now you can select a text color for [Markdown](../dashboard/markdown.md#text-color). You can set the text color using either the visual editor or this formatting: `{color}(text)`.
+
+### Markup functions in calculated fields {#calculations-markup}
+
+Added new markup functions in [calculated fields](../concepts/calculations/index.md): [BR](../function-ref/BR.md), [COLOR](../function-ref/COLOR.md), and [SIZE](../function-ref/SIZE.md).
 
 
-### Displaying the X axis in a combined chart {#combined-chart-format}
+### Label for null values {#nulls-column-chart}
 
-Fixed the mode of displaying the X axis in a [combined chart](../visualization-ref/combined-chart.md): the `Continuous` value is now set by default.
+Fixed the display of labels for null values in the [column chart](../visualization-ref/column-chart.md).
+
+
+### Usage statistics {#usage-analytics}
+
+Added the connection to [{{ datalens-short-name }} Usage Analytics Light](../operations/connection/create-usage-tracking.md) that will allow you to analyze {{ datalens-short-name }} user behavior, i.e., view aggregated statistics on using the service instance for a limited time period (60 days).
+
+### Workbooks and collections in new instances {#workbooks-in-new-instances}
+
+Only [workbooks and collections](../workbooks-collections/index.md#enable-workbooks) are now available in new {{ datalens-short-name }} instances.
+
+## Changes available with the _Business_ service plan {#business}
+
+### UI customization {#combined-chart-format}
+
+Added the [UI customization](../settings/ui-customization.md). Now you can customize your service instance user interface; this includes setting up colors, logo, and design of individual elements.
+
+### Extended usage statistics {#usage-analytics-detailed}
+
+Added the connection to [{{ datalens-short-name }} Usage Analytics Detailed](../operations/connection/create-usage-tracking.md) that will allow you to analyze {{ datalens-short-name }} user behavior, i.e., view both detailed and aggregated statistics on using the service instance for a long time period (180 days). It allows you to view detailed statistics on dataset queries and dashboard views.
+
+### Secure embedding {#private-embedding}
+
+Now you can [securely embed](../dashboard/embedded-objects.md#private-embedding) private charts into a website or app using special links with a [JWT token](https://en.wikipedia.org/wiki/JSON_Web_Token).
+
+Embedding private charts only works in the new {{ datalens-short-name }} object model at the [workbook](../workbooks-collections/index.md) level and is only available to the workbook [administrator](../security/roles.md#workbooks-admin).
+
+### Enterprise authentication {#sso}
+
+[Enterprise authentication](../security/add-new-user.md#federated-user) is now available only with the _Business_ [service plan](../pricing.md#service-plans). For existing customers who have configured an identity federation and used a corporate account to log in to {{ datalens-short-name }} before April 22, 2024, enterprise authentication and SSO will be available for free as part of the _Community_ plan until December 31, 2024.
+

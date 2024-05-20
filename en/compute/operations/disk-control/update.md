@@ -199,6 +199,8 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
 
 {% endlist %}
 
+To change the size of the boot disk, [restart](../vm-control/vm-stop-and-start.md#restart) the VM.
+
 ## Increasing the size of a Linux disk partition {#change-part-size-linux}
 
 After increasing the disk size, you also need to increase the size of its partitions and file systems. For boot disks, this happens automatically after you restart the VM.
@@ -224,7 +226,7 @@ You can also increase the size of any disk of the VM without restarting it. The 
       Result:
 
       ```text
-      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
       vda    252:0    0  25G  0 disk
       ├─vda1 252:1    0   1M  0 part
       └─vda2 252:2    0  25G  0 part /
@@ -232,7 +234,7 @@ You can also increase the size of any disk of the VM without restarting it. The 
       └─vdb1 252:17   0  32G  0 part /data
       ```
 
-      Disk partitions are listed in the `NAME` column. If the `MOUNTPOINT` column contains a value for the partition you need, it means the partition is mounted.
+      Disk partitions are listed in the `NAME` column. If the `MOUNTPOINTS` column contains a value for the partition you need, it means the partition is mounted.
 
    1. Unmount the partition if you want to check and restore its file system before changing the partition size. Otherwise, proceed to the next step.
 
@@ -308,7 +310,7 @@ You can also increase the size of any disk of the VM without restarting it. The 
       Result:
 
       ```text
-      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
       vda    252:0    0  25G  0 disk
       ├─vda1 252:1    0   1M  0 part
       └─vda2 252:2    0  25G  0 part /
@@ -333,7 +335,7 @@ You can also increase the size of any disk of the VM without restarting it. The 
       Result:
 
       ```text
-      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
       vda    252:0    0  25G  0 disk
       ├─vda1 252:1    0   1M  0 part
       └─vda2 252:2    0  25G  0 part /
@@ -341,7 +343,7 @@ You can also increase the size of any disk of the VM without restarting it. The 
       └─vdb1 252:17   0  32G  0 part /data
       ```
 
-      Disk partitions are listed in the `NAME` column. Partition mount points are shown in the `MOUNTPOINT` column.
+      Disk partitions are listed in the `NAME` column. Partition mount points are shown in the `MOUNTPOINTS` column.
 
    1. Run this command:
 
@@ -394,7 +396,7 @@ You can also increase the size of any disk of the VM without restarting it. The 
       Result:
 
       ```text
-      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
       vdb    252:16   0  64G  0 disk
       └─vdb1 252:17   0  64G  0 part /data
       ```

@@ -8,7 +8,13 @@ items:
       - name: Creating a load balancer with DDoS protection
         href: security/alb-with-ddos-protection.md
       - name: Terminating TLS connections
-        href: security/tls-termination.md
+        items:
+          - name: Overview
+            href: security/tls-termination/index.md
+          - name: Management console
+            href: security/tls-termination/console.md
+          - name: '{{ TF }}'
+            href: security/tls-termination/terraform.md
       - name: Delivering logs from a VM instance to {{ cloud-logging-name }}
         href: security/vm-fluent-bit-logging.md
       - name: Writing load balancer logs to {{ PG }}

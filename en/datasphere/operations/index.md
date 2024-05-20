@@ -73,7 +73,7 @@ description: "The page contains all guides on working with {{ ml-platform-full-n
 * [{#T}](deploy/alias-update.md)
 * [{#T}](deploy/alias-delete.md)
 * [{#T}](deploy/alias-api.md)
-*
+
 ## {{ ds-jobs }} {#ds-jobs}
 
 * [{#T}](projects/work-with-jobs.md)
