@@ -188,7 +188,7 @@ The infrastructure support cost for this tutorial includes:
 
 ### Download a project {#download-project}
 
-Clone a repository with the `yc-serverless-game` project:
+Clone the `yc-serverless-game` [repository](https://github.com/yandex-cloud-examples/yc-serverless-game):
 
 ```bash
 git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
@@ -565,7 +565,6 @@ Create a database named `game-data` to store the game data and a database named 
 
 1. Change the configuration for {{ objstorage-name }}. Since the bucket name must be unique, replace it with a custom bucket name in the following files:
 
-
    * The `serverless.yaml` file:
 
       ```yaml
@@ -598,6 +597,36 @@ Create a database named `game-data` to store the game data and a database named 
    npm run build
    npm run deploy
    ```
+
+When you deploy the project, the following resources will be created in your working directory:
+
+* {{ sf-name }} functions:
+
+   * `get-state`
+   * `get-config`
+   * `move`
+   * `capture`
+   * `state-change`
+   * `login`
+   * `auth`
+   * `ws-connect`
+   * `ws-message`
+   * `ws-disconnect`
+
+* Service accounts:
+
+   * `functions-sa` with the `editor` role
+   * `triggers-sa` with the `serverless.functions.invoker` role
+   * `yds-reader-sa` with the `yds.admin` role
+   * `yds-writer-sa` with the `yds.writer` role
+   * `ymq-reader-sa` with the `ymq.reader` role
+   * `ymq-writer-sa` with the `ymq.writer` role
+   * `apigw-s3-viewer` with the `storage.viewer` role
+   * `apigw-fn-caller` with the `serverless.functions.invoker` role
+
+* {{ objstorage-name }} bucket with the name you specified in the `serverless.yaml` file.
+
+* {{ message-queue-name }} queue: `capturing-queue`.
 
 ## Create access keys for service accounts {#create-extra-sa-keys}
 

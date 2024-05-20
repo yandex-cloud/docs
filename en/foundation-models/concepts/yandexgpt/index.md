@@ -15,3 +15,58 @@ There are two interfaces for {{ yagpt-full-name }} in {{ yandex-cloud }}. You ca
 Both [prompt](../../operations/yandexgpt/create-prompt.md) and [chat](../../operations/yandexgpt/create-chat.md) messages are available if using the API. You can also use the API to work with models in [asynchronous mode](../../operations/yandexgpt/async-request.md).
 
 To learn more about the {{ yagpt-full-name }} models, see [{#T}](models.md).
+
+## Formatting of model responses {#answers-formatting}
+
+By default, the model returns a response formatted using [Markdown](https://en.wikipedia.org/wiki/Markdown). Use the prompt text to get a response with additional formatting, e.g., with an [emoji](https://en.wikipedia.org/wiki/Emoji) or in a different format, such as [JSON](https://en.wikipedia.org/wiki/JSON), [XML](https://en.wikipedia.org/wiki/XML), etc.
+
+Example:
+
+```json
+{
+  "modelUri": "gpt://<folder_ID>/yandexgpt/latest",
+  "completionOptions": {
+    "stream": false,
+    "temperature": 0.6,
+    "maxTokens": "2000"
+  },
+  "messages": [
+    {
+      "role": "system",
+      "text": "You are a smart assistant."
+    },
+    {
+      "role": "user",
+      "text": "Name any three groups of goods one can find in a grocery store. For each group, provide three subgroups. Present the result as a JSON object, with each group of goods as a key in the JSON object and arrays from the relevant subgroups as values. No introductory phrases or explanations needed, just data. Do not use Markdown."
+    }
+  ]
+}
+```
+
+Result:
+
+```json
+{
+  "result": {
+    "alternatives": [
+      {
+        "message": {
+          "role": "assistant",
+          "text": "{\n    \"meat\": [\"beef\", \"pork\", \"mutton\"],\n    \"dairy products\": [\"milk\", \"cottage cheese\", \"sour cream\"],\n    \"fruits\": [\"apples\", \"bananas\", \"oranges\"]\n}"
+        },
+        "status": "ALTERNATIVE_STATUS_FINAL"
+      }
+    ],
+    "usage": {
+      "inputTextTokens": "87",
+      "completionTokens": "58",
+      "totalTokens": "145"
+    },
+    "modelVersion": "07.03.2024"
+  }
+}
+```
+
+The model returned a response in JSON format with line breaks replaced with `\n` and quotation marks escaped.
+
+If you do not get the expected result using the prompt, try [fine-tuning](../../tutorials/yagpt-tuning.md) the model in [{{ ml-platform-full-name}}]({{ link-datasphere-main }}).

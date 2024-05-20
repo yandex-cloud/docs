@@ -29,7 +29,7 @@ Authentication takes place under a Yandex account or a federated account using a
          * `role`: Role
 
 
-   1. Get an IAM token and [folder ID].
+   1. Get the folder ID and the IAM token for the account you will use with {{ speechkit-name }}, and include them in the request headers.
 
      ```bash
      export FOLDER_ID=<folder_ID>
@@ -47,6 +47,6 @@ Authentication takes place under a Yandex account or a federated account using a
      * `IAM_TOKEN`: IAM token of your [Yandex account](../../../iam/operations/iam-token/create.md) or [federated account](../../../iam/operations/iam-token/create-for-federation.md).
 
 
-     The synthesized speech will be recorded to the `audio.wav` file.
+     You will get the synthesized speech Base64-encoded and saved to the `audio.wav` file.
 
 {% endlist %}

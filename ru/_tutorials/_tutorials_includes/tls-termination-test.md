@@ -20,6 +20,6 @@
 
 1. Загрузите файл `index.html` на каждую ВМ:
 
-    {% include [upload-files](../_common/upload-web-site-files.md) %}
+    {% include [upload-files](upload-web-site-files.md) %}
 
 1. В браузере откройте сайт по адресу `http://my-site.com` — должно произойти перенаправление на страницу `https://my-site.com`, где уже подключен TLS-сертификат из {{ certificate-manager-name }}.

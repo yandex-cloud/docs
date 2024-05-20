@@ -17,7 +17,7 @@ description: "In this tutorial, you will learn how to create a log group in {{ c
       {% include [name-format](../../_includes/name-format.md) %}
 
    1. Set the log group record retention period.
-   1. (Optional) Select a [data stream](../../data-streams/concepts/glossary.md#stream-concepts) or create a new one.
+   1. (Optional) Select a [data stream](../../data-streams/concepts/glossary.md#stream-concepts) or create a new one to redirect records added to the log group to.
 
 
    1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
@@ -50,11 +50,11 @@ description: "In this tutorial, you will learn how to create a log group in {{ c
    
    * `--data-stream`: {{ yds-full-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts) ID. This is an optional parameter. Records added to the log group will be automatically redirected to the specified stream. A stream ID consists of an availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
 
-      > For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream` if:
+      > For example, your stream ID will appear as `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream` if:
       > * `aws_stream`: Stream name
       > * `{{ region-id }}`: Availability zone
       > * `aoeu1kuk2dht********`: Folder ID
-      > * `cc8029jgtuab********`: {{ ydb-full-name }} Database ID
+      > * `cc8029jgtuab********`: {{ ydb-full-name }} database ID
 
 
 

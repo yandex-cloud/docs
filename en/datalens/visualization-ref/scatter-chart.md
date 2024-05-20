@@ -61,6 +61,11 @@ You can also:
    1. Drag a dimension or measure to the **Colors** section.
    1. Click ![](../../_assets/console-icons/gear.svg) and set new colors.
 
+1. Resize points:
+
+   1. Drag the measure to the **Point size** section.
+   1. Click ![](../../_assets/console-icons/gear.svg) and set the minimum and maximum point sizes for the specified measure.
+
 1. Specify an additional dimension. To do this, drag a dimension to the **Points** section.
 
 ### Configuring the display of `null` values {#null-settings}

@@ -1,6 +1,6 @@
 ---
 title: "About {{ foundation-models-full-name }}"
-description: "{{ foundation-models-full-name }} is a service that provides access to the APIs of large neural networks that can generate high-quality texts and images. {{ yagpt-full-name }} can generate product descriptions, articles, news stories, newsletters, blog posts, and many other types of texts. {{ yandexart-name }} can create an image by description. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. With a more specific request, you are more likely to get the result you expect."
+description: "{{ foundation-models-full-name }} is a service that provides access to the APIs of large neural networks that can generate high-quality texts and images. {{ yagpt-full-name }} can generate product descriptions, articles, news stories, newsletters, blog posts, and many other types of texts. {{ yandexart-name }} can create an image by description. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. With a more specific prompt, you are more likely to get the result you expect."
 ---
 
 # About {{ foundation-models-full-name }}
@@ -21,7 +21,7 @@ For information on the {{ foundation-models-name }} restrictions, refer to [{#T}
 
 ## {{ foundation-models-name }} working modes {#working-mode}
 
-In {{ foundation-models-name }}, you can use models in either _synchronous_ or _asynchronous_ mode. In synchronous mode, the model will process your request and respond to it directly upon receipt. You may opt for this mode if you need to maintain a chatbot dialog. In asynchronous mode, the model will receive your request and return its ID, which you can later use to get your response. In asynchronous mode, the result usually takes longer to generate, but the responses are cheaper and better quality. Use asynchronous mode if you do not need an urgent response.
+In {{ foundation-models-name }}, you can use models in either _synchronous_ or _asynchronous_ mode. In synchronous mode, the model will process your request and respond to it directly upon receipt. You may opt for this mode if you need to maintain a chatbot dialog. In asynchronous mode, the model will receive your request and return its ID, which you can later use to get your response. In asynchronous mode, the result usually takes longer to generate (from a couple of minutes to several hours), but the response is cheaper. Use asynchronous mode if you do not need an urgent response.
 
 Different models support different operating modes.
 

@@ -39,7 +39,11 @@ items:
           - name: Creating a log sink
             href: operations/create-sink.md
           - name: Exporting logs
-            href: operations/export-logs.md
+            items:
+              - name: '{{ objstorage-name }}'
+                href: operations/export-logs.md
+              - name: '{{ yds-name }}'
+                href: operations/export-logs-yds.md
           - name: Getting a list of sinks
             href: operations/list-sink.md
           - name: Getting information about sinks

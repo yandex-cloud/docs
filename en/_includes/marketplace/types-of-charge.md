@@ -4,7 +4,7 @@
    * Cores per hour: Every second of product use is charged at the rate multiplied by the number of VM cores with the `RUNNING` status and divided by 3,600.
    * VM per hour: You are charged for product usage on VMs with the `RUNNING` status. The per-second cost is calculated as the specified value divided by 3,600.
    * RAM per hour: You are charged for RAM usage by VMs with the `RUNNING` status. The per-second cost is calculated as the specified value divided by 3,600.
-   * Other pricing system: Billing is based on application metrics specified by the publisher. The per-second cost is calculated as the specified value divided by 3,600. For more information, see [{#T}](../../marketplace/concepts/api-usage.md).
+   * Other pricing system: Billing is based on application metrics specified by the publisher. For more information, see [{#T}](../../marketplace/operations/create-tariff.md#complex-tariff).
 * _Subscription_: Product subscription.
    To set up a subscription, create a subscription template. To do this, select either the `{{ ui-key.yacloud_components.marketplace.product-pricing-type_payg }}` or the `Subscription` service plan and click **Create subscription template** at the bottom of the page.
    If you create a subscription within the `{{ ui-key.yacloud_components.marketplace.product-pricing-type_payg }}` service plan, the user will automatically switch to this plan as soon as they unlink the subscription from a resource or as soon as the subscription expires.

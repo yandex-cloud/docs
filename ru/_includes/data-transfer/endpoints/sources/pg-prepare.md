@@ -24,7 +24,9 @@
             * `SELECT` над всеми последовательностями базы данных, которые переносит трансфер;
             * `USAGE` на схемы этих таблиц и последовательностей.
             * `ALL PRIVILEGES` (`CREATE` и `USAGE`) на задаваемую [параметром эндпоинта](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings) схему служебных таблиц `__consumer_keeper` и `__data_transfer_mole_finder`, если эндпоинт будет использоваться для типов трансфера _{{ dt-type-repl }}_ или _{{ dt-type-copy-repl }}_.
-    
+
+    1. Настройте [количество подключений пользователя](../../../../data-transfer/concepts/work-with-endpoints.md#postgresql-connection-limit) к базе данных.
+
     1. Если источник репликации — кластер, [включите](../../../../managed-postgresql/operations/extensions/cluster-extensions.md) для него расширение `pg_tm_aux`. Это позволит продолжить репликацию в случае смены хоста-мастера. В некоторых случаях при смене мастера в кластере трансфер может завершиться ошибкой. Подробнее см. в разделе [Решение проблем](../../../../data-transfer/troubleshooting/index.md#master-change).
     
     1. {% include [Таблицы без первичных ключей](../../primary-keys-postgresql.md) %}
@@ -96,7 +98,9 @@
         ```sql
         GRANT ALL PRIVILEGES ON SCHEMA <имя_схемы> TO <имя_пользователя>;
         ```
-    
+
+    1. Настройте [количество подключений пользователя](../../../../data-transfer/concepts/work-with-endpoints.md#postgresql-connection-limit) к базе данных.
+
     1. Установите и включите расширение [wal2json](https://github.com/eulerto/wal2json).
     
        **Установка**

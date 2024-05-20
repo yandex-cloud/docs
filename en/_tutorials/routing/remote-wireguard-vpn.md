@@ -54,7 +54,7 @@ The infrastructure support costs include:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
+      1. In the [management console]({{ link-console-main }}), select a folder where you want to create your service account.
       1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-firezone`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -105,7 +105,7 @@ The infrastructure support costs include:
 
    {% endlist %}
 
-1. Set up the CLI profile to execute operations on behalf of the service account:
+1. Set up the CLI profile to run operations on behalf of the service account:
 
    {% list tabs group=instructions %}
 
@@ -122,7 +122,7 @@ The infrastructure support costs include:
          Where:
 
          * `--service-account-id`: Service account ID.
-         * `--folder-id`: ID of the folder the service account was created in.
+         * `--folder-id`: ID of the folder in which the service account was created.
          * `--output`: Name of the file with the authorized key.
 
          Result:
@@ -134,7 +134,7 @@ The infrastructure support costs include:
          key_algorithm: RSA_2048
          ```
 
-      1. Create a CLI profile to execute operations on behalf of the service account:
+      1. Create a CLI profile to run operations on behalf of the service account:
          ```
          yc config profile create sa-firezone
          ```
@@ -160,7 +160,7 @@ The infrastructure support costs include:
 
 ## Prepare a domain {#prepare-domain}
 
-You will need a domain to use for Firezone and Keycloak VMs. Make sure to first delegate this domain to Yandex Cloud from the domain registrar. To do this, specify the addresses of the `ns1.yandexcloud.net` and `ns2.yandexcloud.net` servers in your user area on your registrar's site.
+You will need a domain to use for Firezone and Keycloak VMs. Make sure to first delegate this domain to Yandex Cloud from the domain registrar. To do this, specify the addresses of the `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` servers in your personal dashboard at your registrar.
 
 ## Deploy Firezone and Keycloak {#deploy-firezone}
 
@@ -235,7 +235,7 @@ You will need a domain to use for Firezone and Keycloak VMs. Make sure to first 
          ```
          Wait for the process to complete. It may take up to 30 minutes to process a request for a Let's Encrypt certificate.
 
-      1. After that, the URL addresses for connecting to the Firezone and Keycloak web interfaces and Firezone and Keycloak admin credentials will be output to the command line. You can then view this information by running the `terraform output` command.
+      1. After that, the URL addresses for connecting to the Firezone and Keycloak web interfaces and Firezone and Keycloak admin credentials will be output to the command line. Afterwards, you can view this information by running the `terraform output` command.
 
          ```bash
          Outputs:
@@ -288,7 +288,7 @@ You will need a domain to use for Firezone and Keycloak VMs. Make sure to first 
       terraform apply
       ```
 
-   1. Once the `terraform apply` process is complete, the command line will show information for Firezone and Keycloak integration setup and test user credentials to test SSO in Keycloak and connect to the VPN. You can then view this information by running the `terraform output` command.
+   1. Once the `terraform apply` process is complete, the command line will show information for Firezone and Keycloak integration setup and test user credentials to test SSO in Keycloak and connect to the VPN. Afterwards, you can view this information by running the `terraform output` command.
 
       ```bash
       Outputs:

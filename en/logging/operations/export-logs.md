@@ -1,15 +1,15 @@
 ---
-title: "How to export logs from {{ cloud-logging-name }}"
-description: "In this guide, you will learn how to export logs from {{ cloud-logging-name }}."
+title: "How to export logs from {{ cloud-logging-name }} to {{ objstorage-name }}"
+description: "In this tutorial, you will learn how to export logs from {{ cloud-logging-name }} to {{ objstorage-name }}."
 ---
 
-# Exporting logs
+# Exporting logs to {{ objstorage-name }}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder where your log sink is located.
+    1. In the [management console]({{ link-console-main }}), go to the folder containing your log group and log sink.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Select a log group to export logs from.
     1. Go to the **{{ ui-key.yacloud.common.logs }}** tab.
