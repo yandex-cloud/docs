@@ -20,6 +20,8 @@
 
 {% endnote %}
 
+{% include [key-has-last-used-data](../../../_includes/iam/key-has-last-used-data.md) %}
+
 Помимо статических ключей доступа, для работы с {{ objstorage-full-name }} вы можете использовать временные ключи [{{ sts-name }}](sts.md) также совместимые с AWS API.
 
 {% include [sts-preview](../../../_includes/iam/sts-preview.md) %}

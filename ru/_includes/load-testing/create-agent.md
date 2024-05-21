@@ -1,3 +1,7 @@
+
+@[youtube](YDcw9Bci8EM)
+
+
 1. Если у вас еще нет пары [SSH-ключей](../../glossary/ssh-keygen.md), [создайте их](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 1. Создайте агент:
 
