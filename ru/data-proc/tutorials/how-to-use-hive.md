@@ -6,7 +6,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `mdb.dataproc.agent`.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `dataproc.agent`.
 
 1. {% include [tutorials-basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
 
@@ -16,7 +16,7 @@
         * `HDFS`
         * `SPARK`
         * `HIVE`
-    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт с ролью `mdb.dataproc.agent`.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт с ролью `dataproc.agent`.
     * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: выберите бакет для результатов обработки.
     * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**: выберите опцию для доступа к хостам всех подкластеров.
 

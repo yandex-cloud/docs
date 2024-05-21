@@ -1,6 +1,6 @@
 # Создание кластера {{ dataproc-name }}
 
-Для создания [кластера](../../glossary/cluster.md) {{ dataproc-name }} пользователю должны быть назначены [роли](../../iam/concepts/access-control/roles.md) `editor` и `dataproc.agent`. Подробнее см. в [описании ролей](../security/index.md#roles-list).
+Для создания [кластера](../../glossary/cluster.md) {{ dataproc-name }} пользователю должна быть назначена [роль](../../iam/concepts/access-control/roles.md) `dataproc.editor`. Подробнее см. в [описании ролей](../security/index.md#roles-list).
 
 
 ## Настройте сеть {#setup-network}

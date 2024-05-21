@@ -4095,6 +4095,12 @@ default:
         context:
           action:
             create: Создать новую организацию
+        services:
+          clouds:
+            create: Создать облако
+          service:
+            console:
+              title_ru: Консоль управления Yandex Cloud
         settings:
           action:
             edit: Редактировать данные

@@ -4094,6 +4094,12 @@ default:
         context:
           action:
             create: Create new organization
+        services:
+          clouds:
+            create: Create cloud
+          service:
+            console:
+              title_ru: Yandex Cloud management console
         settings:
           action:
             edit: Edit data
