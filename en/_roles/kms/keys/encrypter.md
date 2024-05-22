@@ -1,1 +1,1 @@
-The `kms.keys.encrypter` role enables you to encrypt data and view information about keys.
+The `kms.keys.encrypter` role enables viewing info on [symmetric encryption keys](../../../kms/concepts/key.md) and using such keys to encrypt data.

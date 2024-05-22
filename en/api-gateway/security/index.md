@@ -53,6 +53,10 @@ The list below shows all roles that are considered when verifying access rights 
 
 {% include [api-gateway.websocketWriter](../../_roles/api-gateway/websocketWriter.md) %}
 
+#### api-gateway.websocketBroadcaster {#api-gateway-websocketBroadcaster}
+
+{% include [api-gateway.websocketBroadcaster](../../_roles/api-gateway/websocketBroadcaster.md) %}
+
 #### api-gateway.admin {#api-gateway-admin}
 
 {% include [api-gateway.admin](../../_roles/api-gateway/admin.md) %}

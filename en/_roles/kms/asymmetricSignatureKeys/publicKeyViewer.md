@@ -1,1 +1,1 @@
-The `kms.asymmetricSignatureKeys.publicKeyViewer` role enables you to obtain a public key from an asymmetric key pair of a digital signature.
+The `kms.asymmetricSignatureKeys.publicKeyViewer` role enables viewing info on [digital signature key pairs](../../../kms/concepts/asymmetric-signature-key.md), as well as getting a public key from a digital signature key pair.

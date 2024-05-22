@@ -1,1 +1,3 @@
-Роль `audit-trails.configViewer` (deprecated) позволяет просматривать информацию о трейлах. Используйте роль `audit-trails.auditor` вместо этой роли.
+Роль `audit-trails.configViewer` позволяет просматривать список трейлов и информацию о них, а также об облаке, каталоге и квотах сервиса Audit Trails.
+
+Эта роль недоступна. Используйте роль `audit-trails.auditor`.

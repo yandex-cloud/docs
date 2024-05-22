@@ -1,1 +1,1 @@
-The `kms.asymmetricEncryptionKeys.publicKeyViewer` role enables you to obtain a public key from an asymmetric encryption key pair.
+The `kms.asymmetricEncryptionKeys.publicKeyViewer` role enables viewing info on [asymmetric encryption key pairs](../../../kms/concepts/asymmetric-encryption-key.md), as well as getting a [public key](../../../kms/concepts/asymmetric-encryption.md#acquire-public-key) from an encryption key pair.

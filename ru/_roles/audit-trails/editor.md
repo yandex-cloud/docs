@@ -1,1 +1,9 @@
-Роль `audit-trails.editor` позволяет управлять трейлами (создавать, изменять и удалять). Включает все права роли `audit-trails.viewer`.
+Роль `audit-trails.editor` позволяет управлять трейлами и читать аудитные логи.
+
+Пользователи с этой ролью могут:
+* просматривать список [трейлов](../../audit-trails/concepts/trail.md) и информацию о них, а также создавать, изменять и удалять трейлы;
+* читать [аудитные логи](../../audit-trails/concepts/index.md);
+* просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder);
+* просматривать информацию о [квотах](../../audit-trails/concepts/limits.md#audit-trails-quotas) сервиса Audit Trails.
+
+Включает разрешения, предоставляемые ролью `audit-trails.viewer`.
