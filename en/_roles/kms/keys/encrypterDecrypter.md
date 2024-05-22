@@ -1,1 +1,3 @@
-The `kms.keys.encrypterDecrypter` role enables you to encrypt and decrypt data and view information about keys. Includes all access rights of the `kms.keys.encrypter` and `kms.keys.decrypter` roles.
+The `kms.keys.encrypterDecrypter` role enables viewing info on [symmetric encryption keys](../../../kms/concepts/key.md) and using such keys to encrypt or decrypt data.
+
+This role also includes the `kms.keys.encrypter` and `kms.keys.decrypter` permissions.

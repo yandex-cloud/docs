@@ -1,1 +1,1 @@
-The `lockbox.auditor` role allows you to get information about secrets and permissions to them, folder data, and information about Yandex Lockbox quotas.
+The `lockbox.auditor` role enables viewing info on [secrets](../../lockbox/concepts/secret.md#secret) and on [access bindings](../../iam/concepts/access-control/index.md#access-bindings) to them, as well as details on Yandex Lockbox [quotas](../../lockbox/concepts/limits.md#quotas) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) metadata.
