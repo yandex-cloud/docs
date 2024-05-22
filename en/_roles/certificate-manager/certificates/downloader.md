@@ -1,1 +1,1 @@
-The `certificate-manager.certificates.downloader` role lets you get the contents of a certificate.
+The `certificate-manager.certificates.downloader` role enables viewing the list of [certificates](../../../certificate-manager/concepts/index.md/#types) and info on them, as well as getting the certificate contents.

@@ -1,1 +1,1 @@
-Роль `certificate-manager.certificates.downloader` позволяет получать содержимое сертификата.
+Роль `certificate-manager.certificates.downloader` позволяет просматривать список [сертификатов](../../../certificate-manager/concepts/index.md/#types) и информацию о них, а также получать содержимое сертификатов.

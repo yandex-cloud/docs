@@ -1,1 +1,1 @@
-The `audit-trails.auditor` role lets you view information about trails.
+The `audit-trails.auditor` role enables viewing the list of [trails](../../audit-trails/concepts/trail.md) and info on them, as well as the info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), and Audit Trails [quotas](../../audit-trails/concepts/limits.md#audit-trails-quotas).

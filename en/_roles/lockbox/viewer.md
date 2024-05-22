@@ -1,3 +1,3 @@
-The `lockbox.viewer` role lets you read the metadata of the secret.
+The `lockbox.viewer` role enables viewing info on [secrets](../../lockbox/concepts/secret.md#secret) and [access bindings](../../iam/concepts/access-control/index.md#access-bindings) to them, as well as info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) and Yandex Lockbox [quotas](../../lockbox/concepts/limits.md#quotas).
 
-The role includes all permissions granted by the `lockbox.auditor` role.
+This role also includes the `lockbox.auditor` permissions.

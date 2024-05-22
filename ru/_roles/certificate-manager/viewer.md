@@ -1,5 +1,8 @@
-Роль `certificate-manager.viewer` предоставляет доступ к информации о сертификатах, доменах, квотах и к списку отозванных сертификатов.
+Роль `certificate-manager.viewer` позволяет просматривать информацию о сертификатах и доменах, а также о привязках прав доступа к ним.
 
-Пользователь с этой ролью может получать информацию о действующих и отозванных сертификатах, получать список сертификатов, их версий и прав доступа к ним, информацию о доменах, список доменов и прав доступа к ним, информацию о квотах.
+Пользователи с этой ролью могут:
+* просматривать список [сертификатов](../../certificate-manager/concepts/index.md/#types) и [зависимых](../../certificate-manager/concepts/services.md) ресурсов, а также информацию о сертификатах и о [привязках](../../iam/concepts/access-control/index.md#access-bindings) прав доступа к ним;
+* просматривать список [доменов](../../certificate-manager/concepts/domains/index.md) и [зависимых](../../certificate-manager/concepts/domains/services.md) ресурсов, а также информацию о доменах и о привязках прав доступа к ним;
+* просматривать информацию о [квотах](../../certificate-manager/concepts/limits.md#certificate-manager-quotas) сервиса Certificate Manager.
 
-Роль предоставляет такие же разрешения, как и роль `certificate-manager.auditor`.
+Включает разрешения, предоставляемые ролью `certificate-manager.auditor`.
