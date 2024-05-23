@@ -35,7 +35,7 @@ To get started with the service:
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 1. Click **{{ ui-key.yacloud.airflow.button_create-cluster }}**.
 1. Set the cluster parameters and click **{{ ui-key.yacloud.common.create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
-1. Wait until the cluster is ready: its status on the {{ maf-name }} dashboard will change to **{{ ui-key.yacloud.ydb.sql.label_status_running }}** and its state, to **Alive**. This may take some time.
+1. Wait until the cluster is ready: its status on the {{ maf-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
 
 ## Open the {{ AF }} web interface {#web-gui}
 

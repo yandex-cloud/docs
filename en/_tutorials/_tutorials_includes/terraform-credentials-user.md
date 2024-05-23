@@ -8,7 +8,7 @@ Managing resources under a user's [Yandex account](../../iam/concepts/users/acco
 
 {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-If you use a federated account, [authenticate](../../cli/operations/authentication/federated-user.md) with the CLI on behalf of the federated user.
+If you use a federated account, [authenticate](../../cli/operations/authentication/federated-user.md) with the [CLI](../../cli/) on behalf of the federated user.
 
 Add the credentials to the environment variables:
 

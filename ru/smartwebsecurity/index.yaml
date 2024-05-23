@@ -5,8 +5,9 @@ description:
     DDoS-атак и ботов на уровне приложений (L7).
   - >-
     Для защиты ваших веб-приложений от внешних угроз в сервисе также реализован
-    межсетевой экран Web Application Firewall. Функциональность WAF находится на
-    <a href="/docs/overview/concepts/launch-stages">стадии Preview</a>.
+    <a href="/docs/smartwebsecurity/concepts/waf">Web Application Firewall</a>.
+    Функциональность WAF находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a>.
 meta:
   title: Yandex Smart Web Security
 links:

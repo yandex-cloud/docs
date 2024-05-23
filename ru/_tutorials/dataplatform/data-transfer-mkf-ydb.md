@@ -103,7 +103,7 @@
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `YDB`.
-    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+    * **Параметры эндпоинта**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}**:
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
@@ -112,7 +112,7 @@
 1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
-    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+    * **Параметры эндпоинта**:
        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
           Выберите кластер-источник из списка и укажите настройки подключения к нему.

@@ -2,7 +2,6 @@
 
 {{ mpg-name }} provides a built-in tool for DBMS cluster performance diagnostics. Use it to analyze {{ PG }} performance metrics for [sessions](#get-sessions) and [queries](#get-queries).
 
-
 ## Enabling statistics collection {#activate-stats-collector}
 
 {% list tabs %}

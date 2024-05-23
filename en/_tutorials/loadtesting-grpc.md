@@ -125,7 +125,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
    1. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
    1. On the test creation page:
       1. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** field, select `agent-008` [you created earlier](#create-agent).
-      1. Under **{{ ui-key.yacloud.load-testing.test-data-section }}**, select **{{ ui-key.yacloud.load-testing.label_local-source }}**, click **Attach file**, and select the `data.json` file you previously saved.
+      1. Under **{{ ui-key.yacloud.load-testing.test-data-section }}**, select **From computer**, click **Attach file**, and select the `data.json` file you previously saved.
       1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
          * In the **{{ ui-key.yacloud.load-testing.field_settings-type }}** field, select **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
          * In the configuration input field, specify the testing thread settings in `yaml` format:

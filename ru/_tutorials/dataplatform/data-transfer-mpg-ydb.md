@@ -106,7 +106,7 @@
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `YDB`.
-    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+    * **Параметры эндпоинта**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}**:
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
@@ -121,7 +121,7 @@
         1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [созданного ранее](#before-you-begin) источника {{ PG }} с [настройками](../../data-transfer/operations/endpoint/source/postgresql.md):
 
             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `PostgreSQL`.
-            * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+            * **Параметры эндпоинта**:
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}** — созданный кластер {{ mpg-name }}.
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}** — имя созданной БД в кластере {{ mpg-name }}.

@@ -212,7 +212,7 @@ To stop paying for the resources:
 
 ## How to create an infrastructure using {{ TF }} {#terraform}
 
-{% include [terraform-definition](../terraform-definition.md) %}
+{% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To host a static website in {{ objstorage-name }} using {{ TF }}:
 
@@ -273,6 +273,6 @@ To host a static website in {{ objstorage-name }} using {{ TF }}:
 
 1. Create resources:
 
-   {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Check that the website is running](#test-site).

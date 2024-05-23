@@ -1360,6 +1360,17 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-KEEP-SIZE).
 
+- **Wal level**{#setting-wal-level} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
+
+  Уровень логирования для [WAL](https://www.postgresql.org/docs/current/wal-intro.html). Возможные значения:
+
+  - `WAL_LEVEL_REPLICA` — запись данных, необходимых для WAL и репликации.
+  - `WAL_LEVEL_LOGICAL` — дополнительно к уровню `WAL_LEVEL_REPLICA` добавляется информация, необходимая для логической репликации.
+
+  Значение по умолчанию — `WAL_LEVEL_LOGICAL`.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-SETTINGS).
+
 - **Work mem**{#setting-work-mem} {{ tag-all }}
 
   Базовый объем памяти (в байтах), который будет использоваться во внутренних операциях при обработке запросов (например, для сортировки или хеш-таблиц), прежде чем будут задействованы временные файлы на диске.

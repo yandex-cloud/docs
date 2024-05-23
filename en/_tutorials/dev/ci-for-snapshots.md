@@ -37,7 +37,7 @@ The infrastructure support costs include:
 
 Create a VM to deploy the test application to, a set of components required for it to run, and a web server:
 1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter the VM name as `ci-tutorial-test-app`.
+1. In the **{{ ui-key.yacloud.common.name }}** field, enter the VM name as `ci-tutorial-test-app`.
 1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select a public [Ubuntu 18.04](/marketplace/products/yc/ubuntu-18-04-lts) image.
 1. In the **{{ ui-key.yacloud.compute.instances.create.section_platform }}** section, select the following configuration:
@@ -60,7 +60,7 @@ Once created, the VM is assigned an [IP address and a host name (FQDN)](../../vp
 ## Prepare a VM with the test application {#configure-vm}
 
 On the created VM, deploy a collection of components required for the test application to run and a web server to handle requests. The application will be written in Python 2.
-1. Under **{{ ui-key.yacloud.compute.instances.create.label_network }}** on the VM page in the [management console]({{ link-console-main }}), find the VM public IP address.
+1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** on the VM page in the [management console]({{ link-console-main }}), find the VM public IP address.
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM via SSH. You can use the `ssh` utility in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
 
    ```bash
@@ -272,7 +272,7 @@ To easily transfer the app and the web server configuration you created to VMs s
 
 You can set up CI in {{ yandex-cloud }} by using a public image with {{ GL }} pre-installed. {{ GL }} includes a set of tools for managing Git repositories and configuring CI.
 1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter the VM name as follows: `ci-tutorial-gitlab`.
+1. In the **{{ ui-key.yacloud.common.name }}** field, enter the VM name as follows: `ci-tutorial-gitlab`.
 1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [{{ GL }}](/marketplace/products/yc/gitlab) image.
 1. In the **{{ ui-key.yacloud.compute.instances.create.section_platform }}** section, select the following configuration:

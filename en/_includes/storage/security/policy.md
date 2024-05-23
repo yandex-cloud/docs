@@ -40,7 +40,7 @@ Result
 
 Principal
 
-Principal: Recipient of the requested permission. It can be an {{ iam-short-name }} user, [federated user](../../../iam/concepts/federations.md), [service account](../../../iam/concepts/users/service-accounts.md), anonymous user, or [user group](../../../organization/concepts/groups.md).
+Principal: Recipient of the requested permission. This can be an {{ iam-short-name }} user, a federated user, a service account, or an anonymous user.
 
 Condition
 

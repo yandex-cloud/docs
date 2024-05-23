@@ -1,1 +1,1 @@
-If you obtained the ID and private key in a JSON file, for example, when creating an authorized key via the CLI, remove line break characters (`\n`) from the ID and private key.
+If you obtained the ID and private key in a JSON file, e.g., when creating an authorized key via the CLI, remove the line break characters (`\n`) from the ID and the private key.

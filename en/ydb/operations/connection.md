@@ -9,7 +9,7 @@ Before you start, install the [{{ ydb-short-name }} CLI](https://ydb.tech/en/doc
 To connect to your DB in {{ dd }} mode, allow incoming and outgoing traffic over TCP on port `{{ ydb.port-dedicated }}`. Make sure the assigned [security group](../../vpc/concepts/security-groups.md) contains the appropriate rule, or add one:
 
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ ydb.port-dedicated }}`
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 

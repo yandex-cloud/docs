@@ -63,7 +63,7 @@
 * аккаунт на Яндексе;
 * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md);
 * [федеративный пользователь](../../iam/concepts/federations.md);
-* [группа пользователей](../../organization/operations/manage-groups.md);
+* [группа пользователей](../../organization/operations/manage-groups.md) (задать группу пользователей можно с помощью {{ yandex-cloud }} CLI, AWS CLI, {{ TF }} и API, подробнее см. на страницах [Редактирование ACL бакета](../operations/buckets/edit-acl.md) и [Редактирование ACL объекта](../operations/objects/edit-acl.md));
 * [системная группа](../../iam/concepts/access-control/system-group.md).
 
 Доступ выдается на [бакет](../concepts/bucket.md) или [объект](../concepts/object.md).
@@ -76,8 +76,8 @@
 * аккаунт на Яндексе;
 * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md);
 * [федеративный пользователь](../../iam/concepts/federations.md);
-* анонимный пользователь;
-* [группа пользователей](../../organization/concepts/groups.md).
+* [группа пользователей](../../organization/concepts/groups.md) ([задать](../operations/buckets/policy.md) группу пользователей в политике можно с помощью {{ yandex-cloud }} CLI, AWS CLI, {{ TF }} и API);
+* анонимный пользователь.
 
 Доступ выдается на [бакет](../concepts/bucket.md), [объект](../concepts/object.md) или группу объектов.
 

@@ -155,7 +155,7 @@ description: "Из данной инструкции вы узнаете, как
   1. Укажите имя группы ВМ: `vhosting-ig-a`.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите несколько зон доступности, чтобы обеспечить отказоустойчивость хостинга.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** откройте вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**. Выберите продукт [LEMP](/marketplace/products/yc/lemp) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** откройте вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Выберите продукт [LEMP](/marketplace/products/yc/lemp) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
      * Выберите [платформу](../../compute/concepts/vm-platforms.md) ВМ.
      * Укажите необходимое количество vCPU и объем RAM.
@@ -170,7 +170,7 @@ description: "Из данной инструкции вы узнаете, как
   1. Выберите группу безопасности `vhosting-sg-vms`, [созданную ранее](#create-security-groups).
   1. Укажите данные для доступа на ВМ:
      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
-     * В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_key }}** вставьте содержимое файла открытого ключа.
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа.
 
        Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. [раздел о подключении к ВМ по SSH](../../compute/operations/vm-connect/ssh.md).
 
@@ -231,7 +231,7 @@ description: "Из данной инструкции вы узнаете, как
 
 Чтобы загрузить файл на ВМ:
 
-{% include [upload-files](../_tutorials_includes/upload-web-site-files.md) %}
+{% include [upload-files](../_common/upload-web-site-files.md) %}
 
 Повторите этот процесс с нужными файлами для каждой ВМ из групп `vhosting-ig-a` и `vhosting-ig-b`.
 

@@ -37,7 +37,7 @@
 
 Создайте ВМ, на которой будут установлены тестовое приложение, набор необходимых для его работы компонентов и веб-сервер:
 1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя ВМ: `ci-tutorial-test-app`.
+1. В поле **{{ ui-key.yacloud.common.name }}** введите имя ВМ: `ci-tutorial-test-app`.
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите публичный образ [Ubuntu 18.04](/marketplace/products/yc/ubuntu-18-04-lts).
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите следующую конфигурацию:
@@ -60,7 +60,7 @@
 ## Подготовьте виртуальную машину с тестовым приложением {#configure-vm}
 
 На созданную ВМ нужно установить набор необходимых для работы тестового приложения компонентов и веб-сервер для обработки запросов. Само приложение будет написано на языке Python 2.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.label_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес ВМ.
+1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес ВМ.
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) для Windows.
 
    ```bash
@@ -272,7 +272,7 @@
 
 Один из способов настроить CI в {{ yandex-cloud }} — воспользоваться публичным образом с предустановленной системой {{ GL }}. В {{ GL }} входит набор инструментов для управления репозиториями Git и средства для настройки CI.
 1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя ВМ: `ci-tutorial-gitlab`.
+1. В поле **{{ ui-key.yacloud.common.name }}** введите имя ВМ: `ci-tutorial-gitlab`.
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [{{ GL }}](/marketplace/products/yc/gitlab).
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите следующую конфигурацию:

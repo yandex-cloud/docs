@@ -49,7 +49,7 @@
    * **Install Promtail**: Leave the option enabled to deliver local logs to the Grafana Loki instance using the [Promtail agent](https://grafana.com/docs/loki/latest/clients/promtail/). This agent is usually used for applications that require regular monitoring.
 
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
+1. Wait for the application to change its status to `Deployed`.
 1. Once deployed, Loki is available within the {{ managed-k8s-name }} cluster at `http://loki-gateway.<namespace>.svc.cluster.local`.
 
 ## Installation using a Helm chart {#helm-install}

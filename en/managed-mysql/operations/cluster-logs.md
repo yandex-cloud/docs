@@ -18,7 +18,7 @@
 
    A list of log entries for the selected time period will be displayed. To view detailed information about an event, click the respective entry in the list.
 
-   If there are too many records and not all of them are displayed, click the **{{ ui-key.yacloud.mdb.cluster.logs.button_load-more }}** link at the end of the list.
+   If there are too many records and not all of them are displayed, click the **Load more** link at the end of the list.
 
 - CLI {#cli}
 

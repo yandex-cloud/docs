@@ -1,9 +1,18 @@
 # Миграция хостов кластера {{ RD }} в другую зону доступности
 
 
-Хосты кластера {{ mrd-name }} располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Чтобы перенести хосты из одной зоны в другую:
+{% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
+
+
+Хосты кластера {{ mrd-name }} располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Чтобы перенести хосты из одной зоны в другую, добавьте в кластер хосты, расположенные в целевой зоне доступности, и удалите хосты в первоначальной зоне доступности:
 
 1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в зоне доступности, в которую вы переносите хосты.
+1. Если в кластере используется [класс хостов](../concepts/instance-types.md#available-flavors) b2.medium или b3-c1-m4, [измените его](update.md#change-resource-preset) на другой класс. Иначе вы не сможете добавить хост в кластер и выполнить миграцию.
+
+   Кластер недоступен около пяти — семи минут после изменения класса хостов.
+
+   Прежний класс можно будет вернуть после миграции.
+
 1. Добавьте хост в кластер:
 
    {% list tabs group=instructions %}
@@ -124,5 +133,3 @@
    {% endlist %}
 
 1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**. Состояние кластера отображается в столбце **{{ ui-key.yacloud.mdb.clusters.column_availability }}**.
-
-{% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}

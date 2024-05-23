@@ -1,5 +1,18 @@
 # История изменений в {{ api-gw-full-name }}
 
+## Апрель 2024 {#april-2024}
+
+### Обновления {#updates}
+
+* В расширение [x-yc-apigateway-authorizer:jwt](concepts/extensions/jwt-authorizer.md) добавлены:
+    * альтернативное название параметра `scopes` — `scp`.
+    * возможность указать массив в качестве типа данных одного из объектов `scopes`/`scp`.
+* Добавлена поддержка автоматической отправки результата вызова интеграции в [WebSocket-соединение](concepts/extensions/websocket.md) при выполнении операции `x-yc-apigateway-websocket-connect`.
+
+### Исправления и улучшения {#fixes-improvements}
+
+* Удалено требование для [пользовательской сети](concepts/networking#user-network) иметь подсеть в зоне доступности `ru-central1-c` в связи с [выводом этой зоны из эксплуатации](../overview/concepts/ru-central1-c-deprecation).
+
 ## Март 2024 {#march-2024}
 
 ### Обновления {#updates}

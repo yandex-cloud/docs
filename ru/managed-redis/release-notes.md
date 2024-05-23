@@ -4,6 +4,10 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## Февраль 2024 {#feb-2024}
+
+* Добавлена возможность включения [шардирования](./concepts/sharding.md) на существующих кластерах. {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
+
 ## I квартал 2023 {#q1-2023}
 
 * Доступна новая версия {{ RD }} 7.0. Подробнее об изменениях см. в [документации {{ RD }}](https://raw.githubusercontent.com/redis/redis/7.0/00-RELEASENOTES).

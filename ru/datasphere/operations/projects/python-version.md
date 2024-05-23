@@ -5,6 +5,8 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Выбрать версию Python
 
+{% include [python-disclaimer](../../../_includes/datasphere/python-disclaimer.md) %}
+
 По умолчанию в проектах {{ ml-platform-short-name }} используется Python 3.10. Чтобы изменить версию для проекта:
 
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}

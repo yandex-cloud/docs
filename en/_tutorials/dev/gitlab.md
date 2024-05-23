@@ -36,7 +36,7 @@ The cost for maintaining a {{ GL }} server includes:
 ## Create a VM with {{ GL }} {#create-vm}
 
 1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter `gitlab` for the VM name.
+1. In the **{{ ui-key.yacloud.common.name }}** field, enter `gitlab` for the VM name.
 1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select a public [{{ GL }}](/marketplace/products/yc/gitlab) image.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**, select a 20 GB [SSD](../../compute/concepts/disk.md#disks_types).
@@ -50,7 +50,7 @@ The cost for maintaining a {{ GL }} server includes:
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-   * Select the **{{ ui-key.yacloud.compute.instances.create.label_network }}** and **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
+   * Select the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** and **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
    * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** to assign your VM a random [external IP address](../../vpc/operations/subnet-create.md) from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter your preferred login for the user to create on the VM.

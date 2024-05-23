@@ -4,7 +4,7 @@
 
 Чтобы создать шаблон задачи для вашей очереди и разрешить использовать его участникам команды:
 
-1. На панели слева нажмите ![](../_assets/tracker/svg/settings.svg) **{{ ui-key.yacloud.settings.label_settings }}**. Затем выберите ![](../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** и нажмите **{{ ui-key.startrek.ui_components_NavigationBar.templates-settings }}**. Вы также можете перейти по ссылке [{{ link-tracker-templates }}]({{ link-tracker-templates }}).
+1. На панели слева нажмите ![](../_assets/tracker/svg/settings.svg) **Настройки**. Затем выберите ![](../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** и нажмите **{{ ui-key.startrek.ui_components_NavigationBar.templates-settings }}**. Вы также можете перейти по ссылке [{{ link-tracker-templates }}]({{ link-tracker-templates }}).
 
 1. Выберите опцию **{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}** и нажмите кнопку **{{ ui-key.startrek.ui_components_issue-comments-templates.create-template-item }}**.
 

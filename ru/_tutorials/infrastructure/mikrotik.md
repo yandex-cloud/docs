@@ -34,7 +34,7 @@
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-   1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** укажите имя ВМ, например `mikrotik-router`.
+   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя ВМ, например `mikrotik-router`.
    1. В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой есть подсеть. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [Cloud Hosted Router](/marketplace/products/yc/cloud-hosted-router).
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** укажите параметры:
@@ -76,7 +76,7 @@
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-   1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** укажите имя ВМ, например `test-vm`.
+   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя ВМ, например `test-vm`.
    1. В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите ту же [зону доступности](../../overview/concepts/geo-scope.md), в которой находится ВМ `mikrotik-router`.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os).
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** укажите параметры:

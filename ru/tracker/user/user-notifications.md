@@ -5,7 +5,7 @@
 ## Настроить список событий {#section_iqn_y55_xgb}
 
 
-1. На панели слева нажмите ![](../../_assets/tracker/svg/settings.svg) **{{ ui-key.yacloud.settings.label_settings }}**. Затем выберите ![](../../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** и нажмите **Настройки уведомлений**. Вы также можете перейти по ссылке [{{ link-sub-roles }}]({{ link-sub-roles }}).
+1. На панели слева нажмите ![](../../_assets/tracker/svg/settings.svg) **Настройки**. Затем выберите ![](../../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** и нажмите **Настройки уведомлений**. Вы также можете перейти по ссылке [{{ link-sub-roles }}]({{ link-sub-roles }}).
 
 1. Выберите роль и настройте список событий, уведомления о которых хотите получать по почте или в [отчете об изменениях](notification-digest.md):
     - чтобы добавить событие, нажмите кнопку ![](../../_assets/tracker/button-plus.png);

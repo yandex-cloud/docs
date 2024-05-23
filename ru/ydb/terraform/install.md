@@ -41,7 +41,7 @@ description: "В инструкции пошагово изложен проце
 
     1. Откройте файл конфигурации {{ TF }} CLI `~/.terraformrc` в любом удобном для вас текстовом редакторе.
 
-        {% include [terraform-configure-provider-directory](../../_tutorials/_tutorials_includes/terraform-configure-provider-directory.md) %}
+        {% include [terraform-configure-provider-directory](../../_tutorials/terraform-configure-provider-directory.md) %}
 
     1. Добавьте в него следующий блок:
 

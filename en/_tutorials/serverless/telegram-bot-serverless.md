@@ -218,7 +218,7 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
 
    1. Add the `BOT_TOKEN` variable to the environment. In the **{{ ui-key.yacloud.common.value }}** field, specify the Telegram bot token.
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
-   1. Make sure that the function is [public](../../functions/operations/function/function-public.md). To do this, go to the **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page and, under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-metadata }}**, switch the **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}** option to on.
+   1. Make sure that the function is [public](../../functions/operations/function/function-public.md). To do this, go to the **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page and, under **{{ ui-key.yacloud.common.section-base }}**, switch the **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}** option to on.
    1. Save your function ID. You will need it later.
 
 {% endlist %}

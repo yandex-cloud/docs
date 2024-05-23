@@ -1,6 +1,8 @@
-# Upgrading {{ MG }} version
+# {{ MG }} version upgrade
 
-You can only upgrade your {{ mmg-name }} cluster to a version that immediately follows the current one, such as 4.0 to 4.2. Upgrades to higher versions are performed in steps. For example, to upgrade {{ MG }} from 4.2 to 6.0, follow the steps: 4.2 → 4.4 → 5.0 → 6.0.
+You can upgrade a {{ mmg-name }} cluster within a single major version. Major version upgrades (such as 4 → 5) are not supported.
+
+You can only upgrade to a version that immediately follows the current one, such as, from 4.0 to 4.2. Upgrades to higher versions are performed in steps. For example, to upgrade {{ MG }} from 4.0 to 4.4, you will first need to upgrade to 4.2, and then, to 4.4.
 
 
 {% note alert %}

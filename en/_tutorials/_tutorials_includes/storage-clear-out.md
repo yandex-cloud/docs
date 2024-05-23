@@ -1,3 +1,3 @@
-To stop paying for the resources created:
-1. [Delete](../../storage/operations/objects/delete-all.md) objects from the bucket.
-1. [Delete](../../storage/operations/buckets/delete.md) the respective bucket.
+To stop paying for the resources you created:
+1. [Delete](../../storage/operations/objects/delete-all.md) the [objects](../../storage/concepts/object.md) from the [bucket](../../storage/concepts/bucket.md).
+1. [Delete](../../storage/operations/buckets/delete.md) the bucket.

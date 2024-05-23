@@ -631,7 +631,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
             1. In the [management console]({{ link-console-main }}), select `example-folder`.
             1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-            1. In the list of networks, find `queue-autoscale-network` and copy its **{{ ui-key.yacloud.vpc.networks.column_id }}**.
+            1. In the list of networks, find `queue-autoscale-network` and copy its **{{ ui-key.yacloud.common.id }}**.
 
          - API {#api}
 
@@ -670,7 +670,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
             1. In the [management console]({{ link-console-main }}), select `example-folder`.
             1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-            1. In the list of networks, find `queue-autoscale-network` and copy its **{{ ui-key.yacloud.vpc.networks.column_id }}**.
+            1. In the list of networks, find `queue-autoscale-network` and copy its **{{ ui-key.yacloud.common.id }}**.
 
          - CLI {#cli}
 

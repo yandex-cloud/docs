@@ -36,7 +36,7 @@ To find vulnerabilities in {{ k8s }} clusters, use [Chaos Mesh](chaos-mesh.md). 
       * `audit`: Notify.
       * `enforce`: Block.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
+1. Wait for the application to change its status to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 

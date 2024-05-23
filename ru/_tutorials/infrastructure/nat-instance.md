@@ -55,9 +55,9 @@ _NAT-инстанс_ — специальная [виртуальная маши
         Направление<br>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
         --- | --- | --- | --- | --- | ---
         Исходящий | `any` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-        Входящий | `ssh` | `22` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-        Входящий | `ext-http` | `80` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-        Входящий | `ext-https` | `443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+        Входящий | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+        Входящий | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+        Входящий | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
 
      1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -83,7 +83,7 @@ _NAT-инстанс_ — специальная [виртуальная маши
    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-         * В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя ВМ, например `test-vm`.
+         * В поле **{{ ui-key.yacloud.common.name }}** введите имя ВМ, например `test-vm`.
          * В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите зону доступности, где находится подсеть `private-subnet`.
    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из образов и версию операционной системы на базе Linux.
    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -121,7 +121,7 @@ _NAT-инстанс_ — специальная [виртуальная маши
    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-         * В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя ВМ для NAT-инстанса, например `nat-instance`.
+         * В поле **{{ ui-key.yacloud.common.name }}** введите имя ВМ для NAT-инстанса, например `nat-instance`.
          * В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите зону доступности, где находится подсеть `public-subnet`.
    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [NAT-инстанс](/marketplace/products/yc/nat-instance-ubuntu-18-04-lts).
    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -179,7 +179,7 @@ _NAT-инстанс_ — специальная [виртуальная маши
   1. Привяжите таблицу маршрутизации к подсети, где находится тестовая ВМ, например `private-subnet`:
      1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
      1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке подсети с тестовой ВМ и выберите **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
-     1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.subnet.add-route-table.popup-route-table_field_route-table-id }}** выберите таблицу `nat-instance-route` и нажмите **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
+     1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.subnet.add-route-table.label_title }}** выберите таблицу `nat-instance-route` и нажмите **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 - {{ TF }} {#tf}
 

@@ -4,7 +4,7 @@ For subscriptions that inform you about changes to queues, components, or versio
 To do this:
 
 
-1. In the panel on the left, click ![](../../_assets/tracker/svg/settings.svg) **{{ ui-key.yacloud.settings.label_settings }}**. Then select ![](../../_assets/tracker/svg/interface.svg)&nbsp;**Interface** and click **Notification settings**. You can also follow the link [{{link-tracker}}subscriptions/manage]({{ link-sub-manage }}).
+1. In the panel on the left, click ![](../../_assets/tracker/svg/settings.svg) **Settings**. Then select ![](../../_assets/tracker/svg/interface.svg)&nbsp;**Interface** and click **Notification settings**. You can also follow the link [{{link-tracker}}subscriptions/manage]({{ link-sub-manage }}).
 
 1. Next to the name of the queue, component, or version, select a role for which you want to set up an event list.
 

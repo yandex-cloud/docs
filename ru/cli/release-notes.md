@@ -7,33 +7,6 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
-### Версия 0.125.0 (20.05.24) {#version0.125.0}
-
-#### Изменения в сервисах {{ yandex-cloud }} {#services}
-
-##### {{ compute-name }}
-* В команду `yc compute ssh` добавлен флаг `--public-address` для подключения к ВМ по SSH, с использованием только публичного адреса.
-* По умолчанию команда `yc compute ssh` будет устанавливать соединение с ВМ через публичный адрес. Если у ВМ нет публичного адреса, то соединение будет устанавливаться через внутренний адрес.
-
-##### {{ iam-name }}
-
-* В команду `yc iam api-key create` добавлены опциональные параметры `--scope` и `--expires_at`:
-  * `--scope` — для указания области действия API-ключа — сервисов, в которых его можно использовать. Если параметр не задан, то область действия ключа не ограничена.
-  * `--expires_at` — для указания срока действия API-ключа. Если параметр не задан, то ключ не имеет срока действия.
-
-##### {{ sf-name }} {#serverless-functions}
-
-* Команда `yc serverless trigger create`.
-
-  Флаги `--gateway-name`, `--gateway-id` и `--gateway-websocket-broadcast-path` позволяют указывать для триггера параметры рассылки сообщений в вебсокетные соединения {{ api-gw-name }}.
-
-##### {{ org-name }} {#organization}
-
-* Добавлена группа команд `yc organization-manager oslogin profile` для управления пользовательскими профилями OS Login.
-* В командах `yc organization-manager oslogin user-ssh-key create` и `yc organization-manager oslogin user-ssh-key update` исправлен флаг `--expires-at` при указании значения в виде интервала. Например значение `5h` теперь отсылает значение в будущем.
-
-## Предыдущие релизы {#previous-releases}
-
 ### Версия 0.124.0 (22.04.24) {#version0.124.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -47,6 +20,8 @@ description: "На странице представлены релизы YC CLI
 **{{ mch-name }}**
 
 * Параметр `--shard-name` команды `yc managed-clickhouse cluster create` помечен как устаревший (deprecated). Рекомендуется использовать аргумент `shard-name` параметра `--host`.
+
+## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.123.0 (08.04.24) {#version0.123.0}
 

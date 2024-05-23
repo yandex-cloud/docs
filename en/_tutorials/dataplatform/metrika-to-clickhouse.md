@@ -37,7 +37,7 @@ Prepare the infrastructure:
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the target:
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`
-   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`
+   * **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`
 
       Select a target cluster from the list and specify its [connection settings](../../data-transfer/operations/endpoint/target/clickhouse.md).
 

@@ -41,7 +41,7 @@ To apply or edit a bucket access policy:
          * Enter **{{ ui-key.yacloud.storage.bucket.policy.field_value }}**.
          * Click **{{ ui-key.yacloud.storage.bucket.policy.button_add-value }}** to add another value to a condition.
    1. Add and configure rules as required.
-   1. Click **{{ ui-key.yacloud.storage.permissions-dialog.button_save }}**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 

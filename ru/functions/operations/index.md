@@ -44,6 +44,7 @@ description: "Из статьи вы узнаете как работать с {
 * [Добавить переменные окружения](function/environment-variables-add.md)
 * [{#T}](function/network-add.md)
 * [{#T}](function/lockbox-secret-transmit.md)
+* [Выделить память для директории /tmp](function/allocate-memory-tmp.md)
 * [Смонтировать бакеты](function/mount-bucket.md)
 * [Добавить тег](function/tag-add.md)
 * [Удалить тег](function/tag-delete.md)
