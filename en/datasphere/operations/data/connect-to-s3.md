@@ -42,6 +42,6 @@ To set up an S3 connection from the notebook code:
 1. Enter the bucket name and retrieve a list of objects contained in it.
 
    ```python
-   for key in s3.list_objects(Bucket='<имя_бакета>')['Contents']:
+   for key in s3.list_objects(Bucket=bucket_name)['Contents']:
        print(key['Key'])
    ```
