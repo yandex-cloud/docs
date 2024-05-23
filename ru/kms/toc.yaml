@@ -20,7 +20,7 @@ items:
             href: operations/version.md
           - name: Шифрование данных
             href: operations/symmetric-encryption.md
-          - name: Права доступа на ключ шифрования
+          - name: Права доступа к ключу шифрования
             href: operations/key-access.md
       - name: Асимметричное шифрование
         items:

@@ -66,7 +66,6 @@
 * [{#T}](cors.md)
 * [{#T}](cli.md)
 * [{#T}](fqdn.md)
-* [{#T}](cookie.md)
 
 ## Безопасность
 * [{#T}](ssl-certificate.md)

@@ -8,7 +8,7 @@
 
 ![schema](../../_assets/smartwebsecurity/schema.svg)
 
-Для защиты ваших веб-приложений от внешних угроз в {{ sws-name }} также реализован межсетевой экран [Web Application Firewall (WAF)](waf.md). 
+{% include [realized-waf-concept](../../_includes/smartwebsecurity/realized-waf-concept.md) %}
 
 {% include [note-preview-waf](../../_includes/smartwebsecurity/note-preview-waf.md) %}
 

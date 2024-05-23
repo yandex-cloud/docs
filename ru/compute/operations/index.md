@@ -168,7 +168,6 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](instance-groups/create-with-coi.md)
 * [{#T}](instance-groups/create-from-yaml.md)
 * [{#T}](placement-groups/create-ig-in-pg.md)
-* [{#T}](instance-groups/create-with-fixed-ip.md)
 
 ## Получение информации о группе виртуальных машин {#ig-info}
 

@@ -481,7 +481,7 @@
 
      1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
      1. Введите имя функции — `copy-function`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   
   1. Создайте версию функции:
 

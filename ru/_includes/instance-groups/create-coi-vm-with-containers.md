@@ -165,7 +165,7 @@
    scale_policy: # Политика масштабирования ВМ в группе.
      fixed_scale:
        size: 2
-   allocation_policy: # Политика распределения ВМ по зонам доступности.
+   allocation_policy: # Политика распределения ВМ по зонам и регионам.
      zones:
        - zone_id: {{ region-id }}-a
    ```

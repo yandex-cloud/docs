@@ -100,6 +100,8 @@ items:
             href: operations/function/network-add.md
           - name: Передать секреты {{ lockbox-full-name }}
             href: operations/function/lockbox-secret-transmit.md
+          - name: Выделить память для директории /tmp
+            href: operations/function/allocate-memory-tmp.md
           - name: Смонтировать бакеты
             href: operations/function/mount-bucket.md
           - name: Управлять тегами

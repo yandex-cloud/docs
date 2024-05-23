@@ -284,8 +284,6 @@ items:
             href: operations/instance-groups/create-from-yaml.md
           - name: Создать группу виртуальных машин в группе размещения
             href: operations/placement-groups/create-ig-in-pg.md
-          - name: Создать группу ВМ с фиксированными IP-адресами
-            href: operations/instance-groups/create-with-fixed-ip.md
       - name: Получение информации о группе виртуальных машин
         items:
           - name: Получить список групп ВМ

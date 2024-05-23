@@ -301,7 +301,7 @@ To make sure that the image scan was successful:
 1. Go to the [management console]({{ link-console-main }}/), then open the {{ container-registry-full-name }} registry.
 1. Open your repository with Docker images from the {{ GL }} project.
 1. Go to the folder with the {{ GL }} project name.
-1. Make sure that the **{{ ui-key.yacloud.cr.image.label_scan-status }}** column includes **{{ ui-key.yacloud.cr.image.label_scan-status-READY }}**.
+1. Make sure that the **{{ ui-key.yacloud.cr.image.label_scan-status }}** column includes **{{ ui-key.yacloud.cr.registry.label_scan-status-READY }}**.
 1. In the **{{ ui-key.yacloud.cr.image.label_last-scan-time }}** column, click the link with the scan time.
 
    You will see the scan results. If vulnerabilities were found in the images, you will see them in the results.

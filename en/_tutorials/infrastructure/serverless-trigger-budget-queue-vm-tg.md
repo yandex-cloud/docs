@@ -343,7 +343,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       1. Create a function:
          1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
          1. Enter a name for the function: `budget-trigger-handler`.
-         1. Click **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
+         1. Click **{{ ui-key.yacloud.common.create }}**.
 
       1. Create a function version:
          1. Select `golang119` as the runtime environment, enable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
@@ -606,7 +606,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       1. Create a function:
          1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
          1. Enter a name for the function: `budget-queue-handler`.
-         1. Click **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
+         1. Click **{{ ui-key.yacloud.common.create }}**.
 
       1. Create a function version:
          1. Select `golang119` as the runtime environment, enable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
@@ -787,7 +787,7 @@ Before you start creating virtual machines, prepare a [key pair](../../compute/o
    1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
    1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter the name: `target-instance-1`.
+      * In the **{{ ui-key.yacloud.common.name }}** field, enter the name: `target-instance-1`.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select `{{ region-id }}-b`.
       * In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}** and enter `target-for-stop:true`. Click **Enter** to save the label.
 

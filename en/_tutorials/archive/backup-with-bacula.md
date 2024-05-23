@@ -47,7 +47,7 @@ To create a bucket for backups in {{ objstorage-name }}:
    1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you will perform the operations.
    1. On the folder page, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
    1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
-   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access }}** field, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+   1. In the **Bucket access** field, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
    1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** field, select **{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}**.
    1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
@@ -72,7 +72,7 @@ To create a VM:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-   1. In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter the VM name: `bacula-vm`.
+   1. In the **{{ ui-key.yacloud.common.name }}** field, enter the VM name: `bacula-vm`.
    1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select:

@@ -24,7 +24,7 @@
     1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `ClickHouse`.
-        * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+        * **Параметры эндпоинта**:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseSource.connection.title }}**:
 
@@ -104,7 +104,7 @@
 1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ yds-full-name }}`.
-    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+    * **Параметры эндпоинта**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 

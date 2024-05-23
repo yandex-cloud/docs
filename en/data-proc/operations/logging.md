@@ -1,6 +1,6 @@
 # Working with logs
 
-[{{ cloud-logging-full-name }}](../../logging) collects and displays {{ dataproc-name }} cluster logs.
+{{ dataproc-name }} cluster logs are collected and displayed by [{{ cloud-logging-full-name }}](../../logging).
 
 To monitor the events on the cluster and its individual hosts, specify, in its settings, a relevant [log group](../../logging/concepts/log-group.md). You can do this when [creating](cluster-create.md) or [updating](cluster-update.md) the cluster. If no log group has been selected for the cluster, a default log group in the cluster directory will be used to send and store logs.
 
@@ -42,7 +42,7 @@ For more information, see [Logs](../concepts/logs.md).
             hostname="<master_host_FQDN>" AND log_type="hadoop-yarn-resourcemanager"
             ```
 
-      * Message logging levels: from `TRACE` to `FATAL`.
+      * Message logging levels: From `TRACE` to `FATAL`.
       * Number of messages per page.
       * Message interval (one of the standard intervals or an ad-hoc one).
 
@@ -100,12 +100,6 @@ For more information, see [Logs](../concepts/logs.md).
          --until 'YYYY-MM-DDThh:mm:ssZ'
       ```
 
-   {% note info %}
-
-   You can skip the `--group-id` flag and specify the log group ID directly.
-
-   {% endnote %}
-
       To get the host FQDN:
 
       1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
@@ -129,7 +123,7 @@ For more information, see [Logs](../concepts/logs.md).
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   When [creating](cluster-create.md) or [updating the cluster](cluster-update.md) specify the `dataproc:disable_cloud_logging=true` value in the `--property` parameter or provide an empty string (`""`) instead of the log group ID in the `--log-group-id` parameter:
+   When [creating](cluster-create.md) or [updating the cluster](cluster-update.md) pass the `dataproc:disable_cloud_logging=true` value in the `--property` parameter or pass an empty string (`""`) instead of the log group ID in the `--log-group-id` parameter:
 
    ```bash
    {{ yc-dp }} cluster create <cluster name> \

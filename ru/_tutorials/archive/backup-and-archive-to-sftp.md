@@ -41,12 +41,12 @@
 - Консоль управления {#console}
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-  1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя виртуальной машины: `sftp-server`.
+  1. В поле **{{ ui-key.yacloud.common.name }}** введите имя виртуальной машины: `sftp-server`.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой должна находиться виртуальная машина.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
      1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
      1. В списке публичных образов найдите и выберите [CentOS 7](/marketplace/products/yc/centos-7).
 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите следующую конфигурацию:

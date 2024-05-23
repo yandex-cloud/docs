@@ -120,6 +120,8 @@ items:
         items:
           - name: Получение информации о кластере {{ k8s }}
             href: operations/kubernetes-cluster/kubernetes-cluster-list.md
+          - name: Посмотреть операции с кластером {{ k8s }}
+            href: operations/kubernetes-cluster/kubernetes-cluster-operation-logs.md
           - name: Создание кластера {{ k8s }}
             href: operations/kubernetes-cluster/kubernetes-cluster-create.md
           - name: Изменение кластера {{ k8s }}

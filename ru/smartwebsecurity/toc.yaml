@@ -27,6 +27,8 @@ items:
             href: operations/profile-update.md
           - name: Удалить профиль
             href: operations/profile-delete.md
+          - name: Посмотреть операции с профилем безопасности
+            href: operations/operation-logs.md
       - name: Управление правилами
         items:
           - name: Добавить правило

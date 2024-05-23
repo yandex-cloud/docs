@@ -47,6 +47,8 @@ items:
             href: operations/images/delete.md
       - name: Посмотреть логи
         href: operations/logging.md
+      - name: Посмотреть операции с ресурсами сервиса
+        href: operations/operation-logs.md
   - name: Концепции
     items:
       - name: Рабочие столы и их группы

@@ -326,7 +326,7 @@ To stop paying for the resources you created:
 
 ## How to create an infrastructure using {{ TF }} {#terraform}
 
-{% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+{% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To create infrastructure for your Joomla-based website with a {{ PG }} DB:
 1. [Install](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) {{ TF }} and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
@@ -372,7 +372,7 @@ To create infrastructure for your Joomla-based website with a {{ PG }} DB:
    * `dns_recordset_name`: Name of the [record set](../../dns/concepts/resource-record.md), e.g., `example-recordset`.
 1. Create resources:
 
-   {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Install Joomla and additional components](#install).
 1. [Configure the Apache2 web server](#configure-apache2).

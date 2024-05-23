@@ -1,6 +1,6 @@
 ---
 title: "Monitoring the state of PostgreSQL clusters and hosts"
-description: "Using monitoring tools in the management console, you can track the state of a {{ mpg-name }} cluster and its individual hosts. These tools display diagnostic information as charts. You can also configure alerts in {{ monitoring-full-name }} to monitor the cluster state automatically."
+description: "Using monitoring tools in the management console, you can track the status of a {{ mpg-name }} cluster and its individual hosts. These tools display diagnostic information as charts. You can also configure alerts in {{ monitoring-full-name }} to monitor cluster status automatically."
 ---
 
 # Monitoring the state of {{ PG }} clusters and hosts
@@ -12,7 +12,6 @@ description: "Using monitoring tools in the management console, you can track th
 {% include [note-monitoring-auto-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
-
 
 ## Monitoring cluster state {#monitoring-cluster}
 
@@ -33,14 +32,13 @@ The following charts will open on the page:
 * **Disk read/write IOPS**: Disk read and write activity (ops per second).
 * **Disk usage by DB**: Disk usage by database (bytes).
 * **Disk usage on primary**: Disk usage on a master host (bytes).
-* **Inode usage by host**: Number of inodes used by host.
-* **Inode usage on primary**: Number of inodes used on a master host.
+* **Inode usage by host**: The used number of inodes by host.
+* **Inode usage on primary**: The used number of inodes on a master host.
 * **Is Primary, [boolean]**: Indicates which host is the master and for how long.
 * **Free space**: Free disk space for each host (in bytes).
 * **Log errors**: Number of logged errors per second.
 * **Memory usage**: Use of RAM, in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
 * **Network Bytes**: Network data transfer speed (bytes per second).
-* **OOM Count**: Shows whether there are Out-Of-Memory Killer processes. They stop apps that use up all the memory on the machine and prevent the OS from crashing.
 * **Packets received/sent**: Network packet transmission activity (packets per second).
 * **Pooler is alive, [boolean]**: Connection pooler health for each host either as a master or as a replica.
 * **PostgreSQL Alive, [boolean]**: PostgreSQL health for each host either as a master or as a replica.
@@ -90,10 +88,10 @@ For hosts with the **Replica** role, **Received** is normally greater than **Sen
    1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
       * **{{ mpg-name }} — Cluster Overview** to configure cluster alerts.
       * **{{ mpg-name }} — Host Overview** to configure host alerts.
-   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
    1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud.common.continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` thresholds to trigger an alert.
-   1. Click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
 
@@ -113,7 +111,7 @@ For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert-templa
 * `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`: `96,636,764,160` bytes (90%)
 * `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}`: `85,899,345,920` bytes (80%)
 
-You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/managed-postgresql-ref.md).
+You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-postgresql).
 
 
 ## Cluster state and status {#cluster-health-and-status}

@@ -237,10 +237,10 @@ Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.m
    1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter `mywebserver`.
+      * In the **{{ ui-key.yacloud.common.name }}** field, enter `mywebserver`.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select `{{ region-id }}-b`.
 
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
    1. In the window that opens, find and select [LAMP](/marketplace/products/yc/lamp).
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 

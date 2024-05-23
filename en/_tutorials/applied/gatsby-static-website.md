@@ -8,7 +8,7 @@ keywords:
   - gatsby website
 ---
 
-# Hosting a static Gatsby website in {{ objstorage-name }}
+# Hosting a static Gatsby website in {{ objstorage-full-name }}
 
 In this tutorial, you will learn how to host your static [Gatsby](https://www.gatsbyjs.com/docs)-based website in {{ objstorage-name }} and configure HTTPS access to it.
 

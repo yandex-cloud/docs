@@ -133,7 +133,7 @@
         1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/target/postgresql.md):
 
             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `MySQL`.
-            * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+            * **Параметры эндпоинта**:
 
               * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**:
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.

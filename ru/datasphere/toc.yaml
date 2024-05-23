@@ -91,6 +91,8 @@ items:
             href: operations/data/dataset.md
           - name: Работа с коннекторами S3
             href: operations/data/s3-connectors.md
+          - name: Работа с коннекторами Spark
+            href: operations/data/spark-connectors.md
           - name: Работа с моделями
             href: operations/data/models.md
       - name: Подключение к источникам данных
@@ -163,8 +165,6 @@ items:
             href: concepts/preinstalled-packages.md
           - name: Доступные команды
             href: concepts/magic.md
-          - name: 'Служебные команды #pragma'
-            href: concepts/pragma.md
           - name: Вычисления на кластерах Apache Spark™
             href: concepts/data-proc.md
       - name: '{{ ds-inf }}'
@@ -199,6 +199,8 @@ items:
             href: concepts/data-proc-template.md
           - name: Коннекторы S3
             href: concepts/s3-connector.md
+          - name: Коннекторы Spark
+            href: concepts/spark-connector.md
           - name: Модели
             href: concepts/models/index.md
           - name: Дообученные фундаментальные модели

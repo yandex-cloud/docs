@@ -11,20 +11,10 @@
 
 В этот список входят управляемые БД {{ yandex-cloud }} и сторонние БД.
 
-## Создайте внешний источник {#create-external-source}
+Чтобы создать внешний источник данных JDBC:
 
 {% list tabs group=instructions %}
 
-* Консоль управления {#console}
-
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Откройте страницу нужного кластера {{ mgp-name }}.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
-    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.
-    1. Выберите тип подключения `{{ ui-key.yacloud.greenplum.cluster.pxf.value_jdbc }}`.
-    1. Укажите имя источника.
-    1. Задайте хотя бы одну [опциональную настройку](../../concepts/settings-list.md#jdbc-settings).
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 * API {#api}
 

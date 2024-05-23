@@ -1,6 +1,6 @@
 Чтобы [функция](../../functions/concepts/function.md) получила доступ к [секрету](../../lockbox/concepts/secret.md), в ее параметрах нужно указать [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), у которого есть [роли](../../iam/concepts/access-control/roles.md):
-* `{{ roles-lockbox-payloadviewer }}` на секрет ([как назначить права доступа на секрет](../../lockbox/operations/secret-access.md)).
-* `kms.keys.encrypterDecrypter` на [ключ](../../kms/concepts/key.md) шифрования, если секрет создан с использованием ключа [{{ kms-full-name }}](../../kms/) ([как назначить права доступа на ключ шифрования](../../kms/operations/key-access.md)).
+* `{{ roles-lockbox-payloadviewer }}` на секрет ([как назначить права доступа к секрету](../../lockbox/operations/secret-access.md)).
+* `kms.keys.encrypterDecrypter` на [ключ](../../kms/concepts/key.md) шифрования, если секрет создан с использованием ключа [{{ kms-full-name }}](../../kms/) ([как назначить права доступа к ключу шифрования](../../kms/operations/key-access.md)).
 
 Секрет [{{ lockbox-full-name }}](../../lockbox/), который передается в функцию, кешируется в [{{ sf-full-name }}](../../functions/). После того как сервисный аккаунт потеряет доступ к секрету, функция может хранить его до 5 минут.
 

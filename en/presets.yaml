@@ -3664,6 +3664,12 @@ default:
       ticket:
         create:
           action_create-ticket: Create ticket
+          field_access-type: Access
+          field_attachments: Attachments
+          field_message: Message
+          field_service: Service
+          field_subject: Subject
+          field_ticket-type: Type
           title_create-ticket-page: New ticket
       tickets:
         common:
@@ -3849,6 +3855,8 @@ default:
         field_theme-contrast: Contrast
         label_monitoring-name: Monitoring
         label_telegram: Telegram
+        label_title_appearance: Appearance
+        label_title_region: Language and region
         section_settings: Notification settings
         section_transports: Notification methods
       usermenu:
@@ -4094,12 +4102,6 @@ default:
         context:
           action:
             create: Create new organization
-        services:
-          clouds:
-            create: Create cloud
-          service:
-            console:
-              title_ru: Yandex Cloud management console
         settings:
           action:
             edit: Edit data
@@ -4651,7 +4653,7 @@ default:
             field_internal-ipv4: Internal IPv4 address
             field_security-groups: Security groups
             field_subnetwork: Subnet
-            section_additional: Additional settings
+            section_additional: Additional
             switch_auto: Auto
             switch_list: List
             switch_manual: Manual
@@ -4771,6 +4773,7 @@ default:
           popup_detach-disk_button_detach: Detach
         field_additional: Additional
         field_disk-autodelete: Delete along with the virtual machine
+        gpu_clusters: GPU clusters
         group:
           edit:
             label_title: Changing an instance group
@@ -4900,11 +4903,11 @@ default:
             value_source-none: Empty
             value_source-snapshot: Snapshot
           create:
-            button_choose: Choose
             button_create: Create VM
             button_create-subnetwork-new: Create subnet
             button_net_empty-create: Create a network
             button_show-all-marketplace-products: Show all Marketplace products
+            button_show-all-os-products: Show all OS's
             column_disk-size: Size
             field_access-advanced: Advanced
             field_coi-arguments: Command arguments
@@ -4916,28 +4919,22 @@ default:
             field_coi-restart-policy: Restart policy
             field_coi-stdin: Allocate an stdin buffer for a running Docker container
             field_coi-tty: Attach a TTY to the Docker container
-            field_description: Description
             field_instance-group-address: Public address
             field_instance-group-network: Network
             field_key: SSH key
-            field_name: Name
             field_os-login-access-method: Access by OS Login
-            field_serial-port-enable: Grant access to serial console
+            field_security-groups: Security groups
+            field_serial-port-enable: Access to serial console
             field_service-account: Service account
             field_user: Login
             field_zone: Availability zone
-            image_button_show-all-os-products: Show all products
-            image_button_show-all-products: Show more
             image_coi_label_empty-button: Configure
             image_value_coi: Container Solution
             image_value_custom: Custom image
             image_value_marketplace: Marketplace
             image_value_os-products: Operating systems
             label_add-disk: Add disk
-            label_add-net: Add network
             label_add-network-interface: Add network interface
-            label_backup: Backups
-            label_network: Network
             section_access: Access
             section_additional: Additional settings
             section_base: Basic parameters
@@ -5027,8 +5024,6 @@ default:
           label_last-scan-time: Date of last scan
           label_scan-history: Scan history
           label_scan-status: Scan status
-          label_scan-status-READY: Ready
-          label_scan-status-RUNNING: Running
           label_start-scan: Scan
           label_tag: Tags
           popup-confirm_button_delete: Delete
@@ -5051,13 +5046,13 @@ default:
           label_lifecycle-dry-runs: Lifecycle dru runs
           label_lifecycle-rules: Lifecycle policy rules
           label_retained-top: Retained top
+          label_scan-status-READY: Ready
+          label_scan-status-RUNNING: Scanning
           label_selected: Selected
           label_tag-regexp: Tag regexp
           label_untagged: Untagged
           label_vulnerabilities-scanner: Vulnerability scanner
           overview:
-            button_registry-acl: ACL registry
-            button_repository-acl: Configure ACL
             section_images: Docker images
             section_repositories: Repositories
           title_scan-on-push: Scan Docker images when uploading
@@ -5080,7 +5075,6 @@ default:
           label_target-type: Target
           label-database_type: Database type
           label-is_source: Direction
-          section-endpoint: Endpoint parameters
         label_connector-operation-ACTIVATE: Activate
         label_connector-operation-DEACTIVATE: Deactivate
         label_connector-status-CREATING: Creating
@@ -5194,12 +5188,7 @@ default:
             title_current-state: Current state
             title_states-history: State history
           pxf:
-            action_create-datasource: Add data source
             action_edit-settings: Edit PXF settings
-            value_hdfs: HDFS
-            value_hive: Hive
-            value_jdbc: JDBC
-            value_s3: S3
           user-auth:
             action_add-rule: Add rule
             action_edit-rules: Edit rules
@@ -5250,8 +5239,6 @@ default:
             label_inherited-subscribers: Default subscribers
             label_subscribers-dialog-header: Adding users
             label_users: Users
-          overview:
-            label_id: ID
           quotas:
             label_quota-name-compute:
               disks:
@@ -5283,7 +5270,7 @@ default:
             label_cloud-desktop: Cloud Desktop
             label_compute: Compute Cloud
             label_container-registry: Container Registry
-            label_data-proc: Data Proc
+            label_data-proc: Yandex Data Proc
             label_data-streams: Data Streams
             label_data-transfer: Data Transfer
             label_data-transfer_ru: Data Transfer
@@ -5325,7 +5312,7 @@ default:
             label_yq_ru: Yandex Query
             value_audit-trails: Audit trail
             value_compute: Virtual machine instance
-            value_data-proc: Data Proc cluster
+            value_data-proc: Yandex Data Proc cluster
             value_data-streams: Data Streams
             value_data-transfer: Data Transfer
             value_managed-clickhouse: ClickHouse cluster
@@ -5338,7 +5325,6 @@ default:
             overview:
               action_download-keys-file: Download file with keys
               button_action-delete: Delete
-              button_action-delete-access-key: Delete
               button_action-delete-api-key: Delete
               button_create_api_key: Create API key
               button_create_key: Create authorized key
@@ -5362,12 +5348,8 @@ default:
             button_add: Create service account
             column_roles: Roles in folder
             popup-confirm_button_delete: Delete
-          switch_incident-notifications: Notifications
           switch_service-accounts: Service accounts
           switch_service-notifications: Service notifications
-        users:
-          button_tune-role: Configure roles
-          label_folders-roles: Roles for folders
       iot:
         button_add-alias: Add alias
         button_add-device: Add device
@@ -5389,7 +5371,6 @@ default:
           marketplace:
             button_install: Install
             button_release-uninstall: Uninstall
-            label_release-status-DEPLOYED: Deployed
             section_releases: Installed applications
           node-groups:
             button_create: Create a node group
@@ -5397,7 +5378,6 @@ default:
             popup-confirm_button_delete: Delete
           overview:
             label_health: State
-            label_id: ID
             label_master-title: Master
             label_status: Status
           switch_custom-resources: Custom resources
@@ -5421,7 +5401,6 @@ default:
             field_network-policy: Enable network policy
             field_node-service-account: Service account for nodes
             field_release-channel: Release channel
-            field_security-groups: Security groups
             field_service-account: Service account for resources
             field_service-cidr: CIDR services
             field_subnetwork: Subnet
@@ -5450,6 +5429,10 @@ default:
           popup-add_field_name: Name
         node-group:
           overview:
+            label_network-hdd: HDD
+            label_network-ssd: SSD
+            label_network-ssd-io-m3: SSD IO
+            label_network-ssd-nonreplicated: Non-replicated SSD
             label_platform: Platform
             section_placement-policy: Placement
         node-groups:
@@ -5463,7 +5446,6 @@ default:
             field_disk-type: Disk type
             field_driverless-gpu: Do not install GPU drivers
             field_initial-size: Initial number of nodes
-            field_key: SSH key
             field_locations: Location
             field_max-expansion: Max expansion of group size
             field_max-size: Maximum number of nodes
@@ -5473,7 +5455,6 @@ default:
             field_node-version: Kubernetes version
             field_scale-size: Number of nodes
             field_scale-type: Type
-            field_security-groups: Security groups
             label_add-location: Add location
             label_runtime-CONTAINERD: containerd
             label_runtime-DOCKER: Docker
@@ -5486,10 +5467,6 @@ default:
             section_scale: Scaling
             switch_auto: Auto
             switch_none: No address
-            value_network-hdd: HDD
-            value_network-ssd: SSD
-            value_network-ssd-io-m3: SSD IO
-            value_network-ssd-nonreplicated: Non-replicated SSD
             value_scale-auto: Automatic
             value_scale-fixed: Fixed
         node:
@@ -5499,6 +5476,7 @@ default:
         nodes:
           label_node-groups: Node group
           label_nodes: Nodes
+        switch_operations: Operations
         workloads:
           label_pods: Pods
           label_tab-logs: Logs
@@ -5565,26 +5543,19 @@ default:
         switch_asymmetric-keys: Asymmetric keys
         switch_symmetric-keys: Symmetric keys
         symmetric-key:
-          create:
-            button_create: Create
           form:
             field_algorithm: Encryption algorithm
-            field_name: Name
             field_rotation: Rotation period, days
             value_no-rotation: No rotation
           overview:
             button_action-cancel-destruction: Cancel destruction
-            button_action-delete: Delete
-            button_action-rotate: Rotate
             button_action-schedule-destruction: Schedule destruction
             button_action-set-primary: Make primary
             column_version-destroy: Destruction date
             label_rotation: Rotation period
             label_title-versions: Versions
-            popup-confirm_button_delete: Delete
-          switch_operations: Operations
         symmetric-keys:
-          button_create: Create
+          button_action-rotate: Rotate
           button_empty-create: Create key
       load-balancer:
         network-load-balancer:
@@ -5650,22 +5621,17 @@ default:
         field_overload-test-id: Test ID
         field_overload-token: Token
         field_settings-type: Configuration method
-        field_target-address: Target address
-        field_target-port: Target port
         field_test-data-type: Data type
         label_agents-list: Agents
         label_choose-from-bucket: Select from bucket
         label_import-tests-from-overload: Import tests from Overload
-        label_local-source: From computer
         label_monitoring-report: Monitoring
         label_quantiles: Quantiles
         label_regressions-title: Regressions
         label_results-comparison-section-title: Results comparison
-        label_rps: Responses per second
         label_settings-type-config: Config
         label_settings-type-form: Form
         label_tables: Tables
-        label_test-config: Config
         label_test-report: Test results
         label_test-rules-section: Rules for tests
         label_test-settings: Test settings
@@ -5737,7 +5703,7 @@ default:
             column_name: Name
             label_title: Backups
           databases:
-            button_action-manage-extensions: Configure PostgreSQL extensions
+            button_action-manage: Manage
             button_action-remove: Delete
             button_add: Add
             column_extensions: PostgreSQL extensions
@@ -5805,7 +5771,6 @@ default:
             switch_monitoring: Monitoring
             switch_overview: Overview
           logs:
-            button_load-more: Load more
             label_hosts: Hosts
             label_severity: "\_Severity"
           overview:
@@ -5852,7 +5817,6 @@ default:
             button_action-update: Configure
             button_add: Add
             button_advanced-settings: Additional settings
-            button_remove: Remove
             popup-add_button_add: Add
             popup-button_add: Add
             popup-button_save: Save
@@ -5888,7 +5852,7 @@ default:
         forms:
           additional-field-cloud-storage: Hybrid storage
           additional-field-datalens: DataLens access
-          additional-field-datatransfer: Data Transfer access
+          additional-field-datatransfer: Access from Data Transfer
           additional-field-metrika: Access from Metrica and AppMetrica
           additional-field-serverless: Serverless access
           additional-field-websql: Access from the management console
@@ -5913,7 +5877,6 @@ default:
           button_create-shard: Create shard
           button_create-subcluster: Add subcluster
           button_edit: Save changes
-          button_expand-zookeeper-settings: Configure ZooKeeper
           button_restore: Restore cluster
           config_field_bucket: Bucket name
           config_field_form-bucket-type: Bucket ID format
@@ -5968,7 +5931,6 @@ default:
           resource_presets_field-type: Type
           section_additional: Advanced settings
           section_base: Basic parameters
-          section_config: Cluster configuration
           section_configuration: Configuration
           section_database: Database
           section_disk: Size of storage
@@ -6027,7 +5989,6 @@ default:
           action_resetup-host: Resynchronize
           action_stepdown-host: Step down
       monitoring:
-        button_create-alert: Create alert
         button_open-in-monitoring: Open in Monitoring
       mysql:
         cluster:
@@ -6088,7 +6049,6 @@ default:
         switch_backups: Backups
       redis:
         cluster:
-          switch_backups: Backups
           switch_logs: Logs
           switch_monitoring: Monitoring
           switch_shards: Shards
@@ -6120,8 +6080,6 @@ default:
         section_resources: Resources
         section-revisions: Revisions
       serverless-functions:
-        create:
-          button_create: Create
         gateways:
           domains:
             button_acton-delete: Detach
@@ -6151,8 +6109,6 @@ default:
             label_id: ID
             section_base: General information
             section_spec: Specification
-        item-form:
-          field_name: Name
         item:
           editor:
             button_action-continue: Continue
@@ -6202,11 +6158,8 @@ default:
             label_title: Overview
             label_title-history: Version history
             label_title-latest-version: Last version
-            label_title-metadata: General information
           switch_editor: Editor
           switch_logs: Logs
-          switch_monitoring: Monitoring
-          switch_overview: Overview
           switch_testing: Testing
           testing:
             button_run-test: Run test
@@ -6299,10 +6252,6 @@ default:
       serverless-mdb-proxy:
         list:
           button_create: Create connection
-      settings:
-        label_settings: Settings
-        switch_appearance: Appearance
-        switch_lang: Language and region
       smart-web-security:
         action_empty: Create
         attach-dialog:
@@ -6371,7 +6320,6 @@ default:
           button_action-permissions: Object ACL
           button_create: Create folder
           button_empty-create: Upload objects
-          button_permissions: Bucket ACL
           button_upload: Upload
           cors:
             button_cors_empty-create: Configure
@@ -6396,18 +6344,17 @@ default:
             field_description: Description
             field_max-size: Maximum size in bytes
             field_min-size: Minimum size in bytes
-            field_no-prefix: All objects
             field_prefix: Prefix
             field_status: Status
+            label_abort-incomplete-multipart-upload-type: AbortIncompleteMultipartUpload
             label_add-lifecycle-settings: Add rule
-            value_expiration-date: Exact date
-            value_expiration-days: Number of days
+            label_expiration-type: Expiration
+            label_transition-type: Transition
+            label_version-expiration-type: NoncurrentVersionExpiration
+            label_version-transition-type: NoncurrentVersionTransition
+            value_date: Exact date
+            value_days: Number of days
             value_expired-object-delete-marker: Deletion marker without noncurrent versions
-            value_type-abort-incomplete-multipart-upload: AbortIncompleteMultipartUpload
-            value_type-expiration: Expiration
-            value_type-transition: Transition
-            value_type-version-expiration: NoncurrentVersionExpiration
-            value_type-version-transition: NoncurrentVersionTransition
           policy:
             button_add-resource: Add resource
             button_add-value: Add value
@@ -6429,7 +6376,6 @@ default:
             button_save: Save
             class_value_cold: Cold
             class_value_standard: Standard
-            field_access: Bucket access
             field_access-config-read: Read access to settings
             field_access-list: Object listing access
             field_access-read: Object read access
@@ -6464,7 +6410,6 @@ default:
             title_redirect: Redirect
         buckets:
           button_create: Create bucket
-          button_delete: Delete
           button_empty-create: Create bucket
           button_open-multipart-uploads: Show uploads
           button_permissions: Bucket ACL
@@ -6481,24 +6426,11 @@ default:
           button_version-history: Version history
           label_lifetime: Lifetime
           popup-confirm_button_delete: Delete
-        permissions-dialog:
-          button_add: Add
-          button_save: Save
-          label_title: ACL editing
         server-logs:
           label_prefix: Prefix
           label_server-logs: Write logs
           label_target-bucket: Bucket for log storage
         switch_buckets: Buckets
-      support:
-        ticket:
-          create:
-            field_access-type: Access
-            field_attachments: Attachments
-            field_description: Message
-            field_service: Service
-            field_summary: Subject
-            field_type: Type
       vdi:
         button_acl: Configure ACL
         button_add-image: Add image
@@ -6538,7 +6470,6 @@ default:
           popup-create_field_zone: Availability zone
         button_move-vpc-object: Move
         gateways:
-          button_move-gateway: Move
           field_type: Type
           value_gateway-type-egress-nat: Egress NAT
         label_network: Network
@@ -6564,14 +6495,12 @@ default:
               field_sg-rule-source: Source
               label_section-rules: Rules
               value_any: Any
-              value_icmp: ICMP
+              value_ipv6-icmp: ICMPv6
               value_sg-rule-destination-cidr: CIDR
               value_sg-rule-destination-sg: Security group
               value_sg-rule-sg-type-balancer: Load balancer healthchecks
               value_sg-rule-sg-type-list: From list
               value_sg-rule-sg-type-self: Current
-              value_tcp: TCP
-              value_udp: UDP
             label_destination-type-cidr: CIDR
             label_destination-type-security-group: Security group
             label_egress: Egress
@@ -6580,7 +6509,6 @@ default:
           switch_route-table: Routing tables
         networks:
           button_create: Create network
-          column_id: ID
           create:
             button_create: Create network
             field_advanced: Advanced
@@ -6601,7 +6529,7 @@ default:
         subnet:
           add-route-table:
             button_add: Link
-            popup-route-table_field_route-table-id: Route table
+            label_title: Link routing table
         subnetworks:
           button_action-add-route-table: Link routing table
           create:
@@ -6640,7 +6568,6 @@ default:
           button_sql-query: New SQL query
           dialogs:
             button_create-directory: Create directory
-            tooltip_create_pk: Primary key
           info:
             column_name: Name
             column_type: Type
@@ -6683,7 +6610,6 @@ default:
         sql:
           button_run: Run
           label_query: Query
-          label_status_running: Running
         table:
           create:
             button_create: Create table
@@ -7751,6 +7677,9 @@ default:
         name: Name
         other: Other
         overview: Overview
+        placeholder:
+          key: Key
+          value: Value
         port: Port
         prefix: Prefix
         projects-resources: Project
@@ -7760,8 +7689,10 @@ default:
         restrictions: Restrictions
         resume: Resume
         save: Save
+        select: Select
         shared-with-project-resources: Shared
         spaces: Communities
+        spark-connector: Spark connector
         submit: Confirm
         suspend: Suspend
         timeout: Timeout
@@ -7860,6 +7791,10 @@ default:
           server-response: Server response
         tab:
           request: Request
+      open-project:
+        create-connector: Create connector
+        select-configuration: Project VM configurations
+        with-dataproc-cluster: With DataProc cluster
       project-page:
         change-project-disk-size: Change project storage size
         debugging-tools-key-value: Troubleshooting
@@ -7910,6 +7845,17 @@ default:
       spaces-page:
         community-resources: Community resources
         configurations: Configurations
+      spark-connector:
+        create-cluster-in-dataproc: Create cluster in Data Proc
+        create-temporary-cluster:
+          title: Create temporary cluster
+        dataproc-cluster: Data Proc cluster
+        s3-settings: S3 settings
+        select-cluster:
+          title: Select cluster
+        spark-settings: Spark settings
+        use-default-settings:
+          title: Use default settings
       transferring:
         title: Transfer projects
         transfer-selected-projects: Transfer selected projects

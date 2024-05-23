@@ -631,7 +631,7 @@
         
          1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
          1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-         1. В списке сетей найдите `queue-autoscale-network` и скопируйте ее **{{ ui-key.yacloud.vpc.networks.column_id }}**.
+         1. В списке сетей найдите `queue-autoscale-network` и скопируйте ее **{{ ui-key.yacloud.common.id }}**.
           
        - API {#api}
         
@@ -670,7 +670,7 @@
         
          1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
          1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-         1. В списке сетей найдите `queue-autoscale-network` и скопируйте ее **{{ ui-key.yacloud.vpc.networks.column_id }}**.
+         1. В списке сетей найдите `queue-autoscale-network` и скопируйте ее **{{ ui-key.yacloud.common.id }}**.
                
        - CLI {#cli}
         

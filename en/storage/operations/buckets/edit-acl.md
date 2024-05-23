@@ -17,9 +17,9 @@ To configure the [ACL](../../concepts/acl.md) of a bucket:
    1. Select **{{ objstorage-name }}**.
    1. To edit an ACL, click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the bucket name and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
 
-      You can also click the bucket name and then click **{{ ui-key.yacloud.storage.bucket.button_permissions }}** on the page that opens.
+      You can also click the bucket name and then click **{{ ui-key.yacloud.storage.buckets.button_permissions }}** on the page that opens.
 
-   1. In the **{{ ui-key.yacloud.storage.permissions-dialog.label_title }}** window that opens, grant or revoke the appropriate permissions.
+   1. In the **{{ ui-key.yacloud.component.acl-dialog.label_title }}** window that opens, grant or revoke the appropriate permissions.
 
       {% note info %}
 

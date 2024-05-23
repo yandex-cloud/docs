@@ -12,6 +12,6 @@ if(
 
 [Пример графика](https://storage.yandexcloud.net/doc-files/line-chart.png)
 
-Для линейной диаграммы в секцию **Подписи** можно перенести только показатели, в том числе показатель [Measure Values](../../datalens/concepts/chart/measure-values.md).
+Для линейной диаграммы в секцию **Подписи** можно перенести только показатели и техническое поле **Measure values**.
 
 Если перенести в секцию **Подписи** тот же показатель, что и в секции оси **Y**, то на графике появятся подписи (см. [изображение](https://storage.yandexcloud.net/doc-files/signatures.png)).

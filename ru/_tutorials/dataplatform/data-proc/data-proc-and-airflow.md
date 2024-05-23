@@ -33,7 +33,7 @@
 
    * `storage.editor`;
    * `dataproc.agent`;
-   * `dataproc.editor`.
+   * `editor`.
 
 1. Создайте ключи для сервисного аккаунта:
 

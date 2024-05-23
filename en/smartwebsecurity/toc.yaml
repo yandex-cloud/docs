@@ -2,7 +2,7 @@ title: Yandex Smart Web Security
 href: index.yaml
 label:
   title: RU
-  description: This service is only available in Russia.
+  description: The service is available in Russia only.
   theme: unknown
   when: region == "kz"
 items:
@@ -54,36 +54,6 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: API reference
-    items:
-      - name: Authentication with the API
-        href: api-ref/authentication.md
-      - name: gRPC
-        items:
-          - name: Overview
-            href: api-ref/grpc/index.md
-          - name: SecurityProfileService
-            href: api-ref/grpc/security_profile_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
-      - name: REST
-        items:
-          - name: Overview
-            href: api-ref/index.md
-          - name: SecurityProfile
-            items:
-              - name: Overview
-                href: api-ref/SecurityProfile/index.md
-              - name: create
-                href: api-ref/SecurityProfile/create.md
-              - name: delete
-                href: api-ref/SecurityProfile/delete.md
-              - name: get
-                href: api-ref/SecurityProfile/get.md
-              - name: list
-                href: api-ref/SecurityProfile/list.md
-              - name: update
-                href: api-ref/SecurityProfile/update.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'

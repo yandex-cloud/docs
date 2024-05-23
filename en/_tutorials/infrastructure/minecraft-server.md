@@ -1,6 +1,21 @@
+---
+title: "Minecraft game server in {{ yandex-cloud }}"
+description: "A cloud game server is a powerful solution for an efficient Minecraft infrastructure. Follow this guide to configure and deploy your own server on {{ yandex-cloud }}."
+keywords:
+  - minecraft
+  - minecraft server
+  - minecraft game server
+  - game server
+  - cloud game server
+  - "{{ yandex-cloud }} game server"
+  - deploying a game server
+  - configuring a game server
+  - "minecraft in {{ yandex-cloud }}"
+---
+
 # Deploying a Minecraft server in {{ yandex-cloud }}
 
-Using the guide, you will deploy a [Minecraft](https://www.minecraft.net/) ([Java Edition](https://www.minecraft.net/en-us/store/minecraft-java-edition/)) server of the current version in {{ yandex-cloud }} on a [virtual machine](../../compute/concepts/vm.md) with Ubuntu 22.04.
+Using the tutorial, you will deploy a [Minecraft](https://www.minecraft.net/) ([Java Edition](https://www.minecraft.net/en-us/store/minecraft-java-edition/)) server of the current version in {{ yandex-cloud }} on a [virtual machine](../../compute/concepts/vm.md) running Ubuntu 22.04.
 
 To deploy a Minecraft server of the current version in {{ yandex-cloud }}:
 
@@ -73,7 +88,7 @@ Create a [security group](../../vpc/concepts/security-groups.md), with a rule al
          * In the **Name** field, enter the VM name: `minecraft-server`.
          * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image}}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_os-products }}** tab and select the [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) operating system image.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages}}**, select a 18 GB HDD .
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages}}**, select an 18 GB HDD.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify the recommended configuration for the Minecraft server:
          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: Intel Ice Lake
          * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: 100%

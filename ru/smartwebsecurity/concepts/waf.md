@@ -2,11 +2,11 @@
 
 {% include [note-preview-waf](../../_includes/smartwebsecurity/note-preview-waf.md) %}
 
-Для защиты ваших веб-приложений от внешних угроз в {{ sws-full-name }} реализован межсетевой экран [Web Application Firewall (WAF)](../../glossary/waf.md). 
+{% include [realized-waf-glossary](../../_includes/smartwebsecurity/realized-waf-glossary.md) %}
 
 WAF анализирует входящие HTTP-запросы к веб-приложению по предварительно настроенным правилам. На основе результатов анализа к HTTP-запросам применяются определенные [действия](rules.md#rule-action).
 
-Вы можете управлять межсетевым экраном с помощью _профиля WAF_, который подключается к [профилю безопасности](profiles.md) в виде отдельного [правила](rules.md).
+Вы можете управлять WAF с помощью _профиля WAF_, который подключается к [профилю безопасности](profiles.md) в виде отдельного [правила](rules.md).
 
 Подробнее о подключении к профилю безопасности см. на странице [{#T}](../quickstart/quickstart-waf.md).
 
