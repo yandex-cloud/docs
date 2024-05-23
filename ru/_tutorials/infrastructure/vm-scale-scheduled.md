@@ -377,8 +377,8 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Справа сверху нажмите **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.serverless-functions.item-form.field_name }}** укажите `vm-scale-scheduled-function`.
-  1. Нажмите **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** укажите `vm-scale-scheduled-function`.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
   1. Выберите среду выполнения **Bash**.
   1. Включите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
   1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.

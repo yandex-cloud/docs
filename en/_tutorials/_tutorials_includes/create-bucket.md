@@ -4,7 +4,7 @@
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [bucket](../../storage/concepts/bucket.md).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
    1. Enter the name of the bucket.

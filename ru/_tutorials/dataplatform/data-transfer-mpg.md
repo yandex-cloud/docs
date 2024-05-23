@@ -103,7 +103,7 @@
     * Эндпоинт для источника:
 
         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `PostgreSQL`.
-        * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+        * **Параметры эндпоинта**:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}** — выберите [созданный ранее](#before-you-begin) кластер {{ mpg-name }}.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}** — `db1`.
@@ -114,7 +114,7 @@
     * Эндпоинт для приемника:
 
         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
-        * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+        * **Параметры эндпоинта**:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}** — выберите кластер-приемник.
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}** — укажите данные созданного ранее пользователя `kafka-user`.

@@ -8,6 +8,7 @@ description: "Follow this guide to delete a static public IP address."
 {% note alert %}
 
 Before deleting a [static IP](../concepts/address.md), you should release it by deleting the resource it is attached to.
+If deletion protection is enabled for the IP address, disable it first.
 You cannot restore an address after it is deleted.
 
 {% endnote %}
@@ -19,8 +20,10 @@ You cannot restore an address after it is deleted.
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete the static address.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the IP you need and select **{{ ui-key.yacloud.common.delete }}**.
-   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the line with the IP address you need:
+      * Select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+      * (Optional) Select ![image](../../_assets/console-icons/lock-open.svg) **{{ ui-key.yacloud.vpc.addresses.button_action-disable-protection }}** if protection is enabled, then click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_disable-protection }}**.
+   1. In the window that opens, confirm by clicking **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 

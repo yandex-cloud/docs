@@ -33,10 +33,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 ## Создание теста {#create-test}
 
-
-@[youtube](a0Xh4vxdVW4)
-
-
 1. В [консоли управления]({{ link-console-main }}) выберите каталог для тестирования.
 1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. На вкладке ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** нажмите **{{ ui-key.yacloud.load-testing.button_create-test }}**.

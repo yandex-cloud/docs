@@ -22,7 +22,7 @@
 1. Заполните поля:
    * **{{ ui-key.yc-ui-datasphere.common.name }}** — имя создаваемого коннектора. Требования к имени:
       
-     {% include [name-format](../../../_includes/name-format.md) %}
+     {% include [name-format](../../../_includes/name-format-2.md) %}
 
    * (Опционально) **{{ ui-key.yc-ui-datasphere.common.description }}** создаваемого коннектора.
    * **{{ ui-key.yc-ui-datasphere.common.endpoint }}** — хост хранилища. Для {{ objstorage-name }} это `https://{{ s3-storage-host }}/`.

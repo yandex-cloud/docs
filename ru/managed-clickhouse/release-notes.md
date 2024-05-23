@@ -4,6 +4,21 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## Апрель 2024 {#apr-2024}
+
+* Доступна новая версия {{ CH }} [24.3 LTS](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-243-lts-2024-03-27).
+
+## Март 2024 {#mar-2024}
+
+* Доступна новая версия {{ CH }} [24.2](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-242-2024-02-29).
+* Добавлена возможность создавать или удалять несколько хостов в рамках одной операции. Это поможет ускорить процесс добавления или удаления большого количества хостов в кластере.
+* [Лимит](./concepts/limits.md#mch-limits) на размер сетевых дисков `network-ssd-nonreplicated` увеличен в 2 раза — с 8 до 16 ТБ. Это позволит расширять кластер без добавления дополнительных шардов.
+
+## Февраль 2024 {#feb-2024}
+
+* Доступны новые версии {{ CH }} [23.9](https://clickhouse.com/docs/en/whats-new/changelog/2023#239), [23.10](https://clickhouse.com/docs/en/whats-new/changelog/2023#2310), [23.11](https://clickhouse.com/docs/en/whats-new/changelog/2023#2311), [23.12](https://clickhouse.com/docs/en/whats-new/changelog/2023#2312) и [24.1](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-241-2024-01-30).
+* Добавлена возможность [перезапускать хосты](./operations/hosts.md#restart) кластера. В большинстве случаев пользователям не нужно перезапускать хосты — это инструмент экстренного устранения проблем, связанных с утечками памяти или зависанием внутренних процессов СУБД.
+
 ## II квартал 2023 {#q2-2023}
 
 * Доступны новые версии {{ CH }} [23.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-234-2023-04-26) и [23.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-235-2023-06-08).

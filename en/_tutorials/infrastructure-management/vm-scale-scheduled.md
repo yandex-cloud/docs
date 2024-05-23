@@ -411,8 +411,8 @@ The function will contain the code with [{{ yandex-cloud }} CLI](../../cli/) com
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}** at the top right.
-   1. In the **{{ ui-key.yacloud.serverless-functions.item-form.field_name }}** field, specify `vm-scale-scheduled-function`.
-   1. Click **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
+   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `vm-scale-scheduled-function`.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
    1. Select the **Bash** runtime environment.
    1. Enable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
@@ -641,7 +641,7 @@ To stop paying for the resources you created:
 
 ## How to create an infrastructure using {{ TF }} {#terraform}
 
-{% include [terraform-definition](../terraform-definition.md) %}
+{% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To set up scaling for your instance group using {{ TF }}:
 
@@ -693,7 +693,7 @@ To set up scaling for your instance group using {{ TF }}:
 
 1. Create resources:
 
-   {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Test instance group scaling](#test-scale).
 

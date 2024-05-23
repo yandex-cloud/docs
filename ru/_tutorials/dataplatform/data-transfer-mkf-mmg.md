@@ -56,7 +56,9 @@
             * кластер-источник {{ mkf-name }};
             * топик {{ KF }} с именем `sensors`;
             * пользователь {{ KF }} `mkf-user` с правами доступа `ACCESS_ROLE_PRODUCER`, `ACCESS_ROLE_CONSUMER` к топику `sensors`;
-            * кластер-приемник {{ mmg-name }} с базой данных `db1` и пользователем `mmg-user`;
+            * кластер-приемник {{ mmg-name }};
+            * база данных {{ MG }} `db1`;
+            * пользователь {{ MG }} `mmg-user` с правами доступа `readWrite` к базе данных `db1`;
             * трансфер.
 
         1. Укажите в файле `data-transfer-mkf-mmg.tf` переменные:
@@ -149,7 +151,7 @@
 
 1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [источника `{{ KF }}`](../../data-transfer/operations/endpoint/source/kafka.md):
 
-    **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+    **Параметры эндпоинта**:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
 
@@ -219,7 +221,7 @@
 
 1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [приемника `{{ MG }}`](../../data-transfer/operations/endpoint/target/mongodb.md):
 
-    **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+    **Параметры эндпоинта**:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.connection.title }}**:
 

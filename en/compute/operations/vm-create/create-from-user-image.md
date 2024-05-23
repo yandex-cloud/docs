@@ -33,7 +33,7 @@ Make sure the uploaded image is in the `READY` status.
 
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an image:
 
-      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom }}** tab and click **{{ ui-key.yacloud.compute.instances.create.button_choose }}**.
+      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom }}** tab and click **{{ ui-key.yacloud.common.select }}**.
       * In the window that opens, go to the **{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}** tab.
       * Select an image from the list and click **{{ ui-key.yacloud.common.apply }}**.
 

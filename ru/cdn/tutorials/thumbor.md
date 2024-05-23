@@ -4,4 +4,4 @@ noIndex: true
 
 # Редактирование изображений для сайтов с помощью приложения Thumbor
 
-{% include notitle [original tutorial](../../_tutorials/containers/thumbor.md) %}
+{% include notitle [original tutorial](../../_tutorials/kubernetes-marketplace/thumbor.md) %}

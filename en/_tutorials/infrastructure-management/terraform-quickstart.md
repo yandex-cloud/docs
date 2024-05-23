@@ -1,6 +1,6 @@
 # Getting started with {{ TF }}
 
-{% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+{% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 To create your first infrastructure in {{ yandex-cloud }} using {{ TF }}:
 1. [Prepare your cloud](#before-you-begin).
@@ -28,16 +28,16 @@ The cost of resources created with {{ TF }} includes:
 
 ## Install {{ TF }} {#install-terraform}
 
-{% include [terraform_install](../../_tutorials/terraform-install.md) %}
+{% include [terraform_install](../../_tutorials/_tutorials_includes/terraform-install.md) %}
 
 ## Get the authentication credentials {#get-credentials}
 
-{% include [terraform-credentials-sa](../../_tutorials/terraform-credentials-sa.md) %}
+{% include [terraform-credentials-sa](../../_tutorials/_tutorials_includes/terraform-credentials-sa.md) %}
 
 
 {% cut "Managing resources on behalf of a Yandex account or a federated account" %}
 
-{% include [terraform-credentials-user](../../_tutorials/terraform-credentials-user.md) %}
+{% include [terraform-credentials-user](../../_tutorials/_tutorials_includes/terraform-credentials-user.md) %}
 
 {% endcut %}
 
@@ -45,11 +45,11 @@ The cost of resources created with {{ TF }} includes:
 
 ## Create a {{ TF }} configuration file {#configure-terraform}
 
-{% include [terraform-configure](../../_tutorials/terraform-configure.md) %}
+{% include [terraform-configure](../../_tutorials/_tutorials_includes/terraform-configure.md) %}
 
 ## Configure a provider {#configure-provider}
 
-{% include [terraform-configure-provider](../../_tutorials/terraform-configure-provider.md) %}
+{% include [terraform-configure-provider](../../_tutorials/_tutorials_includes/terraform-configure-provider.md) %}
 
 ## Prepare an infrastructure plan {#prepare-plan}
 
@@ -100,11 +100,11 @@ resource "yandex_compute_instance" "vm-1" {
 
 - Creating a Linux VM
 
-   {% include [terraform-prepare-plan-linux](../../_tutorials/terraform-prepare-plan-linux.md) %}
+   {% include [terraform-prepare-plan-linux](../../_tutorials/_tutorials_includes/terraform-prepare-plan-linux.md) %}
 
 - Creating a Windows VM
 
-   {% include [terraform-prepare-plan-windows](../../_tutorials/terraform-prepare-plan-windows.md) %}
+   {% include [terraform-prepare-plan-windows](../../_tutorials/_tutorials_includes/terraform-prepare-plan-windows.md) %}
 
 {% endlist %}
 
@@ -114,25 +114,25 @@ resource "yandex_compute_instance" "vm-1" {
 
 - Linux
 
-   {% include [terraform-vm-user-linux](../../_tutorials/terraform-vm-user-linux.md) %}
+   {% include [terraform-vm-user-linux](../../_tutorials/_tutorials_includes/terraform-vm-user-linux.md) %}
 
 - Windows
 
-   {% include [terraform-vm-user-windows](../../_tutorials/terraform-vm-user-windows.md) %}
+   {% include [terraform-vm-user-windows](../../_tutorials/_tutorials_includes/terraform-vm-user-windows.md) %}
 
 {% endlist %}
 
 ## Check and format the configuration files {#check-resources}
 
-{% include [check-resources](../../_tutorials/terraform-check-resources.md) %}
+{% include [check-resources](../../_tutorials/_tutorials_includes/terraform-check-resources.md) %}
 
 ## Create resources {#create-resources}
 
-{% include [create-resources](../../_tutorials/terraform-create-resources.md) %}
+{% include [create-resources](../../_tutorials/_tutorials_includes/terraform-create-resources.md) %}
 
 ## How to delete the resources you created {#delete-resources}
 
-{% include [delete-resources](../../_tutorials/terraform-delete-resources.md) %}
+{% include [delete-resources](../../_tutorials/_tutorials_includes/terraform-delete-resources.md) %}
 
 You can use the [management console]({{ link-console-main }}) to check that the resources have been deleted.
 

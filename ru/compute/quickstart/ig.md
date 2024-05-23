@@ -30,7 +30,7 @@
 
       {% include [sa-dependence-brief](../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите нужные [зоны доступности](../../overview/concepts/geo-scope.md). ВМ группы могут находиться в разных зонах доступности.
+1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите нужные [зоны доступности](../../overview/concepts/geo-scope.md). ВМ группы могут находиться в разных зонах и регионах доступности.
 1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**, чтобы задать конфигурацию базовой ВМ:
    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** введите описание базовой ВМ.
    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный образ.

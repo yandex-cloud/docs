@@ -481,7 +481,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
 
       1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
       1. Enter the function name: `copy-function`.
-      1. Click **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
+      1. Click **{{ ui-key.yacloud.common.create }}**.
 
    1. Create a function version:
 

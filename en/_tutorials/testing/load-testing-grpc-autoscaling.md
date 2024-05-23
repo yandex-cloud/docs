@@ -327,7 +327,7 @@ This instruction will use a gRPC service as a test target.
 
 6. [Run a test](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
 
-   * In the **{{ ui-key.yacloud.load-testing.test-data-section }}** settings section, select **{{ ui-key.yacloud.load-testing.label_local-source }}**, click **Attach file**, and upload the prepared `ammo.json` file.
+   * In the **{{ ui-key.yacloud.load-testing.test-data-section }}** settings section, select **From computer**, click **Attach file**, and upload the prepared `ammo.json` file.
    * Under **{{ ui-key.yacloud.load-testing.label_test-settings }}** settings:
       * In the **{{ ui-key.yacloud.load-testing.field_settings-type }}** field, select **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
       * In the **{{ ui-key.yacloud.load-testing.field_config-file }}** field, click **Attach file** and upload the prepared `load.yaml` file.

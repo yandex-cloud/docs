@@ -48,6 +48,8 @@ items:
             href: operations/backup-vm/recover-file-by-file.md
           - name: Удалить копию
             href: operations/backup-vm/delete.md
+      - name: Посмотреть операции с ресурсами сервиса
+        href: operations/operation-logs.md
   - name: Концепции
     items:
       - name: Обзор сервиса

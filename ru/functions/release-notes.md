@@ -1,5 +1,16 @@
 # История изменений в {{ sf-full-name }}
 
+## Апрель 2024 {#april-2024}
+
+### Обновления {#updates}
+
+* Добавлена поддержка [выделения оперативной памяти для директории /tmp](operations/function/allocate-memory-tmp.md) для версии функции, объем памяти которой не менее 1 ГБ.
+
+### Исправления и улучшения {#fixes-improvements}
+
+* Исправлена ошибка импорта `yandex_function_scaling_policy` в {{ TF }}.
+* Удалено требование для [пользовательской сети](concepts/networking#user-network) иметь подсеть в зоне доступности `ru-central1-c` в связи с [выводом этой зоны из эксплуатации](../overview/concepts/ru-central1-c-deprecation).
+
 ## Март 2024 {#march-2024}
 
 ### Обновления {#updates}

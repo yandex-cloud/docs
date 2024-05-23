@@ -39,7 +39,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 Using {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type, such as VMs, disks, and images. For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-{% include [terraform_install](../../_tutorials/terraform-install.md) %}
+{% include [terraform_install](../_tutorials_includes/terraform-install.md) %}
 
 ## Describe the infrastructure {#set-configuration}
 

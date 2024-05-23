@@ -97,8 +97,6 @@ items:
         href: cli.md
       - name: Полное доменное имя (FQDN)
         href: fqdn.md
-      - name: Cookie
-        href: cookie.md
   - name: Безопасность
     items:
       - name: SSL-сертификат

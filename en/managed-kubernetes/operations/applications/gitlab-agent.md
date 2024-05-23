@@ -57,7 +57,7 @@ The {{ GL }} Agent does not execute CI/CD pipelines. To do this, install [{{ GL 
    * **{{ GL }} domain name**: Enter the name of your {{ GL }} domain, e.g., `gitlab-test.gitlab.yandexcloud.net`.
    * **Agent access token**: Paste the {{ GL }} access token you [received earlier](#before-you-begin) into this field.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application status to change to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
+1. Wait for the application status to change to `Deployed`.
 1. Open your {{ GL }} instance and go to **Infrastucture → {{ k8s }} clusters**. Make sure the agent status changed to `Connected`.
 
 ## Installation using a Helm chart {#helm-install}

@@ -51,6 +51,7 @@ description: "Страница содержит все инструкции дл
 * [{#T}](user-images.md)
 * [{#T}](data/dataset.md)
 * [{#T}](data/s3-connectors.md)
+* [{#T}](data/spark-connectors.md)
 * [{#T}](data/models.md)
 
 ## Подключение к источникам данных {#connections-to-data-sources}

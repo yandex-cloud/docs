@@ -1,12 +1,12 @@
-The user can create a budget if they have the `editor` role. To get notifications, the `viewer` role is sufficient.
+The user needs the `editor` [role](../../iam/concepts/access-control/roles.md) to create a budget. To get notifications, the `viewer` role is sufficient.
 
 {% list tabs group=instructions %}
 
 - {{ billing-interface }} {#billing}
 
    1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
-   1. Select a billing account.
-   1. In the **{{ ui-key.yacloud_billing.billing.account.overview.section_account-data }}** section, in the **{{ ui-key.yacloud.common.id }}** field, copy the billing account ID. You will need it when creating a trigger for budgets.
+   1. Select a [billing account](../../billing/concepts/billing-account.md).
+   1. In the **{{ ui-key.yacloud_billing.billing.account.overview.section_account-data }}** section, in the **{{ ui-key.yacloud.common.id }}** field, copy the billing account ID. You will need it when creating a [trigger](../../functions/concepts/trigger/index.md) for budgets.
    1. Go to the **{{ ui-key.yacloud_billing.billing.account.switch_budgets }}** tab and click **{{ ui-key.yacloud_billing.billing.account.budgets.button_create }}**.
    1. Under **{{ ui-key.yacloud.common.section-base }}**, specify:
       * **{{ ui-key.yacloud.common.name }}**: `vm-budget`.
@@ -17,14 +17,12 @@ The user can create a budget if they have the `editor` role. To get notification
 
          The end date is when the budget stops calculating usage and sending notifications. The end date is the last day of the month. It must be within five years of the current date.
       * **{{ ui-key.yacloud_billing.billing.account.budgets.label_notify }}**: Select yourself.
-
-   1. Under **{{ ui-key.yacloud_billing.billing.account.budgets.section_scope }}**, select the current folder and the **{{ compute-name }}** service.
+   1. Under **{{ ui-key.yacloud_billing.billing.account.budgets.section_scope }}**, select your current [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) and the **{{ compute-name }}** service.
    1. Under **{{ ui-key.yacloud_billing.billing.account.budgets.label_limits }}**, set the threshold values as a percentage upon reaching which:
       * Specified users will get notifications.
-      * The trigger for budgets will fire.
+      * Trigger for budgets will fire.
 
       For example, you can set two thresholds: `50%` and `100%`.
-
    1. Click **{{ ui-key.yacloud.common.create }}**.
    1. A window will open with the new `vm-budget`. In the **{{ ui-key.yacloud.common.id }}** field, copy the ID of the new budget. You will need it later when creating a trigger.
 

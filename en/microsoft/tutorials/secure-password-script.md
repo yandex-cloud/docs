@@ -33,7 +33,7 @@ The infrastructure support cost includes:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
+   1. In the [management console]({{ link-console-main }}), select a folder where you want to create your service account.
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the service account, e.g., `win-secret-sa`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -73,16 +73,16 @@ The infrastructure support cost includes:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a key.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your key.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
       1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify the key attributes:
-         * **{{ ui-key.yacloud.common.name }}**: `win-secret-key`
-         * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`
+         * **{{ ui-key.yacloud.common.name }}**: `win-secret-key`.
+         * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`.
          * Leave the other parameters at their default settings.
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
-      The key is created along with its first version: click the key in the list to open the page with its attributes.
+      The key is created together with its first version: click the key in the list to open the page with its attributes.
 
    - CLI {#cli}
 
@@ -150,7 +150,7 @@ Create a secret in {{ lockbox-name }} and use it to save username-password pairs
 When choosing a password, make sure to comply with the password security requirements; otherwise, the account will not be created for the user.
 The password must:
 
-* Contain six or more characters.
+* Contain eight or more characters.
 * Not contain the account name.
 * Contain characters from at least three of the following four groups:
    - Latin uppercase letters (A-Z)
@@ -164,7 +164,7 @@ The password must:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your secret.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter the secret name, `win-secret`.
@@ -376,7 +376,7 @@ Create a VM with the Windows OS having the administrator and user accounts.
 
 ## Log in to the Windows OS {#login-windows}
 
-To check that the data from the secret was used to create users, log in to the VM's OS:
+To check that the data from the secret was successfully used to create users, log in to the VM's OS:
 
 1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -418,7 +418,7 @@ To check that the data from the secret was used to create users, log in to the V
 
 1. Press **Enter** and specify the following in the given order:
    - Username.
-   - Domain if the domain account is used for logging in. Otherwise, enter the hostname or leave it empty.
+   - Domain if the domain account is used for logging in. Otherwise, enter the hostname or leave empty.
    - Password.
 
    ```bash

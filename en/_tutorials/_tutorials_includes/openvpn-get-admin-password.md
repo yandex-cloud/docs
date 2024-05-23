@@ -1,10 +1,10 @@
 ## Get the administrator password {#get-admin-password}
 
-The openvpn user with administrator privileges was created on the `OpenVPN` server in advance. The password is generated automatically when creating a VM.
+The openvpn user with administrator privileges was created on the `OpenVPN` server in advance. The password is generated automatically when you create a [VM](../../compute/concepts/vm.md).
 
 You can get the password in the [serial port output](../../compute/operations/vm-info/get-serial-port-output) or the serial console. The password will display in the following string:
 
-```
+```text
 To log in, please use the `openvpn` account with the <password> password.
 ```
 

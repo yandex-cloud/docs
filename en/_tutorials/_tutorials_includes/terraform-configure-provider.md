@@ -4,7 +4,7 @@ These settings apply to {{ TF }} `0.13` and higher. We recommend using the lates
 
 {% endnote %}
 
-1. If you previously had a provider from the Hashicorp registry configured, save its settings:
+1. If you previously configured a provider from the HashiCorp registry, save its settings:
 
    {% list tabs group=operating_system %}
 
@@ -88,7 +88,7 @@ These settings apply to {{ TF }} `0.13` and higher. We recommend using the lates
 
 If the provider installation failed, create a [support request]({{ link-console-support }}) stating provider name and version.
 
-If you used the `.terraform.lock.hcl` file, before initialization run the `terraform providers lock` command, specifying the URL of the mirror the provider will be uploaded from and the platforms the configuration will be used on:
+If you used the `.terraform.lock.hcl` file, prior to the initialization, run the `terraform providers lock` command specifying the URL of the mirror to upload the provider from and the platforms the configuration will run on:
 
 ```bash
 terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -platform=<platform_1_name> -platform=<platform_2_name> yandex-cloud/yandex
