@@ -5,7 +5,7 @@ For each role in {{ tracker-name }}, you can configure a list of events you want
 ## Configuring event lists {#section_iqn_y55_xgb}
 
 
-1. In the panel on the left, click ![](../../_assets/tracker/svg/settings.svg) **Settings**. Then select ![](../../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** and click **Notification settings**. You can also follow the link [{{ link-sub-roles }}]({{ link-sub-roles }}).
+1. In the panel on the left, click ![](../../_assets/tracker/svg/settings.svg) **{{ ui-key.yacloud.settings.label_settings }}**. Then select ![](../../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** and click **Notification settings**. You can also follow the link [{{ link-sub-roles }}]({{ link-sub-roles }}).
 
 1. Select a role and configure the list of events you want to be notified about via email or in [update reports](notification-digest.md):
    - To add an event, click ![](../../_assets/tracker/button-plus.png).

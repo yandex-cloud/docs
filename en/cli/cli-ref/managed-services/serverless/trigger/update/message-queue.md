@@ -35,6 +35,11 @@ Syntax:
 |`--new-invoke-container-path`|<b>`string`</b><br/>Container endpoint path.|
 |`--new-invoke-container-service-account-id`|<b>`string`</b><br/>Service account to be used by the worker to invoke the container.|
 |`--new-invoke-container-service-account-name`|<b>`string`</b><br/>Service account to be used by the worker to invoke the container.|
+|`--new-gateway-id`|<b>`string`</b><br/>Gateway to which worker will broadcast on each YMQ Message.|
+|`--new-gateway-name`|<b>`string`</b><br/>Gateway to which worker will broadcast on each YMQ Message.|
+|`--new-gateway-websocket-broadcast-path`|<b>`string`</b><br/>Gateway endpoint path.|
+|`--new-gateway-websocket-broadcast-service-account-id`|<b>`string`</b><br/>Service account to be used by the worker to broadcast to gateway websocket.|
+|`--new-gateway-websocket-broadcast-service-account-name`|<b>`string`</b><br/>Service account to be used by the worker to broadcast to gateway websocket.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--id`|<b>`string`</b><br/>Trigger id.|
 |`--name`|<b>`string`</b><br/>Trigger name.|

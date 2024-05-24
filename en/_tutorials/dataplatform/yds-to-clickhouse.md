@@ -24,7 +24,7 @@ Prepare the infrastructure:
    1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
       * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`.
-      * **Endpoint parameters**:
+      * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseSource.connection.title }}**:
 
@@ -104,7 +104,7 @@ Prepare the infrastructure:
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
-   * **Endpoint parameters**:
+   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 

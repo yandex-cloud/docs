@@ -47,7 +47,7 @@ Bacula состоит из нескольких компонентов:
   1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите каталог, в котором будете выполнять операции.
   1. На странице каталога нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** введите имя бакета.
-  1. В поле **Доступ к бакету** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_access }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
@@ -72,7 +72,7 @@ Bacula состоит из нескольких компонентов:
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) на странице каталога нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-  1. В поле **{{ ui-key.yacloud.common.name }}** введите имя ВМ: `bacula-vm`.
+  1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя ВМ: `bacula-vm`.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите публичный образ [CentOS 7](/marketplace/products/yc/centos-7).
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите параметры:

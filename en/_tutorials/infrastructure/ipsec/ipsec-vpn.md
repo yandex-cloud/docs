@@ -103,9 +103,9 @@ At this stage, you will reserve two static IP addresses for IPsec gateways as we
 
 1. In the [management console]({{ link-console-main }}), go to the folder where you need to create the main IPsec gateway.
 1. At the top right, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. In the **{{ ui-key.yacloud.common.name }}** field, specify `cloud-gw`.
+1. In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, specify `cloud-gw`.
 1. In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select `{{ region-id }}-b` hosting the subnet to connect the main IPsec gateway to.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**, and select the [IPSec instance](/marketplace/products/yc/ipsec-instance-ubuntu) image.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**, and select the [IPSec instance](/marketplace/products/yc/ipsec-instance-ubuntu) image.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
    1. In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `ipsec-subnet`.
@@ -341,9 +341,9 @@ Create a VM to act as a remote IPsec gateway.
 
 1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a remote IPsec gateway.
 1. At the top right, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. In the **{{ ui-key.yacloud.common.name }}** field, specify `remote-gw`.
+1. In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, specify `remote-gw`.
 1. In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select `{{ region-id }}-b` hosting the subnet to connect the remote IPsec gateway to.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**, and select the `IPSec instance` image.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**, and select the `IPSec instance` image.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
    1. In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `subnet-1`.

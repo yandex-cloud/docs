@@ -99,6 +99,7 @@ plugins[] | **string**<br>Names of the cluster plugins.
 node_groups[] | **[NodeGroup](#NodeGroup)**<br>Host groups of the OpenSearch type. 
 config | **oneof:** `opensearch_config_set_2`<br>
 &nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
+keystore_settings[] | **string**<br>Keystore entries names. 
 
 
 ### NodeGroup {#NodeGroup}
@@ -255,6 +256,7 @@ plugins[] | **string**<br>Names of the cluster plugins.
 node_groups[] | **[NodeGroup](#NodeGroup2)**<br>Host groups of the OpenSearch type. 
 config | **oneof:** `opensearch_config_set_2`<br>
 &nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
+keystore_settings[] | **string**<br>Keystore entries names. 
 
 
 ### NodeGroup {#NodeGroup2}
@@ -383,6 +385,7 @@ plugins[] | **string**<br>Names of the cluster plugins.
 node_groups[] | **[NodeGroup](#NodeGroup4)**<br>OpenSearch type host groups of the cluster. 
 config | **oneof:** `opensearch_config_2`<br>
 &nbsp;&nbsp;opensearch_config_2 | **[config.OpenSearchConfig2](#OpenSearchConfig2)**<br> 
+keystore_settings[] | **[KeystoreSetting](#KeystoreSetting)**<br>Initial cluster keystore settings. 
 
 
 ### NodeGroup {#NodeGroup4}
@@ -396,6 +399,14 @@ zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to. Th
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. The maximum number of elements is 10. The maximum string length in characters for each value is 50.
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
 roles[] | **[OpenSearch.GroupRole](#OpenSearch2)**<br>Roles of the hosts in the group. 
+
+
+### KeystoreSetting {#KeystoreSetting}
+
+Field | Description
+--- | ---
+name | **string**<br>Keystore entry name. 
+value | **string**<br>Keystore entry value. 
 
 
 ### Resources {#Resources2}
@@ -528,6 +539,7 @@ plugins[] | **string**<br>Names of the cluster plugins.
 node_groups[] | **[NodeGroup](#NodeGroup6)**<br>Host groups of the OpenSearch type. 
 config | **oneof:** `opensearch_config_set_2`<br>
 &nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
+keystore_settings[] | **string**<br>Keystore entries names. 
 
 
 ### NodeGroup {#NodeGroup6}
@@ -616,6 +628,16 @@ Field | Description
 plugins[] | **string**<br>Names of the cluster plugins. 
 config | **oneof:** `opensearch_config_2`<br>
 &nbsp;&nbsp;opensearch_config_2 | **[config.OpenSearchConfig2](#OpenSearchConfig2)**<br> 
+set_keystore_settings[] | **[KeystoreSetting](#KeystoreSetting)**<br>Keystore settings to add/replace. Old entries not listed here will be left unchanged. 
+remove_keystore_settings[] | **string**<br>Keystore entries names to remove. 
+
+
+### KeystoreSetting {#KeystoreSetting1}
+
+Field | Description
+--- | ---
+name | **string**<br>Keystore entry name. 
+value | **string**<br>Keystore entry value. 
 
 
 ### DashboardsClusterUpdateSpec {#DashboardsClusterUpdateSpec}
@@ -724,6 +746,7 @@ plugins[] | **string**<br>Names of the cluster plugins.
 node_groups[] | **[NodeGroup](#NodeGroup8)**<br>Host groups of the OpenSearch type. 
 config | **oneof:** `opensearch_config_set_2`<br>
 &nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
+keystore_settings[] | **string**<br>Keystore entries names. 
 
 
 ### NodeGroup {#NodeGroup8}
@@ -907,6 +930,7 @@ plugins[] | **string**<br>Names of the cluster plugins.
 node_groups[] | **[NodeGroup](#NodeGroup10)**<br>Host groups of the OpenSearch type. 
 config | **oneof:** `opensearch_config_set_2`<br>
 &nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
+keystore_settings[] | **string**<br>Keystore entries names. 
 
 
 ### NodeGroup {#NodeGroup10}
@@ -1036,6 +1060,7 @@ plugins[] | **string**<br>Names of the cluster plugins.
 node_groups[] | **[NodeGroup](#NodeGroup12)**<br>OpenSearch type host groups of the cluster. 
 config | **oneof:** `opensearch_config_2`<br>
 &nbsp;&nbsp;opensearch_config_2 | **[config.OpenSearchConfig2](#OpenSearchConfig2)**<br> 
+keystore_settings[] | **[KeystoreSetting](#KeystoreSetting)**<br>Initial cluster keystore settings. 
 
 
 ### NodeGroup {#NodeGroup12}
@@ -1049,6 +1074,14 @@ zone_ids[] | **string**<br>IDs of the availability zones the hosts belong to. Th
 subnet_ids[] | **string**<br>IDs of the subnets that the hosts belong to. The maximum number of elements is 10. The maximum string length in characters for each value is 50.
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the hosts in the group. 
 roles[] | **[OpenSearch.GroupRole](#OpenSearch5)**<br>Roles of the hosts in the group. 
+
+
+### KeystoreSetting {#KeystoreSetting2}
+
+Field | Description
+--- | ---
+name | **string**<br>Keystore entry name. 
+value | **string**<br>Keystore entry value. 
 
 
 ### Resources {#Resources5}
@@ -1182,6 +1215,7 @@ plugins[] | **string**<br>Names of the cluster plugins.
 node_groups[] | **[NodeGroup](#NodeGroup14)**<br>Host groups of the OpenSearch type. 
 config | **oneof:** `opensearch_config_set_2`<br>
 &nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
+keystore_settings[] | **string**<br>Keystore entries names. 
 
 
 ### NodeGroup {#NodeGroup14}
@@ -1319,6 +1353,7 @@ plugins[] | **string**<br>Names of the cluster plugins.
 node_groups[] | **[NodeGroup](#NodeGroup16)**<br>Host groups of the OpenSearch type. 
 config | **oneof:** `opensearch_config_set_2`<br>
 &nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
+keystore_settings[] | **string**<br>Keystore entries names. 
 
 
 ### NodeGroup {#NodeGroup16}
@@ -1532,6 +1567,7 @@ plugins[] | **string**<br>Names of the cluster plugins.
 node_groups[] | **[NodeGroup](#NodeGroup18)**<br>Host groups of the OpenSearch type. 
 config | **oneof:** `opensearch_config_set_2`<br>
 &nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
+keystore_settings[] | **string**<br>Keystore entries names. 
 
 
 ### NodeGroup {#NodeGroup18}
@@ -1704,6 +1740,7 @@ plugins[] | **string**<br>Names of the cluster plugins.
 node_groups[] | **[NodeGroup](#NodeGroup20)**<br>Host groups of the OpenSearch type. 
 config | **oneof:** `opensearch_config_set_2`<br>
 &nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
+keystore_settings[] | **string**<br>Keystore entries names. 
 
 
 ### NodeGroup {#NodeGroup20}
@@ -1876,6 +1913,7 @@ plugins[] | **string**<br>Names of the cluster plugins.
 node_groups[] | **[NodeGroup](#NodeGroup22)**<br>Host groups of the OpenSearch type. 
 config | **oneof:** `opensearch_config_set_2`<br>
 &nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
+keystore_settings[] | **string**<br>Keystore entries names. 
 
 
 ### NodeGroup {#NodeGroup22}

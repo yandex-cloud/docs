@@ -77,11 +77,11 @@ addresses[].<br>used | **boolean** (boolean)<br><p>Specifies if address is used 
 addresses[].<br>type | **string**<br>Type of the IP address.<br><ul> <li>INTERNAL: Internal IP address.</li> <li>EXTERNAL: Public IP address.</li> </ul> 
 addresses[].<br>ipVersion | **string**<br>Version of the IP address.<br><ul> <li>IPV4: IPv4 address.</li> <li>IPV6: IPv6 address.</li> </ul> 
 addresses[].<br>deletionProtection | **boolean** (boolean)<br><p>Specifies if address protected from deletion.</p> 
-addresses[].<br>dnsRecords[] | **object**<br><p>Optional dns record specifications</p> 
-addresses[].<br>dnsRecords[].<br>fqdn | **string**
-addresses[].<br>dnsRecords[].<br>dnsZoneId | **string**
-addresses[].<br>dnsRecords[].<br>ttl | **string** (int64)
-addresses[].<br>dnsRecords[].<br>ptr | **boolean** (boolean)
+addresses[].<br>dnsRecords[] | **object**<br><p>Optional DNS record specifications</p> 
+addresses[].<br>dnsRecords[].<br>fqdn | **string**<br><p>DNS record name (absolute or relative to the DNS zone in use).</p> 
+addresses[].<br>dnsRecords[].<br>dnsZoneId | **string**<br><p>ID of the public DNS zone.</p> 
+addresses[].<br>dnsRecords[].<br>ttl | **string** (int64)<br><p>TTL of record.</p> 
+addresses[].<br>dnsRecords[].<br>ptr | **boolean** (boolean)<br><p>If the PTR record is required, this parameter must be set to "true".</p> 
 addresses[].<br>externalIpv4Address | **object**
 addresses[].<br>externalIpv4Address.<br>address | **string**<br><p>Value of address.</p> 
 addresses[].<br>externalIpv4Address.<br>zoneId | **string**<br><p>Availability zone from which the address will be allocated.</p> 

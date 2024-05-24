@@ -87,7 +87,7 @@ Field | Description
 --- | ---
 address | **oneof:** `external_ipv4_address`, `internal_ipv4_address` or `external_ipv6_address`<br>Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address.
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address)**<br>Public IPv4 endpoint address. 
-&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](https://console.cloud.yandex.ru/support). 
+&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](/docs/support/overview#response-time). 
 &nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](#ExternalIpv6Address)**<br>Public IPv6 endpoint address. 
 
 
@@ -301,7 +301,7 @@ Field | Description
 --- | ---
 address | **oneof:** `external_ipv4_address`, `internal_ipv4_address` or `external_ipv6_address`<br>Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address.
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address1)**<br>Public IPv4 endpoint address. 
-&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address1)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](https://console.cloud.yandex.ru/support). 
+&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address1)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](/docs/support/overview#response-time). 
 &nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](#ExternalIpv6Address1)**<br>Public IPv6 endpoint address. 
 
 
@@ -497,7 +497,7 @@ Field | Description
 --- | ---
 address_spec | **oneof:** `external_ipv4_address_spec`, `internal_ipv4_address_spec` or `external_ipv6_address_spec`<br>Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address.
 &nbsp;&nbsp;external_ipv4_address_spec | **[ExternalIpv4AddressSpec](#ExternalIpv4AddressSpec)**<br>Public IPv4 endpoint address. 
-&nbsp;&nbsp;internal_ipv4_address_spec | **[InternalIpv4AddressSpec](#InternalIpv4AddressSpec)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](https://console.cloud.yandex.ru/support). 
+&nbsp;&nbsp;internal_ipv4_address_spec | **[InternalIpv4AddressSpec](#InternalIpv4AddressSpec)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](/docs/support/overview#response-time). 
 &nbsp;&nbsp;external_ipv6_address_spec | **[ExternalIpv6AddressSpec](#ExternalIpv6AddressSpec)**<br>Public IPv6 endpoint address. 
 
 
@@ -710,7 +710,7 @@ Field | Description
 --- | ---
 address | **oneof:** `external_ipv4_address`, `internal_ipv4_address` or `external_ipv6_address`<br>Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address.
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address2)**<br>Public IPv4 endpoint address. 
-&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address2)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](https://console.cloud.yandex.ru/support). 
+&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address2)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](/docs/support/overview#response-time). 
 &nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](#ExternalIpv6Address2)**<br>Public IPv6 endpoint address. 
 
 
@@ -788,7 +788,7 @@ Field | Description
 --- | ---
 address_spec | **oneof:** `external_ipv4_address_spec`, `internal_ipv4_address_spec` or `external_ipv6_address_spec`<br>Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address.
 &nbsp;&nbsp;external_ipv4_address_spec | **[ExternalIpv4AddressSpec](#ExternalIpv4AddressSpec)**<br>Public IPv4 endpoint address. 
-&nbsp;&nbsp;internal_ipv4_address_spec | **[InternalIpv4AddressSpec](#InternalIpv4AddressSpec)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](https://console.cloud.yandex.ru/support). 
+&nbsp;&nbsp;internal_ipv4_address_spec | **[InternalIpv4AddressSpec](#InternalIpv4AddressSpec)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](/docs/support/overview#response-time). 
 &nbsp;&nbsp;external_ipv6_address_spec | **[ExternalIpv6AddressSpec](#ExternalIpv6AddressSpec)**<br>Public IPv6 endpoint address. 
 
 
@@ -1001,7 +1001,7 @@ Field | Description
 --- | ---
 address | **oneof:** `external_ipv4_address`, `internal_ipv4_address` or `external_ipv6_address`<br>Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address.
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address3)**<br>Public IPv4 endpoint address. 
-&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address3)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](https://console.cloud.yandex.ru/support). 
+&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address3)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](/docs/support/overview#response-time). 
 &nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](#ExternalIpv6Address3)**<br>Public IPv6 endpoint address. 
 
 
@@ -1154,7 +1154,7 @@ Field | Description
 --- | ---
 address | **oneof:** `external_ipv4_address`, `internal_ipv4_address` or `external_ipv6_address`<br>Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address.
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address4)**<br>Public IPv4 endpoint address. 
-&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address4)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](https://console.cloud.yandex.ru/support). 
+&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address4)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](/docs/support/overview#response-time). 
 &nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](#ExternalIpv6Address4)**<br>Public IPv6 endpoint address. 
 
 
@@ -1384,7 +1384,7 @@ Field | Description
 --- | ---
 address | **oneof:** `external_ipv4_address`, `internal_ipv4_address` or `external_ipv6_address`<br>Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address.
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address5)**<br>Public IPv4 endpoint address. 
-&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address5)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](https://console.cloud.yandex.ru/support). 
+&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address5)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](/docs/support/overview#response-time). 
 &nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](#ExternalIpv6Address5)**<br>Public IPv6 endpoint address. 
 
 
@@ -1571,7 +1571,7 @@ Field | Description
 --- | ---
 address_spec | **oneof:** `external_ipv4_address_spec`, `internal_ipv4_address_spec` or `external_ipv6_address_spec`<br>Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address.
 &nbsp;&nbsp;external_ipv4_address_spec | **[ExternalIpv4AddressSpec](#ExternalIpv4AddressSpec)**<br>Public IPv4 endpoint address. 
-&nbsp;&nbsp;internal_ipv4_address_spec | **[InternalIpv4AddressSpec](#InternalIpv4AddressSpec)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](https://console.cloud.yandex.ru/support). 
+&nbsp;&nbsp;internal_ipv4_address_spec | **[InternalIpv4AddressSpec](#InternalIpv4AddressSpec)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](/docs/support/overview#response-time). 
 &nbsp;&nbsp;external_ipv6_address_spec | **[ExternalIpv6AddressSpec](#ExternalIpv6AddressSpec)**<br>Public IPv6 endpoint address. 
 
 
@@ -1742,7 +1742,7 @@ Field | Description
 --- | ---
 address | **oneof:** `external_ipv4_address`, `internal_ipv4_address` or `external_ipv6_address`<br>Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address.
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address6)**<br>Public IPv4 endpoint address. 
-&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address6)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](https://console.cloud.yandex.ru/support). 
+&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address6)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](/docs/support/overview#response-time). 
 &nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](#ExternalIpv6Address6)**<br>Public IPv6 endpoint address. 
 
 
@@ -1900,7 +1900,7 @@ Field | Description
 --- | ---
 address | **oneof:** `external_ipv4_address`, `internal_ipv4_address` or `external_ipv6_address`<br>Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address.
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address7)**<br>Public IPv4 endpoint address. 
-&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address7)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](https://console.cloud.yandex.ru/support). 
+&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address7)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](/docs/support/overview#response-time). 
 &nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](#ExternalIpv6Address7)**<br>Public IPv6 endpoint address. 
 
 
@@ -2088,7 +2088,7 @@ Field | Description
 --- | ---
 address_spec | **oneof:** `external_ipv4_address_spec`, `internal_ipv4_address_spec` or `external_ipv6_address_spec`<br>Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address.
 &nbsp;&nbsp;external_ipv4_address_spec | **[ExternalIpv4AddressSpec](#ExternalIpv4AddressSpec)**<br>Public IPv4 endpoint address. 
-&nbsp;&nbsp;internal_ipv4_address_spec | **[InternalIpv4AddressSpec](#InternalIpv4AddressSpec)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](https://console.cloud.yandex.ru/support). 
+&nbsp;&nbsp;internal_ipv4_address_spec | **[InternalIpv4AddressSpec](#InternalIpv4AddressSpec)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](/docs/support/overview#response-time). 
 &nbsp;&nbsp;external_ipv6_address_spec | **[ExternalIpv6AddressSpec](#ExternalIpv6AddressSpec)**<br>Public IPv6 endpoint address. 
 
 
@@ -2259,7 +2259,7 @@ Field | Description
 --- | ---
 address | **oneof:** `external_ipv4_address`, `internal_ipv4_address` or `external_ipv6_address`<br>Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address.
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address8)**<br>Public IPv4 endpoint address. 
-&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address8)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](https://console.cloud.yandex.ru/support). 
+&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address8)**<br>Internal IPv4 endpoint address. <br>To enable the use of listeners with internal addresses, [contact support](/docs/support/overview#response-time). 
 &nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](#ExternalIpv6Address8)**<br>Public IPv6 endpoint address. 
 
 

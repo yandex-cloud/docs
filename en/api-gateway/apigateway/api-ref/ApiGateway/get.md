@@ -62,7 +62,8 @@ apiGatewayId | <p>Required. ID of the API gateway to return.</p> <p>To get a API
   "canary": {
     "weight": "string",
     "variables": "object"
-  }
+  },
+  "executionTimeout": "string"
 }
 ```
 
@@ -95,3 +96,4 @@ variables | **object**<br><p>Values of variables defined in the specification.</
 canary | **object**<br><p>Canary release of the gateway.</p> 
 canary.<br>weight | **string** (int64)<br><p>It describes percentage of requests, which will be processed by canary.</p> <p>Acceptable values are 0 to 99, inclusive.</p> 
 canary.<br>variables | **object**<br><p>Required. Values specification variables, associated with canary.</p> <p>At least one per resource.</p> 
+executionTimeout | **string**<br><p>Timeout for gateway call execution</p> <p>The maximum value is 600 seconds.</p> 

@@ -68,8 +68,8 @@ SELECT * FROM <соединение>.<имя_таблицы>
 
 Ограничения:
 1. Поддерживаются только запросы чтения данных - `SELECT`, остальные виды запросов не поддерживаются.
-1. Максимальное поддерживаемое количество строк в таблице - 1000000. При превышении этого значения запрос завершается с ошибкой.
-1. {% include [!](_includes/datetime_limits.md) %}
+1. В {{ yq-short-name }} используется [система типов](https://ydb.tech/docs/ru/yql/reference/types/primitive) {{ ydb-full-name }}. Однако диапазоны допустимых значений для типов, использующихся в {{ ydb-short-name }} при работе с датой и временем (`Date`, `Datetime`, `Timestamp`), зачастую оказываются недостаточно широкими для того, чтобы вместить значения соответствующих типов {{ PG }} (`date`, `timestamp`). 
+В связи с этим значения даты и времени, прочитанные из {{ PG }}, возвращаются {{ yq-short-name }} как обычные строки (тип `Optional<Utf8>`) в формате [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html).
 
 ## Пушдаун фильтров {#predicate_pushdown}
 
@@ -77,32 +77,32 @@ SELECT * FROM <соединение>.<имя_таблицы>
 
 ## Поддерживаемые типы данных {#supported_types}
 
-Ниже приведена таблица соответствия типов {{ PG }} и типов {{ yq-full-name }}.
+В базе данных {{ PG }} признак опциональности значений колонки (разрешено или запрещено колонке содержать значения `NULL`) не является частью системы типов. Ограничение (constraint) `NOT NULL` для каждой колонки реализуется в виде атрибута `attnotnull` в системном каталоге [pg_attribute](https://www.postgresql.org/docs/current/catalog-pg-attribute.html), то есть на уровне метаданных таблицы. Следовательно, все базовые типы {{ PG }} по умолчанию могут содержать значения `NULL`, и в системе типов {{ yq-short-name }} они должны отображаться в [опциональные](https://ydb.tech/docs/ru/yql/reference/types/optional) типы. 
+
+Ниже приведена таблица соответствия типов {{ PG }} и {{ yq-full-name }}. Все остальные типы данных, за исключением перечисленных, не поддерживаются.
 
 |Тип данных {{ PG }}|Тип данных {{ yq-full-name }}|Примечания|
 |---|----|------|
-|`boolean`|`BOOL`||
-|`smallint`|`INT16`||
-|`int2`|`INT16`||
-|`integer`|`INT32`||
-|`int`|`INT32`||
-|`int4`|`INT32`||
-|`serial`|`INT32`||
-|`serial4`|`INT32`||
-|`bigint`|`INT64`||
-|`int8`|`INT64`||
-|`bigserial`|`INT64`||
-|`serial8`|`INT64`||
-|`real`|`FLOAT`||
-|`float4`|`FLOAT`||
-|`double precision`|`DOUBLE`||
-|`float8`|`DOUBLE`||
-|`date`|`DATE`|Допустимый диапазон дат с 1970-01-01 и до 2105-12-31|
-|`timestamp`|`TIMESTAMP`|Допустимый диапазон дат с 1970-01-01 00:00 и до 2105-12-31 23:59|
-|`bytea`|`STRING`||
-|`character`|`UTF8`|[Правила сортировки](https://www.postgresql.org/docs/current/collation.html) по умолчанию, строка дополняется пробелами до требуемой длины|
-|`character varying`|`UTF8`|[Правила сортировки](https://www.postgresql.org/docs/current/collation.html) по умолчанию|
-|`text`|`UTF8`|[Правила сортировки](https://www.postgresql.org/docs/current/collation.html) по умолчанию|
-
-Остальные типы данных не поддерживаются.
+|`boolean`|`Optional<Bool>`||
+|`smallint`|`Optional<Int16>`||
+|`int2`|`Optional<Int16>`||
+|`integer`|`Optional<Int32>`||
+|`int`|`Optional<Int32>`||
+|`int4`|`Optional<Int32>`||
+|`serial`|`Optional<Int32>`||
+|`serial4`|`Optional<Int32>`||
+|`bigint`|`Optional<Int64>`||
+|`int8`|`Optional<Int64>`||
+|`bigserial`|`Optional<Int64>`||
+|`serial8`|`Optional<Int64>`||
+|`real`|`Optional<Float>`||
+|`float4`|`Optional<Float>`||
+|`double precision`|`Optional<Double>`||
+|`float8`|`Optional<Double>`||
+|`date`|`Optional<Utf8>`||
+|`timestamp`|`Optional<Utf8>`||
+|`bytea`|`Optional<String>`||
+|`character`|`Optional<Utf8>`|[Правила сортировки](https://www.postgresql.org/docs/current/collation.html) по умолчанию, строка дополняется пробелами до требуемой длины.|
+|`character varying`|`Utf8`|[Правила сортировки](https://www.postgresql.org/docs/current/collation.html) по умолчанию.|
+|`text`|`Utf8`|[Правила сортировки](https://www.postgresql.org/docs/current/collation.html) по умолчанию.|
 

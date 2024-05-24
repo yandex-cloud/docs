@@ -60,7 +60,7 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/backup.md) 
    * **{{ objstorage-name }} static access key**: Copy the contents of the `sa-key.json` file or create a new [access key](../../../iam/concepts/authorization/access-key.md) for the service account. The service account must have the `storage.editor` role.
    * **{{ objstorage-name }} bucket name**: Specify the name of the {{ objstorage-name }} bucket.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Installation using a Helm chart {#helm-install}
 

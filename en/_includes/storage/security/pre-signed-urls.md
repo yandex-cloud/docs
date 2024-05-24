@@ -4,9 +4,9 @@
 
 With pre-signed URLs, any web user can perform various operations in {{ objstorage-name }}, such as:
 
-* Download an object
-* Upload an object
-* Create a bucket
+* Download an object.
+* Upload an object.
+* Create a bucket.
 
 A pre-signed URL is a URL containing request authorization data in its parameters. Pre-signed URLs can be created by users with static access keys.
 
@@ -272,11 +272,11 @@ Let's put together a pre-signed URL to download the `object-for-share.txt` objec
 
 {% list tabs %}
 
-- Management console
+- Management console {#console}
 
    {% include [storage-get-link-for-download](../../../storage/_includes_service/storage-get-link-for-download.md) %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    You can also use AWS CLI to generate a link for downloading an object. To do this, run the following command:
 
@@ -286,9 +286,9 @@ Let's put together a pre-signed URL to download the `object-for-share.txt` objec
 
    To generate the link properly, make sure to provide the `--endpoint-url` parameter pointing to the {{ objstorage-name }} hostname. For detailed information, see [this section covering AWS CLI specifics](../../../storage/tools/aws-cli.md#specifics).
 
-- boto3
+- Python (boto3) {#boto3}
 
-   The example below generates a pre-signed URL for downloading the `object-for-share` object from the `bucket-with-objects` bucket. The URL is valid for 100 seconds.
+   The example generates a pre-signed URL for downloading the `object-for-share` object from the `bucket-with-objects` bucket. The URL is valid for 100 seconds.
 
    ```python
    # coding=utf-8

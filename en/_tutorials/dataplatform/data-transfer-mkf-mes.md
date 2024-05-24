@@ -161,7 +161,7 @@ You can provide data to the {{ mes-name }} cluster as the `admin` user with the 
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ KF }}` source](../../data-transfer/operations/endpoint/source/kafka.md):
 
-   **Endpoint parameters**:
+   **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
 
@@ -231,7 +231,7 @@ You can provide data to the {{ mes-name }} cluster as the `admin` user with the 
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ ES }}` target](../../data-transfer/operations/endpoint/target/elasticsearch.md):
 
-   **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchTarget.connection.title }}**:
+   **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchTarget.connection.title }}**:
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchConnectionType.mdb_cluster_id.title }}`.
 

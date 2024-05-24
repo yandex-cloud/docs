@@ -36,7 +36,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**..
+    1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
     1. Нажмите на имя нужного эндпоинта.
 
 - CLI {#cli}

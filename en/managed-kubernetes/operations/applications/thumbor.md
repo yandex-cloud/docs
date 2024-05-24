@@ -47,7 +47,7 @@ Thumbor features:
 
    For Thumbor to operate, a {{ k8s }} service of the `LoadBalancer` type and the corresponding [{{ network-load-balancer-full-name }} load balancer](../../../network-load-balancer) will be created automatically.
 
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Installation using a Helm chart {#helm-install}
 

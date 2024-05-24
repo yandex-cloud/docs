@@ -49,7 +49,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) в списке слева нажмите на нужное облако.
-     1. На вкладке **{{ ui-key.yacloud.iam.cloud.switch_overview }}** скопируйте значение из поля **{{ ui-key.yacloud.common.id }}**.
+     1. На вкладке **{{ ui-key.yacloud.iam.cloud.switch_overview }}** скопируйте значение из поля **{{ ui-key.yacloud.iam.cloud.overview.label_id }}**.
 
    - CLI {#cli}
 

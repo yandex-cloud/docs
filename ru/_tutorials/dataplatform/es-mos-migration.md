@@ -106,8 +106,8 @@
 
     1. В выпадающем списке **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** укажите созданный ранее сервисный аккаунт.
     1. Задайте разрешения `READ и WRITE` для выбранного сервисного аккаунта.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.storage.permissions-dialog.button_add }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.storage.permissions-dialog.button_save }}**.
 
 1. Настройте кластер-источник {{ ES }}:
 

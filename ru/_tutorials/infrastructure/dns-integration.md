@@ -59,7 +59,7 @@
 
 1. Для установки DNS-форвардеров в каждой из облачных подсетей `subnet3` и `subnet4` [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) из публичного образа [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) с параметрами:
 
-    * **{{ ui-key.yacloud.common.name }}**:
+    * **{{ ui-key.yacloud.compute.instances.create.field_name }}**:
         * `forwarder1` — для ВМ в подсети `subnet3`;
         * `forwarder2` — для ВМ в подсети `subnet4`.
     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -70,7 +70,7 @@
 
 1. Для подключения из интернета и проверки сервиса в подсети `subnet4` создайте еще одну ВМ из публичного образа [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) с параметрами:
 
-    * **{{ ui-key.yacloud.common.name }}**: `test1`.
+    * **{{ ui-key.yacloud.compute.instances.create.field_name }}**: `test1`.
     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.

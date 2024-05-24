@@ -47,7 +47,7 @@
 
     Для обеспечения работы Thumbor будет автоматически создан сервис {{ k8s }} типа `LoadBalancer` и соответствующий ему [балансировщик {{ network-load-balancer-full-name }}](../../../network-load-balancer).
 
-1. Дождитесь перехода приложения в статус `Deployed`.
+1. Дождитесь перехода приложения в статус `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
 

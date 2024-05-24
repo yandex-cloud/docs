@@ -1,7 +1,7 @@
 1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. В поле **{{ ui-key.yacloud.common.name }}** введите имя [ВМ](../../compute/concepts/vm.md): `ci-tutorial-gitlab`.
+1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя [ВМ](../../compute/concepts/vm.md): `ci-tutorial-gitlab`.
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. В открывшемся окне выберите образ [{{ GL }}](/marketplace/products/yc/gitlab) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**. В открывшемся окне выберите образ [{{ GL }}](/marketplace/products/yc/gitlab) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** укажите следующую конфигурацию:
    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `4`.
    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.

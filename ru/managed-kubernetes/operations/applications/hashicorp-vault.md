@@ -69,7 +69,7 @@
    * **Ключ сервисной учетной записи для Vault** — скопируйте в это поле содержимое файла `authorized-key.json`.
    * **ID ключа {{ kms-short-name }} для Vault** — укажите [полученный ранее](#sa-keys-create) идентификатор ключа {{ kms-name }}.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Дождитесь перехода приложения в статус `Deployed`.
+1. Дождитесь перехода приложения в статус `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
 

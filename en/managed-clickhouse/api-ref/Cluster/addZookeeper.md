@@ -36,7 +36,8 @@ clusterId | <p>Required. ID of the ClickHouse cluster to modify.</p> <p>The maxi
       "assignPublicIp": true,
       "shardName": "string"
     }
-  ]
+  ],
+  "convertTablesToReplicated": true
 }
 ```
 
@@ -53,6 +54,7 @@ hostSpecs[].<br>type | **string**<br><p>Required. Type of the host to be deploye
 hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the <a href="/docs/managed-clickhouse/api-ref/Cluster#representation">Cluster.networkId</a> field.</p> <p>The maximum string length in characters is 50.</p> 
 hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the host should get a public IP address on creation.</p> <p>After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with ``assignPublicIp`` set as needed.</p> <p>Possible values:</p> <ul> <li>false - don't assign a public IP to the host.</li> <li>true - the host should have a public IP address.</li> </ul> 
 hostSpecs[].<br>shardName | **string**<br><p>Name of the shard that the host is assigned to.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
+convertTablesToReplicated | **boolean** (boolean)<br><p>Enable automatic convertation of non-replicated MergeTree tables to replicated ones.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

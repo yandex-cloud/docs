@@ -34,6 +34,11 @@ Syntax:
 |`--invoke-container-path`|<b>`string`</b><br/>Container endpoint path.|
 |`--invoke-container-service-account-id`|<b>`string`</b><br/>Service account to be used by the worker to invoke the container.|
 |`--invoke-container-service-account-name`|<b>`string`</b><br/>Service account to be used by the worker to invoke the container.|
+|`--gateway-id`|<b>`string`</b><br/>Gateway to which worker will broadcast to access the Message Queue.|
+|`--gateway-name`|<b>`string`</b><br/>Gateway to which worker will broadcast to access the Message Queue.|
+|`--gateway-websocket-broadcast-path`|<b>`string`</b><br/>Gateway endpoint path.|
+|`--gateway-websocket-broadcast-service-account-id`|<b>`string`</b><br/>Service account to be used by the worker to broadcast to gateway websocket.|
+|`--gateway-websocket-broadcast-service-account-name`|<b>`string`</b><br/>Service account to be used by the worker to broadcast to gateway websocket.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

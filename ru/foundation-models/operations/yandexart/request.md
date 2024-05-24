@@ -2,7 +2,7 @@
 
 {% include notitle [preview-stage](../../../_includes/foundation-models/yandexgpt/preview.md) %}
 
-С помощью нейросети {{ yandexart-name }} вы можете генерировать изображения в [асинхронном режиме](../../concepts/index.d#working-mode).
+С помощью нейросети {{ yandexart-name }} вы можете генерировать изображения в [асинхронном режиме](../../concepts/index.md#working-mode).
 
 
 ## Перед началом работы {#before-begin}

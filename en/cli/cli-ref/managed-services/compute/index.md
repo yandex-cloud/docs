@@ -215,7 +215,7 @@ Syntax:
 	- [yc compute gpu-cluster set-access-bindings](gpu-cluster/set-access-bindings.md) — Set access bindings for the specified GPU cluster and delete all existing access bindings if there were any
 	- [yc compute gpu-cluster add-access-binding](gpu-cluster/add-access-binding.md) — Add access binding for the specified GPU cluster
 	- [yc compute gpu-cluster remove-access-binding](gpu-cluster/remove-access-binding.md) — Remove access binding for the specified GPU cluster
-- [yc compute ssh](ssh/index.md) — Connect to instance
+- [yc compute ssh](ssh/index.md) — Connect to instance. By default uses any available ip address
 
 #### Global Flags
 

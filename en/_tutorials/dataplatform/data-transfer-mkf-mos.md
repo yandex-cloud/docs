@@ -179,7 +179,7 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ KF }}` source](../../data-transfer/operations/endpoint/source/kafka.md):
 
-   **Endpoint parameters**:
+   **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
 
@@ -249,7 +249,7 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ OS }}` target](../../data-transfer/operations/endpoint/target/opensearch.md):
 
-   **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.connection.title }}**:
+   **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.connection.title }}**:
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
 

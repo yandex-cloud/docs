@@ -33,7 +33,7 @@
      1. Перейдите на страницу [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) и выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
 
-     В поле **{{ ui-key.yacloud.common.id }}** отобразится уникальный идентификатор кластера {{ managed-k8s-name }}.
+     В поле **{{ ui-key.yacloud.k8s.cluster.overview.label_id }}** отобразится уникальный идентификатор кластера {{ managed-k8s-name }}.
 
    - CLI {#cli}
 

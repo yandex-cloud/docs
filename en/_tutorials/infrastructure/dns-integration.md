@@ -59,7 +59,7 @@ To ensure fault tolerance for DNS forwarders, they will be placed behind the [in
 
 1. To install DNS forwarders in each cloud subnet (`subnet3` and `subnet4`), [create a VM](../../compute/operations/vm-create/create-linux-vm.md) from the [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) public image with the following parameters:
 
-   * **{{ ui-key.yacloud.common.name }}**:
+   * **{{ ui-key.yacloud.compute.instances.create.field_name }}**:
       * `forwarder1`: For the VM in `subnet3`.
       * `forwarder2`: For the VM in `subnet4`.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -70,7 +70,7 @@ To ensure fault tolerance for DNS forwarders, they will be placed behind the [in
 
 1. To connect from the internet and check the service in `subnet4`, create other VM instance from the [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) public image with the following parameters:
 
-   * **{{ ui-key.yacloud.common.name }}**: `test1`.
+   * **{{ ui-key.yacloud.compute.instances.create.field_name }}**: `test1`.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`
       * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`
