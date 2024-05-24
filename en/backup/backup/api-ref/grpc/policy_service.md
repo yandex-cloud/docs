@@ -898,6 +898,7 @@ Field | Description
 --- | ---
 policy_id | **string**<br>Policy ID. 
 compute_instance_id | **string**<br>Compute Cloud instance ID. 
+progress_percentage | **double**<br>Progress of the backup process. 
 
 
 ## Revoke {#Revoke}

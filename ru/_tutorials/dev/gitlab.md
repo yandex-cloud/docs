@@ -36,7 +36,7 @@
 ## Создайте виртуальную машину с {{ GL }} {#create-vm}
 
 1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. В поле **{{ ui-key.yacloud.common.name }}** введите имя ВМ: `gitlab`.
+1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя ВМ: `gitlab`.
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой должна находиться ВМ.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите публичный образ [{{ GL }}](/marketplace/products/yc/gitlab).
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}** выберите [жесткий диск SSD](../../compute/concepts/disk.md#disks_types) размером 20 Гб.
@@ -50,7 +50,7 @@
      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `4`.
      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-   * Выберите **{{ ui-key.yacloud.compute.instance.overview.section_network }}** и **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**, к которым нужно подключить ВМ. Если нужной [сети](../../vpc/concepts/network.md#network) или [подсети](../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../vpc/operations/subnet-create.md).
+   * Выберите **{{ ui-key.yacloud.compute.instances.create.label_network }}** и **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**, к которым нужно подключить ВМ. Если нужной [сети](../../vpc/concepts/network.md#network) или [подсети](../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../vpc/operations/subnet-create.md).
    * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}**, чтобы назначить ВМ случайный [внешний IP-адрес](../../vpc/operations/subnet-create.md) из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к ВМ:
    * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите предпочтительное имя пользователя, который будет создан на ВМ.

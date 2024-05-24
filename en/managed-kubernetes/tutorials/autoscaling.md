@@ -31,7 +31,7 @@ While running, the total number of [group nodes](../concepts/index.md#node-group
    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. [Create an encryption key](../../kms/operations/key.md#create):
-   * **{{ ui-key.yacloud.common.name }}**: `k8s-symetric-key`
+   * **{{ ui-key.yacloud.kms.symmetric-key.form.field_name }}**: `k8s-symetric-key`
    * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-128`
    * **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}**: `365 days`
 1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) with the following settings:
@@ -42,7 +42,7 @@ While running, the total number of [group nodes](../concepts/index.md#node-group
    * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}**: `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`
    * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}**: `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}`
    * **{{ ui-key.yacloud.k8s.clusters.create.field_network }}**: `k8s-network`
-   * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Select the previously created security groups containing the rules for service traffic and {{ k8s }} API access.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_security-groups }}**: Select the previously created security groups containing the rules for service traffic and {{ k8s }} API access.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**: `{{ ui-key.yacloud.common.enabled }}`
 1. [Create two groups of nodes](../operations/node-group/node-group-create.md) with the following settings in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones:
    * Under **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}**:
@@ -52,7 +52,7 @@ While running, the total number of [group nodes](../concepts/index.md#node-group
      * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}**: `1`
    * Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
      * **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}**: `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`
-     * **{{ ui-key.yacloud.compute.instances.create.field_security-groups }}**: Select the previously created security groups containing the rules for service traffic, connection to the services from the internet, and connection to nodes over SSH.
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_security-groups }}**: Select the previously created security groups containing the rules for service traffic, connection to the services from the internet, and connection to nodes over SSH.
      * **{{ ui-key.yacloud.k8s.node-groups.create.field_locations }}**: `{{ region-id }}-a` or `{{ region-id }}-b`
 
 1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}

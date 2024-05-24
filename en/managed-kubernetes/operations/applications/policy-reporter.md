@@ -55,7 +55,7 @@ To use Policy Reporter, install [Kyverno](/marketplace/products/yc/kyverno) or a
       * **Endpoint YDS**: Specify the {{ yds-name }} [stream](../../../data-streams/concepts/glossary.md#stream-concepts) endpoint.
       * **YDS stream name**: Specify the {{ yds-name }} stream name.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Installation using a Helm chart {#helm-install}
 

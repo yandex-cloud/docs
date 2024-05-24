@@ -6,7 +6,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `mdb.dataproc.agent`.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `dataproc.agent`.
 
 1. {% include [Создать бакеты и выдать SA права на них](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
 
@@ -16,7 +16,7 @@
         * `HDFS`
         * `SPARK`
         * `YARN`
-    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт с ролью `mdb.dataproc.agent`.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт с ролью `dataproc.agent`.
     * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: выберите бакет для результатов обработки.
 
 ## Создайте задание Spark {#create-job}

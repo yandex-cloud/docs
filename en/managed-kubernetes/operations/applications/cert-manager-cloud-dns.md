@@ -38,7 +38,7 @@
       * `https://acme-v02.api.letsencrypt.org/directory`: Primary URL.
       * `https://acme-staging-v02.api.letsencrypt.org/directory`: Test URL.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Installation using a Helm chart {#helm-install}
 

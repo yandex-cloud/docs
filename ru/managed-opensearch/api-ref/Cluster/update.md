@@ -33,6 +33,15 @@ clusterId | <p>Required. ID of the OpenSearch cluster resource to update. To get
       "plugins": [
         "string"
       ],
+      "setKeystoreSettings": [
+        {
+          "name": "string",
+          "value": "string"
+        }
+      ],
+      "removeKeystoreSettings": [
+        "string"
+      ],
       "opensearchConfig_2": {
         "maxClauseCount": "integer",
         "fielddataCacheSize": "string",
@@ -76,6 +85,10 @@ configSpec.<br>version | **string**<br><p>OpenSearch version.</p>
 configSpec.<br>adminPassword | **string**<br><p>Required. OpenSearch admin password.</p> 
 configSpec.<br>opensearchSpec | **object**<br><p>OpenSearch configuration.</p> 
 configSpec.<br>opensearchSpec.<br>plugins[] | **string**<br><p>Names of the cluster plugins.</p> 
+configSpec.<br>opensearchSpec.<br>setKeystoreSettings[] | **object**<br><p>Keystore settings to add/replace. Old entries not listed here will be left unchanged.</p> 
+configSpec.<br>opensearchSpec.<br>setKeystoreSettings[].<br>name | **string**<br><p>Keystore entry name.</p> 
+configSpec.<br>opensearchSpec.<br>setKeystoreSettings[].<br>value | **string**<br><p>Keystore entry value.</p> 
+configSpec.<br>opensearchSpec.<br>removeKeystoreSettings[] | **string**<br><p>Keystore entries names to remove.</p> 
 configSpec.<br>opensearchSpec.<br>opensearchConfig_2 | **object**
 configSpec.<br>opensearchSpec.<br>opensearchConfig_2.<br>maxClauseCount | **integer** (int64)<br><p>the maximum number of allowed boolean clauses in a query</p> 
 configSpec.<br>opensearchSpec.<br>opensearchConfig_2.<br>fielddataCacheSize | **string**<br><p>the percentage or absolute value (10%, 512mb) of heap space that is allocated to fielddata</p> 

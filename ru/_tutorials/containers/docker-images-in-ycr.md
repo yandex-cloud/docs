@@ -301,7 +301,7 @@
 1. Перейдите в [консоль управления]({{ link-console-main }}/), затем откройте реестр {{ container-registry-full-name }}.
 1. Откройте репозиторий с Docker-образами из проекта {{ GL }}.
 1. Перейдите в папку с названием проекта {{ GL }}.
-1. Убедитесь, что в столбце **{{ ui-key.yacloud.cr.image.label_scan-status }}** указано **{{ ui-key.yacloud.cr.registry.label_scan-status-READY }}**.
+1. Убедитесь, что в столбце **{{ ui-key.yacloud.cr.image.label_scan-status }}** указано **{{ ui-key.yacloud.cr.image.label_scan-status-READY }}**.
 1. В столбце **{{ ui-key.yacloud.cr.image.label_last-scan-time }}** нажмите ссылку со временем сканирования.
 
    Откроются результаты сканирования. Если в образе выявлены уязвимости, они отображаются в полученных результатах.

@@ -38,7 +38,7 @@
 * Вы новый пользователь (хотите использовать {{ datalens-full-name }} только для исследования подкастов).
 * Вы уже используете {{ datalens-full-name }} (в других целях).
 
-{% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin-datalens.md) %}
 
 ### 1.2. Создайте подключение {#create-connection}
 

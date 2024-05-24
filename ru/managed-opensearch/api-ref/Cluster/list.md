@@ -70,6 +70,9 @@ filter | <p>A filter expression that filters resources listed in the response.</
               ]
             }
           ],
+          "keystoreSettings": [
+            "string"
+          ],
           "opensearchConfigSet_2": {
             "effectiveConfig": {
               "maxClauseCount": "integer",
@@ -174,6 +177,7 @@ clusters[].<br>config.<br>opensearch.<br>nodeGroups[].<br>zoneIds[] | **string**
 clusters[].<br>config.<br>opensearch.<br>nodeGroups[].<br>subnetIds[] | **string**<br><p>IDs of the subnets that the hosts belong to.</p> 
 clusters[].<br>config.<br>opensearch.<br>nodeGroups[].<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether a public IP is assigned to the hosts in the group.</p> 
 clusters[].<br>config.<br>opensearch.<br>nodeGroups[].<br>roles[] | **string**<br><p>Roles of the host group.</p> 
+clusters[].<br>config.<br>opensearch.<br>keystoreSettings[] | **string**<br><p>Keystore entries names.</p> 
 clusters[].<br>config.<br>opensearch.<br>opensearchConfigSet_2 | **object**
 clusters[].<br>config.<br>opensearch.<br>opensearchConfigSet_2.<br>effectiveConfig | **object**<br><p>Required.</p> 
 clusters[].<br>config.<br>opensearch.<br>opensearchConfigSet_2.<br>effectiveConfig.<br>maxClauseCount | **integer** (int64)<br><p>the maximum number of allowed boolean clauses in a query</p> 

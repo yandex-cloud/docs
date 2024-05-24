@@ -145,7 +145,7 @@ zip src.zip index.go go.mod
    1. Create a function:
       1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
       1. Enter the function name: `function-for-budget`.
-      1. Click **{{ ui-key.yacloud.common.create }}**.
+      1. Click **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
    1. Create a function version:
       1. Select `golang119` as the runtime environment, enable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
       1. Specify the **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** upload method and select the archive created in the previous step.

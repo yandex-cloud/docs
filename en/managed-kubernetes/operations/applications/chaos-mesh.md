@@ -28,7 +28,7 @@ Test failure scenarios on a test cluster first to make sure they do not affect t
    * **Application name**: Enter a name for the application.
 
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Installation using a Helm chart {#helm-install}
 

@@ -34,7 +34,7 @@ The cost of using a virtual router and test VM includes:
 1. In the [management console]({{ link-console-main }}), select the folder.
 1. In the top-right corner, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and choose **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the VM, e.g., `mikrotik-router`.
+   1. In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter a name for the VM, e.g., `mikrotik-router`.
    1. In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select an [availability zone](../../overview/concepts/geo-scope.md) with a subnet. If you do not know which availability zone you need, leave the default one.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [Cloud Hosted Router](/marketplace/products/yc/cloud-hosted-router) image.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify the parameters:
@@ -76,7 +76,7 @@ Create a test VM in the subnet that hosts the router, to test connectivity betwe
 1. In the [management console]({{ link-console-main }}), select the folder.
 1. In the top-right corner, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and choose **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the VM, such as `test-vm`.
+   1. In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter a name for the VM, such as `test-vm`.
    1. In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, choose the same [availability zone](../../overview/concepts/geo-scope.md) that the `mikrotik-router` VM is in.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) image.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify the parameters:

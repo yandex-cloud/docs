@@ -135,8 +135,8 @@ To prepare a test target:
    - {{ ui-key.yacloud.load-testing.label_settings-type-form }}
 
       1. In the **{{ ui-key.yacloud.load-testing.field_load-generator }}** field, select **PANDORA**.
-      1. In the **Target address** field, specify the internal IP address of the service being tested.
-      1. In the **Target port** field, set `443` (default HTTPS port).
+      1. In the **{{ ui-key.yacloud.load-testing.field_target-address }}** field, specify the internal IP address of the service being tested.
+      1. In the **{{ ui-key.yacloud.load-testing.field_target-port }}** field, set `443` (default HTTPS port).
           Allow using a secure connection.
       1. In the **Testing threads** field, specify `5000`.
 

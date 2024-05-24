@@ -50,10 +50,10 @@ labels | **object**<br><p>Address labels as ``key:value`` pairs.</p> <p>Existing
 reserved | **boolean** (boolean)<br><p>Specifies if address is reserved or not.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Specifies if address protected from deletion.</p> 
 dnsRecordSpecs[] | **object**<br><p>Optional DNS record specifications</p> 
-dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required.</p> 
-dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>Required. The string length in characters must be equal to 20.</p> 
-dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>Acceptable values are 0 to 86400, inclusive.</p> 
-dnsRecordSpecs[].<br>ptr | **boolean** (boolean)
+dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required. Required. DNS record name (absolute or relative to the DNS zone in use).</p> 
+dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>Required. Required. ID of the public DNS zone. The maximum string length in characters is 20.</p> <p>The string length in characters must be equal to 20.</p> 
+dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>TTL of record. Acceptable values are 0 to 86400, inclusive.</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>Optional. If the PTR record is required, this parameter must be set to "true".</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

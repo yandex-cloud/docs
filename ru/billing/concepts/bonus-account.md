@@ -17,7 +17,7 @@
 
 {% include [grant-amount](../../getting-started/_includes/grant-amount.md) %}
 
-Подробную информацию об условиях использования стартового гранта смотри в документе [Начало работы](../../getting-started/usage-grant.md).
+Подробную информацию об условиях использования стартового гранта см. в документе [Начало работы](../../getting-started/usage-grant.md).
 
 {% note info %}
 

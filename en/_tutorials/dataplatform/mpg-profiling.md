@@ -112,7 +112,7 @@ To detect locks using the [performance diagnostics tool](../../managed-postgresq
 
 1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** tab.
-1. On the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}** tab, in the **Slice** field, select _WAIT_EVENT_TYPE_.
+1. On the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}** tab, in the **Slice** field, select **WAIT_EVENT_TYPE**.
 
    * Check the **Lock** chart. It shows the number of queries that were in the locked state during the selected period.
    * To get detailed information about queries running during the selected period, go to the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}** tab.

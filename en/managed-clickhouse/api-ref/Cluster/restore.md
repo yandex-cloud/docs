@@ -334,7 +334,8 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters:restore
   "serviceAccountId": "string",
   "securityGroupIds": [
     "string"
-  ]
+  ],
+  "deletionProtection": true
 }
 ```
 
@@ -550,7 +551,7 @@ configSpec.<br>clickhouse.<br>config.<br>backgroundDistributedSchedulePoolSize |
 configSpec.<br>clickhouse.<br>config.<br>backgroundBufferFlushSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 configSpec.<br>clickhouse.<br>config.<br>backgroundMessageBrokerSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 configSpec.<br>clickhouse.<br>config.<br>backgroundCommonPoolSize | **integer** (int64)<br><p>The maximum number of threads that will be used for performing a variety of operations (mostly garbage collection) for *MergeTree-engine tables in a background. Default: 8 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_common_pool_size">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
-configSpec.<br>clickhouse.<br>config.<br>defaultDatabase | **string**<br><p>The default database.</p> <p>To get a list of cluster databases, see <a href="https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db">Yandex Managed ClickHouse documentation</a>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>defaultDatabase | **string**<br><p>The default database.</p> <p>To get a list of cluster databases, see <a href="/docs/managed-clickhouse/operations/databases#list-db">Yandex Managed ClickHouse documentation</a>.</p> 
 configSpec.<br>clickhouse.<br>config.<br>totalMemoryProfilerStep | **integer** (int64)<br><p>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: <strong>4194304</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step">ClickHouse documentation</a>.</p> 
 configSpec.<br>clickhouse.<br>config.<br>totalMemoryTrackerSampleProbability | **number** (double)
 configSpec.<br>clickhouse.<br>resources | **object**<br><p>Resources allocated to ClickHouse hosts.</p> 
@@ -594,6 +595,7 @@ networkId | **string**<br><p>Required. ID of the network to create the ClickHous
 folderId | **string**<br><p>ID of the folder to create the ClickHouse cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 serviceAccountId | **string**<br><p>ID of the service account used for access to Object Storage.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

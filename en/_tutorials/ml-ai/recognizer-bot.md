@@ -226,7 +226,7 @@ Create a function to process user actions in the chat.
 
       1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
       1. Enter a name for the function: `for-recognizer-bot`.
-      1. Click **{{ ui-key.yacloud.common.create }}**.
+      1. Click **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
 
    1. Create a function version:
 

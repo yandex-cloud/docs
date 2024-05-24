@@ -32,7 +32,7 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
       1. Choose a subnet in the selected availability zone.
       1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       1. Select a security group configured to work with {{ backup-name }}.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable the {{ backup-name }} connection option for your VM.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.label_backup }}**, enable the {{ backup-name }} connection option for your VM.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the service account with the `backup.editor` role.
   1. Specify the other VM parameters as needed.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.

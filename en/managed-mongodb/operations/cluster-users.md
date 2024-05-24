@@ -278,7 +278,7 @@ You can add and delete users as well as manage their individual settings and dat
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the cluster name and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-remove }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the user and select **{{ ui-key.yacloud.mdb.cluster.users.button_remove }}**.
 
 - CLI {#cli}
 

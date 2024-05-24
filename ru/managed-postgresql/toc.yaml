@@ -87,8 +87,8 @@ items:
       - name: Настройка подключения из контейнера {{ serverless-containers-name }}
         href: tutorials/container-connect.md
       - name: >-
-          Поставка данных в {{ mkf-full-name }} с помощью {{
-          data-transfer-full-name }}
+          "Поставка данных в {{ mkf-full-name }} с помощью {{
+          data-transfer-full-name }}"
         href: tutorials/cdc-data-transfer.md
       - name: >-
           Поставка данных в {{ ydb-full-name }} с помощью {{
@@ -115,8 +115,8 @@ items:
           - name: Миграция базы данных из {{ mpg-name }}
             href: tutorials/outbound-replication.md
           - name: >-
-              Создание логической реплики Amazon RDS для {{ PG }} в {{ mpg-name
-              }}
+              "Создание логической реплики Amazon RDS для {{ PG }} в {{ mpg-name
+              }}"
             href: operations/logical-replica-from-rds.md
           - name: >-
               Миграция базы данных из {{ mpg-full-name }} в {{

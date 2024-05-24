@@ -123,9 +123,9 @@ items:
             href: concepts/authorization/oauth-token.md
           - name: API-ключ
             href: concepts/authorization/api-key.md
-          - name: Авторизованные ключи
+          - name: Авторизованный ключ
             href: concepts/authorization/key.md
-          - name: Статические ключи доступа
+          - name: Статический ключ доступа
             href: concepts/authorization/access-key.md
       - name: Доступ сервисов
         stage: preview

@@ -184,7 +184,7 @@ userName | <p>Required. Name of the ClickHouse User resource to return. To get t
   ]
 }
 ```
-A ClickHouse User resource. For more information, see 
+A ClickHouse User resource. For more information, see
 the [Developer's guide](/docs/managed-clickhouse/concepts).
  
 Field | Description

@@ -66,7 +66,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. Select **Serverless computing** → **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
 1. Enter a function name, e.g., `timeupdater`.
-1. Click **{{ ui-key.yacloud.common.create }}**.
+1. Click **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
 1. In the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** window that opens, select `Python / 3.9` as the runtime environment.
 1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
 1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field, click **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}**.

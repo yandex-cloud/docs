@@ -20,7 +20,7 @@ To control access to an object in an {{ objstorage-name }} bucket, you can use a
 
       You can also click the object name, click ![image](../../../_assets/console-icons/ellipsis.svg) on the page that opens, and select **{{ ui-key.yacloud.storage.file.button_permissions }}**.
 
-   1. In the **{{ ui-key.yacloud.component.acl-dialog.label_title }}** window that opens, grant or revoke the appropriate permissions.
+   1. In the **{{ ui-key.yacloud.storage.permissions-dialog.label_title }}** window that opens, grant or revoke the appropriate permissions.
 
       {% note info %}
 

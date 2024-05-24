@@ -36,7 +36,7 @@
      * `audit` — режим оповещения.
      * `enforce` — режим блокировки.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Дождитесь перехода приложения в статус `Deployed`.
+1. Дождитесь перехода приложения в статус `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
 

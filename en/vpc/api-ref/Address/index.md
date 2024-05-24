@@ -51,11 +51,11 @@ used | **boolean** (boolean)<br><p>Specifies if address is used or not.</p>
 type | **string**<br>Type of the IP address.<br><ul> <li>INTERNAL: Internal IP address.</li> <li>EXTERNAL: Public IP address.</li> </ul> 
 ipVersion | **string**<br>Version of the IP address.<br><ul> <li>IPV4: IPv4 address.</li> <li>IPV6: IPv6 address.</li> </ul> 
 deletionProtection | **boolean** (boolean)<br><p>Specifies if address protected from deletion.</p> 
-dnsRecords[] | **object**<br><p>Optional dns record specifications</p> 
-dnsRecords[].<br>fqdn | **string**
-dnsRecords[].<br>dnsZoneId | **string**
-dnsRecords[].<br>ttl | **string** (int64)
-dnsRecords[].<br>ptr | **boolean** (boolean)
+dnsRecords[] | **object**<br><p>Optional DNS record specifications</p> 
+dnsRecords[].<br>fqdn | **string**<br><p>DNS record name (absolute or relative to the DNS zone in use).</p> 
+dnsRecords[].<br>dnsZoneId | **string**<br><p>ID of the public DNS zone.</p> 
+dnsRecords[].<br>ttl | **string** (int64)<br><p>TTL of record.</p> 
+dnsRecords[].<br>ptr | **boolean** (boolean)<br><p>If the PTR record is required, this parameter must be set to "true".</p> 
 externalIpv4Address | **object**
 externalIpv4Address.<br>address | **string**<br><p>Value of address.</p> 
 externalIpv4Address.<br>zoneId | **string**<br><p>Availability zone from which the address will be allocated.</p> 

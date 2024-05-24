@@ -26,7 +26,7 @@ SQL-запросы работают только с базами данных. F
 
 ## Перед началом работы {#before-you-begin}
 
-{% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin-datalens.md) %}
 
 
 ## Создайте подключение {#create-connection}

@@ -34,12 +34,12 @@ description: "Эта инструкция поможет начать работ
 1. Перейдите в раздел **{{ ui-key.support-center.common.tickets }}**.
 1. Нажмите кнопку **{{ ui-key.support-center.tickets.common.action_create-ticket }}**.
 1. Откроется форма **{{ ui-key.support-center.ticket.create.title_create-ticket-page }}**, заполните в ней поля:
-   * **{{ ui-key.support-center.ticket.create.field_ticket-type }}** — выберите тип запроса, наиболее подходящий для решения вашей проблемы.
-   * **{{ ui-key.support-center.ticket.create.field_service }}** — укажите сервис, в котором вы столкнулись с проблемой.
-   * **{{ ui-key.support-center.ticket.create.field_subject }}** — укажите тему обращения.
-   * **{{ ui-key.support-center.ticket.create.field_message }}** — подробно опишите, с какой проблемой вы столкнулись. Желательно при этом указать ID ресурса, дату и время, когда произошло событие.
-   * **{{ ui-key.support-center.ticket.create.field_attachments }}** — при необходимости прикрепите скриншоты или другие файлы, которые помогут полнее описать ваш запрос.
-   * **{{ ui-key.support-center.ticket.create.field_access-type }}** — выберите, кому будет видно это обращение.
+   * **{{ ui-key.yacloud.support.ticket.create.field_type }}** — выберите тип запроса, наиболее подходящий для решения вашей проблемы.
+   * **{{ ui-key.yacloud.support.ticket.create.field_service }}** — укажите сервис, в котором вы столкнулись с проблемой.
+   * **{{ ui-key.yacloud.support.ticket.create.field_summary }}** — укажите тему обращения.
+   * **{{ ui-key.yacloud.support.ticket.create.field_description }}** — подробно опишите, с какой проблемой вы столкнулись. Желательно при этом указать ID ресурса, дату и время, когда произошло событие.
+   * **{{ ui-key.yacloud.support.ticket.create.field_attachments }}** — при необходимости прикрепите скриншоты или другие файлы, которые помогут полнее описать ваш запрос.
+   * **{{ ui-key.yacloud.support.ticket.create.field_access-type }}** — выберите, кому будет видно это обращение.
 1. Нажмите кнопку **{{ ui-key.support-center.ticket.create.action_create-ticket }}**.
 
 ## Просмотр обращений {#view-requests}

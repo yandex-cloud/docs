@@ -42,7 +42,7 @@ Field | Description
 --- | ---
 config_id | **string**<br>ID of the config. 
 agent_selector | **[AgentSelector](#AgentSelector)**<br>Agent selection criterion. 
-files | **map<string,FilePointer>**<br>Additional files to be used during test execution, represented as `rel_path:file` pairs. <br>`rel_path` can be either a simple file name, a relative path, or absolute path. Files are downloaded by the agent to appropriate location. <br>Use cases include: <ul><li>[Test Data files](https://cloud.yandex.com/en-ru/docs/load-testing/concepts/payload). </li><li>Custom Pandora executable. </li><li>JMeter executable or ".jmx" scenario. </li><li>etc.</li></ul> 
+files | **map<string,FilePointer>**<br>Additional files to be used during test execution, represented as `rel_path:file` pairs. <br>`rel_path` can be either a simple file name, a relative path, or absolute path. Files are downloaded by the agent to appropriate location. <br>Use cases include: <ul><li>[Test Data files](/docs/load-testing/concepts/payload). </li><li>Custom Pandora executable. </li><li>JMeter executable or ".jmx" scenario. </li><li>etc.</li></ul> 
 
 
 ### AgentSelector {#AgentSelector}
@@ -125,7 +125,7 @@ Field | Description
 --- | ---
 config_id | **string**<br>ID of the config. 
 agent_selector | **[AgentSelector](#AgentSelector1)**<br>Agent selection criterion. 
-files | **map<string,FilePointer>**<br>Additional files to be used during test execution, represented as `rel_path:file` pairs. <br>`rel_path` can be either a simple file name, a relative path, or absolute path. Files are downloaded by the agent to appropriate location. <br>Use cases include: <ul><li>[Test Data files](https://cloud.yandex.com/en-ru/docs/load-testing/concepts/payload). </li><li>Custom Pandora executable. </li><li>JMeter executable or ".jmx" scenario. </li><li>etc.</li></ul> 
+files | **map<string,FilePointer>**<br>Additional files to be used during test execution, represented as `rel_path:file` pairs. <br>`rel_path` can be either a simple file name, a relative path, or absolute path. Files are downloaded by the agent to appropriate location. <br>Use cases include: <ul><li>[Test Data files](/docs/load-testing/concepts/payload). </li><li>Custom Pandora executable. </li><li>JMeter executable or ".jmx" scenario. </li><li>etc.</li></ul> 
 
 
 ### Details {#Details1}
@@ -209,7 +209,7 @@ Field | Description
 --- | ---
 config_id | **string**<br>ID of the config. 
 agent_selector | **[AgentSelector](#AgentSelector1)**<br>Agent selection criterion. 
-files | **map<string,FilePointer>**<br>Additional files to be used during test execution, represented as `rel_path:file` pairs. <br>`rel_path` can be either a simple file name, a relative path, or absolute path. Files are downloaded by the agent to appropriate location. <br>Use cases include: <ul><li>[Test Data files](https://cloud.yandex.com/en-ru/docs/load-testing/concepts/payload). </li><li>Custom Pandora executable. </li><li>JMeter executable or ".jmx" scenario. </li><li>etc.</li></ul> 
+files | **map<string,FilePointer>**<br>Additional files to be used during test execution, represented as `rel_path:file` pairs. <br>`rel_path` can be either a simple file name, a relative path, or absolute path. Files are downloaded by the agent to appropriate location. <br>Use cases include: <ul><li>[Test Data files](/docs/load-testing/concepts/payload). </li><li>Custom Pandora executable. </li><li>JMeter executable or ".jmx" scenario. </li><li>etc.</li></ul> 
 
 
 ### AgentSelector {#AgentSelector1}
@@ -349,7 +349,7 @@ Field | Description
 --- | ---
 config_id | **string**<br>ID of the config. 
 agent_selector | **[AgentSelector](#AgentSelector2)**<br>Agent selection criterion. 
-files | **map<string,FilePointer>**<br>Additional files to be used during test execution, represented as `rel_path:file` pairs. <br>`rel_path` can be either a simple file name, a relative path, or absolute path. Files are downloaded by the agent to appropriate location. <br>Use cases include: <ul><li>[Test Data files](https://cloud.yandex.com/en-ru/docs/load-testing/concepts/payload). </li><li>Custom Pandora executable. </li><li>JMeter executable or ".jmx" scenario. </li><li>etc.</li></ul> 
+files | **map<string,FilePointer>**<br>Additional files to be used during test execution, represented as `rel_path:file` pairs. <br>`rel_path` can be either a simple file name, a relative path, or absolute path. Files are downloaded by the agent to appropriate location. <br>Use cases include: <ul><li>[Test Data files](/docs/load-testing/concepts/payload). </li><li>Custom Pandora executable. </li><li>JMeter executable or ".jmx" scenario. </li><li>etc.</li></ul> 
 
 
 ### AgentSelector {#AgentSelector2}
@@ -513,7 +513,7 @@ Field | Description
 --- | ---
 config_id | **string**<br>ID of the config. 
 agent_selector | **[AgentSelector](#AgentSelector3)**<br>Agent selection criterion. 
-files | **map<string,FilePointer>**<br>Additional files to be used during test execution, represented as `rel_path:file` pairs. <br>`rel_path` can be either a simple file name, a relative path, or absolute path. Files are downloaded by the agent to appropriate location. <br>Use cases include: <ul><li>[Test Data files](https://cloud.yandex.com/en-ru/docs/load-testing/concepts/payload). </li><li>Custom Pandora executable. </li><li>JMeter executable or ".jmx" scenario. </li><li>etc.</li></ul> 
+files | **map<string,FilePointer>**<br>Additional files to be used during test execution, represented as `rel_path:file` pairs. <br>`rel_path` can be either a simple file name, a relative path, or absolute path. Files are downloaded by the agent to appropriate location. <br>Use cases include: <ul><li>[Test Data files](/docs/load-testing/concepts/payload). </li><li>Custom Pandora executable. </li><li>JMeter executable or ".jmx" scenario. </li><li>etc.</li></ul> 
 
 
 ### AgentSelector {#AgentSelector3}
