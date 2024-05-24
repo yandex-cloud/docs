@@ -92,7 +92,7 @@ Make sure to give your stream the `audit‑trails` name to make it easier to upl
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/data-streams.md):
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
-   * **Endpoint parameters**:
+   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
@@ -107,7 +107,7 @@ Make sure to give your stream the `audit‑trails` name to make it easier to upl
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/opensearch.md):
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ OS }}`.
-   * **Endpoint parameters**:
+   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.connection.title }}**:
 

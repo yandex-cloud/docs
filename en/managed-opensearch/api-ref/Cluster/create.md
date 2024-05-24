@@ -50,6 +50,12 @@ POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters
           ]
         }
       ],
+      "keystoreSettings": [
+        {
+          "name": "string",
+          "value": "string"
+        }
+      ],
       "opensearchConfig_2": {
         "maxClauseCount": "integer",
         "fielddataCacheSize": "string",
@@ -125,6 +131,9 @@ configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>zoneIds[] | **string**<br><p>
 configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>subnetIds[] | **string**<br><p>IDs of the subnets that the hosts belong to.</p> <p>The maximum number of elements is 10. The maximum string length in characters for each value is 50.</p> 
 configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether a public IP is assigned to the hosts in the group.</p> 
 configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>roles[] | **string**<br><p>Roles of the hosts in the group.</p> 
+configSpec.<br>opensearchSpec.<br>keystoreSettings[] | **object**<br><p>Initial cluster keystore settings.</p> 
+configSpec.<br>opensearchSpec.<br>keystoreSettings[].<br>name | **string**<br><p>Keystore entry name.</p> 
+configSpec.<br>opensearchSpec.<br>keystoreSettings[].<br>value | **string**<br><p>Keystore entry value.</p> 
 configSpec.<br>opensearchSpec.<br>opensearchConfig_2 | **object**
 configSpec.<br>opensearchSpec.<br>opensearchConfig_2.<br>maxClauseCount | **integer** (int64)<br><p>the maximum number of allowed boolean clauses in a query</p> 
 configSpec.<br>opensearchSpec.<br>opensearchConfig_2.<br>fielddataCacheSize | **string**<br><p>the percentage or absolute value (10%, 512mb) of heap space that is allocated to fielddata</p> 

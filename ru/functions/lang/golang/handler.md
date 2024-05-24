@@ -305,7 +305,7 @@ type APIGatewayRequest struct {
 	Parameters           map[string]string   `json:"parameters"`
 	MultiValueParameters map[string][]string `json:"multiValueParameters"`
 
-	Body            []byte `json:"body"`
+	Body            string `json:"body"`
 	IsBase64Encoded bool   `json:"isBase64Encoded,omitempty"`
 
 	RequestContext interface{} `json:"requestContext"`
@@ -328,7 +328,7 @@ func Greet(ctx context.Context, event *APIGatewayRequest) (*APIGatewayResponse, 
 	req := &Request{}
 
 	// Поле event.Body запроса преобразуется в объект типа Request для получения переданного имени
-	if err := json.Unmarshal(event.Body, &req); err != nil {
+	if err := json.Unmarshal([]byte(event.Body), &req); err != nil {
 		return nil, fmt.Errorf("an error has occurred when parsing body: %v", err)
 	}
 

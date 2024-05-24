@@ -1,3 +1,3 @@
 ### Поддерживаете ли тип GEO из {{ PG }}? {#postgre-type}
 
-В {{ PG }} нет типа `GEO` (без разметки) называется `PostGIS`. {{ datalens-short-name }} его не поддерживает. Тип `геоточка` и `геополигон` — это строковые типы определенного формата.
+{{ datalens-short-name }} не поддерживает типы данных расширения [PostGIS](https://postgis.net/docs/), которое используется в {{ PG }} для работы с геоданными. [`Геоточка`](../../datalens/concepts/data-types.md#geopoint) и [`Геополигон`](../../datalens/concepts/data-types.md#geopolygon) — это строковые типы определенного формата.

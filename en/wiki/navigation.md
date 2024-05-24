@@ -26,7 +26,7 @@ To go to [{{ yandex-cloud }} services](../overview/) and view notifications, use
 * To open the catalog of {{ yandex-cloud }} services, open the [management console]({{ link-console-main }}), or begin managing [billing accounts](../billing/), click ![](../_assets/wiki/svg/dots.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 
 
-* To view notifications from {{ yandex-cloud }} services, click ![](../_assets/wiki/svg/notifications.svg) **Notifications**.
+* To view notifications from {{ yandex-cloud }} services, click ![](../_assets/wiki/svg/notifications.svg) **{{ ui-key.yacloud.iam.folder.switch_incident-notifications }}**.
 
 ## Search {#search}
 

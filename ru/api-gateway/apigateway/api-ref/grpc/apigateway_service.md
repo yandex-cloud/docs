@@ -55,6 +55,7 @@ connectivity | **[Connectivity](#Connectivity)**<br>Network access. If specified
 log_options | **[LogOptions](#LogOptions)**<br>Options for logging from the API gateway. 
 variables | **map<string,VariableInput>**<br>Values of variables defined in the specification. 
 canary | **[Canary](#Canary)**<br>Canary release of the gateway. 
+execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for gateway call execution The maximum value is 600s.
 
 
 ### AttachedDomain {#AttachedDomain}
@@ -136,6 +137,7 @@ connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specifie
 log_options | **[LogOptions](#LogOptions1)**<br>Options for logging from the API gateway. 
 variables | **map<string,VariableInput>**<br>Values of variables defined in the specification. 
 canary | **[Canary](#Canary1)**<br>Canary release of the gateway. 
+execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for gateway call execution The maximum value is 600s.
 
 
 ### AttachedDomain {#AttachedDomain1}
@@ -199,6 +201,7 @@ connectivity | **[Connectivity](#Connectivity2)**<br>Gateway connectivity. If sp
 log_options | **[LogOptions](#LogOptions2)**<br>Options for logging from the API gateway. 
 variables | **map<string,VariableInput>**<br>Values of variables defined in the specification. 
 canary | **[Canary](#Canary2)**<br>Canary release of the gateway. 
+execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for gateway call execution The maximum value is 600s.
 
 
 ### Connectivity {#Connectivity2}
@@ -269,6 +272,7 @@ connectivity | **[Connectivity](#Connectivity3)**<br>Network access. If specifie
 log_options | **[LogOptions](#LogOptions3)**<br>Options for logging from the API gateway. 
 variables | **map<string,VariableInput>**<br>Values of variables defined in the specification. 
 canary | **[Canary](#Canary3)**<br>Canary release of the gateway. 
+execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for gateway call execution The maximum value is 600s.
 
 
 ### AttachedDomain {#AttachedDomain2}
@@ -306,6 +310,7 @@ connectivity | **[Connectivity](#Connectivity3)**<br>Gateway connectivity. If sp
 log_options | **[LogOptions](#LogOptions3)**<br>Options for logging from the API gateway. 
 variables | **map<string,VariableInput>**<br>Values of variables defined in the specification. 
 canary | **[Canary](#Canary3)**<br>Canary release of the gateway. 
+execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for gateway call execution The maximum value is 600s.
 
 
 ### Connectivity {#Connectivity3}
@@ -376,6 +381,7 @@ connectivity | **[Connectivity](#Connectivity4)**<br>Network access. If specifie
 log_options | **[LogOptions](#LogOptions4)**<br>Options for logging from the API gateway. 
 variables | **map<string,VariableInput>**<br>Values of variables defined in the specification. 
 canary | **[Canary](#Canary4)**<br>Canary release of the gateway. 
+execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for gateway call execution The maximum value is 600s.
 
 
 ### AttachedDomain {#AttachedDomain3}

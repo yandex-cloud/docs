@@ -196,7 +196,7 @@ splitter | **string**<br>Specify the split string to be used for merging compone
 Field | Description
 --- | ---
 tables | **[TablesFilter](#TablesFilter1)**<br>List of included and excluded tables 
-filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details here: https://cloud.yandex.com/en/docs/data-transfer/concepts/data-transformation#append-only-sources 
+filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. For more details see [documentation](/docs/data-transfer/concepts/data-transformation#append-only-sources). 
 
 
 ### Operation {#Operation}
@@ -390,7 +390,7 @@ splitter | **string**<br>Specify the split string to be used for merging compone
 Field | Description
 --- | ---
 tables | **[TablesFilter](#TablesFilter2)**<br>List of included and excluded tables 
-filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details here: https://cloud.yandex.com/en/docs/data-transfer/concepts/data-transformation#append-only-sources 
+filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. For more details see [documentation](/docs/data-transfer/concepts/data-transformation#append-only-sources). 
 
 
 ### Operation {#Operation1}
@@ -1258,7 +1258,7 @@ splitter | **string**<br>Specify the split string to be used for merging compone
 Field | Description
 --- | ---
 tables | **[TablesFilter](#TablesFilter3)**<br>List of included and excluded tables 
-filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details here: https://cloud.yandex.com/en/docs/data-transfer/concepts/data-transformation#append-only-sources 
+filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. For more details see [documentation](/docs/data-transfer/concepts/data-transformation#append-only-sources). 
 
 
 ## Get {#Get}
@@ -2071,7 +2071,7 @@ splitter | **string**<br>Specify the split string to be used for merging compone
 Field | Description
 --- | ---
 tables | **[TablesFilter](#TablesFilter4)**<br>List of included and excluded tables 
-filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details here: https://cloud.yandex.com/en/docs/data-transfer/concepts/data-transformation#append-only-sources 
+filter | **string**<br>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. For more details see [documentation](/docs/data-transfer/concepts/data-transformation#append-only-sources). 
 
 
 ## Deactivate {#Deactivate}

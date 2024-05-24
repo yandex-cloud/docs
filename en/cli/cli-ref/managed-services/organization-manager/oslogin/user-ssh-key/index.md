@@ -5,7 +5,7 @@ sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/oslogin/us
 
 # yc organization-manager oslogin user-ssh-key
 
-Manage organizations
+Manage SSH keys
 
 #### Command Usage
 

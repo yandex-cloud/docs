@@ -31,7 +31,7 @@
     {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. [Создайте ключ шифрования](../../kms/operations/key.md#create):
-   * **{{ ui-key.yacloud.common.name }}** — `k8s-symetric-key`.
+   * **{{ ui-key.yacloud.kms.symmetric-key.form.field_name }}** — `k8s-symetric-key`.
    * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}** — `AES-128`.
    * **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}** — `365 дней`.
 1. [Создайте кластер {{ managed-k8s-name }} ](../operations/kubernetes-cluster/kubernetes-cluster-create.md) со следующими настройками:
@@ -42,7 +42,7 @@
    * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** — `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}** — `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}`.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_network }}** — `k8s-network`.
-   * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — выберите созданные ранее группы безопасности, которые содержат правила для служебного трафика и для доступа к API {{ k8s }}.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_security-groups }}** — выберите созданные ранее группы безопасности, которые содержат правила для служебного трафика и для доступа к API {{ k8s }}.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}** — `{{ ui-key.yacloud.common.enabled }}`.
 1. [Создайте две группы узлов](../operations/node-group/node-group-create.md) в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-b` со следующими настройками:
    * В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}**:
@@ -52,7 +52,7 @@
      * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}** — `1`.
    * В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
      * **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** — `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`.
-     * **{{ ui-key.yacloud.compute.instances.create.field_security-groups }}** — выберите созданные ранее группы безопасности, которые содержат правила для служебного трафика, для подключения к сервисам из интернета и для подключения к узлам по SSH.
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_security-groups }}** — выберите созданные ранее группы безопасности, которые содержат правила для служебного трафика, для подключения к сервисам из интернета и для подключения к узлам по SSH.
      * **{{ ui-key.yacloud.k8s.node-groups.create.field_locations }}** — `{{ region-id }}-a` или `{{ region-id }}-b`.
 
 1. {% include [Настройка kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}

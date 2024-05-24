@@ -129,7 +129,7 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
 
       The list may contain parts of objects that began uploading before and finished uploading after the previous step executed. If the list is not empty, repeat steps 4 and 5.
 
-- boto3 {#boto3}
+- Python (boto3) {#boto3}
 
    Run the following code:
 

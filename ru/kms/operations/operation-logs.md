@@ -14,7 +14,7 @@
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Выберите нужный ключ.
-  1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **Операции** для выбранного ключа.
+  1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.kms.symmetric-key.switch_operations }}** для выбранного ключа.
 
      В открывшемся списке отображаются операции с выбранным симметричным ключом.
 

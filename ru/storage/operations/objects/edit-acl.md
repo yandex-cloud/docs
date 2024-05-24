@@ -26,7 +26,7 @@ description: "Для управления доступом к объекту в 
       
         Также можно нажать на имя объекта, на открывшейся странице нажать ![image](../../../_assets/console-icons/ellipsis.svg) и выбрать **{{ ui-key.yacloud.storage.file.button_permissions }}**.
 
-    1. В появившемся окне **{{ ui-key.yacloud.component.acl-dialog.label_title }}** выдайте или отзовите необходимые разрешения.
+    1. В появившемся окне **{{ ui-key.yacloud.storage.permissions-dialog.label_title }}** выдайте или отзовите необходимые разрешения.
 
         {% note info %}
   

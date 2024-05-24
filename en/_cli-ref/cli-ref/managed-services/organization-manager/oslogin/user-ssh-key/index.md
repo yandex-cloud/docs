@@ -4,7 +4,7 @@ editable: false
 
 # yc organization-manager oslogin user-ssh-key
 
-Manage organizations
+Manage SSH keys
 
 #### Command Usage
 

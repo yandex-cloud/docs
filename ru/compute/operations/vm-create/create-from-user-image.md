@@ -36,7 +36,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из образов:
 
-      * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom }}** и нажмите **{{ ui-key.yacloud.common.select }}**.
+      * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom }}** и нажмите **{{ ui-key.yacloud.compute.instances.create.button_choose }}**.
       * В открывшемся окне перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}**.
       * Выберите образ из списка и нажмите **{{ ui-key.yacloud.common.apply }}**. 
 

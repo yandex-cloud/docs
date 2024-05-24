@@ -126,15 +126,15 @@
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. На панели слева выберите ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
   1. Нажмите **{{ ui-key.yacloud.load-testing.button_create-test }}**.
-  1. В блоке **Конфигурация 1** укажите параметры тестирования для первого агента:
+  1. В блоке **{{ ui-key.yacloud.load-testing.label_test-config }} 1** укажите параметры тестирования для первого агента:
      1. **{{ ui-key.yacloud.load-testing.label_agents-list }}** — выберите агент `agent-008`.
 
         В этом примере конфигурация теста для агентов будет разной. Чтобы задать одинаковую конфигурацию, выберите в поле **{{ ui-key.yacloud.load-testing.label_agents-list }}** все агенты, которые нужно применить.
      1. В блоке **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
         * **{{ ui-key.yacloud.load-testing.field_settings-type }}** — выберите `{{ ui-key.yacloud.load-testing.label_settings-type-form }}`.
         * **{{ ui-key.yacloud.load-testing.field_load-generator }}** — выберите генератор нагрузки `Pandora`.
-        * **Адрес цели** — введите адрес тестируемого сервиса: `example.myservice.ru`.
-        * **Порт цели** — укажите `80` (порт для протокола HTTP по умолчанию).
+        * **{{ ui-key.yacloud.load-testing.field_target-address }}** — введите адрес тестируемого сервиса: `example.myservice.ru`.
+        * **{{ ui-key.yacloud.load-testing.field_target-port }}** — укажите `80` (порт для протокола HTTP по умолчанию).
         * **Тестирующие потоки** — `1000`.
 
         Это будет означать, что генератор нагрузки сможет параллельно обрабатывать 1000 операций (создать 1000 соединений или ждать 1000 ответов от сервиса одновременно). [Подробнее о тестирующих потоках](../../load-testing/concepts/testing-stream.md).
@@ -154,7 +154,7 @@
             * **Длительность** — `60s`.
           * Добавьте еще один **Профиль нагрузки**:
             * **Профиль 2** — `const`.
-            * **Ответов в секунду** — `100`.
+            * **{{ ui-key.yacloud.load-testing.label_rps }}** — `100`.
             * **Длительность** — `300s`.
 
           Эти настройки дадут генератору нагрузки указание наращивать нагрузку от 1 до 100 запросов в секунду первые 60 секунд, а потом 5 минут поддерживать нагрузку 100 запросов в секунду. [Подробнее о профиле нагрузки](../../load-testing/concepts/load-profile.md).
@@ -170,8 +170,8 @@
           * `[Connection: Close]`.
 
             Обратите внимание на заголовок `Connection: Close` — каждое соединение будет закрываться после запроса. Для тестируемого сервиса и генератора нагрузки такой режим тяжелее. Если не нужно закрывать соединения, следует указать значение `Keep-Alive`.
-  1. Нажмите ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.load-testing.button_duplicate-configuration }}**. Параметры тестирования будут скопированы в блок **Конфигурация 2**.
-  1. В блоке **Конфигурация 2** укажите параметры тестирования для второго агента:
+  1. Нажмите ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.load-testing.button_duplicate-configuration }}**. Параметры тестирования будут скопированы в блок **{{ ui-key.yacloud.load-testing.label_test-config }} 2**.
+  1. В блоке **{{ ui-key.yacloud.load-testing.label_test-config }} 2** укажите параметры тестирования для второго агента:
      1. **{{ ui-key.yacloud.load-testing.label_agents-list }}** — выберите агент `agent-009`.
      1. В блоке **{{ ui-key.yacloud.load-testing.label_test-settings }}** измените параметры тестирования.
 

@@ -1,6 +1,6 @@
-1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес ВМ.
-1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH.
-1. Выдайте права на запись для вашего пользователя на директорию `/var/www/html`: 
+1. В блоке **Сеть** на странице виртуальной машины в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес виртуальной машины.
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по протоколу SSH.
+1. Выдайте права на запись для вашего пользователя на директорию `/var/www/html`:
 
    {% list tabs group=operating_system %}
 
@@ -17,6 +17,7 @@
      ```
 
    {% endlist %}
+
 
 1. Загрузите на ВМ файлы веб-сайта с помощью [протокола SCP](https://ru.wikipedia.org/wiki/SCP).
 

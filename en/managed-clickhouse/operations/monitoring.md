@@ -156,7 +156,7 @@ To view detailed information about the state of individual {{ mch-name }} hosts:
       * **{{ mch-name }}: Cluster Overview** to configure cluster alerts.
       * **{{ mch-name }}: ZooKeeper** to configure ZooKeeper host alerts.
       * **{{ mch-name }}: Host Overview** to configure host alerts.
-   1. In the appropriate chart with metrics, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+   1. In the appropriate chart with metrics, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
    1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` and `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` threshold values to trigger the alert.
    1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.

@@ -65,6 +65,9 @@ clusterId | <p>Required. ID of the OpenSearch cluster to return.</p> <p>To get t
           ]
         }
       ],
+      "keystoreSettings": [
+        "string"
+      ],
       "opensearchConfigSet_2": {
         "effectiveConfig": {
           "maxClauseCount": "integer",
@@ -165,6 +168,7 @@ config.<br>opensearch.<br>nodeGroups[].<br>zoneIds[] | **string**<br><p>IDs of t
 config.<br>opensearch.<br>nodeGroups[].<br>subnetIds[] | **string**<br><p>IDs of the subnets that the hosts belong to.</p> 
 config.<br>opensearch.<br>nodeGroups[].<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether a public IP is assigned to the hosts in the group.</p> 
 config.<br>opensearch.<br>nodeGroups[].<br>roles[] | **string**<br><p>Roles of the host group.</p> 
+config.<br>opensearch.<br>keystoreSettings[] | **string**<br><p>Keystore entries names.</p> 
 config.<br>opensearch.<br>opensearchConfigSet_2 | **object**
 config.<br>opensearch.<br>opensearchConfigSet_2.<br>effectiveConfig | **object**<br><p>Required.</p> 
 config.<br>opensearch.<br>opensearchConfigSet_2.<br>effectiveConfig.<br>maxClauseCount | **integer** (int64)<br><p>the maximum number of allowed boolean clauses in a query</p> 

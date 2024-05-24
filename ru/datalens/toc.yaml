@@ -793,7 +793,13 @@ items:
       - name: Создание партнерского коннектора
         href: operations/marketplace/create-connector-for-partners.md
   - name: Правила тарификации
-    href: pricing.md
+    items:
+      - name: Действующие правила
+        href: pricing.md
+      - name: Архив
+        items:
+          - name: До 23 апреля 2024 года
+            href: pricing-archive/pricing23042024.md
   - name: История изменений
     items:
       - name: Апрель 2024

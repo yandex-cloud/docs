@@ -33,6 +33,11 @@ Syntax:
 |`--new-invoke-container-path`|<b>`string`</b><br/>Container endpoint path.|
 |`--new-invoke-container-service-account-id`|<b>`string`</b><br/>Service account to be used by the worker to invoke the container.|
 |`--new-invoke-container-service-account-name`|<b>`string`</b><br/>Service account to be used by the worker to invoke the container.|
+|`--new-gateway-id`|<b>`string`</b><br/>Gateway to which worker will broadcast the data from IoT.|
+|`--new-gateway-name`|<b>`string`</b><br/>Gateway to which worker will broadcast the data from IoT.|
+|`--new-gateway-websocket-broadcast-path`|<b>`string`</b><br/>Gateway endpoint path.|
+|`--new-gateway-websocket-broadcast-service-account-id`|<b>`string`</b><br/>Service account to be used by the worker to broadcast to gateway websocket.|
+|`--new-gateway-websocket-broadcast-service-account-name`|<b>`string`</b><br/>Service account to be used by the worker to broadcast to gateway websocket.|
 |`--new-function-retry-attempts`|<b>`int`</b><br/>Retry attempts, Default: 0|
 |`--new-function-retry-interval`|<b>`duration`</b><br/>Retry interval. Examples: '10s', '1m'.|
 |`--new-container-retry-attempts`|<b>`int`</b><br/>Retry attempts, Default: 0|

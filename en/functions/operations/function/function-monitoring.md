@@ -21,7 +21,7 @@ The chart update period is 15 seconds.
 
    1. Select a function to view its monitoring charts.
 
-   1. Go to the **{{ ui-key.yacloud.common.monitoring }}** tab.
+   1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_monitoring }}** tab.
 
    1. The following charts will open on the page:
 

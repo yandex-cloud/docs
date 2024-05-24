@@ -3,7 +3,7 @@
 - Form
 
    1. Select a [load generator](../../load-testing/concepts/load-generator.md).
-   1. In the **Target address** and **Target port** fields, enter the address and port of the service to test.
+   1. In the **{{ ui-key.yacloud.load-testing.field_target-address }}** and **{{ ui-key.yacloud.load-testing.field_target-port }}** fields, enter the address and port of the service to test.
    1. (Optional) Enable **Secure connection**.
    1. In the **Testing threads** field, specify the number of testing threads.
    1. Under **Load type**:

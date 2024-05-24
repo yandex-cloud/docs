@@ -66,9 +66,9 @@ Jenkins будет получать изменения в конфигураци
 
 Чтобы создать ВМ с Jenkins:
 1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. В поле **{{ ui-key.yacloud.common.name }}** введите имя ВМ: `jenkins-tutorial`.
+1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя ВМ: `jenkins-tutorial`.
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. В открывшемся окне выберите образ [Jenkins](/marketplace/products/yc/jenkins).
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**. В открывшемся окне выберите образ [Jenkins](/marketplace/products/yc/jenkins).
 
    {% note info %}
 
@@ -83,7 +83,7 @@ Jenkins будет получать изменения в конфигураци
      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.label_add-network-interface }}** и выберите, к какой [подсети](../../vpc/concepts/network.md#subnet) подключить ВМ. В блоке **{{ ui-key.yacloud.component.compute.network-select.field_external }}** назначьте ВМ публичный IP-адрес автоматически или выберите один из зарезервированных IP-адресов.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.label_add-net }}** и выберите, к какой [подсети](../../vpc/concepts/network.md#subnet) подключить ВМ. В блоке **{{ ui-key.yacloud.component.compute.network-select.field_external }}** назначьте ВМ публичный IP-адрес автоматически или выберите один из зарезервированных IP-адресов.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
    * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
    * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа. Пару ключей для подключения по SSH необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.

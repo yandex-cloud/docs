@@ -179,7 +179,7 @@
       * В поле **{{ ui-key.yacloud.common.name }}** укажите `bucket-key`.
       * В поле **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}** выберите `AES-256`.
       * В поле **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}** выберите период [ротации](../../kms/concepts/version.md#rotate-key) `7 дней`.
-      * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+      * Нажмите кнопку **{{ ui-key.yacloud.kms.symmetric-key.create.button_create }}**.
 
   Вместе с ключом создается его первая версия: нажмите на ключ в списке, чтобы открыть страницу с его атрибутами.
 

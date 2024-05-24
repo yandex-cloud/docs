@@ -34,7 +34,7 @@ SELECT * FROM clickhouse_mdb_connection.my_table
    1. В блоке **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующий кластер {{ mch-name }} или создайте новый.
       * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mch-name }} или создайте новый с [ролью `{{ roles.mch.viewer }}`](../../managed-clickhouse/security.md#managed-clickhouse-viewer), от имени которого будет выполняться подключение к кластерам `{{ mch-name }}`.
-      *  **{{ ui-key.yql.yq-connection-info.database.label }}**  — выберите базу данных, которая будет использоваться при работе с кластером {{ CH }}.
+      * **{{ ui-key.yql.yq-connection-info.database.label }}**  — выберите базу данных, которая будет использоваться при работе с кластером {{ CH }}.
       * **{{ ui-key.yql.yq-connection-form.login.input-label }}**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ CH }}.
       * **{{ ui-key.yql.yq-connection-form.password.input-label }}**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ CH }}.
 
@@ -73,8 +73,8 @@ SELECT * FROM <соединение>.<имя_таблицы>
 
 Ограничения:
 1. Поддерживаются только запросы чтения данных - `SELECT`, остальные виды запросов не поддерживаются.
-1. Максимальное поддерживаемое количество строк в таблице - 1000000. При превышении этого значения запрос завершается с ошибкой.
-1. {% include [!](_includes/datetime_limits.md) %}
+1. В {{ yq-short-name }} используется [система типов](https://ydb.tech/docs/ru/yql/reference/types/primitive) {{ ydb-full-name }}. Однако диапазоны допустимых значений для типов, использующихся в {{ ydb-short-name }} при работе с датой и временем (`Date`, `Datetime`, `Timestamp`), зачастую оказываются недостаточно широкими для того, чтобы вместить значения соответствующих типов {{ CH }} (`Date`, `Date32`, `Datetime`, `Datetime64`). 
+В связи с этим значения даты и времени, прочитанные из {{ CH }}, возвращаются {{ yq-short-name }} как обычные строки (тип `Utf8` для обычных колонок или тип `Optional<Utf8>` для [nullable](https://clickhouse.com/docs/ru/sql-reference/data-types/nullable) колонок) в формате [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html).
 
 ## Пушдаун фильтров {#predicate_pushdown}
 
@@ -82,26 +82,52 @@ SELECT * FROM <соединение>.<имя_таблицы>
 
 ## Поддерживаемые типы данных {#supported_types}
 
-Ниже приведена таблица соответствия типов {{ CH }} и типов {{ yq-full-name }}.
+По умолчанию в {{ CH }} колонки физически не могут содержать значение `NULL`, однако пользователь имеет возможность создать таблицу с колонками опциональных, или [nullable](https://clickhouse.com/docs/ru/sql-reference/data-types/nullable) типов. Типы колонок, отображаемые {{ yq-full-name }} при извлечении данных из внешнего источника {{ CH }}, будут зависеть от того, используются ли в таблице {{ CH }} примитивные или опциональные типы. 
+
+Ниже приведены таблицы соответствия типов {{ CH }} и {{ yq-full-name }}. Все остальные типы данных, за исключением перечисленных, не поддерживаются.
+
+### Примитивные типы данных {#supported_types_default}
 
 |Тип данных {{ CH }}|Тип данных {{ yq-full-name }}|Примечания|
 |---|----|------|
-|`Bool`|`BOOL`||
-|`Int8`|`INT8`||
-|`UInt8`|`UINT8`||
-|`Int16`|`INT16`||
-|`UInt16`|`UINT16`||
-|`Int32`|`INT32`||
-|`UInt32`|`UINT32`||
-|`Int64`|`INT64`||
-|`UInt64`|`UINT64`||
-|`Float32`|`FLOAT`||
-|`Float64`|`DOUBLE`||
-|`Date`|`DATE`||
-|`DateTime`|`DATETIME`|Допустимый диапазон дат с 1970-01-01 00:00 и до 2105-12-31 23:59|
-|`String`|`STRING`||
-|`FixedString`|`STRING`|Нулевые байты `FixedString` переносятся в `STRING` без изменений|
+|`Bool`|`Bool`||
+|`Int8`|`Int8`||
+|`UInt8`|`Uint8`||
+|`Int16`|`Int16`||
+|`UInt16`|`Uint16`||
+|`Int32`|`Int32`||
+|`UInt32`|`Uint32`||
+|`Int64`|`Int64`||
+|`UInt64`|`Uint64`||
+|`Float32`|`Float`||
+|`Float64`|`Double`||
+|`Date`|`Utf8`||
+|`Date32`|`Utf8`||
+|`DateTime`|`Utf8`||
+|`DateTime64`|`Utf8`||
+|`String`|`String`||
+|`FixedString`|`String`|Нулевые байты `FixedString` переносятся в `String` без изменений.|
 
-Остальные типы данных не поддерживаются.
+### Опциональные типы данных {#supported_types_nullable}
+
+|Тип данных {{ CH }}|Тип данных {{ yq-full-name }}|Примечания|
+|---|----|------|
+|`Nullable(Bool)`|`Optional<Bool>`||
+|`Nullable(Int8)`|`Optional<Int8>`||
+|`Nullable(UInt8)`|`Optional<Uint8>`||
+|`Nullable(Int16)`|`Optional<Int16>`||
+|`Nullable(UInt16)`|`Optional<Uint16>`||
+|`Nullable(Int32)`|`Optional<Int32>`||
+|`Nullable(UInt32)`|`Optional<Uint32>`||
+|`Nullable(Int64)`|`Optional<Int64>`||
+|`Nullable(UInt64)`|`Optional<Uint64>`||
+|`Nullable(Float32)`|`Optional<Float>`||
+|`Nullable(Float64)`|`Optional<Double>`||
+|`Nullable(Date)`|`Optional<Utf8>`||
+|`Nullable(Date32)`|`Optional<Utf8>`||
+|`Nullable(DateTime)`|`Optional<Utf8>`||
+|`Nullable(DateTime64)`|`Optional<Utf8>`||
+|`Nullable(String)`|`Optional<String>`||
+|`Nullable(FixedString)`|`Optional<String>`|Нулевые байты `FixedString` переносятся в `String` без изменений.|
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

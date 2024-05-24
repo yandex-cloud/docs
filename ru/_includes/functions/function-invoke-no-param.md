@@ -37,7 +37,7 @@
 
 - HTTPS {#https}
 
-	Ссылку для вызова функции можно найти на вкладке **{{ ui-key.yacloud.common.overview }}**, в поле **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}**.
+	Ссылку для вызова функции можно найти на вкладке **{{ ui-key.yacloud.serverless-functions.item.switch_overview }}**, в поле **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}**.
 
 	Для обеспечения безопасности функцию можно вызвать только по протоколу HTTPS. Вызовите ее как обычный HTTPS-запрос, вставив ссылку в адресную строку браузера:
 

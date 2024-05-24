@@ -1,7 +1,7 @@
 # Exporting audit logs to MaxPatrol SIEM
 
 
-[MaxPatrol SIEM](https://www.ptsecurity.com/ru-ru/products/mpsiem/) is able to read {{ yandex-cloud }} [audit logs](../../audit-trails/concepts/events.md) from a [{{ yds-full-name }}](../../data-streams/) data stream. To go through the entire tutorial, you must have access to an instance of MaxPatrol SIEM.
+[MaxPatrol SIEM](https://www.ptsecurity.com/ru-ru/products/mpsiem/) can read {{ yandex-cloud }} [audit logs](../../audit-trails/concepts/events.md) from a [{{ yds-full-name }}](../../data-streams/) data stream. To complete the tutorial, you must have access to an instance of MaxPatrol SIEM.
 
 To configure audit log export:
 
@@ -32,7 +32,7 @@ The infrastructure support cost includes:
 
 On behalf of a service account, the trail will gather logs from all the organization's resources and upload them to a {{ yds-name }} data stream.
 
-Create a service account in the same folder as the trail, such as `example-folder`:
+Create a service account in the same folder as the trail, e.g., `example-folder`:
 
 {% list tabs group=instructions %}
 
@@ -164,7 +164,7 @@ MaxPatrol SIEM uses [static access keys](../../iam/concepts/authorization/access
 
    {% note alert %}
 
-   Save the ID (`key_id`) and secret key (`secret`). You cannot retrieve the key value a second time.
+   Save the ID `key_id` and secret key `secret`. You cannot retrieve the key value a second time.
 
    {% endnote %}
 
@@ -258,12 +258,12 @@ The trail will collect management event audit logs for all your organization's r
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select the **{{ ui-key.yacloud.iam.folder.dashboard.value_audit-trails }}** option.
-   1. Enter the **{{ ui-key.yacloud.common.name }}** of the trail being created as `maxpatrol-trail`.
-   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
+   1. Enter the new trail's **{{ ui-key.yacloud.common.name }}**: `maxpatrol-trail`.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
       * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
       * **{{ ui-key.yacloud.audit-trails.label_stream-name }}**: Select the `maxpatrol-stream` data stream.
    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the `maxpatrol-sa` service account.
-   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of management event audit logs:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, configure the collection of management event audit logs:
       * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`.
       * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}**: Automatically populated field (shows the name of the organization with the trail).
@@ -279,7 +279,7 @@ The trail will collect management event audit logs for all your organization's r
 
 ### Create accounts {#static-key-account}
 
-You can use the accounts to store secrets. Create accounts named `static-key-id` and `static-key-private` to save the ID and the [private access key](#create-static-keys) in:
+You can use accounts to store secrets. Create accounts named `static-key-id` and `static-key-private` for the ID and the [private access key](#create-static-keys):
 
 1. Log in to the MaxPatrol SIEM web interface.
 1. Under **Data collection**, click **Accounts**.
@@ -289,7 +289,7 @@ You can use the accounts to store secrets. Create accounts named `static-key-id`
    * **Confirm password**: Reenter static key ID.
 1. Click **Save**.
 
-Similarly, create an account called `static-key-private` which contains the private key.
+Similarly, create an account named `static-key-private` containing the private key.
 
 
 ### Create a data collection job {#create-task}
@@ -305,8 +305,8 @@ Create and run a data collection job with the {{ yds-full-name }} profile:
    1. **Profile**: `{{ yds-full-name }}`.
    1. In the hierarchy list, select **Run script**.
    1. Under **Connection**, specify:
-      * **Account**: `static-key-id`.
-      * **Access upgrade account**: `static-key-private`.
+      * **Account**: `static-key-id`
+      * **Access upgrade account**: `static-key-private`
    1. **Script runtime parameters**:
       * **database**: `<maxpatrol-db_database_ID>`
       * **folder**: `<cloud_ID_for_example-folder>`

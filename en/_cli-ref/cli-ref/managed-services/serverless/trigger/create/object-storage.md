@@ -35,6 +35,11 @@ Syntax:
 |`--invoke-container-path`|<b>`string`</b><br/>Container endpoint path.|
 |`--invoke-container-service-account-id`|<b>`string`</b><br/>Service account to be used by the worker to invoke the container.|
 |`--invoke-container-service-account-name`|<b>`string`</b><br/>Service account to be used by the worker to invoke the container.|
+|`--gateway-id`|<b>`string`</b><br/>Gateway to be broadcasted to by worker on the data from Object Storage.|
+|`--gateway-name`|<b>`string`</b><br/>Gateway to be broadcasted to by worker on the data from Object Storage.|
+|`--gateway-websocket-broadcast-path`|<b>`string`</b><br/>Gateway endpoint path.|
+|`--gateway-websocket-broadcast-service-account-id`|<b>`string`</b><br/>Service account to be used by the worker to broadcast to gateway websocket.|
+|`--gateway-websocket-broadcast-service-account-name`|<b>`string`</b><br/>Service account to be used by the worker to broadcast to gateway websocket.|
 |`--retry-attempts`|<b>`int`</b><br/>Retry attempts, Default: 0|
 |`--retry-interval`|<b>`duration`</b><br/>Retry interval. Examples: '10s', '1m'.|
 |`--dlq-queue-id`|<b>`string`</b><br/>Dead letter queue identifier.|

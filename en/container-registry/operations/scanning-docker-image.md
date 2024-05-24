@@ -31,7 +31,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
    1. Select the registry containing the Docker image or [create](registry/registry-create.md) a new one and [push](docker-image/docker-image-push.md) an image to it.
    1. Open the [repository](../concepts/repository.md) with the Docker image.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the Docker image and select **{{ ui-key.yacloud.cr.image.label_start-scan }}**.
-   1. Wait for the scan to complete. During the scan, the Docker image scan status will be `{{ ui-key.yacloud.cr.registry.label_scan-status-RUNNING }}` and, once completed, it will change to `{{ ui-key.yacloud.cr.registry.label_scan-status-READY }}`.
+   1. Wait for the scan to complete. During the scan, the Docker image scan status will be `{{ ui-key.yacloud.cr.image.label_scan-status-RUNNING }}` and, once completed, it will change to `{{ ui-key.yacloud.cr.image.label_scan-status-READY }}`.
    1. Review the scan results. To do this, in the row of the relevant Docker image, click the value in the **{{ ui-key.yacloud.cr.image.label_last-scan-time }}** column.
 
    To view Docker image scans, select the relevant image and go to the **{{ ui-key.yacloud.cr.image.label_scan-history }}** tab.

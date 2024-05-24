@@ -21,12 +21,19 @@ Aliases:
 
 - [yc organization-manager oslogin get-settings](get-settings.md) — Show information about OS Login settings for the specified organization.
 - [yc organization-manager oslogin update-settings](update-settings.md) — Update OS Login settings for the specified organization.
-- [yc organization-manager oslogin user-ssh-key](user-ssh-key/index.md) — Manage organizations
+- [yc organization-manager oslogin user-ssh-key](user-ssh-key/index.md) — Manage SSH keys
 	- [yc organization-manager oslogin user-ssh-key get](user-ssh-key/get.md) — Show information about the specified SSH key
 	- [yc organization-manager oslogin user-ssh-key create](user-ssh-key/create.md) — Create a user SSH key
 	- [yc organization-manager oslogin user-ssh-key update](user-ssh-key/update.md) — Update the specified SSH key
 	- [yc organization-manager oslogin user-ssh-key list](user-ssh-key/list.md) — List SSH keys
 	- [yc organization-manager oslogin user-ssh-key delete](user-ssh-key/delete.md) — Delete the specified SSH key
+- [yc organization-manager oslogin profile](profile/index.md) — Manage OS Login profiles
+	- [yc organization-manager oslogin profile get](profile/get.md) — Show information about the specified OS Login profile
+	- [yc organization-manager oslogin profile create](profile/create.md) — Create an OS Login profile
+	- [yc organization-manager oslogin profile update](profile/update.md) — Update the specified OS Login profile
+	- [yc organization-manager oslogin profile list](profile/list.md) — List OS Login profiles
+	- [yc organization-manager oslogin profile delete](profile/delete.md) — Delete the specified OS Login profile
+	- [yc organization-manager oslogin profile set-default](profile/set-default.md) — Set default OS Login profile
 
 #### Global Flags
 

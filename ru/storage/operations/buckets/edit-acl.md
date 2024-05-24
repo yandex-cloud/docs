@@ -21,9 +21,9 @@ description: "Для управления доступом к бакету {{ ob
   1. Выберите сервис **{{ objstorage-name }}**.
   1. Чтобы отредактировать ACL, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) справа от имени бакета и выберите **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
     
-     Также можно нажать на имя бакета и на открывшейся странице нажать кнопку **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
+     Также можно нажать на имя бакета и на открывшейся странице нажать кнопку **{{ ui-key.yacloud.storage.bucket.button_permissions }}**.
 
-  1. В появившемся окне **{{ ui-key.yacloud.component.acl-dialog.label_title }}** выдайте или отзовите необходимые разрешения.
+  1. В появившемся окне **{{ ui-key.yacloud.storage.permissions-dialog.label_title }}** выдайте или отзовите необходимые разрешения.
 
       {% note info %}
   

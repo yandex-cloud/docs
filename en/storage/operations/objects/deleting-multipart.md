@@ -16,7 +16,7 @@ To manually delete a partially uploaded object:
    1. Hover over the yellow field next to the object count.
    1. Click the **{{ ui-key.yacloud.storage.buckets.button_open-multipart-uploads }}** button that appears.
    1. Mark incomplete uploads you want to delete.
-   1. Click **{{ ui-key.yacloud.common.delete }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.button_delete }}**.
    1. Confirm the deletion.
 
    In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.

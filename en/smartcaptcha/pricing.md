@@ -24,15 +24,15 @@ Using {{ captcha-name }} in [restricted mode](concepts/restricted-mode) is free 
 
 Examples of {{ captcha-name }} usage cost calculation:
 
-1. You are charged if the user passed a CAPTCHA test, which resulted in a correct `/validate` request from the server.
+1. The user has passed the CAPTCHA test resulting in a correct `/validate` request from the server. A fee will be charged.
 
-1. You are not charged if the user sent an empty or incorrect `token`, which resulted in an incorrect `/validate` request.
+1. The user has sent an empty or incorrect `token` resulting in an incorrect `/validate` request. No fee will be charged.
 
-1. A backend developer made a mistake and sent an incorrect `secret` or `token` in a response `/validate` request. The API returns an error in the `message` field. You are not charged in this case.
+1. A backend developer has made a mistake and sent an incorrect `secret` or `token` in a response `/validate` request. The API will return an error in the `message` field. No fee will be charged.
 
-1. A hacker passed the CAPTCHA test, obtained the `token`, and sent it 10 times during the first minute. The API will only return the `ok` status to the first request and you will only be charged for the first request.
+1. An intruder has passed the CAPTCHA test, obtained the `token`, and sent it 10 times during the first minute. The API will return the `ok` status only to the first request, and you will be charged for the first request only.
 
-1. A hacker passed the CAPTCHA test, obtained the `token`, and sent it 10 times after 10 minutes. The API will return the `failed` status to all requests. You will not be charged for any of them.
+1. An intruder has passed the CAPTCHA test, obtained the `token`, and sent it 10 times after 10 minutes. The API will return the `failed` status to all requests. You will not be charged for any of them.
 
 ## Pricing {#prices}
 

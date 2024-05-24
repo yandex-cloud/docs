@@ -26,3 +26,5 @@ To delete an organization:
 1. Specify when you want the organization to be deleted. Select one of the suggested periods or `Delete now`. The default organization deletion delay is seven days.
 
 1. Click **{{ ui-key.yacloud.common.delete }}**.
+
+After deleting an organization, you will no longer be able to use the {{ yandex-cloud }} resources created in that organization.

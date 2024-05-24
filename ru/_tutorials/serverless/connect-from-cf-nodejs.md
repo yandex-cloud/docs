@@ -346,7 +346,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится функция.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `func-test-ydb`.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.common.overview }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_overview }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** нажмите на ссылку.
   1. В адресной строке браузера добавьте в ссылке параметр `api_key`, например `?api_key=b95`:
 
