@@ -44,7 +44,7 @@ Status checks for resources in target groups are transmitted from the `198.18.23
 
 To allow traffic from the status check module, you can bind to targets a [security group](../../vpc/concepts/security-groups.md) with the following ingress rule:
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: Use the port range specified in the health check settings.
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
 
 When performing HTTP verification, a resource gets the `HEALTHY` status only when responding with code `200`.

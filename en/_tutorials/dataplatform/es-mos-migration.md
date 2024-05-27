@@ -106,8 +106,8 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
    1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the created service account.
    1. Select the `READ and WRITE` permissions for the selected service account.
-   1. Click **{{ ui-key.yacloud.storage.permissions-dialog.button_add }}**.
-   1. Click **{{ ui-key.yacloud.storage.permissions-dialog.button_save }}**.
+   1. Click **{{ ui-key.yacloud.common.add }}**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 1. Set up the {{ ES }} source cluster:
 

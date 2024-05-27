@@ -4,7 +4,7 @@ You can use [templates](user/ticket-template.md) to make it easier to [create co
 
 To create an issue template for your queue and allow team members to use it:
 
-1. In the panel on the left, click ![](../_assets/tracker/svg/settings.svg) **{{ ui-key.yacloud.settings.label_settings }}**. Then select ![](../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** and click **{{ ui-key.startrek.ui_components_NavigationBar.templates-settings }}**. You can also follow the link [{{ link-tracker-templates }}]({{ link-tracker-templates }}).
+1. In the panel on the left, click ![](../_assets/tracker/svg/settings.svg) **Settings**. Then select ![](../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** and click **{{ ui-key.startrek.ui_components_NavigationBar.templates-settings }}**. You can also follow the link [{{ link-tracker-templates }}]({{ link-tracker-templates }}).
 
 1. Select the **{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}** option and click **{{ ui-key.startrek.ui_components_issue-comments-templates.create-template-item }}**.
 

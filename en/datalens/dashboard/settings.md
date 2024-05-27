@@ -25,6 +25,8 @@ You can also set up additional information messages:
 * Displayed when [contacting support](../operations/dashboard/add-support-message.md). In this case, if the user clicks ![image](../../_assets/console-icons/circle-question.svg) in the bottom-left corner and selects **Create request**, they will see an additional message in the **Information** window.
 * Displayed if a [dashboard access error](../operations/dashboard/add-access-message.md) occurs. In this case, if the user has no dashboard view permission, they will see the saved message.
 
+   {% include [datalens-access-message-note](../../_includes/datalens/datalens-access-message-note.md) %}
+
 ## Widget loading settings {#load-settings}
 
 You can customize the loading speed of widgets on the dashboard. To do this, [configure](../operations/dashboard/dash-settings.md) the dashboard settings under **Other settings**:

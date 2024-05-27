@@ -221,7 +221,7 @@ default:
   k8s-hpa: Horizontal Pod Autoscaler
   k8s-versions-rapid: 1.26, 1.27, 1.28, 1.29
   k8s-versions-regular: 1.26, 1.27, 1.28, 1.29
-  k8s-versions-stable: 1.26, 1.27, 1.28
+  k8s-versions-stable: 1.26, 1.27, 1.28, 1.29
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
   KF: Apache Kafka®
@@ -3665,6 +3665,12 @@ default:
       ticket:
         create:
           action_create-ticket: Создать обращение
+          field_access-type: Доступ
+          field_attachments: Вложения
+          field_message: Сообщение
+          field_service: Сервис
+          field_subject: Тема
+          field_ticket-type: Тип
           title_create-ticket-page: Новое обращение
       tickets:
         common:
@@ -3850,6 +3856,8 @@ default:
         field_theme-contrast: Контрастность
         label_monitoring-name: Мониторинг
         label_telegram: Telegram
+        label_title_appearance: Оформление
+        label_title_region: Язык и регион
         section_settings: Настройки уведомлений
         section_transports: Способы уведомления
       usermenu:
@@ -4652,7 +4660,7 @@ default:
             field_internal-ipv4: Внутренний IPv4-адрес
             field_security-groups: Группы безопасности
             field_subnetwork: Подсеть
-            section_additional: Дополнительные настройки
+            section_additional: Дополнительно
             switch_auto: Автоматически
             switch_list: Список
             switch_manual: Вручную
@@ -4902,11 +4910,11 @@ default:
             value_source-none: Пустой
             value_source-snapshot: Снимок
           create:
-            button_choose: Выбрать
             button_create: Создать ВМ
             button_create-subnetwork-new: Создать подсеть
             button_net_empty-create: Создать сеть
             button_show-all-marketplace-products: Показать все продукты Marketplace
+            button_show-all-os-products: Показать все операционные системы
             column_disk-size: Размер
             field_access-advanced: Дополнительно
             field_coi-arguments: Аргументы команды
@@ -4920,28 +4928,22 @@ default:
               Выделить буфер для потока ввода во время выполнения
               Docker-контейнера
             field_coi-tty: Выделить TTY для Docker-контейнера
-            field_description: Описание
             field_instance-group-address: Публичный адрес
             field_instance-group-network: Сеть
             field_key: SSH-ключ
-            field_name: Имя
             field_os-login-access-method: Доступ через OS Login
-            field_serial-port-enable: Разрешить доступ к серийной консоли
+            field_security-groups: Группы безопасности
+            field_serial-port-enable: Доступ к серийной консоли
             field_service-account: Сервисный аккаунт
             field_user: Логин
             field_zone: Зона доступности
-            image_button_show-all-os-products: Показать все продукты
-            image_button_show-all-products: Посмотреть больше
             image_coi_label_empty-button: Настроить
             image_value_coi: Container Solution
             image_value_custom: Свой образ
             image_value_marketplace: Marketplace
             image_value_os-products: Операционные системы
             label_add-disk: Добавить диск
-            label_add-net: Добавить сеть
             label_add-network-interface: Добавить сетевой интерфейс
-            label_backup: Резервное копирование
-            label_network: Сеть
             section_access: Доступ
             section_additional: Дополнительные настройки
             section_base: Базовые параметры
@@ -5031,8 +5033,6 @@ default:
           label_last-scan-time: Дата последнего сканирования
           label_scan-history: История сканирований
           label_scan-status: Статус сканирования
-          label_scan-status-READY: Готово
-          label_scan-status-RUNNING: Запущено
           label_start-scan: Сканировать
           label_tag: Теги
           popup-confirm_button_delete: Удалить
@@ -5055,13 +5055,13 @@ default:
           label_lifecycle-dry-runs: Проверки жизненного цикла
           label_lifecycle-rules: Правила политики удаления
           label_retained-top: Образов оставить
+          label_scan-status-READY: Готово
+          label_scan-status-RUNNING: Сканируется
           label_selected: Выбранные
           label_tag-regexp: Тег
           label_untagged: Образов без тегов
           label_vulnerabilities-scanner: Сканер уязвимостей
           overview:
-            button_registry-acl: ACL реестра
-            button_repository-acl: Настроить ACL
             section_images: Docker-образы
             section_repositories: Репозитории
           title_scan-on-push: Сканирование Docker-образов при загрузке
@@ -5084,7 +5084,6 @@ default:
           label_target-type: Приёмник
           label-database_type: Тип базы данных
           label-is_source: Направление
-          section-endpoint: Параметры эндпоинта
         label_connector-operation-ACTIVATE: Активировать
         label_connector-operation-DEACTIVATE: Деактивировать
         label_connector-status-CREATING: Создается
@@ -5254,8 +5253,6 @@ default:
             label_inherited-subscribers: Подписчики по умолчанию
             label_subscribers-dialog-header: Добавление пользователей
             label_users: Пользователи
-          overview:
-            label_id: Идентификатор
           quotas:
             label_quota-name-compute:
               disks:
@@ -5287,7 +5284,7 @@ default:
             label_cloud-desktop: Cloud Desktop
             label_compute: Compute Cloud
             label_container-registry: Container Registry
-            label_data-proc: Data Proc
+            label_data-proc: Yandex Data Proc
             label_data-streams: Data Streams
             label_data-transfer: Data Transfer
             label_data-transfer_ru: Data Transfer
@@ -5329,7 +5326,7 @@ default:
             label_yq_ru: Yandex Query
             value_audit-trails: Audit trail
             value_compute: Виртуальная машина
-            value_data-proc: Кластер Data Proc
+            value_data-proc: Кластер Yandex Data Proc
             value_data-streams: Data Streams
             value_data-transfer: Data Transfer
             value_managed-clickhouse: Кластер ClickHouse
@@ -5342,7 +5339,6 @@ default:
             overview:
               action_download-keys-file: Скачать файл с ключами
               button_action-delete: Удалить
-              button_action-delete-access-key: Удалить
               button_action-delete-api-key: Удалить
               button_create_api_key: Создать API-ключ
               button_create_key: Создать авторизованный ключ
@@ -5366,12 +5362,8 @@ default:
             button_add: Создать сервисный аккаунт
             column_roles: Роли в каталоге
             popup-confirm_button_delete: Удалить
-          switch_incident-notifications: Уведомления
           switch_service-accounts: Сервисные аккаунты
           switch_service-notifications: Уведомления сервисов
-        users:
-          button_tune-role: Настроить роли
-          label_folders-roles: Роли в каталогах
       iot:
         button_add-alias: Добавить алиас
         button_add-device: Добавить устройство
@@ -5393,7 +5385,6 @@ default:
           marketplace:
             button_install: Установить
             button_release-uninstall: Удалить
-            label_release-status-DEPLOYED: Deployed
             section_releases: Установленные приложения
           node-groups:
             button_create: Создать группу узлов
@@ -5401,7 +5392,6 @@ default:
             popup-confirm_button_delete: Удалить
           overview:
             label_health: Состояние
-            label_id: Идентификатор
             label_master-title: Мастер
             label_status: Статус
           switch_custom-resources: Пользовательские ресурсы
@@ -5425,7 +5415,6 @@ default:
             field_network-policy: Включить сетевые политики
             field_node-service-account: Сервисный аккаунт для узлов
             field_release-channel: Релизный канал
-            field_security-groups: Группы безопасности
             field_service-account: Сервисный аккаунт для ресурсов
             field_service-cidr: CIDR сервисов
             field_subnetwork: Подсеть
@@ -5454,6 +5443,10 @@ default:
           popup-add_field_name: Имя
         node-group:
           overview:
+            label_network-hdd: HDD
+            label_network-ssd: SSD
+            label_network-ssd-io-m3: SSD IO
+            label_network-ssd-nonreplicated: Нереплицируемый SSD
             label_platform: Платформа
             section_placement-policy: Размещение
         node-groups:
@@ -5467,7 +5460,6 @@ default:
             field_disk-type: Тип диска
             field_driverless-gpu: Не устанавливать драйверы GPU
             field_initial-size: Начальное кол-во узлов
-            field_key: SSH-ключ
             field_locations: Расположение
             field_max-expansion: Расширение размера группы, макс.
             field_max-size: Максимальное кол-во узлов
@@ -5477,7 +5469,6 @@ default:
             field_node-version: Версия Kubernetes
             field_scale-size: Кол-во узлов
             field_scale-type: Тип
-            field_security-groups: Группы безопасности
             label_add-location: Добавить расположение
             label_runtime-CONTAINERD: containerd
             label_runtime-DOCKER: Docker
@@ -5490,10 +5481,6 @@ default:
             section_scale: Масштабирование
             switch_auto: Автоматически
             switch_none: Без адреса
-            value_network-hdd: HDD
-            value_network-ssd: SSD
-            value_network-ssd-io-m3: SSD IO
-            value_network-ssd-nonreplicated: Нереплицируемый SSD
             value_scale-auto: Автоматический
             value_scale-fixed: Фиксированный
         node:
@@ -5570,26 +5557,19 @@ default:
         switch_asymmetric-keys: Асимметричные ключи
         switch_symmetric-keys: Симметричные ключи
         symmetric-key:
-          create:
-            button_create: Создать
           form:
             field_algorithm: Алгоритм шифрования
-            field_name: Имя
             field_rotation: Период ротации, дни
             value_no-rotation: Нет ротации
           overview:
             button_action-cancel-destruction: Отменить удаление
-            button_action-delete: Удалить
-            button_action-rotate: Ротировать
             button_action-schedule-destruction: Запланировать удаление
             button_action-set-primary: Сделать основной
             column_version-destroy: Дата удаления
             label_rotation: Период ротации
             label_title-versions: Версии
-            popup-confirm_button_delete: Удалить
-          switch_operations: Операции
         symmetric-keys:
-          button_create: Создать
+          button_action-rotate: Ротировать
           button_empty-create: Создать ключ
       load-balancer:
         network-load-balancer:
@@ -5655,22 +5635,17 @@ default:
         field_overload-test-id: ID теста
         field_overload-token: Токен
         field_settings-type: Способ настройки
-        field_target-address: Адрес цели
-        field_target-port: Порт цели
         field_test-data-type: Тип данных
         label_agents-list: Агенты
         label_choose-from-bucket: Выбрать из бакета
         label_import-tests-from-overload: Импортировать тесты из Overload
-        label_local-source: С компьютера
         label_monitoring-report: Мониторинг
         label_quantiles: Квантили
         label_regressions-title: Регрессии
         label_results-comparison-section-title: Сравнение результатов
-        label_rps: Ответов в секунду
         label_settings-type-config: Конфигурационный файл
         label_settings-type-form: Форма
         label_tables: Таблицы
-        label_test-config: Конфигурация
         label_test-report: Результаты теста
         label_test-rules-section: Правила добавления тестов
         label_test-settings: Настройки теста
@@ -5742,7 +5717,7 @@ default:
             column_name: Имя
             label_title: Резервные копии
           databases:
-            button_action-manage-extensions: Настроить расширения PostgreSQL
+            button_action-manage: Настроить
             button_action-remove: Удалить
             button_add: Добавить
             column_extensions: Расширения PostgreSQL
@@ -5810,7 +5785,6 @@ default:
             switch_monitoring: Мониторинги
             switch_overview: Обзор
           logs:
-            button_load-more: Загрузить еще
             label_hosts: Хосты
             label_severity: Уровень логирования
           overview:
@@ -5857,7 +5831,6 @@ default:
             button_action-update: Настроить
             button_add: Добавить
             button_advanced-settings: Дополнительные настройки
-            button_remove: Удалить
             popup-add_button_add: Добавить
             popup-button_add: Добавить
             popup-button_save: Сохранить
@@ -5893,7 +5866,7 @@ default:
         forms:
           additional-field-cloud-storage: Гибридное хранилище
           additional-field-datalens: Доступ из DataLens
-          additional-field-datatransfer: Доступ из Data Transfer в режиме Serverless
+          additional-field-datatransfer: Доступ из Data Transfer
           additional-field-metrika: Доступ из Метрики и AppMetrica
           additional-field-serverless: Доступ из Serverless
           additional-field-websql: Доступ из консоли управления
@@ -5918,7 +5891,6 @@ default:
           button_create-shard: Создать шард
           button_create-subcluster: Добавить подкластер
           button_edit: Сохранить изменения
-          button_expand-zookeeper-settings: Настроить ZooKeeper
           button_restore: Восстановить кластер
           config_field_bucket: Имя бакета
           config_field_form-bucket-type: Формат указания бакета
@@ -5973,7 +5945,6 @@ default:
           resource_presets_field-type: Тип
           section_additional: Дополнительные настройки
           section_base: Базовые параметры
-          section_config: Настройки кластера
           section_configuration: Настройки
           section_database: База данных
           section_disk: Размер хранилища
@@ -6032,7 +6003,6 @@ default:
           action_resetup-host: Ресинхронизировать
           action_stepdown-host: Сменить мастер
       monitoring:
-        button_create-alert: Создать алерт
         button_open-in-monitoring: Открыть в Monitoring
       mysql:
         cluster:
@@ -6093,7 +6063,6 @@ default:
         switch_backups: Резервные копии
       redis:
         cluster:
-          switch_backups: Резервные копии
           switch_logs: Логи
           switch_monitoring: Мониторинг
           switch_shards: Шарды
@@ -6125,8 +6094,6 @@ default:
         section_resources: Ресурсы
         section-revisions: Ревизии
       serverless-functions:
-        create:
-          button_create: Создать
         gateways:
           domains:
             button_acton-delete: Отключить
@@ -6156,8 +6123,6 @@ default:
             label_id: Идентификатор
             section_base: Общая информация
             section_spec: Спецификация
-        item-form:
-          field_name: Имя
         item:
           editor:
             button_action-continue: Продолжить
@@ -6207,11 +6172,8 @@ default:
             label_title: Обзор
             label_title-history: История версий
             label_title-latest-version: Последняя версия
-            label_title-metadata: Общая информация
           switch_editor: Редактор
           switch_logs: Логи
-          switch_monitoring: Мониторинг
-          switch_overview: Обзор
           switch_testing: Тестирование
           testing:
             button_run-test: Запустить тест
@@ -6304,10 +6266,6 @@ default:
       serverless-mdb-proxy:
         list:
           button_create: Создать подключение
-      settings:
-        label_settings: Настройки
-        switch_appearance: Оформление
-        switch_lang: Язык и регион
       smart-web-security:
         action_empty: Создать
         attach-dialog:
@@ -6376,7 +6334,6 @@ default:
           button_action-permissions: ACL объекта
           button_create: Создать папку
           button_empty-create: Загрузить объекты
-          button_permissions: ACL бакета
           button_upload: Загрузить
           cors:
             button_cors_empty-create: Настроить
@@ -6401,18 +6358,17 @@ default:
             field_description: Описание
             field_max-size: Максимальный размер в байтах
             field_min-size: Минимальный размер в байтах
-            field_no-prefix: Все объекты
             field_prefix: Префикс
             field_status: Статус
+            label_abort-incomplete-multipart-upload-type: AbortIncompleteMultipartUpload
             label_add-lifecycle-settings: Добавить правило
-            value_expiration-date: Точная дата
-            value_expiration-days: Количество дней
+            label_expiration-type: Expiration
+            label_transition-type: Transition
+            label_version-expiration-type: NoncurrentVersionExpiration
+            label_version-transition-type: NoncurrentVersionTransition
+            value_date: Точная дата
+            value_days: Количество дней
             value_expired-object-delete-marker: Маркер удаления без нетекущих версий
-            value_type-abort-incomplete-multipart-upload: AbortIncompleteMultipartUpload
-            value_type-expiration: Expiration
-            value_type-transition: Transition
-            value_type-version-expiration: NoncurrentVersionExpiration
-            value_type-version-transition: NoncurrentVersionTransition
           policy:
             button_add-resource: Добавить ресурс
             button_add-value: Добавить значение
@@ -6434,7 +6390,6 @@ default:
             button_save: Сохранить
             class_value_cold: Холодное
             class_value_standard: Стандартное
-            field_access: Доступ к бакету
             field_access-config-read: Доступ на чтение настроек
             field_access-list: Доступ к списку объектов
             field_access-read: Доступ на чтение объектов
@@ -6469,7 +6424,6 @@ default:
             title_redirect: Переадресация
         buckets:
           button_create: Создать бакет
-          button_delete: Удалить
           button_empty-create: Создать бакет
           button_open-multipart-uploads: Показать список
           button_permissions: ACL бакета
@@ -6486,24 +6440,11 @@ default:
           button_version-history: История версий
           label_lifetime: Время жизни
           popup-confirm_button_delete: Удалить
-        permissions-dialog:
-          button_add: Добавить
-          button_save: Сохранить
-          label_title: Редактирование ACL
         server-logs:
           label_prefix: Префикс
           label_server-logs: Запись логов
           label_target-bucket: Бакет для хранения логов
         switch_buckets: Бакеты
-      support:
-        ticket:
-          create:
-            field_access-type: Доступ
-            field_attachments: Вложения
-            field_description: Сообщение
-            field_service: Сервис
-            field_summary: Тема
-            field_type: Тип
       vdi:
         button_acl: Настроить ACL
         button_add-image: Добавить образ
@@ -6543,7 +6484,6 @@ default:
           popup-create_field_zone: Зона доступности
         button_move-vpc-object: Переместить
         gateways:
-          button_move-gateway: Переместить
           field_type: Тип
           value_gateway-type-egress-nat: NAT-шлюз
         label_network: Сеть
@@ -6569,14 +6509,12 @@ default:
               field_sg-rule-source: Источник
               label_section-rules: Правила
               value_any: Любой
-              value_icmp: ICMP
+              value_ipv6-icmp: ICMPv6
               value_sg-rule-destination-cidr: CIDR
               value_sg-rule-destination-sg: Группа безопасности
               value_sg-rule-sg-type-balancer: Проверки состояния балансировщика
               value_sg-rule-sg-type-list: Из списка
               value_sg-rule-sg-type-self: Текущая
-              value_tcp: TCP
-              value_udp: UDP
             label_destination-type-cidr: CIDR
             label_destination-type-security-group: Группа безопасности
             label_egress: Исходящий трафик
@@ -6585,7 +6523,6 @@ default:
           switch_route-table: Таблицы маршрутизации
         networks:
           button_create: Создать сеть
-          column_id: Идентификатор
           create:
             button_create: Создать сеть
             field_advanced: Дополнительно
@@ -6606,7 +6543,7 @@ default:
         subnet:
           add-route-table:
             button_add: Привязать
-            popup-route-table_field_route-table-id: Таблица маршрутизации
+            label_title: Привязка таблицы маршрутизации
         subnetworks:
           button_action-add-route-table: Привязать таблицу маршрутизации
           create:
@@ -6645,7 +6582,6 @@ default:
           button_sql-query: Новый SQL-запрос
           dialogs:
             button_create-directory: Создать директорию
-            tooltip_create_pk: Первичный ключ
           info:
             column_name: Имя
             column_type: Тип
@@ -6688,7 +6624,6 @@ default:
         sql:
           button_run: Выполнить
           label_query: Запрос
-          label_status_running: Running
         table:
           create:
             button_create: Создать таблицу
@@ -7776,7 +7711,6 @@ default:
         tuned-foundation-models: Дообученные фундаментальные модели
         tuning-model: Дообучить модель
         type: Тип
-        YGPT: YandexGPT
       data-proc:
         available-clusters: Доступные кластеры
         create-template: Создать шаблон
@@ -7930,7 +7864,7 @@ default:
         s3-settings: Настройки S3
         select-cluster:
           title: Выберите кластер
-        spark-settings: Настройки Spark
+        spark-settings: 'Настройки Spark '
         use-default-settings:
           title: Использовать настройки по умолчанию
       transferring:

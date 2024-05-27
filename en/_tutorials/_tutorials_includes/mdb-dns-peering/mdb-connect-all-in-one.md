@@ -1,3 +1,2 @@
 Connecting to a cluster:
-
-* [{{ mch-full-name }}](../../../managed-clickhouse/operations/connect/index.md)
+* [{{ mch-full-name }}](../../../managed-clickhouse/operations/connect/index.md).

@@ -41,12 +41,12 @@ To create a VM:
 - Management console {#console}
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-   1. In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter the VM name: `sftp-server`.
+   1. In the **{{ ui-key.yacloud.common.name }}** field, enter the VM name: `sftp-server`.
    1. Select an [availability zone](../../overview/concepts/geo-scope.md) to put your virtual machine in.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       1. Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
-      1. Click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**.
+      1. Click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
       1. In the list of public images, find [CentOS 7](/marketplace/products/yc/centos-7) and select it.
 
    1. In the **{{ ui-key.yacloud.compute.instances.create.section_platform }}** section, select the following configuration:

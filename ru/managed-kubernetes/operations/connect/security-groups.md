@@ -42,7 +42,7 @@ description: "Следуя данной инструкции, вы сможет�
 1. Добавьте правила для входящего трафика.
    * Для сетевого балансировщика нагрузки:
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
    * Для передачи служебного трафика между [мастером](../../concepts/index.md#master) и [узлами](../../concepts/index.md#node-group):
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
@@ -55,7 +55,7 @@ description: "Следуя данной инструкции, вы сможет�
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — укажите диапазоны адресов подсетей, созданных вместе с кластером. Например, `10.96.0.0/16` или `10.112.0.0/16`.
    * Для проверки работоспособности узлов с помощью ICMP-запросов из подсетей внутри {{ yandex-cloud }}:
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_icmp }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_ipv6-icmp }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — диапазоны адресов подсетей внутри {{ yandex-cloud }}, из которых будет осуществляться диагностика кластера, например:
        * `10.0.0.0/8`.
@@ -71,7 +71,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы запущенные на узлах сервисы были доступны из интернета и подсетей внутри {{ yandex-cloud }}, создайте правило для входящего трафика, и **примените его к группе узлов**:
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `30000-32767`.
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
@@ -79,7 +79,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы получить доступ к узлам по протоколу [SSH](../../../glossary/ssh-keygen.md), создайте правило для входящего трафика и **примените его к группе узлов**:
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-ssh }}`.
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — диапазоны адресов подсетей внутри {{ yandex-cloud }}, а также публичные IP-адреса компьютеров в интернете, например:
   * `10.0.0.0/8`.
@@ -91,7 +91,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 Для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` и других утилит нужны правила, разрешающие подключение к мастеру через порты `{{ port-k8s }}` и `{{ port-https }}`. Создайте два правила для входящего трафика, по одному для каждого порта, и **примените их к кластеру**:
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`, `{{ port-k8s }}`.
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — укажите диапазон адресов подсетей, из которых будете управлять кластером, например:
   * `85.23.23.22/32` — для внешней сети.

@@ -219,7 +219,7 @@
 
   1. Добавьте переменную окружения `BOT_TOKEN`. В поле **{{ ui-key.yacloud.common.value }}** укажите токен Telegram-бота.
   1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
-  1. Убедитесь, что функция [публичная](../../functions/operations/function/function-public.md). Для этого на странице **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}**, в разделе **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-metadata }}**, переведите переключатель **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}** в активное состояние.
+  1. Убедитесь, что функция [публичная](../../functions/operations/function/function-public.md). Для этого на странице **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}**, в разделе **{{ ui-key.yacloud.common.section-base }}**, переведите переключатель **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}** в активное состояние.
   1. Сохраните идентификатор вашей функции, он потребуется в дальнейшем.
 
 {% endlist %}

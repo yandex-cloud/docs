@@ -36,7 +36,7 @@
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где был создан сервисный аккаунт.
 1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}** и укажите имя функции `asr-batch-function`.
-1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите среду выполнения `Python` версии `3.8` и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
 1. Скачайте из репозитория {{ yandex-cloud }} [файл со скриптом](https://github.com/yandex-cloud-examples/yc-speechkit-async-recognizer/blob/main/examples/asr-batch-function/functions/main.py).
 1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}** удалите содержимое файла `index.py` и вставьте скачанный скрипт.

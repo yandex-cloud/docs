@@ -49,7 +49,7 @@ You cannot move a VM to another cloud; however, you can create an image from its
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), click the cloud in the list on the left.
-      1. On the **{{ ui-key.yacloud.iam.cloud.switch_overview }}** tab, copy the value from the **{{ ui-key.yacloud.iam.cloud.overview.label_id }}** field.
+      1. On the **{{ ui-key.yacloud.iam.cloud.switch_overview }}** tab, copy the value from the **{{ ui-key.yacloud.common.id }}** field.
 
    - CLI {#cli}
 

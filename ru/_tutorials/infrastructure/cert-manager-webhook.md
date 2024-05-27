@@ -128,10 +128,10 @@
 
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_disk }}**:
      * Укажите **{{ ui-key.yacloud.k8s.node-groups.create.field_disk-type }}** для узлов группы {{ managed-k8s-name }}:
-       * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-hdd }}` — стандартный сетевой диск, сетевое блочное хранилище на HDD-накопителе.
-       * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd }}` — быстрый сетевой диск, сетевое блочное хранилище на SSD-накопителе.
-       * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd-nonreplicated }}` — сетевой диск с повышенной производительностью, реализованной за счет устранения избыточности. Размер такого диска можно менять только с шагом 93 ГБ.
-       * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd-io-m3 }}` — обладает теми же скоростными характеристиками, что и `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd-nonreplicated }}`, и одновременно обеспечивает избыточность. Размер такого диска можно менять только с шагом 93 ГБ.
+       * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-hdd }}` — стандартный сетевой диск, сетевое блочное хранилище на HDD-накопителе.
+       * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd }}` — быстрый сетевой диск, сетевое блочное хранилище на SSD-накопителе.
+       * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}` — сетевой диск с повышенной производительностью, реализованной за счет устранения избыточности. Размер такого диска можно менять только с шагом 93 ГБ.
+       * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-io-m3 }}` — обладает теми же скоростными характеристиками, что и `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`, и одновременно обеспечивает избыточность. Размер такого диска можно менять только с шагом 93 ГБ.
 
        Подробнее о типах дисков см. в [документации {{ compute-full-name }}](../../compute/concepts/disk.md#disks_types).
      * Укажите размер дисков для узлов группы {{ managed-k8s-name }}.

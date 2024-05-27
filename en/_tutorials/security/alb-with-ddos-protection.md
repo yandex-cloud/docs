@@ -187,8 +187,8 @@ To create an instance group:
       * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete instances in the instance group, assign the `editor` [role](../../iam/concepts/access-control/roles.md) to the service account. By default, all operations in {{ ig-name }} are performed on behalf of a service account.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select multiple availability zones to ensure fault tolerance of your hosting.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to configure a basic instance:
-      * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a **{{ ui-key.yacloud.compute.instances.create.field_description }}** for the template.
-      * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, open the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**. Select [LEMP](/marketplace/products/yc/lemp) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a **{{ ui-key.yacloud.common.description }}** for the template.
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, open the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Select [LEMP](/marketplace/products/yc/lemp) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
       * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**, specify:
          * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `HDD`
          * Disk **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `3 {{ ui-key.yacloud.common.units.label_gigabyte }}`
@@ -203,7 +203,7 @@ To create an instance group:
          * Choose the `ddos-sg-vms` security group.
       * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
          * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-         * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_key }}** field, paste the contents of the public key file.
+         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
          To establish an SSH connection, you need to create a key pair. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
       * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.

@@ -130,7 +130,7 @@
 
   1. {% include [grant-role-console-first-steps](../../_includes/iam/grant-role-console-first-steps.md) %}
   1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
-  1. Выберите каталог в блоке **{{ ui-key.yacloud.iam.users.label_folders-roles }}** и нажмите значок ![image](../../_assets/console-icons/plus.svg).
+  1. Выберите каталог в блоке **Роли в каталогах** и нажмите значок ![image](../../_assets/console-icons/plus.svg).
   1. Выберите необходимую роль из списка.
 
 - CLI {#cli}
@@ -247,7 +247,7 @@
 
   Воспользуйтесь инструкцией в [начале раздела](#access-to-user) и назначьте пользователю несколько ролей.
 
-  Чтобы назначить роль другому пользователю, выберите пользователя на вкладке [Пользователи и роли]({{ link-console-access-management }}) и нажмите кнопку **{{ ui-key.yacloud.iam.users.button_tune-role }}**.
+  Чтобы назначить роль другому пользователю, выберите пользователя на вкладке [Пользователи и роли]({{ link-console-access-management }}) и нажмите кнопку **Настроить роли**.
 
 - CLI {#cli}
 

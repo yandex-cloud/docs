@@ -156,13 +156,13 @@ The **MySQL overview** section shows detailed information about the DBMS state o
        * **{{ mmy-name }}: Cluster Overview** to configure cluster alerts.
        * **{{ mmy-name }}: Host Overview** to configure host alerts.
 
-   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
    1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
 
    1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds to trigger an alert.
 
-   1. Click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
 

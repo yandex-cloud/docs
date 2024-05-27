@@ -11,7 +11,7 @@ When creating a VM, you need to select its [image](../../concepts/image.md) with
    1. In the [management console]({{ link-console-main }}), select the folder to create the virtual machine in.
    1. At the top right, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
    1. In the list that opens, select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-os-products }}**. A list of all available public images will appear.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-os-products }}**. A list of all available public images will appear.
 
    To view information about a specific image, click ![image](../../../_assets/console-icons/circle-info.svg).
 

@@ -132,7 +132,7 @@ items:
             href: tutorials/managed-mysql-to-mysql.md
           - name: '{{ MG }} cluster'
             href: tutorials/managed-mongodb.md
-          - name: Migrating {{ MG }} cluster version from 4.4 to 6.0
+          - name: Migrating a {{ MG }} cluster from 4.4 to 6.0
             href: tutorials/mongodb-versions.md
           - name: '{{ CH }} cluster'
             href: tutorials/managed-clickhouse.md
