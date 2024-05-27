@@ -2,10 +2,9 @@
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-Manage connections to databases using {{ connection-manager-full-name }}:
+Manage connections to databases using {{ connection-manager-full-name }}. You will be able to [create](../operations/create-connection.md), [view](../operations/view-connection.md), [modify](../operations/update-connection.md), [delete the connections](../operations/delete-connection.md) created for your databases, and [manage access to them](../operations/connection-access.md).
 
-* [Connections to managed database clusters in {{ yandex-cloud }}](connection-manager.md#managed-cluster).
-  You will be able to view connections created for your database clusters and configure access to them.
+Connections can be created:
+* [Automatically](connection-manager.md#mdb-integration): To clusters with managed databases in {{ yandex-cloud }}.
+* [Manually](connection-manager.md#database-connections): To user database installations or to clusters with managed databases in {{ yandex-cloud }}.
 
-* [Connections to user database installations](connection-manager.md#on-premise).
-  You will be able to create, view, modify connections to user database installations and manage access to them.

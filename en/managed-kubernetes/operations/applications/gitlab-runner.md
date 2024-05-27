@@ -43,7 +43,7 @@
 
    * (Optional) **List of tags**: Provide a list of tags for task distribution across multiple {{ GLR }}.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
+1. Wait for the application to change its status to `Deployed`.
 1. Go back to the Runners page of your {{ GL }} instance, reload the page, and make sure you see a new {{ GLR }}.
 
 ## Installation using a Helm chart {#helm-install}

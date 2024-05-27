@@ -37,7 +37,7 @@ To allow any user to invoke your function, [make it public](../../functions/oper
 
 - HTTPS {#https}
 
-   You can view the function invocation link on the **{{ ui-key.yacloud.serverless-functions.item.switch_overview }}** tab, in the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field.
+   You can view the function invocation link on the **{{ ui-key.yacloud.common.overview }}** tab, in the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field.
 
    For security reasons, you can only invoke a function via HTTPS. Invoke it as a regular HTTP request by inserting the function invocation link in the browser address bar:
 

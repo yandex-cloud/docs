@@ -175,7 +175,7 @@ In the `dataproc-source` cluster, create a test table named `countries`:
    StructField('Area', IntegerType(), True),
    StructField('Population', IntegerType(), True)])
 
-   df = spark.createDataFrame([('Австралия', 'Канберра', 7686850, 19731984), ('Австрия', 'Вена', 83855, 7700000)], schema)
+   df = spark.createDataFrame([('Australia', 'Canberra', 7686850, 19731984), ('Austria', 'Vienna', 83855, 7700000)], schema)
    df.write.mode("overwrite").option("path","s3a://dataproc-bucket/countries").saveAsTable("countries")
    ```
 

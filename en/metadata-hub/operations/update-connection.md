@@ -7,8 +7,6 @@ description: "Step-by-step guide on using {{ connection-manager-name }} in {{ ya
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-{% include [onpremise only](../../_includes/metadata-hub/operation-onpremise-only.md) %}
-
 To change connection settings:
 
 {% list tabs group=instructions %}
@@ -17,7 +15,7 @@ To change connection settings:
 
   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. Select **{{ metadata-hub-name }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ connection-manager-name }}**/ **Connections**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
   1. In the list of connections, click ![image](../../_assets/console-icons/ellipsis.svg) on the right side of the connection you want to modify.
   1. Select **Edit**.
   1. Change the required connection parameters, such as description, labels, database server settings, or user authentication information.

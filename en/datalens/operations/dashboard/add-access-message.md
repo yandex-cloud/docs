@@ -5,7 +5,7 @@ description: "Follow this guide to add a message to be displayed if a dashboard 
 
 # Adding an access error message
 
-To add a message to be displayed in the event of a dashboard permission error:
+To add a dashboard [access error message](../../dashboard/settings.md#message-settings):
 
 
 {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
@@ -27,5 +27,7 @@ To add a message to be displayed in the event of a dashboard permission error:
 1. In the top-right corner, click **Save**.
 
 Now, if the user has no dashboard view permission, they will see the saved message.
+
+{% include [datalens-access-message-note](../../../_includes/datalens/datalens-access-message-note.md) %}
 
 To delete a message for a permission request, save an empty message in the **Access error message** window.

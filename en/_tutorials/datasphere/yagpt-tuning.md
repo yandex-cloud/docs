@@ -85,7 +85,7 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
 
 1. In the left-hand panel, click **{{ ui-key.yc-ui-datasphere.common.foundation-models }}**.
 
-1. Select the **{{ ui-key.yc-ui-datasphere.common.YGPT }}** model and click **{{ ui-key.yc-ui-datasphere.common.tuning-model }}**.
+1. Select the **YandexGPT** model and click **{{ ui-key.yc-ui-datasphere.common.tuning-model }}**.
 
 1. In the window that opens, specify your project and click **{{ ui-key.yc-ui-datasphere.common.add }}**.
 

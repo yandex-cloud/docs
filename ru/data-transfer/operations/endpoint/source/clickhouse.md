@@ -174,35 +174,53 @@ description: "Из статьи вы узнаете, как задать нас�
 
 - Консоль управления {#console}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTableFilter.include_tables.title }}** — будут передаваться данные только из таблиц этого списка.
+    * {% include [include_tables](../../../../_includes/data-transfer/fields/clickhouse/ui/include-tables.md) %}
 
         {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTableFilter.exclude_tables.title }}** — данные таблиц из этого списка передаваться не будут.
+    * {% include [exclude_tables](../../../../_includes/data-transfer/fields/clickhouse/ui/exclude-tables.md) %}
 
-    Списки включают имя схемы (описание содержания, структуры и ограничений целостности базы данных) и имя таблицы. Для обоих списков поддерживаются выражения вида:
-
-    * `<имя_схемы>.<имя_таблицы>` — полное имя таблицы;
-    * `<имя_схемы>.*` — все таблицы в указанной схеме;
-    * `<имя_таблицы>` — таблица в схеме по умолчанию.
+    {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
 
     Имена включенных и исключенных таблиц должны соответствовать правилам именования идентификаторов в {{ CH }}. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/syntax#syntax-identifiers). Экранирование двойных кавычек не требуется.
 
     Оставьте списки пустыми для переноса всех таблиц.
 
-- {{ TF }} {#tf}
+- CLI {#cli}
 
-    * `include_tables` — список включенных таблиц. Будут передаваться данные только из таблиц этого списка.
+    * {% include [include-table](../../../../_includes/data-transfer/fields/clickhouse/cli/include-table.md) %}
 
         {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-    * `exclude_tables` — список исключенных таблиц. Данные таблиц из этого списка передаваться не будут.
+    * {% include [exclude-table](../../../../_includes/data-transfer/fields/clickhouse/cli/exclude-table.md) %}
 
-  Списки включают имя схемы (описание содержания, структуры и ограничений целостности базы данных) и имя таблицы. Для обоих списков поддерживаются выражения вида:
+    {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
 
-    * `<имя_схемы>.<имя_таблицы>` — полное имя таблицы;
-    * `<имя_схемы>.*` — все таблицы в указанной схеме;
-    * `<имя_таблицы>` — таблица в схеме по умолчанию.
+    Если списки не указаны, передаются данные из всех таблиц.
+
+- {{ TF }} {#tf}
+
+    * {% include [include_tables](../../../../_includes/data-transfer/fields/clickhouse/terraform/include-tables.md) %}
+
+        {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+
+    * {% include [exclude_tables](../../../../_includes/data-transfer/fields/clickhouse/terraform/exclude-tables.md) %}
+
+    {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
+
+    Если списки не указаны, передаются данные из всех таблиц.
+
+- API {#api}
+
+    * {% include [includeTables](../../../../_includes/data-transfer/fields/clickhouse/api/include-tables.md) %}
+
+        {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+
+    * {% include [excludeTables](../../../../_includes/data-transfer/fields/clickhouse/api/exclude-tables.md) %}
+
+    {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
+
+    Если списки не указаны, передаются данные из всех таблиц.
 
 {% endlist %}
 

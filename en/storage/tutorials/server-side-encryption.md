@@ -179,7 +179,7 @@ Create a new key or use an existing one. To create a key:
       * In the **{{ ui-key.yacloud.common.name }}** field, specify `bucket-key`.
       * In the **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}** field, select `AES-256`.
       * In the **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}** field, set the [rotation](../../kms/concepts/version.md#rotate-key) period to `7 days`.
-      * Click **{{ ui-key.yacloud.kms.symmetric-key.create.button_create }}**.
+      * Click **{{ ui-key.yacloud.common.create }}**.
 
    The key is created together with its first version: click the key in the list to open a page with its attributes.
 

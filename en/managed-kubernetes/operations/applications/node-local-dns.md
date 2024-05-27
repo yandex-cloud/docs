@@ -19,7 +19,7 @@
    * **Application name**: Specify the name for the application to be deployed in the {{ managed-k8s-name }} cluster.
    * **Work with Cilium**: Select this option if a cluster uses the [Cilium network policy controller](../../concepts/network-policy.md#cilium).
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
+1. Wait for the application to change its status to `Deployed`.
 
 After installing NodeLocal DNS, use the following values:
 * {{ managed-k8s-name }} cluster zone: `cluster.local`

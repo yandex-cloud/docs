@@ -1,9 +1,6 @@
-# Managing {{ GP }} cluster hosts
+# Information about {{ GP }} cluster hosts
 
-You can get a list of hosts (masters and segments) in a {{ mgp-name }} cluster.
-
-
-## Getting a list of cluster hosts {#list-hosts}
+You can get a list of hosts (masters and segments) in a {{ mgp-name }} cluster. To do this:
 
 {% list tabs group=instructions %}
 

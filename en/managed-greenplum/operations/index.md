@@ -11,14 +11,12 @@ description: "This page provides a list of step-by-step guides for {{ mpg-name }
 * [{#T}](calculate-specs.md)
 * [Creating a cluster](cluster-create.md)
 * [Updating cluster settings](update.md)
-* [Stopping and starting clusters](cluster-stop.md)
-* [Managing cluster hosts](./hosts/cluster-hosts.md)
+* [Stopping and starting a cluster](cluster-stop.md)
+* [Information about cluster hosts](./hosts/cluster-hosts.md)
 * [{#T}](./hosts/cluster-expand.md)
-* [{#T}](./hosts/host-migration.md)
+* [Migrating cluster hosts to a different availability zone](./hosts/host-migration.md)
 * [Managing backups](cluster-backups.md)
 * [Deleting a cluster](cluster-delete.md)
-
-To move {{ mgp-name }} cluster hosts to a different availability zone, refer to the [guide on managing backups](cluster-backups.md).
 
 ## Databases
 

@@ -27,6 +27,8 @@
 
 ## Создать трейл {#the-trail-creation}
 
+{% include [note-lose-target-when-switch-trail](../_includes/audit-trails/note-lose-target-when-switch-trail.md) %}
+
 Чтобы создать первый трейл в {{ at-name }} и запустить процесс управления аудитными логами уровня конфигурации:
 
 {% list tabs group=instructions %}

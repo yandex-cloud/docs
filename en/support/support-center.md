@@ -34,12 +34,12 @@ If you [searched for a way to resolve your issue](#finding-solution) in the supp
 1. Go to **{{ ui-key.support-center.common.tickets }}**.
 1. Click **{{ ui-key.support-center.tickets.common.action_create-ticket }}**.
 1. Fill out the following fields in the **{{ ui-key.support-center.ticket.create.title_create-ticket-page }}** form that opens:
-   * **{{ ui-key.yacloud.support.ticket.create.field_type }}**: Select the ticket type that describes your issue best.
-   * **{{ ui-key.yacloud.support.ticket.create.field_service }}**: Specify the service you have an issue with.
-   * **{{ ui-key.yacloud.support.ticket.create.field_summary }}**: Enter the subject of your ticket.
-   * **{{ ui-key.yacloud.support.ticket.create.field_description }}**: Provide a detailed description of the issue. For best results, specify the resource ID and the event date and time.
-   * **{{ ui-key.yacloud.support.ticket.create.field_attachments }}**: Optionally, attach screenshots or other files that may help describe your ticket in better detail.
-   * **{{ ui-key.yacloud.support.ticket.create.field_access-type }}**: Select who will be able to see your ticket.
+   * **{{ ui-key.support-center.ticket.create.field_ticket-type }}**: Select the ticket type that describes your issue best.
+   * **{{ ui-key.support-center.ticket.create.field_service }}**: Specify the service you have an issue with.
+   * **{{ ui-key.support-center.ticket.create.field_subject }}**: Enter the subject of your ticket.
+   * **{{ ui-key.support-center.ticket.create.field_message }}**: Provide a detailed description of the issue. For best results, specify the resource ID and the event date and time.
+   * **{{ ui-key.support-center.ticket.create.field_attachments }}**: Optionally, attach screenshots or other files that may help describe your ticket in better detail.
+   * **{{ ui-key.support-center.ticket.create.field_access-type }}**: Select who will be able to see your ticket.
 1. Click **{{ ui-key.support-center.ticket.create.action_create-ticket }}**.
 
 ## Viewing tickets {#view-requests}

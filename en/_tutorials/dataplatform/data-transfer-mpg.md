@@ -103,7 +103,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
    * Source endpoint:
 
       * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `PostgreSQL`.
-      * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+      * **Endpoint parameters**:
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: Select the [created](#before-you-begin) {{ mpg-name }} cluster.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}**: `db1`.
@@ -114,7 +114,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
    * Target endpoint:
 
       * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
-      * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+      * **Endpoint parameters**:
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the target cluster.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Enter the details of the created `kafka-user` user.

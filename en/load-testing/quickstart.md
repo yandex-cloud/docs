@@ -45,8 +45,8 @@ We will use Pandora as load generator, since it is best suited for testing cloud
    1. **{{ ui-key.yacloud.load-testing.label_agents-list }}**: Select `test-agent`.
    1. **{{ ui-key.yacloud.load-testing.field_settings-type }}**: Select `{{ ui-key.yacloud.load-testing.label_settings-type-form }}`.
    1. **{{ ui-key.yacloud.load-testing.field_load-generator }}**: Select `Pandora`.
-   1. **{{ ui-key.yacloud.load-testing.field_target-address }}**: Enter the address of the service to test: `example.myservice.ru`.
-   1. **{{ ui-key.yacloud.load-testing.field_target-port }}**: Set to `80` (default HTTP port).
+   1. **Target address**: Enter the address of the service to test: `example.myservice.ru`.
+   1. **Target port**: Set to `80` (default HTTP port).
    1. **Testing threads**: `1000`.
       This means that the generator can simultaneously process 1,000 operations: either create 1,000 connections or wait for 1,000 responses from the service at the same time.
 
@@ -64,7 +64,7 @@ We will use Pandora as load generator, since it is best suited for testing cloud
       * **Duration**: Specify `60s`.
    1. Add another **Load profile**:
       * **Profile 2**: Select `const`.
-      * **{{ ui-key.yacloud.load-testing.label_rps }}**: Set `100`.
+      * **Responses per second**: Set `100`.
       * **Duration**: Specify `300s`.
 
       This instructs the generator to increase the load from 1 to 100 requests per second for the first 60 seconds, and then maintain a load of 100 requests per second for 5 minutes.

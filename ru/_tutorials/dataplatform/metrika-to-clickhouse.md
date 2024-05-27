@@ -37,7 +37,7 @@ noIndex: true
 1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для приемника:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `ClickHouse`.
-    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
+    * **Параметры эндпойнта** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
 
         Выберите кластер-приемник из списка и укажите [настройки подключения](../../data-transfer/operations/endpoint/target/clickhouse.md) к нему.
 

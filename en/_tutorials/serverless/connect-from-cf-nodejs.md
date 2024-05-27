@@ -346,7 +346,7 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
    1. In the [management console]({{ link-console-main }}), select the folder where the function is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Select the `func-test-ydb` function.
-   1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_overview }}** tab.
+   1. Go to the **{{ ui-key.yacloud.common.overview }}** tab.
    1. In the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field, click the link.
    1. In your browser address bar, add the `api_key` parameter to the link, e.g., `?api_key=b95`:
 

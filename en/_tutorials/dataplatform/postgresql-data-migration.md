@@ -1,6 +1,5 @@
 # Migrating a database from a third-party {{ PG }} cluster to {{ mpg-name }}
 
-
 There are three ways to migrate data from a third-party _source cluster_ to a {{ mpg-name }} _target cluster_:
 
 * [Transferring data using {{ data-transfer-full-name }}](#data-transfer).
@@ -8,8 +7,8 @@ There are three ways to migrate data from a third-party _source cluster_ to a {{
    This method allows you to:
 
    * Go without creating an intermediate VM or granting online access to your {{ mpg-name }} target cluster.
-   * Migrate the database completely without stopping serving users.
-   * Migrate from older {{ PG }} versions to newer versions.
+   * Migrate the database completely without interrupting user service.
+   * Migrate from older {{ PG }} versions to newer ones, including upgrading your cluster from {{ PG }} version 15 to 16.
 
    To use this method, allow connecting to the source cluster from the internet.
 

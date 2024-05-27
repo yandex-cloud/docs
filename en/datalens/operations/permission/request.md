@@ -1,5 +1,13 @@
 # Requesting permissions
 
+{% note info %}
+
+To view access permissions for a dashboard with the [access error message](../../dashboard/settings.md#message-settings) enabled, users need the [{{ permission-write }}](../../security/manage-access.md#permission-write) or [{{ permission-admin }}](../../security/manage-access.md#permission-admin) permissions for this dashboard.
+
+Users with the [{{ permission-read }}](../../security/manage-access.md#permission-read) permission cannot view the list of access permissions for this dashboard or request changing access to it via the {{ datalens-short-name }} interface.
+
+{% endnote %}
+
 You can request permission to a folder or object that you do not have access to.
 You can also request editing permissions to a folder or object that you are allowed to view:
 

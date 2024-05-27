@@ -26,7 +26,7 @@
 * Чтобы открыть каталог сервисов {{ yandex-cloud }}, перейти к [консоли управления]({{ link-console-main }}) и управлению [платежными аккаунтами](../billing/), нажмите ![](../_assets/wiki/svg/dots.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 
 
-* Чтобы просмотреть уведомления от сервисов {{ yandex-cloud }}, нажмите ![](../_assets/wiki/svg/notifications.svg) **{{ ui-key.yacloud.iam.folder.switch_incident-notifications }}**.
+* Чтобы просмотреть уведомления от сервисов {{ yandex-cloud }}, нажмите ![](../_assets/wiki/svg/notifications.svg) **Уведомления**.
 
 ## Поиск {#search}
 

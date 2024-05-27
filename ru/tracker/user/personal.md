@@ -23,7 +23,7 @@
 
 1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
-1. В блоке **{{ ui-key.yacloud.settings.switch_lang }}** выберите нужный язык.
+1. В блоке **{{ ui-key.yacloud_components.settings.label_title_region }}** выберите нужный язык.
 
 ## Настроить оформление {#choose-theme}
 
@@ -31,7 +31,7 @@
 
 1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
-1. В блоке **{{ ui-key.yacloud.settings.switch_appearance }}** выберите нужную тему.
+1. В блоке **{{ ui-key.yacloud_components.settings.label_title_appearance }}** выберите нужную тему.
 
 1. Чтобы при нажатии на название или ключ (например, **TEST-123**) задача открывалась на боковой панели справа, выберите вариант **Да**.
 

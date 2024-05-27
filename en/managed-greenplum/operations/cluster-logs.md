@@ -23,7 +23,7 @@
 
    A list of log entries for the selected time period will be displayed. To view detailed information about an event, click the respective entry in the list.
 
-   If there are too many records and not all of them are displayed, click the **{{ ui-key.yacloud.mdb.cluster.logs.button_load-more }}** link at the end of the list.
+   If there are too many records and not all of them are displayed, click the **Load more** link at the end of the list.
 
 - CLI {#cli}
 
@@ -59,7 +59,7 @@
          * `greenplum-pooler`: Connection manager operations log.
          * `greenplum-pxf`: [PXF](../concepts/external-tables.md) protocol log.
       * `--columns`: List of columns with output data:
-         * `hostname`: [Host name](./hosts/cluster-hosts.md#list-hosts).
+         * `hostname`: [Host name](./hosts/cluster-hosts.md).
          * `level`: Logging level, such as `info`.
          * `pid`: ID of the current session's server process.
          * `text`: Message output by the component.
