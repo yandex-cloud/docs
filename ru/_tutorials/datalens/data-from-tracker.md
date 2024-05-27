@@ -102,7 +102,7 @@ description: "Для визуализация данных из {{ tracker-short
 1. В левом верхнем углу нажмите кнопку ![](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 1. Выберите **Бессерверные вычисления** → **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
-1. Укажите название функции и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
+1. Укажите название функции и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 1. В открывшемся окне **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** выберите среду выполнения `Python`.
 1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
 1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}**.

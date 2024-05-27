@@ -43,13 +43,13 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 1. (Optional) Under **{{ ui-key.yacloud.k8s.node-group.overview.section_placement-policy }}**, enter a name for the {{ managed-k8s-name }} node [placement group](../../compute/concepts/placement-groups.md). This setting cannot be changed after the {{ managed-k8s-name }} node group is created.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_disk }}**:
    * Specify the {{ managed-k8s-name }} node **{{ ui-key.yacloud.k8s.node-groups.create.field_disk-type }}**:
-     * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-hdd }}`: [Standard network drive](../../compute/concepts/disk.md#disks-types); network block storage on an HDD.
-     * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd }}`: Fast network drive; network block storage on an SSD.
-     * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd-nonreplicated }}`: Network drive with enhanced performance achieved by removing redundancy. You can only change the size of this type of disk in 93 GB increments.
+     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-hdd }}`: [Standard network drive](../../compute/concepts/disk.md#disks-types); network block storage on an HDD.
+     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd }}`: Fast network drive; network block storage on an SSD.
+     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`: Network drive with enhanced performance achieved by removing redundancy. You can only change the size of this type of disk in 93 GB increments.
 
        {% include [nrd-no-backup-note](nrd-no-backup-note.md) %}
 
-     * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd-io-m3 }}`: Network drive with the same performance characteristics as `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd-nonreplicated }}`, plus redundancy. You can only change the size of this type of disk in 93 GB increments.
+     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-io-m3 }}`: Network drive with the same performance characteristics as `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`, plus redundancy. You can only change the size of this type of disk in 93 GB increments.
 
    * Specify the {{ managed-k8s-name }} node disk size.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:

@@ -117,7 +117,7 @@
 
    Добавьте в таблицу колонки вручную:
 
-    | {{ ui-key.yacloud.ydb.browse.info.column_name }} | {{ ui-key.yacloud.ydb.browse.info.column_type }} | {{ ui-key.yacloud.ydb.browse.dialogs.tooltip_create_pk }} |
+    | {{ ui-key.yacloud.ydb.browse.info.column_name }} | {{ ui-key.yacloud.ydb.browse.info.column_type }} | {{ ui-key.yacloud.ydb.table.form.column_primary-key }} |
     |:--------------------|:---------|:---------------|
     | `device_id`         | `String` | Да             |
     | `datetime`          | `String` |                |
@@ -153,7 +153,7 @@
 1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `YDB`.
-    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+    * **Параметры эндпойнта**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
@@ -168,7 +168,7 @@
 
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
-    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+    * **Параметры эндпойнта**:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}** — выберите [созданный ранее](#before-you-begin) кластер-источник {{ mkf-name }}.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}** — укажите данные [созданного ранее](#before-you-begin) пользователя {{ KF }}.

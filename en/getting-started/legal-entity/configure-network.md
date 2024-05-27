@@ -30,7 +30,7 @@ For your internet service to run, you need two static public IP addresses: one t
    1. In the [management console]({{ link-console-main }}), open your folder and click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
    1. Enter the VM name: `web-node-a`.
    1. Select the `{{ region-id }}-a` availability zone.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**, and select the [Drupal](https://yandex.cloud/en/marketplace/products/f2e90bncf96u25a9cirp) image.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**, and select the [Drupal](https://yandex.cloud/en/marketplace/products/f2e90bncf96u25a9cirp) image.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the `subnet-a` subnet. Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, select `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`.
    1. In the **{{ ui-key.yacloud.compute.instances.create.section_access }}** field, enter the login and SSH key to access the VM.
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -49,7 +49,7 @@ To provide secure access to your resources, create an IPSec instance.
    1. In the [management console]({{ link-console-main }}), open your folder and click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
    1. Enter the VM name: `vpc`.
    1. Select the `{{ region-id }}-a` availability zone.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**, and select the [IPSec instance](https://yandex.cloud/en/marketplace/products/f2e70ohdvsd0jgp2302j) image.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**, and select the [IPSec instance](https://yandex.cloud/en/marketplace/products/f2e70ohdvsd0jgp2302j) image.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the `subnet-a` subnet. Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, select a reserved IP address from the list.
    1. In the **{{ ui-key.yacloud.compute.instances.create.section_access }}** field, enter the login and SSH key to access the VM.
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -119,12 +119,12 @@ For a VPN to work properly, allow receiving and transmitting traffic to UDP port
       1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** tab.
       1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
       1. In the window that opens, set the port to `500` in the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field.
-      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}`.
+      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, select `{{ ui-key.yacloud.common.label_udp }}`.
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** field, specify the public address of a remote VPN hub with mask `32`.
    1. Click **{{ ui-key.yacloud.common.save }}**.
    1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
       1. In the window that opens, set the port to `4500` in the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field.
-      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}`.
+      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, select `{{ ui-key.yacloud.common.label_udp }}`.
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** field, specify the public address of a remote VPN hub with mask `32`.
    1. Click **{{ ui-key.yacloud.common.save }}**.
    1. Set up rules that allow traffic between the web servers and VMs on the remote site. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -153,15 +153,15 @@ Allow outgoing connections to other VM instances in the security group:
 Allow the following incoming connections:
 
 1. HTTP connections from multiple test dummy IP addresses:
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `80`
    * **{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}**: `1.1.1.1/32`, `85.32.45.45/32`
 1. HTTPS connections from multiple test dummy IP addresses:
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `443`
    * **{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}**: `1.1.1.1/32`, `85.32.45.45/32`
 1. TCP connections for SSH access:
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`
    * **{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}**: `0.0.0.0/0`
 1. Connections from other VM instances in the security group:
@@ -222,7 +222,7 @@ Test the infrastructure and make sure that traffic to the internet service VMs o
 1. On your computer, run the `curl <Network load balancer public IP address>` command. Make sure no response is received.
 1. Create a security group named `web-service-test-sg` with no rules and assign it to the `web-node-a`, `web-node-b`, and `web-node-d` VMs.
 1. In the `web-service-test-sg` security group, create the following rule for incoming traffic:
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `80`
    * **{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}**: `<IP address of your computer>/32`
 1. Run the `curl <Network load balancer public IP address>` command on your computer once again. Make sure the Drupal homepage HTML code is returned in response.

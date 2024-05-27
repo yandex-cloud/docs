@@ -130,7 +130,7 @@ The management console only allows you to change the name of a folder. To change
 
    1. {% include [grant-role-console-first-steps](../../_includes/iam/grant-role-console-first-steps.md) %}
    1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
-   1. Select a folder in the **{{ ui-key.yacloud.iam.users.label_folders-roles }}** section and click ![image](../../_assets/console-icons/plus.svg).
+   1. Select a folder in the **Roles for folders** section and click ![image](../../_assets/console-icons/plus.svg).
    1. Select a role from the list.
 
 - CLI {#cli}
@@ -247,7 +247,7 @@ The management console only allows you to change the name of a folder. To change
 
    Follow the guide at the [beginning of the section](#access-to-user) and assign the user multiple roles.
 
-   To assign a role to another user, select the user on the [Users and roles]({{ link-console-access-management }}) tab and click **{{ ui-key.yacloud.iam.users.button_tune-role }}**.
+   To assign a role to another user, select the user on the [Users and roles]({{ link-console-access-management }}) tab and click **Configure roles**.
 
 - CLI {#cli}
 

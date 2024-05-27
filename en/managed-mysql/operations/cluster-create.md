@@ -345,7 +345,7 @@ For more information about {{ mmy-name }} cluster structure, see [Resource relat
 - API {#api}
 
    To create a {{ MY }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
-   * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ mmy-name }} cluster should be placed, in the `folderId` parameter.
+   * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the {{ mmy-name }} cluster in the `folderId` parameter.
    * {{ mmy-name }} cluster name in the `name` parameter. It must be unique within the folder.
    * {{ mmy-name }} cluster environment in the `environment` parameter.
    * {{ mmy-name }} cluster configuration in the `configSpec` parameter.
@@ -386,7 +386,7 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ MY }} cluster with the settings of another cluster created earlier. To do so, you need to import the configuration of the source {{ MY }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ MY }} cluster has lots of settings and you need to create a similar one.
+You can create a {{ MY }} cluster with the settings of another one created earlier. To do so, you need to import the configuration of the source {{ MY }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ MY }} cluster has lots of settings and you need to create a similar one.
 
 To create a {{ MY }} cluster copy:
 
@@ -796,3 +796,5 @@ To create a {{ MY }} cluster copy:
 
 {% endlist %}
 
+
+{% include [connection-manager](../../_includes/mdb/connection-manager.md) %}

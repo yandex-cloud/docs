@@ -17,9 +17,9 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
       * **Upload Timeout**: Timeout for connection to the Apache Tomcat® server when making write requests. The values may range from `5` to `600` seconds. You can specify the values in various time units.
       * **Max Threads**: Maximum number of the Apache Tomcat® threads. The values may range from `1` to `1024`.
 
-         To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation.
+         To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework](https://docs.vmware.com/en/VMware-Greenplum-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation.
 
-      * **Pool Allow Core Thread Timeout**: Determines whether the timeout for core streaming threads is permitted.
+      * **Pool Allow Core Thread Timeout**: Determines whether a timeout for core streaming threads is allowed.
       * **Pool Core Size**: Number of core streaming threads per pool. The values may range from `1` to `1024`.
       * **Pool Queue Capacity**: Maximum number of requests you can add to a pool queue for core streaming threads. The values may range from zero upward. If `0`, no pool queue is generated.
       * **Pool Max Size**: Maximum allowed number of core streaming threads. The values may range from `1` to `1024`.
@@ -63,9 +63,9 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
       * `pxf-upload-timeout`: Timeout for connection to the Apache Tomcat® server when making write requests, in seconds. The values may range from `5` to `600`.
       * `pxf-max-threads`: Maximum number of the Apache Tomcat® threads. The values may range from `1` to `1024`.
 
-         To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation.
+         To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework](https://docs.vmware.com/en/VMware-Greenplum-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation.
 
-      * `pxf-pool-allow-core-thread-timeout`: Determines whether the timeout for core streaming threads is permitted. The default value is `false`.
+      * `pxf-pool-allow-core-thread-timeout`: Determines whether a timeout for core streaming threads is allowed. The default value is `false`.
       * `pxf-poll-core-size`: Number of core streaming threads per pool. The values may range from `1` to `1024`.
       * `pxf-pool-queue-capacity`: Maximum number of requests you can add to a pool queue for core streaming threads. The values may range from zero upward. If `0`, no pool queue is generated.
       * `pxf-pool-max-size`: Maximum allowed number of core streaming threads. The values may range from `1` to `1024`.
@@ -109,7 +109,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
       * `upload_timeout`: Timeout for connection to the Apache Tomcat® server when making write requests, in seconds. The values may range from `5` to `600`.
       * `max_threads`: Maximum number of the Apache Tomcat® threads. The values may range from `1` to `1024`.
 
-         To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation.
+         To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework](https://docs.vmware.com/en/VMware-Greenplum-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation.
 
       * `pool_allow_core_thread_timeout`: Determines whether a timeout for core streaming threads is allowed. The default value is `false`.
       * `pool_core_size`: Number of core streaming threads per pool. The values may range from `1` to `1024`.
@@ -137,9 +137,9 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
       * `uploadTimeout`: Timeout for connection to the Apache Tomcat® server when making write requests, in seconds. The values may range from `5` to `600`.
       * `maxThreads`: Maximum number of the Apache Tomcat® threads. The values may range from `1` to `1024`.
 
-         To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation.
+         To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework](https://docs.vmware.com/en/VMware-Greenplum-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation.
 
-      * `poolAllowCoreThreadTimeout`: Determines whether a timeout for core streaming threads is permitted. The default value is `false`.
+      * `poolAllowCoreThreadTimeout`: Determines whether a timeout for core streaming threads is allowed. The default value is `false`.
       * `poolCoreSize`: Number of core streaming threads per pool. The values may range from `1` to `1024`.
       * `poolQueueCapacity`: Maximum number of requests you can add to a pool queue for core streaming threads. The values may range from zero upward. If `0`, no pool queue is generated.
       * `poolMaxSize`: Maximum allowed number of core streaming threads. The values may range from `1` to `1024`.

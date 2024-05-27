@@ -85,7 +85,7 @@
 
 1. На панели слева нажмите **{{ ui-key.yc-ui-datasphere.common.foundation-models }}**.
 
-1. Выберите модель **{{ ui-key.yc-ui-datasphere.common.YGPT }}** и нажмите **{{ ui-key.yc-ui-datasphere.common.tuning-model }}**.
+1. Выберите модель **YandexGPT** и нажмите **{{ ui-key.yc-ui-datasphere.common.tuning-model }}**.
 
 1. В открывшемся окне укажите свой проект и нажмите **{{ ui-key.yc-ui-datasphere.common.add }}**.
 

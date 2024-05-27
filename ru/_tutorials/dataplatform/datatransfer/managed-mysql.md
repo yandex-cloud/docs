@@ -31,14 +31,14 @@
         1. [Создайте эндпоинт для источника](../../../data-transfer/operations/endpoint/index.md#create):
 
             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `MySQL`.
-            * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.on_premise.title }}`.
+            * **Параметры эндпойнта** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.on_premise.title }}`.
 
                 Укажите параметры подключения к кластеру-источнику.
 
         1. [Создайте эндпоинт для приемника](../../../data-transfer/operations/endpoint/index.md#create):
 
             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `MySQL`.
-            * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+            * **Параметры эндпойнта** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
 
                 Выберите кластер-приемник из списка и укажите настройки подключения к нему.
 

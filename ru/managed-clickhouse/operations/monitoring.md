@@ -156,7 +156,7 @@ description: "Из статьи вы узнаете, как осуществля
       * **{{ mch-name }} — Cluster Overview** для настройки алертов кластера;
       * **{{ mch-name }} — ZooKeeper** для настройки алертов хостов ZooKeeper.
       * **{{ mch-name }} — Host Overview** для настройки алертов хостов.
-  1. На нужном графике с показателями нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+  1. На нужном графике с показателями нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
   1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов [см. в документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
   1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` и `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` для срабатывания алерта.
   1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.

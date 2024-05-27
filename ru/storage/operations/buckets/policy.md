@@ -47,7 +47,7 @@
         * Введите **{{ ui-key.yacloud.storage.bucket.policy.field_value }}**.
         * Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-value }}**, чтобы добавить дополнительное значение в условие.
   1. При необходимости добавьте правила и настройте их.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.permissions-dialog.button_save }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 

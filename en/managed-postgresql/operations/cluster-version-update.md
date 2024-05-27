@@ -4,12 +4,14 @@ You can upgrade a {{ mpg-name }} cluster to any supported version.
 
 {% note info %}
 
-* Upgrades are unavailable for {{ mpg-name }} clusters optimized for <q>1C:Enterprise</q>. The names of these versions end with `-1c`.
-* You cannot upgrade a regular cluster version to a version optimized for <q>1C:Enterprise</q> (e.g., from version 14 to version 14-1c).
+* Upgrades are unavailable for {{ mpg-name }} clusters optimized for <q>1C:Enterprise</q>. The names of such versions end with `-1c`.
+* You cannot upgrade a regular cluster version to a version optimized for <q>1C:Enterprise</q> (e.g., from version 14 to 14-1c).
 
 {% endnote %}
 
-You can only upgrade to a version that immediately follows the current one, such as version 11 to 12. Upgrades to higher versions are performed in steps. To upgrade {{ PG }} from version 11 to version 13, for instance, follow the steps: 11 → 12 → 13.
+You can only upgrade to a version that immediately follows the current one, e.g., from version 11 to 12. Upgrades to higher versions are performed in steps. For example, to upgrade {{ PG }} from version 11 to 15, follow the steps: 11 → 12 → 13 → 14 → 15.
+
+You can upgrade to version 16 only using {{ data-transfer-full-name }}. To do so, [create a version 16 cluster](cluster-create.md#create-cluster) and [transfer data to it](../tutorials/data-migration.md#data-transfer) from the cluster you want to upgrade.
 
 In single-host clusters, the only master host is brought out of its running state for upgrades. During an upgrade, these clusters will be unavailable for reading and writing.
 
@@ -41,6 +43,13 @@ Make sure this does not affect your applications:
 
 {% endnote %}
 
+### Upgrading a cluster to {{ PG }} 16 {#update-to-v16}
+
+1. [Create a cluster](cluster-create.md#create-cluster) with {{ PG }} 16.
+1. Use {{ data-transfer-name }} to [transfer data to it](../tutorials/data-migration.md#data-transfer) from the cluster you want to upgrade.
+
+### Upgrading a cluster to {{ PG }} 15 or lower {#update-to-v15-or-lower}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -55,6 +64,8 @@ Make sure this does not affect your applications:
    {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To upgrade a cluster to {{ PG }} 15 or lower:
 
    1. Get a list of your {{ PG }} clusters using this command:
 
@@ -106,7 +117,7 @@ Make sure this does not affect your applications:
 
 - API {#api}
 
-   To upgrade a cluster to a specific {{ PG }} version, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   To upgrade a cluster to {{ PG }} 15 or lower, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * {{ PG }} version number in the `configSpec.version` parameter.

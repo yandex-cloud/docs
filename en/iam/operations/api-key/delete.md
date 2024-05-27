@@ -14,7 +14,7 @@ description: "Follow this guide to delete an API key."
    1. Choose a service account and click the row with its name.
    1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.section_keys }}** list, find an API key to be deleted.
    1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the row of the key.
-   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_action-delete-access-key }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_action-delete-api-key }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-confirm_button_delete }}**.
 
 - CLI {#cli}

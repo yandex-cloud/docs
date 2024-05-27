@@ -79,7 +79,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. In the left-hand panel, select ![image](../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
 1. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** parameter, select `agent-008`.
-1. Under **{{ ui-key.yacloud.load-testing.test-data-section }}**, select `{{ ui-key.yacloud.load-testing.label_local-source }}`, click **Attach file**, and select the `data.uri` file.
+1. Under **{{ ui-key.yacloud.load-testing.test-data-section }}**, select `From computer`, click **Attach file**, and select the `data.uri` file.
 1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**, select a configuration method: `{{ ui-key.yacloud.load-testing.label_settings-type-form }}` or `{{ ui-key.yacloud.load-testing.label_settings-type-config }}`.
 1. Depending on the selected method, specify the test parameters:
 
@@ -88,8 +88,8 @@ For a service whose subnet and security group differ from the agent's ones, [cre
    - Form
 
       1. In the **{{ ui-key.yacloud.load-testing.field_load-generator }}** field, select `PHANTOM`.
-      1. In the **{{ ui-key.yacloud.load-testing.field_target-address }}** field, specify the address of the service to test: `172.17.0.10`.
-      1. In the **{{ ui-key.yacloud.load-testing.field_target-port }}** field, set `443` (default HTTPS port). Allow using a secure connection.
+      1. In the **Target address** field, specify the address of the service to test: `172.17.0.10`.
+      1. In the **Target port** field, set `443` (default HTTPS port). Allow using a secure connection.
       1. In the **Testing threads** field, specify `5000`.
 
          This means that the load generator can simultaneously process 5000 operations: either create 5000 connections or wait for 5000 responses from the service at the same time.
@@ -108,7 +108,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
       1. Add a **Load profile**:
 
          * **Profile**: Select `const`.
-         * **{{ ui-key.yacloud.load-testing.label_rps }}**: Set `2000`.
+         * **Responses per second**: Set `2000`.
          * **Duration**: Specify `10m`.
 
          This instructs the load generator to maintain a load of 2000 requests per second for 10 minutes.

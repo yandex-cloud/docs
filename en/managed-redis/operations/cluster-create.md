@@ -71,7 +71,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
       * Select the storage size. The available storage size is limited by [quotas and limits](../concepts/limits.md#mrd-limits).
 
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_config }}**, in the **{{ ui-key.yacloud.mdb.forms.config_field_password }}** field, set the user password.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_configuration }}**, in the **{{ ui-key.yacloud.mdb.forms.config_field_password }}** field, set the user password.
 
       {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 

@@ -2,7 +2,7 @@
 
 Because the {{ GP }} DBMS is based on {{ PG }}, the same tools are used to connect to both DBMSs.
 
-You can connect to a {{ mgp-short-name }} cluster only via the [primary master host](../concepts/index.md). To identify host roles, get a [list of hosts in the cluster](./hosts/cluster-hosts.md#list-hosts).
+You can connect to a {{ mgp-short-name }} cluster only via the [primary master host](../concepts/index.md). To identify host roles, get a [list of hosts in the cluster](./hosts/cluster-hosts.md).
 
 You can connect to a cluster:
 
@@ -33,7 +33,7 @@ Rule settings depend on the connection method you select:
 
       * For incoming traffic:
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
@@ -45,7 +45,7 @@ Rule settings depend on the connection method you select:
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
-         This rule allows all outgoing traffic, which enables you to both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
+         This rule allows all outgoing traffic, thus enabling you not only to connect to the cluster but also to install the certificates and utilities your VM needs for the connection.
 
 {% endlist %}
 
@@ -67,7 +67,7 @@ To use an SSL connection, get a certificate:
 
 To connect to a master host, you need its fully qualified domain name ([FQDN](../concepts/network.md#hostname)). You can obtain it in one of the following ways:
 
-* [Request a list of cluster hosts](hosts/cluster-hosts.md#list-hosts).
+* [Request a list of cluster hosts](hosts/cluster-hosts.md).
 * In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains a list of FQDNs for master hosts. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}**.
 * Look up the FQDN in the management console:
 
@@ -206,7 +206,7 @@ To connect to a {{ mgp-name }} cluster from a Docker container, add the followin
 
 {% endlist %}
 
-## Sample connection strings {#connection-string}
+## Examples of connection strings {#connection-string}
 
 {% include [conn-strings-environment](../../_includes/mdb/mgp/conn-strings-env.md) %}
 

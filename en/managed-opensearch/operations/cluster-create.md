@@ -318,13 +318,13 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
+   * Settings for the [maintenance](../concepts/maintenance.md) window (including for disabled clusters) in the `maintenanceWindow` parameter.
 
 {% endlist %}
 
 ## Creating a cluster copy {#duplicate}
 
-You can create an {{ OS }} cluster with the settings of another cluster created earlier. To do so, you need to import the configuration of the source {{ OS }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ OS }} cluster has lots of settings and you need to create a similar one.
+You can create an {{ OS }} cluster with the settings of another one created earlier. To do so, you need to import the configuration of the source {{ OS }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ OS }} cluster has lots of settings and you need to create a similar one.
 
 To create an {{ OS }} cluster copy:
 

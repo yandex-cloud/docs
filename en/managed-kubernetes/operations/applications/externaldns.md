@@ -35,7 +35,7 @@
    * **Service account key**: Paste the contents of the `key.json` file or create a new authorized key for the service account. The service account must have the `dns.editor` [role](../../../iam/concepts/access-control/roles.md).
    * **Folder ID**: Specify the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) hosting the [{{ dns-name }} zone](../../../dns/concepts/dns-zone.md).
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
+1. Wait for the application to change its status to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 

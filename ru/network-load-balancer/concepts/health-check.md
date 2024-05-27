@@ -44,7 +44,7 @@
 
 Для разрешения трафика от модуля проверки состояния можно привязать к целевым ресурсам [группу безопасности](../../vpc/concepts/security-groups.md) со следующим правилом для входящего трафика: 
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — используйте диапазон портов, который указан в настройках проверки состояния.
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
 
 При выполнении HTTP-проверки, ресурс получает статус `HEALTHY` только при ответе с кодом `200`.

@@ -35,7 +35,7 @@
    * **Secret name**: If you previously selected the **Create secret** option, specify the name of the new secret to be created for the storage class. Otherwise, specify the name of the existing secret to be used for the storage class.
    * **Ignore all taints**: Select this option if you want the CSI driver used to mount the file system on nodes to ignore all taints set for the {{ managed-k8s-name }} cluster nodes.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
+1. Wait for the application to change its status to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 

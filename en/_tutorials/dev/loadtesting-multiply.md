@@ -126,15 +126,15 @@ If you need to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
    1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
    1. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
-   1. Under **{{ ui-key.yacloud.load-testing.label_test-config }} 1**, specify the test parameters for the first agent:
+   1. Under **Config 1**, specify the test parameters for the first agent:
       1. **{{ ui-key.yacloud.load-testing.label_agents-list }}**: Select the `agent-008` agent.
 
          In this example, the agents will have different test configurations. To use the same configuration, in the **{{ ui-key.yacloud.load-testing.label_agents-list }}** field, select all the agents you need to use.
       1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
          * **{{ ui-key.yacloud.load-testing.field_settings-type }}**: Select `{{ ui-key.yacloud.load-testing.label_settings-type-form }}`.
          * **{{ ui-key.yacloud.load-testing.field_load-generator }}**: Select `Pandora`.
-         * **{{ ui-key.yacloud.load-testing.field_target-address }}**: Enter the address of the service to be tested, `example.myservice.ru`.
-         * **{{ ui-key.yacloud.load-testing.field_target-port }}**: Set to `80` (default port for the HTTP protocol).
+         * **Target address**: Enter the address of the service to be tested, `example.myservice.ru`.
+         * **Target port**: Set to `80` (default port for the HTTP protocol).
          * **Testing threads**: `1000`.
 
          This means that the load generator can simultaneously process 1,000 operations: either create 1,000 connections or wait for 1,000 responses from the service at the same time. You can learn more about testing pipelines [here](../../load-testing/concepts/testing-stream.md).
@@ -154,7 +154,7 @@ If you need to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) 
                * **Duration**: `60s`
             * Add another **Load profile**:
                * **Profile 2**: `Const`
-               * **{{ ui-key.yacloud.load-testing.label_rps }}**: `100`
+               * **Responses per second**: `100`
                * **Duration**: `300s`
 
             This instructs the load generator to increase the load from 1 to 100 requests per second for the first 60 seconds, and then maintain a load of 100 requests per second for 5 minutes. [Learn more about the load profile](../../load-testing/concepts/load-profile.md).
@@ -170,8 +170,8 @@ If you need to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) 
             * `[Connection: Close]`
 
                Please note that the `Connection: Close` header means each connection is terminated after making a request. This mode is heavier on the tested service and load generator. If you do not need to close connections, set `Keep-Alive`.
-   1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.load-testing.button_duplicate-configuration }}**. The test parameters will be copied to the **{{ ui-key.yacloud.load-testing.label_test-config }} 2** section.
-   1. Under **{{ ui-key.yacloud.load-testing.label_test-config }} 2**, specify the test parameters for the second agent:
+   1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.load-testing.button_duplicate-configuration }}**. The test parameters will be copied to the **Config 2** section.
+   1. Under **Config 2**, specify the test parameters for the second agent:
       1. **{{ ui-key.yacloud.load-testing.label_agents-list }}**: Select the `agent-009` agent.
       1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**, change the testing parameters.
 

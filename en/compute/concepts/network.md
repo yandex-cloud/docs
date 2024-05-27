@@ -44,8 +44,8 @@ The assigned FQDN depends on the specified host name `(CreateInstanceSpec.hostna
 
 1. You cannot specify the `hostname` parameter in the management console for a new VM. Instead, the user-defined VM name is used:
 
-   * If you leave the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field empty when creating a VM, the `<VM_ID>.auto.internal` internal FQDN will be assigned.
-   * If you enter a VM name in the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, the `<VM_name>.<region>.internal` internal FQDN will be assigned.
+   * If you leave the **{{ ui-key.yacloud.common.name }}** field empty when creating a VM, the `<VM_ID>.auto.internal` internal FQDN will be assigned.
+   * If you enter a VM name in the **{{ ui-key.yacloud.common.name }}** field, the `<VM_name>.<region>.internal` internal FQDN will be assigned.
 
 1. When using the CLI, API, and {{ TF }}, FQDNs are created as follows:
 
