@@ -18,6 +18,9 @@ description: "Следуя данной инструкции, вы сможет�
 1. [Настройте](../concepts/vm-connection.md#vm-network-access) сетевой доступ для ВМ.
 1. [Подключитесь к ВМ по RDP](../../compute/operations/vm-connect/rdp.md).
 1. Запустите Windows PowerShell.
+
+    {% include [ps-note](../../_includes/backup/ps-note.md) %}
+
 1. Выполните следующую команду:
 
    ```powershell
