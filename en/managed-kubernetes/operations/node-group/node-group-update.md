@@ -18,7 +18,6 @@ You can change the following parameters of a [{{ managed-k8s-name }} node group]
 * Number of {{ managed-k8s-name }} nodes
 * [{{ k8s }} version](../../concepts/release-channels-and-updates.md)
 * [IP address](../../../vpc/concepts/address.md) assignment method: internal only or both internal and external
-* [Container runtime environment](../../concepts/index.md#config)
 * List of [security groups](../connect/security-groups.md)
 
    {% note alert %}
@@ -77,7 +76,6 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
 
          {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
-   * `--container-runtime`: Change the [container runtime environment](../../concepts/index.md#config), `docker` or `containerd`.
    * `--node-name`: Update the node {{ managed-k8s-name }} name template. The name is unique if the template contains at least one of the following variables:
 
       {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
@@ -105,21 +103,6 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
 
       For more information about creating this file, see [{#T}](node-group-create.md).
    1. Edit the {{ managed-k8s-name }} node group description properties.
-      * To change the [container runtime environment](../../concepts/index.md#config), add an `instance_template.container_runtime` section:
-
-         ```hcl
-         resource "yandex_kubernetes_node_group" "<node_group_name>" {
-           ...
-           instance_template {
-             ...
-             container_runtime {
-               type = "<environment_type>"
-             }
-           }
-         }
-         ```
-
-         Where `type` is container runtime environment type: `docker` or `containerd`.
 
       * To update the [node group cloud labels](../../../resource-manager/concepts/labels.md), add the `instance_template.labels` section:
 
@@ -156,8 +139,6 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
 - API {#api}
 
    To update a [{{ managed-k8s-name }} node group's](../../concepts/index.md#node-group) properties, use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup) resource.
-
-   To change the [container runtime environment](../../concepts/index.md#config), provide the `docker` or the `containerd` value in the `nodeTemplate.containerRuntimeSettings.type` parameter.
 
    To update the [node group cloud labels](../../../resource-manager/concepts/labels.md), provide their values in the `nodeTemplate.labels` parameter.
 

@@ -6,7 +6,7 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
 1. Enter a name and description for the {{ managed-k8s-name }} node group.
 1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select a {{ k8s }} version for {{ managed-k8s-name }} nodes.
-1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_container-runtime }}** field, select `{{ ui-key.yacloud.k8s.node-groups.create.label_runtime-DOCKER }}` or `{{ ui-key.yacloud.k8s.node-groups.create.label_runtime-CONTAINERD }}`.
+1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_container-runtime }}** field, select `{{ ui-key.yacloud.k8s.node-groups.create.label_runtime-CONTAINERD }}`.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}**, select its type:
    * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-fixed }}`: Number of {{ managed-k8s-name }} nodes in the group remains constant. Specify the number of {{ managed-k8s-name }} nodes in the group.
 
@@ -24,11 +24,11 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 
    {% endnote %}
 
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}**, specify the maximum number of [VM instances](../../compute/concepts/vm.md) that you can exceed and reduce the size of the {{ managed-k8s-name }} node group by.
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}**, specify the maximum number of [VM instances](../../compute/concepts/vm.md) by which you can exceed and reduce the size of the {{ managed-k8s-name }} node group.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
    * Choose a [platform](../../compute/concepts/vm-platforms.md).
    * Enter the required number of [GPUs](../../compute/concepts/gpus.md) and vCPUs, [guaranteed vCPU performance](../../compute/concepts/performance-levels.md), and the amount of RAM.
-   * (Optional) Specify that you want the VM to be [preemptible](../../compute/concepts/preemptible-vm.md).
+   * (Optional) Specify that the VM must be [preemptible](../../compute/concepts/preemptible-vm.md).
    * (Optional) Enable a [software-accelerated network](../../compute/concepts/software-accelerated-network.md).
 
       {% include [note-software-accelerated-network](note-software-accelerated-network.md) %}

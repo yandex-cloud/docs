@@ -1,12 +1,10 @@
-# Getting started with {{ sws-full-name }}
-
-{{ sws-name }} allows you to protect your infrastructure from DDoS attacks and bots at the application level (L7).
+# Getting started with a security profile
 
 Create your first [security profile](./concepts/profiles.md) and connect it to an existing [virtual host](../application-load-balancer/concepts/http-router.md#virtual-host) of an L7 load balancer in {{ alb-full-name }}.
 
 If you have no L7 load balancer configured, you can try {{ sws-name }} out on the test infrastructure. For more information, see [{#T}](./tutorials/balancer-with-sws-profile.md).
 
-To get started with the service:
+To get started with a security profile:
 1. [Create a security profile](#profile-create).
 1. [Check your security profile settings](#profile-check).
 1. [Connect the security profile to a virtual host](#profile-connect).
@@ -58,6 +56,10 @@ To create a security profile:
       * Illegitimate requests and attacks are blocked.
       * Suspicious requests are sent to [{{ captcha-name }}](../smartcaptcha/) for additional verification.
 
+   You can also connect a [WAF profile](./concepts/waf.md) to the security profile. For more information, see [{#T}](./quickstart/quickstart-waf.md).
+
+   {% include [note-preview-waf](../_includes/smartwebsecurity/note-preview-waf.md) %}
+
 {% endlist %}
 
 ## Connect the security profile to the virtual host {#profile-connect}
@@ -81,6 +83,7 @@ To create a security profile:
 
 ### See also {#see-also}
 
+* [{#T}](./quickstart/quickstart-waf.md)
 * [{#T}](./concepts/profiles.md)
 * [{#T}](./operations/profile-create.md)
 * [Creating an L7 load balancer with a security profile](./tutorials/balancer-with-sws-profile.md)

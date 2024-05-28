@@ -11,6 +11,7 @@ You can also log information about the traffic matching your conditions, without
 {{ sws-full-name }} provides the following rule types:
 * [Basic](#base-rules)
 * [Smart Protection](#smart-protection-rules)
+* [Web Application Firewall](#waf-rules)
 
 You can learn more in [Managing rules](../operations/#rules).
 
@@ -22,9 +23,15 @@ Each [security profile](profiles.md) includes a _basic default rule_ with the lo
 
 ## Smart Protection rules {#smart-protection-rules}
 
-_Smart Protection_ is a rule that sends traffic, based on the specified conditions, for automatic analysis using machine learning and behavioral analysis algorithms. Suspicious requests are sent to [{{ captcha-name }}](../../smartcaptcha/) for additional verification.
+_Smart Protection_ is a rule that sends traffic, based on specified conditions, for automatic analysis using machine learning and behavioral analysis algorithms. Depending on the selected [action](#rule-action), suspicious requests are sent to [{{ captcha-name }}](../../smartcaptcha/) for additional verification or get blocked.
 
-You can use the following captcha options:
+## Web Application Firewall rules {#waf-rules}
+
+Web Application Firewall rules engage a [WAF profile](waf.md) to analyze traffic for compliance with the [WAF basic rule sets](waf.md#rules-set). Depending on the selected [action](#rule-action), suspicious requests are sent to [{{ captcha-name }}](../../smartcaptcha/) for additional verification or get blocked.
+
+{% include [note-preview-waf](../../_includes/smartwebsecurity/note-preview-waf.md) %}
+
+You can use the following {{ captcha-name }} CAPTCHA options to verify requests compliant with the Smart Protection and Web Application Firewall rules:
 
 {% include [captcha-integration](../../_includes/smartwebsecurity/captcha-integration.md) %}
 
@@ -34,6 +41,6 @@ Actions for basic rules:
 * _Deny_ traffic whose parameters match the conditions.
 * _Allow_ traffic whose parameters match the conditions.
 
-Actions for Smart Protection rules:
-* _Full Protection_: Traffic is checked by ML models and behavioral analysis tools. Suspicious requests are sent to {{ captcha-name }}.
+Actions for Smart Protection and Web Application Firewall rules:
+* _Full Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Suspicious requests are sent to {{ captcha-name }}.
 * _API Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Suspicious requests are blocked.
