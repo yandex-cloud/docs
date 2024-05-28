@@ -6,14 +6,15 @@ description: "Follow this guide to manage a transfer."
 # Managing transfer process
 
 You can:
-* [Get a list of transfers](#list)
-* [Create a transfer](#create)
-* [Update a transfer](#update)
-* [Activate a transfer](#activate)
-* [Deactivate a transfer](#deactivate)
-* [Delete a transfer](#delete)
+* [Get a list of transfers](#list).
+* [Get detailed information about a transfer](#get).
+* [Create a transfer](#create).
+* [Update a transfer](#update).
+* [Activate a transfer](#activate).
+* [Deactivate a transfer](#deactivate).
+* [Delete a transfer](#delete).
 
-For more information about [transfer](../concepts/index.md#transfer) statuses, possible operations on transfers, and limits, see [{#T}](../concepts/transfer-lifecycle.md).
+For more information about [transfer](../concepts/index.md#transfer) states, possible operations on transfers, and limits, see [{#T}](../concepts/transfer-lifecycle.md).
 
 To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different [availability zone](../../overview/concepts/geo-scope.md), follow [this guide](endpoint/migration-to-an-availability-zone.md).
 
@@ -28,19 +29,51 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
 - CLI {#cli}
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get a list of transfers in a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), run the following command:
+   To get a list of transfers in a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), run the following command:
 
-    ```bash
-    {{ yc-dt }} transfer list
-    ```
+   ```bash
+   {{ yc-dt }} transfer list
+   ```
 
 - API {#api}
 
-    Use the [list](../api-ref/Transfer/list.md) API method.
+   Use the [list](../api-ref/Transfer/list.md) API method.
+
+{% endlist %}
+
+## Getting detailed information about a transfer {#get}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+   1. Click the required transfer name.
+
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To get information about a transfer, run the following command:
+
+   ```bash
+   {{ yc-dt }} transfer get <transfer_ID>
+   ```
+
+   You can get the transfer ID with a [list of transfers in the folder](#list).
+
+- API {#api}
+
+   Use the [get](../api-ref/Transfer/get.md) API method and provide the transfer ID value in the `transferId` request parameter.
+
+   To find out the transfer ID, [get a list of transfers in the folder](#list).
 
 {% endlist %}
 
@@ -69,9 +102,10 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
                * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
 
 
-      * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}**: Specify the full path to each object to be transferred. Only objects from this list will be transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
+      * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}**: Specify the full path to each object to transfer. Only objects from this list will be transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
 
          Enter the full name of the object. Depending on the source type, use the appropriate naming convention:
+
          * {{ CH }}: `<database_name>.<table_path>`
          * {{ GP }}: `<schema_name>.<table_path>`
          * {{ MG }}: `<database_name>.<collection_path>`
@@ -82,43 +116,44 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
          If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will end with an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately; an inactive one will terminate as soon as activated.
 
-      * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}**: [Data transformation](../concepts/data-transformation.md) rules. This setting only appears when the source and target are of different types. Some transformers may have limitations and only apply to some source-target pairs.
+      * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}**: Rules for [transforming data](../concepts/data-transformation.md). This setting only appears when the source and target are of different types.
 
          {% include [list-of-transformers](../../_includes/data-transfer/list-of-transformers.md) %}
 
-   1. Click **{{ ui-key.yacloud.common.create }}**.
+
+    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To create a transfer:
+   To create a transfer:
 
-    1. View a description of the CLI create transfer command:
+   1. View a description of the CLI create transfer command:
 
-        ```bash
-        {{ yc-dt }} transfer create --help
-        ```
+      ```bash
+      {{ yc-dt }} transfer create --help
+      ```
 
-    1. Specify the transfer parameters in the create command:
+   1. Specify the transfer parameters in the create command:
 
-        ```bash
-        {{ yc-dt }} transfer create <transfer_name> \
-           --source-id=<source_endpoint_ID> \
-           --target-id=<target_endpoint_ID> \
-           --type=<transfer_type>
-        ```
+      ```bash
+      {{ yc-dt }} transfer create <transfer_name> \
+         --source-id=<source_endpoint_ID> \
+         --target-id=<target_endpoint_ID> \
+         --type=<transfer_type>
+      ```
 
-        Where:
+      Where:
 
-        * `--source-id`: Source endpoint ID.
-        * `--target-id`: Target endpoint ID.
-        * `--type`: [Transfer type](../concepts/transfer-lifecycle.md#transfer-types):
-            * `snapshot-only`: [Copy](../concepts/transfer-lifecycle.md#copy).
-            * `increment-only`: [Replicate](../concepts/transfer-lifecycle.md#replication).
-            * `snapshot-and-increment`: [Copy and replicate](../concepts/transfer-lifecycle.md#copy-and-replication).
+      * `--source-id`: Source endpoint ID.
+      * `--target-id`: Target endpoint ID.
+      * `--type`: [Transfer type](../concepts/transfer-lifecycle.md#transfer-types):
+         * `snapshot-only`: [Copy](../concepts/transfer-lifecycle.md#copy).
+         * `increment-only`: [Replicate](../concepts/transfer-lifecycle.md#replication).
+         * `snapshot-and-increment`: [Copy and replicate](../concepts/transfer-lifecycle.md#copy-and-replication).
 
       {% note info %}
 
@@ -217,7 +252,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
          * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
 
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}**: Specify the full path to each object to be transferred. Only objects from this list will be transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}**: Specify the full path to each object to transfer. Only objects from this list will be transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
 
          Adding new objects to {{ dt-type-copy-repl }} or {{ dt-type-repl }} transfers in the {{ dt-status-repl }} status will result in uploading data history for these objects or tables. If a table is large, uploading the history may take a long time. You cannot edit the list of objects for transfers in the {{ dt-status-copy }} status.
 
@@ -237,7 +272,8 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
          {% include [list-of-transformers](../../_includes/data-transfer/list-of-transformers.md) %}
 
-   1. Click **{{ ui-key.yacloud.common.save }}**.
+
+    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -307,23 +343,23 @@ When updating a transfer, its settings are applied immediately. Editing {{ dt-ty
 
 - CLI {#cli}
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To activate a transfer, run this command:
+   To activate a transfer, run this command:
 
-    ```bash
-    {{ yc-dt }} transfer activate <transfer_ID>
-    ```
+   ```bash
+   {{ yc-dt }} transfer activate <transfer_ID>
+   ```
 
-    You can get the transfer ID with a [list of transfers in the folder](#list).
+   You can get the transfer ID with a [list of transfers in the folder](#list).
 
 - API {#api}
 
-    Use the [activate](../api-ref/Transfer/activate.md) API method and provide the transfer ID in the `transferId` request parameter.
+   Use the [activate](../api-ref/Transfer/activate.md) API method and provide the transfer ID in the `transferId` request parameter.
 
-    To find out the transfer ID, [get a list of transfers in the folder](#list).
+   To find out the transfer ID, [get a list of transfers in the folder](#list).
 
 {% endlist %}
 
@@ -353,23 +389,23 @@ During transfer deactivation:
 
 - CLI {#cli}
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To deactivate a transfer, run this command:
+   To deactivate a transfer, run this command:
 
-    ```bash
-    {{ yc-dt }} transfer deactivate <transfer_ID>
-    ```
+   ```bash
+   {{ yc-dt }} transfer deactivate <transfer_ID>
+   ```
 
-    You can get the transfer ID with a [list of transfers in the folder](#list).
+   You can get the transfer ID with a [list of transfers in the folder](#list).
 
 - API {#api}
 
-    Use the [deactivate](../api-ref/Transfer/deactivate.md) API method and provide the transfer ID in the `transferId` request parameter.
+   Use the [deactivate](../api-ref/Transfer/deactivate.md) API method and provide the transfer ID in the `transferId` request parameter.
 
-    To find out the transfer ID, [get a list of transfers in the folder](#list).
+   To find out the transfer ID, [get a list of transfers in the folder](#list).
 
 {% endlist %}
 
@@ -399,17 +435,17 @@ For more information, see [{#T}](../concepts/transfer-lifecycle.md).
 
 - CLI {#cli}
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To delete a transfer, run this command:
+   To delete a transfer, run this command:
 
-    ```bash
-    {{ yc-dt }} transfer delete <transfer_ID>
-    ```
+   ```bash
+   {{ yc-dt }} transfer delete <transfer_ID>
+   ```
 
-    You can get the transfer ID with a [list of transfers in the folder](#list).
+   You can get the transfer ID with a [list of transfers in the folder](#list).
 
 - {{ TF }} {#tf}
 
@@ -417,9 +453,9 @@ For more information, see [{#T}](../concepts/transfer-lifecycle.md).
 
 - API {#api}
 
-    Use the [delete](../api-ref/Transfer/delete.md) API method and provide the transfer ID in the `transferId` request parameter.
+   Use the [delete](../api-ref/Transfer/delete.md) API method and provide the transfer ID in the `transferId` request parameter.
 
-    To find out the transfer ID, [get a list of transfers in the folder](#list).
+   To find out the transfer ID, [get a list of transfers in the folder](#list).
 
 {% endlist %}
 

@@ -45,6 +45,9 @@
 
       1. [Подключитесь](../../compute/operations/vm-connect/rdp.md) к ВМ по RDP.
       1. Запустите Windows PowerShell.
+
+          {% include [ps-note](../../_includes/backup/ps-note.md) %}
+
       1. Выполните команду:
 
           ```powershell

@@ -29,3 +29,19 @@ Not all of the items are mapped. Please, check your goal instance and its volume
 Размер загрузочного диска целевой ВМ должен быть не меньше размера загрузочного диска исходной ВМ.
 
 Проверьте диски на целевой ВМ и при необходимости [увеличьте](../../compute/operations/disk-control/update.md#change-disk-size) их размер. Для восстановления также можно [использовать другую ВМ](../../backup/operations/backup-vm/non-native-recovery.md) с подходящими параметрами.
+
+#### Ошибка при подключении ВМ на Windows {#windows-connection-issue}
+
+Текст ошибки:
+
+```text
+Fetching agent id from config
+Iteration 0: The term 'acropsh' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+```
+
+Убедитесь, что:
+
+* Операционная система ВМ [поддерживается {{ backup-name }}](../../backup/concepts/vm-connection.md#os).
+* Сервисному аккаунту, привязанному к ВМ, назначена [роль](../../backup/security/index.md#backup-editor) `backup.editor`.
+* Разрешен [сетевой доступ для ВМ](../../backup/concepts/vm-connection.md#vm-network-access).
+* В политиках выполнения PowerShell разрешен запуск скриптов. Если запуск запрещен, разрешите его и перезапустите PowerShell. Подробнее см. в [документации Microsoft](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
