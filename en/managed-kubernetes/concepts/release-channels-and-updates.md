@@ -24,12 +24,6 @@ When an update appears on a release channel, the corresponding information is di
 
   Automatic updates include new {{ managed-k8s-name }} functions, improvements, and fixes, as well as {{ k8s }} component fixes.
 
-  {% note alert %}
-
-  If [{{ k8s }} version support ends](#unsupported), minor {{ k8s }} versions get updated as well.
-
-  {% endnote %}
-
 * [Manual updates](../operations/update-kubernetes.md#cluster-manual-upgrade) can be initiated by the user at any time.
 
   These include {{ k8s }} minor version updates.

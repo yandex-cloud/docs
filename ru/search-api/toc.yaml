@@ -36,6 +36,8 @@ items:
             href: concepts/post-request.md
           - name: Формат ответа
             href: concepts/response.md
+          - name: Генеративный ответ
+            href: concepts/generative-response.md
       - name: Поиск по картинкам
         items:
           - name: GET-запросы

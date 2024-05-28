@@ -11,6 +11,20 @@ Access to {{ datalens-full-name }} is managed by assigning permissions:
 * To a {{ datalens-short-name }} instance at the organization level: using the [organizations](../concepts/organizations.md) service.
 * To a {{ datalens-short-name }} instance at the cloud folder level: via the {{ yandex-cloud }} [console]({{ link-console-main }}).
 
+When using a firewall, allow access to external resources required to run {{ datalens-short-name }}:
+
+* `yastatic.net/*`
+* `yandex.ru/*`
+* `storage.yandexcloud.net/*`
+* `*.storage.yandexcloud.net/*`
+* `datalens.yandex.ru`
+* `datalens.yandex.com`
+* `*.yandex.cloud/*`
+* `push.yandex.ru/*`
+* `avatars.mds.yandex.net/*`
+* `mc.yandex.ru/*`
+* `*.yandex.ru/*`
+
 
 
 To learn about {{ datalens-name }} access management, see:

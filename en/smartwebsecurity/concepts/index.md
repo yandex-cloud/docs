@@ -8,6 +8,10 @@ In a nutshell, the service checks whether HTTP requests sent to the protected re
 
 ![schema](../../_assets/smartwebsecurity/schema.svg)
 
+To protect your web apps from external threats, {{ sws-name }} also implements a [Web Application Firewall (WAF)](waf.md).
+
+{% include [note-preview-waf](../../_includes/smartwebsecurity/note-preview-waf.md) %}
+
 {{ sws-name }} logs are sent to [{{ cloud-logging-full-name }}](../../logging/).
 
 {{ sws-name }} metrics are sent to [{{ monitoring-full-name }}](../../monitoring/).

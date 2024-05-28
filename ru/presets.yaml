@@ -5471,7 +5471,6 @@ default:
             field_scale-type: Тип
             label_add-location: Добавить расположение
             label_runtime-CONTAINERD: containerd
-            label_runtime-DOCKER: Docker
             section_access: Доступ
             section_additional: Дополнительно
             section_deploy: В процессе создания и обновления разрешено
