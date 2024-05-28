@@ -7,7 +7,14 @@ label:
   when: region == "kz"
 items:
   - name: Getting started
-    href: quickstart.md
+    expanded: true
+    items:
+      - name: Overview
+        href: quickstart/index.md
+      - name: Getting started with {{ sws-name }}
+        href: quickstart.md
+      - name: Getting started with WAF
+        href: quickstart/quickstart-waf.md
   - name: Step-by-step guides
     items:
       - name: All guides
@@ -38,12 +45,19 @@ items:
     items:
       - name: Creating an L7 load balancer with a security profile
         href: tutorials/balancer-with-sws-profile.md
+      - name: >-
+          Creating an L7 load balancer with DDoS protection at the L3 layer of
+          the OSI model
+        href: tutorials/alb-with-ddos-protection.md
   - name: Concepts
+    expanded: true
     items:
       - name: Overview
         href: concepts/index.md
       - name: Security profiles
         href: concepts/profiles.md
+      - name: WAF
+        href: concepts/waf.md
       - name: Rules
         href: concepts/rules.md
       - name: Conditions
@@ -88,4 +102,6 @@ items:
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Release notes
+    href: release-notes.md
 base: en/smartwebsecurity

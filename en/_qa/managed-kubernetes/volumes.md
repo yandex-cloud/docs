@@ -1,4 +1,4 @@
-## Data storage
+# Data storage
 
 #### What are the features of disk storage when a database (for example, {{ MY }} or {{ PG }}) is located in a {{ k8s }} cluster? {#bd}
 

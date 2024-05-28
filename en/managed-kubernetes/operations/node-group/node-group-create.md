@@ -41,7 +41,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
         --network-acceleration-type <network_acceleration_type> \
         --network-interface security-group-ids=[<security_group_IDs>],subnets=[<subnet_names>],ipv4-address=<IP_address_assignment_method> \
         --platform-id <platform_ID> \
-        --container-runtime <container_runtime_environment> \
+        --container-runtime containerd \
         --preemptible \
         --public-ip \
         --template-labels <node_group_cloud_labels> \
@@ -78,7 +78,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
          {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
       * `--platform-id`: [Platform](../../../compute/concepts/vm-platforms.md) for {{ managed-k8s-name }} nodes.
-      * `--container-runtime`: [Container runtime environment](../../concepts/index.md#config), `docker` or `containerd`.
+      * `--container-runtime`: [containerd](https://containerd.io/) runtime environment.
       * `--preemptible`: Flag specified if the VM instances should be [preemptible](../../../compute/concepts/preemptible-vm.md).
       * `--public-ip`: Flag you set if the {{ managed-k8s-name }} node group needs a [public IP address](../../../vpc/concepts/address.md#public-addresses).
       * `--template-labels`: [Node group cloud labels](../../../resource-manager/concepts/labels.md) in `<label_name>=<label_value>` format. You can specify multiple labels separated by commas.
@@ -120,7 +120,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
       * {{ managed-k8s-name }} node group name.
       * [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) ID in the `cluster_id` parameter.
       * {{ managed-k8s-name }} node [platform](../../../compute/concepts/vm-platforms.md).
-      * [Container runtime environment](../../concepts/index.md#config) setting in the `container_runtime` parameter.
+      * Container runtime environment setting in the `container_runtime` parameter.
       * [Node group cloud labels](../../../resource-manager/concepts/labels.md) in the `nodeTemplate.labels` section.
       * Scaling settings in the `scale_policy` parameter.
 
@@ -136,7 +136,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
           platform_id = "<node_platform>"
           network_acceleration_type = "<network_acceleration_type>"
           container_runtime {
-           type = "<container_runtime_environment>"
+           type = "containerd"
           }
           labels {
             "<label_name>"="<label_value>"
@@ -165,9 +165,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
 
             {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
-         * `container_runtime`:
-            * `type`: [Container runtime environment](../../concepts/index.md#config) (`docker` or `containerd`).
-
+         * `container_runtime`, `type`: [containerd](https://containerd.io/) runtime environment.
          * `labels`: [Node group cloud labels](../../../resource-manager/concepts/labels.md). You can specify multiple labels separated by commas.
          * `scale_policy`: Scaling settings.
 
@@ -227,7 +225,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
 
       {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
-   * [Container runtime environment](../../concepts/index.md#config) in the `nodeTemplate.containerRuntimeSettings.type` parameter.
+   * [containerd](https://containerd.io/) runtime environment in the `nodeTemplate.containerRuntimeSettings.type` parameter.
    * [Node group cloud labels](../../../resource-manager/concepts/labels.md) in the `nodeTemplate.labels` parameter.
    * [Scaling settings](../../concepts/autoscale.md#ca) in the `scalePolicy` parameter.
    * {{ managed-k8s-name }} node group [placement settings](../../../overview/concepts/geo-scope.md) in the `allocationPolicy` parameters.
