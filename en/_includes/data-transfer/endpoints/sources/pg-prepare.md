@@ -25,6 +25,8 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
          * `USAGE` for the schemas of these tables and sequences.
          * `ALL PRIVILEGES` (`CREATE` and `USAGE`) to the `__consumer_keeper` and `__data_transfer_mole_finder` housekeeping table schema defined by the [endpoint parameter](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings) if the endpoint is going to be used for the _{{ dt-type-repl }}_ or _{{ dt-type-copy-repl }}_ transfer types.
 
+   1. Configure the [number of user connections](../../../../data-transfer/concepts/work-with-endpoints.md#postgresql-connection-limit) to the database.
+
    1. If the replication source is a cluster, [enable](../../../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This will allow replication to continue even after changing the master host. In some cases, a transfer may end in an error after you replace a master in your cluster. For more information, see [Troubleshooting](../../../../data-transfer/troubleshooting/index.md#master-change).
 
    1. {% include [Tables without primary keys](../../primary-keys-postgresql.md) %}
@@ -96,6 +98,8 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
       ```sql
       GRANT ALL PRIVILEGES ON SCHEMA <schema_name> TO <username>;
       ```
+
+   1. Configure the [number of user connections](../../../../data-transfer/concepts/work-with-endpoints.md#postgresql-connection-limit) to the database.
 
    1. Install and enable the [wal2json](https://github.com/eulerto/wal2json) extension.
 

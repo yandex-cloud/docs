@@ -92,6 +92,45 @@ You can speed up data transfers using [sharded copying](./sharded.md).
 
 
 
+### Number of connections to a database {#postgresql-connection-limit}
+
+{{ PG }} has a [limit on the number of user connections](../../managed-postgresql/concepts/settings-list.md#setting-conn-limit) to the database. If this limit is exceeded for a transfer, the transfer will not work properly or work at all.
+
+You can calculate the number of connections a transfer will require using the following formulas:
+
+* For the {{ PG }} resource and the _{{ dt-type-copy }}_ transfer type:
+
+   ```text
+   <number_of_workers> * <number_of_threads> + 1
+   ```
+
+   Where:
+   * `number_of_workers` and `number_of_threads`: Parameters of the transfer, where the {{ PG }} source is specified.
+   * `1`: Connection for the master transaction.
+
+* For the {{ PG }} resource and the _{{ dt-type-copy-repl }}_ transfer type:
+
+   ```text
+   <number_of_workers> * <number_of_threads> + 2
+   ```
+
+   Where:
+   * `number_of_workers` and `number_of_threads`: Parameters of the transfer, where the {{ PG }} source is specified.
+   * `2`: Connections for the master transaction and slot monitor.
+
+* For the {{ PG }} target:
+
+   ```text
+   <number_of_workers> * <number_of_threads>
+   ```
+
+   Where `number_of_workers` and `number_of_threads` are the parameters of the transfer, where the {{ PG }} target is specified.
+
+If the calculated amount exceeds the limit, do one of the following:
+
+* [Reduce the number of workers or threads](../../data-transfer/operations/transfer.md#update) in the transfer.
+* [Increase the maximum allowed number of connections](../../managed-postgresql/operations/cluster-users.md#update-settings) for a user in {{ PG }}.
+
 ## {{ yds-full-name }} {#yds}
 
 By default, a separate table is created for every partition when data is transferred from {{ yds-name }} to {{ CH }}. For all data to be entered in a single table, specify conversion rules in the [advanced endpoint settings for the source](../operations/endpoint/source/data-streams.md#additional-settings).

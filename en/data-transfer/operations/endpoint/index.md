@@ -29,6 +29,38 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
 {% endlist %}
 
+## Getting detailed information about an endpoint {#get}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+   1. Click the required endpoint name.
+
+- CLI {#cli}
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   To get information about an endpoint, run this command:
+
+   ```bash
+   {{ yc-dt }} endpoint get <endpoint_ID>
+   ```
+
+   You can get the endpoint ID with a [list of endpoints in the folder](#list).
+
+- API {#api}
+
+   Use the [get](../../api-ref/Endpoint/get.md) API method and provide the endpoint ID value in the `endpointId` request parameter.
+
+   To find out the endpoint ID, [get a list of endpoints in the folder](#list).
+
+{% endlist %}
+
 ## Creating an endpoint {#create}
 
 
@@ -113,9 +145,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
       ```
 
    You can retrieve a complete resource schema by running `terraform providers schema`.
-
    1. You can view the endpoint type and parameters in the settings section for the appropriate data source or target.
-
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
@@ -130,19 +160,19 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
 - API {#api}
 
-    {% note info %}
+   {% note info %}
 
-    You can create endpoints with the API only for {{ CH }}, {{ KF }}, {{ MG }}, {{ MY }}, and {{ PG }} sources and targets.
+   You can create endpoints with the API only for {{ CH }}, {{ KF }}, {{ MG }}, {{ MY }}, and {{ PG }} sources and targets.
 
-    {% endnote %}
+   {% endnote %}
 
-    Use the [create](../../api-ref/Endpoint/create) API method and include the following information in the request:
-    * ID of the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to contain the endpoint in the `folderId` parameter.
-    * Endpoint name in the `name` parameter.
-    * Endpoint description in the `description` parameter.
-    * Endpoint parameters in the `settings` parameter.
+   Use the [create](../../api-ref/Endpoint/create) API method and include the following information in the request:
+   * ID of the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to contain the endpoint in the `folderId` parameter.
+   * Endpoint name in the `name` parameter.
+   * Endpoint description in the `description` parameter.
+   * Endpoint parameters in the `settings` parameter.
 
-    You can view the endpoint parameters in the settings section for the appropriate data source or target.
+   You can view the endpoint parameters in the settings section for the appropriate data source or target.
 
 {% endlist %}
 
@@ -184,7 +214,6 @@ You cannot change the endpoint type and the database type. For some endpoints, y
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
    To update the endpoint settings:
-
    1. View a description of the update transfer CLI command:
 
       ```bash
@@ -207,7 +236,6 @@ You cannot change the endpoint type and the database type. For some endpoints, y
    1. Open the current {{ TF }} configuration file with the endpoint description.
 
       To learn how to create such a file, see [Create endpoint](#create).
-
    1. Edit the value in the `name` field (endpoint name) and the endpoint parameters under `settings`.
    1. Make sure the settings are correct.
 
@@ -228,7 +256,6 @@ You cannot change the endpoint type and the database type. For some endpoints, y
    {% endnote %}
 
    Use the [update](../../api-ref/Endpoint/update) API method and include the following in the request:
-
    * Endpoint ID in the `endpointId` parameter.
    * Endpoint name in the `name` parameter.
    * Endpoint description in the `description` parameter.
@@ -286,27 +313,27 @@ To delete an endpoint:
 
 - CLI {#cli}
 
-    {% include [cli-install](../../../_includes/cli-install.md) %}
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To delete an endpoint, run the command:
+   To delete an endpoint, run the command:
 
-    ```bash
-    {{ yc-dt }} endpoint delete <endpoint_ID>
-    ```
+   ```bash
+   {{ yc-dt }} endpoint delete <endpoint_ID>
+   ```
 
-    You can get the endpoint ID with a [list of endpoints in the folder](#list).
+   You can get the endpoint ID with a [list of endpoints in the folder](#list).
 
 - {{ TF }} {#tf}
 
-    {% include [terraform-delete](../../../_includes/data-transfer/terraform-delete-endpoint.md) %}
+   {% include [terraform-delete](../../../_includes/data-transfer/terraform-delete-endpoint.md) %}
 
 - API {#api}
 
-    Use the [delete](../../api-ref/Endpoint/delete) API method and provide the ID of the required endpoint in the `endpointID` request parameter.
+   Use the [delete](../../api-ref/Endpoint/delete) API method and provide the ID of the required endpoint in the `endpointID` request parameter.
 
-    You can get the endpoint ID with a [list of endpoints in the folder](#list).
+   You can get the endpoint ID with a [list of endpoints in the folder](#list).
 
 {% endlist %}
 

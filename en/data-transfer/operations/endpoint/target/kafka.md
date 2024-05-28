@@ -60,7 +60,7 @@ To create or edit an endpoint of a managed database, you need to have the [`{{ r
 {% endnote %}
 
 
-Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
+Connection with the cluster ID specified in {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
@@ -68,11 +68,46 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
    {% include [Managed Kafka UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-kafka-target.md) %}
 
+- {{ TF }} {#tf}
+
+   * Endpoint type: `kafka_target`.
+
+   {% include [Managed Kafka Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-kafka-target.md) %}
+
+   Here is an example of the configuration file structure:
+
+   
+   ```hcl
+   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+     name = "<endpoint_name>"
+     settings {
+       kafka_target {
+         security_groups = ["<list_of_security_group_IDs>"]
+         connection {
+           cluster_id = "<cluster_ID>"
+         }
+         auth {
+           <authentication_method>
+         }
+         <topic_settings>
+         <serialization_settings>
+       }
+     }
+   }
+   ```
+
+
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+
+- API {#api}
+
+   {% include [Managed Kafka API](../../../../_includes/data-transfer/necessary-settings/api/managed-kafka-target.md) %}
+
 {% endlist %}
 
 ### Custom installation {#on-premise}
 
-Connecting to the database with explicitly specified network addresses.
+Connection with the {{ KF }} cluster with explicitly specified network addresses and broker host ports.
 
 {% list tabs group=instructions %}
 
@@ -80,9 +115,47 @@ Connecting to the database with explicitly specified network addresses.
 
    {% include [On premise Kafka UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-kafka-target.md) %}
 
+- {{ TF }} {#tf}
+
+   * Endpoint type: `kafka_target`.
+
+   {% include [On-premise Kafka Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-kafka-target.md) %}
+
+   Here is an example of the configuration file structure:
+
+   
+   ```hcl
+   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+     name = "<endpoint_name>"
+     settings {
+       kafka_target {
+         security_groups = ["<list_of_security_group_IDs>"]
+         connection {
+           on_premise {
+             broker_urls = ["<list_of_IP_addresses_or_FQDNs_of_broker_hosts>"]
+             subnet_id  = "<ID_of_subnet_with_broker_hosts>"
+           }
+         }
+         auth = {
+           <authentication_method>
+         }
+         <topic_settings>
+         <serialization_settings>
+       }
+     }
+   }
+   ```
+
+
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+
+- API {#api}
+
+   {% include [On-premise Kafka API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-kafka-target.md) %}
+
 {% endlist %}
 
-### Topic settings {{ KF }} {#kafka-settings}
+### {{ KF }} topic settings {#kafka-settings}
 
 {% list tabs group=instructions %}
 
@@ -94,11 +167,35 @@ Connecting to the database with explicitly specified network addresses.
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}**: Specify the topic prefix, similar to the `Debezium database.server.name` setting. Messages will be sent to a topic named `<topic_prefix>.<schema>.<table_name>`.
 
-   {{ data-transfer-full-name }} supports CDC for transfers from {{ PG }}, {{ ydb-short-name }}, and {{ MY }} databases to {{ KF }} and {{ yds-full-name }}. Data is sent to the target in Debezium format. For more information about CDC mode, see [Change data capture](../../../concepts/cdc.md).
+- {{ TF }} {#tf}
 
-   {% include [CDC-YDB](../../../../_includes/data-transfer/note-ydb-cdc.md) %}
+   Under `topic_settings`, specify one of the options to send messages to a topic:
+
+   * `topic`: Specify parameters in this section to send all messages to one topic:
+      * `topic_name`: Name of the topic to send messages to.
+      * `save_tx_order`: Option for saving the order of transactions. Specify `true`, so as not to split an event stream into independent queues by table.
+
+   * `topic_prefix`: Specify a prefix to send messages to different topics with the given prefix.
+
+      {% include [kafka-topic-prefix-explanation](../../../../_includes/data-transfer/kafka-topic-prefix-explanation.md) %}
+
+- API {#api}
+
+   In the `topicSettings` field, specify one of the options to send messages to a topic:
+
+   * `topic`: Specify parameters in this field to send all messages to one topic:
+      * `topicName`: Name of the topic to send messages to.
+      * `saveTxOrder`: Option for saving the order of transactions. Specify `true`, so as not to split an event stream into independent queues by table.
+
+   * `topicPrefix`: Specify a prefix to send messages to different topics with the given prefix.
+
+      {% include [kafka-topic-prefix-explanation](../../../../_includes/data-transfer/kafka-topic-prefix-explanation.md) %}
 
 {% endlist %}
+
+{{ data-transfer-full-name }} supports CDC for transfers from {{ PG }}, {{ MY }}, and {{ ydb-short-name }} databases to {{ KF }} and {{ yds-full-name }}. Data is sent to the target in Debezium format. For more information about CDC mode, see [Change data capture](../../../concepts/cdc.md).
+
+    {% include [CDC-YDB](../../../../_includes/data-transfer/note-ydb-cdc.md) %}
 
 ### {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }} {#serializer}
 
@@ -108,12 +205,26 @@ Connecting to the database with explicitly specified network addresses.
 
    {% include [serializer](../../../../_includes/data-transfer/serializer.md) %}
 
+- {{ TF }} {#tf}
+
+   {% include [serializer](../../../../_includes/data-transfer/serializers/terraform.md)  %}
+
+- API {#api}
+
+   {% include [serializer](../../../../_includes/data-transfer/serializers/api.md)  %}
+
 {% endlist %}
 
 ### Additional settings {#additional-settings}
 
-You can specify [topic configuration parameters](https://docs.confluent.io/platform/current/installation/configuration/topic-configs.html) to use when creating new topics.
+{% list tabs group=instructions %}
 
-Specify the parameter and one of its possible values, e.g., `cleanup.policy` and `compact`.
+- Management console {#console}
+
+   You can specify [topic configuration parameters](https://docs.confluent.io/platform/current/installation/configuration/topic-configs.html) to use when creating new topics.
+
+   Specify the parameter and one of its possible values, e.g., `cleanup.policy` and `compact`.
+
+{% endlist %}
 
 After configuring the data source and target, [create and start the transfer](../../transfer.md#create).

@@ -271,6 +271,8 @@
 
       {% cut "Инструкция по настройке DNS-записей для {{ dns-name }}" %}
 
+      Чтобы получить доступ к именам из публичной зоны, вам нужно делегировать домен. Укажите адреса серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}` в личном кабинете вашего регистратора.
+
       1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. Если у вас нет публичной [зоны DNS](../../dns/concepts/dns-zone.md), создайте ее:
           1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
@@ -296,9 +298,9 @@
 
 {% include [tls-termination-test](../_tutorials_includes/tls-termination-test.md) %}
 
-## Удалите созданные ресурсы {#clear-out}
+## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы остановить работу хостинга и перестать платить за созданные ресурсы:
+Чтобы перестать платить за созданные ресурсы:
 
 {% list tabs group=instructions %}
 

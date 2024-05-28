@@ -65,6 +65,41 @@ Connection with the cluster ID specified in {{ yandex-cloud }}.
 
    {% include [Managed Kafka UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-kafka.md) %}
 
+- {{ TF }} {#tf}
+
+   * Endpoint type: `kafka_source`.
+
+   {% include [Managed Kafka Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-kafka-source.md) %}
+
+   Here is an example of the configuration file structure:
+
+   
+   ```hcl
+   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+     name = "<endpoint_name>"
+     settings {
+       kafka_source {
+         security_groups = ["<list_of_security_group_IDs>"]
+         connection {
+           cluster_id = "<cluster_ID>"
+         }
+         auth {
+           <authentication_method>
+         }
+         topic_names = ["<list_of_topic_names>"]
+         <extended_endpoint_settings>
+       }
+     }
+   }
+   ```
+
+
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+
+- API {#api}
+
+   {% include [Managed Kafka API](../../../../_includes/data-transfer/necessary-settings/api/managed-kafka-source.md) %}
+
 {% endlist %}
 
 ### Custom installation {#on-premise}
@@ -76,6 +111,44 @@ Connection with the {{ KF }} cluster with explicitly specified network addresses
 - Management console {#console}
 
    {% include [On premise Kafka UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-kafka.md) %}
+
+- {{ TF }} {#tf}
+
+   * Endpoint type: `kafka_source`.
+
+   {% include [On-premise Kafka Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-kafka-source.md) %}
+
+   Here is an example of the configuration file structure:
+
+   
+   ```hcl
+   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+     name = "<endpoint_name>"
+     settings {
+       kafka_source {
+         security_groups = ["<list_of_security_group_IDs>"]
+         connection {
+           on_premise {
+             broker_urls = ["<list_of_IP_addresses_or_FQDNs_of_broker_hosts>"]
+             subnet_id  = "<ID_of_subnet_with_broker_hosts>"
+           }
+         }
+         auth = {
+           <authentication_method>
+         }
+         topic_names = ["<list_of_topic_names>"]
+         <extended_endpoint_settings>
+       }
+     }
+   }
+   ```
+
+
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+
+- API {#api}
+
+   {% include [On-premise Kafka API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-kafka-source.md) %}
 
 {% endlist %}
 
@@ -101,13 +174,13 @@ Connection with the {{ KF }} cluster with explicitly specified network addresses
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.number_of_retries.title }}**: Set the number of attempts to invoke the processing function.
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.buffer_size.title }}**: Set the size of the buffer (in bytes) which when full data will be transferred to the processing function.
 
-         The maximum buffer size is 3.5 MB. For more information about restrictions that apply when working with functions in {{ sf-name }}, see the [corresponding section](../../../../functions/concepts/limits.md).
+         The maximum buffer size is 3.5 MB. For more information about restrictions that apply to functions in {{ sf-name }}, see the [relevant section](../../../../functions/concepts/limits.md).
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.buffer_flush_interval.title }}**: Set the duration of the interval (in seconds) after the expiration of which the data from the stream should be transferred to the processing function.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.buffer_flush_interval.title }}**: Set the interval (in seconds) to wait before transferring stream data to the processing function.
 
          {% note info %}
 
-         If the buffer becomes full or the sending interval expires, the data is transferred to the processing function.
+         If the buffer is full or the flush interval has expired, the data is transferred to the processing function.
 
          {% endnote %}
 
@@ -121,6 +194,18 @@ Connection with the {{ KF }} cluster with explicitly specified network addresses
 
 
    * {% include [conversion-rules](../../../../_includes/data-transfer/fields/yds/ui/conversion-rules.md) %}
+
+- {{ TF }} {#tf}
+
+   * {% include [transformers](../../../../_includes/data-transfer/fields/transformers-and-parsers/terraform/transformers.md) %}
+
+   * {% include [parsers](../../../../_includes/data-transfer/fields/transformers-and-parsers/terraform/parsers.md) %}
+
+- API {#api}
+
+   * {% include [transformers](../../../../_includes/data-transfer/fields/transformers-and-parsers/api/transformers.md) %}
+
+   * {% include [parsers](../../../../_includes/data-transfer/fields/transformers-and-parsers/api/parsers.md) %}
 
 {% endlist %}
 

@@ -29,6 +29,8 @@
       GRANT ALL PRIVILEGES ON SCHEMA <schema_name> TO <username>;
       ```
 
+   1. Configure the [number of user connections](../../../../data-transfer/concepts/work-with-endpoints.md#postgresql-connection-limit) to the database.
+
 - {{ PG }}
 
    1. {% include notitle [White IP list](../../configure-white-ip.md) %}
@@ -64,6 +66,8 @@
       ```sql
       GRANT ALL PRIVILEGES ON SCHEMA <schema_name> TO <username>;
       ```
+
+   1. Configure the [number of user connections](../../../../data-transfer/concepts/work-with-endpoints.md#postgresql-connection-limit) to the database.
 
 {% endlist %}
 
