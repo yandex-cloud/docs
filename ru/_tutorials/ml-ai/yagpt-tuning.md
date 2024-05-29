@@ -43,7 +43,7 @@
 
 {% endlist %}
 
-### Создайте сервисный аккаунт для проекта {{ ml-platform-name }} (опционально) {#create-sa}
+### Создайте сервисный аккаунт для проекта {{ ml-platform-name }} {#create-sa}
 
 Обращаться к дообученной модели можно через интерфейс {{ ml-platform-name }} (Playground) или через API v1 в синхронном режиме. Если вы планируете делать запросы через API, вам понадобится сервисный аккаунт с [ролью](../../iam/concepts/access-control/roles.md) `{{ roles-yagpt-user }}`. Сервисный аккаунт должен быть участником проекта {{ ml-platform-name }}.
 
@@ -63,15 +63,9 @@
 
 Чтобы сервисный аккаунт мог обращаться к дообученной модели из кода проекта {{ ml-platform-name }}, добавьте его в список участников проекта.
 
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-    1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-    1. На вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** нажмите **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
-    1. Выберите аккаунт `ai-user` и нажмите **{{ ui-key.yc-ui-datasphere.common.add }}**.
-
-{% endlist %}
+1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
+1. На вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** нажмите **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
+1. Выберите аккаунт `ai-user` и нажмите **{{ ui-key.yc-ui-datasphere.common.add }}**.
 
 ## Подготовьте данные для обучения {#create-data}
 
@@ -82,28 +76,20 @@
 ## Дообучите модель {#model-tuning}
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-
 1. На панели слева нажмите **{{ ui-key.yc-ui-datasphere.common.foundation-models }}**.
-
 1. Выберите модель **YandexGPT** и нажмите **{{ ui-key.yc-ui-datasphere.common.tuning-model }}**.
-
 1. В открывшемся окне укажите свой проект и нажмите **{{ ui-key.yc-ui-datasphere.common.add }}**.
-
 1. В поле **{{ ui-key.yc-ui-datasphere.common.name }}** введите название модели, например `my-first-model`.
-
 1. Задайте **{{ ui-key.yc-ui-datasphere.foundation-model.learning-rate }}**. Темп обучения определяет размер шага на каждой итерации при поиске оптимального решения. При высоких значениях модель будет быстрее сходиться, но увеличится риск переобучения модели.
-
 1. В блоке **{{ ui-key.yc-ui-datasphere.foundation-model.data-for-tuning }}** прикрепите файл JSON с парами запросов и ответов в поле **{{ ui-key.yc-ui-datasphere.foundation-model.samples-file }}**.
-
 1. Нажмите **{{ ui-key.yc-ui-datasphere.foundation-model.start-tuning }}** и дождитесь окончания дообучения. Это может занять несколько часов.
-
 1. Чтобы проверить статус дообученной модели:
 
-    * {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-    * В списке доступных ресурсов проекта выберите **{{ ui-key.yc-ui-datasphere.common.models }}**.
-    * На вкладке **{{ ui-key.yc-ui-datasphere.common.projects-resources }}** выберите **{{ ui-key.yc-ui-datasphere.common.tuned-foundation-models }}**.
+   * {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
+   * В списке доступных ресурсов проекта выберите **{{ ui-key.yc-ui-datasphere.common.models }}**.
+   * На вкладке **{{ ui-key.yc-ui-datasphere.common.projects-resources }}** выберите **{{ ui-key.yc-ui-datasphere.common.tuned-foundation-models }}**.
 
-      Также здесь можно получить идентификатор модели, который потребуется для запроса через API.
+     Также здесь можно получить идентификатор модели, который потребуется для запроса через API.
 
 ## Протестируйте модель {#model-test}
 
@@ -111,17 +97,13 @@
 
 - Playground {#playground}
 
-    1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-
-    1. В списке доступных ресурсов проекта выберите **{{ ui-key.yc-ui-datasphere.common.models }}**.
-    
-    1. На вкладке **{{ ui-key.yc-ui-datasphere.common.projects-resources }}** выберите **{{ ui-key.yc-ui-datasphere.common.tuned-foundation-models }}**.
-
-    1. Выберите свою дообученную модель и нажмите **{{ ui-key.yc-ui-datasphere.foundation-model.test-in-playground }}**.
-
-    1. Сформулируйте свой запрос к модели в блоке **{{ ui-key.yc-ui-datasphere.yagpt-playground.request.title }}**.
-
-    1. Чтобы изменить вариативность, передвигайте ползунок в поле **{{ ui-key.yc-ui-datasphere.yagpt-playground.temperature.title }}**. Чем выше значение, тем более непредсказуемым будет результат выполнения запроса.
+   1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
+   1. В списке доступных ресурсов проекта выберите **{{ ui-key.yc-ui-datasphere.common.models }}**.    
+   1. На вкладке **{{ ui-key.yc-ui-datasphere.common.projects-resources }}** выберите **{{ ui-key.yc-ui-datasphere.common.tuned-foundation-models }}**.
+   1. Выберите свою дообученную модель и нажмите **{{ ui-key.yc-ui-datasphere.foundation-model.test-in-playground }}**.
+   1. Сформулируйте свой запрос к модели в блоке **{{ ui-key.yc-ui-datasphere.yagpt-playground.request.title }}**.
+   1. Чтобы изменить вариативность, передвигайте ползунок в поле **{{ ui-key.yc-ui-datasphere.yagpt-playground.temperature.title }}**. Чем выше значение, тем более непредсказуемым будет результат выполнения запроса.
+   1. Нажмите **{{ ui-key.yc-ui-datasphere.yagpt-playground.send-request }}**.
 
 - {{ jlab }}Lab {#jupyterlab}
 

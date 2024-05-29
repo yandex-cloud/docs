@@ -47,7 +47,7 @@ Bacula состоит из нескольких компонентов:
   1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите каталог, в котором будете выполнять операции.
   1. На странице каталога нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** введите имя бакета.
-  1. В поле **Доступ к бакету** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+  1. Задайте параметры [публичного доступа](../../storage/security/public-access.md) на чтение [объектов](../../storage/concepts/object.md) в бакете, получение списка объектов и чтение настроек бакета — `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 

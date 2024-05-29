@@ -1,10 +1,20 @@
 # Delivering metrics from hosts outside {{ yandex-cloud }}
 
-To deliver metrics to {{ monitoring-full-name }} from hosts located outside {{ yandex-cloud }}, use service account [authorized keys](../../../iam/concepts/authorization/key.md). You can also use this method to send metrics from {{ yandex-cloud }} VMs without a linked service account.
+To deliver metrics to {{ monitoring-full-name }} from hosts located outside {{ yandex-cloud }}:
+
+1. Create an authorized service account [key](../../../iam/concepts/authorization/key.md) to access the folder where the metrics will be delivered.
+
+1. [Install and configure {{ unified-agent-full-name }}](../../concepts/data-collection/unified-agent/installation.md) to collect and send metrics.
+
+You can also use this method to send metrics from {{ yandex-cloud }} VMs without a linked service account.
+
+{% note warning %}
+
+System metrics can only be delivered from Linux hosts on the AMD platform. Windows and macOS support is planned for future {{ unified-agent-full-name }} releases.
+
+{% endnote %}
 
 ## Delivering metrics using an authorized key {#example}
-
-To configure {{unified-agent-full-name}} to deliver metrics using an authorized key, follow these steps:
 
 1. Set up a service account under which metrics will be written to {{ monitoring-full-name }} and create an authorized key.
 
@@ -20,21 +30,23 @@ To configure {{unified-agent-full-name}} to deliver metrics using an authorized 
 
       You can find more ways to create authorized keys in [{#T}](../../../iam/operations/authorized-key/create.md).
 
-   1. Deliver the **jwt_params.json** file with the parameters of the authorized key to the host where {{unified-agent-short-name}} is installed.
+   1. Deliver the **jwt_params.json** file with the parameters of the authorized key to the host where {{ unified-agent-short-name }} will be installed.
 
       Sample **jwt_params.json** file:
       ```json
       {
           "id": "ajt4yut8vb12********",
           "service_account_id": "ajeo5pert10z********",
-          "created_at": "2021-01-14T13:18:51.070026Z",
+          "created_at": "2024-05-15T07:10:32.585653195Z",
           "key_algorithm": "RSA_2048",
           "public_key": "-----BEGIN PUBLIC KEY-----\nMD...",
           "private_key": "-----BEGIN PRIVATE KEY-----\nMI..."
       }
       ```
 
-1. Install and configure {{unified-agent-full-name}}:
+1. [Install and configure {{ unified-agent-full-name }} on the host](../../concepts/data-collection/unified-agent/installation.md):
+
+   1. Install [Docker](https://docs.docker.com).
 
    1. Create a file named **config.yml** in your home folder.
 
@@ -42,6 +54,9 @@ To configure {{unified-agent-full-name}} to deliver metrics using an authorized 
       ```yaml
        status:
          port: "16241"
+         host: null
+       agent_log:
+         priority: NOTICE
 
        storages:
          - name: main
@@ -60,16 +75,26 @@ To configure {{unified-agent-full-name}} to deliver metrics using an authorized 
              output:
                plugin: yc_metrics
                config:
+                 url: https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write
                  folder_id: "$FOLDER_ID"
                  iam:
                    jwt:
-                     file: "jwt_params.json"
+                     file: "/etc/yandex/unified_agent/jwt_params.json"
 
        routes:
          - input:
              plugin: linux_metrics
              config:
                namespace: sys
+               proc_directory: /ua_proc
+               sys_directory: /sys
+               resources:
+                 cpu: basic
+                 memory: basic
+                 network: basic
+                 storage: basic
+                 io: basic
+                 kernel: basic
            channel:
              channel_ref:
                name: cloud_monitoring
@@ -94,19 +119,21 @@ To configure {{unified-agent-full-name}} to deliver metrics using an authorized 
       Where:
 
       * `$FOLDER_ID`: ID of the folder you want to write metrics to.
-      * `iam.jwt.file`: Name of the file with JWT parameters.
+      * `iam.jwt.file`: Path to the file with JWT parameters.
 
-   1. Install {{unified-agent-short-name}} on your VM by running the following command in the home folder:
+   1. Install {{ unified-agent-short-name }} by running the following command in your home folder:
 
       ```bash
       docker run \
-      -p 16241:16241 -it --detach --uts=host \
-      --name=ua \
+      -p 16241:16241 -it -d --uts=host \
+      --name unified-agent-$(echo $(cat /proc/sys/kernel/random/uuid) | cut -d '-' -f1) \
       -v /proc:/ua_proc \
-      -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
+      -v $(pwd)/config.yml:/etc/yandex/unified_agent/config.yml \
+      -v $(pwd)/jwt_params.json:/etc/yandex/unified_agent/jwt_params.json \
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=a1bs81qpemb4******** \
-      {{ registry }}/yc/unified-agent
+      --entrypoint="unified_agent" \
+      cr.yandex/yc/unified-agent
       ```
 
       You can find more ways to install the agent in [{#T}](../../concepts/data-collection/unified-agent/installation.md).

@@ -6,10 +6,10 @@ You can manage your issues more easily by adjusting the {{ tracker-name }} inter
 
 You can set up your [start page](startpage.md) in the old interface to show one of the selected options:
 
-* [**{{ ui-key.startrek.ui_components_page-my_PageMy.page-title }}**](startpage.md#my-page).
-* [filter](create-filter.md).
-* [dashboard](dashboard.md).
-* [issue board](../manager/create-agile-board.md).
+* [**{{ ui-key.startrek.ui_components_page-my_PageMy.page-title }}**](startpage.md#my-page)
+* [Filter](create-filter.md)
+* [Dashboard](dashboard.md)
+* [Issue board](../manager/create-agile-board.md)
 
 1. Click the link [{{ link-settings }}]({{ link-settings }}).
 

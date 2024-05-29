@@ -4,7 +4,7 @@
 
 1. Создайте [авторизованный ключ](../../../iam/concepts/authorization/key.md) сервисного аккаунта для доступа к каталогу, в который будут поставляться метрики.
 
-2. [Установите и настройте {{ unified-agent-full-name }}](../../concepts/data-collection/unified-agent/installation.md) для сбора и отправки метрик.
+1. [Установите и настройте {{ unified-agent-full-name }}](../../concepts/data-collection/unified-agent/installation.md) для сбора и отправки метрик.
  
 Описанная методика может также применяться для отправки метрик с виртуальных машин {{ yandex-cloud }} без привязанного сервисного аккаунта.
 
