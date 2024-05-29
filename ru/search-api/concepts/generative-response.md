@@ -56,27 +56,29 @@
 
     Подробнее о режиме чата в {{ yagpt-name }} см. в разделе [{#T}](../../foundation-models/operations/yandexgpt/create-chat.md).
 
-* `site` — ограничение области поиска релевантных документов по сайту, например `mos.ru`.
+* `site` — ограничение области поиска релевантных документов по сайту, например `yandex.cloud`.
 
-    Поиск будет выполняться по всем документам вида `*.mos.ru/*`. То есть, в область поиска попадут документы со следующими адресами:
-    * `mos.ru/`
-    * `subdomain.mos.ru/`
-    * `mos.ru/path/`
-    * `subdomain.mos.ru/path/`
+    Поиск будет выполняться по всем документам вида `*.yandex.cloud/*`. То есть, в область поиска попадут документы со следующими адресами:
+    * `yandex.cloud/`
+    * `subdomain.yandex.cloud/`
+    * `yandex.cloud/path/`
+    * `subdomain.yandex.cloud/path/`
 
-    В поле `site` можно указать конкретный путь к области поиска, например `mos.ru/feedback/faq`.
+    В поле `site` можно указать конкретный путь к области поиска, например `yandex.cloud/docs`.
  
-* `host` — ограничение области поиска релевантных документов по хосту, например `mos.ru`.
+* `host` — ограничение области поиска релевантных документов по хосту, например `yandex.cloud`.
 
-    Поиск будет выполняться по всем документам вида `mos.ru/*`. То есть, в область поиска попадут документы со следующими адресами:
-    * `mos.ru/`
-    * `mos.ru/path/`
+    Поиск будет выполняться по всем документам вида `yandex.cloud/*`. То есть, в область поиска попадут документы со следующими адресами:
+    * `yandex.cloud/`
+    * `yandex.cloud/path/`
 
     В отличие от ограничения области поиска в поле `site`, заданное в поле `host` ограничение не распространяется на поддомены. В поле `host` также нельзя указать конкретный путь к области поиска.
 
+* `url` — ограничение области поиска релевантных документов по странице, например `yandex.cloud/docs/search-api/pricing`.
+
     {% note info %}
 
-    Приоритет поля `host` выше, чем у поля `site`. Если в запросе передаются оба поля, область поиска будет ограничена значением поля `host`, а значение поля `site` будет проигнорировано.
+    Приоритет поля `host` выше, чем у поля `site`, а `url` в приоритете над `host`. Если в запросе передаются все три поля, область поиска будет ограничена значением поля `url`, а значение полей `host` и `site` будет проигнорировано.
 
     {% endnote %}
 
@@ -90,7 +92,9 @@
       "role": "user"
     }
   ],
-  "site": "mos.ru"
+  "site": "yandex.cloud",
+  "host": "yandex.cloud/docs",
+  "url": "yandex.cloud/docs/search-api/pricing"
 }
 ```
 
@@ -118,27 +122,37 @@ export API-KEY=<API-ключ>
 
   ```python
   import requests
+  import os
 
-  SEARCH_API_GENERATIVE = "https://ya.ru/search/xml/generative"
-
-
-  def main():
-    messages = []
-    while True:
-      prompt = input("[User]: ")
-      messages.append({"content": prompt, "role": "user"})
-      response = requests.post(SEARCH_API_GENERATIVE, json={
-        "messages": messages
-      }).json()
-
-      print("[Generative]:", response["message"]["content"])
-      for i, link in enumerate(response["links"], start=1):
-        print(f"[{i}]: {link}")
-      messages.append(response["message"])
+  SEARCH_API_GENERATIVE = f"https://ya.ru/search/xml/generative?folderid={os.getenv('FOLDER_ID')}"
 
   
+  def main():
+      headers = {"Authorization": f"Api-Key {os.getenv('API_KEY')}"}
+      data = {
+          "messages": [
+             {
+                  "content": "Сколько стоит Search API?",
+                  "role": "user"
+              }
+          ],
+          "site": "https://yandex.cloud/ru/docs/"
+      }
+
+      response = requests.post(SEARCH_API_GENERATIVE, headers=headers, json=data)
+
+      if "application/json" in response.headers["Content-Type"]:
+          print(response.json()["message"]["content"])
+          for i, link in enumerate(response.json()["links"], start=1):
+              print(f"[{i}]: {link}")
+      elif "text/xml" in response.headers["Content-Type"]:
+          print("Error:", response.text)
+      else:
+          print("Unexpected content type:", response.text)
+
+
   if __name__ == "__main__":
-    main()
+      main()
   ```
 
 {% endlist %}
@@ -160,7 +174,10 @@ export API-KEY=<API-ключ>
     "<ссылка_на_найденный_документ_n>"
   ],
   "final_search_query": "<доработанный_текст_запроса>",
-  "is_answer_rejected": false(true)
+  "is_answer_rejected": false(true),
+  "is_bullet_answer": false (true),
+  "search_reqid" : "...",
+  "reqid" : "..."
 }
 ```
 
@@ -173,23 +190,31 @@ export API-KEY=<API-ключ>
     * `false` — модель вернула ответ.
     * `true` — модель отказалась вернуть ответ.
 
-Пример генеративного ответа:
+* `is_bullet_answer` — индикатор буллетного ответа, когда модель не может дать хороший ответ и предлагает набор буллетов с различной информацией.
+* `search_reqid` — уникальный идентификатор запроса в Поиске от Яндекса.
+* `reqid` — уникальный идентификатор запроса {{ search-api-name }}.
+
+
+Пример генеративного ответа c ограничением по сайту:
 
 ```json
 {
   "message": {
-    "content": "**Карту москвича можно получить в центре «Мои документы»** [1].\n\n**Для этого необходимо:**\n\n1. **Заполнить заявление на выпуск карты москвича онлайн на mos.ru** [1]. Для этого потребуется стандартная учётная запись в личном кабинете mos.ru [1].\n\n2. **Дождаться уведомления о готовности карты** [1]. Карта москвича будет готова в течение 30 дней после подачи документов [1]. Как только карта будет готова, в личный кабинет на mos.ru придёт соответствующее сообщение [1].\n\n3. **Получить карту в выбранном центре «Мои документы»** [1]. Для этого понадобится документ, удостоверяющий личность, который был указан в заявлении, и документ, подтверждающий льготную категорию (если в уведомлении указана необходимость его предоставить) [1]. Если карту получает представитель — документы, подтверждающие его полномочия и копия документа, удостоверяющего личность гражданина, на которого выпущена карта [1].\n\nДошкольники старше 7 лет, учащиеся московских школ и колледжей смогут забрать карту москвича в учебном заведении [1].\n\n**Более подробную информацию можно получить:**\n\n* по телефону горячей линии для держателей карты москвича: +7 (495) 539-55-55 [1];\n\n* по телефонам контакт-центра «Московский транспорт»: +7 (495) 539-54-54, 3210 (с мобильного телефона) — по вопросам использования карты в транспорте [1].",
+    "content": "Стоимость использования Search API рассчитывается, исходя из количества инициированных поисковых запросов за календарный месяц**. [1]\n\n**Цена за 1000 запросов**, вкл. НДС:\n\n* Ночные запросы, первые 1000 запросов в месяц — не тарифицируется. [1]\n\n* Ночные запросы, свыше 1000 запросов в месяц — 360 ₽. [1]\n\n* Дневные запросы — 480 ₽. [1]\n\nДля всех новых пользователей сервиса действует квота в 30 000 запросов в месяц (1000 запросов в день). [1]\n\nДля изменения значений квот обратитесь в техническую поддержку или к вашему аккаунт-менеджеру. [1]",
     "role": "assistant"
   },
   "links": [
-    "https://www.mos.ru/otvet-socialnaya-podderjka/kak-oformit-kartu-moskvicha/",
-    "https://www.mos.ru/karta-moskvicha/predpensionera/",
-    "https://www.mos.ru/karta-moskvicha/pensionera/",
-    "https://www.mos.ru/news/item/128668073/",
-    "https://www.mos.ru/pgu/ru/services/link/5633/"
+    "https://yandex.cloud/ru/docs/search-api/pricing",
+    "https://yandex.cloud/ru/docs/api-gateway/pricing",
+    "https://yandex.cloud/ru/docs/monitoring/pricing",
+    "https://yandex.cloud/ru/docs/ydb/pricing/ru-docapi",
+    "https://yandex.cloud/ru/docs/billing/concepts/serverless-free-tier"
   ],
-  "final_search_query": "Где получить карту москвича?",
-  "is_answer_rejected": false
+  "final_search_query": "стоимость search api",
+  "is_answer_rejected": false,
+  "is_bullet_answer": false,
+  "search_reqid": "1716922280912146-404265690610183965-**************-BAL",
+  "reqid": "1716922280829905-8678730291785779856-********-l7leveler-***-**-***-***-BAL"
 }
 ```
 
@@ -208,4 +233,4 @@ export API-KEY=<API-ключ>
 
 * Если сервис нашел документы-источники и извлек из них информацию, но нет уверенности в высоком качестве ответа, {{ search-api-name }} предваряет ответ следующим сообщением:
 
-    > На сайтах по данной теме доступна различная информация, её обзор ниже. Если вы считаете его некачественным, сообщите нам об этом, воспользовавшись кнопкой под ответом.
+    > На сайтах по данной теме доступна различная информация, её обзор ниже.

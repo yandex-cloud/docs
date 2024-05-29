@@ -720,12 +720,6 @@ items:
         items:
           - name: Создание дашборда
             href: operations/dashboard/create.md
-          - name: Добавление описания к дашборду
-            href: operations/dashboard/add-description.md
-          - name: Добавление сообщения при обращении в поддержку
-            href: operations/dashboard/add-support-message.md
-          - name: Добавление сообщения при ошибке доступа
-            href: operations/dashboard/add-access-message.md
           - name: Добавление чарта на дашборд
             href: operations/dashboard/add-chart.md
           - name: Добавление селектора на дашборд
@@ -734,6 +728,12 @@ items:
             href: operations/dashboard/add-text.md
           - name: Добавление заголовка на дашборд
             href: operations/dashboard/add-title.md
+          - name: Добавление описания к дашборду
+            href: operations/dashboard/add-description.md
+          - name: Добавление сообщения при обращении в поддержку
+            href: operations/dashboard/add-support-message.md
+          - name: Добавление сообщения при ошибке доступа
+            href: operations/dashboard/add-access-message.md
           - name: Создание алиаса
             href: operations/dashboard/create-alias.md
           - name: Удаление алиаса

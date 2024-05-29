@@ -13,6 +13,11 @@ description: "Страница содержит все инструкции дл
 * [{#T}](./yandexgpt/finetune.md)
 * [{#T}](./yandexgpt/disable-logging.md)
 
+## Пошаговые инструкции для классификаторов на базе {{ yagpt-name }} {#classifiers}
+
+* [{#T}](./classifier/readymade.md)
+* [{#T}](./classifier/additionally-trained.md)
+
 ## Пошаговые инструкции для {{ yandexart-name }} {#yandexart}
 
 [{#T}](./yandexart/request.md)

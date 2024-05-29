@@ -54,7 +54,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. Select the **ClickHouse** connection.
    1. In the window that opens, specify the connection parameters:
       * Connection type: **Specify manually**.
-      * Host name: `myt-g2ucdqpavskt6irw.{{ dns-zone }}, sas-1h1276u34g7nt0vx.{{ dns-zone }}` (comma-separated).
+      * Host name: `rc1a-ckg8nrosr2lim5iz.{{ dns-zone }}, rc1b-cflmvve37lf18tqn.{{ dns-zone }}` (comma-separated).
       * HTTP interface port: `8443` (default).
       * Username: `datalens-marathon-2020-11-ro`.
       * Password: `/4b+xBF6aSCgN9wKTevYGuDjxC9IO4Fa`.
@@ -68,7 +68,7 @@ Wait for the connection to be saved.
 ## Step 3. Configure the dataset fields {#step3}
 
 1. In the window that opens, click **Create dataset**.
-1. In the created dataset, drag the table to the workspace.
+1. In the new dataset, move the `marathon-2020-11.DODO_opendata` table to the workspace.
 
    ![drag-table](../../_assets/datalens/solution-09/12-drag-table.png)
 
