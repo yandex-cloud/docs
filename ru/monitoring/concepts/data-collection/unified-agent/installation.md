@@ -52,7 +52,7 @@ description: "Из статьи вы узнаете, как установить
   Чтобы запустить контейнер с агентом, выполните следующую команду:
 
   ```bash
-    docker run \
+    sudo docker run \
       -p 16241:16241 -it --detach --uts=host \
       --name=ua \
       -v /proc:/ua_proc \

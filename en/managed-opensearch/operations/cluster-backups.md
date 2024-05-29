@@ -61,7 +61,7 @@ You can get a list of backups created for the past 14 days.
 
    If you want to limit the backup list displayed after running the command, include the `--limit <number_of_records>` flag in the command. For example, if the output of the `{{ yc-mdb-os }} backup list` command takes up several screens, run the `{{ yc-mdb-os }} backup list --limit 5` command. In this case, the output will contain the list of five most recent backups.
 
--  API {#api}
+- API {#api}
 
    To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -128,7 +128,7 @@ You can get a list of backups created for the past 14 days.
       indices_total: "6"
       ```
 
--  API {#api}
+- API {#api}
 
    To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/backup_service.md#Get) gRPC API call and provide the backup ID in the `backupId` request parameter.
 
@@ -162,7 +162,7 @@ You can get a list of backups created for the past 14 days.
 
    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
--  API {#api}
+- API {#api}
 
    To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
@@ -234,9 +234,9 @@ When creating a new cluster, set all required parameters.
       {{ yc-mdb-os }} cluster restore --backup-id <backup_ID>
       ```
 
-      You can also run the command with the parameters you use when creating a cluster. For the description of such parameters, see [{#T}](cluster-create.md).
+      You can also run the command with the parameters you use when creating a cluster. For the description of such parameters, see [Creating a cluster](cluster-create.md).
 
--  API {#api}
+- API {#api}
 
    To restore an existing cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 

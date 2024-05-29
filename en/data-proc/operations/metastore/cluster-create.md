@@ -5,7 +5,7 @@ description: "Follow this guide to create a {{ metastore-full-name }} cluster."
 
 # Creating a {{ metastore-full-name }} cluster
 
-{% include [Доступ по запросу](../../../_includes/note-preview-by-request.md) %}
+{% include [Preview](../../../_includes/note-preview.md) %}
 
 To learn more about {{ metastore-name }} clusters in {{ dataproc-name }}, see [{#T}](../../concepts/metastore.md).
 
@@ -34,7 +34,7 @@ If you plan to use multiple security groups for a cluster, enable all traffic be
 
 {% note info %}
 
-You can set more detailed rules for security groups, such as allowing traffic in only specific subnets.
+You can specify more detailed rules for your security groups, e.g., to allow traffic only in specific subnets.
 
 {% endnote %}
 

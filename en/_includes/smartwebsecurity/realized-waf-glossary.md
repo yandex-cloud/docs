@@ -1,0 +1,1 @@
+To protect your web apps from external threats, {{ sws-full-name }} implements a Web Application Firewall (WAF).

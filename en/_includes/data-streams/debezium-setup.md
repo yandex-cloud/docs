@@ -24,7 +24,7 @@
 
    Where:
 
-   * `<endpoint>`: Endpoint for a {{ yds-short-name }} data stream, e.g., `https://yds.serverless.yandexcloud.net/{{ region-id }}/b1п89ae43m6he********/etn01eg4rn1********`. You can find the endpoint on the stream page (see [{#T}](../../data-streams/operations/manage-streams.md#list-data-streams)).
+   * `<endpoint>`: Endpoint for a {{ yds-short-name }} data stream, e.g., `https://yds.serverless.yandexcloud.net/{{ region-id }}/b1g89ae43m6he********/etn01eg4rn1********`. You can find the endpoint on the stream page (see [{#T}](../../data-streams/operations/manage-streams.md#list-data-streams)).
    * `<data_stream>`: {{ yds-short-name }} data stream name.
    * `<DB_name>`: {{ PG }} database name.
    * `<username>`: Username for connecting to the {{ PG }} database.

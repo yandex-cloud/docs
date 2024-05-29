@@ -15,8 +15,10 @@ items:
         href: operations/index.md
       - name: Работа с данными
         items:
-          - name: Загрузка данных
+          - name: Загрузка аудиоданных
             href: operations/data/upload-data.md
+          - name: Загрузка переписки из чата
+            href: operations/data/upload-chat-text.md
           - name: Работа с диалогами
             href: operations/data/manage-dialogs.md
           - name: Работа с отчетами

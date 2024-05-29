@@ -39,4 +39,4 @@
 * [Добавьте пользователей в пространство](add-user-to-space.md).
 * [Создайте подключения](../connection/create.md).
 * [Создайте проекты](../project/create.md).
-* [Загрузите аудиоданные](../data/upload-data.md).
+* [Загрузите аудиоданные](../data/upload-data.md) или [текстовые сообщения](../data/upload-chat-text.md).

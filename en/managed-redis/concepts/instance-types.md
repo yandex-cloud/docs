@@ -10,7 +10,7 @@ The host class determines the computing power allocated for each host in a clust
 
 {% note info %}
 
-The amount of memory allocated to a host is also determined by the `maxmemory` configuration parameter for Redis hosts; the maximum amount of data is {{ mrd-memory-used }} of the available memory. For more information, see [{#T}](memory-management.md).
+The amount of memory allocated to a host is also determined by the `maxmemory` configuration parameter for Redis hosts; the maximum amount of data is {{ mrd-memory-used }} of the available memory. For more information, see [Memory management](memory-management.md).
 
 {% endnote %}
 
@@ -24,7 +24,7 @@ The host class also determines which [disk types](./storage.md) are available:
 
 
 
-The storage space available to the host should be at least twice as large as the selected memory size. For {{ mrd-name }} technical and organizational limits, see [{#T}](limits.md).
+The storage space available to the host should be at least twice as large as the selected memory size. For more information on {{ mrd-name }} technical and organizational limitations, see [Quotas and limits](limits.md).
 
 ## Available host classes {#available-flavors}
 

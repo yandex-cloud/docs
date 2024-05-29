@@ -234,6 +234,8 @@ items:
             href: tools/s3fs.md
           - name: goofys
             href: tools/goofys.md
+          - name: rclone
+            href: tools/rclone.md
       - name: FTP
         items:
           - name: Docker-контейнер для (S)FTP(S)

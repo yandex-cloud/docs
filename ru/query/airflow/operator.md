@@ -20,7 +20,7 @@ yq_operator = YQExecuteQueryOperator(task_id="yq_operator", sql="SELECT 'Hello, 
 
 В данном примере создается задание {{ AF }} с идентификатором `yq_operator`, которое выполняет запрос `SELECT 'Hello, world!'`. Полный пример запуска запроса в {{ yq-full-name }} из {{ maf-short-name }} находится в разделе [{#T}](../tutorials/airflow.md).
 
-## Возвращаемые значения { #ret_values }
+## Возвращаемые значения {#ret_values}
 
 Результатом успешного исполнения оператора `YQExecuteQueryOperator` являются данные в виде словаря (`dict`), содержащего массив описаний столбцов и массив строк с результатами.
 

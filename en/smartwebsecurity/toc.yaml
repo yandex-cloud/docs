@@ -27,6 +27,8 @@ items:
             href: operations/profile-update.md
           - name: Deleting a profile
             href: operations/profile-delete.md
+          - name: Viewing operations with a security profile
+            href: operations/operation-logs.md
       - name: Managing rules
         items:
           - name: Adding a rule

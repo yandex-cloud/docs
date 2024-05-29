@@ -26,7 +26,7 @@ Each cluster has 16,348 *hash slots* evenly distributed across the shards. Slots
 
 All hosts in the cluster use service connections to exchange data about slots and regularly request statuses from each other.
 
-If the majority of master hosts fails to get a response from the host being polled, the host is considered to be down. If it is the master host that is down, one of its replicas becomes master. If all replicas fail or none of them can become master, the host stops receiving queries. However, if a single shard is down, the entire {{ RD }} Cluster may still be working as long as the other shards are available for writing and reading data.
+If the majority of master hosts fails to get a response from the host being polled, the host is considered to be down. If it is the master host that is down, one of its replicas becomes master. If all replicas fail or none of them can become master, the shard stops receiving queries. However, if a single shard is down, the entire {{ RD }} Cluster may still be working as long as the other shards are available for writing and reading data.
 
 To ensure stable cluster operation, you need to create at least three master hosts in different availability zones, each with a single replica. Make sure the masters and their replicas reside in different availability zones.
 
@@ -40,4 +40,4 @@ You do not need to stop the cluster to move slots between shards. If the client 
 
 {{ mrd-name }} allows you to create from 3 to 10 shards, each containing a different number of hosts. The minimum number of hosts per shard depends on the [selected disk type](./storage.md#storage-type-selection).
 
-For more information about limits on the number of hosts in a shard, see [{#T}](./limits.md).
+For more information about limits on the number of hosts per shard, see [Quotas and limits](./limits.md).

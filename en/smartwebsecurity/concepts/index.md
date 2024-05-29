@@ -4,11 +4,11 @@
 
 You can connect the service to [{{ alb-full-name }}](../../application-load-balancer/) [virtual hosts](../../application-load-balancer/concepts/http-router.md#virtual-host).
 
-In a nutshell, the service checks whether HTTP requests sent to the protected resource via the L7 load balancer's virtual host comply with the [rules](rules.md) set in the [security profile](profiles.md). Depending on the check results, the requests are routed to the virtual host, denied, or sent to [{{ captcha-full-name }}](../../smartcaptcha/) for additional verification.
+In a nutshell, the service checks the HTTP requests sent to the protected resource via the virtual host of the L7 load balancer against the [rules](rules.md) configured in the [security profile](profiles.md). Depending on the check results, the requests are routed to the virtual host, denied, or sent to [{{ captcha-full-name }}](../../smartcaptcha/) for additional verification.
 
 ![schema](../../_assets/smartwebsecurity/schema.svg)
 
-To protect your web apps from external threats, {{ sws-name }} also implements a [Web Application Firewall (WAF)](waf.md).
+{% include [realized-waf-concept](../../_includes/smartwebsecurity/realized-waf-concept.md) %}
 
 {% include [note-preview-waf](../../_includes/smartwebsecurity/note-preview-waf.md) %}
 

@@ -1,6 +1,6 @@
 ---
 title: "Getting started with {{ mos-full-name }}"
-description: "In this tutorial, you will learn how to create an {{ OS }} cluster and connect to it."
+description: "Follow this guide to create an {{ OS }} cluster and connect to it."
 ---
 
 # Getting started with {{ mos-name }}
@@ -37,7 +37,7 @@ These instructions assume that you are connecting to the cluster from the intern
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**. This process is described in detail in [{#T}](operations/cluster-create.md).
+1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
 1. Set the cluster parameters.
 
    

@@ -47,6 +47,8 @@ items:
             href: operations/images/delete.md
       - name: Viewing logs
         href: operations/logging.md
+      - name: Viewing operations with the service's resources
+        href: operations/operation-logs.md
   - name: Concepts
     items:
       - name: Desktops and their groups
