@@ -140,7 +140,7 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all {{ ma
          }
          ```
 
-      1. Make sure the configuration files are valid.
+      1. Make sure the configuration files are correct.
 
          {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 

@@ -1,3 +1,8 @@
+---
+title: "Как получить список публичных образов в {{ compute-full-name }}"
+description: "Следуя данной инструкции, вы сможете получить список публичных образов в {{ compute-full-name }}."
+---
+
 # Получить список публичных образов
 
 В процессе создания виртуальной машины вам необходимо выбрать [образ](../../concepts/image.md) машины с программным обеспечением, которое вы хотите использовать.
@@ -13,7 +18,7 @@
   1. В открывшемся списке выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-os-products }}**. Отобразится список всех доступных публичных образов.
 
-  Чтобы посмотреть информацию о конкретном образе, нажмите ![image](../../../_assets/console-icons/circle-info.svg).
+  Чтобы [посмотреть информацию](./get-info.md) о конкретном образе, нажмите ![image](../../../_assets/console-icons/circle-info.svg).
 
 - CLI {#cli}
 

@@ -4,4 +4,4 @@ This section describes {{ mrd-name }} metrics delivered to [{{ monitoring-name }
 
 {% include [managed-redis](../_includes/monitoring/metrics-ref/managed-redis.md) %}
 
-For more information, see [{#T}](./operations/monitoring.md).
+For more information, see [Monitoring cluster and host state](./operations/monitoring.md).

@@ -8,7 +8,7 @@
 
 ## Selecting disk type during cluster creation {#storage-type-selection}
 
-The number of hosts that can be created along with a {{ RD }} cluster depends on the disk type you select and whether you enabled [sharding](./sharding.md):
+The number of hosts you can create together with a {{ RD }} cluster depends on the disk type you select and whether you enabled [sharding](./sharding.md):
 
 | Disk type | Non-sharded clusters | Sharded cluster |
 | ------------------------------------------------------------------------- | --------------------------------- | ----------------------------------|
@@ -16,5 +16,5 @@ The number of hosts that can be created along with a {{ RD }} cluster depends on
 | Local SSD storage (`local-ssd`) | 3 hosts or more | 6 hosts or more (3 shards, 2 hosts) |
 | Non-replicated SSD storage (`network-ssd-nonreplicated`) | 3 hosts or more | 9 hosts or more (3 shards, 3 hosts) |
 
-For more information about limits on the number of hosts per cluster or shard, see [{#T}](./limits.md).
+For more information about limits on the number of hosts per cluster or shard, see [Quotas and limits](./limits.md).
 

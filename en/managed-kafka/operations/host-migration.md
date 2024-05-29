@@ -21,10 +21,10 @@ There are several ways to perform the migration:
 
 ### Migrating a single-host cluster using {{ yandex-cloud }} interfaces {#interfaces}
 
-To move a {{ mkf-name }} host to a different availability zone in a {{ KF }} cluster:
+To move a {{ mkf-name }} host to a different availability zone in an {{ KF }} cluster:
 
 1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone to which you are migrating the cluster.
-1. If the cluster's security group is set up for a subnet in the availability zone from which you are migrating the cluster, reconfigure the group for the new subnet. To do so, replace the source subnet CIDR with the new subnet CIDR in the security group rules.
+1. If the cluster security group is set up for a subnet in the availability zone from which you are migrating the cluster, reconfigure the group for the new subnet. To do so, replace the source subnet CIDR with the new subnet CIDR in the security group rules.
 1. Change the availability zone of the cluster and its {{ KF }} host:
 
    {% list tabs group=instructions %}
@@ -159,7 +159,7 @@ To move {{ KF }} hosts to a different availability zone in a cluster:
 
    If the target availability zone is on the list, during migration, {{ KF }} hosts will be moved to a subnet where {{ KF }} or {{ ZK }} hosts already reside in this zone.
 
-1. Check the cluster's security group. If it is set up for a subnet in the source availability zone, reconfigure the group for the subnet in the target availability zone. To do so, replace the source subnet CIDR with the target subnet CIDR in the security group rules.
+1. Check the cluster security group. If it is set up for a subnet in the source availability zone, reconfigure the group for the subnet in the target availability zone. To do so, replace the source subnet CIDR with the target subnet CIDR in the security group rules.
 1. Change the availability zone of the cluster and its {{ KF }} host:
 
    {% list tabs group=instructions %}
@@ -234,10 +234,12 @@ To move {{ KF }} hosts to a different availability zone in a cluster:
 
          {% endnote %}
 
-      1. Change the list of subnets under `subnet_ids` if:
+      1. Change the list of subnets under `subnet_ids` if these two conditions are met:
 
-         * {{ KF }} or {{ ZK }} hosts were not previously placed in the target availability zone.
+         * You are migrating {{ KF }} hosts to an availability zone where {{ ZK }} hosts were not previously placed.
          * The target availability zone has more than one subnet.
+
+         If the cluster hosts are placed in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-c` availability zones and you change the availability zones to `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d`, specify a subnet only if there are multiple subnets in the `{{ region-id }}-d` zone. Otherwise, you do not need to specify a subnet.
 
          ```hcl
          resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
@@ -246,8 +248,6 @@ To move {{ KF }} hosts to a different availability zone in a cluster:
            ...
          }
          ```
-
-         Make sure the `subnet_ids` parameter contains subnets for the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d` availability zones. You must specify subnets for these zones even if the {{ KF }} hosts are placed in a smaller number of availability zones. You need all three availability zones for {{ ZK }} hosts.
 
       1. Make sure the settings are correct.
 
@@ -267,12 +267,12 @@ To move {{ KF }} hosts to a different availability zone in a cluster:
 
       * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
       * New set of availability zones in the `configSpec.zoneId` parameter. Their number must not become smaller.
-      * New set of subnets in the `subnetIds` parameter if:
+      * New set of subnets in the `subnetIds` parameter if these two conditions are met:
 
-         * {{ KF }} or {{ ZK }} hosts were not previously placed in the target availability zone.
+         * You are migrating {{ KF }} hosts to an availability zone where {{ ZK }} hosts were not previously placed.
          * The target availability zone has more than one subnet.
 
-         Make sure the `subnetIds` parameter contains subnets for the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d` availability zones. You must specify subnets for these zones even if the {{ KF }} hosts are placed in a smaller number of availability zones. You need all three availability zones for {{ ZK }} hosts.
+         If the cluster hosts are placed in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-c` availability zones and you change the availability zones to `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d`, specify a subnet only if there are multiple subnets in the `{{ region-id }}-d` zone. Otherwise, you do not need to specify a subnet.
 
       * List of settings to update, in the `updateMask` parameter.
 
@@ -336,6 +336,6 @@ Let's assume your cluster comprises the hosts:
 
 You need to migrate {{ KF }} hosts to the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d` availability zones.
 
-No hosts initially reside in the `{{ region-id }}-d` zone, but there are multiple subnets, so you do need to specify a subnet when performing the migration.
+No hosts initially reside in the `{{ region-id }}-d` zone, but there are multiple subnets, so you need to specify a subnet when performing the migration.
 
 {% include [migration-in-data-transfer](../../_includes/data-transfer/migration-in-data-transfer.md) %}

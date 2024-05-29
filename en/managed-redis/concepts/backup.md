@@ -12,7 +12,7 @@ keywords:
 
 # Backups in {{ mrd-name }}
 
-{{ mrd-short-name }} provides automatic and manual database backups.
+{{ mrd-short-name }} supports automatic and manual database backups.
 
 {{ mrd-short-name }} uses AOF (append-only file) with forced write to disk every second through the [appendfsync everysec](http://download.redis.io/redis-stable/redis.conf) parameter.
 
@@ -33,7 +33,7 @@ You can set the backup start time when [creating](../operations/cluster-create.m
 
 {% note alert %}
 
-When data is written intensively during backups, the cluster might become unavailable as hosts run out of memory. For more information, see [{#T}](memory-management.md).
+When data is written intensively during backups, the cluster might become unavailable as hosts run out of memory. For more information, see [Memory management](memory-management.md).
 
 To avoid crashes:
 * Make sure to [start backups](../operations/update.md#change-additional-settings) when the cluster load is minimum.
@@ -43,7 +43,7 @@ To avoid crashes:
 
 Backups are only created on running clusters. If you do not use a {{ mrd-short-name }} cluster 24/7, check the [backup start time settings](../operations/update.md#change-additional-settings).
 
-For more information about creating a backup manually, see [{#T}](../operations/cluster-backups.md).
+For more information about creating a backup manually, see [Managing backups](../operations/cluster-backups.md).
 
 ## Storing backups {#storage}
 

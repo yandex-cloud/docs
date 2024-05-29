@@ -4,7 +4,7 @@ editable: false
 
 # {{ mrd-name }} pricing
 
-In this section, you can find {{ mrd-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
+In this section, you can find {{ mrd-name }} pricing [rules](#rules) and [effective prices](#prices) for the service resources.
 
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
@@ -24,13 +24,13 @@ The {{ mrd-name }} usage cost is based on:
 
 ### DB host usage {#rules-hosts-uptime}
 
-The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. You can check the supported resource configurations in [{#T}](concepts/instance-types.md) and see prices for using vCPUs and RAM in the [Prices](#prices) section.
+The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section, and vCPU and RAM prices, in the [Prices](#prices) section.
 
-The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when the {{ RD }} host is not performing its main functions.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You are not paying for the time when the {{ RD }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
-You are charged for the following:
+You pay for the following:
 
 * Storage allocated for DB clusters.
 
@@ -41,7 +41,7 @@ You are charged for the following:
       * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
       * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
 
-   For more information about platform-specific storage limitations, see [{#T}](./concepts/storage.md).
+   For more information about platform-specific storage limitations, see [Disk types](./concepts/storage.md).
 
 
 * Space used by DB backups in excess of the storage requested for the cluster.

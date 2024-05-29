@@ -7,7 +7,7 @@ keywords:
   - OpenSearch
 ---
 
-# Changing {{ OS }} cluster settings
+# Updating {{ OS }} cluster settings
 
 After creating a cluster, you can change:
 
@@ -38,7 +38,7 @@ If the cluster already uses a service account to access objects from {{ objstora
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
-   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the account you need from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
+   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the account you need from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [Configuring access to {{ objstorage-name }}](s3-access.md).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -56,7 +56,7 @@ If the cluster already uses a service account to access objects from {{ objstora
 
    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   For more information about setting up service accounts, see [{#T}](s3-access.md).
+   For more information about setting up service accounts, see [Configuring access to {{ objstorage-name }}](s3-access.md).
 
 - {{ TF }} {#tf}
 
@@ -73,7 +73,7 @@ If the cluster already uses a service account to access objects from {{ objstora
       }
       ```
 
-      For more information about setting up service accounts, see [{#T}](s3-access.md).
+      For more information about setting up service accounts, see [Configuring access to {{ objstorage-name }}](s3-access.md).
 
    1. Make sure the settings are correct.
 
@@ -90,7 +90,7 @@ If the cluster already uses a service account to access objects from {{ objstora
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * ID of the service account used for cluster operations in the `serviceAccountId` parameter.
 
-   For more information about setting up service accounts, see [{#T}](s3-access.md).
+   For more information about setting up service accounts, see [Configuring access to {{ objstorage-name }}](s3-access.md).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -315,7 +315,7 @@ If the cluster already uses a service account to access objects from {{ objstora
    To update the `admin` user's password, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
+   * Settings for the [maintenance window](../concepts/maintenance.md) (for disabled clusters as well) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [Deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}

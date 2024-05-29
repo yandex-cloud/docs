@@ -50,7 +50,7 @@ To create a database cluster in {{ mrd-short-name }}, you must define its charac
 - Network your cluster will be connected to.
 - Number of hosts for the cluster and the availability zone for each host.
 
-For a detailed guide, see [{#T}](../../managed-redis/quickstart.md).
+For more information, see [Getting started](../../managed-redis/quickstart.md).
 
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
 
@@ -61,7 +61,7 @@ The minimum number of hosts per cluster depends on the following:
 
 The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
 
-For more information, see [{#T}](../../managed-redis/concepts/limits.md).
+For more information, see [Quotas and limits](../../managed-redis/concepts/limits.md).
 
 #### How can I access a running DB host? {#db-access}
 
@@ -70,7 +70,7 @@ You can connect to {{ mrd-short-name }} databases using standard DBMS methods. H
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
-You can find MDB technical and organizational limitations in [{#T}](../../managed-redis/concepts/limits.md).
+For more information on MDB technical and organizational limitations, see [Quotas and limits](../../managed-redis/concepts/limits.md).
 
 
 #### How are DB clusters maintained? {#service-window}
@@ -81,7 +81,7 @@ Maintenance in {{ mrd-short-name }} implies:
 - Changes to the host class and storage size.
 - Other {{ mrd-short-name }} maintenance activities.
 
-For more information, see [{#T}](../../managed-redis/concepts/maintenance.md).
+For more information, see [Maintenance](../../managed-redis/concepts/maintenance.md).
 
 #### Which {{ RD }} version does {{ mrd-short-name }} use? {#dbms-version}
 
@@ -107,7 +107,7 @@ In {{ mrd-short-name }}, the usage cost is calculated based on the following par
 - Selected host class.
 - Size of the storage reserved for the database host.
 - Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-redis/pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [{#T}](../../managed-redis/pricing.md).
+- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour of operation for each host class in [Pricing policy](../../managed-redis/pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
@@ -138,7 +138,7 @@ For all DBMS types, you can track:
 
 For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ RD }}, you can track:
 - Average query execution time.
-- Number of requests per second.
+- Number of queries per second.
 - Number of errors in logs, etc.
 
 Monitoring can be performed with a minimum granularity of 5 seconds.

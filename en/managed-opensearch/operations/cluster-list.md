@@ -25,7 +25,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To request a list of {{ OS }} clusters in the folder, run the command:
+   To request a list of {{ OS }} clusters in the default folder, run this command:
 
    ```bash
    {{ yc-mdb-os }} cluster list
@@ -40,7 +40,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
    +----------------------+------+-----------------------------+--------+---------+
    ```
 
--  API {#api}
+- API {#api}
 
    To get a list of clusters in a folder, use the [list](../api-ref/Cluster/list.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/List](../api-ref/grpc/cluster_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
@@ -63,7 +63,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get information about an {{ OS }} cluster, run the command:
+   To get information about an {{ OS }} cluster, run the following command:
 
    ```bash
    {{ yc-mdb-os }} cluster get <cluster_name_or_ID>
@@ -71,7 +71,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
 
    You can request the cluster name and ID with a [list of clusters in the folder](#list-clusters).
 
--  API {#api}
+- API {#api}
 
    To get cluster details, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 

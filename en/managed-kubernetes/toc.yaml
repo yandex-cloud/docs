@@ -120,6 +120,8 @@ items:
         items:
           - name: Getting information about a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-list.md
+          - name: Viewing operations with a {{ k8s }} cluster
+            href: operations/kubernetes-cluster/kubernetes-cluster-operation-logs.md
           - name: Creating a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-create.md
           - name: Editing a {{ k8s }} cluster

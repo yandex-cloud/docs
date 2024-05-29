@@ -17,7 +17,7 @@ Each cluster consists of one or more _database hosts_, which are virtual machine
 * A cluster of one or two hosts is cheaper, but it does not guarantee fault tolerance.
 
 When creating a cluster, specify:
-* _Host class_: VM template for deploying the cluster hosts. For a list of available host classes and their specs, see [{#T}](instance-types.md).
+* _Host class_: VM template for deploying the cluster hosts. For a list of available host classes and their specs, see [Host classes](instance-types.md).
 
 * _Environment_: Environment where the cluster will be deployed:
    * `PRODUCTION`: For stable versions of your apps.

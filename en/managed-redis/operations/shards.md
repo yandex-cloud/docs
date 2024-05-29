@@ -122,7 +122,7 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. Add the required number of `host` blocks to the {{ mrd-name }} cluster description and specify the shard name in the `shard_name` parameter:
 
       ```hcl
@@ -157,7 +157,7 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
    To add a shard, use the [addShard](../api-ref/Cluster/addShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter.
    * Name of the shard in the `shardName` parameter.
-   * In the array of `hostSpecs` parameters, the shard host configuration.
+   * Shard host configuration in the array of `hostSpecs` parameters.
 
    You can request the shard name with a [list of cluster shards](#list) and the cluster name with a [list of clusters in a folder](cluster-list.md).
 
@@ -202,7 +202,7 @@ All the shard hosts are deleted with the shard.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. Delete all shard-related `host` sections from the {{ mrd-name }} cluster description.
    1. Make sure the settings are correct.
 

@@ -88,7 +88,7 @@
 {
   "messages": [
     {
-      "content": "Где получить карту москвича?",
+      "content": "Сколько стоит Search API?",
       "role": "user"
     }
   ],

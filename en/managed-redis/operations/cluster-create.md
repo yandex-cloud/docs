@@ -1,6 +1,6 @@
 ---
 title: "How to create a {{ RD }} cluster"
-description: "Use this tutorial to create a {{ RD }} cluster with a single or multiple DB hosts."
+description: "Follow this guide to create a {{ RD }} cluster with a single or multiple DB hosts."
 ---
 
 # Creating a {{ RD }} cluster
@@ -8,7 +8,7 @@ description: "Use this tutorial to create a {{ RD }} cluster with a single or mu
 
 A {{ RD }} cluster is one or more database hosts between which you can configure replication. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and asynchronously duplicates changes on replicas.
 
-For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md).
+For more information about {{ mrd-name }} cluster structure, see [Resource relationships](../concepts/index.md).
 
 {% note info %}
 
@@ -35,6 +35,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
          * `PRODUCTION`: For stable versions of your apps.
          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
       * Select the DBMS version.
+      * (Optional) Add labels.
       * If necessary, enable [cluster sharding](../concepts/sharding.md).
 
          {% note warning %}
@@ -43,7 +44,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
          {% endnote %}
 
-      * If required, enable support for encrypted SSL connections to the cluster.
+      * If required, enable support for encrypted TLS connections to the cluster.
 
          {% note warning %}
 
@@ -51,13 +52,15 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
          {% endnote %}
 
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
+      * If required, enable the use of [FQDNs](../concepts/network.md#hostname) instead of IP addresses.
+
+      * Select the [data persistence](../concepts/replication.md#persistence) settings.
+
+   1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**:
 
       * Select a platform in the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** field.
       * Specify the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** of the VM to deploy hosts on.
-      * Select a [host](../concepts/instance-types.md) configuration that defines the technical specifications of the VMs where the DB hosts will be deployed. Changing the configuration changes the properties of all the previously created hosts.
-
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
+      * Select **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
 
       
       * Select the [disk type](../concepts/storage.md):
@@ -68,12 +71,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
 
 
-
       * Select the storage size. The available storage size is limited by [quotas and limits](../concepts/limits.md#mrd-limits).
-
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_configuration }}**, in the **{{ ui-key.yacloud.mdb.forms.config_field_password }}** field, set the user password.
-
-      {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
    
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
@@ -81,7 +79,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       * Security groups for the cluster network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, configure the hosts:
 
       * To change the settings of a host, click the ![pencil](../../_assets/console-icons/pencil.svg) icon in the line with its name.
 
@@ -92,11 +90,17 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
       * To add hosts to the cluster, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
 
-   1. Configure additional cluster settings, if required:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
+
+      * In the **{{ ui-key.yacloud.mdb.forms.config_field_password }}** field, enter the user password.
+
+         {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
+
+      * Configure the [DBMS settings](../concepts/settings-list.md), if required.
+
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, configure the additional cluster settings:
 
       {% include [mrd-extra-settings](../../_includes/mdb/mrd-extra-settings-web-console.md) %}
-
-   1. Configure the [DBMS settings](../concepts/settings-list.md), if required.
 
    1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
@@ -195,7 +199,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       * Subnets: [Subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you do not need to describe them again.
 
 
-      Sample configuration file structure for creating sharded clusters with SSL support:
+      Sample configuration file structure for creating a non-sharded cluster with SSL support:
 
       
       
@@ -291,7 +295,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ RD }} cluster with the settings of another cluster created earlier. To do so, you need to import the configuration of the source {{ RD }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ RD }} cluster has lots of settings and you need to create a similar one.
+You can create a {{ RD }} cluster with the settings of another one created earlier. To do so, you need to import the configuration of the source {{ RD }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ RD }} cluster has lots of settings and you need to create a similar one.
 
 To create a {{ RD }} cluster copy:
 
@@ -382,7 +386,7 @@ To create a {{ RD }} cluster copy:
    * Version: `{{ versions.cli.latest }}`
    * Environment: `production`
    * Network: `default`
-   * Single `hm1.nano` host in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone and security group with the `{{ security-group }}` ID with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
+   * Single `{{ mrd-host-class }}` class host in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone and the security group with the `{{ security-group }}` ID with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
    * SSL support: Enabled
    * Network SSD storage (`{{ disk-type-example }}`): 16 GB
    * Password: `user1user1`
@@ -397,7 +401,7 @@ To create a {{ RD }} cluster copy:
      --redis-version {{ versions.cli.latest }} \
      --environment production \
      --network-name default \
-     --resource-preset hm1.nano \
+     --resource-preset {{ mrd-host-class }} \
      --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr********,assign-public-ip=true,replica-priority=50 \
      --security-group-ids {{ security-group }} \
      --enable-tls \
@@ -418,7 +422,7 @@ To create a {{ RD }} cluster copy:
    * Cloud ID: `{{ tf-cloud-id }}`
    * Folder ID: `{{ tf-folder-id }}`
    * New network: `mynet`
-   * Single `{{ host-class }}` host in a new subnet named `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the `10.5.0.0/24` range.
+   * Single `{{ mrd-host-class }}` host in a new subnet named `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the `10.5.0.0/24` range.
    * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any addresses in the `mysubnet` subnet.
    * SSL support: Enabled
    * Network SSD storage (`{{ disk-type-example }}`): 16 GB
@@ -444,7 +448,7 @@ To create a {{ RD }} cluster copy:
      }
 
      resources {
-       resource_preset_id = "{{ host-class }}"
+       resource_preset_id = "{{ mrd-host-class }}"
        disk_type_id       = "{{ disk-type-example }}"
        disk_size          = 16
      }
@@ -464,13 +468,6 @@ To create a {{ RD }} cluster copy:
      network_id = yandex_vpc_network.mynet.id
 
      ingress {
-       description    = "Redis"
-       port           = {{ port-mrd-tls }}
-       protocol       = "TCP"
-       v4_cidr_blocks = ["10.5.0.0/24"]
-     }
-
-     egress {
        description    = "Redis"
        port           = {{ port-mrd-tls }}
        protocol       = "TCP"
@@ -510,7 +507,7 @@ To create a {{ RD }} cluster copy:
       * `subnet-a` with the `10.1.0.0/24` range.
       * `subnet-b` with the `10.2.0.0/24` range.
       * `subnet-d` with the `10.3.0.0/24` range.
-   * Three `{{ host-class }}` hosts, one in each subnet.
+   * Three `{{ mrd-host-class }}` hosts, one in each subnet.
    * In the new `redis-sg` security group allowing connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) from any subnet address.
    * Network SSD storage (`{{ disk-type-example }}`): 16 GB
    * Password: `user1user1`
@@ -535,7 +532,7 @@ To create a {{ RD }} cluster copy:
      }
 
      resources {
-       resource_preset_id = "{{ host-class }}"
+       resource_preset_id = "{{ mrd-host-class }}"
        disk_type_id       = "{{ disk-type-example }}"
        disk_size          = 16
      }
@@ -597,29 +594,7 @@ To create a {{ RD }} cluster copy:
        ]
      }
 
-     egress {
-       description    = "Redis"
-       port           = {{ port-mrd }}
-       protocol       = "TCP"
-       v4_cidr_blocks = [
-         "10.1.0.0/24",
-         "10.2.0.0/24",
-         "10.3.0.0/24"
-       ]
-     }
-
      ingress {
-       description    = "Redis Sentinel"
-       port           = {{ port-mrd-sentinel }}
-       protocol       = "TCP"
-       v4_cidr_blocks = [
-         "10.1.0.0/24",
-         "10.2.0.0/24",
-         "10.3.0.0/24"
-       ]
-     }
-
-     egress {
        description    = "Redis Sentinel"
        port           = {{ port-mrd-sentinel }}
        protocol       = "TCP"

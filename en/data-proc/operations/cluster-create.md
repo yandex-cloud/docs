@@ -18,10 +18,10 @@ You need to create and configure [security groups](../../vpc/concepts/security-g
 1. [Create](../../vpc/operations/security-group-create.md) one or more security groups for service traffic of the {{ dataproc-name }} cluster.
 1. [Add rules](../../vpc/operations/security-group-add-rule.md):
    * One rule for inbound and another one for outbound service traffic:
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`
    * A separate rule for outgoing HTTPS traffic. This will allow you to use [{{ objstorage-full-name }}](../../storage/) [buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/interfaces.md), and [autoscaling](../concepts/autoscaling.md) of {{ dataproc-name }} clusters.
 
       You can set up this rule using one of the two methods:
@@ -30,16 +30,16 @@ You need to create and configure [security groups](../../vpc/concepts/security-g
 
       - To all addresses
 
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
       - To the addresses used by {{ yandex-cloud }}
 
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**:
             * `84.201.181.26/32`: Getting the {{ dataproc-name }} cluster status, running jobs, UI Proxy.
             * `158.160.59.216/32`: Monitoring the {{ dataproc-name }} cluster state, autoscaling.
@@ -47,11 +47,11 @@ You need to create and configure [security groups](../../vpc/concepts/security-g
 
       {% endlist %}
 
-   * A rule that allows access to NTP servers for time syncing:
+   * Rule that allows access to NTP servers for time syncing:
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `123`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
 If you plan to use multiple security groups for your {{ dataproc-name }} cluster, allow all traffic between these groups.
 
@@ -230,7 +230,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
          {% endnote %}
 
-      * `--services`: List of [components](../concepts/environment.md) that you want to use in the {{ dataproc-name }} cluster. If this parameter is omitted, the default set will be used: `yarn`, `tez`, and `spark`.
+      * `--services`: List of [components](../concepts/environment.md) that you want to use in the {{ dataproc-name }} cluster. If you do not specify this parameter, these default components will be used: `yarn`, `tez`, and `spark`.
       * `--ssh-public-keys-file`: Full path to the file with the public part of the SSH key for access to the {{ dataproc-name }} cluster hosts. For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
       * `--subcluster`: Parameters of {{ dataproc-name }} subclusters:
          * `name`: {{ dataproc-name }} subcluster name.
@@ -528,7 +528,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 - API {#api}
 
    To create a {{ dataproc-name }} cluster, use the [create](../api-ref/Cluster/create) API method and include the following in the request:
-   * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ dataproc-name }} cluster must reside, in the `folderId` parameter.
+   * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the {{ dataproc-name }} cluster in the `folderId` parameter.
    * {{ dataproc-name }} cluster name in the `name` parameter.
    * {{ dataproc-name }} cluster configuration in the `configSpec` parameter, including:
       * [Image version](../concepts/environment.md) in the `configSpec.versionId` parameter.

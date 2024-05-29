@@ -1,4 +1,4 @@
-# Stopping and starting {{ RD }} clusters
+# Stopping and starting a {{ RD }} cluster
 
 You can stop and restart a DB cluster, if required. You are not charged while your cluster is stopped: you continue to pay only for the storage size and backups based on the [pricing policy](../pricing.md#prices-storage).
 

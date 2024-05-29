@@ -72,7 +72,7 @@ with ydb.SessionPool(driver) as pool:
 
 {% note info %}
 
-{{yq-full-name}} на данный момент поддерживает только scripting-запросы.
+{{ yq-full-name }} на данный момент поддерживает только scripting-запросы.
 
 {% endnote %}
 
@@ -89,7 +89,7 @@ return result_sets[0]
 
 {% note info %}
 
-{{yq-full-name}} поддерживает [многократное получение результатов запроса](../api/methods/get-query-results.md) по его идентификатору. При работе через {{ ydb-short-name }} SDK такая возможность в данный момент отсутствует.
+{{ yq-full-name }} поддерживает [многократное получение результатов запроса](../api/methods/get-query-results.md) по его идентификатору. При работе через {{ ydb-short-name }} SDK такая возможность в данный момент отсутствует.
 
 {% endnote %}
 

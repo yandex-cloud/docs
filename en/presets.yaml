@@ -392,6 +392,7 @@ default:
   mqtt-server-address: mqtt.cloud.yandex.net
   mqtt-server-port: 8883
   mrd-full-name: Yandex Managed Service for Redis
+  mrd-host-class: hm2.nano
   mrd-memory-used: 75%
   mrd-name: Managed Service for Redis
   mrd-short-name: Managed Service for Redis
@@ -4729,6 +4730,8 @@ default:
           label_sg-auto: Auto
           label_sg-from-list: From list
           label_sg-none: Without groups
+        service-account-field:
+          label_sg-from-list: From list
         service-account-select:
           button_create-account-new: Create new account
           label_no-service-account: Not selected

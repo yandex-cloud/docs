@@ -61,7 +61,7 @@ To view detailed information about the {{ mrd-name }} cluster state:
       * **aof_last_cow_size**: Amount of data copied when creating an AOF file.
       * **rdb_last_cow_size**: Amount of data copied when creating an RDB file.
 
-      For more information, see [{#T}](../concepts/backup.md).
+      For more information, see [Backups](../concepts/backup.md).
 
    * **DB keys**: Number of keys stored in all the cluster's databases.
 
@@ -78,7 +78,7 @@ To view detailed information about the {{ mrd-name }} cluster state:
 
       {% note info %}
 
-      The value of **maxmemory** for Redis hosts is set to {{ mrd-memory-used }} of the available memory. For more information, see [{#T}](../concepts/memory-management.md).
+      The value of **maxmemory** for Redis hosts is set to {{ mrd-memory-used }} of the available memory. For more information, see [Memory management](../concepts/memory-management.md).
 
       {% endnote %}
 
@@ -211,10 +211,10 @@ The recommended thresholds are as follows:
 
 For the `disk.used_bytes` metric, the values of the `Alarm` and `Warning` metrics are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
 
-* `Alarm`: `96,636,764,160` bytes (90%).
-* `Warning`: `85,899,345,920` bytes (80%).
+* `Alarm`: `96,636,764,160` bytes (90%)
+* `Warning`: `85,899,345,920` bytes (80%)
 
-You can view a host's current RAM amount in the [cluster details](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-redis).
+You can view a host's current RAM amount in the [cluster details](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/managed-redis-ref.md).
 
 
 ## Cluster state and status {#cluster-health-and-status}
