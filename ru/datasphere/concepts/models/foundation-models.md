@@ -12,7 +12,13 @@
 
 В разделе **[Фундаментальные модели]({{ link-datasphere-main }}/foundation-models/ygpt)** вы можете найти модели, развернутые в {{ yandex-cloud}}. Их можно использовать в {{ ml-platform-name }} как есть или дообучить на своих данных, чтобы ответы моделей точнее отражали специфику ваших задач. 
 
-Сейчас для дообучения доступна модель {{ gpt-pro }}. Вы сможете обращаться к дообученной модели из проекта {{ ml-platform-name }} и через [API сервиса {{ foundation-models-full-name }}](../../../foundation-models/api-ref/authentication.md).
+Сейчас для дообучения доступны следующие модели:
+* [базовая модель {{ gpt-pro }}](#tuning-abilities). 
+* [классификаторы на базе {{ yagpt-name }}](#classifier-training). 
+
+Вы сможете обращаться к дообученным моделям из проекта {{ ml-platform-name }} и через [API сервиса {{ foundation-models-full-name }}](../../../foundation-models/api-ref/authentication.md).
+
+В интерфейсе {{ ml-platform-name }} создайте новую дообученную фундаментальную модель, задайте темп обучения и загрузите данные. Дообучение займет некоторое время.
 
 {% note warning %}
 
@@ -26,14 +32,24 @@
 
 {% include [fine-tuning-file-requirements](../../../_includes/datasphere/fine-tuning-file-requirements.md) %}
 
-В интерфейсе {{ ml-platform-name }} создайте новую дообученную фундаментальную модель, введите инструкцию для модели, задайте темп обучения и загрузите данные. Дообучение займет некоторое время.
-
-## Возможности дообучения {#tuning-abilities}
+### Возможности дообучения {{ gpt-pro }} {#tuning-abilities}
 
 {% include [tuning-abilities](../../../_includes/foundation-models/yandexgpt/tuning-abilities.md) %}
 
-## Запросы к дообученной модели {#requests}
+## Данные для дообучения классификаторов на базе {{ yagpt-name }} {#classifier-training}
 
-Обращаться к дообученной модели можно через интерфейс {{ ml-platform-name }} Playground или через [API v1](../../../foundation-models/text-generation/api-ref/index.md) в синхронном режиме из {{ ml-platform-name }} и других приложений. Запросы в Playground осуществляются от имени пользователя, у которого есть флаг доступа к модели. Отправлять запрос через Playground можно в оригинальную или дообученную модель, чтобы сравнить результаты.
+Для дообучения классификаторов на базе {{ yagpt-name }} подготовьте файл в формате [JSON Lines](https://jsonlines.org/) в кодировке [UTF-8](https://ru.wikipedia.org/wiki/UTF-8) c примерами текстов и их принадлежности к классам. Структура данных в примерах будет зависеть от типа классификации, для которой обучается модель.
+
+{% include [classifier-training](../../../_includes/datasphere/classifier-training.md) %}
+
+## Запросы к дообученным моделям {#requests}
+
+Обращаться к дообученной модели можно через интерфейс {{ ml-platform-name }} Playground или через [API {{ foundation-models-name }}](../../../foundation-models/concepts/api.md) из {{ ml-platform-name }} и других приложений. Запросы в Playground осуществляются от имени пользователя. 
 
 Для отправки запросов через API добавьте пользовательский или сервисный аккаунт, от имени которого будут выполняться запросы, в список участников проекта {{ ml-platform-name }} . Аккаунт должен иметь роль `ai.languageModels.user`.
+
+
+#### См. также {#see-also}
+
+* [{#T}](../../tutorials/yagpt-tuning.md)
+* [{#T}](../../tutorials/yagpt-tuning-classifier.md)

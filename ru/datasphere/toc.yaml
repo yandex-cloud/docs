@@ -247,8 +247,10 @@ items:
             href: tutorials/node-from-model.md
           - name: Генерация изображения с помощью модели Stable Diffusion
             href: tutorials/stable-diffusion.md
-          - name: Дообучение модели {{ yagpt-full-name }}
+          - name: Дообучение модели {{ yagpt-name }}
             href: tutorials/yagpt-tuning.md
+          - name: Дообучение классификаторов на базе {{ yagpt-name }}
+            href: tutorials/yagpt-tuning-classifier.md
       - name: Аналитика данных
         items:
           - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики

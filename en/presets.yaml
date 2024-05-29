@@ -7871,6 +7871,7 @@ default:
       yagpt-playground:
         request:
           title: Request
+        send-request: Send request
         temperature:
           title: Temperature
     yql:
