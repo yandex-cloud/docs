@@ -12,10 +12,10 @@ keywords:
 
 In {{ mos-name }} clusters, you cannot add, update, or delete individual hosts. Instead, you can manage [host groups](../concepts/host-groups.md):
 
-* [{#T}](#list-groups).
-* [{#T}](#add-host-group).
-* [{#T}](#update-host-group).
-* [{#T}](#delete-host-group).
+* [{#T}](#list-groups)
+* [{#T}](#add-host-group)
+* [{#T}](#update-host-group)
+* [{#T}](#delete-host-group)
 
 You can also get a list of [cluster hosts](#list-hosts).
 
@@ -136,7 +136,7 @@ To add a host group to a cluster:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
 
@@ -272,7 +272,7 @@ To add a host group to a cluster:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
 
@@ -387,7 +387,7 @@ When deleting a host group, the following limitation applies: you cannot delete 
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
 

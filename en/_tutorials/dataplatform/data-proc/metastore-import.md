@@ -14,7 +14,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note info %}
 
-{{ metastore-name }} is at the [Preview](../../../overview/concepts/launch-stages.md) stage. To get access, contact [tech support]({{ link-console-support }}) or your account manager.
+{{ metastore-name }} is at the [Preview](../../../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}
 
@@ -231,10 +231,10 @@ To transfer data from one {{ dataproc-name }} cluster to another, back up the da
 1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the `dataproc-s3-sa` service account. Save its ID and the secret key.
 1. [Create a {{ metastore-name }} cluster](../../../data-proc/operations/metastore/cluster-create.md) with the following settings:
 
-   * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `dataproc-network`
-   * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}**: `dataproc-subnet`
-   * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`
-   * **{{ ui-key.yacloud.metastore.field_s3config-access-key-id }}** and **{{ ui-key.yacloud.metastore.field_s3config-secret-access-key }}**: Parameters of the static access key created earlier
+   * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `dataproc-network`.
+   * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}**: `dataproc-subnet`.
+   * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`.
+   * **{{ ui-key.yacloud.metastore.field_s3config-access-key-id }}** and **{{ ui-key.yacloud.metastore.field_s3config-secret-access-key }}**: Parameters of the static access key created earlier.
 
 1. [Add](../../../data-proc/operations/cluster-update.md) the `spark:spark.hive.metastore.uris` property with the `thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}` value to the `dataproc-target` cluster settings.
 

@@ -75,7 +75,7 @@
 
 ## Getting a test certificate {#issue-certificate}
 
-To test the installed application, get a test certificate. To issue the certificate, we will use the `yc-clusterissuer` issuer. It is created when you install cert-manager and pre-configured to work with Let's Encrypt®.
+To test the installed application, get a test certificate. To issue the certificate, we are going to use the `yc-clusterissuer` issuer. It is created when you install cert-manager and pre-configured to work with Let's Encrypt®.
 
 1. Create a file named `certificate.yaml` with a request for a test certificate:
 
@@ -128,8 +128,8 @@ To test the installed application, get a test certificate. To issue the certific
 
 ## Use cases {#examples}
 
-* [{#T}](../../tutorials/dnschallenge.md).
-* [{#T}](../../tutorials/ingress-cert-manager.md).
+* [{#T}](../../tutorials/dnschallenge.md)
+* [{#T}](../../tutorials/ingress-cert-manager.md)
 
 ## See also {#see-also}
 

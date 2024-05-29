@@ -68,6 +68,8 @@ items:
             href: operations/images-with-pre-installed-software/operate.md
           - name: Получить список публичных образов
             href: operations/images-with-pre-installed-software/get-list.md
+          - name: Получить информацию о публичном образе
+            href: operations/images-with-pre-installed-software/get-info.md
       - name: Получение информации о виртуальной машине
         items:
           - name: Получить информацию о ВМ

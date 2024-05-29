@@ -4730,6 +4730,8 @@ default:
           label_sg-auto: Автоматически
           label_sg-from-list: Из списка
           label_sg-none: Без групп
+        service-account-field:
+          label_sg-from-list: Из списка
         service-account-select:
           button_create-account-new: Создать новый
           label_no-service-account: Не выбрано

@@ -2,7 +2,7 @@ title: '{{ ydb-full-name }}'
 href: index.yaml
 label:
   title: RU
-  description: The service is available in Russia only.
+  description: This service is only available in Russia.
   theme: unknown
   when: region == "kz"
 items:
@@ -294,8 +294,14 @@ items:
         href: ./terraform/dedicated-database.md
       - name: Creating row-based tables in a database
         href: ./terraform/row-tables.md
+      - name: Creating document tables in a database
+        href: ./terraform/dynamodb-tables.md
       - name: Creating a changefeed for a table
         href: ./terraform/cdc.md
+      - name: Creating secondary indexes in row-based tables
+        href: ./terraform/row-tables-secondary-index.md
+      - name: Managing {{ ydb-short-name }} topic configurations
+        href: ./terraform/topic.md
   - name: FAQ
     href: faq.md
   - name: Public materials

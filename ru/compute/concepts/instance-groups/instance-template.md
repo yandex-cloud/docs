@@ -41,7 +41,7 @@
 
 ## Метаданные {#metadata}
 
-В шаблоне можно описать метаданные ВМ для машин в группе. Например, пользователей системы, которых нужно создавать при запуске новой машины, следует описать в ключе `user-data`. Подробнее о том, какие метаданные поддерживает {{ compute-name }}, читайте в разделе [{#T}](../vm-metadata.md).
+В шаблоне можно описать параметры сервиса метаданных и метаданные ВМ для машин в группе. Например, пользователей системы, которых нужно создавать при запуске новой машины, следует описать в ключе `user-data`. Подробнее о том, какие метаданные поддерживает {{ compute-name }}, читайте в разделе [{#T}](../vm-metadata.md).
 
 ## Описание шаблона в YAML-файле {#instance-template}
 
@@ -86,6 +86,11 @@ instance_template:
     type: SOFTWARE_ACCELERATED
   placement_policy:
     placement_group_id: rmppvhrgm77g********
+  metadata_options:
+    gce_http_endpoint: ENABLED
+    aws_v1_http_endpoint: DISABLED
+    gce_http_token: DISABLED
+    aws_v1_http_token: DISABLED
   metadata:
     user-data: |-
       #cloud-config
@@ -132,7 +137,12 @@ instance_template:
 `network_interface_specs.ip_version` | Версия IP для публичного IP-адреса.
 `network_interface_specs.security_group_ids` | Идентификаторы групп безопасности.
 `network_settings.type` | (опционально) Тип сети.</br>– `SOFTWARE_ACCELERATED` — программно-ускоренная сеть.</br>– `STANDARD` — обычная сеть, параметр по умолчанию.
-`metadata` | Метаданные для шаблонной ВМ. Подробнее см. раздел [{#T}](../vm-metadata.md).
+`metadata_options` | (опционально) [Параметры сервиса метаданных](../../operations/vm-info/get-info.md#metadata-options).
+`metadata_options.gce_http_endpoint` | (опционально) Доступ к метаданным с использованием формата Google Compute Engine.</br>– `enabled` — включен.</br>– `disabled` — выключен.
+`metadata_options.aws_v1_http_endpoint` | (опционально) Доступ к метаданным с использованием формата AWS (IMDSv1).</br>– `enabled` — включен.</br>– `disabled` — выключен.
+`metadata_options.gce_http_token` | (опционально) Доступ к учетным данным {{ iam-name }} с использованием формата Google Compute Engine.</br>– `enabled` — включен.</br>– `disabled` — выключен.
+`metadata_options.aws_v1_http_token` | (опционально) Доступ к учетным данным [{{ iam-name }}](../../../iam/) с использованием формата AWS (IMDSv1).</br>– `enabled` — включен.</br>– `disabled` — выключен.
+`metadata` | (опционально) Метаданные для шаблонной ВМ. Подробнее см. раздел [{#T}](../vm-metadata.md).
 `metadata.user-data` | Дополнительные настройки для инициализации виртуальной машины. В приведенном примере настройки описаны для программы `cloud-init`.
 `placement_policy ` | (опционально) Параметры [группы размещения ВМ](../placement-groups.md).
 `placement_policy.placement_group_id` | Идентификатор группы размещения. ВМ будут размещаться на серверных стойках дата-центра согласно выбранной стратегии размещения:</br>– распределенное размещение (`spread`) — каждая ВМ будет гарантированно расположена на отдельной серверной стойке в одной из зон доступности.</br>– размещение разделами (`partition`) — ВМ будут равномерно распределены по разделам группы; ВМ из разных разделов будут гарантированно расположены в разных серверных стойках в одной из зон доступности.

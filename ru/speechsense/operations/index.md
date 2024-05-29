@@ -8,6 +8,7 @@ description: "Страница содержит все инструкции дл
 ## Работа с данными {#data}
 
 * [{#T}](data/upload-data.md)
+* [{#T}](data/upload-chat-text.md)
 * [{#T}](data/manage-dialogs.md)
 * [{#T}](data/manage-reports.md)
 

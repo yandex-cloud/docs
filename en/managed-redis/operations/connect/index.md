@@ -72,7 +72,7 @@ Security group settings for sharded and non-sharded clusters differ.
 
 - Sharded cluster {#sharded}
 
-   [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in the cluster to enable incoming traffic from the security group where your VM is located on port `{{ port-mrd }}`. If a cluster is created with SSL encryption support, you should only specify port `{{ port-mrd-tls }}`.
+   [Configure all cluster security groups](../../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on the `{{ port-mrd }}` port from the security group covering the VM. If a cluster is created with SSL encryption support, you should only specify port `{{ port-mrd-tls }}`.
 
    To do this, create the following rule for incoming traffic:
 
@@ -85,9 +85,9 @@ Security group settings for sharded and non-sharded clusters differ.
 
 {% note info %}
 
-You can set more detailed rules for security groups, such as allowing traffic in only specific subnets.
+You can specify more detailed rules for your security groups, e.g., to allow traffic only in specific subnets.
 
-Security groups must be configured correctly for all subnets that will include cluster hosts. If security group settings are incomplete or incorrect, you may lose access to the cluster if the master is switched [manually](../failover.md) or [automatically](../../concepts/replication.md#availability).
+You must configure security groups correctly for all subnets in which the cluster hosts will reside. If security group settings are incomplete or incorrect, you may lose access to the cluster if the master is switched [manually](../failover.md) or [automatically](../../concepts/replication.md#availability).
 
 {% endnote %}
 

@@ -76,6 +76,8 @@ items:
             href: operations/k8s-gateway-api-install.md
           - name: Creating or updating resources based on configuration
             href: operations/k8s-ingress-controller-apply.md
+      - name: Viewing operations with the service's resources
+        href: operations/operation-logs.md
   - name: Tutorials
     items:
       - name: All tutorials

@@ -54,13 +54,15 @@
 
 1. Создайте проект: на странице пространства нажмите кнопку **Создать проект**, введите имя проекта, добавьте в проект подключение. Для каждого подключения вы можете выбрать до двух правил фильтрации на основе метаинформации подключения. Фильтры будут добавлять в проект только нужные диалоги. После добавления всех нужных подключений и настройки фильтров нажмите кнопку **Создать проект**. 
 
-## Загрузите данные {#upload-data}
+## Загрузите аудиоданные {#upload-data}
 
-Для загрузки данных в {{ speechsense-name }} используется [gRPC API](api-ref/grpc/index.md). 
+Для загрузки данных в {{ speechsense-name }} используется [gRPC API](api-ref/grpc/index.md).
+
+{% include [supported-formats](../_includes/speechsense/formats.md) %}
+
+Чтобы загрузить аудиоданные в {{ speechsense-name }}:
 
 1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md).
 1. [Добавьте сервисный аккаунт в пространство](operations/space/add-user-to-space.md) с ролью `speech-sense.data.editor`. Подробнее о ролях, действующих в сервисе, см. раздел [{#T}](security/index.md).
 1. [Создайте API-ключ](../iam/operations/api-key/create.md) или [IAM-токен](../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта, чтобы аутентифицироваться в API. [Подробнее об аутентификации в API {{ speechsense-name }}](api-ref/authentication.md).
 1. [Загрузите данные](operations/data/upload-data.md) с помощью Python-скрипта отправки данных. Аудио передается целиком в одном сообщении. 
-
-   {% include [supported-formats](../_includes/speechsense/formats.md) %}

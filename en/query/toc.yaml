@@ -2,7 +2,7 @@ title: Yandex Query
 href: index.yaml
 label:
   title: RU
-  description: The service is available in Russia only.
+  description: This service is only available in Russia.
   theme: unknown
   when: region == "kz"
 items:
@@ -98,6 +98,8 @@ items:
         href: tutorials/billing.md
       - name: Analyzing data with Jupyter
         href: tutorials/jupyter.md
+      - name: Automating with {{ maf-short-name }}
+        href: tutorials/airflow.md
   - name: Working with YQL
     items:
       - name: Overview
@@ -120,28 +122,34 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: API reference
+  - name: Reference
     items:
-      - name: Overview
-        href: api/index.md
-      - name: Authentication
-        href: api/auth.md
-      - name: Methods
+      - name: SDK
+        href: SDK/SDK.md
+      - name: HTTP API
         items:
-          - name: All methods
-            href: api/methods/index.md
-          - name: create-query
-            href: api/methods/create-query.md
-          - name: get-query
-            href: api/methods/get-query.md
-          - name: get-query-status
-            href: api/methods/get-query-status.md
-          - name: stop-query
-            href: api/methods/stop-query.md
-          - name: get-query-results
-            href: api/methods/get-query-results.md
-      - name: YQL and JSON type mapping
-        href: api/yql-json-conversion-rules.md
+          - name: Overview
+            href: api/index.md
+          - name: Authentication
+            href: api/auth.md
+          - name: Methods
+            items:
+              - name: All methods
+                href: api/methods/index.md
+              - name: create-query
+                href: api/methods/create-query.md
+              - name: get-query
+                href: api/methods/get-query.md
+              - name: get-query-status
+                href: api/methods/get-query-status.md
+              - name: stop-query
+                href: api/methods/stop-query.md
+              - name: get-query-results
+                href: api/methods/get-query-results.md
+          - name: YQL and JSON type mapping
+            href: api/yql-json-conversion-rules.md
+      - name: '{{ AF }}'
+        href: airflow/operator.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: FAQ

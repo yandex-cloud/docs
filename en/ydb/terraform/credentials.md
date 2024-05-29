@@ -1,8 +1,13 @@
+---
+title: "Authenticating in {{ yandex-cloud }} and managing {{ ydb-short-name }} databases using {{ TF }}"
+description: "Follow this guide to authenticate {{ TF }} in {{ yandex-cloud }} using a service account or a federated account."
+---
+
 # Getting authentication credentials
 
-To authenticate in {{ yandex-cloud }} and manage YDB databases using {{ TF }}, you can use a [service account](../../iam/concepts/users/service-accounts.md), a [Yandex account](../../iam/concepts/users/accounts.md#passport), or a [federated account](../../iam/concepts/users/accounts.md#saml-federation). To authenticate and work in {{ TF }} with YDB, you will also need the {{ yandex-cloud }} CLI. If you do not have it yet, follow [this guide](../../cli/quickstart.md#install) to install it.
+To authenticate in {{ yandex-cloud }} and manage {{ ydb-short-name }} databases using {{ TF }}, you can use a [service account](../../iam/concepts/users/service-accounts.md), a [Yandex account](../../iam/concepts/users/accounts.md#passport), or a [federated account](../../iam/concepts/users/accounts.md#saml-federation). To authenticate and work in {{ TF }} with {{ ydb-short-name }}, you will also need the {{ yandex-cloud }} CLI. If you do not have it yet, follow [this guide](../../cli/quickstart.md#install) to install it.
 
-You can create and set up a service account by following this guide:
+You can create and set up a service account by following these steps:
 1. In the management console, select the folder to create a service account in.
 
 1. In the **Service accounts** tab, click `Create service account`.
@@ -11,7 +16,7 @@ You can create and set up a service account by following this guide:
     * The name must be 3 to 63 characters long.
     * The name may contain lowercase Latin letters, numbers, and hyphens.
     * The first character of the name must be a letter, the last one cannot be a hyphen.
-1. Assign the service account the roles required to manage YDB resources: `admin`, `ydb.admin`.
+1. Assign the service account the roles required to manage {{ ydb-short-name }} resources: `admin`, `ydb.admin`.
 
 1. Click **Create**.
 

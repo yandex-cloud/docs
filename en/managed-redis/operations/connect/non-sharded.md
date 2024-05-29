@@ -63,7 +63,7 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
 
 - DBeaver {#dbeaver}
 
-   Connections to {{ RD }} clusters are only available in [commercial versions of DBeaver](https://dbeaver.com/buy/).
+   Connections to {{ RD }} clusters are only available in [DBeaver business editions](https://dbeaver.com/buy/).
 
    To connect to a cluster:
 
@@ -82,7 +82,7 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
             * **Username**: Username for connecting to the VM.
             * **Authentication method**: `Public key`.
             * **Secret key**: Path to the file with the private key used for connecting to the VM.
-            * **Passphrase**: Password of the private key.
+            * **Passphrase**: Private key password.
       1. On the **SSL** tab:
          1. Enable the **Use SSL** and **Skip hostname validation** settings.
          1. Under **Parameters**:
@@ -95,7 +95,7 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
 
 {% include [How to connect from a Dockerfile](../../../_includes/mdb/mrd/connect/docker-and-redis.md) %}
 
-## Sample connection strings {#connection-string}
+## Examples of connection strings {#connection-string}
 
 {% include [Environment settings](../../../_includes/mdb/mdb-conn-strings-env.md) %}
 

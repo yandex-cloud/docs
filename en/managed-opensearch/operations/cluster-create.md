@@ -14,7 +14,7 @@ A {{ mos-name }} cluster is a group of multiple linked {{ OS }} and [dashboards]
 
 Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
-For more information, see [{#T}](../concepts/index.md).
+For more information, see [Resource relationships in the service](../concepts/index.md).
 
 ## Creating a cluster {#create-cluster}
 
@@ -318,7 +318,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-   * Settings for the [maintenance](../concepts/maintenance.md) window (including for disabled clusters) in the `maintenanceWindow` parameter.
+   * Settings for the [maintenance window](../concepts/maintenance.md) (for disabled clusters as well) in the `maintenanceWindow` parameter.
 
 {% endlist %}
 

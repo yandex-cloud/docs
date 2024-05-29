@@ -75,6 +75,6 @@ The list of parameters available for redefining and their default values are sho
 
 ## See also {#see-also}
 
-* [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md).
-* [Integration with {{ objstorage-name }}](../volumes/s3-csi-integration.md).
-* [Working with persistent and dynamic volumes in {{ k8s }}](../../concepts/volume.md).
+* [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)
+* [Integration with {{ objstorage-name }}](../volumes/s3-csi-integration.md)
+* [Working with persistent and dynamic volumes in {{ k8s }}](../../concepts/volume.md)

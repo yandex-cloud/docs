@@ -37,6 +37,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](images-with-pre-installed-software/setup.md)
 * [{#T}](images-with-pre-installed-software/operate.md)
 * [{#T}](images-with-pre-installed-software/get-list.md)
+* [{#T}](images-with-pre-installed-software/get-info.md)
 
 ## Получение информации о виртуальных машинах {#vm-info}
 
