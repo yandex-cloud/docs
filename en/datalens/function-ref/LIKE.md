@@ -44,11 +44,11 @@ When comparing values, the function is case-sensitive. You can use `LIKE` along 
 ```
 
 ```
-IIF([Country] LIKE 'RU', 'Y', 'N')
+IF([Country] LIKE 'RU', 'Y', 'N')
 ```
 
 ```
-IIF([Phone] LIKE '+7%', 'RU', 'notRU')
+IF([Phone] LIKE '+7%', 'RU', 'notRU')
 ```
 
 ```

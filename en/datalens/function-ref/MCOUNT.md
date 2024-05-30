@@ -95,14 +95,23 @@ Grouped by `[City]`.
 
 Sorted by `[City]`.
 
+Formulas:
+
+- **City**: `[City]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **MCOUNT 1**: `MCOUNT(SUM([Orders]), 1)` ;
+- **MCOUNT 2**: `MCOUNT(SUM([Orders]), -2)` ;
+- **MCOUNT 3**: `MCOUNT(SUM([Orders]) 1, 1)` .
+
+
 Result
 
-| **[City]**        | **SUM([Orders])**   | **MCOUNT(SUM([Orders]), 1)**   | **MCOUNT(SUM([Orders]), -2)**   | **MCOUNT(SUM([Orders]) 1, 1)**   |
-|:------------------|:--------------------|:-------------------------------|:--------------------------------|:---------------------------------|
-| `'Detroit'`       | `32`                | `1`                            | `3`                             | `2`                              |
-| `'London'`        | `11`                | `2`                            | `3`                             | `3`                              |
-| `'Moscow'`        | `6`                 | `2`                            | `2`                             | `3`                              |
-| `'San Francisco'` | `28`                | `2`                            | `1`                             | `2`                              |
+| **City**          | **Order Sum**   | **MCOUNT 1**   | **MCOUNT 2**   | **MCOUNT 3**   |
+|:------------------|:----------------|:---------------|:---------------|:---------------|
+| `'Detroit'`       | `32`            | `1`            | `3`            | `2`            |
+| `'London'`        | `11`            | `2`            | `3`            | `3`            |
+| `'Moscow'`        | `6`             | `2`            | `2`            | `3`            |
+| `'San Francisco'` | `28`            | `2`            | `1`            | `2`            |
 
 {% endcut %}
 
@@ -129,14 +138,22 @@ Grouped by `[City]`.
 
 Sorted by `[City]`.
 
+Formulas:
+
+- **City**: `[City]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **MCOUNT 1**: `MCOUNT(SUM([Orders]), 1 ORDER BY [City] DESC)` ;
+- **MCOUNT 2**: `MCOUNT(SUM([Orders]), 1 ORDER BY [Order Sum])` .
+
+
 Result
 
-| **[City]**        | **SUM([Orders])**   | **MCOUNT(SUM([Orders]), 1 ORDER BY [City] DESC)**   | **MCOUNT(SUM([Orders]), 1 ORDER BY [Order Sum])**   |
-|:------------------|:--------------------|:----------------------------------------------------|:----------------------------------------------------|
-| `'Detroit'`       | `32`                | `2`                                                 | `2`                                                 |
-| `'London'`        | `11`                | `2`                                                 | `2`                                                 |
-| `'Moscow'`        | `6`                 | `2`                                                 | `1`                                                 |
-| `'San Francisco'` | `28`                | `1`                                                 | `2`                                                 |
+| **City**          | **Order Sum**   | **MCOUNT 1**   | **MCOUNT 2**   |
+|:------------------|:----------------|:---------------|:---------------|
+| `'Detroit'`       | `32`            | `2`            | `2`            |
+| `'London'`        | `11`            | `2`            | `2`            |
+| `'Moscow'`        | `6`             | `2`            | `1`            |
+| `'San Francisco'` | `28`            | `1`            | `2`            |
 
 {% endcut %}
 
@@ -163,18 +180,28 @@ Grouped by `[City]`, `[Category]`.
 
 Sorted by `[City]`, `[Category]`.
 
+Formulas:
+
+- **City**: `[City]` ;
+- **Category**: `[Category]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **MCOUNT 1**: `MCOUNT(SUM([Orders]), 1 TOTAL ORDER BY [City], [Category])` ;
+- **MCOUNT 2**: `MCOUNT(SUM([Orders]), 1 WITHIN [City] ORDER BY [Category])` ;
+- **MCOUNT 3**: `MCOUNT(SUM([Orders]), 1 AMONG [City] ORDER BY [City])` .
+
+
 Result
 
-| **[City]**        | **[Category]**      | **SUM([Orders])**   | **MCOUNT(SUM([Orders]), 1 TOTAL ORDER BY [City], [Category])**   | **MCOUNT(SUM([Orders]), 1 WITHIN [City] ORDER BY [Category])**   | **MCOUNT(SUM([Orders]), 1 AMONG [City] ORDER BY [City])**   |
-|:------------------|:--------------------|:--------------------|:-----------------------------------------------------------------|:-----------------------------------------------------------------|:------------------------------------------------------------|
-| `'Detroit'`       | `'Furniture'`       | `7`                 | `1`                                                              | `1`                                                              | `1`                                                         |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `2`                                                              | `2`                                                              | `1`                                                         |
-| `'London'`        | `'Furniture'`       | `1`                 | `2`                                                              | `1`                                                              | `2`                                                         |
-| `'London'`        | `'Office Supplies'` | `10`                | `2`                                                              | `2`                                                              | `2`                                                         |
-| `'Moscow'`        | `'Furniture'`       | `2`                 | `2`                                                              | `1`                                                              | `2`                                                         |
-| `'Moscow'`        | `'Office Supplies'` | `4`                 | `2`                                                              | `2`                                                              | `2`                                                         |
-| `'San Francisco'` | `'Furniture'`       | `5`                 | `2`                                                              | `1`                                                              | `2`                                                         |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `2`                                                              | `2`                                                              | `2`                                                         |
+| **City**          | **Category**        | **Order Sum**   | **MCOUNT 1**   | **MCOUNT 2**   | **MCOUNT 3**   |
+|:------------------|:--------------------|:----------------|:---------------|:---------------|:---------------|
+| `'Detroit'`       | `'Furniture'`       | `7`             | `1`            | `1`            | `1`            |
+| `'Detroit'`       | `'Office Supplies'` | `25`            | `2`            | `2`            | `1`            |
+| `'London'`        | `'Furniture'`       | `1`             | `2`            | `1`            | `2`            |
+| `'London'`        | `'Office Supplies'` | `10`            | `2`            | `2`            | `2`            |
+| `'Moscow'`        | `'Furniture'`       | `2`             | `2`            | `1`            | `2`            |
+| `'Moscow'`        | `'Office Supplies'` | `4`             | `2`            | `2`            | `2`            |
+| `'San Francisco'` | `'Furniture'`       | `5`             | `2`            | `1`            | `2`            |
+| `'San Francisco'` | `'Office Supplies'` | `23`            | `2`            | `2`            | `2`            |
 
 {% endcut %}
 

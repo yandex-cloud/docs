@@ -14,10 +14,12 @@ _Дашборд_ — страница или набор страниц, на к�
 * [{#T}](../dashboard/widget.md)
 * [{#T}](../dashboard/link.md)
 * [{#T}](../dashboard/selector.md)
+* [{#T}](../dashboard/chart-chart-filtration.md)
 * [{#T}](../dashboard/settings.md)
 * [{#T}](../dashboard/versioning.md)
 * [{#T}](../dashboard/dashboard_parameters.md)
 * [{#T}](../dashboard/embedded-objects.md)
+* [{#T}](../dashboard/markdown.md)
 * Пошаговые инструкции:
 
   * [{#T}](../operations/dashboard/create.md)
@@ -32,7 +34,9 @@ _Дашборд_ — страница или набор страниц, на к�
   * [{#T}](../operations/dashboard/edit-alias.md)
   * [{#T}](../operations/dashboard/manage-access.md)
   * [{#T}](../operations/dashboard/add-parameters.md)
+  * [{#T}](../operations/dashboard/add-filtration.md)
   * [{#T}](../operations/dashboard/auto-update.md)
+  * [{#T}](../operations/dashboard/dash-settings.md)
   * [{#T}](../operations/dashboard/display-modes.md)
 
 

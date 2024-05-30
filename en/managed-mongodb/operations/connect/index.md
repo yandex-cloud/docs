@@ -63,7 +63,7 @@ Rule settings depend on the connection method you select:
 
 - Over the internet {#internet}
 
-   [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic from any IP on port `{{ port-mmg }}` for an unsharded cluster or on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic:
+   [Configure all the cluster security groups](../../../vpc/operations/security-group-add-rule.md) to allow incoming traffic from any IP on port `{{ port-mmg }}` for an unsharded cluster or on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic:
 
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**:
       * `{{ port-mmg }}` for a non-sharded cluster
@@ -74,7 +74,7 @@ Rule settings depend on the connection method you select:
 
 - From a VM in {{ yandex-cloud }} {#cloud}
 
-   1. [Configure all security group](../../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic from the security group where your VM is located on port `{{ port-mmg }}` for an unsharded cluster and on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic in these groups:
+   1. [Configure all the cluster security groups](../../../vpc/operations/security-group-add-rule.md) to allow incoming traffic from the security group where your VM is located on port `{{ port-mmg }}` for an unsharded cluster and on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic in these groups:
 
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**:
          * `{{ port-mmg }}` for a non-sharded cluster

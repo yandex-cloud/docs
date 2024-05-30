@@ -2,7 +2,7 @@
 
 All actions with {{ kms-name }} resources are logged as a list of operations. Each operation is assigned a unique ID.
 
-## Get a list of operations {#get-operations}
+## Getting a list of operations {#get-operations}
 
 {% list tabs group=instructions %}
 
@@ -93,7 +93,7 @@ All actions with {{ kms-name }} resources are logged as a list of operations. Ea
 
 {% endlist %}
 
-## Get detailed information about an operation {#get-operations-info}
+## Getting detailed information about an operation {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the resource.
 1. Copy the ID of the operation.

@@ -1,14 +1,43 @@
 ---
 title: Window functions
-description: Window functions are calculated in the same way as aggregations, but they do not merge multiple entries into one.
+description: Window functions in {{ datalens-short-name }} are calculated as aggregate functions of measures.
 editable: false
 sourcePath: en/_api-ref/datalens/function-ref/window-functions.md
 ---
 
 # Window functions
-Window functions are calculated in the same way as aggregations, but they do not merge multiple entries into one. In some cases, this leads to duplication of values among entries in the same group (for example, `SUM(... TOTAL)`).
+Window functions in {{ datalens-short-name }} are calculated as aggregate functions of measures. At the same time, grouping by dimensions differs from the grouping set in the chart. Grouping parameters are specified in the function call as a list of dimensions to be included in the grouping (`WITHIN ...`) or excluded from it (`AMONG ...`).
 
-Aggregate functions are calculated from groups of values that are determined by the dimension fields used in a data query: entries with matching dimension values are grouped. Window functions are also calculated over groups of entries called _windows_. In this case, you should specify grouping parameters in the function call as a list of dimensions to be included (`WITHIN ...`) or excluded (`AMONG ...`) from the grouping.
+Given that measures are aggregated values, one may consider window functions in {{ datalens-short-name }} as aggregations of aggregations. One should note that not all aggregate functions would have the result of aggregating particular results that is identical to the general aggregation of values.
+
+For example, when calculating the sum of a measure for each group and then adding these values together, you will get the total sum of the measure in all groups:
+```
+SUM(SUM(a) UNION SUM(b)) = SUM(a UNION b)
+```
+When counting the amount of measure values for each group and then trying to calculate the amount from the sum of these values, you will get the amount of amounts (summands in the sum) rather than the total amount of values in all groups:
+```
+COUNT(COUNT(a) UNION COUNT(b)) = 2
+```
+
+**Example**
+
+| `Category`   |   `Sales` |   `OrderCount` |   `Sales_Furniture+Technology` |   `OrderCount_Furniture+Technology` |
+|:-------------|----------:|---------------:|-------------------------------:|------------------------------------:|
+| Furniture    |    100000 |            350 |                         300000 |                                   2 |
+| Technology   |    200000 |            650 |                         300000 |                                   2 |
+
+Where:
+* **Sales**: Sum of the sales measure in the categories
+* **Order Count**: Amount of the order measure values in the categories
+* **Sales_Furniture+Technology**: Total sum of the sales measure in all categories:
+  ```
+  SUM_IF([Sales], [Category] = 'Furniture' TOTAL) + SUM_IF([Sales], [Category] = 'Technology' TOTAL)
+  ```
+* **OrderCount_Furniture+Technology**: Amount of amounts of the order measure values:
+  ```
+  COUNT(COUNT_IF([Order Count], [Category] = 'Furniture' TOTAL) +  COUNT_IF([Order Count], [Category] = 'Technology' TOTAL) TOTAL)
+  ```
+
 ## Usage Restrictions {#usage-restrictions}
 
 1. The first argument in window functions can only be [measures](../concepts/dataset/data-model.md#field).

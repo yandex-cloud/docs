@@ -2,7 +2,7 @@
 
 You can upgrade a {{ mkf-name }} cluster to version 3.5 or lower. Upgrading to 3.6 or higher is not supported; however, you can [create a cluster](cluster-create.md#higher-version) with one of these versions.
 
-We recommend upgrading to a version that immediately follows the current one, such as 2.8 to 3.0. Upgrades to higher versions should be performed in steps. To upgrade {{ KF }} from 2.8 to 3.1, for instance, follow the steps: 2.8 → 3.0 → 3.1.
+We recommend updating {{ KF }} step by step, without skipping any versions. For example, to upgrade from 2.8 to 3.1, follow these steps: 2.8 → 3.0 → 3.1.
 
 To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
