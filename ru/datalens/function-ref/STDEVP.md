@@ -43,9 +43,38 @@ sourcePath: ru/_api-ref/datalens/function-ref/STDEVP.md
 
 #### Пример {#examples}
 
-```
-STDEVP([Profit])
-```
+
+
+
+Исходные данные
+
+| **Month**     | **Temperature**   |
+|:--------------|:------------------|
+| `'January'`   | `-8.00`           |
+| `'February'`  | `-4.00`           |
+| `'March'`     | `-1.00`           |
+| `'April'`     | `7.00`            |
+| `'May'`       | `14.00`           |
+| `'June'`      | `18.00`           |
+| `'July'`      | `22.00`           |
+| `'August'`    | `19.00`           |
+| `'September'` | `13.00`           |
+| `'October'`   | `5.00`            |
+| `'November'`  | `1.00`            |
+| `'December'`  | `-4.00`           |
+
+Формулы:
+
+- **Temperature SD**: `STDEVP([Temperature])` .
+
+
+Результат
+
+| **Temperature SD**   |
+|:---------------------|
+| `9.77`               |
+
+
 
 
 #### Поддержка источников данных {#data-source-support}

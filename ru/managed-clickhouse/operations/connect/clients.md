@@ -228,7 +228,9 @@ https://<FQDN_любого_хоста_{{ CH }}>:8443/play
 
 {% include notitle [preview](../../../_includes/note-preview.md) %}
 
-В сервисе [{{ websql-full-name }}](../../../websql) создайте соединение с кластером {{ CH }} в {{ yandex-cloud }}.
+Используйте сервис [{{ websql-full-name }}](../../websql) для подключения к кластеру {{ CH }} в {{ yandex-cloud }}.
+
+{% include [clickhouse-warning](../../../_includes/websql/clickhouse-warning.md) %}
 
 {% include notitle [connect-to-cluster](../../../_includes/websql/connect-to-cluster.md) %}
 

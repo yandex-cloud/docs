@@ -15,7 +15,7 @@ GEOPOLYGON( value )
 ```
 
 #### Description {#description}
-Converts the `value` expression to [geopolygon](../concepts/data-types.md#geopolygon) format.
+Converts the `value` expression to [geopolygon](../concepts/data-types.md#geopolygon) format. At input, the function accepts strings in `[[[lat_1,lon_1], [lat_2,lon_2], ..., [lat_N-1,lon_N-1], [lat_N,lon_N]]]` format.
 
 **Argument types:**
 - `value` — `Geopolygon | String`

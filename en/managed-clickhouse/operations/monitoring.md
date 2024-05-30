@@ -51,13 +51,13 @@ To view detailed information about the {{ mch-name }} cluster state:
    * **CPU usage per host**: Usage of processor cores on each host.
    * **Disk read per host**: Disk read rate on each host (in bytes per second).
    * **Disk space usage**: Shows how much disk space is used (in bytes).
-   * **Disk space usage per host**: Shows how much disk space is used on each host (two charts are displayed in bytes and %).
+   * **Disk space usage per host**: Shows how much disk space is used on each host (two charts are displayed, in bytes and %).
    * **Disk usage per host**: Speed of disk operations on each host (in bytes per second).
    * **Disk write per host**: Disk write rate on each host (in bytes per second).
    * **Failed insert queries per host**: Percentage of failed insert queries per second on each host.
    * **Failed queries per host**: Total percentage of failed queries per second on each host.
    * **Failed select queries per host**: Percentage of failed select queries per second on each host.
-   * **Inode usage**: Number of inodes used (two charts are displayed in pieces and %).
+   * **Inode usage**: Number of inodes used (two charts are displayed, in pieces and %).
    * **Insert queries**: Number of insert queries per second.
    * **Insert queries per host**: Number of insert queries per second on each host.
    * **Inserted data**: Data insertion rate (in bytes per second).
@@ -66,7 +66,7 @@ To view detailed information about the {{ mch-name }} cluster state:
    * **Max data parts per partition**: Highest number of data parts per partition among all tables. The limit for this value is set in the [DBMS settings](../concepts/settings-list#setting-merge-tree). Approaching the limit indicates excessive load or low efficiency of data insertion.
    * **Max replication delay across tables**: Longest replication delay across tables. Values greater than a few seconds may indicate excessive load or replication issues.
    * **Memory usage**: Use of RAM, in bytes.
-   * **Memory usage per host**: Shows how much RAM is used on each host (two charts are displayed in bytes and %).
+   * **Memory usage per host**: Shows how much RAM is used on each host (two charts are displayed, in bytes and %).
    * **Merged data**: Data merge rate (in bytes per second).
    * **Merged data per host**: Data merge rate on each host (in bytes per second).
    * **Merged rows per host**: Row merge rate on each host (in rows per second).
@@ -181,7 +181,7 @@ For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.monitoring-a
 * `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}`: `102,005,473,280` bytes (95%)
 * `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}`: `85,899,345,920` bytes (80%)
 
-You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-clickhouse).
+You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/managed-clickhouse-ref.md).
 
 
 ## Cluster state and status {#cluster-health-and-status}

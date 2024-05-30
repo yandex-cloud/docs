@@ -145,6 +145,14 @@ Returns the element with the index `index` from the array `array`. Index must be
 
 
 
+## [LEN](LEN_ARRAY.md)
+
+**Syntax:**`LEN( value )`
+
+Returns the number of the `value` items.
+
+
+
 ## [REPLACE](REPLACE_ARRAY.md)
 
 **Syntax:**`REPLACE( array, old, new )`

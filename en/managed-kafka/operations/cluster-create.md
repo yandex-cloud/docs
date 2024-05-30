@@ -1,5 +1,4 @@
-# Creating a {{ KF }} cluster
-
+# Creating an {{ KF }} cluster
 
 
 A [{{ mkf-name }} cluster](../concepts/index.md) is one or more [broker hosts](../concepts/brokers.md) where [topics and their partitions](../concepts/topics.md) are located. [Producers and consumers](../concepts/producers-consumers.md) can work with these topics by connecting to {{ mkf-name }} cluster hosts.
@@ -144,15 +143,15 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
       * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
+         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
       {% note tip %}
 
       You can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here, if required.
 
       {% endnote %}
 
-      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
-
-   1. To set up a [maintenance window](../concepts/maintenance.md) (including for disabled {{ mkf-name }} clusters), provide the required value in the `--maintenance-window` parameter when creating your cluster:
+   1. To set up a [maintenance window](../concepts/maintenance.md) (for disabled {{ mkf-name }} clusters as well), provide the required value in the `--maintenance-window` parameter when creating your cluster:
 
       ```bash
       {{ yc-mdb-kf }} cluster create \
@@ -281,7 +280,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
    * [Security group](../../vpc/concepts/security-groups.md) IDs in the `securityGroupIds` parameter.
 
 
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled {{ mkf-name }} clusters) in the `maintenanceWindow` parameter.
+   * Settings for the [maintenance window](../concepts/maintenance.md) (for disabled {{ mkf-name }} clusters as well) in the `maintenanceWindow` parameter.
    * {{ mkf-name }} cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -365,13 +364,13 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
       * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
+         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
       {% note tip %}
 
       You can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here, if required.
 
       {% endnote %}
-
-      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
    1. To set up a [maintenance window](../concepts/maintenance.md) (for disabled {{ mkf-name }} clusters as well), provide the required value in the `--maintenance-window` parameter when creating your cluster:
 
@@ -537,7 +536,7 @@ If there are no {{ ZK }} hosts, it means the cluster uses {{ kraft-short-name }}
 
 ## Creating a cluster copy {#duplicate}
 
-You can create an {{ KF }} cluster with the settings of another cluster created earlier. To do so, you need to import the configuration of the source {{ KF }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ KF }} cluster has lots of settings and you need to create a similar one.
+You can create an {{ KF }} cluster with the settings of another one created earlier. To do so, you need to import the configuration of the source {{ KF }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ KF }} cluster has lots of settings and you need to create a similar one.
 
 To create an {{ KF }} cluster copy:
 
@@ -562,7 +561,7 @@ To create an {{ KF }} cluster copy:
       export KAFKA_CLUSTER_ID=<cluster_ID>
       ```
 
-        You can request the ID with a [list of clusters in the folder](../../managed-kafka/operations/cluster-list.md#list-clusters).
+      You can request the ID with a [list of clusters in the folder](../../managed-kafka/operations/cluster-list.md#list-clusters).
 
    1. Import the settings of the initial {{ KF }} cluster into the {{ TF }} configuration:
 
@@ -623,7 +622,7 @@ To create an {{ KF }} cluster copy:
    
    * Name: `mykf`
    * Environment: `Production`
-   * {{ KF }} version: `{{ versions.cli.latest }}`
+   * {{ KF }} version: 3.5
    * Network: `{{ network-name }}`
    * Subnet ID: `{{ subnet-id }}`
    * Security group: `{{ security-group }}`
@@ -641,7 +640,7 @@ To create an {{ KF }} cluster copy:
    {{ yc-mdb-kf }} cluster create \
      --name mykf \
      --environment production \
-     --version {{ versions.cli.latest }} \
+     --version 3.5 \
      --network-name {{ network-name }} \
      --subnet-ids {{ subnet-id }} \
      --zone-ids {{ region-id }}-a \
@@ -651,7 +650,7 @@ To create an {{ KF }} cluster copy:
      --disk-type {{ disk-type-example }} \
      --assign-public-ip \
      --security-group-ids {{ security-group }} \
-     --deletion-protection=true
+     --deletion-protection true
    ```
 
 
@@ -662,7 +661,7 @@ To create an {{ KF }} cluster copy:
    * Folder ID: `{{ tf-folder-id }}`
    * Name: `mykf`
    * Environment: `PRODUCTION`
-   * {{ KF }} version: `{{ versions.tf.latest }}`
+   * {{ KF }} version: 3.5
    * Network and subnet: `mynet`, `mysubnet`
 
    
@@ -691,7 +690,7 @@ To create an {{ KF }} cluster copy:
      config {
        assign_public_ip = true
        brokers_count    = 1
-       version          = "{{ versions.tf.latest }}"
+       version          = "3.5"
        kafka {
          resources {
            disk_size          = 10

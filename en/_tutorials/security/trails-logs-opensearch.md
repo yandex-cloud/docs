@@ -106,7 +106,7 @@ Make sure to give your stream the `audit‑trails` name to make it easier to upl
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/opensearch.md):
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ OS }}`.
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ OS }}`
    * **Endpoint parameters**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.connection.title }}**:

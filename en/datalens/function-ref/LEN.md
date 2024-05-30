@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/datalens/function-ref/LEN.md
 
 # LEN
 
-
+_Function `LEN` is also found in the following categories: [Array functions](LEN_ARRAY.md)._
 
 #### Syntax {#syntax}
 

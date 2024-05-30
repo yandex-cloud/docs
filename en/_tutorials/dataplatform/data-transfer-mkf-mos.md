@@ -1,6 +1,4 @@
-# Delivering queue data from {{ KF }} to {{ OS }} using {{ data-transfer-full-name }}
-
-
+# Delivering data from an {{ KF }} queue to {{ OS }} using {{ data-transfer-full-name }}
 
 
 A {{ mos-name }} cluster can get data from {{ KF }} topics in real time.

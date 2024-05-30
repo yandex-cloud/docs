@@ -37,7 +37,10 @@ The {{ mkf-name }} usage cost is based on:
 
 The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. You can find supported resource configurations in the [Host classes](concepts/instance-types.md) section, and vCPU and RAM prices, in the [Prices](#prices) section.
 
-You can choose the host class for {{ KF }} broker hosts and {{ ZK }} hosts (based on the expected replication load). The presence of {{ ZK }} hosts depends on the cluster configuration. If the cluster is running {{ KF }} 3.5 or lower and has more than one {{ KF }} hosts, {{ ZK }} hosts are added to the cluster. If the cluster has a single broker host or is running {{ KF }} 3.6 or higher, it has no {{ ZK }} hosts.
+You can choose the host class for {{ KF }} broker hosts and {{ ZK }} hosts based on the expected replication load. The presence of {{ ZK }} hosts depends on the cluster configuration:
+
+* {{ ZK }} hosts are added to the cluster if it contains more than one {{ KF }} host and uses {{ KF }} 3.5 or lower.
+* {{ ZK }} hosts are not added to the cluster if it contains a broker host or uses {{ KF }} 3.6 or higher.
 
 
 There are different ways to calculate the cost depending on the [host type](./concepts/index.md):

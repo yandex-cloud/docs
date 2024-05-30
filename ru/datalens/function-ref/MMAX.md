@@ -96,14 +96,23 @@ sourcePath: ru/_api-ref/datalens/function-ref/MMAX.md
 
 Сортировка по `[City]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **MMAX 1**: `MMAX(SUM([Orders]), 1)` ;
+- **MMAX 2**: `MMAX(SUM([Orders]), -2)` ;
+- **MMAX 3**: `MMAX(SUM([Orders]) 1, 1)` .
+
+
 Результат
 
-| **[City]**        | **SUM([Orders])**   | **MMAX(SUM([Orders]), 1)**   | **MMAX(SUM([Orders]), -2)**   | **MMAX(SUM([Orders]) 1, 1)**   |
-|:------------------|:--------------------|:-----------------------------|:------------------------------|:-------------------------------|
-| `'Detroit'`       | `32`                | `32`                         | `32`                          | `32`                           |
-| `'London'`        | `11`                | `32`                         | `28`                          | `32`                           |
-| `'Moscow'`        | `6`                 | `11`                         | `28`                          | `28`                           |
-| `'San Francisco'` | `28`                | `28`                         | `28`                          | `28`                           |
+| **City**          | **Order Sum**   | **MMAX 1**   | **MMAX 2**   | **MMAX 3**   |
+|:------------------|:----------------|:-------------|:-------------|:-------------|
+| `'Detroit'`       | `32`            | `32`         | `32`         | `32`         |
+| `'London'`        | `11`            | `32`         | `28`         | `32`         |
+| `'Moscow'`        | `6`             | `11`         | `28`         | `28`         |
+| `'San Francisco'` | `28`            | `28`         | `28`         | `28`         |
 
 {% endcut %}
 
@@ -130,14 +139,22 @@ sourcePath: ru/_api-ref/datalens/function-ref/MMAX.md
 
 Сортировка по `[City]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **MMAX 1**: `MMAX(SUM([Orders]), 1 ORDER BY [City] DESC)` ;
+- **MMAX 2**: `MMAX(SUM([Orders]), 1 ORDER BY [Order Sum])` .
+
+
 Результат
 
-| **[City]**        | **SUM([Orders])**   | **MMAX(SUM([Orders]), 1 ORDER BY [City] DESC)**   | **MMAX(SUM([Orders]), 1 ORDER BY [Order Sum])**   |
-|:------------------|:--------------------|:--------------------------------------------------|:--------------------------------------------------|
-| `'Detroit'`       | `32`                | `32`                                              | `32`                                              |
-| `'London'`        | `11`                | `11`                                              | `11`                                              |
-| `'Moscow'`        | `6`                 | `28`                                              | `6`                                               |
-| `'San Francisco'` | `28`                | `28`                                              | `28`                                              |
+| **City**          | **Order Sum**   | **MMAX 1**   | **MMAX 2**   |
+|:------------------|:----------------|:-------------|:-------------|
+| `'Detroit'`       | `32`            | `32`         | `32`         |
+| `'London'`        | `11`            | `11`         | `11`         |
+| `'Moscow'`        | `6`             | `28`         | `6`          |
+| `'San Francisco'` | `28`            | `28`         | `28`         |
 
 {% endcut %}
 
@@ -164,18 +181,28 @@ sourcePath: ru/_api-ref/datalens/function-ref/MMAX.md
 
 Сортировка по `[City]`, `[Category]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Category**: `[Category]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **MMAX 1**: `MMAX(SUM([Orders]), 1 TOTAL ORDER BY [City], [Category])` ;
+- **MMAX 2**: `MMAX(SUM([Orders]), 1 WITHIN [City] ORDER BY [Category])` ;
+- **MMAX 3**: `MMAX(SUM([Orders]), 1 AMONG [City] ORDER BY [City])` .
+
+
 Результат
 
-| **[City]**        | **[Category]**      | **SUM([Orders])**   | **MMAX(SUM([Orders]), 1 TOTAL ORDER BY [City], [Category])**   | **MMAX(SUM([Orders]), 1 WITHIN [City] ORDER BY [Category])**   | **MMAX(SUM([Orders]), 1 AMONG [City] ORDER BY [City])**   |
-|:------------------|:--------------------|:--------------------|:---------------------------------------------------------------|:---------------------------------------------------------------|:----------------------------------------------------------|
-| `'Detroit'`       | `'Furniture'`       | `7`                 | `7`                                                            | `7`                                                            | `7`                                                       |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `25`                                                           | `25`                                                           | `25`                                                      |
-| `'London'`        | `'Furniture'`       | `1`                 | `25`                                                           | `1`                                                            | `7`                                                       |
-| `'London'`        | `'Office Supplies'` | `10`                | `10`                                                           | `10`                                                           | `25`                                                      |
-| `'Moscow'`        | `'Furniture'`       | `2`                 | `10`                                                           | `2`                                                            | `2`                                                       |
-| `'Moscow'`        | `'Office Supplies'` | `4`                 | `4`                                                            | `4`                                                            | `10`                                                      |
-| `'San Francisco'` | `'Furniture'`       | `5`                 | `5`                                                            | `5`                                                            | `5`                                                       |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `23`                                                           | `23`                                                           | `23`                                                      |
+| **City**          | **Category**        | **Order Sum**   | **MMAX 1**   | **MMAX 2**   | **MMAX 3**   |
+|:------------------|:--------------------|:----------------|:-------------|:-------------|:-------------|
+| `'Detroit'`       | `'Furniture'`       | `7`             | `7`          | `7`          | `7`          |
+| `'Detroit'`       | `'Office Supplies'` | `25`            | `25`         | `25`         | `25`         |
+| `'London'`        | `'Furniture'`       | `1`             | `25`         | `1`          | `7`          |
+| `'London'`        | `'Office Supplies'` | `10`            | `10`         | `10`         | `25`         |
+| `'Moscow'`        | `'Furniture'`       | `2`             | `10`         | `2`          | `2`          |
+| `'Moscow'`        | `'Office Supplies'` | `4`             | `4`          | `4`          | `10`         |
+| `'San Francisco'` | `'Furniture'`       | `5`             | `5`          | `5`          | `5`          |
+| `'San Francisco'` | `'Office Supplies'` | `23`            | `23`         | `23`         | `23`         |
 
 {% endcut %}
 

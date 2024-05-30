@@ -248,7 +248,7 @@ Delete the other resources depending on how they were created:
 
    * [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
    * [Delete the bucket in {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
-   * If you created service accounts when creating endpoints, [delete them](../../iam/operations/sa/delete.md).
+   * If you created any service accounts when creating your endpoints, [delete them](../../iam/operations/sa/delete.md).
 
 - {{ TF }} {#tf}
 

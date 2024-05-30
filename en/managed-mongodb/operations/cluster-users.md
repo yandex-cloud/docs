@@ -102,12 +102,12 @@ You can add and delete users as well as manage their individual settings and dat
       ```hcl
       resource "yandex_mdb_mongodb_user" "<username>" {
         cluster_id = <cluster_ID>
-          name     = "<username>"
-          password = "<password>"
-          permission {
-            database_name = "<DB_name>"
-            roles         = [ "<list_of_user_roles>" ]
-          }
+        name       = "<username>"
+        password   = "<password>"
+        permission {
+          database_name = "<DB_name>"
+          roles         = [ "<list_of_user_roles>" ]
+        }
       }
       ```
 
@@ -235,12 +235,12 @@ You can add and delete users as well as manage their individual settings and dat
       ```hcl
       resource "yandex_mdb_mongodb_user" "<username>" {
         cluster_id = <cluster_ID>
-          name     = "<username>"
-          password = "<new_password>"
-          permission {
-            database_name = "<DB_name>"
-            roles         = [ "<new_list_of_user_roles>" ]
-          }
+        name       = "<username>"
+        password   = "<new_password>"
+        permission {
+          database_name = "<DB_name>"
+          roles         = [ "<new_list_of_user_roles>" ]
+        }
       }
       ```
 

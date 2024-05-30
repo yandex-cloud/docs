@@ -95,18 +95,28 @@ sourcePath: ru/_api-ref/datalens/function-ref/RSUM.md
 
 Сортировка по `[City]`, `[Category]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Category**: `[Category]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **RSUM TOTAL**: `RSUM(SUM([Orders]) TOTAL)` ;
+- **RSUM WITHIN**: `RSUM(SUM([Orders]) WITHIN [City])` ;
+- **RSUM AMONG**: `RSUM(SUM([Orders]) AMONG [City])` .
+
+
 Результат
 
-| **[City]**        | **[Category]**      | **SUM([Orders])**   | **RSUM(SUM([Orders]) TOTAL)**   | **RSUM(SUM([Orders]) WITHIN [City])**   | **RSUM(SUM([Orders]) AMONG [City])**   |
-|:------------------|:--------------------|:--------------------|:--------------------------------|:----------------------------------------|:---------------------------------------|
-| `'Detroit'`       | `'Furniture'`       | `7`                 | `7`                             | `7`                                     | `7`                                    |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `32`                            | `32`                                    | `25`                                   |
-| `'London'`        | `'Furniture'`       | `1`                 | `33`                            | `1`                                     | `8`                                    |
-| `'London'`        | `'Office Supplies'` | `10`                | `43`                            | `11`                                    | `35`                                   |
-| `'Moscow'`        | `'Furniture'`       | `2`                 | `45`                            | `2`                                     | `10`                                   |
-| `'Moscow'`        | `'Office Supplies'` | `4`                 | `49`                            | `6`                                     | `39`                                   |
-| `'San Francisco'` | `'Furniture'`       | `5`                 | `54`                            | `5`                                     | `15`                                   |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `77`                            | `28`                                    | `62`                                   |
+| **City**          | **Category**        | **Order Sum**   | **RSUM TOTAL**   | **RSUM WITHIN**   | **RSUM AMONG**   |
+|:------------------|:--------------------|:----------------|:-----------------|:------------------|:-----------------|
+| `'Detroit'`       | `'Furniture'`       | `7`             | `7`              | `7`               | `7`              |
+| `'Detroit'`       | `'Office Supplies'` | `25`            | `32`             | `32`              | `25`             |
+| `'London'`        | `'Furniture'`       | `1`             | `33`             | `1`               | `8`              |
+| `'London'`        | `'Office Supplies'` | `10`            | `43`             | `11`              | `35`             |
+| `'Moscow'`        | `'Furniture'`       | `2`             | `45`             | `2`               | `10`             |
+| `'Moscow'`        | `'Office Supplies'` | `4`             | `49`             | `6`               | `39`             |
+| `'San Francisco'` | `'Furniture'`       | `5`             | `54`             | `5`               | `15`             |
+| `'San Francisco'` | `'Office Supplies'` | `23`            | `77`             | `28`              | `62`             |
 
 {% endcut %}
 
@@ -133,14 +143,23 @@ sourcePath: ru/_api-ref/datalens/function-ref/RSUM.md
 
 Сортировка по `[City]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **RSUM 1**: `RSUM(SUM([Orders]), "desc")` ;
+- **RSUM 2**: `RSUM(SUM([Orders]), "asc" ORDER BY [City] DESC)` ;
+- **RSUM 3**: `RSUM(SUM([Orders]) ORDER BY [Order Sum])` .
+
+
 Результат
 
-| **[City]**        | **SUM([Orders])**   | **RSUM(SUM([Orders]), "desc")**   | **RSUM(SUM([Orders]), "asc" ORDER BY [City] DESC)**   | **RSUM(SUM([Orders]) ORDER BY [Order Sum])**   |
-|:------------------|:--------------------|:----------------------------------|:------------------------------------------------------|:-----------------------------------------------|
-| `'Detroit'`       | `32`                | `77`                              | `77`                                                  | `77`                                           |
-| `'London'`        | `11`                | `45`                              | `45`                                                  | `17`                                           |
-| `'Moscow'`        | `6`                 | `34`                              | `34`                                                  | `6`                                            |
-| `'San Francisco'` | `28`                | `28`                              | `28`                                                  | `45`                                           |
+| **City**          | **Order Sum**   | **RSUM 1**   | **RSUM 2**   | **RSUM 3**   |
+|:------------------|:----------------|:-------------|:-------------|:-------------|
+| `'Detroit'`       | `32`            | `77`         | `77`         | `77`         |
+| `'London'`        | `11`            | `45`         | `45`         | `17`         |
+| `'Moscow'`        | `6`             | `34`         | `34`         | `6`          |
+| `'San Francisco'` | `28`            | `28`         | `28`         | `45`         |
 
 {% endcut %}
 

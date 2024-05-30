@@ -95,18 +95,28 @@ Grouped by `[City]`, `[Category]`.
 
 Sorted by `[City]`, `[Category]`.
 
+Formulas:
+
+- **City**: `[City]` ;
+- **Category**: `[Category]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **RAVG TOTAL**: `RAVG(SUM([Orders]) TOTAL)` ;
+- **RAVG WITHIN**: `RAVG(SUM([Orders]) WITHIN [City])` ;
+- **RAVG AMONG**: `RAVG(SUM([Orders]) AMONG [City])` .
+
+
 Result
 
-| **[City]**        | **[Category]**      | **SUM([Orders])**   | **RAVG(SUM([Orders]) TOTAL)**   | **RAVG(SUM([Orders]) WITHIN [City])**   | **RAVG(SUM([Orders]) AMONG [City])**   |
-|:------------------|:--------------------|:--------------------|:--------------------------------|:----------------------------------------|:---------------------------------------|
-| `'Detroit'`       | `'Furniture'`       | `7`                 | `7.00`                          | `7.00`                                  | `7.00`                                 |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `16.00`                         | `16.00`                                 | `25.00`                                |
-| `'London'`        | `'Furniture'`       | `1`                 | `11.00`                         | `1.00`                                  | `4.00`                                 |
-| `'London'`        | `'Office Supplies'` | `10`                | `10.75`                         | `5.50`                                  | `17.50`                                |
-| `'Moscow'`        | `'Furniture'`       | `2`                 | `9.00`                          | `2.00`                                  | `3.33`                                 |
-| `'Moscow'`        | `'Office Supplies'` | `4`                 | `8.17`                          | `3.00`                                  | `13.00`                                |
-| `'San Francisco'` | `'Furniture'`       | `5`                 | `7.71`                          | `5.00`                                  | `3.75`                                 |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `9.62`                          | `14.00`                                 | `15.50`                                |
+| **City**          | **Category**        | **Order Sum**   | **RAVG TOTAL**   | **RAVG WITHIN**   | **RAVG AMONG**   |
+|:------------------|:--------------------|:----------------|:-----------------|:------------------|:-----------------|
+| `'Detroit'`       | `'Furniture'`       | `7`             | `7.00`           | `7.00`            | `7.00`           |
+| `'Detroit'`       | `'Office Supplies'` | `25`            | `16.00`          | `16.00`           | `25.00`          |
+| `'London'`        | `'Furniture'`       | `1`             | `11.00`          | `1.00`            | `4.00`           |
+| `'London'`        | `'Office Supplies'` | `10`            | `10.75`          | `5.50`            | `17.50`          |
+| `'Moscow'`        | `'Furniture'`       | `2`             | `9.00`           | `2.00`            | `3.33`           |
+| `'Moscow'`        | `'Office Supplies'` | `4`             | `8.17`           | `3.00`            | `13.00`          |
+| `'San Francisco'` | `'Furniture'`       | `5`             | `7.71`           | `5.00`            | `3.75`           |
+| `'San Francisco'` | `'Office Supplies'` | `23`            | `9.62`           | `14.00`           | `15.50`          |
 
 {% endcut %}
 
@@ -133,14 +143,23 @@ Grouped by `[City]`.
 
 Sorted by `[City]`.
 
+Formulas:
+
+- **City**: `[City]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **RAVG 1**: `RAVG(SUM([Orders]), "desc")` ;
+- **RAVG 2**: `RAVG(SUM([Orders]), "asc" ORDER BY [City] DESC)` ;
+- **RAVG 3**: `RAVG(SUM([Orders]) ORDER BY [Order Sum])` .
+
+
 Result
 
-| **[City]**        | **SUM([Orders])**   | **RAVG(SUM([Orders]), "desc")**   | **RAVG(SUM([Orders]), "asc" ORDER BY [City] DESC)**   | **RAVG(SUM([Orders]) ORDER BY [Order Sum])**   |
-|:------------------|:--------------------|:----------------------------------|:------------------------------------------------------|:-----------------------------------------------|
-| `'Detroit'`       | `32`                | `19.25`                           | `19.25`                                               | `19.25`                                        |
-| `'London'`        | `11`                | `15.00`                           | `15.00`                                               | `8.50`                                         |
-| `'Moscow'`        | `6`                 | `17.00`                           | `17.00`                                               | `6.00`                                         |
-| `'San Francisco'` | `28`                | `28.00`                           | `28.00`                                               | `15.00`                                        |
+| **City**          | **Order Sum**   | **RAVG 1**   | **RAVG 2**   | **RAVG 3**   |
+|:------------------|:----------------|:-------------|:-------------|:-------------|
+| `'Detroit'`       | `32`            | `19.25`      | `19.25`      | `19.25`      |
+| `'London'`        | `11`            | `15.00`      | `15.00`      | `8.50`       |
+| `'Moscow'`        | `6`             | `17.00`      | `17.00`      | `6.00`       |
+| `'San Francisco'` | `28`            | `28.00`      | `28.00`      | `15.00`      |
 
 {% endcut %}
 

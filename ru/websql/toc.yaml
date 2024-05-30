@@ -13,17 +13,17 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Подключение к базе данных
+      - name: Управление соединениями
         href: operations/connect.md
-      - name: Выполнение запросов
+      - name: Работа с редактором SQL-запросов
         href: operations/query-executor.md
-      - name: Работа с сохраненными запросами
+      - name: Работа с сохраненными SQL-запросами
         href: operations/templates.md
-      - name: Просмотр истории запросов
+      - name: История запросов
         href: operations/history.md
   - name: Концепции
     items:
-      - name: О сервисе {{ websql-name }}
+      - name: О сервисе {{ websql-full-name }}
         href: concepts/index.md
       - name: Квоты и лимиты
         href: concepts/limits.md

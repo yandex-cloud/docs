@@ -530,6 +530,8 @@ items:
                 href: function-ref/COUNT_ITEM.md
               - name: GET_ITEM
                 href: function-ref/GET_ITEM.md
+              - name: LEN
+                href: function-ref/LEN_ARRAY.md
               - name: REPLACE
                 href: function-ref/REPLACE_ARRAY.md
               - name: SLICE
@@ -564,6 +566,8 @@ items:
                 href: function-ref/INT.md
               - name: STR
                 href: function-ref/STR.md
+              - name: TREE
+                href: function-ref/TREE.md
           - name: Функции разметки
             items:
               - name: Обзор
@@ -574,6 +578,8 @@ items:
                 href: function-ref/BR.md
               - name: COLOR
                 href: function-ref/COLOR.md
+              - name: IMAGE
+                href: function-ref/IMAGE.md
               - name: ITALIC
                 href: function-ref/ITALIC.md
               - name: MARKUP

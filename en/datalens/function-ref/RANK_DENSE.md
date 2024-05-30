@@ -78,14 +78,22 @@ Grouped by `[City]`.
 
 Sorted by `[City]`.
 
+Formulas:
+
+- **City**: `[City]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **RANK_DENSE desc**: `RANK_DENSE(SUM([Orders]), "desc")` ;
+- **RANK_DENSE asc**: `RANK_DENSE(SUM([Orders]), "asc")` .
+
+
 Result
 
-| **[City]**        | **SUM([Orders])**   | **RANK_DENSE(SUM([Orders]), "desc")**   | **RANK_DENSE(SUM([Orders]), "asc")**   |
-|:------------------|:--------------------|:----------------------------------------|:---------------------------------------|
-| `'Detroit'`       | `32`                | `1`                                     | `4`                                    |
-| `'London'`        | `11`                | `3`                                     | `2`                                    |
-| `'Moscow'`        | `6`                 | `4`                                     | `1`                                    |
-| `'San Francisco'` | `28`                | `2`                                     | `3`                                    |
+| **City**          | **Order Sum**   | **RANK_DENSE desc**   | **RANK_DENSE asc**   |
+|:------------------|:----------------|:----------------------|:---------------------|
+| `'Detroit'`       | `32`            | `1`                   | `4`                  |
+| `'London'`        | `11`            | `3`                   | `2`                  |
+| `'Moscow'`        | `6`             | `4`                   | `1`                  |
+| `'San Francisco'` | `28`            | `2`                   | `3`                  |
 
 {% endcut %}
 
@@ -112,18 +120,28 @@ Grouped by `[City]`, `[Category]`.
 
 Sorted by `[City]`, `[Category]`.
 
+Formulas:
+
+- **City**: `[City]` ;
+- **Category**: `[Category]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **RANK_DENSE TOTAL**: `RANK_DENSE(SUM([Orders]) TOTAL)` ;
+- **RANK_DENSE WITHIN**: `RANK_DENSE(SUM([Orders]) WITHIN [City])` ;
+- **RANK_DENSE AMONG**: `RANK_DENSE(SUM([Orders]) AMONG [City])` .
+
+
 Result
 
-| **[City]**        | **[Category]**      | **SUM([Orders])**   | **RANK_DENSE(SUM([Orders]) TOTAL)**   | **RANK_DENSE(SUM([Orders]) WITHIN [City])**   | **RANK_DENSE(SUM([Orders]) AMONG [City])**   |
-|:------------------|:--------------------|:--------------------|:--------------------------------------|:----------------------------------------------|:---------------------------------------------|
-| `'Detroit'`       | `'Furniture'`       | `7`                 | `4`                                   | `2`                                           | `1`                                          |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `1`                                   | `1`                                           | `1`                                          |
-| `'London'`        | `'Furniture'`       | `1`                 | `8`                                   | `2`                                           | `4`                                          |
-| `'London'`        | `'Office Supplies'` | `10`                | `3`                                   | `1`                                           | `3`                                          |
-| `'Moscow'`        | `'Furniture'`       | `2`                 | `7`                                   | `2`                                           | `3`                                          |
-| `'Moscow'`        | `'Office Supplies'` | `4`                 | `6`                                   | `1`                                           | `4`                                          |
-| `'San Francisco'` | `'Furniture'`       | `5`                 | `5`                                   | `2`                                           | `2`                                          |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `2`                                   | `1`                                           | `2`                                          |
+| **City**          | **Category**        | **Order Sum**   | **RANK_DENSE TOTAL**   | **RANK_DENSE WITHIN**   | **RANK_DENSE AMONG**   |
+|:------------------|:--------------------|:----------------|:-----------------------|:------------------------|:-----------------------|
+| `'Detroit'`       | `'Furniture'`       | `7`             | `4`                    | `2`                     | `1`                    |
+| `'Detroit'`       | `'Office Supplies'` | `25`            | `1`                    | `1`                     | `1`                    |
+| `'London'`        | `'Furniture'`       | `1`             | `8`                    | `2`                     | `4`                    |
+| `'London'`        | `'Office Supplies'` | `10`            | `3`                    | `1`                     | `3`                    |
+| `'Moscow'`        | `'Furniture'`       | `2`             | `7`                    | `2`                     | `3`                    |
+| `'Moscow'`        | `'Office Supplies'` | `4`             | `6`                    | `1`                     | `4`                    |
+| `'San Francisco'` | `'Furniture'`       | `5`             | `5`                    | `2`                     | `2`                    |
+| `'San Francisco'` | `'Office Supplies'` | `23`            | `2`                    | `1`                     | `2`                    |
 
 {% endcut %}
 

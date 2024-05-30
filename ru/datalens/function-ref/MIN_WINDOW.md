@@ -77,18 +77,28 @@ _Функция `MIN` также доступна в следующих кате
 
 Сортировка по `[City]`, `[Category]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Category**: `[Category]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **MIN TOTAL**: `MIN(SUM([Orders]) TOTAL)` ;
+- **MIN WITHIN**: `MIN(SUM([Orders]) WITHIN [City])` ;
+- **MIN AMONG**: `MIN(SUM([Orders]) AMONG [City])` .
+
+
 Результат
 
-| **[City]**        | **[Category]**      | **SUM([Orders])**   | **MIN(SUM([Orders]) TOTAL)**   | **MIN(SUM([Orders]) WITHIN [City])**   | **MIN(SUM([Orders]) AMONG [City])**   |
-|:------------------|:--------------------|:--------------------|:-------------------------------|:---------------------------------------|:--------------------------------------|
-| `'Detroit'`       | `'Furniture'`       | `7`                 | `1`                            | `7`                                    | `1`                                   |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `1`                            | `7`                                    | `4`                                   |
-| `'London'`        | `'Furniture'`       | `1`                 | `1`                            | `1`                                    | `1`                                   |
-| `'London'`        | `'Office Supplies'` | `10`                | `1`                            | `1`                                    | `4`                                   |
-| `'Moscow'`        | `'Furniture'`       | `2`                 | `1`                            | `2`                                    | `1`                                   |
-| `'Moscow'`        | `'Office Supplies'` | `4`                 | `1`                            | `2`                                    | `4`                                   |
-| `'San Francisco'` | `'Furniture'`       | `5`                 | `1`                            | `5`                                    | `1`                                   |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `1`                            | `5`                                    | `4`                                   |
+| **City**          | **Category**        | **Order Sum**   | **MIN TOTAL**   | **MIN WITHIN**   | **MIN AMONG**   |
+|:------------------|:--------------------|:----------------|:----------------|:-----------------|:----------------|
+| `'Detroit'`       | `'Furniture'`       | `7`             | `1`             | `7`              | `1`             |
+| `'Detroit'`       | `'Office Supplies'` | `25`            | `1`             | `7`              | `4`             |
+| `'London'`        | `'Furniture'`       | `1`             | `1`             | `1`              | `1`             |
+| `'London'`        | `'Office Supplies'` | `10`            | `1`             | `1`              | `4`             |
+| `'Moscow'`        | `'Furniture'`       | `2`             | `1`             | `2`              | `1`             |
+| `'Moscow'`        | `'Office Supplies'` | `4`             | `1`             | `2`              | `4`             |
+| `'San Francisco'` | `'Furniture'`       | `5`             | `1`             | `5`              | `1`             |
+| `'San Francisco'` | `'Office Supplies'` | `23`            | `1`             | `5`              | `4`             |
 
 
 

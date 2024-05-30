@@ -71,18 +71,28 @@ _Функция `AVG` также доступна в следующих кате
 
 Сортировка по `[City]`, `[Category]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Category**: `[Category]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **AVG TOTAL**: `AVG(SUM([Orders]) TOTAL)` ;
+- **AVG WITHIN**: `AVG(SUM([Orders]) WITHIN [City])` ;
+- **AVG AMONG**: `AVG(SUM([Orders]) AMONG [City])` .
+
+
 Результат
 
-| **[City]**        | **[Category]**      | **SUM([Orders])**   | **AVG(SUM([Orders]) TOTAL)**   | **AVG(SUM([Orders]) WITHIN [City])**   | **AVG(SUM([Orders]) AMONG [City])**   |
-|:------------------|:--------------------|:--------------------|:-------------------------------|:---------------------------------------|:--------------------------------------|
-| `'Detroit'`       | `'Furniture'`       | `7`                 | `9.62`                         | `16.00`                                | `3.75`                                |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `9.62`                         | `16.00`                                | `15.50`                               |
-| `'London'`        | `'Furniture'`       | `1`                 | `9.62`                         | `5.50`                                 | `3.75`                                |
-| `'London'`        | `'Office Supplies'` | `10`                | `9.62`                         | `5.50`                                 | `15.50`                               |
-| `'Moscow'`        | `'Furniture'`       | `2`                 | `9.62`                         | `3.00`                                 | `3.75`                                |
-| `'Moscow'`        | `'Office Supplies'` | `4`                 | `9.62`                         | `3.00`                                 | `15.50`                               |
-| `'San Francisco'` | `'Furniture'`       | `5`                 | `9.62`                         | `14.00`                                | `3.75`                                |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `9.62`                         | `14.00`                                | `15.50`                               |
+| **City**          | **Category**        | **Order Sum**   | **AVG TOTAL**   | **AVG WITHIN**   | **AVG AMONG**   |
+|:------------------|:--------------------|:----------------|:----------------|:-----------------|:----------------|
+| `'Detroit'`       | `'Furniture'`       | `7`             | `9.62`          | `16.00`          | `3.75`          |
+| `'Detroit'`       | `'Office Supplies'` | `25`            | `9.62`          | `16.00`          | `15.50`         |
+| `'London'`        | `'Furniture'`       | `1`             | `9.62`          | `5.50`           | `3.75`          |
+| `'London'`        | `'Office Supplies'` | `10`            | `9.62`          | `5.50`           | `15.50`         |
+| `'Moscow'`        | `'Furniture'`       | `2`             | `9.62`          | `3.00`           | `3.75`          |
+| `'Moscow'`        | `'Office Supplies'` | `4`             | `9.62`          | `3.00`           | `15.50`         |
+| `'San Francisco'` | `'Furniture'`       | `5`             | `9.62`          | `14.00`          | `3.75`          |
+| `'San Francisco'` | `'Office Supplies'` | `23`            | `9.62`          | `14.00`          | `15.50`         |
 
 
 

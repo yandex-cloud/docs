@@ -79,7 +79,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
    1. In the `es-mos-migration-snapshot.tf` file, specify these variables:
 
-      * `folder_id`: Cloud folder ID, the same one specified in the provider settings.
+      * `folder_id`: Cloud folder ID, same as in the provider settings.
       * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
       * `os_admin_password`: {{ OS }} admin user password.
       * `os_version`: {{ OS }} version.

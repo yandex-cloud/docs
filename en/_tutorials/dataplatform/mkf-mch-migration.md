@@ -97,7 +97,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       Check that you can use it to [connect to {{ mkf-name }} clusters over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-   * [clickhouse-client]({{ ch.docs }}/interfaces/cli/): to connect to the database in the {{ mch-name }} cluster.
+   * [clickhouse-client]({{ ch.docs }}/interfaces/cli/) to connect to the database in the {{ mch-name }} cluster.
 
       1. Connect the [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 

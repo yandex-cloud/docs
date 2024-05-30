@@ -2,7 +2,7 @@
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-* [{#T}](connect.md)
-* [{#T}](query-executor.md)
-* [{#T}](templates.md)
-* [{#T}](history.md)
+* [Управление соединениями](connect.md)
+* [Работа с редактором SQL-запросов](query-executor.md)
+* [Работа с сохраненными SQL-запросами](templates.md)
+* [История запросов](history.md)
