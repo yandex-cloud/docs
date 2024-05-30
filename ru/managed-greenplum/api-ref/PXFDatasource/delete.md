@@ -18,7 +18,7 @@ DELETE https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/pxf_
 Parameter | Description
 --- | ---
 clusterId | <p>Required. The maximum string length in characters is 50.</p> 
-datasourceName | <p>Required. The string length in characters must be 3-200.</p> 
+datasourceName | <p>Required. The string length in characters must be 3-200. Value must match the regular expression ``^[^\\|/*?.,;"'<>]+$``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -7888,6 +7888,8 @@ default:
         billing:
           title: Billing
       yq-binding-actions:
+        clone-binding:
+          menu-item-text: Clone
         delete-binding:
           menu-item-text: Delete
         edit-binding:
@@ -7904,6 +7906,12 @@ default:
             label: Automatically fill columns for
         binding-fields:
           title: Columns
+        binding-format-settings-delimiter:
+          title: Delimiter {%secondary%}(optional){%secondary%}
+        binding-format-settings:
+          title: Format settings
+        binding-format:
+          title: Format
         binding-modify:
           button-text: Modify
         binding-name:
@@ -7924,7 +7932,21 @@ default:
           title: Connection
         field-type-required:
           title: Required
+        projection-date-interval-max:
+          placeholder: Max
+        projection-date-interval-min:
+          placeholder: Min
+        projection-date-interval-step:
+          title: Step
+        projection-format-type:
+          title: Format type
+        projection-int-fixed-width:
+          title: Fixed width
+        projection-int-interval:
+          title: Interval
         projection-radio:
+          disabled:
+            label: Basic
           enabled:
             label: Extended
       yq-binding-info:
@@ -8036,6 +8058,9 @@ default:
           tab-text: Result
         statistics:
           tab-text: Statistics
+      yq-schema:
+        schema-partitioning:
+          section-header: Partitioned columns
       yq-show-query-launches:
         show-launches:
           button-text: Show launches

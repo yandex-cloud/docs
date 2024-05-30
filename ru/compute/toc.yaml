@@ -284,10 +284,14 @@ items:
             href: operations/instance-groups/create-with-coi.md
           - name: Создать группу ВМ по YAML-спецификации
             href: operations/instance-groups/create-from-yaml.md
-          - name: Создать группу виртуальных машин в группе размещения
+          - name: Создать группу ВМ в группе размещения
             href: operations/placement-groups/create-ig-in-pg.md
           - name: Создать группу ВМ с фиксированными IP-адресами
             href: operations/instance-groups/create-with-fixed-ip.md
+          - name: Создать группу ВМ с подключением к файловому хранилищу
+            href: operations/instance-groups/create-with-filesystem.md
+          - name: Создать группу ВМ с подключением к {{ objstorage-name }}
+            href: operations/instance-groups/create-with-bucket.md
       - name: Получение информации о группе виртуальных машин
         items:
           - name: Получить список групп ВМ
@@ -482,6 +486,8 @@ items:
                 href: concepts/instance-groups/deploy/secondary-disk.md
           - name: Интеграция с сетевыми и L7-балансировщиками
             href: concepts/instance-groups/balancers.md
+          - name: Работа со Stateful-нагрузкой
+            href: concepts/instance-groups/stateful-workload.md
           - name: Остановка группы и приостановка процессов
             href: concepts/instance-groups/stopping-pausing.md
           - name: Поочередные перезагрузка и пересоздание ВМ в группе

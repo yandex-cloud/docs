@@ -2,9 +2,11 @@
 
 {{ ml-platform-short-name }} already has pre-installed packages for data analysis and machine learning. If you are missing a package, you can [install it](../operations/projects/install-dependencies.md) right from the notebook cell.
 
-You have the option to select one of the standard DS Default images or to [create a custom environment](../operations/user-images.md) for working in {{ ml-platform-name }}. Standard images differ in their Python versions and sets of libraries.
+You have the option to select one of the standard DS Default images or to create a [custom environment](../operations/user-images.md) for working in {{ ml-platform-name }}. Standard images differ in their Python versions and sets of libraries.
 
 By default, an image with Python 3.10 is used in {{ ml-platform-short-name }} projects. If you need Python 3.7 or Python 3.8, follow the guide in [{#T}](../operations/projects/python-version.md).
+
+{% include [python-disclaimer](../../_includes/datasphere/python-disclaimer.md) %}
 
 ## List of pre-installed packages {#preinstalled-packages}
 

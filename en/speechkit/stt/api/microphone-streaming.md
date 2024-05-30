@@ -38,7 +38,13 @@ Authentication is performed under a service account using an [API key](../../../
       sudo apt update && sudo apt install portaudio19-dev
       ```
 
-   1. Install the required packages using the [PIP](https://pip.pypa.io/en/stable/) package manager:
+   1. Install the [pip](https://pip.pypa.io/en/stable/) package manager if not installed yet. Otherwise, proceed to the next step.
+
+      ```bash
+      sudo apt install python3-pip
+      ```
+
+   1. Use the pip package manager to install the following packages:
 
       * `grpcio-tools` for working with the {{speechkit-name}} API.
       * `PyAudio` for audio recording.
@@ -52,7 +58,7 @@ Authentication is performed under a service account using an [API key](../../../
       ```bash
       cd <path_to_cloudapi_directory> && \
       mkdir output && \
-      python -m grpc_tools.protoc -I . -I third_party/googleapis \
+      python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
          --python_out=output \
          --grpc_python_out=output \
            google/api/http.proto \

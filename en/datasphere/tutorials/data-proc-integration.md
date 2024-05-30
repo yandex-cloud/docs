@@ -5,7 +5,7 @@ description: "By following this tutorial, you can create a {{ dataproc-full-name
 
 # Integrating with {{ dataproc-full-name }}
 
-{% include notitle [integration with data proc](../../_tutorials/datasphere/data-proc-integration.md) %}
+{% include notitle [integration with data proc](../../_tutorials/ml-ai/data-proc-integration.md) %}
 
 #### See also {#see-also}
 

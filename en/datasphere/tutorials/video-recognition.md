@@ -1,1 +1,1 @@
-{% include [stable-diffusion](../../_tutorials/datasphere/video-recognition.md) %}
+{% include [stable-diffusion](../../_tutorials/ml-ai/video-recognition.md) %}

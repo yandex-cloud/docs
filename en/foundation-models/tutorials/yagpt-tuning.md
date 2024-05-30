@@ -5,4 +5,4 @@ description: "Follow this guide to tune a {{ yagpt-full-name }} model on your ow
 
 # {{ yagpt-full-name }} model tuning
 
-{% include [yagpt-tuning](../../_tutorials/datasphere/yagpt-tuning.md) %}
+{% include [yagpt-tuning](../../_tutorials/ml-ai/yagpt-tuning.md) %}

@@ -17,6 +17,7 @@ description: "{{ yandex-cloud }} plans to gradually discontinue the {{ region-id
 * In `{{ region-id }}-c`, new {{ yandex-cloud }} zonal features are unavailable. You cannot create:
 
    * {{ compute-name }} VMs with GPUs
+   * {{ compute-name }} VMs based on {{ highfreq-ice-lake }}
    * {{ compute-name }} dedicated hosts based on Intel Ice Lake
    * {{ mgp-name }} database hosts
 
