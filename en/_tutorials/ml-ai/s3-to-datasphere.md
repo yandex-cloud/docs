@@ -84,7 +84,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a [static 
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
+   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Select the `datasphere-sa` service account.
    1. In the top panel, click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
@@ -112,7 +112,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a [static 
       ```
 
       For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/access-key/create.md).
-   1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
+   1. Save the ID `key_id` and secret key `secret`. You will not be able to get the key value again.
 
 - API {#api}
 
@@ -177,7 +177,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a [static 
 ## Set up a connection to {{ objstorage-name }} {#rclone-config}
 
 To move data from your local disk to {{ objstorage-name }}, configure the `rclone` utility.
-1. Open the command prompt in your working directory as an admin user and run the following command:
+1. Open the command line in your working directory as an admin user and run the following command:
 
    ```powershell
    .\psexec -i -s cmd.exe
@@ -204,13 +204,13 @@ To move data from your local disk to {{ objstorage-name }}, configure the `rclon
 
 {% note info %}
 
-If required, you can run an advanced connection setup. For this, at the `Edit advanced config?` prompt, enter `y` in the terminal: For more information about advanced settings, see the `rclone` [documentation](https://rclone.org/s3/).
+You can perform advanced connection setup if needed. To do this, respond to `Edit advanced config?` by entering `y` in the terminal. For more information about advanced settings, see the `rclone` [documentation](https://rclone.org/s3/).
 
 {% endnote %}
 
 ## Mount the bucket to the Windows file system {#bucket-mount}
 
-1. Check the connection to the bucket. In the same terminal where you configured your connection, run the following command with the bucket name specified:
+1. Check your connection to the bucket. In the same command line you used to configure the connection, run the following command with the bucket name specified:
 
    ```powershell
    rclone.exe ls s3-connect:<bucket_name>
@@ -236,18 +236,18 @@ To connect to the bucket from {{ ml-platform-name }}, you need an [S3 connector]
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
 1. Fill out the fields below:
-   * **{{ ui-key.yc-ui-datasphere.common.name }}**: Name of the connector being created, such as `s3-datasphere-connect`.
+   * **{{ ui-key.yc-ui-datasphere.common.name }}**: Name of the new connector, e.g., `s3-datasphere-connect`.
    * **{{ ui-key.yc-ui-datasphere.common.endpoint }}**: {{ objstorage-name }} host (`https://{{ s3-storage-host }}/`).
    * **{{ ui-key.yc-ui-datasphere.common.bucket }}**: Name of your bucket.
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.mount-name }}**: Name of the volume for mounting the bucket into the project file system.
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.access-key-id }}** used to connect to storage.
    * In the **{{ ui-key.yc-ui-datasphere.new-s3-page.static-access-key }}** field, click **{{ ui-key.yc-ui-datasphere.common.create }}**. In the window that opens, enter the secret name and the secret key being used to connect to storage.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. Go to the S3 connector page and click **{{ ui-key.yc-ui-datasphere.common.activate }}**. Once activated, the bucket is available in the {{ jlab }}Lab interface in the list on the **S3 Mounts** ![S3 Mounts](../../_assets/console-icons/bucket.svg) tab, and you can view it as a file system.
+1. Go to the S3 connector page and click **{{ ui-key.yc-ui-datasphere.common.activate }}**. Once activated, the bucket will be listed on the **S3 Mounts** ![S3 Mounts](../../_assets/console-icons/bucket.svg) tab in the {{ jlab }}Lab interface, and you will be able to view it as a file system.
 
 ## Train the model {#train-model}
 
-Clone the Git repository that contains the `diabetes_catboost.ipynb` notebook with an example of [CatBoost](https://catboost.ai/) model training:
+Clone the Git repository containing the `diabetes_catboost.ipynb` notebook with an example of [CatBoost](https://catboost.ai/) model training:
 1. {% include [include](../../_includes/datasphere/ui-before-begin.md) %}
 1. In the top menu, click **Git** and select **Clone**.
 1. In the window that opens, specify the repository URI: `https://github.com/yandex-cloud-examples/yc-datasphere-s3-mount.git`, and then click **Clone**.
@@ -295,9 +295,9 @@ In the `diabetes_catboost.ipynb` notebook, you will connect to the `diabetes_dat
 
    ```python
    model = CatBoostClassifier(
-       iterations=100,
-       random_seed=42,
-       logging_level='Verbose'
+     iterations=100,
+     random_seed=42,
+     logging_level='Verbose'
    )
    ```
 
@@ -305,9 +305,9 @@ In the `diabetes_catboost.ipynb` notebook, you will connect to the `diabetes_dat
 
    ```python
    model.fit(
-       X_train, y_train,
-       eval_set=(X_validation, y_validation),
-       plot=True
+     X_train, y_train,
+     eval_set=(X_validation, y_validation),
+     plot=True
    )
    ```
 

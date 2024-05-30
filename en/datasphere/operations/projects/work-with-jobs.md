@@ -42,7 +42,10 @@ When you run a job, the `datasphere` library analyzes the environment, collects 
      - <input_data>: DATA
    outputs:
      - <results>: OUTPUT
-   cloud-instance-type: <computing_resource_configuration>
+   cloud-instance-types:
+     - <computing_resource_configuration>
+     - <computing_resource_configuration>
+     - <computing_resource_configuration>
    ```
 
    Where:
@@ -53,7 +56,9 @@ When you run a job, the `datasphere` library analyzes the environment, collects 
    * `env`: Environment parameters. The `python: auto` value indicates that the code and `PIP` dependencies should be provided to {{ ml-platform-name }}.
    * `inputs`: File with input data. You can change the `DATA` variable name.
    * `outputs`: File with results. You can change the `OUTPUT` variable name.
-   * `cloud-instance-type`: [Computing resource configuration](../../concepts/configurations.md).
+   * `cloud-instance-types`: List of valid [computing resource configurations](../../concepts/configurations.md) to run the job, sorted by priority.
+
+   For a single configuration, you may also use the old `cloud-instance-type` field, e.g., `cloud-instance-type: g1.1`; however, it is better to use the new one.
 
 1. Open the command-line shell in the directory with the files you prepared and run your job:
 
@@ -171,7 +176,8 @@ To run a job, you need Python 3.10.0 and TensorFlow 2.12.0.
      - input.json: INPUT
    outputs:
      - model.zip: MODEL
-   cloud-instance-type: g1.1
+   cloud-instance-types:
+     - g1.1
    ```
 
 1. Run the job:

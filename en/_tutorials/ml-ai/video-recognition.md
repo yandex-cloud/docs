@@ -12,7 +12,7 @@ To get an idea of how the problem might be solved:
 1. [Install dependencies](#satisfy-dependencies).
 1. [Upload and label the data](#load-dataset).
 1. [Prepare the ML model and calculate the properties](#get-cnn-model).
-1. [Train the classifier on the obtained properties](#classifier-fit).
+1. [Train the classifier using the properties you calculated](#classifier-fit).
 1. [Predict the property for the test image](#model-test).
 1. [View practical applications of the model](#model-apply).
 
@@ -158,11 +158,11 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 1. Specify the parameters:
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**: `data-folder`.
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}**: `sa-for-project`.
-   * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}**: A subnet of the `{{region-id}}-a` availability zone in the `data-folder` folder.
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}**: Subnet of the `{{ region-id }}-a` availability zone in the `data-folder` folder.
 
    {% include [subnet-create](../../_includes/subnet-create.md) %}
 
-   * **{{ ui-key.yc-ui-datasphere.edit-project-page.security-group }}**: Specify a [security group](../../vpc/concepts/security-groups.md) if you use them in your organization.
+   * **{{ ui-key.yc-ui-datasphere.edit-project-page.security-group }}**: Specify a [security group](../../vpc/concepts/security-groups.md), if used in your organization.
 1. Click **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
 ## Create secrets {#create-secrets}
@@ -242,15 +242,15 @@ To upload and label the data:
    ```
 
 1. Run the selected cells.
-1. Wait for the operation to complete. When the operation is complete, one of the images is displayed to check whether the data was uploaded and labeled correctly.
+1. Wait for the operation to complete. When the operation is complete, one of the images is displayed to check if the data was uploaded and labeled correctly.
 
 ## Prepare the ML model and calculate the properties {#get-cnn-model}
 
 Go to the **Calculating the characteristics** section. You can use it to:
 
-1. Load the ResNet50 model from the Keras package with weights pre-selected using the ImageNet dataset. This set contains 1.2 million images classified into 1,000 categories.
+1. Load the ResNet50 model from the Keras package with weights pre-selected using the ImageNet dataset. This set contains 1.2 million images in 1,000 categories.
 1. Define the `featurize_images` function. It splits the list of images into 'chunks' of 32 each, scales the images down to 224×224 pixels, and converts them to a four-dimensional [tensor](https://en.wikipedia.org/wiki/Tensor) for uploading to the Keras model. Next, the function calculates their properties and returns them in a NumPy array.
-1. Leverage the function to calculate binary properties (`1` means car, `0` means other) and save them to a file. This step may take 10-15 minutes. You can read more about the ResNet50 model [here](https://www.kaggle.com/keras/resnet50).
+1. Use the function to calculate binary properties (`1` means car, `0` means other) and save them to a file. This step may take 10-15 minutes. You can read more about the ResNet50 model [here](https://www.kaggle.com/keras/resnet50).
 
 To prepare the model and calculate the properties:
 
@@ -265,7 +265,7 @@ To prepare the model and calculate the properties:
 1. Run the selected cells.
 1. Wait for the operation to complete.
 
-## Train the classifier on the obtained properties {#classifier-fit}
+## Train the classifier using the properties you calculated {#classifier-fit}
 
 In this section, you will train the LightGBM classifier on the properties calculated in the previous section. The model's characterization is done using cross-validation.
 
@@ -273,22 +273,22 @@ The [K-fold](http://scikit-learn.org/0.16/modules/generated/sklearn.cross_valida
 
 This is important when there are much fewer images of one category of your data than in another. This example uses cross-validation with five folds. You can set a different number of folds in the `n_splits` parameter.
 
-Go to the **Training and cross-validation** and **Saving the model** sections. The following operations are performed there:
+Go to the **Training and cross-validation** and **Saving the model** sections. These are used to perform the following operations:
 
-1. An object for cross-validation of training results is defined using the **K-fold** method.
-1. A table is prepared to store the classification's quality metrics.
-1. The `classification_metrics` function for calculating the selected metrics is defined.
-1. Training of the LightGBM classifier is started. This example uses cross-validation with five folds:
+1. Define an object for cross-validation of training results using the **K-fold** method.
+1. Prepare a table to store the classification quality metrics.
+1. Define the `classification_metrics` function to calculate the selected metrics.
+1. Start the LightGBM classifier training. This example uses cross-validation comprising five folds:
    1. The training sample is divided into five equal non-overlapping parts.
-   1. Five iterations are run. At each iteration, the following steps are performed:
+   1. Five iterations take place. At each one, the following steps are performed:
       1. The model is trained on four parts from the sample.
-      1. The model is tested on the sample's part not used for training.
+      1. The model is tested on the sample part not used for training.
       1. The selected quality metrics are output.
-1. The classifier is trained on the full dataset, and the resulting error matrix is output.
+1. Train the classifier on the full dataset and output the resulting error matrix.
 
 To train the classifier, run all the cells in the **Training and cross-validation** and **Saving the model** sections one by one.
 
-As a result, the trained model is saved to a separate file.
+The model thus trained will be saved to a separate file.
 
 ## Get the results of feature prediction based on test data {#model-test}
 
@@ -296,11 +296,11 @@ To use the resulting model:
 
 1. Open the **ML** folder and then the **model-testing.ipynb** notebook.
 
-   This notebook uses the previously trained LightGBM classifier to prepare the required entities to illustrate how your model can be used in practice.
+   This notebook uses the previously trained LightGBM classifier to prepare the entities required to illustrate how you can use your model.
 
    {% note info %}
 
-   You need much fewer resources to use the model than to train it, that's why a minimum c1.4 configuration is left for this purpose (default).
+   You need much less resources to use your model than to train it; therefore, the minimum c1.4 configuration is left for this purpose (default).
 
    {% endnote %}
 
@@ -323,7 +323,7 @@ To use the resulting model:
 
 1. In the cell from the **Prediction** section, load the ResNet50 model and the prepared LightGBM classifier and calculate the probability of the predicted binary property value (`1` means a car).
 
-   It takes longer to process the cell with prediction calculation for the first time, because the models are loaded into the memory. At subsequent runs, the cell will run faster:
+   It takes longer to process the cell with prediction calculation for the first time, because the models are loaded into the memory. The subsequent runs will be executed faster:
 
    ```
    %%time
@@ -339,7 +339,7 @@ To use the resulting model:
    test_image = 'bus/electric_bus-183.jpeg'
    ```
 
-   This is a test image that doesn't have a car in it.
+   This is a test image with no car in it.
 
 1. Run the cell.
 1. Repeat the probability calculation and make sure that the value is much less than `0.5`.
@@ -348,21 +348,21 @@ Now you see that the classifier well predicts the property for both images.
 
 {% note info %}
 
-You can [share](../../datasphere/operations/projects/publication.md) the available notebook containing the computations or [export the entire project](../../datasphere/operations/projects/export.md).
+You can [share](../../datasphere/operations/projects/publication.md) the prepared notebook with the computations or [export the whole project](../../datasphere/operations/projects/export.md).
 
 {% endnote %}
 
 ## Practical use of the model {#model-apply}
 
-There are several practical uses of the model you built:
+There are several practical uses for your model:
 
-* Based on the code of the proposed solution, you can run a web service using [{{ sf-full-name }}](../../functions/) and analyze on-event images from a CCTV camera.
+* The code of the proposed solution allows running a web service using [{{ sf-full-name }}](../../functions/) and analyze on-event CCTV content.
 * For parallel processing of images collected from multiple video cameras into an S3 bucket, you can upload the code to an Apache Spark™ cluster in [{{ dataproc-full-name }}](../../data-proc/) using the PySpark package.
 
 
 ## How to delete the resources you created {#clear-out}
 
-To shut down the model and stop paying for the resources created:
+To shut down the model and stop paying for the resources you created:
 
 1. [Delete](../../storage/operations/objects/delete.md) all objects from the bucket.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.

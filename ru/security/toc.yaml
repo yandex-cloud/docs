@@ -66,8 +66,6 @@ items:
         href: standard/app-security.md
   - name: Практические руководства
     items:
-      - name: ViPNet Coordinator в {{ yandex-cloud }}
-        href: tutorials/vipnet-to-yc.md
       - name: Настройка и тестирование PT Application Firewall
         href: tutorials/pt-application-firewall.md
       - name: >-

@@ -5,7 +5,7 @@ description: "Follow this guide to learn how to send asynchronous requests to mo
 
 # Sending an asynchronous request
 
-You can request {{ yagpt-full-name }} models in [asynchronous mode](../../concepts/index.md#working-mode). In response to such a request, you will receive the operation ID and use it to track the operation progress.
+You can request {{ yagpt-full-name }} models in [asynchronous mode](../../concepts/index.md#working-mode). In response to such a request, you will get the operation ID you can use to [track its progress](../../../api-design-guide/concepts/operation.md#monitoring).
 
 ## Getting started {#before-begin}
 
@@ -72,24 +72,41 @@ You can request {{ yagpt-full-name }} models in [asynchronous mode](../../concep
 
    Save the operation `id` received in the response.
 
-1. Send a request to [get information about the operation](../../../api-design-guide/concepts/operation.md#monitoring):
+1. Send a request to get the operation result:
 
    ```bash
-   curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-     https://llm.api.cloud.yandex.net/operations/<operation_ID>
+   curl -X GET \
+     -H "Authorization: Bearer ${IAM_TOKEN}" \
+     https://{{ api-host-operation }}/operations/<operation_ID>
    ```
 
    Result example:
 
    ```bash
    {
-      "done": true,
-      "response": {
-         ...        
-      },
-      "id": "e03sup6d5h1q********",
-      "createdAt": "2023-04-21T22:49:29Z",
-      "createdBy": "ajes08feato8********",
-      "modifiedAt": "2023-04-21T22:49:36Z"
+     "done": true,
+     "response": {
+       "@type": "type.googleapis.com/yandex.cloud.ai.foundation_models.v1.CompletionResponse",
+       "alternatives": [
+         {
+           "message": {
+             "role": "assistant",
+             "text": "To be, or not to be: that is the question."
+           },
+           "status": "ALTERNATIVE_STATUS_FINAL"
+         }
+       ],
+       "usage": {
+         "inputTextTokens": "31",
+         "completionTokens": "10",
+         "totalTokens": "41"
+       },
+       "modelVersion": "18.01.2024"
+     },
+     "id": "d7qo21o5fj1u********",
+     "description": "Async GPT Completion",
+     "createdAt": "2024-05-12T18:46:54Z",
+     "createdBy": "ajes08feato8********",
+     "modifiedAt": "2024-05-12T18:46:55Z"
    }
    ```

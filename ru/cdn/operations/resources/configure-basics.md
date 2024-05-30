@@ -21,11 +21,23 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Измените настройки ресурса.
 
-       {% note warning %}
+      {% note warning %}
 
-       Основное [доменное имя для раздачи контента](../../concepts/resource.md#hostnames) нельзя изменить.
+      Основное [доменное имя для раздачи контента](../../concepts/resource.md#hostnames) нельзя изменить.
 
-       {% endnote %}
+      {% endnote %}
+
+      Чтобы настроить [TLS-сертификат](../../concepts/clients-to-servers-tls.md) для CDN-ресурса, в поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите одну из опций:
+        * `{{ ui-key.yacloud.cdn.value_certificate-no }}` — ресурс будет доступен только по протоколу HTTP.
+
+
+        * `{{ ui-key.yacloud.cdn.value_certificate-custom }}` — выберите сертификат. Ресурс будет доступен по протоколам HTTP и HTTPS.
+
+          {% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
+
+          {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
+
+        Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md).
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -94,6 +106,8 @@ description: "Следуя данной инструкции, вы сможет�
       yc cdn resource update <идентификатор_ресурса> \
         <флаг> <новое_значение>
       ```
+
+      {% include [certificate-settings-cli](../../../_includes/cdn/certificate-settings-cli.md) %}
 
       {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 

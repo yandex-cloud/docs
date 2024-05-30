@@ -43,3 +43,15 @@
 ## У CDN-ресурса статус Not active, и контент не доступен пользователям {#resource-not-active}
 
 Ресурс может находиться в статусе `Not active` из-за того, что к нему нет пользовательских запросов в течение 90 дней, или потому что его деактивировали вручную. Чтобы ресурс снова стал активен, [включите](operations/resources/configure-basics.md) опцию **{{ ui-key.yacloud.cdn.field_access }}** в основных настройках ресурса. Активировать и деактивировать ресурсы могут пользователи с ролью `cdn.editor` или выше.
+
+## Не удается настроить TLS-сертификат {#tls-certificate}
+
+{% include [lets-encrypt-over](../_includes/cdn/lets-encrypt-over.md) %}
+
+{% include [certificate-usage](../_includes/cdn/certificate-usage.md) %}
+
+Ниже приведен пример ошибки в CLI, когда сертификат и CDN-ресурс находятся в разных каталогах:
+
+```bash
+ERROR: operation (id=bcdb6qaiw8mb********) failed: rpc error: code = InvalidArgument desc = folder ids of user and certificate don't match; operation-id: bcdb6qaiw8mb********
+```

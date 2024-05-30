@@ -33,3 +33,7 @@ description: "Различные сценарии использования {{ 
 
 * [{#T}](data-from-metrica-yc-visualization.md)
 * [{#T}](yq.md)
+* [{#T}](yq-storage.md)
+* [{#T}](yq-clickhouse.md)
+* [{#T}](yq-postgre.md)
+* [{#T}](yq-federative-queries.md)

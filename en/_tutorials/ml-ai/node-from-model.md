@@ -30,11 +30,11 @@ The cost of deploying a service from a model includes:
 
 ### Create a folder {#create-folder}
 
-Create a folder in which you will deploy your infrastructure and your service will store the logs.
+Create a folder for you to deploy your infrastructure and for your service to store the logs.
 
 {% note info %}
 
-In our example, both the {{ yandex-cloud }} infrastructure and the service deployed operate in the same {{ yandex-cloud }} folder; however, this is not a requirement.
+In our example, both the {{ yandex-cloud }} infrastructure and the deployed service operate from the same {{ yandex-cloud }} folder; however, this is not a requirement.
 
 {% endnote %}
 

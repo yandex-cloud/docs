@@ -5,6 +5,8 @@ description: "Follow this guide to change the Python version for your project."
 
 # Selecting a Python version
 
+{% include [python-disclaimer](../../../_includes/datasphere/python-disclaimer.md) %}
+
 Python 3.10 is used in {{ ml-platform-short-name }} projects by default. To change the version for the project:
 
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}

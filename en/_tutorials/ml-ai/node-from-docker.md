@@ -2,7 +2,7 @@
 
 {{ ml-platform-name }} enables you to deploy and run services based on any Docker image.
 
-In this tutorial, you will, using a [node built from a Docker image](../../datasphere/concepts/deploy/index.md#docker-node), deploy an object detection service based on [NVIDIA Triton Inference Server](https://github.com/triton-inference-server).
+In this tutorial, you will, use a [node built from a Docker image](../../datasphere/concepts/deploy/index.md#docker-node) to deploy an object detection service based on [NVIDIA Triton Inference Server](https://github.com/triton-inference-server).
 
 1. [Prepare your infrastructure](#infra).
 1. [Prepare a Docker image for the service deployment](#docker).
@@ -31,7 +31,6 @@ The cost of deploying a service based on a Docker image includes:
 
 ### Create a folder {#create-folder}
 
-
 Create a folder for you to deploy your infrastructure and for your service to store the logs.
 
 {% note info %}
@@ -44,7 +43,7 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
@@ -142,7 +141,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
    {% endcut %}
 
 1. Run [Docker Desktop](https://docs.docker.com/desktop/).
-1. In the command shell, navigate to the folder with `Dockerfile` you created.
+1. In the command shell, navigate to the folder with `Dockerfile` you created:
 
    ```bash
    cd docker-images
@@ -170,13 +169,13 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 
    1. [Get authenticated in {{ container-registry-name }}](../../container-registry).
 
-      1. Issue an [IAM token](../../iam/concepts/authorization/iam-token.md) for your service account.
+      1. Issue an [IAM token](../../iam/concepts/authorization/iam-token.md) for your service account:
 
       ```bash
       yc iam create-token
       ```
 
-      The response will contain the IAM token: If you are authenticating using a federated account, the CLI will redirect you to the management console to authenticate and then send you an IAM token.
+      The response will contain the IAM token. If you are authenticating using a federated account, the CLI will redirect you to the management console to authenticate and then send you an IAM token.
 
       {% note info %}
 
@@ -184,12 +183,12 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 
       {% endnote %}
 
-      1. Run the command with the token value you got in the previous step in place of `<IAM token>`:
+      1. Run the command with the token value you got in the previous step in place of `<IAM_token>`:
 
       ```bash
       docker login \
         --username iam \
-        --password <IAM token> \
+        --password <IAM_token> \
         {{ registry }}
       ```
 
@@ -259,7 +258,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 
 1. [Download a notebook](https://{{ s3-storage-host }}/doc-files/datasphere-nodefromdocker.ipynb) with the health check code and upload it to the `Node from Docker` project in {{ jlab }}Lab.
 1. Run the cells in the **Preparing environment** section: select the cells and press **Shift** + **Enter**.
-1. Under **Authentication**, fill out the details to get authenticated in the node. Replace `<node ID>` and `<folder ID>` with your node ID (`triton`) and folder ID (`data-folder`).
+1. Under **Authentication**, fill out the details to get authenticated in the node. Replace `<node_ID>` and `<folder_ID>` with your node ID `triton` and folder ID `data-folder`.
 1. Run the cells under **Authentication**.
 1. Run the cells under **Test requests**. As you will access different models, the service will return objects it has detected in the image in response to each request.
 

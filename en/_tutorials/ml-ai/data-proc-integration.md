@@ -75,7 +75,7 @@ Create a folder where your {{ dataproc-name }} cluster will run.
 
 {% endlist %}
 
-### Create a service account for the {#create-sa} cluster.
+### Create a service account for the cluster {#create-sa}
 
 {% list tabs group=instructions %}
 
@@ -95,7 +95,7 @@ Create a folder where your {{ dataproc-name }} cluster will run.
 
 ### Create an SSH key pair {#ssh}
 
-To ensure a safe connection to the {{ dataproc-name }} cluster hosts, you'll need SSH keys. If you generated SSH keys previously, you can skip this step.
+To ensure a safe connection to the {{ dataproc-name }} cluster hosts, you will need SSH keys. You may skip this step if you have already generated your SSH keys.
 
 {% cut "How to generate an SSH key pair" %}
 
@@ -124,11 +124,11 @@ To work with {{ dataproc-name }} clusters in {{ ml-platform-name }}, create and 
 1. Specify the parameters:
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**: `data-folder`.
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}**: `sa-for-data-proc`.
-   * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}**: A subnet of the `{{ region-id }}-a` availability zone in the `data-folder` folder.
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}**: Subnet of the `{{ region-id }}-a` availability zone in the `data-folder` folder.
 
       {% include [subnet-create](../../_includes/subnet-create.md) %}
 
-   * [Security groups](../../vpc/concepts/security-groups.md) if you use them in your organization.
+   * [Security groups](../../vpc/concepts/security-groups.md), if used in your organization.
 
 1. Click **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
@@ -201,7 +201,7 @@ You can view your current resources under [Quotas]({{ link-console-quotas }}) in
 
       {% endnote %}
 
-      The roles of `Compute` and `Data` subcluster are different: you can deploy data storage components on `Data` subclusters, and data processing components on `Compute` subclusters. Storage on a `Compute` subcluster is only used to temporarily store processed files.
+      The roles of `Compute` and `Data` subclusters are different: you can deploy data storage components on `Data` subclusters, and data processing components on `Compute` subclusters. The `Compute` subcluster storage is only used to temporarily store processed files.
    1. For each subcluster, you can configure:
       * Number of hosts.
       * [Host class](../../data-proc/concepts/instance-types.md): Platform and computing resources available to the host.
@@ -212,7 +212,7 @@ You can view your current resources under [Quotas]({{ link-console-quotas }}) in
 
 {% endlist %}
 
-{{ dataproc-name }} runs the create cluster operation. After the cluster status changes to **{{ ui-key.yc-ui-datasphere.data-proc.running }}**, you can [connect](../../data-proc/operations/connect.md) to any active subcluster using the specified SSH key.
+{{ dataproc-name }} will run the cluster create operation. After the cluster status changes to **{{ ui-key.yc-ui-datasphere.data-proc.running }}**, you can [connect](../../data-proc/operations/connect.md) to any active subcluster using the specified SSH key.
 
 The {{ dataproc-name }} cluster you created will be added to your {{ ml-platform-name }} project under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** ⟶ **{{ ui-key.yc-ui-datasphere.resources.dataProc }}** ⟶ **{{ ui-key.yc-ui-datasphere.data-proc.available-clusters }}**.
 
@@ -236,9 +236,9 @@ The {{ dataproc-name }} cluster you created will be added to your {{ ml-platform
    print("Pi is roughly %f" % (4.0 * count / NUM_SAMPLES))
    ```
 
-   Where `#!spark --cluster <cluster_name>` is a mandatory system command to run computations on a cluster.
+   Where `#!spark --cluster <cluster_name>` is a required system command to run computations on a cluster.
 
-   Wait for the computation to start. While it is in progress, you'll see logs under the cell.
+   Wait for the computation to start. While it is in progress, you will see logs under the cell.
 
 1. Write data to S3 by specifying the bucket name:
 
@@ -261,7 +261,7 @@ To learn more about running computations in the {{ dataproc-name }} clusters in
 
 {% note warning %}
 
-As a user of a cluster deployed in {{ dataproc-name }}, you manage its lifecycle yourself. The cluster will run, and you will be [charged](../../data-proc/pricing.md) for it until you shut it down.
+As a user of a cluster deployed in {{ dataproc-name }}, you manage its lifecycle yourself. The cluster will run, and fees will be [charged](../../data-proc/pricing.md), until you shut it down.
 
 {% endnote %}
 
@@ -270,4 +270,4 @@ To stop paying for the resources you created:
 * [Delete the objects](../../storage/operations/objects/delete-all.md) from the bucket.
 * [Delete the bucket](../../storage/operations/buckets/delete.md).
 * [Delete the cluster](../../data-proc/operations/cluster-delete.md).
-* [Delete your project](../../datasphere/operations/projects/delete.md).
+* [Delete the project](../../datasphere/operations/projects/delete.md).
