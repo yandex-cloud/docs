@@ -95,18 +95,28 @@ sourcePath: ru/_api-ref/datalens/function-ref/RCOUNT.md
 
 Сортировка по `[City]`, `[Category]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Category**: `[Category]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **RCOUNT TOTAL**: `RCOUNT(SUM([Orders]) TOTAL)` ;
+- **RCOUNT WITHIN**: `RCOUNT(SUM([Orders]) WITHIN [City])` ;
+- **RCOUNT AMONG**: `RCOUNT(SUM([Orders]) AMONG [City])` .
+
+
 Результат
 
-| **[City]**        | **[Category]**      | **SUM([Orders])**   | **RCOUNT(SUM([Orders]) TOTAL)**   | **RCOUNT(SUM([Orders]) WITHIN [City])**   | **RCOUNT(SUM([Orders]) AMONG [City])**   |
-|:------------------|:--------------------|:--------------------|:----------------------------------|:------------------------------------------|:-----------------------------------------|
-| `'Detroit'`       | `'Furniture'`       | `7`                 | `1`                               | `1`                                       | `1`                                      |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `2`                               | `2`                                       | `1`                                      |
-| `'London'`        | `'Furniture'`       | `1`                 | `3`                               | `1`                                       | `2`                                      |
-| `'London'`        | `'Office Supplies'` | `10`                | `4`                               | `2`                                       | `2`                                      |
-| `'Moscow'`        | `'Furniture'`       | `2`                 | `5`                               | `1`                                       | `3`                                      |
-| `'Moscow'`        | `'Office Supplies'` | `4`                 | `6`                               | `2`                                       | `3`                                      |
-| `'San Francisco'` | `'Furniture'`       | `5`                 | `7`                               | `1`                                       | `4`                                      |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `8`                               | `2`                                       | `4`                                      |
+| **City**          | **Category**        | **Order Sum**   | **RCOUNT TOTAL**   | **RCOUNT WITHIN**   | **RCOUNT AMONG**   |
+|:------------------|:--------------------|:----------------|:-------------------|:--------------------|:-------------------|
+| `'Detroit'`       | `'Furniture'`       | `7`             | `1`                | `1`                 | `1`                |
+| `'Detroit'`       | `'Office Supplies'` | `25`            | `2`                | `2`                 | `1`                |
+| `'London'`        | `'Furniture'`       | `1`             | `3`                | `1`                 | `2`                |
+| `'London'`        | `'Office Supplies'` | `10`            | `4`                | `2`                 | `2`                |
+| `'Moscow'`        | `'Furniture'`       | `2`             | `5`                | `1`                 | `3`                |
+| `'Moscow'`        | `'Office Supplies'` | `4`             | `6`                | `2`                 | `3`                |
+| `'San Francisco'` | `'Furniture'`       | `5`             | `7`                | `1`                 | `4`                |
+| `'San Francisco'` | `'Office Supplies'` | `23`            | `8`                | `2`                 | `4`                |
 
 {% endcut %}
 
@@ -133,14 +143,23 @@ sourcePath: ru/_api-ref/datalens/function-ref/RCOUNT.md
 
 Сортировка по `[City]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **RCOUNT 1**: `RCOUNT(SUM([Orders]), "desc")` ;
+- **RCOUNT 2**: `RCOUNT(SUM([Orders]), "asc" ORDER BY [City] DESC)` ;
+- **RCOUNT 3**: `RCOUNT(SUM([Orders]) ORDER BY [Order Sum])` .
+
+
 Результат
 
-| **[City]**        | **SUM([Orders])**   | **RCOUNT(SUM([Orders]), "desc")**   | **RCOUNT(SUM([Orders]), "asc" ORDER BY [City] DESC)**   | **RCOUNT(SUM([Orders]) ORDER BY [Order Sum])**   |
-|:------------------|:--------------------|:------------------------------------|:--------------------------------------------------------|:-------------------------------------------------|
-| `'Detroit'`       | `32`                | `4`                                 | `4`                                                     | `4`                                              |
-| `'London'`        | `11`                | `3`                                 | `3`                                                     | `2`                                              |
-| `'Moscow'`        | `6`                 | `2`                                 | `2`                                                     | `1`                                              |
-| `'San Francisco'` | `28`                | `1`                                 | `1`                                                     | `3`                                              |
+| **City**          | **Order Sum**   | **RCOUNT 1**   | **RCOUNT 2**   | **RCOUNT 3**   |
+|:------------------|:----------------|:---------------|:---------------|:---------------|
+| `'Detroit'`       | `32`            | `4`            | `4`            | `4`            |
+| `'London'`        | `11`            | `3`            | `3`            | `2`            |
+| `'Moscow'`        | `6`             | `2`            | `2`            | `1`            |
+| `'San Francisco'` | `28`            | `1`            | `1`            | `3`            |
 
 {% endcut %}
 

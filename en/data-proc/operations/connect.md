@@ -101,7 +101,7 @@ Rule settings depend on the connection method you select:
 
 {% note info %}
 
-You can set more detailed rules for security groups, such as allowing traffic in only specific subnets.
+You can specify more detailed rules for your security groups, e.g., to allow traffic only in specific subnets.
 
 Security groups must be configured correctly for all subnets where cluster hosts will be located.
 

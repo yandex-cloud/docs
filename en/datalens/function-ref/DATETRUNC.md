@@ -27,6 +27,13 @@ Supported units:
 - `"quarter"`;
 - `"year"`.
 
+When using a function with three arguments, it is processed on the {{ CH }} side by the [toStartOfInterval function](https://clickhouse.com/docs/en/sql-reference/functions/date-time-functions#tostartofinterval). Rounding is done relative to a specific point in time, as detailed in the table in the function description. For example:
+```
+DATETRUNC(#2018-07-12 11:07:13#, "month", 4) = #2018-05-01 00:00:00#
+```
+
+For the `unit` argument set to `month`, rounding starts from `1900-01-01`. There are 1,422 months between `2018-07-12` and `1900-01-01`. Rounding this value to the nearest number divisible by 4 (the `number` argument), we get 1,420 months. Thus, adding 1,420 months to `1900-01-01` gives us `2018-05-01`.
+
 **Argument types:**
 - `datetime` — `Date | Datetime`
 - `unit` — `String`
@@ -60,10 +67,6 @@ DATETRUNC(#2018-07-12#, "year", 5) = #2015-01-01#
 
 ```
 DATETRUNC(#2018-07-12 11:07:13#, "second", 5) = #2018-07-12 11:07:10#
-```
-
-```
-DATETRUNC(#2018-07-12 11:07:13#, "month", 4) = #2018-05-01 00:00:00#
 ```
 
 

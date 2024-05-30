@@ -92,18 +92,28 @@ sourcePath: ru/_api-ref/datalens/function-ref/LAG.md
 
 Сортировка по `[City]`, `[Category]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Category**: `[Category]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **LAG TOTAL**: `LAG(SUM([Orders]) TOTAL)` ;
+- **LAG WITHIN**: `LAG(SUM([Orders]) WITHIN [City])` ;
+- **LAG AMONG**: `LAG(SUM([Orders]) AMONG [City])` .
+
+
 Результат
 
-| **[City]**        | **[Category]**      | **SUM([Orders])**   | **LAG(SUM([Orders]) TOTAL)**   | **LAG(SUM([Orders]) WITHIN [City])**   | **LAG(SUM([Orders]) AMONG [City])**   |
-|:------------------|:--------------------|:--------------------|:-------------------------------|:---------------------------------------|:--------------------------------------|
-| `'Detroit'`       | `'Furniture'`       | `7`                 | `NULL`                         | `NULL`                                 | `NULL`                                |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `7`                            | `7`                                    | `NULL`                                |
-| `'London'`        | `'Furniture'`       | `1`                 | `25`                           | `NULL`                                 | `7`                                   |
-| `'London'`        | `'Office Supplies'` | `10`                | `1`                            | `1`                                    | `25`                                  |
-| `'Moscow'`        | `'Furniture'`       | `2`                 | `10`                           | `NULL`                                 | `1`                                   |
-| `'Moscow'`        | `'Office Supplies'` | `4`                 | `2`                            | `2`                                    | `10`                                  |
-| `'San Francisco'` | `'Furniture'`       | `5`                 | `4`                            | `NULL`                                 | `2`                                   |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `5`                            | `5`                                    | `4`                                   |
+| **City**          | **Category**        | **Order Sum**   | **LAG TOTAL**   | **LAG WITHIN**   | **LAG AMONG**   |
+|:------------------|:--------------------|:----------------|:----------------|:-----------------|:----------------|
+| `'Detroit'`       | `'Furniture'`       | `7`             | `NULL`          | `NULL`           | `NULL`          |
+| `'Detroit'`       | `'Office Supplies'` | `25`            | `7`             | `7`              | `NULL`          |
+| `'London'`        | `'Furniture'`       | `1`             | `25`            | `NULL`           | `7`             |
+| `'London'`        | `'Office Supplies'` | `10`            | `1`             | `1`              | `25`            |
+| `'Moscow'`        | `'Furniture'`       | `2`             | `10`            | `NULL`           | `1`             |
+| `'Moscow'`        | `'Office Supplies'` | `4`             | `2`             | `2`              | `10`            |
+| `'San Francisco'` | `'Furniture'`       | `5`             | `4`             | `NULL`           | `2`             |
+| `'San Francisco'` | `'Office Supplies'` | `23`            | `5`             | `5`              | `4`             |
 
 {% endcut %}
 
@@ -130,14 +140,22 @@ sourcePath: ru/_api-ref/datalens/function-ref/LAG.md
 
 Сортировка по `[City]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **LAG 1**: `LAG(SUM([Orders]), 1)` ;
+- **LAG 2**: `LAG(SUM([Orders]), -2)` .
+
+
 Результат
 
-| **[City]**        | **SUM([Orders])**   | **LAG(SUM([Orders]), 1)**   | **LAG(SUM([Orders]), -2)**   |
-|:------------------|:--------------------|:----------------------------|:-----------------------------|
-| `'Detroit'`       | `32`                | `NULL`                      | `6`                          |
-| `'London'`        | `11`                | `32`                        | `28`                         |
-| `'Moscow'`        | `6`                 | `11`                        | `NULL`                       |
-| `'San Francisco'` | `28`                | `6`                         | `NULL`                       |
+| **City**          | **Order Sum**   | **LAG 1**   | **LAG 2**   |
+|:------------------|:----------------|:------------|:------------|
+| `'Detroit'`       | `32`            | `NULL`      | `6`         |
+| `'London'`        | `11`            | `32`        | `28`        |
+| `'Moscow'`        | `6`             | `11`        | `NULL`      |
+| `'San Francisco'` | `28`            | `6`         | `NULL`      |
 
 {% endcut %}
 
@@ -164,14 +182,22 @@ sourcePath: ru/_api-ref/datalens/function-ref/LAG.md
 
 Сортировка по `[City]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **LAG ORDER BY City**: `LAG(SUM([Orders]) ORDER BY [City] DESC)` ;
+- **LAG ORDER BY Order Sum**: `LAG(SUM([Orders]) ORDER BY [Order Sum])` .
+
+
 Результат
 
-| **[City]**        | **SUM([Orders])**   | **LAG(SUM([Orders]) ORDER BY [City] DESC)**   | **LAG(SUM([Orders]) ORDER BY [Order Sum])**   |
-|:------------------|:--------------------|:----------------------------------------------|:----------------------------------------------|
-| `'Detroit'`       | `32`                | `11`                                          | `28`                                          |
-| `'London'`        | `11`                | `6`                                           | `6`                                           |
-| `'Moscow'`        | `6`                 | `28`                                          | `NULL`                                        |
-| `'San Francisco'` | `28`                | `NULL`                                        | `11`                                          |
+| **City**          | **Order Sum**   | **LAG ORDER BY City**   | **LAG ORDER BY Order Sum**   |
+|:------------------|:----------------|:------------------------|:-----------------------------|
+| `'Detroit'`       | `32`            | `11`                    | `28`                         |
+| `'London'`        | `11`            | `6`                     | `6`                          |
+| `'Moscow'`        | `6`             | `28`                    | `NULL`                       |
+| `'San Francisco'` | `28`            | `NULL`                  | `11`                         |
 
 {% endcut %}
 

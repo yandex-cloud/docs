@@ -4,10 +4,10 @@ _[{{ kraft-name }}](https://docs.confluent.io/platform/current/kafka-metadata/kr
 
 {{ kraft-short-name }} is supported by {{ mkf-name }} clusters with {{ KF }} 3.6 or higher. [{{ ZK }} is used](index.md#zookeeper) only in earlier versions.
 
-{{ kraft-short-name }} replaces {{ ZK }} because:
+Reasons for replacing {{ ZK }} with {{ kraft-short-name }}:
 
 * {{ ZK }} has become obsolete in {{ KF }} 3.5 or higher.
-* {{ KF }} 4.0 will not support {{ ZK }}.
+* {{ ZK }} support will be discontinued starting from {{ KF }} 4.0.
 
 ## {{ mkf-name }} cluster topology {#cluster-topology}
 
@@ -15,13 +15,13 @@ _[{{ kraft-name }}](https://docs.confluent.io/platform/current/kafka-metadata/kr
 
 ## {{ kraft-name }} pros and cons {#pros-and-cons}
 
-{{ kraft-short-name }} pros arise from {{ KF }} no longer depending on the {{ ZK }} external system. As a result:
+{{ kraft-short-name }} advantages stem from {{ KF }} no longer depending on the {{ ZK }} external system.
 
 * You do not need to pay extra for {{ ZK }} hosts.
 * There is a single mechanism in place for information security instead of multiple ones.
-* Managing a cluster with {{ kraft-short-name }} is simpler, as such a cluster has no {{ ZK }} hosts.
+* A cluster with {{ kraft-short-name }} is easier to manage, as it has no {{ ZK }} hosts.
 * The cluster becomes more fault-tolerant and recovers almost instantly in case of a failure.
-* You can create and manage a greater number of partitions within the cluster.
+* You can create a greater number of partitions within the cluster.
 
 For more information, see the Confluent [website](https://developer.confluent.io/learn/kraft/#benefits-of-kafkas-new-quorum-controller) and [documentation](https://docs.confluent.io/platform/current/kafka-metadata/kraft.html).
 

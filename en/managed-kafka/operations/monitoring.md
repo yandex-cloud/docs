@@ -106,7 +106,7 @@ For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert.label_
 * `{{ ui-key.yacloud_monitoring.alert.label_alarm }}`: `96,636,764,160` bytes (90%)
 * `{{ ui-key.yacloud_monitoring.alert.label_warning }}`: `85,899,345,920` bytes (80%)
 
-You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-kafka).
+You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/managed-kafka-ref.md).
 
 
 ## Cluster state and status {#cluster-health-and-status}

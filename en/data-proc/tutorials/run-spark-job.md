@@ -249,27 +249,27 @@ Spark Submit allows you to run pre-written applications using the `spark-submit`
 
          The version you need is `3.0.3`.
 
-   1. In the `spark-app` folder, create a file named `build.sbt` with the following configuration:
+      1. In the `spark-app` folder, create a file named `build.sbt` with the following configuration:
 
-      ```scala
-      scalaVersion := "<scala_version>"
+         ```scala
+         scalaVersion := "<scala_version>"
 
-      libraryDependencies ++= Seq(
-          "org.apache.spark" %% "spark-core" % "<spark_core_version>" % "provided",
-          "org.apache.spark" %% "spark-sql" % "<spark_sql_version>" % "provided"
-      )
-      ```
+         libraryDependencies ++= Seq(
+             "org.apache.spark" %% "spark-core" % "<spark_core_version>" % "provided",
+             "org.apache.spark" %% "spark-sql" % "<spark_sql_version>" % "provided"
+         )
+         ```
 
-      For example:
+         For example:
 
-      ```scala
-      scalaVersion := "2.12.10"
+         ```scala
+         scalaVersion := "2.12.10"
 
-      libraryDependencies ++= Seq(
-          "org.apache.spark" %% "spark-core" % "3.0.3" % "provided",
-          "org.apache.spark" %% "spark-sql" % "3.0.3" % "provided"
-      )
-      ```
+         libraryDependencies ++= Seq(
+             "org.apache.spark" %% "spark-core" % "3.0.3" % "provided",
+             "org.apache.spark" %% "spark-sql" % "3.0.3" % "provided"
+         )
+         ```
 
    1. Compile and build your JAR file:
 

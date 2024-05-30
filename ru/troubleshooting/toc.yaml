@@ -371,6 +371,9 @@ items:
       - name: Решения для известных проблем Container Registry
         href: container-registry/known-issues/index.md
         hidden: true
+      - name: Workaround для загрузки образов с DockerHub.com
+        href: container-registry/known-issues/docker-pull-forbidden-from-russia.md
+        hidden: true
       - name: Превышение лимитов на загрузку образов из каталога DockerHub
         href: >-
           container-registry/known-issues/docker-pull-limit-reached-in-dockerhub.md

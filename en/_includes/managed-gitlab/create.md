@@ -13,7 +13,7 @@
 
    * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
-    * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+   * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
 
       {% note alert %}
 
@@ -21,7 +21,7 @@
 
       {% endnote %}
 
-    * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to create a key pair for the SSH connection yourself. To learn how, see [Connecting to a VM via SSH](../../compute/operations/vm-connect/ssh.md).
+   * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to create a key pair for the SSH connection yourself. To learn how, see [Connecting to a VM via SSH](../../compute/operations/vm-connect/ssh.md).
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-It may take a few minutes to create the VM. When the VM changes its status to `RUNNING` and {{ GL }} starts, you can proceed to setup.
+It may take a few minutes to create a VM. When the VM changes its status to `RUNNING` and {{ GL }} starts, you can proceed with setup.

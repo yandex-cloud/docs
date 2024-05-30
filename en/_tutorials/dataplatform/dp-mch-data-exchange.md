@@ -57,7 +57,7 @@ Prepare the infrastructure:
 
    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable [configuration](../../managed-clickhouse/concepts/instance-types.md) with the following settings:
 
-      * Public access to cluster hosts: Allowed.
+      * With public access to cluster hosts.
       * Database: `db1`.
       * User: `user1`.
 

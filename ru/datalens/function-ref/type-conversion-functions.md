@@ -137,7 +137,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/type-conversion-functions.md
 
 **Синтаксис:**`GEOPOLYGON( value )`
 
-Переводит выражение `value` в формат [геополигона](../concepts/data-types.md#geopolygon).
+Переводит выражение `value` в формат [геополигона](../concepts/data-types.md#geopolygon). Функция принимает на вход строку вида `[[[lat_1,lon_1], [lat_2,lon_2], ..., [lat_N-1,lon_N-1], [lat_N,lon_N]]]`.
 
 
 
@@ -162,5 +162,13 @@ sourcePath: ru/_api-ref/datalens/function-ref/type-conversion-functions.md
 **Синтаксис:**`STR( expression )`
 
 Переводит выражение `expression` к типу строки.
+
+
+
+## [TREE](TREE.md)
+
+**Синтаксис:**`TREE( array )`
+
+Переводит выражение `array` в формат `Дерево строк`. Используется для создания [древовидных иерархий](../concepts/data-types.md#tree-hierarchy).
 
 

@@ -71,18 +71,28 @@ _Функция `COUNT` также доступна в следующих кат
 
 Сортировка по `[City]`, `[Category]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Category**: `[Category]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **COUNT TOTAL**: `COUNT(SUM([Orders]) TOTAL)` ;
+- **COUNT WITHIN**: `COUNT(SUM([Orders]) WITHIN [City])` ;
+- **COUNT AMONG**: `COUNT(SUM([Orders]) AMONG [City])` .
+
+
 Результат
 
-| **[City]**        | **[Category]**      | **SUM([Orders])**   | **COUNT(SUM([Orders]) TOTAL)**   | **COUNT(SUM([Orders]) WITHIN [City])**   | **COUNT(SUM([Orders]) AMONG [City])**   |
-|:------------------|:--------------------|:--------------------|:---------------------------------|:-----------------------------------------|:----------------------------------------|
-| `'Detroit'`       | `'Furniture'`       | `7`                 | `8`                              | `2`                                      | `4`                                     |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `8`                              | `2`                                      | `4`                                     |
-| `'London'`        | `'Furniture'`       | `1`                 | `8`                              | `2`                                      | `4`                                     |
-| `'London'`        | `'Office Supplies'` | `10`                | `8`                              | `2`                                      | `4`                                     |
-| `'Moscow'`        | `'Furniture'`       | `2`                 | `8`                              | `2`                                      | `4`                                     |
-| `'Moscow'`        | `'Office Supplies'` | `4`                 | `8`                              | `2`                                      | `4`                                     |
-| `'San Francisco'` | `'Furniture'`       | `5`                 | `8`                              | `2`                                      | `4`                                     |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `8`                              | `2`                                      | `4`                                     |
+| **City**          | **Category**        | **Order Sum**   | **COUNT TOTAL**   | **COUNT WITHIN**   | **COUNT AMONG**   |
+|:------------------|:--------------------|:----------------|:------------------|:-------------------|:------------------|
+| `'Detroit'`       | `'Furniture'`       | `7`             | `8`               | `2`                | `4`               |
+| `'Detroit'`       | `'Office Supplies'` | `25`            | `8`               | `2`                | `4`               |
+| `'London'`        | `'Furniture'`       | `1`             | `8`               | `2`                | `4`               |
+| `'London'`        | `'Office Supplies'` | `10`            | `8`               | `2`                | `4`               |
+| `'Moscow'`        | `'Furniture'`       | `2`             | `8`               | `2`                | `4`               |
+| `'Moscow'`        | `'Office Supplies'` | `4`             | `8`               | `2`                | `4`               |
+| `'San Francisco'` | `'Furniture'`       | `5`             | `8`               | `2`                | `4`               |
+| `'San Francisco'` | `'Office Supplies'` | `23`            | `8`               | `2`                | `4`               |
 
 
 

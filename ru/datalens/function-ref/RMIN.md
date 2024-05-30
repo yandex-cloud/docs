@@ -95,18 +95,28 @@ sourcePath: ru/_api-ref/datalens/function-ref/RMIN.md
 
 Сортировка по `[City]`, `[Category]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Category**: `[Category]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **RMIN TOTAL**: `RMIN(SUM([Orders]) TOTAL)` ;
+- **RMIN WITHIN**: `RMIN(SUM([Orders]) WITHIN [City])` ;
+- **RMIN AMONG**: `RMIN(SUM([Orders]) AMONG [City])` .
+
+
 Результат
 
-| **[City]**        | **[Category]**      | **SUM([Orders])**   | **RMIN(SUM([Orders]) TOTAL)**   | **RMIN(SUM([Orders]) WITHIN [City])**   | **RMIN(SUM([Orders]) AMONG [City])**   |
-|:------------------|:--------------------|:--------------------|:--------------------------------|:----------------------------------------|:---------------------------------------|
-| `'Detroit'`       | `'Furniture'`       | `7`                 | `7`                             | `7`                                     | `7`                                    |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `7`                             | `7`                                     | `25`                                   |
-| `'London'`        | `'Furniture'`       | `1`                 | `1`                             | `1`                                     | `1`                                    |
-| `'London'`        | `'Office Supplies'` | `10`                | `1`                             | `1`                                     | `10`                                   |
-| `'Moscow'`        | `'Furniture'`       | `2`                 | `1`                             | `2`                                     | `1`                                    |
-| `'Moscow'`        | `'Office Supplies'` | `4`                 | `1`                             | `2`                                     | `4`                                    |
-| `'San Francisco'` | `'Furniture'`       | `5`                 | `1`                             | `5`                                     | `1`                                    |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `1`                             | `5`                                     | `4`                                    |
+| **City**          | **Category**        | **Order Sum**   | **RMIN TOTAL**   | **RMIN WITHIN**   | **RMIN AMONG**   |
+|:------------------|:--------------------|:----------------|:-----------------|:------------------|:-----------------|
+| `'Detroit'`       | `'Furniture'`       | `7`             | `7`              | `7`               | `7`              |
+| `'Detroit'`       | `'Office Supplies'` | `25`            | `7`              | `7`               | `25`             |
+| `'London'`        | `'Furniture'`       | `1`             | `1`              | `1`               | `1`              |
+| `'London'`        | `'Office Supplies'` | `10`            | `1`              | `1`               | `10`             |
+| `'Moscow'`        | `'Furniture'`       | `2`             | `1`              | `2`               | `1`              |
+| `'Moscow'`        | `'Office Supplies'` | `4`             | `1`              | `2`               | `4`              |
+| `'San Francisco'` | `'Furniture'`       | `5`             | `1`              | `5`               | `1`              |
+| `'San Francisco'` | `'Office Supplies'` | `23`            | `1`              | `5`               | `4`              |
 
 {% endcut %}
 
@@ -133,14 +143,23 @@ sourcePath: ru/_api-ref/datalens/function-ref/RMIN.md
 
 Сортировка по `[City]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **RMIN 1**: `RMIN(SUM([Orders]), "desc")` ;
+- **RMIN 2**: `RMIN(SUM([Orders]), "asc" ORDER BY [City] DESC)` ;
+- **RMIN 3**: `RMIN(SUM([Orders]) ORDER BY [Order Sum])` .
+
+
 Результат
 
-| **[City]**        | **SUM([Orders])**   | **RMIN(SUM([Orders]), "desc")**   | **RMIN(SUM([Orders]), "asc" ORDER BY [City] DESC)**   | **RMIN(SUM([Orders]) ORDER BY [Order Sum])**   |
-|:------------------|:--------------------|:----------------------------------|:------------------------------------------------------|:-----------------------------------------------|
-| `'Detroit'`       | `32`                | `6`                               | `6`                                                   | `6`                                            |
-| `'London'`        | `11`                | `6`                               | `6`                                                   | `6`                                            |
-| `'Moscow'`        | `6`                 | `6`                               | `6`                                                   | `6`                                            |
-| `'San Francisco'` | `28`                | `28`                              | `28`                                                  | `6`                                            |
+| **City**          | **Order Sum**   | **RMIN 1**   | **RMIN 2**   | **RMIN 3**   |
+|:------------------|:----------------|:-------------|:-------------|:-------------|
+| `'Detroit'`       | `32`            | `6`          | `6`          | `6`          |
+| `'London'`        | `11`            | `6`          | `6`          | `6`          |
+| `'Moscow'`        | `6`             | `6`          | `6`          | `6`          |
+| `'San Francisco'` | `28`            | `28`         | `28`         | `6`          |
 
 {% endcut %}
 

@@ -202,9 +202,9 @@ mysql --host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
 
 ## Подключение из браузера {#browser}
 
-Используйте сервис [{{ websql-full-name }}](../../websql) для соединения с кластерами {{ MY }} в {{ yandex-cloud }}.
-
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
+Используйте сервис [{{ websql-full-name }}](../../websql) для подключения к кластеру {{ MY }} в {{ yandex-cloud }}.
 
 {% include notitle [connect-to-cluster](../../_includes/websql/connect-to-cluster.md) %}
 

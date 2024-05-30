@@ -737,6 +737,13 @@ Supported units:
 - `"quarter"`;
 - `"year"`.
 
+When using a function with three arguments, it is processed on the {{ CH }} side by the [toStartOfInterval function](https://clickhouse.com/docs/en/sql-reference/functions/date-time-functions#tostartofinterval). Rounding is done relative to a specific point in time, as detailed in the table in the function description. For example:
+```
+DATETRUNC(#2018-07-12 11:07:13#, "month", 4) = #2018-05-01 00:00:00#
+```
+
+For the `unit` argument set to `month`, rounding starts from `1900-01-01`. There are 1,422 months between `2018-07-12` and `1900-01-01`. Rounding this value to the nearest number divisible by 4 (the `number` argument), we get 1,420 months. Thus, adding 1,420 months to `1900-01-01` gives us `2018-05-01`.
+
 
 
 ## [DAY](DAY.md)
@@ -921,7 +928,7 @@ Generates a Geopoint type value. For the input, it accepts a string, a "geopoint
 
 **Syntax:**`GEOPOLYGON( value )`
 
-Converts the `value` expression to [geopolygon](../concepts/data-types.md#geopolygon) format.
+Converts the `value` expression to [geopolygon](../concepts/data-types.md#geopolygon) format. At input, the function accepts strings in `[[[lat_1,lon_1], [lat_2,lon_2], ..., [lat_N-1,lon_N-1], [lat_N,lon_N]]]` format.
 
 
 
@@ -978,6 +985,19 @@ Case-insensitive version of [ENDSWITH](ENDSWITH.md). Returns `TRUE` if `string` 
 **Syntax:**`IFNULL( check_value, alt_value )`
 
 Returns `check_value` if it's not `NULL`. Otherwise returns `alt_value`.
+
+
+
+## [IMAGE](IMAGE.md)
+
+**Syntax:**`IMAGE( src [ , width [ , height [ , alt ] ] ] )`
+
+Enables inserting an image located at the `src` address to the table. The `width` and `height` values are provided in pixels. If one of the dimensions is `NULL`, it will be calculated automatically in proportion to the other. If both dimensions are `NULL`, the image will be inserted with the original width and height. In case there are issues when uploading the image, the function will display the `alt` text.
+
+Images can be added from the `*.yandex.ru`, `*.yandex.net`, `yastat.net`, `yastatic.net`, or `storage.yandexcloud.net` domains. The easiest way is to upload and publish the image in [Yandex Object Storage](../../storage/quickstart.md) (see the pricing [here](../../storage/pricing.md#prices-storage)).
+
+
+
 
 
 
@@ -1106,6 +1126,14 @@ Depending on the specified data type, it returns:
 **Syntax:**`LEFT( string, number )`
 
 Returns a string that contains the number of characters specified in `number` from the beginning of the string `string`.
+
+
+
+## [LEN (array)](LEN_ARRAY.md)
+
+**Syntax:**`LEN( value )`
+
+Returns the number of the `value` items.
 
 
 
@@ -1938,6 +1966,14 @@ Returns the current date, depending on the data source and connection type.
           )`
 
 Returns a string that contains top `amount` unique values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
+
+
+
+## [TREE](TREE.md)
+
+**Syntax:**`TREE( array )`
+
+Converts the `array` expression to `Tree of strings` format. Can be used to create [tree hierarchies](../concepts/data-types.md#tree-hierarchy).
 
 
 

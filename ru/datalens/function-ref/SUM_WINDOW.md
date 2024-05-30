@@ -71,18 +71,28 @@ _Функция `SUM` также доступна в следующих кате
 
 Сортировка по `[City]`, `[Category]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Category**: `[Category]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **SUM TOTAL**: `SUM(SUM([Orders]) TOTAL)` ;
+- **SUM WITHIN**: `SUM(SUM([Orders]) WITHIN [City])` ;
+- **SUM AMONG**: `SUM(SUM([Orders]) AMONG [City])` .
+
+
 Результат
 
-| **[City]**        | **[Category]**      | **SUM([Orders])**   | **SUM(SUM([Orders]) TOTAL)**   | **SUM(SUM([Orders]) WITHIN [City])**   | **SUM(SUM([Orders]) AMONG [City])**   |
-|:------------------|:--------------------|:--------------------|:-------------------------------|:---------------------------------------|:--------------------------------------|
-| `'Detroit'`       | `'Furniture'`       | `7`                 | `77`                           | `32`                                   | `15`                                  |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `77`                           | `32`                                   | `62`                                  |
-| `'London'`        | `'Furniture'`       | `1`                 | `77`                           | `11`                                   | `15`                                  |
-| `'London'`        | `'Office Supplies'` | `10`                | `77`                           | `11`                                   | `62`                                  |
-| `'Moscow'`        | `'Furniture'`       | `2`                 | `77`                           | `6`                                    | `15`                                  |
-| `'Moscow'`        | `'Office Supplies'` | `4`                 | `77`                           | `6`                                    | `62`                                  |
-| `'San Francisco'` | `'Furniture'`       | `5`                 | `77`                           | `28`                                   | `15`                                  |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `77`                           | `28`                                   | `62`                                  |
+| **City**          | **Category**        | **Order Sum**   | **SUM TOTAL**   | **SUM WITHIN**   | **SUM AMONG**   |
+|:------------------|:--------------------|:----------------|:----------------|:-----------------|:----------------|
+| `'Detroit'`       | `'Furniture'`       | `7`             | `77`            | `32`             | `15`            |
+| `'Detroit'`       | `'Office Supplies'` | `25`            | `77`            | `32`             | `62`            |
+| `'London'`        | `'Furniture'`       | `1`             | `77`            | `11`             | `15`            |
+| `'London'`        | `'Office Supplies'` | `10`            | `77`            | `11`             | `62`            |
+| `'Moscow'`        | `'Furniture'`       | `2`             | `77`            | `6`              | `15`            |
+| `'Moscow'`        | `'Office Supplies'` | `4`             | `77`            | `6`              | `62`            |
+| `'San Francisco'` | `'Furniture'`       | `5`             | `77`            | `28`             | `15`            |
+| `'San Francisco'` | `'Office Supplies'` | `23`            | `77`            | `28`             | `62`            |
 
 
 

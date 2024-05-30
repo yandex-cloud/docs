@@ -23,7 +23,7 @@ Prepare the infrastructure:
    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with any suitable configuration.
    1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`.
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`
       * **Endpoint parameters**:
 
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseSource.connection.title }}**:

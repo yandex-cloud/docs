@@ -22,7 +22,7 @@ To move a cluster to a different [availability zone](../../overview/concepts/geo
 
 You can increase the number of broker hosts if the following conditions are met:
 
-* The cluster uses {{ KF }} 3.5 or lower. Clusters with {{ KF }} 3.6 or higher use the [{{ kraft-name }} protocol](../concepts/kraft.md), so the number of hosts in such clusters is fixed.
+* The cluster uses {{ KF }} 3.5 or lower. Clusters running {{ KF }} 3.6 or higher use the [{{ kraft-name }} protocol](../concepts/kraft.md); therefore, such clusters always have three {{ KF }} hosts.
 * The cluster contains at least two broker hosts in different availability zones.
 
 You cannot have fewer broker hosts. To meet the cluster [fault tolerance conditions](../concepts/index.md#fault-tolerance), you need at least three broker hosts.
@@ -30,6 +30,8 @@ You cannot have fewer broker hosts. To meet the cluster [fault tolerance conditi
 {% list tabs group=instructions %}
 
 - Management console {#console}
+
+   To change the class and number of hosts:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. In the appropriate cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
@@ -526,9 +528,9 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
 
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
+   * Settings for the [maintenance](../concepts/maintenance.md) window (for disabled clusters as well) in the `maintenanceWindow` parameter.
 
-   * Cluster access configuration settings for [{{ data-transfer-full-name }}](../../data-transfer/) in Serverless mode: in the `configSpec.access.dataTransfer` parameter.
+   * Cluster access configuration settings for [{{ data-transfer-full-name }}](../../data-transfer/) in serverless mode, in the `configSpec.access.dataTransfer` parameter.
 
       This enables you to connect to {{ data-transfer-full-name }} running in {{ k8s }} via a special network. As a result, other operations, e.g., transfer launch and deactivation, will run faster.
 

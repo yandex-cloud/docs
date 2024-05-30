@@ -45,6 +45,19 @@ You can also specify the color in any web format, such as HEX, keyword (e.g., `g
 
 
 
+## [IMAGE](IMAGE.md)
+
+**Syntax:**`IMAGE( src [ , width [ , height [ , alt ] ] ] )`
+
+Enables inserting an image located at the `src` address to the table. The `width` and `height` values are provided in pixels. If one of the dimensions is `NULL`, it will be calculated automatically in proportion to the other. If both dimensions are `NULL`, the image will be inserted with the original width and height. In case there are issues when uploading the image, the function will display the `alt` text.
+
+Images can be added from the `*.yandex.ru`, `*.yandex.net`, `yastat.net`, `yastatic.net`, or `storage.yandexcloud.net` domains. The easiest way is to upload and publish the image in [Yandex Object Storage](../../storage/quickstart.md) (see the pricing [here](../../storage/pricing.md#prices-storage)).
+
+
+
+
+
+
 ## [ITALIC](ITALIC.md)
 
 **Syntax:**`ITALIC( text )`

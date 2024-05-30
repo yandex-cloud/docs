@@ -96,14 +96,23 @@ sourcePath: ru/_api-ref/datalens/function-ref/MMIN.md
 
 Сортировка по `[City]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **MMIN 1**: `MMIN(SUM([Orders]), 1)` ;
+- **MMIN 2**: `MMIN(SUM([Orders]), -2)` ;
+- **MMIN 3**: `MMIN(SUM([Orders]) 1, 1)` .
+
+
 Результат
 
-| **[City]**        | **SUM([Orders])**   | **MMIN(SUM([Orders]), 1)**   | **MMIN(SUM([Orders]), -2)**   | **MMIN(SUM([Orders]) 1, 1)**   |
-|:------------------|:--------------------|:-----------------------------|:------------------------------|:-------------------------------|
-| `'Detroit'`       | `32`                | `32`                         | `6`                           | `11`                           |
-| `'London'`        | `11`                | `11`                         | `6`                           | `6`                            |
-| `'Moscow'`        | `6`                 | `6`                          | `6`                           | `6`                            |
-| `'San Francisco'` | `28`                | `6`                          | `28`                          | `6`                            |
+| **City**          | **Order Sum**   | **MMIN 1**   | **MMIN 2**   | **MMIN 3**   |
+|:------------------|:----------------|:-------------|:-------------|:-------------|
+| `'Detroit'`       | `32`            | `32`         | `6`          | `11`         |
+| `'London'`        | `11`            | `11`         | `6`          | `6`          |
+| `'Moscow'`        | `6`             | `6`          | `6`          | `6`          |
+| `'San Francisco'` | `28`            | `6`          | `28`         | `6`          |
 
 {% endcut %}
 
@@ -130,14 +139,22 @@ sourcePath: ru/_api-ref/datalens/function-ref/MMIN.md
 
 Сортировка по `[City]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **MMIN 1**: `MMIN(SUM([Orders]), 1 ORDER BY [City] DESC)` ;
+- **MMIN 2**: `MMIN(SUM([Orders]), 1 ORDER BY [Order Sum])` .
+
+
 Результат
 
-| **[City]**        | **SUM([Orders])**   | **MMIN(SUM([Orders]), 1 ORDER BY [City] DESC)**   | **MMIN(SUM([Orders]), 1 ORDER BY [Order Sum])**   |
-|:------------------|:--------------------|:--------------------------------------------------|:--------------------------------------------------|
-| `'Detroit'`       | `32`                | `11`                                              | `28`                                              |
-| `'London'`        | `11`                | `6`                                               | `6`                                               |
-| `'Moscow'`        | `6`                 | `6`                                               | `6`                                               |
-| `'San Francisco'` | `28`                | `28`                                              | `11`                                              |
+| **City**          | **Order Sum**   | **MMIN 1**   | **MMIN 2**   |
+|:------------------|:----------------|:-------------|:-------------|
+| `'Detroit'`       | `32`            | `11`         | `28`         |
+| `'London'`        | `11`            | `6`          | `6`          |
+| `'Moscow'`        | `6`             | `6`          | `6`          |
+| `'San Francisco'` | `28`            | `28`         | `11`         |
 
 {% endcut %}
 
@@ -164,18 +181,28 @@ sourcePath: ru/_api-ref/datalens/function-ref/MMIN.md
 
 Сортировка по `[City]`, `[Category]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Category**: `[Category]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **MMIN 1**: `MMIN(SUM([Orders]), 1 TOTAL ORDER BY [City], [Category])` ;
+- **MMIN 2**: `MMIN(SUM([Orders]), 1 WITHIN [City] ORDER BY [Category])` ;
+- **MMIN 3**: `MMIN(SUM([Orders]), 1 AMONG [City] ORDER BY [City])` .
+
+
 Результат
 
-| **[City]**        | **[Category]**      | **SUM([Orders])**   | **MMIN(SUM([Orders]), 1 TOTAL ORDER BY [City], [Category])**   | **MMIN(SUM([Orders]), 1 WITHIN [City] ORDER BY [Category])**   | **MMIN(SUM([Orders]), 1 AMONG [City] ORDER BY [City])**   |
-|:------------------|:--------------------|:--------------------|:---------------------------------------------------------------|:---------------------------------------------------------------|:----------------------------------------------------------|
-| `'Detroit'`       | `'Furniture'`       | `7`                 | `7`                                                            | `7`                                                            | `7`                                                       |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `7`                                                            | `7`                                                            | `25`                                                      |
-| `'London'`        | `'Furniture'`       | `1`                 | `1`                                                            | `1`                                                            | `1`                                                       |
-| `'London'`        | `'Office Supplies'` | `10`                | `1`                                                            | `1`                                                            | `10`                                                      |
-| `'Moscow'`        | `'Furniture'`       | `2`                 | `2`                                                            | `2`                                                            | `1`                                                       |
-| `'Moscow'`        | `'Office Supplies'` | `4`                 | `2`                                                            | `2`                                                            | `4`                                                       |
-| `'San Francisco'` | `'Furniture'`       | `5`                 | `4`                                                            | `5`                                                            | `2`                                                       |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `5`                                                            | `5`                                                            | `4`                                                       |
+| **City**          | **Category**        | **Order Sum**   | **MMIN 1**   | **MMIN 2**   | **MMIN 3**   |
+|:------------------|:--------------------|:----------------|:-------------|:-------------|:-------------|
+| `'Detroit'`       | `'Furniture'`       | `7`             | `7`          | `7`          | `7`          |
+| `'Detroit'`       | `'Office Supplies'` | `25`            | `7`          | `7`          | `25`         |
+| `'London'`        | `'Furniture'`       | `1`             | `1`          | `1`          | `1`          |
+| `'London'`        | `'Office Supplies'` | `10`            | `1`          | `1`          | `10`         |
+| `'Moscow'`        | `'Furniture'`       | `2`             | `2`          | `2`          | `1`          |
+| `'Moscow'`        | `'Office Supplies'` | `4`             | `2`          | `2`          | `4`          |
+| `'San Francisco'` | `'Furniture'`       | `5`             | `4`          | `5`          | `2`          |
+| `'San Francisco'` | `'Office Supplies'` | `23`            | `5`          | `5`          | `4`          |
 
 {% endcut %}
 

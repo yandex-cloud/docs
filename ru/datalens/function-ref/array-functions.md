@@ -145,6 +145,14 @@ sourcePath: ru/_api-ref/datalens/function-ref/array-functions.md
 
 
 
+## [LEN](LEN_ARRAY.md)
+
+**Синтаксис:**`LEN( value )`
+
+Возвращает количество элементов в массиве `value`.
+
+
+
 ## [REPLACE](REPLACE_ARRAY.md)
 
 **Синтаксис:**`REPLACE( array, old, new )`
