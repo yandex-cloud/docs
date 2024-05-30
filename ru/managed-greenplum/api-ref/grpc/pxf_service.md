@@ -40,7 +40,7 @@ datasources[] | **[PXFDatasource](#PXFDatasource)**<br>
 
 Field | Description
 --- | ---
-name | **string**<br>Required.  The string length in characters must be 3-200.
+name | **string**<br>Required.  The string length in characters must be 3-200. Value must match the regular expression ` ^[^\\\|/*?.,;\"'<>]+$ `.
 settings | **oneof:** `s3`, `jdbc`, `hdfs` or `hive`<br>
 &nbsp;&nbsp;s3 | **[PXFDatasourceS3](#PXFDatasourceS3)**<br> 
 &nbsp;&nbsp;jdbc | **[PXFDatasourceJDBC](#PXFDatasourceJDBC)**<br> 
@@ -55,7 +55,7 @@ Field | Description
 access_key | **string**<br> The maximum string length in characters is 200.
 secret_key | **string**<br> The maximum string length in characters is 200.
 fast_upload | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
-endpoint | **string**<br> The maximum string length in characters is 200.
+endpoint | **string**<br> The maximum string length in characters is 200. Value must match the regular expression ` (((s3\|https?)://)?([a-z0-9]([a-z0-9-]*[a-z0-9])?[.])+[a-z]{2,})? `.
 
 
 ### PXFDatasourceJDBC {#PXFDatasourceJDBC}
@@ -63,14 +63,14 @@ endpoint | **string**<br> The maximum string length in characters is 200.
 Field | Description
 --- | ---
 driver | **string**<br>Matches jdbc.driver The maximum string length in characters is 50.
-url | **string**<br>Matches jdbc.url The maximum string length in characters is 200.
+url | **string**<br>Matches jdbc.url The maximum string length in characters is 1000.
 user | **string**<br>Matches jdbc.user The maximum string length in characters is 200.
 password | **string**<br>Matches jdbc.password The maximum string length in characters is 200.
 statement_batch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.statement.batchsize Acceptable values are 50 to 1000, inclusive.
 statement_fetch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.statement.fetchsize Acceptable values are 50 to 10000, inclusive.
-statement_query_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.statement.querytimeout Acceptable values are 5 to 600, inclusive.
+statement_query_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.statement.querytimeout Acceptable values are 5 to 43200, inclusive.
 pool_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Matches jdbc.pool.enabled 
-pool_maximum_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.pool.property.maximumpoolsize Acceptable values are 10 to 200, inclusive.
+pool_maximum_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.pool.property.maximumpoolsize Acceptable values are 1 to 200, inclusive.
 pool_connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.pool.property.connectiontimeout Acceptable values are 5000 to 600000, inclusive.
 pool_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.pool.property.idletimeout Acceptable values are 5000 to 600000, inclusive.
 pool_minimum_idle | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.pool.property.minimumidle Acceptable values are 0 to 200, inclusive.
@@ -119,6 +119,7 @@ ha_automatic_failover_enabled | **[google.protobuf.BoolValue](https://developers
 block_access_token_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 use_datanode_hostname | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 namenodes | **map<string,PXFDatasourceHDFSDfsNamenode>**<br> No more than 10000 per resource.
+nameservices | **string**<br>Corresponds well-known HDFS client setting "dfs.nameservices" for this datasource 
 
 
 ### PXFDatasourceHDFSYarn {#PXFDatasourceHDFSYarn}
@@ -170,7 +171,7 @@ datasource | **[PXFDatasource](#PXFDatasource1)**<br>
 
 Field | Description
 --- | ---
-name | **string**<br>Required.  The string length in characters must be 3-200.
+name | **string**<br>Required.  The string length in characters must be 3-200. Value must match the regular expression ` ^[^\\\|/*?.,;\"'<>]+$ `.
 settings | **oneof:** `s3`, `jdbc`, `hdfs` or `hive`<br>
 &nbsp;&nbsp;s3 | **[PXFDatasourceS3](#PXFDatasourceS31)**<br> 
 &nbsp;&nbsp;jdbc | **[PXFDatasourceJDBC](#PXFDatasourceJDBC1)**<br> 
@@ -185,7 +186,7 @@ Field | Description
 access_key | **string**<br> The maximum string length in characters is 200.
 secret_key | **string**<br> The maximum string length in characters is 200.
 fast_upload | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
-endpoint | **string**<br> The maximum string length in characters is 200.
+endpoint | **string**<br> The maximum string length in characters is 200. Value must match the regular expression ` (((s3\|https?)://)?([a-z0-9]([a-z0-9-]*[a-z0-9])?[.])+[a-z]{2,})? `.
 
 
 ### PXFDatasourceJDBC {#PXFDatasourceJDBC1}
@@ -193,14 +194,14 @@ endpoint | **string**<br> The maximum string length in characters is 200.
 Field | Description
 --- | ---
 driver | **string**<br>Matches jdbc.driver The maximum string length in characters is 50.
-url | **string**<br>Matches jdbc.url The maximum string length in characters is 200.
+url | **string**<br>Matches jdbc.url The maximum string length in characters is 1000.
 user | **string**<br>Matches jdbc.user The maximum string length in characters is 200.
 password | **string**<br>Matches jdbc.password The maximum string length in characters is 200.
 statement_batch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.statement.batchsize Acceptable values are 50 to 1000, inclusive.
 statement_fetch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.statement.fetchsize Acceptable values are 50 to 10000, inclusive.
-statement_query_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.statement.querytimeout Acceptable values are 5 to 600, inclusive.
+statement_query_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.statement.querytimeout Acceptable values are 5 to 43200, inclusive.
 pool_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Matches jdbc.pool.enabled 
-pool_maximum_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.pool.property.maximumpoolsize Acceptable values are 10 to 200, inclusive.
+pool_maximum_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.pool.property.maximumpoolsize Acceptable values are 1 to 200, inclusive.
 pool_connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.pool.property.connectiontimeout Acceptable values are 5000 to 600000, inclusive.
 pool_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.pool.property.idletimeout Acceptable values are 5000 to 600000, inclusive.
 pool_minimum_idle | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.pool.property.minimumidle Acceptable values are 0 to 200, inclusive.
@@ -249,6 +250,7 @@ ha_automatic_failover_enabled | **[google.protobuf.BoolValue](https://developers
 block_access_token_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 use_datanode_hostname | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 namenodes | **map<string,PXFDatasourceHDFSDfsNamenode>**<br> No more than 10000 per resource.
+nameservices | **string**<br>Corresponds well-known HDFS client setting "dfs.nameservices" for this datasource 
 
 
 ### PXFDatasourceHDFSYarn {#PXFDatasourceHDFSYarn1}
@@ -299,14 +301,14 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required.  The maximum string length in characters is 50.
-datasource_name | **string**<br>Required.  The string length in characters must be 3-200.
+datasource_name | **string**<br>Required.  The string length in characters must be 3-200. Value must match the regular expression ` ^[^\\\|/*?.,;\"'<>]+$ `.
 
 
 ### PXFDatasource {#PXFDatasource2}
 
 Field | Description
 --- | ---
-name | **string**<br>Required.  The string length in characters must be 3-200.
+name | **string**<br>Required.  The string length in characters must be 3-200. Value must match the regular expression ` ^[^\\\|/*?.,;\"'<>]+$ `.
 settings | **oneof:** `s3`, `jdbc`, `hdfs` or `hive`<br>
 &nbsp;&nbsp;s3 | **[PXFDatasourceS3](#PXFDatasourceS32)**<br> 
 &nbsp;&nbsp;jdbc | **[PXFDatasourceJDBC](#PXFDatasourceJDBC2)**<br> 
@@ -337,7 +339,7 @@ datasource | **[PXFDatasource](#PXFDatasource3)**<br>
 
 Field | Description
 --- | ---
-name | **string**<br>Required.  The string length in characters must be 3-200.
+name | **string**<br>Required.  The string length in characters must be 3-200. Value must match the regular expression ` ^[^\\\|/*?.,;\"'<>]+$ `.
 settings | **oneof:** `s3`, `jdbc`, `hdfs` or `hive`<br>
 &nbsp;&nbsp;s3 | **[PXFDatasourceS3](#PXFDatasourceS32)**<br> 
 &nbsp;&nbsp;jdbc | **[PXFDatasourceJDBC](#PXFDatasourceJDBC2)**<br> 
@@ -352,7 +354,7 @@ Field | Description
 access_key | **string**<br> The maximum string length in characters is 200.
 secret_key | **string**<br> The maximum string length in characters is 200.
 fast_upload | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
-endpoint | **string**<br> The maximum string length in characters is 200.
+endpoint | **string**<br> The maximum string length in characters is 200. Value must match the regular expression ` (((s3\|https?)://)?([a-z0-9]([a-z0-9-]*[a-z0-9])?[.])+[a-z]{2,})? `.
 
 
 ### PXFDatasourceJDBC {#PXFDatasourceJDBC2}
@@ -360,14 +362,14 @@ endpoint | **string**<br> The maximum string length in characters is 200.
 Field | Description
 --- | ---
 driver | **string**<br>Matches jdbc.driver The maximum string length in characters is 50.
-url | **string**<br>Matches jdbc.url The maximum string length in characters is 200.
+url | **string**<br>Matches jdbc.url The maximum string length in characters is 1000.
 user | **string**<br>Matches jdbc.user The maximum string length in characters is 200.
 password | **string**<br>Matches jdbc.password The maximum string length in characters is 200.
 statement_batch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.statement.batchsize Acceptable values are 50 to 1000, inclusive.
 statement_fetch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.statement.fetchsize Acceptable values are 50 to 10000, inclusive.
-statement_query_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.statement.querytimeout Acceptable values are 5 to 600, inclusive.
+statement_query_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.statement.querytimeout Acceptable values are 5 to 43200, inclusive.
 pool_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Matches jdbc.pool.enabled 
-pool_maximum_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.pool.property.maximumpoolsize Acceptable values are 10 to 200, inclusive.
+pool_maximum_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.pool.property.maximumpoolsize Acceptable values are 1 to 200, inclusive.
 pool_connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.pool.property.connectiontimeout Acceptable values are 5000 to 600000, inclusive.
 pool_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.pool.property.idletimeout Acceptable values are 5000 to 600000, inclusive.
 pool_minimum_idle | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Matches jdbc.pool.property.minimumidle Acceptable values are 0 to 200, inclusive.
@@ -416,6 +418,7 @@ ha_automatic_failover_enabled | **[google.protobuf.BoolValue](https://developers
 block_access_token_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 use_datanode_hostname | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 namenodes | **map<string,PXFDatasourceHDFSDfsNamenode>**<br> No more than 10000 per resource.
+nameservices | **string**<br>Corresponds well-known HDFS client setting "dfs.nameservices" for this datasource 
 
 
 ### PXFDatasourceHDFSYarn {#PXFDatasourceHDFSYarn2}
@@ -466,14 +469,14 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required.  The maximum string length in characters is 50.
-datasource_name | **string**<br>Required.  The string length in characters must be 3-200.
+datasource_name | **string**<br>Required.  The string length in characters must be 3-200. Value must match the regular expression ` ^[^\\\|/*?.,;\"'<>]+$ `.
 
 
 ### PXFDatasource {#PXFDatasource4}
 
 Field | Description
 --- | ---
-name | **string**<br>Required.  The string length in characters must be 3-200.
+name | **string**<br>Required.  The string length in characters must be 3-200. Value must match the regular expression ` ^[^\\\|/*?.,;\"'<>]+$ `.
 settings | **oneof:** `s3`, `jdbc`, `hdfs` or `hive`<br>
 &nbsp;&nbsp;s3 | **[PXFDatasourceS3](#PXFDatasourceS33)**<br> 
 &nbsp;&nbsp;jdbc | **[PXFDatasourceJDBC](#PXFDatasourceJDBC3)**<br> 
@@ -496,7 +499,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required.  The maximum string length in characters is 50.
-datasource_name | **string**<br>Required.  The string length in characters must be 3-200.
+datasource_name | **string**<br>Required.  The string length in characters must be 3-200. Value must match the regular expression ` ^[^\\\|/*?.,;\"'<>]+$ `.
 
 
 ### Operation {#Operation2}
@@ -520,6 +523,6 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required.  The maximum string length in characters is 50.
-datasource_name | **string**<br>Required.  The string length in characters must be 3-200.
+datasource_name | **string**<br>Required.  The string length in characters must be 3-200. Value must match the regular expression ` ^[^\\\|/*?.,;\"'<>]+$ `.
 
 

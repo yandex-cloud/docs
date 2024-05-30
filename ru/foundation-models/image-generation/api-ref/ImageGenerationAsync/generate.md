@@ -26,7 +26,11 @@ POST https://llm.{{ api-host }}/foundationModels/v1/imageGenerationAsync
   ],
   "generationOptions": {
     "mimeType": "string",
-    "seed": "string"
+    "seed": "string",
+    "aspectRatio": {
+      "widthRatio": "string",
+      "heightRatio": "string"
+    }
   }
 }
 ```
@@ -41,6 +45,9 @@ messages[].<br>weight | **number** (double)<br><p>Message weight. Negative value
 generationOptions | **object**<br><p>Image generation options.</p> 
 generationOptions.<br>mimeType | **string**<br><p>MIME type of generated image format.</p> 
 generationOptions.<br>seed | **string** (int64)<br><p>Seed for image generation.</p> 
+generationOptions.<br>aspectRatio | **object**<br><p>Aspect ratio of generated image.</p> 
+generationOptions.<br>aspectRatio.<br>widthRatio | **string** (int64)<br><p>Weight of width in image.</p> 
+generationOptions.<br>aspectRatio.<br>heightRatio | **string** (int64)<br><p>Weight of height in image.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -72,7 +72,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
+   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Select the `datasphere-sa` service account.
    1. In the top panel, click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
@@ -99,7 +99,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
       secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI9hx*****
       ```
 
-   1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
+   1. Save the ID `key_id` and secret key `secret`. You will not be able to get the key value again.
 
 - API {#api}
 
@@ -136,9 +136,9 @@ To create a key pair:
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4`
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the subnet that is specified in the {{ ml-platform-name }} [project settings](../../datasphere/operations/projects/update.md). Make sure to [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the subnet specified in the {{ ml-platform-name }} [project settings](../../datasphere/operations/projects/update.md). Make sure to [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
-      * **{{ ui-key.yacloud.compute.instances.create.field_service-account }}**: `datasphere-sa`
+      * **{{ ui-key.yacloud.compute.instances.create.field_service-account }}**: `datasphere-sa`.
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](#create-ssh-keys) file.
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -330,7 +330,7 @@ For MLFlow to run automatically after the VM restarts, make it the `Systemd` ser
 
 ## Train the model {#train-model}
 
-The example uses a set of data to forecast the quality of wine based on quantitative characteristics, such as acidity, PH, residual sugar, etc. To train the model, copy and paste the code into notebook cells.
+The example uses a set of data to predict the quality of wine based on quantitative characteristics, such as acidity, PH, residual sugar, etc. To train the model, copy and paste the code into notebook cells.
 
 1. {% include [include](../../_includes/datasphere/ui-before-begin.md) %}
 
@@ -365,7 +365,7 @@ The example uses a set of data to forecast the quality of wine based on quantita
    mlflow.set_experiment("my_first_experiment")
    ```
 
-1. Create a function to assess the forecast quality:
+1. Create a function to assess the prediction quality:
 
    ```python
    def eval_metrics(actual, pred):
@@ -414,7 +414,7 @@ The example uses a set of data to forecast the quality of wine based on quantita
       lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
       lr.fit(train_x, train_y)
 
-      # Predict the quality based on the test sample
+      # Predicting quality based on the test sample
       predicted_qualities = lr.predict(test_x)
 
       (rmse, mae, r2) = eval_metrics(test_y, predicted_qualities)

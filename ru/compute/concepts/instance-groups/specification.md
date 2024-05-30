@@ -42,11 +42,18 @@ instance_template:
     - network_id: enpocgefm44f********
       subnet_ids:
         - e2ljvdp4j276********
-    primary_v4_address_spec:
-      one_to_one_nat_spec:
-        ip_version: IPV4
-    security_group_ids:
-      - enps0ar5s3ti********
+      primary_v4_address_spec: {
+        one_to_one_nat_spec: {
+          ip_version: IPV4
+        }
+      }
+      security_group_ids:
+        - enps0ar5s3ti********
+  filesystem_specs:
+    - mode: READ_WRITE
+      device_name: sample-fs
+      filesystem_id: epdccsrlalon********
+  service_account_id: aje1ki4ae68u********
   network_settings:
     type: STANDARD
   scheduling_policy: {}

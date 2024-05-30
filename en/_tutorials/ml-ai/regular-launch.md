@@ -45,7 +45,7 @@ The cost of implementing regular runs includes:
 
 ### Create a service account for the {{ ml-platform-name }} project {#create-sa}
 
-To access a {{ml-platform-name }} project from a {{ sf-name }} function, you need a service account with the `{{ roles-datasphere-project-editor }}` role.
+To access a {{ ml-platform-name }} project from a {{ sf-name }} function, you need a service account with the `{{ roles-datasphere-project-editor }}` role.
 
 {% list tabs group=instructions %}
 
@@ -206,8 +206,7 @@ To start computations without opening {{ jlab }}Lab, you need a {{ sf-name }} th
       ```
 
       Where:
-
-      * `<project_ID>`: ID of the {{ ml-platform-name }} project placed on the project page under the name.
+      * `<project_ID>`: ID of the {{ ml-platform-name }} project featured on the project page under the name.
       * `notebookId`: Absolute path to the project notebook.
 
    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, set the version parameters:

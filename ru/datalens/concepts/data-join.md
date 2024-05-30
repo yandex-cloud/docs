@@ -37,6 +37,8 @@ description: "При создании дашборда в {{ datalens-full-name 
 
 В интерфейсе создания датасета можно [объединять данные](../operations/dataset/join-data.md), перетаскивая таблицы на рабочую область и настраивая связи между ними через [оператор JOIN](dataset/data-model.md#source).  Пример объединения данных с помощью добавления таблиц смотрите в [сценарии](../../tutorials/datalens/data-from-ch-visualization.md#step2).  
 
+{% include [data-join-duplicate-fields-note](../../_includes/datalens/datalens-data-join-duplicate-fields-note.md) %}
+
 #### SQL-запрос {#sql-join}
 
 В датасете можно добавить [произвольный SQL-запрос](dataset/settings.md#sql-request-in-datatset) к источнику данных. Текст запроса при обращении к источнику исполняется в виде подзапроса. Результат запроса можно использовать как итоговый набор данных датасета или объединить с другими таблицами источника через интерфейс.

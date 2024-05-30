@@ -1,10 +1,10 @@
 # Image generation using Stable Diffusion model
 
-In {{ ml-platform-name }}, you can deploy a neural network based on the Stable Diffusion model and generate images by their text description.
+In {{ ml-platform-name }}, you can deploy a neural network based on the Stable Diffusion model and generate images based on text descriptions.
 
 [Stable Diffusion](https://github.com/CompVis/stable-diffusion/blob/main/README.md) is an open-source text-to-image model developed by [stability.ai](https://stability.ai/).
 
-In this tutorial, you will generate an image based on a text description using an implementation of the Stable Diffusion model in the [KerasCV](https://keras.io/keras_cv/) library. Compared to other Stable Diffusion model implementations, KerasCV has a number of advantages that ensure a high image generation rate. These include [XLA complilation](https://www.tensorflow.org/xla) and support for [mixed precision](https://www.tensorflow.org/guide/mixed_precision).
+In this tutorial, you will generate an image based on a text description using a [KerasCV](https://keras.io/keras_cv/) library-based implementation of the Stable Diffusion model. Compared to other Stable Diffusion model implementations, KerasCV has a number of advantages ensuring high image generation speed. These include [XLA complilation](https://www.tensorflow.org/xla) and [mixed precision](https://www.tensorflow.org/guide/mixed_precision) support.
 
 To generate an image using the Stable Diffusion model:
 
@@ -38,7 +38,7 @@ The cost of using the model includes a fee for running code cells (see [{{ ml-pl
 
 {% note info %}
 
-In this tutorial, all computations are made in the g1.1 configuration. However, you can also run the model in other configurations.
+In this tutorial, all computations use the g1.1 configuration. However, you can run the model on other configurations as well.
 
 {% endnote %}
 
@@ -112,7 +112,7 @@ In this tutorial, all computations are made in the g1.1 configuration. However, 
            plt.axis("off")
    ```
 
-1. Display the image you got:
+1. Display the resulting image:
 
    ```python
    #!g1.1

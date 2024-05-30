@@ -57,7 +57,8 @@ sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/PXFDatasource/index.md
       "haAutomaticFailoverEnabled": true,
       "blockAccessTokenEnabled": true,
       "useDatanodeHostname": true,
-      "namenodes": "object"
+      "namenodes": "object",
+      "nameservices": "string"
     },
     "yarn": {
       "resourcemanagerHaEnabled": true,
@@ -103,22 +104,22 @@ sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/PXFDatasource/index.md
  
 Field | Description
 --- | ---
-name | **string**<br><p>Required. The string length in characters must be 3-200.</p> 
+name | **string**<br><p>Required. The string length in characters must be 3-200. Value must match the regular expression ``^[^\\|/*?.,;"'<>]+$``.</p> 
 s3 | **object** <br> includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`<br>
 s3.<br>accessKey | **string**<br><p>The maximum string length in characters is 200.</p> 
 s3.<br>secretKey | **string**<br><p>The maximum string length in characters is 200.</p> 
 s3.<br>fastUpload | **boolean** (boolean)
-s3.<br>endpoint | **string**<br><p>The maximum string length in characters is 200.</p> 
+s3.<br>endpoint | **string**<br><p>The maximum string length in characters is 200. Value must match the regular expression ``(((s3\|https?)://)?([a-z0-9]([a-z0-9-]*[a-z0-9])?[.])+[a-z]{2,})?``.</p> 
 jdbc | **object** <br> includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`<br>
 jdbc.<br>driver | **string**<br><p>Matches jdbc.driver</p> <p>The maximum string length in characters is 50.</p> 
-jdbc.<br>url | **string**<br><p>Matches jdbc.url</p> <p>The maximum string length in characters is 200.</p> 
+jdbc.<br>url | **string**<br><p>Matches jdbc.url</p> <p>The maximum string length in characters is 1000.</p> 
 jdbc.<br>user | **string**<br><p>Matches jdbc.user</p> <p>The maximum string length in characters is 200.</p> 
 jdbc.<br>password | **string**<br><p>Matches jdbc.password</p> <p>The maximum string length in characters is 200.</p> 
 jdbc.<br>statementBatchSize | **integer** (int64)<br><p>Matches jdbc.statement.batchsize</p> <p>Acceptable values are 50 to 1000, inclusive.</p> 
 jdbc.<br>statementFetchSize | **integer** (int64)<br><p>Matches jdbc.statement.fetchsize</p> <p>Acceptable values are 50 to 10000, inclusive.</p> 
-jdbc.<br>statementQueryTimeout | **integer** (int64)<br><p>Matches jdbc.statement.querytimeout</p> <p>Acceptable values are 5 to 600, inclusive.</p> 
+jdbc.<br>statementQueryTimeout | **integer** (int64)<br><p>Matches jdbc.statement.querytimeout</p> <p>Acceptable values are 5 to 43200, inclusive.</p> 
 jdbc.<br>poolEnabled | **boolean** (boolean)<br><p>Matches jdbc.pool.enabled</p> 
-jdbc.<br>poolMaximumSize | **integer** (int64)<br><p>Matches jdbc.pool.property.maximumpoolsize</p> <p>Acceptable values are 10 to 200, inclusive.</p> 
+jdbc.<br>poolMaximumSize | **integer** (int64)<br><p>Matches jdbc.pool.property.maximumpoolsize</p> <p>Acceptable values are 1 to 200, inclusive.</p> 
 jdbc.<br>poolConnectionTimeout | **integer** (int64)<br><p>Matches jdbc.pool.property.connectiontimeout</p> <p>Acceptable values are 5000 to 600000, inclusive.</p> 
 jdbc.<br>poolIdleTimeout | **integer** (int64)<br><p>Matches jdbc.pool.property.idletimeout</p> <p>Acceptable values are 5000 to 600000, inclusive.</p> 
 jdbc.<br>poolMinimumIdle | **integer** (int64)<br><p>Matches jdbc.pool.property.minimumidle</p> <p>Acceptable values are 0 to 200, inclusive.</p> 
@@ -143,6 +144,7 @@ hdfs.<br>dfs.<br>haAutomaticFailoverEnabled | **boolean** (boolean)
 hdfs.<br>dfs.<br>blockAccessTokenEnabled | **boolean** (boolean)
 hdfs.<br>dfs.<br>useDatanodeHostname | **boolean** (boolean)
 hdfs.<br>dfs.<br>namenodes | **object**<br><p>No more than 10000 per resource.</p> 
+hdfs.<br>dfs.<br>nameservices | **string**<br><p>Corresponds well-known HDFS client setting "dfs.nameservices" for this datasource</p> 
 hdfs.<br>yarn | **object**
 hdfs.<br>yarn.<br>resourcemanagerHaEnabled | **boolean** (boolean)
 hdfs.<br>yarn.<br>resourcemanagerHaAutoFailoverEnabled | **boolean** (boolean)

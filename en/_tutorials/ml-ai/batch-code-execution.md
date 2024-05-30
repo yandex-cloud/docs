@@ -1,6 +1,6 @@
 In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), you can run code using the API without opening your project. This might be handy when you need to automate routine operations, additionally train a neural network, or deploy a service that does not require quick responses via the API.
 
-Based on a use case of a simple convolutional neural network ([CNN](https://en.wikipedia.org/wiki/Convolutional_neural_network)), this tutorial will show you how to deploy a model trained in {{ ml-platform-name }} using [{{ sf-full-name }}](../../functions/index.yaml). The result of running the model will be saved to {{ ml-platform-name }} project storage.
+Based on a use case of a simple convolutional neural network ([CNN](https://en.wikipedia.org/wiki/Convolutional_neural_network)), this tutorial will show you how to deploy a model trained in {{ ml-platform-name }} using [{{ sf-full-name }}](../../functions/index.yaml). The model's output will be saved to {{ ml-platform-name }} project storage.
 
 For information on how to deploy a service that will return results via the API, see [{#T}](../../datasphere/tutorials/node-from-docker-fast-api.md).
 
@@ -68,16 +68,16 @@ To enable the service account to run a {{ ml-platform-name }} project, add it to
 ## Prepare notebooks and your neural network's architecture {#set-notebooks}
 
 Clone the Git repository containing the notebooks with the examples of the ML model training and testing:
-   1. In the top menu, click **Git** and select **Clone**.
-   1. In the window that opens, specify the repository URI `https://github.com/yandex-cloud-examples/yc-datasphere-batch-execution.git` and click **Clone**.
+1. In the top menu, click **Git** and select **Clone**.
+1. In the window that opens, specify the repository URI `https://github.com/yandex-cloud-examples/yc-datasphere-batch-execution.git` and click **Clone**.
 
 Wait until cloning is complete. It may take some time. The cloned repository folder appears in the ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section.
 
 The repository contains two notebooks and the neural network architecture:
 
-* `train_classifier.ipynb`: Notebook for download a training sample of the `CIFAR10` dataset and training a simple neural network.
+* `train_classifier.ipynb`: Notebook for downloading a training sample of the `CIFAR10` dataset and training a simple neural network.
 * `test_classifier.ipynb`: Notebook for testing the model.
-* `my_nn_model.py`: Neural network architecture. For classification, three-dimensional images are input to the neural network. It contains two convolutional layers with the `maxpool` layer in-between them and three linear layers:
+* `my_nn_model.py`: Neural network architecture. For classification, three-dimensional images are input to the neural network. It contains two convolutional layers with the `maxpool` layer between them and three linear layers:
 
    ```python
    import torch.nn as nn
@@ -145,7 +145,7 @@ In the `train_classifier.ipynb` notebook, you will download a training sample of
    import numpy as np
 
    def imshow(img):
-       img = img / 2 + 0.5     # unnormalize
+       img = img / 2 + 0.5 # unnormalize
        npimg = img.numpy()
        plt.imshow(np.transpose(npimg, (1, 2, 0)))
        plt.show()
@@ -317,8 +317,7 @@ To run cells without opening {{ jlab }}Lab, you need a {{ sf-name }} that will t
       ```
 
       Where:
-
-      * `<project_ID>`: ID of the {{ ml-platform-name }} project placed on the project page under the name.
+      * `<project_ID>`: ID of the {{ ml-platform-name }} project featured on the project page under the name.
       * `notebookId`: Absolute path to the project notebook.
 
    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, set the version parameters:

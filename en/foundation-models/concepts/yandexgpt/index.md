@@ -37,7 +37,7 @@ Example:
     },
     {
       "role": "user",
-      "text": "Name any three groups of goods one can find in a grocery store. For each group, provide three subgroups. Present the result as a JSON object, with each group of goods as a key in the JSON object and arrays from the relevant subgroups as values. No introductory phrases or explanations needed, just data. Do not use Markdown."
+      "text": "Name any three groups of goods one can find in a grocery store. For each group, provide three subgroups that belong to this group. Present the result as a JSON object, with each group of goods as a key in the JSON object and arrays from the relevant subgroups as values. No introductory phrases or explanations needed, just data. Do not use Markdown!"
     }
   ]
 }
@@ -70,3 +70,9 @@ Result:
 The model returned a response in JSON format with line breaks replaced with `\n` and quotation marks escaped.
 
 If you do not get the expected result using the prompt, try [fine-tuning](../../tutorials/yagpt-tuning.md) the model in [{{ ml-platform-full-name}}]({{ link-datasphere-main }}).
+
+#### See also {#see-also}
+
+* [{#T}](../../operations/yandexgpt/create-prompt.md)
+* [{#T}](../../operations/yandexgpt/create-chat.md)
+* [{#T}](../../operations/yandexgpt/async-request.md).

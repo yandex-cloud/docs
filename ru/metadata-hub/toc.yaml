@@ -43,6 +43,8 @@ items:
         href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md
+  - name: История изменений
+    href: release-notes/index.md
   - name: Правила тарификации
     href: pricing.md
 base: ru/metadata-hub

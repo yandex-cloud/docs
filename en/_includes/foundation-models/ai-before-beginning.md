@@ -36,7 +36,7 @@ To work with the {{ foundation-models-full-name }} API, you need to get authenti
          Authorization: Bearer <IAM_token>
          ```
 
-   * With [API keys](../../iam/concepts/authorization/api-key).
+   * With [API keys](../../iam/concepts/authorization/api-key.md).
 
       {% include [api-keys-disclaimer](../../_includes/iam/api-keys-disclaimer.md) %}
 

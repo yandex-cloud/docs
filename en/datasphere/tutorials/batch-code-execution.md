@@ -5,4 +5,4 @@ description: "Follow this guide to run computations in {{ ml-platform-name }} us
 
 # Running computations in {{ ml-platform-name }} using the API
 
-{% include [Datasphere batch execution](../../_tutorials/datasphere/batch-code-execution.md) %}
+{% include [Datasphere batch execution](../../_tutorials/ml-ai/batch-code-execution.md) %}

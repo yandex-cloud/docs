@@ -251,8 +251,8 @@ configSpec.<br>pxfConfig.<br>poolAllowCoreThreadTimeout | **boolean** (boolean)
 configSpec.<br>pxfConfig.<br>poolCoreSize | **integer** (int64)<br><p>Acceptable values are 1 to 1024, inclusive.</p> 
 configSpec.<br>pxfConfig.<br>poolQueueCapacity | **integer** (int64)<br><p>The minimum value is 0.</p> 
 configSpec.<br>pxfConfig.<br>poolMaxSize | **integer** (int64)<br><p>Acceptable values are 1 to 1024, inclusive.</p> 
-configSpec.<br>pxfConfig.<br>xmx | **integer** (int64)<br><p>JVM</p> <p>Acceptable values are 64 to 16384, inclusive.</p> 
-configSpec.<br>pxfConfig.<br>xms | **integer** (int64)<br><p>Acceptable values are 64 to 16384, inclusive.</p> 
+configSpec.<br>pxfConfig.<br>xmx | **integer** (int64)<br><p>JVM</p> <p>The minimum value is 64.</p> 
+configSpec.<br>pxfConfig.<br>xms | **integer** (int64)<br><p>The minimum value is 64.</p> 
 configSpec.<br>greenplumConfig_6_17 | **object** <br>`configSpec` includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`<br>
 configSpec.<br>greenplumConfig_6_17.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections on master segment.</p> 
 configSpec.<br>greenplumConfig_6_17.<br>maxSlotWalKeepSize | **integer** (int64)<br><p>The maximum size of WAL files that replication slots are allowed to retain in the ``pg_wal`` directory at checkpoint time.</p> <p>More info in <a href="https://www.postgresql.org/docs/current/runtime-config-replication.html">PostgreSQL® documentation</a>.</p> 

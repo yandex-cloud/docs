@@ -33,7 +33,7 @@ The cost of deploying a service based on a Docker image includes:
 
 {% note info %}
 
-In our example, both the {{ yandex-cloud }} infrastructure and the service deployed operate in the same {{ yandex-cloud }} folder; however, this is not a requirement.
+In our example, both the {{ yandex-cloud }} infrastructure and the deployed service operate from the same {{ yandex-cloud }} folder; however, this is not a requirement.
 
 {% endnote %}
 
@@ -113,8 +113,8 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 ### Create a Docker image for your service {#create-docker}
 
 1. Create a folder to store the configuration of the Docker image and all the required files, e.g., `/home/docker-images`.
-1. Clone the [repository on GitHub](https://github.com/yandex-cloud-examples/yc-datasphere-fastapi-service-deploy) and place the files in the created folder.
-1. Run [Docker Desktop](https://docs.docker.com/desktop/).
+1. Clone the [repository on GitHub](https://github.com/yandex-cloud-examples/yc-datasphere-fastapi-service-deploy) and place the files in the folder you created.
+1. Run [Docker Desktop](https://docs.docker.com/desktop/):
 1. In the command shell, navigate to the folder with `Dockerfile` you created.
 
    ```bash
@@ -143,13 +143,13 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 
    1. [Get authenticated in {{ container-registry-name }}](../../container-registry).
 
-      1. Issue an [IAM token](../../iam/concepts/authorization/iam-token.md) for your service account.
+      1. Issue an [IAM token](../../iam/concepts/authorization/iam-token.md) for your service account:
 
       ```bash
       yc iam create-token
       ```
 
-      The response will contain the IAM token: If you are authenticating using a federated account, the CLI will redirect you to the management console to authenticate and then send you an IAM token.
+      The response will contain the IAM token. If you are authenticating using a federated account, the CLI will redirect you to the management console to authenticate and then send you an IAM token.
 
       {% note info %}
 
@@ -221,7 +221,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.timeout }}**: 1.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.interval }}**: 15.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.fails-threshold }}**: 3.
-      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.passes-threshold }}**: 3
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.passes-threshold }}**: 3.
    1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select `data-folder`.
    1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select the `g1.1` [configuration](../../datasphere/concepts/configurations.md).
    1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.

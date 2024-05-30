@@ -8,7 +8,7 @@
 
 {% note warning %}
 
-The following price for storing {{ ds-jobs }} data will be effective as of May 27, 2024.
+The following price for storing {{ ds-jobs }} data will be effective from May 27, 2024.
 
 {% endnote %}
 

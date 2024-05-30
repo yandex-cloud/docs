@@ -4,7 +4,7 @@ noIndex: true
 
 # Workaround для загрузки образов с DockerHub
 
-## Описание проблемы
+## Описание проблемы {#issue-description}
 
 При попытке загрузить образ командой `docker pull` отображается сообщение об ошибке:
 
@@ -21,7 +21,7 @@ please reach out to https://hub.docker.com/support/contact/\n</body></html>\n".
 See 'docker run --help'.
 ```
 
-## Решение
+## Решение {#issue-resolution}
 
 Вы можете воспользоваться одним из этих методов:
 
@@ -35,7 +35,8 @@ See 'docker run --help'.
     `registry-mirrors` через запятую, например:
 
     ```
-    "registry-mirrors": ["https://daocloud.io", "https://c.163.com/", "https://registry.docker-cn.com", "https://mirror.gcr.io"] 
+    "registry-mirrors": ["https://mirror.gcr.io", "https://registry.docker-cn.com", "https://c.163.com/"] 
+
     ```
 
     Путь к конфигурационному файлу Docker зависит от используемой на хосте операционной системы (и наличия прав суперпользователя):
@@ -79,6 +80,15 @@ See 'docker run --help'.
     ||
     |#
 
+    {% note alert "Внимание" %}
+    
+    Использование сторонних зеркал может быть сопряжено с рисками атак на цепочки поставок. \
+    Владелец зеркала может контролировать содержимое популярных образов и подменять образы на другие по своему усмотрению. 
+
+    Yandex Cloud не несет ответственность за содержимое внешних зеркал.
+
+    {% endnote %}
+  
 - Gitlab Dependency proxy 
 
     Вы также можете воспользоваться Dependency proxy, предоставляемым сервисом GitLab.
@@ -109,9 +119,104 @@ See 'docker run --help'.
 
 {% endlist %}
 
-{% note warning "Обратите внимание" %}
+## DaemonSet для Managed Service for Kubernetes
 
-В ближайшее время будет доступен DaemonSet для Managed Service for Kubernetes, перенаправляющий запросы в реестр `dockerhub.com` на другое зеркало.\
-О готовности DaemonSet мы сообщим в этом руководстве дополнительно.
+Наша команда поддержки подготовила манифест объекта DaemonSet для кластеров Kubernetes.
+Его следует скопировать в файл с расширением YAML и применить к кластеру с помощью команды `kubectl apply -f filename.yaml`:
 
-{% endnote %}
+```yaml
+
+---
+apiVersion: v1
+data:
+  config.toml: |
+    oom_score = -999
+    version = 2
+
+    [debug]
+      level = "info"
+
+    [plugins]
+      [plugins."io.containerd.grpc.v1.cri".cni]
+          bin_dir = "/home/kubernetes/cni/bin"
+          conf_dir = "/etc/cni/net.d"
+
+      [plugins."io.containerd.runtime.v1.linux"]
+          runtime = "/home/kubernetes/bin/runc"
+          shim = "/home/kubernetes/bin/containerd-shim"
+
+      [plugins."io.containerd.grpc.v1.cri"]
+          stream_server_address = "127.0.0.1"
+          enable_tls_streaming = false
+          sandbox_image = "cr.yandex/crpsjg1coh47p81vh2lc/pause:3.9"
+          [plugins."io.containerd.grpc.v1.cri".containerd]
+              snapshotter = "overlayfs"
+
+      [plugins."io.containerd.grpc.v1.cri".registry]
+        [plugins."io.containerd.grpc.v1.cri".registry.mirrors]
+          [plugins."io.containerd.grpc.v1.cri".registry.mirrors."docker.io"]
+            endpoint = ["https://cr.yandex/v2/mirror/io/docker"]
+kind: ConfigMap
+metadata:
+  name: configtoml
+  namespace: docker-mirror
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: docker-mirror
+
+---
+apiVersion: "apps/v1"
+kind: DaemonSet
+metadata:
+  name: docker-mirror
+  namespace: docker-mirror
+  labels:
+    app: docker-mirror
+    version: 1v
+spec:
+  selector:
+    matchLabels:
+      app: docker-mirror
+  template:
+    metadata:
+      labels:
+        app: docker-mirror
+    spec:
+      hostPID: true
+      hostIPC: true
+      containers:
+      - name: config-updater
+        image: cr.yandex/yc/mk8s-openssl:stable
+        command:
+          - sh
+          - -c
+          - |
+             cp /tmp/config.toml /host/etc/containerd/config.toml &&
+             ps -x -o pid= -o comm= | awk '$2 ~ "^(containerd|dockerd)$" { print $1 }' | xargs kill
+             sleep infinity
+        imagePullPolicy: Never
+        securityContext:
+          privileged: true
+        resources:
+          limits:
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 200Mi
+        volumeMounts:
+        - name: containerd-config
+          mountPath: /host/etc/containerd
+        - name: config
+          mountPath: /tmp
+      volumes:
+      - name: containerd-config
+        hostPath:
+          path: /etc/containerd
+      - name: config
+        configMap:
+          name: configtoml
+
+```

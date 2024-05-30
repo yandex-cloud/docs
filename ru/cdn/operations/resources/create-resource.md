@@ -5,10 +5,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Создание ресурса
 
-
-{% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
-
-
 Чтобы создать [ресурс](../../concepts/resource.md):
 
 {% list tabs group=instructions %}
@@ -51,7 +47,11 @@ description: "Следуя данной инструкции, вы сможет�
         * `{{ ui-key.yacloud.cdn.value_certificate-no }}` — ресурс будет доступен только по протоколу HTTP.
 
 
-        * `{{ ui-key.yacloud.cdn.value_certificate-custom }}` — выберите сертификат в [{{ certificate-manager-full-name }}](../../../certificate-manager/). Это может быть как [сертификат от Let's Encrypt®](../../../certificate-manager/concepts/managed-certificate.md), так и [пользовательский сертификат](../../../certificate-manager/concepts/imported-certificate.md).
+        * `{{ ui-key.yacloud.cdn.value_certificate-custom }}` — выберите сертификат. Ресурс будет доступен по протоколам HTTP и HTTPS.
+
+          {% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
+
+          {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
 
         Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md).
      1. Выберите значение **{{ ui-key.yacloud.cdn.label_host-header }}**: `{{ ui-key.yacloud.cdn.value_host-header-default }}`, `{{ ui-key.yacloud.cdn.value_host-header-resend }}` или выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}` и введите **{{ ui-key.yacloud.cdn.label_custom-host-header }}**. Подробнее см. в разделе [{#T}](../../concepts/servers-to-origins-host.md).
@@ -124,6 +124,8 @@ description: "Следуя данной инструкции, вы сможет�
 
      * Вместо группы источников `--origin-group-id` можно указать доменное имя [источника](../../concepts/origins.md), используя флаг `--origin-custom-source`.
      * Для `--origin-protocol` доступны значения `HTTP`, `HTTPS` и `MATCH` (как у клиента).
+
+     {% include [certificate-settings-cli](../../../_includes/cdn/certificate-settings-cli.md) %}
 
      {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 

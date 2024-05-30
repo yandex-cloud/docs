@@ -7888,6 +7888,8 @@ default:
         billing:
           title: Биллинг
       yq-binding-actions:
+        clone-binding:
+          menu-item-text: Клонировать
         delete-binding:
           menu-item-text: Удалить
         edit-binding:
@@ -7904,6 +7906,12 @@ default:
             label: Автоматически заполнить колонки для
         binding-fields:
           title: Колонки
+        binding-format-settings-delimiter:
+          title: Разделитель {%secondary%}(необязательно){%secondary%}
+        binding-format-settings:
+          title: Настройки формата
+        binding-format:
+          title: Формат
         binding-modify:
           button-text: Изменить
         binding-name:
@@ -7924,7 +7932,21 @@ default:
           title: Соединение
         field-type-required:
           title: Обязательно
+        projection-date-interval-max:
+          placeholder: Макс.
+        projection-date-interval-min:
+          placeholder: Мин.
+        projection-date-interval-step:
+          title: Шаг
+        projection-format-type:
+          title: Тип формата
+        projection-int-fixed-width:
+          title: Кол-во символов
+        projection-int-interval:
+          title: Интервал
         projection-radio:
+          disabled:
+            label: Базовый
           enabled:
             label: Расширенный
       yq-binding-info:
@@ -8036,6 +8058,9 @@ default:
           tab-text: Результат
         statistics:
           tab-text: Статистика
+      yq-schema:
+        schema-partitioning:
+          section-header: Колонки партиционирования
       yq-show-query-launches:
         show-launches:
           button-text: Показать запуски

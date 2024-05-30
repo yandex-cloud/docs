@@ -8,10 +8,10 @@ The process of converting text into such vectors is called _vectorization_, and 
 
 {{ foundation-models-full-name }} provides two text vectorization models. You can access the model's API via its [URI](https://en.wikipedia.org/wiki/URI) which contains the [folder ID](../../resource-manager/operations/folder/get-id.md). The `/latest` option specifies the version of the model to invoke and is optional.
 
-| Purpose | URI | Operation mode |
-|---|---|---|
-| Vectorization of large source texts, e.g., documentation articles | `emb://<folder_ID>/text-search-doc/latest` | Synchronous |
-| Vectorization of short texts, such as search queries, requests, etc. | `emb://<folder_ID>/text-search-query/latest` | Synchronous |
+| Purpose | URI | Output vector size | Operation mode |
+|---|---|---|---|
+| Vectorization of large source texts, e.g., documentation articles | `emb://<folder_ID>/text-search-doc/latest` | 256 | Synchronous |
+| Vectorization of short texts, such as search queries, requests, etc. | `emb://<folder_ID>/text-search-query/latest` | 256 | Synchronous |
 
 ## Embedding use case {#example}
 
