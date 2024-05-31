@@ -122,10 +122,22 @@ See 'docker run --help'.
 ## DaemonSet для Managed Service for Kubernetes
 
 Наша команда поддержки подготовила манифест объекта DaemonSet для кластеров Kubernetes.
-Его следует скопировать в файл с расширением YAML и применить к кластеру с помощью команды `kubectl apply -f filename.yaml`:
+Этот DaemonSet создает внутри кластера привилегированный под, который обновляет конфигурацию `containerd` таким образом, чтобы запросы к реестру `hub.docker.io` перенаправлялись на `cr.yandex/mirror`.
+
+Текст манифеста следует скопировать в файл с расширением YAML и применить к кластеру с помощью команды `kubectl apply -f filename.yaml`:
 
 ```yaml
 
+# Создаем Namespace
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: docker-mirror
+
+# Создаем объект ConfigMap конфига config.toml для containerd
+# В секции [plugins."io.containerd.grpc.v1.cri".registry.mirrors."docker.io"]
+# определяем зеркала. Список endpoint можно пополнять
 ---
 apiVersion: v1
 data:
@@ -155,18 +167,15 @@ data:
       [plugins."io.containerd.grpc.v1.cri".registry]
         [plugins."io.containerd.grpc.v1.cri".registry.mirrors]
           [plugins."io.containerd.grpc.v1.cri".registry.mirrors."docker.io"]
-            endpoint = ["https://cr.yandex/v2/mirror/io/docker"]
+            endpoint = ["https://cr.yandex/v2/mirror/io/docker","https://mirror.gcr.io"]
 kind: ConfigMap
 metadata:
   name: configtoml
   namespace: docker-mirror
 
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: docker-mirror
-
+# Ниже – манифест DaemonSet для запуска привилегированных подов, каждый из которых копирует config.toml
+# В etc/containerd/config.toml на каждой и однократно перезапускает containerd.
+# Добавили секцию, чтобы DaemonSet смог запускаться на нодах с taint. 
 ---
 apiVersion: "apps/v1"
 kind: DaemonSet
@@ -185,6 +194,8 @@ spec:
       labels:
         app: docker-mirror
     spec:
+      schedulerName: default-scheduler
+      priorityClassName: system-node-critical
       hostPID: true
       hostIPC: true
       containers:
@@ -197,7 +208,7 @@ spec:
              cp /tmp/config.toml /host/etc/containerd/config.toml &&
              ps -x -o pid= -o comm= | awk '$2 ~ "^(containerd|dockerd)$" { print $1 }' | xargs kill
              sleep infinity
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
         securityContext:
           privileged: true
         resources:
@@ -218,5 +229,4 @@ spec:
       - name: config
         configMap:
           name: configtoml
-
 ```

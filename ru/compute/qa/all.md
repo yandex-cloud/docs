@@ -32,3 +32,7 @@ description: "На странице представлены вопросы и �
 ## Лицензирование {#licensing}
 
 {% include notitle [licensing](../../_qa/compute/licensing.md) %}
+
+## Решение проблем {#troubleshooting}
+
+{% include notitle [troubleshooting](../../_qa/compute/troubleshooting.md) %}

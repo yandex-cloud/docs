@@ -1,5 +1,7 @@
 # Управление {{ k8s }}-метками узлов
 
+## Назначить {{ k8s }}-метки при создании группы узлов {#node-group-creation}
+
 Вы можете добавлять [{{ k8s }}-метки](../../concepts/index.md#node-labels) сразу на все узлы {{ managed-k8s-name }} в [группе узлов](../../concepts/index.md#node-group). Для этого задайте набор меток в параметре `node_labels` при [создании группы узлов {{ managed-k8s-name }}](../../operations/node-group/node-group-create.md).
 
 1. Создайте [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
@@ -218,3 +220,128 @@
      Чтобы посмотреть информацию об узле {{ managed-k8s-name }}, воспользуйтесь методом [list](../../api-ref/NodeGroup/list.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/).
 
    {% endlist %}
+
+## Назначить {{ k8s }}-метку на уже созданную группу узлов {#assign-label}
+
+Назначение {{ k8s }}-меток не приводит к пересозданию группы узлов.
+
+{% list tabs group=instructions %}
+
+* CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  Чтобы назначить {{ k8s }}-метку на уже созданную группу узлов, выполните команду:
+
+  ```bash
+  {{ yc-k8s }} node-group add-node-labels \
+     --id <идентификатор_группы_узлов> \
+     --labels <ключ>=<значение>, ...
+  ```
+
+  Команда содержит параметры:
+
+  * `--id` — идентификатор группы узлов. Его можно [получить вместе со списком](node-group-list.md#list) групп узлов в кластере {{ managed-k8s-name }}.
+  * `--labels` — {{ k8s }}-метки в формате `<ключ>=<значение>`. Можно указать одну или несколько меток через запятую.
+
+* {{ TF }} {#tf}
+
+  Чтобы назначить {{ k8s }}-метку на уже созданную группу узлов:
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов {{ managed-k8s-name }}.
+
+     О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
+
+  1. В описании группы узлов добавьте блок `node_labels`:
+
+     ```hcl
+     resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
+       ...
+       node_labels {
+         "<имя_метки>" = "<значение_метки>"
+         ...
+       }
+       ...
+     }
+     ```
+
+     Можно назначить несколько меток. Для этого укажите каждую метку на отдельной строке.
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+
+* API {#api}
+
+  Чтобы назначить {{ k8s }}-метку на уже созданную группу узлов, воспользуйтесь методом [update](../../api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/index.md) и передайте в запросе:
+
+  * {{ k8s }}-метки в параметре `nodeLabels`.
+  * Обновляемый параметр `nodeLabels` в параметре `updateMask`.
+
+  {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
+
+## Снять {{ k8s }}-метку с группы узлов {#remove-label}
+
+Удаление {{ k8s }}-меток не приводит к пересозданию группы узлов.
+
+{% list tabs group=instructions %}
+
+* CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  Чтобы снять {{ k8s }}-метку с группы узлов, выполните команду:
+
+  ```bash
+  {{ yc-k8s }} node-group remove-node-labels \
+     --id <идентификатор_группы_узлов> \
+     --labels <ключ_метки>, ...
+  ```
+
+  Команда содержит параметры:
+
+  * `--id` — идентификатор группы узлов. Его можно [получить вместе со списком](node-group-list.md#list) групп узлов в кластере {{ managed-k8s-name }}.
+  * `--labels` — ключи {{ k8s }}-меток, которые надо снять. Можно указать одну или несколько меток через запятую.
+
+* {{ TF }} {#tf}
+
+  Чтобы снять {{ k8s }}-метку с группы узлов:
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов {{ managed-k8s-name }}.
+
+     О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
+
+  1. Удалите из описания группы узлов ненужные {{ k8s }}-метки в блоке `node_labels`.
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+
+* API {#api}
+
+  Чтобы снять {{ k8s }}-метку с группы узлов, воспользуйтесь методом [update](../../api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/index.md) и передайте в запросе:
+
+  * Новый набор {{ k8s }}-меток в параметре `nodeLabels`. Если вы хотите снять все метки, передайте в запросе `"nodeLabels": {}`.
+  * Обновляемый параметр `nodeLabels` в параметре `updateMask`.
+
+  {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}

@@ -1,6 +1,6 @@
-# Отвязать от виртуальной машины публичный IP-адрес
+# Отвязать публичный IP-адрес от виртуальной машины
 
-Если ранее вы привязали к виртуальной машине публичный адрес, вы можете отвязать его.
+Если ранее вы привязали к [сетевому интерфейсу](../../concepts/network.md) виртуальной машины публичный IP-адрес, вы можете отвязать его.
 
 {% list tabs group=instructions %}
 
@@ -9,7 +9,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Выберите виртуальную машину.
-  1. В блоке **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}** в правом верхнем углу нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_remove-public-ip }}**.
+  1. В открывшемся окне в секции **{{ ui-key.yacloud.compute.instance.overview.section_network }}** в правом верхнем углу блока нужного сетевого интерфейса нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_remove-public-ip }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.popup-confirm_button_remove-one-to-one-nat }}**.
 
 - CLI {#cli}
@@ -23,13 +23,13 @@
   ```bash
   yc compute instance remove-one-to-one-nat
     --id=<идентификатор_ВМ>
-    --network-interface-index=<индекс_сетевого_интерфейса_ВМ>
+    --network-interface-index=<номер_сетевого_интерфейса_ВМ>
   ```
 
   Где:
 
   * `--id` — идентификатор (ID) ВМ. Получите список идентификаторов ВМ, доступных в каталоге, с помощью [команды CLI](../../../cli/cli-ref/managed-services/compute/instance/list.md) `yc compute instance list`.
-  * `--network-interface-index` — индекс сетевого интерфейса ВМ. По умолчанию — `0`.
+  * `--network-interface-index` — номер сетевого интерфейса ВМ. По умолчанию — `0`. Чтобы получить список сетевых интерфейсов ВМ и их номера, выполните команду `yc compute instance get <идентификатор_ВМ>`.
 
   Подробнее о команде `yc compute instance remove-one-to-one-nat` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/remove-one-to-one-nat.md).
 

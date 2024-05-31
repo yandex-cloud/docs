@@ -151,7 +151,7 @@
 
 ### Изменить подсеть ВМ {#change-subnet}
 
-После переноса ВМ остается подключена к [подсети](../../../vpc/concepts/network.md#subnet) исходного каталога. Чтобы перенести ВМ в подсеть каталога назначения:
+После переноса сетевые интерфейсы ВМ остаются подключены к [подсетям](../../../vpc/concepts/network.md#subnet) исходного каталога. Чтобы подключить ВМ к подсетям каталога назначения:
 
 {% list tabs group=instructions %}
 
@@ -162,8 +162,9 @@
   1. Нажмите на имя нужной ВМ.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}** нажмите значок ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
+  1. В секции **{{ ui-key.yacloud.compute.instance.overview.section_network }}** в правом верхнем углу блока нужного сетевого интерфейса нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
   1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите новую подсеть и нажмите **{{ ui-key.yacloud.common.save }}**.
+      Если у ВМ несколько [сетевых интерфейсов](../../concepts/network.md), измените подсеть для каждого из них.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.start }}**.
 
 - CLI {#cli}
@@ -172,17 +173,48 @@
   
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
+  1. Посмотрите описание команды CLI для изменения подсети:
+
+      ```bash
+      yc compute instance update-network-interface --help
+      ```
+
   1. Остановите ВМ:
 
       ```bash
       yc compute instance stop fhm0b28lgfp4********
       ```
 
-  1. Посмотрите описание команды CLI для изменения подсети:
+  1. Получите список сетевых интерфейсов ВМ, указав ее идентификатор:
 
-      ```bash
-      yc compute instance update-network-interface --help
-      ```
+     ```bash
+     yc compute instance get fhm0b28lgfp4********
+     ```
+
+     Результат:
+
+     ```yml
+     ...
+     network_interfaces:
+       - index: "0"
+         mac_address: d0:0d:24:**:**:**
+         subnet_id: e2lpp96bvvgp********
+         primary_v4_address:
+           address: 192.168.2.23
+       - index: "1"
+         mac_address: d0:1d:24:**:**:**
+         subnet_id: e2lrucutusnd********
+         primary_v4_address:
+           address: 192.168.1.32
+       - index: "2"
+         mac_address: d0:2d:24:**:**:**
+         subnet_id: e2lv9c6aek1d********
+         primary_v4_address:
+           address: 192.168.4.26
+     ...
+     ```
+
+     Сохраните значение поля `index` — номер сетевого интерфейса, который требуется подключить к другой подсети.
 
   1. Выполните команду:
 
@@ -197,15 +229,15 @@
       Где:
 
       * `--subnet-id` — подсеть в каталоге назначения.
-      * `--ipv4-address` — внутренний IP-адрес ВМ.
-      * `--network-interface-index` — индекс сетевого интерфейса ВМ.
-      * `--security-group-id` — группа безопасности, которая будет назначена ВМ.
+      * `--ipv4-address` — внутренний IP-адрес сетевого интерфейса ВМ в подсети в каталоге назначения. Задайте значение `auto`, чтобы внутренний адрес был присвоен автоматически.
+      * `--network-interface-index` — охраненный ранее номер сетевого интерфейса ВМ.
+      * `--security-group-id` — группа безопасности, которая будет назначена сетевому интерфейсу ВМ.
 
       Результат:
 
       ```text
       done (9s)
-      id: epdk82knf9rj********
+      id: fhm0b28lgfp4********
       folder_id: b1gd73mbrli7********
       created_at: "2023-11-16T06:09:46Z"
       name: oslogigor1
@@ -228,10 +260,22 @@
         disk_id: epdophaf2gh9********
       network_interfaces:
         - index: "0"
-          mac_address: d0:0d:14:40:a9:77
+          mac_address: d0:0d:24:**:**:**
           subnet_id: e2lfibapq818********
           primary_v4_address:
-          address: 10.129.0.22
+            address: 10.129.0.22
+          security_group_ids:
+            - enpi8m85mj14********
+        - index: "1"
+          mac_address: d0:1d:24:**:**:**
+          subnet_id: e2lrucutusnd********
+          primary_v4_address:
+            address: 192.168.1.32
+        - index: "2"
+          mac_address: d0:2d:24:**:**:**
+          subnet_id: e2lv9c6aek1d********
+          primary_v4_address:
+            address: 192.168.4.26
       gpu_settings: {}
       fqdn: relocated-vm.{{ region-id }}.internal
       scheduling_policy: {}
@@ -239,6 +283,8 @@
       type: STANDARD
       placement_policy: {}
       ```
+
+      Если у ВМ несколько сетевых интерфейсов, измените подсеть для каждого из них.
 
   1. Запустите ВМ:
 
