@@ -112,13 +112,19 @@
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
      * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), которая соответствует выбранной [подсети](../../../vpc/concepts/network.md#subnet).
-     * `subnet-name` — имя выбранной подсети.
-     * `nat-ip-version=ipv4` – [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Чтобы создать прерываемую ВМ без публичного IP-адрес, исключите параметр.
-     * `--preemptible` — выбор прерываемого типа ВМ.
-     * `image-family` — [семейство образов](../../concepts/image.md#family), например, `centos-7`. Эта опция позволит установить последнюю версию ОС из указанного семейства.
-     * `--ssh-key` — путь до [публичного SSH-ключа](../vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на прерываемой ВМ будет автоматически создан пользователь `yc-user`.
+     * `--network-interface` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ:
+         * `subnet-name` — имя выбранной подсети.
+         * `nat-ip-version=ipv4` – [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Чтобы создать ВМ без публичного IP-адреса, исключите параметр.
 
-       {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
+         {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
+
+     * `--preemptible` — выбор прерываемого типа ВМ.
+     * `--create-boot-disk` — настройки загрузочного диска ВМ:
+         * `image-family` — [семейство образов](../../concepts/image.md#family), например, `centos-7`. Эта опция позволит установить последнюю версию ОС из указанного семейства.
+
+     * `--ssh-key` — путь к файлу с [публичным SSH-ключом](../vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на прерываемой ВМ будет автоматически создан пользователь `yc-user`.
+
+         {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
 - {{ TF }} {#tf}
 
@@ -192,7 +198,10 @@
        * `zone` — зона доступности, в которой будет находиться прерываемая ВМ.
        * `resources` — количество ядер vCPU и объем RAM, доступные прерываемой ВМ. Значения должны соответствовать выбранной платформе.
        * `boot_disk` — настройки загрузочного диска. Укажите идентификатор диска.
-       * `network_interface` — настройка [сети](../../../vpc/concepts/network.md#network). Укажите идентификатор выбранной [подсети](../../../vpc/concepts/network.md#subnet). Чтобы автоматически назначить прерываемой ВМ [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses), укажите `nat = true`.
+       * `network_interface` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ. Укажите идентификатор выбранной [подсети](../../../vpc/concepts/network.md#subnet). Чтобы автоматически назначить ВМ [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses), укажите `nat = true`.
+
+           {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
+
        * `metadata` — в метаданных необходимо передать открытый ключ для [SSH-доступа](../../../glossary/ssh-keygen.md) на прерываемую ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
        * `scheduling_policy` — политика планирования. Чтобы создать прерываемую ВМ, укажите `preemptible = true`.
      * `yandex_vpc_network` — описание облачной сети.

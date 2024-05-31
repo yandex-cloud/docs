@@ -376,6 +376,12 @@
 
       {% endcut %}
 
+      {% note info %}
+
+      По умолчанию при создании политики выполняется запрос проверки подписи в хранилище неизменяемых записей Transparency Log. Вы можете отключить его — для этого добавьте в элемент `keys` спецификации политики параметр `rekor: ignoreTlog: true`. Подробнее см. в [документации Kyverno](https://kyverno.io/docs/writing-policies/verify-images/sigstore/#ignoring-tlogs-and-sct-verification).
+
+      {% endnote %}
+
    1. Выполните команду:
 
       ```bash

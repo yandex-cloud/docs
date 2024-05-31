@@ -53,6 +53,8 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](vm-control/vm-change-zone.md)
 * [{#T}](vm-control/vm-change-folder.md)
 * [{#T}](vm-control/vm-change-cloud.md)
+* [{#T}](vm-control/attach-network-interface.md)
+* [{#T}](vm-control/detach-network-interface.md)
 * [{#T}](vm-control/vm-attach-public-ip.md)
 * [{#T}](vm-control/vm-detach-public-ip.md)
 * [{#T}](vm-control/vm-set-static-ip.md)
