@@ -6388,6 +6388,7 @@ default:
             access_value_public: Public
             button_save: Save
             class_value_cold: Cold
+            class_value_ice: Ice
             class_value_standard: Standard
             field_access-config-read: Read access to settings
             field_access-list: Object listing access
