@@ -92,6 +92,10 @@ items:
             href: operations/vm-control/vm-change-folder.md
           - name: Перенести ВМ в другое облако
             href: operations/vm-control/vm-change-cloud.md
+          - name: Добавить на ВМ дополнительный сетевой интерфейс
+            href: operations/vm-control/attach-network-interface.md
+          - name: Удалить сетевой интерфейс на ВМ
+            href: operations/vm-control/detach-network-interface.md
           - name: Привязать к ВМ публичный IP-адрес
             href: operations/vm-control/vm-attach-public-ip.md
           - name: Отвязать от ВМ публичный IP-адрес
@@ -408,7 +412,7 @@ items:
             href: concepts/performance-levels.md
           - name: Прерываемые виртуальные машины
             href: concepts/preemptible-vm.md
-          - name: Сеть на виртуальной машине
+          - name: Сетевые интерфейсы виртуальных машин
             href: concepts/network.md
           - name: Программно-ускоренная сеть
             href: concepts/software-accelerated-network.md
@@ -940,6 +944,8 @@ items:
         href: qa/monitoring.md
       - name: Лицензирование
         href: qa/licensing.md
+      - name: Решение проблем
+        href: qa/troubleshooting.md
       - name: Все вопросы на одной странице
         href: qa/all.md
   - name: Обучающие курсы

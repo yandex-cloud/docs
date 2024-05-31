@@ -126,6 +126,8 @@
      
       Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
 
+      {% include [add-several-net-interfaces-notice-cli](./add-several-net-interfaces-notice-cli.md) %}
+
  
 - API {#api}
 
