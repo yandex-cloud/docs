@@ -6390,6 +6390,7 @@ default:
             access_value_public: Публичный
             button_save: Сохранить
             class_value_cold: Холодное
+            class_value_ice: Ледяное
             class_value_standard: Стандартное
             field_access-config-read: Доступ на чтение настроек
             field_access-list: Доступ к списку объектов
