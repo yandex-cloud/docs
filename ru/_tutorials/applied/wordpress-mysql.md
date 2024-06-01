@@ -1,4 +1,4 @@
-# Сайт на WordPress с кластером БД {{ MY }}
+# Создание сайта на WordPress с кластером базы данных {{ MY }}
 
 С помощью этой инструкции вы научитесь разворачивать сайт на базе CMS WordPress с [кластером баз данных](../../managed-mysql/concepts/index.md) под управлением СУБД {{ MY }} в инфраструктуре {{ yandex-cloud }}.
 
@@ -406,7 +406,7 @@
 
      {% endlist %}
 
-3. Перезапустите Nginx и PHP-FPM:
+1. Перезапустите Nginx и PHP-FPM:
 
    {% list tabs group=operating_system %}
 

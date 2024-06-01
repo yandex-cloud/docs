@@ -1,12 +1,10 @@
-# Как начать работать с {{ sws-full-name }}
-
-{{ sws-name }} позволяет защитить вашу инфраструктуру от [DDoS-атак](../glossary/ddos.md) и ботов на уровне приложений (L7).
+# Как начать работать с профилем безопасности
 
 Создайте первый [профиль безопасности](./concepts/profiles.md) и подключите его к имеющемуся [виртуальному хосту](../application-load-balancer/concepts/http-router.md#virtual-host) L7-балансировщика {{ alb-full-name }}.
 
 Если у вас еще не настроен L7-балансировщик, вы можете опробовать {{ sws-name }} на тестовой инфраструктуре. Подробнее см. [{#T}](./tutorials/balancer-with-sws-profile.md).
 
-Чтобы начать работу с сервисом:
+Чтобы начать работу с профилем безопасности:
 1. [Создайте профиль безопасности](#profile-create).
 1. [Проверьте настройки профиля безопасности](#profile-check).
 1. [Подключите профиль безопасности к виртуальному хосту](#profile-connect).
@@ -58,6 +56,10 @@
       * Нелегитимные запросы и атаки блокируются.
       * Подозрительные запросы направляются в [{{ captcha-name }}](../smartcaptcha/) для дополнительной верификации.
 
+  Вы также можете подключить к профилю безопасности [профиль WAF](./concepts/waf.md). Подробнее см. на странице [{#T}](./quickstart/quickstart-waf.md).
+
+  {% include [note-preview-waf](../_includes/smartwebsecurity/note-preview-waf.md) %}
+
 {% endlist %}
 
 ## Подключите профиль безопасности к виртуальному хосту {#profile-connect}
@@ -81,6 +83,7 @@
 
 ### См. также {#see-also}
 
+* [{#T}](./quickstart/quickstart-waf.md)
 * [{#T}](./concepts/profiles.md)
 * [{#T}](./operations/profile-create.md)
 * [Создать L7-балансировщик с профилем безопасности](./tutorials/balancer-with-sws-profile.md)

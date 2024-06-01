@@ -38,7 +38,13 @@
       sudo apt update && sudo apt install portaudio19-dev
       ```
 
-   1. С помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/) установите пакеты:
+   1. Установите менеджер пакетов [pip](https://pip.pypa.io/en/stable/), если он не установлен. Иначе переходите к следующему шагу.
+
+      ```bash
+      sudo apt install python3-pip
+      ```
+
+   1. С помощью менеджера пакетов pip установите пакеты:
 
       * `grpcio-tools` — для работы с API {{speechkit-name}};
       * `PyAudio` — для записи аудио.
@@ -52,7 +58,7 @@
       ```bash
       cd <путь_к_папке_cloudapi> && \
       mkdir output && \
-      python -m grpc_tools.protoc -I . -I third_party/googleapis \
+      python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
          --python_out=output \
          --grpc_python_out=output \
            google/api/http.proto \

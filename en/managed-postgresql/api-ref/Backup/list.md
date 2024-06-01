@@ -36,7 +36,8 @@ pageToken | <p>Page token.  To get the next page of results, Set <a href="/docs/
       "size": "string",
       "type": "string",
       "method": "string",
-      "journalSize": "string"
+      "journalSize": "string",
+      "status": "string"
     }
   ],
   "nextPageToken": "string"
@@ -56,4 +57,5 @@ backups[].<br>size | **string** (int64)<br><p>Size of backup, in bytes</p>
 backups[].<br>type | **string**<br><p>How this backup was created (manual/automatic/etc...)</p> <ul> <li>AUTOMATED: Backup created by automated daily schedule</li> <li>MANUAL: Backup created by user request</li> </ul> 
 backups[].<br>method | **string**<br><p>Method of backup creation</p> <ul> <li>BASE: Base backup</li> <li>INCREMENTAL: Delta (incremental) PostgreSQL backup</li> </ul> 
 backups[].<br>journalSize | **string** (int64)<br><p>Size of the journal associated with backup, in bytes</p> 
+backups[].<br>status | **string**<br><p>Status of backup</p> <ul> <li>DONE: Backup is done</li> <li>CREATING: Backup is creating</li> </ul> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-postgresql/api-ref/Backup/list#query_params">pageSize</a>, use the <a href="/docs/managed-postgresql/api-ref/Backup/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-postgresql/api-ref/Backup/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-postgresql/api-ref/Backup/list#responses">nextPageToken</a> to continue paging through the results.</p> <p>The maximum string length in characters is 100.</p> 

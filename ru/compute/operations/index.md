@@ -37,6 +37,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](images-with-pre-installed-software/setup.md)
 * [{#T}](images-with-pre-installed-software/operate.md)
 * [{#T}](images-with-pre-installed-software/get-list.md)
+* [{#T}](images-with-pre-installed-software/get-info.md)
 
 ## Получение информации о виртуальных машинах {#vm-info}
 
@@ -52,6 +53,8 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](vm-control/vm-change-zone.md)
 * [{#T}](vm-control/vm-change-folder.md)
 * [{#T}](vm-control/vm-change-cloud.md)
+* [{#T}](vm-control/attach-network-interface.md)
+* [{#T}](vm-control/detach-network-interface.md)
 * [{#T}](vm-control/vm-attach-public-ip.md)
 * [{#T}](vm-control/vm-detach-public-ip.md)
 * [{#T}](vm-control/vm-set-static-ip.md)
@@ -78,6 +81,7 @@ description: "Пошаговые инструкции по работе и уп�
 
 * [{#T}](vm-guest-agent/check.md)
 * [{#T}](vm-guest-agent/install.md)
+* [{#T}](vm-guest-agent/reset-password.md)
 * [{#T}](vm-guest-agent/uninstall.md)
 
 ## Создание диска {#disk-create}
@@ -167,6 +171,9 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](instance-groups/create-with-coi.md)
 * [{#T}](instance-groups/create-from-yaml.md)
 * [{#T}](placement-groups/create-ig-in-pg.md)
+* [{#T}](instance-groups/create-with-fixed-ip.md)
+* [{#T}](instance-groups/create-with-filesystem.md)
+* [{#T}](instance-groups/create-with-bucket.md)
 
 ## Получение информации о группе виртуальных машин {#ig-info}
 

@@ -1,6 +1,6 @@
 # Создание кластера {{ dataproc-name }}
 
-Для создания [кластера](../../glossary/cluster.md) {{ dataproc-name }} пользователю должны быть назначены [роли](../../iam/concepts/access-control/roles.md) `editor` и `dataproc.agent`. Подробнее см. в [описании ролей](../security/index.md#roles-list).
+Для создания [кластера](../../glossary/cluster.md) {{ dataproc-name }} пользователю должна быть назначена [роль](../../iam/concepts/access-control/roles.md) `dataproc.editor`. Подробнее см. в [описании ролей](../security/index.md#roles-list).
 
 
 ## Настройте сеть {#setup-network}
@@ -31,14 +31,14 @@
      - На все адреса
 
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
      - На адреса, используемые {{ yandex-cloud }}
 
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**:
          * `84.201.181.26/32` — получение статуса кластера {{ dataproc-name }}, запуск заданий, UI Proxy.
@@ -49,7 +49,7 @@
 
    * Правило, разрешающее доступ к NTP-серверам для синхронизации времени:
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `123`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_udp }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
@@ -230,7 +230,7 @@
 
        {% endnote %}
 
-     * `--services` — список [компонентов](../concepts/environment.md), которые вы хотите использовать в кластере {{ dataproc-name }}. Если не указать этот параметр, будет использоваться набор по умолчанию: `hdfs`, `yarn`, `mapreduce`, `tez`, `spark`.
+     * `--services` — список [компонентов](../concepts/environment.md), которые вы хотите использовать в кластере {{ dataproc-name }}. Если не указать этот параметр, будет использоваться набор по умолчанию: `yarn`, `tez`, `spark`.
      * `--ssh-public-keys-file` — полный путь к файлу с публичной частью [SSH-ключа](../../glossary/ssh-keygen.md), который будет использоваться для доступа к хостам кластера {{ dataproc-name }}. Как создать и использовать SSH-ключи, читайте в [документации {{ compute-full-name }}](../../compute/operations/vm-connect/ssh.md).
      * `--subcluster` — параметры подкластеров {{ dataproc-name }}:
        * `name` — имя подкластера {{ dataproc-name }}.
@@ -342,8 +342,8 @@
      Пример структуры конфигурационного файла, в котором описывается облачная сеть с одной подсетью:
 
      ```hcl
-     resource "yandex_vpc_network" "test_network" { 
-       name = "<имя_сети>" 
+     resource "yandex_vpc_network" "test_network" {
+       name = "<имя_сети>"
      }
 
      resource "yandex_vpc_subnet" "test_subnet" {

@@ -26,7 +26,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-{% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin-datalens.md) %}
 
 ## Шаг 1. Импортируйте геослои из Marketplace {#step1}
 
@@ -54,7 +54,7 @@
 1. Выберите подключение **ClickHouse**.
     1. В открывшемся окне укажите параметры подключения:
        * Подключение — тип **Указать вручную**.
-       * Имя хоста —  `myt-g2ucdqpavskt6irw.{{ dns-zone }}, sas-1h1276u34g7nt0vx.{{ dns-zone }}` (указать через запятую).
+       * Имя хоста —  `rc1a-ckg8nrosr2lim5iz.{{ dns-zone }}, rc1b-cflmvve37lf18tqn.{{ dns-zone }}` (указать через запятую).
        * Порт HTTP-интерфейса — `8443` (по умолчанию).
        * Имя пользователя — `datalens-marathon-2020-11-ro`.
        * Пароль — `/4b+xBF6aSCgN9wKTevYGuDjxC9IO4Fa`.
@@ -68,7 +68,7 @@
 ## Шаг 3. Настройте поля датасета {#step3}
 
 1. В открывшемся окне нажмите кнопку **Создать датасет**.  
-1. В созданном датасете перенесите таблицу на рабочую область.
+1. В созданном датасете перенесите таблицу `marathon-2020-11.DODO_opendata` на рабочую область.
     
     ![drag-table](../../_assets/datalens/solution-09/12-drag-table.png)
    

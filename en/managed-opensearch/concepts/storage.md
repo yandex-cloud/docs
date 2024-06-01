@@ -2,6 +2,7 @@
 
 
 
+
 {{ mos-name }} allows you to use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the cluster servers.
 
 
@@ -18,7 +19,7 @@ The number of hosts with the `DATA` role that can be created along with an {{ OS
 
    This cluster will be fault-tolerant. To ensure fault tolerance, you can also set up index [sharding and replication](scalability-and-resilience.md).
 
-   Local SSD storage impacts the cost of a cluster: it is charged even if not running. You can find more information in the [pricing policy](../pricing.md).
+  Local SSD storage has an effect on how much a cluster will cost: you pay for it even if it is stopped. For more information, refer to the [pricing policy](../pricing.md).
 
 * With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of hosts within the current quota.
 

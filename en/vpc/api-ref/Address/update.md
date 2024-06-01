@@ -44,16 +44,16 @@ addressId | <p>Required. ID of the address to update.</p> <p>To get the address 
 Field | Description
 --- | ---
 updateMask | **string**<br><p>Field mask that specifies which attributes of the Address should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-name | **string**<br><p>New name for the address. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
+name | **string**<br><p>New name for the address. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``.</p> 
 description | **string**<br><p>New description of the address.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Address labels as ``key:value`` pairs.</p> <p>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label:</p> <ol> <li>Get the current set of labels with a <a href="/docs/vpc/api-ref/Address/get">get</a> request.</li> <li>Add or remove a label in this set.</li> <li>Send the new set in this field.</li> </ol> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 reserved | **boolean** (boolean)<br><p>Specifies if address is reserved or not.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Specifies if address protected from deletion.</p> 
 dnsRecordSpecs[] | **object**<br><p>Optional DNS record specifications</p> 
-dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required.</p> 
-dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>Required. The string length in characters must be equal to 20.</p> 
-dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>Acceptable values are 0 to 86400, inclusive.</p> 
-dnsRecordSpecs[].<br>ptr | **boolean** (boolean)
+dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required. Required. DNS record name (absolute or relative to the DNS zone in use).</p> 
+dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>Required. Required. ID of the public DNS zone. The maximum string length in characters is 20.</p> <p>The string length in characters must be equal to 20.</p> 
+dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>TTL of record. Acceptable values are 0 to 86400, inclusive.</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>Optional. If the PTR record is required, this parameter must be set to "true".</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

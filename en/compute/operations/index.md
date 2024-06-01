@@ -78,6 +78,7 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 
 * [{#T}](vm-guest-agent/check.md)
 * [{#T}](vm-guest-agent/install.md)
+* [{#T}](vm-guest-agent/reset-password.md)
 * [{#T}](vm-guest-agent/uninstall.md)
 
 ## Creating a disk {#disk-create}
@@ -108,6 +109,8 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](snapshot-control/update-schedule.md)
 * [{#T}](snapshot-control/stop-and-start-schedule.md)
 * [{#T}](snapshot-control/snapshot-encrypt.md)
+* [{#T}](snapshot-control/snapshot-access.md)
+* [{#T}](snapshot-control/snapshot-schedule-access.md)
 * [{#T}](snapshot-control/delete-schedule.md)
 
 

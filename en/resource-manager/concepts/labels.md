@@ -3,9 +3,9 @@
 
 Most {{ yandex-cloud }} services support resource labeling.
 
-A _label_ is a key-value pair in `<label_name>=<label_value>` format. You can use labels to logically separate resources.
+A _label_ is a key-value pair in `<label_name>=<label_value>` format. You can use labels to break resources into logical groups.
 
-Labels are subject to the following restrictions:
+Labels are subject to the following limitations:
 
 * Maximum number of labels per resource: 64.
 * The key:
@@ -13,8 +13,26 @@ Labels are subject to the following restrictions:
    * May contain lowercase Latin letters, numbers, hyphens, and underscores.
    * Must start with a letter.
 * The value:
-   * It may be up to 63 characters long.
+   * May be up to 63 characters long.
    * May contain lowercase Latin letters, numbers, hyphens, and underscores.
+
+## Label usage examples {#examples}
+
+* [Viewing service usage details by labels](../../billing/operations/check-charges.md#labels_1).
+
+   For example, you can [view the {{ ml-platform-name }} spending details](../../datasphere/operations/community/billing-details.md).
+
+* Searching for resources belonging to the same project, owner, environment, etc.
+
+   For example, you can use the `project:app` label to find the {{ yandex-cloud }} resources used in the `app` project.
+
+* Grouping resources by various criteria, such as project, team, environment, application, etc.
+
+   For example, you can use the `environment:production` and `environment:test` labels to specify that {{ yandex-cloud }} resources belong to the production and test environments.
+
+* Automating actions with a resource group, such as launching, stopping, or deleting the labeled resources.
+
+   For example, you can [manage a resource group using {{ sf-full-name }}](../../tutorials/infrastructure-management/serverless-trigger-budget-vm.md).
 
 ## Services that support labels {#services}
 

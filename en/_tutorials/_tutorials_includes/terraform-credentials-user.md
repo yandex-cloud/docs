@@ -1,6 +1,6 @@
 {% note warning %}
 
-Managing resources under a user's [Yandex account](../../iam/concepts/index.md#passport) or [federated account](../../iam/concepts/index.md#saml-federation) is less secure than under a [service account](../../iam/concepts/users/service-accounts.md).
+Managing resources under a user's [Yandex account](../../iam/concepts/users/accounts.md#passport) or [federated account](../../iam/concepts/users/accounts.md#saml-federation) is less secure than under a [service account](../../iam/concepts/users/service-accounts.md).
 
 {% endnote %}
 
@@ -8,7 +8,7 @@ Managing resources under a user's [Yandex account](../../iam/concepts/index.md#p
 
 {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-If you use a federated account, [authenticate](../../cli/operations/authentication/federated-user.md) with the CLI on behalf of the federated user.
+If you use a federated account, [authenticate](../../cli/operations/authentication/federated-user.md) with the [CLI](../../cli/) on behalf of the federated user.
 
 Add the credentials to the environment variables:
 

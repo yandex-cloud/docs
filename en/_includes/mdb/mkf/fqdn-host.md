@@ -1,1 +1,1 @@
-Learn how to get the FQDN of a broker host in [this guide](../../../managed-kafka/operations/connect.md#fqdn).
+To learn how to get a broker host FQDN, see [this guide](../../../managed-kafka/operations/connect/fqdn.md).

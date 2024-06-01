@@ -2,7 +2,7 @@
 
 All actions with {{ kms-name }} resources are logged as a list of operations. Each operation is assigned a unique ID.
 
-## Get a list of operations {#get-operations}
+## Getting a list of operations {#get-operations}
 
 {% list tabs group=instructions %}
 
@@ -14,7 +14,7 @@ All actions with {{ kms-name }} resources are logged as a list of operations. Ea
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
    1. Select the key you need.
-   1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.kms.symmetric-key.switch_operations }}** panel for the selected key.
+   1. Go to the ![image](../../_assets/console-icons/list-check.svg) **Operations** panel for the selected key.
 
       You will see a list of operations with the selected symmetric key.
 
@@ -93,7 +93,7 @@ All actions with {{ kms-name }} resources are logged as a list of operations. Ea
 
 {% endlist %}
 
-## Get detailed information about an operation {#get-operations-info}
+## Getting detailed information about an operation {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the resource.
 1. Copy the ID of the operation.

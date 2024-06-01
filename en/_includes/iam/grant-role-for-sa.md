@@ -4,6 +4,10 @@ You can assign roles to a service account for any resources in any cloud if thes
 
 Child resources inherit access permissions from their parent resources. For example, if a service account is assigned a role for a cloud, the service account will be granted the appropriate permissions to all resources in all folders of this cloud.
 
+[Learn](../../iam/concepts/access-control/resources-with-access-control.md) which resources you can assign a role for.
+
+To assign a role for a resource:
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -68,7 +72,7 @@ Child resources inherit access permissions from their parent resources. For exam
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -234,7 +238,7 @@ To grant a service account access permissions to an organization, you need the `
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:

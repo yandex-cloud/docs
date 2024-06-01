@@ -1,5 +1,6 @@
 # Delivering data from an {{ KF }} queue to {{ CH }} using {{ data-transfer-full-name }}
 
+
 A {{ mch-name }} cluster can get data from {{ KF }} topics in real time. Managed Service for ClickHouse automatically inserts data sent to {{ CH }} tables on the [`Kafka` engine]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
 
 To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
@@ -32,7 +33,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    
    1. If you are using security groups, configure them to enable connecting to the clusters from the internet:
 
-      * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
+      * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
       * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
 
@@ -94,9 +95,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
       sudo apt update && sudo apt install --yes kafkacat
       ```
 
-      Check that you can use it to [connect to {{ mkf-name }} clusters over SSL](../../managed-kafka/operations/connect.md#connection-string).
+      Check that you can use it to [connect to {{ mkf-name }} clusters over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-   * [clickhouse-client]({{ ch.docs }}/interfaces/cli/): to connect to the database in the {{ mch-name }} cluster.
+   * [clickhouse-client]({{ ch.docs }}/interfaces/cli/) to connect to the database in the {{ mch-name }} cluster.
 
       1. Connect the [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
@@ -208,7 +209,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
-   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
+   * **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
@@ -281,7 +282,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
       1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
          * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`.
-         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+         * **Endpoint parameters**:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}**:
 
@@ -326,7 +327,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
 1. Make sure the data from the source {{ mkf-name }} cluster has been moved to the {{ mch-name }} database:
 
-   1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`:
+   1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`.
 
    1. Run the following query:
 
@@ -350,7 +351,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
 1. Make sure that the new values are now in the {{ mch-name }} database:
 
-   1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`:
+   1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`.
 
    1. Run the following query:
 

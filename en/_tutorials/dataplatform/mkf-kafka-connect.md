@@ -1,4 +1,5 @@
 
+
 {% note info %}
 
 {{ mkf-name }} has built-in support for certain connectors and allows you to manage them. For a list of available connectors, see [{#T}](../../managed-kafka/concepts/connectors.md). If you need other connectors or want to manage Kafka Connect manually, refer to this tutorial.
@@ -61,9 +62,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       This file describes:
 
-      * Network.
-      * Subnet.
-            * Default security group and rules required to connect to the cluster and VM from the internet.
+      * Network
+      * Subnet
+
+      
+      * Default security group and rules required to connect to the cluster and VM from the internet.
+
+
       * Virtual machine with [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
       * Properly configured {{ mkf-name }} cluster.
 
@@ -189,7 +194,7 @@ Create a `/var/log/sample.json` file with test data. This file contains data fro
         /etc/kafka-connect-worker/file-connector.properties
    ```
 
-1. Connect to the cluster [using kcat](../../managed-kafka/operations/connect.md#bash) and retrieve data from the cluster topic:
+1. Connect to the cluster [using kcat](../../managed-kafka/operations/connect/clients.md#bash-zsh) and retrieve data from the cluster topic:
 
    ```bash
    kafkacat -C \

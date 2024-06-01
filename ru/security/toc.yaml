@@ -68,6 +68,7 @@ items:
     items:
       - name: ViPNet Coordinator в {{ yandex-cloud }}
         href: tutorials/vipnet-to-yc.md
+        hidden: true
       - name: Настройка и тестирование PT Application Firewall
         href: tutorials/pt-application-firewall.md
       - name: >-

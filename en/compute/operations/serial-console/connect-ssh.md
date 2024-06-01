@@ -1,4 +1,4 @@
-# Connecting to a VM's serial console via SSH
+# Connecting to a VM serial console via SSH
 
 {% include [key-without-password-alert](../../../_includes/compute/key-without-password-alert.md) %}
 
@@ -40,7 +40,7 @@ How the serial console works depends on the operating system settings. {{ comput
 
 {% endnote %}
 
-To connect to the VM, you need its ID. For information on how to get VM ID, see [{#T}](../vm-info/get-info.md).
+To connect to the VM, you need its ID. For information about how to get the VM ID, see [{#T}](../vm-info/get-info.md).
 
 Your next steps depend on whether [OS Login](../../../organization/concepts/os-login.md) access is enabled for the VM. If OS Login access is [enabled](../vm-connect/enable-os-login.md) for the VM, you can connect to the serial console using an exported SSH certificate. SSH keys are used to connect to VMs with OS Login access disabled.
 
@@ -63,11 +63,9 @@ Some OSs may request user credentials for access to a VM. So you need to create 
       ssh -t -p 9600 -o IdentitiesOnly=yes -i <private_SSH_key_path> <VM_ID>.<username>@{{ serial-ssh-host }}
       ```
 
-
-
       Where:
-      * `private_SSH_key_path`: Path to the private part of the [SSH key](../vm-connect/ssh.md#creating-ssh-keys) created when [creating the VM](../vm-create/create-linux-vm.md).
-      * `VM_ID`: VM ID. For information on how to get VM ID, see [{#T}](../vm-info/get-info.md).
+      * `private_SSH_key_path`: Path to the private part of the [SSH key](../vm-connect/ssh.md#creating-ssh-keys) obtained when [creating the VM](../vm-create/create-linux-vm.md).
+      * `VM_ID`: VM ID. For information about how to get the VM ID, see [{#T}](../vm-info/get-info.md).
       * `username`: Administrator name specified when creating the VM.
 
       ```bash

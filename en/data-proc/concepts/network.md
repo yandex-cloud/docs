@@ -6,7 +6,7 @@ When creating a cluster, public access can be enabled for any subcluster to make
 
 ## Cluster host addresses {#hostname}
 
-When you create a host in a subcluster, {{ dataproc-name }} generates a fully qualified domain name (FQDN) and IP address for it. You can use them to access the host within a single cloud network.
+When you create a host in a subcluster, {{ dataproc-name }} generates an FQDN and IP address for it. You can use them to access the host within a single cloud network.
 
 The host IP address may change during operation; however, its FQDN is permanent.
 

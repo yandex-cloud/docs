@@ -22,7 +22,7 @@ When creating clusters, {{ mmy-short-name }} allocates resources, installs the D
 
 For the created and running databases, {{ mmy-short-name }} automatically creates backups and applies fixes and updates to the DBMS.
 
-{{ mmy-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
+{{ mmy-short-name }} also allows you to replicate data between database hosts (both within and across [availability zones](../../overview/concepts/geo-scope.md)) and automatically routes the load to a backup replica in the event of a failure.
 
 #### Which tasks are best addressed using {{ mmy-short-name }}, and which using VMs with databases? {#mdb-advantage}
 
@@ -45,12 +45,12 @@ A _database cluster_ is one or more database hosts between which replication can
 
 To create a database cluster in {{ mmy-short-name }}, you must define its characteristics:
 
-- [Host class](../../managed-mysql/concepts/instance-types.md) (performance characteristics such as CPUs, memory, and so on).
+- [Host class](../../managed-mysql/concepts/instance-types.md) (performance characteristics, such as CPUs, memory, etc.).
 - Storage size (reserved in full when you create the cluster).
-- The network your cluster will be connected to.
-- The number of hosts for the cluster and the availability zone for each host.
+- Network your cluster will be connected to.
+- Number of hosts for the cluster and the availability zone for each host.
 
-For detailed instructions, see [{#T}](../../managed-mysql/quickstart.md).
+For a detailed guide, see [{#T}](../../managed-mysql/quickstart.md).
 
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
 
@@ -63,7 +63,7 @@ The minimum number of hosts depends on the selected type of [storage](../../mana
 
 The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
 
-For more information, see [{#T}](../../managed-mysql/concepts/limits.md).
+For more information, see [Quotas and limits](../../managed-mysql/concepts/limits.md).
 
 #### How can I access a running DB host? {#db-access}
 
@@ -74,7 +74,7 @@ You can connect to {{ mmy-short-name }} databases using standard DBMS methods.
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
-MDB technical and organizational limits are given in [{#T}](../../managed-mysql/concepts/limits.md).
+You can find MDB technical and organizational limitations in [{#T}](../../managed-mysql/concepts/limits.md).
 
 
 #### How are DB clusters maintained? {#service-window}
@@ -85,7 +85,7 @@ Maintenance in {{ mmy-short-name }} implies:
 - Changes to the host class and storage size.
 - Other {{ mmy-short-name }} maintenance activities.
 
-For more information, see [{#T}](../../managed-mysql/concepts/maintenance.md).
+For more information, see [Maintenance](../../managed-mysql/concepts/maintenance.md).
 
 #### Which {{ MY }} version does {{ mmy-short-name }} use? {#dbms-version}
 
@@ -94,24 +94,24 @@ For more information, see [{#T}](../../managed-mysql/concepts/maintenance.md).
 
 #### What happens when a new DBMS version is released? {#new-version}
 
-The database software is updated when new minor versions are released. The owners of the affected DB clusters receive advanced notice of expected work times and DB availability.
+The database software is updated when new minor versions are released. Owners of the affected DB clusters are notified of expected work times and DB availability in advance.
 
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
 One month after the database version becomes deprecated, {{ mmy-short-name }} automatically sends email notifications to the owners of DB clusters created with this version.
 
-New hosts can no longer be created using deprecated DBMS versions. Database clusters are automatically upgraded to the next supported version: seven days after notification for minor versions and one month for major versions. Deprecated major versions are upgraded even if you disabled automatic updates.
+New hosts can no longer be created using deprecated DBMS versions. Database clusters are automatically upgraded to the next supported version seven days after notification for minor versions and one month after notification for major versions. Deprecated major versions are going to be upgraded even if you have disabled automatic updates.
 
 
-#### How is the cost of usage calculated for a database host? {#db-cost}
+#### How do you calculate usage cost for a database host? {#db-cost}
 
 In {{ mmy-short-name }}, the usage cost is calculated based on the following parameters:
 
 - Selected host class.
 - Size of the storage reserved for the database host.
 - Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-mysql/pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [{#T}](../../managed-mysql/pricing.md).
+- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour of operation for each host class in [Pricing policy](../../managed-mysql/pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
@@ -141,8 +141,8 @@ For all DBMS types, you can track:
 - Amount of data in the DB cluster and the remaining free space in the data storage.
 
 For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ MY }}, you can track:
-- Average query execution time
-- Number of queries per second
+- Average query execution time.
+- Number of queries per second.
 - Number of errors in logs, etc.
 
 Monitoring can be performed with a minimum granularity of 5 seconds.

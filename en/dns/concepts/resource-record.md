@@ -67,7 +67,7 @@ A record consists of the following parts:
 
 * `FLAG`: Single-byte unsigned integer that may take two values:
    * `0`: Indicates a noncritical record. The certification authority may issue a certificate at its discretion.
-   * `128`: Indicates a critical record. The certification authority should not issue a certificate for an FQDN if the corresponding CAA record contains a critical property for an unknown or unsupported tag.
+   * `128`: Indicates a critical record. The certification authority should not issue a certificate for an FQDN if the appropriate CAA record contains a critical property for an unknown or unsupported tag.
 * `TAG`: String that consists of Latin characters and numbers and identifies the purpose of a record:
    * `issue`: Determines which certification authority is authorized to issue certificates for a zone or subzone.
    * `issuewild`: Determines which certification authority is authorized to issue certificates for a zone and all of its subzones (wildcard, `*.example.com`).

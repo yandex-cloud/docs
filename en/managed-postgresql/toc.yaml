@@ -1,5 +1,10 @@
 title: Yandex Managed Service for PostgreSQL
 href: index.yaml
+label:
+  title: KZ
+  description: The service is available in Kazakhstan.
+  theme: info
+  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -15,7 +20,7 @@ items:
             href: operations/cluster-create.md
           - name: Changing cluster settings
             href: operations/update.md
-          - name: Stopping and starting clusters
+          - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
           - name: Managing PostgreSQL hosts
             href: operations/hosts.md
@@ -47,7 +52,7 @@ items:
             href: operations/cluster-users.md
           - name: Assigning privileges and roles
             href: operations/grant.md
-      - name: PostgreSQL extensions
+      - name: '{{ PG }} extensions and dictionaries'
         items:
           - name: Managing extensions
             href: operations/extensions/cluster-extensions.md
@@ -57,6 +62,8 @@ items:
             href: operations/extensions/pgaudit.md
           - name: pgcrypto
             href: operations/extensions/pgcrypto.md
+          - name: Hunspell dictionaries for full-text search
+            href: operations/extensions/hunspell.md
       - name: Logs and monitoring
         items:
           - name: Viewing cluster logs
@@ -82,8 +89,8 @@ items:
           container
         href: tutorials/container-connect.md
       - name: >-
-          Delivering data to {{ mkf-full-name }} using {{
-          data-transfer-full-name }}
+          "Delivering data to {{ mkf-full-name }} using {{
+          data-transfer-full-name }}"
         href: tutorials/cdc-data-transfer.md
       - name: >-
           Delivering data to {{ ydb-full-name }} using {{
@@ -110,8 +117,8 @@ items:
           - name: Migrating databases from {{ mpg-name }}
             href: tutorials/outbound-replication.md
           - name: >-
-              Creating an Amazon RDS logical replica for {{ PG }} in {{ mpg-name
-              }}
+              "Creating an Amazon RDS logical replica for {{ PG }} in {{
+              mpg-name }}"
             href: operations/logical-replica-from-rds.md
           - name: >-
               Migrating databases from {{ mpg-full-name }} to {{
@@ -145,7 +152,7 @@ items:
                 href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
-      - name: Network in {{ mpg-name }}
+      - name: Networking in {{ mpg-name }}
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md

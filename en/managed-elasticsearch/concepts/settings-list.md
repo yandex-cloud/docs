@@ -30,7 +30,7 @@ You can use the following settings:
 
 * **Reindex remote whitelist**{#setting-reindex-remote-whitelist} {{ tag-api }}
 
-   This is a comma-separated list of host IPs and FQDNs as well as host ports that may be used as a remote source for the [Reindex API]({{ links.es.reindex-api }}).
+   This is a comma-separated list of host IP addresses or FQDNs, as well as host ports that may be used as a remote source for the [Reindex API]({{ links.es.reindex-api }}).
 
    You can use the `*` wildcard character to specify an IP or port range, such as:
 

@@ -26,19 +26,19 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
       * Enter a name and description for the VM. The naming requirements are as follows:
 
-        {% include [name-format](../../_includes/name-format.md) %}
+         {% include [name-format](../../_includes/name-format.md) %}
 
-        {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
+         {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
       * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
 
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, choose [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) or lower or [CentOS 7](/marketplace/products/yc/centos-7).
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [operating system supported in {{ backup-name }}](../concepts/vm-connection.md#linux).
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       1. Choose a subnet in the selected availability zone.
       1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       1. Select a security group configured to work with {{ backup-name }}.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.label_backup }}**, enable the {{ backup-name }} connection option for your VM.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the service account with the `backup.editor` role.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable the {{ backup-name }} connection option for your VM.
    1. Specify the other VM parameters as needed. For more information, see [Creating a VM from a public Linux image](../../compute/operations/vm-create/create-linux-vm).
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
@@ -76,8 +76,8 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
       |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
       | b0c6n43f9lgh******** | default-{{ region-id }}-d     | enpe3m3fa00u******** |                | {{ region-id }}-d     | [10.***.0.0/24] |
-      | e2l2da8a20b3******** | default-{{ region-id }}-b     | enpe3m3fa00u******** |                | {{ region-id }}-b | [10.***.0.0/24] |
-      | e9bnlm18l70a******** | default-{{ region-id }}-a     | enpe3m3fa00u******** |                | {{ region-id }}-a | [10.***.0.0/24] |
+      | e2l2da8a20b3******** | default-{{ region-id }}-b     | enpe3m3fa00u******** |                | {{ region-id }}-b     | [10.***.0.0/24] |
+      | e9bnlm18l70a******** | default-{{ region-id }}-a     | enpe3m3fa00u******** |                | {{ region-id }}-a     | [10.***.0.0/24] |
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
       ```
 
@@ -107,7 +107,7 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
       * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
       * `subnet-name`: Name of the selected [subnet](../../vpc/concepts/network.md#subnet).
       * `security-group-ids`: ID of the [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
-      * `image-id`: OS [image](../../compute/concepts/image.md) ID.
+      * `image-id`: OS [image](../../compute/concepts/image.md) ID. For more information, refer to the [list of supported Linux-based operating systems](../concepts/vm-connection.md#linux).
       * `size`: Boot disk size.
       * `--cores`: [Number of vCPUs](../../compute/concepts/vm.md) in the VM.
       * `--core-fraction`: Guaranteed vCPU share in %.

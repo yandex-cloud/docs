@@ -60,8 +60,8 @@ To create an instance group with a network load balancer:
       * In **{{ ui-key.yacloud.compute.groups.create.field_deploy-startup-duration }}**, specify the period after which the VM instance will start receiving the load.
       * In the **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-deleting }}** field, specify how many instances can be stopped at the same time.
       * In the **{{ ui-key.yacloud.compute.groups.create.field_deploy-strategy }}** field, specify one of the [strategies](../../concepts/instance-groups/policies/deploy-policy.md#strategy):
-         * `{{ ui-key.yacloud.compute.groups.create.value_strategy-proactive }}`: {{ compute-name }} selects which instances to stop when updating or scaling down the group on its own.
-         * `{{ ui-key.yacloud.compute.groups.create.value_strategy-opportunistic }}`: {{ compute-name }} waits for the instances to stop on their own or by the user.
+         * `{{ ui-key.yacloud.compute.groups.create.value_strategy-proactive }}`: {{ compute-name }} itself chooses which instances to stop when updating or scaling down the group.
+         * `{{ ui-key.yacloud.compute.groups.create.value_strategy-opportunistic }}`: {{ compute-name }} waits for the instances to stop on their own or be stopped by the user.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_scale }}**:
       * Select the `{{ ui-key.yacloud.compute.groups.create.value_scale-fixed }}` [scaling type](../../../compute/concepts/instance-groups/scale.md).
       * Specify the instance group size.
@@ -403,7 +403,7 @@ To create an instance group with a network load balancer:
 
       {% endnote %}
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
    1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

@@ -3,27 +3,35 @@ title: "How to change {{ KF }} cluster settings in {{ mkf-full-name }}"
 description: "Follow this guide to change {{ KF }} cluster settings."
 ---
 
-# Changing {{ KF }} cluster settings
+# Updating {{ KF }} cluster settings
+
 
 After creating a {{ mkf-name }} cluster, you can:
 
-* [{#T}](#change-brokers).
-* [{#T}](#change-zookeeper).
-* [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md)).
-* [{#T}](#change-additional-settings).
-* [{#T}](#change-kafka-settings).
-* [{#T}](#move-cluster) from the current folder to another one.
-* [{#T}](#change-sg-set).
+* [{#T}](#change-brokers)
+* [{#T}](#change-zookeeper)
+* [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md))
+* [{#T}](#change-additional-settings)
+* [{#T}](#change-kafka-settings)
+* [{#T}](#move-cluster) from the current folder to another one
+* [{#T}](#change-sg-set)
 
-To move a cluster to a different availability zone, follow [this guide](host-migration.md). You will thus move the cluster hosts.
+To move a cluster to a different [availability zone](../../overview/concepts/geo-scope.md), follow [this guide](host-migration.md). You will thus move the cluster hosts.
 
 ## Changing the broker host class and number {#change-brokers}
 
-You cannot increase the number of {{ KF }} broker hosts unless a cluster includes at least two broker hosts in different availability zones. You cannot have fewer broker hosts. To meet the cluster [fault tolerance conditions](../concepts/index.md#fault-tolerance), you need at least three broker hosts.
+You can increase the number of broker hosts if the following conditions are met:
+
+* The cluster uses {{ KF }} 3.5 or lower. Clusters running {{ KF }} 3.6 or higher use the [{{ kraft-name }} protocol](../concepts/kraft.md); therefore, such clusters always have three {{ KF }} hosts.
+* The cluster contains at least two broker hosts in different availability zones.
+
+You cannot have fewer broker hosts. To meet the cluster [fault tolerance conditions](../concepts/index.md#fault-tolerance), you need at least three broker hosts.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
+
+   To change the class and number of hosts:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. In the appropriate cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
@@ -70,7 +78,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [Creating clusters](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ mkf-name }} cluster description, change the `brokers_count` parameter to increase the number of broker hosts:
 
@@ -165,7 +173,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [Creating clusters](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ mkf-name }} cluster description, edit the value of the `resource_preset_id` parameter under `zookeeper.resources` to specify a new {{ ZK }} host class:
 
@@ -264,7 +272,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [Creating clusters](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ mkf-name }} cluster description, change the `disk_size` parameter in the `kafka.resources` and `zookeeper.resources` sections for the {{ KF }} and {{ ZK }} hosts, respectively:
 
@@ -359,7 +367,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [Creating clusters](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Change the values of the `security_group_ids` and `assign_public_ip` parameters in the cluster description:
 
@@ -408,7 +416,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
 
 {% endlist %}
 
-You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 
 ## Changing additional cluster settings {#change-additional-settings}
@@ -473,7 +481,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [Creating clusters](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
@@ -520,9 +528,9 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
 
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
+   * Settings for the [maintenance](../concepts/maintenance.md) window (for disabled clusters as well) in the `maintenanceWindow` parameter.
 
-   * Cluster access configuration settings for [{{ data-transfer-full-name }}](../../data-transfer/) in Serverless mode: in the `configSpec.access.dataTransfer` parameter.
+   * Cluster access configuration settings for [{{ data-transfer-full-name }}](../../data-transfer/) in serverless mode, in the `configSpec.access.dataTransfer` parameter.
 
       This enables you to connect to {{ data-transfer-full-name }} running in {{ k8s }} via a special network. As a result, other operations, e.g., transfer launch and deactivation, will run faster.
 
@@ -586,9 +594,9 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [Creating clusters](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
-   1. In the {{ mkf-name }} cluster description, modify the values of the parameters in the `kafka.kafka_config` section (the example does not contain an exhaustive list of the [settings](../concepts/settings-list.md#cluster-settings)):
+   1. In the {{ mkf-name }} cluster description, modify the values of the parameters in the `kafka.kafka_config` section (the example contains only some of the [settings](../concepts/settings-list.md#cluster-settings)):
 
       ```hcl
       resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
@@ -706,7 +714,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [Creating clusters](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Change the value of the `security_group_ids` parameter in the cluster description:
 
@@ -741,5 +749,5 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 {% endlist %}
 
-You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 

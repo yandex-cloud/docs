@@ -1,5 +1,6 @@
 # Migrating data from {{ OS }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
+
 With {{ data-transfer-name }}, you can transfer data from a third-party {{ OS }} source cluster's indexes to {{ mos-name }} indexes. To do this:
 
 1. [Set up the source cluster](#configure-source).
@@ -25,7 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    - {{ TF }} {#tf}
 
       1. {% include [terraform-install](../../../_includes/terraform-install.md) %}
-      1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and specify the parameter values.
+      1. Download the [file with provider settings](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf). Place it in a separate working directory and specify the parameter values.
       1. Download the [data-transfer-os-mos.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-opensearch-from-onprem-to-cloud/blob/main/data-transfer-os-mos.tf) configuration file to the same working directory.
 
          This file describes:
@@ -109,8 +110,8 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
         --header 'Content-Type: application/json' \
         --request POST 'https://<{{ OS }}_DATA_host_address>:{{ port-mos }}/people/_doc/?pretty' -d'
         {
-              "name" : "Alice",
-              "age" : "30"
+              "name": "Alice",
+              "age": "30"
         }
         ' && \
    curl --user <source_cluster_username>:<source_cluster_user_password> \
@@ -141,7 +142,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
 
    1. [Create a role]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) with the `create_index` and `write` privileges for all indexes (`*`).
 
-   1. [Create a user](../../../managed-opensearch/operations/cluster-users.md) and assign the user this role.
+   1. [Create a user](../../../managed-opensearch/operations/cluster-users.md) and assign this role to them.
 
 ## Prepare and activate the transfer {#prepare-transfer}
 
@@ -164,7 +165,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
 
          * `source_endpoint_id`: ID of the source endpoint.
          * `target_endpoint_id`: ID of the target endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 

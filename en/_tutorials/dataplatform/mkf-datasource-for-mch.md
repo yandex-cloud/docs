@@ -1,3 +1,5 @@
+
+
 A {{ mch-name }} cluster can get data from {{ KF }} topics in real time. {{ mch-name }} automatically inserts data sent to {{ CH }} tables on the [`Kafka` engine]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
 
 To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
@@ -88,11 +90,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
       sudo apt update && sudo apt install --yes kafkacat
       ```
 
-      Check that you can use it to [connect to {{ mkf-name }} clusters over SSL](../../managed-kafka/operations/connect.md#connection-string).
+      Check that you can use it to [connect to {{ mkf-name }} clusters over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
    - [clickhouse-client]({{ ch.docs }}/interfaces/cli/): to connect to the database in the {{ mch-name }} cluster.
 
-      1. Connect the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
+      1. Connect the [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
          ```bash
          sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -278,7 +280,7 @@ To learn more about creating a table on the `Kafka` engine, see the [{{ CH }} do
       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file-root }} -Z
    ```
 
-Data is sent on behalf of users [with the `ACCESS_ROLE_PRODUCER` role](#before-you-begin). To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect.md).
+Data is sent on behalf of users [with the `ACCESS_ROLE_PRODUCER` role](#before-you-begin). To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
 ## Check that the test data is present in the {{ mch-name }} cluster tables {#fetch-sample-data}
 

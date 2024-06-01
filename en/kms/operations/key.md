@@ -19,7 +19,7 @@ To create a key:
       * [Rotation](../concepts/index.md#rotation) period (how often to change key versions).
       * Click **{{ ui-key.yacloud.common.create }}**.
 
-   The key is created along with its first version: click the key in the list to open the page with its attributes.
+   The key is created together with its first version: click the key in the list to open a page with its attributes.
 
 - CLI {#cli}
 
@@ -99,7 +99,7 @@ To edit a key:
       ```hcl
       ...
       resource "yandex_kms_symmetric_key" "key-a" {
-        name              = "example-symetric-key"
+        name              = "example-symmetric-key"
         description       = "description for key"
         default_algorithm = "AES_128"
         rotation_period   = "8760h"
@@ -160,7 +160,7 @@ To rotate a key:
    1. Log in to the [management console]({{ link-console-main }}).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-   1. In the line with the appropriate key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-rotate }}**.
+   1. In the line with the appropriate key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-keys.button_action-rotate }}**.
    1. Confirm the rotation (make sure that changing the default version will not affect your work).
 
 - CLI {#cli}
@@ -196,8 +196,8 @@ To destroy a key:
    1. Log in to the [management console]({{ link-console-main }}).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-   1. In the line with the appropriate key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-delete }}**.
-   1. In the window that opens, click **{{ ui-key.yacloud.kms.symmetric-key.overview.popup-confirm_button_delete }}**.
+   1. In the line with the appropriate key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
@@ -217,7 +217,7 @@ To destroy a key:
       ```hcl
       ...
       resource "yandex_kms_symmetric_key" "key-a" {
-        name              = "example-symetric-key"
+        name              = "example-symmetric-key"
         description       = "description for key"
         default_algorithm = "AES_128"
         rotation_period   = "8760h"
@@ -253,7 +253,7 @@ To destroy a key:
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc kms symmetric-key list

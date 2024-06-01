@@ -43,15 +43,15 @@ To connect to a host, you need its fully qualified domain name ([FQDN](../concep
    1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
    1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
-Cluster hosts also use [special FQDNs](#special-fqdns).
+Hosts with the `DASHBOARDS` role also use [special FQDNs](#special-fqdns).
 
-## Special FQDNs {#special-fqdns}
+## Special FQDN {#special-fqdns}
 
-Alongside [regular FQDNs](#fqdn), {{ mos-name }} provides special FQDNs, which can also be used when connecting to a cluster.
-
-### Available Dashboards host {#fqdn-dashboards}
+Alongside [regular FQDNs](#fqdn), {{ mos-name }} provides a special FQDN, which you can also use when connecting to a cluster.
 
 Such FQDN as `c-<cluster_ID>.rw.{{ dns-zone }}` always points to the available {{ OS }} host with the `DASHBOARDS` role in the cluster. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+The service does not provide special FQDNs for hosts with the `DATA` role.
 
 ## Connecting to {{ OS }} Dashboards {#dashboards}
 
@@ -176,7 +176,7 @@ To connect to a {{ mos-name }} cluster from a Docker container, add the followin
 
 {% endlist %}
 
-## Sample connection strings {#code-examples}
+## Examples of connection strings {#code-examples}
 
 Before connecting, [prepare a certificate](#ssl-cetificate).
 

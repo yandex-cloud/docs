@@ -5,7 +5,7 @@ For each role in {{ tracker-name }}, you can configure a list of events you want
 ## Configuring event lists {#section_iqn_y55_xgb}
 
 
-1. In the panel on the left, click ![](../../_assets/tracker/svg/settings.svg) **{{ ui-key.yacloud.settings.label_settings }}**. Then select ![](../../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** and click **Notification settings**. You can also follow the link [{{ link-sub-roles }}]({{ link-sub-roles }}).
+1. In the panel on the left, click ![](../../_assets/tracker/svg/settings.svg) **Settings**. Then select ![](../../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** and click **Notification settings**. You can also follow the [{{ link-sub-roles }}]({{ link-sub-roles }}) link.
 
 1. Select a role and configure the list of events you want to be notified about via email or in [update reports](notification-digest.md):
    - To add an event, click ![](../../_assets/tracker/button-plus.png).
@@ -35,7 +35,7 @@ Other roles that have been set up in your organization can also be available in 
 To add roles and set up notifications for them:
 
 
-1. In the panel on the left, click ![](../../_assets/tracker/svg/settings.svg) **{{ ui-key.yacloud.component.navigation-menu.label_notifications }}**. Then select ![](../../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** and click **Notification settings**. You can also follow the link [{{ link-sub-roles }}]({{ link-sub-roles }}).
+1. In the panel on the left, click ![](../../_assets/tracker/svg/settings.svg) **{{ ui-key.yacloud.component.navigation-menu.label_notifications }}**. Then select ![](../../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** and click **Notification settings**. You can also follow the [{{ link-sub-roles }}]({{ link-sub-roles }}) link.
 
 1. Click **Add role** at the bottom of the page and select a role. To delete a role, click ![](../../_assets/tracker/remove-task-type.png) next to the role name.
 

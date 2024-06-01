@@ -13,10 +13,10 @@ To work with the {{ foundation-models-full-name }} API, you need to get authenti
 
       You will need the folder ID to get the model's URI.
 
-   1. When accessing {{ yandexart-name }} via the API, specify the IAM token in the `Authorization` header of each request:
+   1. When accessing {{ foundation-models-name }} via the API, specify the IAM token in the `Authorization` header of each request:
 
-      ```json
-      x-folder-id: <folder_ID>
+      ```bash
+      Authorization: Bearer <IAM_token>
       ```
 
 - Service account {#service-account}
@@ -36,7 +36,7 @@ To work with the {{ foundation-models-full-name }} API, you need to get authenti
          Authorization: Bearer <IAM_token>
          ```
 
-   * With [API keys](../../iam/concepts/authorization/api-key).
+   * With [API keys](../../iam/concepts/authorization/api-key.md).
 
       {% include [api-keys-disclaimer](../../_includes/iam/api-keys-disclaimer.md) %}
 

@@ -14,7 +14,7 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Preparing for the transfer
+      - name: Preparing for a transfer
         href: operations/prepare.md
       - name: Configuring endpoints
         items:
@@ -132,6 +132,8 @@ items:
             href: tutorials/managed-mysql-to-mysql.md
           - name: '{{ MG }} cluster'
             href: tutorials/managed-mongodb.md
+          - name: Migrating a {{ MG }} cluster from 4.4 to 6.0
+            href: tutorials/mongodb-versions.md
           - name: '{{ CH }} cluster'
             href: tutorials/managed-clickhouse.md
           - name: '{{ GP }} cluster'
@@ -338,6 +340,8 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
+      - name: April 2024
+        href: release-notes/2404.md
       - name: March 2024
         href: release-notes/2403.md
       - name: February 2024

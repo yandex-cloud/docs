@@ -31,6 +31,76 @@ To check the kernel version, run `sudo uname -r`.
          1. Specify the device name for accessing the file storage in the VM. Save this name as you will need it when mounting the storage.
          1. Click **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
 
+   - CLI {#cli}
+
+      {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+      1. View the description of the [CLI](../../../cli/) command to attach a file storage to a VM:
+
+         ```bash
+         yc compute instance attach-filesystem --help
+         ```
+
+      1. Get a list of file storages in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+
+         {% include [compute-filesystem-list](../../_includes_service/compute-filesystem-list.md) %}
+
+      1. Get a list of VMs in the default folder:
+
+         ```bash
+         yc compute instance list
+         ```
+
+         Result:
+
+         ```text
+         +----------------------+-------+---------------+---------+--------------+-------------+
+         |          ID          | NAME  |    ZONE ID    | STATUS  |  EXTERNAL IP | INTERNAL IP |
+         +----------------------+-------+---------------+---------+--------------+-------------+
+         | epdj4upltbiv******** | vm-01 | {{ region-id }}-a | RUNNING | 51.250.**.** | 192.168.*.* |
+         | 1pc3088tkv4m******** | vm-02 | {{ region-id }}-a | RUNNING | 84.201.**.** | 192.168.*.* |
+         +----------------------+-------+---------------+---------+--------------+-------------+
+         ```
+
+      1. Attach a file storage to a VM:
+
+         ```bash
+         yc compute instance attach-filesystem \
+           --id <VM_ID> \
+           --filesystem-id <file_storage_ID> \
+           --device-name <device_name>
+         ```
+
+         Where:
+         * `--id`: VM ID.
+
+            Instead of an ID, you can specify the VM name in the `--name` parameter.
+
+         * `--filesystem-id`: File storage ID.
+
+            Instead of an ID, you can specify the file storage name in the `--filesystem-name` parameter.
+
+         * `--device-name`: Device name for accessing the file storage in the VM. This is an optional parameter.
+
+            By default, the file storage ID is used as the device name.
+
+         Result:
+
+         ```bash
+         id: epdj4upltbiv********
+         folder_id: b1g681qpemb4********
+         created_at: "2024-04-29T15:50:19Z"
+         name: vm-01
+         ...
+         filesystems:
+         - mode: READ_WRITE
+           device_name: attached-filesystem
+           filesystem_id: epdtcr9blled********
+         ...
+         ```
+
    - {{ TF }} {#tf}
 
       {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -86,9 +156,9 @@ To check the kernel version, run `sudo uname -r`.
       ```text
       ...
       filesystems:
-         - mode: READ_WRITE
-         device_name: storagename
-         filesystem_id: epdb1jata63j********
+        - mode: READ_WRITE
+          device_name: storagename
+          filesystem_id: epdb1jata63j********
       ...
       ```
 

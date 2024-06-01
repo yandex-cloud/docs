@@ -86,7 +86,7 @@ You can add and remove users, as well as manage their settings.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](./cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](./cluster-create.md).
 
    1. Add the `yandex_mdb_mysql_user` resource:
 
@@ -170,7 +170,7 @@ You can add and remove users, as well as manage their settings.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](./cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](./cluster-create.md).
 
    1. Find the desired user's `yandex_mdb_mysql_user` resource.
 
@@ -264,7 +264,7 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](./cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](./cluster-create.md).
 
    1. Find the desired user's `yandex_mdb_mysql_user` resource.
 
@@ -330,7 +330,7 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the name of the cluster you need and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_remove }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-remove }}**.
 
 - CLI {#cli}
 
@@ -350,7 +350,7 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. Delete the `yandex_mdb_mysql_user` resource with the description of the desired user.
 

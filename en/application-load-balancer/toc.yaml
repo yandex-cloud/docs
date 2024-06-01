@@ -76,6 +76,8 @@ items:
             href: operations/k8s-gateway-api-install.md
           - name: Creating or updating resources based on configuration
             href: operations/k8s-ingress-controller-apply.md
+      - name: Viewing operations with the service's resources
+        href: operations/operation-logs.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -89,7 +91,13 @@ items:
       - name: Blue-green and canary deployment of service versions
         href: tutorials/l7-bluegreen-deploy.md
       - name: Terminating TLS connections
-        href: tutorials/tls-termination.md
+        items:
+          - name: Overview
+            href: tutorials/tls-termination/index.md
+          - name: Management console
+            href: tutorials/tls-termination/console.md
+          - name: '{{ TF }}'
+            href: tutorials/tls-termination/terraform.md
       - name: Writing load balancer logs to {{ PG }}
         href: tutorials/logging.md
       - name: Deploying and load testing a gRPC service with scaling

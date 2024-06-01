@@ -13,7 +13,7 @@ description: "Следуя данной инструкции, вы сможет�
     
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно настроить доступ к подключению.
   1. Выберите сервис **{{ metadata-hub-name }}**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ connection-manager-name }}**/ **Подключения**.
+  1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
   1. Нажмите на имя нужного подключения.
   1. На панели слева выберите ![image](../../_assets/console-icons/persons.svg) **Права доступа** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. В открывшемся окне нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}**.

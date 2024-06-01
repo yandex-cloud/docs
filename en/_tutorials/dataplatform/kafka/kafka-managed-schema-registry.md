@@ -16,7 +16,7 @@ To use [{{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.m
 1. In the network hosting the {{ mkf-name }} cluster, [create a VM](../../../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) and a public IP address.
 
 
-1. If you are using security groups, [configure them](../../../managed-kafka/operations/connect.md#configuring-security-groups) to allow all required traffic between the {{ mkf-name }} cluster and the VM.
+1. If you are using security groups, [configure them](../../../managed-kafka/operations/connect/index.md#configuring-security-groups) to allow all required traffic between the {{ mkf-name }} cluster and the VM.
 
 
 ## Create producer and consumer scripts {#create-scripts}

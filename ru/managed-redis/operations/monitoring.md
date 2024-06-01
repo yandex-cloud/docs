@@ -3,7 +3,7 @@ title: "Мониторинг состояния кластера Redis и хос
 description: "Вы можете отслеживать состояние кластера {{ mrd-name }} и отдельных его хостов с помощью инструментов мониторинга в консоли управления. Эти инструменты предоставляют диагностическую информацию в виде графиков."
 ---
 
-# Мониторинг состояния {{ RD }}-кластера и хостов
+# Мониторинг состояния кластера {{ RD }} и хостов
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -59,7 +59,7 @@ description: "Вы можете отслеживать состояние кла
       * **aof_last_cow_size** — количество данных, скопированных при создании AOF-файла.
       * **rdb_last_cow_size** — количество данных, скопированных при создании RDB-файла.
 
-      Подробнее см. в разделе [{#T}](../concepts/backup.md).
+      Подробнее см. в разделе [Резервные копии](../concepts/backup.md).
 
   * **DB keys** — количество ключей, хранящихся во всех базах данных кластера.
 
@@ -76,7 +76,7 @@ description: "Вы можете отслеживать состояние кла
 
       {% note info %}
 
-      Значение параметра **maxmemory** для хостов Redis устанавливается в размере {{ mrd-memory-used }} от объема доступной памяти. Подробнее см. в разделе [{#T}](../concepts/memory-management.md).
+      Значение параметра **maxmemory** для хостов Redis устанавливается в размере {{ mrd-memory-used }} от объема доступной памяти. Подробнее см. в разделе [Управление памятью](../concepts/memory-management.md).
 
       {% endnote %}
 
@@ -192,7 +192,7 @@ description: "Вы можете отслеживать состояние кла
   1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
   1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов см. [документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
   1. Задайте значения порогов `Alarm` и `Warning` для срабатывания алерта.
-  1. Нажмите кнопку **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
 

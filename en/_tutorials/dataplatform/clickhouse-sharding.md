@@ -1,5 +1,6 @@
 # Sharding tables in {{ CH }}
 
+
 Sharding provides [a number of benefits](../../managed-clickhouse/concepts/sharding.md#advantages) for coping with a high query rate and large data sets. It works by creating a distributed table that routes queries to underlying tables. You can access data in sharded tables both directly and through the distributed table.
 
 There are three approaches to sharding:
@@ -56,7 +57,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       No shard groups are needed for [classic sharding](#shard-example).
 
-   
+  
   1. If using security groups, [configure them](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) to be able to connect to the cluster from the internet.
 
 

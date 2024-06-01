@@ -37,7 +37,7 @@ noIndex: true
 1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для приемника:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `ClickHouse`.
-    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
+    * **Параметры эндпойнта** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
 
         Выберите кластер-приемник из списка и укажите [настройки подключения](../../data-transfer/operations/endpoint/target/clickhouse.md) к нему.
 
@@ -47,7 +47,7 @@ noIndex: true
 Трансфер не переносит исторические данные, только текущие. Если трансфер деактивировать и активировать снова:
 
 1. Данные полученные счетчиком {{ metrika }}, пока трансфер был деактивирован, перенесены не будут.
-2. В соответствии с политикой очистки, выбранной в эндпоинте-приемнике, существующие таблицы с данными будут:
+1. В соответствии с политикой очистки, выбранной в эндпоинте-приемнике, существующие таблицы с данными будут:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}** — удалены вместе с данными и созданы заново с теми же именами.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}** — очищены от существующих данных, но сами таблицы и их схемы останутся.

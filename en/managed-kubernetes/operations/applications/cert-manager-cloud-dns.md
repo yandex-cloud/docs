@@ -38,7 +38,7 @@
       * `https://acme-v02.api.letsencrypt.org/directory`: Primary URL.
       * `https://acme-staging-v02.api.letsencrypt.org/directory`: Test URL.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
+1. Wait for the application to change its status to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -75,7 +75,7 @@
 
 ## Getting a test certificate {#issue-certificate}
 
-To test the installed application, get a test certificate. To issue the certificate, we will use the `yc-clusterissuer` issuer. It is created when you install cert-manager and pre-configured to work with Let's Encrypt®.
+To test the installed application, get a test certificate. To issue the certificate, we are going to use the `yc-clusterissuer` issuer. It is created when you install cert-manager and pre-configured to work with Let's Encrypt®.
 
 1. Create a file named `certificate.yaml` with a request for a test certificate:
 
@@ -128,8 +128,8 @@ To test the installed application, get a test certificate. To issue the certific
 
 ## Use cases {#examples}
 
-* [{#T}](../../tutorials/dnschallenge.md).
-* [{#T}](../../tutorials/ingress-cert-manager.md).
+* [{#T}](../../tutorials/dnschallenge.md)
+* [{#T}](../../tutorials/ingress-cert-manager.md)
 
 ## See also {#see-also}
 

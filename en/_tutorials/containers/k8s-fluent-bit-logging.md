@@ -37,8 +37,8 @@ Prepare the infrastructure:
 - {{ TF }} {#tf}
 
    1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-   1. Download the [k8s-cluster-with-log-group.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster-with-log-group.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory.
+   1. Download [the file with provider settings](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. Download the [k8s-cluster-with-log-group.tf](https://github.com/yandex-cloud-examples/yc-mk8s-fluent-bit-logging/blob/main/k8s-cluster-with-log-group.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory.
 
       This file describes:
       * [Network](../../vpc/concepts/network.md#network).

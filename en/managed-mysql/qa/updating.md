@@ -1,4 +1,5 @@
-# Updating {{ MY }} clusters
+# Updating a {{ MY }} cluster
+
 
 {% include [updating-minitoc](../../_qa/managed-mysql/minitoc/updating.md) %}
 

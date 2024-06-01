@@ -42,7 +42,7 @@ To view detailed information about the {{ mgp-name }} cluster state:
       * **admin_group**: In the administrative group.
       * **default_group**: In the default group.
 
-   * **Master**: Definition of primary master host.
+   * **Master**: Definition of the primary master host.
 
    * **Master replication lag**: Master replication delay (in bytes).
 
@@ -102,16 +102,16 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
    1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
       * **{{ mgp-name }} — Cluster Overview** to configure cluster alerts.
       * **{{ mgp-name }} — Host Overview** to configure host alerts.
-   1. In the chart with metrics, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+   1. In the chart with metrics, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
    1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds for notifications.
-   1. Click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-greenplum).
+For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/managed-greenplum-ref.md).
 
 
 ## Cluster state and status {#cluster-health-and-status}

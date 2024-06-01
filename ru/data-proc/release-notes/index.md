@@ -5,6 +5,10 @@
 {% include [Tags](../../_includes/mdb/release-notes-tags.md) %}
 
 
+## Апрель 2024 {#apr-2024}
+
+* Доступна стабильная линейка образов 2.1. В ее рамках можно создать кластер с более свежими версиями [Spark 3.3.2](https://spark.apache.org/releases/spark-release-3-3-2.html) и [Hadoop 3.3.2](https://hadoop.apache.org/docs/r3.3.2/hadoop-project-dist/hadoop-common/release/3.3.2/RELEASENOTES.3.3.2.html).
+
 ## II квартал 2023 {#q2-2023}
 
 * Доступно создание кластеров [{{ metastore-name }}](../concepts/metastore.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).

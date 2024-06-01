@@ -120,7 +120,7 @@
       1. Создайте группу безопасности `vm-security-group` и укажите в ней правило для входящего трафика:
 
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-ssh }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
@@ -200,7 +200,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 
 1. При помощи Bash-скрипта на узлах кластера постоянно проверяется наличие нужных сертификатов.
 1. Если их нет, они копируются из [секрета](https://kubernetes.io/docs/concepts/configuration/secret/) {{ k8s }} и обновляются.
-1. Перезагружается среда запуска контейнеров: containerd или Docker.
+1. Перезагружается среда запуска контейнеров containerd.
 
 Чтобы настроить обновление сертификатов с помощью DaemonSet, на ВМ:
 
@@ -276,7 +276,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
                        echo "Updating cerfificates authorities"
                        update-ca-certificates 
 
-                       echo "Restarting containerd and dockerd"
+                       echo "Restarting containerd"
                        ps -x -o pid= -o comm= | awk '$2 ~ "^(containerd|dockerd)$" { print $1 }' | xargs kill
                        #systemd will get them back less than a minute
                    else
@@ -357,7 +357,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
    kubectl apply -f certificate-updater-daemonset.yaml
    ```
 
-Далее можно отслеживать состояние контроллера DaemonSet. Когда обновятся сертификаты, в кластере перезагрузятся процессы среды запуска контейнеров (containerd или Docker).
+Далее можно отслеживать состояние контроллера DaemonSet. Когда обновятся сертификаты, в кластере перезагрузятся процессы среды запуска контейнеров containerd.
 
 ## Удалите созданные ресурсы {#clear-out}
 

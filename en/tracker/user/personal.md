@@ -6,10 +6,10 @@ You can manage your issues more easily by adjusting the {{ tracker-name }} inter
 
 You can set up your [start page](startpage.md) in the old interface to show one of the selected options:
 
-* [**{{ ui-key.startrek.ui_components_page-my_PageMy.page-title }}**](startpage.md#my-page).
-* [filter](create-filter.md).
-* [dashboard](dashboard.md).
-* [issue board](../manager/create-agile-board.md).
+* [**{{ ui-key.startrek.ui_components_page-my_PageMy.page-title }}**](startpage.md#my-page)
+* [Filter](create-filter.md)
+* [Dashboard](dashboard.md)
+* [Issue board](../manager/create-agile-board.md)
 
 1. Click the link [{{ link-settings }}]({{ link-settings }}).
 
@@ -23,7 +23,7 @@ You can use {{ tracker-name }} in English or Russian. To do this:
 
 1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
-1. Select a language under **{{ ui-key.yacloud.settings.switch_lang }}**.
+1. Select a language under **{{ ui-key.yacloud_components.settings.label_title_region }}**.
 
 ## Setting up the layout {#choose-theme}
 
@@ -31,7 +31,7 @@ To set up the interface theme and how the issues will be opened on the page:
 
 1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
-1. Select a theme under **{{ ui-key.yacloud.settings.switch_appearance }}**.
+1. Select a theme under **{{ ui-key.yacloud_components.settings.label_title_appearance }}**.
 
 1. For the issue to open in the right panel when you click its name or key (for example, **TEST-123**), select **Yes**.
 

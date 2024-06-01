@@ -3,7 +3,7 @@ title: "How to change {{ RD }} cluster settings in {{ mrd-full-name }}"
 description: "In this tutorial, you will learn how to change settings for a {{ RD }} cluster."
 ---
 
-# Changing {{ RD }} cluster settings
+# Updating {{ RD }} cluster settings
 
 After creating a cluster, you can:
 
@@ -22,16 +22,16 @@ After creating a cluster, you can:
 * [Move a cluster](#move-cluster) to another folder.
 
 
-* [Changing security groups](#change-sg-set).
+* [Change security groups](#change-sg-set).
 
 
 Learn more about other cluster updates:
 
-* [{#T}](cluster-version-update.md).
+* [{#T}](cluster-version-update.md)
 
-* [{#T}](host-migration.md).
+* [Migrating hosts to a different availability zone](host-migration.md)
 
-## Change the cluster name and description {#change-name-and-description}
+## Changing the cluster name and description {#change-name-and-description}
 
 {% list tabs group=instructions %}
 
@@ -78,7 +78,7 @@ Learn more about other cluster updates:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](./cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](./cluster-create.md).
 
    1. In the {{ mrd-name }} cluster description, change the `description` parameter value:
 
@@ -116,6 +116,7 @@ Learn more about other cluster updates:
 {% endlist %}
 
 ## Changing the host class {#change-resource-preset}
+
 
 {% list tabs group=instructions %}
 
@@ -190,7 +191,7 @@ Learn more about other cluster updates:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](./cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](./cluster-create.md).
 
    1. In the {{ mrd-name }} cluster description, change the `resource_preset_id` parameter value under `resources`:
 
@@ -277,7 +278,7 @@ Learn more about other cluster updates:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](./cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](./cluster-create.md).
 
    1. In the {{ mrd-name }} cluster description, change the `disk_size` parameter value under `resources`:
 
@@ -339,7 +340,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](./cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](./cluster-create.md).
 
    1. In the {{ mrd-name }} cluster description, change the values of the parameters under `config`:
 
@@ -450,7 +451,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-   * List of cluster configuration fields to be updated in the `updateMask` parameter.
+   * List of cluster configuration fields to update in the `updateMask` parameter.
 
    {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -538,7 +539,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](./cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](./cluster-create.md).
 
    1. In the {{ mrd-name }} cluster description, change the `security_group_ids` parameter value:
 

@@ -2,10 +2,9 @@
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-Управляйте подключениями к базам данных с помощью {{ connection-manager-full-name }}:
+Управляйте подключениями к базам данных с помощью {{ connection-manager-full-name }}. Вы сможете [создавать](../operations/create-connection.md), [просматривать](../operations/view-connection.md), [изменять](../operations/update-connection.md), [удалять подключения](../operations/delete-connection.md), созданные для ваших баз данных, и [управлять доступом к ним](../operations/connection-access.md).
 
-* [Подключения к кластерам управляемых баз данных в {{ yandex-cloud }}](connection-manager.md#managed-cluster).
-  Вы сможете просматривать подключения, созданные для ваших кластеров баз данных, и настроить доступ к ним.  
+Подключения могут создаваться:
+  * [автоматически](connection-manager.md#mdb-integration) — к кластерам с управляемыми базами данных в {{ yandex-cloud }};
+  * [вручную](connection-manager.md#database-connections) — к пользовательским инсталляциям баз данных или к кластерам с управляемыми базами данных в {{ yandex-cloud }}.
 
-* [Подключения к пользовательским инсталляциям баз данных](connection-manager.md#on-premise).
-  Вы сможете создавать, просматривать, изменять подключения к пользовательским инсталляциям баз данных и управлять доступом к ним.

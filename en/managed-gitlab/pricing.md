@@ -8,7 +8,7 @@ editable: false
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
-## What is included in the {{ mgl-name }} cost {#rules}
+## What goes into the cost of using {{ mgl-name }} {#rules}
 
 When running {{ mgl-name }}, you pay for:
 * Computing resources of your VM instance.
@@ -74,6 +74,7 @@ Where $45.362400 is the cost of using the instance for 30 days.
 
 ## Pricing {#prices}
 
+
 ### Computing resources of instances {#prices-instance}
 
 
@@ -100,4 +101,4 @@ Where $45.362400 is the cost of using the instance for 30 days.
 
 ## Licenses {#license}
 
-By default, {{ mgl-name }} uses Community Edition {{ GL }}. If you have a paid {{ GL }} [license](https://about.gitlab.com/pricing/)(`Premium` or `Ultimate`), contact [support]({{ link-console-support }}) or your account manager to use it in {{ mgl-name }}.
+By default, {{ mgl-name }} uses Community Edition {{ GL }}. If you have a paid {{ GL }} [license](https://about.gitlab.com/pricing/) (`Premium` or `Ultimate`), contact [support]({{ link-console-support }}) or your account manager to use it in {{ mgl-name }}.

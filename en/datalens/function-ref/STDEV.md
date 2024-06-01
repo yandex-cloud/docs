@@ -43,9 +43,38 @@ Returns the statistical [standard deviation](https://en.wikipedia.org/wiki/Stand
 
 #### Example {#examples}
 
-```
-STDEV([Profit])
-```
+
+
+
+Source data
+
+| **Month**     | **Temperature**   |
+|:--------------|:------------------|
+| `'January'`   | `-8.00`           |
+| `'February'`  | `-4.00`           |
+| `'March'`     | `-1.00`           |
+| `'April'`     | `7.00`            |
+| `'May'`       | `14.00`           |
+| `'June'`      | `18.00`           |
+| `'July'`      | `22.00`           |
+| `'August'`    | `19.00`           |
+| `'September'` | `13.00`           |
+| `'October'`   | `5.00`            |
+| `'November'`  | `1.00`            |
+| `'December'`  | `-4.00`           |
+
+Formulas:
+
+- **Temperature SD**: `STDEV([Temperature])` .
+
+
+Result
+
+| **Temperature SD**   |
+|:---------------------|
+| `10.21`              |
+
+
 
 
 #### Data source support {#data-source-support}

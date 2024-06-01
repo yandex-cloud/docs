@@ -27,9 +27,11 @@
 
 | Type of limit | Value |
 --- | ---
-| Number of datasets concurrently connected to a project | 3 |
 | Maximum project storage size | 4,096 GB |
 | Maximum dataset size | 4,096 GB |
+| Number of datasets concurrently connected to a project | 3 |
 | Maximum data size per job | 10 GB |
-| Maximum log size per job | 100 MB |
-| Maximum result size per job | 1 GB |
+| Maximum size of each job file | 5 GB |
+| Maximum size of each log file in a job | 100 MB |
+| Total size of all results per job | 1 GB |
+| Maximum job data size per community | 10 TB |

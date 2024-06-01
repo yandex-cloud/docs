@@ -44,11 +44,11 @@ string_1 [ NOT ] LIKE string_2
 ```
 
 ```
-IIF([Country] LIKE 'RU', 'Y', 'N')
+IF([Country] LIKE 'RU', 'Y', 'N')
 ```
 
 ```
-IIF([Phone] LIKE '+7%', 'RU', 'notRU')
+IF([Phone] LIKE '+7%', 'RU', 'notRU')
 ```
 
 ```

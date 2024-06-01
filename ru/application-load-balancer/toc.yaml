@@ -76,6 +76,8 @@ items:
             href: operations/k8s-gateway-api-install.md
           - name: Создать или изменить ресурсы по конфигурации
             href: operations/k8s-ingress-controller-apply.md
+      - name: Посмотреть операции с ресурсами сервиса
+        href: operations/operation-logs.md
   - name: Практические руководства
     items:
       - name: Все практические руководства
@@ -89,7 +91,13 @@ items:
       - name: Сине-зеленое и канареечное развертывание версий сервиса
         href: tutorials/l7-bluegreen-deploy.md
       - name: Терминирование TLS-соединений
-        href: tutorials/tls-termination.md
+        items:
+          - name: Обзор
+            href: tutorials/tls-termination/index.md
+          - name: Консоль управления
+            href: tutorials/tls-termination/console.md
+          - name: '{{ TF }}'
+            href: tutorials/tls-termination/terraform.md
       - name: Запись логов балансировщика в {{ PG }}
         href: tutorials/logging.md
       - name: >-

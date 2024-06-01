@@ -10,7 +10,7 @@ You can deploy an individual notebook cell or a third-party [Docker image](../..
 
 If your project uses packages and libraries that are not included in the [list of pre-installed software](../../concepts/preinstalled-packages.md), first [configure the node environment](node-customization.md) using a Docker image.
 
-## Node from models {#from-model}
+## Node from a model {#from-model}
 
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}

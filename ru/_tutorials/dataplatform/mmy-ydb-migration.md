@@ -108,7 +108,7 @@
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `YDB`.
-    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+    * **Параметры эндпойнта**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `ydb.editor`.
@@ -122,7 +122,7 @@
         1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ MY }}`.
-            * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+            * **Параметры эндпойнта** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
 
                 Выберите кластер-источник из списка и укажите настройки подключения к нему.
 

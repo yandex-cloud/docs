@@ -2,7 +2,7 @@ title: Yandex DataSphere
 href: index.yaml
 label:
   title: RU
-  description: The service is available in Russia only.
+  description: This service is only available in Russia.
   theme: unknown
   when: region == "kz"
 items:
@@ -74,8 +74,6 @@ items:
             href: operations/projects/clear-outputs.md
           - name: Working with Git
             href: operations/projects/work-with-git.md
-          - name: Running a job in {{ ml-platform-name }} Jobs
-            href: operations/projects/work-with-jobs.md
           - name: Running a Docker container in a separate cell
             href: operations/user-images-cell.md
             hidden: true
@@ -129,6 +127,12 @@ items:
             href: operations/deploy/alias-delete.md
           - name: Sending a request to an alias
             href: operations/deploy/alias-api.md
+      - name: '{{ ds-jobs }}'
+        items:
+          - name: Running a job in {{ ml-platform-name }} Jobs
+            href: operations/projects/work-with-jobs.md
+          - name: Working with Visual Studio Code jobs
+            href: operations/projects/jobs-toolkit.md
       - name: Shared access
         items:
           - name: Publishing a notebook
@@ -293,6 +297,10 @@ items:
                 href: api-ref/Community/delete.md
               - name: get
                 href: api-ref/Community/get.md
+              - name: getRestrictions
+                href: api-ref/Community/getRestrictions.md
+              - name: getRestrictionsMeta
+                href: api-ref/Community/getRestrictionsMeta.md
               - name: list
                 href: api-ref/Community/list.md
               - name: listAccessBindings
@@ -301,6 +309,8 @@ items:
                 href: api-ref/Community/removeResource.md
               - name: setAccessBindings
                 href: api-ref/Community/setAccessBindings.md
+              - name: setRestrictions
+                href: api-ref/Community/setRestrictions.md
               - name: update
                 href: api-ref/Community/update.md
               - name: updateAccessBindings
@@ -335,6 +345,10 @@ items:
                 href: api-ref/Project/get.md
               - name: getCellOutputs
                 href: api-ref/Project/getCellOutputs.md
+              - name: getRestrictions
+                href: api-ref/Project/getRestrictions.md
+              - name: getRestrictionsMeta
+                href: api-ref/Project/getRestrictionsMeta.md
               - name: getStateVariables
                 href: api-ref/Project/getStateVariables.md
               - name: getUnitBalance
@@ -349,6 +363,8 @@ items:
                 href: api-ref/Project/removeResource.md
               - name: setAccessBindings
                 href: api-ref/Project/setAccessBindings.md
+              - name: setRestrictions
+                href: api-ref/Project/setRestrictions.md
               - name: setUnitBalance
                 href: api-ref/Project/setUnitBalance.md
               - name: update

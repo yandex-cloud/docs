@@ -36,7 +36,7 @@ The VM's public IP address is mapped to its internal IP address through NAT. Thi
 
 ## Host name and internal FQDN {#hostname}
 
-When creating a VM, it is assigned a host name and internal FQDN that can be used to access a certain VM from another VM within the same [cloud network](../../vpc/concepts/network.md).
+When creating a VM, it is assigned a host name and internal FQDN that can be used to access one VM from another within the same [cloud network](../../vpc/concepts/network.md).
 
 Once the VM is created, you cannot change its host name and internal FQDN.
 
@@ -44,8 +44,8 @@ The assigned FQDN depends on the specified host name `(CreateInstanceSpec.hostna
 
 1. You cannot specify the `hostname` parameter in the management console for a new VM. Instead, the user-defined VM name is used:
 
-   * If you leave the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field empty when creating a VM, the `<VM_ID>.auto.internal` internal FQDN will be assigned.
-   * If you enter a VM name in the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, the `<VM_name>.<region>.internal` internal FQDN will be assigned.
+   * If you leave the **{{ ui-key.yacloud.common.name }}** field empty when creating a VM, the `<VM_ID>.auto.internal` internal FQDN will be assigned.
+   * If you enter a VM name in the **{{ ui-key.yacloud.common.name }}** field, the `<VM_name>.<region>.internal` internal FQDN will be assigned.
 
 1. When using the CLI, API, and {{ TF }}, FQDNs are created as follows:
 

@@ -28,11 +28,11 @@ description: "Follow this guide to get data from a stream in the AWS CLI."
   * `--endpoint`: To get stream data over the AWS Kinesis Data Streams protocol, specify `https://yds.serverless.yandexcloud.net`.
   * `--stream-name`: Consists of the availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
 
-     > For example, specify the `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` stream ID if:
+     > For example, your stream ID will appear as `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream` if:
      > * `aws_stream`: Stream name
      > * `{{ region-id }}`: Region
-     > * `aoeu1kuk2dhtaupdb1es`: Folder ID
-     > * `cc8029jgtuabequtgtbv`: {{ ydb-short-name }} database ID
+     > * `aoeu1kuk2dht********`: Folder ID
+     > * `cc8029jgtuab********`: {{ ydb-short-name }} database ID
 
   Command example:
 
@@ -41,7 +41,7 @@ description: "Follow this guide to get data from a stream in the AWS CLI."
     --endpoint https://yds.serverless.yandexcloud.net \
     --shard-id shard-000001 \
     --shard-iterator-type LATEST \
-    --stream-name /{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream
+    --stream-name /{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream
     --query 'ShardIterator'| tr -d \")
   aws kinesis get-records \
     --endpoint https://yds.serverless.yandexcloud.net \

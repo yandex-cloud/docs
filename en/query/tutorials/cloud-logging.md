@@ -45,7 +45,7 @@ while true; do yc logging write \
   --timestamp="1s ago" \
   --level=INFO \
   --json-payload='{"request_id": "1234", "host":"test_host"}' \
-  --folder-id b1kmrhakmf8ar1i5l6f8; \
+  --folder-id b1kmrhakmf8a********; \
   sleep 1; \
 done
 ```
@@ -54,6 +54,12 @@ done
 * `--message`: Message text.
 * `--json_payload`: Additional message data in JSON format.
 * `--folder-id`: ID of the folder where the log group was created.
+
+{% note info %}
+
+You can skip the `--group-name`, `--message`, and `--json-payload` flags and specify only the parameter values, e.g., `cloud-logging-group "test_message" '{"request_id": "1234", "host":"test_host"}'`.
+
+{% endnote %}
 
 ## Connect {{ yq-name }} to your data stream {#connect-query}
 
@@ -98,4 +104,4 @@ Result:
 
 ## See also {#see-also}
 
-* [{#T}](../sources-and-sinks/data-streams.md)
+* [{#T}](../sources-and-sinks/data-streams.md).

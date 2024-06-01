@@ -4,6 +4,10 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## Февраль 2024 {#feb-2024}
+
+* Добавлена поддержка настроек `flowControl`, `changeStreamOptions`, `net.compression.compressors` и `storage.wiredTiger.indexConfig.prefixCompression`. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+
 ## I квартал 2023 {#q1-2023}
 
 * Добавлена возможность создавать шардированный кластер вместо того, чтобы сначала создавать нешардированный, а затем разбивать его на шарды.

@@ -31,7 +31,7 @@ You can also specify the color in any web format, such as HEX, keyword (e.g., `g
 #### Examples {#examples}
 
 ```
-COLOR([text], '--g-color-text-danger')
+COLOR([text], 'var(--g-color-text-danger)')
 ```
 
 ```

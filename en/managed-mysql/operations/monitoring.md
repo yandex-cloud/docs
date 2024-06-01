@@ -36,7 +36,7 @@ The following charts are displayed on the tab:
 * **Is Primary, [boolean]**: Indicates which host is the master and for how long.
 * **Free space**: Free disk space for each host (in bytes).
 * **Queries per second**: Total number of queries per second on each host.
-* **Replication lag**: Number of seconds that the replica lags behind the master.
+* **Replication lag**: Replica's lag behind the master (seconds).
 * **Slow queries per second**: Number of SQL queries per second running longer than specified in the `long_query_time` [parameter](../concepts/settings-list.md#setting-long-query-time) for each host.
 * **Threads running**: Number of active threads on each host. As the load on the cluster increases, this value rapidly grows.
 
@@ -119,7 +119,7 @@ The **MySQL overview** section shows detailed information about the DBMS state o
 * **InnoDB rows operation**: Number of operations with InnoDB table rows. For more information about metrics, see the [{{ MY }} documentation]({{ mysql-vars-uri }}).
 * **Queries per second**: Total number of queries per second.
 * **Query quantiles**: The quantiles of the average query execution time.
-* **Replication lag**: The number of seconds that the replica lags behind the master.
+* **Replication lag**: Replica's lag behind the master (seconds).
 * **SemiSync latency**: Transaction's commit delay under [semisynchronous replication](https://dev.mysql.com/doc/refman/5.7/en/replication-semisync.html) (in seconds). For more information about metrics, see the [{{ MY }} documentation]({{ mysql-vars-uri }}).
 * **Slow queries per second**: Number of SQL queries per second running longer than specified in the `long_query_time` [parameter](../concepts/settings-list.md#setting-long-query-time).
 * **Sorts and joins**: The proportion of sort and join operations in the total number of operations. For more information about metrics, see the [{{ MY }} documentation]({{ mysql-vars-uri }}).
@@ -156,13 +156,13 @@ The **MySQL overview** section shows detailed information about the DBMS state o
        * **{{ mmy-name }}: Cluster Overview** to configure cluster alerts.
        * **{{ mmy-name }}: Host Overview** to configure host alerts.
 
-   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
    1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
 
    1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds to trigger an alert.
 
-   1. Click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
 
@@ -183,7 +183,7 @@ For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert.status
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%)
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85,899,345,920` bytes (80%)
 
-You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-mysql).
+You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/managed-mysql-ref.md).
 
 
 ## Cluster state and status {#cluster-health-and-status}

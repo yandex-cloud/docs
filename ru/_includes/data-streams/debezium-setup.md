@@ -24,8 +24,8 @@
 
     Где:
 
-    * `<эндпоинт>` — эндпоинт потока данных {{yds-short-name}}, например, `https://yds.serverless.yandexcloud.net/{{ region-id }}/b1п89ae43m6he********/etn01eg4rn1********`. Эндпоинт можно посмотреть на странице потока (см. [{#T}](../../data-streams/operations/manage-streams.md#list-data-streams)).
-    * `<поток_данных>` — название потока данных {{yds-short-name}}.
+    * `<эндпоинт>` — эндпоинт потока данных {{ yds-short-name }}, например, `https://yds.serverless.yandexcloud.net/{{ region-id }}/b1g89ae43m6he********/etn01eg4rn1********`. Эндпоинт можно посмотреть на странице потока (см. [{#T}](../../data-streams/operations/manage-streams.md#list-data-streams)).
+    * `<поток_данных>` — название потока данных {{ yds-short-name }}.
     * `<имя_БД>` — название базы данных {{ PG }}.
     * `<имя_пользователя>` — имя пользователя для подключения к базе данных {{ PG }}.
     * `<пароль_пользователя>` — пароль пользователя для подключения к базе данных {{ PG }}.

@@ -11,6 +11,6 @@
    * Your billing account has a [partner](../../partner/terms.md#referral-partner) status or you are a [partner's customer](../../partner/terms.md#subaccount).
    * [Payment settlements for the provided services are still pending](../../billing/concepts/act.md).
 
-   If you cannot solve the issue preventing the deletion of your account on your own, please [contact]({{ link-console-support }}/create-ticket) our technical support.
+   If you cannot fix the issue preventing the deletion of your account on your own, please [contact]({{ link-console-support }}/tickets/create) our technical support.
 
 Please note that once your account is deleted, you will not be able to restore it.

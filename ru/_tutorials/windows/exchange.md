@@ -30,7 +30,7 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [ms-additional-data-note](../includes/ms-additional-data-note.md) %}
+{% include [ms-additional-data-note](../_tutorials_includes/ms-additional-data-note.md) %}
 
 
 ### Необходимые платные ресурсы {#paid-resources}

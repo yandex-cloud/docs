@@ -4,16 +4,18 @@
 
 Созданные Docker-образы нельзя изменить.
 
-Как и другие ресурсы {{ ml-platform-name }}, Docker-образ можно [опубликовать](../operations/user-images.md#share) в сообществе, чтобы использовать его в нескольких проектах. Вы можете делиться Docker-образами проекта {{ ml-platform-name }}, в котором имеете роль `Админ`. Поделиться образом можно с любым сообществом, в котором вы состоите с ролью `Админ`. Подробнее см. [{#T}](../security/index.md). 
+Как и другие ресурсы {{ ml-platform-name }}, Docker-образ можно [опубликовать](../operations/user-images.md#share) в сообществе, чтобы использовать его в нескольких проектах. Для этого вам минимально необходимы роли `Editor` в проекте и `Developer` в сообществе, в котором вы хотите его опубликовать. Открыть доступ можно на вкладке **{{ ui-key.yc-ui-datasphere.common.access }}** на странице просмотра Docker-образа. Ресурс, доступный для сообщества, появится на странице сообщества в разделе **{{ ui-key.yc-ui-datasphere.spaces-page.community-resources }}**.
 
 Подробнее о работе с Docker-образами — в разделе [{#T}](../operations/user-images.md).
 
 ## Требования к Docker-образу {#requirements}
 
+{% include [python-disclaimer](../../_includes/datasphere/python-disclaimer.md) %}
+
 Чтобы Docker-образ запускался и корректно работал в {{ ml-platform-name }}, он должен содержать:
 * установку Python 3.7, 3.8, 3.9 или 3.10;
 * установку pip;
-* пользователя {{ jlab }} `--uid 1000`.
+* пользователя `--uid 1000 jupyter`.
 
 {% include [Docker hub limits](../../_includes/datasphere/dockerhub-limits.md) %}
 

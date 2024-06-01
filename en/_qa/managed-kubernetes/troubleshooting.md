@@ -294,6 +294,10 @@ There are several ways to grant internet access to {{ managed-k8s-name }} cluste
 
 {% note info %}
 
-If you assigned public IP addresses to the cluster nodes and then configured the NAT gateway or NAT instance, internet access via the public IPs will be disabled. For more information, see the [{{ vpc-full-name }} documentation](../../vpc/concepts/static-routes.md#internet-routes).
+If you assigned public IP addresses to the cluster nodes and then configured the NAT gateway or NAT instance, internet access via the public IP addresses will be disabled. For more information, see the [{{ vpc-full-name }} documentation](../../vpc/concepts/static-routes.md#internet-routes).
 
 {% endnote %}
+
+#### Why cannot I choose Docker as the container runtime environment? {#docker-runtime}
+
+There is no support for Docker as a container runtime environment in clusters with {{ k8s }} version 1.24 or higher. Only [containerd](https://containerd.io/) is available.

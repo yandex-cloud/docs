@@ -90,7 +90,7 @@ items:
             href: operations/applications/velero-yc-csi.md
       - name: Network scenarios
         items:
-          - name: '"Granting access to an application running in a {{ k8s }} cluster"'
+          - name: Granting access to an app running in a {{k8s}} cluster
             href: operations/create-load-balancer.md
           - name: Configuring the Calico network policy controller
             href: operations/calico.md
@@ -120,6 +120,8 @@ items:
         items:
           - name: Getting information about a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-list.md
+          - name: Viewing operations with a {{ k8s }} cluster
+            href: operations/kubernetes-cluster/kubernetes-cluster-operation-logs.md
           - name: Creating a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-create.md
           - name: Editing a {{ k8s }} cluster

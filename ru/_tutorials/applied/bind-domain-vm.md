@@ -237,10 +237,10 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** укажите имя `mywebserver`.
+      * В поле **{{ ui-key.yacloud.common.name }}** укажите имя `mywebserver`.
       * В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите `{{ region-id }}-b`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
   1. В открывшемся окне найдите и выберите продукт [LAMP](/marketplace/products/yc/lamp).
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 

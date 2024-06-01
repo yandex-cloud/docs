@@ -5,7 +5,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/LEN.md
 
 # LEN
 
-
+_Функция `LEN` также доступна в следующих категориях: [Функции для работы с массивами](LEN_ARRAY.md)._
 
 #### Синтаксис {#syntax}
 

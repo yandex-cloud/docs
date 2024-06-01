@@ -16,7 +16,7 @@ keywords:
 
 {{ mmy-name }} allows you to restore the cluster state _to any point in time_ (Point-in-Time-Recovery, PITR) after the creation of the oldest full backup. This is achieved by supplementing the backup selected as the starting recovery point with entries from the binary logs of later cluster backups.
 
-For example, if the backup operation on ended August 10, 2020, 12:00 p.m. UTC, the current date is August 15, 2020, 7:00 p.m. UTC, and the latest binary log was saved on August 15, 2020, 6:50 p.m. UTC, the cluster can be restored to any state between August 10, 2020, 12:00:01 p.m. UTC and August 15, 2020, 6:50:00 p.m. UTC, inclusive.
+For example, if the backup operation ended on August 10, 2020 at 12:00:00 UTC, the current date is August 15, 2020, 19:00:00 UTC, and the most recent binary log was saved on August 15, 2020, 18:50:00 UTC, the cluster can be restored to any state between August 10, 2020, 12:00:01 UTC and August 15, 2020, 18:50:00 UTC, inclusive.
 
 PITR is enabled by default.
 
@@ -35,7 +35,7 @@ When creating backups and restoring data from them to a given point in time, kee
 
 You can learn more about PITR in the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/point-in-time-recovery.html).
 
-To restore a cluster from a backup, [follow this guide](../operations/cluster-backups.md).
+To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md).
 
 ## Creating backups {#size}
 
@@ -45,7 +45,7 @@ You cannot disable automatic backups. However, for such backups, you can specify
 
 After a backup is created, it is compressed for storage.
 
-In single-host clusters, you create a backup by reading data from the master host while the solution for multi-host clusters is to read one of the replicas, since it is a resource-intensive operation. In which case:
+In single-host clusters, you create a backup by reading data from the master host, whereas in multi-host clusters — from one of the replicas, since it is a resource-heavy operation. It assumes that:
 
 * The replica with the highest backup priority is selected. You can set the priority when [creating](../operations/cluster-create.md) a cluster, [adding](../operations/hosts.md#add) new hosts, or [modifying the settings](../operations/hosts.md#update) of the existing ones. This defines which replica to use for backups. The minimum backup priority value is `0`, while the maximum one is `100` and the default one is `0`.
 * If there are multiple replicas with the highest priority, a backup source is selected randomly out of them.
@@ -54,7 +54,7 @@ If the service is unable to create a backup using the selected replica, the back
 
 Backups are only created on running clusters. If you do not use a {{ mmy-short-name }} cluster 24/7, check the [backup start time settings](../operations/update.md#change-additional-settings).
 
-For more information about creating a backup manually, see [{#T}](../operations/cluster-backups.md).
+For more information about creating a backup manually, see [Managing backups](../operations/cluster-backups.md).
 
 ## Storing backups {#storage}
 
@@ -70,7 +70,7 @@ Storing backups in {{ mmy-name }}:
 
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-   For more information, see the [{{ mmy-name }} pricing policy](../pricing.md#rules-storage).
+   For more information, see [Pricing policy](../pricing.md#rules-storage).
 
 ## Checking backup recovery {#capabilities}
 

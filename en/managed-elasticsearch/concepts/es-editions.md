@@ -3,7 +3,7 @@ title: "Elasticsearch editions"
 description: "Features provided in {{ mes-name }} depend on the {{ ES }} edition."
 ---
 
-# Elasticsearch editions
+# {{ ES }} editions
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 

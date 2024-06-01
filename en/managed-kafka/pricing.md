@@ -4,7 +4,7 @@ editable: false
 
 # {{ mkf-name }} pricing
 
-In this section, you can find {{ mkf-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
+In this section, you can find {{ mkf-name }} pricing [rules](#rules) and [effective prices](#prices) for the service resources.
 
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
@@ -16,8 +16,8 @@ In this section, you can find {{ mkf-name }} pricing [rules](#rules) and [effect
 
 Prices are applied differently depending on the cluster status:
 
-* For a `Running` cluster, you pay both for the computing resources and storage size.
-* For a `Stopped` cluster, you pay only for the storage size.
+* For a `running` cluster, you pay for both the computing resources and your storage size.
+* For a `stopped` cluster, you only pay for your storage size.
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
@@ -35,9 +35,12 @@ The {{ mkf-name }} usage cost is based on:
 
 ### Using cluster hosts {#rules-hosts-uptime}
 
-The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. Supported resource configurations are shown in the [Host classes](concepts/instance-types.md) section, while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
+The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. You can find supported resource configurations in the [Host classes](concepts/instance-types.md) section, and vCPU and RAM prices, in the [Prices](#prices) section.
 
-You can choose the host class for {{ KF }} broker hosts and {{ ZK }} hosts (as appropriate for the expected replication load).
+You can choose the host class for {{ KF }} broker hosts and {{ ZK }} hosts based on the expected replication load. The presence of {{ ZK }} hosts depends on the cluster configuration:
+
+* {{ ZK }} hosts are added to the cluster if it contains more than one {{ KF }} host and uses {{ KF }} 3.5 or lower.
+* {{ ZK }} hosts are not added to the cluster if it contains a broker host or uses {{ KF }} 3.6 or higher.
 
 
 There are different ways to calculate the cost depending on the [host type](./concepts/index.md):
@@ -51,13 +54,7 @@ There are different ways to calculate the cost depending on the [host type](./co
    {% include [Dedicated hosts prices](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
 
-{% note warning %}
-
-When you create a cluster with two or more {{ KF }} broker hosts, three {{ ZK }} hosts with a minimal host class are created automatically in three availability zones. If you create a cluster with a single broker host, no {{ ZK }} hosts are created.
-
-{% endnote %}
-
-The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when a broker host or {{ ZK }} is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You are not paying for the time when a broker host or {{ ZK }} is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -70,7 +67,7 @@ You pay for the storage allocated for DB clusters.
 * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
 
 
-The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The cost is specified for one month of use and based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 ### Example of cluster cost calculation {#example}
 
@@ -188,6 +185,7 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 
 ## Pricing {#prices}
+
 
 
 All prices are shown without VAT.

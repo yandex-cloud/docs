@@ -20,7 +20,7 @@ items:
             href: operations/version.md
           - name: Шифрование данных
             href: operations/symmetric-encryption.md
-          - name: Права доступа на ключ шифрования
+          - name: Права доступа к ключу шифрования
             href: operations/key-access.md
       - name: Асимметричное шифрование
         items:
@@ -94,7 +94,7 @@ items:
         href: tutorials/terraform-key.md
       - name: Шифрование секретов в {{ TF-full }}
         href: tutorials/terraform-secret.md
-      - name: Auto Unseal в Hashicorp Vault
+      - name: Auto Unseal в HashiCorp Vault
         href: tutorials/vault-secret.md
   - name: Управление доступом
     href: security/index.md

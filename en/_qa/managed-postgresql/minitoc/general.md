@@ -50,7 +50,7 @@
 
 * [Can I get superuser privileges in {{ PG }}?](#superuser)
 
-* [Can I copy data from a {{ mpg-name }} table to a local file? Сan I populate a table with data from a local file? ](#copy-write-data)
+* [Can I copy data from a {{ mpg-name }} table to a local file? Сan I populate a table with data from a local file?](#copy-write-data)
 
 * [Are there any special aspects or restrictions on the use of a garbage collector in {{ mpg-name }} clusters?](#vacuum)
 

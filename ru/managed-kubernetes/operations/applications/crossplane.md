@@ -30,7 +30,7 @@
    * **Название приложения** — укажите название приложения.
    * **Ключ сервисной учетной записи** — вставьте содержимое файла [ключа сервисной учетной записи](../../../iam/concepts/authorization/access-key.md), [полученного ранее](#before-you-begin), или создайте новый.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Дождитесь перехода приложения в статус `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
+1. Дождитесь перехода приложения в статус `Deployed`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
 

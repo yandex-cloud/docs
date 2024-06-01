@@ -8,7 +8,13 @@ items:
       - name: Создание балансировщика с защитой от DDoS
         href: security/alb-with-ddos-protection.md
       - name: Терминирование TLS-соединений
-        href: security/tls-termination.md
+        items:
+          - name: Обзор
+            href: security/tls-termination/index.md
+          - name: Консоль управления
+            href: security/tls-termination/console.md
+          - name: '{{ TF }}'
+            href: security/tls-termination/terraform.md
       - name: Передача логов с виртуальной машины в {{ cloud-logging-name }}
         href: security/vm-fluent-bit-logging.md
       - name: Запись логов балансировщика в {{ PG }}
@@ -204,7 +210,7 @@ items:
             href: web/lamp-lemp.md
           - name: Сайт на базе Joomla с БД {{ PG }}
             href: web/joomla-postgresql.md
-          - name: Создание сайта на WordPress
+          - name: Сайт на WordPress
             href: web/wordpress.md
           - name: Сайт на WordPress с БД {{ MY }}
             href: web/wordpress-mysql.md
@@ -263,8 +269,8 @@ items:
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf.md
       - name: >-
-          Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью {{
-          data-transfer-name }}
+          "Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью {{
+          data-transfer-name }}"
         href: dataplatform/data-transfer-mmy.md
       - name: Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью Debezium
         href: dataplatform/debezium-mmy.md

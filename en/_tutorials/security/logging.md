@@ -249,7 +249,7 @@ To create an instance group:
    1. In the **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** field, select the account you [previously created](#create-sa).
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select multiple availability zones to ensure fault tolerance of your hosting.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, open the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**. Select [LEMP](/marketplace/products/yc/lemp) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, open the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Select [LEMP](/marketplace/products/yc/lemp) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
 
       - Select the VM's [platform](../../compute/concepts/vm-platforms.md).
@@ -268,11 +268,11 @@ To create an instance group:
       - Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       - In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
-         You need to create a key pair for the SSH connection yourself. See [Connecting to a VM via SSH](../../compute/operations/vm-connect/ssh.md).
+         You need to create a key pair for the SSH connection yourself. See the [section on how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
 
       {% note alert %}
 
-      The IP address and host name (FQDN) to connect to the VM are assigned on VM creation. If you selected **{{ ui-key.yacloud.compute.instances.create.value_address-none }}** in the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, you will not be able to access the VM from the internet.
+      Once created, the VM gets an IP address and a host name (FQDN) for connections. If you selected **{{ ui-key.yacloud.compute.instances.create.value_address-none }}** in the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, you will not be able to access the VM from the internet.
 
       {% endnote %}
 

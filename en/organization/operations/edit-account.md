@@ -5,7 +5,7 @@ description: "In this tutorial, you will learn how to delete user accounts in {{
 
 # Deleting a user account
 
-To delete a user account, [remove](#remove-user) or [delete](#delete-user) the user from the organization. Users with a [Yandex account](../../iam/concepts/index.md#passport) can only be removed. A [federated user](../../iam/concepts/index.md#saml-federation) can be both deleted or removed from an organization.
+To delete a user account, [remove](#remove-user) or [delete](#delete-user) the user from the organization. Users with a [Yandex account](../../iam/concepts/users/accounts.md#passport) can only be removed. A [federated user](../../iam/concepts/users/accounts.md#saml-federation) can be removed or deleted from an organization.
 
 {% note info %}
 

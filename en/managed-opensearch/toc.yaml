@@ -1,5 +1,10 @@
 title: '{{ mos-full-name }}'
 href: index.yaml
+label:
+  title: KZ
+  description: The service is available in Kazakhstan.
+  theme: info
+  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -25,15 +30,15 @@ items:
                 href: operations/update.md
               - name: Updating the {{ OS }} version
                 href: operations/cluster-version-update.md
-              - name: Managing {{ OS }} plugins
+              - name: Managing plugins
                 href: operations/plugins.md
-          - name: Managing {{ OS }} hosts
+          - name: Managing cluster hosts
             items:
               - name: Managing host groups
                 href: operations/host-groups.md
               - name: Migrating host groups to a different availability zone
                 href: operations/host-migration.md
-          - name: Stopping and starting clusters
+          - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
           - name: Managing backups
             href: operations/cluster-backups.md
@@ -41,7 +46,7 @@ items:
             href: operations/s3-access.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
-      - name: Managing {{ OS }} users
+      - name: Managing users
         href: operations/cluster-users.md
       - name: Logs and monitoring
         items:

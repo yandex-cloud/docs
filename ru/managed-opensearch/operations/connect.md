@@ -43,15 +43,15 @@ keywords:
    1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
    1. Скопируйте значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**.
 
-Для хостов кластера также используются [особые FQDN](#special-fqdns).
+Для хостов с ролью `DASHBOARDS` также используется [особый FQDN](#special-fqdns).
 
-## Особые FQDN {#special-fqdns}
+## Особый FQDN {#special-fqdns}
 
-Наравне с [обычными FQDN](#fqdn) {{ mos-name }} предоставляет особые FQDN, которые также можно использовать при подключении к кластеру.
-
-### Доступный хост Dashboards {#fqdn-dashboards}
+Наравне с [обычными FQDN](#fqdn) {{ mos-name }} предоставляет особый FQDN, который также можно использовать при подключении к кластеру.
 
 FQDN вида `c-<идентификатор_кластера>.rw.{{ dns-zone }}` всегда указывает на доступный хост {{ OS }} с ролью `DASHBOARDS` в кластере. Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+Сервис не предоставляет особые FQDN для хостов с ролью `DATA`.
 
 ## Подключение к {{ OS }} Dashboards {#dashboards}
 

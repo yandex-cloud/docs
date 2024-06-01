@@ -1,7 +1,7 @@
 # Creating and configuring a {{ managed-k8s-name }} cluster with no internet access
 
 
-You can create and configure a {{ managed-k8s-name }} cluster with no internet connectivity. To do this, use the following configuration:
+You can create and configure a {{ managed-k8s-name }} cluster with no internet connectivity. The following configuration is used for this purpose:
 
 * {{ managed-k8s-name }} cluster and node group without a public address. You can only connect to such a cluster using a {{ yandex-cloud }} virtual machine.
 * The cluster and node group are hosted by subnets with no internet access.
@@ -10,10 +10,10 @@ You can create and configure a {{ managed-k8s-name }} cluster with no internet c
 
 To create a {{ managed-k8s-name }} cluster with no internet access:
 
-1. [{#T}](#infra).
-1. [{#T}](#vm).
-1. [{#T}](#check).
-1. [{#T}](#cert).
+1. [{#T}](#infra)
+1. [{#T}](#vm)
+1. [{#T}](#check)
+1. [{#T}](#cert)
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -120,7 +120,7 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
       1. Create a security group named `vm-security-group` and specify its rule for incoming traffic:
 
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
@@ -200,7 +200,7 @@ You can connect a [private Docker image registry](https://kubernetes.io/docs/tas
 
 1. A Bash script constantly checks cluster nodes for required certificates.
 1. If not, the certificates are copied from the {{ k8s }} [secret](https://kubernetes.io/docs/concepts/configuration/secret/) and updated.
-1. The container runtime environment is restarted: containerd or Docker.
+1. _containerd_ runtime environment is restarted.
 
 To configure certificate updates using DaemonSet, do the following on your VM:
 
@@ -276,7 +276,7 @@ To configure certificate updates using DaemonSet, do the following on your VM:
                        echo "Updating cerfificates authorities"
                        update-ca-certificates
 
-                       echo "Restarting containerd and dockerd"
+                       echo "Restarting containerd"
                        ps -x -o pid= -o comm= | awk '$2 ~ "^(containerd|dockerd)$" { print $1 }' | xargs kill
                        #systemd will get them back less than a minute
                    else
@@ -357,7 +357,7 @@ To configure certificate updates using DaemonSet, do the following on your VM:
    kubectl apply -f certificate-updater-daemonset.yaml
    ```
 
-Now you can monitor the state of the DaemonSet controller. As soon as the certificates are updated, the cluster will restart the container runtime environment processes (containerd or Docker).
+Now you can monitor the state of the DaemonSet controller. As soon as the certificates are updated, the cluster will restart the _containerd_ runtime environment processes.
 
 ## Delete the resources you created {#clear-out}
 

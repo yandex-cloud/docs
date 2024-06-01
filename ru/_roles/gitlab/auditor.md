@@ -1,1 +1,1 @@
-Роль `gitlab.auditor` позволяет просматривать список инстансов Managed Service for GitLab, информацию о каждом инстансе и его резервных копиях.
+Роль `gitlab.auditor` позволяет просматривать информацию об [инстансах](../../managed-gitlab/concepts/index.md#instance) Managed Service for GitLab и [квотах](../../managed-gitlab/concepts/limits.md#quotas) сервиса.

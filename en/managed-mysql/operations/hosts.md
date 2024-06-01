@@ -5,7 +5,7 @@ description: "In this tutorial, you will learn how to manage {{ MY }} cluster ho
 
 # Managing {{ MY }} cluster hosts
 
-You can add and remove cluster hosts and manage their settings. To move cluster hosts to a different availability zone, read this [guide](host-migration.md).
+You can add and remove cluster hosts and manage their settings. For information about moving cluster hosts to a different [availability zone](../../overview/concepts/geo-scope.md), see [this guide](host-migration.md).
 
 ## Getting a list of cluster hosts {#list}
 
@@ -138,7 +138,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-   1. Add a `host` block to the {{ mmy-name }} cluster description.
+   1. Add the `host` block to the {{ mmy-name }} cluster description:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -182,7 +182,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
 {% note warning %}
 
-If you cannot [connect](connect.md) to the added host, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you cannot [connect](connect.md) to the host you added, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the host's subnet.
 
 {% endnote %}
 
@@ -247,8 +247,8 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
    To change the parameters of the cluster host:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
-   1. In the {{ mmy-name }} cluster description, change the attributes of the `host` block corresponding to the host to update.
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
+   1. In the {{ mmy-name }} cluster description, change the attributes of the `host` block corresponding to the host you are updating.
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -296,7 +296,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
 
 {% note warning %}
 
-If you can't [connect](connect.md) to the changed host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you cannot [connect](connect.md) to the host after you changed it, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the host's subnet.
 
 {% endnote %}
 
@@ -334,7 +334,7 @@ If the host is the master when deleted, {{ mmy-name }} automatically assigns the
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. Delete the `host` block from the {{ mmy-name }} cluster description.
    1. Make sure the settings are correct.
 

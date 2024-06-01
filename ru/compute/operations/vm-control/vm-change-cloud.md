@@ -49,7 +49,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) в списке слева нажмите на нужное облако.
-     1. На вкладке **{{ ui-key.yacloud.iam.cloud.switch_overview }}** скопируйте значение из поля **{{ ui-key.yacloud.iam.cloud.overview.label_id }}**.
+     1. На вкладке **{{ ui-key.yacloud.iam.cloud.switch_overview }}** скопируйте значение из поля **{{ ui-key.yacloud.common.id }}**.
 
    - CLI {#cli}
 
@@ -77,7 +77,7 @@
    {% endlist %}
 
 1. [Добавьте пользователя](../../../iam/operations/users/create.md) из целевого облака (куда планируете перенести виртуальную машину) в облако, где расположен каталог с исходным образом.
-1. [Назначьте](../../../iam/operations/roles/grant.md) пользователю роли `{{ roles-cloud-member }}` и `{{ roles-image-user }}` на облако.
+1. [Назначьте](../../../iam/operations/roles/grant.md) пользователю целевого облака роли `{{ roles-cloud-member }}` и `{{ roles-image-user }}` на облако, где расположен каталог с исходным образом.
 1. Создайте новый образ в целевом облаке:
 
    {% list tabs group=instructions %}

@@ -22,6 +22,14 @@ You can also deploy an infrastructure for a load balancer with DDoS protection v
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
+### Required paid resources {#paid-resources}
+
+The infrastructure support cost for a DDoS-protected load balancer includes:
+* Fee for continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using a [public static IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for filtering incoming traffic to a public IP address with [DDoS protection](../../vpc/ddos-protection/index.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-ddos-protection)).
+* Fee for using computing resources of the [L7 load balancer](../../application-load-balancer/concepts/index.md) (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+
 ## Create a cloud network {#create-network}
 
 All resources you create in the tutorial will belong to the same [cloud network](../../vpc/concepts/network.md).
@@ -179,8 +187,8 @@ To create an instance group:
       * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete instances in the instance group, assign the `editor` [role](../../iam/concepts/access-control/roles.md) to the service account. By default, all operations in {{ ig-name }} are performed on behalf of a service account.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select multiple availability zones to ensure fault tolerance of your hosting.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to configure a basic instance:
-      * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a **{{ ui-key.yacloud.compute.instances.create.field_description }}** for the template.
-      * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, open the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**. Select [LEMP](/marketplace/products/yc/lemp) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a **{{ ui-key.yacloud.common.description }}** for the template.
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, open the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Select [LEMP](/marketplace/products/yc/lemp) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
       * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**, specify:
          * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `HDD`
          * Disk **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `3 {{ ui-key.yacloud.common.units.label_gigabyte }}`
@@ -195,7 +203,7 @@ To create an instance group:
          * Choose the `ddos-sg-vms` security group.
       * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
          * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-         * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_key }}** field, paste the contents of the public key file.
+         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
          To establish an SSH connection, you need to create a key pair. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
       * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
@@ -697,7 +705,7 @@ To create an L7 load balancer with DDoS protection using {{ TF }}:
    * [yandex_alb_load_balancer]({{ tf-provider-resources-link }}/alb_load_balancer)
 1. In the `alb-with-ddos-protection.auto.tfvars` file, set user-defined parameters:
    * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-   * `vm_user`: VM username.
+   * `vm_user`: VM user name.
    * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 1. Create resources:
 

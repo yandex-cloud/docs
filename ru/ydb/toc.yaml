@@ -294,8 +294,14 @@ items:
         href: ./terraform/dedicated-database.md
       - name: Создание строковых таблиц в базе данных
         href: ./terraform/row-tables.md
+      - name: Создание документных таблиц в базе данных
+        href: ./terraform/dynamodb-tables.md
       - name: Создание потока изменений таблицы
         href: ./terraform/cdc.md
+      - name: Создание вторичных индексов строковых таблиц
+        href: ./terraform/row-tables-secondary-index.md
+      - name: Управление конфигурацией топиков {{ydb-short-name}}
+        href: ./terraform/topic.md
   - name: Вопросы и ответы
     href: faq.md
   - name: Публичные материалы

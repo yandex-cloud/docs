@@ -30,13 +30,16 @@ description: "This page provides a list of step-by-step guides for {{ vpc-name }
 - [{#T}](set-static-ip.md)
 - [{#T}](set-dynamic-ip.md)
 - [{#T}](address-move.md)
+- [{#T}](address-get-info.md)
 - [{#T}](address-delete.md)
 
 ## Routing {#static-route}
 
 - [{#T}](static-route-create.md)
 - [{#T}](create-nat-gateway.md)
+- [{#T}](get-info-nat-gateway.md)
 - [{#T}](static-route-move.md)
+- [{#T}](route-table-get-info.md)
 - [{#T}](static-gateway-move.md)
 
 ## Security groups {#security-groups}
@@ -44,6 +47,7 @@ description: "This page provides a list of step-by-step guides for {{ vpc-name }
 - [{#T}](security-group-create.md)
 - [{#T}](security-group-update.md)
 - [{#T}](security-group-add-rule.md)
+- [{#T}](security-group-get-info.md)
 - [{#T}](security-group-delete-rule.md)
 - [{#T}](security-group-move.md)
 - [{#T}](security-group-delete.md)

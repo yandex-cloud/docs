@@ -55,6 +55,33 @@ editable: false
 
 Цены за месяц использования формируются из расчета 720 часов в месяц.
 
+## Цены {#prices}
+
+
+Цены использования конфигураций действуют при запуске вычислений в [{{ ds-nb }}](concepts/project.md#mode), запуске заданий [{{ ds-jobs }}](concepts/jobs/index.md) и работе [{{ ds-inf }}](../datasphere/concepts/deploy/index.md).
+
+
+{% include [rub-unit-and-resource.md](../_pricing/datasphere/rub-unit-and-resource.md) %}
+
+
+
+
+### Хранение данных внутри {{ ml-platform-name }} {#prices-storage}
+
+
+{% include [rub-storage.md](../_pricing/datasphere/rub-storage.md) %}
+
+
+
+
+### Исходящий трафик {#prices-traffic}
+
+
+{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
+
+
+
 ## Примеры расчета стоимости {#price-example}
 
 ### {{ ds-nb }} {#price-example-notebook}
@@ -105,31 +132,3 @@ editable: false
 * 185 760 — время работы ноды в секундах.
 * 2 — количество инстансов в ноде.
 * 0,0012 ₽ — стоимость 1 юнита.
-
-## Цены {#prices}
-
-
-Цены использования конфигураций действуют при запуске вычислений в [{{ ds-nb }}](concepts/project.md#mode), запуске заданий [{{ ds-jobs }}](concepts/jobs/index.md) и работе [{{ ds-inf }}](../datasphere/concepts/deploy/index.md).
-
-
-{% include [rub-unit-and-resource.md](../_pricing/datasphere/rub-unit-and-resource.md) %}
-
-
-
-
-### Хранение данных внутри {{ ml-platform-name }} {#prices-storage}
-
-
-{% include [rub-storage.md](../_pricing/datasphere/rub-storage.md) %}
-
-
-
-
-### Исходящий трафик {#prices-traffic}
-
-
-{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
-
-
-
-

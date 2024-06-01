@@ -6,9 +6,27 @@ Jobs are created and run in [projects](../project.md). However, they do not depe
 
 To [run a job](../../operations/projects/work-with-jobs.md), set up a Python virtual environment, install [{{ ds-cli }}](cli.md) using the `pip install datasphere` command and prepare a configuration file describing all the parameters for running the job. You can also [install](../../../cli/quickstart.md) and configure the [{{ yandex-cloud }} CLI](../../../cli/) to use it for authentication in {{ yandex-cloud }}.
 
-{{ ml-platform-name }} Jobs stores input data cache, environments, logs, and job execution results. You can reuse the data and share it across jobs in a single project. The size of stored data is limited. For more information about {{ ml-platform-name }} limits, see [{#T}](../limits.md).
+{% include [vscode-extension-info](../../../_includes/datasphere/vscode-extension-info.md) %}
 
 You can find jobs in the **{{ ml-platform-name }} Jobs** tab of a project. Their progress and results will be available under **Run history**.
+
+{% note tip %}
+
+For long-running jobs, we recommend saving intermediate results in S3 object storage.
+
+{% endnote %}
+
+## Storing job data
+
+{{ ml-platform-name }} Jobs stores input data cache, environments, logs, and job execution results. You can reuse the data and share it across jobs in a single project. This means repeated runs of the same job will not load input data into {{ ml-platform-name }} each time but will reuse the data loaded on the first run.
+
+The size of stored data is limited. For more information about {{ ml-platform-name }} limits, see [{#T}](../limits.md).
+
+The default job data lifetime is 14 days. You can change this value using {{ ds-cli }}:
+
+```bash
+datasphere project job set-data-ttl --id <job_ID> --days <lifetime_in_days>
+```
 
 ## Job configuration file {#config}
 
@@ -77,9 +95,11 @@ flags:
   - attach-project-disk # Mount the project storage
 
 # Computing resource configuration for running the job
-cloud-instance-type: g2.1
+cloud-instance-types:
+  - g2.1 # Priority configuration
+  - g1.1 # Second priority configuration
 
-# Working directory configuration
+# Extended working directory configuration
 working-storage:
   - type: SSD    # type of the disk being used. Optional, SSD by default. Possible values: SSD
   - size: 150Gb  # size of the working directory ranges from 100 GB to 10 TB.
@@ -116,11 +136,13 @@ The job `config.yaml` file contains multiple sections.
 
    {% include [jobs-info](../../../_includes/datasphere/jobs-environment.md) %}
 
-1. The `cloud-instance-type` section defines the type of the [computing resource configuration](../configurations.md) to run the job on.
+1. The `cloud-instance-types` section defines the valid [computing resource configuration](../configurations.md) types the job can run on. Configurations are specified in order of priority, i.e., if resources are available, the job will use the first configuration to run. If there are no VMs with the first configuration available, the job will try to run on the second one, then the third, and so on.
 
-1. The `working-storage` section defines the working directory parameters. By default, the working directory is created on the system disk, with a size of about 20 GB. If you need more space to complete the job, you can create another working directory from 100 GB to 10 TB in size. Then, {{ ml-platform-name }} will connect it to the VM as a secondary disk and remove it after completing the job.
+   For a single configuration, you may also use the old `cloud-instance-type` field, e.g., `cloud-instance-type: g1.1`; however, it is preferable to use the new one.
 
-   Extra storage is charged in accordance with the [data storage pricing policy](../../pricing.md#prices-jobs).
+1. The `working-storage` section defines the extended working directory parameters. By default, the working directory is created on the system disk. The directory's size is not guaranteed and is usually about 20 GB. If you need more space to complete the job, you can specify this explicitly. The extended working directory can range in size from 100 GB to 10 TB.
+
+   You pay for the extended working directory specified in the `working-storage` section according to the [data storage pricing policy](../../pricing.md#prices-jobs).
 
 #### See also {#see-also}
 

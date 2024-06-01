@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. If you are using security groups, configure them to enable connecting to the clusters from the internet:
 
    * [Guide for {{ mmy-name }}](../../managed-mysql/operations/connect.md#configuring-security-groups)
-   * [Guide for {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups)
+   * [Guide for {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups)
 
 
 1. Install the `kcat` (`kafkacat`) [utility](https://github.com/edenhill/kcat) and the [MySQL command-line tool](https://www.mysql.com/downloads/) on the local machine. For example, in Ubuntu 20.04, run:
@@ -100,7 +100,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the {{ MY }} source with the following [settings](../../data-transfer/operations/endpoint/source/mysql.md):
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`.
-   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+   * **Endpoint parameters**:
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}**: Select the [created](#before-you-begin) {{ mmy-name }} cluster.
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.database.title }}**: `db1`.
@@ -111,7 +111,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the {{ KF }} target with the following [settings](../../data-transfer/operations/endpoint/source/kafka.md):
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
-   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+   * **Endpoint parameters**:
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the [created](#before-you-begin) {{ mkf-name }} cluster.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Enter the details of the created `kafka-user` user.
@@ -285,7 +285,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. Delete the clusters:
 
-   * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
-   * [{{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
+   * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md)​
+   * [{{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md)
 
 1. If static public IP addresses were used for accessing the cluster hosts, release and [delete](../../vpc/operations/address-delete.md) them.

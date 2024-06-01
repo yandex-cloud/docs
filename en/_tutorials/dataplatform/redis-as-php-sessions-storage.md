@@ -1,5 +1,6 @@
 # Using {{ mrd-name }} clusters as PHP session storage
 
+
 You can use {{ mrd-name }} clusters for storing PHP session data.
 
 To configure a {{ mrd-name }} cluster as PHP session storage:

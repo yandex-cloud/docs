@@ -7,7 +7,14 @@ label:
   when: region == "kz"
 items:
   - name: Начало работы
-    href: quickstart.md
+    expanded: true
+    items:
+      - name: Обзор
+        href: quickstart/index.md
+      - name: Начало работы cо {{ sws-name }}
+        href: quickstart.md
+      - name: Начало работы с WAF
+        href: quickstart/quickstart-waf.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -20,6 +27,8 @@ items:
             href: operations/profile-update.md
           - name: Удалить профиль
             href: operations/profile-delete.md
+          - name: Посмотреть операции с профилем безопасности
+            href: operations/operation-logs.md
       - name: Управление правилами
         items:
           - name: Добавить правило
@@ -38,12 +47,17 @@ items:
     items:
       - name: Создание L7-балансировщика с профилем безопасности
         href: tutorials/balancer-with-sws-profile.md
+      - name: Создание L7-балансировщика с защитой от DDoS на уровне L3 модели OSI
+        href: tutorials/alb-with-ddos-protection.md
   - name: Концепции
+    expanded: true
     items:
       - name: Обзор
         href: concepts/index.md
       - name: Профили безопасности
         href: concepts/profiles.md
+      - name: WAF
+        href: concepts/waf.md
       - name: Правила
         href: concepts/rules.md
       - name: Условия
@@ -54,8 +68,40 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: SecurityProfileService
+            href: api-ref/grpc/security_profile_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: SecurityProfile
+            items:
+              - name: Overview
+                href: api-ref/SecurityProfile/index.md
+              - name: create
+                href: api-ref/SecurityProfile/create.md
+              - name: delete
+                href: api-ref/SecurityProfile/delete.md
+              - name: get
+                href: api-ref/SecurityProfile/get.md
+              - name: list
+                href: api-ref/SecurityProfile/list.md
+              - name: update
+                href: api-ref/SecurityProfile/update.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: История изменений
+    href: release-notes.md
 base: ru/smartwebsecurity

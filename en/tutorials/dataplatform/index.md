@@ -62,6 +62,7 @@ description: "This page provides a list of tutorials for building a data platfor
 
 * [{#T}](mongodb-migration-with-data-transfer.md)
 * [{#T}](mongodb-data-migration.md)
+* [{#T}](mongodb-versions.md)
 * [{#T}](mongodb-sharding.md)
 * [{#T}](mongodb-profiling.md)
 * [{#T}](data-transfer-mkf-mmg.md)
@@ -137,6 +138,7 @@ description: "This page provides a list of tutorials for building a data platfor
 * [{#T}](sqoop-mpg.md)
 * [{#T}](data-proc-init-actions-geesefs.md)
 * [{#T}](data-proc-and-airflow.md)
+* [{#T}](metastore-import.md)
 
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

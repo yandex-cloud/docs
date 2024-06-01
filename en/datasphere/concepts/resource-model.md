@@ -4,7 +4,7 @@
 
 _[Communities](community.md)_ is a way to organize team work. Communities determine the scope of projects and resources in {{ ml-platform-name }}.
 
-_[Projects](project.md)_ are the main workspaces in {{ ml-platform-name }}. Projects store the interpreter state, variables, the installed software, and other information.
+_[Projects](project.md)_ are the main workspaces in {{ ml-platform-name }}. Projects store code, variables, installed software, and other information.
 
 _{{ ml-platform-name }} resources_ are objects that are created or used in projects: datasets, Docker images, nodes, and more.
 

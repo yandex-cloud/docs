@@ -1,5 +1,10 @@
 title: Yandex Managed Service for Elasticsearch
 href: index.yaml
+label:
+  title: RU
+  description: The service is available in Russia only.
+  theme: unknown
+  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -25,13 +30,13 @@ items:
                 href: operations/cluster-update.md
               - name: Updating {{ ES }} version and edition
                 href: operations/cluster-version-update.md
-              - name: Managing {{ ES }} plugins
+              - name: Managing plugins
                 href: operations/cluster-plugins.md
-              - name: Managing {{ ES }} extensions
+              - name: Managing extensions
                 href: operations/cluster-extensions.md
           - name: Stopping and starting clusters
             href: operations/cluster-stop.md
-          - name: Managing {{ ES }} hosts
+          - name: Managing hosts
             href: operations/cluster-hosts.md
           - name: Migrating hosts to a different availability zone
             href: operations/host-migration.md
@@ -41,7 +46,7 @@ items:
             href: operations/s3-access.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
-      - name: Managing {{ ES }} users
+      - name: Managing users
         href: operations/cluster-users.md
       - name: Logs and monitoring
         items:

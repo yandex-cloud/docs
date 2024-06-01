@@ -68,6 +68,8 @@ items:
             href: operations/images-with-pre-installed-software/operate.md
           - name: Получить список публичных образов
             href: operations/images-with-pre-installed-software/get-list.md
+          - name: Получить информацию о публичном образе
+            href: operations/images-with-pre-installed-software/get-info.md
       - name: Получение информации о виртуальной машине
         items:
           - name: Получить информацию о ВМ
@@ -90,6 +92,10 @@ items:
             href: operations/vm-control/vm-change-folder.md
           - name: Перенести ВМ в другое облако
             href: operations/vm-control/vm-change-cloud.md
+          - name: Добавить на ВМ дополнительный сетевой интерфейс
+            href: operations/vm-control/attach-network-interface.md
+          - name: Удалить сетевой интерфейс на ВМ
+            href: operations/vm-control/detach-network-interface.md
           - name: Привязать к ВМ публичный IP-адрес
             href: operations/vm-control/vm-attach-public-ip.md
           - name: Отвязать от ВМ публичный IP-адрес
@@ -142,6 +148,8 @@ items:
             href: operations/vm-guest-agent/check.md
           - name: Установить агент
             href: operations/vm-guest-agent/install.md
+          - name: Сбросить пароль администратора
+            href: operations/vm-guest-agent/reset-password.md
           - name: Удалить агент
             href: operations/vm-guest-agent/uninstall.md
       - name: Создание диска
@@ -280,8 +288,14 @@ items:
             href: operations/instance-groups/create-with-coi.md
           - name: Создать группу ВМ по YAML-спецификации
             href: operations/instance-groups/create-from-yaml.md
-          - name: Создать группу виртуальных машин в группе размещения
+          - name: Создать группу ВМ в группе размещения
             href: operations/placement-groups/create-ig-in-pg.md
+          - name: Создать группу ВМ с фиксированными IP-адресами
+            href: operations/instance-groups/create-with-fixed-ip.md
+          - name: Создать группу ВМ с подключением к файловому хранилищу
+            href: operations/instance-groups/create-with-filesystem.md
+          - name: Создать группу ВМ с подключением к {{ objstorage-name }}
+            href: operations/instance-groups/create-with-bucket.md
       - name: Получение информации о группе виртуальных машин
         items:
           - name: Получить список групп ВМ
@@ -398,7 +412,7 @@ items:
             href: concepts/performance-levels.md
           - name: Прерываемые виртуальные машины
             href: concepts/preemptible-vm.md
-          - name: Сеть на виртуальной машине
+          - name: Сетевые интерфейсы виртуальных машин
             href: concepts/network.md
           - name: Программно-ускоренная сеть
             href: concepts/software-accelerated-network.md
@@ -476,6 +490,8 @@ items:
                 href: concepts/instance-groups/deploy/secondary-disk.md
           - name: Интеграция с сетевыми и L7-балансировщиками
             href: concepts/instance-groups/balancers.md
+          - name: Работа со Stateful-нагрузкой
+            href: concepts/instance-groups/stateful-workload.md
           - name: Остановка группы и приостановка процессов
             href: concepts/instance-groups/stopping-pausing.md
           - name: Поочередные перезагрузка и пересоздание ВМ в группе
@@ -928,6 +944,8 @@ items:
         href: qa/monitoring.md
       - name: Лицензирование
         href: qa/licensing.md
+      - name: Решение проблем
+        href: qa/troubleshooting.md
       - name: Все вопросы на одной странице
         href: qa/all.md
   - name: Обучающие курсы

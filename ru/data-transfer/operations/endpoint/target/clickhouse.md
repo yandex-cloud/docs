@@ -205,68 +205,65 @@ description: "Из статьи вы узнаете, как задать нас�
 
 - Консоль управления {#console}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.cleanup_policy.title }}** — выберите способ очистки данных в базе-приемнике перед переносом:
+    * {% include [cleanup_policy](../../../../_includes/data-transfer/fields/clickhouse/ui/cleanup-policy.md) %}
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}` — выберите эту опцию, если будет производиться только репликация без копирования данных.
+    * {% include [sharding_settings](../../../../_includes/data-transfer/fields/clickhouse/ui/sharding-settings.md) %}
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}` — полное удаление таблиц, участвующих в трансфере (вариант по умолчанию).
+    * {% include [alt_names](../../../../_includes/data-transfer/fields/clickhouse/ui/alt-names.md) %}
 
-          Используйте эту опцию, чтобы при любой активации трансфера в базу-приемник всегда передавалась самая последняя версия схемы таблиц из источника.
+    * {% include [flush_interval](../../../../_includes/data-transfer/fields/clickhouse/ui/flush-interval.md) %}
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}` — удалить только данные из таблиц, участвующих в трансфере, но оставить схему.
+- CLI {#cli}
 
-          Используйте эту опцию, если схема в базе-приемнике отличается от той, которая была бы перенесена из источника при трансфере.
+    * {% include [cluster-name](../../../../_includes/data-transfer/fields/clickhouse/cli/cluster-name.md) %}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.sharding_settings.title }}** — задайте настройки для [шардирования](../../../../managed-clickhouse/concepts/sharding.md):
+    * {% include [alt-name](../../../../_includes/data-transfer/fields/clickhouse/cli/alt-name.md) %}
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.no_sharding.title }}** — шардирование не используется.
+    * Настройки [шардирования](../../../../managed-clickhouse/concepts/sharding.md) данных:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_column.title }}** — имя колонки в таблицах, по которой следует шардировать данные. Равномерное распределение по шардам будет определяться хешем значения этой колонки. Укажите имя колонки для шардирования в соответствующем поле.
+        * {% include [shard-by-column-hash](../../../../_includes/data-transfer/fields/clickhouse/cli/shard-by-column-hash.md) %}
 
-            Для шардирования по конкретным значениям колонки укажите их в поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingByTransferID.transfer_to_shard.array_item_label }}**. Это поле определяет соответствие значений колонки и индекса шарда (порядковый номер шарда в отсортированном по именам списке шардов) для шардирования по конкретным значениям данных.
+        * {% include [custom-sharding-column-name](../../../../_includes/data-transfer/fields/clickhouse/cli/custom-sharding-column-name.md) %}
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_transfer_id.title }}** — данные по шардам будут распределяться на основе значения идентификатора трансфера. При этом трансфер игнорирует настройку **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingByTransferID.transfer_to_shard.title }}** и шардирует данные только по идентификатору трансфера.
+        * {% include [custom-sharding-mapping-string](../../../../_includes/data-transfer/fields/clickhouse/cli/custom-sharding-mapping-string.md) %}
 
-           {% note warning %}
+        * {% include [shard-by-transfer-id](../../../../_includes/data-transfer/fields/clickhouse/cli/shard-by-transfer-id.md) %}
 
-           Если не задавать имя колонки для шардирования и не использовать настройку **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_transfer_id.title }}**, то все данные будут перенесены в один шард.
+        Вы можете указать только один из вариантов шардирования:
 
-           {% endnote %}
-
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_round_robin.title }}** — данные по шардам будут распределяться случайным образом (количество данных на каждом шарде будет примерно одинаковым).
-
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.alt_names.title }}** — при необходимости задайте настройки переименования таблиц при трансфере.
-
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.flush_interval.title }}** — укажите задержку, с которой данные должны поступать в кластер-приемник. Увеличьте значение в этом поле, если {{ CH }} не успевает делать слияние кусков данных.
+        * `--shard-by-column-hash`;
+        * `--custom-sharding-column-name` и `--custom-sharding-mapping-string`;
+        * `--shard-by-transfer-id`.
 
 - {{ TF }} {#tf}
 
-    * `clickhouse_cluster_name` — укажите имя кластера, в который будут передаваться данные.
+    * {% include [cleanup_policy](../../../../_includes/data-transfer/fields/clickhouse/terraform/cleanup-policy.md) %}
 
-    * `alt_names` — при необходимости укажите правила переименования таблиц базы-источника при переносе в базу-приемник:
+    * {% include [clickhouse_cluster_name](../../../../_includes/data-transfer/fields/clickhouse/terraform/clickhouse-cluster-name.md) %}
 
-        * `from_name` – имя таблицы в источнике.
-        * `to_name` – имя таблицы в приемнике.
+    * {% include [alt_names](../../../../_includes/data-transfer/fields/clickhouse/terraform/alt-names.md) %}
 
-    * `sharding.column_value_hash.column_name` — имя колонки в таблицах, по которой следует [шардировать](../../../../managed-clickhouse/concepts/sharding.md) данные. Равномерное распределение по шардам будет определяться хешем значения этой колонки.
+    * Настройки [шардирования](../../../../managed-clickhouse/concepts/sharding.md) данных:
 
-    * `sharding.transfer_id` — при значении `true` данные по шардам распределяются на основе значения идентификатора трансфера. При этом трансфер игнорирует настройку `sharding.column_value_hash.column_name` и шардирует данные только по идентификатору трансфера.
+        * {% include [column_value_hash](../../../../_includes/data-transfer/fields/clickhouse/terraform/sharding-column-value-hash.md) %}
 
-       {% note warning %}
+        * {% include [transfer_id](../../../../_includes/data-transfer/fields/clickhouse/terraform/sharding-transfer-id.md) %}
 
-       Если не задавать имя колонки для шардирования и не использовать настройку `sharding.transfer_id`, то все данные будут перенесены в один шард.
+        * {% include [custom_mapping](../../../../_includes/data-transfer/fields/clickhouse/terraform/custom-mapping.md) %}
 
-       {% endnote %}
+        * {% include [round_robin](../../../../_includes/data-transfer/fields/clickhouse/terraform/round-robin.md) %}
 
-    * `cleanup_policy` — укажите способ очистки данных в базе-приемнике перед переносом:
+        Вы можете указать только один из вариантов шардирования: `sharding.column_value_hash.column_name`, `sharding.transfer_id`, `custom_mapping` или `round_robin`. Если вариант шардирования не указан, то все данные переносятся в один шард.
 
-        * `CLICKHOUSE_CLEANUP_POLICY_DROP` — полное удаление таблиц, участвующих в трансфере (вариант по умолчанию).
+- API {#api}
 
-           Используйте эту опцию, чтобы при любой активации трансфера в базу-приемник всегда передавалась самая последняя версия схемы таблиц из источника.
+    * {% include [altNames](../../../../_includes/data-transfer/fields/clickhouse/api/alt-names.md) %}
 
-        * `CLICKHOUSE_CLEANUP_POLICY_DISABLED` — не очищать.
+    * {% include [cleanupPolicy](../../../../_includes/data-transfer/fields/clickhouse/api/cleanup-policy.md) %}
 
-           Выберите эту опцию, если будет производиться только репликация без копирования данных.
+    * {% include [sharding](../../../../_includes/data-transfer/fields/clickhouse/api/sharding.md) %}
+
+    * {% include [clickhouseClusterName](../../../../_includes/data-transfer/fields/clickhouse/api/clickhouse-cluster-name.md) %}
 
 {% endlist %}
 

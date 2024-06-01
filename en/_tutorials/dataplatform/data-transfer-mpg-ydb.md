@@ -1,5 +1,6 @@
 # Delivering data from {{ mpg-full-name }} to {{ ydb-full-name }}
 
+
 A {{ ydb-name }} cluster can get data from {{ PG }} databases in real time. This data is automatically added to {{ ydb-short-name }} tables with names of source schemas and tables.
 
 To run data delivery:
@@ -105,7 +106,7 @@ Prepare the data transfer infrastructure:
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`.
-   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+   * **Endpoint parameters**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}**:
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
@@ -120,7 +121,7 @@ Prepare the data transfer infrastructure:
       1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [previously created](#before-you-begin) {{ PG }} source with the [following settings](../../data-transfer/operations/endpoint/source/postgresql.md):
 
          * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `PostgreSQL`.
-         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+         * **Endpoint parameters**:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: Created {{ mpg-name }} cluster.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}**: Name of the DB created in the cluster {{ mpg-name }}.
@@ -224,7 +225,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) and [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
    1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for the source and target.
-   1. If you created the service account along with the target endpoint, [delete it](../../iam/operations/sa/delete.md).
+   1. If you created a service account together with the target endpoint, [delete it](../../iam/operations/sa/delete.md).
    1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
    1. [Delete the {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
 

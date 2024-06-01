@@ -10,7 +10,7 @@ description: "Various {{ mgp-full-name }} use cases in {{ yandex-cloud }}."
 * [{#T}](./greenplum-to-postgresql.md)
 * [{#T}](./greenplum-to-clickhouse.md)
 * [{#T}](mmy-to-mgp.md)
-* [{#T}](yezzey.md)
+* [Exporting cluster data to a cold storage in {{ objstorage-full-name }}](yezzey.md)
 * [{#T}](object-storage-to-greenplum.md)
 
 To migrate cluster hosts to a different availability zone, [restore a cluster from a backup](../operations/cluster-backups.md#restore). When restoring the cluster, specify the appropriate availability zone.

@@ -93,7 +93,7 @@ The cost for bucket support includes:
    1. In the top panel, click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
    1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
    1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-   1. Save the ID and private key. Once you close the dialog, the private key value will be unavailable.
+   1. Save the ID and private key. After you close the dialog, the private key value will become unavailable.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -116,7 +116,7 @@ The cost for bucket support includes:
 
       For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/access-key/create.md).
 
-   1. Save the ID `key_id` and `secret` key. You will not be able to get the key value again.
+   1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
 
 - API {#api}
 
@@ -167,7 +167,7 @@ The cost for bucket support includes:
 
       For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
@@ -199,7 +199,7 @@ The cost for bucket support includes:
 1. Open the command prompt in your working directory as an admin user and run the following command:
 
    ```powershell
-   psexec -i -s cmd.exe
+   .\psexec -i -s cmd.exe
    ```
 
 1. In the console that opens, run `whoami` and make sure that the session has been started by the system user.
@@ -213,7 +213,7 @@ The cost for bucket support includes:
 
    1. Select creation of a new profile: enter `n` in the terminal.
    1. Enter the connection name: `s3-connect`.
-   1. Select the storage type: enter `5` in the terminal.
+   1. Select the storage type: enter `4` in the terminal.
    1. Select a provider: enter `1` in the terminal.
    1. Select manual entry of credentials: enter `1` in the terminal.
    1. Enter the secret key ID in the terminal.
@@ -252,7 +252,7 @@ If required, you can run an advanced connection setup. For this, at the `Edit ad
 
 To mount the bucket at your desktop startup, set up mounting on behalf of the system service.
 
-1. In the directory with the `WinSW` utility, create a file named `<WinSW_executable_file_name>.xml`, such as `WinSW-x64.xml`, with the following contents:
+1. In the `WinSW` utility folder, create a file called `WinSW-x64.xml` (`WinSW-x86.xml` if you have a 32-bit version of Windows) with the following contents:
 
    ```xml
    <service>
@@ -268,8 +268,16 @@ To mount the bucket at your desktop startup, set up mounting on behalf of the sy
 
 1. In the same directory, open the command prompt as an admin user and run the following command:
 
+   * If you have a 64-bit version of Windows:
+
+      ```cmd
+      .\WinSW-x64.exe install .\WinSW-x64.xml
+      ```
+
+   * If you have a 32-bit version of Windows:
+
    ```cmd
-   <WinSW_executable_file_name>.exe install .\<WinSW_executable_file_name>.xml
+   .\WinSW-x86.exe install .\WinSW-x86.xml
    ```
 
 1. Open the Windows services panel and make sure that `rclone-s3-disk` is listed:

@@ -1,5 +1,6 @@
 # {{ MG }} performance analysis and tuning
 
+
 In this tutorial, you will learn how to:
 
 * Use [performance diagnostic tools](../../managed-mongodb/operations/tools.md) and [monitoring tools](../../managed-mongodb/operations/monitoring.md) to diagnose {{ mmg-name }} cluster performance.
@@ -69,7 +70,7 @@ As soon as performance drops, you can diagnose the problem in real time using a 
 
 {% endlist %}
 
-For details, see the examples in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/db.currentOp/#examples).
+For more information, refer to the examples in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/db.currentOp/#examples).
 
 ## Troubleshooting resource shortage issues {#solving-deficit}
 

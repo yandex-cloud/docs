@@ -1,5 +1,6 @@
 # Migrating data between {{ KF }} clusters using {{ data-transfer-full-name }}
 
+
 You can transfer your data from {{ KF }} topics between one {{ KF }} cluster and another in real time. Among others, the following migration types are supported:
 
 * Between different {{ KF }} versions, e.g., you can migrate topics from version 2.8 to version 3.1.
@@ -104,7 +105,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       sudo apt update && sudo apt install --yes kafkacat
       ```
 
-      Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect.md#connection-string).
+      Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
    - [jq](https://stedolan.github.io/jq/) for JSON file stream processing.
 
@@ -117,9 +118,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
-   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+   * **Endpoint parameters**:
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`
 
          Select a target cluster from the list and specify its connection settings.
 
@@ -129,8 +130,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
-   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+   * **Endpoint parameters**:
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`
 
          Select a source cluster from the list and specify its connection settings.
 
@@ -151,7 +152,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          * `source_endpoint_id`: ID of the source endpoint.
          * `target_endpoint_id`: ID of the target endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -228,7 +229,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
       ```
 
-      The data is sent on behalf of the [created user](#prepare-source). To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect.md).
+      The data is sent on behalf of the [created user](#prepare-source). To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
    1. Use the `kafkacat` utility to make sure that the data from the source cluster has moved to the target {{ mkf-name }} cluster:
 

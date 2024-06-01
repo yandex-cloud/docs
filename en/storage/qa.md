@@ -31,17 +31,20 @@ For more detailed instructions, see [{#T}](quickstart.md) and [{#T}](s3/index.md
 
 You can store data in any format. {{ objstorage-full-name }} saves data in its original form without any modification.
 
-
-
 #### How can I leave feedback on {{ objstorage-full-name }}? {#qa-feedback}
 
+
+
 Use the feedback form in the [support center]({{ link-console-support }}).
+
 
 
 #### How do I contact technical support? {qa-support-channels}
 
 
+
 You can contact technical support in the management console under [Support]({{ link-console-support }}).
+
 
 
 #### How much data can I store? {#qa-storage-volume}

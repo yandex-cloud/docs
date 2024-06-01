@@ -17,7 +17,7 @@ Each {{ mes-name }} cluster consists of one or more {{ ES }} hosts with differen
 
 Hosts with this role store one or more indexes and handle search and analysis queries. To ensure index scalability and fault tolerance, configure [sharding and replication](scalability-and-resilience.md) for this index.
 
-For better handling indexes and search queries, these hosts have [Kibana](https://www.elastic.co/kibana/features) installed and configured. It can be accessed from the web interface. For more information, see [{#T}](../operations/cluster-connect.md).
+To simplify the processing of indexes and search queries, these hosts come with pre-configured [Kibana](https://www.elastic.co/kibana/features), which can be accessed from the web interface. For more information, see [Connecting to a cluster](../operations/cluster-connect.md).
 
 {% note info %}
 

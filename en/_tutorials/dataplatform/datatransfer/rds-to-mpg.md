@@ -1,3 +1,5 @@
+
+
 To set up data transfers from [Amazon RDS for {{ PG }}](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html) to {{ mpg-name }} databases using {{ data-transfer-name }}:
 
 1. [Prepare the test data](#prepare-data).
@@ -54,7 +56,7 @@ Prepare the infrastructure:
    1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
 
    1. Set up the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html). The AWS provider for {{ TF }} uses the AWS CLI configuration to access the service.
-   1. [Configure the {{ TF }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf) and save it to a separate working directory.
+   1. [Configure the {{ TF }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf) and save it to a separate working directory.
    1. Edit the `provider.tf` file:
 
       * [Set the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider) for the `yandex` provider. If you did not add the authentication credentials to environment variables, specify them in the configuration file.
@@ -188,7 +190,7 @@ Prepare the infrastructure:
 
    1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/mysql.md) of the `{{ PG }}` type and specify the cluster connection parameters in it:
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`.
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.host.title }}**: Host URL
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.port.title }}**: `5432`
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.ca_certificate.title }}**: Select the AWS certificate file
@@ -223,7 +225,7 @@ Prepare the infrastructure:
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-   1. The transfer is activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+   1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 {% endlist %}
 
@@ -291,10 +293,10 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - Manually {#manual}
 
-   * [Transfer](../../../data-transfer/operations/transfer.md#delete).
+   * [Transfer](../../../data-transfer/operations/transfer.md#delete)
    * [Endpoints](../../../data-transfer/operations/endpoint/index.md#delete)
    * [Amazon RDS for {{ PG }} instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html)
-   * [{{ mpg-name }} cluster](../../../managed-postgresql/operations/cluster-delete.md).
+   * [{{ mpg-name }} cluster](../../../managed-postgresql/operations/cluster-delete.md)
 
 - {{ TF }} {#tf}
 

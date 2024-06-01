@@ -1,6 +1,6 @@
 ---
-title: "{{ k8s }} resource interdependencies"
-description: "The main entity in this managed service is a {{ k8s }} cluster. A {{ k8s }} cluster consists of a master and one or more node groups. The master is responsible for managing the {{ k8s }} cluster. Containerized user applications are run on nodes."
+title: "Resource relationships in {{ k8s }}"
+description: "The main entity in this managed service is a {{ k8s }} cluster. A {{ k8s }} cluster consists of a master and one or more node groups. The master is responsible for managing the {{ k8s }} cluster. Containerized user applications run on nodes."
 ---
 
 # Resource relationships in {{ managed-k8s-name }}
@@ -66,9 +66,7 @@ When creating a group of nodes, you can configure the following VM parameters:
 
 You can create groups with different configurations in a {{ k8s }} cluster and place them in different availability zones.
 
-For {{ managed-k8s-name }}, the following container runtime environments are available:
-* The [`Docker` platform](https://www.docker.com/) is selected by default when you create a group of nodes.
-* The [`containerd` platform](https://containerd.io/) may be selected when you create or update a group of nodes with {{ k8s }} version 1.19 or higher.
+For {{ managed-k8s-name }}, only [containerd](https://containerd.io/) is available as a container runtime environment.
 
 ### Connecting to group nodes {#node-connect-ssh}
 

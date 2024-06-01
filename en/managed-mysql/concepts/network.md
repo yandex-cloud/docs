@@ -1,6 +1,6 @@
 ---
-title: "Network and clusters in {{ mmy-name }}"
-description: "When creating a new {{ MY }} cluster, you can set a network for the cluster and subnets for each cluster host. You can also request public access to connect to the cluster from outside {{ yandex-cloud }}."
+title: "Networking in {{ mmy-name }}"
+description: "When creating a {{ MY }} cluster, you can set a network for the cluster and subnets for each cluster host. You can also request public access to connect to the cluster from outside {{ yandex-cloud }}."
 ---
 
 # Network and clusters in {{ mmy-name }}

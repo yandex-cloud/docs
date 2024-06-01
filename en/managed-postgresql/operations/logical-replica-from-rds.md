@@ -1,5 +1,6 @@
 # Creating a logical replica of Amazon RDS for {{ PG }} in {{ mpg-name }}
 
+
 You can use logical replication to migrate a database from an Amazon RDS for {{ PG }} _source cluster_ to a {{ mpg-name }} _target cluster_.
 
 [Logical replication]({{ pg-docs }}/logical-replication.html) uses the [subscription]({{ pg-docs }}/sql-createsubscription.html) mechanism. It allows you to migrate data to the target cluster with minimal downtime. Logical replication is available in Amazon RDS for {{ PG }} version 10.4 and higher.
@@ -62,7 +63,7 @@ Create the required resources:
 
 - Manually {#manual}
 
-   [Create a {{ mpg-name }} cluster](../operations/cluster-create.md) with public host access. In which case:
+   [Create a {{ mpg-name }} cluster](../operations/cluster-create.md) with public host access. In this case:
 
    * The {{ PG }} version must be the same or higher than the version in the source cluster. You cannot perform migration while downgrading {{ PG }} version.
    * The name of the database must be the same as in the source cluster.
@@ -150,7 +151,7 @@ The DB instance must have public access: `Public accessibility = yes`.
 
    {% endnote %}
 
-1. Add a rule for incoming traffic in [{{ vpc-short-name }} security groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html). For example:
+1. Add a rule for incoming traffic in [{{ vpc-short-name }} security groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html), e.g.:
 
    ```text
    protocol: tcp, port: 5432, source: 84.201.175.90/32

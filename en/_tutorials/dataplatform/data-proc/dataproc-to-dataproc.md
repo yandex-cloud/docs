@@ -8,6 +8,8 @@ To set up shared use of tables with two {{ dataproc-name }} clusters through {{ 
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+If a {{ dataproc-name }} cluster contains tables that should be available in another {{ dataproc-name }} cluster, transfer the tables to the appropriate cluster using {{ metastore-name }}.
+
 ## Getting started {#before-you-begin}
 
 Prepare the infrastructure:
@@ -27,6 +29,7 @@ Prepare the infrastructure:
          * `SPARK`
          * `YARN`
       * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-sa`
+      * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}**: `spark:spark.sql.hive.metastore.sharedPrefixes` with the `com.amazonaws,ru.yandex.cloud` value. Required for PySpark jobs and integration with {{ metastore-name }}.
       * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Bucket you created for output data
       * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`
 
@@ -59,7 +62,7 @@ Prepare the infrastructure:
 
    1. In the `dataproc-to-dataproc.tf` file, specify:
 
-      * `folder_id`: Cloud folder ID, the same one specified in the provider settings.
+      * `folder_id`: Cloud folder ID, same as in the provider settings.
       * `input-bucket`: Name of the bucket for input datа.
       * `output-bucket`: Name of the bucket for output data.
       * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. For more information, see [{#T}](../../../data-proc/operations/connect.md#data-proc-ssh).
@@ -84,11 +87,7 @@ Prepare the infrastructure:
 
 1. [Create a {{ metastore-name }} cluster](../../../data-proc/operations/metastore/cluster-create.md) in `dataproc-network`.
 
-1. [Change settings](../../../data-proc/operations/cluster-update.md) for the {{ dataproc-name }} clusters by adding the following [property](../../../data-proc/concepts/settings-list.md) to them:
-
-   ```text
-   spark:spark.hive.metastore.uris=thrift://<{{ metastore-name }}_IP_address>:{{ port-metastore }}
-   ```
+1. [Add](../../../data-proc/operations/cluster-update.md) the `spark:spark.hive.metastore.uris` property with the `thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}` value to the {{ dataproc-name }} cluster settings.
 
    To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** in the [management console]({{ link-console-main }}) and then select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. You will see the cluster IP address under **{{ ui-key.yacloud.common.section-base }}**.
 

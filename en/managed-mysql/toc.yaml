@@ -1,5 +1,10 @@
 title: Yandex Managed Service for MySQL®
 href: index.yaml
+label:
+  title: KZ
+  description: The service is available in Kazakhstan.
+  theme: info
+  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -17,7 +22,7 @@ items:
             href: operations/update.md
           - name: Stopping and starting clusters
             href: operations/cluster-stop.md
-          - name: Managing MySQL hosts
+          - name: Managing cluster hosts
             href: operations/hosts.md
           - name: Migrating hosts to a different availability zone
             href: operations/host-migration.md

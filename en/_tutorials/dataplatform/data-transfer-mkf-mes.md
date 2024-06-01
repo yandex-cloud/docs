@@ -1,5 +1,6 @@
 # Delivering data from an {{ KF }} queue to {{ ES }} using {{ data-transfer-full-name }}
 
+
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
 A {{ mes-name }} cluster can get data from {{ KF }} topics in real time.
@@ -35,7 +36,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       
       1. To connect to the cluster from the user's local machine, configure security groups:
 
-         * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
+         * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
          * [{{ mes-name }}](../../managed-elasticsearch/operations/cluster-connect.md#configuring-security-groups).
 
 
@@ -90,7 +91,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       sudo apt update && sudo apt install --yes kafkacat
       ```
 
-      Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect.md#connection-string#bash).
+      Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
    - [jq](https://stedolan.github.io/jq/) for JSON file stream processing.
 
@@ -154,13 +155,13 @@ You can provide data to the {{ mes-name }} cluster as the `admin` user with the 
 
 1. [Create a role]({{ links.es.docs }}/kibana/current/xpack-security.html#_roles_2) with the `create_index` and `write` privileges for all indexes (`*`).
 
-1. [Create a user](../../managed-elasticsearch/operations/cluster-users.md) and assign the user this role.
+1. [Create a user](../../managed-elasticsearch/operations/cluster-users.md) and assign this role to them.
 
 ## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ KF }}` source](../../data-transfer/operations/endpoint/source/kafka.md):
 
-   **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+   **Endpoint parameters**:
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
 
@@ -230,7 +231,7 @@ You can provide data to the {{ mes-name }} cluster as the `admin` user with the 
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ ES }}` target](../../data-transfer/operations/endpoint/target/elasticsearch.md):
 
-   **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchTarget.connection.title }}**:
+   **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchTarget.connection.title }}**:
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchConnectionType.mdb_cluster_id.title }}`.
 
@@ -255,7 +256,7 @@ You can provide data to the {{ mes-name }} cluster as the `admin` user with the 
 
          * `source_endpoint_id`: ID of the source endpoint.
          * `target_endpoint_id`: ID of the target endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -269,7 +270,7 @@ You can provide data to the {{ mes-name }} cluster as the `admin` user with the 
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      1. The transfer is activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+      1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
    {% endlist %}
 
@@ -291,7 +292,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
    ```
 
-   To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect.md).
+   To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
 1. Check that the `sensors` index in the {{ mes-name }} cluster contains the data sent:
 

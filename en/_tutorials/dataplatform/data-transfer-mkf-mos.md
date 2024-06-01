@@ -1,5 +1,6 @@
 # Delivering data from an {{ KF }} queue to {{ OS }} using {{ data-transfer-full-name }}
 
+
 A {{ mos-name }} cluster can get data from {{ KF }} topics in real time.
 
 To run data delivery:
@@ -34,7 +35,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       
       1. To connect to the cluster from the user's local machine, configure security groups:
 
-         * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
+         * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
          * [{{ mos-name }}](../../managed-opensearch/operations/connect.md#security-groups).
 
 
@@ -94,7 +95,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       sudo apt update && sudo apt install --yes kafkacat
       ```
 
-      Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect.md#bash).
+      Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
    - [jq](https://stedolan.github.io/jq/) for JSON file stream processing.
 
@@ -158,7 +159,7 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
 
 1. [Create a role]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) with the `create_index` and `write` privileges for all indexes (`*`).
 
-1. [Create a user](../../managed-opensearch/operations/cluster-users.md) and assign this role to the user.
+1. [Create a user](../../managed-opensearch/operations/cluster-users.md) and assign this role to them.
 
 ## Configure the target cluster {#configure-target}
 
@@ -170,13 +171,13 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
 
 1. [Create a role]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) with the `create_index` and `write` privileges for all indexes (`*`).
 
-1. [Create a user](../../managed-opensearch/operations/cluster-users.md) and assign this role to the user.
+1. [Create a user](../../managed-opensearch/operations/cluster-users.md) and assign this role to them.
 
 ## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ KF }}` source](../../data-transfer/operations/endpoint/source/kafka.md):
 
-   **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+   **Endpoint parameters**:
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
 
@@ -194,7 +195,7 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: `JSON`.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
 
             Insert the data schema in JSON format:
 
@@ -246,7 +247,7 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ OS }}` target](../../data-transfer/operations/endpoint/target/opensearch.md):
 
-   **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.connection.title }}**:
+   **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.connection.title }}**:
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
 
@@ -285,7 +286,7 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      1. The transfer is activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+      1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
    {% endlist %}
 
@@ -307,7 +308,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
    ```
 
-   To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect.md).
+   To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
 1. Check that the `sensors` index in the {{ mos-name }} cluster contains the data sent:
 

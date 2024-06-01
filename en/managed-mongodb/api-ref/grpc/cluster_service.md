@@ -6878,13 +6878,24 @@ name | **string**<br>Name of the MongoDB host. The host name is assigned by MDB 
 cluster_id | **string**<br>ID of the MongoDB host. The ID is assigned by MDB at creation time. 
 zone_id | **string**<br>ID of the availability zone where the MongoDB host resides. 
 resources | **[Resources](#Resources10)**<br>Resources allocated to the MongoDB host. 
-role | enum **Role**<br>Role of the host in the cluster. <ul><li>`ROLE_UNKNOWN`: Role of the host in the cluster is unknown.</li><li>`PRIMARY`: Host is the primary MongoDB server in the cluster.</li><li>`SECONDARY`: Host is a secondary MongoDB server in the cluster.</li></ul>
-health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded, and can perform only some of its essential functions.</li></ul>
+role | enum **Role**<br>Role of the host in the cluster. If the field has default value, it is not returned in the response. <ul><li>`ROLE_UNKNOWN`: Role of the host in the cluster is unknown. Default value.</li><li>`PRIMARY`: Host is the primary MongoDB server in the cluster.</li><li>`SECONDARY`: Host is a secondary MongoDB server in the cluster.</li></ul>
+health | enum **Health**<br>Aggregated health of the host. If the field has default value, it is not returned in the response. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown. Default value.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded, and can perform only some of its essential functions.</li></ul>
 services[] | **[Service](#Service)**<br>Services provided by the host. 
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 assign_public_ip | **bool**<br>Flag showing public IP assignment status to this host. 
 shard_name | **string**<br>Shard which this host belongs to. 
-type | enum **Type**<br>Host type <ul><li>`MONGOD`: A mongod host.</li><li>`MONGOS`: A mongos host.</li><li>`MONGOCFG`: A mongocfg host.</li><li>`MONGOINFRA`: A mongoinfra (mongos+mongocfg) host.</li></ul>
+type | enum **Type**<br>Host type. If the field has default value, it is not returned in the response. <ul><li>`TYPE_UNSPECIFIED`: Type of the host is unspecified. Default value.</li><li>`MONGOD`: A mongod host.</li><li>`MONGOS`: A mongos host.</li><li>`MONGOCFG`: A mongocfg host.</li><li>`MONGOINFRA`: A mongoinfra (mongos+mongocfg) host.</li></ul>
+host_parameters | **[HostParameters](#HostParameters)**<br>Host parameters 
+
+
+### HostParameters {#HostParameters}
+
+Field | Description
+--- | ---
+hidden | **bool**<br> 
+secondary_delay_secs | **int64**<br> 
+priority | **double**<br> 
+tags | **map<string,string>**<br> 
 
 
 ### Resources {#Resources10}
@@ -6900,8 +6911,8 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Type of the service provided by the host. <ul><li>`MONGOD`: The host is running a mongod daemon.</li><li>`MONGOS`: The host is running a mongos daemon.</li><li>`MONGOCFG`: The host is running a MongoDB config server.</li></ul>
-health | enum **Health**<br>Status code of server availability. <ul><li>`HEALTH_UNKNOWN`: Health of the server is unknown.</li><li>`ALIVE`: The server is working normally.</li><li>`DEAD`: The server is dead or unresponsive.</li></ul>
+type | enum **Type**<br>Type of the service provided by the host. If the field has default value, it is not returned in the response. <ul><li>`TYPE_UNSPECIFIED`: Service type of the host is unspecified. Default value.</li><li>`MONGOD`: The host is running a mongod daemon.</li><li>`MONGOS`: The host is running a mongos daemon.</li><li>`MONGOCFG`: The host is running a MongoDB config server.</li></ul>
+health | enum **Health**<br>Aggregated health of the service. If the field has default value, it is not returned in the response. <ul><li>`HEALTH_UNKNOWN`: Health of the server is unknown.</li><li>`ALIVE`: The server is working normally.</li><li>`DEAD`: The server is dead or unresponsive.</li></ul>
 
 
 ## AddHosts {#AddHosts}

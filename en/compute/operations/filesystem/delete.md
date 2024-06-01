@@ -13,6 +13,34 @@
      1. In the appropriate file storage row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
      1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
+   - CLI {#cli}
+
+      {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+      1. View the description of the [CLI](../../../cli/) command to delete a file storage:
+
+         ```bash
+         yc compute filesystem delete --help
+         ```
+
+      1. Get a list of file storages in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+
+         {% include [compute-filesystem-list](../../_includes_service/compute-filesystem-list.md) %}
+
+      1. Run the command by specifying the name or ID of the file storage you want to delete:
+
+         ```bash
+         yc compute filesystem delete <file_storage_name_or_ID>
+         ```
+
+      1. Make sure the file storage has been deleted:
+
+         ```bash
+         yc compute filesystem list
+         ```
+
    - {{ TF }} {#tf}
 
       {% include [terraform-install](../../../_includes/terraform-install.md) %}

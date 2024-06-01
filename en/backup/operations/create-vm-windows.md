@@ -27,13 +27,13 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
 
       * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the Windows Server 2019 or 2022 image.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [operating system supported in {{ backup-name }}](../concepts/vm-connection.md#windows).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       1. Choose a subnet in the selected availability zone.
       1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       1. Select a security group configured to work with {{ backup-name }}.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.label_backup }}**, enable the {{ backup-name }} connection option for your VM.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the service account with the `backup.editor` role.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable the {{ backup-name }} connection option for your VM.
   1. Specify the other VM parameters as needed.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
@@ -107,7 +107,7 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
       * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
       * `subnet-name`: Name of the selected [subnet](../../vpc/concepts/network.md#subnet).
       * `security-group-ids`: ID of the [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
-      * `image-id`: OS [image](../../compute/concepts/image.md) ID.
+      * `image-id`: OS [image](../../compute/concepts/image.md) ID. For more information, refer to the [list of supported Windows-based operating systems](../concepts/vm-connection.md#windows).
       * `size`: Boot disk size.
       * `--cores`: [Number of vCPUs](../../compute/concepts/vm.md) in the VM.
       * `--core-fraction`: Guaranteed vCPU share in %.

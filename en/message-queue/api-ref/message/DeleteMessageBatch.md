@@ -38,11 +38,11 @@ For a list of errors common for all methods, see [{#T}](../common-errors.md).
 ```
 Action=DeleteMessageBatch
 &Version=2012-11-05
-&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
-&DeleteMessageBatchRequestEntry.1.Id=dd2dd32b-eb1e7a37-f6b7a725-1555483
-&DeleteMessageBatchRequestEntry.1.ReceiptHandle=EAEg89fvhogtKAM
-&DeleteMessageBatchRequestEntry.2.Id=7e0e07f6-5c9a0a72-d304102f-1532995
-&DeleteMessageBatchRequestEntry.2.ReceiptHandle=EAEgq5vvhogtKAI
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
+&DeleteMessageBatchRequestEntry.1.Id=dd2dd32b-eb1e7a37-f6b7a725***-*****
+&DeleteMessageBatchRequestEntry.1.ReceiptHandle=EAEg89f********
+&DeleteMessageBatchRequestEntry.2.Id=7e0e07f6-5c9a0a72-d304102f***-*****
+&DeleteMessageBatchRequestEntry.2.ReceiptHandle=EAEgq5v********
 ```
 
 For more information about forming requests, see [General API request format](../index.md#api-request).
@@ -53,14 +53,14 @@ For more information about forming requests, see [General API request format](..
 <DeleteMessageBatchResponse>
     <DeleteMessageBatchResult>
         <DeleteMessageBatchResultEntry>
-            <Id>dd2dd32b-eb1e7a37-f6b7a725-1555483</Id>
+            <Id>dd2dd32b-eb1e7a37-f6b7a725***-*****</Id>
         </DeleteMessageBatchResultEntry>
         <DeleteMessageBatchResultEntry>
-            <Id>7e0e07f6-5c9a0a72-d304102f-1532995</Id>
+            <Id>7e0e07f6-5c9a0a72-d304102f***-*****</Id>
         </DeleteMessageBatchResultEntry>
     </DeleteMessageBatchResult>
     <ResponseMetadata>
-        <RequestId>e02ca0b-5e6b6d98-cef0a99c-150a53b3-07ee55365ba1b6fd876875f0ae18068e</RequestId>
+        <RequestId>e02ca0b-5e6b6d98-cef0a99c-150a53b3-07ee55365ba1b6fd876875f0********</RequestId>
     </ResponseMetadata>
 </DeleteMessageBatchResponse>
 ```

@@ -15,8 +15,10 @@ items:
         href: operations/index.md
       - name: Работа с данными
         items:
-          - name: Загрузка данных
+          - name: Загрузка аудиоданных
             href: operations/data/upload-data.md
+          - name: Загрузка переписки из чата
+            href: operations/data/upload-chat-text.md
           - name: Работа с диалогами
             href: operations/data/manage-dialogs.md
           - name: Работа с отчетами
@@ -91,6 +93,18 @@ items:
             href: api-ref/grpc/index.md
           - name: TalkService
             href: api-ref/grpc/talk_service.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Talk
+            items:
+              - name: Overview
+                href: api-ref/Talk/index.md
+              - name: get
+                href: api-ref/Talk/get.md
+              - name: search
+                href: api-ref/Talk/search.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: Управление доступом

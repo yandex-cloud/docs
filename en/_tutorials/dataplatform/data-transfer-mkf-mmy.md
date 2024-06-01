@@ -1,5 +1,6 @@
 # Delivering data from an {{ KF }} queue to {{ MY }} using {{ data-transfer-full-name }}
 
+
 A {{ mmy-name }} cluster can get data from {{ KF }} topics in real time.
 
 To run data delivery:
@@ -34,7 +35,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       
       1. To connect to the cluster from the user's local machine, configure security groups:
 
-         * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
+         * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
          * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#configure-security-groups).
 
 
@@ -91,7 +92,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       sudo apt update && sudo apt install --yes kafkacat
       ```
 
-      Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect.md#connection-string#bash).
+      Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
    - [jq](https://stedolan.github.io/jq/) for JSON file stream processing.
 
@@ -149,7 +150,7 @@ Create a local `sample.json` file with the following test data:
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ KF }}` source](../../data-transfer/operations/endpoint/source/kafka.md):
 
-   **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+   **Endpoint parameters**:
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
 
@@ -225,7 +226,7 @@ Create a local `sample.json` file with the following test data:
 
       1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ MY }}` target](../../data-transfer/operations/endpoint/target/mysql.md):
 
-         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**:
+         * **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
 
@@ -245,7 +246,7 @@ Create a local `sample.json` file with the following test data:
       1. In the `data-transfer-mkf-mmy.tf` file, specify the variables:
 
          * `source_endpoint_id`: ID of the source endpoint.
-         * `transfer_enabled`: Set `1` for creating a target endpoint and a transfer.
+         * `transfer_enabled`: Set to `1` to create a target endpoint and transfer.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -259,7 +260,7 @@ Create a local `sample.json` file with the following test data:
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      1. The transfer is activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+      1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
    {% endlist %}
 
@@ -281,7 +282,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
    ```
 
-   To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect.md).
+   To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
 1. Check that the `sensors` table in the {{ mmy-name }} cluster contains the sent data:
 

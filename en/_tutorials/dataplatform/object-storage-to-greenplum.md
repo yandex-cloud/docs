@@ -48,14 +48,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * [Subnet](../../vpc/concepts/network.md#subnet).
          * [Security group](../../vpc/concepts/security-groups.md) required to connect to a cluster.
          * Service account to be used to create and access the bucket.
-         * {{ lockbox-name }} secret, which will store the static key of the service account to configure the source endpoint.
+         * {{ lockbox-name }} secret which will store the static key of the service account to configure the source endpoint.
          * {{ objstorage-name }} source bucket.
          * {{ mgp-name }} target cluster.
          * Transfer.
 
       1. In the `object-storage-to-greenplum.tf` file, specify the values for these variables:
 
-         * `folder_id`: Cloud folder ID, the same one specified in the provider settings.
+         * `folder_id`: Cloud folder ID, same as in the provider settings.
          * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
          * `gp_version`: {{ GP }} version.
          * `gp_password`: {{ GP }} user password.

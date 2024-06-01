@@ -1,3 +1,8 @@
-The `gitlab.admin` role enables you to create, edit, and delete instances, as well as grant permissions to other users.
+The `gitlab.admin` role enables managing the Managed Service for GitLab instances and migrating them to other availability zones.
 
-This role is assigned by default. It includes the `gitlab.editor` role.
+Users with this role can:
+* View info on the Managed Service for GitLab [instances](../../managed-gitlab/concepts/index.md#instance), as well as create, modify, and delete such instances.
+* Migrate instances to another [availability zones](../../overview/concepts/geo-scope.md).
+* View info on the [quotas](../../managed-gitlab/concepts/limits.md#quotas) for Managed Service for GitLab.
+
+This role includes the `gitlab.editor` permissions.

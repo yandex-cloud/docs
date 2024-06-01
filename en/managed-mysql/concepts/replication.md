@@ -12,9 +12,10 @@ You can change the number of replicas required for a transaction to complete in 
 
 ### Recommended cluster configuration {#replication-auto}
 
+
 Once you create a {{ MY }} cluster with multiple hosts, it contains one master host and replicas. Replicas use the master host as a replication source.
 
-Here is an example of auto replicated cluster configuration:
+Here is an example of an auto replicated cluster configuration:
 
 
 ![MMY replicas auto control](../../_assets/mdb/mmy-replicas-auto.svg)
@@ -56,9 +57,9 @@ Assigning a replication source for the cluster hosts allows you to:
 
 ## Selecting a master if the primary master fails {#master-failover}
 
-If the master host fails, any of the cluster hosts available for replication becomes a new master. To affect master selection in a {{ MY }} cluster, [set the required priority values](../operations/hosts.md#update) for the cluster hosts. The host with the highest priority will become master; in a cluster with multiple replicas of equal priority, the replica with the lowest lag with respect to the master will be selected. Replicas lagging more than the value of the [Mdb priority choice max lag](settings-list.md#setting-mdb-priority-choice-max-lag) setting (60 seconds, by default) will be excluded from the selection.
+If the master host fails, any of the cluster hosts available for replication may become a new master. To influence master selection in a {{ MY }} cluster, [set your preferred priority values](../operations/hosts.md#update) for the cluster hosts. The highest priority host will become the master. Or, in a cluster with multiple replicas of equal priority, the one lagging the least behind the master will be selected. Replicas lagging more than the value of the [Mdb priority choice max lag](settings-list.md#setting-mdb-priority-choice-max-lag) setting (60 seconds by default) will be excluded from the selection.
 
-You can set the priority for a host:
+You can set host priority:
 
 * When [creating a cluster](../operations/cluster-create.md) with the YC CLI, API, or {{ TF }}.
 * When [changing the host settings](../operations/hosts.md#update).

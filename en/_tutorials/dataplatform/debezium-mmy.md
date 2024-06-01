@@ -8,9 +8,9 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
 1. [Create a _source cluster_](../../managed-mysql/operations/cluster-create.md) with the following settings:
 
-   * With publicly available hosts.
-   * With the `db1` database.
-   * With the `user1` user.
+   * Hosts: Publicly available
+   * Database: `db1`
+   * User: `user1`
 
 1. [Create a {{ mkf-name }} _target cluster_](../../managed-kafka/operations/cluster-create.md) in any applicable configuration with publicly available hosts.
 
@@ -19,7 +19,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
 1. If you are using security groups, configure them to enable connecting to the clusters both from the internet and from the created VM. In addition, enable connecting to this VM over SSH from the internet:
 
-   * [Configuring {{ mkf-name }} cluster security groups](../../managed-kafka/operations/connect.md#configuring-security-groups).
+   * [Configuring {{ mkf-name }} cluster security groups](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
    * [Configuring {{ mmy-name }} cluster security groups](../../managed-mysql/operations/connect.md#configure-security-groups).
 
 
@@ -49,7 +49,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
    1. Install certificates on the VM and check the availability of clusters:
 
-      * [{{ mkf-name }}](../../managed-kafka/operations/connect.md) (use `kafkacat`).
+      * [{{ mkf-name }}](../../managed-kafka/operations/connect/clients.md) (use `kafkacat`).
       * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#get-ssl-cert) (use `mysql`).
 
    1. Create a folder that will store the files required for the operation of the Debezium connector:
@@ -181,7 +181,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
       * The name of the `mmy` server is specified in the `database.server.name` parameter.
       * The name of the `db1` database is specified together with the name of the `measurements` table in the `table.include.list` parameter.
 
-   If you need to track data changes in multiple tables, create a separate topic for each of them.
+   If you need to track data changes in multiple tables, create a separate topic for each one of them.
 
 1. Create a service topic to track the connector status:
 

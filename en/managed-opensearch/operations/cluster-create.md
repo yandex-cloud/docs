@@ -9,11 +9,12 @@ keywords:
 
 # Creating an {{ OS }} cluster
 
+
 A {{ mos-name }} cluster is a group of multiple linked {{ OS }} and [dashboards]({{ os.docs }}/dashboards/index/) hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the `DATA` role. To learn more about roles in the cluster, see [Host roles](../concepts/host-roles.md).
 
 Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
-For more information, see [{#T}](../concepts/index.md).
+For more information, see [Resource relationships in the service](../concepts/index.md).
 
 ## Creating a cluster {#create-cluster}
 
@@ -60,7 +61,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
          {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
-      1. Specify how hosts should be distributed across availability zones and subnets.
+      1. Specify how hosts should be distributed across [availability zones](../../overview/concepts/geo-scope.md) and subnets.
 
       1. Select the number of hosts to create.
 
@@ -317,13 +318,13 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
+   * Settings for the [maintenance window](../concepts/maintenance.md) (for disabled clusters as well) in the `maintenanceWindow` parameter.
 
 {% endlist %}
 
 ## Creating a cluster copy {#duplicate}
 
-You can create an {{ OS }} cluster with the settings of another cluster created earlier. To do so, you need to import the configuration of the source {{ OS }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ OS }} cluster has lots of settings and you need to create a similar one.
+You can create an {{ OS }} cluster with the settings of another one created earlier. To do so, you need to import the configuration of the source {{ OS }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ OS }} cluster has lots of settings and you need to create a similar one.
 
 To create an {{ OS }} cluster copy:
 
@@ -370,11 +371,11 @@ To create an {{ OS }} cluster copy:
       * Delete the `created_at`, `health`, `id`, and `status` parameters.
       * In the `config` section, add the `admin_password` parameter.
       * If the `maintenance_window` section specifies the `type = "ANYTIME"` parameter value, delete the `hour` parameter.
-      * (Optional) Make further modifications if you need a customized copy rather than identical one.
+      * (Optional) Make further modifications if you are looking for more customization.
 
    1. In the `imported-cluster` directory, [get the authentication data](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 
-   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf).
+   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 

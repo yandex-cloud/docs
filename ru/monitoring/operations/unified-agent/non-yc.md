@@ -1,10 +1,20 @@
 # Поставка метрик с хостов вне {{ yandex-cloud }}
 
-Для поставки в {{ monitoring-full-name }} метрик с хостов, расположенных за пределами {{ yandex-cloud }}, используются [авторизованные ключи](../../../iam/concepts/authorization/key.md) сервисных аккаунтов. Описанная методика может также применяться для отправки метрик с виртуальных машин {{ yandex-cloud }} без привязанного сервисного аккаунта.
+Для поставки в {{ monitoring-full-name }} метрик с хостов, расположенных за пределами {{ yandex-cloud }}:
+
+1. Создайте [авторизованный ключ](../../../iam/concepts/authorization/key.md) сервисного аккаунта для доступа к каталогу, в который будут поставляться метрики.
+
+1. [Установите и настройте {{ unified-agent-full-name }}](../../concepts/data-collection/unified-agent/installation.md) для сбора и отправки метрик.
+ 
+Описанная методика может также применяться для отправки метрик с виртуальных машин {{ yandex-cloud }} без привязанного сервисного аккаунта.
+
+{% note warning %}
+
+Поставка системных метрик возможна только с хостов Linux на платформе AMD. Поддержка Windows и macOS запланирована в будущих релизах {{ unified-agent-full-name }}.
+
+{% endnote %}
 
 ## Поставка метрик с использованием авторизованного ключа {#example}
-
-Чтобы настроить {{unified-agent-full-name}} для поставки метрик с использованием авторизованного ключа, выполните следующие шаги:
 
 1. Настройте сервисный аккаунт, от имени которого будут записываться метрики в {{ monitoring-full-name }} и создайте авторизованный ключ.
 
@@ -20,21 +30,23 @@
 
       Другие способы создания авторизованных ключей описаны в разделе [{#T}](../../../iam/operations/authorized-key/create.md).
 
-   1. Доставьте файл **jwt_params.json** с параметрами авторизованного ключа на хост, где установлен {{unified-agent-short-name}}.
+   1. Доставьте файл **jwt_params.json** с параметрами авторизованного ключа на хост, где будет установлен {{unified-agent-short-name}}.
 
        Пример файла **jwt_params.json**:
        ```json
        {
            "id": "ajt4yut8vb12********",
            "service_account_id": "ajeo5pert10z********",
-           "created_at": "2021-01-14T13:18:51.070026Z",
+           "created_at": "2024-05-15T07:10:32.585653195Z",
            "key_algorithm": "RSA_2048",
            "public_key": "-----BEGIN PUBLIC KEY-----\nMD...",
            "private_key": "-----BEGIN PRIVATE KEY-----\nMI..."
        }
        ```
-
-1. Установите и настройте {{unified-agent-full-name}}:
+   
+1. [Установите и настройте на хосте {{unified-agent-full-name}}](../../concepts/data-collection/unified-agent/installation.md):
+   
+   1. Установите [Docker](https://docs.docker.com).
 
    1. Создайте в домашнем каталоге файл **config.yml**.
 
@@ -42,6 +54,9 @@
        ```yaml
         status:
           port: "16241"
+          host: null
+        agent_log:
+          priority: NOTICE
 
         storages:
           - name: main
@@ -60,16 +75,26 @@
               output:
                 plugin: yc_metrics
                 config:
+                  url: https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write
                   folder_id: "$FOLDER_ID"
                   iam:
                     jwt:
-                      file: "jwt_params.json"
+                      file: "/etc/yandex/unified_agent/jwt_params.json"
 
         routes:
           - input:
               plugin: linux_metrics
               config:
                 namespace: sys
+                proc_directory: /ua_proc
+                sys_directory: /sys
+                resources:
+                  cpu: basic
+                  memory: basic
+                  network: basic
+                  storage: basic
+                  io: basic
+                  kernel: basic
             channel:
               channel_ref:
                 name: cloud_monitoring
@@ -94,19 +119,21 @@
        Где:
 
        * `$FOLDER_ID` – идентификатор каталога, в который будут записываться метрики.
-       * `iam.jwt.file` – имя файла с параметрами JWT.
+       * `iam.jwt.file` – путь к файлу с параметрами JWT.
 
-   1. Установите {{unified-agent-short-name}} на свою виртуальную машину, выполнив в домашнем каталоге следующую команду:
+   1. Установите {{unified-agent-short-name}}, выполнив в домашнем каталоге команду:
 
       ```bash
       docker run \
-      -p 16241:16241 -it --detach --uts=host \
-      --name=ua \
+      -p 16241:16241 -it -d --uts=host \
+      --name unified-agent-$(echo $(cat /proc/sys/kernel/random/uuid) | cut -d '-' -f1) \
       -v /proc:/ua_proc \
-      -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
+      -v $(pwd)/config.yml:/etc/yandex/unified_agent/config.yml \
+      -v $(pwd)/jwt_params.json:/etc/yandex/unified_agent/jwt_params.json \
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=a1bs81qpemb4******** \
-      {{ registry }}/yc/unified-agent
+      --entrypoint="unified_agent" \
+      cr.yandex/yc/unified-agent
       ```
 
        Другие способы установки агента описаны в разделе [{#T}](../../concepts/data-collection/unified-agent/installation.md).

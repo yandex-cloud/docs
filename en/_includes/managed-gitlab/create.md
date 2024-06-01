@@ -1,7 +1,7 @@
 1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter the [VM](../../compute/concepts/vm.md) name as follows: `ci-tutorial-gitlab`.
+1. In the **{{ ui-key.yacloud.common.name }}** field, enter the [VM](../../compute/concepts/vm.md) name as follows: `ci-tutorial-gitlab`.
 1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**. In the window that opens, select [{{ GL }}](/marketplace/products/yc/gitlab) as your image and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. In the window that opens, select [{{ GL }}](/marketplace/products/yc/gitlab) as your image and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify the following configuration:
    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
@@ -13,7 +13,7 @@
 
    * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
-    * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+   * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
 
       {% note alert %}
 
@@ -21,7 +21,7 @@
 
       {% endnote %}
 
-    * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to create a key pair for the SSH connection yourself. To learn how, see [Connecting to a VM via SSH](../../compute/operations/vm-connect/ssh.md).
+   * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to create a key pair for the SSH connection yourself. To learn how, see [Connecting to a VM via SSH](../../compute/operations/vm-connect/ssh.md).
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-It may take a few minutes to create the VM. When the VM changes its status to `RUNNING` and {{ GL }} starts, you can proceed to setup.
+It may take a few minutes to create a VM. When the VM changes its status to `RUNNING` and {{ GL }} starts, you can proceed with setup.

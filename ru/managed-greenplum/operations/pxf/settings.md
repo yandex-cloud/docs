@@ -4,13 +4,13 @@
 
 {% list tabs group=instructions %}
 
-* Консоль управления {#console}
+- Консоль управления {#console}
 
     Чтобы изменить настройки PXF:
 
     1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и выберите на панели слева ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.greenplum.cluster.pxf.action_edit-settings }}** в верхней части страницы.
+    1. Нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.greenplum.cluster.pxf.action_edit-settings }}** в верхней части страницы.
     1. Измените настройки:
 
         * **Connection Timeout** — таймаут подключения к серверу Apache Tomcat® во время выполнения запросов на чтение. Диапазон значений: от `5` до `600` секунд. Значение можно указать в разных единицах времени.
@@ -28,7 +28,7 @@
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-* CLI {#cli}
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -74,7 +74,7 @@
 
         Имя кластера можно [получить со списком кластеров в каталоге](../cluster-list.md#list-clusters).
 
-* {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
     Чтобы изменить настройки PXF:
 
@@ -126,7 +126,7 @@
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-* API {#api}
+- API {#api}
 
     Чтобы изменить настройки PXF, воспользуйтесь методом REST API [update](../../api-ref/Cluster/update.md) для ресурса [Cluster](../../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 

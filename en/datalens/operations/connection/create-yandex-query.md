@@ -13,8 +13,8 @@ To create a connection, you need a [service account](../../../iam/concepts/users
 
 To create a {{ yq-full-name }} connection:
 
-1. Go to the [connections page](https://datalens.yandex.ru/connections).
-1. Click **Create connection**.
+1. Go to the [connections page]({{ link-datalens-main }}/connections).
+1. Click **Create connection**.
 1. Select a **{{ yq-full-name }}** connection.
 1. Specify the connection parameters:
 

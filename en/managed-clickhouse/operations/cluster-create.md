@@ -5,6 +5,7 @@ description: "Use this tutorial to create a {{ CH }} cluster with a single or mu
 
 # Creating a {{ CH }} cluster
 
+
 A {{ CH }} cluster consists of one or more database hosts you can configure replication between.
 
 {% note info %}
@@ -74,7 +75,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
 
-      * To create additional DB hosts, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**. Once the second host is added, the **{{ ui-key.yacloud.mdb.forms.button_expand-zookeeper-settings }}** button will appear. Change the {{ ZK }} settings in **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**, and **{{ ui-key.yacloud.mdb.forms.section_zookeeper-hosts }}**, if required.
+      * To create additional DB hosts, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**. After you add a second host, the **Configure ZooKeeper** button will appear. Change the {{ ZK }} settings in **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**, and **{{ ui-key.yacloud.mdb.forms.section_zookeeper-hosts }}**, if required.
       * Set the parameters of DB hosts being created alongside the cluster. To change the added host, hover over the host line and click ![image](../../_assets/console-icons/pencil.svg).
       * To connect to the host from the internet, enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** setting.
 
@@ -181,7 +182,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       * `--host`: Host parameters:
          * `type`: Host type: `clickhouse` or `zookeeper`.
          * `zone-id`: Availability zone.
-         * `assign-public-ip`: Flag enabling online access to the host by a public IP, `true` or `false`.
+         * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
 
       
       * `--clickhouse-disk-type`: Disk type.
@@ -259,7 +260,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
             {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
-         * Pass the hybrid storage settings in the respective parameters:
+         * Provide the hybrid storage settings in the relevant parameters:
 
             {% include [Hybrid Storage settings CLI](../../_includes/mdb/mch/hybrid-storage-settings-cli.md) %}
 
@@ -481,7 +482,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ CH }} cluster with the settings of another cluster created earlier. To do so, you need to import the configuration of the source {{ CH }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ CH }} cluster has lots of settings and you need to create a similar one.
+You can create a {{ CH }} cluster with the settings of another one created earlier. To do so, you need to import the configuration of the source {{ CH }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ CH }} cluster has lots of settings and you need to create a similar one.
 
 To create a {{ CH }} cluster copy:
 
@@ -530,11 +531,11 @@ To create a {{ CH }} cluster copy:
       * If the `clickhouse.config.merge_tree` section specifies the `max_parts_in_total = 0` parameter value, delete this parameter.
       * If the `maintenance_window` section specifies the `type = "ANYTIME"` parameter value, delete the `hour` parameter.
       * If there are `user` sections, add the `name` and `password` parameters to them.
-      * (Optional) Make further modifications if you need a customized copy rather than identical one.
+      * (Optional) Make further modifications if you are looking for more customization.
 
    1. In the `imported-cluster` directory, [get the authentication data](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 
-   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf).
+   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 
@@ -646,6 +647,7 @@ To create a {{ CH }} cluster copy:
 {% endlist %}
 
 ### Creating a multi-host cluster {#creating-a-multi-host-cluster}
+
 
 {% list tabs group=instructions %}
 

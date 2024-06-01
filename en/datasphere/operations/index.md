@@ -31,7 +31,7 @@ description: "The page contains all guides on working with {{ ml-platform-full-n
 * [{#T}](projects/use-shared-resource.md)
 * [{#T}](projects/debugging-tools.md)
 
-## Working in a notebook {#notebook}
+## {{ ds-nb }} {#notebook}
 
 * [{#T}](projects/control-compute-resources.md)
 * [{#T}](projects/gpu-performance-check.md)
@@ -40,7 +40,7 @@ description: "The page contains all guides on working with {{ ml-platform-full-n
 * [{#T}](projects/snippets.md)
 * [{#T}](projects/clear-outputs.md)
 * [{#T}](projects/work-with-git.md)
-* [{#T}](projects/work-with-jobs.md)
+* [{#T}](user-images-cell.md)
 * [{#T}](projects/templates.md)
 * [{#T}](projects/remote-connect.md)
 
@@ -61,7 +61,7 @@ description: "The page contains all guides on working with {{ ml-platform-full-n
 * [{#T}](data/connect-to-ya-disk.md)
 * [{#T}](data/connect-to-google-drive.md)
 
-## Deploying models {#deploy}
+## {{ ds-inf }} {#deploy}
 
 * [{#T}](deploy/node-create.md)
 * [{#T}](deploy/node-update.md)
@@ -73,6 +73,11 @@ description: "The page contains all guides on working with {{ ml-platform-full-n
 * [{#T}](deploy/alias-update.md)
 * [{#T}](deploy/alias-delete.md)
 * [{#T}](deploy/alias-api.md)
+
+## {{ ds-jobs }} {#ds-jobs}
+
+* [{#T}](projects/work-with-jobs.md)
+* [{#T}](projects/jobs-toolkit.md)
 
 ## Shared access to resources, projects, and computation results {#share}
 

@@ -35,9 +35,9 @@ description: "Из статьи вы узнаете, как установить
 
 Установите {{ unified-agent-short-name }} одним из способов:
 
-{% list tabs %}
+{% list tabs group=unified_agent %}
 
-- Docker-образ
+- Docker-образ {#docker}
 
   {{ unified-agent-short-name }} распространяется в виде Docker-образа. Образ опубликован в репозитории `{{ registry }}/yc` с названием `unified_agent` и тегом `latest`. Образ содержит бинарный файл с агентом и конфигурационный файл, настраивающий агент для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md) в {{ monitoring-full-name }}.
 
@@ -52,7 +52,7 @@ description: "Из статьи вы узнаете, как установить
   Чтобы запустить контейнер с агентом, выполните следующую команду:
 
   ```bash
-    docker run \
+    sudo docker run \
       -p 16241:16241 -it --detach --uts=host \
       --name=ua \
       -v /proc:/ua_proc \
@@ -88,7 +88,7 @@ description: "Из статьи вы узнаете, как установить
 
   Подробнее про конфигурацию агента читайте в разделе [{#T}](./configuration.md).
 
-- deb-пакет
+- deb-пакет {#deb}
 
   {{ unified-agent-short-name }} распространяется в виде deb-пакета для операционных систем Ubuntu 14.04 или старше. Пакет содержит бинарный файл с агентом и пустой конфигурационный файл, расположенный в `/etc/yandex/unified_agent/config.yml`.
 
@@ -132,7 +132,7 @@ description: "Из статьи вы узнаете, как установить
 
   После установки пакета отредактируйте файл конфигурации `/etc/yandex/unified_agent/config.yml`, например, настроив агент для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md). Подробнее про конфигурацию агента читайте в разделе [{#T}](./configuration.md).
 
-- Бинарный файл
+- Бинарный файл {#binary}
 
   {{ unified-agent-short-name }} распространяется в виде бинарного файла, собранного под архитектуру x86-64 / amd64 для операционных систем Ubuntu 14.04 или старше.
 
@@ -157,8 +157,7 @@ description: "Из статьи вы узнаете, как установить
 
   Где `--config` – путь до конфигурационного файла.
 
-
-- При создании ВМ
+- При создании ВМ {#vm}
 
   Вы можете установить агент при создании виртуальной машины в [консоли управления]({{ link-console-main }}). Для этого в блоке **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}** включите опцию **{{ ui-key.yacloud.compute.instances.create.unified-agent }}**. Агент автоматически установится с файлом конфигурации по умолчанию, который будет отправлять [базовые метрики виртуальной машины](./configuration.md#linux_metrics_input), а также [метрики здоровья агента](./configuration.md#agent_metrics_input). Отправка метрик [тарифицируется](../../../pricing.md).
 
@@ -174,7 +173,6 @@ description: "Из статьи вы узнаете, как установить
 
   Обновление и поддержка агента выполняется самостоятельно.
   
-
 {% endlist %}
 
 ## Параметры запуска Docker-контейнера с {{ unified-agent-short-name }} {#configure-docker}

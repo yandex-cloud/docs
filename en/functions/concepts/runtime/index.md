@@ -54,7 +54,7 @@ Runtime environments available in {{ sf-name }}.
 | Java 21 | `java21` | No | Yes |
 | **.NET Core** |  |  |
 | .NET Core 3.1 | `dotnetcore31` | No | No |
-| .NET Core 6 | `dotnet6` | No | Yes |
+| .NET Core 6 | `dotnet6` | No | No |
 | .NET Core 8 | `dotnet8` | No | Yes |
 | **R** |  |  |
 | R 4.2 | `r42` | No | No |

@@ -33,7 +33,7 @@ To create a connection to {{ mch-name }}:
       * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}**: `{{ ui-key.yql.yq-connection.click-house.select-item }}`.
    1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ mch-name }} cluster or create a new one.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing [service account](../../iam/concepts/users/service-accounts.md) {{ mch-name }}, or create a new one with the [`{{ roles.mch.viewer }}`](../../managed-clickhouse/security.md#managed-clickhouse-viewer) role, and use it to connect to `{{ mch-name }}` clusters.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mch-name }} [service account](../../iam/concepts/users/service-accounts.md), or create a new one with the [`{{ roles.mch.viewer }}` role](../../managed-clickhouse/security.md#managed-clickhouse-viewer), and use it to connect to `{{ mch-name }}` clusters.
       * **{{ ui-key.yql.yq-connection-info.database.label }}**: Select the database you will use when working with the {{ CH }} cluster.
       * **{{ ui-key.yql.yq-connection-form.login.input-label }}**: Username to use when connecting to {{ CH }} databases.
       * **{{ ui-key.yql.yq-connection-form.password.input-label }}**: User password to use when connecting to {{ CH }} databases.
@@ -54,12 +54,12 @@ But first allow network access from {{ yq-full-name }} to {{ mch-name }} cluster
 Here is the SQL query format used to access {{ CH }}:
 
 ```sql
-SELECT * FROM clickhouse_mdb_connection.<table>
+SELECT * FROM <connection>.<table_name>
 ```
 
 Where:
-* `clickhouse_mdb_connection`: Name of the established database connection.
-* `<table>`: Name of the table in the database.
+* `<connection>`: Name of the established database connection.
+* `<table_name>`: Name of the table in the database.
 
 ## Limitations {#limits}
 
@@ -82,7 +82,7 @@ Limitations:
 
 ## Supported data types {#supported_types}
 
-Below is a table of correspondence between {{ CH }} types and {{ yq-full-name }} types.
+The table below shows how {{ CH }} types and {{ yq-full-name }} types map.
 
 | Data type {{ CH }} | Data type {{ yq-full-name }} | Notes |
 |---|----|------|

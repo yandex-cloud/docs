@@ -98,6 +98,8 @@ items:
         href: tutorials/billing.md
       - name: Анализ данных с помощью Jupyter
         href: tutorials/jupyter.md
+      - name: Автоматизация с помощью {{ maf-short-name }}
+        href: tutorials/airflow.md
   - name: Работа с YQL
     items:
       - name: Обзор
@@ -120,28 +122,34 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API
+  - name: Справочник
     items:
-      - name: Обзор
-        href: api/index.md
-      - name: Аутентификация
-        href: api/auth.md
-      - name: Методы
+      - name: SDK
+        href: SDK/SDK.md
+      - name: HTTP API
         items:
-          - name: Все методы
-            href: api/methods/index.md
-          - name: create-query
-            href: api/methods/create-query.md
-          - name: get-query
-            href: api/methods/get-query.md
-          - name: get-query-status
-            href: api/methods/get-query-status.md
-          - name: stop-query
-            href: api/methods/stop-query.md
-          - name: get-query-results
-            href: api/methods/get-query-results.md
-      - name: Соответствие YQL и Json-типов
-        href: api/yql-json-conversion-rules.md
+          - name: Обзор
+            href: api/index.md
+          - name: Аутентификация
+            href: api/auth.md
+          - name: Методы
+            items:
+              - name: Все методы
+                href: api/methods/index.md
+              - name: create-query
+                href: api/methods/create-query.md
+              - name: get-query
+                href: api/methods/get-query.md
+              - name: get-query-status
+                href: api/methods/get-query-status.md
+              - name: stop-query
+                href: api/methods/stop-query.md
+              - name: get-query-results
+                href: api/methods/get-query-results.md
+          - name: Соответствие YQL и Json-типов
+            href: api/yql-json-conversion-rules.md
+      - name: '{{ AF }}'
+        href: airflow/operator.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: Вопросы и ответы

@@ -15,3 +15,65 @@
 И [промт-сообщения](../../operations/yandexgpt/create-prompt.md), и [сообщения в режиме чат](../../operations/yandexgpt/create-chat.md) также доступны при работе через API. Также вы можете использовать API для работы с моделями в [асинхронном режиме](../../operations/yandexgpt/async-request.md).
 
 Подробнее о моделях {{ yagpt-full-name }} см. в разделе [{#T}](models.md).
+
+## Форматирование ответов модели {#answers-formatting}
+
+По умолчанию модель возвращает ответ, отформатированный с помощью разметки [Markdown](https://ru.wikipedia.org/wiki/Markdown). Используйте текст промта, чтобы получить ответ с дополнительным форматированием (например с [эмодзи](https://ru.wikipedia.org/wiki/Эмодзи)) или в другом формате ([JSON](https://ru.wikipedia.org/wiki/JSON), [XML](https://ru.wikipedia.org/wiki/XML) и т.п.)
+
+Пример:
+
+```json
+{
+  "modelUri": "gpt://<идентификатор_каталога>/yandexgpt/latest",
+  "completionOptions": {
+    "stream": false,
+    "temperature": 0.6,
+    "maxTokens": "2000"
+  },
+  "messages": [
+    {
+      "role": "system",
+      "text": "Ты — умный ассистент."
+    },
+    {
+      "role": "user",
+      "text": "Назови любые три группы товаров в продовольственном магазине. Для каждой группы приведи три любые подгруппы, входящие в группу. Представь результат в форме объекта JSON, где каждая группа товаров представлена в виде ключа в объекте JSON, а значениями являются массивы из соответствующих подгрупп. Нужны только данные без вводных фраз и объяснений. Не используй разметку Markdown!"
+    }
+  ]
+}
+```
+
+Результат:
+
+```json
+{
+  "result": {
+    "alternatives": [
+      {
+        "message": {
+          "role": "assistant",
+          "text": "{\n    \"мясо\": [\"говядина\", \"свинина\", \"баранина\"],\n    \"молочные продукты\": [\"молоко\", \"творог\", \"сметана\"],\n    \"фрукты\": [\"яблоки\", \"бананы\", \"апельсины\"]\n}"
+        },
+        "status": "ALTERNATIVE_STATUS_FINAL"
+      }
+    ],
+    "usage": {
+      "inputTextTokens": "87",
+      "completionTokens": "58",
+      "totalTokens": "145"
+    },
+    "modelVersion": "07.03.2024"
+  }
+}
+```
+
+Модель вернула ответ в формате JSON, где перенос строки заменен на `\n`, а кавычки экранированы.
+
+Если с помощью промта вам не удается добиться желаемого результата, попробуйте [дообучить](../../tutorials/yagpt-tuning.md) модель в [{{ ml-platform-full-name}}]({{ link-datasphere-main }}).
+
+#### См. также {#see-also}
+
+* [{#T}](../../prompts/yandexgpt/index.md).
+* [{#T}](../../operations/yandexgpt/create-prompt.md).
+* [{#T}](../../operations/yandexgpt/create-chat.md).
+* [{#T}](../../operations/yandexgpt/async-request.md).

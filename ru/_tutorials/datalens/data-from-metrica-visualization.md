@@ -20,7 +20,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-{% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin-datalens.md) %}
 
 
 ## Шаг 1. Создайте подключение и стандартный дашборд {#step1}

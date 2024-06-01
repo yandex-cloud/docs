@@ -80,7 +80,7 @@
             }
             ```
 
-    1. Скачайте в ту же рабочую директорию файл конфигурации [rds-pg-mpg.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-postgres-from-aws-rds/blob/main/rds-pg-mpg.tf).
+    1. Скачайте в ту же рабочую директорию файл конфигурации [rds-pg-mpg.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-postgresql-from-aws-rds/blob/main/rds-pg-mpg.tf).
 
         В этом файле описаны:
 

@@ -16,9 +16,9 @@ A read-only replica is a host in a {{ MY }} DB cluster that can only be read. It
 
 #### What limitations are imposed on {{ MY }} database clusters? {#instance-limitations}
 
-For more information about {{ mmy-short-name }} limits, see [{#T}](../../managed-mysql/concepts/limits.md). Characteristics of clusters that can be created using {{ mmy-short-name }} are given in [{#T}](../../managed-mysql/concepts/instance-types.md).
+For more information on {{ mmy-short-name }} limits, see [Quotas and limits](../../managed-mysql/concepts/limits.md). To learn about the properties of the clusters you can create using {{ mmy-short-name }}, see [Host classes](../../managed-mysql/concepts/instance-types.md).
 
-#### Why is a cluster working slowly even though it still has free computing resources? {#throttling}
+#### Why is the cluster slow even though the computing resources are not used fully? {#throttling}
 
 {% include [throttling](../throttling.md) %}
 

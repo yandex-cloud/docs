@@ -22,7 +22,7 @@ description: "Вы можете создавать резервные копии
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором нужно восстановить кластер.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.cluster.switch_backups }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.switch_backups }}**.
   1. В строке нужной резервной копии нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Задайте настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
@@ -53,7 +53,7 @@ description: "Вы можете создавать резервные копии
       {{ yc-mdb-rd }} cluster restore --help
       ```
 
-  1. Получите список доступных резервных копий {{ RD }}-кластеров:
+  1. Получите список доступных резервных копий кластеров {{ RD }}:
 
       ```bash
       {{ yc-mdb-rd }} backup list
@@ -83,7 +83,7 @@ description: "Вы можете создавать резервные копии
          --disk-size 20
       ```
 
-      В результате будет создан {{ RD }}-кластер со следующими характеристиками:
+      В результате будет создан кластер {{ RD }} со следующими характеристиками:
 
       * С именем `mynewrd`.
       * В окружении `PRODUCTION`.
@@ -108,7 +108,7 @@ description: "Вы можете создавать резервные копии
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где нужно создать резервную копию.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.cluster.switch_backups }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.switch_backups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
@@ -154,7 +154,7 @@ description: "Вы можете создавать резервные копии
   Чтобы получить список резервных копий кластера:
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.cluster.switch_backups }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.switch_backups }}**.
 
   Чтобы получить список всех резервных копий в каталоге:
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
@@ -203,7 +203,7 @@ description: "Вы можете создавать резервные копии
   Чтобы получить информацию о резервной копии существующего кластера:
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с кластером, информацию о копии которого нужно получить.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.cluster.switch_backups }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.switch_backups }}**.
 
   Чтобы получить информацию о резервной копии удаленного ранее кластера:
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором располагался удаленный кластер.

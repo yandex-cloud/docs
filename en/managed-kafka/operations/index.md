@@ -5,31 +5,37 @@ description: "This page provides a list of step-by-step guides for {{ mkf-name }
 
 # Step-by-step guides for {{ mkf-name }}
 
-## Clusters
+## Clusters {#clusters}
 
 - [Information about existing clusters](cluster-list.md)
-- [Creating clusters](cluster-create.md)
+- [Creating a cluster](cluster-create.md)
 - [Changing cluster settings](cluster-update.md)
 - [{#T}](cluster-version-update.md)
 - [Stopping and starting clusters](cluster-stop.md)
 - [Managing cluster hosts](cluster-hosts.md)
 - [{#T}](host-migration.md)
-- [Deleting clusters](cluster-delete.md)
+- [Deleting a cluster](cluster-delete.md)
 
-## Topics
+## Connecting to a cluster {#connect}
 
-- [Connecting to cluster topics](connect.md)
-- [Working with topics and partitions](cluster-topics.md)
+* [Pre-configuration](connect/index.md)
+* [FQDNs of {{ KF }} hosts](connect/fqdn.md)
+* [Connecting to a cluster from applications](connect/clients.md)
+* [Code examples for connecting to a cluster](connect/code-examples.md)
 
-## Users {{ KF }}
+## Topics {#topics}
+
+- [Managing topics](cluster-topics.md)
+
+## {{ KF }} users {#users}
 
 - [Managing users](cluster-accounts.md)
 
-## Connectors {{ KF }}
+## {{ KF }} connectors {#connectors}
 
 - [Managing connectors](cluster-connector.md)
 
-## Logs and monitoring
+## Logs and monitoring {#monitoring-and-logs}
 
 - [Viewing cluster logs](cluster-logs.md)
 - [Monitoring the state of clusters and hosts](monitoring.md)

@@ -45,15 +45,15 @@ POST https://vpc.{{ api-host }}/vpc/v1/addresses
 Field | Description
 --- | ---
 folderId | **string**<br><p>Required. ID of the folder to create a address in.</p> <p>To get a folder ID make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Name of the address. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
+name | **string**<br><p>Name of the address. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``.</p> 
 description | **string**<br><p>Description of the address.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Address labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Specifies if address protected from deletion.</p> 
 dnsRecordSpecs[] | **object**<br><p>Optional DNS record specifications</p> 
-dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required.</p> 
-dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>Required. The string length in characters must be equal to 20.</p> 
-dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>Acceptable values are 0 to 86400, inclusive.</p> 
-dnsRecordSpecs[].<br>ptr | **boolean** (boolean)
+dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required. Required. DNS record name (absolute or relative to the DNS zone in use).</p> 
+dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>Required. Required. ID of the public DNS zone. The maximum string length in characters is 20.</p> <p>The string length in characters must be equal to 20.</p> 
+dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>TTL of record. Acceptable values are 0 to 86400, inclusive.</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>Optional. If the PTR record is required, this parameter must be set to "true".</p> 
 externalIpv4AddressSpec | **object**
 externalIpv4AddressSpec.<br>address | **string**<br><p>Value of address.</p> 
 externalIpv4AddressSpec.<br>zoneId | **string**<br><p>Availability zone from which the address will be allocated.</p> 

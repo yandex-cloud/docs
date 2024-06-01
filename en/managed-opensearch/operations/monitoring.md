@@ -133,10 +133,10 @@ This page displays charts showing the load on the cluster's host group. Which ch
       * **{{ mos-name }} — Data** to configure alerts for hosts with the `DATA` role.
       * **{{ mos-name }} — Manager** to configure alerts for hosts with the `MANAGER` role.
 
-   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
    1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds to trigger an alert.
-   1. Click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
 
@@ -161,7 +161,7 @@ For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert.status
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%)
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85,899,345,920` bytes (80%)
 
-You can view the host's current storage size and RAM amount in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-opensearch).
+You can view the current storage size and RAM of the hosts in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/managed-opensearch-ref.md).
 
 
 ## Cluster state and status {#cluster-health-and-status}

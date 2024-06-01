@@ -24,8 +24,6 @@ This section provides recommendations on how to ensure [safe operations](../../i
 * [Providing {{ yandex-cloud }} access to contractors](#contractors).
 * [Differentiating access to resources](#resourses).
 
-To simplify and automate role-based access management, the {{ iam-short-name }} module (based on {{ TF }}) was designed. It lets you create permission groups for cloud users and has a number of other convenient features. For more information about the {{ iam-short-name }} module and its use cases, see the [solution](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auth_and_access/iam#identity-and-access-management-iam-terraform-module-for-yandexcloud).
-
 ## Centralized management and identity federations {#saml-federation}
 
 [{{ org-full-name }}](../../organization/) is a single service for managing the organizational structure, setting up integration with the employee catalog, and differentiating user access to the organization's cloud resources.
@@ -98,11 +96,11 @@ To set up 2FA for a Yandex ID account, follow the [instructions](https://yandex
 ## Managing privileged users {#privileged-users}
 
 {{ yandex-cloud }} privileged users include accounts with the following roles:
-* `billing.accounts.owner`.
-* `{{ roles-admin }}` assigned for a billing account.
-* `{{ roles-cloud-owner }}`.
-* `{{ roles-admin }}` assigned for a cloud.
-* `{{ roles-admin }}` assigned for a folder.
+* `billing.accounts.owner`
+* `{{ roles-admin }}` assigned for a billing account
+* `{{ roles-cloud-owner }}`​
+* `{{ roles-admin }}` assigned for a cloud
+* `{{ roles-admin }}` assigned for a folder
 
 The `billing.accounts.owner` role is granted automatically when creating a billing account and cannot be reassigned to another user. The role allows you to perform any action with the billing account. The `billing.accounts.owner` role can only be assigned to a Yandex ID account. An account with the `billing.accounts.owner` role is used when setting up payment methods and adding clouds.
 
@@ -110,10 +108,10 @@ Make sure to properly secure this account: it offers significant privileges and 
 The most appropriate approach would be to not use this account on a regular basis:
 * Only use it for initial setup and updates.
 * When actively using this account, enable two-factor authentication (2FA) in Yandex ID.
-* After that, if you don't use the bank card payment method (only available for this role), set a strong password for this account (generated using specialized software), disable 2FA, and refrain from using this account unnecessarily.
+* After that, if you do not use the bank card payment method (only available for this role), set a strong password for this account (generated using specialized software), disable 2FA, and refrain from using this account unnecessarily.
 * Change the password to a newly generated one each time you use the account.
 
-We recommend disabling 2FA only for this account and if it is not assigned to a specific employee. This lets you avoid linking this critical account to a personal device.
+We recommend disabling 2FA only for this account and if it is not assigned to a specific employee. This is recommended for you in order to avoid linking this critical account to a personal device.
 
 To manage a billing account, assign the `{{ roles-admin }}` or `{{ roles-editor }}` role for the billing account to a dedicated employee with a federated account. To view {{ billing-name }} data, assign the `{{ roles-viewer }}` role for the billing account to a dedicated employee with a federated account.
 
@@ -150,11 +148,11 @@ If you grant third-party contractors access to your clouds, make sure to follow 
 * Assign permissions to contractor employees based on the principle of least privilege.
 * If possible, create a separate account for third-party employees in your corporate IdP and assign the required policies to this account.
 * Require them to handle their account secrets with care.
-* Review the relevance of granting external users access to your cloud infrastructure.
+* Review the relevance of external user access to your cloud infrastructure.
 
 ## Resource model {#resourses}
 
 When developing an access model for your infrastructure, we recommend the following approach:
-* Place any critical resources in a separate cloud. These include resources related to the processing of payment data, personal data, and trade secret data.
-* Host the resource groups that require different administrative permissions in different folders (DMZ, CDE, security, backoffice, and so on).
-* Host shared resources (such as network and security groups) in a separate shared resource folder.
+* Place all critical resources in a separate cloud. These include resources related to the processing of payment data, personal data, and trade secret data.
+* Place the resource groups requiring different administrative permissions in different folders (DMZ, CDE, security, backoffice, and so forth).
+* Place shared resources (such as network and security groups) in a separate shared resource folder.

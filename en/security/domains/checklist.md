@@ -28,7 +28,6 @@ description: "In this tutorial, you will learn about {{ yandex-cloud }} security
 * **Federated accounts**: Use federated accounts instead of Yandex accounts whenever possible.
 * **Principle of least privilege**: Assign service roles (for example, `compute.images.user`) instead of primitive roles (`viewer`, `editor`, or `admin`). See the [list of all roles](../../iam/roles-reference.md) and [examples of assigning roles](../../iam/operations/roles/grant.md). Watch our webinar to learn how to [manage cloud access permissions](https://www.youtube.com/watch?v=7VwSfPZ6eRM&t=3s).
 * **{{ TF }} {{ yandex-cloud }} {{ iam-full-name }} module**: Organize access groups for cloud users.
-  ![](../../_assets/overview/solution-library-icon.svg)[Solution: {{ iam-name }} in {{ TF }} for {{ yandex-cloud }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auth_and_access/iam#identity-and-access-management-iam-terraform-module-for-yandexcloud)
 * **Working with service accounts**: [Assign a service account to a VM instance](../../compute/operations/vm-connect/auth-inside-vm.md) and get a token using the metadata service. Set up a local firewall on the VM instance so that only the necessary processes and system users have access to the metadata service (IP address: 169.254.169.254).<!-- tbd: добавить ссылку на решение -->
 * **2FA**: For an identity federation, set up 2FA on the side of your IdP. For a Yandex account, set up 2FA using [this guide](https://yandex.com/support/id/authorization/twofa.html).
 * **billing.accounts.owner protection**: After performing the initial operations, do not use an account with this role. To manage a billing account, assign the `admin`, `editor`, or `viewer` role for the billing account to a specific employee with a federated account.
@@ -46,7 +45,7 @@ description: "In this tutorial, you will learn about {{ yandex-cloud }} security
 
     {% endlist %}
 
-* **Resource model**: Place all critical resources that must be compliant with standards in a separate cloud. Divide resource groups by folders. Host shared resources (such as network and security groups) in a separate shared resource folder.
+* **Resource model**: Place all critical resources governed by standards in a separate cloud. Split resource groups into folders. Place shared resources (e.g., network and security groups) in a separate shared resource folder.
 
 ## Data encryption and key/secret management {#data-encryption}
 
@@ -93,7 +92,7 @@ description: "In this tutorial, you will learn about {{ yandex-cloud }} security
 * **Exporting {{ at-name }} events to SIEM**.
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Exporting to ArcSight](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-arcsight)
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Exporting to Splunk](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-splunk)
-  You can export event data to any SIEM using s3fs, see the [instructions](../../storage/tools/s3fs.md).
+  You can export event data to any SIEM using s3fs, see this [guide](../../storage/tools/s3fs.md).
 * **Use cases**.
   ![](../../_assets/overview/solution-library-icon.svg)[Use cases and important security events in audit logs](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/_use_cases_and_searches)
 * **Responding to {{ at-name }} with {{ sf-name }}**:

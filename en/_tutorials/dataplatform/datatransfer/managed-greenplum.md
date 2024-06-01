@@ -1,5 +1,6 @@
 # Migrating data from a third-party {{ GP }} or {{ PG }} cluster to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
+
 You can migrate your database from a third-party {{ GP }} or {{ PG }} cluster to {{ mgp-name }} using {{ data-transfer-full-name }}. This method allows you to:
 
 * Migrate the database without interrupting user service.
@@ -31,14 +32,14 @@ The database name in the target cluster must be the same as the source database 
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Greenplum` or `PostgreSQL`
-   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.on_premise.title }}`
+   * **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.on_premise.title }}`
 
       Specify the parameters for connecting to the source cluster.
 
 1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Greenplum`
-   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`
+   * **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`
 
       Specify the ID of the target cluster.
 

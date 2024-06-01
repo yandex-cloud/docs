@@ -1,5 +1,10 @@
 title: Yandex Managed Service for MongoDB
 href: index.yaml
+label:
+  title: RU
+  description: The service is available in Russia only.
+  theme: unknown
+  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -65,6 +70,8 @@ items:
         href: tutorials/sharding.md
       - name: Migrating data to {{ mmg-name }}
         href: tutorials/data-migration.md
+      - name: Migrating a {{ mmg-name }} cluster from 4.4 to 6.0
+        href: tutorials/mongodb-versions.md
       - name: Migrating collections from a third-party {{ MG }} cluster
         href: tutorials/mongodb-migration-with-data-transfer.md
       - name: '{{ MG }} performance analysis and tuning'

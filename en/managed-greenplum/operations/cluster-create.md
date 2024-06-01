@@ -43,7 +43,7 @@ For more information, see [{#T}](../concepts/index.md).
 
    1. (Optional) For clusters with {{ GP }} version 6.25 or higher, enable the **{{ ui-key.yacloud.greenplum.section_cloud-storage }}** option.
 
-      It activates the [{{ YZ }} extension](https://github.com/yezzey-gp/yezzey/) from {{ yandex-cloud }}. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to cold storage in {{ objstorage-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
+      It activates the [{{ YZ }} extension](https://github.com/yezzey-gp/yezzey/) from {{ yandex-cloud }}. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
       You cannot disable this option after you save your cluster settings.
 
@@ -55,7 +55,7 @@ For more information, see [{#T}](../concepts/index.md).
       {% endnote %}
 
 
-   1. Specify the admin user settings. This special user is required for managing the cluster and cannot be deleted. For more information, see [{#T}](../concepts/cluster-users.md).
+   1. Specify the admin user settings. This special user is required for managing the cluster and cannot be deleted. For more information, see [Users and roles](../concepts/cluster-users.md).
 
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** may contain Latin letters, numbers, hyphens, and underscores, and may not start with a hyphen. It must be from 1 to 32 characters long.
 
@@ -325,7 +325,7 @@ For more information, see [{#T}](../concepts/index.md).
       * `master_host_count`: Number of master hosts, 1 or 2.
       * `segment_host_count`: Number of segment hosts, between 2 and 32.
 
-      Cluster deletion protection will not prevent a manual connection to delete the contents of a database.
+      Enabled cluster deletion protection will not prevent a manual connection with the purpose to delete database contents.
 
       For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mgp }}).
 
@@ -422,11 +422,11 @@ To create a {{ GP }} cluster copy:
       * Delete the `created_at`, `health`, `id`, `status`, `master_hosts`, and `segment_hosts` parameters.
       * Add the `user_password` parameter.
       * If the `maintenance_window` section specifies the `type = "ANYTIME"` parameter value, delete the `hour` parameter.
-      * (Optional) Make further modifications if you need a customized copy rather than identical one.
+      * (Optional) Make further modifications if you are looking for more customization.
 
    1. In the `imported-cluster` directory, [get the authentication data](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 
-   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf).
+   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 

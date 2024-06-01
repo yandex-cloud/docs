@@ -47,7 +47,7 @@ The cost of supporting this infrastructure includes:
 
 ## Install {{ TF }} {#install-terraform}
 
-{% include [terraform-install](../../_tutorials/terraform-install.md) %}
+{% include [terraform-install](../../_tutorials/_tutorials_includes/terraform-install.md) %}
 
 ## Create a {{ TF }} configuration file {#configure-terraform}
 
@@ -55,7 +55,7 @@ The cost of supporting this infrastructure includes:
 
 ## Configure a provider {#configure-provider}
 
-{% include [terraform-configure-provider](../../_tutorials/terraform-configure-provider.md) %}
+{% include [terraform-configure-provider](../../_tutorials/_tutorials_includes/terraform-configure-provider.md) %}
 
 ## Create a service account and static access key {#create-service-account}
 

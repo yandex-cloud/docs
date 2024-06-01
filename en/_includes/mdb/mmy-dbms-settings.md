@@ -137,7 +137,7 @@
 
 - **Innodb buffer pool size**{#setting-buffer-pool-size} {{ tag-all }}
 
-    The size of the InnoDB buffer pool (in bytes) used for caching table and index data. A larger buffer pool requires fewer I/O operations to access the same table data more than once.
+   The size of the InnoDB buffer pool (in bytes) used for caching table and index data. A larger buffer pool requires fewer I/O operations to access the same table data more than once.
 
    The minimum value is `134217728` (128 MB). The maximum and default values [depend on the selected host class](#settings-instance-dependent) and are set according to the table:
 
@@ -147,7 +147,7 @@
    | 4 | `1610612736` (1.5 GB) | `2684354560` (2.5 GB) |
    | ≥ 8 | `0.5 × RAM` | `0.8 × RAM` |
 
-   For more information, see the [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
+   For more information, see the [configuration recommendations](../../managed-mysql/qa/configuring.md#innodb-buffer-pool-size) and [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
 
 - **Innodb compression level**{#setting-innodb-compression-level} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -326,7 +326,7 @@
    - Range index scans.
    - Full table scans (for `JOIN` operations where no index is used).
 
-    One join buffer of the specified size is allocated for each full join between two tables. Increase the value of this setting to get a faster full join when adding indexes is not possible.
+   One join buffer of the specified size is allocated for each full join between two tables. Increase the value of this setting to get a faster full join when adding indexes is not possible.
 
    The minimum value is `1024` (1 KB) and the maximum value is `16777216` (16 MB). The default value is `262144` (256 KB).
 
@@ -717,7 +717,7 @@
 
 - **Tmp table size**{#setting-tmp-table-size} {{ tag-all }}
 
-    The maximum size of in-memory temporary tables (in bytes). If a table exceeds this limit, it is converted to an on-disk temporary table. This setting does not affect user-created MEMORY tables. Increase this value if you run many advanced `GROUP BY` queries and your cluster hosts have enough RAM.
+   The maximum size of in-memory temporary tables (in bytes). If a table exceeds this limit, it is converted to an on-disk temporary table. This setting does not affect user-created MEMORY tables. Increase this value if you run many advanced `GROUP BY` queries and your cluster hosts have enough RAM.
 
    The minimum value is `1024` (1 KB) and the maximum value is `134217728` (128 MB). The default value is `16777216` (16 MB).
 

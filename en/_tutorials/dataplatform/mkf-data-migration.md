@@ -1,3 +1,5 @@
+
+
 There are two ways to migrate topics from an {{ KF }} _source cluster_ to a {{ mkf-name }} _target cluster_:
 
 * [Using the built-in {{ mkf-full-name }} MirrorMaker connector](#kf-connector).
@@ -24,7 +26,7 @@ Both methods are also suitable for [migrating](../../managed-kafka/operations/ho
    1. Prepare the target cluster:
       * Create an [admin user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `admin-cloud`.
       * Enable [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
-      * Configure [security groups](../../managed-kafka/operations/connect.md#configuring-security-groups) if it is required for connection to the target cluster.
+      * Configure [security groups](../../managed-kafka/operations/connect/index.md#configuring-security-groups) if it is required for connection to the target cluster.
 
    1. Create a source cluster user named `admin-source` authorized to manage topics via the Admin API.
    1. Make sure that the network hosting the source cluster is configured to allow source cluster connections from the internet.
@@ -181,9 +183,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
       sudo apt update && sudo apt install --yes kafkacat
       ```
 
-      Make sure that you can use it to [connect to the source and target clusters via SSL](../../managed-kafka/operations/connect.md#connection-string).
+      Make sure that you can use it to [connect to the source and target clusters via SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-1. Configure a firewall and [security groups](../../managed-kafka/operations/connect.md#configuring-security-groups) if it is required to connect MirrorMaker to the target and the source clusters.
+1. Configure a firewall and [security groups](../../managed-kafka/operations/connect/index.md#configuring-security-groups) if it is required to connect MirrorMaker to the target and the source clusters.
 
 ### Configure MirrorMaker {#configure-mirrormaker}
 

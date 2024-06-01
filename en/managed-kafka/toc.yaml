@@ -1,5 +1,10 @@
 title: Yandex Managed Service for Apache Kafka®
 href: index.yaml
+label:
+  title: KZ
+  description: The service is available in Kazakhstan.
+  theme: info
+  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -17,7 +22,7 @@ items:
             href: operations/cluster-update.md
           - name: Updating the {{ KF }} version
             href: operations/cluster-version-update.md
-          - name: Stopping and starting clusters
+          - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
           - name: Managing {{ KF }} hosts
             href: operations/cluster-hosts.md
@@ -25,12 +30,18 @@ items:
             href: operations/host-migration.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
-      - name: Topics
+      - name: Connection
         items:
-          - name: Connecting to cluster topics
-            href: operations/connect.md
-          - name: Working with topics and partitions
-            href: operations/cluster-topics.md
+          - name: Pre-configuration
+            href: operations/connect/index.md
+          - name: FQDNs of hosts
+            href: operations/connect/fqdn.md
+          - name: Connecting from applications
+            href: operations/connect/clients.md
+          - name: Code snippets
+            href: operations/connect/code-examples.md
+      - name: Managing topics
+        href: operations/cluster-topics.md
       - name: Managing users
         href: operations/cluster-accounts.md
       - name: Managing connectors
@@ -105,6 +116,8 @@ items:
         href: concepts/topics.md
       - name: Brokers
         href: concepts/brokers.md
+      - name: '{{ kraft-short-name }} protocol'
+        href: concepts/kraft.md
       - name: Producers and consumers
         href: concepts/producers-consumers.md
       - name: Managing data schemas
@@ -249,7 +262,7 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
-  - name: '{{ monitoring-name }} metrics'
+  - name: '{{ monitoring-full-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md

@@ -22,10 +22,18 @@ You can automatically install the {{ backup-name }} agent when creating a VM fro
 
 ### Linux-based images {#linux}
 
+* [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts)
+* [Ubuntu 22.04 LTS OS Login](/marketplace/products/yc/ubuntu-2204-lts-oslogin)
 * [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts)
+* [Ubuntu 20.04 LTS OS Login](/marketplace/products/yc/ubuntu-2004-lts-oslogin)
 * [Ubuntu 18.04 LTS](/marketplace/products/yc/ubuntu-18-04-lts)
-* [Ubuntu 16.04 LTS](/marketplace/products/yc/ubuntu-26-04-lts)
+* [Ubuntu 18.04 LTS OS Login](/marketplace/products/yc/ubuntu-1804-lts-oslogin)
+* [Ubuntu 16.04 LTS](/marketplace/products/yc/ubuntu-16-04-lts)
 * [CentOS 7](/marketplace/products/yc/centos-7)
+* [CentOS 7 OS Login](/marketplace/products/yc/centos-7-oslogin)
+* [CentOS Stream](/marketplace/products/yc/centos-stream-8)
+* [Astra Linux SE 1.7 Voronezh](/marketplace/products/astralinux/alse)
+* [Astra Linux SE 1.7 Orel](/marketplace/products/astralinux/alse-orel)
 
 ### Windows-based images {#windows}
 
@@ -41,7 +49,7 @@ You can automatically install the {{ backup-name }} agent when creating a VM fro
 
 {% note info %}
 
-Install Ubuntu or CentOS from a public image (a {{ marketplace-full-name }} product). When creating a VM, you can select the OS directly or use an [image](../../compute/concepts/image.md) or [disk snapshot](../../compute/concepts/snapshot.md) from a different VM if its OS was also installed from a public image.
+The OS must be installed from a public image (a {{ marketplace-full-name }} product). When creating a VM, you can select the OS directly or use an [image](../../compute/concepts/image.md) or [disk snapshot](../../compute/concepts/snapshot.md) of a different VM if its OS was also installed from a public image.
 
 {% endnote %}
 
@@ -58,7 +66,7 @@ If you have issues while installing the agent, [contact]({{ link-console-support
 
 Going forward, {{ backup-name }} will support Ubuntu 22.04.
 
-## Service accounts {#sa}
+## Service account {#sa}
 
 [Service account](../../iam/concepts/users/service-accounts.md) is a special account on behalf of which VM backups are created and uploaded to a {{ backup-name }} storage.
 

@@ -1,3 +1,4 @@
+
 In {{ mkf-name }}, you can use a built-in [{{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.md#msr) data format schema registry. For more information, see [{#T}](../../../managed-kafka/tutorials/managed-schema-registry.md). If you need [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html), use the information from this guide.
 
 {% note info %}
@@ -29,12 +30,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 
 
-1. If you are using security groups, [configure them](../../../managed-kafka/operations/connect.md#configuring-security-groups) to allow all required traffic between the {{ mkf-name }} cluster and the VM.
+1. If you are using security groups, [configure them](../../../managed-kafka/operations/connect/index.md#configuring-security-groups) to allow all required traffic between the {{ mkf-name }} cluster and the VM.
 
 1. In the VM security group, [add a rule](../../../vpc/operations/security-group-add-rule.md) for incoming traffic that allows connections via port `8081` which is used by the producer and consumer to access the schema registry:
 
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `8081`
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0` or address ranges of the subnets where the producer and consumer run
 
@@ -79,7 +80,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         python3-pip --yes
    ```
 
-1. [Get an SSL certificate](../../../managed-kafka/operations/connect.md#get-ssl-cert).
+1. [Get an SSL certificate](../../../managed-kafka/operations/connect/index.md#get-ssl-cert).
 
 1. Create secure storage for the certificate:
 

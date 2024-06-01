@@ -44,21 +44,21 @@ Prepare the infrastructure:
       * Rule for incoming traffic (for online access to subcluster hosts):
 
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
       * Rule for outgoing HTTPS traffic:
 
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
       * Rule for outgoing HTTP traffic:
 
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-http }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
@@ -249,27 +249,27 @@ Spark Submit allows you to run pre-written applications using the `spark-submit`
 
          The version you need is `3.0.3`.
 
-   1. In the `spark-app` folder, create a file named `build.sbt` with the following configuration:
+      1. In the `spark-app` folder, create a file named `build.sbt` with the following configuration:
 
-      ```scala
-      scalaVersion := "<scala_version>"
+         ```scala
+         scalaVersion := "<scala_version>"
 
-      libraryDependencies ++= Seq(
-          "org.apache.spark" %% "spark-core" % "<spark_core_version>" % "provided",
-          "org.apache.spark" %% "spark-sql" % "<spark_sql_version>" % "provided"
-      )
-      ```
+         libraryDependencies ++= Seq(
+             "org.apache.spark" %% "spark-core" % "<spark_core_version>" % "provided",
+             "org.apache.spark" %% "spark-sql" % "<spark_sql_version>" % "provided"
+         )
+         ```
 
-      For example:
+         For example:
 
-      ```scala
-      scalaVersion := "2.12.10"
+         ```scala
+         scalaVersion := "2.12.10"
 
-      libraryDependencies ++= Seq(
-          "org.apache.spark" %% "spark-core" % "3.0.3" % "provided",
-          "org.apache.spark" %% "spark-sql" % "3.0.3" % "provided"
-      )
-      ```
+         libraryDependencies ++= Seq(
+             "org.apache.spark" %% "spark-core" % "3.0.3" % "provided",
+             "org.apache.spark" %% "spark-sql" % "3.0.3" % "provided"
+         )
+         ```
 
    1. Compile and build your JAR file:
 

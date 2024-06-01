@@ -52,6 +52,8 @@ items:
             href: operations/set-dynamic-ip.md
           - name: Moving an address between folders
             href: operations/address-move.md
+          - name: Getting information about an IP address
+            href: operations/address-get-info.md
           - name: Deleting a static public IP address
             href: operations/address-delete.md
       - name: Static routing
@@ -61,8 +63,12 @@ items:
             href: operations/static-route-create.md
           - name: Creating and setting up a NAT gateway
             href: operations/create-nat-gateway.md
+          - name: Getting information about a NAT gateway
+            href: operations/get-info-nat-gateway.md
           - name: Moving a route table between folders
             href: operations/static-route-move.md
+          - name: Getting information about a route table
+            href: operations/route-table-get-info.md
           - name: Moving a NAT gateway between folders
             href: operations/static-gateway-move.md
       - name: Security groups
@@ -73,6 +79,8 @@ items:
             href: operations/security-group-update.md
           - name: Adding a new rule
             href: operations/security-group-add-rule.md
+          - name: Getting information about a security group
+            href: operations/security-group-get-info.md
           - name: Deleting a rule
             href: operations/security-group-delete-rule.md
           - name: Moving a security group between folders

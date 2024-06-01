@@ -99,7 +99,7 @@ To create a table and embed it in the text of a page:
 
 1. On the top panel, click ![](../_assets/wiki/add-dynamic-grid.png). The [table code](actions/grid-reference.md) will appear in the text:
    `{{grid page="{{ wiki-pagename }}/grid-2021-01-24t163048" width="100%"}}`.
-   The created table becomes a subsection of the current page.
+   The created table will become a subcluster of the current page.
 
 1. Save the page.
 

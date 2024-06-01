@@ -1,9 +1,9 @@
 ---
-title: "Tutorial on changing {{ MY }} cluster settings in {{ mmy-full-name }}"
+title: "How to change {{ MY }} cluster settings in {{ mmy-full-name }}"
 description: "In this tutorial, you will learn how to change settings for a {{ MY }} cluster."
 ---
 
-# Changing {{ MY }} cluster settings
+# Updating {{ MY }} cluster settings
 
 After creating a cluster, you can:
 
@@ -24,14 +24,14 @@ After creating a cluster, you can:
 * [Move a cluster](#move-cluster) to another folder.
 
 
-* [{#T}](#change-sg-set).
+* [{#T}](#change-sg-set)
 
 
 Learn more about other cluster updates:
 
-* [{#T}](cluster-version-update.md).
+* [{#T}](cluster-version-update.md)
 
-* [{#T}](host-migration.md).
+* [Migrating cluster hosts to a different availability zone](host-migration.md).
 
 ## Changing the host class {#change-resource-preset}
 
@@ -95,7 +95,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](./cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](./cluster-create.md).
 
    1. In the {{ mmy-name }} cluster description, change the `resource_preset_id` parameter value under `resources`:
 
@@ -175,7 +175,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](./cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](./cluster-create.md).
 
    1. Change the `disk_size` parameter value under `resources`:
 
@@ -256,7 +256,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](./cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](./cluster-create.md).
 
    1. In the {{ mmy-name }} cluster description, add or update the [DBMS settings](../concepts/settings-list.md) under `mysql_config`:
 
@@ -370,7 +370,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
    1. To change the backup start time, add a `backup_window_start` block to the {{ mmy-name }} cluster description:
 
@@ -421,7 +421,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-   1. To enable statistics collection for [cluster performance diagnostics](performance-diagnostics.md), add the `performance_diagnostics` section to your {{ mmy-name }} cluster:
+   1. To enable statistics collection for [cluster performance diagnostics](performance-diagnostics.md), add the `performance_diagnostics` section to your {{ mmy-name }} cluster description:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -513,7 +513,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](./cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](./cluster-create.md).
 
    1. In the {{ mmy-name }} cluster description, add or edit the `folder_id` parameter value:
 
@@ -581,7 +581,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](./cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](./cluster-create.md).
 
    1. In the {{ mmy-name }} cluster description, change the `security_group_ids` parameter value:
 

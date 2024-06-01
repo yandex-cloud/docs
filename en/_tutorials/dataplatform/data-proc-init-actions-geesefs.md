@@ -1,5 +1,6 @@
 # Using initialization actions to configure GeeseFS in {{ dataproc-name }}
 
+
 In {{ dataproc-full-name }}, you can use [initialization actions](../../data-proc/concepts/init-action.md) to configure hosts.
 
 With them, you can automate the installation and set up of [GeeseFS](../../storage/tools/geesefs.md), the software that lets {{ dataproc-full-name }} cluster hosts to mount {{ objstorage-full-name }} buckets via [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace).
@@ -95,7 +96,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the {{ dataproc-name }} cluster](../../data-proc/operations/cluster-delete.md).
 1. If you used static public IP addresses to access the cluster hosts, release and [delete them](../../vpc/operations/address-delete.md).

@@ -19,7 +19,7 @@
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
     1. [Создайте кластер-приемник {{ mmg-name }}](../../../managed-mongodb/operations/cluster-create.md) с конфигурацией, идентичной кластеру-источнику, и со следующими настройками:
 
@@ -37,7 +37,7 @@
 
     1. [Включите шардирование кластера](../../../managed-mongodb/operations/shards.md#enable) и [добавьте](../../../managed-mongodb/operations/shards.md#add-shard) нужное количество шардов.
 
-* С помощью {{ TF }} {#tf}
+- С помощью {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
@@ -247,11 +247,11 @@
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
     Удалите [кластер {{ mmg-name }}](../../../managed-mongodb/operations/cluster-delete.md).
 
-* С помощью {{ TF }} {#tf}
+- С помощью {{ TF }} {#tf}
 
     Если вы создавали кластер с помощью {{ TF }}:
 

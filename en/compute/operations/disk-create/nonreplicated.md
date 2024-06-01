@@ -235,4 +235,4 @@ You can only create a disk in an existing disk placement group.
 
 #### See also {#see-also}
 
-* [{#T}](../snapshot-control/create-schedule.md)
+* [{#T}](../snapshot-control/create-schedule.md).

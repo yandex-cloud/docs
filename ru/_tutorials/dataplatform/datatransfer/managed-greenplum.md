@@ -32,14 +32,14 @@
 1. [Создайте эндпоинт для источника](../../../data-transfer/operations/endpoint/index.md#create) со следующими параметрами:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Greenplum` или `PostgreSQL`.
-    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.on_premise.title }}`.
+    * **Параметры эндпойнта** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.on_premise.title }}`.
 
         Укажите параметры подключения к кластеру-источнику.
 
 1. [Создайте эндпоинт для приемника](../../../data-transfer/operations/endpoint/index.md#create) со следующими параметрами:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Greenplum`.
-    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`.
+    * **Параметры эндпойнта** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`.
 
         Укажите идентификатор кластера-приемника.
 

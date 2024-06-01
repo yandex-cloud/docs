@@ -3,7 +3,7 @@ title: "Sharding in MongoDB"
 description: "MongoDB supports sharding to handle large data and increase the DBMS throughput. Sharding is particularly useful when vertical scaling (upgrading server capacity) is either not cost-efficient or impossible. {{ mmg-name }} supports core data sharding strategies: hashed sharding (with a hash-based sharding key) and ranged sharding (by a shard key value range)."
 ---
 
-# Sharding in Managed Service for MongoDB
+# Sharding in {{ mmg-name }}
 
 _Sharding_ is a horizontal data scaling strategy that distributes parts of {{ MG }} collections across different hosts in a cluster. A shard, which is a group of hosts, is linked to datasets using the _shard key_. {{ MG }} supports sharding to handle large data and increase the DBMS throughput. Sharding is particularly useful when vertical scaling (upgrading server capacity) is either not cost-efficient or impossible.
 
@@ -55,7 +55,7 @@ To split data into shards:
 1. [Add](../operations/shards.md#add-shard) the required number of shards.
 1. [Enable sharding](../tutorials/sharding.md#enable) for the applicable collections.
 
-See [this example of sharding](../tutorials/sharding.md#example).
+For more information, refer to [this example of sharding](../tutorials/sharding.md#example).
 
 
 ## Sharding management in {{ mmg-name }} {#shard-management}

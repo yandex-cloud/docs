@@ -1,5 +1,10 @@
 title: Yandex Managed Service for ClickHouse®
 href: index.yaml
+label:
+  title: KZ
+  description: The service is available in Kazakhstan.
+  theme: info
+  when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
@@ -39,7 +44,7 @@ items:
             href: operations/connect/fqdn.md
           - name: Connecting from applications
             href: operations/connect/clients.md
-          - name: Code examples
+          - name: Code snippets
             href: operations/connect/code-examples.md
       - name: Databases
         items:
@@ -176,7 +181,7 @@ items:
   - name: CLI reference
     href: ../cli/cli-ref/managed-services/managed-clickhouse/index.md
   - name: '{{ TF }} reference'
-    href: reference/terraform.md
+    href: tf-ref.md
   - name: API reference
     items:
       - name: Authentication with the API
@@ -368,9 +373,9 @@ items:
               - name: get
                 href: api-ref/Operation/get.md
   - name: '{{ monitoring-full-name }} metrics'
-    href: reference/monitoring.md
+    href: metrics.md
   - name: '{{ at-name }} events'
-    href: reference/audit-trails.md
+    href: at-ref.md
   - name: Public materials
     href: public-talks.md
   - name: Release notes

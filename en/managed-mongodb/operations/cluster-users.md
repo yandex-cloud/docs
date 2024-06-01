@@ -95,20 +95,18 @@ You can add and delete users as well as manage their individual settings and dat
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
-   1. Add a `user` block to the {{ mmg-name }} cluster description:
+   1. Add the `yandex_mdb_mongodb_user` resource:
 
       ```hcl
-      resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
-        ...
-        user {
-          name     = "<username>"
-          password = "<password>"
-          permission {
-            database_name = "<DB_name>"
-            roles         = [ "<list_of_user_roles>" ]
-          }
+      resource "yandex_mdb_mongodb_user" "<username>" {
+        cluster_id = <cluster_ID>
+        name       = "<username>"
+        password   = "<password>"
+        permission {
+          database_name = "<DB_name>"
+          roles         = [ "<list_of_user_roles>" ]
         }
       }
       ```
@@ -125,9 +123,7 @@ You can add and delete users as well as manage their individual settings and dat
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mongodb_user).
 
 - API {#api}
 
@@ -138,7 +134,7 @@ You can add and delete users as well as manage their individual settings and dat
       * Username in the `name` parameter.
       * User password in the `password` parameter.
       * Database permissions (one or more `permissions` parameters, one for each database):
-         * Database name, in the `databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
+         * Database name in the `databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
          * Database permissions in the `roles` parameter.
 
 {% endlist %}
@@ -231,21 +227,19 @@ You can add and delete users as well as manage their individual settings and dat
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
-   1. In the {{ mmg-name }} cluster description, find the `user` block for the required user.
-   1. Change the values of the `password` and `permission` fields:
+   1. Find the `yandex_mdb_mongodb_user` resource.
+   1. Change the `password` field value and field values under `permission`:
 
       ```hcl
-      resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
-        ...
-        user {
-          name     = "<username>"
-          password = "<new_password>"
-          permission {
-            database_name = "<DB_name>"
-            roles         = [ "<new_list_of_user_roles>" ]
-          }
+      resource "yandex_mdb_mongodb_user" "<username>" {
+        cluster_id = <cluster_ID>
+        name       = "<username>"
+        password   = "<new_password>"
+        permission {
+          database_name = "<DB_name>"
+          roles         = [ "<new_list_of_user_roles>" ]
         }
       }
       ```
@@ -260,16 +254,14 @@ You can add and delete users as well as manage their individual settings and dat
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mongodb_user).
 
 - API {#api}
 
    To update a user, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
 
    * ID of the cluster in which the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Username, in the `userName` parameter. To find out the name, [get a list of users in the cluster](cluster-users.md#list-users).
+   * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](cluster-users.md#list-users).
    * Name of the database for which you want to change the list of user roles in the `permissions.databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
    * Array of the new list of user roles in the `permissions.roles` parameter.
    * List of user settings to be updated, in the `updateMask` parameter.
@@ -286,7 +278,7 @@ You can add and delete users as well as manage their individual settings and dat
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the cluster name and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the user and select **{{ ui-key.yacloud.mdb.cluster.users.button_remove }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-remove }}**.
 
 - CLI {#cli}
 
@@ -307,9 +299,9 @@ You can add and delete users as well as manage their individual settings and dat
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
-   1. Delete the user block with a description of the required `user` from the {{ mmg-name }} cluster description.
+   1. Delete the `yandex_mdb_mongodb_user` resource with the description of the user you need.
 
    1. Make sure the settings are correct.
 
@@ -319,9 +311,7 @@ You can add and delete users as well as manage their individual settings and dat
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mongodb_user).
 
 - API {#api}
 

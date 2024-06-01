@@ -4,6 +4,10 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## Март 2024 {#mar-2024}
+
+* Добавлена возможность [замены зоны доступности](./operations/host-migration.md) для кластеров {{ mkf-name }}.
+
 ## IV квартал 2023 {#q4-2023}
 
 * Новая версия {{ KF }} 3.5.1 доступна в окружении `PRODUCTION`. Подробнее об изменениях см. в [документации {{ KF }} 3.5.0](https://archive.apache.org/dist/kafka/3.5.0/RELEASE_NOTES.html) и [документации {{ KF }} 3.5.1](https://archive.apache.org/dist/kafka/3.5.1/RELEASE_NOTES.html). {{ tag-con }} {{ tag-cli }} {{ tag-tf }}

@@ -70,13 +70,13 @@
 
               У каждой сети должна быть как минимум одна подсеть. Если подсети нет, создайте ее, выбрав ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
       1. Настройте [сетевой доступ](concepts/vm-connection.md#vm-network-access) для ВМ.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.label_backup }}** выберите опцию подключения ВМ к сервису {{ backup-name }}.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
       1. Выберите сервисный аккаунт с ролью `backup.editor`.
       1. В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
       1. В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа.
 
           Пару ключей для подключения по [SSH](../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. [{#T}](../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** включите опцию подключения ВМ к сервису {{ backup-name }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 {% endlist %}

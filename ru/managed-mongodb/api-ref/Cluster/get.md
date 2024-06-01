@@ -2792,7 +2792,7 @@ createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://
 name | **string**<br><p>Name of the MongoDB cluster. The name is unique within the folder. 1-63 characters long.</p> 
 description | **string**<br><p>Description of the MongoDB cluster. 0-256 characters long.</p> 
 labels | **object**<br><p>Custom labels for the MongoDB cluster as ``key:value`` pairs. Maximum 64 per resource.</p> 
-environment | **string**<br><p>Deployment environment of the MongoDB cluster.</p> <p>Deployment environment.</p> <ul> <li>PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li> </ul> 
+environment | **string**<br><p>Deployment environment of the MongoDB cluster.</p> <ul> <li>PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li> </ul> 
 monitoring[] | **object**<br><p>Description of monitoring systems relevant to the MongoDB cluster.</p> 
 monitoring[].<br>name | **string**<br><p>Name of the monitoring system.</p> 
 monitoring[].<br>description | **string**<br><p>Description of the monitoring system.</p> 

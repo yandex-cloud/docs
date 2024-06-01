@@ -2,7 +2,7 @@
 
 Благодаря тому, что СУБД {{ GP }} основана на {{ PG }}, для подключения к обеим СУБД используются одни и те же инструменты.
 
-Подключение к кластеру {{ mgp-short-name }} производится только через [первичный хост-мастер](../concepts/index.md). Чтобы определить роли хостов, получите [список хостов в кластере](./hosts/cluster-hosts.md#list-hosts).
+Подключение к кластеру {{ mgp-short-name }} производится только через [первичный хост-мастер](../concepts/index.md). Чтобы определить роли хостов, получите [список хостов в кластере](./hosts/cluster-hosts.md).
 
 К кластеру можно подключиться:
 
@@ -33,7 +33,7 @@
 
         * Для входящего трафика:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
@@ -67,7 +67,7 @@
 
 Для подключения к хосту-мастеру потребуется его [FQDN](../concepts/network.md#hostname) — доменное имя. Его можно получить несколькими способами:
 
-* [Запросите список хостов в кластере](hosts/cluster-hosts.md#list-hosts).
+* [Запросите список хостов в кластере](hosts/cluster-hosts.md).
 * Скопируйте команду для подключения к кластеру в [консоли управления]({{ link-console-main }}). Команда содержит список FQDN хостов-мастеров. Чтобы получить команду, перейдите на страницу кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}**.
 * Посмотрите FQDN в консоли управления:
 

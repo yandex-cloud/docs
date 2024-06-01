@@ -142,6 +142,8 @@ items:
             href: operations/vm-guest-agent/check.md
           - name: Installing the agent
             href: operations/vm-guest-agent/install.md
+          - name: Resetting the administrator password
+            href: operations/vm-guest-agent/reset-password.md
           - name: Deleting the agent
             href: operations/vm-guest-agent/uninstall.md
       - name: Creating a disk
@@ -369,7 +371,7 @@ items:
       - name: Scheduled scaling of instance groups
         href: tutorials/vm-scale-scheduled.md
       - name: >-
-          Automatically scaling an instance group for handling messages from a
+          Automatically scaling an instance group to process messages from a
           queue
         href: tutorials/autoscale-monitoring.md
       - name: Updating an instance group under load

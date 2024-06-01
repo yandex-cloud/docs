@@ -1,11 +1,10 @@
 ## Deploy the configuration {#deploy}
 
-In this example, we will create two VMs: `terraform1` and `terraform2`. They will be connected to `subnet-1` in the `{{ region-id }}-a` availability zone. The subnet will be in the `network-1` cloud network.
+In this example, we will create two [VMs](../../compute/concepts/vm.md): `terraform1` and `terraform2`. They will be connected to a [subnet](../../vpc/concepts/network.md#subnet) named `subnet-1` in the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md). The subnet will belong to the `network-1` [cloud network](../../vpc/concepts/network.md#network).
 
-The VMs will have different vCPU and RAM configurations: 1 vCPU and 2 GB of RAM for `terraform1` and 2 vCPU and 4 GB of RAM for `terraform2`. The VMs will automatically get public and private IP addresses from the `192.168.10.0/24` range in `subnet-1`. The VMs will run Ubuntu OS and host the public part of the key to enable SSH access to the VMs.
+The VMs will have different [vCPU and RAM](../../compute/concepts/vm-platforms.md) configurations: 1 vCPU and 2 GB of RAM for `terraform1` and 2 vCPUs and 4 GB of RAM for `terraform2`. The VMs will automatically get [public](../../vpc/concepts/address.md#public-addresses) and [private IP addresses](../../vpc/concepts/address.md#internal-addresses) from the `192.168.10.0/24` range in `subnet-1`. The VMs will run Ubuntu OS and host the public part of the key to enable SSH access to the VMs.
 1. Save the following configuration to `example.tf`:
 
-   
    ```hcl
    terraform {
      required_providers {
@@ -129,11 +128,8 @@ The VMs will have different vCPU and RAM configurations: 1 vCPU and 2 GB of RAM 
    }
    ```
 
-
-
    Where:
-
-   * `bucket`: Bucket name.
+   * `bucket`: [Bucket](../../storage/concepts/bucket.md) name.
    * `key`: Object key in the bucket (name and path to the {{ TF }} state file in the bucket).
    * `ssh-keys`: Path to the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 

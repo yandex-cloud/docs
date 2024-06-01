@@ -32,9 +32,9 @@ DB clusters consist of at least two replicas, so the cluster will continue worki
 
 Data may be lost only if a node with a [non-replicated table]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) fails.
 
-#### Is it possible to deploy a {{ CH }} database cluster in multiple availability zones? {#multiple-az}
+#### Can I deploy a {{ CH }} database cluster in multiple availability zones? {#multiple-az}
 
-Yes, you can. A database cluster may consist of hosts that reside in different availability zones and even different availability regions.
+Yes, you can. A database cluster may consist of hosts residing in different availability [zones](../../overview/concepts/geo-scope.md) or even regions.
 
 #### How does replication work for {{ CH }}? {#zookeeper-access}
 
@@ -76,7 +76,7 @@ Make sure you have the latest client version installed.
 
 For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/guides/developer/working-with-json/json-semi-structured/#json-object-type).
 
-#### Why is a cluster working slowly even though it still has free computing resources? {#throttling}
+#### Why is the cluster slow even though the computing resources are not used fully? {#throttling}
 
 {% include [throttling](../throttling.md) %}
 

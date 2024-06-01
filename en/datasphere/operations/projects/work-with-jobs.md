@@ -11,7 +11,9 @@ Jobs are created and run in [projects](../../concepts/project.md). However, they
 
 Before running a job, [install](../../../cli/quickstart.md) and configure the [{{ yandex-cloud }} CLI](../../../cli/) to use it for authentication in {{ yandex-cloud }}. You should also install the `datasphere` library in your Python environment. To do this, use the `pip install datasphere` command.
 
-When a job is run, the `datasphere` library analyzes the environment, collects code dependencies, and can provide them to {{ ml-platform-name }} for deploying the environment on a cloud VM. To avoid unnecessary system dependencies that can affect a job's performance, we recommend using a virtual environment, such as [venv](https://docs.python.org/3/library/venv.html) or [conda](https://docs.conda.io/en/latest/#).
+{% include [vscode-extension-info](../../../_includes/datasphere/vscode-extension-info.md) %}
+
+When you run a job, the `datasphere` library analyzes the environment, collects code dependencies, and can provide them to {{ ml-platform-name }} for deploying the environment on a cloud VM. To avoid unnecessary system dependencies that can affect a job's performance, we recommend using a virtual environment, such as [venv](https://docs.python.org/3/library/venv.html) or [conda](https://docs.conda.io/en/latest/#).
 
 {% include [jobs-info](../../../_includes/datasphere/jobs-environment.md) %}
 
@@ -40,7 +42,10 @@ When a job is run, the `datasphere` library analyzes the environment, collects c
      - <input_data>: DATA
    outputs:
      - <results>: OUTPUT
-   cloud-instance-type: <computing_resource_configuration>
+   cloud-instance-types:
+     - <computing_resource_configuration>
+     - <computing_resource_configuration>
+     - <computing_resource_configuration>
    ```
 
    Where:
@@ -51,7 +56,9 @@ When a job is run, the `datasphere` library analyzes the environment, collects c
    * `env`: Environment parameters. The `python: auto` value indicates that the code and `PIP` dependencies should be provided to {{ ml-platform-name }}.
    * `inputs`: File with input data. You can change the `DATA` variable name.
    * `outputs`: File with results. You can change the `OUTPUT` variable name.
-   * `cloud-instance-type`: [Computing resource configuration](../../concepts/configurations.md).
+   * `cloud-instance-types`: List of valid [computing resource configurations](../../concepts/configurations.md) to run the job, sorted by priority.
+
+   For a single configuration, you may also use the old `cloud-instance-type` field, e.g., `cloud-instance-type: g1.1`; however, it is better to use the new one.
 
 1. Open the command-line shell in the directory with the files you prepared and run your job:
 
@@ -169,7 +176,8 @@ To run a job, you need Python 3.10.0 and TensorFlow 2.12.0.
      - input.json: INPUT
    outputs:
      - model.zip: MODEL
-   cloud-instance-type: g1.1
+   cloud-instance-types:
+     - g1.1
    ```
 
 1. Run the job:

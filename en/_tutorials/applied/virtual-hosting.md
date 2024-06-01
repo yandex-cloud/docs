@@ -35,6 +35,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of virtual hosting includes:
 * Fee for continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using a [public static IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using computing resources of the [L7 load balancer](../../application-load-balancer/concepts/index.md) (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for public DNS queries and [DNS zones](../../dns/concepts/dns-zone.md) if using [{{ dns-full-name }}](../../dns/) (see [pricing {{ dns-name }}](../../dns/pricing.md)).
 
 ## Create a cloud network {#create-network}
 
@@ -153,7 +155,7 @@ To create an instance group for `site-a.com`:
    1. Enter the instance group name: `vhosting-ig-a`.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select multiple availability zones to ensure fault tolerance of your hosting.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, open the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**. Select [LEMP](/marketplace/products/yc/lemp) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, open the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Select [LEMP](/marketplace/products/yc/lemp) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Choose a VM [platform](../../compute/concepts/vm-platforms.md).
       * Specify the required number of vCPUs and the amount of RAM.
@@ -168,13 +170,13 @@ To create an instance group for `site-a.com`:
    1. Select the [previously created](#create-security-groups) `vhosting-sg-vms` security group.
    1. Specify the VM access data:
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-      * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_key }}** field, paste the contents of the public key file.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
          You need to create a key pair for the SSH connection yourself. To learn how, see [Connecting to a VM via SSH](../../compute/operations/vm-connect/ssh.md).
 
       {% note alert %}
 
-      Once created, the VM will be assigned an IP address and a [host name (FQDN)](../../compute/concepts/network.md#hostname) for connections. If you selected `{{ ui-key.yacloud.compute.instances.create.value_address-none }}` in the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, you will not be able to access the VM from the internet.
+      Once created, the VM gets an IP address and a [host name (FQDN)](../../compute/concepts/network.md#hostname) for connections. If you selected `{{ ui-key.yacloud.compute.instances.create.value_address-none }}` in the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, you will not be able to access the VM from the internet.
 
       {% endnote %}
 
@@ -405,3 +407,4 @@ To shut down the hosting and stop paying for the created resources:
    1. [Delete](../../application-load-balancer/operations/backend-group-delete.md) the backend groups: `vhosting-bg-a` and `vhosting-bg-b`.
 1. [Delete](../../compute/operations/instance-groups/delete.md) the `vhosting-ig-a` and `vhosting-ig-b` instance groups.
 1. [Delete](../../vpc/operations/address-delete.md) the static public IP address that you reserved.
+1. If you used {{ dns-full-name }}, [delete](../../dns/operations/resource-record-delete.md) the DNS records and [delete](../../dns/operations/zone-delete.md) the DNS zone.

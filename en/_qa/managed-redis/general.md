@@ -22,7 +22,7 @@ When creating clusters, {{ mrd-short-name }} allocates resources, installs the D
 
 For the created and running databases, {{ mrd-short-name }} automatically creates backups and applies fixes and updates to the DBMS.
 
-{{ mrd-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
+{{ mrd-short-name }} also allows you to replicate data between database hosts (both within and across [availability zones](../../overview/concepts/geo-scope.md)) and automatically routes the load to a backup replica in the event of a failure.
 
 #### Which tasks are best addressed using {{ mrd-short-name }}, and which using VMs with databases? {#mdb-advantage}
 
@@ -50,7 +50,7 @@ To create a database cluster in {{ mrd-short-name }}, you must define its charac
 - Network your cluster will be connected to.
 - Number of hosts for the cluster and the availability zone for each host.
 
-For a detailed guide, see [{#T}](../../managed-redis/quickstart.md).
+For more information, see [Getting started](../../managed-redis/quickstart.md).
 
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
 
@@ -61,7 +61,7 @@ The minimum number of hosts per cluster depends on the following:
 
 The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
 
-For more information, see [{#T}](../../managed-redis/concepts/limits.md).
+For more information, see [Quotas and limits](../../managed-redis/concepts/limits.md).
 
 #### How can I access a running DB host? {#db-access}
 
@@ -70,7 +70,7 @@ You can connect to {{ mrd-short-name }} databases using standard DBMS methods. H
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
-You can find MDB technical and organizational limitations in [{#T}](../../managed-redis/concepts/limits.md).
+For more information on MDB technical and organizational limitations, see [Quotas and limits](../../managed-redis/concepts/limits.md).
 
 
 #### How are DB clusters maintained? {#service-window}
@@ -81,7 +81,7 @@ Maintenance in {{ mrd-short-name }} implies:
 - Changes to the host class and storage size.
 - Other {{ mrd-short-name }} maintenance activities.
 
-For more information, see [{#T}](../../managed-redis/concepts/maintenance.md).
+For more information, see [Maintenance](../../managed-redis/concepts/maintenance.md).
 
 #### Which {{ RD }} version does {{ mrd-short-name }} use? {#dbms-version}
 
@@ -97,17 +97,17 @@ The database software is updated when new minor versions are released. Owners of
 
 One month after the database version becomes deprecated, {{ mrd-short-name }} automatically sends email notifications to the owners of DB clusters created with this version.
 
-New hosts can no longer be created using deprecated DBMS versions. Database clusters are automatically upgraded to the next supported version: seven days after notification for minor versions and one month for major versions. Deprecated major versions are upgraded even if you disabled automatic updates.
+New hosts can no longer be created using deprecated DBMS versions. Database clusters are automatically upgraded to the next supported version seven days after notification for minor versions and one month after notification for major versions. Deprecated major versions are going to be upgraded even if you have disabled automatic updates.
 
 
-#### How is the cost of usage calculated for a database host? {#db-cost}
+#### How do you calculate usage cost for a database host? {#db-cost}
 
 In {{ mrd-short-name }}, the usage cost is calculated based on the following parameters:
 
 - Selected host class.
 - Size of the storage reserved for the database host.
 - Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-redis/pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [{#T}](../../managed-redis/pricing.md).
+- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour of operation for each host class in [Pricing policy](../../managed-redis/pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
@@ -137,8 +137,8 @@ For all DBMS types, you can track:
 - Amount of data in the DB cluster and the remaining free space in the data storage.
 
 For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ RD }}, you can track:
-- Average query execution time
-- Number of queries per second
+- Average query execution time.
+- Number of queries per second.
 - Number of errors in logs, etc.
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
@@ -165,9 +165,9 @@ The thresholds are only set in bytes. For example, the recommended values for a 
 
 {% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}
 
-#### Why is a cluster slow although computing resources are not used up? {#throttling}
+#### Why is the cluster slow even though the computing resources are not used fully? {#throttling}
 
-Likely, the maximum storage [IOPS and bandwidth](../../compute/concepts/storage-read-write.md) values are insufficient for processing the current number of requests. In this case, [throttling](../../compute/concepts/storage-read-write.md#throttling) occurs, which degrades the entire cluster performance.
+Your storage may have insufficient maximum [IOPS and bandwidth](../../compute/concepts/storage-read-write.md) to process the current number of requests. In this case, [throttling](../../compute/concepts/storage-read-write.md#throttling) occurs, which degrades the entire cluster performance.
 
 The maximum IOPS and bandwidth values increase by a fixed value when the storage size increases by a certain step. The step and increment values depend on the disk type:
 

@@ -11,9 +11,9 @@ To create an additional cloud:
 
 - Management console {#console}
 
-  1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
-  1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, select a billing account.
-  1. Under **{{ ui-key.yacloud.billing.account.dashboard-resources.section_resources }}**, click **{{ ui-key.yacloud.common.create }}**.
+  1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
+  1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, select a billing account.
+  1. Under **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_clouds }}**, click **{{ ui-key.yacloud.common.create }}**.
   1. Enter the name of the cloud. The naming requirements are as follows:
 
      {% include [name-format.md](../../../_includes/name-format.md) %}
@@ -59,9 +59,9 @@ To create an additional cloud:
 
    This will create a cloud linked to your billing account in the organization. You can check the new cloud and its parameters in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
-      ```bash
-      yc resource-manager cloud list
-      ```
+   ```bash
+   yc resource-manager cloud list
+   ```
 
 - API {#api}
 

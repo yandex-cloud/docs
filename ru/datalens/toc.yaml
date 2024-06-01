@@ -530,6 +530,8 @@ items:
                 href: function-ref/COUNT_ITEM.md
               - name: GET_ITEM
                 href: function-ref/GET_ITEM.md
+              - name: LEN
+                href: function-ref/LEN_ARRAY.md
               - name: REPLACE
                 href: function-ref/REPLACE_ARRAY.md
               - name: SLICE
@@ -564,6 +566,8 @@ items:
                 href: function-ref/INT.md
               - name: STR
                 href: function-ref/STR.md
+              - name: TREE
+                href: function-ref/TREE.md
           - name: Функции разметки
             items:
               - name: Обзор
@@ -574,6 +578,8 @@ items:
                 href: function-ref/BR.md
               - name: COLOR
                 href: function-ref/COLOR.md
+              - name: IMAGE
+                href: function-ref/IMAGE.md
               - name: ITALIC
                 href: function-ref/ITALIC.md
               - name: MARKUP
@@ -720,12 +726,6 @@ items:
         items:
           - name: Создание дашборда
             href: operations/dashboard/create.md
-          - name: Добавление описания к дашборду
-            href: operations/dashboard/add-description.md
-          - name: Добавление сообщения при обращении в поддержку
-            href: operations/dashboard/add-support-message.md
-          - name: Добавление сообщения при ошибке доступа
-            href: operations/dashboard/add-access-message.md
           - name: Добавление чарта на дашборд
             href: operations/dashboard/add-chart.md
           - name: Добавление селектора на дашборд
@@ -734,6 +734,12 @@ items:
             href: operations/dashboard/add-text.md
           - name: Добавление заголовка на дашборд
             href: operations/dashboard/add-title.md
+          - name: Добавление описания к дашборду
+            href: operations/dashboard/add-description.md
+          - name: Добавление сообщения при обращении в поддержку
+            href: operations/dashboard/add-support-message.md
+          - name: Добавление сообщения при ошибке доступа
+            href: operations/dashboard/add-access-message.md
           - name: Создание алиаса
             href: operations/dashboard/create-alias.md
           - name: Удаление алиаса
@@ -793,7 +799,13 @@ items:
       - name: Создание партнерского коннектора
         href: operations/marketplace/create-connector-for-partners.md
   - name: Правила тарификации
-    href: pricing.md
+    items:
+      - name: Действующие правила
+        href: pricing.md
+      - name: Архив
+        items:
+          - name: До 23 апреля 2024 года
+            href: pricing-archive/pricing23042024.md
   - name: История изменений
     items:
       - name: Апрель 2024

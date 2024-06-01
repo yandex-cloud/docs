@@ -54,6 +54,18 @@ items:
             href: operations/alert/create-channel.md
           - name: Deleting alerts
             href: operations/alert/delete-alert.md
+  - name: Metric collection agent
+    items:
+      - name: Overview
+        href: concepts/data-collection/unified-agent/index.md
+      - name: Installation and startup
+        href: concepts/data-collection/unified-agent/installation.md
+      - name: Configuration
+        href: concepts/data-collection/unified-agent/configuration.md
+      - name: Agent best practices
+        href: concepts/data-collection/unified-agent/best-practices.md
+      - name: Deletion
+        href: concepts/data-collection/unified-agent/delete.md
   - name: Concepts
     items:
       - name: Overview
@@ -70,18 +82,6 @@ items:
             href: concepts/visualization/widget.md
           - name: Dashboards
             href: concepts/visualization/dashboard.md
-      - name: Transmitting metrics
-        items:
-          - name: Agent for delivering metrics
-            items:
-              - name: Overview
-                href: concepts/data-collection/unified-agent/index.md
-              - name: Installation and startup
-                href: concepts/data-collection/unified-agent/installation.md
-              - name: Configuration
-                href: concepts/data-collection/unified-agent/configuration.md
-              - name: Best practices for using the agent
-                href: concepts/data-collection/unified-agent/best-practices.md
       - name: Query language
         href: concepts/querying.md
       - name: Alerting
@@ -220,6 +220,8 @@ items:
         href: metrics-ref/captcha-ref.md
       - name: '{{ sws-name }}'
         href: metrics-ref/smartwebsecurity-ref.md
+      - name: '{{ unified-agent-short-name }}'
+        href: metrics-ref/unifiedagent-ref.md
   - name: Release notes
     href: release-notes.md
   - name: FAQ

@@ -1,5 +1,11 @@
 # История изменений в {{ serverless-containers-full-name }}
 
+## Апрель 2024 {#april-2024}
+
+### Исправления и улучшения {#fixes-improvements}
+
+* Удалено требование для [пользовательской сети](concepts/networking#user-network) иметь подсеть в зоне доступности `ru-central1-c` в связи с [выводом этой зоны из эксплуатации](../overview/concepts/ru-central1-c-deprecation).
+
 ## Март 2024 {#march-2024}
 
 ### Обновления {#updates}

@@ -57,7 +57,7 @@
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
    * (Optional) Select or create a [service account](../../iam/concepts/users/service-accounts.md). With a service account, you can flexibly configure access rights for your resources.
-   * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+   * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
 
       {% note alert %}
 

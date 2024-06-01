@@ -104,13 +104,15 @@
     "federation_id": string,
     "federation_name": string,
     "federation_type": string,
-    "impersonator_info": {
+    "token_info": {
+      "masked_iam_token": string,
+      "iam_token_id": string,
       "impersonator_id": string,
-      "type": string,
-      "name": string,
-      "federation_id": string,
-      "federation_name": string,
-      "federation_type": string
+      "impersonator_type": string,
+      "impersonator_name": string,
+      "impersonator_federation_id": string,
+      "impersonator_federation_name": string,
+      "impersonator_federation_type": string
     }
   },
   "authorization": {
@@ -159,16 +161,18 @@
 `authentication.subject_type` | **string**<br>Тип субъекта. Возможные значения:<ul><li>`YANDEX_PASSPORT_USER_ACCOUNT`— аккаунт на Яндексе;</li><li>`SERVICE_ACCOUNT` — сервисный аккаунт;</li><li>`FEDERATED_USER_ACCOUNT` — федеративный аккаунт.</li>
 `authentication.subject_id` | **string**<br>Идентификатор субъекта.
 `authentication.subject_name` | **string**<br>Имя субъекта.
-`authentication.federation_id`* | **string**<br>Идентификатор федерации, в которой состоит федеративный пользователь.
-`authentication.federation_name`* | **string**<br>Имя федерации, в которой состоит федеративный пользователь.
-`authentication.federation_type`* | **string**<br>Тип федерации. Возможное значение:<ul><li>`PRIVATE_FEDERATION` — федерация, управляемая клиентами {{ yandex-cloud }}.</li></ul>
-`authentication.impersonator_info` | **object**<br>Данные аутентификации субъекта события при использовании [имперсонации](../../iam/concepts/access-control/index.md#impersonation).
-`authentication.impersonator_info.impersonator_id` | **string**<br>Идентификатор субъекта-имперсонатора.
-`authentication.impersonator_info.type` | **string**<br>Тип субъекта-имперсонатора. Возможные значения:<ul><li>`YANDEX_PASSPORT_USER_ACCOUNT`— аккаунт на Яндексе;</li><li>`SERVICE_ACCOUNT` — сервисный аккаунт;</li><li>`FEDERATED_USER_ACCOUNT` — федеративный аккаунт.</li>
-`authentication.impersonator_info.name` | **string**<br>Имя субъекта-имперсонатора.
-`authentication.impersonator_info.federation_id`* | **string**<br>Идентификатор федерации, в которой состоит федеративный пользователь-имперсонатор.
-`authentication.impersonator_info.federation_name`* | **string**<br>Имя федерации, в которой состоит федеративный пользователь-имперсонатор.
-`authentication.impersonator_info.federation_type`* | **string**<br>Тип федерации. Возможное значение:<ul><li>`PRIVATE_FEDERATION` — федерация, управляемая клиентами {{ yandex-cloud }}.</li></ul>
+`authentication.federation_id` ^1^ | **string**<br>Идентификатор федерации, в которой состоит федеративный пользователь.
+`authentication.federation_name` ^1^ | **string**<br>Имя федерации, в которой состоит федеративный пользователь.
+`authentication.federation_type` ^1^ | **string**<br>Тип федерации. Возможное значение:<ul><li>`PRIVATE_FEDERATION` — федерация, управляемая клиентами {{ yandex-cloud }}.</li></ul>
+`authentication.token_info` ^2^ | **object**<br>Данные аутентификации субъекта события.
+`authentication.token_info.masked_iam_token` | **string**<br>Зашифрованное значение IAM-токена, с которым субъект выполнил запрос.
+`authentication.token_info.iam_token_id` | **string**<br>Идентификатор зашифрованного IAM-токена.
+`authentication.token_info.impersonator_id` | **string**<br>Идентификатор субъекта при использовании [имперсонации](../../iam/concepts/access-control/index.md#impersonation).
+`authentication.token_info.impersonator_type` | **string**<br>Тип субъекта-имперсонатора. Возможные значения:<ul><li>`YANDEX_PASSPORT_USER_ACCOUNT`— аккаунт на Яндексе;</li><li>`SERVICE_ACCOUNT` — сервисный аккаунт;</li><li>`FEDERATED_USER_ACCOUNT` — федеративный аккаунт.</li>
+`authentication.token_info.impersonator_name` | **string**<br>Имя субъекта-имперсонатора.
+`authentication.token_info.impersonator_federation_id` ^1^ | **string**<br>Идентификатор федерации, в которой состоит федеративный пользователь-имперсонатор.
+`authentication.token_info.impersonator_federation_name`&nbsp;^1^ | **string**<br>Имя федерации, в которой состоит федеративный пользователь-имперсонатор.
+`authentication.token_info.impersonator_federation_type`&nbsp;^1^ | **string**<br>Тип федерации. Возможное значение:<ul><li>`PRIVATE_FEDERATION` — федерация, управляемая клиентами {{ yandex-cloud }}.</li></ul>
 `authorization` | **object**<br>Данные авторизации субъекта события.
 `authorization.authorized` | **boolean**<br>Результат авторизации. Возможные значения:<ul><li>`true` — авторизация успешна;</li><li>`false` — авторизация неуспешна.</li>
 `resource_metadata` | **object**<br>Метаданные объекта события.
@@ -186,7 +190,8 @@
 `request_parameters` | **object**<br>Параметры запроса.
 `response` | **object**<br>Полученные данные.
 
-<small>* Поле доступно, когда `subject_type` = `FEDERATED_USER_ACCOUNT`</small>
+<small>^1^ Поле доступно, когда `subject_type` = `FEDERATED_USER_ACCOUNT`</small>
+<small>^2^ Блок полей используется не для каждого события уровня сервисов.</small>
 
 {% note info %}
 

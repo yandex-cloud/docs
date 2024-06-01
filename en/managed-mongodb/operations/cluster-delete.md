@@ -1,9 +1,9 @@
 ---
 title: "Deleting a MongoDB cluster"
-description: "After you delete a MongoDB database cluster, its backups are kept for 7 days for recovery purposes. To restore a deleted cluster from its backup, you will need its ID; therefore, safely save the cluster ID before deleting the cluster."
+description: "After you delete a MongoDB database cluster, its backups are kept for 7 days for recovery purposes. To restore a deleted cluster from its backup, you will need its ID; therefore, securely save the cluster ID before deleting the cluster."
 ---
 
-# Deleting {{ MG }} clusters
+# Deleting a {{ MG }} cluster
 
 ## Before deleting a cluster {#before-you-delete}
 

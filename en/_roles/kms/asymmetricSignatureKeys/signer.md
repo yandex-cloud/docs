@@ -1,1 +1,1 @@
-The `kms.asymmetricSignatureKeys.signer` role enables you to sign data with a private key from an asymmetric key pair of a digital signature.
+The `kms.asymmetricSignatureKeys.signer` role enables signing data with a private key from a [digital signature key pair](../../../kms/concepts/asymmetric-signature-key.md).

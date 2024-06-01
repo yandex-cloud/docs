@@ -4,7 +4,7 @@
 
 {% endnote %}
 
-1. Если раньше у вас был настроен провайдер из реестра Hashicorp, сохраните его настройки:
+1. Если раньше у вас был настроен провайдер из реестра HashiCorp, сохраните его настройки:
 
    {% list tabs group=operating_system %}
 
@@ -34,7 +34,7 @@
      nano ~/.terraformrc
      ```
 
-     {% include [terraform-configure-provider-directory](../terraform-configure-provider-directory.md) %}
+     {% include [terraform-configure-provider-directory](terraform-configure-provider-directory.md) %}
 
    - Windows {#windows}
 
@@ -88,7 +88,7 @@
 
 Если провайдер не установился, создайте обращение в [поддержку]({{ link-console-support }}) с именем и версией провайдера.
 
-Если вы использовали файл `.terraform.lock.hcl`, то перед инициализацией выполните команду `terraform providers lock`, указав адрес зеркала, откуда будет загружаться провайдер, и платформы, на которых будет использоваться конфигурация:
+Если вы использовали файл `.terraform.lock.hcl`, перед инициализацией выполните команду `terraform providers lock`, указав адрес зеркала, откуда будет загружаться провайдер, и платформы, на которых будет использоваться конфигурация:
 
 ```bash
 terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -platform=<название_платформы_1> -platform=<название_платформы_2> yandex-cloud/yandex

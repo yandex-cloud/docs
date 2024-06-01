@@ -3,12 +3,17 @@ description:
   - >-
     Yandex Smart Web Security позволяет защитить вашу инфраструктуру от
     DDoS-атак и ботов на уровне приложений (L7).
+  - >-
+    Для защиты ваших веб-приложений от внешних угроз в сервисе также реализован
+    <a href="/docs/smartwebsecurity/concepts/waf">Web Application Firewall</a>.
+    Функциональность WAF находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a>.
 meta:
   title: Yandex Smart Web Security
 links:
   - title: Начало работы
     description: Создайте первый профиль безопасности и подключите его к L7-балансировщику
-    href: quickstart
+    href: quickstart/
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/
@@ -17,6 +22,9 @@ links:
       Узнайте про профили безопасности, базовые правила и правила smart
       protection L7
     href: concepts/
+  - title: WAF
+    description: Узнайте про механизм Web Application Firewall
+    href: concepts/waf
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
@@ -26,3 +34,6 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+  - title: Справочник API (англ.)
+    description: Описание методов HTTP API
+    href: api-ref/

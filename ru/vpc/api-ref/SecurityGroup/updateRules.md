@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/updateRules.md
 ---
 
 # Virtual Private Cloud API, REST: SecurityGroup.updateRules
-
+Updates the rules of the specified security group.
  
 
  
@@ -17,7 +17,7 @@ PATCH https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}/rules
  
 Parameter | Description
 --- | ---
-securityGroupId | <p>Required.</p> 
+securityGroupId | <p>Required. ID of the SecurityGroup that is being updated with new rules.</p> 
  
 ## Body parameters {#body_params}
  
@@ -59,21 +59,21 @@ securityGroupId | <p>Required.</p>
  
 Field | Description
 --- | ---
-deletionRuleIds[] | **string**
-additionRuleSpecs[] | **object**
-additionRuleSpecs[].<br>description | **string**
-additionRuleSpecs[].<br>labels | **object**
-additionRuleSpecs[].<br>direction | **string**<br>Required.
-additionRuleSpecs[].<br>ports | **object**
-additionRuleSpecs[].<br>ports.<br>fromPort | **string** (int64)<br><p>Acceptable values are 0 to 65535, inclusive.</p> 
-additionRuleSpecs[].<br>ports.<br>toPort | **string** (int64)<br><p>Acceptable values are 0 to 65535, inclusive.</p> 
-additionRuleSpecs[].<br>protocolName | **string** <br>`additionRuleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br>
-additionRuleSpecs[].<br>protocolNumber | **string** (int64) <br>`additionRuleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br>
-additionRuleSpecs[].<br>cidrBlocks | **object** <br>`additionRuleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
-additionRuleSpecs[].<br>cidrBlocks.<br>v4CidrBlocks[] | **string**
-additionRuleSpecs[].<br>cidrBlocks.<br>v6CidrBlocks[] | **string**
-additionRuleSpecs[].<br>securityGroupId | **string** <br>`additionRuleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
-additionRuleSpecs[].<br>predefinedTarget | **string** <br>`additionRuleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
+deletionRuleIds[] | **string**<br><p>List of rules IDs to delete.</p> 
+additionRuleSpecs[] | **object**<br><p>Security rules specifications.</p> 
+additionRuleSpecs[].<br>description | **string**<br><p>Description of the security rule.</p> <p>The maximum string length in characters is 256.</p> 
+additionRuleSpecs[].<br>labels | **object**<br><p>Rule labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
+additionRuleSpecs[].<br>direction | **string**<br>Required. The direction of network traffic allowed by this rule.<br><ul> <li>INGRESS: Allows ingress traffic.</li> <li>EGRESS: Allows egress traffic.</li> </ul> 
+additionRuleSpecs[].<br>ports | **object**<br>The range of ports that allow traffic to pass through. Null value means any port.
+additionRuleSpecs[].<br>ports.<br>fromPort | **string** (int64)<br><p>The lowest port in the range.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
+additionRuleSpecs[].<br>ports.<br>toPort | **string** (int64)<br><p>The highest port in the range.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
+additionRuleSpecs[].<br>protocolName | **string** <br>`additionRuleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br><br><p>Protocol name.</p> 
+additionRuleSpecs[].<br>protocolNumber | **string** (int64) <br>`additionRuleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br><br><p>Protocol number from <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">IANA protocol numbers</a>.</p> 
+additionRuleSpecs[].<br>cidrBlocks | **object**<br>CIDR blocks to allow to recieve or send traffic. <br>`additionRuleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
+additionRuleSpecs[].<br>cidrBlocks.<br>v4CidrBlocks[] | **string**<br><p>IPv4 CIDR blocks to allow traffic to.</p> 
+additionRuleSpecs[].<br>cidrBlocks.<br>v6CidrBlocks[] | **string**<br><p>IPv6 CIDR blocks to allow traffic to.</p> 
+additionRuleSpecs[].<br>securityGroupId | **string** <br>`additionRuleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br><br><p>ID of the security group to add rule to.</p> 
+additionRuleSpecs[].<br>predefinedTarget | **string** <br>`additionRuleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br><br><p>Predefined target. See <a href="/docs/vpc/concepts/security-groups#security-groups-rules">security groups rules</a> for more information.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

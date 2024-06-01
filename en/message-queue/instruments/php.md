@@ -17,8 +17,8 @@ composer require async-aws/sqs ^1.9
 Set the environment variables:
 
 ```
-export AWS_ACCESS_KEY_ID="<access key ID>"
-export AWS_SECRET_ACCESS_KEY="<secret key>"
+export AWS_ACCESS_KEY_ID="<access_key_ID>"
+export AWS_SECRET_ACCESS_KEY="<secret_key>"
 ```
 
 ## Example {#sample}

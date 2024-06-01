@@ -1,5 +1,6 @@
 # Delivering data from {{ mkf-full-name }} to {{ ydb-full-name }}
 
+
 You can track data changes in a {{ ydb-name }} _source_ and send them to a {{ mkf-name }} _target cluster_ using [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC). This data is automatically added to {{ mkf-short-name }} topics with {{ ydb-name }} table names.
 
 {% include [CDC-YDB](../../_includes/data-transfer/note-ydb-cdc.md) %}
@@ -27,7 +28,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
 
       
-      1. If you are using security groups, [configure them so that you can connect to the cluster from the internet](../../managed-kafka/operations/connect.md#configuring-security-groups).
+      1. If you are using security groups, [configure them so that you can connect to the cluster from the internet](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 
 
       1. Configure {{ KF }} topics in the target cluster. The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) used. Data topic names are generated in `<topic_prefix>.<{{ ydb-short-name}}_table_name>` format. In this tutorial, we will use the `cdc` prefix as an example.
@@ -107,7 +108,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    sudo apt update && sudo apt install --yes kafkacat
    ```
 
-   Check that you can use it to [connect to the {{ mkf-name }} target cluster over SSL](../../managed-kafka/operations/connect.md#connection-string).
+   Check that you can use it to [connect to the {{ mkf-name }} target cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
 ## Prepare the source {#prepare-source}
 
@@ -116,7 +117,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    Add the following columns to the table manually:
 
-   | {{ ui-key.yacloud.ydb.browse.info.column_name }} | {{ ui-key.yacloud.ydb.browse.info.column_type }} | {{ ui-key.yacloud.ydb.browse.dialogs.tooltip_create_pk }} |
+   | {{ ui-key.yacloud.ydb.browse.info.column_name }} | {{ ui-key.yacloud.ydb.browse.info.column_type }} | {{ ui-key.yacloud.ydb.table.form.column_primary-key }} |
    |:--------------------|:---------|:---------------|
    | `device_id`         | `String` | Yes            |
    | `datetime`          | `String` |                |
@@ -152,7 +153,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`.
-   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+   * **Endpoint parameters**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
@@ -167,7 +168,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
-   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+   * **Endpoint parameters**:
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the [previously created](#before-you-begin) {{ mkf-name }} source cluster.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Specify the details of the [created](#before-you-begin) {{ KF }} user.
@@ -195,7 +196,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          * `source_endpoint_id`: ID of the source endpoint.
          * `target_endpoint_id`: ID of the target endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -413,7 +414,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
-1. If you created the service account along with the source endpoint, [delete it](../../iam/operations/sa/delete.md).
+1. If you created a service account together with the source endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 Delete the other resources depending on how they were created:
 

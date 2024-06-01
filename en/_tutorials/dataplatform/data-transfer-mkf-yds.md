@@ -1,5 +1,6 @@
 # Delivering data from an {{ KF }} queue to {{ DS }}
 
+
 A {{ yds-name }} stream can get data from {{ KF }} topics in real time.
 
 To run data delivery:
@@ -90,7 +91,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       sudo apt update && sudo apt install --yes kafkacat
       ```
 
-      Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect.md#connection-string).
+      Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
    - [jq](https://stedolan.github.io/jq/) for JSON file stream processing.
 
@@ -106,7 +107,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ KF }}` source](../../data-transfer/operations/endpoint/source/kafka.md):
 
-   **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+   **Endpoint parameters**:
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
@@ -206,7 +207,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          * `source_endpoint_id`: ID of the source endpoint.
          * `target_endpoint_id`: ID of the target endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -283,7 +284,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
       ```
 
-      The data is sent on behalf of the [created user](#prepare-source). To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect.md).
+      The data is sent on behalf of the [created user](#prepare-source). To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
    {% include [get-yds-data](../../_includes/data-transfer/get-yds-data.md) %}
 
@@ -299,7 +300,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
-1. If you created the service account along with the target endpoint, [delete it](../../iam/operations/sa/delete.md).
+1. If you created a service account together with the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 Delete the other resources depending on how they were created:
 

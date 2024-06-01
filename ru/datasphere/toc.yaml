@@ -91,6 +91,8 @@ items:
             href: operations/data/dataset.md
           - name: Работа с коннекторами S3
             href: operations/data/s3-connectors.md
+          - name: Работа с коннекторами Spark
+            href: operations/data/spark-connectors.md
           - name: Работа с моделями
             href: operations/data/models.md
       - name: Подключение к источникам данных
@@ -163,8 +165,6 @@ items:
             href: concepts/preinstalled-packages.md
           - name: Доступные команды
             href: concepts/magic.md
-          - name: 'Служебные команды #pragma'
-            href: concepts/pragma.md
           - name: Вычисления на кластерах Apache Spark™
             href: concepts/data-proc.md
       - name: '{{ ds-inf }}'
@@ -199,6 +199,8 @@ items:
             href: concepts/data-proc-template.md
           - name: Коннекторы S3
             href: concepts/s3-connector.md
+          - name: Коннекторы Spark
+            href: concepts/spark-connector.md
           - name: Модели
             href: concepts/models/index.md
           - name: Дообученные фундаментальные модели
@@ -245,14 +247,24 @@ items:
             href: tutorials/node-from-model.md
           - name: Генерация изображения с помощью модели Stable Diffusion
             href: tutorials/stable-diffusion.md
-          - name: Дообучение модели {{ yagpt-full-name }}
+          - name: Дообучение модели {{ yagpt-name }}
             href: tutorials/yagpt-tuning.md
+          - name: Дообучение классификаторов на базе {{ yagpt-name }}
+            href: tutorials/yagpt-tuning-classifier.md
       - name: Аналитика данных
         items:
           - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
             href: tutorials/data-from-metrica-yc-visualization.md
           - name: Анализ данных с помощью {{ yq-full-name }}
             href: tutorials/yq.md
+          - name: Работа с данными в {{ objstorage-full-name }}
+            href: tutorials/yq-storage.md
+          - name: Работа с данными в {{ mch-full-name }}
+            href: tutorials/yq-clickhouse.md
+          - name: Работа с данными в {{ mpg-full-name }}
+            href: tutorials/yq-postgre.md
+          - name: Федеративные запросы к данным
+            href: tutorials/yq-federative-queries.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -295,6 +307,10 @@ items:
                 href: api-ref/Community/delete.md
               - name: get
                 href: api-ref/Community/get.md
+              - name: getRestrictions
+                href: api-ref/Community/getRestrictions.md
+              - name: getRestrictionsMeta
+                href: api-ref/Community/getRestrictionsMeta.md
               - name: list
                 href: api-ref/Community/list.md
               - name: listAccessBindings
@@ -303,6 +319,8 @@ items:
                 href: api-ref/Community/removeResource.md
               - name: setAccessBindings
                 href: api-ref/Community/setAccessBindings.md
+              - name: setRestrictions
+                href: api-ref/Community/setRestrictions.md
               - name: update
                 href: api-ref/Community/update.md
               - name: updateAccessBindings
@@ -337,6 +355,10 @@ items:
                 href: api-ref/Project/get.md
               - name: getCellOutputs
                 href: api-ref/Project/getCellOutputs.md
+              - name: getRestrictions
+                href: api-ref/Project/getRestrictions.md
+              - name: getRestrictionsMeta
+                href: api-ref/Project/getRestrictionsMeta.md
               - name: getStateVariables
                 href: api-ref/Project/getStateVariables.md
               - name: getUnitBalance
@@ -351,6 +373,8 @@ items:
                 href: api-ref/Project/removeResource.md
               - name: setAccessBindings
                 href: api-ref/Project/setAccessBindings.md
+              - name: setRestrictions
+                href: api-ref/Project/setRestrictions.md
               - name: setUnitBalance
                 href: api-ref/Project/setUnitBalance.md
               - name: update

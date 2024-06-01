@@ -1,13 +1,14 @@
 ---
 title: "How to create a {{ MY }} cluster"
-description: "Use this tutorial to create a {{ MY }} cluster with a single or multiple DB hosts."
+description: "Follow this guide to create a {{ MY }} cluster with a single or multiple DB hosts."
 ---
 
 # Creating a {{ MY }} cluster
 
+
 A {{ MY }} cluster consists of one or more database hosts. In multi-host clusters, [semi-synchronous replication](../concepts/replication.md) is configured automatically.
 
-For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md).
+For more information about {{ mmy-name }} cluster structure, see [Resource relationships](../concepts/index.md).
 
 {% note info %}
 
@@ -31,7 +32,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
    1. Select the DBMS version.
-   1. Select the host class that defines the technical specifications of the [VMs](../../compute/concepts/vm-platforms.md) where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the {{ mmy-name }} cluster, the characteristics of all existing hosts change, too.
+   1. Select the host class that defines the technical specifications of the [VMs](../../compute/concepts/vm-platforms.md) where the DB hosts will be deployed. All available options are listed under [Host classes](../concepts/instance-types.md). When you change the host class for the {{ mmy-name }} cluster, the characteristics of all existing hosts change, too.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
       * Select the [disk type](../concepts/storage.md).
@@ -40,7 +41,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-      * Select the storage size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
+      * Select the storage size to be used for data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
 
          {% note info %}
 
@@ -314,7 +315,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
          Acceptable values are from `7` to `60`. The default value is `7`.
 
-      * To enable statistics collection for [cluster performance diagnostics](performance-diagnostics.md), add the `performance_diagnostics` section to your {{ mmy-name }} cluster:
+      * To enable statistics collection for [cluster performance diagnostics](performance-diagnostics.md), add the `performance_diagnostics` section to your {{ mmy-name }} cluster description:
 
          ```hcl
          resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -344,7 +345,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 - API {#api}
 
    To create a {{ MY }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
-   * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ mmy-name }} cluster should be placed, in the `folderId` parameter.
+   * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the {{ mmy-name }} cluster in the `folderId` parameter.
    * {{ mmy-name }} cluster name in the `name` parameter. It must be unique within the folder.
    * {{ mmy-name }} cluster environment in the `environment` parameter.
    * {{ mmy-name }} cluster configuration in the `configSpec` parameter.
@@ -385,7 +386,7 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ MY }} cluster with the settings of another cluster created earlier. To do so, you need to import the configuration of the source {{ MY }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ MY }} cluster has lots of settings and you need to create a similar one.
+You can create a {{ MY }} cluster with the settings of another one created earlier. To do so, you need to import the configuration of the source {{ MY }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ MY }} cluster has lots of settings and you need to create a similar one.
 
 To create a {{ MY }} cluster copy:
 
@@ -432,11 +433,11 @@ To create a {{ MY }} cluster copy:
       * Delete the `created_at`, `health`, `id`, and `status` parameters.
       * In the `host` sections, delete the `fqdn` parameters.
       * If the `maintenance_window` section specifies the `type = "ANYTIME"` parameter value, delete the `hour` parameter.
-      * (Optional) Make further modifications if you need a customized copy rather than identical one.
+      * (Optional) Make further modifications if you are looking for more customization.
 
    1. In the `imported-cluster` directory, [get the authentication data](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 
-   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf).
+   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 
@@ -603,6 +604,7 @@ To create a {{ MY }} cluster copy:
 {% endlist %}
 
 ### Creating a multi-host cluster {#creating-multiple-hosts-cluster}
+
 
 {% list tabs group=instructions %}
 
@@ -794,3 +796,5 @@ To create a {{ MY }} cluster copy:
 
 {% endlist %}
 
+
+{% include [connection-manager](../../_includes/mdb/connection-manager.md) %}

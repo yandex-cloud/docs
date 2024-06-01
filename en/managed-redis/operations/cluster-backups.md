@@ -5,6 +5,7 @@ description: "You can create backups and restore clusters from existing {{ RD }}
 
 # Managing backups in {{ mrd-name }}
 
+
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
 {{ mrd-name }} also creates automatic daily backups. You can [set the backup start time](#set-backup-window):
@@ -21,7 +22,7 @@ When you restore a cluster from a backup, you create a new cluster with the back
 
    1. In the [management console]({{ link-console-main }}), go to the folder to restore the cluster in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. Click the cluster name and open the **{{ ui-key.yacloud.redis.cluster.switch_backups }}** tab.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
    1. In the line of the appropriate backup, click ![image](../../_assets/console-icons/ellipsis.svg)and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
@@ -107,7 +108,7 @@ When you restore a cluster from a backup, you create a new cluster with the back
 
    1. In the [management console]({{ link-console-main }}), go to the folder to create a backup in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. Click the cluster name and open the **{{ ui-key.yacloud.redis.cluster.switch_backups }}** tab.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
    1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
    {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
@@ -153,7 +154,7 @@ When you restore a cluster from a backup, you create a new cluster with the back
    To get a list of cluster backups:
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. Click the cluster name and open the **{{ ui-key.yacloud.redis.cluster.switch_backups }}** tab.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
 
    To get a list of all backups in a folder:
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
@@ -202,7 +203,7 @@ When you restore a cluster from a backup, you create a new cluster with the back
    To get information about the backup of an existing cluster:
    1. In the [management console]({{ link-console-main }}), go to the folder with the cluster to get backup information for.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. Click the cluster name and open the **{{ ui-key.yacloud.redis.cluster.switch_backups }}** tab.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
 
    To get information about the backup of a previously deleted cluster:
    1. In the [management console]({{ link-console-main }}), go to the folder that contained the deleted cluster.

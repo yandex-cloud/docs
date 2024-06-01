@@ -211,7 +211,7 @@ To shut down the hosting and stop paying for the created resources:
 
 ## How to create an infrastructure using {{ TF }} {#terraform}
 
-{% include [terraform-definition](../terraform-definition.md) %}
+{% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To deploy an infrastructure to host a fault-tolerant load-balanced site in a VM group via {{ TF }}:
 
@@ -259,6 +259,6 @@ To deploy an infrastructure to host a fault-tolerant load-balanced site in a VM 
 
 1. Create resources:
 
-   {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Test the fault tolerance](#test-availability).

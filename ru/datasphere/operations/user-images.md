@@ -6,6 +6,8 @@
 
 ## Создать Docker-образ {#create}
 
+{% include [python-disclaimer](../../_includes/datasphere/python-disclaimer.md) %}
+
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. В правом верхнем углу нажмите **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. Во всплывающем окне выберите **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 1. Заполните поля:

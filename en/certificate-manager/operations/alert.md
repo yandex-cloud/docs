@@ -12,7 +12,7 @@ To create an alert:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create an alert in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-   1. On the home page, click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+   1. On the home page, click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
    1. Specify the main parameters of the alert:
       * **{{ ui-key.yacloud.common.name }}**. Enter a name for the channel.
       * **{{ ui-key.yacloud.common.description }}**. Specify the notification method.
@@ -46,7 +46,7 @@ To create an alert:
 
    1. In the [management console]({{ link-console-main }}), select the folder to create an alert in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-   1. On the home page, click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+   1. On the home page, click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
    1. Specify the main parameters of the alert:
       * **{{ ui-key.yacloud.common.name }}**. Enter a name for the channel.
       * **{{ ui-key.yacloud.common.description }}**. Specify the notification method.

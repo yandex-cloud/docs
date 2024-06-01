@@ -82,15 +82,6 @@ items:
             href: operations/authorized-key/create.md
           - name: Удаление авторизованного ключа
             href: operations/authorized-key/delete.md
-      - name: Доступ сервисов
-        stage: preview
-        items:
-          - name: Просмотр доступов
-            href: operations/service-control/list-get.md
-          - name: Выдача и отзыв доступа
-            href: operations/service-control/enable-disable.md
-          - name: Приостановка и возобновление доступа
-            href: operations/service-control/pause-resume.md
   - name: Концепции
     items:
       - name: Обзор
@@ -123,13 +114,10 @@ items:
             href: concepts/authorization/oauth-token.md
           - name: API-ключ
             href: concepts/authorization/api-key.md
-          - name: Авторизованные ключи
+          - name: Авторизованный ключ
             href: concepts/authorization/key.md
-          - name: Статические ключи доступа
+          - name: Статический ключ доступа
             href: concepts/authorization/access-key.md
-      - name: Доступ сервисов
-        stage: preview
-        href: concepts/service-control.md
       - name: Федерации удостоверений
         href: concepts/federations.md
       - name: '{{ sts-name }}'

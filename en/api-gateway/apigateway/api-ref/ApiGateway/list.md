@@ -66,7 +66,8 @@ filter | <p>A filter expression that filters functions listed in the response.</
       "canary": {
         "weight": "string",
         "variables": "object"
-      }
+      },
+      "executionTimeout": "string"
     }
   ],
   "nextPageToken": "string"
@@ -103,4 +104,5 @@ apiGateways[].<br>variables | **object**<br><p>Values of variables defined in th
 apiGateways[].<br>canary | **object**<br><p>Canary release of the gateway.</p> 
 apiGateways[].<br>canary.<br>weight | **string** (int64)<br><p>It describes percentage of requests, which will be processed by canary.</p> <p>Acceptable values are 0 to 99, inclusive.</p> 
 apiGateways[].<br>canary.<br>variables | **object**<br><p>Required. Values specification variables, associated with canary.</p> <p>At least one per resource.</p> 
+apiGateways[].<br>executionTimeout | **string**<br><p>Timeout for gateway call execution</p> <p>The maximum value is 600 seconds.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/api-gateway/api-ref/ApiGateway/list#query_params">pageSize</a>, use ``nextPageToken`` as the value for the <a href="/docs/functions/api-gateway/api-ref/ApiGateway/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``nextPageToken`` to continue paging through the results.</p> 

@@ -3408,14 +3408,14 @@ configSpec.<br>postgresqlConfig_9_6.<br>vacuumCostLimit | **integer** (int64)
 configSpec.<br>postgresqlConfig_9_6.<br>bgwriterDelay | **integer** (int64)<br><p>Acceptable values are 10 to 10000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_9_6.<br>bgwriterLruMaxpages | **integer** (int64)
 configSpec.<br>postgresqlConfig_9_6.<br>bgwriterLruMultiplier | **number** (double)
-configSpec.<br>postgresqlConfig_9_6.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
-configSpec.<br>postgresqlConfig_9_6.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_9_6.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
+configSpec.<br>postgresqlConfig_9_6.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_9_6.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_9_6.<br>walLevel | **string**
 configSpec.<br>postgresqlConfig_9_6.<br>synchronousCommit | **string**
 configSpec.<br>postgresqlConfig_9_6.<br>checkpointTimeout | **integer** (int64)<br><p>Acceptable values are 30000 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_9_6.<br>checkpointCompletionTarget | **number** (double)
-configSpec.<br>postgresqlConfig_9_6.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_9_6.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_9_6.<br>maxWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_9_6.<br>minWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_9_6.<br>maxStandbyStreamingDelay | **integer** (int64)
@@ -3490,14 +3490,14 @@ configSpec.<br>postgresqlConfig_10_1C.<br>vacuumCostLimit | **integer** (int64)
 configSpec.<br>postgresqlConfig_10_1C.<br>bgwriterDelay | **integer** (int64)<br><p>Acceptable values are 10 to 10000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10_1C.<br>bgwriterLruMaxpages | **integer** (int64)
 configSpec.<br>postgresqlConfig_10_1C.<br>bgwriterLruMultiplier | **number** (double)
-configSpec.<br>postgresqlConfig_10_1C.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
-configSpec.<br>postgresqlConfig_10_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10_1C.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10_1C.<br>walLevel | **string**
 configSpec.<br>postgresqlConfig_10_1C.<br>synchronousCommit | **string**
 configSpec.<br>postgresqlConfig_10_1C.<br>checkpointTimeout | **integer** (int64)<br><p>Acceptable values are 30000 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10_1C.<br>checkpointCompletionTarget | **number** (double)
-configSpec.<br>postgresqlConfig_10_1C.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10_1C.<br>maxWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_10_1C.<br>minWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_10_1C.<br>maxStandbyStreamingDelay | **integer** (int64)
@@ -3622,14 +3622,14 @@ configSpec.<br>postgresqlConfig_10.<br>vacuumCostLimit | **integer** (int64)
 configSpec.<br>postgresqlConfig_10.<br>bgwriterDelay | **integer** (int64)<br><p>Acceptable values are 10 to 10000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10.<br>bgwriterLruMaxpages | **integer** (int64)
 configSpec.<br>postgresqlConfig_10.<br>bgwriterLruMultiplier | **number** (double)
-configSpec.<br>postgresqlConfig_10.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
-configSpec.<br>postgresqlConfig_10.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_10.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
+configSpec.<br>postgresqlConfig_10.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10.<br>walLevel | **string**
 configSpec.<br>postgresqlConfig_10.<br>synchronousCommit | **string**
 configSpec.<br>postgresqlConfig_10.<br>checkpointTimeout | **integer** (int64)<br><p>Acceptable values are 30000 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10.<br>checkpointCompletionTarget | **number** (double)
-configSpec.<br>postgresqlConfig_10.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_10.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10.<br>maxWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_10.<br>minWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_10.<br>maxStandbyStreamingDelay | **integer** (int64)
@@ -3751,14 +3751,14 @@ configSpec.<br>postgresqlConfig_11.<br>vacuumCostLimit | **integer** (int64)
 configSpec.<br>postgresqlConfig_11.<br>bgwriterDelay | **integer** (int64)<br><p>Acceptable values are 10 to 10000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11.<br>bgwriterLruMaxpages | **integer** (int64)
 configSpec.<br>postgresqlConfig_11.<br>bgwriterLruMultiplier | **number** (double)
-configSpec.<br>postgresqlConfig_11.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
-configSpec.<br>postgresqlConfig_11.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11.<br>walLevel | **string**
 configSpec.<br>postgresqlConfig_11.<br>synchronousCommit | **string**
 configSpec.<br>postgresqlConfig_11.<br>checkpointTimeout | **integer** (int64)<br><p>Acceptable values are 30000 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11.<br>checkpointCompletionTarget | **number** (double)
-configSpec.<br>postgresqlConfig_11.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11.<br>maxWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_11.<br>minWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_11.<br>maxStandbyStreamingDelay | **integer** (int64)
@@ -3892,14 +3892,14 @@ configSpec.<br>postgresqlConfig_11_1C.<br>vacuumCostLimit | **integer** (int64)
 configSpec.<br>postgresqlConfig_11_1C.<br>bgwriterDelay | **integer** (int64)<br><p>Acceptable values are 10 to 10000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11_1C.<br>bgwriterLruMaxpages | **integer** (int64)
 configSpec.<br>postgresqlConfig_11_1C.<br>bgwriterLruMultiplier | **number** (double)
-configSpec.<br>postgresqlConfig_11_1C.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
-configSpec.<br>postgresqlConfig_11_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11_1C.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11_1C.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11_1C.<br>walLevel | **string**
 configSpec.<br>postgresqlConfig_11_1C.<br>synchronousCommit | **string**
 configSpec.<br>postgresqlConfig_11_1C.<br>checkpointTimeout | **integer** (int64)<br><p>Acceptable values are 30000 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11_1C.<br>checkpointCompletionTarget | **number** (double)
-configSpec.<br>postgresqlConfig_11_1C.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11_1C.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11_1C.<br>maxWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_11_1C.<br>minWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_11_1C.<br>maxStandbyStreamingDelay | **integer** (int64)
@@ -4035,14 +4035,14 @@ configSpec.<br>postgresqlConfig_12.<br>vacuumCostLimit | **integer** (int64)
 configSpec.<br>postgresqlConfig_12.<br>bgwriterDelay | **integer** (int64)<br><p>Acceptable values are 10 to 10000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12.<br>bgwriterLruMaxpages | **integer** (int64)
 configSpec.<br>postgresqlConfig_12.<br>bgwriterLruMultiplier | **number** (double)
-configSpec.<br>postgresqlConfig_12.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
-configSpec.<br>postgresqlConfig_12.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12.<br>walLevel | **string**
 configSpec.<br>postgresqlConfig_12.<br>synchronousCommit | **string**
 configSpec.<br>postgresqlConfig_12.<br>checkpointTimeout | **integer** (int64)<br><p>Acceptable values are 30000 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12.<br>checkpointCompletionTarget | **number** (double)
-configSpec.<br>postgresqlConfig_12.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12.<br>maxWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_12.<br>minWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_12.<br>maxStandbyStreamingDelay | **integer** (int64)
@@ -4178,14 +4178,14 @@ configSpec.<br>postgresqlConfig_12_1C.<br>vacuumCostLimit | **integer** (int64)
 configSpec.<br>postgresqlConfig_12_1C.<br>bgwriterDelay | **integer** (int64)<br><p>Acceptable values are 10 to 10000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12_1C.<br>bgwriterLruMaxpages | **integer** (int64)
 configSpec.<br>postgresqlConfig_12_1C.<br>bgwriterLruMultiplier | **number** (double)
-configSpec.<br>postgresqlConfig_12_1C.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
-configSpec.<br>postgresqlConfig_12_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12_1C.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12_1C.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12_1C.<br>walLevel | **string**
 configSpec.<br>postgresqlConfig_12_1C.<br>synchronousCommit | **string**
 configSpec.<br>postgresqlConfig_12_1C.<br>checkpointTimeout | **integer** (int64)<br><p>Acceptable values are 30000 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12_1C.<br>checkpointCompletionTarget | **number** (double)
-configSpec.<br>postgresqlConfig_12_1C.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12_1C.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12_1C.<br>maxWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_12_1C.<br>minWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_12_1C.<br>maxStandbyStreamingDelay | **integer** (int64)
@@ -4323,14 +4323,14 @@ configSpec.<br>postgresqlConfig_13.<br>vacuumCostLimit | **integer** (int64)
 configSpec.<br>postgresqlConfig_13.<br>bgwriterDelay | **integer** (int64)<br><p>Acceptable values are 10 to 10000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13.<br>bgwriterLruMaxpages | **integer** (int64)
 configSpec.<br>postgresqlConfig_13.<br>bgwriterLruMultiplier | **number** (double)
-configSpec.<br>postgresqlConfig_13.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
-configSpec.<br>postgresqlConfig_13.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13.<br>walLevel | **string**
 configSpec.<br>postgresqlConfig_13.<br>synchronousCommit | **string**
 configSpec.<br>postgresqlConfig_13.<br>checkpointTimeout | **integer** (int64)<br><p>Acceptable values are 30000 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13.<br>checkpointCompletionTarget | **number** (double)
-configSpec.<br>postgresqlConfig_13.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13.<br>maxWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_13.<br>minWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_13.<br>maxStandbyStreamingDelay | **integer** (int64)
@@ -4478,14 +4478,14 @@ configSpec.<br>postgresqlConfig_13_1C.<br>vacuumCostLimit | **integer** (int64)
 configSpec.<br>postgresqlConfig_13_1C.<br>bgwriterDelay | **integer** (int64)<br><p>Acceptable values are 10 to 10000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13_1C.<br>bgwriterLruMaxpages | **integer** (int64)
 configSpec.<br>postgresqlConfig_13_1C.<br>bgwriterLruMultiplier | **number** (double)
-configSpec.<br>postgresqlConfig_13_1C.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
-configSpec.<br>postgresqlConfig_13_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13_1C.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13_1C.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13_1C.<br>walLevel | **string**
 configSpec.<br>postgresqlConfig_13_1C.<br>synchronousCommit | **string**
 configSpec.<br>postgresqlConfig_13_1C.<br>checkpointTimeout | **integer** (int64)<br><p>Acceptable values are 30000 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13_1C.<br>checkpointCompletionTarget | **number** (double)
-configSpec.<br>postgresqlConfig_13_1C.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13_1C.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13_1C.<br>maxWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_13_1C.<br>minWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_13_1C.<br>maxStandbyStreamingDelay | **integer** (int64)
@@ -4634,14 +4634,14 @@ configSpec.<br>postgresqlConfig_14.<br>vacuumCostLimit | **integer** (int64)
 configSpec.<br>postgresqlConfig_14.<br>bgwriterDelay | **integer** (int64)<br><p>Acceptable values are 10 to 10000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14.<br>bgwriterLruMaxpages | **integer** (int64)
 configSpec.<br>postgresqlConfig_14.<br>bgwriterLruMultiplier | **number** (double)
-configSpec.<br>postgresqlConfig_14.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
-configSpec.<br>postgresqlConfig_14.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14.<br>walLevel | **string**
 configSpec.<br>postgresqlConfig_14.<br>synchronousCommit | **string**
 configSpec.<br>postgresqlConfig_14.<br>checkpointTimeout | **integer** (int64)<br><p>Acceptable values are 30000 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14.<br>checkpointCompletionTarget | **number** (double)
-configSpec.<br>postgresqlConfig_14.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14.<br>maxWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_14.<br>minWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_14.<br>maxStandbyStreamingDelay | **integer** (int64)
@@ -4794,14 +4794,14 @@ configSpec.<br>postgresqlConfig_14_1C.<br>vacuumCostLimit | **integer** (int64)
 configSpec.<br>postgresqlConfig_14_1C.<br>bgwriterDelay | **integer** (int64)<br><p>Acceptable values are 10 to 10000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14_1C.<br>bgwriterLruMaxpages | **integer** (int64)
 configSpec.<br>postgresqlConfig_14_1C.<br>bgwriterLruMultiplier | **number** (double)
-configSpec.<br>postgresqlConfig_14_1C.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
-configSpec.<br>postgresqlConfig_14_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14_1C.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14_1C.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14_1C.<br>walLevel | **string**
 configSpec.<br>postgresqlConfig_14_1C.<br>synchronousCommit | **string**
 configSpec.<br>postgresqlConfig_14_1C.<br>checkpointTimeout | **integer** (int64)<br><p>Acceptable values are 30000 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14_1C.<br>checkpointCompletionTarget | **number** (double)
-configSpec.<br>postgresqlConfig_14_1C.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14_1C.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14_1C.<br>maxWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_14_1C.<br>minWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_14_1C.<br>maxStandbyStreamingDelay | **integer** (int64)
@@ -4955,14 +4955,14 @@ configSpec.<br>postgresqlConfig_15.<br>vacuumCostLimit | **integer** (int64)
 configSpec.<br>postgresqlConfig_15.<br>bgwriterDelay | **integer** (int64)<br><p>Acceptable values are 10 to 10000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15.<br>bgwriterLruMaxpages | **integer** (int64)
 configSpec.<br>postgresqlConfig_15.<br>bgwriterLruMultiplier | **number** (double)
-configSpec.<br>postgresqlConfig_15.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
-configSpec.<br>postgresqlConfig_15.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15.<br>walLevel | **string**
 configSpec.<br>postgresqlConfig_15.<br>synchronousCommit | **string**
 configSpec.<br>postgresqlConfig_15.<br>checkpointTimeout | **integer** (int64)<br><p>Acceptable values are 30000 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15.<br>checkpointCompletionTarget | **number** (double)
-configSpec.<br>postgresqlConfig_15.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15.<br>maxWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_15.<br>minWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_15.<br>maxStandbyStreamingDelay | **integer** (int64)
@@ -5116,14 +5116,14 @@ configSpec.<br>postgresqlConfig_15_1C.<br>vacuumCostLimit | **integer** (int64)
 configSpec.<br>postgresqlConfig_15_1C.<br>bgwriterDelay | **integer** (int64)<br><p>Acceptable values are 10 to 10000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15_1C.<br>bgwriterLruMaxpages | **integer** (int64)
 configSpec.<br>postgresqlConfig_15_1C.<br>bgwriterLruMultiplier | **number** (double)
-configSpec.<br>postgresqlConfig_15_1C.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
-configSpec.<br>postgresqlConfig_15_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15_1C.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15_1C.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15_1C.<br>walLevel | **string**
 configSpec.<br>postgresqlConfig_15_1C.<br>synchronousCommit | **string**
 configSpec.<br>postgresqlConfig_15_1C.<br>checkpointTimeout | **integer** (int64)<br><p>Acceptable values are 30000 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15_1C.<br>checkpointCompletionTarget | **number** (double)
-configSpec.<br>postgresqlConfig_15_1C.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15_1C.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15_1C.<br>maxWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_15_1C.<br>minWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_15_1C.<br>maxStandbyStreamingDelay | **integer** (int64)
@@ -5279,14 +5279,14 @@ configSpec.<br>postgresqlConfig_16.<br>vacuumCostLimit | **integer** (int64)
 configSpec.<br>postgresqlConfig_16.<br>bgwriterDelay | **integer** (int64)<br><p>Acceptable values are 10 to 10000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_16.<br>bgwriterLruMaxpages | **integer** (int64)
 configSpec.<br>postgresqlConfig_16.<br>bgwriterLruMultiplier | **number** (double)
-configSpec.<br>postgresqlConfig_16.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
-configSpec.<br>postgresqlConfig_16.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_16.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_16.<br>walLevel | **string**
 configSpec.<br>postgresqlConfig_16.<br>synchronousCommit | **string**
 configSpec.<br>postgresqlConfig_16.<br>checkpointTimeout | **integer** (int64)<br><p>Acceptable values are 30000 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_16.<br>checkpointCompletionTarget | **number** (double)
-configSpec.<br>postgresqlConfig_16.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_16.<br>maxWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_16.<br>minWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_16.<br>maxStandbyStreamingDelay | **integer** (int64)
@@ -5440,14 +5440,14 @@ configSpec.<br>postgresqlConfig_16_1C.<br>vacuumCostLimit | **integer** (int64)
 configSpec.<br>postgresqlConfig_16_1C.<br>bgwriterDelay | **integer** (int64)<br><p>Acceptable values are 10 to 10000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_16_1C.<br>bgwriterLruMaxpages | **integer** (int64)
 configSpec.<br>postgresqlConfig_16_1C.<br>bgwriterLruMultiplier | **number** (double)
-configSpec.<br>postgresqlConfig_16_1C.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
-configSpec.<br>postgresqlConfig_16_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_16_1C.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_16_1C.<br>walLevel | **string**
 configSpec.<br>postgresqlConfig_16_1C.<br>synchronousCommit | **string**
 configSpec.<br>postgresqlConfig_16_1C.<br>checkpointTimeout | **integer** (int64)<br><p>Acceptable values are 30000 to 86400000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_16_1C.<br>checkpointCompletionTarget | **number** (double)
-configSpec.<br>postgresqlConfig_16_1C.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2097152, inclusive.</p> 
 configSpec.<br>postgresqlConfig_16_1C.<br>maxWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_16_1C.<br>minWalSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_16_1C.<br>maxStandbyStreamingDelay | **integer** (int64)

@@ -40,6 +40,8 @@ items:
         href: concepts/index.md
       - name: Secret
         href: concepts/secret.md
+      - name: Integration with {{ yandex-cloud }} services
+        href: concepts/services.md
   - name: Tutorials
     items:
       - name: All tutorials

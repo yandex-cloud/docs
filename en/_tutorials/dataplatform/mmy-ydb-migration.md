@@ -1,5 +1,6 @@
 # Migrating data with storage changed from {{ MY }} to {{ ydb-short-name }} using {{ data-transfer-full-name }}
 
+
 With {{ data-transfer-name }}, you can transfer data from a {{ mmy-name }} source cluster to {{ ydb-name }}.
 
 To transfer data:
@@ -21,7 +22,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
 
    
-   1. If you are using security groups, [configure them](../../managed-kafka/operations/connect.md#configuring-security-groups) so that you can connect to the cluster from the internet.
+   1. If using security groups, [configure them](../../managed-kafka/operations/connect/index.md#configuring-security-groups) to be able to connect to the cluster from the internet.
 
 
 - {{ TF }} {#tf}
@@ -107,7 +108,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`.
-   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+   * **Endpoint parameters**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select or create a service account with the `ydb.editor` role.
@@ -121,7 +122,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
          * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ MY }}`
-         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
+         * **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
 
             Select a source cluster from the list and specify its connection settings.
 
@@ -222,7 +223,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-1. If you created the service account along with the target endpoint, [delete it](../../iam/operations/sa/delete.md).
+1. If you created a service account together with the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 Delete the other resources depending on how they were created:
 

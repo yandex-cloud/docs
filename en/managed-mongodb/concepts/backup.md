@@ -22,12 +22,9 @@ When creating backups and restoring data from them to a given point in time, kee
 
 * It takes some time to create and upload an oplog archive to object storage. This is why the cluster state stored in the object storage may differ from the actual one.
 
-To use PITR, the cluster must meet the following criteria:
+To use PITR, you must disable the [sharding](../tutorials/sharding.md) mechanism in the cluster: PITR works only for a cluster with a single replica set.
 
-* {{ MG }} version in the cluster: 4.2 or higher.
-* [Sharding](../tutorials/sharding.md): Disabled. PITR works only for a cluster with a single replica set.
-
-To restore a cluster from a backup, [follow this guide](../operations/cluster-backups.md#restore).
+To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md#restore).
 
 ## Creating backups {#size}
 
@@ -42,7 +39,7 @@ After a backup is created, it is compressed for storage. To find out its exact s
 
 Backups are only created on running clusters. If you do not use a {{ mmg-short-name }} cluster 24/7, check the [backup start time settings](../operations/update.md#change-additional-settings).
 
-For more information about creating a backup manually, see [{#T}](../operations/cluster-backups.md).
+For more information about creating a backup manually, see [Managing backups](../operations/cluster-backups.md).
 
 ## Storing backups {#storage}
 
@@ -61,7 +58,7 @@ Storing backups in {{ mmg-name }}:
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-   For more information, see the [{{ mmg-name }} pricing policy](../pricing.md#rules-storage).
+   For more information, see [Pricing policy](../pricing.md#rules-storage).
 
 ## Checking backup recovery {#capabilities}
 

@@ -1,5 +1,6 @@
 # Migrating data from {{ mmy-full-name }} to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
+
 You can set up data transfer from {{ mmy-name }} to {{ mgp-name }} databases using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
@@ -29,11 +30,11 @@ Prepare the infrastructure:
 
    1. In the same availability zone, [create a {{ mgp-name }} target cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster) in any suitable configuration with publicly available hosts and the following settings:
 
-      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mgp_user`.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mgp_user`
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<target_password>`
       * **{{ ui-key.yacloud.mdb.forms.additional-field-datatransfer }}**: Enabled
 
-   1. Make sure that the cluster security groups have been set up correctly and allow connecting to them:
+   1. Make sure that the cluster security groups are set up correctly and allow connecting to them:
 
       * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#configure-security-groups).
       * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
@@ -143,7 +144,7 @@ Prepare the infrastructure:
       1. In the `mmy-to-mgp.tf` file, specify the values for these parameters:
 
          * `target_endpoint_id`: ID of the target endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -157,13 +158,13 @@ Prepare the infrastructure:
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      1. The transfer is activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+      1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
    {% endlist %}
 
 ## Test the transfer {#verify-transfer}
 
-To check if the transfer performs properly, test the copy and replication processes.
+Check the transfer performance by testing the copy and replication processes.
 
 ### Test the copy process {#verify-copy}
 
@@ -177,7 +178,7 @@ To check if the transfer performs properly, test the copy and replication proces
 
 ### Test the replication process {#verify-replication}
 
-1. [Connect to the](../../managed-mysql/operations/connect.md) `mmy_db` database in the {{ mmy-name }} source cluster.
+1. [Connect to the {{ mmy-name }} source cluster database](../../managed-mysql/operations/connect.md).
 
 1. Add data to `table1`:
 
@@ -188,7 +189,7 @@ To check if the transfer performs properly, test the copy and replication proces
 
 1. Make sure the new row has been added to the target database:
 
-   1. [Connect to the](../../managed-greenplum/operations/connect.md) `mgp_db` database in the {{ mgp-name }} target cluster.
+   1. [Connect to the {{ mgp-name }} target cluster database](../../managed-greenplum/operations/connect.md).
    1. Run the following query:
 
       ```sql

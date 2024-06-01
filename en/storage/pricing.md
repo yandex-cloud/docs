@@ -29,7 +29,7 @@ The {{ objstorage-name }} usage cost is based on:
 
 ### Using storage {#rules-storage}
 
-Storage usage is measured in GB per month. The volume of the data stored during a month is the average value over the month based on granulated per-second data. The minimum billing unit is 1 hour of storing 1 MB of data.
+Storage usage is measured in GB per month. The volume of data stored during a month is taken as the month's average based on granulated per-second data. The minimum billing unit is 1 hour of storing 1 MB of data.
 
 ### Performing operations with data {#rules-operations}
 
@@ -110,12 +110,7 @@ Storage_cost = Cost_per_GB_per_month × 15 × 12 / 24 / 30
 
 {% note info %}
 
-Data operations that result in an error are charged only in the following cases:
-
-* Error code 403 for GET, HEAD, and OPTIONS operations.
-* Error code 404 for PUT, POST, GET, HEAD, OPTIONS, PATCH, LIST, and TRANSITION operations.
-
-Prices for standard storage are applied when calculating costs.
+You are going to be charged for the GET, HEAD, OPTIONS, PATCH, POST, and PUT operations ending with Error 403 or 404. The cost is calculated based on standard storage rates.
 
 {% endnote %}
 

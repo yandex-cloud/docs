@@ -452,6 +452,12 @@
     * `--message` — сообщение.
     * `--level` — уровень логирования.
 
+   {% note info %}
+
+   Флаги `--group-name` и `--message` можно опустить и указать только значения параметров. Например: `grafana-plugin "My message"`.
+
+   {% endnote %}
+
 - API {#api}
 
   Чтобы добавить записи в лог-группу, воспользуйтесь вызовом gRPC API [LogIngestionService/Write](../../logging/api-ref/grpc/log_ingestion_service.md#Write).

@@ -8,7 +8,13 @@ items:
       - name: Creating a load balancer with DDoS protection
         href: security/alb-with-ddos-protection.md
       - name: Terminating TLS connections
-        href: security/tls-termination.md
+        items:
+          - name: Overview
+            href: security/tls-termination/index.md
+          - name: Management console
+            href: security/tls-termination/console.md
+          - name: '{{ TF }}'
+            href: security/tls-termination/terraform.md
       - name: Delivering logs from a VM instance to {{ cloud-logging-name }}
         href: security/vm-fluent-bit-logging.md
       - name: Writing load balancer logs to {{ PG }}
@@ -100,7 +106,7 @@ items:
           - name: Scheduled scaling of instance groups
             href: infrastructure-management/vm-scale-scheduled.md
           - name: >-
-              Automatically scaling an instance group to handle messages from a
+              Automatically scaling an instance group to process messages from a
               queue in {{ message-queue-name }}
             href: infrastructure-management/autoscale-monitoring.md
           - name: Updating an instance group under load
@@ -186,7 +192,7 @@ items:
             href: web/lamp-lemp.md
           - name: Joomla-based website with {{ PG }} DB
             href: web/joomla-postgresql.md
-          - name: Creating a website in WordPress
+          - name: WordPress website
             href: web/wordpress.md
           - name: WordPress website on a {{ MY }} database
             href: web/wordpress-mysql.md
@@ -204,6 +210,8 @@ items:
             href: web/bind-domain-vm.md
           - name: Creating a Python web application with Flask
             href: web/flask.md
+          - name: Hosting a static Gatsby website
+            href: web/gatsby-static-website.md
       - name: 1C
         items:
           - name: 1C-Bitrix online store
@@ -228,6 +236,8 @@ items:
             href: infrastructure-management/sap.md
           - name: Developing a Telegram bot for text and audio recognition
             href: ml-ai/recognizer-bot.md
+          - name: Deploying a Minecraft server in {{ yandex-cloud }}
+            href: infrastructure/minecraft-server.md
   - name: Building a data platform
     items:
       - name: All tutorials
@@ -355,11 +365,17 @@ items:
       - name: Automating operations with {{ dataproc-name }} using {{ maf-name }}
         href: dataplatform/data-proc-and-airflow.md
       - name: >-
+          Transferring metadata between {{ dataproc-name }} clusters using {{
+          metastore-name }}
+        href: dataplatform/metastore-import.md
+      - name: >-
           Migrating collections from a third-party {{ MG }} cluster to {{
           mmg-name }}
         href: dataplatform/mongodb-migration-with-data-transfer.md
       - name: Migrating data to {{ mmg-name }}
         href: dataplatform/mongodb-data-migration.md
+      - name: Migrating a {{ mmg-name }} cluster from 4.4 to 6.0
+        href: dataplatform/mongodb-versions.md
       - name: Sharding {{ MG }} collections
         href: dataplatform/mongodb-sharding.md
       - name: '{{ MG }} performance analysis and tuning'

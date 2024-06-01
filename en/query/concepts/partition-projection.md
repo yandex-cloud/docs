@@ -103,15 +103,15 @@ In general, partition projection setup is as follows:
 $projection =
 @@
 {
-    "projection.enabled" : <true|false>,
+    "projection.enabled" : <availability_of_partition_projection>,
 
-    "projection.<field1_name>.type" : "<type>",
-    "projection.<field1_name>...." : "<extended_properties>",
+    "projection.<field_1_name>.type" : "<type>",
+    "projection.<field_1_name>...." : "<properties>",
 
-    "projection.<field2_name>.type" : "<type>",
-    "projection.<field2_name>...." : "<extended_properties>",
+    "projection.<field_2_name>.type" : "<type>",
+    "projection.<field_2_name>...." : "<properties>",
 
-    "storage.location.template" : ".../${field2}/${field1}/..."
+    "storage.location.template" : ".../${<field_2_name>}/${<field_1_name>}/..."
 }
 @@;
 
@@ -121,8 +121,8 @@ FROM
     <connection>.<path>
 WITH
 (
-    schema=(<fields>, <field1>, <field2>),
-    partitioned_by=(field1, field2),
+    schema=(<fields>, <field_1>, <field_2>),
+    partitioned_by=(<field_1_name>, <field_2_name>),
     projection=$projection
 )
 ```
@@ -132,10 +132,10 @@ WITH
 | Field name | Field description | Acceptable values |
 |----|----|----|
 | `projection.enabled` | Shows if partition projection is enabled | true, false |
-| `projection.<field1_name>.type` | Field data type | integer, enum, or date |
-| `projection.<field1_name>.XXX` | Type properties |
+| `projection.<field_1_name>.type` | Field data type | integer, enum, or date |
+| `projection.<field_1_name>.XXX` | Type properties |
 
-### Field of integer type {#integer_type}
+### Field of the integer type {#integer_type}
 
 Used for columns whose values can be represented as integers in the range from -2^63^ to 2^63^-1.
 
@@ -145,9 +145,9 @@ Used for columns whose values can be represented as integers in the range from -
 | `projection.<field_name>.min` | Yes | Defines the minimum allowed value. Set as an integer | -100<br>004 |
 | `projection.<field_name>.max` | Yes | Defines the maximum allowed value. Set as an integer | -10<br>5000 |
 | `projection.<field_name>.interval` | No, defaults to `1` | Defines a step between elements within a value range. For example, step 3 under the 2, 10 value range will result in the following values: 2, 5, 8. | 2<br>11 |
-| `projection.<field_name>.digits` | No, defaults to `0` | Sets the number of digits in a number. If the amount of non-zero digits is less than the specified value, zeros are added in front until the specified amount of digits is reached. For example, if the set value is .digits=3 while 2 is passed, it's converted to 002 | 2<br>4 |
+| `projection.<field_name>.digits` | No, defaults to `0` | Sets the number of digits in a number. If the amount of non-zero digits is less than the specified value, zeros are added in front until the specified amount of digits is reached. For example, if the set value is .digits=3 while 2 is transmitted, it is converted to 002 | 2<br>4 |
 
-### Field of enum type {#enum_type}
+### Field of the enum type {#enum_type}
 
 Used for columns whose values can be represented as an enumeration.
 
@@ -156,7 +156,7 @@ Used for columns whose values can be represented as an enumeration.
 | `projection.<field_name>.type` | Yes | Field data type | enum |
 | `projection.<field_name>.values` | Yes | Specifies the allowed values separated by a comma. Spaces are not ignored. | 1, 2<br>A,B,C |
 
-### Field of date type {#date_type}
+### Field of the date type {#date_type}
 
 Used for columns whose values can be represented as a date.
 
@@ -175,4 +175,4 @@ Used for columns whose values can be represented as a date.
 
 | Field name | Field description | Sample value |
 |----|----|----|
-| `storage.location.template` | Folder name path template. Use the `${<field_name...>}/${<field_name...>}` format | `root/a/${year}/b/${month}/d`<br/>`${year}/${month}` |
+| `storage.location.template` | Folder name path template. It is set as `${<field_name...>}/${<field_name...>}` | `root/a/${year}/b/${month}/d`<br/>`${year}/${month}` |

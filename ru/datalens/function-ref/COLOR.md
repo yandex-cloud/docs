@@ -31,7 +31,7 @@ COLOR( text, color )
 #### Примеры {#examples}
 
 ```
-COLOR([text], '--g-color-text-danger')
+COLOR([text], 'var(--g-color-text-danger)')
 ```
 
 ```

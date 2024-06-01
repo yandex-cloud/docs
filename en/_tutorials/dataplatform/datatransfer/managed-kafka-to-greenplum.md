@@ -1,3 +1,5 @@
+
+
 You can set up data transfer from a {{ mkf-full-name }} topic to {{ mgp-full-name }} using {{ data-transfer-full-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
@@ -23,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. [Create a target {{ mgp-full-name }} cluster](../../../managed-greenplum/operations/cluster-create.md#create-cluster) with any appropriate configuration, using the admin username (`user`) and with hosts located in the public domain.
 
       1. Make sure that the cluster security groups are set up correctly and allow connecting to them:
-         * [{{ mkf-name }}](../../../managed-kafka/operations/connect.md#configuring-security-groups).
+         * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
          * [{{ mgp-name }}](../../../managed-greenplum/operations/connect.md#configuring-security-groups).
 
    - {{ TF }} {#tf}
@@ -68,7 +70,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       sudo apt update && sudo apt install --yes kafkacat
       ```
 
-      Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../../managed-kafka/operations/connect.md#connection-string).
+      Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
    * [jq](https://stedolan.github.io/jq/) for JSON file stream processing.
 
@@ -168,7 +170,7 @@ Create a file named `sample.json` with test data on your running instance:
 
          * `kf_source_endpoint_id`: ID of the source endpoint.
          * `gp_target_endpoint_id`: ID of the target endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -182,7 +184,7 @@ Create a file named `sample.json` with test data on your running instance:
 
          {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-      1. The transfer is activated automatically. Wait for its status to change to {{ dt-status-repl }}.
+      1. The transfer will be activated automatically. Wait for its status to change to {{ dt-status-repl }}.
 
    {% endlist %}
 
@@ -204,7 +206,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
    ```
 
-   To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../../managed-kafka/operations/connect.md).
+   To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../../managed-kafka/operations/connect/clients.md).
 
 1. Make sure the data from the source {{ mkf-name }} cluster has been moved to the {{ mgp-name }} database:
 

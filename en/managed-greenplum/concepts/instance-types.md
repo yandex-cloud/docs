@@ -13,7 +13,7 @@ For segment hosts, the following disk types are available:
 * `local-ssd`
 * `network-ssd-nonreplicated`
 
-The available storage size does not depend on the host class. For storage limitations, see [{#T}](limits.md).
+The available storage size does not depend on the host class. For storage limitations, see [Quotas and limits](limits.md).
 
 ## Available host classes {#available-flavors}
 

@@ -21,7 +21,7 @@
 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из снимков:
 
-      * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom }}** и нажмите **{{ ui-key.yacloud.compute.instances.create.button_choose }}**.
+      * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom }}** и нажмите **{{ ui-key.yacloud.common.select }}**.
       * В открывшемся окне перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}**.
       * Выберите снимок диска из списка и нажмите **{{ ui-key.yacloud.common.apply }}**.
 
@@ -125,6 +125,8 @@
       {% include [name-fqdn](name-fqdn.md) %}
      
       Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
+
+      {% include [add-several-net-interfaces-notice-cli](./add-several-net-interfaces-notice-cli.md) %}
 
  
 - API {#api}

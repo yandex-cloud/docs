@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/listOperations.md
 ---
 
 # Virtual Private Cloud API, REST: SecurityGroup.listOperations
-
+Lists operations for the specified security groups.
  
 
  
@@ -17,14 +17,14 @@ GET https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}/operation
  
 Parameter | Description
 --- | ---
-securityGroupId | <p>Required.</p> 
+securityGroupId | <p>Required. ID of the address to list operations for.</p> <p>To get a address ID make a [SecurityGroup.List] request.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | 
-pageToken | 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/vpc/api-ref/SecurityGroup/listOperations#query_params">pageSize</a>, the service returns a <a href="/docs/vpc/api-ref/SecurityGroup/listOperations#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/vpc/api-ref/SecurityGroup/listOperations#query_params">pageToken</a> to the <a href="/docs/vpc/api-ref/SecurityGroup/listOperations#responses">nextPageToken</a> returned by a previous list request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -61,7 +61,7 @@ pageToken |
  
 Field | Description
 --- | ---
-operations[] | **object**<br><p>An Operation resource. For more information, see <a href="/docs/api-design-guide/concepts/operation">Operation</a>.</p> 
+operations[] | **object**<br><p>List of operations for the specified security group.</p> 
 operations[].<br>id | **string**<br><p>ID of the operation.</p> 
 operations[].<br>description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
 operations[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
@@ -74,4 +74,4 @@ operations[].<br>error.<br>code | **integer** (int32)<br><p>Error code. An enum 
 operations[].<br>error.<br>message | **string**<br><p>An error message.</p> 
 operations[].<br>error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
 operations[].<br>response | **object** <br>`operations[]` includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 
-nextPageToken | **string**
+nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/vpc/api-ref/SecurityGroup/listOperations#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/vpc/api-ref/SecurityGroup/listOperations#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

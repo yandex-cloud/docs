@@ -272,11 +272,11 @@ signature = Hex(sign(SigningKey, StringToSign))
 
 {% list tabs %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   {% include [storage-get-link-for-download](../../../storage/_includes_service/storage-get-link-for-download.md) %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
     Ссылку на скачивание объекта также можно сгенерировать с помощью AWS CLI. Для этого выполните команду вида:
 
@@ -286,7 +286,7 @@ signature = Hex(sign(SigningKey, StringToSign))
   
     Чтобы ссылка сформировалась корректно, обязательно укажите параметр `--endpoint-url` с указанием на доменное имя {{ objstorage-name }}. Подробнее см. в [разделе об особенностях работы AWS CLI](../../../storage/tools/aws-cli.md#specifics).
 
-- boto3
+- Python (boto3) {#boto3}
     
     Пример генерирует подписанный URL для скачивания объекта `object-for-share` из бакета `bucket-with-objects`. URL действителен в течение 100 секунд.
 

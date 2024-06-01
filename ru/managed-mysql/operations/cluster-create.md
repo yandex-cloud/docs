@@ -798,3 +798,5 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% endlist %}
 
+
+{% include [connection-manager](../../_includes/mdb/connection-manager.md) %}

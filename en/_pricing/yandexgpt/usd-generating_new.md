@@ -4,13 +4,13 @@
 
 <br>
 
-| Model parameters | Multiplier | Cost per 1,000 tokens, </br> without VAT |
-|---------------------------------------------------------|-------|----------------------------------------|
-| {{ gpt-lite }}, synchronous mode  | 1.00 | $0.0016 |
-| {{ gpt-lite }}, asynchronous mode | 0.50 | $0.0008 |
-| {{ gpt-pro }}, synchronous mode       | 6.00 | $0.0096 |
-| {{ gpt-pro }}, asynchronous mode      | 3.00 | $0.0048 |
-| Summary model, synchronous mode | 1.00        | $0.0016                                  |
-| Summary model, asynchronous mode | 0.50       | $0.0008                                  |
-| Models fine-tuned in {{ ml-platform-name }}, synchronous mode | 6.00 | $0.0096                                 |
-| Models fine-tuned in {{ ml-platform-name }}, asynchronous mode | 3.00 | $0.0048                                 |
+| Model parameters | Number of units per token | Cost per 1,000 tokens, </br> without VAT |
+|---------------------------------------------------------|:-------:|----------------------------------------|
+| {{ gpt-lite }}, synchronous mode | 1 | $0.0016 |
+| {{ gpt-lite }}, asynchronous mode | 0.5 | $0.0008 |
+| {{ gpt-pro }}, synchronous mode | 6 | $0.0096 |
+| {{ gpt-pro }}, asynchronous mode | 3 | $0.0048 |
+| Summary model, synchronous mode | 1 | $0.0016 |
+| Summary model, asynchronous mode | 0 | $0.0008 |
+| Models fine-tuned in {{ ml-platform-name }}, synchronous mode | 6 | $0.0096 |
+| Models fine-tuned in {{ ml-platform-name }}, asynchronous mode | 3 | $0.0048 |

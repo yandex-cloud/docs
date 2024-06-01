@@ -78,14 +78,22 @@ sourcePath: ru/_api-ref/datalens/function-ref/RANK_PERCENTILE.md
 
 Сортировка по `[City]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **RANK_PERCENTILE desc**: `RANK_PERCENTILE(SUM([Orders]), "desc")` ;
+- **RANK_PERCENTILE asc**: `RANK_PERCENTILE(SUM([Orders]), "asc")` .
+
+
 Результат
 
-| **[City]**        | **SUM([Orders])**   | **RANK_PERCENTILE(SUM([Orders]), "desc")**   | **RANK_PERCENTILE(SUM([Orders]), "asc")**   |
-|:------------------|:--------------------|:---------------------------------------------|:--------------------------------------------|
-| `'Detroit'`       | `32`                | `0.00`                                       | `1.00`                                      |
-| `'London'`        | `11`                | `0.67`                                       | `0.33`                                      |
-| `'Moscow'`        | `6`                 | `1.00`                                       | `0.00`                                      |
-| `'San Francisco'` | `28`                | `0.33`                                       | `0.67`                                      |
+| **City**          | **Order Sum**   | **RANK_PERCENTILE desc**   | **RANK_PERCENTILE asc**   |
+|:------------------|:----------------|:---------------------------|:--------------------------|
+| `'Detroit'`       | `32`            | `0.00`                     | `1.00`                    |
+| `'London'`        | `11`            | `0.67`                     | `0.33`                    |
+| `'Moscow'`        | `6`             | `1.00`                     | `0.00`                    |
+| `'San Francisco'` | `28`            | `0.33`                     | `0.67`                    |
 
 {% endcut %}
 
@@ -112,18 +120,28 @@ sourcePath: ru/_api-ref/datalens/function-ref/RANK_PERCENTILE.md
 
 Сортировка по `[City]`, `[Category]`.
 
+Формулы:
+
+- **City**: `[City]` ;
+- **Category**: `[Category]` ;
+- **Order Sum**: `SUM([Orders])` ;
+- **RANK_PERCENTILE TOTAL**: `RANK_PERCENTILE(SUM([Orders]) TOTAL)` ;
+- **RANK_PERCENTILE WITHIN**: `RANK_PERCENTILE(SUM([Orders]) WITHIN [City])` ;
+- **RANK_PERCENTILE AMONG**: `RANK_PERCENTILE(SUM([Orders]) AMONG [City])` .
+
+
 Результат
 
-| **[City]**        | **[Category]**      | **SUM([Orders])**   | **RANK_PERCENTILE(SUM([Orders]) TOTAL)**   | **RANK_PERCENTILE(SUM([Orders]) WITHIN [City])**   | **RANK_PERCENTILE(SUM([Orders]) AMONG [City])**   |
-|:------------------|:--------------------|:--------------------|:-------------------------------------------|:---------------------------------------------------|:--------------------------------------------------|
-| `'Detroit'`       | `'Furniture'`       | `7`                 | `0.43`                                     | `1.00`                                             | `0.00`                                            |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `0.00`                                     | `0.00`                                             | `0.00`                                            |
-| `'London'`        | `'Furniture'`       | `1`                 | `1.00`                                     | `1.00`                                             | `1.00`                                            |
-| `'London'`        | `'Office Supplies'` | `10`                | `0.29`                                     | `0.00`                                             | `0.67`                                            |
-| `'Moscow'`        | `'Furniture'`       | `2`                 | `0.86`                                     | `1.00`                                             | `0.67`                                            |
-| `'Moscow'`        | `'Office Supplies'` | `4`                 | `0.71`                                     | `0.00`                                             | `1.00`                                            |
-| `'San Francisco'` | `'Furniture'`       | `5`                 | `0.57`                                     | `1.00`                                             | `0.33`                                            |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `0.14`                                     | `0.00`                                             | `0.33`                                            |
+| **City**          | **Category**        | **Order Sum**   | **RANK_PERCENTILE TOTAL**   | **RANK_PERCENTILE WITHIN**   | **RANK_PERCENTILE AMONG**   |
+|:------------------|:--------------------|:----------------|:----------------------------|:-----------------------------|:----------------------------|
+| `'Detroit'`       | `'Furniture'`       | `7`             | `0.43`                      | `1.00`                       | `0.00`                      |
+| `'Detroit'`       | `'Office Supplies'` | `25`            | `0.00`                      | `0.00`                       | `0.00`                      |
+| `'London'`        | `'Furniture'`       | `1`             | `1.00`                      | `1.00`                       | `1.00`                      |
+| `'London'`        | `'Office Supplies'` | `10`            | `0.29`                      | `0.00`                       | `0.67`                      |
+| `'Moscow'`        | `'Furniture'`       | `2`             | `0.86`                      | `1.00`                       | `0.67`                      |
+| `'Moscow'`        | `'Office Supplies'` | `4`             | `0.71`                      | `0.00`                       | `1.00`                      |
+| `'San Francisco'` | `'Furniture'`       | `5`             | `0.57`                      | `1.00`                       | `0.33`                      |
+| `'San Francisco'` | `'Office Supplies'` | `23`            | `0.14`                      | `0.00`                       | `0.33`                      |
 
 {% endcut %}
 

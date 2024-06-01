@@ -1,6 +1,6 @@
 # Managing {{ RD }} cluster hosts
 
-You can add and remove cluster hosts and manage their settings. To move cluster hosts to a different availability zone, read this [guide](host-migration.md).
+You can add and remove cluster hosts and manage their settings. For information about moving cluster hosts to a different [availability zone](../../overview/concepts/geo-scope.md), see [this guide](host-migration.md).
 
 ## Getting a list of cluster hosts {#list}
 
@@ -134,7 +134,7 @@ Public access to hosts can only be configured for clusters created with enabled 
       * `--host`: Host parameters:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
          * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
-         * `assign-public-ip`: Flag enabling online access to the host by a public IP, `true` or `false`.
+         * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
          * `replica-priority`: Priority for selecting the host as a master if the [primary master fails](../concepts/replication.md#master-failover). It is only available for non-sharded clusters.
          * `shard-name`: Name of the shard to which the host must be added if the cluster is sharded.
 
@@ -143,8 +143,8 @@ Public access to hosts can only be configured for clusters created with enabled 
    To add a host to the cluster:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
-   1. Add a `host` block to the {{ mrd-name }} cluster description.
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
+   1. Add the `host` block to the {{ mrd-name }} cluster description.
 
       ```hcl
       resource "yandex_mdb_redis_cluster" "<cluster_name>" {
@@ -184,7 +184,7 @@ Public access to hosts can only be configured for clusters created with enabled 
 
 {% note warning %}
 
-If you cannot [connect](connect/index.md) to the added host, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you cannot [connect](connect/index.md) to the host you added, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the host's subnet.
 
 {% endnote %}
 
@@ -228,8 +228,8 @@ If you cannot [connect](connect/index.md) to the added host, check that the clus
    To change the parameters of the cluster host:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
-   1. In the {{ mrd-name }} cluster description, change the attributes of the `host` block corresponding to the host to update.
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
+   1. In the {{ mrd-name }} cluster description, change the attributes of the `host` block corresponding to the host you are updating.
 
       ```hcl
       resource "yandex_mdb_redis_cluster" "<cluster_name>" {
@@ -272,7 +272,7 @@ If you cannot [connect](connect/index.md) to the added host, check that the clus
 
 {% note warning %}
 
-If you cannot [connect](connect/index.md) to the added host, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you cannot [connect](connect/index.md) to the host you added, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the host's subnet.
 
 {% endnote %}
 
@@ -313,7 +313,7 @@ If the host is the master when deleted, {{ mrd-name }} automatically assigns ano
    To remove a host from a cluster:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
    1. Delete the `host` block from the {{ mrd-name }} cluster description.
    1. Make sure the settings are correct.
 

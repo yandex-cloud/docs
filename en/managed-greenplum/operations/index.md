@@ -7,18 +7,16 @@ description: "This page provides a list of step-by-step guides for {{ mpg-name }
 
 ## Clusters
 
-* [{#T}](cluster-list.md)
+* [Information about existing clusters](cluster-list.md)
 * [{#T}](calculate-specs.md)
-* [{#T}](cluster-create.md)
-* [{#T}](update.md)
-* [{#T}](cluster-stop.md)
-* [{#T}](./hosts/cluster-hosts.md)
+* [Creating a cluster](cluster-create.md)
+* [Updating cluster settings](update.md)
+* [Stopping and starting a cluster](cluster-stop.md)
+* [Information about cluster hosts](./hosts/cluster-hosts.md)
 * [{#T}](./hosts/cluster-expand.md)
-* [{#T}](./hosts/host-migration.md)
-* [{#T}](cluster-backups.md)
-* [{#T}](cluster-delete.md)
-
-To move {{ mgp-name }} cluster hosts to a different availability zone, refer to the [guide on managing backups](cluster-backups.md).
+* [Migrating cluster hosts to a different availability zone](./hosts/host-migration.md)
+* [Managing backups](cluster-backups.md)
+* [Deleting a cluster](cluster-delete.md)
 
 ## Databases
 
@@ -47,15 +45,15 @@ To move {{ mgp-name }} cluster hosts to a different availability zone, refer to 
 
 ## {{ GP }} extensions
 
-* [{#T}](./extensions/cluster-extensions.md)
-* [{#T}](./extensions/pgcrypto.md)
-* [{#T}](./extensions/uuid-cb.md)
+* [Managing extensions](./extensions/cluster-extensions.md)
+* [Using pgcrypto](./extensions/pgcrypto.md)
+* [Using uuid-cb](./extensions/uuid-cb.md)
 
 ## Logs and monitoring
 
-* [{#T}](cluster-logs.md)
+* [Viewing cluster logs](cluster-logs.md)
 * [{#T}](performance-diagnostics.md)
-* [{#T}](monitoring.md)
+* [Monitoring the state of clusters and hosts](monitoring.md)
 
 ## Auxiliary utilities
 

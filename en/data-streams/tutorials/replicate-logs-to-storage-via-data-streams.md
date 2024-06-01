@@ -1,1 +1,1 @@
-{% include [replicate-logs-to-storage-via-data-streams](../../_tutorials/replicate-logs-to-storage-via-data-streams.md) %}
+{% include [replicate-logs-to-storage-via-data-streams](../../_tutorials/security/replicate-logs-to-storage-via-data-streams.md) %}

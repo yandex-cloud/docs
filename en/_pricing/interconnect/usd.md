@@ -2,31 +2,31 @@
 
 | Usable data size, TB | Cost per month, without VAT |
 | -------------------| -------------- |
-| 15 | $44.280 |
-| 30 | $88.560 |
-| 60 | $165.304 |
-| 90 | $230.224 |
-| 120 | $283.336 |
-| 150 | $324.624 |
-| 300 | $353.808 |
-| 615 | $667.072 |
-| 930 | $939.784 |
-| 1,230 | $1,171.960 |
-| 1,545 | $1,363.584 |
-| 3,090 | $1,713.528 |
-| 6,180 | $3,387.600 |
-| 9,270 | $5,022.224 |
-| 12,360 | $6,617.400 |
-| 15,450 | $8,173.120 |
-| 30,900 | $15,360.000 |
+| 15 | {{ sku|USD|interconnect.trunk.direct.50mbps.unmetered.monthly_usage.v1|string }} |
+| 30 | {{ sku|USD|interconnect.trunk.direct.100mbps.unmetered.monthly_usage.v1|string }} |
+| 60 | {{ sku|USD|interconnect.trunk.direct.200mbps.unmetered.monthly_usage.v1|string }} |
+| 90 | {{ sku|USD|interconnect.trunk.direct.300mbps.unmetered.monthly_usage.v1|string }} |
+| 120 | {{ sku|USD|interconnect.trunk.direct.400mbps.unmetered.monthly_usage.v1|string }} |
+| 150 | {{ sku|USD|interconnect.trunk.direct.500mbps.unmetered.monthly_usage.v1|string }} |
+| 300 | {{ sku|USD|interconnect.trunk.direct.1gbps.unmetered.monthly_usage.v1|string }} |
+| 615 | {{ sku|USD|interconnect.trunk.direct.2gbps.unmetered.monthly_usage.v1|string }} |
+| 930 | {{ sku|USD|interconnect.trunk.direct.3gbps.unmetered.monthly_usage.v1|string }} |
+| 1,230 | {{ sku|USD|interconnect.trunk.direct.4gbps.unmetered.monthly_usage.v1|string }} |
+| 1,545 | {{ sku|USD|interconnect.trunk.direct.5gbps.unmetered.monthly_usage.v1|string }} |
+| 3,090 | {{ sku|USD|interconnect.trunk.direct.10gbps.unmetered.monthly_usage.v1|string }} |
+| 6,180 | {{ sku|USD|interconnect.trunk.direct.20gbps.unmetered.monthly_usage.v1|string }} |
+| 9,270 | {{ sku|USD|interconnect.trunk.direct.30gbps.unmetered.monthly_usage.v1|string }} |
+| 12,360 | {{ sku|USD|interconnect.trunk.direct.40gbps.unmetered.monthly_usage.v1|string }} |
+| 15,450 | {{ sku|USD|interconnect.trunk.direct.50gbps.unmetered.monthly_usage.v1|string }} |
+| 30,900 | {{ sku|USD|interconnect.trunk.direct.100gbps.unmetered.monthly_usage.v1|string }} |
 
 ## Other services {#other-services}
 
 | Service | Cost per month, without VAT |
 | ------------------------------------------ | ------------- |
-| Private or public network connection | $0.960 |
-| 1000BASE-LX physical port | $18.600 |
-| 100GBASE-ER4 physical port | $180.000 |
-| 100GBASE-LR4 physical port | $155.504 |
-| 10GBASE-ER physical port | $20.104 |
-| 10GBASE-LR physical port | $18.600 |
+| Private or public network connection | {{ sku|USD|interconnect.trunk.hosted_connections.v1|string }} |
+| 1000BASE-LX physical port | {{ sku|USD|interconnect.trunk.physical_port.1000base_lx.monthly_usage.v1|string }} |
+| 100GBASE-ER4 physical port | {{ sku|USD|interconnect.trunk.physical_port.100gbase_er4.monthly_usage.v1|string }} |
+| 100GBASE-LR4 physical port | {{ sku|USD|interconnect.trunk.physical_port.100gbase_lr4.monthly_usage.v1|string }} |
+| 10GBASE-ER physical port | {{ sku|USD|interconnect.trunk.physical_port.10gbase_er.monthly_usage.v1|string }} |
+| 10GBASE-LR physical port | {{ sku|USD|interconnect.trunk.physical_port.10gbase_lr.monthly_usage.v1|string }} |

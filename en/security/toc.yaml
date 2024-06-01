@@ -68,6 +68,7 @@ items:
     items:
       - name: ViPNet Coordinator in {{ yandex-cloud }}
         href: tutorials/vipnet-to-yc.md
+        hidden: true
       - name: Setting up and testing PT Application Firewall
         href: tutorials/pt-application-firewall.md
       - name: Secure user access to cloud resources based on WireGuard VPN

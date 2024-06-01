@@ -1,5 +1,6 @@
 # {{ ydb-short-name }} change data capture and delivery to {{ DS }}
 
+
 A {{ yds-name }} stream can get data from {{ ydb-name }} databases in real time using the [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC) technology.
 
 {% include [CDC-YDB](../../_includes/data-transfer/note-ydb-cdc.md) %}
@@ -88,8 +89,8 @@ Prepare the infrastructure:
          ```bash
          ydb \
            --endpoint <endpoint> \
-           --database <name> \
-           --yc-token-file <path> \
+           --database <database_name> \
+           --yc-token-file <path_to_OAuth_token> \
            yql -s "SELECT 1;"
          ```
 
@@ -158,7 +159,7 @@ Prepare the infrastructure:
 
          * `source_endpoint_id`: ID of the source endpoint.
          * `target_endpoint_id`: ID of the target endpoint.
-         * `transfer_enabled`: Set `1` to enable transfer creation.
+         * `transfer_enabled`: Set to `1` to enable transfer creation.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -213,7 +214,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
-1. If you created the service accounts along with the endpoints, [delete them](../../iam/operations/sa/delete.md).
+1. If you created service accounts together with the endpoints, [delete them](../../iam/operations/sa/delete.md).
 
 Delete the other resources depending on how they were created:
 

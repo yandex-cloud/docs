@@ -123,7 +123,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder that the route table belongs to. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
-name | **string**<br>Name of the route table. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the route table. The name must be unique within the folder. Value must match the regular expression ` \|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])? `.
 description | **string**<br>Description of the route table. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels, `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 network_id | **string**<br>Required. ID of the network the route table belongs to. The maximum string length in characters is 50.
@@ -195,7 +195,7 @@ Field | Description
 --- | ---
 route_table_id | **string**<br>Required. ID of the RouteTable resource to update. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the RouteTable resource are going to be updated. 
-name | **string**<br>Name of the route table. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the route table. The name must be unique within the folder. Value must match the regular expression ` \|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])? `.
 description | **string**<br>Description of the route table. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 static_routes[] | **[StaticRoute](#StaticRoute3)**<br>List of static routes. 

@@ -50,7 +50,7 @@ used | **bool**<br>Specifies if address is used or not.
 type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
 ip_version | enum **IpVersion**<br>Version of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
 deletion_protection | **bool**<br>Specifies if address protected from deletion. 
-dns_records[] | **[DnsRecord](#DnsRecord)**<br>Optional dns record specifications 
+dns_records[] | **[DnsRecord](#DnsRecord)**<br>Optional DNS record specifications 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address}
@@ -74,10 +74,10 @@ outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic.
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
-dns_zone_id | **string**<br> 
-ttl | **int64**<br> 
-ptr | **bool**<br> 
+fqdn | **string**<br>DNS record name (absolute or relative to the DNS zone in use). 
+dns_zone_id | **string**<br>ID of the public DNS zone. 
+ttl | **int64**<br>TTL of record. 
+ptr | **bool**<br>If the PTR record is required, this parameter must be set to "true". 
 
 
 ## GetByValue {#GetByValue}
@@ -111,7 +111,7 @@ used | **bool**<br>Specifies if address is used or not.
 type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
 ip_version | enum **IpVersion**<br>Version of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
 deletion_protection | **bool**<br>Specifies if address protected from deletion. 
-dns_records[] | **[DnsRecord](#DnsRecord1)**<br>Optional dns record specifications 
+dns_records[] | **[DnsRecord](#DnsRecord1)**<br>Optional DNS record specifications 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address1}
@@ -135,10 +135,10 @@ outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic.
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
-dns_zone_id | **string**<br> 
-ttl | **int64**<br> 
-ptr | **bool**<br> 
+fqdn | **string**<br>DNS record name (absolute or relative to the DNS zone in use). 
+dns_zone_id | **string**<br>ID of the public DNS zone. 
+ttl | **int64**<br>TTL of record. 
+ptr | **bool**<br>If the PTR record is required, this parameter must be set to "true". 
 
 
 ## List {#List}
@@ -182,7 +182,7 @@ used | **bool**<br>Specifies if address is used or not.
 type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
 ip_version | enum **IpVersion**<br>Version of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
 deletion_protection | **bool**<br>Specifies if address protected from deletion. 
-dns_records[] | **[DnsRecord](#DnsRecord2)**<br>Optional dns record specifications 
+dns_records[] | **[DnsRecord](#DnsRecord2)**<br>Optional DNS record specifications 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address2}
@@ -206,10 +206,10 @@ outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic.
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
-dns_zone_id | **string**<br> 
-ttl | **int64**<br> 
-ptr | **bool**<br> 
+fqdn | **string**<br>DNS record name (absolute or relative to the DNS zone in use). 
+dns_zone_id | **string**<br>ID of the public DNS zone. 
+ttl | **int64**<br>TTL of record. 
+ptr | **bool**<br>If the PTR record is required, this parameter must be set to "true". 
 
 
 ## Create {#Create}
@@ -227,7 +227,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a address in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
-name | **string**<br>Name of the address. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the address. The name must be unique within the folder. Value must match the regular expression ` \|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])? `.
 description | **string**<br>Description of the address. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Address labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 address_spec | **oneof:** `external_ipv4_address_spec`<br>External ipv4 address specification.
@@ -257,10 +257,10 @@ outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic.
 
 Field | Description
 --- | ---
-fqdn | **string**<br>Required.  
-dns_zone_id | **string**<br>Required.  The string length in characters must be equal to 20.
-ttl | **int64**<br> Acceptable values are 0 to 86400, inclusive.
-ptr | **bool**<br> 
+fqdn | **string**<br>Required. Required. DNS record name (absolute or relative to the DNS zone in use). 
+dns_zone_id | **string**<br>Required. Required. ID of the public DNS zone. The maximum string length in characters is 20. The string length in characters must be equal to 20.
+ttl | **int64**<br>TTL of record. Acceptable values are 0 to 86400, inclusive. Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>Optional. If the PTR record is required, this parameter must be set to "true". 
 
 
 ### Operation {#Operation}
@@ -303,7 +303,7 @@ used | **bool**<br>Specifies if address is used or not.
 type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
 ip_version | enum **IpVersion**<br>Version of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
 deletion_protection | **bool**<br>Specifies if address protected from deletion. 
-dns_records[] | **[DnsRecord](#DnsRecord3)**<br>Optional dns record specifications 
+dns_records[] | **[DnsRecord](#DnsRecord3)**<br>Optional DNS record specifications 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address3}
@@ -319,10 +319,10 @@ requirements | **[AddressRequirements](#AddressRequirements4)**<br>Parameters of
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
-dns_zone_id | **string**<br> 
-ttl | **int64**<br> 
-ptr | **bool**<br> 
+fqdn | **string**<br>DNS record name (absolute or relative to the DNS zone in use). 
+dns_zone_id | **string**<br>ID of the public DNS zone. 
+ttl | **int64**<br>TTL of record. 
+ptr | **bool**<br>If the PTR record is required, this parameter must be set to "true". 
 
 
 ## Update {#Update}
@@ -341,7 +341,7 @@ Field | Description
 --- | ---
 address_id | **string**<br>Required. ID of the address to update. <br>To get the address ID make a [AddressService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the Address should be updated. 
-name | **string**<br>New name for the address. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>New name for the address. The name must be unique within the folder. Value must match the regular expression ` \|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])? `.
 description | **string**<br>New description of the address. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Address labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: <ol><li>Get the current set of labels with a [AddressService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 reserved | **bool**<br>Specifies if address is reserved or not. 
@@ -353,10 +353,10 @@ dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>Optional DNS record 
 
 Field | Description
 --- | ---
-fqdn | **string**<br>Required.  
-dns_zone_id | **string**<br>Required.  The string length in characters must be equal to 20.
-ttl | **int64**<br> Acceptable values are 0 to 86400, inclusive.
-ptr | **bool**<br> 
+fqdn | **string**<br>Required. Required. DNS record name (absolute or relative to the DNS zone in use). 
+dns_zone_id | **string**<br>Required. Required. ID of the public DNS zone. The maximum string length in characters is 20. The string length in characters must be equal to 20.
+ttl | **int64**<br>TTL of record. Acceptable values are 0 to 86400, inclusive. Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>Optional. If the PTR record is required, this parameter must be set to "true". 
 
 
 ### Operation {#Operation1}
@@ -399,7 +399,7 @@ used | **bool**<br>Specifies if address is used or not.
 type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
 ip_version | enum **IpVersion**<br>Version of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
 deletion_protection | **bool**<br>Specifies if address protected from deletion. 
-dns_records[] | **[DnsRecord](#DnsRecord4)**<br>Optional dns record specifications 
+dns_records[] | **[DnsRecord](#DnsRecord4)**<br>Optional DNS record specifications 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address4}
@@ -423,10 +423,10 @@ outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic.
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
-dns_zone_id | **string**<br> 
-ttl | **int64**<br> 
-ptr | **bool**<br> 
+fqdn | **string**<br>DNS record name (absolute or relative to the DNS zone in use). 
+dns_zone_id | **string**<br>ID of the public DNS zone. 
+ttl | **int64**<br>TTL of record. 
+ptr | **bool**<br>If the PTR record is required, this parameter must be set to "true". 
 
 
 ## Delete {#Delete}
@@ -522,8 +522,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-address_id | **string**<br>Required.  The maximum string length in characters is 50.
-destination_folder_id | **string**<br>Required.  The maximum string length in characters is 50.
+address_id | **string**<br>Required. ID of the address that is being moved. The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the folder to move address to. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation4}
@@ -546,7 +546,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-address_id | **string**<br> 
+address_id | **string**<br>ID of the address that is being moved. 
 
 
 ### Address {#Address5}
@@ -566,7 +566,7 @@ used | **bool**<br>Specifies if address is used or not.
 type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
 ip_version | enum **IpVersion**<br>Version of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
 deletion_protection | **bool**<br>Specifies if address protected from deletion. 
-dns_records[] | **[DnsRecord](#DnsRecord5)**<br>Optional dns record specifications 
+dns_records[] | **[DnsRecord](#DnsRecord5)**<br>Optional DNS record specifications 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address5}
@@ -590,9 +590,9 @@ outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic.
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
-dns_zone_id | **string**<br> 
-ttl | **int64**<br> 
-ptr | **bool**<br> 
+fqdn | **string**<br>DNS record name (absolute or relative to the DNS zone in use). 
+dns_zone_id | **string**<br>ID of the public DNS zone. 
+ttl | **int64**<br>TTL of record. 
+ptr | **bool**<br>If the PTR record is required, this parameter must be set to "true". 
 
 

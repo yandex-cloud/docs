@@ -4,7 +4,7 @@
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder where you created a data stream, transfer, and bucket.
+   1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the new [data stream](../../data-streams/concepts/glossary.md#stream-concepts), [transfer](../../data-transfer/concepts/index.md##transfer), and [bucket](../../storage/concepts/bucket.md).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
    1. Select the `logs-stream` data stream.
    1. Go to the **{{ ui-key.yacloud.common.monitoring }}** tab and check the stream activity charts.

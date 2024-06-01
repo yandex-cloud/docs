@@ -70,13 +70,13 @@ To activate the service:
 
             Each network must have at least one subnet. If there is no subnet, create one by selecting ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
       1. Set up [network access](concepts/vm-connection.md#vm-network-access) for your VM.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.label_backup }}**, select the {{ backup-name }} connection option for your VM.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       1. Select the service account with the `backup.editor` role.
       1. Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       1. In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
-         You will need to create a key pair for the SSH connection yourself, see [{#T}](../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+         You will need to create a key pair for the SSH connection yourself; see [{#T}](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for details.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable the {{ backup-name }} connection option for your VM.
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 {% endlist %}

@@ -16,15 +16,17 @@ In this section, you will learn:
 
 ## Which resources you can assign a role for {#resources}
 
-{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+You can assign a role for an [organization](../../organization/quickstart.md), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or [connection](../concepts/connection-manager.md). The roles assigned for organizations, clouds, or folders also apply to nested resources.
 
-You can assign a role for a [connection](../concepts/connection-manager.md) in the management console.
+You can assign a role for a connection in the management console.
 
 ## Roles existing in {{ connection-manager-name }} {#roles-list}
 
 You can use {{ metadata-hub-full-name }} roles (_service roles_) and {{ yandex-cloud }} roles (_primitive roles_) to manage connection access permissions.
 
 ### Service roles for managing connections using {{ connection-manager-full-name }} {#service-roles}
+
+With {{ connection-manager-full-name }} service roles, you can view non-secret connection data and manage connections. You can view secret connection data, such as DB passwords, in [{{ lockbox-full-name }}](../../lockbox/index.yaml). To do this, you will also need the `lockbox.payloadViewer` [role](../../lockbox/security/index.md#lockbox-payloadViewer).
 
 #### connection-manager.auditor {#connection-manager-auditor}
 

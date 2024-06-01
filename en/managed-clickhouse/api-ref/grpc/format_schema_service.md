@@ -91,7 +91,7 @@ Field | Description
 cluster_id | **string**<br>Required. ClickHouse cluster ID. <br>To get a ClickHouse cluster ID, use the [ClusterService.List](./cluster_service#List) method. The maximum string length in characters is 50.
 format_schema_name | **string**<br>Required. Format schema name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 type | enum **FormatSchemaType**<br>Required. Schema type. Possible values are the following: <br><ul><li>FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)). </li><li>FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format.</li></ul> 
-uri | **string**<br>Required. [Link to the file](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/s3-access#get-link-to-object) of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage. 
+uri | **string**<br>Required. [Link to the file](/docs/managed-clickhouse/operations/s3-access#get-link-to-object) of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage. 
 
 
 ### Operation {#Operation}
@@ -145,7 +145,7 @@ Field | Description
 cluster_id | **string**<br>Required. ClickHouse cluster ID. <br>To get a ClickHouse cluster ID, use the [ClusterService.List](./cluster_service#List) method. The maximum string length in characters is 50.
 format_schema_name | **string**<br>Required. Format schema name. <br>To get a format schema name, use the [FormatSchemaService.List](#List) method. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
-uri | **string**<br>[Link to the file](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/s3-access#get-link-to-object) of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage. 
+uri | **string**<br>[Link to the file](/docs/managed-clickhouse/operations/s3-access#get-link-to-object) of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage. 
 
 
 ### Operation {#Operation1}

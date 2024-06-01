@@ -491,7 +491,7 @@ If you reserved a static public IP address for the VM, [delete it](../../vpc/ope
 
 ## How to create an infrastructure using {{ TF }} {#terraform}
 
-{% include [terraform-definition](../terraform-definition.md) %}
+{% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To host a WordPress website based on a MySQL cluster via {{ TF }}:
 
@@ -541,6 +541,6 @@ To host a WordPress website based on a MySQL cluster via {{ TF }}:
 
 1. Create resources:
 
-   {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 1. [Check that the website is running](#test-site).

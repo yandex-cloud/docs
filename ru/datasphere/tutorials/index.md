@@ -27,8 +27,13 @@ description: "Различные сценарии использования {{ 
 * [{#T}](node-from-docker-fast-api.md)
 * [{#T}](stable-diffusion.md)
 * [{#T}](yagpt-tuning.md)
+* [{#T}](yagpt-tuning-classifier.md)
 
 ## Аналитика {#analytics}
 
 * [{#T}](data-from-metrica-yc-visualization.md)
 * [{#T}](yq.md)
+* [{#T}](yq-storage.md)
+* [{#T}](yq-clickhouse.md)
+* [{#T}](yq-postgre.md)
+* [{#T}](yq-federative-queries.md)

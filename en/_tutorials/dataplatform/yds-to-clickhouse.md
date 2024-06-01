@@ -1,5 +1,6 @@
 # Saving a {{ yds-full-name }} data stream in {{ mch-full-name }}
 
+
 With {{ data-transfer-name }}, you can deliver data from a [data stream {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts) to {{ mch-name }}.
 
 To transfer data:
@@ -22,8 +23,8 @@ Prepare the infrastructure:
    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with any suitable configuration.
    1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`.
-      * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`
+      * **Endpoint parameters**:
 
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseSource.connection.title }}**:
 
@@ -103,7 +104,7 @@ Prepare the infrastructure:
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
-   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+   * **Endpoint parameters**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 

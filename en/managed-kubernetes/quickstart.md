@@ -48,8 +48,8 @@ To get started with {{ managed-k8s-name }}:
      * `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
      * `{{ ui-key.yacloud.k8s.clusters.create.switch_none }}`: Do not assign a public IP address.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}**: Select the master type:
-     * `{{ ui-key.yacloud.k8s.clusters.create.switch_zone }}`: A single master host will be created in the selected availability zone. Specify a cloud network and select a subnet for the master host.
-     * `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}`: A single master host will be created in each availability zone. Specify a cloud network and subnet for each availability zone.
+     * `{{ ui-key.yacloud.k8s.clusters.create.switch_zone }}`: To create a single master host in the selected availability zone. Specify a cloud network and select a subnet for the master host.
+     * `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}`: To create a single master host in each availability zone. Specify a cloud network and subnet for each availability zone.
    * Select [security groups](operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster's network traffic.
 1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**:
    * **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}**: Specify an IP range to allocate addresses to [pods](concepts/index.md#pod) from.
@@ -118,10 +118,10 @@ To create a {{ managed-k8s-name }} node group:
 
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_disk }}**:
    * Specify the **{{ ui-key.yacloud.k8s.node-groups.create.field_disk-type }}** for the {{ managed-k8s-name }} group nodes:
-     * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-hdd }}`: Standard network drive; network block storage on an HDD.
-     * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd }}`: Fast network drive; network block storage on an SSD.
-     * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd-nonreplicated }}`: Network drive with enhanced performance achieved by removing redundancy. You can only change the size of this type of disk in 93 GB increments.
-     * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd-io-m3 }}`: Network drive with the same performance characteristics as `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd-nonreplicated }}`, plus redundancy. You can only change the size of this type of disk in 93 GB increments.
+     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-hdd }}`: Standard network drive; network block storage on an HDD.
+     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd }}`: Fast network drive; network block storage on an SSD.
+     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`: Network drive with enhanced performance achieved by removing redundancy. You can only change the size of this type of disk in 93 GB increments.
+     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-io-m3 }}`: Network drive with the same performance characteristics as `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`, plus redundancy. You can only change the size of this type of disk in 93 GB increments.
 
      For more information about disk types, see the [{{ compute-full-name }} documentation](../compute/concepts/disk.md#disks_types).
    * Specify the disk size for the {{ managed-k8s-name }} group nodes.

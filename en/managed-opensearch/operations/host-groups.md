@@ -9,6 +9,7 @@ keywords:
 
 # Managing {{ OS }} host groups
 
+
 In {{ mos-name }} clusters, you cannot add, update, or delete individual hosts. Instead, you can manage [host groups](../concepts/host-groups.md):
 
 * [{#T}](#list-groups)
@@ -18,7 +19,7 @@ In {{ mos-name }} clusters, you cannot add, update, or delete individual hosts. 
 
 You can also get a list of [cluster hosts](#list-hosts).
 
-To learn how to migrate {{ mos-name }} cluster host groups to a different availability zone, read this [guide](host-migration.md).
+For information about migrating host groups in a {{ mos-name }} cluster to a different [availability zone](../../overview/concepts/geo-scope.md), see [this guide](host-migration.md).
 
 ## Getting a list of host groups in a cluster {#list-groups}
 
@@ -135,7 +136,7 @@ To add a host group to a cluster:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
 
@@ -271,7 +272,7 @@ To add a host group to a cluster:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
 
@@ -386,7 +387,7 @@ When deleting a host group, the following limitation applies: you cannot delete 
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
       For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
 

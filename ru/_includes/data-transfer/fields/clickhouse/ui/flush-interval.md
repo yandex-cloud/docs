@@ -1,0 +1,1 @@
+**{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.flush_interval.title }}** — укажите задержку, с которой данные должны поступать в кластер-приемник. Увеличьте значение в этом поле, если {{ CH }} не успевает делать слияние кусков данных.

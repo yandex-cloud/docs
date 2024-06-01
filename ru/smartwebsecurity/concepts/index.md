@@ -8,8 +8,13 @@
 
 ![schema](../../_assets/smartwebsecurity/schema.svg)
 
+{% include [realized-waf-concept](../../_includes/smartwebsecurity/realized-waf-concept.md) %}
+
+{% include [note-preview-waf](../../_includes/smartwebsecurity/note-preview-waf.md) %}
+
 Логи {{ sws-name }} передаются в сервис [{{ cloud-logging-full-name }}](../../logging/).
 
 Метрики {{ sws-name }} передаются в сервис [{{ monitoring-full-name }}](../../monitoring/).
 
 Аудитные логи {{ sws-name }} передаются в сервис [{{ at-full-name }}](../../audit-trails/).
+

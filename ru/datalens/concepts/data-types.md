@@ -224,11 +224,7 @@ FALSE
 * `Дробное число`
 * `Строка`
 
-{% note warning %}
-
-Определить массив внутри {{ datalens-short-name }} нельзя.
-
-{% endnote %}
+Вы можете определить массив внутри {{ datalens-short-name }} с помощью функции [ARRAY](../../datalens/function-ref/ARRAY.md).
 
 #### Пример записи {#array-example}
 

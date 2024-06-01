@@ -55,7 +55,7 @@ Default values of the resource group parameters:
 
 You cannot change the values of the `admin_group` resource group.
 
-For more information about managing roles, see [{#T}](./cluster-users.md) and the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/admin_guide-roles_privs.html).
+For more information about managing roles, see [Users and roles](./cluster-users.md) and the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/admin_guide-roles_privs.html).
 
 ## Memory allocation {#ram}
 

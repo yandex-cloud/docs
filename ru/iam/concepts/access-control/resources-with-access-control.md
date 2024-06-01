@@ -98,3 +98,43 @@ description: "Из статьи вы узнаете, на какие ресур�
 
 **{{ lockbox-name }}**
 * [Секрет](../../../lockbox/concepts/secret.md)
+
+## Ресурсы, на которые можно назначать роли с помощью {{ TF }} {#terraform}
+
+**{{ container-registry-name }}**
+* [Реестр](../../../container-registry/concepts/registry.md)
+* [Репозиторий](../../../container-registry/concepts/repository.md)
+
+**{{ ml-platform-name }}**
+* [Проект](../../../datasphere/concepts/project.md)
+* [Сообщество](../../../datasphere/concepts/community.md)
+
+**{{ dns-name }}**
+* [Зона DNS](../../../dns/concepts/dns-zone.md)
+
+**{{ sf-name }}**
+* [Функция](../../../functions/concepts/function.md)
+
+**{{ iam-name }}**
+* [Сервисный аккаунт](../users/service-accounts.md)
+
+**{{ kms-name }}**
+
+{% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
+
+**{{ lockbox-name }}**
+* [Секрет](../../../lockbox/concepts/secret.md)
+
+**{{ resmgr-name }}**
+* [Облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud)
+* [Каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder)
+
+**{{ serverless-containers-name }}**
+* [Контейнер](../../../serverless-containers/concepts/container.md)
+
+**{{ ydb-name }}**
+* [СУБД YDB](../../../ydb/concepts/index.md#ydb)
+
+**{{ org-name }}**
+
+{% include notitle [organization-resources](../../../_includes/iam/resources-with-access-control/organization.md) %}
