@@ -27,7 +27,40 @@ description: "Настойка Java-приложения, использующе
 
 ### Подготовить образ для sidecar
 
-Код для сборки образа можно взять тут https://github.com/abashev/fluent-bit-plugin-yandex/tree/master/docker
+Для сборки sidecar нужны два файла
+
+Dockerfile
+```
+FROM cr.yandex/yc/fluent-bit-plugin-yandex:v1.0.3-fluent-bit-1.8.6
+
+COPY fluent-bit.conf /fluent-bit/etc/fluent-bit.conf
+```
+
+и fluent-bit.conf
+
+```
+[SERVICE]
+    Flush         1
+    Log_File      /var/log/fluentbit.log
+    Log_Level     error
+    Daemon        off
+
+[INPUT]
+    Name              forward
+    Listen            0.0.0.0
+    Port              24224
+    Buffer_Chunk_Size 1M
+    Buffer_Max_Size   6M
+
+[OUTPUT]
+    Name            yc-logging
+    Match           *
+    group_id        ${YC_GROUP_ID}
+    message_key     msg
+    level_key       level
+    default_level   INFO
+    authorization   instance-service-account
+```
 
 Для сборки используется текущая версия fluent-bit-plugin-yandex и файл с минимально необходимой конфигурацией.
 
