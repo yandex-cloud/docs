@@ -21,6 +21,9 @@ keywords:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
+Назначать роли на ресурс могут пользователи, у которых на этот ресурс есть роль `mdb.admin`, `managed-greenplum.admin` или одна из следующих ролей:
+
+{% include [roles-list](../../_includes/iam/roles-list.md) %}
 
 ## На какие ресурсы можно назначить роль {#resources}
 

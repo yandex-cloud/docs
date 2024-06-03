@@ -16,6 +16,10 @@ description: "Управление доступом в веб-инструмен
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
+Назначать роли на ресурс могут пользователи, у которых на этот ресурс есть роль `gitlab.admin` или одна из следующих ролей:
+
+{% include [roles-list](../../_includes/iam/roles-list.md) %}
+
 ## На какие ресурсы можно назначить роль {#resources}
 
 Роль можно назначить на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Роли на облако действуют и на вложенные каталоги.

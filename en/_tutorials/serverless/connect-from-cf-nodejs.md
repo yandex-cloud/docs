@@ -145,7 +145,7 @@ The infrastructure support cost for this scenario includes:
       ```
 
       For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 
@@ -217,7 +217,7 @@ The infrastructure support cost for this scenario includes:
       ```
 
       For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_key).
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 

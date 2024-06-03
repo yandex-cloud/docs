@@ -7,5 +7,4 @@ For example, the `auditor` role allows you to perform the following operations:
 
 The `auditor` role is currently not supported in the following services:
 * Yandex Data Streams.
-* Yandex Managed Service for YDB.
 * Yandex Query.

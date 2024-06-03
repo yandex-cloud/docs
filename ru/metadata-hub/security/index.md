@@ -14,6 +14,10 @@ description: "Управление доступом в сервисе {{ metadat
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
+Назначать роли на ресурс могут пользователи, у которых на этот ресурс есть роль `connection-manager.admin` или одна из следующих ролей:
+
+{% include [roles-list](../../_includes/iam/roles-list.md) %}
+
 ## На какие ресурсы можно назначить роль {#resources}
 
 Роль можно назначить на [организацию](../../organization/quickstart.md), [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) или [подключение](../concepts/connection-manager.md). Роли, назначенные на организацию, облако или каталог, действуют и на вложенные ресурсы.

@@ -64,8 +64,6 @@ For a complete list of supported operating systems, see the [backup provider doc
 
 If you have issues while installing the agent, [contact]({{ link-console-support }}) support.
 
-Going forward, {{ backup-name }} will support Ubuntu 22.04.
-
 ## Service account {#sa}
 
 [Service account](../../iam/concepts/users/service-accounts.md) is a special account on behalf of which VM backups are created and uploaded to a {{ backup-name }} storage.

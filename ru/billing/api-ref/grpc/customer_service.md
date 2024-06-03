@@ -62,7 +62,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-reseller_id | **string**<br>Required. ID of the reseller that customer will be associated with. The maximum string length in characters is 50.
+reseller_id | **string**<br>Required. Billing account ID of the reseller that the customer will be associated with. The maximum string length in characters is 50.
 name | **string**<br>Required. Name of the customer. 
 invitation_email | **string**<br>Required. Customer email to send invitation to. 
 person | **[CustomerPerson](#CustomerPerson)**<br>Required. Person of the customer. 

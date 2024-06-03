@@ -1,6 +1,6 @@
 # Connecting a domain
 
-You can connect your own domain to access the API gateway. You can connect multiple domains to a single API gateway. In this case, the domain is identified by the `Host` header.
+You can connect your own domain to access the API gateway. You can connect a wildcard domain, e.g., `*.example.com`, to the API gateway for it to handle requests for all `example.com` subdomains. You can also connect multiple domains. The domain will be identified by the `Host` header.
 
 {% note warning %}
 

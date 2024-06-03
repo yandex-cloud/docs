@@ -60,14 +60,6 @@ description: "Управление доступом в сервисе, пред�
 
 {% include [datasphere.communities.admin](../../_roles/datasphere/communities/admin.md) %}
 
-#### datasphere.user {#datasphere-user}
-
-{% include [datasphere.user](../../_roles/datasphere/user.md) %}
-
-#### datasphere.admin {#datasphere-admin}
-
-{% include [datasphere.admin](../../_roles/datasphere/admin.md) %}
-
 > {% include [example-for-sharing](../../_includes/datasphere/roles-for-sharing-example.md) %}
 
 ### Примитивные роли {#primitive-roles}

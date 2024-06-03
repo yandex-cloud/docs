@@ -1,1 +1,1 @@
-The `dataproc.auditor` role enables you to view information about clusters and jobs (with no access to job content).
+The `dataproc.auditor` role allows you to view information on Yandex Data Proc [clusters](../../data-proc/concepts/index.md#resources).

@@ -25,9 +25,17 @@ To allow access to {{ maf-name }} service resources, assign the user the appropr
 
 Below is a list of all roles that are used to verify access rights in the service.
 
+#### managed-airflow.auditor {#managed-airflow-auditor}
+
+{% include [managed-airflow.auditor](../../_roles/managed-airflow/auditor.md) %}
+
 #### managed-airflow.viewer {#managed-airflow-viewer}
 
 {% include [managed-airflow.viewer](../../_roles/managed-airflow/viewer.md) %}
+
+#### managed-airflow.user {#managed-airflow-user}
+
+{% include [managed-airflow.user](../../_roles/managed-airflow/user.md) %}
 
 #### managed-airflow.editor {#managed-airflow-editor}
 
@@ -36,6 +44,10 @@ Below is a list of all roles that are used to verify access rights in the servic
 #### managed-airflow.admin {#managed-airflow-admin}
 
 {% include [managed-airflow.admin](../../_roles/managed-airflow/admin.md) %}
+
+#### managed-airflow.integrationProvider {#managed-airflow-integrationProvider}
+
+{% include [managed-airflow.integrationProvider](../../_roles/managed-airflow/integrationProvider.md) %}
 
 ### Primitive roles {#primitive-roles}
 

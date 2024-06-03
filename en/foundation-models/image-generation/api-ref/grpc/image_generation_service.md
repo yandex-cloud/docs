@@ -45,15 +45,6 @@ Field | Description
 --- | ---
 mime_type | **string**<br>MIME type of generated image format. 
 seed | **int64**<br>Seed for image generation. 
-aspect_ratio | **[AspectRatio](#AspectRatio)**<br>Aspect ratio of generated image. 
-
-
-### AspectRatio {#AspectRatio}
-
-Field | Description
---- | ---
-width_ratio | **int64**<br>Weight of width in image. 
-height_ratio | **int64**<br>Weight of height in image. 
 
 
 ### Operation {#Operation}

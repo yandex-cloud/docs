@@ -13,6 +13,10 @@ description: "Управление доступом в сервисе созда
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
+Назначать роли на ресурс могут пользователи, у которых на этот ресурс есть роль `managed-airflow.admin` или одна из следующих ролей:
+
+{% include [roles-list](../../_includes/iam/roles-list.md) %}
+
 ## На какие ресурсы можно назначить роль {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
@@ -25,9 +29,17 @@ description: "Управление доступом в сервисе созда
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе.
 
+#### managed-airflow.auditor {#managed-airflow-auditor}
+
+{% include [managed-airflow.auditor](../../_roles/managed-airflow/auditor.md) %}
+
 #### managed-airflow.viewer {#managed-airflow-viewer}
 
 {% include [managed-airflow.viewer](../../_roles/managed-airflow/viewer.md) %}
+
+#### managed-airflow.user {#managed-airflow-user}
+
+{% include [managed-airflow.user](../../_roles/managed-airflow/user.md) %}
 
 #### managed-airflow.editor {#managed-airflow-editor}
 
@@ -36,6 +48,10 @@ description: "Управление доступом в сервисе созда
 #### managed-airflow.admin {#managed-airflow-admin}
 
 {% include [managed-airflow.admin](../../_roles/managed-airflow/admin.md) %}
+
+#### managed-airflow.integrationProvider {#managed-airflow-integrationProvider}
+
+{% include [managed-airflow.integrationProvider](../../_roles/managed-airflow/integrationProvider.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

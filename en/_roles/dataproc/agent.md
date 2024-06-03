@@ -1,5 +1,8 @@
-The `dataproc.agent` role allows the service account assigned to the Yandex Data Proc cluster to notify the service of the status of each host in the cluster.
+The `dataproc.agent` role allows the [service account](../../iam/concepts/users/service-accounts.md) linked to the Yandex Data Proc cluster to notify Data Proc of the cluster host state. You can assign this role to a service account linked to the Yandex Data Proc cluster.
 
-This role must be assigned to the service account specified when creating the cluster.
+Service accounts with this role can:
+* Notify Yandex Data Proc of the [cluster](../../data-proc/concepts/index.md#resources) host state.
+* Get info on [jobs](../../data-proc/concepts/jobs.md) and their progress statuses.
+* Get info on [log groups](../../logging/concepts/log-group.md) and add entries to them.
 
-Currently, this role can only be assigned for working with a folder or a cloud.
+Currently, you can only assign this role for a folder or cloud.

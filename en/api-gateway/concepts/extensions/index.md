@@ -19,15 +19,17 @@ The `x-yc-apigateway` extension allows you to set top-level API gateway paramete
 | `validator` | `ValidatorObject` | [HTTP request and response validator](validator.md#validator_object) or a link to it. It can be overridden at the level of a specific operation. |
 | `cors` | `CorsRuleObject` | [Rule for handling CORS preflight requests](cors.md#corsrule_object) or a link to it. It can be overridden at the level of a specific path. |
 | `rateLimit` | `RateLimitObject` | [Request rate limit](rate-limit.md#rate_limit_object) or a link to it. It can be overridden at the level of a specific path and/or operation. |
+| `ignoreTrailingSlashes` | `boolean` | If `true`, {{ api-gw-name }} ignores the trailing slash (`/`) in the request URL; otherwise, it uses the exact URL path to search for a handler in the OpenAPI specification. The default value is `true`. |
 
 ### Extension specification {#tl-spec}
 
 ```yaml
 x-yc-apigateway:
   service_account_id: <service_account_ID>
-  validator: <ValidatorObject_or_its_link>
-  cors: <CorsRuleObject_or_its_link>
-  rateLimit: <RateLimitObject_or_its_link>
+  validator: <ValidatorObject_or_link_to_it>
+  cors: <CorsRuleObject_or_link_to_it>
+  rateLimit: <RateLimitObject_or_link_to_it>
+  ignoreTrailingSlashes: <true_or_false>
 ```
 
 ## x-yc-apigateway-integration extension {#integration}
@@ -56,7 +58,7 @@ The extension's content changes depending on the `type` specified in the `x-yc-a
 * [dummy](dummy.md): Returns fixed content with the specified response code and required headers without any third-party service involved.
 * [cloud-functions](cloud-functions.md): Invokes the specified function, passes it the HTTP request data as input, and returns this function's results to the client.
 * [http](http.md): Redirects the request to the specified URL.
-* [object_storage](object-storage.md): Passes request handling control to {{ objstorage-name }} to share static files.
+* [object_storage](object-storage.md): Passes request handling to {{ objstorage-name }} to serve static files.
 * [cloud_datasphere](datasphere.md): Calls the specified {{ ml-platform-name }} node, passing it the request body with input variable values and returning the node output in the response body.
 * [cloud_datastreams](datastreams.md): Accesses {{ yds-full-name }} to perform an operation with the specified stream.
 * [serverless_containers](containers.md): Redirects a request to a specified container.
