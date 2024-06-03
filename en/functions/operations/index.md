@@ -44,6 +44,7 @@ description: "In this article, you will learn how to work with {{ sf-full-name }
 * [Adding environment variables](function/environment-variables-add.md)
 * [{#T}](function/network-add.md)
 * [{#T}](function/lockbox-secret-transmit.md)
+* [Allocating memory for the /tmp directory](function/allocate-memory-tmp.md)
 * [Mounting a bucket](function/mount-bucket.md)
 * [Adding a tag](function/tag-add.md)
 * [Removing a tag](function/tag-delete.md)

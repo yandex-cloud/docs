@@ -12,6 +12,8 @@ description: "Управление доступом облачного MQTT-се
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
+{% include [roles-assign](../../_includes/iam/roles-assign.md) %}
+
 ## На какие ресурсы можно назначить роль {#resources}
 
 Роль можно назначить на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Эти роли будут действовать и на вложенные ресурсы.

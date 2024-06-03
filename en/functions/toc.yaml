@@ -100,6 +100,8 @@ items:
             href: operations/function/network-add.md
           - name: Transmitting {{ lockbox-full-name }} secrets
             href: operations/function/lockbox-secret-transmit.md
+          - name: Allocating memory for the /tmp directory
+            href: operations/function/allocate-memory-tmp.md
           - name: Mounting a bucket
             href: operations/function/mount-bucket.md
           - name: Managing tags

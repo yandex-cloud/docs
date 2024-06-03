@@ -1,1 +1,1 @@
-{% include [jwt-authorizer-firebase](../../_tutorials/api-gateway/jwt-authorizer-firebase.md) %}
+{% include [jwt-authorizer-firebase](../../_tutorials/serverless/jwt-authorizer-firebase.md) %}

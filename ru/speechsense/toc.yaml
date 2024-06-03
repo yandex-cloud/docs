@@ -97,14 +97,6 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
-          - name: Talk
-            items:
-              - name: Overview
-                href: api-ref/Talk/index.md
-              - name: get
-                href: api-ref/Talk/get.md
-              - name: search
-                href: api-ref/Talk/search.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: Управление доступом

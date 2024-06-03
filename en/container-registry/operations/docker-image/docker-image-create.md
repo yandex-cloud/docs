@@ -6,7 +6,7 @@ The guide describes how to create and build a [Docker image](../../concepts/dock
 
 - CLI {#cli}
 
-   1. Create a file named Dockerfile and add the lines below:
+   1. Create a file named Dockerfile on your device and add the below lines to it:
 
       ```
       FROM ubuntu:latest
