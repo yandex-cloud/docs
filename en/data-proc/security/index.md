@@ -33,10 +33,6 @@ The list below shows all roles that are considered when verifying access rights 
 
 {% include [dataproc.agent](../../_roles/dataproc/agent.md) %}
 
-#### mdb.dataproc.agent {#mdb-dataproc-agent}
-
-{% include [mdb.dataproc.agent](../../_roles/mdb/dataproc/agent.md) %}
-
 #### dataproc.auditor {#dataproc-auditor}
 
 {% include [dataproc.auditor](../../_roles/dataproc/auditor.md) %}
@@ -76,6 +72,10 @@ The list below shows all roles that are considered when verifying access rights 
 #### managed-metastore.admin {#managed-metastore-admin}
 
 {% include [managed-metastore.admin](../../_roles/managed-metastore/admin.md) %}
+
+#### managed-metastore.integrationProvider {#managed-metastore-integrationProvider}
+
+{% include [managed-metastore.integrationProvider](../../_roles/managed-metastore/integrationProvider.md) %}
 
 #### mdb.auditor {#mdb-auditor}
 

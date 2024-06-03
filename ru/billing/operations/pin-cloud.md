@@ -10,7 +10,7 @@ description: "Следуя данной инструкции, вы сможет�
 ## Что нужно для привязки облака {#bind-roles}
 
 Перед привязкой [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) убедитесь, что [платежный аккаунт](../concepts/billing-account.md) прошел активацию ([статус](../concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`), а пользователь обладает одновременно [ролями](../../iam/concepts/access-control/roles.md):
-* [resource-manager.clouds.owner](../../iam/concepts/access-control/roles.md#owner) на облако.
+* [resource-manager.clouds.owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) на облако.
 * `billing.accounts.owner` или `editor` в платежном аккаунте. Подробнее о ролях читайте в разделе [Управление доступом](../security/index.md#roles-list).
 
 ## Как привязать облако {#bind-cloud}

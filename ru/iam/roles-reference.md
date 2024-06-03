@@ -388,6 +388,25 @@ description: "В статье приведен полный справочник
 Подробнее см. [{#T}](../postbox/security/index.md).
 
 
+## {{ video-full-name }} {#video-roles}
+
+#### video.auditor {#video-auditor}
+
+{% include [video.auditor](../_roles/video/auditor.md) %}
+
+#### video.viewer {#video-viewer}
+
+{% include [video.viewer](../_roles/video/viewer.md) %}
+
+#### video.editor {#video-editor}
+
+{% include [video.editor](../_roles/video/editor.md) %}
+
+#### video.admin {#video-admin}
+
+{% include [video.admin](../_roles/video/admin.md) %}
+
+
 ## {{ compute-full-name }} {#compute-roles}
 
 #### compute.auditor {#compute-auditor}
@@ -518,10 +537,6 @@ description: "В статье приведен полный справочник
 
 {% include [dataproc.agent](../_roles/dataproc/agent.md) %}
 
-#### mdb.dataproc.agent {#mdb-dataproc-agent}
-
-{% include [mdb.dataproc.agent](../_roles/mdb/dataproc/agent.md) %}
-
 #### dataproc.auditor {#dataproc-auditor}
 
 {% include [dataproc.auditor](../_roles/dataproc/auditor.md) %}
@@ -546,6 +561,10 @@ description: "В статье приведен полный справочник
 
 {% include [dataproc.admin](../_roles/dataproc/admin.md) %}
 
+#### mdb.dataproc.agent {#mdb-dataproc-agent}
+
+{% include [mdb.dataproc.agent](../_roles/mdb/dataproc/agent.md) %}
+
 #### managed-metastore.auditor {#managed-metastore-auditor}
 
 {% include [managed-metastore.auditor](../_roles/managed-metastore/auditor.md) %}
@@ -561,6 +580,10 @@ description: "В статье приведен полный справочник
 #### managed-metastore.admin {#managed-metastore-admin}
 
 {% include [managed-metastore.admin](../_roles/managed-metastore/admin.md) %}
+
+#### managed-metastore.integrationProvider {#managed-metastore-integrationProvider}
+
+{% include [managed-metastore.integrationProvider](../_roles/managed-metastore/integrationProvider.md) %}
 
 Подробнее см. [{#T}](../data-proc/security/index.md).
 
@@ -603,9 +626,17 @@ description: "В статье приведен полный справочник
 
 {% include [datasphere.user](../_roles/datasphere/user.md) %}
 
+#### data-sphere.user {#data-sphere-user}
+
+{% include [data-sphere.user](../_roles/data-sphere/user.md) %}
+
 #### datasphere.admin {#datasphere-admin}
 
 {% include [datasphere.admin](../_roles/datasphere/admin.md) %}
+
+#### data-sphere.admin {#data-sphere-admin}
+
+{% include [data-sphere.admin](../_roles/data-sphere/admin.md) %}
 
 Подробнее см. [{#T}](../datasphere/security/index.md).
 
@@ -859,9 +890,17 @@ description: "В статье приведен полный справочник
 
 ## {{ maf-full-name }} {#managed-airflow-roles}
 
+#### managed-airflow.auditor {#managed-airflow-auditor}
+
+{% include [managed-airflow.auditor](../_roles/managed-airflow/auditor.md) %}
+
 #### managed-airflow.viewer {#managed-airflow-viewer}
 
 {% include [managed-airflow.viewer](../_roles/managed-airflow/viewer.md) %}
+
+#### managed-airflow.user {#managed-airflow-user}
+
+{% include [managed-airflow.user](../_roles/managed-airflow/user.md) %}
 
 #### managed-airflow.editor {#managed-airflow-editor}
 
@@ -870,6 +909,10 @@ description: "В статье приведен полный справочник
 #### managed-airflow.admin {#managed-airflow-admin}
 
 {% include [managed-airflow.admin](../_roles/managed-airflow/admin.md) %}
+
+#### managed-airflow.integrationProvider {#managed-airflow-integrationProvider}
+
+{% include [managed-airflow.integrationProvider](../_roles/managed-airflow/integrationProvider.md) %}
 
 Подробнее см. [{#T}](../managed-airflow/security/index.md).
 
@@ -1100,6 +1143,25 @@ description: "В статье приведен полный справочник
 {% include [managed-redis.admin](../_roles/managed-redis/admin.md) %}
 
 Подробнее см. [{#T}](../managed-redis/security/index.md).
+
+
+## {{ mms-full-name }} {#mms-roles}
+
+#### managed-sqlserver.auditor {#managed-sqlserver-auditor}
+
+{% include [managed-sqlserver.auditor](../_roles/managed-sqlserver/auditor.md) %}
+
+#### managed-sqlserver.viewer {#managed-sqlserver-viewer}
+
+{% include [managed-sqlserver.viewer](../_roles/managed-sqlserver/viewer.md) %}
+
+#### managed-sqlserver.editor {#managed-sqlserver-editor}
+
+{% include [managed-sqlserver.editor](../_roles/managed-sqlserver/editor.md) %}
+
+#### managed-sqlserver.admin {#managed-sqlserver-admin}
+
+{% include [managed-sqlserver.admin](../_roles/managed-sqlserver/admin.md) %}
 
 
 ## {{ ydb-full-name }} {#ydb-roles}

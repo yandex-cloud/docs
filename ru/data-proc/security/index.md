@@ -9,7 +9,9 @@ description: "Управление доступом в сервисе по со�
 
 Чтобы разрешить доступ к ресурсам сервиса {{ dataproc-name }} (кластерам или подкластерам), назначьте аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным пользователям](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md) или [системной группе](../../iam/concepts/access-control/system-group.md) нужные роли из приведенного ниже списка. На данный момент роль может быть назначена только на родительский ресурс (каталог или облако), роли которого наследуются вложенными ресурсами.
 
-Назначать роли на ресурс могут те, у кого есть роль `admin`, `resource-manager.clouds.owner` или `organization-manager.organizations.owner` на этот ресурс.
+Назначать роли на ресурс могут пользователи, у которых на этот ресурс есть роль `mdb.admin`, `dataproc.admin` или одна из следующих ролей:
+
+{% include [roles-list](../../_includes/iam/roles-list.md) %}
 
 {% note info %}
 
@@ -32,10 +34,6 @@ description: "Управление доступом в сервисе по со�
 #### dataproc.agent {#dataproc-agent}
 
 {% include [dataproc.agent](../../_roles/dataproc/agent.md) %}
-
-#### mdb.dataproc.agent {#mdb-dataproc-agent}
-
-{% include [mdb.dataproc.agent](../../_roles/mdb/dataproc/agent.md) %}
 
 #### dataproc.auditor {#dataproc-auditor}
 
@@ -76,6 +74,10 @@ description: "Управление доступом в сервисе по со�
 #### managed-metastore.admin {#managed-metastore-admin}
 
 {% include [managed-metastore.admin](../../_roles/managed-metastore/admin.md) %}
+
+#### managed-metastore.integrationProvider {#managed-metastore-integrationProvider}
+
+{% include [managed-metastore.integrationProvider](../../_roles/managed-metastore/integrationProvider.md) %}
 
 #### mdb.auditor {#mdb-auditor}
 

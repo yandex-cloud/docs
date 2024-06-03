@@ -36,7 +36,7 @@ POST https://billing.{{ api-host }}/billing/v1/customers:invite
  
 Field | Description
 --- | ---
-resellerId | **string**<br><p>Required. ID of the reseller that customer will be associated with.</p> <p>The maximum string length in characters is 50.</p> 
+resellerId | **string**<br><p>Required. Billing account ID of the reseller that the customer will be associated with.</p> <p>The maximum string length in characters is 50.</p> 
 name | **string**<br><p>Required. Name of the customer.</p> 
 invitationEmail | **string**<br><p>Required. Customer email to send invitation to.</p> 
 person | **object**<br><p>Required. Person of the customer.</p> <p>Person of the customer. Contains legal information.</p> 

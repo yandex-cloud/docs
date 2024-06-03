@@ -10,6 +10,8 @@
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
+{% include [roles-assign](../../_includes/iam/roles-assign.md) %}
+
 ## На какие ресурсы можно назначить роль {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}

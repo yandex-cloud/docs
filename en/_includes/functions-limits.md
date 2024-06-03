@@ -13,6 +13,7 @@
 | Number of concurrent operations on all functions and their versions per folder | 15 |
 | Number of concurrent operations on all functions and their versions per cloud | 20 |
 | Number of [user networks](../functions/concepts/networking.md##user-network) per cloud | 1 |
+| Number of network packets per second per function instance | 10,000 |
 
 For more information about relationships between quotas, see [{#T}](../functions/concepts/limits.md#related-quotas).
 

@@ -1,1 +1,12 @@
-Роль `managed-metastore.editor` позволяет изменять и удалять кластеры, просматривать информацию о них, логах их работы и квотах. Включает в себя роль `managed-metastore.viewer`. Для создания кластеров дополнительно необходима роль `vpc.user`.
+Роль `managed-metastore.editor` позволяет управлять кластерами Hive Metastore, а также просматривать логи их работы и информацию о квотах сервисов управляемых баз данных Yandex Cloud.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о [кластерах](../../data-proc/concepts/metastore.md) Hive Metastore, а также создавать, изменять, запускать, останавливать и удалять такие кластеры;
+* [экспортировать и импортировать](../../data-proc/operations/metastore/export-and-import.md) кластеры Hive Metastore;
+* просматривать [логи](../../data-proc/concepts/logs.md) кластеров Hive Metastore;
+* просматривать информацию о квотах сервисов управляемых баз данных Yandex Cloud;
+* просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `managed-metastore.viewer`.
+
+Для создания кластеров дополнительно необходима [роль](../../vpc/security/index.md#vpc-user) `vpc.user`.

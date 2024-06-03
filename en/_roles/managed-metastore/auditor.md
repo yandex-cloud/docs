@@ -1,1 +1,1 @@
-The `managed-metastore.auditor` role enables you to view information about clusters and quotas.
+The `managed-metastore.auditor` role allows you to view information on Hive Metastore [clusters](../../data-proc/concepts/metastore.md) and the Yandex Cloud managed DB service quotas.

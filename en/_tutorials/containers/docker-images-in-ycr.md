@@ -7,13 +7,13 @@ You can use [{{ container-registry-full-name }}](../../container-registry/index.
 
 Storing images from {{ GL }} projects in {{ container-registry-full-name }} has several benefits:
 
-* {{ GL }} {{ container-registry-name }} stores images and tags on the [{{ GL }} instance](../../managed-gitlab/concepts/index.md#instance) disk. When the disk space is used up, a HTTP 500 error appears, and the instance becomes unavailable. You can recover the instance only by contacting tech support.
+* {{ GL }} {{ container-registry-name }} stores images and tags on the [{{ GL }} instance](../../managed-gitlab/concepts/index.md#instance) disk. When you run out of disk space, you get the HTTP 500 error, and the instance becomes unavailable. You can recover the instance only by contacting tech support.
 
    {{ container-registry-full-name }} stores images and tags in [registries](../../container-registry/concepts/registry.md) for which [individual quotas](../../container-registry/concepts/limits.md) are allocated. Because of this, accumulating Docker images and tags does not affect the space available on the instance disk.
 
-* The images are still available in {{ container-registry-full-name }}, even if {{ mgl-name }} is not.
+* The images are still available in {{ container-registry-full-name }}, even if {{ mgl-name }} is not.
 
-* {{ container-registry-full-name }} supports the [Docker image availability scanner](../../container-registry/concepts/vulnerability-scanner.md). Use the scanner to detect vulnerabilities and fix them before deploying your application. You can learn more about security scans in the [{{ yandex-cloud }} blog](/blog/posts/2023/04/vulnerability-scanner-and-yandex-container-registry).
+* {{ container-registry-full-name }} supports the [Docker image vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md). Use the scanner to detect vulnerabilities and fix them before deploying your application. You can learn more about security scans in the [{{ yandex-cloud }} blog](/blog/posts/2023/04/vulnerability-scanner-and-yandex-container-registry).
 
 To set up storage of {{ mgl-name }} Docker images in {{ container-registry-full-name }}:
 
@@ -24,7 +24,7 @@ To set up storage of {{ mgl-name }} Docker images in {{ container-registry-full-
 1. [Create {{ GL }} environment variables](#add-variables).
 1. [Create the CI script configuration file](#add-ci).
 1. [Check the result](#check-result).
-1. [Enable the Docker image lifecycle policies](#lifecycle-policy).
+1. [Enable a Docker image lifecycle policy](#lifecycle-policy).
 1. (Optional) [Scan your Docker images for vulnerabilities](#vulnerability-scanner).
 
 If you have already set up your {{ mgl-full-name }} instance for Continuous Integration (CI), check that you have prepared the [infrastructure for Docker images](#deploy-infrastructure). That done, begin the setup by [creating environment variables](#add-variables).
@@ -48,7 +48,7 @@ Infrastructure support costs include fees for the following resources:
 
 * Disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Storing created Docker images; vulnerability scanner, if [activated](#vulnerability-scanner) (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
+* Storing the Docker images you created and a vulnerability scanner, if [activated](#vulnerability-scanner) it (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
 * Using a {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 
 
@@ -118,7 +118,7 @@ Infrastructure support costs include fees for the following resources:
 
 ## Create a test application {#app-create}
 
-Create a test application that can be deployed in a {{ managed-k8s-name }} cluster: To do this, add `Dockerfile` to the project:
+Create a test application that can be deployed in a {{ managed-k8s-name }} cluster. To do this, add `Dockerfile` to the project:
 
 1. Log in to {{ GL }}.
 1. On the home page, select a repository.
@@ -215,7 +215,7 @@ To publish Docker images from your {{ GL }} project in {{ container-registry-ful
 
 ## Check the result {#check-result}
 
-Each commit is followed by a build script: To check the script execution results:
+Each commit is followed by a build script. To check the script execution results:
 
 1. In the left-hand panel in {{ GL }}, select **CI/CD** → **Pipelines** in the drop-down menu.
 
@@ -239,7 +239,7 @@ Specifics of working with the policy:
 
 ## Scan your Docker images for vulnerabilities {#vulnerability-scanner}
 
-To detect vulnerabilities in your Docker images, you can additionally activate a [vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md) in {{ container-registry-full-name }}. The scanner checks the versions of packages installed in your images against [CVE](https://cve.mitre.org/) vulnerability databases.
+To detect vulnerabilities in your Docker images, you can additionally activate a [vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md) in {{ container-registry-full-name }}. The scanner checks the versions of packages installed in your images against [CVE](https://cve.mitre.org/) vulnerability databases.
 
 To enable scanning, expand your {{ GL }} project's CI script:
 

@@ -1,7 +1,11 @@
-Роль `datasphere.community-projects.editor` позволяет изменять настройки проекта, а также дает возможность его удалить.
+Роль `datasphere.community-projects.editor` позволяет работать в проектах, изменять и удалять их, а также управлять ресурсами, которые закреплены за проектами, и делиться такими ресурсами в сообществе.
 
-Пользователь с ролью `datasphere.community-projects.editor` может поделиться ресурсами этого проекта с сообществом, на которое имеет права `Developer` (роль `datasphere.communities.developer`).
+Пользователи с этой ролью могут:
+* просматривать информацию о [проектах](../../../datasphere/concepts/project.md), настройках проектов и закрепленных за ними ресурсах, а также изменять и удалять проекты;
+* создавать, изменять и удалять [ресурсы](../../../datasphere/concepts/resources.md) в проектах, а также делиться ресурсами этого проекта с сообществами, в которых пользователь имеет права `Developer` (роль `datasphere.communities.developer` и выше);
+* запускать IDE и исполнение ячеек с кодом в проектах;
+* просматривать информацию о назначенных [правах доступа](../../../iam/concepts/access-control/index.md) к проектам.
 
-Помимо этого роль `datasphere.community-projects.editor` включает в себя все разрешения роли `datasphere.community-projects.developer`.
+Включает разрешения, предоставляемые ролью `datasphere.community-projects.developer`.
 
-В интерфейсе DataSphere пользователи с ролью `datasphere.community-projects.editor` имеют роль `Editor` на вкладке Участники на странице проекта.
+В интерфейсе DataSphere пользователи с ролью `datasphere.community-projects.editor` имеют роль `Editor` на вкладке **Участники** на странице проекта.

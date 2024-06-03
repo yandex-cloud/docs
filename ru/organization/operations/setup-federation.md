@@ -112,7 +112,7 @@
             {% include [fed-users-note](../../_includes/organization/fed-users-note.md) %}
 
         * (Опционально) `--case-insensitive-name-ids` — идентификаторы имен федеративных пользователей будут нечувствительны к регистру.
-        * (Опционально) {% include [forceauthn-cli-enable](../../_includes/organization/forceauth-cli-enable.md) %}
+        * {% include [forceauthn-cli-enable](../../_includes/organization/forceauth-cli-enable.md) %}
 
 - {{ TF }} {#tf}
 
