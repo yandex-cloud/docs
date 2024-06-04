@@ -4,7 +4,7 @@ This guide will help you create a test agent in your cloud, configure a simple l
 
 ## Getting started {#before-you-begin}
 
-1. Log in to the [management console]({{ link-console-main }}). If you are not signed up yet, navigate to the management console and follow the instructions.
+1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
 1. Go to [{{ billing-name }}]({{ link-console-billing }}) and make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md).
 1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default virtual network with subnets in all availability zones.
 1. Create a [service account](../iam/operations/sa/create.md) in the folder to host the agents that will generate the load. [Assign](../iam/operations/roles/grant.md) it the `loadtesting.generatorClient` [role](./security/#roles-list).
@@ -45,7 +45,7 @@ We will use Pandora as load generator, since it is best suited for testing cloud
    1. **{{ ui-key.yacloud.load-testing.label_agents-list }}**: Select `test-agent`.
    1. **{{ ui-key.yacloud.load-testing.field_settings-type }}**: Select `{{ ui-key.yacloud.load-testing.label_settings-type-form }}`.
    1. **{{ ui-key.yacloud.load-testing.field_load-generator }}**: Select `Pandora`.
-   1. **Target address**: Enter the address of the service to test: `example.myservice.ru`.
+   1. **Target address**: Enter the address of the service to test (`example.myservice.ru`).
    1. **Target port**: Set to `80` (default HTTP port).
    1. **Testing threads**: `1000`.
       This means that the generator can simultaneously process 1,000 operations: either create 1,000 connections or wait for 1,000 responses from the service at the same time.
@@ -64,7 +64,7 @@ We will use Pandora as load generator, since it is best suited for testing cloud
       * **Duration**: Specify `60s`.
    1. Add another **Load profile**:
       * **Profile 2**: Select `const`.
-      * **Responses per second**: Set `100`.
+      * **Responses per second**: Specify `100`.
       * **Duration**: Specify `300s`.
 
       This instructs the generator to increase the load from 1 to 100 requests per second for the first 60 seconds, and then maintain a load of 100 requests per second for 5 minutes.

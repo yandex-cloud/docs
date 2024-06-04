@@ -19,7 +19,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note alert %}
 
-When you use a Mikrotik Cloud Hosted Router image without a license, the router throughput is limited to 1 Mbps. To remove this limit, [install a license](https://wiki.mikrotik.com/wiki/Manual:CHR#CHR_Licensing).
+If using a Mikrotik Cloud Hosted Router image without a license, the router throughput is limited to 1 Mbps. To remove this limit, [install a license](https://wiki.mikrotik.com/wiki/Manual:CHR#CHR_Licensing).
 
 {% endnote %}
 
@@ -42,10 +42,10 @@ The cost of using a virtual router and test VM includes:
    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 GB`.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the required network and subnet and assign a public IP address to the VM either by selecting it from the list or automatically. If you don't have a network or subnet, create them on the VM creation screen.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the required network and subnet and assign a public IP address to the VM either by selecting it from the list or automatically. If you do not have a network or subnet, create them on the VM creation page.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
    1. Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-   1. Paste the contents of the public SSH key file in the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for SSH connection yourself.
+   1. Paste the contents of the public SSH key file in the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair yourself.
 
       Note that you only need this data for VM creation. You cannot use the data for router access.
 

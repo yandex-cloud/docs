@@ -6,10 +6,10 @@
 To allow another user to open your dashboard, configure access to {{ datalens-full-name }}:
 
 1. [Invite a user](../../organization/operations/add-account.md#send-invitation) with a Yandex account or [add a federated user](../../organization/operations/add-account.md#add-user-sso).
-1. Make sure that the user has access to the dashboard:
+1. Make sure the user has access permissions to the dashboard:
 
    1. Open the dashboard.
-   1. In the **Add member** field, enter "All" or the name of the user who needs extended permissions.
+   1. In the **Add member** field, enter _All_ or the name of the user who needs extended permissions.
    1. Go to the **Current object** section and set the permissions for the dashboard:
 
       * View: Read only is available.

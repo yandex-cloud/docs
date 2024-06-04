@@ -1,7 +1,7 @@
-# Object permissions
+# Object access permissions
 
-{{ datalens-short-name }} access control is implemented at the object and the folder level.
-You can grant users permission to each object and directory. They determine which operations are allowed. If you created or copied a directory or object, they will have the same permissions as their new parent folder.
+{{ datalens-short-name }} access control is implemented at the object and the directory level.
+You can grant users permission to each object and directory. These permissions determine which operations are allowed. If you created or copied a directory or object, they will have the same permissions as their new parent directory.
 
 You can grant users access to a directory or any service object:
 
@@ -30,23 +30,23 @@ You can grant the following permissions to objects and directories in {{ datalen
 
 ### {{ permission-execute }} {#permission-execute}
 
-A user with the `{{ permission-execute }}` permission for a connection can make requests to it, but can't create datasets. Regardless of dataset permissions, the user can't access a list of tables in a dataset or view the SQL subquery that the dataset is based on.
+A user with the `{{ permission-execute }}` permission for a connection can make requests to it but cannot create datasets. Regardless of the dataset permissions, the user cannot access a list of tables in a dataset or view the SQL subquery the dataset is based on.
 
-A user with `{{ permission-execute }}` access to a dataset can run queries against the dataset but is unable to create or edit charts or view the dataset.
+A user with the `{{ permission-execute }}` permission for a dataset can run queries against it but cannot create or edit charts or view the dataset.
 
 {% note warning %}
 
-You can only grant the `{{ permission-execute }}` permission for connections and datasets.
+You can grant the `{{ permission-execute }}` access permission only for connections and datasets.
 
 {% endnote %}
 
-Granting users the `{{ permission-execute }}` permission lets you:
+Granting users the `{{ permission-execute }}` permission allows you to:
 
 * Reduce the number of requests to the source, thereby reducing the load on the connection source.
 
-* Better control what data can be shown from a dataset. You can hide some source fields so that users can't view all fields.
+* Better control what data can be shown from a dataset. You can hide some source fields so that users cannot view all fields.
 
-* Restrict the creation of subqueries to the source database. A user with the `{{ permission-execute }}` permission can't write subqueries.
+* Restrict the creation of subqueries to the source database. A user with the `{{ permission-execute }}` permission cannot write subqueries.
 
 ### {{ permission-read }} {#permission-read}
 
@@ -54,7 +54,7 @@ A user with the `{{ permission-read }}` permission can view dashboards, widgets,
 
 {% note warning %}
 
-The `{{ permission-read }}` permission doesn't allow copying datasets, because they contain [RLS](row-level-security.md) settings. A user can only copy datasets if granted the `{{ permission-write }}` or `{{ permission-admin }}` permission.
+The `{{ permission-read }}` permission does not allow copying datasets, because they contain the [RLS](row-level-security.md) settings. A user can only copy datasets if granted the `{{ permission-write }}` or `{{ permission-admin }}` permission.
 
 {% endnote %}
 

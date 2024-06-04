@@ -633,6 +633,7 @@ Field | Description
 project_id | **string**<br>ID of the project. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListProjectJobResponse.page_token](#ListProjectJobResponse) that can be used to get the next page of results in subsequent list requests. 
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListProjectJobResponse.page_token](#ListProjectJobResponse) returned by a previous list request. 
+filter | **string**<br>restrictions: <ul><li>only `status` field is supported </li><li>only `IN` operator is supported </li></ul>example: <ul><li>only running jobs == "status IN (EXECUTING, UPLOADING_OUTPUT)"</li></ul> The maximum string length in characters is 1000.
 
 
 ### ListProjectJobResponse {#ListProjectJobResponse}
@@ -640,7 +641,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 jobs[] | **[Job](#Job1)**<br>Instances of the jobs. 
-page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListProjectJobRequest.page_size](#ListProjectJobRequest), use the [next_page_token] as the value for the [ListProjectJobRequest.page_token](#ListProjectJobRequest) query parameter in the next list request. Each subsequent list request will have its own `page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListProjectJobRequest.page_size](#ListProjectJobRequest), use the `next_page_token` as the value for the [ListProjectJobRequest.page_token](#ListProjectJobRequest) query parameter in the next list request. Each subsequent list request will have its own [page_token] to continue paging through the results. 
 
 
 ### Job {#Job1}

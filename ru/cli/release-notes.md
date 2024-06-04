@@ -7,6 +7,45 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.126.0 (04.06.24) {#version0.126.0}
+
+#### Изменения в CLI {#cli}
+
+* В профиль добавлено поле `region`, предназначенное для работы с различными регионами.
+* В команду `init` добавлен флаг `--region`, предназначенный для инициализации CLI с определенным регионом.
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ resmgr-name }} {#resmgr}
+* Добавлена команда `yc resource-manager cloud create` для создания облака.
+   * Флаг `--billing-account-id` позволяет автоматически привязать созданное облако к платежному аккаунту.
+* Добавлена команда `yc resource-manager cloud delete` для удаления облака.
+   * Флаг `--delete-after` позволяет удалить облако через указанное время.
+* В команду `yc resource-manager folder delete` добавлен флаг `--delete-after` для отложенного удаления через указанное время.
+
+##### {{load-testing-name}}
+* В команду `yc loadtesting agent create` добавлен флаг `--platform-id` для создания виртуальной машины на указанной платформе.
+* В команду `yc loadtesting test create` добавлены параметры для управления выгрузкой артефактов агента в {{ objstorage-name }}:
+  * `--artifacts-output-bucket` для указания имени бакета, в который будут выгружаться артефакты.
+  * `--artifacts-make-archive` для определения того, будут ли артефкаты выгружаться  одним архивом или по отдельности.
+  * `--artifacts` для указания конкретных файлов, которые будут выгружены.
+
+##### {{ mos-name }}
+* В команды `yc managed-opensearch cluster create` и `yc managed-opensearch cluster restore` добавлен опциональный параметр `--keystore-settings`, который позволяет задать содержимое {{ OS }} keystore.
+* В команду `yc managed-opensearch cluster update` добавлены опциональные параметры `--set-keystore-settings` и `--remove-keystore-settings`:
+   * `--set-keystore-settings` для указания списка записей, которые будут добавлены или заменены. Записи в keystore, которые не указаны в этом параметре, останутся без изменений.
+   * `--remove-keystore-settings` для указания списка записей, которые должны быть удалены из keystore.
+
+##### {{ sf-name }} {#serverless-functions}
+* В команде `yc serverless function allow-unauthenticated-invoke` устаревшая роль `serverless.functions.invoker` заменена на новую `functions.functionInvoker`.
+* Команда `yc serverless function deny-unauthenticated-invoke` теперь удаляет устаревшую роль `serverless.functions.invoker` и новую роль `functions.functionInvoker`.
+
+##### {{ serverless-containers-name }} {#serverless-containers}
+* В команде `yc serverless container allow-unauthenticated-invoke` устаревшая роль `serverless.containers.invoker` заменена на новую `serverless-containers.containerInvoker`.
+* Команда `yc serverless container deny-unauthenticated-invoke` теперь удаляет устаревшую роль `serverless.containers.invoker` и новую роль `serverless-containers.containerInvoker`.
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.125.0 (20.05.24) {#version0.125.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}

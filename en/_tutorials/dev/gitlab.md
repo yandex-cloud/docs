@@ -30,14 +30,14 @@ To create and test a project in the {{ GL }} environment:
 
 The cost for maintaining a {{ GL }} server includes:
 * Fee for a [disk](../../compute/concepts/disk.md) and a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or a static [public IP](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md))
+* Fee for using a dynamic or static [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Create a VM with {{ GL }} {#create-vm}
 
 1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
 1. In the **{{ ui-key.yacloud.common.name }}** field, enter `gitlab` for the VM name.
-1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
+1. Select an [availability zone](../../overview/concepts/geo-scope.md) for your VM.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select a public [{{ GL }}](/marketplace/products/yc/gitlab) image.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**, select a 20 GB [SSD](../../compute/concepts/disk.md#disks_types).
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
@@ -71,8 +71,8 @@ The cost for maintaining a {{ GL }} server includes:
 1. Copy the password (without spaces) from the `Password` row to the clipboard or a separate file.
 1. Open `http://<VM_public_IP_address>` in your browser. This will take you to the {{ GL }} web interface.
 1. Log in using the administrator account:
-   * **Username or email**: `root`
-   * **Password**: Password you copied earlier
+   * **Username or email**: `root`.
+   * **Password**: Password you copied earlier.
 
    If you are unable to log in, [reset the administrator account password](https://docs.gitlab.com/ee/security/reset_user_password.html#reset-your-root-password).
 1. [Change the administrator account password](https://docs.gitlab.com/ee/user/profile/#change-your-password).

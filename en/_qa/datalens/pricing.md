@@ -17,7 +17,7 @@ The billing system for {{ datalens-short-name }} will be introduced in stages:
 * March 20, 2024: We announce the service plans and notify all our users.
 * April 23, 2024: You can upgrade your service plan to Business free of charge.
 * June 1, 2024: We start charging for the Business service plan.
-* December 31, 2024: We discontinue SSO for the existing users of the free Community plan.
+* December 31, 2024: We discontinue SSO for the existing free Community plan users.
 
 ### Can I go back to the free Community service plan? {#free-rollback}
 
@@ -37,7 +37,7 @@ If you need to retain federated users, schedule an upgrade to the Business servi
 
 ### How will you count chart views through secure embeddings? {#embed-pricing}
 
-We are not counting users of [secure chart embeddings](../../datalens/dashboard/embedded-objects.md#private-embedding). One embedded object can be viewed by thousands of users in an external system, each with their own filter. For that reason, in the future, we may impose additional limitations on the number of embedded object views to prevent overload. We will announce this in advance.
+We are not counting users of [secure chart embeddings](../../datalens/dashboard/embedded-objects.md#private-embedding). One embedded object can be viewed by thousands of users in an external system, each with a filter of their own. For that reason, in the future, we may impose additional limitations on the number of embedded object views to prevent overload. We will announce this in advance.
 
 ### How can I understand how many of my users are actually using {{ datalens-short-name }}? {#statistics}
 

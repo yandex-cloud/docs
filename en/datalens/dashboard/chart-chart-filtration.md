@@ -15,7 +15,7 @@ You can reset chart filtering in two ways:
 * Click the selected item once again.
 * Click ![image](../../_assets/datalens/clear-filters.svg) in the top-right corner of the chart.
 
-You can choose multiple filtering values on the same chart (other than the **Table** chart):
+You can choose multiple filtering values on the same chart:
 
 1. Click the first dimension value for filtering.
 1. Hold down the `Ctrl` (`Cmd`) key on your keyboard and select the other values.
@@ -31,6 +31,11 @@ Filtering is available for the following types of charts created using the [wiza
 * [Ring chart](../visualization-ref/ring-chart.md)
 * [Table](../visualization-ref/table-chart.md)
 * [Pivot table](../visualization-ref/pivot-table-chart.md)
+* [Combined chart](../visualization-ref/combined-chart.md)
+
+
+You can check how charts are filtered by charts on the [demo dashboard](https://datalens.yandex/9fms9uae7ip02?tab=LoG).
+
 
 
 ## Recommendations and limitations {#using}

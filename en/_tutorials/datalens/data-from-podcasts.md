@@ -25,7 +25,7 @@ To visualize and analyze the data, follow these steps:
 1. [Make a dashboard or chart public](#publish-dashboard-chart).
 1. [Add a chart or dashboard to your website](#add-dashboard-chart).
 
-We recommend that you review the [FAQ](#qa) section to help you get answers to the most common questions users of Yandex Music podcast statistics may have.
+We recommend checking the [FAQ](#qa) section for answers to common questions that users of Yandex Music podcast statistics may have.
 
 ## 1. Set up a connection {#configure-connection}
 
@@ -38,15 +38,15 @@ Set up {{ datalens-short-name }} depending on your experience:
 * You are a new user (you want to use {{ datalens-full-name }} only for podcast analysis).
 * You are already using {{ datalens-full-name }} (for other purposes).
 
-{% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin-datalens.md) %}
 
 ### 1.2. Create a connection {#create-connection}
 
 {% note warning %}
 
-Only users with rights to a Yandex Music podcast can create connections and process podcast analytics. If you do not have access to any podcast, no data will be displayed on the dashboard.
+Only users with permissions to a Yandex Music podcast can create connections and process podcast analytics. If you do not have access to any podcast, no data will be displayed on the dashboard.
 
-You will get access after uploading a podcast to Yandex Music. The podcast is linked to the Yandex email address specified when uploading it.
+You will get access after uploading a podcast to Yandex Music. The podcast is linked to the Yandex email address you specified when uploading it.
 
 {% endnote %}
 
@@ -230,7 +230,7 @@ Set up access to {{ datalens-full-name }}:
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the new user and select **Change roles**.
 1. Under **Roles in folders**, select a folder. In the **Roles** column, click ![image](../../_assets/console-icons/plus.svg). Assign the `datalens.instances.user` role.
    After that, you can share a link to the dashboard with the new user.
-1. Make sure that the new user has access rights to the dashboard with podcast statistics. Open the dashboard.
+1. Make sure the new user has the permissions to access the dashboard with podcast statistics. Open the dashboard.
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) → **Access rights**.
 
    ![image](../../_assets/datalens/solution-10/25-access.png)

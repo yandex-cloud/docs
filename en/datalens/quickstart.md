@@ -6,7 +6,7 @@ In this tutorial, you will create your first [dataset](concepts/dataset/index.md
 
 
 
-{% include [before-you-begin](../_tutorials/includes/before-you-begin-datalens.md) %}
+{% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin-datalens.md) %}
 
 
 ## Create a connection {#create-connection}

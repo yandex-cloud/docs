@@ -21,9 +21,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-If the [agent](../../load-testing/concepts/agent.md) is hosted on {{ yandex-cloud }}, a fee is charged for computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+If the [agent](../../load-testing/concepts/agent.md) is hosted on {{ yandex-cloud }}, you pay for computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
-At the [Preview](../../overview/concepts/launch-stages.md) stage, using {{ load-testing-name }} is free of charge.
+At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testing-name }} is free of charge.
 
 ## Prepare the infrastructure {#infrastructure-prepare}
 
@@ -135,12 +135,12 @@ To prepare a test target:
    - {{ ui-key.yacloud.load-testing.label_settings-type-form }}
 
       1. In the **{{ ui-key.yacloud.load-testing.field_load-generator }}** field, select **PANDORA**.
-      1. In the **Target address** field, specify the internal IP address of the service being tested.
+      1. In the **Target address** field, specify the internal IP address of the service to test.
       1. In the **Target port** field, set `443` (default HTTPS port).
           Allow using a secure connection.
       1. In the **Testing threads** field, specify `5000`.
 
-         This means that the load generator can simultaneously process 5,000 operations: create 5,000 connections or wait for 5,000 responses from the service at the same time.
+         This means that the load generator can simultaneously process 5,000 operations: either create 5,000 connections or wait for 5,000 responses from the service at the same time.
 
          {% note tip %}
 

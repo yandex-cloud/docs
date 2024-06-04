@@ -234,15 +234,15 @@ configSpec.<br>backgroundActivities.<br>analyzeAndVacuum.<br>start.<br>minutes |
 configSpec.<br>backgroundActivities.<br>analyzeAndVacuum.<br>analyzeTimeout | **integer** (int64)<br><p>Maximum duration of the ``ANALYZE`` operation, in seconds. The default value is ``36000``. As soon as this period expires, the ``ANALYZE`` operation will be forced to terminate.</p> <p>Acceptable values are 7200 to 86399, inclusive.</p> 
 configSpec.<br>backgroundActivities.<br>analyzeAndVacuum.<br>vacuumTimeout | **integer** (int64)<br><p>Maximum duration of the ``VACUUM`` operation, in seconds. The default value is ``36000``. As soon as this period expires, the ``VACUUM`` operation will be forced to terminate.</p> <p>Acceptable values are 7200 to 86399, inclusive.</p> 
 configSpec.<br>pxfConfig | **object**
-configSpec.<br>pxfConfig.<br>connectionTimeout | **integer** (int64)<br><p>Connection</p> <p>Acceptable values are 5 to 600, inclusive.</p> 
-configSpec.<br>pxfConfig.<br>uploadTimeout | **integer** (int64)<br><p>Acceptable values are 5 to 600, inclusive.</p> 
-configSpec.<br>pxfConfig.<br>maxThreads | **integer** (int64)<br><p>Thread pool</p> <p>Acceptable values are 1 to 1024, inclusive.</p> 
-configSpec.<br>pxfConfig.<br>poolAllowCoreThreadTimeout | **boolean** (boolean)
-configSpec.<br>pxfConfig.<br>poolCoreSize | **integer** (int64)<br><p>Acceptable values are 1 to 1024, inclusive.</p> 
-configSpec.<br>pxfConfig.<br>poolQueueCapacity | **integer** (int64)<br><p>The minimum value is 0.</p> 
-configSpec.<br>pxfConfig.<br>poolMaxSize | **integer** (int64)<br><p>Acceptable values are 1 to 1024, inclusive.</p> 
-configSpec.<br>pxfConfig.<br>xmx | **integer** (int64)<br><p>JVM</p> <p>The minimum value is 64.</p> 
-configSpec.<br>pxfConfig.<br>xms | **integer** (int64)<br><p>The minimum value is 64.</p> 
+configSpec.<br>pxfConfig.<br>connectionTimeout | **integer** (int64)<br><p>Timeout for connection to the Apache Tomcat® server when making read requests.</p> <p>Specify values in seconds.</p> <p>Acceptable values are 5 to 600, inclusive.</p> 
+configSpec.<br>pxfConfig.<br>uploadTimeout | **integer** (int64)<br><p>Timeout for connection to the Apache Tomcat® server when making write requests.</p> <p>Specify the values in seconds.</p> <p>Acceptable values are 5 to 600, inclusive.</p> 
+configSpec.<br>pxfConfig.<br>maxThreads | **integer** (int64)<br><p>Maximum number of the Apache Tomcat® threads.</p> <p>To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the <a href="https://docs.vmware.com/en/VMware-Greenplum-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html">VMware Greenplum® Platform Extension Framework</a> documentation.</p> <p>Acceptable values are 1 to 1024, inclusive.</p> 
+configSpec.<br>pxfConfig.<br>poolAllowCoreThreadTimeout | **boolean** (boolean)<br><p>Determines whether the timeout for core streaming threads is permitted.</p> 
+configSpec.<br>pxfConfig.<br>poolCoreSize | **integer** (int64)<br><p>Number of core streaming threads per pool.</p> <p>Acceptable values are 1 to 1024, inclusive.</p> 
+configSpec.<br>pxfConfig.<br>poolQueueCapacity | **integer** (int64)<br><p>Maximum number of requests you can add to a pool queue for core streaming threads.</p> <p>If ``0``, no pool queue is generated.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>pxfConfig.<br>poolMaxSize | **integer** (int64)<br><p>Maximum allowed number of core streaming threads.</p> <p>Acceptable values are 1 to 1024, inclusive.</p> 
+configSpec.<br>pxfConfig.<br>xmx | **integer** (int64)<br><p>Initial size, in megabytes, of the JVM heap for the PXF daemon.</p> <p>The minimum value is 64.</p> 
+configSpec.<br>pxfConfig.<br>xms | **integer** (int64)<br><p>Maximum size, in megabytes, of the JVM heap for the PXF daemon.</p> <p>The minimum value is 64.</p> 
 configSpec.<br>greenplumConfig_6_17 | **object** <br>`configSpec` includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`<br>
 configSpec.<br>greenplumConfig_6_17.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections on master segment.</p> 
 configSpec.<br>greenplumConfig_6_17.<br>maxSlotWalKeepSize | **integer** (int64)<br><p>The maximum size of WAL files that replication slots are allowed to retain in the ``pg_wal`` directory at checkpoint time.</p> <p>More info in <a href="https://www.postgresql.org/docs/current/runtime-config-replication.html">PostgreSQL® documentation</a>.</p> 
