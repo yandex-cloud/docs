@@ -346,23 +346,23 @@ vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/pr
 Field | Description
 --- | ---
 effective_config | **[PXFConfig](#PXFConfig)**<br>Required.  
-user_config | **[PXFConfig](#PXFConfig)**<br>User-defined settings 
-default_config | **[PXFConfig](#PXFConfig)**<br>Default configuration 
+user_config | **[PXFConfig](#PXFConfig)**<br>User-defined settings. 
+default_config | **[PXFConfig](#PXFConfig)**<br>Default configuration. 
 
 
 ### PXFConfig {#PXFConfig}
 
 Field | Description
 --- | ---
-connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Connection Acceptable values are 5 to 600, inclusive.
-upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 5 to 600, inclusive.
-max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Thread pool Acceptable values are 1 to 1024, inclusive.
-pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
-pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
-pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
-pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
-xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>JVM The minimum value is 64.
-xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 64.
+connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for connection to the Apache Tomcat® server when making read requests. <br>Specify values in seconds. Acceptable values are 5 to 600, inclusive.
+upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for connection to the Apache Tomcat® server when making write requests. <br>Specify the values in seconds. Acceptable values are 5 to 600, inclusive.
+max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of the Apache Tomcat® threads. <br>To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware Greenplum® Platform Extension Framework](https://docs.vmware.com/en/VMware-Greenplum-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation. Acceptable values are 1 to 1024, inclusive.
+pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Determines whether the timeout for core streaming threads is permitted. 
+pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of core streaming threads per pool. Acceptable values are 1 to 1024, inclusive.
+pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of requests you can add to a pool queue for core streaming threads. <br>If `0`, no pool queue is generated. The minimum value is 0.
+pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum allowed number of core streaming threads. Acceptable values are 1 to 1024, inclusive.
+xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Initial size, in megabytes, of the JVM heap for the PXF daemon. The minimum value is 64.
+xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size, in megabytes, of the JVM heap for the PXF daemon. The minimum value is 64.
 
 
 ### CloudStorage {#CloudStorage}
@@ -701,23 +701,23 @@ vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/pr
 Field | Description
 --- | ---
 effective_config | **[PXFConfig](#PXFConfig1)**<br>Required.  
-user_config | **[PXFConfig](#PXFConfig1)**<br>User-defined settings 
-default_config | **[PXFConfig](#PXFConfig1)**<br>Default configuration 
+user_config | **[PXFConfig](#PXFConfig1)**<br>User-defined settings. 
+default_config | **[PXFConfig](#PXFConfig1)**<br>Default configuration. 
 
 
 ### PXFConfig {#PXFConfig1}
 
 Field | Description
 --- | ---
-connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Connection Acceptable values are 5 to 600, inclusive.
-upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 5 to 600, inclusive.
-max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Thread pool Acceptable values are 1 to 1024, inclusive.
-pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
-pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
-pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
-pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
-xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>JVM The minimum value is 64.
-xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 64.
+connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for connection to the Apache Tomcat® server when making read requests. <br>Specify values in seconds. Acceptable values are 5 to 600, inclusive.
+upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for connection to the Apache Tomcat® server when making write requests. <br>Specify the values in seconds. Acceptable values are 5 to 600, inclusive.
+max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of the Apache Tomcat® threads. <br>To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware Greenplum® Platform Extension Framework](https://docs.vmware.com/en/VMware-Greenplum-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation. Acceptable values are 1 to 1024, inclusive.
+pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Determines whether the timeout for core streaming threads is permitted. 
+pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of core streaming threads per pool. Acceptable values are 1 to 1024, inclusive.
+pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of requests you can add to a pool queue for core streaming threads. <br>If `0`, no pool queue is generated. The minimum value is 0.
+pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum allowed number of core streaming threads. Acceptable values are 1 to 1024, inclusive.
+xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Initial size, in megabytes, of the JVM heap for the PXF daemon. The minimum value is 64.
+xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size, in megabytes, of the JVM heap for the PXF daemon. The minimum value is 64.
 
 
 ### CloudStorage {#CloudStorage1}
@@ -965,15 +965,15 @@ vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/pr
 
 Field | Description
 --- | ---
-connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Connection Acceptable values are 5 to 600, inclusive.
-upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 5 to 600, inclusive.
-max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Thread pool Acceptable values are 1 to 1024, inclusive.
-pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
-pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
-pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
-pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
-xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>JVM The minimum value is 64.
-xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 64.
+connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for connection to the Apache Tomcat® server when making read requests. <br>Specify values in seconds. Acceptable values are 5 to 600, inclusive.
+upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for connection to the Apache Tomcat® server when making write requests. <br>Specify the values in seconds. Acceptable values are 5 to 600, inclusive.
+max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of the Apache Tomcat® threads. <br>To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware Greenplum® Platform Extension Framework](https://docs.vmware.com/en/VMware-Greenplum-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation. Acceptable values are 1 to 1024, inclusive.
+pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Determines whether the timeout for core streaming threads is permitted. 
+pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of core streaming threads per pool. Acceptable values are 1 to 1024, inclusive.
+pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of requests you can add to a pool queue for core streaming threads. <br>If `0`, no pool queue is generated. The minimum value is 0.
+pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum allowed number of core streaming threads. Acceptable values are 1 to 1024, inclusive.
+xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Initial size, in megabytes, of the JVM heap for the PXF daemon. The minimum value is 64.
+xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size, in megabytes, of the JVM heap for the PXF daemon. The minimum value is 64.
 
 
 ### CloudStorage {#CloudStorage2}
@@ -1142,8 +1142,8 @@ default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig3)**<br>Defau
 Field | Description
 --- | ---
 effective_config | **[PXFConfig](#PXFConfig3)**<br>Required.  
-user_config | **[PXFConfig](#PXFConfig3)**<br>User-defined settings 
-default_config | **[PXFConfig](#PXFConfig3)**<br>Default configuration 
+user_config | **[PXFConfig](#PXFConfig3)**<br>User-defined settings. 
+default_config | **[PXFConfig](#PXFConfig3)**<br>Default configuration. 
 
 
 ## Update {#Update}
@@ -1378,15 +1378,15 @@ vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/pr
 
 Field | Description
 --- | ---
-connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Connection Acceptable values are 5 to 600, inclusive.
-upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 5 to 600, inclusive.
-max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Thread pool Acceptable values are 1 to 1024, inclusive.
-pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
-pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
-pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
-pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
-xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>JVM The minimum value is 64.
-xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 64.
+connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for connection to the Apache Tomcat® server when making read requests. <br>Specify values in seconds. Acceptable values are 5 to 600, inclusive.
+upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for connection to the Apache Tomcat® server when making write requests. <br>Specify the values in seconds. Acceptable values are 5 to 600, inclusive.
+max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of the Apache Tomcat® threads. <br>To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware Greenplum® Platform Extension Framework](https://docs.vmware.com/en/VMware-Greenplum-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation. Acceptable values are 1 to 1024, inclusive.
+pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Determines whether the timeout for core streaming threads is permitted. 
+pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of core streaming threads per pool. Acceptable values are 1 to 1024, inclusive.
+pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of requests you can add to a pool queue for core streaming threads. <br>If `0`, no pool queue is generated. The minimum value is 0.
+pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum allowed number of core streaming threads. Acceptable values are 1 to 1024, inclusive.
+xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Initial size, in megabytes, of the JVM heap for the PXF daemon. The minimum value is 64.
+xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size, in megabytes, of the JVM heap for the PXF daemon. The minimum value is 64.
 
 
 ### CloudStorage {#CloudStorage3}
@@ -1555,8 +1555,8 @@ default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Defau
 Field | Description
 --- | ---
 effective_config | **[PXFConfig](#PXFConfig4)**<br>Required.  
-user_config | **[PXFConfig](#PXFConfig4)**<br>User-defined settings 
-default_config | **[PXFConfig](#PXFConfig4)**<br>Default configuration 
+user_config | **[PXFConfig](#PXFConfig4)**<br>User-defined settings. 
+default_config | **[PXFConfig](#PXFConfig4)**<br>Default configuration. 
 
 
 ## Expand {#Expand}
@@ -1907,23 +1907,23 @@ vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/pr
 Field | Description
 --- | ---
 effective_config | **[PXFConfig](#PXFConfig4)**<br>Required.  
-user_config | **[PXFConfig](#PXFConfig4)**<br>User-defined settings 
-default_config | **[PXFConfig](#PXFConfig4)**<br>Default configuration 
+user_config | **[PXFConfig](#PXFConfig4)**<br>User-defined settings. 
+default_config | **[PXFConfig](#PXFConfig4)**<br>Default configuration. 
 
 
 ### PXFConfig {#PXFConfig4}
 
 Field | Description
 --- | ---
-connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Connection Acceptable values are 5 to 600, inclusive.
-upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 5 to 600, inclusive.
-max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Thread pool Acceptable values are 1 to 1024, inclusive.
-pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
-pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
-pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
-pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
-xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>JVM The minimum value is 64.
-xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 64.
+connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for connection to the Apache Tomcat® server when making read requests. <br>Specify values in seconds. Acceptable values are 5 to 600, inclusive.
+upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for connection to the Apache Tomcat® server when making write requests. <br>Specify the values in seconds. Acceptable values are 5 to 600, inclusive.
+max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of the Apache Tomcat® threads. <br>To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware Greenplum® Platform Extension Framework](https://docs.vmware.com/en/VMware-Greenplum-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation. Acceptable values are 1 to 1024, inclusive.
+pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Determines whether the timeout for core streaming threads is permitted. 
+pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of core streaming threads per pool. Acceptable values are 1 to 1024, inclusive.
+pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of requests you can add to a pool queue for core streaming threads. <br>If `0`, no pool queue is generated. The minimum value is 0.
+pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum allowed number of core streaming threads. Acceptable values are 1 to 1024, inclusive.
+xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Initial size, in megabytes, of the JVM heap for the PXF daemon. The minimum value is 64.
+xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size, in megabytes, of the JVM heap for the PXF daemon. The minimum value is 64.
 
 
 ### CloudStorage {#CloudStorage4}
@@ -2318,23 +2318,23 @@ vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/pr
 Field | Description
 --- | ---
 effective_config | **[PXFConfig](#PXFConfig5)**<br>Required.  
-user_config | **[PXFConfig](#PXFConfig5)**<br>User-defined settings 
-default_config | **[PXFConfig](#PXFConfig5)**<br>Default configuration 
+user_config | **[PXFConfig](#PXFConfig5)**<br>User-defined settings. 
+default_config | **[PXFConfig](#PXFConfig5)**<br>Default configuration. 
 
 
 ### PXFConfig {#PXFConfig5}
 
 Field | Description
 --- | ---
-connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Connection Acceptable values are 5 to 600, inclusive.
-upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 5 to 600, inclusive.
-max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Thread pool Acceptable values are 1 to 1024, inclusive.
-pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
-pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
-pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
-pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
-xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>JVM The minimum value is 64.
-xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 64.
+connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for connection to the Apache Tomcat® server when making read requests. <br>Specify values in seconds. Acceptable values are 5 to 600, inclusive.
+upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for connection to the Apache Tomcat® server when making write requests. <br>Specify the values in seconds. Acceptable values are 5 to 600, inclusive.
+max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of the Apache Tomcat® threads. <br>To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware Greenplum® Platform Extension Framework](https://docs.vmware.com/en/VMware-Greenplum-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation. Acceptable values are 1 to 1024, inclusive.
+pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Determines whether the timeout for core streaming threads is permitted. 
+pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of core streaming threads per pool. Acceptable values are 1 to 1024, inclusive.
+pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of requests you can add to a pool queue for core streaming threads. <br>If `0`, no pool queue is generated. The minimum value is 0.
+pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum allowed number of core streaming threads. Acceptable values are 1 to 1024, inclusive.
+xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Initial size, in megabytes, of the JVM heap for the PXF daemon. The minimum value is 64.
+xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size, in megabytes, of the JVM heap for the PXF daemon. The minimum value is 64.
 
 
 ### CloudStorage {#CloudStorage5}
@@ -2689,23 +2689,23 @@ vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/pr
 Field | Description
 --- | ---
 effective_config | **[PXFConfig](#PXFConfig6)**<br>Required.  
-user_config | **[PXFConfig](#PXFConfig6)**<br>User-defined settings 
-default_config | **[PXFConfig](#PXFConfig6)**<br>Default configuration 
+user_config | **[PXFConfig](#PXFConfig6)**<br>User-defined settings. 
+default_config | **[PXFConfig](#PXFConfig6)**<br>Default configuration. 
 
 
 ### PXFConfig {#PXFConfig6}
 
 Field | Description
 --- | ---
-connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Connection Acceptable values are 5 to 600, inclusive.
-upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 5 to 600, inclusive.
-max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Thread pool Acceptable values are 1 to 1024, inclusive.
-pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
-pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
-pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
-pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
-xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>JVM The minimum value is 64.
-xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 64.
+connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for connection to the Apache Tomcat® server when making read requests. <br>Specify values in seconds. Acceptable values are 5 to 600, inclusive.
+upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for connection to the Apache Tomcat® server when making write requests. <br>Specify the values in seconds. Acceptable values are 5 to 600, inclusive.
+max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of the Apache Tomcat® threads. <br>To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware Greenplum® Platform Extension Framework](https://docs.vmware.com/en/VMware-Greenplum-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation. Acceptable values are 1 to 1024, inclusive.
+pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Determines whether the timeout for core streaming threads is permitted. 
+pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of core streaming threads per pool. Acceptable values are 1 to 1024, inclusive.
+pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of requests you can add to a pool queue for core streaming threads. <br>If `0`, no pool queue is generated. The minimum value is 0.
+pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum allowed number of core streaming threads. Acceptable values are 1 to 1024, inclusive.
+xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Initial size, in megabytes, of the JVM heap for the PXF daemon. The minimum value is 64.
+xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size, in megabytes, of the JVM heap for the PXF daemon. The minimum value is 64.
 
 
 ### CloudStorage {#CloudStorage6}
@@ -3302,23 +3302,23 @@ vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/pr
 Field | Description
 --- | ---
 effective_config | **[PXFConfig](#PXFConfig7)**<br>Required.  
-user_config | **[PXFConfig](#PXFConfig7)**<br>User-defined settings 
-default_config | **[PXFConfig](#PXFConfig7)**<br>Default configuration 
+user_config | **[PXFConfig](#PXFConfig7)**<br>User-defined settings. 
+default_config | **[PXFConfig](#PXFConfig7)**<br>Default configuration. 
 
 
 ### PXFConfig {#PXFConfig7}
 
 Field | Description
 --- | ---
-connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Connection Acceptable values are 5 to 600, inclusive.
-upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 5 to 600, inclusive.
-max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Thread pool Acceptable values are 1 to 1024, inclusive.
-pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
-pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
-pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
-pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
-xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>JVM The minimum value is 64.
-xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 64.
+connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for connection to the Apache Tomcat® server when making read requests. <br>Specify values in seconds. Acceptable values are 5 to 600, inclusive.
+upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for connection to the Apache Tomcat® server when making write requests. <br>Specify the values in seconds. Acceptable values are 5 to 600, inclusive.
+max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of the Apache Tomcat® threads. <br>To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware Greenplum® Platform Extension Framework](https://docs.vmware.com/en/VMware-Greenplum-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation. Acceptable values are 1 to 1024, inclusive.
+pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Determines whether the timeout for core streaming threads is permitted. 
+pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of core streaming threads per pool. Acceptable values are 1 to 1024, inclusive.
+pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of requests you can add to a pool queue for core streaming threads. <br>If `0`, no pool queue is generated. The minimum value is 0.
+pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum allowed number of core streaming threads. Acceptable values are 1 to 1024, inclusive.
+xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Initial size, in megabytes, of the JVM heap for the PXF daemon. The minimum value is 64.
+xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size, in megabytes, of the JVM heap for the PXF daemon. The minimum value is 64.
 
 
 ### CloudStorage {#CloudStorage7}
@@ -3703,23 +3703,23 @@ vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/pr
 Field | Description
 --- | ---
 effective_config | **[PXFConfig](#PXFConfig8)**<br>Required.  
-user_config | **[PXFConfig](#PXFConfig8)**<br>User-defined settings 
-default_config | **[PXFConfig](#PXFConfig8)**<br>Default configuration 
+user_config | **[PXFConfig](#PXFConfig8)**<br>User-defined settings. 
+default_config | **[PXFConfig](#PXFConfig8)**<br>Default configuration. 
 
 
 ### PXFConfig {#PXFConfig8}
 
 Field | Description
 --- | ---
-connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Connection Acceptable values are 5 to 600, inclusive.
-upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 5 to 600, inclusive.
-max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Thread pool Acceptable values are 1 to 1024, inclusive.
-pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
-pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
-pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
-pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
-xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>JVM The minimum value is 64.
-xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 64.
+connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for connection to the Apache Tomcat® server when making read requests. <br>Specify values in seconds. Acceptable values are 5 to 600, inclusive.
+upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for connection to the Apache Tomcat® server when making write requests. <br>Specify the values in seconds. Acceptable values are 5 to 600, inclusive.
+max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of the Apache Tomcat® threads. <br>To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware Greenplum® Platform Extension Framework](https://docs.vmware.com/en/VMware-Greenplum-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation. Acceptable values are 1 to 1024, inclusive.
+pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Determines whether the timeout for core streaming threads is permitted. 
+pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of core streaming threads per pool. Acceptable values are 1 to 1024, inclusive.
+pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of requests you can add to a pool queue for core streaming threads. <br>If `0`, no pool queue is generated. The minimum value is 0.
+pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum allowed number of core streaming threads. Acceptable values are 1 to 1024, inclusive.
+xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Initial size, in megabytes, of the JVM heap for the PXF daemon. The minimum value is 64.
+xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size, in megabytes, of the JVM heap for the PXF daemon. The minimum value is 64.
 
 
 ### CloudStorage {#CloudStorage8}

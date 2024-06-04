@@ -73,7 +73,7 @@ Prepare the infrastructure:
       * DNS zone and CNAME record for the cluster master host.
       * NAT gateway and routing table.
       * [Security groups](../../vpc/concepts/security-groups.md).
-      * Service account to access cloud resources.
+      * Service account to work with cloud resources.
       * Bucket to store job dependencies and results.
       * {{ dataproc-name }} cluster.
 

@@ -67,8 +67,8 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
       This will allow you to connect to the agent over SSH and manage tests from the console or collect debugging information.
 
 In this example, the load will be applied to an external service named `example.myservice.ru`. For more information about setting up security groups for testing the services running inside the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), see:
-* [{#T}](../../load-testing/operations/security-groups-agent.md).
-* [{#T}](../../load-testing/operations/security-groups-target.md).
+* [{#T}](../../load-testing/operations/security-groups-agent.md)
+* [{#T}](../../load-testing/operations/security-groups-target.md)
 
 ## Create test agents {#create-agents}
 
@@ -126,14 +126,14 @@ If you need to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
    1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
    1. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
-   1. Under **Config 1**, specify the test parameters for the first agent:
+   1. Under **Configuration 1**, specify the test parameters for the first agent:
       1. **{{ ui-key.yacloud.load-testing.label_agents-list }}**: Select the `agent-008` agent.
 
          In this example, the agents will have different test configurations. To use the same configuration, in the **{{ ui-key.yacloud.load-testing.label_agents-list }}** field, select all the agents you need to use.
       1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
          * **{{ ui-key.yacloud.load-testing.field_settings-type }}**: Select `{{ ui-key.yacloud.load-testing.label_settings-type-form }}`.
          * **{{ ui-key.yacloud.load-testing.field_load-generator }}**: Select `Pandora`.
-         * **Target address**: Enter the address of the service to be tested, `example.myservice.ru`.
+         * **Target address**: Enter the address of the service to test, `example.myservice.ru`.
          * **Target port**: Set to `80` (default port for the HTTP protocol).
          * **Testing threads**: `1000`.
 
@@ -170,10 +170,10 @@ If you need to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) 
             * `[Connection: Close]`
 
                Please note that the `Connection: Close` header means each connection is terminated after making a request. This mode is heavier on the tested service and load generator. If you do not need to close connections, set `Keep-Alive`.
-   1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.load-testing.button_duplicate-configuration }}**. The test parameters will be copied to the **Config 2** section.
-   1. Under **Config 2**, specify the test parameters for the second agent:
+   1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.load-testing.button_duplicate-configuration }}**. The test parameters will be copied to the **Configuration 2** settings.
+   1. Under **Configuration 2**, specify the test parameters for the second agent:
       1. **{{ ui-key.yacloud.load-testing.label_agents-list }}**: Select the `agent-009` agent.
-      1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**, change the testing parameters.
+      1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**, change the test parameters.
 
          For example, in the **Autostop** menu, click ![image](../../_assets/plus-sign.svg) **Autostop** and enter the following description:
          * **Autostop type**: `INSTANCES`

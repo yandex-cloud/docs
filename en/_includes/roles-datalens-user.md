@@ -2,7 +2,7 @@
 
 The `{{ roles-datalens-instances-user }}` role grants access to {{ datalens-short-name }} as a user with permissions to create, read, and edit objects according to the [permissions to objects](../datalens/security/manage-access.md).
 
-After you assign a service role, you can grant the user permissions to objects and directories in {{ datalens-short-name }}.
+After you assign a service role, you can grant the user permissions to access objects and directories in {{ datalens-short-name }}.
 
 {% note tip %}
 

@@ -300,6 +300,7 @@ log_options | **[LogOptions](#LogOptions)**<br>Options for logging from the func
 storage_mounts[] | **[StorageMount](#StorageMount)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
+concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
 
 
 ### Resources {#Resources}
@@ -418,6 +419,7 @@ log_options | **[LogOptions](#LogOptions1)**<br>Options for logging from the fun
 storage_mounts[] | **[StorageMount](#StorageMount1)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig1)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
+concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
 
 
 ### Resources {#Resources1}
@@ -537,6 +539,7 @@ log_options | **[LogOptions](#LogOptions2)**<br>Options for logging from the fun
 storage_mounts[] | **[StorageMount](#StorageMount2)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig2)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
+concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
 
 
 ### Resources {#Resources2}
@@ -656,6 +659,7 @@ log_options | **[LogOptions](#LogOptions3)**<br>Options for logging from the fun
 storage_mounts[] | **[StorageMount](#StorageMount3)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig3)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
+concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
 
 
 ### Resources {#Resources3}
@@ -787,6 +791,7 @@ log_options | **[LogOptions](#LogOptions4)**<br>Options for logging from the fun
 storage_mounts[] | **[StorageMount](#StorageMount4)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig4)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
+concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
 
 
 ### Resources {#Resources4}
@@ -918,6 +923,7 @@ log_options | **[LogOptions](#LogOptions5)**<br>Options for logging from the fun
 storage_mounts[] | **[StorageMount](#StorageMount5)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig5)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
+concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
 
 
 ### Resources {#Resources5}
@@ -1105,6 +1111,7 @@ log_options | **[LogOptions](#LogOptions6)**<br>Options for logging from the fun
 storage_mounts[] | **[StorageMount](#StorageMount6)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig6)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
+concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
 
 
 ### Resources {#Resources6}
@@ -1251,6 +1258,7 @@ log_options | **[LogOptions](#LogOptions7)**<br>Options for logging from the fun
 storage_mounts[] | **[StorageMount](#StorageMount7)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig7)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
+concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
 
 
 ### Resources {#Resources7}
@@ -1437,6 +1445,7 @@ log_options | **[LogOptions](#LogOptions8)**<br>Options for logging from the fun
 storage_mounts[] | **[StorageMount](#StorageMount8)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig8)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. Available for versions with resources.memory greater or equal to 1024 MiB. <br>0 or in range from 512 MiB to 3/4 of resources.memory. 
+concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
 
 
 ### Resources {#Resources8}
@@ -1574,6 +1583,7 @@ log_options | **[LogOptions](#LogOptions9)**<br>Options for logging from the fun
 storage_mounts[] | **[StorageMount](#StorageMount9)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig9)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
+concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
 
 
 ## CreateFunctionVersion {#CreateFunctionVersion}
@@ -1610,6 +1620,7 @@ log_options | **[LogOptions](#LogOptions9)**<br>Options for logging from the fun
 storage_mounts[] | **[StorageMount](#StorageMount9)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig9)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. Available for versions with resources.memory greater or equal to 1024 MiB. <br>0 or in range from 512 MiB to 3/4 of resources.memory. 
+concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
 
 
 ### Resources {#Resources9}
@@ -1747,6 +1758,7 @@ log_options | **[LogOptions](#LogOptions10)**<br>Options for logging from the fu
 storage_mounts[] | **[StorageMount](#StorageMount10)**<br>S3 mounts to be used by the version. 
 async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig10)**<br>Config for asynchronous invocations of the version 
 tmpfs_size | **int64**<br>Optional size of in-memory mounted /tmp directory in bytes. 
+concurrency | **int64**<br>The maximum number of requests processed by a function instance at the same time Acceptable values are 0 to 16, inclusive.
 
 
 ## ListRuntimes {#ListRuntimes}

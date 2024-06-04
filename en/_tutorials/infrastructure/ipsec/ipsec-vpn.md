@@ -342,7 +342,7 @@ Create a VM to act as a remote IPsec gateway.
 1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a remote IPsec gateway.
 1. At the top right, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
 1. In the **{{ ui-key.yacloud.common.name }}** field, specify `remote-gw`.
-1. In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select `{{ region-id }}-b` hosting the subnet to connect the remote IPsec gateway to.
+1. In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select the `{{ region-id }}-b` zone hosting the subnet to connect the remote IPsec gateway to.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**, and select the `IPSec instance` image.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
@@ -837,7 +837,7 @@ To activate an IPsec connection between the gateways:
 
 To stop paying for the resources you created:
 
-* [Delete a VM](../../../compute/operations/vm-control/vm-delete.md).
+* [Delete the VM](../../../compute/operations/vm-control/vm-delete.md).
 * [Delete the static public IP address](../../../vpc/operations/address-delete.md).
 * [Delete the subnet](../../../vpc/operations/subnet-delete.md).
-* [Delete a cloud network](../../../vpc/operations/network-delete.md).
+* [Delete the cloud network](../../../vpc/operations/network-delete.md).

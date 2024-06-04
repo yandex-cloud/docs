@@ -127,6 +127,11 @@ filter | <p>Filter support is not currently implemented. Any filters are ignored
         },
         "restApiConfig": {
           "enabled": true
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "string",
+          "emergencyUsageThreshold": "string",
+          "diskSizeLimit": "string"
         }
       },
       "networkId": "string",
@@ -238,6 +243,10 @@ clusters[].<br>config.<br>access | **object**<br><p>Access policy for external s
 clusters[].<br>config.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 
 clusters[].<br>config.<br>restApiConfig | **object**<br><p>Configuration of REST API.</p> 
 clusters[].<br>config.<br>restApiConfig.<br>enabled | **boolean** (boolean)<br><p>Is REST API enabled for this cluster.</p> 
+clusters[].<br>config.<br>diskSizeAutoscaling | **object**<br><p>DiskSizeAutoscaling settings</p> 
+clusters[].<br>config.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **string** (int64)<br><p>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+clusters[].<br>config.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **string** (int64)<br><p>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+clusters[].<br>config.<br>diskSizeAutoscaling.<br>diskSizeLimit | **string** (int64)<br><p>New storage size (in bytes) that is set when one of the thresholds is achieved.</p> 
 clusters[].<br>networkId | **string**<br><p>ID of the network that the cluster belongs to.</p> 
 clusters[].<br>health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: State of the cluster is unknown (``health`` of all hosts in the cluster is ``UNKNOWN``).</li> <li>ALIVE: Cluster is alive and well (``health`` of all hosts in the cluster is ``ALIVE``).</li> <li>DEAD: Cluster is inoperable (``health`` of all hosts in the cluster is ``DEAD``).</li> <li>DEGRADED: Cluster is in degraded state (``health`` of at least one of the hosts in the cluster is not ``ALIVE``).</li> </ul> 
 clusters[].<br>status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 

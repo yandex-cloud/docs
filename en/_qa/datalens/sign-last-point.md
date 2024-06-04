@@ -12,6 +12,6 @@ if(
 
 [Chart example](https://storage.yandexcloud.net/doc-files/line-chart.png)
 
-In the case of a line chart, you can only drag-and-drop measures and the **Measure Values** technical field to the **Signatures** section.
+For a line chart, you can drag-and-drop only measures, including the **Measure Values** measure, to the [Signatures](../../datalens/concepts/chart/measure-values.md) section.
 
-If you move the same measure in the **Y** axis section to the **Signatures** section, then you'll see signatures on the chart: see the [screenshot](https://storage.yandexcloud.net/doc-files/signatures.png).
+If you move the same measure in the **Y** axis section to the **Signatures** section, you will see signatures on the chart (see the [screenshot](https://storage.yandexcloud.net/doc-files/signatures.png)).

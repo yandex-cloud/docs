@@ -106,6 +106,11 @@ POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters
     },
     "restApiConfig": {
       "enabled": true
+    },
+    "diskSizeAutoscaling": {
+      "plannedUsageThreshold": "string",
+      "emergencyUsageThreshold": "string",
+      "diskSizeLimit": "string"
     }
   },
   "topicSpecs": [
@@ -260,6 +265,10 @@ configSpec.<br>access | **object**<br><p>Access policy for external services.</p
 configSpec.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 
 configSpec.<br>restApiConfig | **object**<br><p>Configuration of REST API.</p> 
 configSpec.<br>restApiConfig.<br>enabled | **boolean** (boolean)<br><p>Is REST API enabled for this cluster.</p> 
+configSpec.<br>diskSizeAutoscaling | **object**<br><p>DiskSizeAutoscaling settings</p> 
+configSpec.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **string** (int64)<br><p>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+configSpec.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **string** (int64)<br><p>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+configSpec.<br>diskSizeAutoscaling.<br>diskSizeLimit | **string** (int64)<br><p>New storage size (in bytes) that is set when one of the thresholds is achieved.</p> 
 topicSpecs[] | **object**<br><p>One or more configurations of topics to be created in the Apache Kafka® cluster.</p> 
 topicSpecs[].<br>name | **string**<br><p>Name of the topic.</p> 
 topicSpecs[].<br>partitions | **integer** (int64)<br><p>The number of the topic's partitions.</p> 

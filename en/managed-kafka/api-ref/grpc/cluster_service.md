@@ -84,6 +84,7 @@ unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI Deprecated. 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
 access | **[Access](#Access)**<br>Access policy for external services. 
 rest_api_config | **[RestAPIConfig](#RestAPIConfig)**<br>Configuration of REST API. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling)**<br>DiskSizeAutoscaling settings 
 
 
 ### Kafka {#Kafka}
@@ -115,6 +116,15 @@ enabled | **bool**<br>Is REST API enabled for this cluster.
 Field | Description
 --- | ---
 data_transfer | **bool**<br>Allow access for DataTransfer. 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>New storage size (in bytes) that is set when one of the thresholds is achieved. 
 
 
 ### Resources {#Resources}
@@ -277,6 +287,7 @@ unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI Deprecated. 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
 access | **[Access](#Access1)**<br>Access policy for external services. 
 rest_api_config | **[RestAPIConfig](#RestAPIConfig1)**<br>Configuration of REST API. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling1)**<br>DiskSizeAutoscaling settings 
 
 
 ### Kafka {#Kafka1}
@@ -308,6 +319,15 @@ enabled | **bool**<br>Is REST API enabled for this cluster.
 Field | Description
 --- | ---
 data_transfer | **bool**<br>Allow access for DataTransfer. 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling1}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>New storage size (in bytes) that is set when one of the thresholds is achieved. 
 
 
 ### Resources {#Resources1}
@@ -444,6 +464,7 @@ unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI Deprecated. 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
 access | **[Access](#Access2)**<br>Access policy for external services. 
 rest_api_config | **[RestAPIConfig](#RestAPIConfig2)**<br>Configuration of REST API. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>DiskSizeAutoscaling settings 
 
 
 ### Kafka {#Kafka2}
@@ -475,6 +496,15 @@ enabled | **bool**<br>Is REST API enabled for this cluster.
 Field | Description
 --- | ---
 data_transfer | **bool**<br>Allow access for DataTransfer. 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling2}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>New storage size (in bytes) that is set when one of the thresholds is achieved. 
 
 
 ### Resources {#Resources2}
@@ -730,6 +760,7 @@ unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI Deprecated. 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
 access | **[Access](#Access3)**<br>Access policy for external services. 
 rest_api_config | **[RestAPIConfig](#RestAPIConfig3)**<br>Configuration of REST API. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>DiskSizeAutoscaling settings 
 
 
 ### Kafka {#Kafka3}
@@ -761,6 +792,15 @@ enabled | **bool**<br>Is REST API enabled for this cluster.
 Field | Description
 --- | ---
 data_transfer | **bool**<br>Allow access for DataTransfer. 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling3}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>New storage size (in bytes) that is set when one of the thresholds is achieved. 
 
 
 ### Resources {#Resources3}
@@ -1037,6 +1077,7 @@ unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI Deprecated. 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
 access | **[Access](#Access4)**<br>Access policy for external services. 
 rest_api_config | **[RestAPIConfig](#RestAPIConfig4)**<br>Configuration of REST API. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>DiskSizeAutoscaling settings 
 
 
 ### Kafka {#Kafka4}
@@ -1068,6 +1109,15 @@ enabled | **bool**<br>Is REST API enabled for this cluster.
 Field | Description
 --- | ---
 data_transfer | **bool**<br>Allow access for DataTransfer. 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling4}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>New storage size (in bytes) that is set when one of the thresholds is achieved. 
 
 
 ### Resources {#Resources4}
@@ -1246,6 +1296,7 @@ unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI Deprecated. 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
 access | **[Access](#Access5)**<br>Access policy for external services. 
 rest_api_config | **[RestAPIConfig](#RestAPIConfig5)**<br>Configuration of REST API. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>DiskSizeAutoscaling settings 
 
 
 ### Kafka {#Kafka5}
@@ -1277,6 +1328,15 @@ enabled | **bool**<br>Is REST API enabled for this cluster.
 Field | Description
 --- | ---
 data_transfer | **bool**<br>Allow access for DataTransfer. 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling5}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>New storage size (in bytes) that is set when one of the thresholds is achieved. 
 
 
 ### Resources {#Resources5}
@@ -1455,6 +1515,7 @@ unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI Deprecated. 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
 access | **[Access](#Access6)**<br>Access policy for external services. 
 rest_api_config | **[RestAPIConfig](#RestAPIConfig6)**<br>Configuration of REST API. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>DiskSizeAutoscaling settings 
 
 
 ### Kafka {#Kafka6}
@@ -1486,6 +1547,15 @@ enabled | **bool**<br>Is REST API enabled for this cluster.
 Field | Description
 --- | ---
 data_transfer | **bool**<br>Allow access for DataTransfer. 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling6}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>New storage size (in bytes) that is set when one of the thresholds is achieved. 
 
 
 ### Resources {#Resources6}
@@ -1667,6 +1737,7 @@ unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI Deprecated. 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
 access | **[Access](#Access7)**<br>Access policy for external services. 
 rest_api_config | **[RestAPIConfig](#RestAPIConfig7)**<br>Configuration of REST API. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>DiskSizeAutoscaling settings 
 
 
 ### Kafka {#Kafka7}
@@ -1698,6 +1769,15 @@ enabled | **bool**<br>Is REST API enabled for this cluster.
 Field | Description
 --- | ---
 data_transfer | **bool**<br>Allow access for DataTransfer. 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling7}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>New storage size (in bytes) that is set when one of the thresholds is achieved. 
 
 
 ### Resources {#Resources7}
