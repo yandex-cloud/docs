@@ -102,7 +102,8 @@ tag | <p>Version tag.</p> <p>To get the history of version tags make a <a href="
     },
     "serviceAccountId": "string"
   },
-  "tmpfsSize": "string"
+  "tmpfsSize": "string",
+  "concurrency": "string"
 }
 ```
 Version of a function. For details about the concept, see [Function versions](/docs/functions/concepts/function#version).
@@ -157,3 +158,4 @@ asyncInvocationConfig.<br>failureTarget.<br>ymqTarget.<br>queueArn | **string**<
 asyncInvocationConfig.<br>failureTarget.<br>ymqTarget.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
 asyncInvocationConfig.<br>serviceAccountId | **string**<br><p>Service account which can invoke version</p> 
 tmpfsSize | **string** (int64)<br><p>Optional size of in-memory mounted /tmp directory in bytes.</p> 
+concurrency | **string** (int64)<br><p>The maximum number of requests processed by a function instance at the same time</p> <p>Acceptable values are 0 to 16, inclusive.</p> 

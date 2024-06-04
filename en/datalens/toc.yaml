@@ -801,7 +801,13 @@ items:
       - name: Creating a partner connector
         href: operations/marketplace/create-connector-for-partners.md
   - name: Pricing policy
-    href: pricing.md
+    items:
+      - name: Current pricing policy
+        href: pricing.md
+      - name: Archive
+        items:
+          - name: Before April 23, 2024
+            href: pricing-archive/pricing23042024.md
   - name: Release notes
     items:
       - name: April 2024

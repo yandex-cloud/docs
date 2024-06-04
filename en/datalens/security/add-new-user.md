@@ -46,6 +46,12 @@ Users can only use {{ datalens-short-name }} if they have a role that enables ac
 
 #### Adding a federated user {#federated-user}
 
+{% note info %}
+
+Only available with the _Business_ [service plan](../settings/service-plan.md). However, if you configured an identity federation and used a corporate account to log in to {{ datalens-name }} before April 22, 2024, enterprise authentication and SSO will be available for free as part of the _Community_ plan until December 31, 2024.
+
+{% endnote %}
+
 If you set up an [identity federation](../../organization/concepts/add-federation.md), follow [this guide](../../organization/operations/add-account.md#add-user-sso) to add a new federated user. After that, make sure to [assign](../../organization/security/index.md#add-role) them the `{{ roles-datalens-creator }}` role.
 
 {% include [datalens-federation-user-link](../../_includes/datalens/datalens-federation-user-link.md) %}

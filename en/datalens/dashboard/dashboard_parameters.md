@@ -1,18 +1,17 @@
-# Using parameters and limitations
+# Dashboard parameters
 
+The dashboard parameter is a variable used to filter widgets on the dashboard when you open it. Parameters allow you to use visualization features more flexibly and customize the same charts and widgets for different purposes. Parameters may help if:
 
-Parameters in {{ datalens-short-name }} allow you to use visualization features more flexibly and adapt the use of the same dashboards for different purposes.
+* You want to post a link to a dashboard with a filter applied: in another dashboard table, on a {{ wiki-full-name }} page, or somewhere else.
+* You want to post the same chart with different filters on the same dashboard tab.
 
-[Dashboard](#params-dash) parameters apply to all its charts.
+You can add parameters both for the entire [dashboard](#params-dash) and for a [separate chart](#params-chart) on the dashboard. Dashboard parameters apply to all its charts, while chart parameters apply to an individual widget.
 
-Using the parameters might be handy, for example, when you want to post a link to a dashboard with an applied filter in another dashboard table, on a {{ wiki-full-name }} page, or somewhere else.
-
+Watch [this video tutorial](https://www.youtube.com/watch?v=fx0BR_RnLNs) on how to use parameters on the {{ yandex-cloud }} YouTube channel.
 
 ## Dashboard parameters {#params-dash}
 
-In the dashboard settings section, you can set the [parameters](../operations/dashboard/add-parameters.md) to use. For each parameter, specify a key and value. The saved dashboard parameters are inserted into all widgets (including charts and selectors) once they are uploaded. When opening this dashboard, its data will be filtered based on the specified parameter values.
-
-A parameter name must be the same as the name of the dataset field by which data is filtered.
+Dashboard parameters are inserted into all widgets (including charts and selectors) when they are uploaded. When opening such a dashboard, its data will be filtered based on the specified parameter values. You can [add parameters](../operations/dashboard/add-parameters.md) in the dashboard settings. For each parameter, specify a name (key) and value. A parameter name must be the same as the name of the dataset field by which data is filtered.
 
 {% note info %}
 
@@ -40,9 +39,9 @@ The parameter values specified in the link will take priority. For example, if t
 
 ## Chart parameters {#params-chart}
 
-You can also set [chart parameter](../operations/chart/add-parameters.md) values in its settings on a dashboard. Thus, you can view the same chart with different filters on the same dashboard tab.
+Chart parameters apply only to the chart itself. Thus, you can view the same chart with different filters on the same dashboard tab. You can [add parameters for the chart](../operations/chart/add-parameters.md) in its settings on the dashboard.
 
-You can pass a parameter value to a wizard chart using a field's ID ([see the instructions](../operations/chart/add-guid.md)).
+You can transmit a parameter value to a wizard chart using a field's ID ([see the guide](../operations/chart/add-guid.md)).
 
 {% include [datalens-chart-parameters-example](../../_includes/datalens/datalens-chart-parameters-example.md) %}
 
@@ -73,6 +72,7 @@ Where:
    * `e`: To the end
 
 For example, if the current time is `2020-03-24T23:30:39.874Z`, then:
+
 * `__relative_-7d`: Seven days back, `2020-03-17T00:00:00.000Z`
 * `__relative_+30m`: In 30 minutes, `2020-03-25T00:00:39.874Z`
 * `__relative_-0d`: Today, `2020-03-24T00:00:00.000Z`
@@ -82,8 +82,7 @@ For example, if the current time is `2020-03-24T23:30:39.874Z`, then:
 
 {% note info %}
 
-If the casting is not specified, then for the units of day and higher, the time is cast to the start of the day,
-i.e., `00:00:00.000`, and smaller units cast to the current time.
+If the casting is not specified, then for the units of day and longer, the time is cast to the start of the day, i.e., `00:00:00.000`, and shorter units cast to the current time.
 
 {% endnote %}
 
@@ -92,6 +91,7 @@ i.e., `00:00:00.000`, and smaller units cast to the current time.
 This parameter is used to set a time interval in `__interval_<start>_<end>` format, where `<start>`/`<end>` are [relative dates](#relativedate) or [ISO dates](https://ru.wikipedia.org/wiki/ISO_8601).
 
 E.g., if the current time is `2020-03-24T23:30:39.874Z`, then:
+
 * `__interval_2019-03-11T09:35:48_2019-12-28T09:35:48`: From `2019-03-11T09:35:48` to `2019-12-28T09:35:48`
 * `__interval_2019-01-17T09:35:48___relative_+0d`: From `2019-01-17T09:35:48` until today (`2020-03-24T23:59:59.999Z`)
 * `__interval___relative_-2w_sM___relative_+1d`: Two weeks ago or more (`2020-03-10T00:00:00.000Z`) cast to the start of the month (`2020-03-01T00:00:00.000Z`) until tomorrow (`2020-03-25T23:59:59.999Z`)
@@ -106,7 +106,7 @@ For dashboard widgets, parameters are applied in the following order (values fro
 1. Parameters specified in a dashboard link, e.g, `{{ link-datalens-main }}/test-dashboard?OrderID=123456789`.
 1. Values from the `state` parameter in a dashboard link. {{ datalens-short-name }} remembers the selector settings and writes them to a special parameter named `state` and shown in the browser address bar. To share the current dashboard state, just copy the resulting link. This way, you can show the dashboard with required data directly instead of describing the filter settings.
 
-## Parameter limitations {#params-restrictions}
+## Limitations {#params-restrictions}
 
 The following limitations apply when using parameters:
 

@@ -18,19 +18,20 @@ To view details on your current service plan and billing account:
 
 ## Changing your service plan {#change-service-plan}
 
+{% note info %}
+
+* You can switch to the _Business_ plan at any time. The price for the first month is calculated in proportion to the remaining number of days of the month.
+* You can only switch to the _Community_ plan starting the next month. Until then, you can [cancel](#cancel-change-service-plan) the scheduled switch.
+
+{% endnote %}
+
 To switch to a different service plan:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
 1. At the top of the screen, click **Change plan**.
 1. Select a service plan and click **Switch**. If you do not have a billing account yet, you will see the sign-up form. For more information, see [{#T}](#add-billing-account).
-1. Click **Confirm**. You will be scheduled to switch to the selected plan.
-
-{% note info %}
-
-Switching to another service plan occurs starting the next month. Until then, you can [cancel](#cancel-change-service-plan) the scheduled switch.
-
-{% endnote %}
+1. Click **Confirm**.
 
 ## Adding a billing account {#add-billing-account}
 

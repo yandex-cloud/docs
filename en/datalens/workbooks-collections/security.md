@@ -21,7 +21,7 @@ You can grant permissions to individual users or groups of [authenticated](../..
 
 ## Granting permissions {#wb-coll-grant}
 
-To grant workbook or collection permissions:
+To grant access permissions to a workbook or collection:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
@@ -36,7 +36,7 @@ To grant workbook or collection permissions:
 
 ## Revoking permissions {#wb-coll-revoke}
 
-To revoke workbook or collection permissions:
+To revoke access permissions to a workbook or collection:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.

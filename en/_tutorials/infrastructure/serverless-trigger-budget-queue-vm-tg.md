@@ -264,8 +264,8 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
    1. Click **{{ ui-key.yacloud.ymq.queues.button_create }}**.
    1. Under **{{ ui-key.yacloud.ymq.queue.form.section_base }}**, specify:
-      * **{{ ui-key.yacloud.common.name }}**: `budget-queue`.
-      * **{{ ui-key.yacloud.ymq.queue.form.switch_fifo-queue }}**: `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}`.
+      * **{{ ui-key.yacloud.common.name }}**: `budget-queue`
+      * **{{ ui-key.yacloud.ymq.queue.form.switch_fifo-queue }}**: `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}`
 
       Leave the other parameters unchanged.
 

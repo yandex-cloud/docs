@@ -28,7 +28,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 ## Getting started {#before-you-begin}
 
-{% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin-datalens.md) %}
 
 
 ## Step 1. Create a connection and dataset {#step1}
@@ -251,7 +251,7 @@ To visualize the density of orders on the map of Moscow, create a heat map [char
 
 Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts to.
 
-1. Go to the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 
 1. Click **Create dashboard**.
 
@@ -322,7 +322,7 @@ Add [selectors](../../datalens/dashboard/selector.md) to filter your charts by d
 
    1. In the top-right corner, click **Save**.
 
-   ![image](../../_assets/datalens/solution-02/43-dashboard2.png)
+      ![image](../../_assets/datalens/solution-02/43-dashboard2.png)
 
    1. Enter **Moscow Shops dashboard** for the dashboard name and click **Create**.
 

@@ -32,7 +32,7 @@ Please note that the infrastructure for Hystax Acura and Hystax Acura Cloud Agen
 The cost of the resources required to use Hystax Acura Live Migration includes:
 * Fee for disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for storing images (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using a dynamic or static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for each completed migration (see [product description](/marketplace/products/hystax/hystax-acura-live-cloud-migration) in {{ marketplace-name }}).
 
 ## Create a service account and authorized key {#create-sa}
@@ -104,7 +104,7 @@ Create a VM with a boot disk from the [Hystax Acura Live Migration to {{ yandex-
       * If a list of **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** is available, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) for which you previously configured network traffic permissions. If this list does not exist, all incoming and outgoing traffic will be enabled for the VM.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       * Select the previously created `hystax-acura-account` service account.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username for SSH access, such as `yc-user`.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username for SSH access, e.g., `yc-user`.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -131,8 +131,8 @@ Create a VM with a boot disk from the [Hystax Acura Live Migration to {{ yandex-
 
    Where:
 
-   * `name`: VM name, such as `hystax-acura-vm`.
-   * `zone`: [Availability zone](../../overview/concepts/geo-scope.md), for example `{{ region-id }}-a`.
+   * `name`: VM name, e.g., `hystax-acura-vm`.
+   * `zone`: [Availability zone](../../overview/concepts/geo-scope.md), e.g., `{{ region-id }}-a`.
    * `cores`: [Number of vCPUs](../../compute/concepts/vm.md) in your VM.
    * `memory`: [Amount of RAM](../../compute/concepts/vm.md) in your VM.
    * `network-interface`: VM network interface description:
@@ -144,7 +144,7 @@ Create a VM with a boot disk from the [Hystax Acura Live Migration to {{ yandex-
 
          You can retrieve a group list using the `yc vpc security-group list` command. If you skip this parameter, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned.
    * `create-boot-disk`: Create a new disk for the VM:
-      * `name`: Disk name, such as `hystax-acura-disk`.
+      * `name`: Disk name, e.g., `hystax-acura-disk`.
       * `size`: Disk size.
       * `image-id`: Disk image ID.
 

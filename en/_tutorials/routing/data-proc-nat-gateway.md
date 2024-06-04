@@ -39,7 +39,7 @@ You have to create:
 
       * Rule for outgoing HTTPS traffic:
 
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
@@ -77,13 +77,13 @@ You have to create:
 
       The file describes:
 
-      * Network
-      * Subnet
-      * NAT gateway and routing table
-      * Security group
-      * Service account to work with cloud resources
-      * Bucket to store job dependencies and results
-      * {{ dataproc-name }} cluster
+      * Network.
+      * Subnet.
+      * NAT gateway and route table.
+      * Security group.
+      * Service account to work with cloud resources.
+      * Bucket to store job dependencies and results.
+      * {{ dataproc-name }} cluster.
 
       {% include [sg-rules-connect](../../_includes/data-proc/note-sg-rules.md) %}
 

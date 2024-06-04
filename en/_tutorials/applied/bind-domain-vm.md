@@ -342,8 +342,8 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
    1. Specify the [DNS zone](../../dns/concepts/dns-zone.md) settings consistent with your domain:
 
       1. **{{ ui-key.yacloud.dns.label_zone }}**: Domain zone. The zone name must end with a dot. For example, the `example.com.` zone name corresponds to the `example.com` domain. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
-      1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`.
-      1. **{{ ui-key.yacloud.common.name }}**: Zone name.
+      1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`
+      1. **{{ ui-key.yacloud.common.name }}**: Zone name
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -394,9 +394,9 @@ To delegate your domain to {{ dns-name }}, in your domain name registrar account
 * `ns1.{{ dns-ns-host-sld }}`
 * `ns2.{{ dns-ns-host-sld }}`
 
-Delegation does not take effect immediately. It usually takes up to 24 hours (86400 seconds) for internet service providers to update records. This depends on the TTL value which determines how long domain records are cached.
+Delegation does not take effect immediately. It usually takes up to 24 hours (86,400 seconds) for internet service providers to update records. This depends on the TTL value which specifies how long domain records are cached.
 
-You can check the domain delegation using [Whois](https://www.reg.com/whois/check_site) or the `dig` utility:
+You can check domain delegation using [Whois](https://www.reg.com/whois/check_site) or the `dig` utility:
 
 ```bash
 dig +short NS example.com

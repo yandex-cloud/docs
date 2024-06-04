@@ -29,7 +29,7 @@ The infrastructure support costs include:
 * Fee for two continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)):
    * VM for the SFTP client.
    * VM for the SFTP server.
-* Fee for using a dynamic or static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Create a VM for the SFTP server {#create-vm-sftp-server}
@@ -63,11 +63,11 @@ To create a VM:
    1. Specify the data required for accessing the VM:
 
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file. You need to create a key pair for the SSH connection yourself. To learn how, see [Connecting to a Linux VM via SSH](../../compute/operations/vm-connect/ssh.md).
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file. You need to create a key pair for the SSH connection yourself. See the [section on how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
 
       {% note alert %}
 
-      The IP address and the host name (FQDN) for connecting to the VM will be assigned when it is created. If you selected the **{{ ui-key.yacloud.component.compute.network-select.switch_none }}** option in the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, you will not be able to access the VM from the internet.
+      Once created, the VM will get an IP address and a host name (FQDN) for connections. If you selected the **{{ ui-key.yacloud.component.compute.network-select.switch_none }}** option in the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, you will not be able to access the VM from the internet.
 
       {% endnote %}
 

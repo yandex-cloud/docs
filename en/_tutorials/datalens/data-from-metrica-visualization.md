@@ -20,7 +20,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 ## Getting started {#before-you-begin}
 
-{% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin-datalens.md) %}
 
 
 ## Step 1. Create a connection and a standard dashboard {#step1}

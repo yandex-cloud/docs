@@ -110,6 +110,11 @@ clusterId | <p>Required. ID of the Apache Kafka® cluster to update.</p> <p>To g
     },
     "restApiConfig": {
       "enabled": true
+    },
+    "diskSizeAutoscaling": {
+      "plannedUsageThreshold": "string",
+      "emergencyUsageThreshold": "string",
+      "diskSizeLimit": "string"
     }
   },
   "name": "string",
@@ -203,6 +208,10 @@ configSpec.<br>access | **object**<br><p>Access policy for external services.</p
 configSpec.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 
 configSpec.<br>restApiConfig | **object**<br><p>Configuration of REST API.</p> 
 configSpec.<br>restApiConfig.<br>enabled | **boolean** (boolean)<br><p>Is REST API enabled for this cluster.</p> 
+configSpec.<br>diskSizeAutoscaling | **object**<br><p>DiskSizeAutoscaling settings</p> 
+configSpec.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **string** (int64)<br><p>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+configSpec.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **string** (int64)<br><p>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+configSpec.<br>diskSizeAutoscaling.<br>diskSizeLimit | **string** (int64)<br><p>New storage size (in bytes) that is set when one of the thresholds is achieved.</p> 
 name | **string**<br><p>New name for the Apache Kafka® cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 

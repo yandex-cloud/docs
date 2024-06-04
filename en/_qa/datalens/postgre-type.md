@@ -1,3 +1,3 @@
-### Do you support the GEO type from {{ PG }}? {#postgre-type}
+### Do you support the {{ PG }} GEO type? {#postgre-type}
 
-There is no `GEO` type (without markup) in {{ PG }}, but there is `PostGIS`. {{ datalens-short-name }} doesn't support it. `Geopoint` and `geopolygon` are string types of certain formats.
+{{ datalens-short-name }} does not support data types of the [PostGIS](https://postgis.net/docs/) extension that is used in {{ PG }} to work with geodata. [`Geopoint`](../../datalens/concepts/data-types.md#geopoint) and [`Geopolygon`](../../datalens/concepts/data-types.md#geopolygon) are string types of certain formats.

@@ -33,7 +33,7 @@ The cost for backup and recovery includes:
 
 * Fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for data storage in a bucket and operations with data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
-* Fee for using a dynamic or static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ### Create a bucket {#create-bucket}
@@ -88,11 +88,11 @@ To create a VM:
 
          Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet available, create one by selecting ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
    1. Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
-   1. Enter the VM access information:
+   1. Specify the VM access data:
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
-         You will need to create a key pair for the SSH connection yourself, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+         You will need to create a key pair for the SSH connection yourself; see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for details.
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
    1. Wait for the VM status to change to `RUNNING`.
 
@@ -162,7 +162,7 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
    sudo yum install -y s3fs-fuse
    ```
 
-1. Install the text editor `nano`:
+1. Install the `nano` text editor:
 
    ```bash
    sudo yum install -y nano

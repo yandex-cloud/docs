@@ -26,7 +26,7 @@ SQL queries only work with databases. File, GoogleSheets, Yandex Metrica, and ot
 
 ## Getting started {#before-you-begin}
 
-{% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin-datalens.md) %}
 
 
 ## Create a connection {#create-connection}
