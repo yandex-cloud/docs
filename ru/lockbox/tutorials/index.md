@@ -9,3 +9,6 @@ description: "Различные сценарии использования {{ 
 
 
 * [{#T}](ci-cd-serverless.md)
+
+
+* [{#T}](gitlab-lockbox-integration.md)

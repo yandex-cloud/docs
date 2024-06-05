@@ -20,6 +20,8 @@ Make sure no third party has access to the secret key. Keep your key in a secure
 
 {% endnote %}
 
+{% include [key-has-last-used-data](../../../_includes/iam/key-has-last-used-data.md) %}
+
 In addition to static access keys, you can use [{{ sts-name }}](sts.md) temporary keys, also compatible with the AWS API, to work with {{ objstorage-full-name }}.
 
 {% include [sts-preview](../../../_includes/iam/sts-preview.md) %}

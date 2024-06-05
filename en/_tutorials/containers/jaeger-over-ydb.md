@@ -15,6 +15,10 @@ In this article, you will learn how to install the Jaeger platform in a [{{ mana
 
 1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration with {{ k8s }} version 1.21 or higher.
 
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Install and configure Jaeger {#jaeger-install}
@@ -104,10 +108,11 @@ To test Jaeger, use the [HotROD](https://github.com/jaegertracing/jaeger/tree/9f
    kubectl port-forward hotrod 8080:8080
    ```
 
-1. Open the `hotrod` [application URI](https://localhost:8080) in your browser:
+1. Open `hotrod's` [URI](https://localhost:8080) in your browser and make a few test requests to Jaeger.
 
-   Make a few test requests to the Jaeger service.
-1. Open the [Jaeger URI](https://localhost:16686) in your browser:
+   {% include [check-sg-if-url-unavailable-lvl3](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
+
+1. Open [Jaeger's URI](https://localhost:16686) in your browser.
 
    Make sure that the test requests have been transmitted successfully and have been included in the trace.
 

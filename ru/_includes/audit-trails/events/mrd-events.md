@@ -7,6 +7,7 @@
 `DeleteCluster` | Удаление кластера
 `DeleteClusterHosts` | Удаление хостов из кластера
 `DeleteClusterShard` | Удаление шарда из кластера
+`EnableClusterSharding` | Включение шардирования кластера
 `MoveCluster` | Перемещение кластера
 `RebalanceCluster` | Перебалансировка кластера
 `RestoreCluster` | Создание нового кластера из резервной копии

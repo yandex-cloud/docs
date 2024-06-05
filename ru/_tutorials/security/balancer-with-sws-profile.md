@@ -65,7 +65,7 @@ C помощью сервиса {{ sws-full-name }} вы можете защит
       1. Выберите действие — `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-allow }}`.
 
           В правиле будут описаны условия, при которых запросы будут направлены к бэкенду тестового приложения.
-      1. В поле **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** выберите {{ ui-key.yacloud.smart-web-security.overview.condition_name-ip-range }}.
+      1. В поле **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** выберите {{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}.
       1. В появившемся поле **Условия на IP** выберите опцию `Совпадает или принадлежит диапазону` и задайте публичный IP-адрес устройства, с которого вы будете отправлять запросы L7-балансировщику, например `158.160.100.200`.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
         

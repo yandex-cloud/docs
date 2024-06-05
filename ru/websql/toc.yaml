@@ -27,6 +27,8 @@ items:
         href: concepts/index.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: История изменений
     items:
       - name: Все изменения

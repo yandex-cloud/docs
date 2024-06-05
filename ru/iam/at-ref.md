@@ -11,3 +11,7 @@
 ## Справочник событий уровня конфигурации {#control-plane-events}
 
 {% include [iam-events](../_includes/audit-trails/events/iam-events.md) %}
+
+## Справочник событий уровня сервисов {#data-plane-events}
+
+{% include [iam-events-dp](../_includes/audit-trails/events/iam-events-dp.md) %}

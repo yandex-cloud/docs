@@ -9,7 +9,7 @@ description: "This guide will help you get started with the {{ yandex-cloud }} {
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and sign in to {{ yandex-cloud }} or sign up if you are not signed up yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if you are not signed up yet.
 1. Open the {{ support-center-name }} [home page]({{ link-console-support }}).
 1. Select the [organization](../organization/quickstart.md) to work with {{ support-center-name }} in or [create a new one](../organization/operations/enable-org).
 

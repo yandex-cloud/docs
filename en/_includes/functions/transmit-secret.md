@@ -1,6 +1,6 @@
 To provide a [function](../../functions/concepts/function.md) with access to the [secret](../../lockbox/concepts/secret.md), in the function parameters, specify a [service account](../../iam/concepts/users/service-accounts.md) with the following [roles](../../iam/concepts/access-control/roles.md):
 * `{{ roles-lockbox-payloadviewer }}` to access the secret (see [Granting permissions to access a secret](../../lockbox/operations/secret-access.md)).
-* `kms.keys.encrypterDecrypter` to access the encryption [key](../../kms/concepts/key.md) if the secret was created using a [{{ kms-full-name }}](../../kms/) key (see [Granting access permissions to encryption keys](../../kms/operations/key-access.md)).
+* `kms.keys.encrypterDecrypter` to access the encryption [key](../../kms/concepts/key.md) if the secret was created using a [{{ kms-full-name }}](../../kms/) key (see [Granting permissions to access an encryption key](../../kms/operations/key-access.md)).
 
 A [{{ lockbox-full-name }}](../../lockbox/) secret provided to a function is cached in [{{ sf-full-name }}](../../functions/). As soon as the service account can no longer access the secret, the function may store it for up to 5 minutes.
 
@@ -20,7 +20,7 @@ A new version of a function is created when secrets are transmitted. You cannot 
          * Name of the environment variable that will store the secret.
          * Secret ID.
          * Secret version ID.
-         * Key of one of the key-value pairs contained in the secret version.
+         * Key of one of the key-value pairs in the secret version.
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
 
       You can transmit multiple secrets to a function. To do this, click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
@@ -64,7 +64,7 @@ A new version of a function is created when secrets are transmitted. You cannot 
       * `environment-variable`: Name of the environment variable that will store the secret.
       * `id`: Secret ID.
       * `version-id`: Secret version ID.
-      * `key`: Key of one of the key-value pairs contained in the secret version.
+      * `key`: Key of one of the key-value pairs in the secret version.
 
       You can transmit multiple secrets to a function. To do this, specify the `--secret` parameter as many times as needed.
 

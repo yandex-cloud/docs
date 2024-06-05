@@ -63,7 +63,7 @@ To top up your personal account:
    * [Personal account number](../concepts/personal-account.md#id) in the payment details.
    * [Contract number](../concepts/contract.md) in the payment details.
 
-   How fast the funds will be credited to your personal account depends on the bank performing the transaction.
+   [How fast the funds will be credited to your personal account](../payment/payment-methods-business.md#limits) depends on the bank performing the transaction.
 
    {% include [payment-bill-note](../_includes/payment-bill-note.md) %}
 

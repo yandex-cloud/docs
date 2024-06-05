@@ -1,6 +1,6 @@
 ---
 title: "Query language in {{ monitoring-full-name }}"
-description: "This section describes the\_query language used in {{ monitoring-full-name }}. It's used to convert metrics when you configure dashboards and alerts, as well as in the MetricsData.read API method."
+description: "This section describes the query language used in {{ monitoring-full-name }}. It is used to convert metrics when you configure dashboards and alerts, as well as in the MetricsData.read API method."
 ---
 
 # Query language in {{ monitoring-name }}
@@ -15,7 +15,11 @@ Select metrics using the metric name and _selectors_ that filter label values (f
 
 {% note warning %}
 
-The `folderId` label value must always match the selected folder. It is not allowed to query data from other folders. This restriction applies to any query language use case: when building charts in Metric Explorer or on dashboards, creating alerts, or calling API methods.
+Consider the `folderId` label specifics:
+
+* The label value must always match the selected folder. You cannot query data from other folders. This applies to all query language use cases: when building charts in Metric Explorer or on dashboards, creating alerts, or calling API methods.
+
+* When calling API methods, do not include the label value in the request body (in the `query` field). You should provide `folderId` as a query parameter in the HTTP request.
 
 {% endnote %}
 
