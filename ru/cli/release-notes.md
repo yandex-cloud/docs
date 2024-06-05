@@ -71,8 +71,6 @@ description: "На странице представлены релизы YC CLI
 * Добавлена группа команд `yc organization-manager oslogin profile` для управления пользовательскими профилями OS Login.
 * В командах `yc organization-manager oslogin user-ssh-key create` и `yc organization-manager oslogin user-ssh-key update` исправлен флаг `--expires-at` при указании значения в виде интервала. Например значение `5h` теперь отсылает значение в будущем.
 
-## Предыдущие релизы {#previous-releases}
-
 ### Версия 0.124.0 (22.04.24) {#version0.124.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}

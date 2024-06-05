@@ -11,6 +11,7 @@
 `CreateMlModel` | Создание модели машинного обучения
 `CreateShardGroup` | Создание группы шардов
 `CreateUser` | Создание пользователя базы данных
+`DeleteBackup` | Удаление резервной копии
 `DeleteCluster` | Удаление кластера
 `DeleteClusterExternalDictionary` | Удаление внешнего словаря
 `DeleteClusterHosts` | Удаление хостов из кластера

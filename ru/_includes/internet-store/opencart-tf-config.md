@@ -164,7 +164,8 @@ resource "yandex_compute_instance" "opencart" {
   }
 }
 
-# Создание кластера MySQL
+# Создание кластера {{ MY }}
+# Если необходимости в кластере нет, удалите блок кода с созданием кластера, БД и пользователя  {{ MY }}
 
 resource "yandex_mdb_mysql_cluster" "opencart-mysql" {
   name               = local.cluster_name
@@ -192,7 +193,7 @@ resource "yandex_mdb_mysql_cluster" "opencart-mysql" {
   }
 }
 
-# Создание базы данных для MySQL
+# Создание базы данных для {{ MY }}
 
 
 resource "yandex_mdb_mysql_database" "db1" {
@@ -200,7 +201,7 @@ resource "yandex_mdb_mysql_database" "db1" {
   name       = local.db_name
 }
 
-# Создание пользователя для MySQL
+# Создание пользователя для {{ MY }}
 
 resource "yandex_mdb_mysql_user" "user1" {
   cluster_id = yandex_mdb_mysql_cluster.opencart-mysql.id

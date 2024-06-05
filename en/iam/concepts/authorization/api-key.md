@@ -13,6 +13,8 @@ If someone might have gotten access to your private key, [delete it](../../opera
 
 Users should store API keys on their own. {{ yandex-cloud }} only gives access to an API key while it is being created. If the key is lost or damaged, you cannot restore it. In this case, you can [reissue](../../operations/compromised-credentials.md#api-key-reissue) the key or create a new one.
 
+{% include [key-has-last-used-data](../../../_includes/iam/key-has-last-used-data.md) %}
+
 ## Using the token {#use}
 
 Enter the API key when accessing {{ yandex-cloud }} resources via the API. Provide the API key in the `Authorization` header in the following format:

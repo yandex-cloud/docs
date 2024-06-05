@@ -114,9 +114,9 @@ items:
             href: concepts/authorization/oauth-token.md
           - name: API key
             href: concepts/authorization/api-key.md
-          - name: Authorized keys
+          - name: Authorized key
             href: concepts/authorization/key.md
-          - name: Static access keys
+          - name: Static access key
             href: concepts/authorization/access-key.md
       - name: Identity federations
         href: concepts/federations.md

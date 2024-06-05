@@ -5,6 +5,8 @@ description: "Различные сценарии использования {{ 
 
 # Практические руководства {{ mgl-name }}
 
+* [{#T}](install-gitlab-runner.md)
+* [{#T}](gitlab-lockbox-integration.md)
 * [{#T}](gitlab-containers.md)
 * [{#T}](cr-scanner-with-k8s-and-gitlab.md)
 * [{#T}](ci-cd-serverless.md)

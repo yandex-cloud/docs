@@ -27,6 +27,8 @@ Follow this guide to create a new trail that will upload audit logs of your orga
 
 ## Creating a trail {#the-trail-creation}
 
+{% include [note-lose-target-when-switch-trail](../_includes/audit-trails/note-lose-target-when-switch-trail.md) %}
+
 To create your first trail in {{ at-name }} and start the process of management event audit log management:
 
 {% list tabs group=instructions %}
@@ -38,7 +40,7 @@ To create your first trail in {{ at-name }} and start the process of management 
    1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the trail.
    1. In the **{{ ui-key.yacloud.common.description }}** field, enter the trail description (optional).
-   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
 
       * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
       * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the [bucket](../storage/concepts/bucket.md) to upload audit logs to.
@@ -48,7 +50,7 @@ To create your first trail in {{ at-name }} and start the process of management 
       * **{{ ui-key.yacloud.audit-trails.title_kms-key }}**: If the bucket you selected is [encrypted](../storage/concepts/encryption.md), specify the encryption key.
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the [service account](../iam/concepts/users/service-accounts.md) that the trail will use to upload audit log files to the bucket.
-   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of management event audit logs:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, configure the collection of management event audit logs:
 
       * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`.

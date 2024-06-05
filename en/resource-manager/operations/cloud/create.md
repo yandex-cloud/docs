@@ -12,14 +12,14 @@ To create an additional cloud:
 - Management console {#console}
 
   1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
-  1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, select a billing account.
-  1. Under **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_clouds }}**, click **{{ ui-key.yacloud.common.create }}**.
-  1. Enter the name of the cloud. The naming requirements are as follows:
+  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+  1. In the left-hand panel, select ![cloud](../../../_assets/console-icons/cloud.svg) [{{ ui-key.yacloud_org.pages.raw_services }}]({{ link-org-main }}/services).
+  1. Under **{{ ui-key.yacloud_org.page.services.service.console.title_ru }}**, click ![cloud](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.page.services.clouds.create }}**.
+  1. In the window that opens, enter a cloud name. The naming requirements are as follows:
 
      {% include [name-format.md](../../../_includes/name-format.md) %}
 
-  1. Enter the organization you are going to link the cloud to.
-  1. Click **{{ ui-key.yacloud.common.create }}**. The `default` folder page in the new cloud opens.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - {{ TF }} {#tf}
 

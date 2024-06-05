@@ -20,7 +20,7 @@ description: "In this tutorial, you will learn how to set up a {{ PG }} target e
 
    * [Migrating the {{ PG }} cluster](../../../tutorials/managed-postgresql.md).
    * [Migrating data from AWS RDS for {{ PG }}](../../../tutorials/rds-to-mpg.md).
-   * [Migration with storage changed from {{ MY }} to {{ PG }}](../../../tutorials/mmy-to-mpg.md).
+   * [Migration with the storage change from {{ MY }} to {{ PG }}](../../../tutorials/mmy-to-mpg.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
 
@@ -37,13 +37,13 @@ For a detailed description of possible {{ data-transfer-full-name }} data transf
 
 Configure one of the supported data sources:
 
-* [{{ PG }}](../source/postgresql.md).
-* [{{ MY }}](../source/mysql.md).
-* [{{ GP }}](../source/greenplum.md).
-* [{{ KF }}](../source/kafka.md).
-* [Airbyte](../../../transfer-matrix.md#airbyte).
-* [{{ DS }}](../source/data-streams.md).
-* [{{ objstorage-full-name }}](../source/object-storage.md).
+* [{{ PG }}](../source/postgresql.md)​
+* [{{ MY }}](../source/mysql.md)
+* [{{ GP }}](../source/greenplum.md)
+* [{{ KF }}](../source/kafka.md)
+* [Airbyte](../../../transfer-matrix.md#airbyte)
+* [{{ DS }}](../source/data-streams.md)​
+* [{{ objstorage-full-name }}](../source/object-storage.md)
 * [{{ ydb-name }}](../source/ydb.md).
 * [Oracle](../source/oracle.md).
 
@@ -183,27 +183,17 @@ For OnPremise, all fields are filled in manually.
 
 - Management console {#console}
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
+   * {% include [cleanup_policy](../../../../_includes/data-transfer/fields/postgresql/ui/cleanup_policy.md) %}
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only going to do replication without copying data.
+   * {% include [save_tx_boundaries](../../../../_includes/data-transfer/fields/postgresql/ui/save_tx_boundaries.md) %}
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Completely delete tables included in the transfer (used by default).
+- {{ TF }} {#tf}
 
-         Use this option so that the latest version of the table schema is always transferred to the target database from the source whenever the transfer is activated.
+   {% include [cleanup_policy](../../../../_includes/data-transfer/fields/postgresql/terraform/cleanup-policy.md) %}
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`: Delete only the data from the tables included in the transfer but leave the schema.
+- API {#api}
 
-         Use this option if the schema in the target database differs from the one that would have been transferred from the source during the transfer.
-
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTargetAdvancedSettings.save_tx_boundaries.title }}**: Enable so that the service writes data to the target database only after fully reading the transaction data from the source database.
-
-      
-      {% note warning %}
-
-      This feature is at the [Preview](../../../../overview/concepts/launch-stages.md) stage.
-
-      {% endnote %}
-
+   {% include [cleanupPolicy](../../../../_includes/data-transfer/fields/postgresql/api/cleanup-policy.md) %}
 
 {% endlist %}
 

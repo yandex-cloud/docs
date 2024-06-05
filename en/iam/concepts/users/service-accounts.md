@@ -38,6 +38,8 @@ The following keys are used for service account authentication in {{ yandex-clou
 
 Generated keys belong to the service account and permissions to manage them are inherited from the service account. For example, if you have the `viewer` role in the service account, you can view the list of keys that belong to this account, but you cannot delete them or create new keys.
 
+{% include [key-has-last-used-data](../../../_includes/iam/key-has-last-used-data.md) %}
+
 #### See also {#see-also}
 
 - [{#T}](../../quickstart-sa.md)

@@ -158,6 +158,8 @@ items:
     href: organization-changes.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: История изменений
     items:
       - name: Февраль 2024

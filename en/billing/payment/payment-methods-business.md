@@ -19,7 +19,9 @@ To have funds transferred, you should first receive a [payment invoice](../conce
 
 ## Payment terms {#limits}
 
-Payment invoices must be paid before the deadline stipulated in the [agreement](../concepts/contract.md). How fast the funds will be credited to your personal account depends on the bank performing the transaction.
+Invoices must be paid before the deadline set out in the agreement. How fast the funds will be credited to your personal account depends on the bank performing the transaction.
+
+The due date for payments is specified in Chapter 6 (Payment Procedure) of the [agreement](../concepts/contract.md) or in a monthly [report](../concepts/act.md#report-of-completion) that we send to our clients.
 
 
 {% note info %}

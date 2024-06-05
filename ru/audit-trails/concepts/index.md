@@ -43,6 +43,7 @@ description: "{{ at-full-name }} позволяет собирать аудит�
 * {{ org-full-name }}
 * {{ resmgr-full-name }}
 * {{ vpc-full-name }}
+* {{ websql-full-name }}
 * {{ ydb-full-name }}
 * {{ yq-full-name }}
 
@@ -70,6 +71,7 @@ description: "{{ at-full-name }} позволяет собирать аудит�
 * {{ mpg-full-name }}
 * {{ mmg-full-name }}
 * {{ mmy-full-name }}
+* {{ websql-full-name }}
 
 ## Существующие ограничения сервиса {#known-restrictions}
 

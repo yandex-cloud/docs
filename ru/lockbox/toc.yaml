@@ -52,6 +52,10 @@ items:
           Построение пайплайна CI/CD в {{ GL }} с использованием
           serverless-продуктов
         href: tutorials/ci-cd-serverless.md
+      - name: >-
+          Безопасное хранение паролей для {{ GL }} CI в виде секретов {{
+          lockbox-name }}
+        href: tutorials/gitlab-lockbox-integration.md
   - name: Квоты и лимиты
     href: concepts/limits.md
   - name: Управление доступом

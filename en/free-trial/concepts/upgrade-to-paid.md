@@ -2,6 +2,12 @@
 
 You do not upgrade to the paid version automatically after the trial period ends. To upgrade to the paid version, click **{{ ui-key.yacloud_billing.billing.account.dashboard.button_go-pay}}** in [{{ billing-name }}]({{ link-console-billing }}).
 
+## Paying for services
+
+In {{ yandex-cloud }}, you pay for services based on the amount of resources consumed. Go to the [service plans]({{ link-cloud-calculator }}) page to see the current prices and estimate your costs depending on what amount of resources you are going to use. For detailed guidelines on how to pay for resources after upgrading to the paid version, see the {{ billing-name }} [documentation](../../billing/).
+
+In {{ yandex-cloud }}, you only pay for the resources you actually consumed. If you do not use {{ yandex-cloud }} resources, you will not be charged. In addition, in [some {{ yandex-cloud }} services](../../billing/concepts/serverless-free-tier.md), certain features are available for free.
+
 ## Using the remainder of the initial grant
 
 {% include [billing-how-to-use-grant](../../_includes/billing-how-to-use-grant.md) %}
@@ -12,7 +18,7 @@ The grant terms of use remain in effect when you upgrade:
 
 - Individual account {#individual}
 
-   A remainder of [part](usage-grant.md) of the grant is only used to pay for the intended service or services.
+   A remainder of [part](usage-grant.md) of the grant is only used to pay for the intended service(s).
 
 - Business account {#business}
 
@@ -22,14 +28,10 @@ The grant terms of use remain in effect when you upgrade:
    | Payment method | Using the grant |
    ----- | -----
    | Bank transfer | The remainder of the grant can be used to pay for any {{ yandex-cloud }} services. |
-   | Bank card | The remainder of [part](usage-grant.md) of the grant can only be used to pay for its intended service or services. |
+   | Bank card | The remainder of one [part](usage-grant.md) of the grant may be used to pay only for the service(s) for which that part is intended. |
 
 
 {% endlist %}
-
-## Paying for services
-
-In {{ yandex-cloud }}, you pay for services based on the amount of resources consumed. Go to the [service plans]({{ link-cloud-calculator }}) page to see the current prices and estimate your costs depending on what amount of resources you are going to use. For detailed guidelines on how to pay for resources after upgrading to the paid version, see the {{ billing-name }} [documentation](../../billing/).
 
 ## Examples
 

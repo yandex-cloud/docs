@@ -9,7 +9,7 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-The cost depends on the service plan selected. The selected plan covers an organization and can only be changed by its owner or administrator. You can use one billing account to pay for technical support for multiple organizations that may have different support service plans activated. Service packages under various service plans are described in [Requesting technical support](overview.md).
+The cost depends on the service plan selected. The plan you choose covers your organization and can only be changed by its owner or administrator. You can use one billing account to pay for technical support for multiple organizations that may have different support service plans activated. Service packages under various service plans are described in [Requesting technical support](overview.md).
 
 | Service plan | Basic | Business | Premium |
 --- |----------------|------------------------------|--------
@@ -17,7 +17,7 @@ The cost depends on the service plan selected. The selected plan covers an organ
 
 {% note info %}
 
-* All prices are shown without VAT. The cost of support is calculated based on the cost of paid resources consumed. If a billing account is awarded a [grant](../billing/concepts/bonus-account.md), it will be counted towards payment for the support plan.
+* All prices are shown without VAT. The cost of support is calculated based on the [cost of paid resources consumed](../billing/pricing.md). If a billing account is awarded a [grant](../billing/concepts/bonus-account.md), it will be counted towards payment for the support plan.
 
 {% endnote %}
 

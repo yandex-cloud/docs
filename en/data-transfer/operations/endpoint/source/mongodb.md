@@ -178,23 +178,43 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
 - Management console {#console}
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoCollectionFilter.collections.title }}**: Data is only transferred from listed collections. All collections are transferred by default.
+   * {% include [collections](../../../../_includes/data-transfer/fields/mongodb/ui/collections.md) %}
 
       {% include [Description for Included collections](../../../../_includes/data-transfer/fields/mongodb/description-included-collections.md) %}
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoCollectionFilter.excluded_collections.title }}**: Data is transferred from all collections except the specified ones.
+   * {% include [excluded-collections](../../../../_includes/data-transfer/fields/mongodb/ui/excluded-collections.md) %}
 
    Included and excluded collection names must meet the ID naming rules in {{ MG }}. Escaping double quotes is not required.
 
-- {{ TF }} {#tf}
+- CLI {#cli}
 
-   * `secondary_preferred_mode`: If there are replicas in the cluster, they will be used for data reads instead of the master host.
-
-   * `collections`: Data is only transferred from listed collections. All collections are transferred by default.
+   * {% include [include-collection](../../../../_includes/data-transfer/fields/mongodb/cli/include-collection.md) %}
 
       {% include [Description for Included collections](../../../../_includes/data-transfer/fields/mongodb/description-included-collections.md) %}
 
-   * `excluded_collections`: Data is transferred from all collections except the specified ones.
+   * {% include [exclude-collection](../../../../_includes/data-transfer/fields/mongodb/cli/exclude-collection.md) %}
+
+   * {% include [prefer-secondary](../../../../_includes/data-transfer/fields/mongodb/cli/prefer-secondary.md) %}
+
+- {{ TF }} {#tf}
+
+   * {% include [collections](../../../../_includes/data-transfer/fields/mongodb/terraform/collections.md) %}
+
+      {% include [Description for Included collections](../../../../_includes/data-transfer/fields/mongodb/description-included-collections.md) %}
+
+   * {% include [excluded_collections](../../../../_includes/data-transfer/fields/mongodb/terraform/excluded-collections.md) %}
+
+   * {% include [secondary_preferred_mode](../../../../_includes/data-transfer/fields/mongodb/terraform/secondary-preferred-mode.md) %}
+
+- API {#api}
+
+   * {% include [collections](../../../../_includes/data-transfer/fields/mongodb/api/collections.md) %}
+
+      {% include [Description for Included collections](../../../../_includes/data-transfer/fields/mongodb/description-included-collections.md) %}
+
+   * {% include [excludedCollections](../../../../_includes/data-transfer/fields/mongodb/api/excluded-collections.md) %}
+
+   * {% include [secondaryPreferredMode](../../../../_includes/data-transfer/fields/mongodb/api/secondary-preferred-mode.md) %}
 
 {% endlist %}
 

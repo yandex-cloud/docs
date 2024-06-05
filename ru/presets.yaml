@@ -4681,6 +4681,15 @@ default:
             field_preemptible: Прерываемая
             label_sw-accelerated-net: Программно-ускоренная сеть
             value_platform-tab-gpu: Есть GPU
+        condition-column:
+          condition_and: и
+          condition_full-trafic: Весь трафик
+          condition_name-authority: Host
+          condition_name-header: HTTP header
+          condition_name-httpMethod: HTTP method
+          condition_name-ip-range: IP
+          condition_name-requestUri: Request URI
+          condition_or: или
         console-dashboard:
           button_action-change-org: Изменить организацию
           button_action-create-folder: Создать каталог
@@ -6294,14 +6303,6 @@ default:
           column_priority: Приоритет
           column_rule-conditions: Условия
           column_type: Тип
-          condition_and: и
-          condition_full-trafic: Весь трафик
-          condition_name-authority: Host
-          condition_name-header: HTTP header
-          condition_name-httpMethod: HTTP method
-          condition_name-ip-range: IP
-          condition_name-requestUri: Request URI
-          condition_or: или
           label_base-rule: Базовое
           label_smart-protection-rule: Smart Protection
           title_connected-to-the-hosts: Подключенные хосты

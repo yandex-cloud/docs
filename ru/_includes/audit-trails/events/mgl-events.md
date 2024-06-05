@@ -6,6 +6,7 @@
 `CreateInstanceBackup` | Создание резервной копии инстанса
 `DeleteInstance` | Удаление инстанса
 `FinishMigration` | Завершение процесса миграции инстанса в другую зону доступности
+`PrepareBackupUpload` | Подготовка к восстановлению из резервной копии
 `ReconfigureGitlab` | Изменение конфигурации {{ GL }}
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `ResizeInstance` | Изменение размера инстанса

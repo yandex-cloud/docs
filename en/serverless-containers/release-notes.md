@@ -1,5 +1,11 @@
 # {{ serverless-containers-full-name }} release notes
 
+## April 2024 {#april-2024}
+
+### Fixes and improvements {#fixes-improvements}
+
+* Removed the [user network](concepts/networking#user-network) requirement to have a subnet in the `ru-central1-c` availability zone as [this zone is discontinued](../overview/concepts/ru-central1-c-deprecation).
+
 ## March 2024 {#march-2024}
 
 ### Updates {#updates}

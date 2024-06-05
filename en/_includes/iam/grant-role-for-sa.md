@@ -109,7 +109,7 @@ To assign a role for a resource:
 
 Access permissions are inherited from an organization by all resources created in the organization. For example, if a service account is assigned a role for an organization, the service account will be granted the appropriate permissions to all resources in all clouds of this organization.
 
-To grant a service account access permissions to an organization, you need the `{{ roles-organization-admin }}` role or higher.
+To grant a service account permissions to access an organization, you need the `{{ roles-organization-admin }}` role or higher.
 
 {% list tabs group=instructions %}
 

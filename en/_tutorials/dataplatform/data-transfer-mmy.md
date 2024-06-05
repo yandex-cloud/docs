@@ -285,7 +285,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. Delete the clusters:
 
-   * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md)​
-   * [{{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md)
+   * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+   * [{{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
 
 1. If static public IP addresses were used for accessing the cluster hosts, release and [delete](../../vpc/operations/address-delete.md) them.

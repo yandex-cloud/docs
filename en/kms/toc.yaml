@@ -20,7 +20,7 @@ items:
             href: operations/version.md
           - name: Data encryption
             href: operations/symmetric-encryption.md
-          - name: Encryption key access rights
+          - name: Encryption key access permissions
             href: operations/key-access.md
       - name: Asymmetric encryption
         items:

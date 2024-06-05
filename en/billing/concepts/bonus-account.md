@@ -21,7 +21,7 @@ For more information about the terms of use of initial grants, see [Getting star
 
 {% note info %}
 
-Each individual, sole proprietor, or business can be given only one initial grant.
+Each individual, individual entrepreneur, or business can be given only one initial grant.
 
 {% endnote %}
 

@@ -9,7 +9,7 @@ description: "Вы можете задать ряд условий для пра
 
 #|
 || **Тип** | **Виды сопоставления** | **Значения** | **Пример** | **Логический оператор** ||
-|| `{{ ui-key.yacloud.smart-web-security.overview.condition_name-ip-range }}` |
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}` |
 * Совпадает или принадлежит диапазону
 * Не совпадает и не принадлежит диапазону
 * IP принадлежит региону
@@ -27,7 +27,7 @@ description: "Вы можете задать ряд условий для пра
 * `ru`
 * `kz`
 | _или_ ||
-|| `{{ ui-key.yacloud.smart-web-security.overview.condition_name-header }}` |
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-header }}` |
 * Совпадает с
 * Не совпадает с
 * Начинается с
@@ -42,7 +42,7 @@ description: "Вы можете задать ряд условий для пра
 |
 * `User-Agent: curl/7.55.1`
 | _и_ ||
-|| `{{ ui-key.yacloud.smart-web-security.overview.condition_name-requestUri }}` |
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}` |
 * Совпадает с
 * Не совпадает с
 * Начинается с
@@ -71,7 +71,7 @@ PIRE
 * `a: 1`
 * `A: 2`
 | _и_ ||
-|| `{{ ui-key.yacloud.smart-web-security.overview.condition_name-authority }}` |
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-authority }}` |
 * Совпадает с
 * Не совпадает с
 * Начинается с
@@ -86,7 +86,7 @@ PIRE
 |
 * `example.com`
 | _или_ ||
-|| `{{ ui-key.yacloud.smart-web-security.overview.condition_name-httpMethod }}` |
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}` |
 * Совпадает с
 * Не совпадает с
 * Начинается с

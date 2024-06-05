@@ -42,6 +42,12 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
+      - name: Установка {{ GL }} Runner на виртуальной машине
+        href: tutorials/install-gitlab-runner.md
+      - name: >-
+          Безопасное хранение паролей для {{ GL }} CI в виде секретов {{
+          lockbox-name }}
+        href: tutorials/gitlab-lockbox-integration.md
       - name: >-
           Непрерывное развертывание контейнеризованных приложений {{
           managed-k8s-name }}

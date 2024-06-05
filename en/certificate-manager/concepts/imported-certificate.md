@@ -12,6 +12,12 @@ Supported cryptographic algorithms for creating private keys:
 * RSA-2048
 * RSA-4096
 
+{% note info %}
+
+GOST certificates are not supported.
+
+{% endnote %}
+
 ## Certificate requirements {#requirements}
 
 Custom certificate requirements:
