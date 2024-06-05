@@ -50,7 +50,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
       * Target endpoint.
       * Transfer.
 
-   1. In the `greenplum-postgresql.tf` file, specify the {{ GP }} and {{ PG }} administrator passwords.
+   1. In the `greenplum-postgresql.tf` file, specify the administrator passwords and versions of {{ GP }} and {{ PG }}.
    1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -99,7 +99,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
          {% note warning %}
 
-         Before configuring regular copying, make make sure that the [target endpoint parameters](../../../data-transfer/operations/endpoint/target/postgresql.md#additional-settings) include either a `DROP` or a `TRUNCATE` cleanup policy. Otherwise, data on the target will be duplicated.
+         Before configuring regular copying, make sure that the [target endpoint parameters](../../../data-transfer/operations/endpoint/target/postgresql.md#additional-settings) include either a `DROP` or a `TRUNCATE` cleanup policy. Otherwise, data on the target will be duplicated.
 
          {% endnote %}
 

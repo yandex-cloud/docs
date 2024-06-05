@@ -1,6 +1,6 @@
 To provide the container with access to the [secret](../../lockbox/concepts/secret.md), specify a [service account](../../iam/concepts/users/service-accounts.md) with the following roles in the container parameters:
-* `lockbox.payloadViewer` for the secret (see [how to grant access rights to secrets](../../lockbox/operations/secret-access.md)).
-* `kms.keys.encrypterDecrypter` for the encryption key if the secret was created using a {{ kms-full-name }} key (see [how to grant access rights to encryption keys](../../kms/operations/key-access.md)).
+* `lockbox.payloadViewer` to access the secret (see [Granting permissions to access a secret](../../lockbox/operations/secret-access.md)).
+* `kms.keys.encrypterDecrypter` to access the encryption key if the secret was created using a {{ kms-full-name }} key (see [Granting permissions to access an encryption key](../../kms/operations/key-access.md)).
 
 A {{ lockbox-short-name }} secret transmitted to a container is cached in {{ serverless-containers-name }}. As soon as the service account can no longer access the secret, the container may store it for up to 5 minutes.
 
@@ -18,7 +18,7 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
       * Name of the environment variable to store the secret.
       * Secret ID.
       * Secret version ID.
-      * Key of one of the key-value pairs contained in the secret version.
+      * Key of one of the key-value pairs in the secret version.
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
 
       You can transmit multiple secrets to a container. To do this, click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.

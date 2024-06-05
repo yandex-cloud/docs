@@ -31,7 +31,7 @@ description: "Follow this guide to edit a rule in a security profile."
             * `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-api }}`: Traffic is checked by ML models and behavioral analysis algorithms. Suspicious requests are denied.
    1. In the **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** field and the additional fields below, modify the conditions the traffic must match to get processed by the rule. For more details, see [Rule action conditions](../concepts/conditions.md).
 
-      You can set multiple conditions of the same type. Different types of conditions use different logical operators: _and_ or _or_. To add more than one condition of a certain type, click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.overview.condition_and }}** or ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.overview.condition_or }}**.
+      You can set multiple conditions of the same type. Different types of conditions use different logical operators: _and_ or _or_. To add more than one condition of a certain type, click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.condition-column.condition_and }}** or ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.condition-column.condition_or }}**.
 
       To remove a condition, click ![options](../../_assets/console-icons/trash-bin.svg).
    1. Click **{{ ui-key.yacloud.common.save-changes }}**.

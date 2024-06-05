@@ -63,7 +63,7 @@ A client must perform their own security updates within their scope of responsib
  
 #### 6.5 A Web Application Firewall is used {#firewall}
 
-To mitigate risks associated with web attacks, we recommend using a Web Application Firewall (WAF). A client can install and maintain a WAF independently or use the Managed WAF service.
+To mitigate risks associated with web attacks, we recommend using a Web Application Firewall (WAF). A client can install and maintain a WAF independently or use the {{ sws-full-name }} WAF.
 
 ##### Installing a WAF on your own {#self-installation}
 
@@ -73,20 +73,20 @@ To mitigate risks associated with web attacks, we recommend using a Web Applicat
 
 You can also install Wallarm WAF in [{{ managed-k8s-name }}](../../../managed-kubernetes/). See the [guide](https://docs.wallarm.com/admin-en/installation-kubernetes-en/) in the Wallarm documentation. This is a BYOL licensing model (a license purchased from a third-party vendor).
 
-##### Managed WAF {#managed-waf}
+##### {{ sws-full-name }} WAF {#managed-waf}
 
-A customer receives a cloud WAF as a service from {{ yandex-cloud }}. They are provided access to a personal account and the ability to view statistics and perform management. To activate the service and get detailed information, contact your account manager, the [sales department](/#contact-form), or [support]({{link-console-support}}?section=contact). The service is provided in partnership with Qrator.
+A client can use the [{{ sws-full-name }} WAF](../../../smartwebsecurity/concepts/waf.md). A web application firewall analyzes HTTP requests to a web app according to pre-configured rules. Based on the analysis results, certain [actions](../../../smartwebsecurity/concepts/rules.md#rule-action) are applied to HTTP requests.
+
+You can manage the web application firewall using a _WAF profile_ that connects to the [security profile](../../../smartwebsecurity/concepts/profiles.md) as a separate [rule](../../../smartwebsecurity/concepts/rules.md).
+
+For more information about connecting to a security profile, see [{#T}](../../../smartwebsecurity/quickstart/quickstart-waf.md).
 
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
 
-   1. In the management console, select the cloud or folder to check the images in.
-   1. In the list of services, select {{ compute-short-name }}.
-   1. Make sure there is at least one VM with a WAF image.
-
-- Manual check {#manual}
-
-   Contact your account manager from the Yandex Cloud team or your company's information security service to find out if Managed WAF is used for your organization.
+   1. In the management console, select the cloud or folder to check the security profile in.
+   1. In the list of services, select {{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}.
+   1. Check that the security profile was created with the **Web Application Firewall** rule type.
 
 {% endlist %}

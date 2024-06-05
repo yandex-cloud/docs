@@ -322,6 +322,7 @@
 {% include [vpc-events](../../_includes/audit-trails/events/vpc-events.md) %}
 
 
+
 ## {{ ydb-short-name }} {#ydb}
 
 Имя сервиса — `ydb`.

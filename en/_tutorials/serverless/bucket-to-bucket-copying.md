@@ -177,7 +177,7 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the service account.
+   1. In the [management console]({{ link-console-main }}), select the folder containing the service account.
    1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Choose a service account and click the row with its name.
    1. On the top panel, click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.

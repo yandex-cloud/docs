@@ -90,7 +90,7 @@ A _logical dump_ is a file with a set of commands running which one by one you c
        --user=<DB_owner_username> > <dump_file>
    ```
 
-   {% include [spec-fqdn](../includes/special-fqdn-master-mmy.md) %}
+   {% include [spec-fqdn](../_tutorials_includes/special-fqdn-master-mmy.md) %}
 
 1. Restore the database from the dump on the target cluster:
 
@@ -189,7 +189,7 @@ The target cluster will connect to the source cluster on behalf of this user.
 
 1. To assign a master for the target cluster, specify the parameters of the source cluster's master host:
 
-   {% include [spec-fqdn](../includes/special-fqdn-master-mmy.md) %}
+   {% include [spec-fqdn](../_tutorials_includes/special-fqdn-master-mmy.md) %}
 
    ```sql
    CHANGE MASTER TO

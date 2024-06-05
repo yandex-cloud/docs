@@ -56,7 +56,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * {{ mkf-name }} source cluster.
          * {{ KF }} topic named `sensors`.
          * {{ KF }} user named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions to the `sensors` topic.
-         * {{ mmg-name }} target cluster with the `db1` database and the `mmg-user` user.
+         * {{ mmg-name }} target cluster.
+         * {{ MG }} database named `db1`.
+         * {{ MG }} user named `mmg-user` with the `readWrite` permissions to access the `db1` database.
          * Transfer.
 
       1. In the `data-transfer-mkf-mmg.tf` file, specify the variables:

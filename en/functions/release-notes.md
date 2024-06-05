@@ -1,5 +1,16 @@
 # {{ sf-full-name }} release notes
 
+## April 2024 {#april-2024}
+
+### Updates {#updates}
+
+* Added support for [allocating RAM for the `/tmp` directory](operations/function/allocate-memory-tmp.md) for the function version with at least 1 GB of memory.
+
+### Fixes and improvements {#fixes-improvements}
+
+* Fixed the `yandex_function_scaling_policy` import error in {{ TF }}.
+* Removed the [user network](concepts/networking#user-network) requirement to have a subnet in the `ru-central1-c` availability zone as [this zone is discontinued](../overview/concepts/ru-central1-c-deprecation).
+
 ## March 2024 {#march-2024}
 
 ### Updates {#updates}

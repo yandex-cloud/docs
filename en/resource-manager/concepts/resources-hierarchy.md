@@ -67,13 +67,13 @@ Just like folders in your file system, {{ yandex-cloud }} folders make resource 
 
 When a user ([subject](../../iam/concepts/access-control/index.md#subject)) performs an operation with a resource, the {{ iam-name }} service verifies the user's access rights to this resource.
 
-Resource access rights are inherited:
-* Organization access rights apply to the organization's resources:
+Resource access permissions are inherited as follows:
+* Organization access permissions apply to the organization's resources:
    * [Federations](../../iam/concepts/federations.md).
    * Groups.
    * Organization clouds.
-* Rights to access the cloud apply to all folders within the cloud.
-* Folder access rights apply to all resources in the folder.
+* Permissions to access the cloud apply to all folders within the cloud.
+* Folder access permissions apply to all resources in the folder.
 
 > For example, for an organization named `myorganization` with the following hierarchy:
 > * `Mycloud` cloud:
@@ -87,10 +87,10 @@ Resource access rights are inherited:
 >
 > The `{{ roles-admin }}` role for the `robots` folder allows the user to manage all the resources in the folder, including the `Alice` and `Bob` service accounts.
 
-For certain resources, you cannot assign a role directly. In this case, a role is assigned for a folder, cloud, or organization. If the folder access rights are missing, {{ iam-name }} checks the cloud and organization access rights.
+For certain resources, you cannot assign a role directly. In this case, a role is assigned for a folder, cloud, or organization. If the folder access permissions are missing, {{ iam-name }} checks the cloud and organization access permissions.
 
 #### See also {#see-also}
 
-* [{#T}](../operations/cloud/set-access-bindings.md).
-* [{#T}](../operations/folder/create.md).
-* [{#T}](../operations/folder/set-access-bindings.md).
+* [{#T}](../operations/cloud/set-access-bindings.md)
+* [{#T}](../operations/folder/create.md)
+* [{#T}](../operations/folder/set-access-bindings.md)

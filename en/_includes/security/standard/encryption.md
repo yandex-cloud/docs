@@ -275,7 +275,7 @@ You can learn how to encrypt data in {{ mpg-full-name }} and {{ mgp-full-name }}
 
 For client-side encryption before uploading data to a {{ objstorage-full-name }} bucket, you can use the following approaches:
 * Integrating {{ objstorage-name }} with the {{ kms-name }} service for client-side encryption. For more information, see "Recommended cryptographic libraries".
-* Using third-party client-side encryption libraries prior to sending data to {{ objstorage-name }}. If you use third-party data encryption libraries and your own key management methods, make sure that your operation model, algorithms, and key sizes comply with regulatory requirements.
+* Using third-party client-side encryption libraries prior to sending data to {{ objstorage-name }}. If you use third-party data encryption libraries and your own key management methods, make sure your operation model, algorithms, and key sizes comply with regulatory requirements.
 
 For client-side encryption, we recommend that you use the following libraries:
 * AWS Encryption SDK and its [{{ kms-short-name }} integration](../../../kms/tutorials/encrypt/aws-encryption-sdk.md).
@@ -353,7 +353,7 @@ We recommend that you grant granular permissions for specific keys in the {{ kms
 
 For more information about security measures for access control, see [Authentication and access control](../../../security/domains/access.md).
 
-To verify the {{ kms-short-name }} key access rights, check out who is granted access rights to:
+To check the {{ kms-short-name }} key access permissions, check who has access permissions for:
 * Organization, cloud, and folders with the `admin`, `editor`, `kms.admin`, `kms.editor`, and `kms.keys.encrypterDecrypter` permissions.
 * `kms.keys.encrypterDecrypter` and `kms.editor` keys.
 
@@ -361,10 +361,10 @@ To verify the {{ kms-short-name }} key access rights, check out who is granted a
 
 - Performing a check in the management console {#console}
 
-   1. In the management console, select the cloud or folder to check the key access rights in.
+   1. In the management console, select the cloud or folder to check the key access permissions in.
    1. Click the **Access bindings** tab.
    1. Make sure the `admin`, `editor`, `kms.admin`, `kms.editor`, and `kms.keys.encrypterDecrypter` roles are only granted to users under control.
-   1. You can only verify the key access rights in the CLI.
+   1. You can check the actual key access permissions only via the CLI.
 
 - Performing a check via the CLI {#cli}
 

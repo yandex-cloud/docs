@@ -1,0 +1,1 @@
+In the [management console]({{ link-console-main }}), the page with service account information shows, for each key, the date and time of its most recent use. This information allows you to track down unauthorized use of keys and to delete unused keys without the risk of disrupting {{ yandex-cloud }} services.

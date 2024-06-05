@@ -8,13 +8,13 @@ description: "На странице представлен список прак
 ## Создание сайта {#web}
 
 * [Статический веб-сайт в {{ objstorage-full-name }}](../web/static.md)
-* [Веб-сайт на LAMP- или LEMP-стеке](../web/lamp-lemp.md)
+* [Веб-сайт на LAMP- или LEMP-стеке](../web/lamp-lemp/index.md)
 * [Сайт на базе Joomla с базой данных {{ PG }}](../web/joomla-postgresql.md)
 * [Создание сайта на WordPress](../web/wordpress.md)
 * [Сайт на WordPress с кластером БД {{ MY }}](../web/wordpress-mysql.md)
 * [Перенос WordPress сайта с хостинга в {{ yandex-cloud }}](../web/wordpress-transfer.md)
 * [Веб-сайт на базе 1С-Битрикс](../web/bitrix-website.md)
-* [Интернет-магазин на платформе OpenCart](../internet-store/opencart.md)
+* [Интернет-магазин на платформе OpenCart](../internet-store/opencart/index.md)
 * [Организация виртуального хостинга](../web/virtual-hosting.md)
 * [Привязка доменного имени к ВМ с веб-сервером](../web/bind-domain-vm.md)
 * [Создание веб-приложения на Python с использованием фреймворка Flask](../web/flask.md)

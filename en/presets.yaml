@@ -4681,6 +4681,15 @@ default:
             field_preemptible: Preemptible
             label_sw-accelerated-net: Software accelerated network
             value_platform-tab-gpu: With GPU
+        condition-column:
+          condition_and: and
+          condition_full-trafic: All traffic
+          condition_name-authority: Host
+          condition_name-header: HTTP header
+          condition_name-httpMethod: HTTP method
+          condition_name-ip-range: IP
+          condition_name-requestUri: Request URI
+          condition_or: or
         console-dashboard:
           button_action-change-org: Change organization
           button_action-create-folder: Create folder
@@ -6292,14 +6301,6 @@ default:
           column_priority: Priority
           column_rule-conditions: Conditions
           column_type: Type
-          condition_and: and
-          condition_full-trafic: All traffic
-          condition_name-authority: Host
-          condition_name-header: HTTP header
-          condition_name-httpMethod: HTTP method
-          condition_name-ip-range: IP
-          condition_name-requestUri: Request URI
-          condition_or: or
           label_base-rule: Base
           label_smart-protection-rule: Smart Protection
           title_connected-to-the-hosts: Connected hosts

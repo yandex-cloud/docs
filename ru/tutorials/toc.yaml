@@ -19,6 +19,10 @@ items:
         href: security/vm-fluent-bit-logging.md
       - name: Запись логов балансировщика в {{ PG }}
         href: security/logging.md
+      - name: >-
+          Безопасное хранение паролей для {{ GL }} CI в виде секретов {{
+          lockbox-full-name }}
+        href: security/gitlab-lockbox-integration.md
   - name: Хранение и восстановление данных
     items:
       - name: Все руководства
@@ -206,8 +210,14 @@ items:
         items:
           - name: Статический сайт в {{ objstorage-name }}
             href: web/static.md
-          - name: Сайт на LAMP- или LEMP-стеке
-            href: web/lamp-lemp.md
+          - name: Веб-сайт на LAMP- или LEMP-стеке
+            items:
+              - name: Обзор
+                href: web/lamp-lemp/index.md
+              - name: Консоль управления
+                href: web/lamp-lemp/console.md
+              - name: '{{ TF }}'
+                href: web/lamp-lemp/terraform.md
           - name: Сайт на базе Joomla с БД {{ PG }}
             href: web/joomla-postgresql.md
           - name: Сайт на WordPress
@@ -218,8 +228,14 @@ items:
             href: web/wordpress-transfer.md
           - name: Сайт на базе 1С-Битрикс
             href: web/bitrix-website.md
-          - name: Интернет-магазин на OpenCart
-            href: internet-store/opencart.md
+          - name: Интернет-магазин на платформе OpenCart
+            items:
+              - name: Обзор
+                href: internet-store/opencart/index.md
+              - name: Консоль управления
+                href: internet-store/opencart/console.md
+              - name: '{{ TF }}'
+                href: internet-store/opencart/terraform.md
           - name: Организация виртуального хостинга
             href: web/virtual-hosting.md
           - name: Привязка доменного имени к ВМ с веб-сервером

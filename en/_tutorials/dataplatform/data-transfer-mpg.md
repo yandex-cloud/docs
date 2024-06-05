@@ -132,7 +132,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
    * **{{ ui-key.yacloud.data-transfer.label_endpoints }}**:
       * **{{ ui-key.yacloud.data-transfer.forms.label_source-type }}**: Created source endpoint.
       * **{{ ui-key.yacloud.data-transfer.forms.label_target-type }}**: Created target endpoint.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.type.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.type.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**
 
 1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 

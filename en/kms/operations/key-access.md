@@ -1,21 +1,21 @@
 ---
-title: "Granting encryption key access rights"
-description: "Follow this guide to grant encryption key access rights."
+title: "Granting encryption key access permissions"
+description: "Follow this guide to grant encryption key access permissions."
 ---
 
-# Granting encryption key access rights
+# Granting encryption key access permissions
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the key is stored.
+   1. In the [management console]({{ link-console-main }}), select the folder where the secret is stored.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
    1. Click the name of the key you need.
    1. Go to the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
    1. In the window that opens, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
-   1. Select the group, user, or [service account](../../iam/concepts/users/service-accounts.md) to be granted access to the secret.
+   1. Select the group, user, or [service account](../../iam/concepts/users/service-accounts.md) to grant access to the secret.
    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [roles](../security/index.md#roles-list).
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 

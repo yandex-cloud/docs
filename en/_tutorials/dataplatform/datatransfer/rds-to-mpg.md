@@ -80,7 +80,7 @@ Prepare the infrastructure:
          }
          ```
 
-   1. Download the [rds-pg-mpg.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-postgres-from-aws-rds/blob/main/rds-pg-mpg.tf) configuration file to the same working directory.
+   1. Download the [rds-pg-mpg.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-postgresql-from-aws-rds/blob/main/rds-pg-mpg.tf) configuration file to the same working directory.
 
       This file describes:
 
@@ -191,9 +191,9 @@ Prepare the infrastructure:
    1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/mysql.md) of the `{{ PG }}` type and specify the cluster connection parameters in it:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`.
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.host.title }}**: Host URL
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.port.title }}**: `5432`
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.ca_certificate.title }}**: Select the AWS certificate file
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.host.title }}**: Host URL.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.port.title }}**: `5432`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.ca_certificate.title }}**: Select the AWS certificate file.
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}**: `postgres`
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}**: `postgres`
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}**: `<user_password>`

@@ -327,7 +327,7 @@ type Request struct {
 func Greet(ctx context.Context, event *APIGatewayRequest) (*APIGatewayResponse, error) {
 	req := &Request{}
 
-	// The request's event.Body field is converted to a Request object to get the passed name
+	// The request's event.Body field is converted to a Request object to get the transmitted name
 	if err := json.Unmarshal([]byte(event.Body), &req); err != nil {
 		return nil, fmt.Errorf("an error has occurred when parsing body: %v", err)
 	}
@@ -335,7 +335,7 @@ func Greet(ctx context.Context, event *APIGatewayRequest) (*APIGatewayResponse, 
 	// The log will show the name of the HTTP method that was used to make the request and the path
 	fmt.Println(event.HTTPMethod, event.Path)
 
-	// The response body.
+	// Response body.
 	return &APIGatewayResponse{
 		StatusCode: 200,
 		Body:       fmt.Sprintf("Hello, %s", req.Name),

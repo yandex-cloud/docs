@@ -34,7 +34,7 @@ Configure one of the supported data sources:
 
 * [{{ MG }}](../source/mongodb.md)​
 * [Airbyte](../../../transfer-matrix.md#airbyte)
-* [{{ DS }}](../source/data-streams.md)​
+* [{{ DS }}](../source/data-streams.md)
 * [{{ KF }}](../source/kafka.md)​
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
@@ -96,8 +96,8 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
          connection {
            connection_options {
              mdb_cluster_id = "<cluster_ID>"
-             database       = "<database_name>"
-             user           = "<username>"
+             auth_source    = "<database_name>"
+             user           = "<user_name>"
              password {
                raw = "<user_password>"
              }
@@ -191,37 +191,25 @@ Connecting to the database with explicitly specified network addresses and ports
 
 - Management console {#console}
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.database.title }}**: Enter a name for the database. If you do not specify any name, the source database name will be used.
+   * {% include [database](../../../../_includes/data-transfer/fields/mongodb/ui/database.md) %}
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
+   * {% include [cleanup_policy](../../../../_includes/data-transfer/fields/mongodb/ui/cleanup-policy.md) %}
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only going to do replication without copying data.
+- CLI {#cli}
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Completely delete tables included in the transfer (used by default).
-
-         Use this option so that the latest version of the table schema is always transferred to the target database from the source whenever the transfer is activated.
-
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`: Delete only the data from the tables included in the transfer but leave the schema.
-
-         Use this option if the schema in the target database differs from the one that would have been transferred from the source during the transfer.
+   {% include [target-database](../../../../_includes/data-transfer/fields/mongodb/cli/target-database.md) %}
 
 - {{ TF }} {#tf}
 
-   * `database`: Specify the database name if you want to create collections in a database that is different from the source database.
+   * {% include [database](../../../../_includes/data-transfer/fields/mongodb/terraform/database.md) %}
 
-   * `cleanup_policy`: Select a way to clean up data in the target database before the transfer:
+   * {% include [cleanup_policy](../../../../_includes/data-transfer/fields/mongodb/terraform/cleanup-policy.md) %}
 
-      * `DISABLED`: Do not clean up.
+- API {#api}
 
-         Select this option if only replication without copying data is performed.
+   * {% include [database](../../../../_includes/data-transfer/fields/mongodb/api/database.md) %}
 
-      * `DROP`: Completely delete collections included in the transfer (default).
-
-         Use this option so that the latest collection version is always transferred to the target database from the source whenever the transfer is activated.
-
-      * `TRUNCATE`: Delete only the data from the collections included in the transfer but leave the collections.
-
-         Use this option if the structure of collections in the target database differs from the one that would have been transferred from the source during the transfer.
+   * {% include [cleanupPolicy](../../../../_includes/data-transfer/fields/mongodb/api/cleanup-policy.md) %}
 
 {% endlist %}
 

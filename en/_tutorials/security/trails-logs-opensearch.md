@@ -59,8 +59,8 @@ Make sure to give your stream the `audit‑trails` name to make it easier to upl
 
       This file describes:
 
-      * [Network](../../vpc/concepts/network.md#network)..
-      * [Subnet](../../vpc/concepts/network.md#subnet)..
+      * [Network](../../vpc/concepts/network.md#network).
+      * [Subnet](../../vpc/concepts/network.md#subnet).
       * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to a {{ mos-name }} cluster.
       * {{ mos-name }} target cluster.
       * Transfer.
