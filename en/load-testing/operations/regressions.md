@@ -3,6 +3,7 @@
 This guide will show you how to create a [regression](../concepts/load-test-regressions.md) dashboard and configure metric chart widgets.
 If you do not have completed [load tests](../concepts/index.md) yet, create a test and run it several times in a row. You can find examples of load test scenarios in the **Tutorials** section.
 
+
 To create and configure a regression dashboard:
 
 1. [Create a dashboard](#create-dashboard).

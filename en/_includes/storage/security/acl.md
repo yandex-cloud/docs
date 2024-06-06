@@ -14,9 +14,9 @@ A bucket [inherits](#inheritance) the same access rights in the {{ iam-short-nam
 
 > For example, if a user has the `viewer` role in {{ iam-short-name }} for the bucket's folder, they can view its content, even though such permissions are not provided in the bucket ACL.
 
-By default, {{ objstorage-name }} creates an empty ACL for each new object or bucket. Users with the appropriate access rights can edit and upload ACLs for {{ objstorage-name }} buckets and objects.
+By default, {{ objstorage-name }} creates an empty ACL for each new object or bucket. Users with the appropriate access permissions can edit and upload ACLs for {{ objstorage-name }} buckets and objects.
 
-You can use ACLs to grant permissions to {{ yandex-cloud }} users, service accounts, and system groups. To do this, you need to know the [permission recipient's ID](#accounts-ids). When granting permissions, you can use [predefined ACLs](#predefined-acls), which contain common permission sets.
+You can use ACLs to grant permissions to a {{ yandex-cloud }} user, [service account](../../../iam/concepts/users/service-accounts.md), [user group](../../../organization/concepts/groups.md), or [system group](#system-groups) (the group of all internet users, the group of all authenticated {{ yandex-cloud }} users). To do this, you need to know the [permission grantee's ID](#accounts-ids). When granting permissions, you can use [predefined ACLs](#predefined-acls), which contain common permission sets.
 
 {% include [console-sa-acl-note](../console-sa-acl-note.md) %}
 
@@ -47,7 +47,7 @@ ACLs uploaded for objects apply immediately. ACLs uploaded for buckets, as well 
 
    To get the ID, navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
 
-   You can [specify](../../../storage/operations/buckets/edit-acl.md) a user group using the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, and API.
+   You can specify a user group using the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, and the API. For more information, see [Editing a bucket ACL](../../../storage/operations/buckets/edit-acl.md) and [Editing an object ACL](../../../storage/operations/objects/edit-acl.md).
 
 ## ACL operations {#acl-operations}
 
@@ -113,9 +113,9 @@ A permission for `AuthenticatedUsers` looks as follows:
 </Grantee>
 ```
 
-## Inheritance of bucket access rights by {{ yandex-cloud }} system groups {#inheritance}
+## Inheritance of bucket access permissions by {{ yandex-cloud }} system groups {#inheritance}
 
-A bucket inherits the same access rights in the {{ iam-short-name }} service as those of the folder and cloud where it is located. If a user has access rights to the folder or cloud the bucket belongs to, they will also have access to the bucket itself.
+A bucket inherits the same access permissions in {{ iam-short-name }} as those of the folder and cloud where it is located. If a user has permissions to access the folder or cloud the bucket belongs to, they will also have permissions to access the bucket itself.
 
 {% note warning %}
 

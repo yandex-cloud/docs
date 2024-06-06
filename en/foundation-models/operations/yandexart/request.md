@@ -2,7 +2,7 @@
 
 {% include notitle [preview-stage](../../../_includes/foundation-models/yandexgpt/preview.md) %}
 
-With {{ yandexart-name }}, you can generate images in [asynchronous mode](../../concepts/index.d#working-mode).
+With {{ yandexart-name }}, you can generate images in [asynchronous mode](../../concepts/index.md#working-mode).
 
 
 ## Getting started {#before-begin}
@@ -21,7 +21,7 @@ With {{ yandexart-name }}, you can generate images in [asynchronous mode](../../
 
 {% note info %}
 
-To improve the quality of generated responses, {{ yandexart-name }} logs user prompts. Do not use sensitive information and personal data in your prompts.
+To improve the quality of responses, {{ yandexart-name }} logs user prompts. Do not use sensitive information and personal data in your prompts.
 
 {% endnote %}
 

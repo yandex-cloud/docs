@@ -20,7 +20,9 @@ Aliases:
 
 - [yc resource-manager cloud get](get.md) — Show information about the specified cloud
 - [yc resource-manager cloud list](list.md) — List clouds
+- [yc resource-manager cloud create](create.md) — Create a cloud
 - [yc resource-manager cloud update](update.md) — Update the specified cloud
+- [yc resource-manager cloud delete](delete.md) — Delete the specified cloud
 - [yc resource-manager cloud list-access-bindings](list-access-bindings.md) — List access bindings for the specified cloud
 - [yc resource-manager cloud set-access-bindings](set-access-bindings.md) — Set access bindings for the specified cloud and delete all existing access bindings if there were any
 - [yc resource-manager cloud add-access-binding](add-access-binding.md) — Add access binding for the specified cloud

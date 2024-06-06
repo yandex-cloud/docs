@@ -143,7 +143,7 @@ items:
                 href: image-generation/api-ref/grpc/image_generation_service.md
               - name: OperationService
                 href: image-generation/api-ref/grpc/operation_service.md
-      - name: API v1alpha (deprecated)
+      - name: API v1alpha (DEPRECATED)
         items:
           - name: REST
             items:

@@ -208,8 +208,14 @@ items:
         href: applied/index.md
       - name: Создание сайта
         items:
-          - name: Статический сайт в {{ objstorage-name }}
-            href: web/static.md
+          - name: Статический веб-сайт в {{ objstorage-full-name }}
+            items:
+              - name: Обзор
+                href: web/static/index.md
+              - name: Консоль управления
+                href: web/static/console.md
+              - name: Terraform
+                href: web/static/terraform.md
           - name: Веб-сайт на LAMP- или LEMP-стеке
             items:
               - name: Обзор
@@ -218,16 +224,28 @@ items:
                 href: web/lamp-lemp/console.md
               - name: '{{ TF }}'
                 href: web/lamp-lemp/terraform.md
-          - name: Сайт на базе Joomla с БД {{ PG }}
-            href: web/joomla-postgresql.md
+          - name: Создание сайта на базе Joomla с базой данных PostgreSQL
+            items:
+              - name: Обзор
+                href: web/joomla-postgresql/index.md
+              - name: Консоль управления
+                href: web/joomla-postgresql/console.md
+              - name: '{{ TF }}'
+                href: web/joomla-postgresql/terraform.md
           - name: Сайт на WordPress
             href: web/wordpress.md
           - name: Сайт на WordPress с БД {{ MY }}
             href: web/wordpress-mysql.md
           - name: Перенос WordPress сайта с хостинга в {{ yandex-cloud }}
             href: web/wordpress-transfer.md
-          - name: Сайт на базе 1С-Битрикс
-            href: web/bitrix-website.md
+          - name: Создание веб-сайта на базе «1С-Битрикс»
+            items:
+              - name: Обзор
+                href: web/bitrix-website/index.md
+              - name: Консоль управления
+                href: web/bitrix-website/console.md
+              - name: '{{ TF }}'
+                href: web/bitrix-website/terraform.md
           - name: Интернет-магазин на платформе OpenCart
             items:
               - name: Обзор
@@ -249,7 +267,13 @@ items:
       - name: 1С
         items:
           - name: Интернет-магазин на 1С-Битрикс
-            href: internet-store/bitrix-shop.md
+            items:
+              - name: Обзор
+                href: internet-store/bitrix-shop/index.md
+              - name: Консоль управления
+                href: internet-store/bitrix-shop/console.md
+              - name: '{{ TF }}'
+                href: internet-store/bitrix-shop/terraform.md
           - name: >-
               Создание кластера Linux-серверов «1С:Предприятия» с кластером {{
               mpg-name }}

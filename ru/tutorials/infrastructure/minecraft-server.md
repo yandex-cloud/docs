@@ -7,10 +7,10 @@ keywords:
   - игровой сервер minecraft
   - игровой сервер
   - игровой сервер в облаке
-  - игровой сервер {{ yandex-cloud }}
+  - "игровой сервер {{ yandex-cloud }}"
   - развертывание игрового сервера
   - настройка игрового сервера
-  - minecraft в {{ yandex-cloud }}
+  - "minecraft в {{ yandex-cloud }}"
 ---
 
 {% include [minecraft-server](../../_tutorials/infrastructure/minecraft-server.md) %}

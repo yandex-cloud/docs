@@ -20,6 +20,7 @@ You can use the following types of resources in {{ ml-platform-name }} projects:
 * [Aliases](deploy/index.md#alias): Add-ons used to publish services. Aliases allow you to distribute the load across nodes and update the deployed services on the fly.
 * [{{ dataproc-name }} templates](data-proc-template.md): Ready-to-use {{ dataproc-name }} cluster configurations for automatic cluster deployment from a {{ ml-platform-name }} project.
 * [Models](models/index.md): Saved interpreter state and computation or training results. These are grouped into models trained within projects and fine-tuned [foundation models](models/foundation-models.md).
+* [Spark connectors](spark-connector.md): Saved configurations for connecting existing {{ dataproc-name }} clusters and creating temporary clusters.
 
 ## Shared use of projects and resources {#sharing}
 
@@ -27,11 +28,11 @@ To share projects and resources, {{ ml-platform-name }} allows you to publish re
 
 By publishing a resource, you grant resource access to all users in a community. This allows them to use the resource in their projects within the community. You can publish resources in a project's community and other communities within the organization.
 
-Exchanging resources between communities enables different teams of the same organization to share Docker images, datasets, checkpoints, and other objects.
+Exchanging resources between communities enables different teams of the same organization to share Docker images, datasets, and other objects.
 
 {{ ml-platform-name }} communities, projects, and resources are only visible inside an [organization](../../organization/). You cannot exchange resources between organizations.
 
-You can share resources of a {{ ml-platform-name }} project where you have the `Admin` role. Resources can be shared with any community that you are a member of with the `Admin` role. For more information, see [{#T}](../security/index.md).
+You can share the resources of the {{ ml-platform-name }} project in which you have at least the `Editor` role in any community of the organization in which you have at least the `Developer` role. You can open the access on the **{{ ui-key.yc-ui-datasphere.common.access }}** tab on the secret view page. For more information, see [{#T}](../security/index.md).
 
 ## Relationships between {{ ml-platform-name }} resources and {{ yandex-cloud }} services {#ml-cloud-connection}
 

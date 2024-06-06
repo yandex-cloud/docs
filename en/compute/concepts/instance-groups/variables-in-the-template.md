@@ -1,6 +1,6 @@
 # Variables in an instance template
 
-With {{ ig-name }}, you can create a group of VM instances of the same type from a [template](instance-template.md). To use different specifications for such instances, use the substitution feature for the system and user-defined variables in the template.
+With {{ ig-name }}, you can create a group of VM instances of the same type from a [template](instance-template.md). To use different specifications for such instances, use the substitution feature for the system and user-defined variables in the template. For example, you can use variables and [tags](./policies/allocation-policy.md#tags) to [create an instance group with fixed IP addresses](../../operations/instance-groups/create-with-fixed-ip.md).
 
 A _system variable_ is a value calculated by {{ ig-name }} when a VM is created; it is then inserted into the template for further use.
 
@@ -145,3 +145,9 @@ System and user-defined variables are specified as values for template fields in
    ```
 
    In the `instance_template.name` field, the `{short_zone_var_{{ region-id }}-a}` variable is converted to the `rc1a` value.
+
+### See also {#see-also}
+
+* [{#T}](specification.md)
+* [{#T}](instance-template.md)
+* [{#T}](../../operations/instance-groups/create-with-fixed-ip.md)

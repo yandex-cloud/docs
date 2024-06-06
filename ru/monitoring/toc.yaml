@@ -61,7 +61,21 @@ items:
       - name: Установка и запуск
         href: concepts/data-collection/unified-agent/installation.md
       - name: Конфигурирование
-        href: concepts/data-collection/unified-agent/configuration.md
+        items:
+          - name: Обзор
+            href: concepts/data-collection/unified-agent/configuration.md
+          - name: Входы
+            href: concepts/data-collection/unified-agent/inputs.md
+          - name: Выходы
+            href: concepts/data-collection/unified-agent/outputs.md
+          - name: Маршрутизация
+            href: concepts/data-collection/unified-agent/routing.md
+          - name: Хранилища
+            href: concepts/data-collection/unified-agent/storage.md
+          - name: Фильтры
+            href: concepts/data-collection/unified-agent/filters.md
+          - name: Служебные
+            href: concepts/data-collection/unified-agent/services.md
       - name: Рекомендации по использованию агента
         href: concepts/data-collection/unified-agent/best-practices.md
       - name: Удаление

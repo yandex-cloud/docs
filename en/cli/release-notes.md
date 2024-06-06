@@ -7,6 +7,33 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ## Current version {#latest-release}
 
+### Version 0.125.0 (20/05/24) {#version0.125.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ compute-name }}
+* Added the `--public-address` flag to the `yc compute ssh` command to connect to a VM via SSH using a public address only.
+* By default, the `yc compute ssh` command will use a public address to connect to a VM. If the VM has no public address, an internal address will be used instead.
+
+##### {{ iam-name }}
+
+* Added the `--scope` and `--expires_at` optional parameters to the `yc iam api-key create` command:
+   * `--scope`: Allows you to set the scope of an API key, i.e., the services in which it can be used. If the parameter is not set, the scope of the key will have no limitations.
+   * `--expires_at`: Allows you to specify the API key expiration date. If the parameter is not set, the key will have no expiration date.
+
+##### {{ sf-name }} {#serverless-functions}
+
+* `yc serverless trigger create` command.
+
+   The `--gateway-name`, `--gateway-id`, and `--gateway-websocket-broadcast-path` flags allow you to specify parameters for the trigger to send messages to {{ api-gw-name }} websocket connections.
+
+##### {{ org-name }} {#organization}
+
+* Added the `yc organization-manager oslogin profile` group of commands for managing OS Login user profiles.
+* Fixed the `--expires-at` flag for interval values in the `yc organization-manager oslogin user-ssh-key create` and `yc organization-manager oslogin user-ssh-key update` commands. For example, the value of `5h` now indicates an interval before a future point.
+
+## Previous releases {#previous-releases}
+
 ### Version 0.124.0 (22/04/24) {#version0.124.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -20,8 +47,6 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 **{{ mch-name }}**
 
 * Labeled the `--shard-name` parameter of the `yc managed-clickhouse cluster create` command as deprecated. We recommend using the `shard-name` argument of the `--host` parameter.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.123.0 (08/04/24) {#version0.123.0}
 

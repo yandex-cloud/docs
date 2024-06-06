@@ -1,18 +1,3 @@
----
-title: "Minecraft game server in {{ yandex-cloud }}"
-description: "A cloud game server is a powerful solution for an efficient Minecraft infrastructure. Follow this guide to configure and deploy your own server on {{ yandex-cloud }}."
-keywords:
-  - minecraft
-  - minecraft server
-  - minecraft game server
-  - game server
-  - cloud game server
-  - "{{ yandex-cloud }} game server"
-  - deploying a game server
-  - configuring a game server
-  - "minecraft in {{ yandex-cloud }}"
----
-
 # Deploying a Minecraft server in {{ yandex-cloud }}
 
 Using the tutorial, you will deploy a [Minecraft](https://www.minecraft.net/) ([Java Edition](https://www.minecraft.net/en-us/store/minecraft-java-edition/)) server of the current version in {{ yandex-cloud }} on a [virtual machine](../../compute/concepts/vm.md) running Ubuntu 22.04.

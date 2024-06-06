@@ -20,6 +20,6 @@ To check that the hosting is running properly:
 
 1. Upload the `index.html` file to each VM:
 
-   {% include [upload-files](../_common/upload-web-site-files.md) %}
+   {% include [upload-files](upload-web-site-files.md) %}
 
 1. Open the website at `http://my-site.com` in your browser. A redirect to `https://my-site.com` should occur with the TLS certificate from {{ certificate-manager-name }} already enabled.

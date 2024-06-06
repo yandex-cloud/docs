@@ -168,6 +168,7 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](instance-groups/create-with-coi.md)
 * [{#T}](instance-groups/create-from-yaml.md)
 * [{#T}](placement-groups/create-ig-in-pg.md)
+* [{#T}](instance-groups/create-with-fixed-ip.md)
 
 ## Getting information about instance groups {#ig-info}
 

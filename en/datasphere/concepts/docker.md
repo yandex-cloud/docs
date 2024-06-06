@@ -4,7 +4,7 @@ You can set up a {{ ml-platform-name }} project environment on your own by using
 
 You cannot change Docker images after you create them.
 
-Like other {{ ml-platform-name }} resources, a Docker image can be [published](../operations/user-images.md#share) in a community and used in multiple projects. You can share Docker images of a {{ ml-platform-name }} project where you have the `Admin` role. Images can be shared with any community that you are a member of with the `Admin` role. For more information, see [{#T}](../security/index.md).
+Like other {{ ml-platform-name }} resources, a Docker image can be [published](../operations/user-images.md#share) in a community and used in multiple projects. To do this, you need at least the `Editor` role in the project and the `Developer` role in the community in which you want to publish it. You can open the access on the **{{ ui-key.yc-ui-datasphere.common.access }}** tab on the Docker image view page. The resource available to the community will appear on the community page under **{{ ui-key.yc-ui-datasphere.spaces-page.community-resources }}**.
 
 For more information about working with Docker images, see [{#T}](../operations/user-images.md).
 

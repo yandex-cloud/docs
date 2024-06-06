@@ -5,7 +5,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Добавление параметров в настройках чарта на дашборде
 
-Чтобы установить параметр:
+Чтобы установить [параметр](../../dashboard/dashboard_parameters.md):
 
 
 {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}

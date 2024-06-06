@@ -1,5 +1,5 @@
-1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** on the VM page in the [management console]({{ link-console-main }}), find the VM public IP address.
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+1. Go to the VM page of the [management console]({{ link-console-main }}). In the **Network** section, find the VM's public IP address.
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 1. Grant your user write access to the `/var/www/html` directory:
 
    {% list tabs group=operating_system %}
@@ -17,6 +17,7 @@
       ```
 
    {% endlist %}
+
 
 1. Upload the website files to the VM via [SCP](https://en.wikipedia.org/wiki/Secure_copy_protocol).
 

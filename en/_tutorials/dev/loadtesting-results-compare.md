@@ -1,6 +1,7 @@
 # Comparing load test results
 
 In this use case, you will set up a load testing environment, run the tests, and compare the results of the load tests.
+
 The use case uses the [Pandora](../../load-testing/concepts/load-generator.md#pandora) [load generator](../../load-testing/concepts/load-generator.md) and a simple web service as the test target.
 
 To perform load testing and compare test results:
@@ -256,6 +257,7 @@ Afterwards, the configuration will be verified, and the agent will start loading
 Repeat these steps several times to get several completed tests.
 
 ## Compare the results {#compare-results}
+
 
 To compare the results:
 

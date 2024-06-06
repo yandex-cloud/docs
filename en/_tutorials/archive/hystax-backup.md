@@ -3,7 +3,7 @@
 
 You can create VM backups automatically and recover them in your cloud infrastructure using [Hystax Acura Backup in {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-backup).
 
-A VM with Hystax Acura Backup manages the backup and recovery processes. VM backups are saved to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md). Recovery is performed using an auxiliary Hystax Cloud Agent VM. It creates a new VM with a certain RPO (Recovery Point Objective) at a point of time in the past. Backup RTO (Recovery Time Objective) depends on the amount of source data.
+A VM with Hystax Acura Backup manages the backup and recovery processes. VM backups are saved to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md). Recovery is performed using an auxiliary Hystax Cloud Agent VM. It creates a new VM with a certain RPO (recovery point objective) at a point of time in the past. Backup RTO (recovery time objective) depends on the amount of source data.
 
 To back up and recover a VM using Hystax Acura Backup:
 

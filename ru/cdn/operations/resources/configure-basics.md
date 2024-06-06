@@ -28,16 +28,23 @@ description: "Следуя данной инструкции, вы сможет�
       {% endnote %}
 
       Чтобы настроить [TLS-сертификат](../../concepts/clients-to-servers-tls.md) для CDN-ресурса, в поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите одну из опций:
-        * `{{ ui-key.yacloud.cdn.value_certificate-no }}` — ресурс будет доступен только по протоколу HTTP.
+
+      * `{{ ui-key.yacloud.cdn.value_certificate-no }}` — ресурс будет доступен только по протоколу HTTP.
 
 
-        * `{{ ui-key.yacloud.cdn.value_certificate-custom }}` — выберите сертификат. Ресурс будет доступен по протоколам HTTP и HTTPS.
+      * `{{ ui-key.yacloud.cdn.value_certificate-custom }}` — выберите сертификат. Ресурс будет доступен по протоколам HTTP и HTTPS.
 
           {% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
 
           {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
 
-        Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md).
+      Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md).
+
+      Чтобы ограничить доступ к контенту ресурса с помощью [защищенных токенов](../../concepts/secure-tokens.md), включите опцию **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**:
+
+      {% include [enable-secure-token](../../../_includes/cdn/enable-secure-token.md) %}
+
+      Подробнее см. в разделе [{#T}](enable-secure-token.md).
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

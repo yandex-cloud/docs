@@ -63,7 +63,7 @@ Access grantees include:
 * Yandex account
 * [Service account](../../iam/concepts/users/service-accounts.md)
 * [Federated user](../../iam/concepts/federations.md)
-* [User group](../../organization/operations/manage-groups.md)
+* [User group](../../organization/operations/manage-groups.md) (you can specify a user group using the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, and the API, see [Editing a bucket ACL](../operations/buckets/edit-acl.md) and [Editing an object ACL](../operations/objects/edit-acl.md))
 * [System group](../../iam/concepts/access-control/system-group.md)
 
 Access is granted to a [bucket](../concepts/bucket.md) or [object](../concepts/object.md).
@@ -76,8 +76,8 @@ Access grantees include:
 * Yandex account
 * [Service account](../../iam/concepts/users/service-accounts.md)
 * [Federated user](../../iam/concepts/federations.md)
+* [User group](../../organization/concepts/groups.md) (you can [specify](../operations/buckets/policy.md) a user group in the policy using the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, and the API)
 * Anonymous user
-* [User group](../../organization/concepts/groups.md)
 
 Access is granted to a [bucket](../concepts/bucket.md), [object](../concepts/object.md), or a group of objects.
 

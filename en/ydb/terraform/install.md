@@ -39,9 +39,9 @@ Once you have installed {{ TF }}, configure it to access {{ ydb-short-name }}. F
 
 - Linux/macOS {#linux}
 
-   1. Open the {{ TF }} CLI configuration file, `~/.terraformrc`, in any text editor.
+   1. Open the {{ TF }} CLI configuration file (`~/.terraformrc`) in any text editor.
 
-      {% include [terraform-configure-provider-directory](../../_tutorials/terraform-configure-provider-directory.md) %}
+      {% include [terraform-configure-provider-directory](../../_tutorials/_tutorials_includes/terraform-configure-provider-directory.md) %}
 
    1. Add the following section to the file:
 

@@ -5,7 +5,7 @@ title: "Как получить информацию о кластере GPU в 
 # Получить информацию о кластере GPU
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 - Консоль управления {#console}
 

@@ -4395,6 +4395,9 @@ default:
         field_access: Доступ конечных пользователей к контенту
         field_group-name: Название группы
         field_origin-state: Приоритет
+        field_secure-key: Секретный ключ
+        field_secure-key-enabled: Доступ по защищённому токену
+        field_secure-key-type: Ограничение доступа по IP-адресу
         label_access: Доступ к контенту
         label_activate-provider-empty-container_action-text: Подключиться к провайдеру
         label_additional: Дополнительно
@@ -4473,6 +4476,8 @@ default:
         value_query-type-one-origin: Из одного источника
         value_redirect-http-to-https: С HTTP на HTTPS
         value_redirect-https-to-http: С HTTPS на HTTP
+        value_secure-key-type-disable: Без ограничений
+        value_secure-key-type-enable: Только доверенные IP-адреса
         value_source-type-balancer: L7-балансировщик
         value_source-type-bucket: Бакет
         value_source-type-url: Сервер
@@ -5529,6 +5534,7 @@ default:
         field_connector-secret-access-key: Секретный ключ
         field_connector-security-protocol: Протокол безопасности
         field_connector-ssl-truststore-certificates: Сертификат в формате PEM
+        field_rest-api-config: Kafka Rest API
         field_schema-registry: Реестр схем данных
         label_brokers-per-az: Количество брокеров в зоне
         label_connector-this-cluster: Использовать этот кластер

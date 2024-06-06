@@ -9,6 +9,12 @@ description: "To control access to an object in an {{ objstorage-name }} bucket,
 
 To control access to an object in an {{ objstorage-name }} bucket, you can use an [ACL](../../concepts/acl.md).
 
+{% note info %}
+
+If an [ACL](../../concepts/acl.md) has been set for an object, it will be completely overwritten once you apply the changes.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -27,6 +33,87 @@ To control access to an object in an {{ objstorage-name }} bucket, you can use a
       {% include [console-sa-acl-note](../../../_includes/storage/console-sa-acl-note.md) %}
 
       {% endnote %}
+
+- AWS CLI {#aws-cli}
+
+   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+
+   {% note info %}
+
+   To manage an object ACL, assign the `storage.admin` [role](../../security/index.md#storage-admin) to the service account via which the AWS CLI operates.
+
+   {% endnote %}
+
+   View the current ACL of the object:
+
+   ```bash
+   aws s3api get-object-acl \
+     --endpoint https://{{ s3-storage-host }} \
+     --bucket <bucket_name> \
+     --key <object_key>
+   ```
+
+   Where:
+   * `--endpoint`: {{ objstorage-name }} endpoint
+   * `--bucket`: Bucket name
+   * `--key`: Object key
+
+   You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to an object or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md) and [system groups](../../concepts/acl.md#system-groups) (e.g., a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). These settings are not compatible: an object should have either a predefined ACL or a set of individual permissions.
+
+   **Predefined ACL**
+
+   Run this command:
+
+   ```bash
+   aws s3api put-object-acl \
+     --endpoint https://{{ s3-storage-host }} \
+     --bucket <bucket_name> \
+     --key <object_key> \
+     --acl <predefined_ACL>
+   ```
+
+   Where:
+
+   * `--endpoint`: {{ objstorage-name }} endpoint.
+   * `--bucket`: Bucket name.
+   * `--key`: Object key.
+   * `--acl`: Predefined ACL. For a list of values, see [{#T}](../../concepts/acl.md#predefined-acls).
+
+   **Setting up individual permissions**
+
+   1. To grant ACL permissions to a {{ yandex-cloud }} user, service account, or user group, get their ID:
+
+      
+      * [User](../../../iam/operations/users/get.md).
+      * [Service account](../../../iam/operations/sa/get-id.md).
+      * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
+
+
+   1. Run this command:
+
+      ```bash
+      aws s3api put-object-acl \
+        --endpoint https://{{ s3-storage-host }} \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        <permission_type> <permission_grantee>
+      ```
+
+      Where:
+      * `--endpoint`: {{ objstorage-name }} endpoint
+      * `--bucket`: Bucket name
+      * `--key`: Object key
+      * The possible types of ACL permissions include:
+         * `--grant-read`: Access to read the object.
+         * `--grant-full-control`: Full access to the object.
+         * `--grant-read-acp`: Access to read the object ACL.
+         * `--grant-write-acp`: Access to edit the object ACL.
+
+         You can set multiple permissions within the same command.
+      * The possible permission grantees include:
+         * `id=<grantee_ID>`: ID of the user, service account, or user group to grant permission to.
+         * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: [System group](../../concepts/acl.md#system-groups) of all authenticated {{ yandex-cloud }} users.
+         * `uri=http://acs.amazonaws.com/groups/global/AllUsers`: System group of all internet users.
 
 - {{ TF }} {#tf}
 
@@ -62,19 +149,19 @@ To control access to an object in an {{ objstorage-name }} bucket, you can use a
 
    1. Check the configuration using this command:
 
-      ```
+      ```bash
       terraform validate
       ```
 
       If the configuration is correct, you will get this message:
 
-      ```
+      ```bash
       Success! The configuration is valid.
       ```
 
    1. Run this command:
 
-      ```
+      ```bash
       terraform plan
       ```
 
@@ -82,7 +169,7 @@ To control access to an object in an {{ objstorage-name }} bucket, you can use a
 
    1. Apply the configuration changes:
 
-      ```
+      ```bash
       terraform apply
       ```
 

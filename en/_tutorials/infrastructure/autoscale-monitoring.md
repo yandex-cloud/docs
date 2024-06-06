@@ -717,7 +717,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
       1. Open the dashboard with information about the instance group:
 
-         1. In [{{ monitoring-name }}]({{ link-monitoring }}), select the **Compute: Instance Groups** service dashboard.
+         1. In [{{ monitoring-name }}]({{ link-monitoring }}), select the **Compute — Instance Groups** service dashboard.
          1. In the **Instance Group ID** field, select `queue-autoscale-ig`.
 
       1. Open the dashboard with queue information:
@@ -731,11 +731,11 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
    1. 100 messages were enqueued in `queue-autoscale-queue` (the **Message Queue** dashboard, the **Sent messages, count** and **Messages in queue, count** charts).
    1. Instances in the `queue-autoscale-ig` group started to receive messages (the **Received messages, count** chart) and delete them from the queue (the **Deleted messages, count** and **Messages in queue, count** charts).
-   1. While handling the messages, the number of instances in the group increased from one to five and, after all messages were handled, the group became empty (the **Compute: Instance Groups** dashboard, the **Number of instances in zone B** chart).
+   1. While handling the messages, the number of instances in the group increased from one to five and, after all messages were handled, the group became empty (the **Compute — Instance Groups** dashboard, the **Number of instances in zone B** chart).
 
 ## Delete the resources you created {#clear-out}
 
-To shut down the infrastructure and stop paying for the created resources:
+To shut down the infrastructure and stop paying for the resources you created:
 
 1. [Delete](../../compute/operations/instance-groups/delete.md) `queue-autoscale-ig`.
 1. [Delete](../../compute/operations/image-control/delete.md) `queue-autoscale-image`.
