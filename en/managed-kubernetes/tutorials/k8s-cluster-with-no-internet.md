@@ -200,7 +200,7 @@ You can connect a [private Docker image registry](https://kubernetes.io/docs/tas
 
 1. A Bash script constantly checks cluster nodes for required certificates.
 1. If not, the certificates are copied from the {{ k8s }} [secret](https://kubernetes.io/docs/concepts/configuration/secret/) and updated.
-1. _containerd_ runtime environment is restarted.
+1. The _containerd_ runtime environment is restarted.
 
 To configure certificate updates using DaemonSet, do the following on your VM:
 

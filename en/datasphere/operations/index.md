@@ -51,6 +51,7 @@ description: "The page contains all guides on working with {{ ml-platform-full-n
 * [{#T}](user-images.md)
 * [{#T}](data/dataset.md)
 * [{#T}](data/s3-connectors.md)
+* [{#T}](data/spark-connectors.md)
 * [{#T}](data/models.md)
 
 ## Connecting to data sources {#connections-to-data-sources}

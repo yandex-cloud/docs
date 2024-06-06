@@ -1,4 +1,3 @@
-* The length can be from 2 to 63 characters.
-* It may contain lowercase Latin letters, numbers, and hyphens.
-* The first character must be a letter. The last character can't be a hyphen.
-
+* The name must be from 3 to 63 characters long.
+* It may contain uppercase and lowercase Latin and Russian letters, numbers, hyphens, underscores, and spaces.
+* The first character must be a letter. The last character cannot be a hyphen, underscore, or space.

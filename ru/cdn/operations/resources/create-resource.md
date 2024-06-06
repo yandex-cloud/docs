@@ -18,14 +18,14 @@ description: "Следуя данной инструкции, вы сможет�
   1. В блоке **{{ ui-key.yacloud.cdn.label_section-content }}** выберите **{{ ui-key.yacloud.cdn.label_content-query-type }}** `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}` или `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}`:
      * При запросе контента `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}` выберите **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}` или `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. Укажите [источник](../../concepts/origins.md).
      * При запросе контента `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}` выберите [группу источников](../../concepts/origins.md#groups) или создайте новую:
-       * Нажмите кнопку **{{ ui-key.yacloud.common.label_create-new_female }}**.
-       * Введите **{{ ui-key.yacloud.cdn.field_group-name }}**.
-       * Настройте **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
-         * Укажите **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}` или `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.
-         * Укажите источник.
-         * Выберите **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.label_status-active }}` или `{{ ui-key.yacloud.cdn.label_status-backup }}`.
-       * Добавьте другие источники, если необходимо.
-       * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**. В поле **{{ ui-key.yacloud.cdn.label_origins-group }}** вы увидите название созданной группы источников.
+        * Нажмите кнопку **{{ ui-key.yacloud.common.label_create-new_female }}**.
+        * Введите **{{ ui-key.yacloud.cdn.field_group-name }}**.
+        * Настройте **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
+           * Укажите **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}` или `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.
+           * Укажите источник.
+           * Выберите **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.label_status-active }}` или `{{ ui-key.yacloud.cdn.label_status-backup }}`.
+        * Добавьте другие источники, если необходимо.
+        * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**. В поле **{{ ui-key.yacloud.cdn.label_origins-group }}** вы увидите название созданной группы источников.
 
      Подробнее см. в разделе [{#T}](../../concepts/origins.md).
   1. В блоке **{{ ui-key.yacloud.cdn.label_section-domain }}** введите **{{ ui-key.yacloud.cdn.label_personal-domain }}**. Вы можете добавить более одного **Доменного имени**. Поддерживаются имена с символами не из [ASCII](https://{{ lang }}.wikipedia.org/wiki/ASCII), например, кириллическими, и [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode). Первое имя считается основным.
@@ -44,17 +44,22 @@ description: "Следуя данной инструкции, вы сможет�
         Чтобы включить переадресацию клиентов с HTTP на HTTPS, создайте CDN-ресурс без переадресации и получите [TLS-сертификат](../../concepts/clients-to-servers-tls.md) для доменного имени. Затем в настройках CDN-ресурса [выберите](configure-basics.md) переадресацию клиентов `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
      1. Включите или выключите **{{ ui-key.yacloud.cdn.label_access }}**.
      1. В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите одну из опций:
-        * `{{ ui-key.yacloud.cdn.value_certificate-no }}` — ресурс будет доступен только по протоколу HTTP.
+         * `{{ ui-key.yacloud.cdn.value_certificate-no }}` — ресурс будет доступен только по протоколу HTTP.
 
 
-        * `{{ ui-key.yacloud.cdn.value_certificate-custom }}` — выберите сертификат. Ресурс будет доступен по протоколам HTTP и HTTPS.
+         * `{{ ui-key.yacloud.cdn.value_certificate-custom }}` — выберите сертификат. Ресурс будет доступен по протоколам HTTP и HTTPS.
 
-          {% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
+           {% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
 
-          {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
+           {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
 
-        Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md).
+         Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md).
      1. Выберите значение **{{ ui-key.yacloud.cdn.label_host-header }}**: `{{ ui-key.yacloud.cdn.value_host-header-default }}`, `{{ ui-key.yacloud.cdn.value_host-header-resend }}` или выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}` и введите **{{ ui-key.yacloud.cdn.label_custom-host-header }}**. Подробнее см. в разделе [{#T}](../../concepts/servers-to-origins-host.md).
+     1. Чтобы ограничить доступ к контенту ресурса с помощью [защищенных токенов](../../concepts/secure-tokens.md), включите опцию **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**:
+
+          {% include [enable-secure-token](../../../_includes/cdn/enable-secure-token.md) %}
+
+        Подробнее см. в разделе [{#T}](enable-secure-token.md).
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}

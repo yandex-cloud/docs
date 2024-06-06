@@ -91,6 +91,8 @@ items:
             href: operations/data/dataset.md
           - name: Working with S3 connectors
             href: operations/data/s3-connectors.md
+          - name: Working with Spark connectors
+            href: operations/data/spark-connectors.md
           - name: Working with models
             href: operations/data/models.md
       - name: Connecting to data sources
@@ -163,8 +165,6 @@ items:
             href: concepts/preinstalled-packages.md
           - name: Available commands
             href: concepts/magic.md
-          - name: '#pragma service commands'
-            href: concepts/pragma.md
           - name: Computing on Apache Spark™ clusters
             href: concepts/data-proc.md
       - name: '{{ ds-inf }}'
@@ -199,6 +199,8 @@ items:
             href: concepts/data-proc-template.md
           - name: S3 connectors
             href: concepts/s3-connector.md
+          - name: Spark connectors
+            href: concepts/spark-connector.md
           - name: Models
             href: concepts/models/index.md
           - name: Fine-tuned foundation models

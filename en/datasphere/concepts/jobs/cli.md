@@ -53,7 +53,7 @@ Where:
 * `<project_ID>`: ID of the {{ ml-platform-name }} project in which you are going to run the job.
 * `<configuration_file>`: Path to the [job configuration file](index.md#config).
 
-Running a job locks the shell session until the job completes. The job code operation logs will be output to the standard `stdout` and `stderr` error output streams. The job execution system logs will be written to a separate file in the user's working directory.
+Running a job locks the shell session until the job completes. The job code operation [logs](#logs) will be output to the standard `stdout` output and `stderr` error streams. The job execution system logs will be written to a separate file in the user's working directory.
 
 If the shell session is interrupted during job execution, the job will continue to run in {{ ml-platform-name }}, but the execution logs will not be saved. To resume logging, recover the session by running the following command:
 
@@ -99,3 +99,26 @@ datasphere project job cancel --id <job_ID>
 ```
 
 The running job will be stopped.
+
+## Job logs {#logs}
+
+When running a job through {{ ds-cli }}, the shell first notifies the user to save the logs in the user's working directory. For example:
+
+```bash
+2024-05-16 12:42:35,447 - [INFO] - logs file path: C:\Temp\datasphere\job_2024-05-16T12-42-35.427056
+```
+
+After running the job, you can find the following files in the user's working directory:
+
+* `stdout.txt`: Standard output stream of the user program.
+* `stderr.txt`: Standard error message stream.
+* `system.log`: System log of the VM configuration and environment package installation.
+* `log.txt`: General {{ ds-cli }} log which records the progress of the job.
+* `docker_stats.tsv`: Log of the resources consumed by the [Docker image](../docker.md), such as utilized CPU power, read and write speeds, used RAM, and boot speed. You can also get this information by running the `docker stats` [command](https://docs.docker.com/reference/cli/docker/container/stats/).
+* `gpu_stats.tsv`: Log of the GPU utilization, which includes the number of cores, utilized power, and video memory.
+
+To change the directory for storing logs, use the following command:
+
+```bash
+datasphere --log-dir <new_directory>
+```

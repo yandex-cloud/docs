@@ -11,11 +11,13 @@ You can only delete empty buckets. In the management console, information about 
 
 {% endnote %}
 
+To delete the bucket that [stores the logs](../../concepts/server-logs.md) of another bucket, go to the source bucket settings to [disable logging](enable-logging.md#stop-logging) or select another target bucket for storing logs.
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder you want to delete a bucket from.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a bucket.
    1. Select **{{ objstorage-name }}**. This opens a page with a list of buckets.
    1. To delete a single bucket, click ![image](../../../_assets/console-icons/ellipsis.svg) to the left of the bucket name and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.storage.file.popup-confirm_button_delete }}**.

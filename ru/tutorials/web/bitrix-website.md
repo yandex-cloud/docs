@@ -1,1 +1,0 @@
-{% include [bitrix-website](../../_tutorials/applied/bitrix-website.md) %}

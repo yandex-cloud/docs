@@ -43,7 +43,7 @@ description: "Из статьи вы узнаете, как установить
 
   {% note warning %}
 
-  Для мониторинга дополнительных дисков, подключенных к хосту, передайте пути к их точкам монтирования при помощи параметра `-v` команды `docker run`. Подробнее читайте в разделе [{#T}](./configuration.md#linux_metrics_input).
+  Для мониторинга дополнительных дисков, подключенных к хосту, передайте пути к их точкам монтирования при помощи параметра `-v` команды `docker run`. Подробнее читайте в разделе [{#T}](./inputs.md#linux_metrics_input).
 
   {% endnote %}
 
@@ -84,7 +84,7 @@ description: "Из статьи вы узнаете, как установить
       {{ registry }}/yc/unified-agent
   ```
 
-  По умолчанию в конфигурационном файле агента, в секции [status](configuration.md#status), указан `host: null`. Учитывайте это, если используете собственный конфигурационный файл.
+  По умолчанию в конфигурационном файле агента, в секции [status](services.md#status), указан `host: null`. Учитывайте это, если используете собственный конфигурационный файл.
 
   Подробнее про конфигурацию агента читайте в разделе [{#T}](./configuration.md).
 
@@ -159,9 +159,9 @@ description: "Из статьи вы узнаете, как установить
 
 - При создании ВМ {#vm}
 
-  Вы можете установить агент при создании виртуальной машины в [консоли управления]({{ link-console-main }}). Для этого в блоке **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}** включите опцию **{{ ui-key.yacloud.compute.instances.create.unified-agent }}**. Агент автоматически установится с файлом конфигурации по умолчанию, который будет отправлять [базовые метрики виртуальной машины](./configuration.md#linux_metrics_input), а также [метрики здоровья агента](./configuration.md#agent_metrics_input). Отправка метрик [тарифицируется](../../../pricing.md).
+  Вы можете установить агент при создании виртуальной машины в [консоли управления]({{ link-console-main }}). Для этого в блоке **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}** включите опцию **{{ ui-key.yacloud.compute.instances.create.unified-agent }}**. Агент автоматически установится с файлом конфигурации по умолчанию, который будет отправлять [базовые метрики виртуальной машины](./inputs.md#linux_metrics_input), а также [метрики здоровья агента](./inputs.md#agent_metrics_input). Отправка метрик [тарифицируется](../../../pricing.md).
 
-  Устанавливаемый агент является обычным [агентом Unified Agent](./index.md), который можно дополнительно [настроить](./configuration.md) для поставки собственных метрик или [логов в {{ cloud-logging-name }}](./configuration.md#yc_logs_output).
+  Устанавливаемый агент является обычным [агентом Unified Agent](./index.md), который можно дополнительно [настроить](./configuration.md) для поставки собственных метрик или [логов в {{ cloud-logging-name }}](./outputs.md#yc_logs_output).
 
   Чтобы установить агент при создании виртуальной машины через CLI или API, укажите в [пользовательских метаданных](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`) строку:
 
@@ -181,12 +181,12 @@ description: "Из статьи вы узнаете, как установить
 
 Переменная окружения | Значение по умолчанию | Описание
 -------------------- | --------------------- | --------
-`UA_STATUS_PORT` | `16241` | Порт, по которому будет доступен статус работы агента.<br/>Подробнее в разделе [{#T}](./configuration.md#status).
-`UA_LOG_PRIORITY` | `NOTICE` | Уровень логирования работы агента.<br/>Подробнее в разделе [{#T}](./configuration.md#agent_log).
-`FOLDER_ID` | Обязательный параметр,<br/>не имеющий значения<br/>по умолчанию | Идентификатор каталога, куда будут записываться метрики.<br/>Подробнее в разделе [{#T}](./configuration.md#yc_metrics_output).
-`PROC_DIRECTORY` | `/proc` | Директория со смонтированным [procfs](https://ru.wikipedia.org/wiki/Procfs), откуда агент будет получать системные Linux-метрики.<br/>Подробнее в разделе [{#T}](./configuration.md#linux_metrics_input).
-`SYS_DIRECTORY` | `/sys` | Директория со смонтированным [sysfs](https://ru.wikipedia.org/wiki/Sysfs), откуда агент будет получать системные Linux-метрики.<br/>Подробнее в разделе [{#T}](./configuration.md#linux_metrics_input).
-`UA_LINUX_RESOURCE_CPU`<br/>`UA_LINUX_RESOURCE_MEMORY`<br/>`UA_LINUX_RESOURCE_NETWORK`</br>`UA_LINUX_RESOURCE_STORAGE`<br/>`UA_LINUX_RESOURCE_IO`<br/>`UA_LINUX_RESOURCE_KERNEL` | `basic` | Уровень детализации системных метрик CPU, сети, дисков, системы ввода-вывода и Linux-ядра.<br/>Подробнее в разделе [{#T}](./configuration.md#linux_metrics_input).
+`UA_STATUS_PORT` | `16241` | Порт, по которому будет доступен [статус работы агента](./services.md#status).
+`UA_LOG_PRIORITY` | `NOTICE` | Уровень [логирования работы агента](./services.md#agent_log).
+`FOLDER_ID` | Нет | Идентификатор каталога, куда будут записываться метрики (обязательный параметр).
+`PROC_DIRECTORY` | `/proc` | Директория со смонтированным [procfs](https://ru.wikipedia.org/wiki/Procfs), откуда агент будет получать [системные Linux-метрики](./inputs.md#linux_metrics_input).
+`SYS_DIRECTORY` | `/sys` | Директория со смонтированным [sysfs](https://ru.wikipedia.org/wiki/Sysfs), откуда агент будет получать [системные Linux-метрики](./inputs.md#linux_metrics_input).
+`UA_LINUX_RESOURCE_CPU`<br/>`UA_LINUX_RESOURCE_MEMORY`<br/>`UA_LINUX_RESOURCE_NETWORK`</br>`UA_LINUX_RESOURCE_STORAGE`<br/>`UA_LINUX_RESOURCE_IO`<br/>`UA_LINUX_RESOURCE_KERNEL` | `basic` | Уровень детализации [системных метрик](./inputs.md#linux_metrics_input): CPU, сети, дисков, системы ввода-вывода и Linux-ядра.
 
 #### Что дальше {#what-is-next}
 

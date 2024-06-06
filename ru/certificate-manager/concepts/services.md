@@ -52,5 +52,5 @@ description: "Из статьи вы узнаете, в каких сервис�
 
 #### См. также {#see-also}
 
-* [Статический веб-сайт в {{ objstorage-name }}](../../tutorials/web/static.md)
+* [Статический веб-сайт в {{ objstorage-name }}](../../tutorials/web/static/index.md)
 * [{{ api-gw-full-name }}](../../api-gateway/)

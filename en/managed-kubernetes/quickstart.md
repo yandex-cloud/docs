@@ -69,7 +69,7 @@ For more information, see the [step-by-step guide for creating a {{ managed-k8s-
 
   {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
-  To add {{ managed-k8s-name }} cluster credentials to the kubectl configuration file:
+  To add {{ managed-k8s-name }} cluster credentials to the `kubectl` configuration file:
   1. Run this command:
 
      ```bash

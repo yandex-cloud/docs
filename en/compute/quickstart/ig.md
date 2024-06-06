@@ -30,7 +30,7 @@ To create an instance group:
 
       {% include [sa-dependence-brief](../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-1. In the **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** section, select the desired [availability zones](../../overview/concepts/geo-scope.md). Instances of a group may reside in different availability zones and regions.
+1. In the **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** section, select the desired [availability zones](../../overview/concepts/geo-scope.md). Instances of a group may reside in different availability zones.
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to configure a basic instance:
    * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a description for the base instance.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a public image.

@@ -33,6 +33,7 @@ You can upload payloads from a [{{ objstorage-full-name }}](../../storage/) [buc
 
 ## Creating a test {#create-test}
 
+
 1. In the [management console]({{ link-console-main }}), select the folder for testing.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. In the ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab, click **{{ ui-key.yacloud.load-testing.button_create-test }}**.

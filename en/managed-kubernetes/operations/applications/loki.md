@@ -15,25 +15,25 @@
 
 1. Prepare for Loki installation:
 
-1. [Create a service account](../../../iam/operations/sa/create.md) with the `storage.uploader` and `storage.viewer` [roles](../../../iam/concepts/access-control/roles.md). You need it to access [{{ objstorage-full-name }}](../../../storage/).
-1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the [service account](../../../iam/concepts/users/service-accounts.md):
+   1. [Create a service account](../../../iam/operations/sa/create.md) with the `storage.uploader` and `storage.viewer` [roles](../../../iam/concepts/access-control/roles.md). You need it to access [{{ objstorage-full-name }}](../../../storage/).
+   1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the [service account](../../../iam/concepts/users/service-accounts.md):
 
-   * If you install Loki using [{{ marketplace-full-name }}](#marketplace-install), create a static access key in JSON format and save it to the `sa-key.json` file:
+      * If you install Loki using [{{ marketplace-full-name }}](#marketplace-install), create a static access key in JSON format and save it to the `sa-key.json` file:
 
-     ```bash
-     yc iam access-key create \
-       --service-account-name=<service_account_name> \
-       --format=json > sa-key.json
-     ```
+         ```bash
+         yc iam access-key create \
+            --service-account-name=<service_account_name> \
+            --format=json > sa-key.json
+         ```
 
-   * If you use a [Helm chart](#helm-install) to install Loki, run the following command and save the obtained `key_id` and `secret` key:
+      * If you use a [Helm chart](#helm-install) to install Loki, run the following command and save the obtained `key_id` and `secret` key:
 
-      ```bash
-      yc iam access-key create \
-         --service-account-name=<service_account_name>
-      ```
+         ```bash
+         yc iam access-key create \
+            --service-account-name=<service_account_name>
+         ```
 
-1. [Create a bucket](../../../storage/operations/buckets/create.md) with restricted access in {{ objstorage-name }}.
+   1. [Create a bucket](../../../storage/operations/buckets/create.md) with restricted access in {{ objstorage-name }}.
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 

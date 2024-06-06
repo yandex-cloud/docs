@@ -68,8 +68,8 @@ There are several restrictions when working with {{ PG }} clusters.
 
 Limitations:
 1. No query types are supported other than the `SELECT` data read queries.
-1. The maximum supported number of rows in a table is 1,000,000. If this value is exceeded, the query will terminate with an error.
-1. {% include [!](_includes/datetime_limits.md) %}
+1. {{ yq-short-name }} uses the [type system](https://ydb.tech/docs/en/yql/reference/types/primitive) {{ ydb-full-name }}. However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ PG }} types (`date` and `timestamp`).
+ Therefore, {{ yq-short-name }} returns date and time values read from {{ PG }} as plain strings (the `Optional<Utf8>` type) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
 
 ## Filter pushdown {#predicate_pushdown}
 
@@ -77,32 +77,32 @@ Limitations:
 
 ## Supported data types {#supported_types}
 
-The table below shows how {{ PG }} types and {{ yq-full-name }} types map.
+In a {{ PG }} DB, the optionality of column values (whether or not the column can contain `NULL` values) does not depend on the type system. The `NOT NULL` constraint for each column is implemented as the `attnotnull` attribute in the [pg_attribute](https://www.postgresql.org/docs/current/catalog-pg-attribute.html) system folder, i.e., at the table metadata level. Thus, by default, all {{ PG }} base types can contain `NULL` values and the {{ yq-short-name }} type system will represent them as [optional](https://ydb.tech/docs/en/yql/reference/types/optional) types.
+
+The table below shows how {{ PG }} and {{ yq-full-name }} types map. All other data types except those listed are not supported.
 
 | Data type {{ PG }} | Data type {{ yq-full-name }} | Notes |
 |---|----|------|
-| `boolean` | `BOOL` | |
-| `smallint` | `INT16` | |
-| `int2` | `INT16` | |
-| `integer` | `INT32` | |
-| `int` | `INT32` | |
-| `int4` | `INT32` | |
-| `serial` | `INT32` | |
-| `serial4` | `INT32` | |
-| `bigint` | `INT64` | |
-| `int8` | `INT64` | |
-| `bigserial` | `INT64` | |
-| `serial8` | `INT64` | |
-| `real` | `FLOAT` | |
-| `float4` | `FLOAT` | |
-| `double precision` | `DOUBLE` | |
-| `float8` | `DOUBLE` | |
-| `date` | `DATE` | The valid date range is between 01/01/1970 and 31/12/2105 |
-| `timestamp` | `TIMESTAMP` | The valid date range is between 01/01/1970 00:00 and 31/12/2105 23:59 |
-| `bytea` | `STRING` | |
-| `character` | `UTF8` | [Default sorting rules](https://www.postgresql.org/docs/current/collation.html) apply; the string is padded with spaces to the required length |
-| `character varying` | `UTF8` | [Default sorting rules](https://www.postgresql.org/docs/current/collation.html) apply |
-| `text` | `UTF8` | [Default sorting rules](https://www.postgresql.org/docs/current/collation.html) apply |
-
-Other data types are not supported.
+| `boolean` | `Optional<Bool>` |
+| `smallint` | `Optional<Int16>` |
+| `int2` | `Optional<Int16>` |
+| `integer` | `Optional<Int32>` |
+| `int` | `Optional<Int32>` |
+| `int4` | `Optional<Int32>` |
+| `serial` | `Optional<Int32>` |
+| `serial4` | `Optional<Int32>` |
+| `bigint` | `Optional<Int64>` |
+| `int8` | `Optional<Int64>` |
+| `bigserial` | `Optional<Int64>` |
+| `serial8` | `Optional<Int64>` |
+| `real` | `Optional<Float>` |
+| `float4` | `Optional<Float>` |
+| `double precision` | `Optional<Double>` |
+| `float8` | `Optional<Double>` |
+| `date` | `Optional<Utf8>` |
+| `timestamp` | `Optional<Utf8>` |
+| `bytea` | `Optional<String>` |
+| `character` | `Optional<Utf8>` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply; the string is padded with spaces to the required length. |
+| `character varying` | `Utf8` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |
+| `text` | `Utf8` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |
 

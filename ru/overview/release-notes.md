@@ -12,12 +12,14 @@
 * [{{ interconnect-full-name }}](../interconnect/release-notes.md)
 * [{{ compute-full-name }}](../compute/release-notes.md)
 * [{{ objstorage-full-name }}](../storage/release-notes.md)
+* [{{ sws-full-name }}](../smartwebsecurity/release-notes.md)
 * [{{ vpc-full-name }}](../vpc/release-notes.md)
 
 ## Платформа данных {#data-platform}
 
 * [{{ dataproc-full-name }}](../data-proc/release-notes/index.md) и [образы {{ dataproc-name }}](../data-proc/release-notes/images.md)
 * [{{ data-transfer-full-name }}](../data-transfer/release-notes/index.md)
+* [{{ maf-full-name }}](../managed-airflow/release-notes.md)
 * [{{ mkf-full-name }}](../managed-kafka/release-notes.md)
 * [{{ mch-full-name }}](../managed-clickhouse/release-notes.md)
 * [{{ mgp-full-name }}](../managed-greenplum/release-notes.md)

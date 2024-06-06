@@ -26,7 +26,7 @@ The system stores the following information about each S3 connector:
 
 You can [create](../operations/data/s3-connectors.md) an S3 connector in the [{{ ml-platform-name }} interface]({{ link-datasphere-main }}). To make objects from the bucket visible in {{ jlab }}, [activate](../operations/data/s3-connectors.md#mount) the S3 connector. If you no longer need the connection, [deactivate it](../operations/data/s3-connectors.md#unmount).
 
-Once created, your S3 connector becomes available for the project. The community administrator can share an S3 connector with other community projects. For this, they should grant access to it under the **{{ ui-key.yc-ui-datasphere.common.access }}** tab on the S3 connector view page. The resource available to the community will appear on the community page under **{{ ui-key.yc-ui-datasphere.spaces-page.community-resources }}**.
+Once created, your S3 connector becomes available for the project. Like any other resource, you can publish the S3 connector in the community to use it in other projects. To do this, you need at least the `Editor` role in the project and the `Developer` role in the community in which you want to publish it. You can open the access on the **{{ ui-key.yc-ui-datasphere.common.access }}** tab on the S3 connector view page. The resource available to the community will appear on the community page under **{{ ui-key.yc-ui-datasphere.spaces-page.community-resources }}**.
 
 {% include [s3-connectors-nat-gateway](../../_includes/datasphere/s3-connectors-nat-gateway.md) %}
 

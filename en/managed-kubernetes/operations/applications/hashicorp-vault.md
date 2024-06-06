@@ -16,6 +16,7 @@ To use HashiCorp Vault, you need:
 * [Service account](../../../iam/concepts/users/service-accounts.md) with the `kms.keys.encrypterDecrypter` [role](../../../iam/concepts/access-control/roles.md)
 * [Authorized key](../../../iam/concepts/authorization/key.md)
 * [Symmetric encryption key](../../../kms/concepts/key.md)
+
 1. [Create a service account](../../../iam/operations/sa/create.md):
 
    ```bash

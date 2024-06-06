@@ -1,7 +1,7 @@
 # Regular recognition of audio files from {{ objstorage-full-name }}
 
 
-The {{ speechkit-short-name }} [asynchronous recognition API](../../speechkit/stt/api/transcribation-api.md) is integrated with {{ objstorage-full-name }}. This enables you to set up automatic recognition of audio files of [supported formats](../../speechkit/formats.md) that are regularly uploaded to {{ objstorage-name }} buckets. A cloud function in {{ sf-full-name }} regularly checks a bucket for audio files and sends them to the {{ speechkit-short-name }} API for recognition. The recognition result and status are saved to the same {{ objstorage-name }} bucket.
+The {{ speechkit-short-name }} [asynchronous recognition API](../../speechkit/stt/api/transcribation-api.md) is integrated with {{ objstorage-full-name }}. This enables you to set up automatic recognition of audio files of [supported formats](../../speechkit/formats.md) that are regularly uploaded to an {{ objstorage-name }} bucket. A cloud function in {{ sf-full-name }} regularly checks the bucket for audio files and sends them to the {{ speechkit-short-name }} API for recognition. The recognition result and status are saved to the same {{ objstorage-name }} bucket.
 
 To set up automatic audio file recognition using {{ speechkit-short-name }}:
 
@@ -12,7 +12,7 @@ To set up automatic audio file recognition using {{ speechkit-short-name }}:
 ## Getting started {#before-you-begin}
 
 1. [Create](../../iam/operations/sa/create.md) a service account named `asr-batch-sa`.
-1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor`, `{{ roles-functions-invoker }}`, and `{{ roles-speechkit-stt }}` roles to the service account for the folder where you created it.
+1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) to the service account the `storage.editor`, `{{ roles-functions-invoker }}`, and `{{ roles-speechkit-stt }}` roles for the folder in which it was created.
 1. [Create](../../iam/operations/sa/create-access-key.md) a static access key for the service account.
 1. [Create](../../iam/operations/api-key/create.md) an API key to access the service account.
 1. [Create](../../storage/operations/buckets/create.md) an {{ objstorage-name }} bucket named `asr-batch-bucket` in the service account folder.
@@ -33,7 +33,7 @@ To set up automatic audio file recognition using {{ speechkit-short-name }}:
 
 ## Create a cloud function {#create-function}
 
-1. In the [management console]({{ link-console-main }}), select the folder where you created the service account.
+1. In the [management console]({{ link-console-main }}), navigate to the folder with the new service account.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}** and specify `asr-batch-function` as the function name.
 1. Click **{{ ui-key.yacloud.common.create }}**.
