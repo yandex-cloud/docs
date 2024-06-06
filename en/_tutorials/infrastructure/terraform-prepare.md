@@ -2,7 +2,7 @@
 
 ### Install {{ TF }} {#install-terraform}
 
-{% include [terraform-install.md](../includes/terraform-install.md) %}
+{% include [terraform-install.md](../_tutorials_includes/terraform-install-os.md) %}
 
 ### Get the authentication credentials {#get-credentials}
 

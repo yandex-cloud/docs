@@ -6,7 +6,7 @@
 
 ## Применить или изменить политику {#apply-policy}
 
-Минимально необходимая роль для применения или изменения политики доступа — `storage.configurer`. См. [описание роли](../../../storage/security/#storage-configurer).
+Минимально необходимая роль для применения или изменения политики доступа — `storage.configurer`. См. [описание роли](../../../storage/security/index.md#storage-configurer).
 
 {% note info %}
 

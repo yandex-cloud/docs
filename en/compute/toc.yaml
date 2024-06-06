@@ -282,6 +282,8 @@ items:
             href: operations/instance-groups/create-from-yaml.md
           - name: Creating an instance group in a placement group
             href: operations/placement-groups/create-ig-in-pg.md
+          - name: Creating a group of instances with fixed IP addresses
+            href: operations/instance-groups/create-with-fixed-ip.md
       - name: Getting information about instance groups
         items:
           - name: Getting a list of instance groups

@@ -22,7 +22,7 @@ Get an access key from your S3 storage provider. To do this in [{{ objstorage-fu
 1. Fill out the fields below:
    * **{{ ui-key.yc-ui-datasphere.common.name }}**: Name of the connector being created. The naming requirements are as follows:
 
-      {% include [name-format](../../../_includes/name-format.md) %}
+      {% include [name-format](../../../_includes/name-format-2.md) %}
 
    * (Optional) **{{ ui-key.yc-ui-datasphere.common.description }}** of the new connector.
    * **{{ ui-key.yc-ui-datasphere.common.endpoint }}**: Storage host. For {{ objstorage-name }}, this is `https://{{ s3-storage-host }}/`.

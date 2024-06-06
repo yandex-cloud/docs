@@ -7,13 +7,13 @@ description: "На странице представлен список прак
 
 ## Создание сайта {#web}
 
-* [Статический веб-сайт в {{ objstorage-full-name }}](../web/static.md)
+* [Статический веб-сайт в {{ objstorage-full-name }}](../web/static/index.md)
 * [Веб-сайт на LAMP- или LEMP-стеке](../web/lamp-lemp/index.md)
-* [Сайт на базе Joomla с базой данных {{ PG }}](../web/joomla-postgresql.md)
+* [Сайт на базе Joomla с базой данных {{ PG }}](../web/joomla-postgresql/index.md)
 * [Создание сайта на WordPress](../web/wordpress.md)
 * [Сайт на WordPress с кластером БД {{ MY }}](../web/wordpress-mysql.md)
 * [Перенос WordPress сайта с хостинга в {{ yandex-cloud }}](../web/wordpress-transfer.md)
-* [Веб-сайт на базе 1С-Битрикс](../web/bitrix-website.md)
+* [Веб-сайт на базе 1С-Битрикс](../web/bitrix-website/index.md)
 * [Интернет-магазин на платформе OpenCart](../internet-store/opencart/index.md)
 * [Организация виртуального хостинга](../web/virtual-hosting.md)
 * [Привязка доменного имени к ВМ с веб-сервером](../web/bind-domain-vm.md)
@@ -22,7 +22,7 @@ description: "На странице представлен список прак
 
 ## 1С {#1c}
 
-* [Интернет-магазин на 1С-Битрикс: Управление сайтом](../internet-store/bitrix-shop.md)
+* [Создание интернет-магазина на «1С-Битрикс: Управление сайтом»](../internet-store/bitrix-shop/index.md)
 * [Создание кластера Linux-серверов «1С:Предприятия» с кластером {{ mpg-full-name }}](../infrastructure-management/1c-postgresql-linux.md)
 
 ## Интернет вещей (IOT) {#iot}

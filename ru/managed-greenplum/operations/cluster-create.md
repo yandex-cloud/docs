@@ -95,6 +95,8 @@
         * В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
           * Выберите [тип диска](../concepts/storage.md).
 
+            {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
+
             
             {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
 

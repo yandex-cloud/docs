@@ -21,9 +21,6 @@
 
   1. Если требуется, добавьте произвольное описание диска.
   1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться диск.
-
-     {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
-
   1. Укажите тип диска `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}`.
   1. Выберите нужный размер блока.
   1. Задайте нужный размер диска.
@@ -91,8 +88,6 @@
      * `block_size` — размер блока в байтах (минимальный объем хранения информации на диске). Максимальный размер диска зависит от заданного размера блока. По умолчанию размер блоков всех создаваемых дисков равен 4 КБ, однако для дисков больше 8 ТБ этого недостаточно. Подробнее см. в разделе [{#T}](../../../compute/operations/disk-create/empty-disk-blocksize.md).
      * `type` — тип создаваемого диска. Укажите `network-ssd-nonreplicated` для создания нереплицируемого диска.
      * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md).
-
-       {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
 
      Более подробную информацию о параметрах ресурса `yandex_compute_disk` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
   1. Проверьте корректность конфигурационных файлов.

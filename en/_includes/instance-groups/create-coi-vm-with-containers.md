@@ -165,7 +165,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
    scale_policy: # Scaling policy for instances in the group.
      fixed_scale:
        size: 2
-   allocation_policy: # Allocation policy of the instances by zones and regions.
+   allocation_policy: # Policy for allocating VM instances by availability zones.
      zones:
        - zone_id: {{ region-id }}-a
    ```

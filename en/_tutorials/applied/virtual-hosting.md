@@ -231,7 +231,7 @@ To check that your web servers are running properly, upload two different `index
 
 To upload a file to a VM:
 
-{% include [upload-files](../_common/upload-web-site-files.md) %}
+{% include [upload-files](../_tutorials_includes/upload-web-site-files.md) %}
 
 Repeat these steps for the files you want to upload to each VM in the `vhosting-ig-a` and `vhosting-ig-b` groups.
 

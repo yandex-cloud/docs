@@ -76,6 +76,12 @@ Follow the guide below to check if the drivers are installed; if they are not, a
          sudo mkinitrd -f --with=virtio_blk --with=virtio_net --with=virtio_pci --with=virtiofs /boot/initramfs-$(uname -r).img $(uname -r)
          ```
 
+         If you receive an error saying `Command 'mkinitrd' not found`, use `dracut` to install the drivers:
+
+         ```sh
+         sudo dracut -f --add-drivers "virtio_blk virtio_net virtio_pci virtiofs" /boot/initramfs-$(uname -r).img $(uname -r)
+         ```
+
          Then restart the OS and check that the drivers appear in the `initramfs` file and are loaded:
 
          ```sh

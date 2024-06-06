@@ -34,7 +34,7 @@ These settings apply to {{ TF }} `0.13` and higher. We recommend using the lates
       nano ~/.terraformrc
       ```
 
-      {% include [terraform-configure-provider-directory](../terraform-configure-provider-directory.md) %}
+      {% include [terraform-configure-provider-directory](terraform-configure-provider-directory.md) %}
 
    - Windows {#windows}
 

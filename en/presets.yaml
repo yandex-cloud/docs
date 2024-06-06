@@ -4395,6 +4395,9 @@ default:
         field_access: End-user access to content
         field_group-name: Group name
         field_origin-state: Priority
+        field_secure-key: Secret key
+        field_secure-key-enabled: Access via secure token
+        field_secure-key-type: Limit access by IP address
         label_access: Access to content
         label_activate-provider-empty-container_action-text: Activate provider
         label_additional: Additional
@@ -4473,6 +4476,8 @@ default:
         value_query-type-one-origin: From one origin
         value_redirect-http-to-https: HTTP to HTTPS
         value_redirect-https-to-http: HTTPS to HTTP
+        value_secure-key-type-disable: No restrictions
+        value_secure-key-type-enable: Only trusted IP addresses
         value_source-type-balancer: L7 load balancer
         value_source-type-bucket: Bucket
         value_source-type-url: Server
@@ -5527,6 +5532,7 @@ default:
         field_connector-secret-access-key: Secret access key
         field_connector-security-protocol: Security protocol
         field_connector-ssl-truststore-certificates: Certificate in PEM format
+        field_rest-api-config: Kafka Rest API
         field_schema-registry: Schema registry
         label_brokers-per-az: Number of brokers in zone
         label_connector-this-cluster: Use this cluster

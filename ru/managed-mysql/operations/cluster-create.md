@@ -40,7 +40,9 @@ description: "Следуя данной инструкции, вы сможет�
 
      * Выберите [тип диска](../concepts/storage.md).
 
-              
+       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
+
+       
        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
@@ -147,6 +149,10 @@ description: "Следуя данной инструкции, вы сможет�
      
      * `assign-public-ip` — публичный доступ к хосту: `true` или `false`.
 
+
+     * `--disk-type` — тип диска.
+
+       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
      * `priority` — приоритет при выборе нового хоста-мастера: от `0` до `100`.
      * `backup-priority` — приоритет для резервного копирования: от `0` до `100`.

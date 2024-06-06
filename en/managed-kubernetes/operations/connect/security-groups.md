@@ -78,9 +78,9 @@ To be sure that the services running on nodes are accessible from the internet a
 ## Creating a rule for connecting to nodes via SSH {#rules-nodes-ssh}
 
 To access the nodes via SSH, create a rule for incoming traffic and **apply it to the node group**:
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: IP address ranges of the subnets within {{ yandex-cloud }} and public IP addresses of computers on the internet, for example:
    * `10.0.0.0/8`
    * `192.168.0.0/16`
@@ -90,9 +90,9 @@ To access the nodes via SSH, create a rule for incoming traffic and **apply it t
 ## Creating rules to access the {{ k8s }} API {#rules-master}
 
 To access the {{ k8s }} API and manage clusters using `kubectl` and other utilities, you need rules that allow connections to the master via ports `{{ port-k8s }}` and `{{ port-https }}`. Create two rules for the incoming traffic, one rule per port, and **apply them to the cluster**:
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`, `{{ port-k8s }}`
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`, `{{ port-k8s }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: Specify the IP address range of the subnets from which you will manage the cluster, for example:
    * `85.23.23.22/32`: For external network
    * `192.168.0.0/24`: For internal network
@@ -105,7 +105,7 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
 
    For example, you need to create rules for an existing {{ k8s }} cluster:
    * With the zonal master located in the `{{ region-id }}-a` availability zone.
-   * With the `worker-nodes-с` node group.
+   * With the `worker-nodes-c` node group.
    * With the address range for pods and services: `10.96.0.0/16` and `10.112.0.0/16`.
    * With access to services:
       * From the load balancer's address range `198.18.235.0/24` and `198.18.248.0/24`.

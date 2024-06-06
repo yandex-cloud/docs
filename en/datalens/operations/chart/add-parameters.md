@@ -5,7 +5,7 @@ description: "Follow this guide to add parameters in dashboard chart settings."
 
 # Adding parameters in dashboard chart settings
 
-To set a parameter:
+To set a [parameter](../../dashboard/dashboard_parameters.md):
 
 
 {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}

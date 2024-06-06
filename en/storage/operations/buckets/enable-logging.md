@@ -71,7 +71,7 @@ To log requests to the bucket:
 
       To enable logging for a bucket you want to track:
 
-      1. Open the {{ TF }} configuration file and add a section called `logging` to the fragment describing the bucket.
+      1. Open the {{ TF }} configuration file and add the `logging` section to the fragment describing the bucket.
 
          ```hcl
          resource "yandex_storage_bucket" "log_bucket" {
@@ -126,6 +126,8 @@ To log requests to the bucket:
       * `TargetPrefix`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for log objects, e.g., `logs/`.
 
    {% endlist %}
+
+If you want to delete the target bucket, first [disable logging](#stop-logging) or select another target bucket for storing logs. You can [delete](delete.md) only an empty bucket.
 
 ## Get the logging settings {#get-settings}
 

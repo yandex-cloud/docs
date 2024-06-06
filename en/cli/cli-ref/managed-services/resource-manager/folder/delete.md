@@ -11,7 +11,7 @@ Delete the specified folder
 
 Syntax: 
 
-`yc resource-manager folder delete <FOLDER-NAME>|<FOLDER-ID> [<FOLDER-NAME>|<FOLDER-ID>...] [Global Flags...]`
+`yc resource-manager folder delete <FOLDER-NAME>|<FOLDER-ID> [<FOLDER-NAME>|<FOLDER-ID>...] [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -19,6 +19,7 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>Folder id.|
 |`--name`|<b>`string`</b><br/>Folder name.|
+|`--delete-after`|<b>`duration`</b><br/>Delete the folder after this period.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

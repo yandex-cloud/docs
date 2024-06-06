@@ -19,6 +19,7 @@ Syntax:
 |`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--federation-id`|<b>`string`</b><br/>Set the Federation ID to use for authentication.|
 |`--federation-endpoint`|<b>`string`</b><br/>Set the Federation endpoint to use for authentication.|
+|`--region`|<b>`string`</b><br/>Set the region flag to use cli with different regions.|
 
 #### Global Flags
 

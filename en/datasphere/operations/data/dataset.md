@@ -1,6 +1,6 @@
 # Working with datasets
 
-Use [datasets](../../concepts/dataset.md) if you need to handle large data amounts in {{ ml-platform-name }}. For key operations with datasets, run `#pragma dataset` [utility commands](../../concepts/pragma.md) from the cell code.
+Use [datasets](../../concepts/dataset.md) if you need to handle large data amounts in {{ ml-platform-name }}. For key operations with datasets, run `#pragma dataset` utility commands from the cell code.
 
 ## Create and initialize a dataset {#create}
 
@@ -205,7 +205,7 @@ On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-reso
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
 1. Enable the visibility option next to the name of the community to share the dataset in.
 
-To make a dataset available for use in another project, the project administrator should [add](../projects/use-shared-resource.md) it to the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
+To make a dataset available for use in another project, you should [add](../projects/use-shared-resource.md) it to the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
 
 ## Deactivating a dataset {#deactivate}
 

@@ -73,8 +73,8 @@ Currently, regardless of the choice of filters for reading the {{ CH }} tables s
 
 Limitations:
 1. No query types are supported other than the `SELECT` data read queries.
-1. The maximum supported number of rows in a table is 1,000,000. If this value is exceeded, the query will terminate with an error.
-1. {% include [!](_includes/datetime_limits.md) %}
+1. {{ yq-short-name }} uses the {{ ydb-full-name }} [type system](https://ydb.tech/docs/ru/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ CH }} types (`Date`, `Date32`, `Datetime`, and `Datetime64`).
+Therefore, {{ yq-short-name }} returns date and time values read from {{ CH }} as plain strings (the `Utf8` type for regular columns or the `Optional<Utf8>` type for [nullable](https://clickhouse.com/docs/en/sql-reference/data-types/nullable) columns) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
 
 ## Filter pushdown {#predicate_pushdown}
 
@@ -82,26 +82,52 @@ Limitations:
 
 ## Supported data types {#supported_types}
 
-The table below shows how {{ CH }} types and {{ yq-full-name }} types map.
+In {{ CH }}, columns cannot physically contain the `NULL` value by default; however, the user can create a table with columns of optional or [nullable](https://clickhouse.com/docs/en/sql-reference/data-types/nullable) types. The column types {{ yq-full-name }} displays when extracting data from the external {{ CH }} source will depend on whether the {{ CH }} table uses primitive or optional types.
+
+The tables below show how {{ CH }} and {{ yq-full-name }} types map. All other data types except those listed are not supported.
+
+### Primitive data types {#supported_types_default}
 
 | Data type {{ CH }} | Data type {{ yq-full-name }} | Notes |
 |---|----|------|
-| `Bool` | `BOOL` | |
-| `Int8` | `INT8` | |
-| `UInt8` | `UINT8` | |
-| `Int16` | `INT16` | |
-| `UInt16` | `UINT16` | |
-| `Int32` | `INT32` | |
-| `UInt32` | `UINT32` | |
-| `Int64` | `INT64` | |
-| `UInt64` | `UINT64` | |
-| `Float32` | `FLOAT` | |
-| `Float64` | `DOUBLE` | |
-| `Date` | `DATE` | |
-| `Datetime` | `DATETIME` | The valid date range is between 01/01/1970 00:00 and 31/12/2105 23:59 |
-| `String` | `STRING` | |
-| `FixedString` | `STRING` | Null `FixedString` bytes are transferred to `STRING` without changes. |
+| `Bool` | `Bool` |
+| `Int8` | `Int8` |
+| `UInt8` | `Uint8` |
+| `Int16` | `Int16` |
+| `UInt16` | `Uint16` |
+| `Int32` | `Int32` |
+| `UInt32` | `Uint32` |
+| `Int64` | `Int64` |
+| `UInt64` | `Uint64` |
+| `Float32` | `Float` |
+| `Float64` | `Double` |
+| `Date` | `Utf8` |
+| `Date32` | `Utf8` |
+| `Datetime` | `Utf8` |
+| `DateTime64` | `Utf8` |
+| `String` | `String` |
+| `FixedString` | `String` | Null `FixedString` bytes are transferred to `String` without changes. |
 
-Other data types are not supported.
+### Optional data types {#supported_types_nullable}
+
+| Data type {{ CH }} | Data type {{ yq-full-name }} | Notes |
+|---|----|------|
+| `Nullable(Bool)` | `Optional<Bool>` |
+| `Nullable(Int8)` | `Optional<Int8>` |
+| `Nullable(UInt8)` | `Optional<Uint8>` |
+| `Nullable(Int16)` | `Optional<Int16>` |
+| `Nullable(UInt16)` | `Optional<Uint16>` |
+| `Nullable(Int32)` | `Optional<Int32>` |
+| `Nullable(UInt32)` | `Optional<Uint32>` |
+| `Nullable(Int64)` | `Optional<Int64>` |
+| `Nullable(UInt64)` | `Optional<Uint64>` |
+| `Nullable(Float32)` | `Optional<Float>` |
+| `Nullable(Float64)` | `Optional<Double>` |
+| `Nullable(Date)` | `Optional<Utf8>` |
+| `Nullable(Date32)` | `Optional<Utf8>` |
+| `Nullable(DateTime)` | `Optional<Utf8>` |
+| `Nullable(DateTime64)` | `Optional<Utf8>` |
+| `Nullable(String)` | `Optional<String>` |
+| `Nullable(FixedString)` | `Optional<String>` | Null `FixedString` bytes are transferred to `String` without changes. |
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

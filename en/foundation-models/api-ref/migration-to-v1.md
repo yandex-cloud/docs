@@ -1,12 +1,12 @@
 # Migration from API v1alpha to YandexGPT API v1 and Embeddings API v1
 
-[API v1alpha](../api-ref/v1alpha/) is deprecated and will be discontinued soon. To work with {{ yagpt-name }}, use [YandexGPT API v1](../text-generation/api-ref/) and [Embeddings API v1](../embeddings/api-ref/). In the new API version, the maximum total number of [tokens](../concepts/yandexgpt/tokens.md) allowed per user request and model response is {{ yagpt-max-tokens }}.
+[API v1alpha](../api-ref/v1alpha/) is deprecated and discontinued. To work with {{ yagpt-name }}, use [YandexGPT API v1](../text-generation/api-ref/) and [Embeddings API v1](../embeddings/api-ref/). In the new API version, the maximum total number of [tokens](../concepts/yandexgpt/tokens.md) allowed per user request and model response is {{ yagpt-max-tokens }}.
 
-If your product adopts methods of the obsolete API, migrate it to the new interface. See the detailed overview of the changes required for the REST API below. Similar changes apply to the gRPC API.
+If your product adopts methods of the deprecated API, migrate it to the new interface. See the detailed overview of the changes required for the REST API below. Similar changes apply to the gRPC API.
 
 ## Model selection {#model-choice}
 
-In YandexGPT API v1 and Embeddings API v1, specify the [model](../concepts/yandexgpt/models.md#yandexgpt-generation) name in the `modelUri` parameter (instead of `model` in the obsolete API):
+In YandexGPT API v1 and Embeddings API v1, specify the [model](../concepts/yandexgpt/models.md#yandexgpt-generation) name in the `modelUri` parameter (instead of `model` in the deprecated API):
 
 | Model | API v1alpha | YandexGPT API v1 and Embeddings API v1 |
 | --- | --- | --- |

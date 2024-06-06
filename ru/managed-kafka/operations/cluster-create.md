@@ -37,10 +37,6 @@
         * `PRODUCTION` — для стабильных версий приложений.
         * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
      1. Выберите версию {{ KF }} 3.5 или ниже.
-     1. Чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md), включите настройку **{{ ui-key.yacloud.kafka.field_schema-registry }}**.
-
-        {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
-
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите [платформу](../../compute/concepts/vm-platforms.md), тип хостов и класс хостов.
 
      Класс хостов определяет технические характеристики [виртуальных машин](../../compute/concepts/vm.md), на которых будут развернуты брокеры {{ KF }}. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md).
@@ -48,6 +44,8 @@
      При [изменении класса хостов](cluster-update.md#change-brokers) для кластера {{ mkf-name }} меняются характеристики всех уже созданных экземпляров.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
      * Выберите тип диска.
+
+       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
        
        {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
@@ -141,6 +139,8 @@
      * `--resource-preset` — [класс хостов](../concepts/instance-types.md).
      * `--disk-type` — [тип диска](../concepts/storage.md).
   
+        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
+
      * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -165,9 +165,8 @@
 
      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-  
-  1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
 
+  
   1. Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids` при создании кластера:
 
      ```bash
@@ -248,7 +247,7 @@
      * `assign_public_ip` — публичный доступ к кластеру: `true` или `false`.
      * `version` — версия {{ KF }}: {{ versions.tf.str-without-latest }}.
      * `schema_registry` — управление схемами данных: `true` или `false`.
- 
+
 
 
      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -286,8 +285,7 @@
     {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
   Чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md), передайте значение `true` для параметра `configSpec.schemaRegistry`. Эту настройку невозможно изменить после создания кластера {{ mkf-name }}.
-
-  {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+  
 
   
   Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
@@ -362,6 +360,8 @@
      * `--resource-preset` — [класс хостов](../concepts/instance-types.md).
      * `--disk-type` — [тип диска](../concepts/storage.md).
 
+        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
+
      * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -386,9 +386,8 @@
 
      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-  
-  1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
 
+  
   1. Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids` при создании кластера:
 
      ```bash
@@ -509,7 +508,6 @@
 
   Чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md), передайте значение `true` для параметра `configSpec.schemaRegistry`. Эту настройку невозможно изменить после создания кластера {{ mkf-name }}.
 
-  {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
   
   Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.

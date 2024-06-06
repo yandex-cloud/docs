@@ -49,3 +49,16 @@
 Чтобы увеличить максимальные значения IOPS и bandwidth и снизить вероятность троттлинга, расширьте размер хранилища при [изменении кластера](../../managed-mongodb/operations/update.md#change-disk-size).
 
 Если вы используете хранилище с типом диска `network-hdd`, рассмотрите возможность перехода на `network-ssd` или `network-ssd-nonreplicated` путем [восстановления кластера](../../managed-mongodb/operations/cluster-backups.md#restore) из резервной копии.
+
+#### Как получить доступ к служебной коллекции local.oplog.rs? {#oplog-permission}
+
+Чтобы предоставить пользователю доступ к чтению `oplog`, выдайте ему роль `mdbReplication` в БД `admin`. Для этого выполните команду в интерфейсе командной строки {{ yandex-cloud }}:
+
+```bash
+{{ yc-mdb-mg }} user update <имя_пользователя> \
+  --cluster-name <имя_кластера> \
+  --permission database=admin,role=mdbReplication,role=<другая_роль>,... \
+  --permission database=<имя_другой_БД>,role=<роль>,...
+```
+
+Чтобы избежать удаления уже назначенных ролей пользователя, в команде перечислите как существующие, так и добавляемые роли.

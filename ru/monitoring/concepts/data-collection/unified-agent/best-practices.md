@@ -1,7 +1,5 @@
 # Рекомендации по использованию агента
 
-Данный раздел описывает рекомендации по использованию {{unified-agent-full-name}}.
-
 ## Один агент на хост {#one-agent-per-host}
 
 Не следует запускать на одном хосте больше одного экземпляра {{unified-agent-short-name}} с одинаковыми файлами конфигурации, так как это может привести к нарушению работы агента.
@@ -35,7 +33,7 @@ routes:
             cloud_meta: {}
 ```
 
-См. также раздел [{#T}](configuration.md#agent_metrics_input).
+См. также раздел [{#T}](inputs.md#agent_metrics_input).
 
 ## Использование хранилища {#storage}
 
@@ -81,4 +79,4 @@ routes:
         name: cloud_monitoring
 ```
 
-См. также раздел [{#T}](configuration.md#storages).
+См. также раздел [{#T}](storage.md).

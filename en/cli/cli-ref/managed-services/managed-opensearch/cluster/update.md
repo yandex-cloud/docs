@@ -30,7 +30,7 @@ Syntax:
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A comma-separated list of security group IDs to be used for the cluster.|
 |`--service-account-id`|<b>`string`</b><br/>service account id.|
 |`--service-account-name`|<b>`string`</b><br/>ID of the service account to be used for the cluster.|
-|`--delete-protection`|<b>`string`</b><br/>Wether to inhibit or not cluster deletion. Supported vlaues: 'true' or 'false'|
+|`--delete-protection`|<b>`string`</b><br/>Wether to inhibit or not cluster deletion. Supported values: 'true' or 'false'|
 |`--maintenance`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Cluster maintenance window configuration. It defaults to anytime maintenance schedule.<br/><br/>Possible property names:<br/><ul> <li><code>schedule</code>:     Cluster maintenance window schedule type. Supported values: 'anytime', 'weekly'</li> <li><code>weekday</code>:     For the weekly maintenance schedule, it specifies the day of the week (mon, tue, wed, thu, fry, sat, sun).</li> <li><code>hour</code>:     For the weekly maintenance schedule, it specifies the maintenance start hour of the day. It defaults to 0.</li> </ul>|
 |`--version`|<b>`string`</b><br/>OpenSearch version.|
 |`--admin-password`|<b>`string`</b><br/>New password for entity. It is not secure to specify password in command line. To avoid it you can omit this flag and enter password when prompted.|
@@ -38,6 +38,8 @@ Syntax:
 |`--data-transfer-access`|<b>`string`</b><br/>Wether to allow or deny access to Data Transfer.|
 |`--serverless-access`|<b>`string`</b><br/>Wether to allow or deny access to Serverless.|
 |`--plugins`|<b>`value[,value]`</b><br/>OpenSearch plugins.|
+|`--set-keystore-settings`|<b>`key=value[,key=value...]`</b><br/>A comma-separated list of keystore settings to add/replace given as key=value pairs. Old entries not listed here will be left unchanged.|
+|`--remove-keystore-settings`|<b>`value[,value]`</b><br/>A comma-separated list of keystore settings to remove.|
 
 #### Global Flags
 

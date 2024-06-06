@@ -49,6 +49,7 @@ Syntax:
 |`--service-account`|<b>`string`</b><br/>Service account for the ClickHouse cluster being restored.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the ClickHouse cluster.|
 |`--cloud-storage`|Whether to use Yandex Object Storage for storing ClickHouse data.|
+|`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
 |`--admin-password`|<b>`string`</b><br/>Password for entity. Usage of --read-admin-password is more secure|
 |`--read-admin-password`|Read password for entity from input|
 |`--generate-admin-password`|Generate random password|

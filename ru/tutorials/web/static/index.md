@@ -1,0 +1,1 @@
+{% include [static](../../../_tutorials/applied/static.md) %}
