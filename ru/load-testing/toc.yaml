@@ -78,6 +78,8 @@ items:
             href: concepts/payloads/raw.md
           - name: HTTP_JSON
             href: concepts/payloads/http-json.md
+          - name: GRPC_JSON
+            href: concepts/payloads/grpc-json.md
       - name: Тестирующие потоки
         href: concepts/testing-stream.md
       - name: Автостоп

@@ -339,7 +339,7 @@ default:
   message-queue-name: Message Queue
   message-queue-short-name: Message Queue
   metadata-hub-full-name: Yandex MetaData Hub
-  metadata-hub-name: MetaData Hub
+  metadata-hub-name: Yandex MetaData Hub
   metastore-full-name: Hive Metastore
   metastore-name: Metastore
   metrika: Яндекс Метрика
@@ -5722,6 +5722,7 @@ default:
         action_specify-vm: Привязать виртуальную машину
         button_k8s-product-use: Перейти к установке
         button_use: Использовать
+        label_available-products: Доступные для установки приложения
         label_licenses: Подписки
       mdb:
         cluster:
@@ -8150,6 +8151,10 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
         tag: 1.21.2-1
+    yc_kruise:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/kruise/chart/kruise
+        tag: 1.5.0
     yc_kyverno:
       helmChart:
         name: cr.yandex/yc-marketplace/multi-kyverno

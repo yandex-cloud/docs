@@ -1,9 +1,18 @@
 # Migrating {{ RD }} cluster hosts to a different availability zone
 
 
-{{ mrd-name }} cluster hosts reside in [availability zones](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. To move hosts from one availability zone to another:
+{% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 
-1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move cluster hosts to.
+
+{{ mrd-name }} cluster hosts reside in [availability zones](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. To move hosts from one zone to another, add hosts residing in the target availability zone to the cluster and delete the hosts in the source availability zone:
+
+1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move your hosts to.
+1. If your cluster uses the `b2.medium` or `b3-c1-m4` [host class](../concepts/instance-types.md#available-flavors), [change it](update.md#change-resource-preset). Otherwise, you will not be able to add hosts to the cluster and perform migration.
+
+   The cluster is unavailable for about five to seven minutes after changing the host class.
+
+   You can restore the original class after migration.
+
 1. Add a host to your cluster:
 
    {% list tabs group=instructions %}
@@ -124,5 +133,3 @@
    {% endlist %}
 
 1. Wait until the cluster status changes to **Alive**. In the management console, go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
-
-{% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}

@@ -17,24 +17,32 @@ hello!
 uripost
 ```
 
-## Конфигурация для Phantom {#phantom-config}
+## Конфигурирование генераторов нагрузки
 
-```
-phantom:
-  ammo_type: uripost # Обязательно, иначе инструмент для тестирования не сможет их отличить от uri-style.
-  ammofile: /path/to/ammo_file # или HTTP-ссылка
-```
+{% list tabs group=instructions %}
 
-## Конфигурация для Pandora {#pandora-config}
+- Phantom {#phantom}
 
-При конфигурации генератора нагрузки Pandora с помощью файла необходимо указать тип `uripost` в секции `ammo`:
+   При конфигурировании генератора нагрузки Phantom с помощью yaml-файла укажите тип `uripost` и путь к файлу с заголовками и эндпоинтами запросов:
 
-```
-config_content:
-          pools:
-             ammo:
-               type: uripost
-               file: ./ammo.uripost
-```
+   ```
+   phantom:
+     ammo_type: uripost # Обязательно, иначе инструмент для тестирования не сможет их отличить от uri-style.
+     ammofile: ./ammo.txt # или HTTP-ссылка
+   ```
+
+ - Pandora {#pandora}
+
+   При конфигурации генератора нагрузки Pandora с помощью файла необходимо указать тип `uripost` в секции `ammo`:
+
+   ```
+   config_content:
+      pools:
+         ammo:
+            type: uripost
+            file: ./ammo.uripost
+   ```
+ 
+{% endlist %}
 
 При загрузке файла с тестовыми данными через консоль управления типы данных и пути подставляются автоматически.

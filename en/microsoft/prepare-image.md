@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Preparing your own images with Microsoft products
 
 You can prepare your own images of Microsoft products to use them in {{ yandex-cloud }} with [your own license](byol.md). Make sure to contact Microsoft and confirm that your license is suitable for cloud environments. We recommend building images on Linux.

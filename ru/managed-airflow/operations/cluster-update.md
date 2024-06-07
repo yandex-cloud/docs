@@ -32,6 +32,8 @@ keywords:
 
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}** вставьте значения [статического ключа доступа](../../iam/concepts/authorization/access-key.md) для [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
 
+    1. В блоке **{{ ui-key.yacloud.airflow.section_dependencies }}** удалите или добавьте названия pip- и deb-пакетов.
+
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** установите или снимите защиту от удаления.
 
     1. В блоке **{{ ui-key.yacloud.airflow.section_airflow-configuration }}** измените, удалите или добавьте [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html), например: ключ — `api.maximum_page_limit`, значение — `150`. Заполните поля вручную или загрузите конфигурацию из файла (см. [пример конфигурационного файла](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).

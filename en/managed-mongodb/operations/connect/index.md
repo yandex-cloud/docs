@@ -63,7 +63,7 @@ Rule settings depend on the connection method you select:
 
 - Over the internet {#internet}
 
-   [Configure all the cluster security groups](../../../vpc/operations/security-group-add-rule.md) to allow incoming traffic from any IP on port `{{ port-mmg }}` for an unsharded cluster or on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic:
+   [Configure all the cluster security groups](../../../vpc/operations/security-group-add-rule.md) to allow incoming traffic from any IP address on port `{{ port-mmg }}` for an unsharded cluster or on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic:
 
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**:
       * `{{ port-mmg }}` for a non-sharded cluster

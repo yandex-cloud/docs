@@ -7,6 +7,6 @@ description: "На странице представлен список прак
 
 
 
-* [Подготовка собственных образов с продуктами Microsoft](../prepare-image.md)
 * [Использование своей лицензии для продуктов Microsoft](../byol.md)
+* [{#T}](./secure-password-script.md)
 

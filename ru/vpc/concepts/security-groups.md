@@ -219,6 +219,10 @@ resource "yandex_vpc_security_group" "db_sg" {
 
 Во избежание проблем с сетевой связностью при развертывании и эксплуатации кластеров {{ managed-k8s-name }}, внимательно следуйте [инструкции](../../managed-kubernetes/operations/connect/security-groups.md). 
 
+#### Группы безопасности и инструменты {{ alb-name }} для {{ managed-k8s-name }} {#security-groups-and-alb-for-k8s}
+
+Для корректной работы [Ingress-контроллера](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) или [Gateway API](https://github.com/kubernetes-sigs/gateway-api) настройте группы безопасности [кластера](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [групп узлов](../../managed-kubernetes/concepts/index.md#node-group) {{ managed-k8s-name }}, а также [L7-балансировщика нагрузки](../../application-load-balancer/concepts/application-load-balancer.md) {{ alb-name }}. Подробнее см. в [инструкции](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+
 {% note alert %}
 
 В {{ yandex-cloud }} реализована автоматическая [фильтрация исходящего SMTP трафика](./limits.md#vpc-egress-traffic-filter).

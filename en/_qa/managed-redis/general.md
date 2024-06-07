@@ -115,6 +115,11 @@ You can change computing resources and storage size in the management console. A
 
 The cluster characteristics change within 30 minutes. During this period, other maintenance activities may also be enabled for the cluster, such as installing updates.
 
+#### How do I fix the `Maximum number of hosts reached` error when adding a host to the cluster? {#error-when-adding-host}
+
+This error occurs when adding a host to the {{ mrd-name }} cluster with the `b2.medium` or `b3-c1-m4` [host class](../../managed-redis/concepts/instance-types.md#available-flavors). In this case, [change the host class](../../managed-redis/operations/update.md#change-resource-preset). The cluster will become unavailable for about five to seven minutes. Then, add a host to the cluster.
+
+Clusters with the `b2.medium` or `b3-c1-m4` host class may contain only one host per cluster or [shard](../../managed-redis/concepts/sharding.md). If you want to save a host class, after changing the class, you can add the host with the configuration you need and delete the previous host. Then, change the host class back to the initial one.
 
 #### Is DB host backup enabled by default? {#default-backup}
 

@@ -183,7 +183,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 || <p>[pglogical](https://github.com/2ndQuadrant/pglogical)</p><p>Adds support for logical streaming replication using the publish-subscribe mechanism.</p> | 2.4.1 | 2.4.1 | 2.4.1 | 2.4.1 | - | 2.4.3 ||
 || <p>[pgrouting](http://pgrouting.org/)</p><p>Extends the [PostGIS](https://www.postgis.net/) database to provide geospatial routing functionality.</p> | 2.6.2 | 2.6.2 | 3.0.2 | 3.3.0 | 3.4.1 | 3.5.0 ||
 || <p>[pgrowlocks]({{ pg-docs }}/static/pgrowlocks.html)</p><p> Provides the `pgrowlocks()` function to return row locking information for a specified table.</p> | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
-|| <p>[pgstattuple]({{ pg-docs }}/pgstattuple.html)</p><p> Provides functions to obtain tuple-level statistics.</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p> | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 ||
+|| <p>[pgstattuple]({{ pg-docs }}/pgstattuple.html)</p><p>Provides functions to obtain tuple-level statistics.</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p> | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 ||
 || <p>[pgvector](https://github.com/pgvector/pgvector)</p><p>Adds a vector similarity search.</p> | 0.2.5 | 0.2.5 | 0.2.5 | 0.2.5 | 0.3.2 | - ||
 || <p>[plv8](https://plv8.github.io/)</p><p>Adds support for PLV8, a V8 JavaScript-based procedural language.</p> | 3.0.0 | 3.0.0 | 3.0.0 | 3.0.0 | - | 3.2.0 ||
 || <p>[postgis](https://postgis.net/docs/)</p><p>Allows GIS (Geographic Information Systems) objects to be stored and handled in {{ PG }} databases.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 | 3.3.2 | 3.4.0 ||
@@ -197,7 +197,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 || <p>[timescaledb](https://github.com/timescale/timescaledb)</p><p>Supports automatic partitioning across time and space (partitioning key), yet retains the standard {{ PG }} interface for data. This makes {{ PG }} scalable for time-series.</p><p>Requires enabling the `timescaledb` [shared library](#libraries-connection).</p><p>The TimescaleDB edition installed for the service is TimescaleDB Apache 2 Edition. It has limited functionality compared to TimescaleDB Community Edition. You cannot change the edition. For more information about the limitations, see the [TimescaleDB documentation](https://docs.timescale.com/about/latest/timescaledb-editions/).</p> | 2.3.1 | 2.4.2 | 2.5.2 | 2.6.1 | 2.9.0 | 2.13.0-dev ||
 || <p>[unaccent]({{ pg-docs }}/static/unaccent.html)</p><p>Provides a text search dictionary that removes diacritic signs.</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 ||
 || <p>[uuid-ossp]({{ pg-docs }}/static/uuid-ossp.html)</p><p>Provides functions to generate universally unique identifiers (UUIDs) using standard algorithms.</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 ||
-|| <p>[xml2]({{ pg-docs }}/static/xml2.html)</p><p> Provides XPath querying and XSLT (Extensible Stylesheet Language Transformations) functionality.</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 ||
+|| <p>[xml2]({{ pg-docs }}/static/xml2.html)</p><p>Provides XPath querying and XSLT (Extensible Stylesheet Language Transformations) functionality.</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 ||
 |#
 
 [pgcompacttable](https://github.com/dataegret/pgcompacttable) is designed to reorganize data in tables in order to revert back disk space without database performance impact.

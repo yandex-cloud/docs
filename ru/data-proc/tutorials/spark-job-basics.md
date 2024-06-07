@@ -109,6 +109,8 @@
 
     {% endcut %}
 
+{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+
 ## Удалите созданные ресурсы {#clear-out}
 
 {% include [Удаление кластера, бакетов и сервисного аккаунта](../../_includes/data-proc/tutorials/basic-clear-out.md) %}

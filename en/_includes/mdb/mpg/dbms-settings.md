@@ -260,7 +260,7 @@
 
 - **Client connection check interval**{#setting-client-connection-check-interval} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-   Client connection check interval when executing queries (in milliseconds). The check polls the server socket for a connection and aborts lengthy queries if it detects that the connection has been terminated. This feature has been supported by {{ PG }} starting from version 14.
+   Client connection check interval when executing queries (in milliseconds). The check polls the server socket for a connection and aborts long-running queries if it detects that the connection has been terminated. {{ PG }} supports this feature starting from version 14.
 
    The minimum value is `0` (no check is run), while the maximum one is `2147483647`. By default, the minimum value is used.
 
@@ -381,7 +381,7 @@
    Allows the query planner to use the bitmap-scan plan types, even if this is not specified in the query explicitly. This access method is similar to regular access by index, but occurs in two steps:
 
    1. The index is scanned (Bitmap Index Scan) and a bitmap is built where the rows to be read by the query are flagged.
-   1. The table is scanned (Bitmap Heap Scan). In which case:
+   1. The table is scanned (Bitmap Heap Scan). Note that:
 
       - The pages are read sequentially (this increases the likelihood of using the OS cache).
       - Each page is viewed only once.
@@ -1188,7 +1188,7 @@
 
    The maximum statement duration (in milliseconds) after which the command is aborted.
 
-   The minimum value is `0`, while the maximum one is `2,147,483,647`. The default value is `0`.
+   The minimum value is `0`, while the maximum one is `2147483647`. The default value is `0`.
 
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-STATEMENT-TIMEOUT).
 
@@ -1359,17 +1359,6 @@
    The minimum value is `0` (past segments are not saved for replication), while the maximum one is `2251799812636672` (2 TB). The default value is `0`.
 
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-KEEP-SIZE).
-
-- **Wal level**{#setting-wal-level} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
-
-   The logging level used for [WAL](https://www.postgresql.org/docs/current/wal-intro.html). The possible values include:
-
-   - `WAL_LEVEL_REPLICA`: Writes enough data to support WAL archiving and replication.
-   - `WAL_LEVEL_LOGICAL`: On top of the `WAL_LEVEL_REPLICA` level, information necessary for logical replication is added.
-
-   The default value is `WAL_LEVEL_LOGICAL`.
-
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-SETTINGS).
 
 - **Work mem**{#setting-work-mem} {{ tag-all }}
 

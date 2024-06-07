@@ -321,3 +321,5 @@
      {% include [user name](../../_includes/data-proc/tutorials/user-name-images.md) %}
 
 {% endlist %}
+
+{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}

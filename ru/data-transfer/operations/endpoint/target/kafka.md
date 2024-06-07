@@ -195,7 +195,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
 {{ data-transfer-full-name }} поддерживает CDC-режим для трансферов из баз данных {{ PG }}, {{ MY }} и {{ ydb-short-name }} в {{ KF }} и {{ yds-full-name }}. При этом данные в приемник попадают в формате Debezium. Подробнее о CDC-режиме см. в разделе [Захват изменения данных](../../../concepts/cdc.md).
 
-    {% include [CDC-YDB](../../../../_includes/data-transfer/note-ydb-cdc.md) %}
+{% include [CDC-YDB](../../../../_includes/data-transfer/note-ydb-cdc.md) %}
 
 ### {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }} {#serializer}
 

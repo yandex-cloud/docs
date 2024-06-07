@@ -86,13 +86,13 @@ Prepare the infrastructure:
 
       The configuration file describes the following:
 
-      * Network
-      * Subnet
-      * NAT gateway and routing table
-      * Security groups
-      * Service account to work with cloud resources
-      * Bucket to store job dependencies and results
-      * {{ dataproc-name }} cluster
+      * Network.
+      * Subnet.
+      * NAT gateway and routing table.
+      * Security groups.
+      * Service account to work with cloud resources.
+      * Bucket to store job dependencies and results.
+      * {{ dataproc-name }} cluster.
 
    1. Specify the required parameters in the `.tf` files.
    1. Run the `terraform init` command in the directory containing the repository. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.

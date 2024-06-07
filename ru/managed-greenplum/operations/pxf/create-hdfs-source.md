@@ -6,7 +6,7 @@
 
 {% list tabs group=instructions %}
 
-* Консоль управления {#console}
+- Консоль управления {#console}
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Откройте страницу нужного кластера {{ mgp-name }}.
@@ -17,7 +17,7 @@
     1. Задайте хотя бы одну [опциональную настройку](../../concepts/settings-list.md#hdfs-settings).
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-* API {#api}
+- API {#api}
 
     Чтобы добавить источник данных HDFS в кластер {{ mgp-name }}, воспользуйтесь методом REST API [create](../../api-ref/PXFDatasource/create.md) для ресурса [PXFDatasource](../../api-ref/PXFDatasource/index.md) или вызовом gRPC API [PXFDatasourceService/Create](../../api-ref/grpc/pxf_service.md#Create) и передайте в запросе:
 
