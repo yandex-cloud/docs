@@ -330,6 +330,8 @@ Spark Submit позволяет запускать заранее написан
 
 Служебная и отладочная информация сохраняется в бакете `data-proc-bucket`. Для каждого задания агент {{ dataproc-name }} создает отдельную папку с путем вида `dataproc/clusters/<идентификатор_кластера>/jobs/<идентификатор_задачи>`.
 
+{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+
 Ниже приведены два варианта приложения — для [Python](#cli-python) и [Scala](#cli-scala).
 
 ### Запуск PySpark-задания {#cli-python}

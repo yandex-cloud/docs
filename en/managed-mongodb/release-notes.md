@@ -4,6 +4,10 @@ This section contains {{ mmg-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## February 2024 {#feb-2024}
+
+* Added support for the `flowControl`, `changeStreamOptions`, `net.compression.compressors`, and `storage.wiredTiger.indexConfig.prefixCompression` settings. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+
 ## Q1 2023 {#q1-2023}
 
 * You can now create a sharded cluster instead of first creating a non-sharded one and then splitting it into shards.

@@ -5,6 +5,10 @@ This section contains {{ dataproc-name }} release notes.
 {% include [Tags](../../_includes/mdb/release-notes-tags.md) %}
 
 
+## April 2024 {#apr-2024}
+
+* A stable line of 2.1 images is available. With it, you can create a cluster with more recent [Spark 3.3.2](https://spark.apache.org/releases/spark-release-3-3-2.html) and [Hadoop 3.3.2](https://hadoop.apache.org/docs/r3.3.2/hadoop-project-dist/hadoop-common/release/3.3.2/RELEASENOTES.3.3.2.html) versions.
+
 ## Q2 2023 {#q2-2023}
 
 * Сreating [{{ metastore-name }}](../concepts/metastore.md) clusters is now available. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.

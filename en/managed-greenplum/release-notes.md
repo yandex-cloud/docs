@@ -4,6 +4,15 @@ This section contains {{ mgp-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## February 2024 {#feb-2024}
+
+* Added the ability to partially [restore a cluster](./operations/cluster-backups.md#restore) from a backup: now you can specify a list of databases or tables to restore. This significantly reduces the time to restore and saves on cluster resources, especially when restoring small amounts of data.
+
+## January 2024 {#jan-2024}
+
+* A new version is available: {{ GP }} 6.25. It features [cold storage integration](tutorials/yezzey.md) tools and a [command center](./concepts/command-center.md) by default.
+* Now you can [configure external PXF sources](operations/pxf/settings.md) for accessing external tables yourself. Previously, users had to contact support for PXF configuration.
+
 ## Q3 2023 {#q3-2023}
 
 * Added support for [incremental backups](concepts/backup.md).

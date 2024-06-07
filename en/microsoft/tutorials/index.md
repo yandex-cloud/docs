@@ -7,6 +7,6 @@ description: "This page provides a list of tutorials for Microsoft products."
 
 
 
-* [Preparing your own images with Microsoft products](../prepare-image.md)
 * [Using personal licenses for Microsoft products](../byol.md)
+* [{#T}](./secure-password-script.md)
 

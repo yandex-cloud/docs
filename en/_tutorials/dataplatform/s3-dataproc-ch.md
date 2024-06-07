@@ -1,10 +1,10 @@
 #|
 ||This tutorial is based on a [Data Stories](https://data-stories.ru/) use case on creating an analytical stack powered by {{ yandex-cloud }} services. It includes uploading data to storage, processing it, and transforming it into a single data mart for visualization.
 |
-<br>![datastories logo](../_assets/logos/datastories_logo.png =300x)||
+<br>![datastories logo](../../_assets/logos/datastories_logo.png =300x)||
 |#
 
-As an example, we use two CSV tables to be joined, imported to Parquet format, and transferred to {{ mch-name }} as a single table.
+In this example, we use two CSV tables which we will merge into a single one, import it to Parquet format, and transfer to {{ mch-name }}.
 
 ## Getting started {#before-you-begin}
 
@@ -14,12 +14,12 @@ Prepare the infrastructure:
 
 - Manually {#manual}
 
-   1. [Create a service account](../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign it the `dataproc.agent` role.
-   1. {% include [basic-before-buckets](../_includes/data-proc/tutorials/basic-before-buckets.md) %}
-   1. [Create a cloud network](../vpc/operations/network-create.md) named `dataproc-network`.
-   1. [Create a subnet](../vpc/operations/subnet-create.md) in any availability zone in `dataproc-network`.
-   1. [Set up a NAT gateway](../vpc/operations/create-nat-gateway.md) for the subnet you created.
-   1. In `dataproc-network`, [create a security group](../vpc/operations/security-group-create.md) named `dataproc-sg` and add the following rules to it:
+   1. [Create a service account](../../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign it the `dataproc.agent` role.
+   1. {% include [basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
+   1. [Create a cloud network](../../vpc/operations/network-create.md) named `dataproc-network`.
+   1. [Create a subnet](../../vpc/operations/subnet-create.md) in any availability zone in `dataproc-network`.
+   1. [Set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet you created.
+   1. In `dataproc-network`, [create a security group](../../vpc/operations/security-group-create.md) named `dataproc-sg` and add the following rules to it:
 
       * One rule for inbound and another one for outbound service traffic:
 
@@ -42,7 +42,7 @@ Prepare the infrastructure:
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
-   1. [Create a {{ dataproc-name }} cluster](../data-proc/operations/cluster-create.md) in any [suitable host configuration](../data-proc/concepts/instance-types.md) with the following settings:
+   1. [Create a {{ dataproc-name }} cluster](../../data-proc/operations/cluster-create.md) in any [suitable host configuration](../../data-proc/concepts/instance-types.md) with the following settings:
 
       * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
          * `SPARK`
@@ -54,7 +54,7 @@ Prepare the infrastructure:
       * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-sg`.
       * **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}**: Enabled.
 
-   1. [Create a {{ mch-name }} cluster](../managed-clickhouse/operations/cluster-create.md) in any suitable [configuration](../managed-clickhouse/concepts/instance-types.md) with the following settings:
+   1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable [configuration](../../managed-clickhouse/concepts/instance-types.md) with the following settings:
 
       * With public access to cluster hosts.
       * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
@@ -62,19 +62,19 @@ Prepare the infrastructure:
 
 - {{ TF }} {#tf}
 
-   1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
-   1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
-   1. {% include [terraform-setting](../_includes/mdb/terraform/setting.md) %}
-   1. {% include [terraform-configure-provider](../_includes/mdb/terraform/configure-provider.md) %}
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
    1. Download the [s3-dataproc-ch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/s3-dataproc-ch.tf) configuration file to the same working directory.
 
       This file describes:
 
-      * [Network](../vpc/concepts/network.md#network).
-      * [Subnet](../vpc/concepts/network.md#subnet).
+      * [Network](../../vpc/concepts/network.md#network).
+      * [Subnet](../../vpc/concepts/network.md#subnet).
       * NAT gateway and route table required for {{ dataproc-name }}.
-      * [Security groups](../vpc/concepts/security-groups.md) required for the {{ dataproc-name }} and {{ mch-name }} clusters.
+      * [Security groups](../../vpc/concepts/security-groups.md) required for the {{ dataproc-name }} and {{ mch-name }} clusters.
       * Service account required for the {{ dataproc-name }} cluster to run.
       * Service account required to create buckets in {{ objstorage-name }}.
       * Buckets for input and output data.
@@ -84,9 +84,9 @@ Prepare the infrastructure:
    1. Specify the following in the `s3-dataproc-ch.tf` file:
 
       * `folder_id`: Cloud folder ID, same as in the provider settings.
-      * `input-bucket`: Name of the bucket for input datа.
+      * `input-bucket`: Name of the bucket for input data.
       * `output-bucket`: Name of the bucket for output data.
-      * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. For more information, see [{#T}](../data-proc/operations/connect.md#data-proc-ssh).
+      * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. For more information, see [{#T}](../../data-proc/operations/connect.md#data-proc-ssh).
       * `ch_password`: {{ CH }} user password.
 
    1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -99,9 +99,9 @@ Prepare the infrastructure:
 
    1. Create the required infrastructure:
 
-      {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [explore-resources](../_includes/mdb/terraform/explore-resources.md) %}
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 
@@ -137,11 +137,11 @@ To prepare the test data:
       ```
       {% endcut %}
 
-1. Create a `csv` folder in the input bucket and [upload](../storage/operations/objects/upload.md#simple) the created CSV files to it.
+1. Create the `csv` folder in the input bucket and [upload](../../storage/operations/objects/upload.md#simple) the created CSV files to it.
 
 ## Process your data in {{ dataproc-name }} {#process-data}
 
-Join the data from the two tables into one and upload it in Parquet format to the bucket you previously created for processing results:
+Merge the data from the two tables into one and upload it in Parquet format to the bucket you previously created for processing results:
 
 1. Prepare a script file:
 
@@ -171,11 +171,11 @@ Join the data from the two tables into one and upload it in Parquet format to th
    1. Specify the following in the script:
 
       * Name of the input bucket that stores the original CSV tables.
-      * Name of the output bucket where the Parquet file with the joined data will be saved.
+      * Name of the output bucket where the Parquet file with the merged data will be saved.
 
-   1. Create a `scripts` folder in the input bucket and [upload](../storage/operations/objects/upload.md#simple) the `join-tables.py` file to it.
+   1. Create the `scripts` folder in the input bucket and [upload](../../storage/operations/objects/upload.md#simple) the `join-tables.py` file to it.
 
-1. [Create a PySpark job](../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file (`s3a://<input_bucket_name>/scripts/join-tables.py`) in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field.
+1. [Create a PySpark job](../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file (`s3a://<input_bucket_name>/scripts/join-tables.py`) in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field.
 
 1. Wait for the job to complete and make sure the output bucket's `parquet` folder contains the `part-00000-***` Parquet file.
 
@@ -221,12 +221,12 @@ Transfer the joined table from {{ objstorage-name }} to {{ CH }}:
       * {{ mch-name }} cluster ID.
       * {{ CH }} user password.
 
-   1. [Upload](../storage/operations/objects/upload.md#simple) the `parquet-to-ch.py` file to the input bucket's `scripts` folder.
+   1. [Upload](../../storage/operations/objects/upload.md#simple) the `parquet-to-ch.py` file to the input bucket's `scripts` folder.
 
-1. [Create a PySpark job](../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file (`s3a://<input_bucket_name>/scripts/parquet-to-ch.py`) in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field.
+1. [Create a PySpark job](../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file (`s3a://<input_bucket_name>/scripts/parquet-to-ch.py`) in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field.
 1. Wait for the job to complete and make sure the joined table has been moved to the cluster:
 
-   1. [Connect to](../managed-clickhouse/operations/connect/clients.md) the `db1` database of the {{ mch-name }} cluster as `user1`.
+   1. [Connect to](../../managed-clickhouse/operations/connect/clients.md) the `db1` database of the {{ mch-name }} cluster as `user1`.
    1. Run the following query:
 
       ```sql
@@ -243,15 +243,15 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - Manually {#manual}
 
-   1. [{{ mch-name }} cluster](../managed-clickhouse/operations/cluster-delete.md).
-   1. [{{ dataproc-name }} cluster](../data-proc/operations/cluster-delete.md).
-   1. [{{ objstorage-name }} buckets](../storage/operations/buckets/delete.md).
-   1. [Cloud network](../vpc/operations/network-delete.md).
-   1. [Service account](../iam/operations/sa/delete.md).
+   1. [{{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
+   1. [{{ dataproc-name }} cluster](../../data-proc/operations/cluster-delete.md).
+   1. [{{ objstorage-name }} buckets](../../storage/operations/buckets/delete.md).
+   1. [Cloud network](../../vpc/operations/network-delete.md).
+   1. [Service account](../../iam/operations/sa/delete.md).
 
 - {{ TF }} {#tf}
 
-   1. [Delete the objects](../storage/operations/objects/delete.md) from the buckets.
+   1. [Delete the objects](../../storage/operations/objects/delete.md) from the buckets.
    1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `s3-dataproc-ch.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -264,7 +264,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    1. Confirm updating the resources.
 
-      {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
       All the resources described in the `s3-dataproc-ch.tf` configuration file will be deleted.
 

@@ -22,9 +22,11 @@
 
 * [What happens when a DBMS version becomes deprecated?](#dbms-deprecated)
 
-* [How is usage cost calculated for a database host?](#db-cost)
+* [How do you calculate usage cost for a database host?](#db-cost)
 
 * [How can I change the computing resources and storage size for a database cluster?](#resources-change)
+
+* [How do I fix the `Maximum number of hosts reached` error when adding a host to the cluster?](#error-when-adding-host)
 
 * [Is database host backup enabled by default?](#default-backup)
 

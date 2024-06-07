@@ -8,7 +8,7 @@ description:
     возможности управления подключениями к базам данных, хранения схем обмена
     данными и описания наборов данных.
 meta:
-  title: MetaData Hub
+  title: Yandex MetaData Hub
 links:
   - title: Начало работы
     description: Создайте подключение

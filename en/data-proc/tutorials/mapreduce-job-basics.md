@@ -8,7 +8,7 @@ To run MapReduce on Hadoop, we use the Streaming interface. At the same time, th
 
 ## Getting started {#before-you-begin}
 
-1. [Create a service account](../../iam/operations/sa/create.md) with the `mdb.dataproc.agent` role.
+1. [Create a service account](../../iam/operations/sa/create.md) with the `dataproc.agent` role.
 
 1. {% include [basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
 
@@ -18,7 +18,7 @@ To run MapReduce on Hadoop, we use the Streaming interface. At the same time, th
       * `HDFS`
       * `MAPREDUCE`
       * `YARN`
-   * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the previously created service account with the `mdb.dataproc.agent` role.
+   * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the previously created service account with the `dataproc.agent` role.
    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket to hold the processing results.
 
 ## Create a MapReduce job {#create-job}

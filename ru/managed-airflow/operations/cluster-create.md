@@ -76,7 +76,7 @@ keywords:
 
       * (опционально) службы Triggerer.
 
-  1. (Опционально) В блоке **{{ ui-key.yacloud.airflow.section_dependencies }}** укажите названия pip-пакетов, чтобы установить в кластер дополнительные библиотеки и приложения для запуска DAG-файлов.
+  1. (Опционально) В блоке **{{ ui-key.yacloud.airflow.section_dependencies }}** укажите названия pip- и deb-пакетов, чтобы установить в кластер дополнительные библиотеки и приложения для запуска DAG-файлов.
 
       Чтобы указать более одного пакета, нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
@@ -88,11 +88,11 @@ keywords:
       clickhouse-driver~=0.2.0
       ```
 
-      Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов.
+      Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
 
       {% note warning %}
 
-      Для установки pip-пакетов из публичных репозиториев необходимо в блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** указать сеть с настроенным [NAT в интернет](../../vpc/operations/create-nat-gateway.md).
+      Для установки pip- и deb-пакетов из публичных репозиториев необходимо в блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** указать сеть с настроенным [NAT в интернет](../../vpc/operations/create-nat-gateway.md).
 
       {% endnote %}
 

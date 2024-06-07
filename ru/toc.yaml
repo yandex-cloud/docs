@@ -95,7 +95,7 @@ items:
     href: marketplace/index.yaml
   - name: Message Queue
     href: message-queue/index.yaml
-  - name: MetaData Hub
+  - name: Yandex MetaData Hub
     href: metadata-hub/index.yaml
   - name: Использование продуктов Microsoft
     href: microsoft/index.yaml

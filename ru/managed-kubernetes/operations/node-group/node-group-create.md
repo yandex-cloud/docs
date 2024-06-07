@@ -47,7 +47,8 @@
        --template-labels <облачные_метки_группы_узлов> \
        --version <версия_{{ k8s }}_на_узлах_группы> \
        --node-name <шаблон_имени_узлов> \
-       --node-taints <taint-политики>
+       --node-taints <taint-политики> \
+       --container-network-settings pod-mtu=<значение_MTU_для_подов_группы>
      ```
 
      Где:
@@ -88,6 +89,7 @@
        {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
      * `--node-taints` — [taint-политики](../../concepts/index.md#taints-tolerations) {{ k8s }}. Можно указать несколько политик.
+     * `--container-network-settings` – значение [MTU](https://ru.wikipedia.org/wiki/Maximum_transmission_unit) для сетевых соединений с подами группы. Настройка не применима для кластеров с контроллерами сетевых политик Calico или Cilium.
 
      {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
 

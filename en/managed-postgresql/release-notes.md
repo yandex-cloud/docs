@@ -4,6 +4,19 @@ This section contains {{ mpg-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## March 2024 {#mar-2024}
+
+* Added the ability to configure incremental [auto increase of cluster storage size](./operations/storage-space.md#disk-size-autoscale). The user can set the disk storage usage threshold and the maximum disk size. Upon reaching the threshold, the disk size will automatically increase in fixed increments up to its maximum. {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* Added the ability to upgrade {{ PG }} for 1C to version 13, 14, and 15.
+* Installed the updates from [16.2, 15.6, 14.11, 13.14, and 12.18](https://www.postgresql.org/about/news/postgresql-162-156-1411-1314-and-1218-released-2807/).
+* Expanded the permissions for users with the `mdb_admin` [role](./concepts/roles.md#mdb-admin). They can now:
+
+   * Grant additional users permissions to use the `pg_cron` extension.
+   * Reset statistics using the `pg_stat_reset_shared()` function.
+   * Terminate the `autovacuum` sessions.
+
+* Now you can audit {{ mpg-name }} cluster connection events and `pgaudit` events in {{ at-full-name }}.
+
 ## Q4 2023 {#q4-2023}
 
 * Added support for {{ PG }} version 16.

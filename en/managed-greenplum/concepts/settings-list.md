@@ -1,6 +1,6 @@
 # {{ GP }} settings
 
-For {{ mgp-name }} clusters, you can configure {{ GP }} settings.
+For {{ mgp-name }} clusters, you can configure {{ GP }} settings. Some settings are configured [at the cluster level](#dbms-cluster-settings), while others, at the level of external data sources, such as [S3](#s3-settings), [JDBC](#jdbc-settings), [HDFS](#hdfs-settings), and [Hive](#hive-settings).
 
 The label next to the setting name helps determine which interface is used to set the value of this setting: the management console, CLI, API, SQL, or Terraform. The {{ tag-all }} label means that all of the above interfaces are supported.
 
@@ -26,3 +26,213 @@ The settings that depend on the storage size are:
 You can use the following settings:
 
 {% include [mgp-dbms-settings](../../_includes/mdb/mgp/dbms-settings.md) %}
+
+## External S3 data source settings {#s3-settings}
+
+You can use the following settings:
+
+* **Access Key**{#setting-access-key} {{ tag-con }} {{ tag-api }}
+
+    S3 storage public access key.
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/s3_objstore_cfg.html#minio-server-configuration-1).
+
+* **Secret Key**{#setting-secret-key} {{ tag-con }} {{ tag-api }}
+
+    S3 storage secret access key.
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/s3_objstore_cfg.html#minio-server-configuration-1).
+
+* **Fast Upload**{#setting-fast-upload} {{ tag-con }} {{ tag-api }}
+
+    This setting manages the fast upload of large files to S3 storage. If disabled, PXF generates files on the disk before sending them to S3 storage. If enabled, PXF generates files in RAM (if RAM capacity is reached, it writes them to disk).
+
+    Fast upload is enabled by default.
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/s3_objstore_cfg.html#minio-server-configuration-1).
+
+* **Endpoint**{#setting-endpoint} {{ tag-con }} {{ tag-api }}
+
+    S3 storage address. {{ objstorage-full-name }} is set to `{{ s3-storage-host }}`. This is a default value.
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/s3_objstore_cfg.html#minio-server-configuration-1).
+
+## External JDBC data source settings {#jdbc-settings}
+
+You can use the following settings:
+
+* **Driver**{#setting-driver} {{ tag-con }} {{ tag-api }}
+
+    JDBC driver class in Java. The possible values include:
+
+    * `com.simba.athena.jdbc.Driver`
+    * `com.clickhouse.jdbc.ClickHouseDriver`
+    * `com.ibm.as400.access.AS400JDBCDriver`
+    * `com.microsoft.sqlserver.jdbc.SQLServerDriver`
+    * `com.mysql.cj.jdbc.Driver`
+    * `org.postgresql.Driver`
+    * `oracle.jdbc.driver.OracleDriver`
+    * `net.snowflake.client.jdbc.SnowflakeDriver`
+    * `io.trino.jdbc.TrinoDriver`
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#jdbc-server-configuration-2).
+
+* **Url**{#setting-url} {{ tag-con }} {{ tag-api }}
+
+    Database URL. Examples:
+
+    * `jdbc:mysql://mysqlhost:{{ port-mmy }}/testdb`: For a local {{ MY }} DB.
+    * `jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/db1`: For a {{ mpg-name }} cluster. The address contains a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns) of the master host in the cluster.
+    * `jdbc:oracle:thin:@host.example:1521:orcl`: For an Oracle DB.
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#jdbc-server-configuration-2).
+
+* **User**{#setting-user} {{ tag-con }} {{ tag-api }}
+
+    DB owner username.
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#jdbc-server-configuration-2).
+
+* **Password**{#setting-password} {{ tag-con }} {{ tag-api }}
+
+    DB user password.
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#jdbc-server-configuration-2).
+
+* **Statement Batch Size**{#setting-statement-batch-size} {{ tag-con }} {{ tag-api }}
+
+    Number of rows in a batch to read from an external table.
+
+    The default value is `100`.
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#statementlevel-properties-5).
+
+* **Statement Fetch Size**{#setting-statement-fetch-size} {{ tag-con }} {{ tag-api }}
+
+    Number of rows to buffer when reading from an external table.
+
+    The default value is `1000`.
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#statementlevel-properties-5).
+
+* **Statement Query Timeout**{#setting-statement-query-timeout} {{ tag-con }} {{ tag-api }}
+
+    Time (in seconds) the JDBC driver waits for a read or write operation to complete.
+
+    The default value is `60`.
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#statementlevel-properties-5).
+
+* **Pool Enabled**{#setting-pool-enabled} {{ tag-con }} {{ tag-api }}
+
+    This setting determines whether the JDBC connection pool is used. It is enabled by default.
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+
+* **Pool Maximum Size**{#setting-pool-maximum-size} {{ tag-con }} {{ tag-api }}
+
+    Maximum number of database server connections.
+
+    The default value is `5`.
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+
+* **Pool Connection Timeout**{#setting-pool-connection-timeout} {{ tag-con }} {{ tag-api }}
+
+    Maximum time (in milliseconds) to wait for a connection from the pool.
+
+    The default value is `30000`.
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+
+* **Pool Idle Timeout**{#setting-pool-idle-timeout} {{ tag-con }} {{ tag-api }}
+
+    Maximum time (in milliseconds) before an inactive connection is considered idle.
+
+    The default value is `30000`.
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+
+* **Pool Minimum Idle**{#setting-pool-minimum-idle} {{ tag-con }} {{ tag-api }}
+
+    Minimum number of idle connections in the pool.
+
+    The default value is `0`.
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+
+## External HDFS data source settings {#hdfs-settings}
+
+You can use the following settings:
+
+{% include [HDFS and Hive settings](../../_includes/mdb/mgp/external-sources-additional-settings.md) %}
+
+* **Dfs**{#setting-dfs} {{ tag-con }} {{ tag-api }}
+
+    Distributed file system settings.
+
+    For more information, see the [Apache Hadoop documentation](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml).
+
+    * **Ha Automatic Failover Enabled**{#setting-ha-automatic-failover-enabled}
+
+        This setting determines whether automatic fault tolerance for high availability of the file system is enabled. It is enabled by default.
+
+    * **Block Access Token Enabled**{#setting-block-access-token-enabled}
+
+        This setting determines whether access tokens are used. By default, tokens are verified when connecting to datanodes.
+
+    * **Use Datanode Hostname**{#setting-use-datanode-hostname}
+
+        This setting determines whether datanode names are used when connecting to the relevant nodes. These are used by default.
+
+    * **Nameservices**
+
+        List of logical names of HDFS services. You can specify any names separating them by commas.
+
+* **Yarn**{#setting-yarn} {{ tag-con }} {{ tag-api }}
+
+    Settings for the ResourceManager service, which tracks resources within a cluster and schedules running apps, such as MapReduce jobs.
+
+    For more information, see the [Apache Hadoop documentation](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html).
+
+    * **Resourcemanager Ha Enabled**{#setting-resourcemanager-ha-enabled}
+
+        This setting determines whether high availability for ResourceManager is enabled. It is enabled by default.
+
+    * **Resourcemanager Ha Auto Failover Enabled**{#setting-resourcemanager-ha-auto-failover-enabled}
+
+        This setting determines whether automatic failover to a different resource is enabled if the active service fails or becomes unresponsive. Automatic failover is enabled by default only if **Resourcemanager Ha Enabled** is enabled.
+
+    * **Resourcemanager Ha Auto Failover Embedded**{#setting-resourcemanager-ha-auto-failover-embedded}
+
+        This setting determines whether to use the embedded ActiveStandbyElector method for selecting the active service. If the current active service fails or becomes unresponsive, ActiveStandbyElector designates another ResourceManager service as active, assuming the managing role.
+
+        It is enabled by default only if the **Resourcemanager Ha Enabled** and **Resourcemanager Ha Auto Failover Enabled** settings are enabled.
+
+    * **Resourcemanager Cluster Id**{#setting-resourcemanager-cluster-id}
+
+        Cluster ID. It is used to prevent the ResourceManager service from becoming active for another cluster.
+
+## External Hive data source settings {#hive-settings}
+
+You can use the following settings:
+
+{% include [HDFS and Hive settings](../../_includes/mdb/mgp/external-sources-additional-settings.md) %}
+
+* **Ppd**{#setting-ppd} {{ tag-con }} {{ tag-api }}
+
+    This setting determines whether predicate pushdown is enabled for external table queries. It is enabled by default.
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/cfg_server.html#about-the-pxfsitexml-configuration-file-3).
+
+* **Metastore Uris**{#setting-metastore-uris} {{ tag-con }} {{ tag-api }}
+
+    List of comma-separated URIs. To request metadata, the external DBMS connects to Metastore using one of these URIs.
+
+* **Metastore Kerberos Principal**{#setting-metastore-kerberos-principal} {{ tag-con }} {{ tag-api }}
+
+    Service principal for the Metastore Thrift server.
+
+* **Auth Kerberos Principal**{#setting-auth-kerberos-principal} {{ tag-con }} {{ tag-api }}
+
+    Kerberos server principal.

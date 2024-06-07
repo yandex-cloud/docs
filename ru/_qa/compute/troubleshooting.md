@@ -186,7 +186,7 @@
           sudo nano /etc/network/interfaces
           ```
       
-          В секциях конфигурации `The primary network interface` и `Other network interfaces` по аналогии задайте настройки для нужного количества сетевых интерфейсов ВМ, которые есть или будут добавлены на ВМ. Нумерация интерфейсов начинается с нуля. В приведенном примере настройки задаются для трех интерфейсов. На одну ВМ можно добавить не более восьми сетевых интерфейсов.
+          В секциях конфигурации `Primary network interface` и `Other network interfaces` по аналогии задайте настройки для нужного количества сетевых интерфейсов ВМ, которые есть или будут добавлены на ВМ. Нумерация интерфейсов начинается с нуля. В приведенном примере настройки задаются для трех интерфейсов. На одну ВМ можно добавить не более восьми сетевых интерфейсов.
 
           ```txt
           # This file describes the network interfaces available on your system
@@ -194,11 +194,11 @@
 
           source /etc/network/interfaces.d/*
 
-          # The loopback network interface
+          # Loopback network interface
           auto lo
           iface lo inet loopback
 
-          # The primary network interface
+          # Primary network interface
           allow-hotplug eth0
           iface eth0 inet dhcp
 

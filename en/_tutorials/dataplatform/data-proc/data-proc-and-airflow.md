@@ -33,7 +33,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    * `storage.editor`
    * `dataproc.agent`
-   * `editor`
+   * `dataproc.editor`
 
 1. Create the following keys for the service account:
 
@@ -106,14 +106,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    {% endcut %}
 
-1. [Create a {{ metastore-name }} cluster](../../../data-proc/operations/metastore/cluster-create.md) with the following settings:
+1. [Create a {{ metastore-name }} cluster](../../../data-proc/operations/metastore/cluster-create.md) with the following parameters:
 
    * **Network**: `dataproc-network`
    * **Subnet**: `dataproc-network-{{ region-id }}-a`
    * **Security group**: Default group in `dataproc-network`
    * **Key ID** and **secret key**: Belong to the static access key
 
-1. [Create a {{ maf-name }} cluster](../../../managed-airflow/operations/cluster-create.md) with the following settings:
+1. [Create a {{ maf-name }} cluster](../../../managed-airflow/operations/cluster-create.md) with the following parameters:
 
    * **Availability zone**: `{{ region-id }}-a`
    * **Network**: `dataproc-network`

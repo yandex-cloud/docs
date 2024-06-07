@@ -62,7 +62,7 @@
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-1. В разделе **Доступные для установки приложения** выберите [HashiCorp Vault с поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms-k8s) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [HashiCorp Vault с поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms-k8s) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
    * **Название приложения** — укажите название приложения.
@@ -74,6 +74,7 @@
 ## Установка с помощью Helm-чарта {#helm-install}
 
 1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с HashiCorp Vault выполните команду:
 
    ```bash

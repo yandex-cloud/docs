@@ -52,6 +52,8 @@ SQL-запрос для Hive можно передать двумя способ
 
 Идентификатор задачи есть в выводе команды запуска задания YC CLI и есть в ответе [API](../../glossary/rest-api.md) на запуск задания.
 
+{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+
 ## Запуск задания с помощью Hive CLI {#run-job-hive-shell}
 
 1. Подключитесь к хосту-мастеру по [SSH](../../glossary/ssh-keygen.md) и выполните команду `hive`.
@@ -121,3 +123,5 @@ SQL-запрос для Hive можно передать двумя способ
     12      593842
     Time taken: 12.137 seconds, Fetched: 12 row(s)
     ```
+
+{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}

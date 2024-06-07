@@ -121,7 +121,7 @@ links:
   - title: Message Queue
     description: Queues for messaging between applications
     href: message-queue/
-  - title: MetaData Hub
+  - title: Yandex MetaData Hub
     description: Connection management
     href: metadata-hub/
   - title: Using Microsoft products
