@@ -11,12 +11,22 @@ In {{ mgp-name }}, as an [external data source](../../concepts/external-tables.m
 
 This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
 
-To create an external JDBC data source:
+## Create an external data source {#create-external-source}
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
 
-* API {#api}
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Open the page of the {{ mgp-name }} cluster you need.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
+   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.
+   1. Select the `{{ ui-key.yacloud.greenplum.cluster.pxf.value_jdbc }}` connection type.
+   1. Enter a source name.
+   1. Configure at least one [optional setting](../../concepts/settings-list.md#jdbc-settings).
+   1. Click **{{ ui-key.yacloud.common.create }}**.
+
+- API {#api}
 
    To add a JDBC data source to a {{ mgp-name }} cluster, use the [create](../../api-ref/PXFDatasource/create.md) REST API method for the [PXFDatasource](../../api-ref/PXFDatasource/index.md) resource or the [PXFDatasourceService/Create](../../api-ref/grpc/pxf_service.md#Create) gRPC API call and provide the following in the request:
 

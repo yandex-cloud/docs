@@ -4,6 +4,10 @@ This section contains {{ mrd-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## February 2024 {#feb-2024}
+
+* Now you can enable [sharding](./concepts/sharding.md) on the existing clusters. {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
+
 ## Q1 2023 {#q1-2023}
 
 * A new version is available: {{ RD }} 7.0. For more information about revisions, see the [{{ RD }} documentation](https://raw.githubusercontent.com/redis/redis/7.0/00-RELEASENOTES).

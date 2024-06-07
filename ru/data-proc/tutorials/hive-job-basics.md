@@ -97,6 +97,8 @@
     {% endcut %}
 
 
+{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+
 ## Удалите созданные ресурсы {#clear-out}
 
 {% include [tutorials-basic-clear-out.md](../../_includes/data-proc/tutorials/basic-clear-out.md) %}

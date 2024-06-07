@@ -8,13 +8,13 @@ description: "In this tutorial, you will learn how cluster host replication work
 {{ mpg-name }} clusters use _quorum-based synchronous replication_:
 
 1. Master host is selected from among cluster hosts, while all other hosts become replicas.
-1. _Quorum_ is randomly established from replicas. A transaction is considered successful only if it is confirmed by the master host and all replica members of the quorum (_quorum_ replicas).
+1. A transaction is considered successful only if it is confirmed by the master host and at least half of the cluster replicas.
+
+If there is an odd number of replicas, the value is rounded down. For example, in a cluster with 17 replicas, a _quorum_ requires at least eight.
+
+The number of replicas required for a quorum is established over again when the cluster topology changes, i.e., after [adding](../operations/hosts.md#add) and [deleting](../operations/hosts.md#remove) hosts, their failure, withdrawal for maintenance, return to service, etc. The host added to the cluster is first synchronized with the master host and only then can become part of the quorum.
 
 Replicas with a manually specified replication source can neither become master hosts nor be part of a quorum.
-
-To establish a quorum, at least 50% of the cluster replicas must be part of it. If there is an odd number of replicas, the value is rounded down. For example, in a cluster with 17 replicas, at least 8 are required for a quorum.
-
-The quorum is established over again when the cluster topology changes, i.e., after [adding](../operations/hosts.md#add) and [deleting](../operations/hosts.md#remove) hosts, their failure, during their maintenance, return to service, etc. The host added to the cluster is first synchronized with the master host and only then can become part of the quorum.
 
 For more information about how replication works in {{ PG }}, read the [relevant documentation](https://www.postgresql.org/docs/current/static/warm-standby.html).
 

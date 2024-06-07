@@ -7,7 +7,7 @@ description: "You can delete a {{ dataproc-name }} cluster along with all the da
 
 You can delete a cluster along with all the data stored in it. Note that data backups are not created automatically: if you want to save data for cluster recovery or future use, you can do that, for example, using [{{ objstorage-full-name }}]({{ link-cloud-services }}/storage).
 
-To delete a {{ dataproc-name }} cluster, the user must be assigned the `editor` and `dataproc.agent` roles. For more information, see the [role description](../security/index.md#roles-list).
+To delete a {{ dataproc-name }} cluster, the user must have the `dataproc.editor` role assigned. For more information, see the [role description](../security/index.md#roles-list).
 
 ## Before deleting a cluster {#before-you-delete}
 

@@ -70,6 +70,8 @@ items:
             href: operations/applications/istio.md
           - name: Установка Jaeger
             href: operations/applications/jaeger.md
+          - name: Установка Kruise
+            href: operations/applications/kruise.md
           - name: Установка Kyverno & Kyverno Policies
             href: operations/applications/kyverno.md
           - name: Установка Loki
@@ -239,7 +241,7 @@ items:
             href: tutorials/fluent-bit-logging.md
           - name: Настройка Gateway API
             href: tutorials/marketplace/gateway-api.md
-          - name: Настройка {{ alb-name }} Ingress-контроллера
+          - name: Настройка Ingress-контроллера {{ alb-name }}
             href: tutorials/alb-ingress-controller.md
           - name: Настройки логирования для Ingress-контроллеров {{ alb-name }}
             href: tutorials/alb-ingress-controller-log-options.md

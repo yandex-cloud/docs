@@ -179,6 +179,8 @@
 
 1. Дождитесь завершения задания и проверьте, что в выходном бакете в папке `parquet` появился Parquet-файл `part-00000-***`.
 
+{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+
 ## Экспортируйте данные в {{ CH }} {#export-data}
 
 Перенесите объединенную таблицу из {{ objstorage-name }} в {{ CH }}:

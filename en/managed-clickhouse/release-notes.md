@@ -4,6 +4,21 @@ This section contains {{ mch-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## April 2024 {#apr-2024}
+
+* New {{ CH }} version is now available: [24.3 LTS](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-243-lts-2024-03-27).
+
+## March 2024 {#mar-2024}
+
+* New {{ CH }} version is now available: [24.2](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-242-2024-02-29).
+* Now you can create or delete multiple hosts within a single operation. This will help speed up adding or deleting cluster hosts in bulk.
+* Doubled the [limit](./concepts/limits.md#mch-limits) on the size of `network-ssd-nonreplicated` network drives from 8 TB to 16 TB. This will allow for expanding a cluster without adding additional shards.
+
+## February 2024 {#feb-2024}
+
+* New {{ CH }} versions are available: [23.9](https://clickhouse.com/docs/en/whats-new/changelog/2023#239), [23.10](https://clickhouse.com/docs/en/whats-new/changelog/2023#2310), [23.11](https://clickhouse.com/docs/en/whats-new/changelog/2023#2311), [23.12](https://clickhouse.com/docs/en/whats-new/changelog/2023#2312), and [24.1](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-241-2024-01-30).
+* Now you can [restart cluster hosts](./operations/hosts.md#restart). In most cases, users do not need to restart hosts. This is an emergency troubleshooting tool in case of memory leaks or unresponsive internal DBMS processes.
+
 ## Q2 2023 {#q2-2023}
 
 * New {{ CH }} versions are now available: [23.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-234-2023-04-26) and [23.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-235-2023-06-08).

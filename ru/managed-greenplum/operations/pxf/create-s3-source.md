@@ -6,7 +6,7 @@
 
 {% list tabs group=instructions %}
 
-* Консоль управления {#console}
+- Консоль управления {#console}
 
     Чтобы создать внешний источник данных S3:
 
@@ -19,7 +19,7 @@
     1. Задайте хотя бы одну [опциональную настройку](../../concepts/settings-list.md#s3-settings).
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-* API {#api}
+- API {#api}
 
     Чтобы добавить источник данных S3 в кластер {{ mgp-name }}, воспользуйтесь методом REST API [create](../../api-ref/PXFDatasource/create.md) для ресурса [PXFDatasource](../../api-ref/PXFDatasource/index.md) или вызовом gRPC API [PXFDatasourceService/Create](../../api-ref/grpc/pxf_service.md#Create) и передайте в запросе:
 

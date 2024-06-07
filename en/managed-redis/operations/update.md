@@ -232,6 +232,8 @@ Learn more about other cluster updates:
 
 {% endlist %}
 
+The {{ mrd-name }} cluster is unavailable for about five to seven minutes after changing the host class.
+
 ## Increasing storage size {#change-disk-size}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}

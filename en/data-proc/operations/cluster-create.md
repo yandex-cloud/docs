@@ -1,6 +1,6 @@
 # Creating a {{ dataproc-name }} cluster
 
-To create a {{ dataproc-name }} cluster, a user must be assigned the `editor` and `dataproc.agent` [roles](../../iam/concepts/access-control/roles.md). For more information, see the [role description](../security/index.md#roles-list).
+To create a {{ dataproc-name }} cluster, the user must have the `dataproc.editor` [role](../../iam/concepts/access-control/roles.md) assigned. For more information, see the [role description](../security/index.md#roles-list).
 
 
 ## Configure a network {#setup-network}

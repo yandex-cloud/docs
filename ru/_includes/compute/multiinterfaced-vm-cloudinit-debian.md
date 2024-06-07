@@ -1,4 +1,4 @@
-В секциях конфигурации `The primary network interface` и `Other network interfaces` по аналогии задайте настройки для нужного количества сетевых интерфейсов ВМ, создаваемых на ВМ. Нумерация интерфейсов начинается с нуля. В приведенном примере настройки задаются для трех интерфейсов. На одну ВМ можно добавить не более восьми сетевых интерфейсов.
+В секциях конфигурации `Primary network interface` и `Other network interfaces` по аналогии задайте настройки для нужного количества сетевых интерфейсов ВМ, создаваемых на ВМ. Нумерация интерфейсов начинается с нуля. В приведенном примере настройки задаются для трех интерфейсов. На одну ВМ можно добавить не более восьми сетевых интерфейсов.
 
 ```
 #cloud-config
@@ -22,11 +22,11 @@ write_files:
 
       source /etc/network/interfaces.d/*
 
-      # The loopback network interface
+      # Loopback network interface
       auto lo
       iface lo inet loopback
 
-      # The primary network interface
+      # Primary network interface
       allow-hotplug eth0
       iface eth0 inet dhcp
 
