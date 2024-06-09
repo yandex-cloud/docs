@@ -11,6 +11,7 @@
 1. [Создайте функции {{ sf-full-name }}](#create-functions).
 1. [Создайте API-шлюз](#create-api-gw).
 1. [Протестируйте приложение](#test).
+1. [Дорабатывайте приложение локально](#local).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -30,7 +31,7 @@
 
 ## Подготовьте окружение {#prepare}
 
-1. [Скачайте](https://{{ s3-storage-host }}/doc-files/servlet.zip) архив с файлами проекта.
+1. [Скачайте](https://{{ s3-storage-host }}/doc-files/servlet.zip) архив с файлами проекта. Исходный код доступен в [репозитории](https://github.com/yandex-cloud-examples/yc-serverless-servlet).
 1. [Создайте](../../iam/operations/sa/create.md#create-sa) сервисный аккаунт и [назначьте](../../iam/operations/roles/grant.md#access-to-sa) ему роли `{{ roles-viewer }}` и `{{ roles-editor }}` на ваш каталог.
 
 ## Создайте бакет {{ objstorage-name }} {#create-bucket}
@@ -51,7 +52,7 @@
      1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию.
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
   1. Выберите созданный бакет.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите в папке с проектом файл `src/main/resources/index.html`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите в папке с проектом файл `src/main/webapp/index.html`.
   1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) для файла и нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
 
 {% endlist %}
@@ -381,3 +382,15 @@
 * [Удалите базу данных](../../ydb/operations/manage-databases.md#delete-db).
 * [Удалите функции](../../functions/operations/function/function-delete.md).
 * [Удалите API-шлюз](../../api-gateway/operations/api-gw-delete.md).
+
+## Запустить приложение локально {#local}
+
+Приложение можно развернуть в контейнере сервлетов, поддерживающим спецификацию Java Servlet версии 4.0 (например, Apache Tomcat 9) и продолжить разработку локально, без необходимости постоянно обновлять облачные функции.
+
+Для этого с помощью Maven соберите приложение скачанное на шаге [Подготовки окружения](#preare). Разверните приложение ROOT.war на вашем контейнере сервлетов.
+
+Для подключения к базе данных перед запуском контейнера сервлетов необходимо задать переменные окружения:
+- DATABASE=<имя_БД>
+- ENDPOINT=<YDB_эндпоинт>
+- IAM=<IAM токен>
+

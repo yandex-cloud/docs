@@ -11,6 +11,7 @@ To create a web application:
 1. [Create functions {{ sf-full-name }}](#create-functions).
 1. [Create an API gateway](#create-api-gw).
 1. [Test your application](#test).
+1. [Develop your application locally](#local).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -30,7 +31,7 @@ The cost of resources to support a web application includes:
 
 ## Prepare the environment {#prepare}
 
-1. [Download](https://{{ s3-storage-host }}/doc-files/servlet.zip) the archive with project files.
+1. [Download](https://{{ s3-storage-host }}/doc-files/servlet.zip) the archive with project files. Source code is available in [repository](https://github.com/yandex-cloud-examples/yc-serverless-servlet).
 1. [Create](../../iam/operations/sa/create.md#create-sa) a service account and [assign](../../iam/operations/roles/grant.md#access-to-sa) it the `{{ roles-viewer }}` and `{{ roles-editor }}` roles for your folder.
 
 ## Create a {{ objstorage-name }} bucket {#create-bucket}
@@ -51,7 +52,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
       1. Select the default [storage class](../../storage/concepts/storage-class.md).
       1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
    1. Select the created bucket.
-   1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the `src/main/resources/index.html` file in the project folder.
+   1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the `src/main/webapp/index.html` file in the project folder.
    1. Select the [storage class](../../storage/concepts/storage-class.md) for the file and click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
 
 {% endlist %}
@@ -381,3 +382,15 @@ To stop paying for the resources you created:
 * [Delete the database](../../ydb/operations/manage-databases.md#delete-db).
 * [Delete the functions](../../functions/operations/function/function-delete.md).
 * [Delete the API gateway](../../api-gateway/operations/api-gw-delete.md).
+
+## Run application localy {#local}
+
+The application can be deployed in a servlet container that supports Java Servlet specification version 4.0 (for example, Apache Tomcat 9) and continue to develope it locally, without the need to constantly update cloud functions.
+
+To do this, use Maven to build the application downloaded at the [Preparing Environment](#preare) step. Deploy the ROOT.war application to your servlet container.
+
+To connect to the database, you need to set the environment variables before starting the servlet container:
+- DATABASE=<database_name>
+- ENDPOINT=<YDB_endpoint>
+- IAM=<IAM token>
+
