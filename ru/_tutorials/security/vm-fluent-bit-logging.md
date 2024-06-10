@@ -303,8 +303,8 @@
    ```
 
    Где:
-   * `fluent_bit_version`: Версия пакета `fluent-bit`. Для проверки версии воспользуйтесь командой `/opt/fluent-bit/bin/fluent-bit --version`.
-   * `golang_version`: Версия компилятора Go. Для проверки версии воспользуйтесь командой `go version`.
+   * `fluent_bit_version` — версия пакета `fluent-bit`. Для проверки версии воспользуйтесь командой `/opt/fluent-bit/bin/fluent-bit --version`.
+   * `golang_version` — версия компилятора Go. Для проверки версии воспользуйтесь командой `go version`.
 
 1. Скопируйте библиотеку `yc-logging.so` в директорию библиотек `fluent-bit`:
 
