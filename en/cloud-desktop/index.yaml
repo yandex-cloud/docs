@@ -1,27 +1,40 @@
 title: Yandex Cloud Desktop
 description:
   - >-
-    <em>Yandex Cloud Desktop is at the <a
+    <em>Yandex Cloud Desktop is currently at the <a
     href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
   - >-
-    Yandex Cloud Desktop lets you organize and manage a virtual desktop
+    Yandex Cloud Desktop is a service to manage virtual Linux-based <a
+    href="/docs/cloud-desktop/concepts/desktops-and-groups">desktop</a>
     infrastructure.
-  - You can use the service via the Yandex Cloud management console.
+  - >-
+    With Cloud Desktop, you can: <ul> <li>Quickly create virtual workspaces for
+    new employees.</li> <li>Safely connect remote employees to your enterprise
+    network.</li>  <li>Allow your employees to work from any up-to-date device
+    with internet access, including their own devices (<a
+    href="https://https://en.wikipedia.org/wiki/Bring_your_own_device">BYOD</a>).</li>
+    <li>Manage  desktop computing resources.</li> <li>Administer desktops
+    remotely.</li>  <li>Create desktop groups with the same computing resources
+    and cloud <a href="/docs/vpc/concepts/network">network</a>.</li> </ul>
+  - >-
+    To connect to desktops, use <a
+    href="https://en.wikipedia.org/wiki/Remote_Desktop_Protocol">Remote Desktop
+    Protocol</a> (RDP).
 meta:
   title: Yandex Cloud Desktop
   description: >-
-    Yandex Cloud Desktop lets you organize and manage a virtual desktop
+    Yandex Cloud Desktop is a service to manage virtual Linux-based desktop
     infrastructure.
 links:
   - title: Getting started
     description: Create a desktop and connect to it
-    href: quickstart/
-  - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
+    href: quickstart
+  - title: Step-by-step guides
+    description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: 'Learn about the basic concepts of the service: desktops and their groups'
     href: concepts/desktops-and-groups
   - title: Quotas and limits
-    description: Technical and organizational limitations
+    description: Technical and organizational restrictions
     href: concepts/limits

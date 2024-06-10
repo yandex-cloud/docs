@@ -26,13 +26,13 @@ description:
 meta:
   title: Yandex Compute Cloud
   description: >-
-    Yandex Compute Cloud provides the scalable computing power you need to
-    create and manage virtual machines.
+    Yandex Compute Cloud provides scalable computing capacity to create and
+    manage virtual machines.
 links:
   - title: Getting started
     description: Create your first VM or instance group
     href: quickstart/
-  - title: Step-by-step instructions
+  - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
   - title: Concepts
@@ -42,14 +42,17 @@ links:
     description: HTTP API method descriptions
     href: api-ref/
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and organizational restrictions
     href: concepts/limits
   - title: Access management
-    description: Configure access rights to work with the service
+    description: Setting up access permissions for the service
     href: security/
+  - title: Tutorials
+    description: Use ready-made tutorials for working with VMs.
+    href: tutorials/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
-  - title: Questions and answers
-    description: Answers to frequently asked questions about the service
+  - title: FAQ
+    description: Answers to frequently asked questions
     href: qa/all

@@ -1,9 +1,9 @@
 # Selectors
 
-Selectors are filters that affect the results of queries in the linked [widgets](./widget.md). To add a selector to a dashboard, go to [{#T}](../operations/dashboard/add-selector.md).
-A selector can be linked to a chart or another selector. For more information, see [{#T}](./link.md).
+Selectors are filters that affect the results of queries in the linked [widgets](./widget.md). A selector can be linked to a chart or another selector. For more information, see [{#T}](./link.md).
 
-A selector works within a single dashboard tab.
+
+A selector works within a single dashboard tab. For more information on how to add a selector to a dashboard, see [{#T}](../operations/dashboard/add-selector.md).
 
 {{ datalens-short-name }} supports multiple selector types:
 
@@ -11,6 +11,7 @@ A selector works within a single dashboard tab.
 * **Input field**: Used for entering a field value manually.
 * **Calendar**: Used for entering values of the `Date` or `Date and time` type.
 * **Checkbox**: Allows selecting one of the two possible `Boolean` type values, `True` or `False`. To choose both boolean values, use the **List** selector type.
+
 
 When adding a selector to a dashboard, consider how it affects chart filters:
 

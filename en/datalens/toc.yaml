@@ -728,12 +728,6 @@ items:
         items:
           - name: Creating dashboards
             href: operations/dashboard/create.md
-          - name: Adding a description to a dashboard
-            href: operations/dashboard/add-description.md
-          - name: Adding a message displayed when contacting support
-            href: operations/dashboard/add-support-message.md
-          - name: Adding an access error message
-            href: operations/dashboard/add-access-message.md
           - name: Adding a chart to a dashboard
             href: operations/dashboard/add-chart.md
           - name: Adding a selector to a dashboard
@@ -742,6 +736,12 @@ items:
             href: operations/dashboard/add-text.md
           - name: Adding a dashboard header
             href: operations/dashboard/add-title.md
+          - name: Adding a description to a dashboard
+            href: operations/dashboard/add-description.md
+          - name: Adding a message displayed when contacting support
+            href: operations/dashboard/add-support-message.md
+          - name: Adding an access error message
+            href: operations/dashboard/add-access-message.md
           - name: Creating an alias
             href: operations/dashboard/create-alias.md
           - name: Deleting an alias

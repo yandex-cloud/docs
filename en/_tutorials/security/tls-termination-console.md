@@ -271,6 +271,8 @@ The `my-site.com` domain name must be mapped to the L7 load balancer IP address 
 
       {% cut "Configuring DNS records for {{ dns-name }}" %}
 
+      To get access to public zone domain names, you need to delegate the domain. Specify the addresses of the `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` servers in your personal dashboard at your registrar.
+
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. If you do not have a public [DNS zone](../../dns/concepts/dns-zone.md), create one:
          1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
@@ -296,9 +298,9 @@ After setting up the DNS, [check that the hosting is running properly](#test).
 
 {% include [tls-termination-test](../_tutorials_includes/tls-termination-test.md) %}
 
-## Delete the resources you created {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To shut down the hosting and stop paying for the created resources:
+To stop paying for the resources you created:
 
 {% list tabs group=instructions %}
 

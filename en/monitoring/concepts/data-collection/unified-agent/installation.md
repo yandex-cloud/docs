@@ -52,7 +52,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
    To start a container with the agent, run the following command:
 
    ```bash
-     docker run \
+     sudo docker run \
        -p 16241:16241 -it --detach --uts=host \
        --name=ua \
        -v /proc:/ua_proc \

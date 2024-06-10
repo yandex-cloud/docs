@@ -1,3 +1,8 @@
+---
+title: "How to get a list of public images in {{ compute-full-name }}"
+description: "Follow this guide to get a list of public images in {{ compute-full-name }}."
+---
+
 # Getting a list of public images
 
 When creating a VM, you need to select its [image](../../concepts/image.md) with the software that you want to use.
@@ -13,7 +18,7 @@ When creating a VM, you need to select its [image](../../concepts/image.md) with
    1. In the list that opens, select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-os-products }}**. A list of all available public images will appear.
 
-   To view information about a specific image, click ![image](../../../_assets/console-icons/circle-info.svg).
+   To [view information](./get-info.md) about a specific image, click ![image](../../../_assets/console-icons/circle-info.svg).
 
 - CLI {#cli}
 

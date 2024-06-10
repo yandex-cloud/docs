@@ -13,6 +13,7 @@
 `CreateInstance` | Создание ВМ
 `CreateSnapshot` | Создание снимка диска
 `CreateSnapshotSchedule` | Создание расписания снимков диска
+`DecommissionHost` | Вывод выделенного хоста в [обслуживание](../../../compute/concepts/dedicated-host.md#maintenance)
 `DeleteDisk` | Удаление диска
 `DeleteFilesystem` | Удаление файловой системы
 `DeleteGpuCluster` | Удаление кластера GPU
@@ -34,6 +35,7 @@
 `UpdateDisk` | Изменение диска
 `UpdateFilesystem` | Изменение файловой системы
 `UpdateGpuCluster` | Изменение кластера GPU
+`UpdateHost` | Обновление [даты автоматического освобождения](../../../compute/concepts/dedicated-host.md#maintenance) выделенного хоста
 `UpdateHostGroup` | Изменение группы выделенных хостов
 `UpdateImage` | Изменение образа диска
 `UpdateInstance` | Изменение ВМ

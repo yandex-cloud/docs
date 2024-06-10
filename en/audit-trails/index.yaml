@@ -13,9 +13,8 @@ description:
 meta:
   title: Yandex Audit Trails
   description: >-
-    This service collects and uploads audit logs from Yandex Cloud resources,
-    allowing you to use analytical tools to rapidly respond to events occurring
-    to Yandex Cloud resources.
+    Yandex Audit Trails is a service for collecting and exporting audit logs of
+    Yandex Cloud resources.
 links:
   - title: Getting started
     description: Connect the service
@@ -23,14 +22,17 @@ links:
   - title: Concepts
     description: Learn about the concepts and features of the service
     href: concepts/
-  - title: Event reference
-    description: Description of service events
+  - title: Management event reference
+    description: Management event description
     href: concepts/events
+  - title: Data event reference
+    description: Data event description
+    href: concepts/events-data-plane
   - title: Event search
     description: Search for events in the audit log
     href: tutorials/search-bucket
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and organizational restrictions
     href: concepts/limits
   - title: Pricing policy
     description: Service pricing and cost calculations

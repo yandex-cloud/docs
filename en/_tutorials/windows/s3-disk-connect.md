@@ -2,6 +2,12 @@
 
 In this tutorial, you will use [rclone](https://rclone.org) to set up synchronization of data between an {{ objstorage-full-name }} bucket and your local desktop. The bucket will be mounted as a disk in Windows.
 
+{% note info %}
+
+This section describes how to connect a bucket in Windows. When connecting in other OSs, see the official [rclone documentation](https://rclone.org/install/). For [rclone configuring](#rclone-config) and [bucket mounting](#bucket-mount), follow the same steps used in Windows.
+
+{% endnote %}
+
 To mount your bucket as a disk:
 
 1. [Prepare your cloud](#before-begin).
@@ -87,7 +93,7 @@ The cost for bucket support includes:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
+   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Select the `sa-win-disk-connect` service account.
    1. In the top panel, click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
@@ -196,7 +202,7 @@ The cost for bucket support includes:
 
 ## Set up a connection to {{ objstorage-name }} {#rclone-config}
 
-1. Open the command prompt in your working directory as an admin user and run the following command:
+1. Open the command line in your working folder as an admin user and run the following command:
 
    ```powershell
    .\psexec -i -s cmd.exe
@@ -224,13 +230,13 @@ The cost for bucket support includes:
 
 {% note info %}
 
-If required, you can run an advanced connection setup. For this, at the `Edit advanced config?` prompt, enter `y` in the terminal. For more information about advanced settings, see the `rclone` [documentation](https://rclone.org/s3/).
+You can perform advanced connection setup if needed. To do this, respond to `Edit advanced config?` by entering `y` in the terminal. For more information about advanced settings, see the `rclone` [documentation](https://rclone.org/s3/).
 
 {% endnote %}
 
 ## Mount a bucket {#bucket-mount}
 
-1. Check the connection to the bucket. In the same terminal where you configured your connection, run the following command with the bucket name specified:
+1. Check your connection to the bucket. In the same command line you used to configure the connection, run the following command with the bucket name specified:
 
    ```powershell
    rclone.exe ls s3-connect:<bucket_name>

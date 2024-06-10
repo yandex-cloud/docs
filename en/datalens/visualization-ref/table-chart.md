@@ -43,7 +43,7 @@ To simplify the comparison of different values and make the information easier t
 
 | Wizard<br/> section | Description |
 ----- | ----
-| Columns | Dimensions and measures to be used as columns. You can see the field name in the column header. You can use [markup functions](../function-ref/markup-functions.md) in columns. |
+| Columns | Dimensions and measures to be used as columns. The field name appears in the column header. You can use [markup functions](../function-ref/markup-functions.md) in columns. |
 | Colors | Measure. Affects shading of all cells within a row. It may only contain one measure. |
 | Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon. |
 | Filters | Dimension or measure. Used as a filter. |
@@ -76,6 +76,13 @@ To create a table:
 
 1. Under **Columns**, click the icon to the left of the dimension or measure name.
 1. In the window that opens, change the **Name** field value and click **Apply**.
+
+### Adding a tooltip to a table column {#hint-column}
+
+1. Under **Columns**, click the icon to the left of the dimension or measure name.
+1. In the window that opens, enable the **Tooltip** option, enter the text in the field below and click **Apply**. By default, when you enable the option, the tooltip text is substituted from the field description in the [dataset](../concepts/dataset/index.md).
+
+When the option is enabled, the ![image](../../_assets/console-icons/circle-question.svg) icon appears in the chart and on the dashboard next to the column name. Hover over the icon to bring up the tooltip.
 
 ### Setting up table data sorting by multiple columns {#sorting-columns}
 

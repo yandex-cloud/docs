@@ -15,7 +15,7 @@ To view assigned [roles](../../../iam/concepts/access-control/roles.md):
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
    1. View the roles assigned for a resource:
       * Viewing roles for a [registry](../../concepts/registry.md):
-         1. To the right of the registry name, click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **ACL registry**.
+         1. To the right of the registry name, click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **Registry ACL**.
          1. In the window that opens, you can see a list of users and their permissions for the registry.
       * Viewing roles for a repository:
          1. Select the registry.

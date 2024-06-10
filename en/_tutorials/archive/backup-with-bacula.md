@@ -47,7 +47,7 @@ To create a bucket for backups in {{ objstorage-name }}:
    1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you will perform the operations.
    1. On the folder page, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
    1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
-   1. In the **Bucket access** field, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+   1. Set the [public access](../../storage/security/public-access.md) parameters to read [objects](../../storage/concepts/object.md) in the bucket, get a list of objects, and read bucket settings, i.e., `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
    1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** field, select **{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}**.
    1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 

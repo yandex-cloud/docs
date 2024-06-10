@@ -18,6 +18,9 @@ To connect a Windows VM to {{ backup-name }}:
 1. [Set up](../concepts/vm-connection.md#vm-network-access) network access for your VM.
 1. [Connect to the VM via RDP](../../compute/operations/vm-connect/rdp.md).
 1. Run Windows PowerShell.
+
+   {% include [ps-note](../../_includes/backup/ps-note.md) %}
+
 1. Run the following command:
 
    ```powershell

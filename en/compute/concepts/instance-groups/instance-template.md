@@ -41,7 +41,7 @@ You can specify the [appropriate security groups](../../../vpc/concepts/security
 
 ## Metadata {#metadata}
 
-You can use a template to describe the metadata for the instances in the group. For example, you can use the `user-data` key to describe the system users to be created on new instance startup. For more information about the metadata supported by {{ compute-name }}, see [{#T}](../vm-metadata.md).
+You can use a template to describe the metadata service parameters and the VM metadata for the instances in the group. For example, you can use the `user-data` key to describe the system users to be created when starting up a new instance. For more information about the metadata supported by {{ compute-name }}, see [{#T}](../vm-metadata.md).
 
 ## Template description in a YAML file {#instance-template}
 
@@ -86,6 +86,11 @@ instance_template:
     type: SOFTWARE_ACCELERATED
   placement_policy:
     placement_group_id: rmppvhrgm77g********
+  metadata_options:
+    gce_http_endpoint: ENABLED
+    aws_v1_http_endpoint: DISABLED
+    gce_http_token: DISABLED
+    aws_v1_http_token: DISABLED
   metadata:
     user-data: |-
       #cloud-config
@@ -132,7 +137,12 @@ Keys (the table lists keys that directly define the base instance configuration)
 | `network_interface_specs.ip_version` | IP version for the public IP address. |
 | `network_interface_specs.security_group_ids` | Security group IDs. |
 | `network_settings.type` | (Optional) Network type.</br>– `SOFTWARE_ACCELERATED`: Software-accelerated network.</br>– `STANDARD`: Standard network (default). |
-| `metadata` | Metadata for a template instance. For more information, see [{#T}](../vm-metadata.md). |
+| `metadata_options` | (Optional) [Metadata service parameters](../../operations/vm-info/get-info.md#metadata-options). |
+| `metadata_options.gce_http_endpoint` | (Optional) Access to metadata using Google Compute Engine format.</br>– `enabled`: Enabled.</br>– `disabled`: Disabled. |
+| `metadata_options.aws_v1_http_endpoint` | (Optional) Access to metadata using AWS format (IMDSv1).</br>– `enabled`: Enabled.</br>– `disabled`: Disabled. |
+| `metadata_options.gce_http_token` | (Optional) Access to {{ iam-name }} credentials using Google Compute Engine format.</br>– `enabled`: Enabled.</br>– `disabled`: Disabled. |
+| `metadata_options.aws_v1_http_token` | (Optional) Access to [{{ iam-name }}](../../../iam/) credentials using AWS format (IMDSv1).</br>– `enabled`: Enabled.</br>– `disabled`: Disabled. |
+| `metadata` | (Optional) Metadata for a template instance. For more information, see [{#T}](../vm-metadata.md). |
 | `metadata.user-data` | Additional settings for instance initialization. In the example, the settings are described for the `cloud-init` program. |
 | `placement_policy` | (Optional) [VM placement group](../placement-groups.md) parameters. |
 | `placement_policy.placement_group_id` | Placement group ID. VM instances will be hosted in data center server racks depending on the selected placement strategy:</br>– `Spread` placement strategy ensures that each VM instance is hosted in a separate server rack in one of the availability zones.</br>– `Partition` placement strategy provides even allocation of VM instances across group partitions and ensures that VM instances from different partitions reside in different server racks in one of the availability zones. |

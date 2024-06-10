@@ -4,9 +4,17 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## Май 2024 {#may-2024}
+
+* Доступны новые версии {{ MY }} [5.7.44](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-44.html) и [8.0.35](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-35.html).
+
+## IV квартал 2023 {#q4-2023}
+
+* Доступна новая версия {{ MY }} [8.0.31](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-31.html).
+
 ## II квартал 2023 {#q2-2023}
 
-* Доступны новые версии {{ MY }} [5.7.39](https://docs.percona.com/percona-server/5.7/release-notes/release-notes_index.html) и [8.0.30](https://docs.percona.com/percona-server/8.0/release-notes/release-notes_index.html).
+* Доступны новые версии {{ MY }} [5.7.39](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-39.html) и [8.0.30](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-30.html).
 * В версии {{ MY }} 5.7 добавлена возможность анализа запросов при помощи `query_response_time_stats`. Подробнее см. в [документации Percona](https://docs.percona.com/percona-server/5.7/diagnostics/response_time_distribution.html).
 * Добавлены новые глобальные разрешения для пользователей `FLUSH_OPTIMIZER_COSTS` и `SHOW_ROUTINE`.
 

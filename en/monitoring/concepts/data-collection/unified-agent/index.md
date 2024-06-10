@@ -1,12 +1,12 @@
 # Agent for delivering metrics
 
-{{unified-agent-full-name}}: The agent for delivering metrics for virtual machines and user applications.
+{{ unified-agent-full-name }} is an agent for delivering metrics for virtual machines and user applications.
 
 The agent supports:
 
 - Collecting Linux system metrics (CPU, RAM, disk).
 - Collecting metrics in the [Prometheus](https://prometheus.io/) format.
-- Delivering metrics to {{monitoring-full-name}}.
+- Delivering metrics to {{ monitoring-full-name }}.
 - File storage for reliable data delivery.
 
 To install the agent configured for [delivering Linux system metrics](../../../operations/unified-agent/linux_metrics.md), run this Docker command:
@@ -23,11 +23,11 @@ docker run \
 
 Where `FOLDER_ID` is the ID of the folder to write metrics to.
 
-For other examples of how to use the agent, see [{#T}](../../../operations/index.md#working-with-metrics). Learn more about {{unified-agent-short-name}} installation methods in [{#T}](./installation.md). The syntax of the agent's configuration file is described in [{#T}](./configuration.md).
+For other examples of how to use the agent, see [{#T}](../../../operations/index.md#working-with-metrics). Learn more about {{ unified-agent-short-name }} installation methods in [{#T}](./installation.md). The syntax of the agent's configuration file is described in [{#T}](./configuration.md).
 
 {% note info %}
 
-{{unified-agent-full-name}} is distributed under Apache License 2.0.
+{{ unified-agent-full-name }} is distributed under Apache License 2.0.
 To learn more about the license, run these commands:
 
 - `unified_agent --license`: Displays the full text of the license.
@@ -37,19 +37,19 @@ To learn more about the license, run these commands:
 
 ## Concepts {#basics}
 
-{{unified-agent-full-name}} is intended for transmitting the streaming data represented as messages, for example, metrics or logs. The data stream in {{unified-agent-short-name}} is called a session. Multiple sessions can be set up at the same time.
+{{ unified-agent-full-name }} transmits streaming data represented as messages, e.g., metrics or logs. A data stream in {{ unified-agent-short-name }} is called a session. Multiple sessions can be running at the same time.
 
-The agent receives messages via the input and delivers them to one or more outputs. Filters are used to process messages on an interim basis, while storages are used to save messages to the disk. Inputs, outputs, filters, and storages are implemented using plugins.
+The agent receives messages via the input and delivers them to one or more outputs. Intermediate processing of messages is done by filters; storages save messages to the disk. Inputs, outputs, filters, and storages are implemented using plugins.
 
-Delivery routes are used for message routing and consist of an input and channel. Channels consist of a pipe and a node that is an output, a channel, or a splitter. Pipes can include filters and storage references. The pipe can be omitted.
+Message routing is implemented with the help of delivery routes which consist of an input and a channel. A channel consist of a pipe and a node of one of the following types: output, channel, or splitter. A pipe may contain filters and links to storages. There can be no pipe in the configuration.
 
-You can create named channels and pipes. That avoids duplicate configurations and route messages from multiple inputs to one output.
+You can create named channels and pipes. This will help you avoid duplicate configurations and route messages from multiple inputs to the same output.
 
 ### Messages {#messages}
 
-Messages are the minimum indivisible unit of user information transmitted to {{unified-agent-short-name}}.
+A message is the minimum atomic unit of user information that a system or application sends to {{ unified-agent-short-name }}.
 
-Messages consist of a body, a timestamp, custom metadata in the format `key:value`, and a serial number.
+A message consist of a body, a timestamp, user metadata in `key:value` format, and a serial number.
 
 ### Sessions {#sessions}
 
@@ -77,7 +77,7 @@ See also:
 
 ### Outputs {#outputs}
 
-The output is used by the agent to send messages to third-party systems. The currently supported outputs are `yc_metrics`, which writes a metric to the {{monitoring-full-name}} API, and several debug outputs.
+The output is used by the agent to send messages to third-party systems. The currently supported outputs are `yc_metrics`, which writes a metric to the {{ monitoring-full-name }} API, and several debug outputs.
 
 Sample output definition in the configuration file:
 ```yaml
