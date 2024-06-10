@@ -2,7 +2,7 @@ title: Yandex WebSQL
 href: index.yaml
 label:
   title: RU
-  description: The service is available in Russia only.
+  description: This service is only available in Russia.
   theme: unknown
   when: region == "kz"
 stage: preview
@@ -13,17 +13,17 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Connecting to a database
+      - name: Managing connections
         href: operations/connect.md
-      - name: Making queries
+      - name: Working with the SQL query editor
         href: operations/query-executor.md
-      - name: Working with saved queries
+      - name: Working with saved SQL queries
         href: operations/templates.md
-      - name: Viewing query history
+      - name: Query history
         href: operations/history.md
   - name: Concepts
     items:
-      - name: About {{ websql-name }}
+      - name: About {{ websql-full-name }}
         href: concepts/index.md
       - name: Quotas and limits
         href: concepts/limits.md

@@ -71,6 +71,7 @@ items:
         hidden: true
       - name: Настройка и тестирование PT Application Firewall
         href: tutorials/pt-application-firewall.md
+        hidden: true
       - name: >-
           Защищенный доступ пользователей к облачным ресурсам на основе
           WireGuard VPN

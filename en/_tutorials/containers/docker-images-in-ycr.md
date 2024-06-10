@@ -48,7 +48,7 @@ Infrastructure support costs include fees for the following resources:
 
 * Disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Storing the Docker images you created and a vulnerability scanner, if [activated](#vulnerability-scanner) it (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
+* Storing the Docker images you created and a vulnerability scanner, if [activated](#vulnerability-scanner) (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
 * Using a {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 
 

@@ -13,9 +13,9 @@ You can use different security groups (recommended) or the same group for the cl
 Within the security groups, you must configure:
 * All standard rules described in the relevant documentation sections:
    * For a cluster and node groups: see the {{ managed-k8s-name }} documentation, [{#T}](../../../managed-kubernetes/operations/connect/security-groups.md).
-   * For a load balancer: see [{#T}](../../concepts/application-load-balancer.md#security-groups). The final rule for outgoing traffic to the VM [backends](../../concepts/backend-group.md) must allow connections to the cluster [node group](../../../managed-kubernetes/concepts/index.md#node-group) [subnets](../../../vpc/concepts/network.md#subnet) and security groups.
+   * For a load balancer: see [{#T}](../../concepts/application-load-balancer.md#security-groups). The last rule for outgoing traffic to [backend](../../concepts/backend-group.md) VMs must allow connections in the [subnet](../../../vpc/concepts/network.md#subnet) of the cluster [node groups](../../../managed-kubernetes/concepts/index.md#node-group) or its security group.
 * Backend state check rules, allowing:
-   * The load balancer to send traffic to cluster nodes via TCP port 10501 (destination: cluster node group subnets or security groups).
+   * The load balancer to send traffic to cluster nodes via TCP to port 10501 (destination: cluster node group subnets or security groups).
    * Node groups to receive this traffic (traffic originates in the load balancer subnets or security group).
       Cluster and node group security groups are specified in their settings. For more information, see the guides below:
 * [Creating](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [updating](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md#update-cluster) a cluster

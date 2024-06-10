@@ -87,6 +87,7 @@ To create an infrastructure using {{ TF }}:
    * `vm_user`: VM user name.
    * `ssh_key_path`: Path to the file with the public SSH key. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
    * `domain`: Domain to host the site.
+      To get access to public zone domain names, you need to delegate the domain. Specify the addresses of the `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` servers in your personal dashboard at your registrar.
    * `certificate`: Path to the file with the [user certificate](../../certificate-manager/operations/import/cert-create.md#create-file).
    * `private_key`: Path to the file with the user certificate's private key.
 1. Create resources:
@@ -103,9 +104,9 @@ After creating the infrastructure, [check that the hosting is running properly](
 
 {% include [tls-termination-test](../_tutorials_includes/tls-termination-test.md) %}
 
-## Delete the resources you created {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To shut down the hosting and stop paying for the created resources:
+To stop paying for the resources you created:
 
 1. Open the `tls-termination-config.tf` configuration file and delete the description of the infrastructure being created from it.
 1. Apply the changes:

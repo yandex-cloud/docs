@@ -43,13 +43,13 @@ If an [ACL](../../concepts/acl.md) was previously set for a [bucket](../../conce
    yc storage bucket update --help
    ```
 
-   To view the current ACL of the bucket, run this command:
+   To view a bucket's current ACL, run this command:
 
    ```bash
    yc storage bucket get <bucket_name> --with-acl
    ```
 
-   You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md) and [system groups](../../concepts/acl.md#system-groups) (e.g., a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). These settings are not compatible: a bucket should have either a predefined ACL or a set of individual permissions.
+   You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md) and [system groups](../../concepts/acl.md#system-groups) (e.g., a group including all internet users or a group including all authenticated {{ yandex-cloud }} users). These settings are not compatible: a bucket should have either a predefined ACL or a set of individual permissions.
 
    Predefined ACL
 
@@ -111,11 +111,11 @@ If an [ACL](../../concepts/acl.md) was previously set for a [bucket](../../conce
 
    {% note info %}
 
-   To manage a bucket ACL, assign the `storage.admin` [role](../../security/index.md#storage-admin) to the service account via which the AWS CLI operates.
+   To manage bucket ACLs, assign the `storage.admin` [role](../../security/index.md#storage-admin) to the service account via which the AWS CLI operates.
 
    {% endnote %}
 
-   View the current ACL of the bucket:
+   View the bucket's current ACL:
 
    ```bash
    aws s3api get-bucket-acl \
@@ -124,10 +124,10 @@ If an [ACL](../../concepts/acl.md) was previously set for a [bucket](../../conce
    ```
 
    Where:
-   * `--bucket`: Bucket name
+   * `--bucket`: Bucket name.
    * `--endpoint`: {{ objstorage-name }} endpoint.
 
-   You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md) and [system groups](../../concepts/acl.md#system-groups) (e.g., a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). These settings are not compatible: a bucket should have either a predefined ACL or a set of individual permissions.
+   You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md) and [system groups](../../concepts/acl.md#system-groups) (e.g., a group including all internet users or a group including all authenticated {{ yandex-cloud }} users). These settings are not compatible: a bucket should have either a predefined ACL or a set of individual permissions.
 
    Predefined ACL
 
@@ -168,13 +168,13 @@ If an [ACL](../../concepts/acl.md) was previously set for a [bucket](../../conce
       Where:
       * `--bucket`: Bucket name.
       * `--endpoint`: {{ objstorage-name }} endpoint.
-      * The possible types of ACL permissions include:
+      * Possible types of ACL permissions:
          * `--grant-read`: Permission to access the list of objects in the bucket, read various bucket settings (lifecycle, CORS, static hosting), and read all objects in the bucket.
-         * `--grant-write`: Permission to write, overwrite, and delete objects in the bucket. It is used only together with `--grant-read`.
+         * `--grant-write`: Permission to write, rewrite, and delete objects in the bucket. It is used only together with `--grant-read`.
          * `--grant-full-control`: Full access to the bucket and the objects in it.
 
          You can set multiple permissions within the same command.
-      * The possible permission grantees include:
+      * Possible permission grantees:
          * `id=<grantee_ID>`: ID of the user, service account, or user group to grant permission to.
          * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: [System group](../../concepts/acl.md#system-groups) of all authenticated {{ yandex-cloud }} users.
          * `uri=http://acs.amazonaws.com/groups/global/AllUsers`: System group of all internet users.
@@ -220,8 +220,8 @@ If an [ACL](../../concepts/acl.md) was previously set for a [bucket](../../conce
 
             
             You can get the IDs in any of the following ways:
-            * [User](../../../iam/operations/users/get.md).
-            * [Service account](../../../iam/operations/sa/get-id.md).
+            * [User](../../../iam/operations/users/get.md)
+            * [Service account](../../../iam/operations/sa/get-id.md)
             * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
 
 
@@ -229,7 +229,7 @@ If an [ACL](../../concepts/acl.md) was previously set for a [bucket](../../conce
             * `http://acs.amazonaws.com/groups/global/AllUsers`: All internet users.
             * `http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: All authenticated {{ yandex-cloud }} users.
 
-      Instead of the `grant` parameter, you can specify the `acl` parameter, i.e., the [predefined ACL](../../../storage/concepts/acl.md#predefined-acls) of the bucket. The default value is `private`: {{ yandex-cloud }} users get permissions based on their roles in {{ iam-short-name }}.
+      Instead of the `grant` parameter, you can specify the `acl` parameter, which represents the [predefined ACL](../../../storage/concepts/acl.md#predefined-acls) of the bucket. The default value is `private`: {{ yandex-cloud }} users get permissions based on their roles in {{ iam-short-name }}.
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
@@ -248,9 +248,9 @@ If an [ACL](../../concepts/acl.md) was previously set for a [bucket](../../conce
 
       1. If the configuration does not contain any errors, run this command:
 
-      ```bash
-      terraform apply
-      ```
+         ```bash
+         terraform apply
+         ```
 
       1. Confirm that you want to create the resources.
 

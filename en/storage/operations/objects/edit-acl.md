@@ -11,7 +11,7 @@ To control access to an object in an {{ objstorage-name }} bucket, you can use a
 
 {% note info %}
 
-If an [ACL](../../concepts/acl.md) has been set for an object, it will be completely overwritten once you apply the changes.
+If an [ACL](../../concepts/acl.md) was previously set for an object, it will be completely overwritten once you apply the changes.
 
 {% endnote %}
 
@@ -54,11 +54,11 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
    ```
 
    Where:
-   * `--endpoint`: {{ objstorage-name }} endpoint
-   * `--bucket`: Bucket name
-   * `--key`: Object key
+   * `--endpoint`: {{ objstorage-name }} endpoint.
+   * `--bucket`: Bucket name.
+   * `--key`: Object key.
 
-   You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to an object or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md) and [system groups](../../concepts/acl.md#system-groups) (e.g., a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). These settings are not compatible: an object should have either a predefined ACL or a set of individual permissions.
+   You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to an object or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md) and [system groups](../../concepts/acl.md#system-groups) (e.g., a group including all internet users or a group including all authenticated {{ yandex-cloud }} users). These settings are not compatible: an object should have either a predefined ACL or a set of individual permissions.
 
    **Predefined ACL**
 
@@ -84,8 +84,8 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
    1. To grant ACL permissions to a {{ yandex-cloud }} user, service account, or user group, get their ID:
 
       
-      * [User](../../../iam/operations/users/get.md).
-      * [Service account](../../../iam/operations/sa/get-id.md).
+      * [User](../../../iam/operations/users/get.md)
+      * [Service account](../../../iam/operations/sa/get-id.md)
       * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
 
 
@@ -100,17 +100,17 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
       ```
 
       Where:
-      * `--endpoint`: {{ objstorage-name }} endpoint
-      * `--bucket`: Bucket name
-      * `--key`: Object key
-      * The possible types of ACL permissions include:
+      * `--endpoint`: {{ objstorage-name }} endpoint.
+      * `--bucket`: Bucket name.
+      * `--key`: Object key.
+      * Possible types of ACL permissions:
          * `--grant-read`: Access to read the object.
          * `--grant-full-control`: Full access to the object.
          * `--grant-read-acp`: Access to read the object ACL.
          * `--grant-write-acp`: Access to edit the object ACL.
 
          You can set multiple permissions within the same command.
-      * The possible permission grantees include:
+      * Possible permission grantees:
          * `id=<grantee_ID>`: ID of the user, service account, or user group to grant permission to.
          * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: [System group](../../concepts/acl.md#system-groups) of all authenticated {{ yandex-cloud }} users.
          * `uri=http://acs.amazonaws.com/groups/global/AllUsers`: System group of all internet users.

@@ -153,8 +153,8 @@ The **MySQL overview** section shows detailed information about the DBMS state o
 
    1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
 
-       * **{{ mmy-name }}: Cluster Overview** to configure cluster alerts.
-       * **{{ mmy-name }}: Host Overview** to configure host alerts.
+       * **{{ mmy-name }} — Cluster Overview** to configure cluster alerts.
+       * **{{ mmy-name }} — Host Overview** to configure host alerts.
 
    1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 

@@ -12,29 +12,29 @@ description:
 meta:
   title: Yandex Container Registry
   description: >-
-    Yandex Container Registry is a service that allows you to store and
-    distribute Docker images.
+    Yandex Container Registry is a service for storing and distributing Docker
+    images.
 links:
   - title: Getting started
-    description: Create the first registry
+    description: Create your first registry
     href: quickstart/
-  - title: Step-by-step instructions
+  - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
   - title: Concepts
-    description: Learn more about concepts and resources of the service
+    description: Learn more about Container Registry's concepts and resources
     href: concepts/
   - title: API reference
     description: HTTP API method descriptions
     href: api-ref/
-  - title: Practical guidelines
-    description: Managing Docker images with {{ container-registry-name }}
+  - title: Tutorials
+    description: Use Container Registry to perform common Docker image management tasks
     href: tutorials/
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and organizational restrictions
     href: concepts/limits
   - title: Access management
-    description: Configure access rights to work with the service
+    description: Set up access rights to work with the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations

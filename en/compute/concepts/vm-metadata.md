@@ -416,3 +416,7 @@ openssl dgst -sha256 < document
 ```
 
 If they have the same hash, the identity document saved to the file matches the document from the VM metadata.
+
+#### See also {#see-also}
+
+* [{#T}](instance-groups/instance-template.md).

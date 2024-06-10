@@ -1,6 +1,6 @@
 # Personal settings
 
-You can manage your issues more easily by adjusting the {{ tracker-name }} interface.
+You can manage your issues more easily by customizing the {{ tracker-name }} interface.
 
 ## Customizing your home page {#sec_my_page}
 
@@ -11,7 +11,7 @@ You can set up your [start page](startpage.md) in the old interface to show one 
 * [Dashboard](dashboard.md)
 * [Issue board](../manager/create-agile-board.md)
 
-1. Click the link [{{ link-settings }}]({{ link-settings }}).
+1. Click the [{{ link-settings }}]({{ link-settings }}) link.
 
 1. Under **{{ ui-key.startrek.ui_components_NavigationBar.start-page-title }}**, choose the filter, dashboard, or issue board you want to see on the home page. To use **My page** as the startup page, select it in the list.
 
@@ -27,17 +27,17 @@ You can use {{ tracker-name }} in English or Russian. To do this:
 
 ## Setting up the layout {#choose-theme}
 
-To set up the interface theme and how the issues will be opened on the page:
+To set up the interface theme and how issues will open on the page:
 
 1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
-1. Select a theme under **{{ ui-key.yacloud_components.settings.label_title_appearance }}**.
+1. Select the theme under **{{ ui-key.yacloud_components.settings.label_title_appearance }}**.
 
 1. For the issue to open in the right panel when you click its name or key (for example, **TEST-123**), select **Yes**.
 
 ## Setting the user display type {#sec_display}
 
-By default, the **Author**, **Assignee**, and **Followers** fields display the users' first and last names. If you want to display their usernames or profile pictures instead, change the user display mode.
+By default, the **Author**, **Assignee**, and **Followers** fields display users' first and last names. If you want to display their usernames or profile pictures instead, change the user display type.
 
 {% cut "Screenshot" %}
 
@@ -45,11 +45,11 @@ By default, the **Author**, **Assignee**, and **Followers** fields display the u
 
 {% endcut %}
 
-To change the method of display:
+To change the display type:
 
 1. Click the link [{{ link-settings }}]({{ link-settings }}).
 
-1. Under **User display**, choose your preferred display method:
+1. Under **User display**, choose your preferred display type:
    - Select **Display login instead of name** to show usernames instead of real names in system issue fields.
 
       {% cut "Screenshot" %}

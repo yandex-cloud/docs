@@ -2,27 +2,34 @@
 
 {% include notitle [preview](../_includes/note-preview.md) %}
 
-In this section, you will learn how to connect to clusters of managed databases using {{ websql-full-name }}.
+{{ websql-full-name }} is a {{ yandex-cloud }} service that allows you to connect to clusters of managed and public databases. You can view database tables and schemas, and run SQL queries. It is a web-based tool that simplifies writing SQL queries by suggesting prompts and commands.
+
+In this section, you will learn how to connect to:
+
+* [Managed database clusters](#connect-cluster) within {{ yandex-cloud }}
+* [Public databases](#connect-db) via the internet
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or [create an account](https://yandex.com/support/id/authorization/registration.html) if you do not have one yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or [sign up](https://yandex.com/support/id/authorization/registration.html) if not signed up yet.
 1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../billing/quickstart/index.md).
 1. Select the organization to work with {{ websql-full-name }} in or [create a new one](../organization/operations/enable-org).
 
-## Connecting to a database {#connect-to-db}
+## Connecting to a managed database cluster within {{ yandex-cloud }} {#connect-cluster}
 
-Create your first connection to the database.
-
-If you have a [{{ PG }}](../managed-postgresql/operations/cluster-list.md), [{{ CH }}](../managed-clickhouse/operations/cluster-list.md), or [{{ MY }}](../managed-mysql/operations/cluster-list.md) cluster set up in {{ yandex-cloud }}, you can connect directly to it:
+{% include [clickhouse-warning](../_includes/websql/clickhouse-warning.md) %}
 
 {% include notitle [connect-cluster](../_includes/websql/connect-to-cluster.md) %}
 
-You can also connect to a publicly available database via the internet.
+If the connection is successful, you will see the cluster structure in the connection manager tree. Hosts of the same cluster will appear in the _connection group_.
+
+## Connecting to a public database {#connect-db}
+
+To connect to a public database via the internet:
 
 {% include notitle [connect-db](../_includes/websql/connect-to-db.md) %}
 
-If the connection is successful, the structure of the cluster or database will show up in the connection manager tree. Hosts of the same cluster will appear in the _connection group_.
+If the connection is successful, you will see the database structure in the connection manager tree.
 
 ## What's next {#what-is-next}
 

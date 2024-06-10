@@ -3,257 +3,338 @@
 This scenario shows the [implementation of L3/L4 and L7 network policies](https://docs.cilium.io/en/v1.10/gettingstarted/http/) that are managed by the [Cilium network policy controller](../concepts/network-policy.md#cilium).
 
 To use the Cilium network policy controller in a cluster:
-* [Install and configure the Hubble networking and security observability platform](#install-hubble).
+* [Install and configure Hubble UI, a network activity monitoring tool](#install-hubble-ui).
 * [Create a test environment](#create-test-environment).
 * [Create an L3/L4 network policy](#l3-l4-policy).
 * [Create an L7 network policy](#l7-policy).
 
 ## Getting started {#before-you-begin}
 
-1. [Create a service account](../../iam/operations/sa/create.md) and [grant it the roles](../../iam/operations/sa/assign-role-for-sa.md) of `k8s.tunnelClusters.agent` and `vpc.publicAdmin`.
-1. [Create a security group](../../vpc/operations/security-group-create.md) and add [rules](connect/security-groups.md) allowing service traffic within the cluster and access to the {{ k8s }} API.
-1. [Create a {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
+### Prepare the infrastructure {#deploy-infrastructure}
 
-   When creating it, specify the service account and security group prepared in advance. Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**, select **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
+{% list tabs group=instructions %}
 
-1. [Create a node group](node-group/node-group-create.md) of any suitable configuration. When creating it, specify the security group prepared in advance.
+- Manually {#manual}
 
-1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+   1. [Create a service account](../../iam/operations/sa/create.md) and [grant](../../iam/operations/sa/assign-role-for-sa.md) the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles to it.
 
-   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+   1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+      {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+   1. [Create a cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
+
+      * In the **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}** and **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}** fields, select `{{ ui-key.yacloud.component.service-account-field.label_sg-from-list }}`, then select the service account you created from the drop-down list.
+
+      * Under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**, select the following values:
+
+         * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}**: `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`.
+         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}`. Specify security groups for the cluster.
+
+      * Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**, select **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
+
+   1. [Create a node group for the cluster](node-group/node-group-create.md) in any suitable configuration.
+
+      Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**, select the following values:
+
+      * **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}**: `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`.
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}`. Specify security groups for the node groups.
+
+- {{ TF }} {#tf}
+
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+   1. Download the [k8s-cilium.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cilium-setup/blob/main/k8s-cilium.tf) configuration file to the same working directory. This file will be used to create the following resources:
+
+      * [Network](../../vpc/concepts/network.md#network).
+      * [Subnet](../../vpc/concepts/network.md#subnet).
+      * {{ managed-k8s-name }} cluster.
+      * Node group for the cluster.
+      * [Service account](../../iam/concepts/users/service-accounts.md) the cluster and its node group need to operate.
+
+      * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-with-audience-lvl3.md) %}
+
+         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+   1. In `k8s-cilium.tf`, specify:
+
+      * [Folder ID](../../resource-manager/operations/folder/get-id.md).
+      * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the cluster and node groups.
+      * Name of the service account.
+
+   1. {% include [terraform-validate](../../_includes/managed-kubernetes/terraform-validate.md) %}
+
+   1. Create the required infrastructure:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
+
+### Before you start working with the cluster {#do-preparations}
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. [Install Cilium CLI](https://github.com/cilium/cilium-cli?tab=readme-ov-file#installation) (`cilium`).
 
-## Install and configure Hubble {#install-hubble}
+## Install and configure Hubble UI {#install-hubble-ui}
 
-1. Create a file named `hubble-ui.yaml` with a specification of resources required for Hubble:
+1. Check the current status of Cilium in the cluster:
+
+   ```bash
+   cilium status
+   ```
+
+   Cilium, Operator, and Hubble Relay should have the `OK` status.
+
+   {% cut "Command result example" %}
+
+   ```text
+       /¯¯\
+    /¯¯\__/¯¯\    Cilium:             OK
+    \__/¯¯\__/    Operator:           OK
+    /¯¯\__/¯¯\    Envoy DaemonSet:    disabled (using embedded mode)
+    \__/¯¯\__/    Hubble Relay:       OK
+       \__/       ClusterMesh:        disabled
+
+   DaemonSet              cilium             Desired: 1, Ready: 1/1, Available: 1/1
+   Deployment             cilium-operator    Desired: 1, Ready: 1/1, Available: 1/1
+   Deployment             hubble-relay       Desired: 1, Ready: 1/1, Available: 1/1
+   Containers:            cilium             Running: 1
+                          cilium-operator    Running: 1
+                          hubble-relay       Running: 1
+   Cluster Pods:          5/5 managed by Cilium
+   Helm chart version:
+   Image versions         cilium             cr.yandex/******/k8s-addons/cilium/cilium:v1.12.9: 1
+                          cilium-operator    cr.yandex/******/k8s-addons/cilium/operator-generic:v1.12.9: 1
+                          hubble-relay       cr.yandex/******/k8s-addons/cilium/hubble-relay:v1.12.9: 1
+   ```
+
+   {% endcut %}
+
+1. Create a file named `hubble-ui.yaml` containing specifications for the resources required for Hubble UI:
 
    {% cut "hubble-ui.yaml" %}
 
    ```yaml
    ---
-   # Source: cilium/templates/hubble-ui-serviceaccount.yaml
    apiVersion: v1
    kind: ServiceAccount
    metadata:
      name: "hubble-ui"
      namespace: kube-system
    ---
-   # Source: cilium/templates/hubble-ui-configmap.yaml
    apiVersion: v1
    kind: ConfigMap
    metadata:
-     name: hubble-ui-envoy
+     name: hubble-ui-nginx
      namespace: kube-system
    data:
-     envoy.yaml: |
-       static_resources:
-         listeners:
-           - name: listener_hubble_ui
-             address:
-               socket_address:
-                 address: 0.0.0.0
-                 port_value: 8081
-             filter_chains:
-               - filters:
-                   - name: envoy.filters.network.http_connection_manager
-                     typed_config:
-                       "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
-                       codec_type: auto
-                       stat_prefix: ingress_http
-                       route_config:
-                         name: local_route
-                         virtual_hosts:
-                           - name: local_service
-                             domains: ["*"]
-                             routes:
-                               - match:
-                                   prefix: "/api/"
-                                 route:
-                                   cluster: backend
-                                   prefix_rewrite: "/"
-                                   timeout: 0s
-                                   max_stream_duration:
-                                     grpc_timeout_header_max: 0s
-                               - match:
-                                   prefix: "/"
-                                 route:
-                                   cluster: frontend
-                             cors:
-                               allow_origin_string_match:
-                                 - prefix: "*"
-                               allow_methods: GET, PUT, DELETE, POST, OPTIONS
-                               allow_headers: keep-alive,user-agent,cache-control,content-type,content-transfer-encoding,x-accept-content-transfer-encoding,x-accept-response-streaming,x-user-agent,x-grpc-web,grpc-timeout
-                               max_age: "1728000"
-                               expose_headers: grpc-status,grpc-message
-                       http_filters:
-                         - name: envoy.filters.http.grpc_web
-                         - name: envoy.filters.http.cors
-                         - name: envoy.filters.http.router
-         clusters:
-           - name: frontend
-             connect_timeout: 0.25s
-             type: strict_dns
-             lb_policy: round_robin
-             load_assignment:
-               cluster_name: frontend
-               endpoints:
-                 - lb_endpoints:
-                     - endpoint:
-                         address:
-                           socket_address:
-                             address: 127.0.0.1
-                             port_value: 8080
-           - name: backend
-             connect_timeout: 0.25s
-             type: logical_dns
-             lb_policy: round_robin
-             http2_protocol_options: {}
-             load_assignment:
-               cluster_name: backend
-               endpoints:
-                 - lb_endpoints:
-                     - endpoint:
-                         address:
-                           socket_address:
-                             address: 127.0.0.1
-                             port_value: 8090
+     nginx.conf: |
+       server
+       {
+         listen 8081;
+         listen [::]:8081;
+         server_name localhost;
+         root /app;
+         index index.html;
+         client_max_body_size 1G;
+
+         location /
+         {
+           proxy_set_header Host $host;
+           proxy_set_header X-Real-IP $remote_addr;
+
+           # CORS
+           add_header Access-Control-Allow-Methods 'GET, POST, PUT, HEAD, DELETE, OPTIONS';
+           add_header Access-Control-Allow-Origin *;
+           add_header Access-Control-Max-Age 1728000;
+           add_header Access-Control-Expose-Headers content-length,grpc-status,grpc-message;
+           add_header Access-Control-Allow-Headers range,keep-alive,user-agent,cache-control,content-type,content-transfer-encoding,x-accept-content-transfer-encoding,x-accept-response-streaming,x-user-agent,x-grpc-web,grpc-timeout;
+           if ($request_method = OPTIONS)
+           {
+             return 204;
+           }
+           # /CORS
+
+           location /api
+           {
+             proxy_http_version 1.1;
+             proxy_pass_request_headers on;
+             proxy_hide_header Access-Control-Allow-Origin;
+             proxy_pass http://127.0.0.1:8090;
+           }
+
+           location /
+           {
+             # double `/index.html` is required here
+             try_files $uri $uri/ /index.html /index.html;
+           }
+
+           # Liveness probe
+           location /healthz
+           {
+             access_log off;
+             add_header Content-Type text/plain;
+             return 200 'ok';
+           }
+         }
+       }
    ---
-   # Source: cilium/templates/hubble-ui-clusterrole.yaml
    kind: ClusterRole
    apiVersion: rbac.authorization.k8s.io/v1
    metadata:
      name: hubble-ui
+     labels:
+       app.kubernetes.io/part-of: cilium
    rules:
-     - apiGroups:
-         - networking.k8s.io
-       resources:
-         - networkpolicies
-       verbs:
-         - get
-         - list
-         - watch
-     - apiGroups:
-         - ""
-       resources:
-         - componentstatuses
-         - endpoints
-         - namespaces
-         - nodes
-         - pods
-         - services
-       verbs:
-         - get
-         - list
-         - watch
-     - apiGroups:
-         - apiextensions.k8s.io
-       resources:
-         - customresourcedefinitions
-       verbs:
-         - get
-         - list
-         - watch
-     - apiGroups:
-         - cilium.io
-       resources:
-         - "*"
-       verbs:
-         - get
-         - list
-         - watch
+   - apiGroups:
+     - networking.k8s.io
+     resources:
+     - networkpolicies
+     verbs:
+     - get
+     - list
+     - watch
+   - apiGroups:
+     - ""
+     resources:
+     - componentstatuses
+     - endpoints
+     - namespaces
+     - nodes
+     - pods
+     - services
+     verbs:
+     - get
+     - list
+     - watch
+   - apiGroups:
+     - apiextensions.k8s.io
+     resources:
+     - customresourcedefinitions
+     verbs:
+     - get
+     - list
+     - watch
+   - apiGroups:
+     - cilium.io
+     resources:
+     - "*"
+     verbs:
+     - get
+     - list
+     - watch
    ---
-   # Source: cilium/templates/hubble-ui-clusterrolebinding.yaml
    kind: ClusterRoleBinding
    apiVersion: rbac.authorization.k8s.io/v1
    metadata:
      name: hubble-ui
+     labels:
+       app.kubernetes.io/part-of: cilium
    roleRef:
      apiGroup: rbac.authorization.k8s.io
      kind: ClusterRole
      name: hubble-ui
    subjects:
-     - kind: ServiceAccount
-       namespace: kube-system
-       name: "hubble-ui"
+   - kind: ServiceAccount
+     name: "hubble-ui"
+     namespace: kube-system
    ---
-   # Source: cilium/templates/hubble-ui-service.yaml
    kind: Service
    apiVersion: v1
    metadata:
      name: hubble-ui
+     namespace: kube-system
      labels:
        k8s-app: hubble-ui
-     namespace: kube-system
+       app.kubernetes.io/name: hubble-ui
+       app.kubernetes.io/part-of: cilium
    spec:
+     type: "ClusterIP"
      selector:
        k8s-app: hubble-ui
      ports:
        - name: http
          port: 80
          targetPort: 8081
-     type: ClusterIP
    ---
-   # Source: cilium/templates/hubble-ui-deployment.yaml
    kind: Deployment
    apiVersion: apps/v1
    metadata:
+     name: hubble-ui
      namespace: kube-system
      labels:
        k8s-app: hubble-ui
-     name: hubble-ui
+       app.kubernetes.io/name: hubble-ui
+       app.kubernetes.io/part-of: cilium
    spec:
      replicas: 1
      selector:
        matchLabels:
          k8s-app: hubble-ui
+     strategy:
+       rollingUpdate:
+         maxUnavailable: 1
+       type: RollingUpdate
      template:
        metadata:
          annotations:
          labels:
            k8s-app: hubble-ui
+           app.kubernetes.io/name: hubble-ui
+           app.kubernetes.io/part-of: cilium
        spec:
-         securityContext:
-           runAsUser: 1001
+         priorityClassName:
          serviceAccount: "hubble-ui"
          serviceAccountName: "hubble-ui"
+         automountServiceAccountToken: true
          containers:
-           - name: frontend
-             image: "quay.io/cilium/hubble-ui:v0.7.9@sha256:e0e461c680ccd083ac24fe4f9e19e675422485f04d8720635ec41f2b********"
-             imagePullPolicy: IfNotPresent
-             ports:
-               - containerPort: 8080
-                 name: http
-             resources: {}
-           - name: backend
-             image: "quay.io/cilium/hubble-ui-backend:v0.7.9@sha256:632c938ef6ff30e3a080c59b734afb1fb7493689275443faa1435f71********"
-             imagePullPolicy: IfNotPresent
-             env:
-               - name: EVENTS_SERVER_PORT
-                 value: "8090"
-               - name: FLOWS_API_ADDR
-                 value: "hubble-relay:80"
-             ports:
-               - containerPort: 8090
-                 name: grpc
-             resources: {}
-           - name: proxy
-             image: "docker.io/envoyproxy/envoy:v1.18.2@sha256:e8b37c1d75787dd1e712ff389b0d37337dc8a174a63bed9c34ba7335********"
-             imagePullPolicy: IfNotPresent
-             ports:
-               - containerPort: 8081
-                 name: http
-             resources: {}
-             command: ["envoy"]
-             args: ["-c", "/etc/envoy.yaml", "-l", "info"]
-             volumeMounts:
-               - name: hubble-ui-envoy-yaml
-                 mountPath: /etc/envoy.yaml
-                 subPath: envoy.yaml
+         - name: frontend
+           image: "quay.io/cilium/hubble-ui:v0.13.0@sha256:7d663dc16538dd6e29061abd1047013a645e6e69c115e008bee9ea9fef9a6666"
+           imagePullPolicy: IfNotPresent
+           ports:
+           - name: http
+             containerPort: 8081
+           livenessProbe:
+             httpGet:
+               path: /healthz
+               port: 8081
+           readinessProbe:
+             httpGet:
+               path: /
+               port: 8081
+           volumeMounts:
+           - name: hubble-ui-nginx-conf
+             mountPath: /etc/nginx/conf.d/default.conf
+             subPath: nginx.conf
+           - name: tmp-dir
+             mountPath: /tmp
+           terminationMessagePolicy: FallbackToLogsOnError
+         - name: backend
+           image: "quay.io/cilium/hubble-ui-backend:v0.13.0@sha256:1e7657d997c5a48253bb8dc91ecee75b63018d16ff5e5797e5af367336bc8803"
+           imagePullPolicy: IfNotPresent
+           env:
+           - name: EVENTS_SERVER_PORT
+             value: "8090"
+           - name: FLOWS_API_ADDR
+             value: "hubble-relay:80"
+           ports:
+           - name: grpc
+             containerPort: 8090
+           volumeMounts:
+           terminationMessagePolicy: FallbackToLogsOnError
+         nodeSelector:
+           kubernetes.io/os: linux
          volumes:
-           - name: hubble-ui-envoy-yaml
-             configMap:
-               name: hubble-ui-envoy
+         - configMap:
+             defaultMode: 420
+             name: hubble-ui-nginx
+           name: hubble-ui-nginx-conf
+         - emptyDir: {}
+           name: tmp-dir
    ```
 
    {% endcut %}
@@ -264,54 +345,69 @@ To use the Cilium network policy controller in a cluster:
    kubectl apply -f hubble-ui.yaml
    ```
 
-   Command result:
+   {% cut "Command result" %}
 
    ```text
    serviceaccount/hubble-ui created
-   configmap/hubble-ui-envoy created
+   configmap/hubble-ui-nginx created
    clusterrole.rbac.authorization.k8s.io/hubble-ui created
    clusterrolebinding.rbac.authorization.k8s.io/hubble-ui created
    service/hubble-ui created
    deployment.apps/hubble-ui created
    ```
 
-1. Check that the Hubble pods' status changes to `Running`. To do this, run the following command:
+   {% endcut %}
+
+1. Check Cilium status after installing Hubble UI:
 
    ```bash
-   kubectl get pod -A -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase \
-     | grep hubble | grep -v certs
+   cilium status
    ```
 
-   Command result:
+   Cilium, Operator, and Hubble Relay should have the `OK` status. The `hubble-ui` container must be in the `Running: 1` state.
+
+   {% cut "Command result example" %}
 
    ```text
-   hubble-relay-6b9c774ffc-2jm7t  Running
-   hubble-ui-95d74d44c-7jpvl      Running
+       /¯¯\
+    /¯¯\__/¯¯\    Cilium:             OK
+    \__/¯¯\__/    Operator:           OK
+    /¯¯\__/¯¯\    Envoy DaemonSet:    disabled (using embedded mode)
+    \__/¯¯\__/    Hubble Relay:       OK
+       \__/       ClusterMesh:        disabled
+
+   Deployment             cilium-operator    Desired: 1, Ready: 1/1, Available: 1/1
+   Deployment             hubble-ui          Desired: 1, Ready: 1/1, Available: 1/1
+   DaemonSet              cilium             Desired: 1, Ready: 1/1, Available: 1/1
+   Deployment             hubble-relay       Desired: 1, Ready: 1/1, Available: 1/1
+   Containers:            cilium             Running: 1
+                          hubble-relay       Running: 1
+                          cilium-operator    Running: 1
+                          hubble-ui          Running: 1
+   Cluster Pods:          6/6 managed by Cilium
+   Helm chart version:
+   Image versions         cilium             cr.yandex/******/k8s-addons/cilium/cilium:v1.12.9: 1
+                          hubble-relay       cr.yandex/******/k8s-addons/cilium/hubble-relay:v1.12.9: 1
+                          cilium-operator    cr.yandex/******/k8s-addons/cilium/operator-generic:v1.12.9: 1
+                          hubble-ui          quay.io/cilium/hubble-ui-backend:v0.13.0@sha256:******: 1
+                          hubble-ui          quay.io/cilium/hubble-ui:v0.13.0@sha256:******: 1
    ```
 
-1. Download the Hubble client to the local computer:
+   {% endcut %}
+
+1. To access the Hubble UI web interface, run this command:
 
    ```bash
-   export HUBBLE_VERSION=$(curl -s https://raw.githubusercontent.com/cilium/hubble/master/stable.txt) && \
-   curl -LO "https://github.com/cilium/hubble/releases/download/$HUBBLE_VERSION/hubble-linux-amd64.tar.gz" && \
-   curl -LO "https://github.com/cilium/hubble/releases/download/$HUBBLE_VERSION/hubble-linux-amd64.tar.gz.sha256sum" && \
-   sha256sum --check hubble-linux-amd64.tar.gz.sha256sum && \
-   tar zxf hubble-linux-amd64.tar.gz
+   cilium hubble ui
    ```
 
-1. Configure Hubble port forwarding onto the local computer:
-
-   ```bash
-   kubectl port-forward -n kube-system svc/hubble-ui 12000:80
-   ```
+   Your browser will open and redirect you to the Hubble UI web interface.
 
    {% note info %}
 
-   Port forwarding is stopped if you close the terminal window or abort the command.
+   If you close the terminal session running the command, you will lose access to the web interface.
 
    {% endnote %}
-
-1. To open the Hubble UI in a browser, [follow this link](http://localhost:12000).
 
 ## Create a test environment {#create-test-environment}
 
@@ -383,10 +479,10 @@ To use the Cilium network policy controller in a cluster:
 1. Create applications:
 
    ```bash
-   kubectl create -f http-sw-app.yaml
+   kubectl apply -f http-sw-app.yaml
    ```
 
-   Command result:
+   {% cut "Command result" %}
 
    ```text
    service/deathstar created
@@ -395,13 +491,15 @@ To use the Cilium network policy controller in a cluster:
    pod/xwing created
    ```
 
+   {% endcut %}
+
 1. Make sure the pods and services you created are working:
 
    ```bash
    kubectl get pods,svc
    ```
 
-   Command result:
+   {% cut "Command result example" %}
 
    ```text
    NAME                            READY   STATUS    RESTARTS   AGE
@@ -411,53 +509,73 @@ To use the Cilium network policy controller in a cluster:
    pod/xwing                       1/1     Running   0          7d
 
    NAME                 TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
-   service/deathstar    ClusterIP   10.4.207.162   <none>        80/TCP    7d
-   service/kubernetes   ClusterIP   10.4.0.1       <none>        443/TCP   8d
+   service/deathstar    ClusterIP   10.96.18.169  <none>        80/TCP    7d
+   service/kubernetes   ClusterIP   10.96.0.1     <none>        443/TCP   8d
    ```
 
-1. Find out the name of the pod serving the Cilium controller:
+   {% endcut %}
+
+1. View the current status of Cilium endpoints:
 
    ```bash
-   kubectl -n kube-system get pods -l k8s-app=cilium
+   kubectl -n kube-system exec daemonset/cilium -- cilium endpoint list
    ```
 
-   Command result:
+   Make sure that network policies are disabled for all endpoints: their status under `POLICY (ingress) ENFORCEMENT` and `POLICY (egress) ENFORCEMENT` should be set to `Disabled`.
+
+   {% cut "Example of partial command result" %}
 
    ```text
-   NAME           READY   STATUS    RESTARTS   AGE
-   cilium-67c4p   1/1     Running   0          42h
+   Defaulted container "cilium-agent" out of: cilium-agent, clean-cilium-state (init), install-cni-binaries (init)
+   ENDPOINT   POLICY (ingress)   POLICY (egress)   IDENTITY   LABELS (source:key[=value])                                                  IPv6   IPv4          STATUS
+              ENFORCEMENT        ENFORCEMENT
+   51         Disabled           Disabled          2204       k8s:app.kubernetes.io/name=hubble-ui                                                10.112.0.97   ready
+                                                              k8s:app.kubernetes.io/part-of=cilium
+                                                              k8s:io.cilium.k8s.namespace.labels.kubernetes.io/metadata.name=kube-system
+                                                              k8s:io.cilium.k8s.policy.cluster=default
+                                                              k8s:io.cilium.k8s.policy.serviceaccount=hubble-ui
+                                                              k8s:io.kubernetes.pod.namespace=kube-system
+                                                              k8s:k8s-app=hubble-ui
+   274        Disabled           Disabled          23449      k8s:io.cilium.k8s.namespace.labels.kubernetes.io/metadata.name=kube-system          10.112.0.224  ready
+                                                              k8s:io.cilium.k8s.policy.cluster=default
+                                                              k8s:io.cilium.k8s.policy.serviceaccount=kube-dns-autoscaler
+                                                              k8s:io.kubernetes.pod.namespace=kube-system
+                                                              k8s:k8s-app=kube-dns-autoscaler
+
+   ...
    ```
 
-   In this example, the Cilium controller pod name is `cilium-67c4p`. If there are multiple nodes in the created node group, the Cilium controller pod is run on each of them. In this case, use the name of any of the pods.
-1. Make sure that network policies are disabled: the `POLICY (ingress) ENFORCEMENT` and `POLICY (egress) ENFORCEMENT` columns are set to `Disabled`:
+   {% endcut %}
+
+1. Make sure the `tiefighter` and `xwing` applications have access to the `deathstar` API and return `Ship landed`, as the network policies are disabled:
 
    ```bash
-   kubectl -n kube-system exec <Cilium_controller_pod_name> -- cilium endpoint list
+   kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing && \
+   kubectl exec xwing -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-1. Make sure the `xwing` and `tiefighter` applications have access to the `deathstar` API and return the `Ship landed` string, because the network policies are not activated:
-
-   ```bash
-   kubectl exec xwing -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing && \
-   kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
-   ```
-
-   Command result:
+   The output of both commands must be the same:
 
    ```text
    Ship landed
    Ship landed
    ```
+
+1. Go to the Hubble UI web interface and view data streams for pods and services in the `default` namespace.
+
+   The verdict for all data streams should be `forwarded`.
 
 ## Create an L3/L4 network policy {#l3-l4-policy}
 
 Apply an L3/L4 network policy to disable the `xwing` pod's access to `deathstar`. Access rules for the `tiefighter` pod remain unchanged.
 
 For access differentiation, the following {{ k8s }} labels are assigned to pods when creating them:
+
 * `org: empire` for the `tiefighter` pod.
 * `org: alliance` for the `xwing` pod.
 
 The L3/L4 network policy only allows `org: empire` labeled pods to access `deathstar`.
+
 1. Create a file named `sw_l3_l4_policy.yaml` with a specification of the policy:
 
    {% cut "sw_l3_l4_policy.yaml" %}
@@ -486,17 +604,46 @@ The L3/L4 network policy only allows `org: empire` labeled pods to access `death
 
    {% endcut %}
 
-1. Create a policy:
+1. Create a policy named `rule1`:
 
    ```bash
-   kubectl create -f sw_l3_l4_policy.yaml
+   kubectl apply -f sw_l3_l4_policy.yaml
    ```
 
-1. Make sure that the status of the policy for the `k8s:class=deathstar` object is `Enabled`:
+   Command result:
+
+   ```text
+   ciliumnetworkpolicy.cilium.io/rule1 created
+   ```
+
+1. View the current status of Cilium endpoints again:
 
    ```bash
-   kubectl -n kube-system exec <Cilium_controller_pod_name> -- cilium endpoint list
+   kubectl -n kube-system exec daemonset/cilium -- cilium endpoint list
    ```
+
+   Make sure the inbound direction policy in enabled for the endpoint associated with the `k8s:class=deathstar` label: its status under `POLICY (ingress) ENFORCEMENT` should be `Enabled`.
+
+   {% cut "Example of partial command result" %}
+
+   ```text
+   Defaulted container "cilium-agent" out of: cilium-agent, clean-cilium-state (init), install-cni-binaries (init)
+   ENDPOINT   POLICY (ingress)   POLICY (egress)   IDENTITY   LABELS (source:key[=value])                                                  IPv6   IPv4          STATUS
+              ENFORCEMENT        ENFORCEMENT
+
+   ...
+
+   3509       Enabled            Disabled          52725      k8s:class=deathstar                                                                 10.112.0.43   ready
+                                                              k8s:io.cilium.k8s.namespace.labels.kubernetes.io/metadata.name=default
+                                                              k8s:io.cilium.k8s.policy.cluster=default
+                                                              k8s:io.cilium.k8s.policy.serviceaccount=default
+                                                              k8s:io.kubernetes.pod.namespace=default
+                                                              k8s:org=empire
+
+   ...
+   ```
+
+   {% endcut %}
 
 1. Check that the `deathstar` service is available for the `tiefighter` pod:
 
@@ -519,22 +666,28 @@ The L3/L4 network policy only allows `org: empire` labeled pods to access `death
    Press **Ctrl** + **C** to abort the command. The network policy has denied this pod access to the service.
 
 1. Learn how the policy works:
-   * To view the policy specification and status, run the command:
+
+   * To view the policy specification and status, run this command:
 
       ```bash
       kubectl describe cnp rule1
       ```
 
-   * To check if the pods can connect to `deathstar`, open the Hubble UI. To do this, [follow the link](http://localhost:12000/default).
+   * Go to the Hubble UI web interface and view data streams for pods and services in the `default` namespace.
+
+      * The verdict for streams from `tiefighter` to `deathstar.default.svc.cluster.local/v1/request-landing` should be `forwarded`.
+      * The verdict for streams from `xwing` to `deathstar.default.svc.cluster.local/v1/request-landing` should be `dropped`.
 
 ## Create an L7 network policy {#l7-policy}
 
 In this part of the scenario, we will change the access policy for the `tiefighter` pod:
+
 * Access to the `deathstar.default.svc.cluster.local/v1/exhaust-port` API method will be disabled.
 * Access to the `deathstar.default.svc.cluster.local/v1/request-landing` API method remains unchanged.
 
 Access for the `xwing` pod remains unchanged. This pod can't access `deathstar`.
-1. Check that the `tiefighter` pod can access the `deathstar.default.svc.cluster.local/v1/exhaust-port` method in the current policy version:
+
+1. Check that the `tiefighter` pod has access to the `deathstar.default.svc.cluster.local/v1/exhaust-port` method when using the existing `rule1` policy:
 
    ```bash
    kubectl exec tiefighter -- curl -s -XPUT deathstar.default.svc.cluster.local/v1/exhaust-port
@@ -554,7 +707,7 @@ Access for the `xwing` pod remains unchanged. This pod can't access `deathstar`.
      temp/main.go:5 +0x85
    ```
 
-1. Create a file named `sw_l3_l4_l7_policy.yaml` with a specification of the policy:
+1. Create a file named `sw_l3_l4_l7_policy.yaml` with an updated policy specification:
 
    {% cut "sw_l3_l4_l7_policy.yaml" %}
 
@@ -586,10 +739,16 @@ Access for the `xwing` pod remains unchanged. This pod can't access `deathstar`.
 
    {% endcut %}
 
-1. Create a new policy:
+1. Update the existing `rule1` policy:
 
    ```bash
    kubectl apply -f sw_l3_l4_l7_policy.yaml
+   ```
+
+   Command result:
+
+   ```text
+   ciliumnetworkpolicy.cilium.io/rule1 configured
    ```
 
 1. Check that the `tiefighter` pod can access the `deathstar.default.svc.cluster.local/v1/request-landing` method:
@@ -623,18 +782,41 @@ Access for the `xwing` pod remains unchanged. This pod can't access `deathstar`.
    ```
 
    Press **Ctrl** + **C** to abort the command.
+
 1. Learn how the policy works:
-   * To view the updated policy specification and status, run the command:
+
+   * To view the policy specification and status, run this command:
 
       ```bash
       kubectl describe cnp rule1
       ```
 
-   * To check if the pods can connect to `deathstar`, open the Hubble UI. To do this, [follow the link](http://localhost:12000/default).
+   * Go to the Hubble UI web interface and view data streams for pods and services in the `default` namespace:
+
+      * The verdict for streams from `tiefighter` to `deathstar.default.svc.cluster.local/v1/request-landing` should be `forwarded`.
+      * The verdict for streams from `tiefighter` to `deathstar.default.svc.cluster.local/v1/exhaust-port` should be `dropped`.
+      * The verdict for streams from `xwing` to `deathstar.default.svc.cluster.local` should be `dropped`.
 
 ## Delete the resources you created {#clear-out}
 
 Delete the resources you no longer need to avoid paying for them:
 
-1. [Delete the {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-delete.md).
-1. If static public IP addresses were used for cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.
+{% list tabs group=instructions %}
+
+- Manually {#manual}
+
+   1. [Delete the {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-delete.md).
+   1. If static public IP addresses were used for cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.
+
+- {{ TF }} {#tf}
+
+   1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
+   1. Delete the `k8s-cilium.tf` configuration file.
+   1. {% include [terraform-validate](../../_includes/managed-kubernetes/terraform-validate.md) %}
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      This will delete all the resources described in the `k8s-cilium.tf` configuration file.
+
+{% endlist %}

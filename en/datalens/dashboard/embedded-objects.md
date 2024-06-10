@@ -19,8 +19,9 @@ You can configure the features and appearance of the objects being embedded thro
 
 * `_no_scroll`: Disables vertical scrolling on dashboards. To enable the parameter, set to `1`.
 * `_lang`: For charts, defines the language for the menu that opens when you click ![image](../../_assets/console-icons/ellipsis.svg). The possible values are `ru` or `en`.
+* `_opened_info`: Displays dashboard [description](./settings.md#message-settings) as you open a dashboard, if filled. To enable the parameter, set to `1`.
 
-The parameter is added to the object address after the question mark `?`. To send multiple parameters, list them separated by `&`, e.g.:
+The parameter is added to the object address after the question mark (`?`). To send multiple parameters, list them separated by `&`, e.g.:
 
 
 ```html
