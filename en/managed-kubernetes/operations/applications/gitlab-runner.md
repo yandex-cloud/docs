@@ -12,16 +12,17 @@
 1. Open the {{ GL }} administration panel in your browser:
    * If {{ GL }} is deployed on a [{{ compute-full-name }}](../../../compute/) [instance](../../../compute/concepts/vm.md), use its [public IP](../../../compute/concepts/network.md#public-ip).
    * If {{ GL }} is deployed in [{{ mgl-full-name }}](../../../managed-gitlab/), use the [instance FQDN](../../../compute/concepts/network.md##hostname).
-1. Get a registration token in the administration panel:
-   * To configure {{ GLR }} throughout the [{{ GL }} instance](../../../managed-gitlab/concepts/index.md) ({{ GL }} administrator access required):
-     1. Click **Menu** and select the **Admin** option.
-     1. Choose **CI/CD** → **Runners**.
-     1. Click **Register an instance runner** and save the value of the `Registration token` parameter.
+1. Get the {{ GLR }} authentication token (Runner authentication token):
+   * To configure {{ GLR }} throughout the [{{ GL }} instance](../../../managed-gitlab/concepts/index.md#instance) ({{ GL }} administrator access required):
+     1. Click **Admin area** and select **CI/CD** → **Runners**.
+     1. Click **New instance runner** and create a new {{ GLR }}.
+     1. Save the `Runner authentication token` value.
    * To configure {{ GLR }} for a group or project:
      1. Select a group or project you want to configure.
      1. On the left-hand side of the window that opens, click **Settings** and select the **CI/CD** option.
      1. Under **Runners**, click **Expand**.
-     1. Save the value of the `Registration token` parameter.
+     1. Click **New project runner** and create a new {{ GLR }}.
+     1. Save the `Runner authentication token` value.
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
@@ -32,7 +33,7 @@
    * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for {{ GLR }}.
    * **Application name**: Enter a name for the application.
    * **{{ GL }} domain name**: Enter a domain for your {{ GL }} instance.
-   * **Registration token**: Specify the [previously retrieved](#before-you-begin) registration token.
+   * **Registration token**: Specify the token you [obtained previously](#before-you-begin).
    * (Optional) **Privileged mode for running docker:dind**: Enable this option if you want to use docker:dind images.
 
       {% note warning %}
@@ -41,7 +42,7 @@
 
       {% endnote %}
 
-   * (Optional) **List of tags**: Provide a list of tags for task distribution across multiple {{ GLR }}.
+   * (Optional) **List of comma-separated tags**: Provide a list of tags to distribute tasks between multiple {{ GLR }}s.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
 1. Go back to the Runners page of your {{ GL }} instance, reload the page, and make sure you see a new {{ GLR }}.
@@ -62,8 +63,8 @@
    helm install \
      --namespace <namespace> \
      --create-namespace \
-     --set gitlabDomain=<VM_public_IP_or_{{ GL }}_instance_FQDN> \
-     --set runnerToken=<previously_retrieved_registration_token> \
+     --set gitlabDomain=<VM_public_IP_address_or_{{ GL }}_instance_FQDN> \
+     --set runnerRegistrationToken=<previously_obtained_token> \
      gitlab-runner ./gitlab-runner/
    ```
 

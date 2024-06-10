@@ -45,7 +45,7 @@ Pivot tables make it easier to work with large amounts of data and let you analy
 ----- | ----
 | Columns | Dimensions |
 | Strings | Dimensions |
-| Measures | Measures. If you add more than one measure to a section, the **Columns** section contains the [Measure Names](../concepts/chart/measure-values.md) dimension that defines the location of the measure headers. [Measure Names](../concepts/chart/measure-values.md) can be moved to **Rows**. |
+| Measures | Measures. If you add more than one measure to a section, the **Columns** section will contain the [Measure Names](../concepts/chart/measure-values.md) dimension that defines the location of the measure headers. [Measure Names](../concepts/chart/measure-values.md) can be moved to **Rows**. |
 | Colors | Measure. Affects shading of all cells containing indicators. It may only contain one measure. |
 | Sorting | Dimensions and measures specified in the **Columns** and **Rows** sections.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon. Sorting by measure only impacts a request to the source and does not affect the pivot table. |
 | Filters | Dimension or measure. Used as a filter. |
@@ -87,6 +87,13 @@ To create a pivot table:
 
 1. Under **Columns** or **Rows**, click the icon to the left of the dimension name.
 1. In the window that opens, change the **Name** field value and click **Apply**.
+
+### Adding a tooltip to a table row {#hint-column}
+
+1. Under **Rows**, click the icon to the left of the dimension or measure name.
+1. In the window that opens, enable the **Tooltip** option, enter the text in the field below and click **Apply**. By default, when you enable the option, the tooltip text is substituted from the field description in the [dataset](../concepts/dataset/index.md).
+
+When the option is enabled, the ![image](../../_assets/console-icons/circle-question.svg) icon appears next to the row name in the chart and on the dashboard. Hover over the icon to bring up the tooltip.
 
 ### Setting up the width of table columns and rows {#set-column-width}
 

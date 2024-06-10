@@ -20,7 +20,7 @@ To do this:
 
    {% note info %}
 
-   Events can't be deleted for certain roles. It means that [notifications have already been set up](user-notifications.md) for a similar role. You can edit these events in the relevant section on the **{{ ui-key.yacloud.component.navigation-menu.label_notifications }}** tab.
+   If you cannot delete events for certain roles, it means that [notifications have already been set up](user-notifications.md) for a similar role. You can edit these events in the relevant section on the **{{ ui-key.yacloud.component.navigation-menu.label_notifications }}** tab.
 
    {% endnote %}
 

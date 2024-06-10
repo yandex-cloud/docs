@@ -27,6 +27,7 @@
    * [GeeseFS](geesefs.md)
    * [s3fs](s3fs.md)
    * [goofys](goofys.md)
+   * [rclone](rclone.md)
 
 * FTP
 

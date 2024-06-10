@@ -1,7 +1,7 @@
 # Adding a selector to a dashboard
 
 
-Before adding a selector, make sure that you have the `{{ permission-write }}` or `{{ permission-admin }}` permission for a dashboard. For more information, see [this section](../../security/index.md).
+Before adding a selector, make sure that you have the `{{ permission-write }}` or `{{ permission-admin }}` permission for the dashboard. For more information, see [{#T}](../../security/manage-access.md).
 
 
 To add a [selector](../../dashboard/selector.md) to a dashboard:
@@ -15,6 +15,8 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 1. In the panel at the bottom of the page, choose **Selector**.
 
    ![image](../../../_assets/datalens/operations/widget-select.png =500x118)
+
+
 
 1. Choose your selector type:
 
@@ -39,7 +41,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
             {% endnote %}
 
          * **Operation**: Comparison operation by which the selector filters the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters the QL chart.
-         * **Required field**: Allows setting the selector value as a required parameter. If enabled, `*` will be appended to the selector name. This is not available for the **Checkbox** selector type.
+         * **Required field**: Allows setting the selector value as a required parameter. If enabled, `*` will be appended to the selector name. Not available for the **Checkbox** selector type.
          * **Multiple choice**: Allows choosing several values in the selector. Only available for the **List** selector type.
          * **Range**: Allows setting a time interval in the selector. Only available for the **Calendar** selector type.
          * **Default value**: Displayed when you first open the dashboard. This is a required field if the **Required field** option is enabled.
@@ -48,8 +50,9 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
          * **Title**: Used to choose a selector when establishing a link with other widgets. The option enables you to control the display of the name on the dashboard.
          * **Inner title**: Text that is displayed in the selector to indicate a comparison operation. You can change the default value to your own one. For example, you can specify the `=` or `equal to` value for the **Equal to** operation. The parameter is only available for the **List** type.
+         * **Tooltip**: This option allows adding a text comment to the selector. By default, when you enable the option, the tooltip text is substituted from the field description in the [dataset](../../concepts/dataset/index.md). You can change the tooltip text. When you change the dataset field description, the text is not automatically updated.
 
-            ![image](../../../_assets/datalens/selector-settings/selector-operation-title.png)
+            When the option is enabled, the ![image](../../../_assets/console-icons/circle-question.svg) icon appears on the dashboard next to the selector. Hover over the icon to bring up the tooltip.
 
    - Manual input
 
@@ -72,7 +75,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
             {% endnote %}
 
          * **Operation**: Comparison operation by which the selector filters the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters the QL chart.
-         * **Required field**: Allows setting the selector value as a required parameter. If enabled, `*` will be appended to the selector name. This is not available for the **Checkbox** selector type.
+         * **Required field**: Allows setting the selector value as a required parameter. If enabled, `*` will be appended to the selector name. Not available for the **Checkbox** selector type.
          * **Multiple choice**: Allows choosing several values in the selector. Only available for the **List** selector type.
          * **Possible values**: List of values to select. Only available for the **List** selector type.
          * **Range**: Allows setting a time interval in the selector. Only available for the **Calendar** selector type.
@@ -88,15 +91,16 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
             The option enables you to control the display of the name on the dashboard.
 
          * **Inner title**: Text that is displayed in the selector to indicate a comparison operation. You can change the default value to your own one. For example, you can specify the `=` or `equal to` value for the **Equal to** operation. The parameter is only available for the **List** type.
+         * **Tooltip**: This option allows adding a text comment to the selector. By default, when you enable the option, the tooltip text is substituted from the field description in the [dataset](../../concepts/dataset/index.md). You can change the tooltip text. When you change the dataset field description, the text is not automatically updated.
 
-            ![image](../../../_assets/datalens/selector-settings/selector-operation-title.png)
-
+            When the option is enabled, the ![image](../../../_assets/console-icons/circle-question.svg) icon appears on the dashboard next to the selector. Hover over the icon to bring up the tooltip.
 
    {% endlist %}
 
-   In [QL charts](../../concepts/chart/ql-charts.md), you can control [selector parameters](../chart/create-sql-chart.md#selector-parameters) from the **Parameters** tab in the chart editing area and use the **Query** tab to specify a variable in the query itself in `not_var{{variable}}` format.
+   In [QL charts](../../concepts/chart/ql-charts.md), you can control [selector parameters](../chart/create-sql-chart.md#selector-parameters) from the **Parameters** tab in the chart editing area and use the **Query** tab to specify a variable in the query itself in `not_var{{ variable }}` format.
 
 1. Click **Add**. The widget will be displayed on the dashboard.
+
 
 {% note warning %}
 
@@ -106,5 +110,5 @@ When adding a selector by a certain field to your dashboard, filters added at th
 
 ## Limitations {#restrictions}
 
-* For measure selectors, only one selector type is available: **Input field**.
-* We recommend making measure selectors independent of other selectors (you should specify the **Ignore** [link](../../dashboard/link.md) type with other selectors in the **Links** section when editing a dashboard).
+* For measure selectors, only one type is available: **Input field**.
+* We recommend that you always make your measure selectors independent from other selectors. To do this, set your dashboard's [link](../../dashboard/link.md) type to **Not linked** with other selectors in the **Links** section when editing.

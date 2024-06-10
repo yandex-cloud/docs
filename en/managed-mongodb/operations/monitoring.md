@@ -105,7 +105,7 @@ This page displays charts showing the load on an individual host in the cluster:
    1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
 
       * **{{ mmg-name }}** to configure cluster alerts.
-      * **{{ mmg-name }}: Host Overview** to configure host alerts.
+      * **{{ mmg-name }} — Host Overview** to configure host alerts.
 
    1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 

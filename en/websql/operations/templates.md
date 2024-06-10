@@ -11,7 +11,7 @@ To save a query:
 1. In the data panel, for any query, click ![image](../../_assets/console-icons/floppy-disk.svg) next to the **Execute** button.
 1. In the **Save query** window:
    1. Select a connection to the database being queried.
-   1. Specify the **Name**: a user-defined name under which the query will be displayed in the list of saved queries.
+   1. Specify a **Name**: a user-defined name under which the query will be displayed in the list of saved queries.
    1. For your saved query to be used as a template in the suggestions list, select **Add tip** and type the **Tip text** including `userTemplate_`.
    1. Verify or edit the SQL query.
 
@@ -23,11 +23,11 @@ To save a query:
 
    1. Click **Save**.
 
-After you save the query, it will appear in the **Saved queries** (![image](../../_assets/console-icons/floppy-disk.svg)) window, and if you have added a suggestion, it will appear as a template along with the ready-made {{ websql-full-name }} [templates](#available-templates).
+After you save the query, it will appear in the **Saved queries** (![image](../../_assets/console-icons/floppy-disk.svg)) window, and if you have added a suggestion, it will appear as a template along with the ready-made {{ websql-full-name }} [templates](#use-templates).
 
 Queries are saved for the selected {{ yandex-cloud }} [organization](../../organization/concepts/manage-services.md) and current browser session.
 
-## Using templates {#available-templates}
+## Using templates {#use-templates}
 
 To apply templates:
 

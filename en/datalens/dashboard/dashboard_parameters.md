@@ -1,17 +1,17 @@
 # Dashboard parameters
 
-The dashboard parameter is a variable used to filter widgets on the dashboard when you open it. Parameters allow you to use visualization features more flexibly and customize the same charts and widgets for different purposes. Parameters may help if:
+The dashboard parameter is a variable used to filter widgets on the dashboard when you open it. Parameters allow you to use visualization features more flexibly and adapt the use of the same charts and widgets for different purposes. It may be helpful to use parameters in cases such as:
 
 * You want to post a link to a dashboard with a filter applied: in another dashboard table, on a {{ wiki-full-name }} page, or somewhere else.
 * You want to post the same chart with different filters on the same dashboard tab.
 
-You can add parameters both for the entire [dashboard](#params-dash) and for a [separate chart](#params-chart) on the dashboard. Dashboard parameters apply to all its charts, while chart parameters apply to an individual widget.
+You can add parameters both for the whole [dashboard](#params-dash) and for a [separate chart](#params-chart) on the dashboard. Dashboard parameters apply to all its charts, while chart parameters apply to an individual widget.
 
-Watch [this video tutorial](https://www.youtube.com/watch?v=fx0BR_RnLNs) on how to use parameters on the {{ yandex-cloud }} YouTube channel.
+You can see the examples of how to use the parameters in this {{ yandex-cloud }} YouTube channel [video](https://www.youtube.com/watch?v=fx0BR_RnLNs).
 
 ## Dashboard parameters {#params-dash}
 
-Dashboard parameters are inserted into all widgets (including charts and selectors) when they are uploaded. When opening such a dashboard, its data will be filtered based on the specified parameter values. You can [add parameters](../operations/dashboard/add-parameters.md) in the dashboard settings. For each parameter, specify a name (key) and value. A parameter name must be the same as the name of the dataset field by which data is filtered.
+Dashboard parameters are substituted into all widgets (including charts and selectors) when they are uploaded. When opening such a dashboard, its data will be filtered based on the specified parameter values. You can [add parameters](../operations/dashboard/add-parameters.md) in the dashboard settings. For each parameter, specify a name (key) and value. The parameter name must be the same as the name of the dataset field by which data is filtered.
 
 {% note info %}
 
@@ -41,7 +41,7 @@ The parameter values specified in the link will take priority. For example, if t
 
 Chart parameters apply only to the chart itself. Thus, you can view the same chart with different filters on the same dashboard tab. You can [add parameters for the chart](../operations/chart/add-parameters.md) in its settings on the dashboard.
 
-You can transmit a parameter value to a wizard chart using a field's ID ([see the guide](../operations/chart/add-guid.md)).
+You can pass a transmit value to a wizard chart using field ID ([see the instructions](../operations/chart/add-guid.md)).
 
 {% include [datalens-chart-parameters-example](../../_includes/datalens/datalens-chart-parameters-example.md) %}
 
@@ -124,6 +124,7 @@ The following limitations apply when using parameters:
    * `datetime`
    * `_action_params`
    * `_autoupdate`
+   * `_opened_info`
 
    Parameters with these keys are ignored and not saved.
 

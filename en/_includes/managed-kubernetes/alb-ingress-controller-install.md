@@ -83,8 +83,8 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
    * [{{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md)
 
 
-* [Manual for configuring the {{ alb-name }} Ingress controller](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
-* [Manual for configuring logging for {{ alb-name }} Ingress controllers](../../managed-kubernetes/tutorials/alb-ingress-controller-log-options.md).
+* [{{ alb-name }} Ingress controller configuration tutorial](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
+* [{{ alb-name }} Ingress controller logging configuration tutorial](../../managed-kubernetes/tutorials/alb-ingress-controller-log-options.md).
 
 
 * [Restrictions when updating the ALB Ingress Controller](../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md).

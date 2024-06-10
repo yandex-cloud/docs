@@ -1,24 +1,31 @@
-# Managing database connections
+# Managing connections
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
 In [{{ websql-full-name }}]({{ websql-link }}), you can do the following using the **Connection Manager** panel (![image](../../_assets/console-icons/folder-tree.svg)):
 
-* Add connections to [databases](#connect-db) or [database clusters](#connect-cluster).
-* [Check connection settings](#change-connection-settings).
+* Add connections with [{{ mpg-full-name }}](../../managed-postgresql/operations/cluster-list.md), [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-list.md), and [{{ mmy-full-name }}](../../managed-mysql/operations/cluster-list.md) [managed database clusters](#connect-cluster).
+* Add connections with [public databases](#connect-db).
+* [Check connection settings](#view-connection-settings).
 * [Re-establish previously created connections](#update-connection).
 * [Delete connections](#delete-connection) that you no longer need.
 * [Work with demo connections](#demo) to explore {{ websql-full-name }}.
 
-## Connecting to a database cluster in {{ yandex-cloud }} {#connect-cluster}
+## Connecting to a managed database cluster in {{ yandex-cloud }} {#connect-cluster}
 
-If you have a [{{ PG }}](../../managed-postgresql/operations/cluster-list.md), [{{ CH }}](../../managed-clickhouse/operations/cluster-list.md), or [{{ MY }}](../../managed-mysql/operations/cluster-list.md) cluster configured in {{ yandex-cloud }}, you can connect directly to it:
+{% include [clickhouse-warning](../../_includes/websql/clickhouse-warning.md) %}
 
 {% include notitle [connect-to-cluster](../../_includes/websql/connect-to-cluster.md) %}
 
-## Connecting to an external database {#connect-db}
+If the connection is successful, you will see the cluster structure in the connection manager tree. Hosts of the same cluster will appear in a [_connection group_](#add-connection-to-group).
+
+## Connecting to a public database {#connect-db}
+
+To connect to a public database via the internet:
 
 {% include notitle [connect-to-db](../../_includes/websql/connect-to-db.md) %}
+
+If the connection is successful, you will see the database structure in the connection manager tree.
 
 ## Adding a connection to a connection group {#add-connection-to-group}
 
@@ -39,11 +46,11 @@ To rename a connection group:
 1. Click **...** to the right of the group name and choose **Rename group**.
 1. In the window that opens, specify a new group name and click **Apply**.
 
-## Viewing connection settings {#change-connection-settings}
+## Viewing connection settings {#view-connection-settings}
 
 To view connection settings:
 
-1. Select a connection or a connection group.
+1. Select a connection or connection group.
 1. Click **...** to the right of the connection name and choose **Connection information**.
 
 A panel with connection settings will open.
@@ -62,8 +69,8 @@ This opens a panel with information about the table, including its name, size, a
 
 * Column name.
 * Data type.
-* Whether the column is Nullable.
-* Whether the column is a primary key.
+* Whether or not the column is nullable.
+* Whether or not the column is a primary key.
 
 If the table contains indexes or triggers, the same panel will display information about columns and indexing types, as well as trigger events.
 
@@ -120,7 +127,7 @@ To re-establish inactive connections:
 
 To delete the connections you no longer use:
 
-1. Select a connection or a connection group.
+1. Select a connection or connection group.
 1. Click **...** to the right of their name and choose **Delete connection** or **Delete group**.
 
 ## Managing demo connections {#demo}

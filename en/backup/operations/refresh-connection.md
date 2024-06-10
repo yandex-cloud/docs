@@ -45,6 +45,9 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
 
       1. [Connect](../../compute/operations/vm-connect/rdp.md) to the VM via RDP.
       1. Run Windows PowerShell.
+
+         {% include [ps-note](../../_includes/backup/ps-note.md) %}
+
       1. Run this command:
 
          ```powershell

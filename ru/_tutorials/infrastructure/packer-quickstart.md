@@ -58,7 +58,7 @@ export PATH=$PATH:/path/to/packer
 
 {% cut "Пример установки Packer из зеркала" %}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
 - Ubuntu {#ubuntu}
 

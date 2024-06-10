@@ -214,7 +214,7 @@ To connect to a cluster host from the built-in SQL editor, specify the following
 https://<FQDN_of_any_{{ CH }}_host>:8443/play
 ```
 
-You can only connect to publicly accessible cluster hosts. To learn how to get a host FQDN, see [this guide](fqdn.md).
+You can only connect to public cluster hosts. To learn how to get a host FQDN, see [this guide](fqdn.md).
 
 To connect to a cluster by [selecting an available host automatically](fqdn.md#auto), use the following URL:
 
@@ -228,7 +228,9 @@ To make a query to the database, specify the username and password in the upper-
 
 {% include notitle [preview](../../../_includes/note-preview.md) %}
 
-In [{{ websql-full-name }}](../../../websql), create a connection to a {{ CH }} cluster in {{ yandex-cloud }}.
+Use [{{ websql-full-name }}](../../websql) to connect to a {{ CH }} cluster in {{ yandex-cloud }}.
+
+{% include [clickhouse-warning](../../../_includes/websql/clickhouse-warning.md) %}
 
 {% include notitle [connect-to-cluster](../../../_includes/websql/connect-to-cluster.md) %}
 

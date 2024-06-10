@@ -4,6 +4,10 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## Май 2024 {#may-2024}
+
+* Доступна новая версия {{ CH }} [24.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-244-2024-04-30).
+
 ## Апрель 2024 {#apr-2024}
 
 * Доступна новая версия {{ CH }} [24.3 LTS](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-243-lts-2024-03-27).
