@@ -28,8 +28,8 @@
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       * Укажите идентификатор подсети или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка. Можно выбрать зону поиска: в текущем каталоге или во всех каталогах. Если сети нет, нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
           * В открывшемся окне укажите каталог, в котором будет располагаться новая сеть, и имя сети.
-          * В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** выберите опцию **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_is-default }}** — у каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet).
-          * Нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+          * В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** — у каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet).
+          * Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
       * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите способ назначения адреса:
           * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}.
           * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../../vpc/operations/set-static-ip.md).

@@ -3,7 +3,7 @@
 
     * В открывшемся окне укажите имя сети и каталог, в котором она будет создана.
     * (Опционально) Для автоматического создания подсетей выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
-    * Нажмите **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+    * Нажмите **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
     У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
 
 * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите способ назначения адреса:
@@ -17,7 +17,7 @@
 * Разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** и в поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите способ назначения внутренних адресов:
     * `{{ ui-key.yacloud.common.label_auto }}` — чтобы назначить случайный IP-адрес из пула адресов, доступных в выбранной подсети.
     * `{{ ui-key.yacloud.common.label_list }}` — чтобы выбрать внутренний IP-адрес из списка зарезервированных заранее IP-адресов. При необходимости нажмите кнопку **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}**, чтобы зарезервировать внутренний IP-адрес в выбранной подсети.
-    * При необходимости включите опцию **{{ ui-key.yacloud.component.compute.network-select.field_ddos-protection-provider }}**. Опция доступна, если ранее в настройках публичного адреса вы выбрали автоматический способ назначения адреса.
+    * При необходимости включите опцию **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**. Опция доступна, если ранее в настройках публичного адреса вы выбрали автоматический способ назначения адреса.
 
 * (Опционально) Создайте записи для ВМ в [зоне DNS](../../dns/concepts/dns-zone.md):
 

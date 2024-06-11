@@ -194,9 +194,102 @@ Alternatively, you can grant internet access permission to {{ managed-k8s-name }
 
 {% note info %}
 
-If you assigned public IP addresses to the cluster nodes and then configured the NAT gateway or NAT instance, internet access via the public IPs will be disabled. For more information, see the [{{ vpc-full-name }} documentation](../../../vpc/concepts/static-routes.md#internet-routes).
+If you assigned public IP addresses to the cluster nodes and then configured the NAT gateway or NAT instance, internet access via the public IP addresses will be disabled. For more information, see the [{{ vpc-full-name }} documentation](../../../vpc/concepts/static-routes.md#internet-routes).
 
 {% endnote %}
+
+## Placing a taint on a node group {#assign-taint}
+
+Adding [taints](../../concepts/index.md#taints-tolerations) results in recreation of a {{ managed-k8s-name }} node group. First, all nodes in the group are deleted, then nodes with the taint are added to the group.
+
+{% list tabs group=instructions %}
+
+- {{ TF }} {#tf}
+
+   To place a taint on a node group:
+
+   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
+
+      For more information about creating this file, see [{#T}](node-group-create.md).
+
+   1. Add the `node_taints` section to the node group description:
+
+      ```hcl
+      resource "yandex_kubernetes_node_group" "<node_group_name>" {
+        ...
+        node_taints = [
+          "<key>=<value>:<taint effect>",
+          ...
+        ]
+        ...
+      }
+      ```
+
+      Specify a key and value. Select one of the available taint effects:
+
+      * `NoSchedule`: Prohibit running new pods on the group's nodes (it does not affect the running pods).
+      * `PreferNoSchedule`: Avoid running pods on the group's nodes if there are resources available for this purpose in other groups.
+      * `NoExecute`: Stop pods on the group's nodes, evict them to other groups, and prohibit running new pods.
+
+      You can place multiple taints by specifying them separated by commas.
+
+   1. Make sure the configuration files are correct.
+
+      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+      For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+
+- API {#api}
+
+   To place a taint on a node group, use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup/index.md) and provide the following in the request:
+
+   * Taints in the `nodeTaints` parameter.
+   * `nodeTaints` parameter to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
+
+## Removing a taint from a node group {#remove-taint}
+
+Removing [taints](../../concepts/index.md#taints-tolerations) results in recreation of a {{ managed-k8s-name }} node group. First, all nodes in the group are deleted, then nodes with the new configuration are added to the group.
+
+{% list tabs group=instructions %}
+
+- {{ TF }} {#tf}
+
+   To remove a taint from a node group:
+
+   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
+
+      For more information about creating this file, see [{#T}](node-group-create.md).
+
+   1. In the node group description, remove the taints you no longer need under `node_taints`.
+
+   1. Make sure the configuration files are correct.
+
+      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+      For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+
+- API {#api}
+
+   To remove a taint from a node group, use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup/index.md) and provide the following in the request:
+
+   * New set of taints in the `nodeTaints` parameter. If you want to remove all the taints, provide `"nodeTaints": []` in the request.
+   * `nodeTaints` parameter to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
 
 ## Managing node group cloud labels {#manage-label}
 

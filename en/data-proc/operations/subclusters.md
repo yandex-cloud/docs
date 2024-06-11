@@ -44,7 +44,7 @@ The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ li
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and the required cluster.
    1. Go to **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.subclusters.button_create }}**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.subclusters.action_add-subclaster }}**.
    1. Specify the subcluster parameters:
       1. **{{ ui-key.yacloud.mdb.forms.base_field_hosts-count }}**: Select the number of hosts.
       1. **{{ ui-key.yacloud.mdb.forms.base_field_roles }}**: Select the subcluster roles depending on the services to be deployed on the hosts:

@@ -1,43 +1,41 @@
-# Calculable fields
+# Calculated fields
 
-A calculable field is an additional [data field](../dataset/index.md#field) with values calculated using a formula.
-You can use calculable fields to create new dimensions and measures.
-The data source remains unchanged.
+A calculated field is an additional [data field](../dataset/index.md#field) with values calculated using a formula.
+You can use calculated fields to create new dimensions and measures. The data source remains unchanged.
 
 To write formulas, you can use the existing dataset fields, [parameters](../parameters.md), constants, and [functions](#functions).
 
-You can [create](#how-to-create-calculated-field) calculable fields in the dataset or wizard interface:
+You can [create](#how-to-create-calculated-field) calculated fields in the dataset or wizard interface:
 
-* Calculable fields from a dataset are available in all charts above this dataset.
-* Calculable fields from the wizard are only available for saved charts.
+* Calculated fields from a dataset are available in all charts above this dataset.
+* Calculated fields from the wizard are only available for saved charts.
 
-## Calculable fields in datasets {#dataset}
+Calculated fields are marked with ![image](../../../_assets/console-icons/function.svg).
+
+## Calculated fields in datasets {#dataset}
 
 You can add new fields to a dataset field list.
 
-When creating a formula, you can use any dataset field, including the calculable fields you previously created. 
+When creating a formula, you can use any dataset field, including the calculated fields you previously created. In a formula, you can also use parameters created at the dataset level.
 
-After creating a calculable field and saving the dataset, the field becomes available to all charts and dashboard [selectors](../../dashboard/selector.md) based on that dataset.
-To hide fields in the wizard, enable the **Don't display** option when creating them.
+After creating a calculated field and saving the dataset, the field becomes available to all charts and dashboard [selectors](../../dashboard/selector.md) based on that dataset.
 
-Calculable fields are marked with ![image](../../../_assets/console-icons/function.svg).
+To hide fields in the wizard, enable the **Do not display in wizard** option when creating them.
 
-## Calculable fields in charts {#chart}
+## Calculated fields in charts {#chart}
 
 You can add new fields when creating and editing charts in the wizard:
 
 * In the list of fields from a dataset.
 * In the visualization section.
 
-When creating a formula, you can use any dataset field, including the calculable fields you previously created. 
+When creating a formula, you can use any dataset field, including the calculated fields you previously created. In a formula, you can also use the parameters of the chart or dataset based on which the chart is created.
 
 If a field is created in a chart, it will not be available to dashboard selectors and other charts.
 
-Calculable fields are marked with ![image](../../../_assets/console-icons/function.svg).
-
 {% note warning %}
 
-In [multi-dataset charts](../chart/index.md#multi-dataset-charts), calculable fields are not applicable to fields from multiple datasets.
+In [multi-dataset charts](../chart/index.md#multi-dataset-charts), calculated fields are not applicable to fields from multiple datasets.
 
 {% endnote %}
 
@@ -53,14 +51,13 @@ Avoid calculation loops: in a formula, you cannot use a field that uses the same
 
 {% endnote %}
 
-
 ### Notation format {#entry-format}
 
-Write formulas that meet the following requirements:
+Write formulas according to the following requirements:
 
 1. Specify function arguments in parentheses, e.g., `YEAR([DATE1])`. Separate multiple arguments with commas.
 1. Specify field names in square brackets, such as `[CustomerID]`.
-1. Make sure to enter the values of fields and constants in a valid [format](../dataset/index.md#data-types). For example, use a period as a decimal separator: `0.123`.
+1. Make sure to enter the values of fields and constants in a valid [format](../data-types.md). For example, use a period as a decimal separator: `0.123`.
 
 {% note info %}
 
@@ -71,9 +68,9 @@ Write formulas that meet the following requirements:
 
 For more information on format, types of accepted arguments, and returned function values, use the **Reference** button when adding a field in the formula editor interface.
 
-## How to create a calculable field {#how-to-create-calculated-field}
+## How to create a calculated field {#how-to-create-calculated-field}
 
-You can create calculable fields in the dataset or wizard interface.
+You can create calculated fields in the dataset or wizard interface.
 
 {% list tabs %}
 
@@ -83,14 +80,19 @@ You can create calculable fields in the dataset or wizard interface.
 
 - Wizard
 
-   1. Open the [wizard]({{ link-datalens-main }}/wizard).
-   1. Select the dataset to create a chart in.
-   1. In the left part of the screen, click **![image](../../../_assets/console-icons/plus.svg)** above the list of dataset fields.
+   
+   {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
+
+
+   1. In the left-hand panel, click ![image](../../../_assets/console-icons/chart-column.svg) **Charts** and select the chart created in the [wizard]({{ link-datalens-main }}/wizard).
+   1. On the left side of the screen above the list of dataset fields, click ![image](../../../_assets/console-icons/plus.svg) and select **Field**.
+   1. Enter a name for the field.
    1. Enter the required formula.
-   1. Click **Create**. The field will appear in the list of fields. You can use it as your chart data source.
+   1. Click **Create**. The field will appear in the list on the left. You can use it in a chart.
 
 {% endlist %}
 
 #### See also {#see-also}
+
 - [{#T}](../../operations/dataset/create-field.md)
 - [{#T}](../../security/row-level-security.md)

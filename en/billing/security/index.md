@@ -61,7 +61,7 @@ Primitive roles are aggregator roles that define user permissions to access serv
 * `editor`: Same as `billing.accounts.editor`.
 * `admin`: Same as `billing.accounts.admin`.
 
-Primitive roles can only be assigned to users in the **{{ ui-key.yacloud.iam.cloud.incident-notifications.label_users }}** list.
+Primitive roles can only be assigned to users in the **{{ ui-key.yacloud_components.notify-subs.label_users }}** list.
 
 ### Available operations {#available-operations}
 
@@ -119,7 +119,7 @@ The steps for adding a new billing account user depend on whether this billing a
    1. Select a user from the drop-down list. The list shows users whose clouds are linked to your billing account.
    1. Click **{{ ui-key.yacloud_billing.billing.account.user-dialog.button_submit }}**.
 
-   The user or service account is assigned the `billing.accounts.member` role and added to the **{{ ui-key.yacloud.iam.cloud.incident-notifications.label_users }}** list. To grant billing account access, assign them the required role.
+   The user or service account is assigned the `billing.accounts.member` role and added to the **{{ ui-key.yacloud_components.notify-subs.label_users }}** list. To grant billing account access, assign them the required role.
 
 {% endlist %}
 
@@ -152,7 +152,7 @@ The steps for assigning a billing account role depend on whether this billing ac
 
 - For accounts not added to an organization
 
-   Users with the `billing.accounts.admin` role can grant access to the billing account to any user or service account on the **{{ ui-key.yacloud.iam.cloud.incident-notifications.label_users }}** list. To do this:
+   Users with the `billing.accounts.admin` role can grant access to the billing account to any user or service account on the **{{ ui-key.yacloud_components.notify-subs.label_users }}** list. To do this:
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
    1. Select a billing account.

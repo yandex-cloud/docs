@@ -10,7 +10,7 @@
 
   1. Откройте страницу [Уведомления сервисов]({{ link-cloud-notifications }}) для выбранного облака. Если необходимо, [переключитесь на другое облако](switch-cloud.md).
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.incident-notifications.button_open-dialog }}**.
-  1. В открывшемся окне **{{ ui-key.yacloud.iam.cloud.incident-notifications.label_subscribers-dialog-header }}** выберите:
+  1. В открывшемся окне **{{ ui-key.yacloud_components.notify-subs.label_subscribers-dialog-header }}** выберите:
 
      1. Пользователей, которых хотите подписать на уведомления.
 

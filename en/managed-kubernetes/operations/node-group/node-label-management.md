@@ -1,6 +1,8 @@
 # Managing {{ k8s }} node labels
 
-You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all {{ managed-k8s-name }} nodes in a [node group](../../concepts/index.md#node-group) at the same time. To do this, specify a set of labels using the `node_labels` parameter when [creating a {{ managed-k8s-name }} node group](../../operations/node-group/node-group-create.md).
+## Assigning {{ k8s }} labels when creating a node group {#node-group-creation}
+
+You can add [{{ k8s }} labels](../../concepts/index.md#node-labels) to all {{ managed-k8s-name }} nodes in a [node group](../../concepts/index.md#node-group) at the same time. To do this, specify the labels using the `node_labels` parameter when [creating a {{ managed-k8s-name }} node group](../../operations/node-group/node-group-create.md).
 
 1. Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster).
 
@@ -218,3 +220,128 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all {{ ma
       To view {{ managed-k8s-name }} node details, use the [list](../../api-ref/NodeGroup/list.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
 
    {% endlist %}
+
+## Assigning a {{ k8s }} label for an existing node group {#assign-label}
+
+Assigning {{ k8s }} labels does not result in recreation of a node group.
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   To assign a {{ k8s }} label for an existing node group, run this command:
+
+   ```bash
+   {{ yc-k8s }} node-group add-node-labels \
+      --id <node_group_ID> \
+      --labels <key>=<value>, ...
+   ```
+
+   The command contains the following parameters:
+
+   * `--id`: Node group ID. You can [get it with the list](node-group-list.md#list) of node groups in the {{ managed-k8s-name }} cluster.
+   * `--labels`: {{ k8s }} labels in `<key>=<value>` format. You can specify one label or multiple labels separated by commas.
+
+- {{ TF }} {#tf}
+
+   To assign a {{ k8s }} label for an existing node group:
+
+   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
+
+      For more information about creating this file, see [{#T}](node-group-create.md).
+
+   1. In the node group description, add the `node_labels` section:
+
+      ```hcl
+      resource "yandex_kubernetes_node_group" "<node_group_name>" {
+        ...
+        node_labels {
+          "<label_name>" = "<label_value>"
+          ...
+        }
+        ...
+      }
+      ```
+
+      You can assign multiple labels. To do so, specify each label in a separate line.
+
+   1. Make sure the configuration files are correct.
+
+      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+      For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+
+- API {#api}
+
+   To assign a {{ k8s }} label to an existing node group, use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup/index.md) resource and provide the following in the request:
+
+   * {{ k8s }} labels in the `nodeLabels` parameter.
+   * `nodeLabels` parameter to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
+
+## Deleting a {{ k8s }} label from a node group {#remove-label}
+
+Deleting {{ k8s }} labels does not result in recreation of a node group.
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   To remove a {{ k8s }} label from a node group, run this command:
+
+   ```bash
+   {{ yc-k8s }} node-group remove-node-labels \
+      --id <node_group_ID> \
+      --labels <label_key>, ...
+   ```
+
+   The command contains the following parameters:
+
+   * `--id`: Node group ID. You can [get it with the list](node-group-list.md#list) of node groups in the {{ managed-k8s-name }} cluster.
+   * `--labels`: Keys of the {{ k8s }} labels to remove. You can specify one label or multiple labels separated by commas.
+
+- {{ TF }} {#tf}
+
+   To remove a {{ k8s }} label from a node group:
+
+   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
+
+      For more information about creating this file, see [{#T}](node-group-create.md).
+
+   1. In the node group description, delete the {{ k8s }} labels you no longer need under `node_labels`.
+
+   1. Make sure the configuration files are correct.
+
+      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+      For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+
+- API {#api}
+
+   To remove a {{ k8s }} label from a node group, use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup/index.md) resource and provide the following in the request:
+
+   * New set of {{ k8s }} labels in the `nodeLabels` parameter. If you want to remove all the labels, provide `"nodeLabels": {}` in the request.
+   * `nodeLabels` parameter to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}

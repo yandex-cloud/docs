@@ -37,9 +37,11 @@ You can assign roles for a [cloud](../../../resource-manager/operations/cloud/se
 
 ### Role {#role}
 
-Resource roles can be assigned by users with the [administrator](roles.md#admin) role for the resource, as well as the owners of the cloud that the resource belongs to.
+{% include [roles-assign](../../../_includes/iam/roles-assign.md) %}
 
-Each role consists of a set of permissions that describe operations that can be performed with the resource. A user can assign a role with only those permissions which are available to themselves. For example, only the user with the [cloud owner](roles.md#owner) role can assign this same role. The administrator role is not enough for this.
+Thus, roles for a resource can be assigned by users with the [administrator](../../roles-reference.md#admin) role for the cloud or organization, as well as by the owners of the cloud or organization to which the resource belongs.
+
+Each role consists of a set of permissions that describe operations that can be performed with the resource. A user can assign a role with only those permissions which are available to themselves. For example, only the user with the [cloud owner](../../../resource-manager/security/index.md#resource-manager-clouds-owner) role can assign this same role. The administrator role is not enough for this.
 
 To find out what roles exist and what permissions they include, see [{#T}](roles.md).
 

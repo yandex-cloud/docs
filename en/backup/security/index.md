@@ -12,9 +12,13 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
+Roles for a resource can be assigned by users who have the `backup.admin` or one of the following roles for that resource:
+
+{% include [roles-list](../../_includes/iam/roles-list.md) %}
+
 ## Which resources you can assign a role for {#resources}
 
-Using the {{ yandex-cloud }} console or the YC CLI, you can assign a role to a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). These assigned roles will also apply to nested resources.
+Using the {{ yandex-cloud }} console or the YC CLI, you can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). These assigned roles will also apply to nested resources.
 
 ## Which roles exist in the service {#roles-list}
 

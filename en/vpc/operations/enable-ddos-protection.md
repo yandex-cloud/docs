@@ -11,7 +11,7 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
 
    When configuring a network on a new virtual machine, select the automatically assigned public IP address or an address from the list of the reserved ones.
 
-   Once you select an address, select **{{ ui-key.yacloud.component.compute.network-select.field_ddos-protection-provider }}**.
+   Once you select an address, select **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**.
 
 {% endlist %}
 
@@ -28,7 +28,7 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
    1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
    1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
    1. Select the availability zone where you want to reserve the address.
-   1. Select **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}**.
+   1. Select **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**.
    1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 - {{ TF }} {#tf}

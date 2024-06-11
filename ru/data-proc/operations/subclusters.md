@@ -44,7 +44,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** и выберите нужный кластер.
   1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.subclusters.button_create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.subclusters.action_add-subclaster }}**.
   1. Укажите параметры подкластера:
      1. **{{ ui-key.yacloud.mdb.forms.base_field_hosts-count }}** — выберите количество хостов.
      1. **{{ ui-key.yacloud.mdb.forms.base_field_roles }}** — выберите роли подкластера в зависимости от того, какие сервисы должны быть развернуты на хостах:

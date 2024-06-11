@@ -14,6 +14,10 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
+Roles for a resource can be assigned by users who have the `storage.admin` role or one of the following roles for that resource:
+
+{% include [roles-list](../../_includes/iam/roles-list.md) %}
+
 ## Which resources you can assign a role for {#resources}
 
 Using the {{ yandex-cloud }} console or the YC CLI, you can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or an individual bucket. These assigned roles will also apply to nested resources.

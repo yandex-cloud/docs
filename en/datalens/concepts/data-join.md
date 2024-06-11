@@ -37,6 +37,8 @@ You cannot join data from different sources at a single dataset level.
 
 You can [join data](../operations/dataset/join-data.md) through the dataset creation interface by dragging tables to the workspace and configuring links between them using the [JOIN operator](dataset/data-model.md#source). This [use case](../../tutorials/datalens/data-from-ch-visualization.md#step2) gives an example of joining data by adding tables.
 
+{% include [data-join-duplicate-fields-note](../../_includes/datalens/datalens-data-join-duplicate-fields-note.md) %}
+
 #### SQL query {#sql-join}
 
 In a dataset, you can add an [ad-hoc SQL query](dataset/settings.md#sql-request-in-datatset) to the data source. When accessing a data source, the query code is run as a subquery. You can use the output of the query as final dataset data or combine it with other source tables via the interface.

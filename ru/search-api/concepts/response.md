@@ -178,7 +178,7 @@ https://yandex.com.tr/search/xml?l10n=en&user=xml-search-user&key=03.79031114:b6
 * `strict`;
 * `all`.
 ||
-|| found-human | Строка на языке, соответствующем выбранному [типу поиска](../operations/registration.md). Содержит сведения о количестве найденных документов и сопутствующую информацию | Отсутствуют. ||
+|| found-human | Строка на языке, соответствующем выбранному [типу поиска](../operations/workaround.md). Содержит сведения о количестве найденных документов и сопутствующую информацию | Отсутствуют. ||
 |#
 
 #### Блок misspell / reask {#misspell-block}
@@ -207,7 +207,7 @@ https://yandex.com.tr/search/xml?l10n=en&user=xml-search-user&key=03.79031114:b6
 
 * `Misspell` — опечатка.
 * `KeyboardLayout` — ошибка в раскладке клавиатуры.
-* `Volapyuk` — запрос задан на русском языке в английской транслитерации. Используется, если в качестве [типа поиска](../operations/registration.md#search-type) выбрано значение <q>{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }} (yandex.ru)</q>.
+* `Volapyuk` — запрос задан на русском языке в английской транслитерации. Используется, если в качестве [типа поиска](../operations/workaround.md) выбрано значение <q>{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }} (yandex.ru)</q>.
 | Отсутствуют.
 ||
 || source-text | 

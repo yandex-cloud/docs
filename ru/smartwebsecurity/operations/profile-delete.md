@@ -14,4 +14,8 @@ description: "Следуя данной инструкции, вы сможет�
   1. Напротив профиля, который вы хотите удалить, нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [delete](../api-ref/SecurityProfile/delete.md) для ресурса [SecurityProfile](../api-ref/SecurityProfile/) или вызовом gRPC API [SecurityProfileService/Delete](../api-ref/grpc/security_profile_service.md#Delete).
+
 {% endlist %}

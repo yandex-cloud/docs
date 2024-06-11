@@ -6,11 +6,11 @@
   
    1. {% include [go to settings](transition-page.md) %}
 
-   1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+   1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **Настройки очереди**.
 
-   1. Выберите **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-aliases }}**.
+   1. Перейдите на вкладку **Интеграции**.
 
-   1. Нажмите **Настроить почту**.
+   1. В разделе **Почта** нажмите **Настроить почтовые ящики**. Перейдите на вкладку **На произвольном почтовом сервере**.
   
    1. Настройте почтовый ящик для получения писем:
 
@@ -73,9 +73,11 @@
 
   1. {% include [go to settings](transition-page.md) %} 
 
-  1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+  1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **Настройки очереди**.
 
-  1. Выберите **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-aliases }}**.
+  1. Перейдите на вкладку **Интеграции**.
+
+  1. В разделе **Почта** нажмите **Настроить почтовые ящики**. Перейдите на вкладку **На домене в {{ yandex-360 }}**.
    
   1. Проверьте, настроен ли у вашей организации в {{ ya-360 }} [почтовый домен]({{ support-business-domain }}). Если нет, нажмите **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesStateList.action-domain }}** — откроется {{ ya-360 }}, и вы сможете создать домен. Если у вас уже настроен почтовый домен в другом сервисе, вы можете создать для него поддомен и [подключить в {{ ya-360 }}]({{ support-business-domain }}).
   

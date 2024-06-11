@@ -17,6 +17,10 @@ description: "Следуя данной инструкции, вы сможет�
 
       {% include [add-rule](../../_includes/smartwebsecurity/add-rule.md) %}
 
+- API {#api}
+
+  {% include [api-profile-update](../../_includes/smartwebsecurity/api-profile-update.md) %}
+
 {% endlist %}
 
 ### См. также {#see-also}

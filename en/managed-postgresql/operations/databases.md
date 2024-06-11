@@ -49,7 +49,7 @@ You can add, rename, and remove databases, as well as view information about the
    1. Click the cluster name.
    1. If the new database does not have an owner among its current users, [add such a user](cluster-users.md#adduser).
    1. Select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
-   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.databases.button_add }}**.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
    1. Specify the database settings:
 
       * Name

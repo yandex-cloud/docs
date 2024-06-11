@@ -162,7 +162,7 @@
 
   {% note info %}
 
-  Чтобы управлять настройками [ACL](../../storage/concepts/acl.md) бакета, [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту, через который работает AWS CLI, [роль](../../storage/security/#storage-admin) `storage.admin`.
+  Чтобы управлять настройками [ACL](../../storage/concepts/acl.md) бакета, [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту, через который работает AWS CLI, [роль](../../storage/security/index.md#storage-admin) `storage.admin`.
 
   {% endnote %}
 

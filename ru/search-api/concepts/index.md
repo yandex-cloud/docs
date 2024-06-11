@@ -12,6 +12,6 @@
 
 Кроме различных вариантов текстового поиска {{ search-api-name }} позволяет [искать изображения](pic-search.md) по текстовым запросам.
 
-При [регистрации](../operations/registration.md) в сервисе {{ search-api-name }} нужно выбрать один из трех доступных типов текстового поиска: `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}`, `{{ ui-key.yacloud.search-api.test-query.label_search_type-turkish }}` или `{{ ui-key.yacloud.search-api.test-query.label_search_type-international }}`. От типа поиска зависит _формула ранжирования_, в соответствии с которой сортируются результаты поиска, и _поисковая база_ — набор документов, по которому выполняется поиск. После регистрации вы сможете изменить выбранный тип поиска.
+При [регистрации](../operations/workaround.md) в сервисе {{ search-api-name }} нужно выбрать один из трех доступных типов текстового поиска: `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}`, `{{ ui-key.yacloud.search-api.test-query.label_search_type-turkish }}` или `{{ ui-key.yacloud.search-api.test-query.label_search_type-international }}`. От типа поиска зависит _формула ранжирования_, в соответствии с которой сортируются результаты поиска, и _поисковая база_ — набор документов, по которому выполняется поиск. После регистрации вы сможете изменить выбранный тип поиска.
 
 

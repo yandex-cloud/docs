@@ -114,7 +114,7 @@ Create a VM with a boot disk using an image of `Hystax Acura Disaster Recovery t
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       * Select a cloud network and a [subnet](../../vpc/concepts/network.md#subnet) from the list. If there is no subnet, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}** and create one.
 
-         To add a subnet, select a folder, enter a subnet name, select the availability zone, and specify a CIDR in the window that opens. Then click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+         To add a subnet, select a folder, enter a subnet name, select the availability zone, and specify a CIDR in the window that opens. Then click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
       * If a list of **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** is available, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) for which you previously configured network traffic permissions. If this list does not exist, all incoming and outgoing traffic will be enabled for the VM.
 
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:

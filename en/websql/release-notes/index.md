@@ -1,5 +1,15 @@
 # {{ websql-full-name }} release notes: 2024
 
+## May {#may}
+
+### Improvements {#improvements-may}
+
+1. Updated the service favicon ![](../../_assets/websql/favicon.svg).
+
+### Fixed issues {#fixes-may}
+
+1. Fixed the error occurring on connection to a database in which no tables or schemas (for {{ PG }}) were created.
+
 ## April {#april}
 
 ### Fixed issues {#fixes-april}

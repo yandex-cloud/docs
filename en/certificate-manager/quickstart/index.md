@@ -66,7 +66,7 @@ To get started with {{ certificate-manager-name }}, you need:
 
    1. Go to the [management console]({{ link-console-main }}).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-   1. Click **{{ ui-key.yacloud.certificate-manager.button_add }}**.
+   1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
    1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
    1. In the window that opens, enter a name for the certificate.
    1. (Optional) Add a description for the certificate.

@@ -16,7 +16,7 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.button_add }}**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
    1. Specify the shard parameters:
       * Name and weight
       * To copy the schema from a random replica of one of the shards to the hosts of the new shard, select the **{{ ui-key.yacloud.mdb.forms.field_copy_schema }}** option.

@@ -66,9 +66,9 @@
     
     1. Перейдите в [консоль управления]({{ link-console-main }}).
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.button_add }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
     1. В открывшемся меню выберите **{{ ui-key.yacloud.certificate-manager.action_request }}**.
-    1. В открывшемся окне задайте имя сертификата.    
+    1. В открывшемся окне задайте имя сертификата.
     1. (Опционально) Добавьте описание сертификату.
     1. В поле **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** укажите домены, для которых нужно выпустить сертификат.
     1. Выберите [тип проверки](../concepts/challenges.md) прав на домен `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_http }}`. 

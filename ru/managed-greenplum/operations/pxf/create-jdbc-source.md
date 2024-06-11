@@ -26,6 +26,47 @@
     1. Задайте хотя бы одну [опциональную настройку](../../concepts/settings-list.md#jdbc-settings).
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    Чтобы создать внешний источник данных JDBC:
+
+    1. Посмотрите описание команды CLI для создания источника данных:
+
+        ```bash
+        {{ yc-mdb-gp }} pxf-datasource create jdbc --help
+        ```
+
+    1. Задайте настройки источника данных:
+
+        ```bash
+        {{ yc-mdb-gp }} pxf-datasource create jdbc <имя_внешнего_источника_данных> \
+           --cluster-id=<идентификатор_кластера> \
+           --driver=<адрес_драйвера> \
+           --url=<URL_базы_данных> \
+           --user=<имя_пользователя> \
+           --password=<пароль>
+        ```
+
+        Где:
+
+        * `cluster-id` — идентификатор кластера. Его можно получить со [списком кластеров в каталоге](../cluster-list.md##list-cluster).
+        * `driver` — класс JDBC-драйвера в Java. Возможные значения:
+
+            {% include [JBDC driver](../../../_includes/mdb/mgp/jdbc-driver.md) %}
+
+        * `url` — URL базы данных. Примеры:
+
+            {% include [URL examples](../../../_includes/mdb/mgp/url-examples.md) %}
+
+        * `user` — имя пользователя, владельца БД.
+        * `password` — пароль пользователя БД.
+
+        Вы также можете указать [дополнительные настройки](../../concepts/settings-list.md#jdbc-settings).
+
 - API {#api}
 
     Чтобы добавить источник данных JDBC в кластер {{ mgp-name }}, воспользуйтесь методом REST API [create](../../api-ref/PXFDatasource/create.md) для ресурса [PXFDatasource](../../api-ref/PXFDatasource/index.md) или вызовом gRPC API [PXFDatasourceService/Create](../../api-ref/grpc/pxf_service.md#Create) и передайте в запросе:

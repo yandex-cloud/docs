@@ -16,4 +16,8 @@ description: "Следуя данной инструкции, вы сможет�
   1. Напротив хоста, от которого вы хотите отключить профиль, нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите ![disconnect](../../_assets/console-icons/arrow-shape-left-from-line.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_disconnect-host }}**.
   1. Подтвердите отключение.
 
+- API {#api}
+
+  {% include [api-host](../../_includes/smartwebsecurity/api-host.md) %}
+
 {% endlist %}

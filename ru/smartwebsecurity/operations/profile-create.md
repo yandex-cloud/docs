@@ -34,6 +34,10 @@
       В блоке **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** в таблице появятся созданные вами правила.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [create](../api-ref/SecurityProfile/create.md) для ресурса [SecurityProfile](../api-ref/SecurityProfile/) или вызовом gRPC API [SecurityProfileService/Create](../api-ref/grpc/security_profile_service.md#Create).
+
 {% endlist %}
 
 ### См. также {#see-also}

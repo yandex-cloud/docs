@@ -47,7 +47,7 @@ To enable administrators to establish remote connections to your cloud resources
 * VPN on certified data cryptographic security tools:
 
    * GOST VPN. If you need to provide a secure channel on certified hardware data cryptographic security tools, contact your manager. The GOST VPN service includes the installation of a hardware cryptographic gateway on the {{ yandex-cloud }} side and, if necessary, on the client side, as well as the configuration and further support of a secure channel. Crypto gateways are available for rent. The service is provided jointly with a {{ yandex-cloud }} partner.
-   * Virtual crypto gateway. You can use certified virtual crypto gateways from Russian companies, such as S-Terra CSP, and CRYPTO-PRO. A crypto gateway works like a regular VM. You are responsible for purchasing any licenses and maintaining crypto gateways.
+   * Virtual crypto gateway. You can use certified virtual crypto gateways from such Russian companies as S-Terra CSP, CRYPTO-PRO, etc. A crypto gateway works as a regular VM. You are responsible for purchasing the licenses and maintaining your crypto gateways.
 
 
 To access the infrastructure using control protocols (for example, SSH or RDP), create a bastion VM. You can do this using a free [Teleport](https://goteleport.com/) solution. Access to the bastion VM or VPN gateway from the internet must be restricted.

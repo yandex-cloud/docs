@@ -301,9 +301,9 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
       1. Select an existing network from the **{{ ui-key.yacloud.ydb.forms.field_network }}** list or create a new one:
          * Click **{{ ui-key.yacloud.ydb.forms.button_create-network-new }}**.
-         * In the window that opens, enter a **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_name }}** for the new network.
-         * (Optional) Select the **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_is-default }}** option. Subnets in each availability zone will be created automatically.
-         * Click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+         * In the window that opens, enter a **{{ ui-key.yacloud.vpc.networks.create.field_name }}** for the new network.
+         * (Optional) Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option. Subnets in each availability zone will be created automatically.
+         * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
       1. Under **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}**, select a subnet or create a new one for each availability zone:
          * Click **{{ ui-key.yacloud.ydb.forms.button_create-subnetwork-new }}**.
          * In the window that opens, enter a **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_name }}** for the new subnet.
