@@ -12,7 +12,7 @@ You can stop and restart a DB cluster, if required. You are not charged while yo
 
    1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to stop.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. In the line of the appropriate cluster, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-stop }}**.
+   1. In the line of the appropriate cluster, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
    1. Confirm that you want to stop the cluster and click **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
 
 - CLI {#cli}
@@ -47,7 +47,7 @@ You can restart **STOPPED** clusters.
 
    1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to start.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. In the line of the appropriate cluster, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-start }}**.
+   1. In the line of the appropriate cluster, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
    1. Confirm that you want to start the cluster: click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}** in the dialog box that opens.
 
 - CLI {#cli}

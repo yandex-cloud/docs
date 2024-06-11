@@ -36,6 +36,10 @@ description: "Следуя данной инструкции, вы сможет�
       Чтобы удалить условие, нажмите кнопку ![options](../../_assets/console-icons/trash-bin.svg).
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save-changes }}**.
 
+- API {#api}
+
+  {% include [api-profile-update](../../_includes/smartwebsecurity/api-profile-update.md) %}
+
 {% endlist %}
 
 ### См. также {#see-also}

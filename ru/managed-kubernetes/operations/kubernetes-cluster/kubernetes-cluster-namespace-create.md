@@ -17,7 +17,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.k8s.namespaces.button_create }}**.
   1. Укажите **{{ ui-key.yacloud.k8s.namespaces.popup-add_field_name }}** пространства имен. Оно должно соответствовать стандарту [RFC 1123](https://datatracker.ietf.org/doc/html/rfc1123):
 
-     {% include [name-format-2](../../../_includes/name-format-2.md) %}
+     {% include [namespace-name](../../../_includes/managed-kubernetes/namespace-name.md) %}
 
      {% include [note-namespace-kube](../../../_includes/managed-kubernetes/note-namespace-kube.md) %}
 
@@ -35,7 +35,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   Имя пространства имен должно соответствовать стандарту [RFC 1123](https://datatracker.ietf.org/doc/html/rfc1123):
 
-  {% include [name-format-2](../../../_includes/name-format-2.md) %}
+  {% include [namespace-name](../../../_includes/managed-kubernetes/namespace-name.md) %}
 
   {% include [note-namespace-kube](../../../_includes/managed-kubernetes/note-namespace-kube.md) %}
 

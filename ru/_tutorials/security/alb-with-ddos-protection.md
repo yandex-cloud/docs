@@ -342,7 +342,7 @@
 
 {% endnote %}
 
-Чтобы защитить балансировщик от DDoS-атак, необходимо зарезервировать для него статический публичный IP-адрес с опцией **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}**:
+Чтобы защитить балансировщик от DDoS-атак, необходимо зарезервировать для него статический публичный IP-адрес с опцией **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**:
 
 {% list tabs group=instructions %}
 
@@ -351,7 +351,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
   1. Выберите зону доступности, в которой нужно зарезервировать IP-адрес.
-  1. Включите опцию **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}**.
+  1. Включите опцию **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 - {{ TF }} {#tf}

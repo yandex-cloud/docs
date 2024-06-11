@@ -82,6 +82,8 @@ items:
         href: sources-and-sinks/clickhouse.md
       - name: Работа с базами данных {{ mpg-name }}
         href: sources-and-sinks/postgresql.md
+      - name: Работа с базами данных {{ ydb-name }}
+        href: sources-and-sinks/ydb.md
       - name: Запись метрик в {{ monitoring-full-name }}
         href: sources-and-sinks/monitoring.md
   - name: Сценарии использования

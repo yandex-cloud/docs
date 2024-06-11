@@ -65,11 +65,15 @@
      {
      "modelUri": "art://<идентификатор_каталога>/yandex-art/latest",
      "generationOptions": {
-       "seed": 17
+       "seed": "1863",
+       "aspectRatio": {
+          "widthRatio": "2",
+          "heightRatio": "1"
+        }
      },
      "messages": [
        {
-         "weight": 1,
+         "weight": "1",
          "text": "узор из цветных пастельных суккулентов разных сортов, hd full wallpaper, четкий фокус, множество сложных деталей, глубина кадра, вид сверху"
        }
      ]

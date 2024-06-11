@@ -5,10 +5,6 @@ description: "Follow this guide to create a resource."
 
 # Creating a resource
 
-
-{% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
-
-
 To create a [resource](../../concepts/resource.md):
 
 {% list tabs group=instructions %}
@@ -51,7 +47,11 @@ To create a [resource](../../concepts/resource.md):
          * `{{ ui-key.yacloud.cdn.value_certificate-no }}`: Resource will only be available over HTTP.
 
 
-         * `{{ ui-key.yacloud.cdn.value_certificate-custom }}`: Select a certificate in [{{ certificate-manager-full-name }}](../../../certificate-manager/). This can be both a [Let's Encrypt® certificate](../../../certificate-manager/concepts/managed-certificate.md) and a [user certificate](../../../certificate-manager/concepts/imported-certificate.md).
+         * `{{ ui-key.yacloud.cdn.value_certificate-custom }}`: Select a certificate. The resource will be available over HTTP and HTTPS.
+
+            {% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
+
+            {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
 
          For more information, see [{#T}](../../concepts/clients-to-servers-tls.md).
       1. Select the **{{ ui-key.yacloud.cdn.label_host-header }}** value (`{{ ui-key.yacloud.cdn.value_host-header-default }}` or `{{ ui-key.yacloud.cdn.value_host-header-resend }}`) or choose `{{ ui-key.yacloud.cdn.value_host-header-custom }}` and enter the **{{ ui-key.yacloud.cdn.label_custom-host-header }}**. For more information, see [{#T}](../../concepts/servers-to-origins-host.md).
@@ -125,6 +125,8 @@ To create a [resource](../../concepts/resource.md):
       * Instead of `--origin-group-id`, you can specify the [origin](../../concepts/origins.md) domain name using the `--origin-custom-source` flag.
       * Possible `--origin-protocol` values are `HTTP`, `HTTPS`, and `MATCH` (same as the client's).
 
+      {% include [certificate-settings-cli](../../../_includes/cdn/certificate-settings-cli.md) %}
+
       {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 
       For more information about the `yc cdn resource create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
@@ -145,7 +147,7 @@ To create a [resource](../../concepts/resource.md):
 
 - {{ TF }} {#tf}
 
-   Make sure to activate the CDN provider before a resource is created. You can activate it in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
+   Make sure to activate the CDN provider before a resource is created. You can activate it in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/) command:
 
    ```bash
    yc cdn provider activate \

@@ -11,7 +11,7 @@
   1. В [консоли управления]({{ link-console-cloud }}) выберите каталог для настройки. Если необходимо, [переключитесь на другое облако](../cloud/switch-cloud.md).
   1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-notifications }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.incident-notifications.button_open-dialog }}**.
-  1. В открывшемся окне **{{ ui-key.yacloud.iam.cloud.incident-notifications.label_subscribers-dialog-header }}** выберите:
+  1. В открывшемся окне **{{ ui-key.yacloud_components.notify-subs.label_subscribers-dialog-header }}** выберите:
 
      1. Пользователей, которых хотите подписать на уведомления.
 
@@ -32,7 +32,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
-  В разделе **{{ ui-key.yacloud.iam.folder.switch_service-notifications }}** каталога вы можете увидеть пользователей, которые были подписаны на уведомления каталога по умолчанию, поскольку они подписаны на уведомления родительского облака. Для этого включите опцию **{{ ui-key.yacloud.iam.cloud.incident-notifications.label_inherited-subscribers }}**.
+  В разделе **{{ ui-key.yacloud.iam.folder.switch_service-notifications }}** каталога вы можете увидеть пользователей, которые были подписаны на уведомления каталога по умолчанию, поскольку они подписаны на уведомления родительского облака. Для этого включите опцию **{{ ui-key.yacloud_components.notify-subs.label_inherited-subscribers }}**.
 
 - API {#api}
 

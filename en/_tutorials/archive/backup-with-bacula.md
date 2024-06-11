@@ -83,8 +83,8 @@ To create a VM:
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the network and subnet to connect the VM to. If there are no networks available, create one:
       1. Select ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**.
       1. In the window that opens, enter the network name and specify the folder to host the network.
-      1. (Optional) To automatically create subnets, select the **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_is-default }}** option.
-      1. Click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+      1. (Optional) To automatically create subnets, select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
+      1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
          Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet available, create one by selecting ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
    1. Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.

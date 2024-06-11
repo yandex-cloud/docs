@@ -31,19 +31,19 @@
 
 Доступны следующие настройки:
 
-* **Access Key**{#setting-access-key} {{ tag-con }} {{ tag-api }}
+* **Access Key**{#setting-access-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Публичный ключ доступа к S3-хранилищу.
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/s3_objstore_cfg.html#minio-server-configuration-1).
 
-* **Secret Key**{#setting-secret-key} {{ tag-con }} {{ tag-api }}
+* **Secret Key**{#setting-secret-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Секретный ключ доступа к S3-хранилищу.
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/s3_objstore_cfg.html#minio-server-configuration-1).
 
-* **Fast Upload**{#setting-fast-upload} {{ tag-con }} {{ tag-api }}
+* **Fast Upload**{#setting-fast-upload} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Управляет быстрой загрузкой больших файлов в S3-хранилище. Если настройка выключена, PXF формирует файлы на диске перед отправкой в S3-хранилище. Если настройка включена, PXF формирует файлы в оперативной памяти (если ее не хватает, то записывает на диск).
 
@@ -51,7 +51,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/s3_objstore_cfg.html#minio-server-configuration-1).
 
-* **Endpoint**{#setting-endpoint} {{ tag-con }} {{ tag-api }}
+* **Endpoint**{#setting-endpoint} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Адрес S3-хранилища. Значение для {{ objstorage-full-name }} — `{{ s3-storage-host }}`. Это значение используется по умолчанию.
 
@@ -61,45 +61,35 @@
 
 Доступны следующие настройки:
 
-* **Driver**{#setting-driver} {{ tag-con }} {{ tag-api }}
+* **Driver**{#setting-driver} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Класс JDBC-драйвера в Java. Возможные значения:
 
-    * `com.simba.athena.jdbc.Driver`
-    * `com.clickhouse.jdbc.ClickHouseDriver`
-    * `com.ibm.as400.access.AS400JDBCDriver`
-    * `com.microsoft.sqlserver.jdbc.SQLServerDriver`
-    * `com.mysql.cj.jdbc.Driver`
-    * `org.postgresql.Driver`
-    * `oracle.jdbc.driver.OracleDriver`
-    * `net.snowflake.client.jdbc.SnowflakeDriver`
-    * `io.trino.jdbc.TrinoDriver`
+    {% include [JBDC driver](../../_includes/mdb/mgp/jdbc-driver.md) %}
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#jdbc-server-configuration-2).
 
-* **Url**{#setting-url} {{ tag-con }} {{ tag-api }}
+* **Url**{#setting-url} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     URL базы данных. Примеры:
 
-    * `jdbc:mysql://mysqlhost:{{ port-mmy }}/testdb` — для локальной БД {{ MY }}.
-    * `jdbc:postgresql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mpg }}/db1` — для кластера {{ mpg-name }}. Адрес содержит [особый FQDN](../../managed-postgresql/operations/connect.md#special-fqdns) мастера в кластере.
-    * `jdbc:oracle:thin:@host.example:1521:orcl` — для БД Oracle.
+    {% include [URL examples](../../_includes/mdb/mgp/url-examples.md) %}
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#jdbc-server-configuration-2).
 
-* **User**{#setting-user} {{ tag-con }} {{ tag-api }}
+* **User**{#setting-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Имя пользователя, владельца БД.
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#jdbc-server-configuration-2).
 
-* **Password**{#setting-password} {{ tag-con }} {{ tag-api }}
+* **Password**{#setting-password} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Пароль пользователя БД.
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#jdbc-server-configuration-2).
 
-* **Statement Batch Size**{#setting-statement-batch-size} {{ tag-con }} {{ tag-api }}
+* **Statement Batch Size**{#setting-statement-batch-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Количество строк в пакете для чтения из внешней таблицы.
 
@@ -107,7 +97,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#statementlevel-properties-5).
 
-* **Statement Fetch Size**{#setting-statement-fetch-size} {{ tag-con }} {{ tag-api }}
+* **Statement Fetch Size**{#setting-statement-fetch-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Количество строк, которые нужно поместить в буфер при чтении из внешней таблицы.
 
@@ -115,7 +105,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#statementlevel-properties-5).
 
-* **Statement Query Timeout**{#setting-statement-query-timeout} {{ tag-con }} {{ tag-api }}
+* **Statement Query Timeout**{#setting-statement-query-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Время (в секундах), в течение которого драйвер JDBC ожидает выполнения операции чтения или записи.
 
@@ -123,13 +113,13 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#statementlevel-properties-5).
 
-* **Pool Enabled**{#setting-pool-enabled} {{ tag-con }} {{ tag-api }}
+* **Pool Enabled**{#setting-pool-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Определяет, используется ли пул подключений JDBC. По умолчанию используется.
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#about-jdbc-connection-pooling-9).
 
-* **Pool Maximum Size**{#setting-pool-maximum-size} {{ tag-con }} {{ tag-api }}
+* **Pool Maximum Size**{#setting-pool-maximum-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Максимальное количество подключений к серверу базы данных.
 
@@ -137,7 +127,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#about-jdbc-connection-pooling-9).
 
-* **Pool Connection Timeout**{#setting-pool-connection-timeout} {{ tag-con }} {{ tag-api }}
+* **Pool Connection Timeout**{#setting-pool-connection-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Максимальное время (в миллисекундах) для ожидания подключения из пула.
 
@@ -145,7 +135,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#about-jdbc-connection-pooling-9).
 
-* **Pool Idle Timeout**{#setting-pool-idle-timeout} {{ tag-con }} {{ tag-api }}
+* **Pool Idle Timeout**{#setting-pool-idle-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Максимальное время (в миллисекундах), по истечении которого неактивное соединение считается простаивающим.
 
@@ -153,7 +143,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#about-jdbc-connection-pooling-9).
 
-* **Pool Minimum Idle**{#setting-pool-minimum-idle} {{ tag-con }} {{ tag-api }}
+* **Pool Minimum Idle**{#setting-pool-minimum-idle} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Минимальное количество простаивающих подключений в пуле.
 

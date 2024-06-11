@@ -1,0 +1,3 @@
+Certificates from [{{ certificate-manager-full-name }}](../../certificate-manager/) are supported. You can [issue a new Let's Encrypt® certificate](../../certificate-manager/operations/managed/cert-create.md) or [upload one of your own](../../certificate-manager/operations/import/cert-create.md).
+
+The certificate must be located in the same [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) as your CDN resource.

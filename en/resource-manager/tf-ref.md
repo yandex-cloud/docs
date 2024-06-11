@@ -9,12 +9,12 @@ The following {{ TF }} provider resources are supported for {{ resmgr-name }}:
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_resourcemanager_cloud]({{ tf-provider-resources-link }}/resourcemanager_cloud) | [Cloud](./concepts/resources-hierarchy.md#cloud)  |
-| [yandex_resourcemanager_cloud_iam_binding]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_binding) | [Binding](../iam/concepts/access-control/index.md#access-bindings) access privileges to a cloud |
+| [yandex_resourcemanager_cloud_iam_binding]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_binding) | [Binding](../iam/concepts/access-control/index.md#access-bindings) access privileges to a cloud. It has a limit of 1,000 bindings per resource. <br>We recommend using `yandex_resourcemanager_cloud_iam_member` instead of `yandex_resourcemanager_cloud_iam_binding`. |
 | [yandex_resourcemanager_cloud_iam_member]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_member) | [Binding](../iam/concepts/access-control/index.md#access-bindings) access privileges to a cloud |
 | [yandex_resourcemanager_folder]({{ tf-provider-resources-link }}/resourcemanager_folder) | [Folder](./concepts/resources-hierarchy.md#folder) |
-| [yandex_resourcemanager_folder_iam_binding]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_binding) | [Binding](../iam/concepts/access-control/index.md#access-bindings) access privileges to a folder |
+| [yandex_resourcemanager_folder_iam_binding]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_binding) | [Binding](../iam/concepts/access-control/index.md#access-bindings) access privileges to a folder. It has a limit of 1,000 bindings per resource. <br>We recommend using `yandex_resourcemanager_folder_iam_member` instead of `yandex_resourcemanager_folder_iam_binding`. |
 | [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member) | [Binding](../iam/concepts/access-control/index.md#access-bindings) access privileges to a folder |
-| [yandex_resourcemanager_folder_iam_policy]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_policy) | Folder access policy |
+| [yandex_resourcemanager_folder_iam_policy]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_policy) | Sets the folder access policy and replaces any specified policy. |
 
 ## Data sources {#data-sources}
 

@@ -52,7 +52,7 @@ To add a custom certificate to {{ certificate-manager-name }}:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to add a custom certificate.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-   1. Click **{{ ui-key.yacloud.certificate-manager.button_add }}**.
+   1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
    1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_import }}**.
    1. In the window that opens, in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field, enter a custom certificate name.
    1. (Optional) Enter your custom certificate description in the **Description** field.

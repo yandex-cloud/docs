@@ -301,9 +301,9 @@
 
       1. Выберите существующую сеть из списка **{{ ui-key.yacloud.ydb.forms.field_network }}** или создайте новую:
           * Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-network-new }}**.
-          * В открывшемся окне укажите **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_name }}** новой сети.
-          * (Опционально) Выберите опцию **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_is-default }}**. Подсети в каждой зоне доступности будут созданы автоматически.
-          * Нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+          * В открывшемся окне укажите **{{ ui-key.yacloud.vpc.networks.create.field_name }}** новой сети.
+          * (Опционально) Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**. Подсети в каждой зоне доступности будут созданы автоматически.
+          * Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
       1. В блоке **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}** для каждой зоны доступности выберите подсеть или создайте новую:
           * Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-subnetwork-new }}**.
           * В открывшемся окне укажите **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_name }}** новой подсети.

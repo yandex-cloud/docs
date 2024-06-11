@@ -2,20 +2,20 @@
 
 В этом разделе описана основная информация про работу с [{{ mch-name }}](https://yandex.cloud/ru/services/managed-clickhouse).
 
-Пример чтения данных из {{ mch-name }}:
+Для работы с базой данных {{ mch-name }} необходимо выполнить следующие шаги:
+1. Создать [соединение](../concepts/glossary.md#connection), содержащее реквизиты для подключения к базе данных.
+1. [Выполнить запрос](#query) к базе данных.
+
+Пример запроса, выполняющего чтение данных из {{ mch-name }}:
 
 ```sql
 SELECT * FROM clickhouse_mdb_connection.my_table
 ```
 
 где:
-* `clickhouse_mdb_connection` — название созданного подключения к БД.
+* `clickhouse_mdb_connection` — название созданного соединения с базой данных.
 * `my_table` — имя таблицы в базе данных.
 
-
-Для работы с базой данных {{ mch-name }} необходимо выполнить следующие шаги:
-1. Создать [соединение](../concepts/glossary.md#connection), содержащее реквизиты для подключения к базе данных.
-1. [Выполнить запрос](#query) к базе данных.
 
 ## Настройка соединения {#create_connection}
 
@@ -58,21 +58,15 @@ SELECT * FROM <соединение>.<имя_таблицы>
 ```
 
 где:
-* `<соединение>` — название созданного подключения к БД.
+* `<соединение>` — название созданного соединения с базой данных.
 * `<имя_таблицы>` — имя таблицы в базе данных.
 
 ## Ограничения {#limits}
 
 При работе с кластерами {{ CH }} существует ряд ограничений.
 
-{% note warning %}
-
-В настоящий момент независимо от указанных фильтров для чтения таблиц {{ CH }}, указанных в SQL-запросе, все данные из таблицы считываются в {{ yq-full-name }} и уже там происходит применение фильтров.
-
-{% endnote %}
-
 Ограничения:
-1. Поддерживаются только запросы чтения данных - `SELECT`, остальные виды запросов не поддерживаются.
+1. {% include [!](_includes/supported_requests.md) %}
 1. В {{ yq-short-name }} используется [система типов](https://ydb.tech/docs/ru/yql/reference/types/primitive) {{ ydb-full-name }}. Однако диапазоны допустимых значений для типов, использующихся в {{ ydb-short-name }} при работе с датой и временем (`Date`, `Datetime`, `Timestamp`), зачастую оказываются недостаточно широкими для того, чтобы вместить значения соответствующих типов {{ CH }} (`Date`, `Date32`, `Datetime`, `Datetime64`). 
 В связи с этим значения даты и времени, прочитанные из {{ CH }}, возвращаются {{ yq-short-name }} как обычные строки (тип `Utf8` для обычных колонок или тип `Optional<Utf8>` для [nullable](https://clickhouse.com/docs/ru/sql-reference/data-types/nullable) колонок) в формате [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html).
 
@@ -88,46 +82,46 @@ SELECT * FROM <соединение>.<имя_таблицы>
 
 ### Примитивные типы данных {#supported_types_default}
 
-|Тип данных {{ CH }}|Тип данных {{ yq-full-name }}|Примечания|
-|---|----|------|
-|`Bool`|`Bool`||
-|`Int8`|`Int8`||
-|`UInt8`|`Uint8`||
-|`Int16`|`Int16`||
-|`UInt16`|`Uint16`||
-|`Int32`|`Int32`||
-|`UInt32`|`Uint32`||
-|`Int64`|`Int64`||
-|`UInt64`|`Uint64`||
-|`Float32`|`Float`||
-|`Float64`|`Double`||
-|`Date`|`Utf8`||
-|`Date32`|`Utf8`||
-|`DateTime`|`Utf8`||
-|`DateTime64`|`Utf8`||
-|`String`|`String`||
-|`FixedString`|`String`|Нулевые байты `FixedString` переносятся в `String` без изменений.|
+| Тип данных {{ CH }} | Тип данных {{ yq-full-name }} | Примечания |
+| :---: | :----: | :--- |
+| `Bool` | `Bool` | |
+| `Int8` | `Int8` | |
+| `UInt8` | `Uint8` | |
+| `Int16` | `Int16` | |
+| `UInt16` | `Uint16` | |
+| `Int32` | `Int32` | |
+| `UInt32` | `Uint32` | |
+| `Int64` | `Int64` | |
+| `UInt64` | `Uint64` | |
+| `Float32` | `Float` | |
+| `Float64` | `Double` | |
+| `Date` | `Utf8` | |
+| `Date32` | `Utf8` | |
+| `DateTime` | `Utf8` | |
+| `DateTime64` | `Utf8` | |
+| `String` | `String` | |
+| `FixedString` | `String` | Нулевые байты `FixedString` переносятся в `String` без изменений. |
 
 ### Опциональные типы данных {#supported_types_nullable}
 
-|Тип данных {{ CH }}|Тип данных {{ yq-full-name }}|Примечания|
-|---|----|------|
-|`Nullable(Bool)`|`Optional<Bool>`||
-|`Nullable(Int8)`|`Optional<Int8>`||
-|`Nullable(UInt8)`|`Optional<Uint8>`||
-|`Nullable(Int16)`|`Optional<Int16>`||
-|`Nullable(UInt16)`|`Optional<Uint16>`||
-|`Nullable(Int32)`|`Optional<Int32>`||
-|`Nullable(UInt32)`|`Optional<Uint32>`||
-|`Nullable(Int64)`|`Optional<Int64>`||
-|`Nullable(UInt64)`|`Optional<Uint64>`||
-|`Nullable(Float32)`|`Optional<Float>`||
-|`Nullable(Float64)`|`Optional<Double>`||
-|`Nullable(Date)`|`Optional<Utf8>`||
-|`Nullable(Date32)`|`Optional<Utf8>`||
-|`Nullable(DateTime)`|`Optional<Utf8>`||
-|`Nullable(DateTime64)`|`Optional<Utf8>`||
-|`Nullable(String)`|`Optional<String>`||
-|`Nullable(FixedString)`|`Optional<String>`|Нулевые байты `FixedString` переносятся в `String` без изменений.|
+| Тип данных {{ CH }} | Тип данных {{ yq-full-name }} | Примечания |
+| :---: | :----: | :--- |
+| `Nullable(Bool)` | `Optional<Bool>` | |
+| `Nullable(Int8)` | `Optional<Int8>` | |
+| `Nullable(UInt8)` | `Optional<Uint8>` | |
+| `Nullable(Int16)` | `Optional<Int16>` | |
+| `Nullable(UInt16)` | `Optional<Uint16>` | |
+| `Nullable(Int32)` | `Optional<Int32>` | |
+| `Nullable(UInt32)` | `Optional<Uint32>` | |
+| `Nullable(Int64)` | `Optional<Int64>` | |
+| `Nullable(UInt64)` | `Optional<Uint64>` | |
+| `Nullable(Float32)` | `Optional<Float>` | |
+| `Nullable(Float64)` | `Optional<Double>` | |
+| `Nullable(Date)` | `Optional<Utf8>` | |
+| `Nullable(Date32)` | `Optional<Utf8>` | |
+| `Nullable(DateTime)` | `Optional<Utf8>` | |
+| `Nullable(DateTime64)` | `Optional<Utf8>` | |
+| `Nullable(String)` | `Optional<String>` | |
+| `Nullable(FixedString)` | `Optional<String>` | Нулевые байты `FixedString` переносятся в `String` без изменений. |
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

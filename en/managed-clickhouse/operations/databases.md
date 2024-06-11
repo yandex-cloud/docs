@@ -71,7 +71,7 @@ In a cluster with DB management via SQL enabled:
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name.
    1. Select the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.databases.button_add }}**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
    1. Enter the database name and click **{{ ui-key.yacloud.clickhouse.cluster.databases.popup-add_button_add }}**.
 
       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}

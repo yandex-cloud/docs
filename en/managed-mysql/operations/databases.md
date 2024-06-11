@@ -48,7 +48,7 @@ You can add and remove databases, view information about them, and manage some d
    1. Click the cluster name.
    1. If the new database does not have an owner among its current users, [add such a user](cluster-users.md#adduser).
    1. Select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.databases.button_add }}**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
    1. Enter the database name and click **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_button_add }}**.
 
       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}

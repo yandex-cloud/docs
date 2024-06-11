@@ -1,14 +1,16 @@
 # Шаблоны очередей
 
-Чтобы вам было проще настроить {{ tracker-name }} для работы с вашими задачами, в {{ tracker-name }} предусмотрено несколько шаблонов очередей для распространенных процессов. Шаблон очереди включает [воркфлоу](workflow.md) с предварительно настроенными типами задач и статусами. В некоторых шаблонах настроена [доска задач](agile.md#sec_boards).
+Чтобы вам было проще настроить {{ tracker-name }} для работы с вашими задачами, предусмотрены несколько шаблонов очередей для распространенных процессов. Шаблон очереди включает [воркфлоу](workflow.md) с предварительно настроенными типами задач и статусами.
 
-## Начните прямо сейчас {#section_now}
+## Базовый шаблон {#section_now}
 
-Шаблон очереди с простым воркфлоу, который подойдет для первого знакомства с возможностями {{ tracker-name }}. Если вы выберете этот шаблон, позже можно будет настроить воркфлоу под ваши задачи.
+Шаблон очереди с простым воркфлоу, который подойдет для первого знакомства с возможностями {{ tracker-name }}. Позже вы сможете настроить воркфлоу под ваши задачи.
 
-При выборе этого шаблона автоматически создается [простая доска задач](agile.md#sec_boards).
+При выборе этого шаблона автоматически создается [простая доска задач](../dev-process-agile.md#board_types) с таким же названием, как у очереди.
 
-Воркфлоу включает один тип задач: **Задача**.
+Воркфлоу включает типы задач:
+- **Задача**;
+- **Веха**.
 
 Задачи могут иметь статусы:
 
@@ -17,356 +19,251 @@
 - **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**;
 - **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
 
-Возможные переходы между статусами:
+При переходе задачи в статус **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}** она будет закрыта с резолюцией **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**.
 
-![](../../_assets/tracker/workflow-start-now.png)
+
+## Управление проектами
+
+Этот шаблон очереди подойдет для компании, в которой работают несколько команд.
+
+При выборе этого шаблона для каждого проекта будет создаваться [простая доска задач](../dev-process-agile.md#board_types).
+
+Воркфлоу включает типы задач:
+- **Задача**;
+- **Веха**.
+
+Задачи могут иметь статусы:
+
+- **{{ ui-key.startrek-backend.applinks.samsara.status.open }}**;
+- **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**;
+- **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**;
+- **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
+
+При переходе задачи в статус **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}** она будет закрыта с резолюцией **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**.
+
+
+## Разработка {#section_q5d_3rm_qz}
+
+Этот шаблон очереди подойдет для команды разработки.
+
+При выборе этого шаблона автоматически создается [доска задач «С бэклогом и спринтами»](../dev-process-agile.md#instrumenty-na-skram-doske), на которой можно планировать спринты, оценивать задачи и смотреть диаграмму сгорания задач.
+
+Воркфлоу включает типы задач:
+
+- **Задача**;
+- **Веха**;
+- **Ошибка**;
+- **Релиз**;
+- **Epic**;
+- **Story**.
+
+Задачи могут иметь статусы:
+
+- **{{ ui-key.startrek-backend.presets.devPreset.board.column.open }}**;
+- **{{ ui-key.startrek-backend.presets.developmentPreset.board.column.need.info }}**;
+- **{{ ui-key.startrek-backend.presets.devPreset.board.column.in.progress }}**;
+- **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}**.
+
+При переходе задачи в статус **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}** пользователю будет предложено оставить комментарий и выбрать одну из резолюций:
+
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**;
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**.
+
+## Поддержка {#section_nsm_jrm_qz}
+
+Этот шаблон очереди поможет организовать службу поддержки пользователей.
+
+При выборе этого шаблона автоматически создается [простая доска задач](../dev-process-agile.md#board_types) с таким же названием, как у очереди.
+
+Воркфлоу включает типы задач:
+- **Задача**;
+- **Веха**;
+- **Улучшение**;
+- **Запрос**;
+- **Ошибка**.
+
+Задачи могут иметь статусы:
+
+- **{{ ui-key.startrek-backend.applinks.samsara.status.open }}**;
+- **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**;
+- **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**;
+- **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
 
 При переходе задачи в статус **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}** пользователю будет предложено оставить комментарий и выбрать одну из резолюций:
 
 - **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**.
 
-## Базовая разработка {#section_q5d_3rm_qz}
 
-Этот шаблон очереди оптимизирован для разработки приложений внутри компании, когда нет внешнего заказчика.
+## Производство {#section_production}
 
-При выборе этого шаблона автоматически создается [простая доска задач](agile.md#sec_boards).
+Этот шаблон очереди подойдет промышленным предприятиям.
+
+При выборе этого шаблона автоматически создается [простая доска задач](../dev-process-agile.md#board_types) с таким же названием, как у очереди.
 
 Воркфлоу включает типы задач:
 
 - **Задача**;
-- **Улучшение**;
-- **Ошибка**;
-- **Релиз**.
+- **Веха**.
 
 Задачи могут иметь статусы:
 
-- **{{ ui-key.startrek-backend.presets.devPreset.board.column.open }}**;
+- **{{ ui-key.startrek-backend.applinks.samsara.status.open }}**;
+- **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**;
 - **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**;
-- **{{ ui-key.startrek-backend.presets.developmentPreset.board.column.need.info }}**;
-- **{{ ui-key.startrek-backend.presets.developmentPreset.board.column.review }}**;
-- **{{ ui-key.startrek-backend.presets.developmentPreset.board.column.ready.for.test }}**;
-- **{{ ui-key.startrek-backend.presets.developmentPreset.board.column.testing }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}**;
-- **{{ ui-key.startrek-backend.presets.developmentPreset.board.column.tested }}**;
-- **{{ ui-key.startrek-backend.presets.developmentPreset.board.column.release.candidate }}**;
-- **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}**.
+- **Согласование результата**;
+- **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
 
-Возможные переходы между статусами:
-
-![](../../_assets/tracker/workflow-basic-dev.png)
-
-При переходе задачи в статус **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}** пользователю будет предложено оставить комментарий и выбрать одну из резолюций:
+При переходе задачи в статус **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}** пользователю будет предложено оставить комментарий и выбрать одну из резолюций:
 
 - **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**;
-- **Не воспроизводится**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**;
-- **Позже**.
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**.
 
-## Разработка на заказ {#sec_outsource_dev}
 
-Этот шаблон очереди оптимизирован для разработки приложений, у которых есть внешний заказчик.
+## Маркетинг {#section_marketing}
+
+Этот шаблон очереди подойдет организациям, которые проводят рекламные кампании.
+
+При выборе этого шаблона для каждого проекта будет создаваться [простая доска задач](../dev-process-agile.md#board_types).
 
 Воркфлоу включает типы задач:
 
 - **Задача**;
-- **Улучшение**;
-- **Ошибка**;
-- **Проект**.
+- **Веха**.
 
 Задачи могут иметь статусы:
 
-- **{{ ui-key.startrek-backend.presets.devPreset.board.column.open }}**;
-- **{{ ui-key.startrek-backend.presets.developmentPreset.board.column.need.info }}**;
-- **Оценка задачи**;
-- **{{ ui-key.startrek-backend.presets.devPreset.board.column.in.progress }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}**;
-- **Демонстрация заказчику**;
-- **{{ ui-key.startrek-backend.presets.developmentPreset.board.column.release.candidate }}**;
-- **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.status.open }}**;
+- **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**;
+- **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**;
+- **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
 
-Возможные переходы между статусами:
+При переходе задачи в статус **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}** она будет закрыта с резолюцией **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**.
 
-![](../../_assets/tracker/workflow-outsource.png)
-
-При переходе задачи в статус **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}** пользователю будет предложено оставить комментарий и выбрать одну из резолюций:
-
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**;
-- **Не воспроизводится**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
-
-## Скрам {#sec_scrum}
-
-Этот шаблон очереди подойдет вам, если вы используете методологию [Скрам]({{ link-wiki-scrum }}).
-
-При выборе этого шаблона автоматически создается [доска задач «Скрам»](agile.md#sec_boards), на которой можно планировать [спринты](create-agile-sprint.md), [оценивать задачи](planning-poker.md) и смотреть [диаграмму сгорания задач](burndown.md).
-
-Воркфлоу включает типы задач:
-
-- **Задача**;
-- **Ошибка**;
-- **Эпик**;
-- **Story**.
-
-Задачи могут иметь статусы:
-
-- **{{ ui-key.startrek-backend.presets.devPreset.board.column.open }}**;
-- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.in.progress }}**;
-- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.need.info }}**;
-- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.review }}**;
-- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.ready.for.test }}**;
-- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.testing }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}**;
-- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.tested }}**;
-- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.release.candidate }}**;
-- **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}**.
-
-Возможные переходы между статусами:
-
-![](../../_assets/tracker/workflow-basic-dev.png)
-
-При переходе задачи в статус **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}** пользователю будет предложено оставить комментарий и выбрать одну из резолюций:
-
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
-
-## Канбан {#section_lnl_jrm_qz}
-
-Этот шаблон очереди подойдет вам, если вы используете методологию [Канбан]({{ link-wiki-kanban }}).
-
-При выборе этого шаблона автоматически создается [доска задач «Канбан»](agile.md#sec_boards).
-
-Воркфлоу включает типы задач:
-
-- **Задача**;
-- **Ошибка**;
-- **Эпик**;
-- **Story**.
-
-Задачи могут иметь статусы:
-
-- **{{ ui-key.startrek-backend.presets.devPreset.board.column.open }}**;
-- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.in.progress }}**;
-- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.need.info }}**;
-- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.review }}**;
-- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.ready.for.test }}**;
-- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.testing }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}**;
-- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.tested }}**;
-- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.release.candidate }}**;
-- **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}**.
-
-Возможные переходы между статусами:
-
-![](../../_assets/tracker/workflow-basic-dev.png)
-
-При переходе задачи в статус **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}** пользователю будет предложено оставить комментарий и выбрать одну из резолюций:
-
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
-
-
-## Сфера услуг {#section_service}
+## Оказание услуг {#section_service}
 
 Этот шаблон очереди подойдет организациям, которые оказывают услуги компаниям и частным клиентам.
+
+При выборе этого шаблона автоматически создается [простая доска задач](../dev-process-agile.md#board_types) с таким же названием, как у очереди.
 
 Воркфлоу включает типы задач: 
 
 - **Задача**;
-- **Проект**.
+- **Веха**.
 
 Задачи могут иметь статусы: 
 
-- **{{ ui-key.startrek-backend.applinks.samsara.status.new }}**;
+- **{{ ui-key.startrek-backend.applinks.samsara.status.open }}**;
 - **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**;
-- **Ждем подтверждения**;
-- **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**;
-- **Согласование результата**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.status.on.hold }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
-
-Возможные переходы между статусами:
-
-![](../../_assets/tracker/workflow-service.png)
-
-При переходе задачи в статус **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}** пользователю будет предложено оставить комментарий и выбрать одну из резолюций:
-
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
-
-## Производство {#section_production}
-
-Этот шаблон очереди подойдет компаниям и подразделениям, которые производят материальные продукты.
-
-Воркфлоу включает типы задач:
-
-- **Задача**;
-- **Проект**.
-
-Задачи могут иметь статусы:
-
-- **{{ ui-key.startrek-backend.applinks.samsara.status.new }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**;
-- **Ждем подтверждения**;
 - **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**;
 - **Согласование результата**;
 - **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
 
-Возможные переходы между статусами:
-
-![](../../_assets/tracker/workflow-production.png)
-
 При переходе задачи в статус **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}** пользователю будет предложено оставить комментарий и выбрать одну из резолюций:
 
 - **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**.
 
-## Маркетинг и реклама {#section_marketing}
+## Документооборот {#section_docflow}
 
-Этот шаблон очереди подойдет организациям и подразделениям, которые проводят маркетинговые кампании.
+Этот шаблон очереди поможет организовать процесс согласования документов.
 
-При выборе этого шаблона автоматически создается [простая доска задач](agile.md#sec_boards).
+При выборе этого шаблона автоматически создается [простая доска задач](../dev-process-agile.md#board_types) с таким же названием, как у очереди.
 
 Воркфлоу включает типы задач:
-
 - **Задача**;
-- **Проект**.
+- **Веха**;
+- **Запрос**;
+- **Документы**.
 
 Задачи могут иметь статусы:
 
 - **{{ ui-key.startrek-backend.applinks.samsara.status.open }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**;
 - **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
-
-Возможные переходы между статусами:
-
-![](../../_assets/tracker/workflow-marketing.png)
-
-При переходе задачи в статус **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}** пользователю будет предложено оставить комментарий и выбрать одну из резолюций:
-
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
-
-## Документооборот {#section_docflow}
-
-Этот шаблон очереди предназначен для процесса согласования документов.
-
-Воркфлоу включает один тип задач: **Задача**.
-
-Задачи могут иметь статусы:
-
-- **{{ ui-key.startrek-backend.applinks.samsara.status.new }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**;
-- **Ждем подтверждения**;
 - **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**;
+- **Согласование результата**;
+- **Ожидание подтверждения**;
 - **Документы подготовлены**;
-- **{{ ui-key.startrek-backend.applinks.samsara.status.on.hold }}**;
 - **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
-
-Возможные переходы между статусами:
-
-![](../../_assets/tracker/workflow-docflow.png)
 
 При переходе задачи в статус **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}** пользователю будет предложено оставить комментарий и выбрать одну из резолюций:
 
 - **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**.
 
 ## Кадровые процессы {#section_hr}
 
-Этот шаблон очереди предназначен для задач отдела кадров.
+Этот шаблон очереди нужен для задач отдела кадров.
+
+При выборе этого шаблона автоматически создается [простая доска задач](../dev-process-agile.md#board_types) с таким же названием, как у очереди.
 
 Воркфлоу включает типы задач:
-
+- **Задача**;
 - **Отсутствие**;
 - **Командировка**;
-- **Изменения**;
 - **Документы**;
 - **Запрос**.
 
 Задачи могут иметь статусы:
 
-- **{{ ui-key.startrek-backend.applinks.samsara.status.new }}**;
+- **{{ ui-key.startrek-backend.applinks.samsara.status.open }}**;
 - **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**;
-- **Ждем подтверждения**;
 - **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**;
 - **Документы подготовлены**;
-- **{{ ui-key.startrek-backend.applinks.samsara.status.on.hold }}**;
+- **Ожидание подтверждения**;
+- **Согласование результата**;
 - **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
-
-Возможные переходы между статусами:
-
-![](../../_assets/tracker/workflow-docflow.png)
 
 При переходе задачи в статус **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}** пользователю будет предложено оставить комментарий и выбрать одну из резолюций:
 
 - **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**.
 
 ## Подбор персонала {#section_hire}
 
-Этот шаблон очереди предназначен для процесса найма сотрудников.
+Этот шаблон очереди поможет организовать процесс найма сотрудников.
+
+При выборе этого шаблона автоматически создается [простая доска задач](../dev-process-agile.md#board_types) с таким же названием, как у очереди.
 
 Воркфлоу включает типы задач:
-
+- **Задача**;
+- **Веха**;
 - **Вакансия**;
 - **Кандидат**.
 
 Задачи могут иметь статусы: 
-- **{{ ui-key.startrek-backend.applinks.samsara.status.new }}**;
+- **{{ ui-key.startrek-backend.applinks.samsara.status.open }}**;
 - **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**;
-- **Ждем подтверждения**;
 - **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**;
 - **Согласование результата**;
-- **{{ ui-key.startrek-backend.applinks.samsara.status.on.hold }}**;
+- **Ожидание подтверждения**;
+- **Документы подготовлены**;
 - **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
-
-Возможные переходы между статусами:
-
-![](../../_assets/tracker/workflow-hire.png)
 
 При переходе задачи в статус **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}** пользователю будет предложено оставить комментарий и выбрать одну из резолюций:
 
 - **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**;
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**.
 
 ## Управление целями {#section_goals}
 
-Этот шаблон очереди предназначен для постановки целей компании или подразделения и контроля над их выполнением.
+Этот шаблон очереди нужен для постановки целей компании и контроля над их выполнением.
 
 Воркфлоу включает типы задач:
 
-- **Задача**;
-- **Проект**.
+- **Цель**;
+- **Веха**.
 
 Задачи могут иметь статусы:
 
-- **Новая**;
+- **Новая цель**;
 - **По плану**;
 - **Есть риски**;
 - **Отменена**;
 - **Достигнута**;
-- **Заблокирована**.
+- **Цель заблокирована**.
 
-Возможные переходы между статусами:
-
-![](../../_assets/tracker/workflow-goals.png)
-
-При переходе задачи в статус **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}** пользователю будет предложено оставить комментарий и выбрать одну из резолюций:
+При переходе задачи в статус **Отменена** или **Достигнута** пользователю будет предложено оставить комментарий и выбрать одну из резолюций:
 
 - **Успешно**; 
 - **Перевыполнено**;

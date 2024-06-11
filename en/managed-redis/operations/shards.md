@@ -85,7 +85,7 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
    1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to add a shard to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Click the cluster name and go to the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.button_add }}**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
    1. Specify **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
       * (Optional) Edit the host settings.

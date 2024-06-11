@@ -84,9 +84,9 @@ If no user requests have been sent to the resource for 90 days, its status chang
 
 You can view statistics on the resource page in the [management console]({{ link-console-main }}).
 
-## Resource performance statistics {#resource-stats}
+## {{ monitoring-name }} metrics {#resource-stats}
 
-{{ cdn-name }} automatically sends resource performance metrics to the [{{ monitoring-full-name }}](../../monitoring/) service.
+{{ cdn-name }} automatically sends resource performance metrics to [{{ monitoring-full-name }}](../../monitoring/).
 
 You can view performance statistics on the [resource page](../operations/resources/get-stats.md#cdn-ui) or in the [{{ monitoring-name }} interface](../operations/resources/get-stats.md#monitoring).
 
@@ -94,5 +94,5 @@ For a list of metrics delivered to {{ monitoring-name }}, see the [reference](..
 
 #### See also {#see-also}
 
-* [Guides on using resources](../operations/index.md#resources).
-* [Guide on using the basic resource settings](../operations/resources/configure-basics.md).
+* [Guides on using resources](../operations/index.md#resources)
+* [Guide on using the basic resource settings](../operations/resources/configure-basics.md)

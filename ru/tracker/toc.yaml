@@ -120,6 +120,10 @@ items:
         href: user/queue.md
       - name: Изменить основные параметры очереди
         href: manager/edit-queue-general.md
+      - name: Добавить команду очереди
+        href: manager/queue-team.md
+      - name: Настроить доступ к очереди
+        href: manager/queue-access.md
       - name: Рабочие процессы в очереди
         items:
           - name: Обзор
@@ -136,10 +140,6 @@ items:
             href: manager/add-workflow.md
           - name: Поддержка обратной совместимости
             href: manager/backward-compatibility.md
-      - name: Локальные поля задач
-        href: local-fields.md
-      - name: Добавить команду очереди
-        href: manager/queue-team.md
       - name: Настроить доступ к очереди
         items:
           - name: Страница управления доступом
@@ -148,8 +148,12 @@ items:
             href: manager/queue-access-types.md
           - name: Примеры настройки
             href: manager/queue-access-examples.md
+      - name: Настроить интеграции очереди
+        href: manager/queue-integrations.md
       - name: Настроить учет времени
         href: manager/queue-spent-time.md
+      - name: Локальные поля задач
+        href: local-fields.md
       - name: Расширенные возможности очереди
         href: manager/queue-advanced.md
       - name: Посмотреть историю изменений очереди
@@ -182,6 +186,8 @@ items:
             href: user/attach-file.md
           - name: Форматировать текст в задаче
             href: user/markup.md
+          - name: Синтаксис YFM
+            href: user/syntax-yfm.md
           - name: Проголосовать за задачу
             href: user/votes.md
           - name: Перенести задачу в другую очередь
@@ -402,8 +408,6 @@ items:
         items:
           - name: Обзор
             href: user/ticket-template.md
-          - name: Создать шаблон в {{ forms-full-name }} (бета)
-            href: user/forms-template.md
           - name: Создать шаблон
             href: user/create-template.md
           - name: Изменить шаблон
@@ -431,7 +435,13 @@ items:
       - name: Почта
         href: manager/queue-mail.md
       - name: Yandex Forms
-        href: manager/forms-integration.md
+        items:
+          - name: Обзор
+            href: manager/about-forms-integration.md
+          - name: В интерфейсе {{ tracker-full-name }}
+            href: user/forms-template.md
+          - name: B интерфейсе {{ forms-full-name }}
+            href: manager/forms-integration.md
       - name: Yandex Wiki
         href: user/wiki.md
       - name: Мессенджеры
@@ -757,6 +767,12 @@ items:
                 href: get-sprint.md
               - name: Создать спринт
                 href: post-sprint.md
+      - name: Дашборды
+        items:
+          - name: Создать дашборд
+            href: concepts/dashboards/create-dashboard.md
+          - name: Создать виджет
+            href: concepts/dashboards/create-widget.md
       - name: Компоненты
         items:
           - name: Получить список компонентов

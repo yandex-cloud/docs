@@ -459,6 +459,14 @@ yc components update
       kubectl edit pv <название_PV>
       ```
 
+1. Проверьте, содержит ли манифест объекта `PersistentVolume` параметр `spec.nodeAffinity`:
+
+    ```bash
+    kubectl get pv <название_PV> --output='yaml'
+    ```
+
+    Если манифест содержит параметр `spec.nodeAffinity` и в нем указана принадлежность к зоне доступности, сохраните этот параметр. Его понадобится указать в новом `PersistentVolume`.
+
 1. Создайте [снапшот](../../glossary/snapshot.md) — копию диска `PersistentVolume` на определенный момент времени. Подробнее о механизме снапшотов см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
 
    1. Получите название объекта `PersistentVolumeClaim`:
@@ -557,6 +565,23 @@ yc components update
 
       Если вы создаете несколько объектов `PersistentVolume`, укажите `<номер>` (номер по порядку), чтобы значение `metadata.name` было уникальным.
 
+      Если ранее вы сохранили параметр `spec.nodeAffinity`, добавьте его в манифест и укажите зону доступности, в которую переносится группа узлов {{ managed-k8s-name }}. Если параметр не указан, рабочая нагрузка может запуститься в другой зоне доступности, в которой недоступен `PersistentVolume`. Это приведет к ошибке запуска.
+
+      Пример параметра `spec.nodeAffinity`:
+
+      ```yaml
+      spec:
+         ...
+         nodeAffinity:
+            required:
+               nodeSelectorTerms:
+               - matchExpressions:
+                  - key: failure-domain.beta.kubernetes.io/zone
+                    operator: In
+                    values:
+                       - ru-central1-d
+      ```
+
    1. Создайте объект `PersistentVolume`:
 
       ```bash
@@ -570,6 +595,25 @@ yc components update
       ```
 
       В выводе команды появится объект `new-pv-test-<номер>`.
+
+   1. Если в манифесте вы указали параметр `spec.nodeAffinity`, убедитесь, что для `PersistentVolume` применен этот параметр:
+
+       {% list tabs group=instructions %}
+
+       - Консоль управления {#console}
+
+          1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашим кластером {{ managed-k8s-name }}.
+          1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+          1. Перейдите на страницу кластера, затем — в раздел **{{ ui-key.yacloud.k8s.cluster.switch_storage }}**.
+          1. На вкладке **{{ ui-key.yacloud.k8s.storage.label_pv }}** найдите объект `new-pv-test-<номер>` и посмотрите значение поля **{{ ui-key.yacloud.k8s.pv.overview.label_zone }}**. В нем должна отображаться зона доступности. Прочерк означает, что нет привязки к зоне доступности.
+
+       {% endlist %}
+
+   1. Если в манифесте вы не указали параметр `spec.nodeAffinity`, вы можете добавить его. Для этого отредактируйте объект `PersistentVolume`:
+
+      ```bash
+      kubectl edit pv new-pv-test-<номер>
+      ```
 
 1. Создайте объект `PersistentVolumeClaim` на основе нового объекта `PersistentVolume`:
 
@@ -657,6 +701,8 @@ yc components update
       ```
 
 ### Постепенная миграция stateless- и stateful-нагрузки {#gradual-migration}
+
+Ниже представлена инструкция по постепенной миграции нагрузки из старой группы узлов в новую. Инструкцию по миграции объектов `PersistentVolume` и `PersistentVolumeClaim` см. в подразделе [Миграция stateful-нагрузки](#stateful).
 
 1. [Создайте новую группу узлов](../operations/node-group/node-group-create.md#node-group-create) {{ managed-k8s-name }} в новой зоне доступности.
 

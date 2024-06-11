@@ -11,7 +11,7 @@
 
 	В момент настройки сети на новой виртуальной машине выберите автоматически назначаемый публичный IP-адрес или выберите адрес из списка зарезервированных. 
 
-	После выбора адреса выберите опцию **{{ ui-key.yacloud.component.compute.network-select.field_ddos-protection-provider }}**.
+	После выбора адреса выберите опцию **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**.
 
 {% endlist %}
 
@@ -28,7 +28,7 @@
 	1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
 	1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
 	1. Выберите зону доступности, в которой нужно зарезервировать адрес.
-	1. Выберите опцию **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}**.
+	1. Выберите опцию **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**.
 	1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 - {{ TF }} {#tf}

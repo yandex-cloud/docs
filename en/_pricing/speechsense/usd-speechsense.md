@@ -1,15 +1,3 @@
-| Service | Price per unit,<br/>without VAT |
-|---| --- |
-| Audio file recognition | $0.00008 |
-| Audio analytics | $0.000184 |
-
-{% note warning %}
-
-The below prices will be effective from May 16, 2024.
-
-{% endnote %}
-
-
 | Service | Minutes per month | Cost per minute,<br/>without VAT |
 |---|---|---|
 | Audio file recognition | 0 to 99,999 | $0.0048 |

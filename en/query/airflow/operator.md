@@ -9,16 +9,16 @@ Required arguments:
 * `sql`: Text of the [SQL query](../concepts/glossary#query) to run in {{ yq-full-name }}.
 
 Optional arguments:
-* `folder_id`: Folder to execute the query in. If omitted, it is the same as the {{ maf-name }} folder.
+* `folder_id`: Folder to execute the query in. If not specified, it is the same as the {{ maf-name }} folder.
 * `yandex_conn_id`: ID of the `yandexcloud`-type connection containing the {{ yandex-cloud }} connection parameters. If not specified, the connection named `yandexcloud_default` is used. The `yandexcloud_default` connection is pre-installed as part of {{ maf-short-name }}, so you do not need to create it.
 
 Example:
 
 ```python
-yq_operator = YQExecuteQueryOperator(task_id="yq_operator", sql="SELECT 'Hello, world!'")
+yq_operator = YQExecuteQueryOperator(task_id="yq_operator", sql="SELECT 'Hello, World!'")
 ```
 
-In this example, we are creating an {{ AF }} job with the `yq_operator` ID, which runs the `SELECT 'Hello, world!'` query. For the full example of a query to {{ yq-full-name }} from {{ maf-short-name }}, see [{#T}](../tutorials/airflow.md).
+In this example, we are creating an {{ AF }} job with the `yq_operator` ID, which runs the `SELECT 'Hello, World!'` query. For the full example of a query to {{ yq-full-name }} from {{ maf-short-name }}, see [{#T}](../tutorials/airflow.md).
 
 ## Returned values {#ret_values}
 
@@ -26,7 +26,7 @@ Successful `YQExecuteQueryOperator` execution outputs data in the form of a dict
 
 Query:
 ```python
-yq_operator = YQExecuteQueryOperator(task_id="yq_operator", sql="SELECT 'Hello, world!'")
+yq_operator = YQExecuteQueryOperator(task_id="yq_operator", sql="SELECT 'Hello, World!'")
 ```
 
 Result:
