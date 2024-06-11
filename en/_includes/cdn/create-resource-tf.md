@@ -29,10 +29,14 @@ Where:
 * `secondary_hostnames`: (Optional) Additional domain names.
 * `ssl_certificate`: (Optional) SSL certificate parameters:
 
+   {% include [lets-encrypt-over](lets-encrypt-over.md) %}
+
    * `type`: Certificate type. The possible values are:
 
-      * `not_used`: No certificate is used. Default value.
-      * `certificate_manager`: Custom [{{ certificate-manager-full-name }}](../../certificate-manager/concepts/imported-certificate.md) certificate. Specify the certificate ID in the `certificate_manager_id` parameter.
+      * `not_used`: No certificate is used. This is a default value.
+      * `certificate_manager`: Custom certificate. Specify the certificate ID in the `certificate_manager_id` parameter.
+
+         {% include [certificate-usage](certificate-usage.md) %}
 
    * `certificate_manager_id`: User certificate ID in {{ certificate-manager-name }}.
 
@@ -40,9 +44,9 @@ Where:
 
    * `redirect_http_to_https`: Parameter to redirect clients from HTTP to HTTPS, `true` or `false`. Available if an SSL certificate is used.
    * `secure_key`: Secret key that is a string of 6 to 32 characters. It is required to restrict access to a resource using [secure tokens](../../cdn/concepts/secure-tokens.md).
-   * `enable_ip_url_signing`: Optional parameter that enables restricting access to a CDN resource by IP address using [secure tokens](../../cdn/concepts/secure-tokens.md). A trusted IP address is specified as a parameter outside a CDN resource when generating an [MD5](https://en.wikipedia.org/wiki/MD5) hash for a [signed link](../../cdn/concepts/secure-tokens.md#protected-link). If the parameter is not set, file access will be allowed from any IP.
+   * `enable_ip_url_signing`: Optional parameter that enables restricting access to a CDN resource by IP address using [secure tokens](../../cdn/concepts/secure-tokens.md). A trusted IP address is specified as a parameter outside a CDN resource when generating an [MD5](https://en.wikipedia.org/wiki/MD5) hash for a [signed link](../../cdn/concepts/secure-tokens.md#protected-link). If the parameter is not set, file access will be allowed from any IP address.
 
-   * `ip_address_acl`: [Access policy parameters by IP addresses](../../cdn/concepts/ip-address-acl.md):
+   * `ip_address_acl`: [IP-based access policy](../../cdn/concepts/ip-address-acl.md) parameters:
 
       * `excepted_values`: [List of IP addresses](../../cdn/concepts/ip-address-acl.md#ip-list) for which access to the resource content will be allowed or denied. Separate IP addresses by commas. For each address, specify the subnet prefix in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation), e.g., `192.168.3.2/32` or `2a03:d000:2980:7::8/128`.
       * `policy_type`: [Policy type](../../cdn/concepts/ip-address-acl.md#policy-type). The possible values include:

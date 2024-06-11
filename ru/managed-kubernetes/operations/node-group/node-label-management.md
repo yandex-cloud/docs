@@ -227,7 +227,7 @@
 
 {% list tabs group=instructions %}
 
-* CLI {#cli}
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -246,7 +246,7 @@
   * `--id` — идентификатор группы узлов. Его можно [получить вместе со списком](node-group-list.md#list) групп узлов в кластере {{ managed-k8s-name }}.
   * `--labels` — {{ k8s }}-метки в формате `<ключ>=<значение>`. Можно указать одну или несколько меток через запятую.
 
-* {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
   Чтобы назначить {{ k8s }}-метку на уже созданную группу узлов:
 
@@ -279,7 +279,7 @@
 
      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
-* API {#api}
+- API {#api}
 
   Чтобы назначить {{ k8s }}-метку на уже созданную группу узлов, воспользуйтесь методом [update](../../api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/index.md) и передайте в запросе:
 
@@ -296,7 +296,7 @@
 
 {% list tabs group=instructions %}
 
-* CLI {#cli}
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -315,7 +315,7 @@
   * `--id` — идентификатор группы узлов. Его можно [получить вместе со списком](node-group-list.md#list) групп узлов в кластере {{ managed-k8s-name }}.
   * `--labels` — ключи {{ k8s }}-меток, которые надо снять. Можно указать одну или несколько меток через запятую.
 
-* {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
   Чтобы снять {{ k8s }}-метку с группы узлов:
 
@@ -335,7 +335,7 @@
 
      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
-* API {#api}
+- API {#api}
 
   Чтобы снять {{ k8s }}-метку с группы узлов, воспользуйтесь методом [update](../../api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/index.md) и передайте в запросе:
 

@@ -342,7 +342,7 @@ You cannot do this using the [CLI](../../cli/).
 
 {% endnote %}
 
-To protect a load balancer against DDoS attacks, reserve a static public IP address with the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}** option:
+To protect a load balancer against DDoS attacks, reserve a static public IP address with the **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** option:
 
 {% list tabs group=instructions %}
 
@@ -351,7 +351,7 @@ To protect a load balancer against DDoS attacks, reserve a static public IP addr
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}** and click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
    1. Select the availability zone where you want to reserve the IP address.
-   1. Enable **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}**.
+   1. Enable **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**.
    1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 - {{ TF }} {#tf}

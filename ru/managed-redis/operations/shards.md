@@ -85,7 +85,7 @@
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с кластером, в который нужно добавить шард.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.redis.cluster.switch_shards }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.button_add }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
   1. Укажите **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}**:
      * (Опционально) Отредактируйте настройки хоста.

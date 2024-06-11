@@ -66,7 +66,7 @@ To activate the service:
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       1. Select the [cloud network](../vpc/concepts/network.md#network) and [subnet](../vpc/concepts/network.md#subnet) to connect the VM to. If you do not have a network, click ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**:
          1. In the window that opens, enter the network name and specify the folder to host the network.
-         1. Click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+         1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
             Each network must have at least one subnet. If there is no subnet, create one by selecting ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
       1. Set up [network access](concepts/vm-connection.md#vm-network-access) for your VM.

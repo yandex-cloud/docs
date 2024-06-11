@@ -33,7 +33,7 @@ The cost of data storage support includes:
 
 ## Configure the environment {#prepare-environment}
 
-1. [Create](../../iam/operations/sa/create.md) a service account, e.g., `logs-sa`, with the `editor` [role](../../iam/concepts/access-control/roles.md#editor) assigned for the folder.
+1. [Create](../../iam/operations/sa/create.md) a service account, e.g., `logs-sa`, with the `editor` [role](../../iam/roles-reference.md#editor) assigned for the folder.
 1. [Set up](../../logging/tutorials/) the transfer of logs to the log group. For example, you can [transfer](../../logging/tutorials/vm-fluent-bit-logging.md) logs from a VM instance or [add](../../logging/operations/write-logs.md) test records to the log group.
 
 {% include [create-bucket](../_tutorials_includes/create-bucket.md) %}

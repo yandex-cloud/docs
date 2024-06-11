@@ -23,6 +23,7 @@ To learn more about datasets and dataset operations, see:
    * [{#T}](../../operations/dataset/create-field.md)
    * [{#T}](../../operations/dataset/create-calculated-field.md)
    * [{#T}](../../operations/dataset/create-filter.md)
+   * [{#T}](../../operations/dataset/replace-connection.md)
    * [{#T}](../../operations/dataset/update-field.md)
    * [{#T}](../../operations/dataset/add-data.md)
    * [{#T}](../../operations/dataset/add-parameter-dataset.md)

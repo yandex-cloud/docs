@@ -23,6 +23,10 @@ description: "Следуя данной инструкции, вы сможет�
 
       На вкладке **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** появятся подключенные виртуальные хосты.
 
+- API {#api}
+
+  {% include [api-host](../../_includes/smartwebsecurity/api-host.md) %}
+
 {% endlist %}
 
 {% include [auto-scaling-tip](../../_includes/smartwebsecurity/auto-scaling-tip.md) %}

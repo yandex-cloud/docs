@@ -51,7 +51,7 @@ To reserve an IP address:
 1. Go to **{{ ui-key.yacloud.vpc.switch_addresses }}**.
 1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
 1. In the window that opens, select the availability zone where you created the subnet in the previous step.
-1. Select the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}** option if you want to [protect your cloud resources from DDoS attacks](ddos-protection/index.md).
+1. Select the **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** option if you want to [protect your cloud resources from DDoS attacks](ddos-protection/index.md).
 1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 ## Delete a subnet and static public IP address {#delete-resources}

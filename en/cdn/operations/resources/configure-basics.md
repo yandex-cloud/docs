@@ -27,6 +27,19 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
       {% endnote %}
 
+      To configure a [TLS certificate](../../concepts/clients-to-servers-tls.md) for a CDN resource, in the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select one of the options:
+
+      * `{{ ui-key.yacloud.cdn.value_certificate-no }}`: Resource will only be available over HTTP.
+
+
+      * `{{ ui-key.yacloud.cdn.value_certificate-custom }}`: Select a certificate. The resource will be available over HTTP and HTTPS.
+
+         {% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
+
+         {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
+
+      For more information, see [{#T}](../../concepts/clients-to-servers-tls.md).
+
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -94,6 +107,8 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
       yc cdn resource update <resource_ID> \
         <flag> <new_value>
       ```
+
+      {% include [certificate-settings-cli](../../../_includes/cdn/certificate-settings-cli.md) %}
 
       {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 

@@ -114,7 +114,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
      * Выберите в списке облачную сеть и [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, нажмите кнопку **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}** и создайте ее.
 
-       Для этого в открывшемся окне выберите каталог, укажите имя подсети, выберите зону доступности и укажите CIDR. Затем нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+       Для этого в открывшемся окне выберите каталог, укажите имя подсети, выберите зону доступности и укажите CIDR. Затем нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
      * Если доступен список **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**, выберите [группу безопасности](../../vpc/concepts/security-groups.md#default-security-group), для которой ранее настраивали разрешения сетевого трафика. Если такого списка нет, для ВМ будет разрешен любой входящий и исходящий трафик.
 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:

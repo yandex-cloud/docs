@@ -1,0 +1,1 @@
+Воспользуйтесь методом REST API [update](../../application-load-balancer/api-ref/VirtualHost/update.md) для ресурса [VirtualHost](../../application-load-balancer/api-ref/VirtualHost/) или вызовом gRPC API [VirtualHostService/Update](../../application-load-balancer/api-ref/grpc/virtual_host_service.md#Update) сервиса {{ alb-name }}.

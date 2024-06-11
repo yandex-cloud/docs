@@ -71,7 +71,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера.
   1. Выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.databases.button_add }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
   1. Введите имя для базы данных и нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.databases.popup-add_button_add }}**.
 
       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}

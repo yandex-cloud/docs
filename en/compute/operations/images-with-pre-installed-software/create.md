@@ -43,9 +43,9 @@ To create a [VM](../../concepts/vm.md):
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       * Enter a [subnet](../../../vpc/concepts/network.md#subnet) ID or select a [cloud network](../../../vpc/concepts/network.md#network) from the list. You can select the search scope: in the current folder or in all folders. If you do not have a network, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
          * In the window that opens, enter the folder to host the new network, as well as the network name.
-         * In the **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_advanced }}** field, enable **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_is-default }}** (each network must have at least one [subnet](../../../vpc/concepts/network.md#subnet)).
+         * In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, enable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** (each network must have at least one [subnet](../../../vpc/concepts/network.md#subnet)).
 
-         * Click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+         * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, choose a method for assigning an IP address:
          * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: Assign a random [IP address](../../../vpc/concepts/address.md) from the {{ yandex-cloud }} IP pool.
          * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`: Select a [public IP address](../../../vpc/concepts/address.md#public-addresses) from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).

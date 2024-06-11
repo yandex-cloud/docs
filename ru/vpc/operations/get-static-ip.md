@@ -19,7 +19,7 @@
    1. Нажмите **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
    1. В открывшемся окне:
        * В поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите зону доступности, в которой нужно зарезервировать адрес.
-       * (Опционально) В блоке **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}** включите опции **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}** и **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**.
+       * (Опционально) В блоке **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}** включите опции **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** и **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**.
    1. Нажмите **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
   
 - CLI {#cli}

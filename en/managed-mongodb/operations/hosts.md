@@ -67,7 +67,7 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
    To add a host to your {{ mmg-name }} cluster:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the name of the {{ mmg-name }} cluster you need and go to the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-host }}**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
    1. Specify the host parameters:
       * [Availability zone](../../overview/concepts/geo-scope.md).
       * [Subnet](../../vpc/concepts/network.md#subnet) (if the required subnet is not on the list, create it).

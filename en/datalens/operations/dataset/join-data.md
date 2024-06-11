@@ -15,6 +15,9 @@ When [multiple source tables](../../concepts/dataset/settings.md#multi-table) ar
 1. In the top-left corner, select the **Sources** tab.
 1. Under **Tables**, select a table and drag it to your workspace.
 1. Select another table and drag it to your workspace. A link will automatically be created between these tables based on the first matching field name and field data type.
+
+   {% include [data-join-duplicate-fields-note](../../../_includes/datalens/datalens-data-join-duplicate-fields-note.md) %}
+
 1. To edit this table link:
 
    1. Click the table link icon.

@@ -37,9 +37,6 @@ links:
   - title: Общий порядок подключения
     description: Общий порядок подключения
     href: operations/workaround
-  - title: Регистрация
-    description: Регистрация
-    href: operations/registration
   - title: Запрос результатов поиска
     description: Запрос результатов поиска
     href: concepts/index

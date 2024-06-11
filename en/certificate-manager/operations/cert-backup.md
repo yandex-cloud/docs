@@ -96,7 +96,7 @@ To restore a user certificate from the certificate chain and key files:
 
       1. In the [management console]({{ link-console-main }}), select the folder where the certificate will be restored.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-      1. Click **{{ ui-key.yacloud.certificate-manager.button_add }}**.
+      1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
       1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_import }}**.
       1. In the window that opens, enter a name for your certificate in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field.
       1. (Optional) In the **Description** field, enter a description for the certificate.

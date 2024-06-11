@@ -224,11 +224,7 @@ An array is a structure made up of a series of elements of the same type.
 * `Floating-point number`
 * `String`
 
-{% note warning %}
-
-You cannot define an array inside {{ datalens-short-name }}.
-
-{% endnote %}
+You can define an array in {{ datalens-short-name }} using the [ARRAY](../../datalens/function-ref/ARRAY.md) function.
 
 #### Example notation {#array-example}
 

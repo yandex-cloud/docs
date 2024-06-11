@@ -154,6 +154,7 @@ default:
   dt-type-repl: '**Репликация**'
   dt-white-ip-list-uri: >-
     https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
+  emb-vector: 256
   ES: Elasticsearch
   external-ip-examples:
     '0': 84.201.155.117
@@ -410,7 +411,7 @@ default:
   objstorage-sftps-gateway-uri: cr.yandex/crp9ftr22d26age3hulg/ftp-s3-gateway
   objstorage-sftps-gateway-version: '1.0'
   objstorage-short-name: Object Storage
-  ocr-max-filesize: 20 МБ
+  ocr-max-filesize: 10 МБ
   oracle:
     docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
   org-full-name: Yandex Cloud Organization
@@ -3849,6 +3850,10 @@ default:
         product-pricing-type_byol: BYOL
         product-pricing-type_free: Free
         product-pricing-type_payg: PAYG
+      notify-subs:
+        label_inherited-subscribers: Подписчики по умолчанию
+        label_subscribers-dialog-header: Добавление пользователей
+        label_users: Пользователи
       settings:
         button_add-empty-telegram: Настроить
         button_submit: Подтвердить
@@ -4320,12 +4325,12 @@ default:
         label_collecting-logs: Сбор событий
         label_dataStream: Data Streams
         label_destination: Назначение
-        label_event-filter-section: Сбор событий с уровня сервисов (Data plane)
+        label_event-filter-section: Сбор событий с уровня сервисов
         label_object-prefix: Префикс объекта
         label_objectStorage: Object Storage
         label_organization-manager:
           organization: Организация
-        label_path-filter-section: Сбор событий c уровня конфигураций (Control plane)
+        label_path-filter-section: Сбор событий c уровня конфигурации
         label_resource-manager:
           cloud: Облако
           folder: Каталог
@@ -4484,7 +4489,7 @@ default:
       certificate-manager:
         action_import: Пользовательский сертификат
         action_request: Сертификат от Let's Encrypt
-        button_add: Добавить сертификат
+        button_empty-action: Добавить сертификат
         domain:
           action_bind-certificate: Привязать сертификат
           action_edit: Редактировать
@@ -4520,7 +4525,7 @@ default:
         button_create-cluster: Создать кластер ClickHouse
         cluster:
           databases:
-            popup-add_button_add: Добавить
+            popup-add_button_add: Создать
           explore:
             button_execute: Выполнить
             button_explain: План запроса
@@ -4532,19 +4537,19 @@ default:
           format-schemas:
             button_action-delete-format-schema: Удалить
             button_action-edit-format-schema: Изменить
-            button-action_add-format-schema: Добавить схему
+            button-action_add-format-schema: Создать схему
             dialog:
               field_format-schema-uri: URL
-              label_add: Добавить
+              label_add: Создать
               title_add: Добавление схемы
           ml-models:
             button_action-delete-ml-model: Удалить
             button_action-edit-ml-model: Изменить
-            button-action_add-ml-model: Добавить модель
+            button-action_add-ml-model: Создать модель
             field_ml-model-name: Имя
             field_ml-model-type: Тип
             field_ml-model-uri: URL
-            label_add-ml-model: Добавить
+            label_add-ml-model: Создать
           switch_backups: Резервные копии
           switch_databases: Базы данных
           switch_datalens: DataLens
@@ -4585,6 +4590,7 @@ default:
         disabled: Выключено
         edit: Редактировать
         enabled: Включено
+        field_ddos-protection-provider: Защита от DDoS-атак
         folder: Каталог
         id: Идентификатор
         import: Импортировать
@@ -4660,7 +4666,6 @@ default:
           network-select:
             field_address: IP-адрес
             field_advanced: Дополнительно
-            field_ddos-protection-provider: Защита от DDoS-атак
             field_external: Публичный адрес
             field_internal-ipv4: Внутренний IPv4-адрес
             field_security-groups: Группы безопасности
@@ -4756,11 +4761,6 @@ default:
         vpc-security-group-select:
           label_add-security-group: Добавить группу безопасности
         vpc:
-          create-network-dialog:
-            button_create: Создать
-            field_advanced: Дополнительно
-            field_is-default: Создать подсети
-            field_name: Имя
           create-subnetwork-dialog:
             button_create: Создать
             field_cidr: CIDR
@@ -5213,7 +5213,7 @@ default:
             title_current-state: Текущее состояние
             title_states-history: История состояний
           pxf:
-            action_create-datasource: Добавить источник данных
+            action_create-datasource: Создать источник данных
             action_edit-settings: Изменить настройки PXF
             value_hdfs: HDFS
             value_hive: Hive
@@ -5266,9 +5266,6 @@ default:
             section_folders: Каталоги
           incident-notifications:
             button_open-dialog: Добавить
-            label_inherited-subscribers: Подписчики по умолчанию
-            label_subscribers-dialog-header: Добавление пользователей
-            label_users: Пользователи
           quotas:
             label_quota-name-compute:
               disks:
@@ -5415,6 +5412,7 @@ default:
           switch_marketplace: Marketplace
           switch_namespaces: Пространства имен
           switch_nodes-manager: Управление узлами
+          switch_storage: Хранилища
           switch_workloads: Рабочая нагрузка
         clusters:
           button_create: Создать кластер
@@ -5505,6 +5503,11 @@ default:
         nodes:
           label_node-groups: Группы узлов
           label_nodes: Узлы
+        pv:
+          overview:
+            label_zone: Зона доступности
+        storage:
+          label_pv: Persistent Volumes
         switch_operations: Операции
         workloads:
           label_pods: Поды
@@ -5734,9 +5737,9 @@ default:
             column_name: Имя
             label_title: Резервные копии
           databases:
+            action_add-database: Создать базу данных
             button_action-manage: Настроить
             button_action-remove: Удалить
-            button_add: Добавить
             column_extensions: Расширения PostgreSQL
           delete-dialog:
             popup-confirm_button_delete: Удалить
@@ -5750,7 +5753,7 @@ default:
           dictionaries:
             button_action-delete: Удалить словарь
             button_submit: Сохранить
-            button-action_add-dictionary: Добавить словарь
+            button-action_add-dictionary: Создать словарь
             column_attributes-expression: Выражение
             column_attributes-hierarchical: Иерархический
             column_attributes-injective: Инъективный
@@ -5787,8 +5790,8 @@ default:
             value_cost: Cost
             value_time: Time
           hosts:
+            action_add-host: Создать хост
             action_restart-host: Перезагрузить
-            button_add-host: Добавить хост
             button_add-zookeeper: Добавить хосты ZooKeeper
             button_create-zookeeper: Настроить хосты ZooKeeper
             button_manual-failover: Переключить мастер
@@ -5805,11 +5808,8 @@ default:
             label_hosts: Хосты
             label_severity: Уровень логирования
           overview:
-            button_action-connect: Подключиться
-            button_action-delete: Удалить кластер
-            button_action-edit: Изменить кластер
-            button_action-start: Запустить кластер
-            button_action-stop: Остановить кластер
+            button_action-delete: Удалить
+            button_action-edit: Редактировать
             label_access-datalens: Доступ из DataLens
             label_bucket: Имя бакета
             label_hdd: Хранилище
@@ -5823,9 +5823,9 @@ default:
             section_resource: Ресурсы
             section_ui-proxy: UI Proxy
           shards:
+            action_add-shard: Создать шард
             button_action-edit: Изменить
             button_action-remove: Удалить
-            button_add: Добавить шард
             button_sharding-enable: Включить
             popup-confirm_button_delete: Удалить
           start-dialog:
@@ -5833,9 +5833,9 @@ default:
           stop-dialog:
             popup-confirm_button: Остановить
           subclusters:
+            action_add-subclaster: Создать подкластер
             button_action-delete: Удалить
             button_action-edit: Изменить
-            button_create: Добавить подкластер
           switch_backups: Резервные копии
           switch_hosts: Хосты
           switch_jobs: Задания
@@ -5848,8 +5848,8 @@ default:
             button_action-update: Настроить
             button_add: Добавить
             button_advanced-settings: Дополнительные настройки
-            popup-add_button_add: Добавить
-            popup-button_add: Добавить
+            popup-add_button_add: Создать
+            popup-button_add: Создать
             popup-button_save: Сохранить
             popup-password_button_change: Изменить
         clusters:
@@ -5873,7 +5873,7 @@ default:
           popup_button_save: Сохранить
           popup_field_permissions: База данных
           popup_field_roles: Роли
-          popup-add-db_button_add: Добавить
+          popup-add-db_button_add: Создать
           popup-confirm-delete-cluster_button: Удалить
           popup-confirm-remove-subcluster_button: Удалить
           popup-confirm-switch-master_auto: Выбрать хост-мастер автоматически
@@ -6048,7 +6048,7 @@ default:
           section_auth: Источники аутентификации
         cluster:
           node-groups:
-            action_add-node-group: Добавить группу хостов
+            action_add-node-group: Создать группу хостов
             action_add-virtual-node-group: Добавить группу виртуальных хостов
             action_create-node-group: Создать группу хостов
             action_delete: Удалить
@@ -6489,7 +6489,6 @@ default:
           popup-confirm_button_static: Изменить
           popup-create_button_create: Зарезервировать
           popup-create_field_advanced: Дополнительно
-          popup-create_field_ddos-protection-provider: Защита от DDoS
           popup-create_field_deletion-protection: Защита от удаления
           popup-create_field_zone: Зона доступности
         button_move-vpc-object: Переместить
@@ -8027,6 +8026,8 @@ default:
           select-item: Object Storage
         postgersql:
           select-item: Managed Service for PostgreSQL
+        ydb:
+          select-item: Managed Service for YDB
       yq-ide-aside:
         bindings:
           tab-text: Привязки

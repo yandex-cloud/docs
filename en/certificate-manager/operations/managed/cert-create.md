@@ -10,7 +10,7 @@ To add a new Let's Encrypt® certificate:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to add a certificate to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-   1. Click **{{ ui-key.yacloud.certificate-manager.button_add }}**.
+   1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
    1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
    1. In the window that opens, enter a name for your certificate in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field.
    1. (Optional) In the **Description** field, enter a description for the certificate.

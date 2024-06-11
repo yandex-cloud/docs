@@ -98,3 +98,43 @@ If you need to grant access to a resource that is not on the list, assign the ro
 
 **{{ lockbox-name }}**
 * [Secret](../../../lockbox/concepts/secret.md)
+
+## Resources for which you can assign roles using {{ TF }} {#terraform}
+
+**{{ container-registry-name }}**
+* [Registry](../../../container-registry/concepts/registry.md)
+* [Repository](../../../container-registry/concepts/repository.md)
+
+**{{ ml-platform-name }}**
+* [Project](../../../datasphere/concepts/project.md)
+* [Community](../../../datasphere/concepts/community.md)
+
+**{{ dns-name }}**
+* [DNS zone](../../../dns/concepts/dns-zone.md)
+
+**{{ sf-name }}**
+* [Function](../../../functions/concepts/function.md)
+
+**{{ iam-name }}**
+* [Service account](../users/service-accounts.md)
+
+**{{ kms-name }}**
+
+{% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
+
+**{{ lockbox-name }}**
+* [Secret](../../../lockbox/concepts/secret.md)
+
+**{{ resmgr-name }}**
+* [Cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud)
+* [Folder](../../../resource-manager/concepts/resources-hierarchy.md#folder)
+
+**{{ serverless-containers-name }}**
+* [Container](../../../serverless-containers/concepts/container.md)
+
+**{{ ydb-name }}**
+* [YDB DBMS](../../../ydb/concepts/index.md#ydb)
+
+**{{ org-name }}**
+
+{% include notitle [organization-resources](../../../_includes/iam/resources-with-access-control/organization.md) %}

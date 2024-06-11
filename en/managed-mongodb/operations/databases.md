@@ -45,7 +45,7 @@ You can add and remove databases, as well as view information about them.
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the cluster name.
    1. Select the **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}** tab.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.databases.button_add }}**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
    1. Enter the database name and click **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_button_add }}**.
 
       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}

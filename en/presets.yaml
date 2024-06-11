@@ -411,7 +411,7 @@ default:
   objstorage-sftps-gateway-uri: cr.yandex/crp9ftr22d26age3hulg/ftp-s3-gateway
   objstorage-sftps-gateway-version: '1.0'
   objstorage-short-name: Object Storage
-  ocr-max-filesize: 20 MB
+  ocr-max-filesize: 10 MB
   oracle:
     docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
   org-full-name: Yandex Cloud Organization
@@ -3849,6 +3849,10 @@ default:
         product-pricing-type_byol: BYOL
         product-pricing-type_free: Free
         product-pricing-type_payg: PAYG
+      notify-subs:
+        label_inherited-subscribers: Default subscribers
+        label_subscribers-dialog-header: Adding users
+        label_users: Users
       settings:
         button_add-empty-telegram: Set up
         button_submit: Confirm
@@ -4320,12 +4324,12 @@ default:
         label_collecting-logs: Collecting events
         label_dataStream: Data Streams
         label_destination: Destination
-        label_event-filter-section: Collecting events from the service level (Data plane)
+        label_event-filter-section: Collecting data events
         label_object-prefix: Object prefix
         label_objectStorage: Object Storage
         label_organization-manager:
           organization: Organization
-        label_path-filter-section: Collecting events from the configuration level (Control plane)
+        label_path-filter-section: Collecting management events
         label_resource-manager:
           cloud: Cloud
           folder: Folder
@@ -4484,7 +4488,7 @@ default:
       certificate-manager:
         action_import: User certificate
         action_request: Let's Encrypt certificate
-        button_add: Add certificate
+        button_empty-action: Add certificate
         domain:
           action_bind-certificate: Bind certificate
           action_edit: Edit
@@ -4520,7 +4524,7 @@ default:
         button_create-cluster: Create ClickHouse cluster
         cluster:
           databases:
-            popup-add_button_add: Add
+            popup-add_button_add: Create
           explore:
             button_execute: Execute
             button_explain: Explain
@@ -4532,19 +4536,19 @@ default:
           format-schemas:
             button_action-delete-format-schema: Delete
             button_action-edit-format-schema: Edit
-            button-action_add-format-schema: Add schema
+            button-action_add-format-schema: Create schema
             dialog:
               field_format-schema-uri: URL
-              label_add: Add
+              label_add: Create
               title_add: Add schema
           ml-models:
             button_action-delete-ml-model: Delete
             button_action-edit-ml-model: Edit
-            button-action_add-ml-model: Add model
+            button-action_add-ml-model: Create model
             field_ml-model-name: Name
             field_ml-model-type: Type
             field_ml-model-uri: URL
-            label_add-ml-model: Add
+            label_add-ml-model: Create
           switch_backups: Backups
           switch_databases: Databases
           switch_datalens: DataLens
@@ -4585,6 +4589,7 @@ default:
         disabled: Disabled
         edit: Edit
         enabled: Enabled
+        field_ddos-protection-provider: DDoS protection
         folder: Folder
         id: ID
         import: Import
@@ -4660,7 +4665,6 @@ default:
           network-select:
             field_address: IP address
             field_advanced: Advanced
-            field_ddos-protection-provider: DDoS protection
             field_external: Public IP
             field_internal-ipv4: Internal IPv4 address
             field_security-groups: Security groups
@@ -4756,11 +4760,6 @@ default:
         vpc-security-group-select:
           label_add-security-group: Add security group
         vpc:
-          create-network-dialog:
-            button_create: Create
-            field_advanced: Advanced
-            field_is-default: Create subnets
-            field_name: Name
           create-subnetwork-dialog:
             button_create: Create
             field_cidr: CIDR
@@ -5211,7 +5210,7 @@ default:
             title_current-state: Current state
             title_states-history: State history
           pxf:
-            action_create-datasource: Add data source
+            action_create-datasource: Create data source
             action_edit-settings: Edit PXF settings
             value_hdfs: HDFS
             value_hive: Hive
@@ -5264,9 +5263,6 @@ default:
             section_folders: Folders
           incident-notifications:
             button_open-dialog: Add
-            label_inherited-subscribers: Default subscribers
-            label_subscribers-dialog-header: Adding users
-            label_users: Users
           quotas:
             label_quota-name-compute:
               disks:
@@ -5413,6 +5409,7 @@ default:
           switch_marketplace: Marketplace
           switch_namespaces: Namespaces
           switch_nodes-manager: Nodes manager
+          switch_storage: Storage
           switch_workloads: Workload
         clusters:
           button_create: Create cluster
@@ -5503,6 +5500,11 @@ default:
         nodes:
           label_node-groups: Node group
           label_nodes: Nodes
+        pv:
+          overview:
+            label_zone: Availability zone
+        storage:
+          label_pv: Persistent Volumes
         switch_operations: Operations
         workloads:
           label_pods: Pods
@@ -5732,9 +5734,9 @@ default:
             column_name: Name
             label_title: Backups
           databases:
+            action_add-database: Create database
             button_action-manage: Manage
             button_action-remove: Delete
-            button_add: Add
             column_extensions: PostgreSQL extensions
           delete-dialog:
             popup-confirm_button_delete: Delete
@@ -5748,7 +5750,7 @@ default:
           dictionaries:
             button_action-delete: Delete dictionary
             button_submit: Save
-            button-action_add-dictionary: Add dictionary
+            button-action_add-dictionary: Create dictionary
             column_attributes-expression: Expression
             column_attributes-hierarchical: Hierarchical
             column_attributes-injective: Injective
@@ -5785,8 +5787,8 @@ default:
             value_cost: Cost
             value_time: Time
           hosts:
+            action_add-host: Create host
             action_restart-host: Restart
-            button_add-host: Add host
             button_add-zookeeper: Add ZooKeeper hosts
             button_create-zookeeper: Set up ZooKeeper hosts
             button_manual-failover: Switch master
@@ -5803,11 +5805,8 @@ default:
             label_hosts: Hosts
             label_severity: "\_Severity"
           overview:
-            button_action-connect: Connect
-            button_action-delete: Delete cluster
-            button_action-edit: Edit cluster
-            button_action-start: Start cluster
-            button_action-stop: Stop cluster
+            button_action-delete: Delete
+            button_action-edit: Edit
             label_access-datalens: DataLens access
             label_bucket: Bucket name
             label_hdd: Storage
@@ -5821,9 +5820,9 @@ default:
             section_resource: Resources
             section_ui-proxy: UI Proxy
           shards:
+            action_add-shard: Create shard
             button_action-edit: Edit
             button_action-remove: Remove
-            button_add: Add shard
             button_sharding-enable: Enable
             popup-confirm_button_delete: Remove
           start-dialog:
@@ -5831,9 +5830,9 @@ default:
           stop-dialog:
             popup-confirm_button: Stop
           subclusters:
+            action_add-subclaster: Create subcluster
             button_action-delete: Delete
             button_action-edit: Modify
-            button_create: Add subcluster
           switch_backups: Backups
           switch_hosts: Hosts
           switch_jobs: Jobs
@@ -5846,8 +5845,8 @@ default:
             button_action-update: Configure
             button_add: Add
             button_advanced-settings: Additional settings
-            popup-add_button_add: Add
-            popup-button_add: Add
+            popup-add_button_add: Create
+            popup-button_add: Create
             popup-button_save: Save
             popup-password_button_change: Edit
         clusters:
@@ -5871,7 +5870,7 @@ default:
           popup_button_save: Save
           popup_field_permissions: Database
           popup_field_roles: Roles
-          popup-add-db_button_add: Add
+          popup-add-db_button_add: Create
           popup-confirm-delete-cluster_button: Delete
           popup-confirm-remove-subcluster_button: Delete
           popup-confirm-switch-master_auto: Choose master host automatically
@@ -6046,7 +6045,7 @@ default:
           section_auth: Authentication sources
         cluster:
           node-groups:
-            action_add-node-group: Add node group
+            action_add-node-group: Create node group
             action_add-virtual-node-group: Add virtual node group
             action_create-node-group: Create node group
             action_delete: Delete
@@ -6487,7 +6486,6 @@ default:
           popup-confirm_button_static: Change
           popup-create_button_create: ' Reserve'
           popup-create_field_advanced: Advanced
-          popup-create_field_ddos-protection-provider: DDoS protection
           popup-create_field_deletion-protection: Deletion protection
           popup-create_field_zone: Availability zone
         button_move-vpc-object: Move
@@ -8027,6 +8025,8 @@ default:
           select-item: Object Storage
         postgersql:
           select-item: Managed Service for PostgreSQL
+        ydb:
+          select-item: Managed Service for YDB
       yq-ide-aside:
         bindings:
           tab-text: Bindings

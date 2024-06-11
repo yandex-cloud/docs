@@ -51,7 +51,7 @@
 1. Перейдите в раздел **{{ ui-key.yacloud.vpc.switch_addresses }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
 1. В открывшемся окне выберите зону доступности, в которой вы создали подсеть на предыдущем шаге.
-1. Выберите опцию **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}**, если хотите [защитить ваши облачные ресурсы от DDoS-атак](ddos-protection/index.md).
+1. Выберите опцию **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**, если хотите [защитить ваши облачные ресурсы от DDoS-атак](ddos-protection/index.md).
 1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 ## Удалите подсеть и статический публичный IP-адрес {#delete-resources}

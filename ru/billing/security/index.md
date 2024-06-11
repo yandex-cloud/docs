@@ -61,7 +61,7 @@ description: "Доступ к платежному аккаунту предос
 * `editor` — аналогична роли `billing.accounts.editor`.
 * `admin` — аналогична роли `billing.accounts.admin`.
 
-Примитивные роли могут назначаться только пользователям, добавленным в список **{{ ui-key.yacloud.iam.cloud.incident-notifications.label_users }}**. 
+Примитивные роли могут назначаться только пользователям, добавленным в список **{{ ui-key.yacloud_components.notify-subs.label_users }}**. 
 
 ### Доступные операции {#available-operations}
 
@@ -119,7 +119,7 @@ description: "Доступ к платежному аккаунту предос
   1. Выберите пользователя из выпадающего списка. В списке отображаются пользователи, облака которых привязаны к вашему платежному аккаунту.
   1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.user-dialog.button_submit }}**.
 
-  Пользователь или сервисный аккаунт получит роль `billing.accounts.member` и будет добавлен в список **{{ ui-key.yacloud.iam.cloud.incident-notifications.label_users }}**. Чтобы разрешить доступ к платежному аккаунту, назначьте нужную роль.
+  Пользователь или сервисный аккаунт получит роль `billing.accounts.member` и будет добавлен в список **{{ ui-key.yacloud_components.notify-subs.label_users }}**. Чтобы разрешить доступ к платежному аккаунту, назначьте нужную роль.
 
 {% endlist %}
 
@@ -152,7 +152,7 @@ description: "Доступ к платежному аккаунту предос
 
 - Без организации
 
-  Пользователь, которому назначена роль `billing.accounts.admin`, может предоставить доступ к платежному аккаунту любому пользователю или сервисному аккаунту, добавленному в список **{{ ui-key.yacloud.iam.cloud.incident-notifications.label_users }}**. Для этого:
+  Пользователь, которому назначена роль `billing.accounts.admin`, может предоставить доступ к платежному аккаунту любому пользователю или сервисному аккаунту, добавленному в список **{{ ui-key.yacloud_components.notify-subs.label_users }}**. Для этого:
  
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите платежный аккаунт.

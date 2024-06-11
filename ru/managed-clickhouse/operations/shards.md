@@ -16,7 +16,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.button_add }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
   1. Укажите параметры шарда:
      * Имя и вес.
      * Чтобы скопировать схему со случайной реплики одного из шардов на хосты нового шарда, выберите опцию **{{ ui-key.yacloud.mdb.forms.field_copy_schema }}**.

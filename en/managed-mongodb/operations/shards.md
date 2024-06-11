@@ -292,7 +292,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.button_add }}**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
    1. Enter a name for the shard and add the number of hosts you need.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
 

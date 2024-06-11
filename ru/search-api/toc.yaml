@@ -10,8 +10,6 @@ items:
     href: quickstart.md
   - name: Пошаговые инструкции
     items:
-      - name: Регистрация
-        href: operations/registration.md
       - name: Общий порядок подключения
         href: operations/workaround.md
       - name: Тестирование запросов

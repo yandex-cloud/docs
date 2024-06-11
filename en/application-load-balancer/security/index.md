@@ -12,6 +12,8 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
+{% include [roles-assign](../../_includes/iam/roles-assign.md) %}
+
 ## Which resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}

@@ -66,7 +66,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       1. Выберите [облачную сеть](../vpc/concepts/network.md#network) и [подсеть](../vpc/concepts/network.md#subnet), к которым нужно подключить ВМ. Если сети нет, нажмите ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**:
           1. В открывшемся окне укажите имя сети и каталог, в котором она будет создана.
-          1. Нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+          1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
               У каждой сети должна быть как минимум одна подсеть. Если подсети нет, создайте ее, выбрав ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
       1. Настройте [сетевой доступ](concepts/vm-connection.md#vm-network-access) для ВМ.

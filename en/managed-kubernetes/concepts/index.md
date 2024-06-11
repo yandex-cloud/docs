@@ -12,7 +12,7 @@ The main entity in the service is the _{{ k8s }} cluster_.
 
 ## {{ k8s }} cluster {#kubernetes-cluster}
 
-{{ k8s }} clusters consist of a master and one or more node groups. The master is responsible for managing the {{ k8s }} cluster. Containerized user applications are run on nodes.
+{{ k8s }} clusters consist of a master and one or more node groups. The master is responsible for managing the {{ k8s }} cluster. Containerized user applications run on nodes.
 
 The service fully manages the master and monitors the status and health of node groups. Users can manage nodes directly and configure {{ k8s }} clusters using the {{ yandex-cloud }} management console and the {{ managed-k8s-name }} CLI and API.
 
@@ -83,7 +83,7 @@ Benefits of taints include:
 * When adding nodes to a group, the policies are assigned to the node automatically.
 * The policies are automatically applied to new nodes [during node group scaling](autoscale.md).
 
-You can only place a taint on a node group when [creating](../operations/node-group/node-group-create.md) it.
+You can place a taint on a node group when [creating](../operations/node-group/node-group-create.md) or [changing the group](../operations/node-group/node-group-update.md#assign-taints). If you place a taint on a previously created node group or remove a taint from it, such group will be recreated. First, all nodes in the group are deleted, then nodes with the new configuration are added to the group.
 
 Each taint has three parts:
 
@@ -158,7 +158,7 @@ A name is a required part of a key. The naming requirements are as follows:
 * It may contain lowercase Latin letters, numbers, hyphens, underscores, and periods.
 * The first and the last characters must be a letter or number.
 
-Learn about managing {{ k8s }} node labels in [{#T}](../operations/node-group/node-label-management.md).
+For more information about adding and deleting {{ k8s }} labels, see [{#T}](../operations/node-group/node-label-management.md). Adding or deleting a label will not result in the node group recreation.
 
 ## Pod {#pod}
 

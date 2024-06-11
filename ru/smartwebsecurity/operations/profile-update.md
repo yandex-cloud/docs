@@ -20,6 +20,10 @@ description: "Следуя данной инструкции, вы сможет�
       * [{{ captcha-name }}](../../smartcaptcha/).
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
+- API {#api}
+
+  {% include [api-profile-update](../../_includes/smartwebsecurity/api-profile-update.md) %}
+
 {% endlist %}
 
 ### См. также {#see-also}
