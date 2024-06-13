@@ -1,0 +1,141 @@
+# Using prompt-based classifiers based on {{ yagpt-name }}
+
+{{ foundation-models-full-name }} provides {{ yagpt-name }}-based [prompt-based classifiers](../../concepts/classifier/index.md) of these two types: [Zero-shot](../../concepts/classifier/index.md#zero-shot) and [Few-shot](../../concepts/classifier/index.md#few-shot). To send a request to a prompt-based classifier, use the [fewShotClassify](../../text-classification/api-ref/TextClassification/fewShotClassify.md) Text Classification API method.
+
+## Getting started {#before-begin}
+
+{% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
+
+## Send a request to the classifier {#request}
+
+To send a request to the classifier:
+
+1. Create a file with the request body, e.g., `body.json`:
+
+   {% list tabs group=classifier-models %}
+
+   - Zero-shot classifier {#zero-shot}
+
+      ```json
+      {
+        "modelUri": "cls://<folder_ID>/yandexgpt/latest",
+        "text": "5:0",
+        "task_description": "Categorize an article by its title",
+        "labels": [
+          "culture",
+          "technologies",
+          "sport"
+        ]
+      }
+      ```
+
+      Where:
+      * `modelUri`: [ID of the model](../../../foundation-models/concepts/classifier/models.md) that will be used to classify the message. The parameter contains {{ yandex-cloud }} [folder ID](../../../resource-manager/operations/folder/get-id.md).
+      * `text`: Message text.
+      * `taskDescription`: Text description of the task for the classifier.
+      * `labels`: Array of classes.
+
+         {% include [labels-should-make-sense-notice](../../../_includes/foundation-models/classifier/labels-should-make-sense-notice.md) %}
+
+   - Few-shot classifier {#few-shot}
+
+      ```json
+      {
+        "modelUri": "cls://<folder_ID>/yandexgpt/latest",
+        "text": "translate into English \"what is the weather like in London?\"",
+        "task_description": "determine the intent type",
+        "labels": [
+          "translation",
+          "alarm",
+          "weather"
+        ],
+        "samples": [
+          {
+            "text": "set the alarm",
+            "label": "alarm"
+          },
+          {
+            "text": "weather for tomorrow",
+            "label": "weather"
+          },
+          {
+            "text": "translate the phrase \"set the alarm\"",
+            "label": "translation"
+          }
+        ]
+      }
+      ```
+
+      Where:
+      * `modelUri`: [ID of the model](../../../foundation-models/concepts/classifier/models.md) that will be used to classify the message. The parameter contains {{ yandex-cloud }} [folder ID](../../../resource-manager/operations/folder/get-id.md).
+      * `text`: Message text.
+      * `taskDescription`: Text description of the task for the classifier.
+      * `labels`: Array of classes.
+
+         {% include [labels-should-make-sense-notice](../../../_includes/foundation-models/classifier/labels-should-make-sense-notice.md) %}
+
+      * `samples`: Array of sample requests for the classes specified in the `labels` field. Sample requests are provided as objects, each one containing one text request sample and the class to which such request should belong.
+
+   {% endlist %}
+
+1. Send a request to the classifier by running the following command:
+
+   ```bash
+   export IAM_TOKEN=<IAM_token>
+   curl -X POST \
+     -H "Authorization: Bearer ${IAM_TOKEN}" \
+     -d "@<path_to_file_with_request_body>" \
+     "https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification"
+   ```
+
+   In the response, the service will return classification results with certain `confidence` values for the probability of classifying the request text into each one of the classes:
+
+   {% list tabs group=classifier-models %}
+
+   - Zero-shot classifier {#zero-shot}
+
+      ```json
+      {
+        "predictions": [
+          {
+            "label": "culture",
+            "confidence": 2.2111835562554916e-7
+          },
+          {
+            "label": "technologies",
+            "confidence": 0.0003487042267806828
+          },
+          {
+            "label": "sport",
+            "confidence": 0.9996510744094849
+          }
+        ],
+        "modelVersion": "07.03.2024"
+      }
+      ```
+
+   - Few-shot classifier {#few-shot}
+
+      ```json
+      {
+        "predictions": [
+          {
+            "label": "translation",
+            "confidence": 0.9357050657272339
+          },
+          {
+            "label": "alarm",
+            "confidence": 0.00061939493753016
+          },
+          {
+            "label": "weather",
+            "confidence": 0.06367553025484085
+          }
+        ],
+        "modelVersion": "07.03.2024"
+      }
+      ```
+
+   {% endlist %}
+
+   The sum of (`confidence`) values for all classes is always equal to `1`.

@@ -144,7 +144,7 @@
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. Создайте [статический ключ](../../iam/concepts/authorization/access-key.md) для сервисного аккаунта `account-for-container-registry`:
+1. Создайте [статический ключ](../../iam/concepts/authorization/access-key.md) для сервисного аккаунта `account-for-container-registry`, [созданного ранее](#before-you-begin):
 
    ```bash
    yc iam key create --service-account-name account-for-container-registry -o key.json

@@ -29,6 +29,12 @@ items:
             href: operations/yandexgpt/async-request.md
           - name: Disabling request logging
             href: operations/yandexgpt/disable-logging.md
+      - name: Classifiers based on {{ yagpt-name }}
+        items:
+          - name: Using prompt-based classifiers
+            href: operations/classifier/readymade.md
+          - name: Using fine-tuned classifiers
+            href: operations/classifier/additionally-trained.md
       - name: '{{ yandexart-name }}'
         items:
           - name: Generating an image
@@ -47,6 +53,12 @@ items:
             href: concepts/yandexgpt/tokens.md
       - name: Embeddings
         href: concepts/embeddings.md
+      - name: Classifiers based on {{ yagpt-name }}
+        items:
+          - name: Overview of classifiers
+            href: concepts/classifier/index.md
+          - name: Models
+            href: concepts/classifier/models.md
       - name: '{{ yandexart-name }}'
         items:
           - name: '{{ yandexart-name }} overview'
@@ -59,6 +71,8 @@ items:
     items:
       - name: Tuning a {{ yagpt-name }} model
         href: tutorials/yagpt-tuning.md
+      - name: Tuning classifiers based on {{ yagpt-name }}
+        href: tutorials/yagpt-tuning-classifier.md
   - name: API Reference
     items:
       - name: Overview
@@ -123,6 +137,28 @@ items:
                 href: embeddings/api-ref/grpc/index.md
               - name: EmbeddingsService
                 href: embeddings/api-ref/grpc/embedding_service.md
+      - name: Text Classification API
+        items:
+          - name: REST
+            items:
+              - name: Overview
+                href: text-classification/api-ref/index.md
+              - name: TextClassification
+                items:
+                  - name: Overview
+                    href: text-classification/api-ref/TextClassification/index.md
+                  - name: classify
+                    href: text-classification/api-ref/TextClassification/classify.md
+                  - name: fewShotClassify
+                    href: >-
+                      text-classification/api-ref/TextClassification/fewShotClassify.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: text-classification/api-ref/grpc/index.md
+              - name: TextClassificationService
+                href: >-
+                  text-classification/api-ref/grpc/text_classification_service.md
       - name: '{{ yandexart-name }}'
         items:
           - name: REST

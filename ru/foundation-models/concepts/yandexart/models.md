@@ -1,6 +1,6 @@
 # Модели {{ yandexart-name }}
 
-Обращение к модели {{ yandexart-name }} по API возможно по ее [URI](https://ru.wikipedia.org/wiki/URI), содержащему [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md). Опция `/latest` указывает версию вызываемой модели и является опциональной. 
+Обращение к модели {{ yandexart-name }} по API возможно по ее [URI](https://ru.wikipedia.org/wiki/URI), содержащему [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md). Сегмент `/latest` указывает версию модели и является необязательным.
 
 | Назначение | URI | Режим работы |
 |---|---|---|

@@ -13,6 +13,11 @@ description: "The page presents all the guides on how to use {{ foundation-model
 * [{#T}](./yandexgpt/finetune.md)
 * [{#T}](./yandexgpt/disable-logging.md)
 
+## Step-by-step guides for classifiers based on {{ yagpt-name }} {#classifiers}
+
+* [{#T}](./classifier/readymade.md)
+* [{#T}](./classifier/additionally-trained.md)
+
 ## Step-by-step guides for {{ yandexart-name }} {#yandexart}
 
 [{#T}](./yandexart/request.md)

@@ -18,11 +18,17 @@ meta:
   title: Yandex Cloud Notification Service
 links:
   - title: Начало работы
-    description: Добавьте первый канал доставки уведомлений
+    description: Создайте первый канал уведомлений
     href: quickstart
   - title: Концепции
     description: Узнайте про каналы и способы доставки уведомлений
     href: concepts/
+  - title: AWS CLI
+    description: Узнайте как начать работать с AWS CLI
+    href: tools/aws-cli
+  - title: Справочник API
+    description: Описание методов HTTP API
+    href: api-ref/
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing

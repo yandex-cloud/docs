@@ -5840,6 +5840,7 @@ default:
           switch_subclusters: Subclusters
           switch_users: Users
           users:
+            action_add-user: Create user
             button_action-password: Change password
             button_action-remove: Delete
             button_action-update: Configure

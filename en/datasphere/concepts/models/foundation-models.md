@@ -12,7 +12,13 @@ Foundation model tuning is at the [Preview](../../../overview/concepts/launch-st
 
 [In the **Foundation models** section]({{ link-datasphere-main }}/foundation-models/ygpt), you can find models deployed in {{ yandex-cloud }}. You can use them in {{ ml-platform-name }} as is or tune them on your own data to make model responses more tailored to your specific tasks.
 
-The {{ gpt-pro }} model is now available for tuning. You can access the tuned model from the {{ ml-platform-name }} project and through the [{{ foundation-models-full-name }} service API](../../../foundation-models/api-ref/authentication.md).
+The following models are currently available for tuning:
+* [{{ gpt-pro }} basic model](#tuning-abilities).
+* [Classifiers based on {{ yagpt-name }}](#classifier-training).
+
+You can access the tuned models from the {{ ml-platform-name }} project and through the [{{ foundation-models-full-name }} API](../../../foundation-models/api-ref/authentication.md).
+
+In the {{ ml-platform-name }} interface, create a new fine-tuned foundation model, set the tuning rate, and upload the data. Tuning will take some time.
 
 {% note warning %}
 
@@ -26,14 +32,24 @@ The {{ gpt-pro }} model is now available for tuning. You can access the tuned mo
 
 {% include [fine-tuning-file-requirements](../../../_includes/datasphere/fine-tuning-file-requirements.md) %}
 
-In the {{ ml-platform-name }} interface, create a new fine-tuned foundation model, enter instructions for the model, set the tuning rate, and upload your data. Fine-tuning will take a while.
-
-## Fine-tuning capabilities {#tuning-abilities}
+### {{ gpt-pro }} tuning capabilities {#tuning-abilities}
 
 {% include [tuning-abilities](../../../_includes/foundation-models/yandexgpt/tuning-abilities.md) %}
 
-## Requests to a fine-tuned model {#requests}
+## Data for classifier tuning based on {{ yagpt-name }} {#classifier-training}
 
-You can send requests to a fine-tuned model through the {{ ml-platform-name }} Playground interface or the [API v1](../../../foundation-models/text-generation/api-ref/index.md) from {{ ml-platform-name }} and other applications in synchronous mode. In Playground, requests are made on behalf of a user with the model access flag set. You can send requests through Playground to the original or fine-tuned model to compare the results.
+For classifier tuning based on {{ yagpt-name }}, prepare a [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoded file in [JSON Lines](https://jsonlines.org/) format with examples of texts and their classifications. The data structure in the examples will depend on the type of classification for which the model is trained.
+
+{% include [classifier-training](../../../_includes/datasphere/classifier-training.md) %}
+
+## Requests to fine-tuned models {#requests}
+
+You can send requests to a fine-tuned model through the {{ ml-platform-name }} Playground interface or the [{{ foundation-models-name }} API](../../../foundation-models/concepts/api.md) from {{ ml-platform-name }} and other applications. Requests to Playground are made on behalf of the user.
 
 To make API requests, add a user account or service account you are going to use to submit requests to the list of {{ ml-platform-name }} project members. The account must have the `ai.languageModels.user` role.
+
+
+#### See also {#see-also}
+
+* [{#T}](../../tutorials/yagpt-tuning.md)
+* [{#T}](../../tutorials/yagpt-tuning-classifier.md)

@@ -279,7 +279,7 @@
 
 {% endlist %}
 
-## Добавить шард {#add-shard}
+## Создать шард {#add-shard}
 
 Количество шардов в кластерах {{ mmg-name }} ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты]({{ link-console-quotas }}) и найдите блок **{{ mmg-full-name }}**.
 
@@ -299,7 +299,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы добавить шард в кластер, выполните команду (в примере приведены не все доступные параметры):
+  Чтобы создать шард, выполните команду (в примере приведены не все доступные параметры):
 
   ```bash
   {{ yc-mdb-mg }} shards add <имя_нового_шарда> \
@@ -348,7 +348,7 @@
 
 - API {#api}
 
-  Чтобы добавить шард в кластер, воспользуйтесь методом REST API [addShard](../api-ref/Cluster/addShard.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) и передайте в запросе:
+  Чтобы создать шард, воспользуйтесь методом REST API [addShard](../api-ref/Cluster/addShard.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) и передайте в запросе:
 
   * Идентификатор кластера в параметре `clusterId`.
   * Имя шарда в параметре `shardName`.

@@ -5,6 +5,14 @@ description: "This page presents {{ foundation-models-full-name }} release notes
 
 # {{ foundation-models-full-name }} release notes
 
+## Release on 29/05/2024 {#280524}
+
+Added the [text classification](../concepts/classifier/index.md) feature.
+
+## Release on 28/05/2024 {#280524}
+
+The {{ yagpt-name }} 3-based {{ gpt-lite }} RC model is now available in Release Candidate status. The model may replace the current {{ gpt-lite }} in the future.
+
 ## Release on 19/04/2024 {#190424}
 
 Added the ability to send asynchronous requests to {{ yagpt-name }} models fine-tuned in {{ ml-platform-name }}.

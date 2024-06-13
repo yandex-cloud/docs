@@ -495,8 +495,8 @@ The Telegram server will notify your bot of new messages using a [webhook](https
 
       Where:
 
-      * `name`: API gateway name
-      * `spec`: API gateway specification
+      * `name`: API gateway name.
+      * `spec`: API gateway specification.
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/api_gateway).
 

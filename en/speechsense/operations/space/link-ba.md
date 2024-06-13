@@ -39,4 +39,4 @@ After that, the warning that you need to link your billing account will disappea
 * [Add users to the space](add-user-to-space.md)
 * [Create connections](../connection/create.md)
 * [Create projects](../project/create.md)
-* [Upload audio data](../data/upload-data.md)
+* [Upload audio data](../data/upload-data.md) or [text messages](../data/upload-chat-text.md)

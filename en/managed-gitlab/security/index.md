@@ -16,9 +16,13 @@ To use the service, log in to the management console with a [Yandex account](../
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
+Roles for a resource can be assigned by users who have the `gitlab.admin` role or one of the following roles for that resource:
+
+{% include [roles-list](../../_includes/iam/roles-list.md) %}
+
 ## Which resources you can assign a role for {#resources}
 
-You can assign a role to a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Cloud roles also apply to nested folders.
+You can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Cloud roles also apply to nested folders.
 
 ## Which roles exist in the service {#roles-list}
 

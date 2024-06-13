@@ -3,7 +3,7 @@
 Вы можете выполнить следующие действия над хостами {{ CH }}:
 
 * [получить список хостов в кластере](#list-hosts);
-* [добавить хост](#add-host);
+* [создать хост](#add-host);
 * [изменить настройки {{ CH }} для хоста](#update);
 * [перезапустить хост](#restart);
 * [удалить хост](#remove-host).
@@ -20,7 +20,7 @@
 
 {% include notitle [get-hosts](../../_includes/mdb/mch/get-hosts.md) %}
 
-## Добавить хост {#add-host}
+## Создать хост {#add-host}
 
 Количество хостов в кластерах {{ mch-name }} ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты]({{ link-console-quotas }}) и найдите блок **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**.
 
@@ -30,7 +30,7 @@
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
 
   
   1. Укажите параметры хоста:
@@ -47,7 +47,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы добавить хост в кластер:
+  Чтобы создать хост:
 
   
   1. Запросите список подсетей кластера, чтобы выбрать подсеть для нового хоста:
@@ -137,7 +137,7 @@
 
 - API {#api}
 
-  Чтобы добавить хост, воспользуйтесь методом REST API [addHosts](../api-ref/Cluster/addHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) и передайте в запросе:
+  Чтобы создать хост, воспользуйтесь методом REST API [addHosts](../api-ref/Cluster/addHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Настройки нового хоста в одном или нескольких параметрах `hostSpecs`.
 

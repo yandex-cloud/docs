@@ -22,7 +22,7 @@ A [billing account is linked](../operations/space/link-ba.md) to each space. You
 
 A _connection_ is a {{ speechsense-name }} entity that contains:
 
-* [Uploaded conversation records](../operations/data/upload-data.md).
+* Uploaded [voice call recordings](../operations/data/upload-data.md) or [chat conversations](../operations/data/upload-chat-text.md).
 * Record types: audio or text messages.
 * Record metadata received from PBX, CRM systems, or other sources.
 
