@@ -45,7 +45,7 @@ description: "Из статьи вы узнаете, как добавлять �
 
 {% endlist %}
 
-## Добавить пользователя {#adduser}
+## Создать пользователя {#adduser}
 
 {% include [public-privilege](../../_includes/mdb/mpg/public-privilege.md) %}
 
@@ -55,7 +55,7 @@ description: "Из статьи вы узнаете, как добавлять �
 
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
-  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Введите имя пользователя базы данных и пароль.
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}

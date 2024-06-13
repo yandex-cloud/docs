@@ -43,7 +43,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% endlist %}
 
-### Create a service account for the {{ ml-platform-name }} project (optional) {#create-sa}
+### Create a service account for the {{ ml-platform-name }} project {#create-sa}
 
 You can send requests to a fine-tuned model through the {{ ml-platform-name }} interface (Playground) or the API v1 in synchronous mode. If you are going to make API requests, you need a service account with the `{{ roles-yagpt-user }}` [role](../../iam/concepts/access-control/roles.md). The service account must be a {{ ml-platform-name }} project member.
 
@@ -63,15 +63,9 @@ You can send requests to a fine-tuned model through the {{ ml-platform-name }} i
 
 To enable the service account to access the fine-tuned model from the {{ ml-platform-name }} project code, add it to the list of project members.
 
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-   1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-   1. In the **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** tab, click **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
-   1. Select the `ai-user` account and click **{{ ui-key.yc-ui-datasphere.common.add }}**.
-
-{% endlist %}
+1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
+1. In the **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** tab, click **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
+1. Select the `ai-user` account and click **{{ ui-key.yc-ui-datasphere.common.add }}**.
 
 ## Prepare data for model training {#create-data}
 
@@ -122,6 +116,7 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
    1. Under **{{ ui-key.yc-ui-datasphere.yagpt-playground.request.title }}**, specify your request to the model.
 
    1. To change variability, move the slider in the **{{ ui-key.yc-ui-datasphere.yagpt-playground.temperature.title }}** field. With a higher value, you get a more unpredictable result.
+   1. Click **{{ ui-key.yc-ui-datasphere.yagpt-playground.send-request }}**.
 
 - {{ jlab }}Lab {#jupyterlab}
 

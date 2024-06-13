@@ -88,7 +88,7 @@
 
 {% endlist %}
 
-## Подключить модель {#add}
+## Создать модель {#add}
 
 {% note info %}
 
@@ -112,7 +112,7 @@
         * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-name }}** — имя модели. Имя модели — один из аргументов функции `catboostEvaluate()`, которая нужна для вызова модели в {{ CH }}.
         * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}** — адрес модели в {{ objstorage-full-name }}.
 
-    1. Нажмите **{{ ui-key.yacloud.clickhouse.cluster.ml-models.label_add-ml-model }}** и дождитесь окончания добавления модели.
+    1. Нажмите **{{ ui-key.yacloud.clickhouse.cluster.ml-models.label_add-ml-model }}** и дождитесь окончания создания модели.
 
 - CLI {#cli}
 
@@ -120,7 +120,7 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы подключить модель к кластеру, выполните команду:
+    Чтобы создать модель, выполните команду:
 
     ```bash
     {{ yc-mdb-ch }} ml-model create <имя_модели> \
@@ -164,7 +164,7 @@
 
 - API {#api}
 
-    Чтобы подключить модель, воспользуйтесь методом REST API [create](../api-ref/MlModel/create.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Create](../api-ref/grpc/ml_model_service.md#Create) и передайте в запросе:
+    Чтобы создать модель, воспользуйтесь методом REST API [create](../api-ref/MlModel/create.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Create](../api-ref/grpc/ml_model_service.md#Create) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`.
     * Имя модели в параметре `mlModelName`.

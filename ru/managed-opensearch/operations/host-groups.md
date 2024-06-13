@@ -54,14 +54,14 @@ keywords:
 
 {% endlist %}
 
-## Добавить группу хостов в кластер {#add-host-group}
+## Создать группу хостов {#add-host-group}
 
-При добавлении групп хостов действуют ограничения:
+При создании групп хостов действуют ограничения:
 
 * В кластере {{ mos-name }} может быть только одна группа хостов `Dashboards`.
 * Если вы добавляете группу хостов `{{ OS }}` и назначаете хостам роль `MANAGER`, минимальное количество хостов с такой ролью — три.
 
-Чтобы добавить группу хостов в кластер:
+Чтобы создать группу хостов:
 
 {% list tabs group=instructions %}
 
@@ -69,7 +69,7 @@ keywords:
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
-    1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_add-node-group }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_add-node-group }}**.
     1. Укажите параметры группы:
 
         * [Тип группы](../concepts/host-groups.md): `{{ OS }}` или `Dashboards`.
@@ -105,7 +105,7 @@ keywords:
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы добавить группу хостов в кластер, выполните команду:
+    Чтобы создать группу хостов, выполните команду:
 
     ```bash
     {{ yc-mdb-os }} node-group add --cluster-name <имя_кластера> \
@@ -128,7 +128,7 @@ keywords:
                               `assign-public-ip=<назначить_публичный_адрес:_true_или_false>
     ```
 
-    В команде укажите нужные параметры в зависимости от того, какую группу хостов вы хотите добавить:
+    В команде укажите нужные параметры в зависимости от того, какую группу хостов вы хотите создать:
 
     {% include [cli-for-os-and-dashboards-groups](../../_includes/managed-opensearch/cli-for-os-and-dashboards-groups.md) %}
 
@@ -140,7 +140,7 @@ keywords:
 
         Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
 
-    1. Чтобы добавить группу хостов типа `{{ OS }}`, добавьте блок `node_groups` в блок `opensearch`:
+    1. Чтобы создать группу хостов типа `{{ OS }}`, добавьте блок `node_groups` в блок `opensearch`:
 
         ```hcl
         resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
@@ -172,7 +172,7 @@ keywords:
         * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
         * `roles` — роли хостов: `DATA` и `MANAGER`.
 
-    1. Чтобы добавить группу хостов типа `Dashboards`, добавьте блок `dashboards` в блок `config`:
+    1. Чтобы создать группу хостов типа `Dashboards`, добавьте блок `dashboards` в блок `config`:
 
         ```hcl
         resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
@@ -213,9 +213,9 @@ keywords:
 
 - API {#api}
 
-    Чтобы добавить группу хостов типа `{{ OS }}`, воспользуйтесь методом REST API [addOpenSearchNodeGroup](../api-ref/Cluster/addOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#AddOpenSearchNodeGroup).
+    Чтобы создать группу хостов типа `{{ OS }}`, воспользуйтесь методом REST API [addOpenSearchNodeGroup](../api-ref/Cluster/addOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#AddOpenSearchNodeGroup).
 
-    Чтобы добавить группу хостов типа `Dashboards`, воспользуйтесь методом REST API [addDashboardsNodeGroup](../api-ref/Cluster/addDashboardsNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#AddDashboardsNodeGroup).
+    Чтобы создать группу хостов типа `Dashboards`, воспользуйтесь методом REST API [addDashboardsNodeGroup](../api-ref/Cluster/addDashboardsNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#AddDashboardsNodeGroup).
 
     Передайте в запросе конфигурацию группы в блоке `nodeGroupSpec`:
 

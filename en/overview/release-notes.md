@@ -46,10 +46,14 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 ## Security {#security}
 
 * [{{ at-full-name }}](../audit-trails/release-notes.md)
+* [{{ iam-full-name }}](../iam/release-notes.md)
 
 ## Resource monitoring and management {#resources-operations}
 
+* [{{ org-full-name }}](../organization/release-notes.md)
+* [{{ iam-full-name }}](../iam/release-notes.md)
 * [{{ monitoring-full-name }}](../monitoring/release-notes.md)
+* [{{ resmgr-full-name }}](../resource-manager/release-notes.md)
 
 ## Machine learning {#ml-ai}
 

@@ -9,11 +9,11 @@ description: "Из статьи вы узнаете, как установить
 
 Работа {{ unified-agent-short-name }} поддерживается на следующих операционных системах:
 
-- Ubuntu 14.04 или старше;
-- Debian 9 или старше;
-- CentOS 7 или старше;
-- Fedora 32 или старше;
-- Fedora CoreOS.
+- Ubuntu 14.04 или старше (возможна [установка любым из способов](#setup));
+- Debian 9 или старше (Docker-образ, deb-пакет или бинарный файл);
+- CentOS 7 или старше (Docker-образ);
+- Fedora 32 или старше (Docker-образ);
+- Fedora CoreOS (Docker-образ).
 
 ## Подготовка к установке {#before-you-begin}
 
@@ -21,7 +21,7 @@ description: "Из статьи вы узнаете, как установить
 
 1. Создайте виртуальную машину в {{ yandex-cloud }} или хост вне {{ yandex-cloud }} на одной из [поддерживаемых операционных систем](#supported-os), например, Ubuntu 14.04 или старше.
 
-1. (Опционально) [Установите Docker](https://docs.docker.com/install/), если через него вы хотите запускать {{ unified-agent-short-name }}.
+1. (Опционально) [Установите Docker](https://docs.docker.com/install/), если через него вы хотите запускать {{ unified-agent-short-name }}. Docker уже предустановлен в Fedora CoreOS.
    - Настройте публичный IPv4-адрес (рекомендуется).
    - [Настройте Docker для работы с IPv6](https://docs.docker.com/config/daemon/ipv6) и [включите сетевую трансляцию адресов](https://medium.com/@skleeschulte/how-to-enable-ipv6-for-docker-containers-on-ubuntu-18-04-c68394a219a2), если вы не можете использовать публичный IPv4-адрес.
 

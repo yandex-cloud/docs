@@ -33,7 +33,7 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы подключить внешний словарь к кластеру {{ CH }}:
+    Чтобы получить список внешних словарей в кластере {{ CH }}:
 
     1. Посмотрите описание команды CLI для получения детальной информации о кластере:
 
@@ -60,7 +60,7 @@
 
 {% endlist %}
 
-## Подключить словарь {#add-dictionary}
+## Создать словарь {#add-dictionary}
 
 {% list tabs group=instructions %}
 
@@ -68,7 +68,7 @@
 
     {% note warning %}
 
-    Если словарь добавлен через консоль, для него недоступно управление через SQL.
+    Если словарь создан в консоли, для него недоступно управление через SQL.
 
     {% endnote %}
 
@@ -89,7 +89,7 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы подключить внешний словарь к кластеру {{ CH }}:
+    Чтобы создать внешний словарь в кластере {{ CH }}:
 
     1. Посмотрите описание команды CLI для добавления словарей:
 
@@ -114,7 +114,7 @@
 
     {% endnote %}
 
-    Чтобы подключить словарь, воспользуйтесь методом REST API [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/CreateExternalDictionary](../api-ref/grpc/cluster_service.md#CreateExternalDictionary).
+    Чтобы создать словарь, воспользуйтесь методом REST API [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/CreateExternalDictionary](../api-ref/grpc/cluster_service.md#CreateExternalDictionary).
 
 - SQL {#sql}
 

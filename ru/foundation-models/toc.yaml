@@ -309,7 +309,6 @@ items:
             href: prompts/yandexart/logo-bird.md
           - name: Иконка с банком
             href: prompts/yandexart/logo-bank.md
-          - name: Изображение электроники
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

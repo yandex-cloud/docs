@@ -35,6 +35,10 @@ The use of tokenizer ([TokenizerService](./text-generation/api-ref/grpc/Tokenize
 
 The use of summary models is charged according to the {{ gpt-lite }} policy. The use of models fine-tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} policy.
 
+### Text classification {#rules-text-classifier}
+
+At the [Preview](../overview/concepts/launch-stages.md) stage, the use of classifiers based on {{ yagpt-name }} is free of charge.
+
 ### Text vectorization {#rules-embedding}
 
 The cost of text vectorization (getting text embeddings) depends on the size of the text submitted for vectorization.

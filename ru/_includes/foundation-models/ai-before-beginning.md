@@ -1,6 +1,6 @@
 # Аутентификация в API {{ foundation-models-full-name }}
 
-Для работы с API {{ foundation-models-full-name }} необходимо аутентифицироваться со своего аккаунта:
+Для работы с API {{ foundation-models-full-name }} необходимо выполнить аутентификацию:
 
 {% list tabs group=authentication %}
 
@@ -13,7 +13,7 @@
      
      Идентификатор каталога понадобится, чтобы получить URI модели.
 
-  1. При обращении к {{ foundation-models-name }} через API в заголовке `Authorization` каждого запроса указывайте IAM-токен;
+  1. При обращении к {{ foundation-models-name }} через API в заголовке `Authorization` каждого запроса указывайте IAM-токен:
 
       ```bash
       Authorization: Bearer <IAM-токен>

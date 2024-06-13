@@ -5843,6 +5843,7 @@ default:
           switch_subclusters: Подкластеры
           switch_users: Пользователи
           users:
+            action_add-user: Создать пользователя
             button_action-password: Изменить пароль
             button_action-remove: Удалить
             button_action-update: Настроить

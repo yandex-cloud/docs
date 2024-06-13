@@ -8,7 +8,7 @@
 
     ```bash
     yc kms symmetric-key add-access-binding \
-        --role kms.kms.keys.encrypter \
+        --role kms.keys.encrypter \
         --id <идентификатор_ключа> \
         --service-account-id <идентификатор_сервисного_аккаунта>
     ```
