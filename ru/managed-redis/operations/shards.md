@@ -76,14 +76,13 @@
 
 Имя шарда можно запросить со [списком шардов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md).
 
-## Добавить шард {#add}
+## Создать шард {#add}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с кластером, в который нужно добавить шард.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.redis.cluster.switch_shards }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
   1. Укажите **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}**.
@@ -105,7 +104,7 @@
   {{ yc-mdb-rd }} shards add --help
   ```
 
-  Чтобы добавить шард с двумя хостами в кластер, один с публичным доступом, а другой с [приоритетом хоста](../concepts/replication.md#master-failover) `50`:
+  Чтобы создать шард с двумя хостами: один с публичным доступом, а другой с [приоритетом хоста](../concepts/replication.md#master-failover) `50`, выполните команду:
 
   ```bash
   {{ yc-mdb-rd }} shards add --name=<имя_нового_шарда> \
@@ -154,7 +153,7 @@
 
 - API {#api}
 
-  Чтобы добавить шард, воспользуйтесь методом REST API [addShard](../api-ref/Cluster/addShard.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) и передайте в запросе:
+  Чтобы создать шард, воспользуйтесь методом REST API [addShard](../api-ref/Cluster/addShard.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`.
   * Имя шарда в параметре `shardName`.
   * Конфигурацию хоста для шарда в массиве параметров `hostSpecs`.

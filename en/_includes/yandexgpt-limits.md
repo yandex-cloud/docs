@@ -17,6 +17,12 @@
 | Number of requests per hour, asynchronous mode (request) | 5,000 | 5,000 |
 | Number of tokenization requests per second | 50 | 50 |
 
+##### Text classification {#yandexgpt-quotas-classification}
+
+| Type of limit | Value |
+----- | -----
+| Number of text classification requests per second | 1 |
+
 ##### Image generation {#yandexart-quotas-generation}
 
 | Type of limit | Value |

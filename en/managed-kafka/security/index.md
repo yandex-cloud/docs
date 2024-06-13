@@ -14,6 +14,10 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
+Roles for a resource can be assigned by users who have the `mdb.admin`, `managed-kafka.admin`, or one of the following roles for that resource:
+
+{% include [roles-list](../../_includes/iam/roles-list.md) %}
+
 ## Which resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
@@ -67,7 +71,7 @@ The chart below shows which roles are available in the service and how they inhe
 
 ## Roles required {#required-roles}
 
-To use the service, you need the `{{ roles.mkf.editor }}` [role](../../iam/concepts/access-control/roles.md) or higher for the folder where a cluster is created. The `{{ roles.mkf.viewer }}` role only enables you to view the cluster list.
+To use the service, you need the `{{ roles.mkf.editor }}` [role](../../iam/concepts/access-control/roles.md) or higher for the folder where the cluster is created. The `{{ roles.mkf.viewer }}` role enables you only to view the list of clusters.
 
 You can always assign a role with more permissions. For instance, you can assign `{{ roles.mkf.admin }}` instead of `{{ roles.mkf.editor }}`.
 

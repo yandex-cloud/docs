@@ -7,6 +7,8 @@ Use this guide to upload data for API-based speech analysis to {{ speechsense-na
 
 An [IAM token](../../../iam/concepts/authorization/iam-token.md) or [IAM key](../../../iam/concepts/authorization/api-key.md) is used to [authenticate](../../api-ref/authentication.md) the service account.
 
+If you want to upload the chat text instead of voice call audio, follow [this guide](upload-chat-text.md).
+
 ## Getting started {#before-you-begin}
 
 To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` package. [How to install Python](https://www.python.org/downloads/).
@@ -15,7 +17,7 @@ To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` 
 1. [Add the service account to the namespace](../space/add-user-to-space.md) with the `{{ roles-speechsense-data-editor }}` role. This will authorize the service account to upload data to the [connection](../../concepts/resources-hierarchy.md#connection) you created.
 1. [Create an API key](../../../iam/operations/api-key/create.md) or [IAM token](../../../iam/operations/iam-token/create-for-sa.md) for the service account to authenticate with the API.
 
-1. Clone the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository:
+1. Clone the [{{ yandex-cloud }} API repository](https://github.com/yandex-cloud/cloudapi):
 
    ```bash
    git clone https://github.com/yandex-cloud/cloudapi
@@ -29,7 +31,7 @@ To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` 
 
 ## Uploading data {#upload-data}
 
-1. Go to the folder hosting the {{ yandex-cloud }} API repository, create the `upload_data` folder, generate the client interface code there, and navigate to the `upload_data` folder:
+1. Go to the folder hosting the {{ yandex-cloud }} API repository, create a folder named `upload_data`, and generate the client interface code in it. Then open the `upload_data` folder:
 
    {% list tabs group=programming_language %}
 

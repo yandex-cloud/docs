@@ -14,9 +14,9 @@ links:
     description: Application-level load balancers
     href: application-load-balancer/
   - title: Audit Trails
-    description: Collect and export audit logs
+    description: Service for collecting and exporting audit logs
     href: audit-trails/
-  - title: Billing
+  - title: Yandex Cloud Billing
     description: Managing a billing account
     href: billing/
   - title: Certificate Manager
@@ -26,14 +26,26 @@ links:
     description: Command line interface
     href: cli/
   - title: Cloud Apps
-    description: Yandex Cloud-based applications
+    description: Apps based on Yandex Cloud
     href: cloud-apps/
   - title: Cloud Backup
-    description: Backing up VMs and other resources
+    description: Yandex Cloud resource backups
     href: backup/
+  - title: Cloud Desktop
+    description: Virtual desktop infrastructure
+    href: cloud-desktop/
+  - title: Cloud Interconnect
+    description: Connecting to Yandex Cloud resources via a dedicated link
+    href: interconnect/
   - title: Cloud Logging
     description: Logs of services and user applications
     href: logging/
+  - title: Cloud Notification Service
+    description: Service for sending notifications
+    href: notifications/
+  - title: Cloud Video
+    description: Video hosting and online streaming
+    href: video/
   - title: Compute Cloud
     description: Virtual machines and disks
     href: compute/
@@ -49,15 +61,15 @@ links:
   - title: DataLens
     description: Data visualization and analytics
     href: datalens/
-  - title: DataLens Partner API
-    description: A service for creating partner connections to upload data
-    href: datalens-api/
   - title: Data Transfer
     description: A tool for database migration
     href: data-transfer/
   - title: DataSphere
     description: A service for developing ML models
     href: datasphere/
+  - title: Cloud CDN
+    description: Content delivery network (CDN)
+    href: cdn/
   - title: Cloud DNS
     description: Domain name management
     href: dns/
@@ -67,6 +79,9 @@ links:
   - title: Cloud Functions
     description: Run code as a function
     href: functions/
+  - title: Foundation Models
+    description: Generative ML models
+    href: foundation-models/
   - title: Identity and Access Management
     description: Identification and access control to cloud resources
     href: iam/
@@ -77,11 +92,14 @@ links:
     description: Encryption key management
     href: kms/
   - title: Yandex Load Testing
-    description: Load testing of services and applications
+    description: Load testing for services and apps
     href: load-testing/
   - title: Yandex Lockbox
     description: Creating and storing secrets
     href: lockbox/
+  - title: Managed Service for Apache Airflow™
+    description: Apache Airflow™ cluster management
+    href: managed-airflow/
   - title: Managed Service for Apache Kafka®
     description: Apache Kafka® cluster management
     href: managed-kafka/
@@ -91,6 +109,9 @@ links:
   - title: Managed Service for Elasticsearch
     description: Elasticsearch cluster management
     href: managed-elasticsearch/
+  - title: Managed Service for GitLab
+    description: GitLab instance management
+    href: managed-gitlab/
   - title: Managed Service for Greenplum®
     description: Greenplum® cluster management
     href: managed-greenplum/
@@ -112,8 +133,8 @@ links:
   - title: Managed Service for Redis™
     description: Redis database management
     href: managed-redis/
-  - title: Marketplace partner interface
-    description: Marketplace partner interface
+  - title: Yandex Cloud Marketplace
+    description: Tools and solutions by leading vendors
     href: marketplace/
   - title: MDB
     description: A group of database management services
@@ -136,6 +157,9 @@ links:
   - title: Cloud Organization
     description: Cloud services for corporate clients
     href: organization/
+  - title: Cloud Postbox
+    description: Cloud services for corporate clients
+    href: postbox/
   - title: Yandex Cloud overview
     description: Overview of Yandex Cloud resources
     href: overview/
@@ -149,22 +173,30 @@ links:
     description: Running containers without Kubernetes®
     href: serverless-containers/
   - title: Yandex Cloud tutorials
-    description: Instructions for handling various tasks using cloud services
+    description: Guides for handling various tasks using cloud services
     href: tutorials/
+  - title: Search API
+    description: >-
+      This service allows you to send requests to the Yandex search database and
+      get responses over the API.
+    href: search-api/
   - title: SmartCaptcha
-    description: A request verification tool
+    description: A tool for query verification
     href: smartcaptcha/
   - title: Smart Web Security
-    description: Service for advanced protection against DDoS attacks
+    description: Advanced DDoS attack protection service
     href: smartwebsecurity/
   - title: '{{ speechkit-name }}'
     description: Speech recognition and speech synthesis technologies
     href: speechkit/
+  - title: SpeechSense
+    description: Speech analytics
+    href: speechsense/
   - title: Object Storage
     description: Scalable data storage
     href: storage/
-  - title: Yandex Cloud technical support
-    description: Technical support
+  - title: Yandex Cloud technical support description
+    description: Technical support terms and conditions
     href: support/
   - title: Tracker
     description: A tool for effective team collaboration
@@ -179,8 +211,11 @@ links:
     description: Cloud-based network management
     href: vpc/
   - title: '{{ ydb-name }}'
-    description: Fault-tolerant distributed NewSQL DBMS
+    description: Distributed fault-tolerant SQL DBMS
     href: ydb/
-  - title: YandexGPT API
-    description: Generative language models for your business applications
-    href: yandexgpt/
+  - title: WebSQL
+    description: SQL queries to managed database cluster
+    href: websql/
+  - title: Query
+    description: Real-time analytical and streaming queries
+    href: query/

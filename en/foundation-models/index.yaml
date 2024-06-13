@@ -23,9 +23,12 @@ meta:
     service will be useful for everyone who seeks the ways to streamline their
     business with machine learning.
 links:
-  - title: Getting started
+  - title: Getting started with YandexGPT API
     description: Send your first request to YandexGPT API
-    href: quickstart/quickstart-yandexgpt
+    href: quickstart/yandexgpt
+  - title: Getting started with YandexART
+    description: Generate your first image with YandexART
+    href: quickstart/yandexart
   - title: Concepts
     description: Learn more about how it works
     href: concepts/
@@ -36,7 +39,7 @@ links:
     description: Learn about authorization when working with API
     href: api-ref/authentication
   - title: Access management
-    description: Set up access rights to work with the service
+    description: Set up access permissions to work with the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations

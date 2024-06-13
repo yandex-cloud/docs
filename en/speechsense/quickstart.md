@@ -6,7 +6,7 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet. For information on how to get started with {{ yandex-cloud }}, see [Getting started with {{ yandex-cloud }}](../getting-started/).
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if you are not signed up yet. For information on how to get started with {{ yandex-cloud }}, see [Getting started with {{ yandex-cloud }}](../getting-started/).
 1. Accept the user agreement.
 1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and that it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. [Make sure](../iam/operations/roles/get-assigned-roles.md) that your account has the `speech-sense.spaces.creator` role assigned.
@@ -54,13 +54,15 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
 
 1. Create a project: on the space page, click **Create project**, enter a project name, and add a connection to the project. You can select up to two connection metadata-based filtering rules for each connection. With filters, you can ensure that only the dialogs you need are added to the project. Once you are done adding connections and configuring filters, click **Create project**.
 
-## Upload your data {#upload-data}
+## Upload audio data {#upload-data}
 
 {{ speechsense-name }} uses the [gRPC API](api-ref/grpc/index.md) to upload data.
+
+{% include [supported-formats](../_includes/speechsense/formats.md) %}
+
+To upload audio data to {{ speechsense-name }}:
 
 1. [Create a service account](../iam/operations/sa/create.md).
 1. [Add the service account to the space](operations/space/add-user-to-space.md) with the `speech-sense.data.editor` role. To learn more about the roles available in the service, see [{#T}](security/index.md).
 1. [Create an API key](../iam/operations/api-key/create.md) or [IAM token](../iam/operations/iam-token/create-for-sa.md) for the service account to authenticate with the API. [Learn more about authentication in the {{ speechsense-name }} API](api-ref/authentication.md).
 1. [Upload your data](operations/data/upload-data.md) using a Python data transfer script. You must provide your entire audio recording as one message.
-
-{% include [supported-formats](../_includes/speechsense/formats.md) %}

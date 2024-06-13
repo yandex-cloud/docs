@@ -36,6 +36,8 @@ items:
             href: concepts/post-request.md
           - name: Response format
             href: concepts/response.md
+          - name: Generative responses
+            href: concepts/generative-response.md
       - name: Searching by images
         items:
           - name: GET requests

@@ -33,7 +33,7 @@
 
 {% endlist %}
 
-## Добавить подкластер {#add-subcluster}
+## Создать подкластер {#add-subcluster}
 
 Количество хостов в кластерах {{ dataproc-name }} ограничено [квотами]({{ link-console-quotas }}) на количество vCPU и объем памяти, которые могут использовать виртуальные машины в вашем облаке. Чтобы увидеть доступные ресурсы, откройте раздел [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) и найдите блок **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 
