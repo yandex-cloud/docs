@@ -67,7 +67,7 @@
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Скачайте в ту же рабочую директорию файл конфигурации [s3-dataproc-ch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/s3-dataproc-ch.tf).
+    1. Скачайте в ту же рабочую директорию файл конфигурации [s3-dataproc-ch.tf](https://github.com/yandex-cloud-examples/yc-data-proc-clickhouse-data-export/blob/main/s3-dataproc-ch.tf).
 
         В этом файле описаны:
 

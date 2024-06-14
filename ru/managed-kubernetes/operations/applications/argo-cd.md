@@ -58,6 +58,10 @@
      argo-cd ./argo-cd/
    ```
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/marketplace/argo-cd.md).
+
 ## См. также {#see-also}
 
 * [Документация Argo CD](https://argo-cd.readthedocs.io/en/stable/operator-manual/).

@@ -28,6 +28,8 @@ items:
         href: concepts/index.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Имперсонация
+        href: concepts/impersonation.md
   - name: Практические руководства
     items:
       - name: Автоматизация работы с {{ dataproc-name }}

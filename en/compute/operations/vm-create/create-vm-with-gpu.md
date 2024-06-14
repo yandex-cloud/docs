@@ -70,11 +70,17 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
       * `--memory`: Amount of RAM.
       * `--gpus`: Number of GPUs.
       * `--preemptible`: For a [preemptible](../../concepts/preemptible-vm.md) VM.
+      * `--network-interface`: VM's [network interface](../../concepts/network.md) settings:
+         * `subnet-name`: Name of the selected subnet.
+         * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, disable this parameter.
+
+         {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
+
       * `--create-boot-disk`: OS [image](../images-with-pre-installed-software/get-list.md).
 
          {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
 
-      * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, disable this parameter.
+      * `--ssh-key`: Path to the file with the [public SSH key](../vm-connect/ssh.md#creating-ssh-keys). The VM will automatically create a user named `yc-user` for this key.
 
       Get a description of the created VM:
 
@@ -174,7 +180,10 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
 
          * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
          * `boot_disk`: Boot disk settings. Specify the disk ID.
-         * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#network). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+         * `network_interface`: VM's [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+
+            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
+
          * `metadata`: In the metadata, provide the public key for VM access via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
       * `yandex_vpc_network`: Description of the cloud network.
       * `yandex_vpc_subnet`: Description of the subnet your VM will connect to.

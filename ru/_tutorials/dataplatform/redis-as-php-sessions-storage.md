@@ -45,8 +45,8 @@
 
     1. Скачайте в ту же рабочую директорию файл конфигурации для подходящего типа кластера:
 
-        * [redis-cluster-non-sharded-and-vm.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/redis-as-php-session-storage/redis-cluster-non-sharded-and-vm-for-php.tf) — для нешардированного кластера.
-        * [redis-cluster-sharded-and-vm.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/redis-as-php-session-storage/redis-cluster-sharded-and-vm-for-php.tf) — для [шардированного](../../managed-redis/concepts/sharding.md) кластера.
+        * [redis-cluster-non-sharded-and-vm-for-php.tf](https://github.com/yandex-cloud-examples/yc-redis-as-php-session-storage/blob/main/redis-cluster-non-sharded-and-vm-for-php.tf) — для нешардированного кластера.
+        * [redis-cluster-sharded-and-vm-for-php.tf](https://github.com/yandex-cloud-examples/yc-redis-as-php-session-storage/blob/main/redis-cluster-sharded-and-vm-for-php.tf) — для [шардированного](../../managed-redis/concepts/sharding.md) кластера.
 
         В каждом файле описаны:
 

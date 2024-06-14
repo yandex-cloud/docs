@@ -1,6 +1,6 @@
 ---
 title: "How to create a VM from a public image in {{ compute-full-name }}"
-description: "Follow this guide to create a VM from a public image." 
+description: "Follow this guide to create a VM from a public image."
 ---
 
 # Creating a VM from a public image
@@ -41,21 +41,9 @@ To create a [VM](../../concepts/vm.md):
       {% endnote %}
 
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-      * Enter a [subnet](../../../vpc/concepts/network.md#subnet) ID or select a [cloud network](../../../vpc/concepts/network.md#network) from the list. You can select the search scope: in the current folder or in all folders. If you do not have a network, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
-         * In the window that opens, enter the folder to host the new network, as well as the network name.
-         * In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, enable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** (each network must have at least one [subnet](../../../vpc/concepts/network.md#subnet)).
 
-         * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, choose a method for assigning an IP address:
-         * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: Assign a random [IP address](../../../vpc/concepts/address.md) from the {{ yandex-cloud }} IP pool.
-         * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`: Select a [public IP address](../../../vpc/concepts/address.md#public-addresses) from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
-         * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Do not assign a public IP address.
+      {% include [network-settings](../../../_includes/compute/network-settings.md) %}
 
-      
-      * (Optional) Enable [DDoS protection](../../../vpc/ddos-protection/index.md) in the **{{ ui-key.yacloud.component.compute.network-select.field_advanced }}** field, if required.
-
-
-      * Select the [appropriate security groups](../../../vpc/concepts/security-groups.md) in the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field (if there is no such field, the VM will be enabled for all incoming and outgoing traffic).
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       * (Optional) Select or create a [service account](../../../iam/concepts/index.md#sa). With a service account, you can flexibly configure access rights for your resources.
       * (Optional) [Enable VM access via OS Login](../vm-connect/os-login.md). The option is available for Linux images from [{{ marketplace-name }}](/marketplace) with `OS Login` in their names.
@@ -134,14 +122,20 @@ To create a [VM](../../concepts/vm.md):
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
-      * `subnet-name`: Name of the selected subnet.
-      * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, disable this parameter.
-      * `image-family`: [Image family](../../concepts/image.md#family), such as `centos-7`. This option allows you to install the latest version of the OS from the specified family.
-      * `--ssh-key`: [Public SSH key](../vm-connect/ssh.md#creating-ssh-keys) path. The VM will automatically create a user named `yc-user` for this key.
+      * `--network-interface`: VM's [network interface](../../concepts/network.md) settings:
+         * `subnet-name`: Name of the selected subnet.
+         * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, disable this parameter.
+
+         {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
+
+      * `--create-boot-disk`: VM boot disk settings:
+         * `image-family`: [Image family](../../concepts/image.md#family), such as `centos-7`. This option allows you to install the latest version of the OS from the specified family.
+
+      * `--ssh-key`: Path to the file with the [public SSH key](../vm-connect/ssh.md#creating-ssh-keys). The VM will automatically create a user named `yc-user` for this key.
 
          {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
-      If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data using the `--metadata-from-file` parameter.
+         If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data using the `--metadata-from-file` parameter.
 
 
 
@@ -219,10 +213,13 @@ To create a [VM](../../concepts/vm.md):
          * `zone`: Availability zone to host the VM.
          * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
          * `boot_disk`: Boot disk settings. Specify the disk ID.
-         * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#network). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+         * `network_interface`: VM's [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+
+            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
+
          * `metadata`: In the metadata, provide the username and [public key for accessing the VM via SSH](../vm-connect/ssh.md#creating-ssh-keys). For more information, see [{#T}](../../concepts/vm-metadata.md).
 
-            If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in a file and supply it under `metadata`.
+            If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in a file and provide it under `metadata`.
       * `yandex_vpc_network`: Description of the cloud network.
       * `yandex_vpc_subnet`: Description of the subnet your VM will connect to.
 

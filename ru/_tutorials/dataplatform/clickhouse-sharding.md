@@ -70,9 +70,9 @@
 
     1. Скачайте в ту же рабочую директорию файл конфигурации для одного из описанных ниже примеров шардирования:
 
-        * [simple-sharding.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/simple-sharding.tf) — классическое шардирование.
-        * [sharding-with-group.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/sharding-with-group.tf) — шардирование с использованием групп шардов.
-        * [advanced-sharding-with-groups.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/advanced-sharding-with-groups.tf) — продвинутое шардирование с использованием групп шардов.
+        * [simple-sharding.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-sharding/blob/main/simple-sharding.tf) — классическое шардирование.
+        * [sharding-with-groups.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-sharding/blob/main/advanced-sharding-with-groups.tf) — шардирование с использованием групп шардов.
+        * [advanced-sharding-with-groups.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-sharding/blob/main/advanced-sharding-with-groups.tf) — продвинутое шардирование с использованием групп шардов.
 
         В каждом файле описаны:
 

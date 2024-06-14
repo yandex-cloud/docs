@@ -1,0 +1,1 @@
+Use the [attachNetworkInterface](../../compute/api-ref/Instance/attachNetworkInterface.md) REST API method for the [Instance](../../compute/api-ref/Instance/index.md) resource or the [InstanceService/AttachNetworkInterface](../../compute/api-ref/grpc/instance_service.md#AttachNetworkInterface) gRPC API call.

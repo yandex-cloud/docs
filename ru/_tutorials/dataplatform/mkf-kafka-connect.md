@@ -58,7 +58,7 @@
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Скачайте в ту же рабочую директорию файл конфигурации [kafka-connect.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/kafka-connect.tf).
+    1. Скачайте в ту же рабочую директорию файл конфигурации [kafka-connect.tf](https://github.com/yandex-cloud-examples/yc-kafka-connect/blob/main/kafka-connect.tf).
 
         В этом файле описаны:
 

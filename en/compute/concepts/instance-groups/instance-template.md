@@ -14,7 +14,7 @@ You can also use a template to enable creating [preemptible](../preemptible-vm.m
 
 You can enable a [software-accelerated network](../software-accelerated-network.md) for group instances. This will transfer the processing of VM network traffic to additional compute cores.
 
-## Disks {#disks}
+## Disks and file storages {#disks}
 
 Each instance must have at least one disk attached, which is a boot disk. Each boot disk is created automatically and attached to a single instance when creating an instance group. For more information, see [{#T}](../disk.md).
 
@@ -25,6 +25,10 @@ You can also attach additional disks to each instance. You can create an additio
 When you delete a VM, its disks are also deleted from the group. You can delete VMs during [scaling](scale.md) and [automatic recovery](autohealing.md).
 
 {% endnote %}
+
+In addition to disks, you can also attach [file storages](../filesystem.md) to instances within a group. File storages allow configuring an instance to handle [stateful workloads](./stateful-workload.md) by saving the states of applications running on the instance to the storage independent of the instance group.
+
+After attaching a file storage to a VM in the group, [mount](../../operations/filesystem/attach-to-vm.md) it on the VM's operating system. You can attach file storages using the [CLI](../../../cli/quickstart.md), [{{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md), or [API](../../api-ref/). For more information, see [{#T}](../../operations/instance-groups/create-with-filesystem.md).
 
 ## Network {#network}
 
@@ -41,7 +45,7 @@ You can specify the [appropriate security groups](../../../vpc/concepts/security
 
 ## Metadata {#metadata}
 
-You can use a template to describe the metadata service parameters and the VM metadata for the instances in the group. For example, you can use the `user-data` key to describe the system users to be created when starting up a new instance. For more information about the metadata supported by {{ compute-name }}, see [{#T}](../vm-metadata.md).
+You can use a template to describe the metadata service parameters and metadata for the instances in the group. For example, you can use the `user-data` key to describe the system users to be created on new instance startup. For more information about the metadata supported by {{ compute-name }}, see [{#T}](../vm-metadata.md).
 
 ## Template description in a YAML file {#instance-template}
 
@@ -71,6 +75,10 @@ instance_template:
         preserve_after_instance_delete: false
         type_id: network-hdd
         size: 21474836480
+  filesystem_specs:
+    - mode: READ_WRITE
+      device_name: sample-fs
+      filesystem_id: epdccsrlalon********
   network_interface_specs:
     - network_id: adv1rq7pmi05********
       subnet_ids:
@@ -86,6 +94,7 @@ instance_template:
     type: SOFTWARE_ACCELERATED
   placement_policy:
     placement_group_id: rmppvhrgm77g********
+  service_account_id: ajegtlf2q28a********
   metadata_options:
     gce_http_endpoint: ENABLED
     aws_v1_http_endpoint: DISABLED
@@ -132,6 +141,10 @@ Keys (the table lists keys that directly define the base instance configuration)
 | `secondary_disk_specs.disk_spec.preserve_after_instance_delete` | Option to preserve the disk on instance deletion.</br>– `true`: Preserve the disk on instance deletion.</br>– `false`: Delete the disk together with the instance. |
 | `secondary_disk_specs.disk_spec.type_id` | ID of the disk type. To get a list of available disk types, use the [diskTypes](../../api-ref/DiskType/list.md) request. |
 | `secondary_disk_specs.disk_spec.size` | Size of the disk, specified in bytes. Acceptable values are in the range from 4194304 (4 MB) to 4398046511104 (4 TB). |
+| `filesystem_specs` | (Optional) File storage parameters. |
+| `filesystem_specs.mode` | File storage access mode: </br>– `READ_ONLY`: Read access.</br>– `READ_WRITE`: Read and write access (default). |
+| `filesystem_specs.device_name` | Device name for attaching the file storage to the VM, e.g., `sample-fs`. After attaching a file storage to a VM in the group, [mount](../../operations/filesystem/attach-to-vm.md) it on the VM's operating system. For more information, see [{#T}](../../operations/instance-groups/create-with-filesystem.md). |
+| `filesystem_specs.filesystem_id` | File storage ID. |
 | `network_interface_specs.network_id` | Cloud network ID. |
 | `network_interface_specs.subnet_ids` | IDs of cloud subnets. |
 | `network_interface_specs.ip_version` | IP version for the public IP address. |
@@ -140,11 +153,12 @@ Keys (the table lists keys that directly define the base instance configuration)
 | `metadata_options` | (Optional) [Metadata service parameters](../../operations/vm-info/get-info.md#metadata-options). |
 | `metadata_options.gce_http_endpoint` | (Optional) Access to metadata using Google Compute Engine format.</br>– `enabled`: Enabled.</br>– `disabled`: Disabled. |
 | `metadata_options.aws_v1_http_endpoint` | (Optional) Access to metadata using AWS format (IMDSv1).</br>– `enabled`: Enabled.</br>– `disabled`: Disabled. |
-| `metadata_options.gce_http_token` | (Optional) Access to {{ iam-name }} credentials using Google Compute Engine format.</br>– `enabled`: Enabled.</br>– `disabled`: Disabled. |
-| `metadata_options.aws_v1_http_token` | (Optional) Access to [{{ iam-name }}](../../../iam/) credentials using AWS format (IMDSv1).</br>– `enabled`: Enabled.</br>– `disabled`: Disabled. |
+| `metadata_options.gce_http_token` | (Optional) Access to the {{ iam-name }} credentials using Google Compute Engine format.</br>– `enabled`: Enabled.</br>– `disabled`: Disabled. |
+| `metadata_options.aws_v1_http_token` | (Optional) Access to the [{{ iam-name }}](../../../iam/) credentials using AWS format (IMDSv1).</br>– `enabled`: Enabled.</br>– `disabled`: Disabled. |
 | `metadata` | (Optional) Metadata for a template instance. For more information, see [{#T}](../vm-metadata.md). |
 | `metadata.user-data` | Additional settings for instance initialization. In the example, the settings are described for the `cloud-init` program. |
 | `placement_policy` | (Optional) [VM placement group](../placement-groups.md) parameters. |
 | `placement_policy.placement_group_id` | Placement group ID. VM instances will be hosted in data center server racks depending on the selected placement strategy:</br>– `Spread` placement strategy ensures that each VM instance is hosted in a separate server rack in one of the availability zones.</br>– `Partition` placement strategy provides even allocation of VM instances across group partitions and ensures that VM instances from different partitions reside in different server racks in one of the availability zones. |
+| `service_account_id` | (Optional) [Service account](../../../iam/concepts/users/service-accounts.md) attached to the VMs in the group that enables them to use cloud resources. Using a service account enables flexible configuration of access permissions for resources.</br>For more granular management of access permissions, attach different service accounts with different permissions to the instance group and VMs in the group. |
 
 For information about the technical restrictions of {{ ig-name }}, see [{#T}](../limits.md).

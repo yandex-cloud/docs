@@ -56,6 +56,10 @@
 
    Эта команда также создаст новое пространство имен, необходимое для работы Fluent Bit.
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/fluent-bit-logging.md).
+
 ## См. также {#see-also}
 
 * [Документация Fluent Bit](https://docs.fluentbit.io/manual).

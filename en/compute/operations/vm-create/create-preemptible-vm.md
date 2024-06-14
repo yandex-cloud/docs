@@ -112,11 +112,17 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) that corresponds to the selected [subnet](../../../vpc/concepts/network.md#subnet).
-      * `subnet-name`: Name of the selected subnet.
-      * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a preemptible VM without a public IP address, disable this parameter.
+      * `--network-interface`: VM's [network interface](../../concepts/network.md) settings:
+         * `subnet-name`: Name of the selected subnet.
+         * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, disable this parameter.
+
+         {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
+
       * `--preemptible`: Select to create a preemptible VM.
-      * `image-family`: [Image family](../../concepts/image.md#family), such as `centos-7`. This option allows you to install the latest version of the OS from the specified family.
-      * `--ssh-key`: [Public SSH key](../vm-connect/ssh.md#creating-ssh-keys) path. The preemptible VM will automatically create a user named `yc-user` for this key.
+      * `--create-boot-disk`: VM boot disk settings:
+         * `image-family`: [Image family](../../concepts/image.md#family), such as `centos-7`. This option allows you to install the latest version of the OS from the specified family.
+
+      * `--ssh-key`: Path to the file with the [public SSH key](../vm-connect/ssh.md#creating-ssh-keys). The preemptible VM will automatically create a user named `yc-user` for this key.
 
          {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
@@ -192,7 +198,10 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
          * `zone`: Availability zone to host the preemptible VM.
          * `resources`: Number of vCPU cores and the amount of RAM available to the preemptible VM. The values must match the selected platform.
          * `boot_disk`: Boot disk settings. Specify the disk ID.
-         * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the preemptible VM, set `nat = true`.
+         * `network_interface`: VM's [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+
+            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
+
          * `metadata`: In metadata, provide the public key for accessing the preemptible VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
          * `scheduling_policy`: Scheduling policy. To create a preemptible VM, set `preemptible = true`.
       * `yandex_vpc_network`: Description of the cloud network.
@@ -348,4 +357,4 @@ This will affect your bill for the VM usage. More about [VM pricing](../../prici
 
 #### See also {#see-also}
 
-* [{#T}](../vm-connect/ssh.md)
+* [{#T}](../vm-connect/ssh.md).

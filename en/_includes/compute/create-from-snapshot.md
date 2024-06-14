@@ -121,7 +121,9 @@
 
       {% include [name-fqdn](name-fqdn.md) %}
 
-      To create a VM without a public IP, remove the `--public-ip` flag.
+      To create a VM without a public IP address, remove the `--public-ip` flag.
+
+      {% include [add-several-net-interfaces-notice-cli](./add-several-net-interfaces-notice-cli.md) %}
 
 
 - API {#api}

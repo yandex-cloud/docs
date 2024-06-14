@@ -56,8 +56,8 @@
 
     1. Скачайте в ту же рабочую директорию файл конфигурации для подходящего типа кластера:
 
-        * [redis-cluster-non-sharded.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/redis-migration/redis-cluster-non-sharded.tf) — для нешардированного кластера.
-        * [redis-cluster-sharded.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/redis-migration/redis-cluster-sharded.tf) — для [шардированного](../../managed-redis/concepts/sharding.md) кластера.
+        * [redis-cluster-non-sharded.tf](https://github.com/yandex-cloud-examples/yc-redis-data-migration-from-on-premise/blob/main/redis-cluster-non-sharded.tf) — для нешардированного кластера.
+        * [redis-cluster-sharded.tf](https://github.com/yandex-cloud-examples/yc-redis-data-migration-from-on-premise/blob/main/redis-cluster-sharded.tf) — для [шардированного](../../managed-redis/concepts/sharding.md) кластера.
 
         В каждом файле описаны:
 

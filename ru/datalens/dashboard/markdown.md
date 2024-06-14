@@ -274,14 +274,17 @@
 val a: Int = 1
 ```
 
-
 ## Изображение {#image}
 
 
-Допускается добавление изображений с доменов `*.yandex.ru`, `*.yandex.net`, `yastat.net`, `yastatic.net` или `storage.yandexcloud.net`. Самый простой способ — загрузить и опубликовать изображение в [{{ objstorage-full-name }}](../../storage/quickstart.md). Сервис бесплатен, если у вас не больше 1 ГБ хранения в стандартном хранилище в месяц.
+
+
+Допускается добавление изображений с доменов `*.yandex.ru`, `*.yandex-team.ru`, `*.yandex.net`, `yastat.net`, `yastatic.net`, `storage.yandexcloud.net`. Самый простой способ — загрузить и опубликовать изображение в [{{ objstorage-full-name }}](../../storage/quickstart.md) или в [Jing](https://jing.yandex-team.ru/).
+
 
 
 Поддерживается добавление изображений любого формата.
+
 
 Для загрузки изображения из **{{ objstorage-short-name }}** в виджет:
 
@@ -298,12 +301,13 @@ val a: Int = 1
 
    {% endnote %}
 
-1. Перейдите в ваш дашборд сервиса {{ datalens-name }} и создайте виджет **Текст**.
+1. Откройте дашборд в сервисе {{ datalens-name }} и [создайте](../operations/dashboard/add-text.md) виджет **Текст**.
 1. Вставьте в виджет следующий код:
 
    ```markdown
    ![alt text](https://ссылка_на_изображение "Текст для подсказки при наведении" =100x200)
    ```
+
 
 
 ## Каты {#cuts}

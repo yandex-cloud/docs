@@ -136,78 +136,104 @@ Make sure the uploaded image is in the `READY` status.
       +----------------------+-----------------+--------+-------------+--------+
       ```
 
-   1. Select the identifier (`ID`) or name (`NAME`) of the desired image.
-   1. Create a VM in the default folder:
+   1. Select the identifier (`ID`) or name (`NAME`) of the image you need.
+
+   1. Select a [subnet](../../../vpc/concepts/network.md#subnet):
+
+      ```bash
+      yc vpc subnet list
+      ```
+
+      Result:
+
+      ```text
+      +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
+      |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
+      +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
+      | e9bnlm18l70a******** |   default-{{ region-id }}-a   | enpe3m3fa00u******** |                |   {{ region-id }}-a   | [10.128.0.0/24] |
+      +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
+      ```
+
+   1. Create a VM in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       ```bash
       yc compute instance create \
         --name <VM_name> \
         --zone <availability_zone> \
-        --create-boot-disk name=<disk_name>,size=<disk_size_in_GB>,image-id=<custom_image_ID> \
-        --public-ip \
+        --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4 \
+        --create-boot-disk name=<disk_name>,size=<disk_size_in_GB>,image-id=<user_image_ID> \
         --ssh-key <path_to_public_key_file>
       ```
 
       Where:
-
-      * `--name`: VM instance name. The naming requirements are as follows:
+      * `--name`: VM name. The naming requirements are as follows:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to host the VM.
-      * `--create-boot-disk`: Boot disk parameters:
+      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
+      * `--network-interface`: VM's [network interface](../../concepts/network.md) settings:
+         * `subnet-name`: Name of the selected subnet.
+         * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, disable this parameter.
+
+         {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
+
+      * `--create-boot-disk`: VM boot disk settings:
          * `name`: Boot disk name. The naming requirements are as follows:
 
             {% include [name-format](../../../_includes/name-format.md) %}
 
          * `size`: Disk size in GB.
          * `image-id`: ID of the custom image to create the VM from. Specify the ID of the [uploaded](../image-create/upload.md) image.
-      * `--public-ip`: Add this flag to assign a [public IP](../../../vpc/concepts/address.md#public-addresses) to the VM. To create a VM without a public IP address, remove this flag.
-      * `--ssh-key`: Path to the public [SSH key](../../operations/vm-connect/ssh.md#creating-ssh-keys) file. The default username for access via SSH is `yc-user`.
+      * `--ssh-key`: Path to the file with the [public SSH key](../vm-connect/ssh.md#creating-ssh-keys). The VM will automatically create a user named `yc-user` for this key.
 
+         {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
-      Result:
+         If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data using the `--metadata-from-file` parameter.
 
-      ```bash
-      id: fhmue131en37********
-      folder_id: b1g681qpemb4********
-      created_at: "2024-03-02T12:58:43Z"
-      name: test-vm-from-image
-      zone_id: {{ region-id }}-a
-      platform_id: standard-v2
-      resources:
-        memory: "2147483648"
-        cores: "2"
-        core_fraction: "100"
-      status: RUNNING
-      metadata_options:
-        gce_http_endpoint: ENABLED
-        aws_v1_http_endpoint: ENABLED
-        gce_http_token: ENABLED
-        aws_v1_http_token: DISABLED
-      boot_disk:
-        mode: READ_WRITE
-        device_name: fhmn9n1uhutc********
-        auto_delete: true
-        disk_id: fhmn9n1uhutc********
-      network_interfaces:
-        - index: "0"
-          mac_address: d0:0d:1e:70:46:17
-          subnet_id: e9bb9n0v4h17********
-          primary_v4_address:
-            address: 10.12*.*.**
-            one_to_one_nat:
-              address: 178.154.***.***
-              ip_version: IPV4
-      gpu_settings: {}
-      fqdn: fhmue131en37********.auto.internal
-      scheduling_policy: {}
-      network_settings:
-        type: STANDARD
-      placement_policy: {}
-      ```
+   {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
+
+   Result:
+
+    ```bash
+    id: fhmue131en37********
+    folder_id: b1g681qpemb4********
+    created_at: "2024-03-02T12:58:43Z"
+    name: test-vm-from-image
+    zone_id: {{ region-id }}-a
+    platform_id: standard-v2
+    resources:
+      memory: "2147483648"
+      cores: "2"
+      core_fraction: "100"
+    status: RUNNING
+    metadata_options:
+      gce_http_endpoint: ENABLED
+      aws_v1_http_endpoint: ENABLED
+      gce_http_token: ENABLED
+      aws_v1_http_token: DISABLED
+    boot_disk:
+      mode: READ_WRITE
+      device_name: fhmn9n1uhutc********
+      auto_delete: true
+      disk_id: fhmn9n1uhutc********
+    network_interfaces:
+      - index: "0"
+        mac_address: d0:0d:1e:70:46:17
+        subnet_id: e9bb9n0v4h17********
+        primary_v4_address:
+          address: 10.12*.*.**
+          one_to_one_nat:
+            address: 178.154.***.***
+            ip_version: IPV4
+    gpu_settings: {}
+    fqdn: fhmue131en37********.auto.internal
+    scheduling_policy: {}
+    network_settings:
+      type: STANDARD
+    placement_policy: {}
+    ```
 
 - {{ TF }} {#tf}
 
@@ -284,7 +310,10 @@ Make sure the uploaded image is in the `READY` status.
          * `zone`: Availability zone to host the VM.
          * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
          * `boot_disk`: Boot disk settings. Specify the disk ID.
-         * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#network). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+         * `network_interface`: VM's [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+
+            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
+
          * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
       * `yandex_vpc_network`: Description of the cloud network.
       * `yandex_vpc_subnet`: Description of the subnet your VM will connect to.

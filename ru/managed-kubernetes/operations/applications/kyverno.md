@@ -97,6 +97,10 @@
 
 {% endlist %}
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/marketplace/kyverno.md).
+
 ## См. также {#see-also}
 
 * [Документация Kyverno](https://kyverno.io/docs/).
