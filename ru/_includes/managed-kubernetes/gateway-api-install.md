@@ -66,6 +66,10 @@
       gateway-api ./gateway-api/
    ```
 
+## Примеры использования {#examples}
+
+* [{#T}](../../managed-kubernetes/tutorials/marketplace/gateway-api.md).
+
 ## См. также {#see-also}
 
 * [Описание проекта Gateway API](https://gateway-api.sigs.k8s.io/).

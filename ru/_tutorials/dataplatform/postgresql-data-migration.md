@@ -68,7 +68,7 @@
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Скачайте в ту же рабочую директорию файл конфигурации [data-migration-pgsql-mpg.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-pgsql-mpg/data-migration-pgsql-mpg.tf).
+    1. Скачайте в ту же рабочую директорию файл конфигурации [data-migration-pgsql-mpg.tf](https://github.com/yandex-cloud-examples/yc-postgresql-data-migration-from-on-premise/blob/main/data-migration-pgsql-mpg.tf).
 
         В этом файле описаны:
 
@@ -354,7 +354,7 @@ pg_restore -h <IP-адрес_или_FQDN_хоста-мастера_класте�
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Скачайте в ту же рабочую директорию файл конфигурации [data-restore-pgsql-mpg.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-pgsql-mpg/data-restore-pgsql-mpg.tf).
+    1. Скачайте в ту же рабочую директорию файл конфигурации [data-restore-pgsql-mpg.tf](https://github.com/yandex-cloud-examples/yc-postgresql-data-migration-from-on-premise/blob/main/data-restore-pgsql-mpg.tf).
 
         В этом файле описаны:
 

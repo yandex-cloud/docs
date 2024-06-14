@@ -92,6 +92,10 @@ items:
             href: operations/vm-control/vm-change-folder.md
           - name: Moving a VM to another cloud
             href: operations/vm-control/vm-change-cloud.md
+          - name: Adding another network interface to a VM
+            href: operations/vm-control/attach-network-interface.md
+          - name: Deleting a network interface from a VM
+            href: operations/vm-control/detach-network-interface.md
           - name: Assigning a public IP address to a VM
             href: operations/vm-control/vm-attach-public-ip.md
           - name: Removing a public IP address from a VM
@@ -286,6 +290,10 @@ items:
             href: operations/placement-groups/create-ig-in-pg.md
           - name: Creating a group of instances with fixed IP addresses
             href: operations/instance-groups/create-with-fixed-ip.md
+          - name: Creating an instance group connected to a file storage
+            href: operations/instance-groups/create-with-filesystem.md
+          - name: Creating an instance group connected to {{ objstorage-name }}
+            href: operations/instance-groups/create-with-bucket.md
       - name: Getting information about instance groups
         items:
           - name: Getting a list of instance groups
@@ -404,7 +412,7 @@ items:
             href: concepts/performance-levels.md
           - name: Preemptible VMs
             href: concepts/preemptible-vm.md
-          - name: VM networking
+          - name: VM network interfaces
             href: concepts/network.md
           - name: Software-accelerated network
             href: concepts/software-accelerated-network.md
@@ -482,6 +490,8 @@ items:
                 href: concepts/instance-groups/deploy/secondary-disk.md
           - name: Integration with network and L7 load balancers
             href: concepts/instance-groups/balancers.md
+          - name: Handling a stateful workload
+            href: concepts/instance-groups/stateful-workload.md
           - name: Stopping and pausing an instance group
             href: concepts/instance-groups/stopping-pausing.md
           - name: Restarting and recreating instances in a group one by one
@@ -934,6 +944,8 @@ items:
         href: qa/monitoring.md
       - name: Licensing
         href: qa/licensing.md
+      - name: Troubleshooting
+        href: qa/troubleshooting.md
       - name: All questions on one page
         href: qa/all.md
 base: en/compute

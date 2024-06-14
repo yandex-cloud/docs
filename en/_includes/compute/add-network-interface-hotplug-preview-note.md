@@ -1,0 +1,1 @@
+The feature of adding and removing network interfaces on running VMs is at the [Preview stage](../../overview/concepts/launch-stages.md). To access the feature, [contact]({{ link-console-support }}) support.

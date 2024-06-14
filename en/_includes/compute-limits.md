@@ -33,7 +33,7 @@
 | Maximum number of VMs per partition in a VM placement group with the [partition placement](../compute/concepts/placement-groups.md#partition) strategy | 100 |
 | Number of [dedicated hosts](../compute/concepts/dedicated-host.md) per dedicated host group^1^ | 0 |
 | Number of dedicated host groups per cloud | 6 |
-
+| Maximum number of [VM network interfaces](../compute/concepts/network.md) | 8 |
 
 
 ^1^ To increase [quotas]({{ link-console-quotas }}) for file storage, deployment-optimized images, or dedicated hosts, contact [technical support]({{ link-console-support }}).
@@ -51,7 +51,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
    --- | ---
    | Maximum number of vCPUs per VM | 32 |
    | Maximum virtual memory per VM | Without GPU: 256 GB<br>With GPU: 384 GB |
-   | Maximum number of disks and file stores attached to a single VM^2^ | 18 vCPUs or fewer: 8<br>More than 18 vCPUs: 16^3^ |
+   | Maximum number of disks and file storages attached to a single VM^2^ | 18 vCPUs or fewer: 8<br>More than 18 vCPUs: 16^3^ |
    | Maximum number of GPUs connected to a single VM | 4 |
    | Maximum number of [security groups](../vpc/concepts/security-groups.md) per interface | 5 |
    | Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5 |
@@ -62,7 +62,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
    --- | ---
    | Maximum number of vCPUs per VM | Without GPU: 80<br>With GPU: 64 |
    | Maximum virtual memory per VM | Without GPU: 1280 GB<br>With GPU: 384 GB |
-   | Maximum number of disks and file stores attached to a single VM^2^ | 20 vCPUs or fewer: 8<br>More than 20 vCPUs: 16^3^ |
+   | Maximum number of disks and file storages attached to a single VM^2^ | 20 vCPUs or fewer: 8<br>More than 20 vCPUs: 16^3^ |
    | Maximum number of GPUs connected to a single VM | 8 |
    | Maximum number of [security groups](../vpc/concepts/security-groups.md) per interface | 5 |
    | Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5 |
@@ -74,7 +74,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
    --- | ---
    | Maximum number of vCPUs per VM | 96 |
    | Maximum virtual memory per VM | 640 GB |
-   | Maximum number of disks and file stores attached to a single VM^2^ | 32 vCPUs or fewer: 8<br>More than 32 vCPUs: 16^3^ |
+   | Maximum number of disks and file storages attached to a single VM^2^ | 32 vCPUs or fewer: 8<br>More than 32 vCPUs: 16^3^ |
    | Maximum number of [security groups](../vpc/concepts/security-groups.md) per interface | 5 |
    | Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5 |
 
@@ -85,7 +85,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
    --- | ---
    | Maximum number of vCPUs per VM | 56 |
    | Maximum virtual memory per VM | 448 GB |
-   | Maximum number of disks and file stores attached to a single VM^2^ | 32 vCPUs or fewer: 8<br>More than 32 vCPUs: 16^3^ |
+   | Maximum number of disks and file storages attached to a single VM^2^ | 32 vCPUs or fewer: 8<br>More than 32 vCPUs: 16^3^ |
    | Maximum number of security groups per interface | 5 |
    | Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5 |
 

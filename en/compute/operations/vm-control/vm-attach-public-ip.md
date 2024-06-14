@@ -2,6 +2,8 @@
 
 If you created a [VM](../../concepts/vm.md) without a [public IP](../../../vpc/concepts/address.md#public-addresses), you can associate it with an IP [you reserved](../../../vpc/operations/get-static-ip.md) in [{{ vpc-full-name }}](../../../vpc/) or the one automatically selected by {{ compute-name }} from among available IPs. The reserved IP address and the VM must be in the same [availability zone](../../../overview/concepts/geo-scope.md).
 
+If a VM has multiple [network interfaces](../../concepts/network.md), you can associate a public IP address with each one.
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -10,10 +12,9 @@ If you created a [VM](../../concepts/vm.md) without a [public IP](../../../vpc/c
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
    1. Select the appropriate VM.
-   1. In the window that opens, under **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) in the top-right corner and select **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**.
-   1. In the window that opens:
+   1. In the window that opens, under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) in the top-right corner of the relevant network interface section and select **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**. In the window that opens:
       * Under **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}**, select `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}` to get an IP automatically or `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}` to choose a reserved address from the list.
-      * (Optional) If you selected `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}` under **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}**, enable the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_ddos-protection-provider }}** option. For more information, see [{#T}](../../../vpc/ddos-protection/index.md).
+      * (Optional) If you selected `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}` under **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}**, enable the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_ddos-protection-provider }}** option. For more information, see [{#T}](../../../vpc/ddos-protection/index.md).
       * If you selected `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}` in the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, select the IP address you want to associate with your VM. The IP address and the VM must be in the same availability zone.
       * Click **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
 
@@ -28,13 +29,13 @@ If you created a [VM](../../concepts/vm.md) without a [public IP](../../../vpc/c
    ```bash
    yc compute instance add-one-to-one-nat \
      --id=<VM_ID> \
-     --network-interface-index=<VM_network_interface_index> \
+     --network-interface-index=<VM's_network_interface_number> \
      --nat-address=<IP_address>
    ```
 
    Where:
    * `--id`: VM ID. You can get a list of VM IDs in a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) using the `yc compute instance list` [CLI command](../../../cli/cli-ref/managed-services/compute/instance/list.md).
-   * `--network-interface-index`: VM network interface index. The default value is `0`.
+   * `--network-interface-index`: VM's network interface number. The default value is `0`. To get a list of VM's network interfaces and their numbers, run the `yc compute instance get <VM_ID>` command.
    * `--nat-address`: Public IP address to assign to the VM. This is an optional parameter. If you do not specify the `--nat-address` parameter, a public IP address will be assigned to your VM automatically.
 
       You can get a list of reserved public IP addresses in a folder using the `yc vpc address list` [CLI command](../../../cli/cli-ref/managed-services/vpc/address/list.md). The IP address and the VM must be in the same availability zone.
@@ -68,7 +69,7 @@ If you created a [VM](../../concepts/vm.md) without a [public IP](../../../vpc/c
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   1. To create a public IP address and associate it with a VM, use the `yandex_vpc_address` resource and specify it for the VM in the `nat_ip_address` field:
+   1. To create a public IP address and associate it with a VM's network interface, use the `yandex_vpc_address` resource and specify the address you get in the `nat_ip_address` field under `network_interface` for the network interface in question in the `yandex_compute_instance` resource configuration:
 
       ```hcl
       # Creating a static IP address.
@@ -92,7 +93,7 @@ If you created a [VM](../../concepts/vm.md) without a [public IP](../../../vpc/c
         }
         ...
 
-        ## Assigning a subnet and IP to the VM in the network_interface section.
+        ## Assigning a subnet and IP address to the VM's network interface in the network_interface section.
 
         network_interface {
           subnet_id      = "<VM_subnet_ID>"
@@ -104,7 +105,7 @@ If you created a [VM](../../concepts/vm.md) without a [public IP](../../../vpc/c
       }
       ```
 
-      Where `nat_ip_address` is the public IP to assign to the VM. The `yandex_vpc_address` resource contains a list of items, where `[0]` is the list's first item that contains the IP address. If you already have a reserved public IP address to assign to your VM, specify it in the `nat_ip_address` field:
+      Where `nat_ip_address` is the public IP address to assign to the VM's network interface. The `yandex_vpc_address` resource contains a list of items, where `[0]` is the list's first item that contains the IP address. If you already have a reserved public IP address to assign to your VM, specify it in the `nat_ip_address` field:
 
       ```hcl
       nat_ip_address = "<IP_address>"
@@ -121,8 +122,8 @@ If you created a [VM](../../concepts/vm.md) without a [public IP](../../../vpc/c
 
 - API {#api}
 
-   To assign a public IP address to a VM, use the [addOneToOneNat](../../api-ref/Instance/addOneToOneNat.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/AddOneToOneNat](../../api-ref/grpc/instance_service.md#AddOneToOneNat) gRPC API call.
+   To associate a public IP address with a VM's network interface, use the [addOneToOneNat](../../api-ref/Instance/addOneToOneNat.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/AddOneToOneNat](../../api-ref/grpc/instance_service.md#AddOneToOneNat) gRPC API call.
 
 {% endlist %}
 
-Your VM will have а public IP address assigned. You can use this IP address to [connect](../vm-connect/ssh.md#vm-connect) to the VM via SSH.
+Your VM's network interface will have a public IP address assigned. You can use this IP address to [connect](../vm-connect/ssh.md#vm-connect) to the VM via SSH.

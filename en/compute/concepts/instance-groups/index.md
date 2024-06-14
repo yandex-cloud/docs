@@ -36,6 +36,8 @@ You can use {{ ig-name }} to:
 
 - Maintain the performance of application services in a reliable environment with multi-zone features instead of allocating resources for each zone.
 
+- [Handle application stateless and stateful workloads](./stateful-workload.md).
+
 When creating a group, you need to describe the following:
 
 - [Template](instance-template.md) for deploying group instances.

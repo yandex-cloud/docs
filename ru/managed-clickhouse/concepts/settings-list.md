@@ -13,6 +13,7 @@
   - `allow_ddl` в CLI, gRPC API, SQL;
   - `allowDdl` в REST API.
 
+В {{ CH }} доступно больше настроек, чем поддержано в {{ yandex-cloud }}. С помощью SQL-запросов можно [установить настройки {{ CH }} на уровне пользователя](../operations/change-query-level-settings.md).
 
 ## Настройки на уровне кластера {#dbms-cluster-settings}
 

@@ -15,7 +15,7 @@ You can move an existing VM to a different availability zone using a special com
 
 {% note warning %}
 
-The `{{ region-id }}-d` zone does not support VM instances running on the Intel Broadwell [platform](../../concepts/vm-platforms.md). To move VMs from this platform to the `{{ region-id }}-d` zone, do one of the following:
+The `{{ region-id }}-d` zone does not support VM instances running on the Intel Broadwell [platform](../../concepts/vm-platforms.md). To move such VMs to the `{{ region-id }}-d` zone, do one of the following:
 
 * Take a disk snapshot and use it to create a new VM in the `{{ region-id }}-d` zone on a different platform.
 * Stop the VM, change the platform, and move the VM by running `relocate`.
@@ -80,17 +80,19 @@ In some cases, the process may take longer if moving to the `{{ region-id }}-d` 
    1. In the line with the appropriate VM, click ![image](../../../_assets/console-icons/ellipsis.svg), and then click **{{ ui-key.yacloud.compute.button_relocate-to-another-zone }}**. In the window that opens:
 
       1. In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, choose the availability zone to move the VM to, e.g., `{{ region-id }}-d`.
-      1. In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the subnet that corresponds to the selected availability zone.
-      1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, choose a method for public IP address assignment:
-         * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool. In this case, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md) in additional settings.
-         * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
-         * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Do not assign a public IP address.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, configure each [network interface](../../concepts/network.md) of your VM as follows:
+         1. In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the subnet that corresponds to the selected availability zone.
+         1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, choose a method for public IP address assignment:
+            * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool. In this case, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md) in additional settings.
+            * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
+            * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Do not assign a public IP address.
 
-      1. Select the [appropriate security groups](../../../vpc/concepts/security-groups.md) in the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field.
-      1. To set up an internal IP address for a VM and enable DDoS protection, expand the **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** option and select a method for internal IP address assignment in the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field:
-         * `{{ ui-key.yacloud.common.label_auto }}`: Assign a random IP address from the pool of IP addresses available in the selected subnet.
-         * `{{ ui-key.yacloud.common.label_list }}`: Select an internal IP address from the list of previously reserved IP addresses. Click **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}** to reserve an internal IP address in the selected subnet if needed.
-      1. Enable the **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** option, if needed. The option is available if you previously selected the automatic IP assignment method in the public address settings.
+         1. Select the [appropriate security groups](../../../vpc/concepts/security-groups.md) in the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field.
+         1. To set up an internal IP address for a VM and enable DDoS protection, expand the **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** section and select a method for internal IP address assignment in the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field:
+            * `{{ ui-key.yacloud.common.label_auto }}`: Assign a random IP address from the pool of IP addresses available in the selected subnet.
+            * `{{ ui-key.yacloud.common.label_list }}`: Select an internal IP address from the list of previously reserved IP addresses. Click **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}** to reserve an internal IP address in the selected subnet if needed.
+         1. Enable the **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** option, if needed. The option is available if you previously selected the automatic IP assignment method in the public address settings.
+
       1. Click **{{ ui-key.yacloud.compute.instances.button_start-instance-relocation }}** to start moving the VM to a different availability zone.
 
 - CLI {#cli}
@@ -98,6 +100,12 @@ In some cases, the process may take longer if moving to the `{{ region-id }}-d` 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. View a description of the CLI command for moving a VM to a different availability zone:
+
+      ```bash
+      yc compute instance relocate --help
+      ```
 
    1. Get a list of all subnets in the default folder:
 
@@ -108,13 +116,14 @@ In some cases, the process may take longer if moving to the `{{ region-id }}-d` 
       Result:
 
       ```bash
-      +----------------------+-----------------------+----------------------+----------------+---------------+------------------+
-      |          ID          |         NAME          |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE       |
-      +----------------------+-----------------------+----------------------+----------------+---------------+------------------+
-      | bucqps2lt75g******** | default-{{ region-id }}-a | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.0.0/24] |
-      | bltign9kcffv******** | default-{{ region-id }}-b | c64pv6m0aqq6******** |                | {{ region-id }}-b | [192.168.1.0/24] |
-      | fo2e120dga7n******** | default-{{ region-id }}-c | c64pv6m0aqq6******** |                | {{ region-id }}-c | [192.168.2.0/24] |
-      +----------------------+-----------------------+----------------------+----------------+---------------+------------------+
+      +----------------------+-----------------------+----------------------+----------------+---------------+-------------------+
+      |          ID          |         NAME          |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |       RANGE       |
+      +----------------------+-----------------------+----------------------+----------------+---------------+-------------------+
+      | bucqps2lt75g******** | subnet-{{ region-id }}-a1 | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.11.0/24] |
+      | e2lrucutusnd******** | subnet-{{ region-id }}-a2 | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.12.0/24] |
+      | e2lv9c6aek1d******** | subnet-{{ region-id }}-a3 | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.13.0/24] |
+      | bltign9kcffv******** | default-{{ region-id }}-b | c64pv6m0aqq6******** |                | {{ region-id }}-b | [192.168.1.0/24]  |
+      +----------------------+-----------------------+----------------------+----------------+---------------+-------------------+
       ```
 
    1. Get a list of all security groups in the default folder:
@@ -152,10 +161,36 @@ In some cases, the process may take longer if moving to the `{{ region-id }}-d` 
       +----------------------+---------+---------------+---------+---------------+-------------+
       ```
 
-   1. View a description of the CLI command for moving a VM to a different availability zone:
+   1. Get a list of [network interfaces](../../concepts/network.md) of the VM in question by specifying the VM ID:
 
       ```bash
-      yc compute instance relocate --help
+      yc compute instance get <VM_ID>
+      ```
+
+      Result:
+
+      ```yml
+      ...
+      network_interfaces:
+        - index: "0"
+          mac_address: d0:0d:24:**:**:**
+          subnet_id: bucqps2lt75g********
+          primary_v4_address:
+            address: 192.168.11.23
+            one_to_one_nat:
+              address: 158.160.**.***
+              ip_version: IPV4
+        - index: "1"
+          mac_address: d0:1d:24:**:**:**
+          subnet_id: e2lrucutusnd********
+          primary_v4_address:
+            address: 192.168.12.32
+        - index: "2"
+          mac_address: d0:2d:24:**:**:**
+          subnet_id: e2lv9c6aek1d********
+          primary_v4_address:
+            address: 192.168.13.26
+      ...
       ```
 
    1. Move the VM to a different availability zone:
@@ -163,20 +198,20 @@ In some cases, the process may take longer if moving to the `{{ region-id }}-d` 
       ```bash
       yc compute instance relocate <VM_ID> \
         --destination-zone-id <availability_zone_ID> \
-        --network-interface \
-          subnet-id=<subnet_ID>,security-group-ids=<security_group_ID>
+        --network-interface subnet-id=<subnet_ID>,security-group-ids=<security_group_ID>
       ```
 
       Where:
 
       * `<VM_ID>`: ID of the VM to be moved to a different availability zone.
       * `--destination-zone-id`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) to move the VM to.
-      * `subnet-id`: ID of the subnet in the availability zone to move the VM to.
-      * `security-group-ids`: ID of the [security group](../../../vpc/concepts/security-groups.md) to be linked to the VM you are moving. You can link multiple security groups to a single VM. To do this, provide a comma-separated list of security group IDs in `[id1,id2]` format.
+      * `--network-interface`: VM's [network interface](../../concepts/network.md) settings:
+         * `subnet-id`: ID of the subnet in the availability zone to move the VM to.
+         * `security-group-ids`: ID of the [security group](../../../vpc/concepts/security-groups.md) to attach to the VM you are moving. You can attach multiple security groups to a single VM by providing a comma-separated list of security group IDs in `[id1,id2]` format.
+
+         If a VM has multiple network interfaces, specify the `--network-interface` parameter as many times as needed (for each network interface).
 
       For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/relocate.md).
-
-      Please note that a VM's relocation to a new subnet changes its IP addressing. If you need to specify an internal IP address for your VM, use the `ipv4-address=<internal_IP_address>` property of the `network-interface` parameter; for a public IP address, use the `nat-address=<public_IP_address>` property. In other respects, setting the network interface parameters of a VM you are migrating is similar to creating an instance.
 
       For example:
 
@@ -235,12 +270,10 @@ In some cases, the process may take longer if moving to the `{{ region-id }}-d` 
       ```bash
       yc compute instance relocate <VM_ID> \
         --destination-zone-id <availability_zone_ID> \
-        --network-interface \
-          subnet-id=<subnet_ID>,security-group-ids=<security_group_ID> \
+        --network-interface subnet-id=<subnet_ID>,security-group-ids=<security_group_ID> \
         --boot-disk-placement-group-id <disk_placement_group_ID> \
         --boot-disk-placement-group-partition <partition_number> \
-        --secondary-disk-placement \
-          disk-name=<disk_name>,disk-placement-group-id=<disk_placement_group_ID>,disk-placement-group-partition=<partition_number>
+        --secondary-disk-placement disk-name=<disk_name>,disk-placement-group-id=<disk_placement_group_ID>,disk-placement-group-partition=<partition_number>
       ```
 
       Where:
@@ -255,7 +288,7 @@ In some cases, the process may take longer if moving to the `{{ region-id }}-d` 
 
       For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/relocate.md).
 
-   Please note that a VM's relocation to a new subnet changes its IP addressing. If you need to specify an internal IP address for your VM, use the `ipv4-address=<internal_IP_address>` property of the `network-interface` parameter; for a public IP address, use the `nat-address=<public_IP_address>` property. In other respects, setting up the network interface parameters of the VM you want to migrate is similar to creating an instance.
+   Please note that connecting VM's [network interfaces](../../concepts/network.md) to new subnets changes their IP addressing. If you need to specify internal IP addresses for the VM's network interfaces, use the `ipv4-address=<internal_IP_address>` property of the `network-interface` parameter; for public IP addresses, use the `nat-address=<public_IP_address>` property. For the rest, setting network interface parameters when moving a VM to a different availability zone is similar to that when creating a VM.
 
 {% endlist %}
 

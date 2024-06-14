@@ -22,8 +22,6 @@
 
     1. [Создайте кластер](../../managed-clickhouse/operations/cluster-create.md) {{ mch-name }}:
 
-        * **{{ ui-key.yacloud.mdb.forms.base_field_version }}** — {{ mch-ck-version }} или выше.
-
         
         * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}** — стандартные (`network-hdd`), быстрые (`network-ssd`) или нереплицируемые (`network-ssd-nonreplicated`) сетевые диски.
 

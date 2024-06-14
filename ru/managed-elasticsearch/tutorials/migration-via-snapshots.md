@@ -58,7 +58,7 @@ description: "Кластер {{ mes-name }} поддерживает механ�
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Скачайте в ту же рабочую директорию файл конфигурации [mes-migration.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/mes-migration.tf). В файле описаны:
+    1. Скачайте в ту же рабочую директорию файл конфигурации [mes-migration.tf](https://github.com/yandex-cloud-examples/yc-elasticsearch-migration-via-snapshots/blob/main/mes-migration.tf). В файле описаны:
 
        * сеть;
        * подсеть;

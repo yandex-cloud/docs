@@ -1,9 +1,9 @@
 ---
-title: "Questions and answers about {{compute-full-name }}"
-description: "This page provides answers to questions about {{ compute-name }}."
+title: "FAQ about {{ compute-full-name }}"
+description: "See this page for {{ compute-name }} FAQs."
 ---
 
-# Questions and answers about {{ compute-name }}
+# FAQ about {{ compute-name }}
 
 ## General questions {#general}
 
@@ -32,3 +32,7 @@ description: "This page provides answers to questions about {{ compute-name }}."
 ## Licensing {#licensing}
 
 {% include notitle [licensing](../../_qa/compute/licensing.md) %}
+
+## Troubleshooting {#troubleshooting}
+
+{% include notitle [troubleshooting](../../_qa/compute/troubleshooting.md) %}

@@ -64,7 +64,7 @@
 
     1. Если у вас еще нет {{ TF }}, [установите и настройте](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) его.
     1. [Скачайте файл с настройками провайдера](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-    1. Скачайте в ту же рабочую директорию файл конфигурации [data-proc-dns-connect.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/data-proc-dns-connect.tf).
+    1. Скачайте в ту же рабочую директорию файл конфигурации [data-proc-dns-connect.tf](https://github.com/yandex-cloud-examples/yc-data-proc-reconnect-network/blob/main/data-proc-dns-connect.tf).
 
         В файле описаны:
 

@@ -1,8 +1,8 @@
-# VM networking
+# VM network interfaces
 
-When creating a VM, you need to specify its network interface settings by selecting the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to, configuring an [internal](#internal-ip) and [public IP address](#public-ip), and adding the required [security groups](../../vpc/concepts/security-groups.md). This will allow the VM to connect to other services on the intranet and internet.
+A virtual machine can have [one or multiple](./limits.md) network interfaces. When creating a VM, you need to configure at least one of its network interfaces by selecting the [subnet](../../vpc/concepts/network.md#subnet) to connect your VM to, configuring [internal](#internal-ip) and [public IP addresses](#public-ip), and adding the required [security groups](../../vpc/concepts/security-groups.md). This will allow the VM to connect to other services on the intranet and internet.
 
-Once the network interface is connected, the VM will be assigned an internal IP address in the subnet and an [internal FQDN](#hostname). A public IP address will only be assigned in case it was specified when creating the VM.
+After the network interface is connected, the VM will be assigned an internal IP address in the subnet. A public IP address will be assigned only if you specified it in the network interface settings.
 
 You can find out the IP addresses, FQDNs, and other information in the management console by going to the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section on the virtual machine page. This data can be used to connect to the VM.
 
@@ -10,9 +10,22 @@ On VMs created from public Linux images, the IP address and hostname (FQDN) are 
 
 You can change the network interface settings on stopped VMs by assigning a public IP address, changing the subnet, selecting other security groups, or configuring the DNS settings.
 
+You can also [add](../operations/vm-control/attach-network-interface.md) more network interfaces and [delete](../operations/vm-control/attach-network-interface.md) them from both stopped and running VMs. However, to avoid [VM routing](../../vpc/concepts/static-routes.md#rt-vm) issues, we recommended adding and removing network interfaces on stopped VMs.
+
+{% include [add-network-interface-hotplug-preview-note](../../_includes/compute/add-network-interface-hotplug-preview-note.md) %}
+
+If the network interfaces you added are inactive or you can no longer [connect](../operations/vm-connect/ssh.md) to your VM, see [Troubleshooting](../qa/troubleshooting.md).
+
+### Recommendations {#best-practices}
+
+For stable network operation on a VM, follow these recommendations:
+
+* To maintain [network connectivity](../../vpc/concepts/static-routes.md#rt-vpc), add network interfaces to stopped VMs.
+* Assign a public IP address to a single VM's network interface only.
+
 ## Internal IP address {#internal-ip}
 
-You can specify the internal IP address at which the VM will be accessible after being created. If do not specify any internal IP, it will be assigned automatically.
+For each network interface of a VM, you can specify an internal IP address that will be assigned to that interface. If the internal IP address is not specified, it will be assigned automatically from the IP address range of the relevant subnet.
 
 {% note info %}
 
@@ -22,17 +35,17 @@ Currently, only IPv4 addresses are supported. {{ compute-full-name }} VMs and DB
 
 An internal IP address can be used to access a VM from another VM. You can use an internal IP address only to connect to the VMs that belong to the same [cloud network](../../vpc/concepts/network.md#network).
 
-You can [change](../operations/vm-control/internal-ip-update.md) the internal IP address after you create a VM.
+You can [change](../operations/vm-control/internal-ip-update.md) the internal IP address of a network interface after you create a VM.
 
 ## Public IP address {#public-ip}
 
-You can get a public IP address to access a VM from the internet.
+To access your virtual machine from the internet, you can get a public IP address.
 
-A public IP address is assigned automatically and cannot be chosen. The address is allocated from the {{ yandex-cloud }} address pool.
+The public IP address can be assigned automatically from the {{ yandex-cloud }} address pool or selected from a list of [reserved](../../vpc/operations/get-static-ip.md) public IP addresses.
 
 {% include notitle [public-ip-reset](../../_includes/public-ip-reset.md) %}
 
-The VM's public IP address is mapped to its internal IP address through NAT. This means all requests to the VM from an external IP address are sent to an internal IP address. For more information about NAT, see [RFC 3022](https://www.ietf.org/rfc/rfc3022.txt).
+The public IP address of the VM's network interface is mapped to its internal IP address through NAT. Therefore, all requests to the VM from the external IP address of its network interface are sent to the internal IP address of that interface. For more information about NAT, see [RFC 3022](https://www.ietf.org/rfc/rfc3022.txt).
 
 ## Host name and internal FQDN {#hostname}
 

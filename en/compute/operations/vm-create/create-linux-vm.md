@@ -65,14 +65,19 @@ description: "Use this tutorial to create a Linux VM."
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
-      * `subnet-name`: Name of the selected subnet.
-      * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, disable this parameter.
-      * `image-family`: [Image family](../../concepts/image.md#family), such as `centos-7`. This option allows you to install the latest version of the OS from the specified family.
-      * `--ssh-key`: [Public SSH key](../vm-connect/ssh.md#creating-ssh-keys) path. The VM will automatically create a user named `yc-user` for this key.
+      * `--network-interface`: VM's [network interface](../../concepts/network.md) settings:
+         * `subnet-name`: Name of the selected subnet.
+         * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, disable this parameter.
+
+         {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
+
+      * `--create-boot-disk`: VM boot disk settings:
+         * `image-family`: [Image family](../../concepts/image.md#family), such as `centos-7`. This option allows you to install the latest version of the OS from the specified family.
+      * `--ssh-key`: Path to the file with the [public SSH key](../vm-connect/ssh.md#creating-ssh-keys). The VM will automatically create a user named `yc-user` for this key.
 
          {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
-      If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data using the `--metadata-from-file` parameter.
+         If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data using the `--metadata-from-file` parameter.
 
    {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
@@ -146,10 +151,13 @@ description: "Use this tutorial to create a Linux VM."
          * `zone`: Availability zone to host the VM.
          * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
          * `boot_disk`: Boot disk settings. Specify the disk ID.
-         * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+         * `network_interface`: VM's [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+
+            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
+
          * `metadata`: In the metadata, provide the public SSH key for accessing the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
 
-            If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in a file and supply it under `metadata`.
+            If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in a file and provide it under `metadata`.
       * `yandex_vpc_network`: Description of the cloud network.
       * `yandex_vpc_subnet`: Description of the subnet your VM will connect to.
 
@@ -260,9 +268,9 @@ description: "Use this tutorial to create a Linux VM."
          {% include [id-info](../../../_includes/compute/id-info.md) %}
 
          The disk size must not be less than the minimum value specified in the image details.
-      * `networkInterfaceSpecs`: [Network](../../../vpc/concepts/network.md#network) settings.
+      * `networkInterfaceSpecs`: VM's [network interface](../../concepts/network.md) settings.
          * `subnetId`: ID of the selected subnet.
-         * `primaryV4AddressSpec`: IP address to assign to the VM. To add a [public IP](../../../vpc/concepts/address.md#public-addresses) to your VM, specify:
+         * `primaryV4AddressSpec`: IP address to assign to the VM. To add a [public IP address](../../../vpc/concepts/address.md#public-addresses) to your VM, specify:
 
             ```json
             "primaryV4AddressSpec": {
@@ -271,6 +279,7 @@ description: "Use this tutorial to create a Linux VM."
               }
             }
             ```
+         To add multiple [network interfaces](../../concepts/network.md) to a VM, provide an array with the required number of objects containing network interface settings in the `networkInterfaceSpecs` parameter. You can add up to eight network interfaces to a single VM.
 
       Read more about the request body format in the [API reference](../../api-ref/Instance/create.md).
    1. Create a VM:
@@ -290,4 +299,4 @@ description: "Use this tutorial to create a Linux VM."
 
 #### See also {#see-also}
 
-* [{#T}](../vm-connect/ssh.md)
+* [{#T}](../vm-connect/ssh.md).
