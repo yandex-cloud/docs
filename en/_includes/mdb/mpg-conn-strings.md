@@ -259,6 +259,24 @@ go mod init example && go get github.com/jackc/pgx/v4
 
 {% endlist %}
 
+### C++ userver {#userver}
+
+Install the userver framework following the instauction as [official site](https://userver.tech/)
+or use a [VM at Yandex Cloud Marketplace](https://yandex.cloud/en/marketplace/products/yc/userver).
+
+Create your project using the service template [with gRPC](https://github.com/userver-framework/pg_grpc_service_template)
+or using the service template [without gRPC](https://github.com/userver-framework/pg_service_template).
+
+In `configs/config_vars.yaml` of your project change the `dbconnection` variable value to:
+
+```yaml
+dbconnection: postgres://<имя_пользователя>:<пароль_пользователя>@c-<идентификатор_кластера>.rw.{{ dns-zone }}:6432/<имя_БД>"
+```
+
+You can get the cluster ID with a [list of clusters](../../managed-postgresql/operations/cluster-list.md#list-clusters).
+
+Start the service by running `make service-start-debug`.
+
 ### Java {#java}
 
 Before connecting:
