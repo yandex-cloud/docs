@@ -1,0 +1,1 @@
+Чтобы узнать идентификатор, [получите](../../network-load-balancer/operations/target-group-list.md#list) список целевых групп в каталоге.

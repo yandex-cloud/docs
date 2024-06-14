@@ -151,7 +151,7 @@ Limitations when moving a VM:
 
 ### Updating a VM's subnet {#change-subnet}
 
-A moved VM remains connected to the [subnet](../../../vpc/concepts/network.md#subnet) in the source folder. To move your VM to a subnet in the destination folder:
+Moved VM's network interfaces remain connected to the [subnets](../../../vpc/concepts/network.md#subnet) in the source folder. To connect your VM to subnets in the destination folder:
 
 {% list tabs group=instructions %}
 
@@ -162,8 +162,9 @@ A moved VM remains connected to the [subnet](../../../vpc/concepts/network.md#su
    1. Click the VM name.
    1. Click **{{ ui-key.yacloud.common.stop }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
-   1. Under **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}**, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
+   1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) in the top-right corner of the relevant network interface section and select **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
    1. In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select a new subnet and click **{{ ui-key.yacloud.common.save }}**.
+      If a VM has multiple [network interfaces](../../concepts/network.md), update the subnet for each one.
    1. Click **{{ ui-key.yacloud.common.start }}**.
 
 - CLI {#cli}
@@ -172,17 +173,48 @@ A moved VM remains connected to the [subnet](../../../vpc/concepts/network.md#su
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
+   1. View a description of the update subnet CLI command:
+
+      ```bash
+      yc compute instance update-network-interface --help
+      ```
+
    1. Stop the VM:
 
       ```bash
       yc compute instance stop fhm0b28lgfp4********
       ```
 
-   1. View a description of the update subnet CLI command:
+   1. Get a list of VM's network interfaces by specifying the VM ID:
 
       ```bash
-      yc compute instance update-network-interface --help
+      yc compute instance get fhm0b28lgfp4********
       ```
+
+      Result:
+
+      ```yml
+      ...
+      network_interfaces:
+        - index: "0"
+          mac_address: d0:0d:24:**:**:**
+          subnet_id: e2lpp96bvvgp********
+          primary_v4_address:
+            address: 192.168.2.23
+        - index: "1"
+          mac_address: d0:1d:24:**:**:**
+          subnet_id: e2lrucutusnd********
+          primary_v4_address:
+            address: 192.168.1.32
+        - index: "2"
+          mac_address: d0:2d:24:**:**:**
+          subnet_id: e2lv9c6aek1d********
+          primary_v4_address:
+            address: 192.168.4.26
+      ...
+      ```
+
+      Save the `index` field value, i.e., the number of the network interface to connect to a different subnet.
 
    1. Run this command:
 
@@ -197,15 +229,15 @@ A moved VM remains connected to the [subnet](../../../vpc/concepts/network.md#su
       Where:
 
       * `--subnet-id`: Subnet in the destination folder.
-      * `--ipv4-address`: VM internal IP.
-      * `--network-interface-index`: VM's network interface index.
-      * `--security-group-id`: ID of the security group to be assigned to the VM.
+      * `--ipv4-address`: Internal IP address of the VM's network interface in the subnet in the destination folder. Set to `auto` to automatically assign the internal address.
+      * `--network-interface-index`: VM's network interface number you previously saved.
+      * `--security-group-id`: ID of the security group to assign to the VM's network interface.
 
       Result:
 
       ```text
       done (9s)
-      id: epdk82knf9rj********
+      id: fhm0b28lgfp4********
       folder_id: b1gd73mbrli7********
       created_at: "2023-11-16T06:09:46Z"
       name: oslogigor1
@@ -228,10 +260,22 @@ A moved VM remains connected to the [subnet](../../../vpc/concepts/network.md#su
         disk_id: epdophaf2gh9********
       network_interfaces:
         - index: "0"
-          mac_address: d0:0d:14:40:a9:77
+          mac_address: d0:0d:24:**:**:**
           subnet_id: e2lfibapq818********
           primary_v4_address:
-          address: 10.129.0.22
+            address: 10.129.0.22
+          security_group_ids:
+            - enpi8m85mj14********
+        - index: "1"
+          mac_address: d0:1d:24:**:**:**
+          subnet_id: e2lrucutusnd********
+          primary_v4_address:
+            address: 192.168.1.32
+        - index: "2"
+          mac_address: d0:2d:24:**:**:**
+          subnet_id: e2lv9c6aek1d********
+          primary_v4_address:
+            address: 192.168.4.26
       gpu_settings: {}
       fqdn: relocated-vm.{{ region-id }}.internal
       scheduling_policy: {}
@@ -239,6 +283,8 @@ A moved VM remains connected to the [subnet](../../../vpc/concepts/network.md#su
       type: STANDARD
       placement_policy: {}
       ```
+
+      If a VM has multiple network interfaces, update the subnet for each one.
 
    1. Run the VM:
 

@@ -18,9 +18,9 @@ yc managed-clickhouse user update <имя_пользователя> \
 
 Если в кластере больше одного хоста, то обновление кластера проходит без простоя, так как хосты обновляются поочередно. На время рестарта будут недоступны только отдельные хосты.
 
-#### Как изменить часовой пояс (timezone)? {#timezone}
+#### Как изменить часовой пояс? {#timezone}
 
-Воспользуйтесь инструкцией в разделе [Изменение настроек {{ CH }}](../../managed-clickhouse/operations/update.md#change-clickhouse-config).
+Измените настройку {{ CH }} [timezone]({{ ch.docs }}/operations/server-configuration-parameters/settings#server_configuration_parameters-timezone) или [session_timezone]({{ ch.docs }}/operations/settings/settings#session_timezone). О том, как это сделать, читайте в [инструкции](../../managed-clickhouse/operations/update.md#change-clickhouse-config).
 
 #### Будет ли кластер недоступен при добавлении реплик? {#add-replica-availability}
 

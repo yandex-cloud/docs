@@ -1,5 +1,5 @@
 ---
-title: "Working with VMs Step-by-step guides"
+title: "Working with VMs. Step-by-step guides"
 description: "Step-by-step guides on how to use and manage VMs in {{ yandex-cloud }}. In this article, you will learn how to work with VMs, manage resources, and connect to them using SSH, RDP, and PowerShell. Find out how to use disks, images, and hosts."
 ---
 
@@ -53,6 +53,8 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](vm-control/vm-change-zone.md)
 * [{#T}](vm-control/vm-change-folder.md)
 * [{#T}](vm-control/vm-change-cloud.md)
+* [{#T}](vm-control/attach-network-interface.md)
+* [{#T}](vm-control/detach-network-interface.md)
 * [{#T}](vm-control/vm-attach-public-ip.md)
 * [{#T}](vm-control/vm-detach-public-ip.md)
 * [{#T}](vm-control/vm-set-static-ip.md)
@@ -170,6 +172,8 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](instance-groups/create-from-yaml.md)
 * [{#T}](placement-groups/create-ig-in-pg.md)
 * [{#T}](instance-groups/create-with-fixed-ip.md)
+* [{#T}](instance-groups/create-with-filesystem.md)
+* [{#T}](instance-groups/create-with-bucket.md)
 
 ## Getting information about instance groups {#ig-info}
 

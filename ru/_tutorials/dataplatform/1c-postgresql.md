@@ -31,7 +31,7 @@
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Скачайте в ту же рабочую директорию файл конфигурации [postgresql-1c.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/postgresql-1c.tf).
+    1. Скачайте в ту же рабочую директорию файл конфигурации [postgresql-1c.tf](https://github.com/yandex-cloud-examples/yc-postgresql-1c/blob/main/postgresql-1c.tf).
 
         В этом файле описаны:
 

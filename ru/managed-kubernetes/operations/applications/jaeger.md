@@ -131,3 +131,11 @@
    ```
 
    Подробнее о таком типе установки см. в [документации платформы Jaeger](https://github.com/jaegertracing/helm-charts).
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/marketplace/jaeger-over-ydb.md).
+
+## См. также {#see-also}
+
+* [Документация Jaeger](https://www.jaegertracing.io/docs/).

@@ -53,7 +53,7 @@ The infrastructure support costs include:
 
 ## Add a certificate to {{ certificate-manager-name }} {#add-certificate}
 
-Issue a Let's Encrypt® certificate and [add](../../certificate-manager/operations/managed/cert-create.md) it to {{ certificate-manager-name }} or [upload](../../certificate-manager/operations/import/cert-create.md) your own certificate.
+{% include [certificate-usage](../../_includes/cdn/certificate-usage.md) %}
 
 For a Let's Encrypt® certificate, have your [rights checked](../../certificate-manager/operations/managed/cert-validate.md) for the domain specified in the certificate.
 

@@ -44,7 +44,7 @@
 1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
 1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-1. Скачайте в ту же рабочую директорию файл конфигурации [clusters-mysql-data-proc-and-vm.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/sqoop/clusters-mysql-data-proc-and-vm.tf).
+1. Скачайте в ту же рабочую директорию файл конфигурации [clusters-mysql-data-proc-and-vm.tf](https://github.com/yandex-cloud-examples/yc-data-proc-mysql-data-import/blob/main/clusters-mysql-data-proc-and-vm.tf).
 
     В этом файле описаны:
 

@@ -220,7 +220,7 @@
   ```
   yc load-balancer network-load-balancer add-listener \
      --name ya-loadbalancer \
-     --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-subnet-id=<идентификатор_подсети>
+     --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-address=192.168.1.62,internal-subnet-id=<идентификатор_подсети>
   ```
 
 - PowerShell {#powershell}
@@ -234,8 +234,9 @@
   ```
   yc load-balancer network-load-balancer add-listener `
      --name ya-loadbalancer `
-     --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-subnet-id=$($inlbSubnet.id)
+     --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-address=192.168.1.62,internal-subnet-id=$($inlbSubnet.id)
   ```
+
 
 {% endlist %}
 
@@ -1287,7 +1288,7 @@
 
     {% endlist %}
 
-1. Создайте [Listener](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlavailabilitygrouplistener?view=sqlserver-ps#description):
+1. Создайте [Listener](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlavailabilitygrouplistener?view=sqlserver-ps#description) с IP-адресом `192.168.1.62`, который принадлежит внутреннему сетевому балансировщику:
 
     {% list tabs group=programming_language %}
 

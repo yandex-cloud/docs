@@ -197,8 +197,6 @@ description: "Следуя данной инструкции, вы сможет�
 
   {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
-     ```
-
      Результат:
 
       ```bash

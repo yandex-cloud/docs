@@ -327,7 +327,6 @@ default:
   marketplace-name: Cloud Marketplace
   marketplace-short-name: Marketplace
   mch-backup-retention: 7
-  mch-ck-version: 22.8
   mch-dedup-retention: 30
   mch-full-name: Yandex Managed Service for ClickHouse®
   mch-name: Managed Service for ClickHouse®

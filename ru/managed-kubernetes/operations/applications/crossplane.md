@@ -95,6 +95,10 @@
 
    Актуальная версия провайдера доступна в [GitHub-репозитории](https://github.com/yandex-cloud/provider-jet-yc).
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/marketplace/crossplane.md).
+
 ## См. также {#see-also}
 
 * [Документация Crossplane](https://docs.crossplane.io/).

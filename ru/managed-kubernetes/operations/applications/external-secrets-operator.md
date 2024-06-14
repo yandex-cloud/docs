@@ -59,7 +59,11 @@ External Secrets Operator с поддержкой {{ lockbox-name }} позво�
 
    Эта команда создаст новое пространство имен, необходимое для работы External Secrets Operator.
 
-#### См. также {#see-also}
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/kubernetes-lockbox-secrets.md).
+
+## См. также {#see-also}
 
 * [Описание External Secrets Operator](https://external-secrets.io/v0.8.1/provider/yandex-lockbox/).
 * [Документация {{ lockbox-name }}](../../../lockbox/).

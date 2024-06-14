@@ -123,6 +123,8 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
         --ssh-key ~/.ssh/id_ed25519.pub
       ```
 
+      {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
+
 - {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -198,7 +200,10 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
          * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected platform.
          * `boot_disk`: Boot disk settings. Specify the disk ID.
          * `secondary_disk`: Secondary disk to attach to the VM. Specify the ID of the secondary disk. If you do not have a disk, [create](../disk-create/empty.md) one.
-         * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#network). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+         * `network_interface`: VM's [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+
+            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
+
          * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
       * `yandex_vpc_network`: Description of the cloud network.
       * `yandex_vpc_subnet`: Description of the subnet your VM will connect to.

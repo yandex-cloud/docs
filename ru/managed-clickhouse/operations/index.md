@@ -10,6 +10,7 @@ description: "На странице представлен список поша
 * [Информация об имеющихся кластерах](cluster-list.md)
 * [Создание кластера](cluster-create.md)
 * [Изменение настроек кластера](update.md)
+* [{#T}](change-query-level-settings.md)
 * [{#T}](cluster-version-update.md)
 * [Остановка и запуск кластера](cluster-stop.md)
 * [{#T}](zk-hosts.md)

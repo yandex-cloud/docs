@@ -22,6 +22,8 @@ description: "Следуя данной инструкции, вы сможет�
 
 - CLI {#cli}
 
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
   {% include [standard-images](../../../_includes/standard-images.md) %}
 
 - API {#api}

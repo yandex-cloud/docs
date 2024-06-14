@@ -76,7 +76,7 @@
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Скачайте в ту же рабочую директорию файл конфигурации [logical-replica-amazon-rds-to-postgresql.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/logical-replica-amazon-rds-to-postgresql.tf).
+    1. Скачайте в ту же рабочую директорию файл конфигурации [logical-replica-amazon-rds-to-postgresql.tf](https://github.com/yandex-cloud-examples/yc-postgresql-amazon-rds-replica/blob/main/logical-replica-amazon-rds-to-postgresql.tf).
 
         В этом файле описаны:
 

@@ -75,16 +75,14 @@
    ```
 
 
-## См. также {#see-also}
-
-* Описание Ingress-контроллеров в документации:
-
-   * [{{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/)
-   * [{{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md)
-
+## Примеры использования {#examples}
 
 * [Практическое руководство по настройке Ingress-контроллера {{ alb-name }}](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
 * [Практическое руководство по настройке логирования для Ingress-контроллеров {{ alb-name }}](../../managed-kubernetes/tutorials/alb-ingress-controller-log-options.md).
 
+## См. также {#see-also}
 
+* Описание Ingress-контроллеров в документации:
+   * [{{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
+   * [{{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 * [Ограничения при обновлении ALB Ingress Controller](../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md).

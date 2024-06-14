@@ -50,7 +50,7 @@
         10,2010
         ```
 
-    1. Скачайте в ту же рабочую директорию [файл конфигурации инфраструктуры](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/greenplum-s3-vm.tf).
+    1. Скачайте в ту же рабочую директорию [файл конфигурации инфраструктуры](https://github.com/yandex-cloud-examples/yc-greenplum-config-server-for-s3/blob/main/greenplum-s3-vm.tf).
 
         В этом файле описаны:
 
