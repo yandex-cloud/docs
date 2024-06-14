@@ -270,7 +270,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 В `configs/config_vars.yaml` поменйте значение переменной `dbconnection` на
 
 ```yaml
-dbconnection: postgres://<имя_пользователя>:<пароль_пользователя>@c-<идентификатор_кластера>.rw.{{ dns-zone }}:6432/<имя_БД>"
+dbconnection: 'postgres://<имя_пользователя>:<пароль_пользователя>@c-<идентификатор_кластера>.rw.{{ dns-zone }}:6432/<имя_БД>'
 ```
 
 Идентификатор кластера можно получить со [списком кластеров](../../managed-postgresql/operations/cluster-list.md#list-clusters).

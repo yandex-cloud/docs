@@ -270,7 +270,7 @@ or using the service template [without gRPC](https://github.com/userver-framewor
 In `configs/config_vars.yaml` of your project change the `dbconnection` variable value to:
 
 ```yaml
-dbconnection: postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:6432/<DB_name>"
+dbconnection: 'postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:6432/<DB_name>'
 ```
 
 You can get the cluster ID with a [list of clusters](../../managed-postgresql/operations/cluster-list.md#list-clusters).
