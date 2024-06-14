@@ -275,7 +275,11 @@ dbconnection: postgres://<имя_пользователя>:<пароль_пол�
 
 You can get the cluster ID with a [list of clusters](../../managed-postgresql/operations/cluster-list.md#list-clusters).
 
-Start the service by running `make service-start-debug`.
+Build the service and start it with the following commands:
+```bash
+make build-debug
+./build_debug/pg_<grpc_>service_template -c configs/static_config.yaml --config_vars configs/config_vars.yaml
+```
 
 ### Java {#java}
 

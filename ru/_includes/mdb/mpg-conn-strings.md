@@ -275,6 +275,12 @@ dbconnection: postgres://<имя_пользователя>:<пароль_пол�
 
 Идентификатор кластера можно получить со [списком кластеров](../../managed-postgresql/operations/cluster-list.md#list-clusters).
 
+Соберите и запустите сервис, используя следующие команды:
+```bash
+make build-debug
+./build_debug/pg_<grpc_>service_template -c configs/static_config.yaml --config_vars configs/config_vars.yaml
+```
+
 ### Java {#java}
 
 Перед подключением:
