@@ -28,8 +28,7 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
    1. Select a billing account.
    1. Go to **{{ ui-key.yacloud_billing.billing.account.switch_acts }}**.
    1. Open the **{{ ui-key.yacloud_billing.billing.account.tab_acts-title }}** tab.
-   1. In the line for the relevant reporting period, click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud_billing.billing.account.button_download-action }}**. A window will open showing the reporting documents for the selected period.
-   1. To the right of a document, click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.open }}**. The document will open in a new browser tab and will be available for saving.
+   1. In the line with the relevant reporting period, click **{{ ui-key.yacloud_billing.billing.account.button_download-action }}**. This will open a window with reporting documents for the selected period which you can save.
    1. To download documents for multiple periods as a single archive, select the required periods in the left-hand column (or select the checkbox in the table header to select all periods) and click **{{ ui-key.yacloud_billing.billing.account.acts_batch-download-text_pdf }}** or **{{ ui-key.yacloud_billing.billing.account.acts_batch-download-text_zip }}**.
 
    ### Requesting a reconciliation report {#download-acts}
@@ -89,7 +88,7 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
 
    ## Viewing your expense history {#expense-history}
 
-   Individuals who are residents of Russia and Kazakhstan can view their monthly expense history in {{ billing-name }}.
+   Individuals who are residents of Russia and Kazakhstan can view their spending history by month in {{ billing-name }}.
 
    To view your expense history:
 

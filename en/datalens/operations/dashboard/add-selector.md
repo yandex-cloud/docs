@@ -1,7 +1,7 @@
 # Adding a selector to a dashboard
 
 
-Before adding a selector, make sure that you have the `{{ permission-write }}` or `{{ permission-admin }}` permission for the dashboard. For more information, see [{#T}](../../security/manage-access.md).
+Before adding a selector, make sure you have the `{{ permission-write }}` or `{{ permission-admin }}` permission for the dashboard. For more information, see [{#T}](../../security/manage-access.md).
 
 
 To add a [selector](../../dashboard/selector.md) to a dashboard:
@@ -14,7 +14,9 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 1. At the top of the page, click **Edit**.
 1. In the panel at the bottom of the page, choose **Selector**.
 
+   
    ![image](../../../_assets/datalens/operations/widget-select.png =500x118)
+
 
 
 
@@ -41,16 +43,16 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
             {% endnote %}
 
          * **Operation**: Comparison operation by which the selector filters the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters the QL chart.
-         * **Required field**: Allows setting the selector value as a required parameter. If enabled, `*` will be appended to the selector name. Not available for the **Checkbox** selector type.
+         * **Required field**: Sets the selector value as a required parameter. If enabled, `*` will be appended to the selector name. Not available for the **Checkbox** selector type.
          * **Multiple choice**: Allows choosing several values in the selector. Only available for the **List** selector type.
          * **Range**: Allows setting a time interval in the selector. Only available for the **Calendar** selector type.
          * **Default value**: Displayed when you first open the dashboard. This is a required field if the **Required field** option is enabled.
 
       * Under **Appearance**:
 
-         * **Title**: Used to choose a selector when establishing a link with other widgets. The option enables you to control the display of the name on the dashboard.
+         * **Title**: Used to choose a selector when establishing a link with other widgets. The options puts you in control of how the title appears on the dashboard.
          * **Inner title**: Text that is displayed in the selector to indicate a comparison operation. You can change the default value to your own one. For example, you can specify the `=` or `equal to` value for the **Equal to** operation. The parameter is only available for the **List** type.
-         * **Tooltip**: This option allows adding a text comment to the selector. By default, when you enable the option, the tooltip text is substituted from the field description in the [dataset](../../concepts/dataset/index.md). You can change the tooltip text. When you change the dataset field description, the text is not automatically updated.
+         * **Tooltip**: This option allows adding a text comment to the selector. By default, with this option enabled, the tooltip text is substituted from the field description in the [dataset](../../concepts/dataset/index.md). You can change the tooltip text. When you change the dataset field description, the text is not automatically updated.
 
             When the option is enabled, the ![image](../../../_assets/console-icons/circle-question.svg) icon appears on the dashboard next to the selector. Hover over the icon to bring up the tooltip.
 
@@ -62,7 +64,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
          * **Field or parameter name**: Field name, which can be used to link the selector with other widgets in the [alias](../../dashboard/link.md#alias) configuration window.
 
-            ![image](../../../_assets/datalens/selector-settings/field-name.png)
+            ![image](../../../_assets/datalens/selector-settings/field-name.png =650x)
 
          * **Selector type**: Drop-down list, input field, calendar, or checkbox.
 
@@ -75,7 +77,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
             {% endnote %}
 
          * **Operation**: Comparison operation by which the selector filters the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters the QL chart.
-         * **Required field**: Allows setting the selector value as a required parameter. If enabled, `*` will be appended to the selector name. Not available for the **Checkbox** selector type.
+         * **Required field**: Sets the selector value as a required parameter. If enabled, `*` will be appended to the selector name. Not available for the **Checkbox** selector type.
          * **Multiple choice**: Allows choosing several values in the selector. Only available for the **List** selector type.
          * **Possible values**: List of values to select. Only available for the **List** selector type.
          * **Range**: Allows setting a time interval in the selector. Only available for the **Calendar** selector type.
@@ -86,12 +88,12 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
          * **Title**: Used to choose a selector when establishing a link with other widgets.
 
-            ![image](../../../_assets/datalens/selector-settings/caption.png)
+            ![image](../../../_assets/datalens/selector-settings/caption.png =650x)
 
-            The option enables you to control the display of the name on the dashboard.
+            The options puts you in control of how the title appears on the dashboard.
 
          * **Inner title**: Text that is displayed in the selector to indicate a comparison operation. You can change the default value to your own one. For example, you can specify the `=` or `equal to` value for the **Equal to** operation. The parameter is only available for the **List** type.
-         * **Tooltip**: This option allows adding a text comment to the selector. By default, when you enable the option, the tooltip text is substituted from the field description in the [dataset](../../concepts/dataset/index.md). You can change the tooltip text. When you change the dataset field description, the text is not automatically updated.
+         * **Tooltip**: This option allows adding a text comment to the selector. By default, with this option enabled, the tooltip text is substituted from the field description in the [dataset](../../concepts/dataset/index.md). You can change the tooltip text. When you change the dataset field description, the text is not automatically updated.
 
             When the option is enabled, the ![image](../../../_assets/console-icons/circle-question.svg) icon appears on the dashboard next to the selector. Hover over the icon to bring up the tooltip.
 

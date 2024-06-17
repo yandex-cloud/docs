@@ -195,7 +195,7 @@ Connection with the {{ KF }} cluster with explicitly specified network addresses
 
 {{ data-transfer-full-name }} supports CDC for transfers from {{ PG }}, {{ MY }}, and {{ ydb-short-name }} databases to {{ KF }} and {{ yds-full-name }}. Data is sent to the target in Debezium format. For more information about CDC mode, see [Change data capture](../../../concepts/cdc.md).
 
-    {% include [CDC-YDB](../../../../_includes/data-transfer/note-ydb-cdc.md) %}
+{% include [CDC-YDB](../../../../_includes/data-transfer/note-ydb-cdc.md) %}
 
 ### {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }} {#serializer}
 

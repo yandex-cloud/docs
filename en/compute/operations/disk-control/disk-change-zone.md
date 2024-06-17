@@ -57,7 +57,7 @@ To attach the disk to a VM from a different availability zone, move it:
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
    1. In the appropriate disk row, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.compute.button_relocate-to-another-zone }}**. In the window that opens:
-      1. In the **{{ ui-key.yacloud.compute.disks.field_new-availability-zone }}** field, choose the availability zone to move the disk to, e.g., `{{ region-id }}-d`.
+      1. In the **{{ ui-key.yacloud.compute.field_new-availability-zone }}** field, choose the availability zone to move the disk to, e.g., `{{ region-id }}-d`.
       1. Click **{{ ui-key.yacloud.compute.instances.button_start-instance-relocation }}** to start moving the disk to a different availability zone.
 
 - CLI {#cli}

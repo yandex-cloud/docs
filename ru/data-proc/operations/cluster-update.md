@@ -23,7 +23,7 @@
     
     1. Чтобы изменить [лог-группу](../../logging/concepts/log-group.md), в которую отправляются логи кластера, выберите новую лог-группу из списка. При необходимости [создайте новую лог-группу](../../logging/operations/create-group.md).
 
-        Для работы этой функции [назначьте сервисному аккаунту кластера](../../iam/operations/roles/grant.md#access-to-sa) роль `logging.writer`. Подробнее см. в [документации {{ cloud-logging-full-name }}](../../logging/security/index.md).
+        Для работы этой функции [назначьте](../../iam/operations/roles/grant.md) сервисному аккаунту кластера роль `logging.writer`. Подробнее см. в [документации {{ cloud-logging-full-name }}](../../logging/security/index.md).
 
 
     1. Чтобы изменить [свойства компонентов](../concepts/settings-list.md) кластера, укажите в поле **{{ ui-key.yacloud.mdb.forms.config_field_properties }}** ключ компонента и его новое значение.

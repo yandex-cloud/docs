@@ -146,6 +146,8 @@ items:
           Хостинг статического сайта на фреймворке Gatsby в {{ objstorage-name
           }}
         href: tutorials/gatsby-static-website.md
+      - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
+        href: tutorials/static-key-in-lockbox.md
   - name: Концепции
     items:
       - name: Обзор

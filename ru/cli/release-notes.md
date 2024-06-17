@@ -7,6 +7,46 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.127.0 (17.06.24) {#version0.127.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ iam-name }} {#iam}
+
+* Добавлены команды для управления метками `yc iam service-account add-labels` и `yc iam service-account remove-labels`.
+* В команды `yc iam service-account create` и `yc iam service-account update` добавлен параметр `--labels` — он задает набор меток для БД.
+
+##### {{ org-name }} {#organization}
+
+* Добавлены команды для управления метками:
+  * `yc organization-manager organization add-labels`,
+  * `yc organization-manager organization remove-labels`,
+  * `yc organization-manager federation saml add-labels`,
+  * `yc organization-manager federation saml remove-labels`.
+* В следующие команды добавлен параметр `--labels`, чтобы задавать набор меток для БД:
+  * `yc organization-manager organization update`,
+  * `yc organization-manager federation saml create`,
+  * `yc organization-manager federation saml update`.
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+* В команду `yc managed-kafka cluster create` и `yc managed-kafka cluster update` добавлена возможность задать параметры для конфигурации `disk-size-autoscaling`.
+
+##### {{ resmgr-name }} {#resmgr}
+
+* Добавлены команды для управления метками `yc resource-manager cloud add-labels` и `yc resource-manager cloud remove-labels`.
+* В команду `yc resource-manager cloud update` добавлен параметр `--labels` — он задает набор меток для БД.
+
+##### {{ iot-name }} {#iot}
+
+* Добавлены команды для включения и выключения реестров `yc iot registry enable` и `yc iot registry disable`.
+
+##### {{ sf-name }} {#serverless-functions}
+
+* Для команды `yc serverless function version create` добавлен новый флаг `concurrency`.
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.126.0 (04.06.24) {#version0.126.0}
 
 #### Изменения в CLI {#cli}
@@ -43,8 +83,6 @@ description: "На странице представлены релизы YC CLI
 ##### {{ serverless-containers-name }} {#serverless-containers}
 * В команде `yc serverless container allow-unauthenticated-invoke` устаревшая роль `serverless.containers.invoker` заменена на новую `serverless-containers.containerInvoker`.
 * Команда `yc serverless container deny-unauthenticated-invoke` теперь удаляет устаревшую роль `serverless.containers.invoker` и новую роль `serverless-containers.containerInvoker`.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.125.0 (20.05.24) {#version0.125.0}
 

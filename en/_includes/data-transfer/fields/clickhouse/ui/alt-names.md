@@ -1,0 +1,1 @@
+**{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.alt_names.title }}**: Specify the settings for renaming tables during a transfer, if required.

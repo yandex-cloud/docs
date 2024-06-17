@@ -27,4 +27,4 @@ There are groups of tables and views within a single connection. View grouping i
 
 For each database, you can run SQL queries using tooltips: start typing a query command and select the suitable one from the list. You can also use ready-made _templates_ or save your queries as _custom templates_.
 
-The _query history_ allows you to see your previous queries and repeat them.
+_Query history_ allows you to see and repeat your previous queries.

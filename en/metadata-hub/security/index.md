@@ -14,6 +14,10 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
+Roles for a resource can be assigned by users who have the `connection-manager.admin` or one of the following roles for that resource:
+
+{% include [roles-list](../../_includes/iam/roles-list.md) %}
+
 ## Which resources you can assign a role for {#resources}
 
 You can assign a role for an [organization](../../organization/quickstart.md), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or [connection](../concepts/connection-manager.md). The roles assigned for organizations, clouds, or folders also apply to nested resources.

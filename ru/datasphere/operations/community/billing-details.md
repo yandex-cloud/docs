@@ -5,34 +5,16 @@ description: "Из статьи вы узнаете, как посмотреть
 
 # Посмотреть детализацию расходов {{ ml-platform-name }}
 
-Вы можете получить подробные сведения о расходах в {{ ml-platform-name }} с детализацией до проекта, собрав дашборд в [{{ datalens-full-name }}](../../../datalens/). Для этого:
+Вы можете получить подробные сведения о расходах в {{ ml-platform-name }} в интерфейсе [{{ billing-name }}]({{ link-console-billing }}) :
 
-1. Откройте или создайте новый экземпляр на [главной странице {{ datalens-name }}]({{ link-datalens-main }}). 
-1. Создайте подключение с типом коннектора **Yandex Cloud Billing**.
-1. Задайте название подключения и нажмите кнопку **Создать**.
-1. Откройте **{{ yandex-cloud }} Billing Dashboard** и перейдите на вкладку **Labels**.
-1. Выберите: 
-   * **Usage date** — нужные даты;
-   * **Billing account name** — один или несколько платежных аккаунтов;
-   * **Cloud name (ID)** — оставьте поле пустым;
-   * **Label key** — метки для просмотра статистики, можно указать несколько значений одновременно:
-   
-     | Метка | Статистика после 13.09.2023 | Статистика до 13.09.2023 |
-     | --- | ---| ---|
-     | Статистика по проектам | `system-datasphere-project_id` | `project_id` |
-     | Статистика по сообществам | `system-datasphere-resource_id` | `resource_id` |
-     | Статистика по пользовательским [меткам](../../../resource-manager/concepts/labels.md) | `<имя_метки>` | `<имя_метки>` | 
+1. Выберите платежный аккаунт, привязанный к сообществу {{ ml-platform-name }}.
+1. Перейдите в раздел **{{ ui-key.yacloud_billing.billing.account.switch_detail }}** на вкладку **{{ ui-key.yacloud_billing.billing.account.detail.tab_service}}**.
+1. В поле **{{ ui-key.yacloud_billing.billing.account.detail.filter_label-services }}** выберите {{ ml-platform-name }}.
+1. Перейдите на вкладку **{{ ui-key.yacloud_billing.billing.account.detail.tab_label}}**.
+1. Выберите нужные параметры отображения диаграммы:
+   * В поле **{{ ui-key.yacloud_billing.billing.account.detail.label_title-usage-short }}** выберите временной диапазон для построения диаграммы. 
+   * В поле **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_label-key }}** выберите ресурсы {{ ml-platform-name }}, по которым вы хотите посмотреть детализацию.
+   * В поле **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_aggregation }}** выберите диапазон для аггрегации данных.
+   * При необходимости задайте дополнительные фильтры в поле **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_all-filters }}**.
 
-{% note warning %}
-
-Детализация трат доступна только для проектов, запущенных после 20 октября 2022 года.
-
-{% endnote %}
-
-В сформированной таблице **Costs by label value breakdown** будет доступна детализация расходов по сообществам {{ ml-platform-name }}.
-
-{% note info %}
-
-В таблице детализации также могут отображаться расходы других сервисов, не привязанных к идентификатору облака, например {{ tracker-full-name }}.
-
-{% endnote %}
+При изменении параметров диаграмма автоматически обновляется.

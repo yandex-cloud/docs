@@ -28,3 +28,7 @@ In this section, you will learn:
 #### license-manager.user {#license-manager-user}
 
 {% include [license-manager.user](../../_roles/license-manager/user.md) %}
+
+#### license-manager.subscriptionAgent {#license-manager-subscriptionAgent}
+
+{% include [license-manager.subscriptionAgent](../../_roles/license-manager/subscriptionAgent.md) %}

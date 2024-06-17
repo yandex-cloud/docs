@@ -1,4 +1,4 @@
-To get authenticated using a [Yandex account](../../iam/concepts/index.md#passport):
+To get authenticated using a [Yandex account](../../iam/concepts/users/accounts.md#passport):
 
 1. Get an OAuth token in [Yandex ID](https://yandex.ru/dev/id/doc/en/concepts/ya-oauth-intro):
 
@@ -8,12 +8,13 @@ To get authenticated using a [Yandex account](../../iam/concepts/index.md#passpo
 
 1. If authenticating for the first time, go to the [cloud console]({{ link-console-main }}). Accept the terms of the license agreement and privacy policy.
 
-
 1. To initialize CLI profile setup, run this command:
 
+   
    ```bash
    yc init
    ```
+
 
 
 1. Select the profile you want to set up authentication for or create a new one. If it is your first time running the `yc init` command, this step will be skipped.
@@ -53,7 +54,10 @@ To get authenticated using a [Yandex account](../../iam/concepts/index.md#passpo
 
    If you chose `Y`, select the availability zone:
 
+   
    {% include [include](choose-zone.md) %}
+
+
 
 
 1. View your CLI profile settings:
@@ -64,6 +68,7 @@ To get authenticated using a [Yandex account](../../iam/concepts/index.md#passpo
 
    Result:
 
+   
    ```bash
    token: y0_AgA...wvs7N4
    cloud-id: b1g159pa15cd********

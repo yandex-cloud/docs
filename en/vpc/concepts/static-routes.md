@@ -62,23 +62,28 @@ Each {{ vpc-short-name }} route table entry must include:
 
 If you create multiple entries with overlapping prefixes, the prefix with the larger subnet mask will have higher priority. For example, between two entries with the `172.16.0.0/20` and `172.16.0.0/24` destination prefixes, the entry with the `172.16.0.0/24` prefix will be used for sending traffic, as it has higher priority.
 
-When creating a static route with an `IP address` as the `next hop`, you can specify an unused internal IP address on the cloud network. In this case, the virtual network will discard all traffic to the destination prefix of the route until you run a VM with that IP address.
+When creating a static route with an `IP address` as the `next hop`, you can specify an internal IP address previously unused in this cloud network. In this case, the virtual network will discard all traffic to the destination prefix of the route until you run a VM with that IP address.
 
-Static routes can use the default route prefix, `0.0.0.0/0`.This means that all traffic not directed through more specific routes will be sent through the gateway IP address specified for this prefix.
+Static routes can use the default route prefix, `0.0.0.0/0`. This means that all traffic not directed through more specific routes will be sent through the gateway IP address specified for this prefix.
 
-When creating a static route with a `Gateway` as the `next hop`, you can only specify the default route prefix `0.0.0.0/0` in the `Destination prefix`. This `next hop` type does not support other prefixes.
-
+When creating a static route with a `Gateway` as the `next hop`, you can specify only the `0.0.0.0/0` default route prefix in the `Destination prefix`. This `next hop` type does not support other prefixes.
 
 ## Limitations {#restrictions}
 
-1. A {{ vpc-short-name }} route table can only have one entry per destination prefix. Duplicating destination prefixes within the same {{ vpc-short-name }} route table is not allowed. This also applies to the default route prefix `0.0.0.0/0`.
+1. A {{ vpc-short-name }} route table can only have one entry per destination prefix. Duplicating destination prefixes within the same {{ vpc-short-name }} route table is not allowed. This also applies to the default route prefix, `0.0.0.0/0`.
+1. A virtual machine can access the internet and you can access the VM via a public IP address only if there is no `0.0.0.0/0` default static route in its subnet. If a virtual machine is behind a NAT instance, you can connect to it via an internal IP address, using the NAT instance as a jump host:
+
+   ```bash
+   ssh -J <NAT_instance_user_name>@<NAT_instance_public_IP_address> \
+     <VM_user_name>@<VM_internal_IP_address>
+   ```
+
 1. {{ vpc-short-name }} route tables cannot use link-local IP address prefixes, including `169.254.0.0/16` and more specific prefixes, as they are reserved for internal use by {{ vpc-name }}.
 1. You cannot use the IP address of a load balancer's [traffic listener](../../network-load-balancer/concepts/listener.md) as the `next hop`.
-1. When using {{ vpc-short-name }} route tables to route reverse traffic from internal load balancer [targets](../../network-load-balancer/concepts/target-resources.md), consider the [specifics of traffic routing](../../network-load-balancer/concepts/specifics.md#nlb-int-routing).
+1. When using {{ vpc-short-name }} route tables to route reverse traffic from internal load balancer [target resources](../../network-load-balancer/concepts/target-resources.md), consider the [traffic routing specifics](../../network-load-balancer/concepts/specifics.md#nlb-int-routing).
 1. You cannot use IP addresses of an application-level load balancer's [traffic listener](../../application-load-balancer/concepts/application-load-balancer.md#listener) as the `next hop`.
 1. A {{ yandex-cloud }} virtual network does not allow transmitting traffic through itself. In other words, only [private IP address ranges in {{ vpc-name }}](../../vpc/concepts/network.md#subnet) can be used as destination prefixes and gateways for static routes in {{ vpc-short-name }} route tables. Traffic to public destination prefixes or gateways with public IP addresses in the {{ vpc-short-name }} route table will be discarded.
 1. To learn more about the quantitative restrictions on the use of route tables and static routes, see [Quotas and limits](./limits.md#vpc-quotas) in the {{ vpc-name }} documentation.
-
 
 ## Static route use cases {#refs}
 

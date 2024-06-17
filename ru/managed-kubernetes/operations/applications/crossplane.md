@@ -93,7 +93,7 @@
    kubectl crossplane install provider {{ registry }}/crp0kch415f0lke009ft/crossplane/provider-jet-yc:v0.1.33
    ```
 
-   Актуальная версия провайдера доступна в [GitHub-репозитории](https://github.com/yandex-cloud/provider-jet-yc).
+   Актуальная версия провайдера доступна в [GitHub-репозитории](https://github.com/yandex-cloud/crossplane-provider-yc).
 
 ## Примеры использования {#examples}
 

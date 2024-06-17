@@ -28,9 +28,11 @@ description: "Пошаговые инструкции по работе с кл�
 
 - [{#T}](asymmetric-encryption-key.md)
 - [{#T}](asymmetric-encryption.md)
+- [{#T}](asymmetric-encryption-key-access.md)
 
 ## Электронная подпись {#digital-signature}
 
 - [{#T}](asymmetric-signature-key.md)
+- [{#T}](asymmetric-signature-key-access.md)
 - [{#T}](signature-verification.md)
 - [{#T}](signature-verification-cosign.md)

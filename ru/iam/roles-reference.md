@@ -277,6 +277,18 @@ description: "В статье приведен полный справочник
 
 {% include [functions.admin](../_roles/functions/admin.md) %}
 
+#### serverless.mdbProxies.user {#serverless-mdbProxies-user}
+
+{% include [serverless.mdbProxies.user](../_roles/serverless/mdbProxies/user.md) %}
+
+#### serverless.functions.invoker {#serverless-functions-invoker}
+
+{% include [serverless.functions.invoker](../_roles/serverless/functions/invoker.md) %}
+
+#### serverless.functions.admin {#serverless-functions-admin}
+
+{% include [serverless.functions.admin](../_roles/serverless/functions/admin.md) %}
+
 Подробнее см. [{#T}](../functions/security/index.md).
 
 
@@ -322,6 +334,10 @@ description: "В статье приведен полный справочник
 #### license-manager.user {#license-manager-user}
 
 {% include [license-manager.user](../_roles/license-manager/user.md) %}
+
+#### license-manager.subscriptionAgent {#license-manager-subscriptionAgent}
+
+{% include [license-manager.subscriptionAgent](../_roles/license-manager/subscriptionAgent.md) %}
 
 Подробнее см. [{#T}](../marketplace/security/index.md).
 
@@ -1353,6 +1369,22 @@ description: "В статье приведен полный справочник
 #### serverless-containers.containerInvoker {#serverless-containers-containerinvoker}
 
 {% include [containers-containerinvoker](../_roles/serverless-containers/containerInvoker.md) %}
+
+#### serverless.containers.viewer {#serverless-containers-viewer-deprecated}
+
+{% include [serverless.containers.viewer](../_roles/serverless/containers/viewer.md) %}
+
+#### serverless.containers.editor {#serverless-containers-editor-deprecated}
+
+{% include [serverless.containers.editor](../_roles/serverless/containers/editor.md) %}
+
+#### serverless.containers.admin {#serverless-containers-admin-deprecated}
+
+{% include [serverless.containers.admin](../_roles/serverless/containers/admin.md) %}
+
+#### serverless.containers.invoker {#serverless-containers-invoker-deprecated}
+
+{% include [serverless.containers.invoker](../_roles/serverless/containers/invoker.md) %}
 
 Подробнее см. [{#T}](../serverless-containers/security/index.md).
 

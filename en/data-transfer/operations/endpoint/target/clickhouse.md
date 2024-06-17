@@ -205,68 +205,65 @@ Connecting to the database with explicitly specified network addresses and ports
 
 - Management console {#console}
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
+   * {% include [cleanup_policy](../../../../_includes/data-transfer/fields/clickhouse/ui/cleanup-policy.md) %}
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only going to do replication without copying data.
+   * {% include [sharding_settings](../../../../_includes/data-transfer/fields/clickhouse/ui/sharding-settings.md) %}
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Completely delete tables included in the transfer (used by default).
+   * {% include [alt_names](../../../../_includes/data-transfer/fields/clickhouse/ui/alt-names.md) %}
 
-         Use this option so that the latest version of the table schema is always transferred to the target database from the source whenever the transfer is activated.
+   * {% include [flush_interval](../../../../_includes/data-transfer/fields/clickhouse/ui/flush-interval.md) %}
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`: Delete only the data from the tables included in the transfer but leave the schema.
+- CLI {#cli}
 
-         Use this option if the schema in the target database differs from the one that would have been transferred from the source during the transfer.
+   * {% include [cluster-name](../../../../_includes/data-transfer/fields/clickhouse/cli/cluster-name.md) %}
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.sharding_settings.title }}**: Specify the settings for [sharding](../../../../managed-clickhouse/concepts/sharding.md):
+   * {% include [alt-name](../../../../_includes/data-transfer/fields/clickhouse/cli/alt-name.md) %}
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.no_sharding.title }}**: No sharding is used.
+   * Data [sharding](../../../../managed-clickhouse/concepts/sharding.md) settings:
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_column.title }}**: Name of the column in tables by which the data will be sharded. Uniform distribution between shards will depend on a hash from this column value. Specify the name of the column to be sharded in the appropriate field.
+      * {% include [shard-by-column-hash](../../../../_includes/data-transfer/fields/clickhouse/cli/shard-by-column-hash.md) %}
 
-         For sharding by specific column values, specify them in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingByTransferID.transfer_to_shard.array_item_label }}** field. This field defines the mapping between the column and shard index values (the sequential number of the shard in the name-sorted list of shards), to enable sharding by specific data values.
+      * {% include [custom-sharding-column-name](../../../../_includes/data-transfer/fields/clickhouse/cli/custom-sharding-column-name.md) %}
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_transfer_id.title }}**: Data will be distributed across shards based on the transfer ID value. The transfer will ignore the **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingByTransferID.transfer_to_shard.title }}** setting and will only shard the data based on the transfer ID.
+      * {% include [custom-sharding-mapping-string](../../../../_includes/data-transfer/fields/clickhouse/cli/custom-sharding-mapping-string.md) %}
 
-         {% note warning %}
+      * {% include [shard-by-transfer-id](../../../../_includes/data-transfer/fields/clickhouse/cli/shard-by-transfer-id.md) %}
 
-         If you omit the sharding columns and the **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_transfer_id.title }}** setting, all the data will be moved to the same shard.
+      You can only specify one of the sharding options:
 
-         {% endnote %}
-
-     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_round_robin.title }}**: Data will be randomly distributed across shards. Each shard will contain approximately the same amount of data.
-
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.alt_names.title }}**: Specify the settings for renaming tables during a transfer, if required.
-
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.flush_interval.title }}**: Specify the delay with which the data should arrive at the target cluster. Increase the value in this field if {{ CH }} fails to merge data parts.
+      * `--shard-by-column-hash`
+      * `--custom-sharding-column-name` and `--custom-sharding-mapping-string`
+      * `--shard-by-transfer-id`
 
 - {{ TF }} {#tf}
 
-   * `clickhouse_cluster_name`: Specify the name of the cluster that the data will be transferred to.
+   * {% include [cleanup_policy](../../../../_includes/data-transfer/fields/clickhouse/terraform/cleanup-policy.md) %}
 
-   * `alt_names`: If necessary, set rules for renaming the source database tables when transferring them to the target database:
+   * {% include [clickhouse_cluster_name](../../../../_includes/data-transfer/fields/clickhouse/terraform/clickhouse-cluster-name.md) %}
 
-      * `from_name`: Source table name.
-      * `to_name`: Target table name.
+   * {% include [alt_names](../../../../_includes/data-transfer/fields/clickhouse/terraform/alt-names.md) %}
 
-   * `sharding.column_value_hash.column_name`: Name of the column in tables by which the data will be [sharded](../../../../managed-clickhouse/concepts/sharding.md). Uniform distribution between shards will depend on a hash from this column value.
+   * Data [sharding](../../../../managed-clickhouse/concepts/sharding.md) settings:
 
-   * `sharding.transfer_id`: If `true`, the data is sharded based on the transfer ID value. The transfer will ignore the `sharding.column_value_hash.column_name` setting and will only shard the data based on the transfer ID.
+      * {% include [column_value_hash](../../../../_includes/data-transfer/fields/clickhouse/terraform/sharding-column-value-hash.md) %}
 
-      {% note warning %}
+      * {% include [transfer_id](../../../../_includes/data-transfer/fields/clickhouse/terraform/sharding-transfer-id.md) %}
 
-      If you omit the sharding columns and the `sharding.transfer_id` setting, all the data will be moved to the same shard.
+      * {% include [custom_mapping](../../../../_includes/data-transfer/fields/clickhouse/terraform/custom-mapping.md) %}
 
-      {% endnote %}
+      * {% include [round_robin](../../../../_includes/data-transfer/fields/clickhouse/terraform/round-robin.md) %}
 
-   * `cleanup_policy`: Select a way to clean up data in the target database before the transfer:
+      You can specify only one of the sharding options: `sharding.column_value_hash.column_name`, `sharding.transfer_id`, `custom_mapping`, or `round_robin`. If no sharding option is specified, all data will be transferred to a single shard.
 
-      * `CLICKHOUSE_CLEANUP_POLICY_DROP`: Fully delete tables included in the transfer (default).
+- API {#api}
 
-         Use this option so that the latest version of the table schema is always transferred to the target database from the source whenever the transfer is activated.
+   * {% include [altNames](../../../../_includes/data-transfer/fields/clickhouse/api/alt-names.md) %}
 
-      * `CLICKHOUSE_CLEANUP_POLICY_DISABLED`: Do not clean up.
+   * {% include [cleanupPolicy](../../../../_includes/data-transfer/fields/clickhouse/api/cleanup-policy.md) %}
 
-         Select this option if only replication without copying data is performed.
+   * {% include [sharding](../../../../_includes/data-transfer/fields/clickhouse/api/sharding.md) %}
+
+   * {% include [clickhouseClusterName](../../../../_includes/data-transfer/fields/clickhouse/api/clickhouse-cluster-name.md) %}
 
 {% endlist %}
 

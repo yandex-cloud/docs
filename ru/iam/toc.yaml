@@ -82,6 +82,10 @@ items:
             href: operations/authorized-key/create.md
           - name: Удаление авторизованного ключа
             href: operations/authorized-key/delete.md
+  - name: Практические руководства
+    items:
+      - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
+        href: tutorials/static-key-in-lockbox.md
   - name: Концепции
     items:
       - name: Обзор

@@ -88,12 +88,12 @@ To create a pivot table:
 1. Under **Columns** or **Rows**, click the icon to the left of the dimension name.
 1. In the window that opens, change the **Name** field value and click **Apply**.
 
-### Adding a tooltip to a table row {#hint-column}
+### Adding a tooltip to a table header {#hint-column}
 
 1. Under **Rows**, click the icon to the left of the dimension or measure name.
 1. In the window that opens, enable the **Tooltip** option, enter the text in the field below and click **Apply**. By default, when you enable the option, the tooltip text is substituted from the field description in the [dataset](../concepts/dataset/index.md).
 
-When the option is enabled, the ![image](../../_assets/console-icons/circle-question.svg) icon appears next to the row name in the chart and on the dashboard. Hover over the icon to bring up the tooltip.
+When the option is enabled, the ![image](../../_assets/console-icons/circle-question.svg) icon appears next to the table column header. Hover over the icon to bring up the tooltip.
 
 ### Setting up the width of table columns and rows {#set-column-width}
 

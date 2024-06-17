@@ -158,31 +158,31 @@
 
   1. Удалите реестр:
      1. Перейдите в свой рабочий [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-     1. В списке сервисов выберите **{{ iot-name }}**.
-     1. Справа от имени созданного реестра нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить**.
-     1. Нажмите кнопку **Удалить**.
+     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+     1. Справа от имени созданного реестра нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
   1. Удалите устройства:
      1. Перейдите в свой рабочий каталог.
-     1. В списке сервисов выберите **{{ iot-name }}**.
+     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
      1. Выберите реестр.
-     1. Перейдите на вкладку **Устройства**.
-     1. Справа от имени созданного устройства нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить**.
-     1. Нажмите кнопку **Удалить**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.iot.label_devices }}**.
+     1. Справа от имени созданного устройства нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
   1. Удалите функцию:
      1. Перейдите в свой рабочий каталог.
-     1. В списке сервисов выберите **{{ sf-name }}**.
-     1. Справа от имени созданной функции нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить**.
-     1. Нажмите кнопку **Удалить**.
+     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+     1. Справа от имени созданной функции нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.serverless-functions.list.button_action-delete }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.popup-confirm_button_delete }}**.
   1. Удалите триггер:
      1. Перейдите в свой рабочий каталог.
-     1. В списке сервисов выберите **{{ sf-name }}**.
-     1. Перейдите на вкладку **Триггеры**.
-     1. Справа от имени созданного триггера нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить**.
-     1. Нажмите кнопку **Удалить**.
+     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+     1. Справа от имени созданного триггера нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.popup-confirm_button_delete }}**.
   1. Удалите сервисный аккаунт:
      1. Перейдите в свой рабочий каталог.
-     1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
-     1. Справа от имени созданного сервисного аккаунта нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить**.
-     1. Нажмите кнопку **Удалить**.
+     1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+     1. Справа от имени созданного сервисного аккаунта нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.popup-confirm_button_delete }}**.
 
 {% endlist %}

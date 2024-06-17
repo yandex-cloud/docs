@@ -23,6 +23,8 @@ items:
           Безопасное хранение паролей для {{ GL }} CI в виде секретов {{
           lockbox-full-name }}
         href: security/gitlab-lockbox-integration.md
+      - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
+        href: security/static-key-in-lockbox.md
   - name: Хранение и восстановление данных
     items:
       - name: Все руководства

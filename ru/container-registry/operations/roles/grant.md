@@ -1,6 +1,6 @@
 # Назначить роль на ресурс
 
-Чтобы предоставить доступ к [ресурсу](../../../iam/concepts/access-control/resources-with-access-control.md), назначьте субъекту [роль](../../../iam/concepts/access-control/roles.md) на сам ресурс или на ресурс, от которого наследуются права доступа, например, на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) или [облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud). Подробнее читайте в разделе [{#T}](../../../iam/concepts/access-control/index.md).
+Чтобы предоставить доступ к [ресурсу](../../../iam/concepts/access-control/resources-with-access-control.md), назначьте субъекту [роль](../../../iam/concepts/access-control/roles.md) на сам ресурс или на ресурс, от которого наследуются права доступа, например, на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) или [облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud). Актуальный список ресурсов, на которые можно назначать роли, доступен в разделе [{#T}](../../security/index.md#resources).
 
 {% list tabs group=instructions %}
 
@@ -160,5 +160,3 @@
   Чтобы назначить роль пользователю, сервисному аккаунту или группе для доступа к ресурсу, воспользуйтесь методом `updateAccessBindings` для ресурсов `registry` и `repository`.
 
 {% endlist %}
-
-Подробнее об управлении ролями читайте в [документации](../../../iam/concepts/index.md) {{ iam-full-name }}.
