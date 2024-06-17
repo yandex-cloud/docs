@@ -1,9 +1,9 @@
 ---
-title: "{{ datalens-full-name }} release notes for April 2024"
-description: "Check out {{ datalens-full-name }} release notes for April 2024."
+title: "{{ datalens-full-name }} release notes for May 2024"
+description: "Check out {{ datalens-full-name }} release notes for May 2024."
 ---
 
-# {{ datalens-full-name }} release notes: April 2024
+# {{ datalens-full-name }} release notes: May 2024
 
 
 * [Changes in basic features](#base)
@@ -12,49 +12,76 @@ description: "Check out {{ datalens-full-name }} release notes for April 2024."
 ## Changes in basic features {#base}
 
 
-### Auto height of the _Text_ and _Heading_ widgets {#text-title-auto-height}
 
-Added the auto height setting for the [Text](../dashboard/widget.md#text) and [Heading](../dashboard/widget.md#title) widgets. To enable auto height, while in dashboard edit mode, click ![image](../../_assets/console-icons/gear.svg), enable **Auto height** and click **Save**.
+### Viewing dashboard access permissions {#view-dashboard-access}
 
-### Selecting a text color in Markdown {#colors-markdown}
+To view access permissions for a dashboard with the [access error message](../operations/dashboard/add-access-message.md) enabled, the [{{ permission-write }}](../security/manage-access.md#permission-write) or [{{ permission-admin }}](../security/manage-access.md#permission-admin) permissions for this dashboard are now required.
 
-Now you can select a text color for [Markdown](../dashboard/markdown.md#text-color). You can set the text color using either the visual editor or this formatting: `{color}(text)`.
+Users with the [{{ permission-read }}](../security/manage-access.md#permission-read) permission cannot view the list of access permissions for this dashboard or request changing access to it via the {{ datalens-short-name }} interface.
 
-### Markup functions in calculated fields {#calculations-markup}
+### Displaying dashboard description when opening a dashboard {#dashboard-opened-info}
 
-Added new markup functions in [calculated fields](../concepts/calculations/index.md): [BR](../function-ref/BR.md), [COLOR](../function-ref/COLOR.md), and [SIZE](../function-ref/SIZE.md).
+When opening a dashboard, you can now view its pop-up [description](../dashboard/settings.md#message-settings) (if provided). To enable this feature, add `_opened_info=1` to the dashboard's URL.
+
+### Background for the _Text_ and _Heading_ widgets {#background-for-text-title}
+
+You can now set the background for the [{#T}](../dashboard/widget.md#text) and [{#T}](../dashboard/widget.md#title) widgets. To do this, enable the **Background** option in the widget settings window and choose a color.
+
+The available colors include the [Light Semantic](https://preview.gravity-ui.com/uikit/iframe.html?args=&id=colors--backgrounds&viewMode=story) palette from the [Gravity UI](https://gravity-ui.com/) design system.
+
+### Disabling link optimization {#join-optimization-off}
+
+Added the option to disable link optimization when using multiple tables in a [data source](../concepts/dataset/data-model.md#source). To do this, use the **Optimize link** option in the link settings.
+
+The option is enabled by default for all links in the dataset: the `JOIN` operator is applied when a query accesses fields from two or more linked tables. You can disable the option for each individual link to make such link a required one. In this case, the `JOIN` operation will run even if you select fields from only one table.
+
+### Images in tables {#table-image}
+
+Added the [IMAGE](../function-ref/IMAGE.md) markup feature that allows you to add images in table cells.
+
+### Dragging and dropping to add widgets to a dashboard {#drag-n-drop}
+
+You can now drag and drop widgets directly to where you want them to be. This works for all objects you are creating or copying without affecting their size. The previous behavior based on clicking the panel is also supported.
+
+{% cut "How it looks" %}
+
+![drag-n-drop](../../_assets/datalens/drag-n-drop.gif)
+
+{% endcut %}
+
+### Tooltips in selectors and tables {#hint}
+
+The new **Tooltip** feature allows adding a text comment to a [selector](../operations/dashboard/add-selector.md) or [regular](../visualization-ref/table-chart.md#hint-column) and [pivot table](../visualization-ref/pivot-table-chart.md#hint-column) headers. By default, the tooltip text is substituted from the field description in the dataset.
+
+When the option is enabled, the ![image](../../_assets/console-icons/circle-question.svg) icon appears on the dashboard next to the selector or table column header.
 
 
-### Label for null values {#nulls-column-chart}
+### Selecting a widget in the link setup window {#link-settings-widget-select}
 
-Fixed the display of labels for null values in the [column chart](../visualization-ref/column-chart.md).
+You can now select the widget you want to configure from the drop-down list in the [link](../dashboard/link.md) setup window on a dashboard.
 
+### Link to a dataset in a selector {#selector-dataset-link}
 
-### Usage statistics {#usage-analytics}
+You can now specify a link to a dataset when [adding](../operations/dashboard/add-selector.md) a dataset-based selector to a dashboard. To do this:
 
-Added the connection to [{{ datalens-short-name }} Usage Analytics Light](../operations/connection/create-usage-tracking.md) that will allow you to analyze {{ datalens-short-name }} user behavior, i.e., view aggregated statistics on using the service instance for a limited time period (60 days).
+1. In the window with selector settings, click **Specify link**.
+1. In the field below, enter the link to the dataset.
+1. Click **OK**.
 
-### Workbooks and collections in new instances {#workbooks-in-new-instances}
+If the link is correct, the **Dataset** field will be filled automatically; otherwise, you will get an error.
 
-Only [workbooks and collections](../workbooks-collections/index.md#enable-workbooks) are now available in new {{ datalens-short-name }} instances.
 
 ## Changes available with the _Business_ service plan {#business}
 
-### UI customization {#combined-chart-format}
+### Generating a color palette for the current theme only {#color-palette-for-current-theme-only}
 
-Added the [UI customization](../settings/ui-customization.md). Now you can customize your service instance user interface; this includes setting up colors, logo, and design of individual elements.
+You can now generate a color palette only for a selected theme and contrast combination when [customizing the UI](../settings/ui-customization.md). To do this, enable the **Current theme only** option in the main color selection window when generating the palette. If this option is disabled, the palette you generate will apply to all themes.
 
-### Extended usage statistics {#usage-analytics-detailed}
+### Resetting UI customization {#customization-reset}
 
-Added the connection to [{{ datalens-short-name }} Usage Analytics Detailed](../operations/connection/create-usage-tracking.md) that will allow you to analyze {{ datalens-short-name }} user behavior, i.e., view both detailed and aggregated statistics on using the service instance for a long time period (180 days). It allows you to view detailed statistics on dataset queries and dashboard views.
+You can now reset a customized UI to {{ datalens-short-name }} system defaults. To do this:
 
-### Secure embedding {#private-embedding}
-
-Now you can [securely embed](../dashboard/embedded-objects.md#private-embedding) private charts into a website or app using special links with a [JWT token](https://en.wikipedia.org/wiki/JSON_Web_Token).
-
-Embedding private charts only works in the new {{ datalens-short-name }} object model at the [workbook](../workbooks-collections/index.md) level and is only available to the workbook [administrator](../security/roles.md#workbooks-admin).
-
-### Enterprise authentication {#sso}
-
-[Enterprise authentication](../security/add-new-user.md#federated-user) is now available only with the _Business_ [service plan](../pricing.md#service-plans). For existing customers who have configured an identity federation and used a corporate account to log in to {{ datalens-short-name }} before April 22, 2024, enterprise authentication and SSO will be available for free as part of the _Community_ plan until December 31, 2024.
+1. In the UI customization window, click **Reset**.
+1. Enable **Current theme and contrast only** to reset the selected theme only. If this option is disabled, all themes will be reset.
+1. Click **Reset**.
 

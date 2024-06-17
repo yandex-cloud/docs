@@ -1,0 +1,1 @@
+Статический ключ для доступа к {{ objstorage-name}} вы можете безопасно хранить в сервисе {{ lockbox-full-name}}. Подробнее см. [{#T}](../../storage/tutorials/static-key-in-lockbox.md).

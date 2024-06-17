@@ -1,1 +1,1 @@
-Роль `functions.functionInvoker` позволяет вызывать функцию.
+Роль `functions.functionInvoker` позволяет вызывать [функции](../../functions/concepts/function.md).

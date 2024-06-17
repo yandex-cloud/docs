@@ -30,13 +30,13 @@ Soft and hard copies of a document are identical. To prepare your financial repo
 - Residents of Kazakhstan {#kazakhstan}
 
    1. If you have used your personal account funds during the reporting period, a copy of the completion report will be sent to the email address specified in the payer's card in [Yandex Balance](../concepts/reporting-period.md) within seven (7) business days after the end of the [reporting period](https://balance.yandex.com). You can [download the completion report](../operations/download-reporting-docs.md) yourself in {{ billing-name }}.
-   1. By courier service within a month following the reporting period, with all signatures and stamps, to the mailing address specified at the account registration.
+   1. By courier service within the month following the reporting period, with all signatures and stamps, to the mailing address specified at the account registration.
    1. Electronic tax invoices (e-invoices) are forwarded to the Information System for Collection and Processing of E-invoices within 15 calendar days of the sale date.
-   1. On the first day of each month, a [payment invoice](../concepts/bill.md) is sent to the customer's [contact email address]({{ link-console-main }}/settings). It includes the total amount due.
+   1. On the first working day of each month, we [invoice](../concepts/bill.md) the customer via the [contact email address]({{ link-console-main }}/settings). The invoice includes total arrears.
 
 - Non-residents of Russia and Kazakhstan {#nonresidents}
 
-   1. If your account has arrears, {{ yandex-cloud }} sends payment details with the total amount due and service usage details for the reporting period to your [contact email address]({{ link-console-main }}/settings) on the first day of each month.
+   1. If your account is in arrears, {{ yandex-cloud }} sends _payment details_ stating total arrears and service usage details for the reporting period to your [contact email address]({{ link-console-main }}/settings) on the first working day of each month.
    1. Within seven (7) business days after the end of the reporting period, {{ yandex-cloud }} sends an invoice for the amount of monthly consumption to the email address specified in [Yandex Balance](https://balance.yandex.com).
 
    **Reconciliation reports**

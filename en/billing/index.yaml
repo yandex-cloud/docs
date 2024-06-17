@@ -1,22 +1,22 @@
-title: Billing
+title: Yandex Cloud Billing
 description:
   - >-
-    Yandex Cloud only charges for resources consumed, and the Billing section
-    provides answers to
-     all of your questions about your account balance, your service usage costs, and allows you to
-     make payments.
+    Yandex Cloud Billing enables you to get information about the amount of
+    resources used, monitor your costs, and pay for resources consumed.
+  - >-
+    In Yandex Cloud, you only pay for resources consumed and the time of their
+    actual usage.
 meta:
-  title: Billing
+  title: Yandex Cloud Billing
   description: >-
-    Yandex Cloud only charges for resources consumed, and the Billing section
-    provides answers to all of your questions about your account balance, your
-    service usage costs, and allows you to make payments.
+    Yandex Cloud Billing enables you to get information about the amount of
+    resources used, monitor your costs, and pay for resources consumed.
 links:
   - title: Getting started
     description: Create your first billing account
     href: quickstart/
-  - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
+  - title: Step-by-step guides
+    description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: Introduction to the terms and concepts used in the service
@@ -32,6 +32,9 @@ links:
   - title: Pricing policy
     description: Prices and rates of Yandex Cloud services
     href: pricing
+  - title: FAQ
+    description: Answers to frequently asked questions
+    href: qa/all
   - title: API reference
     description: HTTP API method descriptions
     href: api-ref/

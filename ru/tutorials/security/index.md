@@ -5,3 +5,4 @@
 * [Передача логов с виртуальной машины в {{ cloud-logging-full-name }}](vm-fluent-bit-logging.md)
 * [Запись логов балансировщика в {{ PG }}](logging.md)
 * [Безопасное хранение паролей для {{ GL }} CI в виде секретов {{ lockbox-full-name }}](gitlab-lockbox-integration.md)
+* [{#T}](static-key-in-lockbox.md)

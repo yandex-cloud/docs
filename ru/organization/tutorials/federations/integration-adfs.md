@@ -610,4 +610,4 @@ AD FS требует создавать _отношение доверия с п
 
 #### Что дальше {#what-is-next}
 
-* [Назначьте роли добавленным пользователям](../../../iam/operations/roles/grant.md#access-to-federated-user).
+* [Назначьте роли добавленным пользователям](../../../iam/operations/roles/grant.md).

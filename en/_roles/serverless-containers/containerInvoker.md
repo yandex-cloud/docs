@@ -1,1 +1,1 @@
-The `serverless-containers.containerInvoker` role allows you to invoke containers.
+The `serverless-containers.containerInvoker` role enables invoking [containers](../../serverless-containers/concepts/container.md).

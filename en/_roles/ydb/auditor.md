@@ -1,8 +1,9 @@
-The `ydb.auditor` role allows you to:
+The `ydb.auditor` role enables establishing connections to databases, viewing info on databases and access permissions granted to them, as well as on the database schema objects and backups.
 
-* Establish DB connections.
-* View the list of schema objects (tables, indexes, and folders).
-* View descriptions of schema objects (table, index, and folder).
-* View DB information.
-
-Users with this role can also retrieve the list of folders in the cloud and the list of resources in a cloud folder.
+Users with this role can:
+* Establish [database](../../ydb/concepts/resources.md#database) connections.
+* View the list of databases and info on them, as well as on the [access permissions](../../iam/concepts/access-control/index.md) granted to them.
+* View info on database backups and the access permissions granted to them.
+* View the list of database schema objects, such as tables, indexes, and folders, and info on them.
+* View info on the [quotas](../../ydb/concepts/limits.md#ydb-quotas) for Managed Service for YDB.
+* View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).

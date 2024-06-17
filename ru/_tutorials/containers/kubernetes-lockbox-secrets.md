@@ -44,14 +44,14 @@
 
      {% endnote %}
 
-  1. [Создайте кластер {{ managed-k8s-name }} ](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md#node-group-create). При создании кластера {{ managed-k8s-name }} укажите ранее созданные сервисные аккаунты для ресурсов и узлов.
+  1. [Создайте кластер {{ managed-k8s-name }} ](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). При создании кластера {{ managed-k8s-name }} укажите ранее созданные сервисные аккаунты для ресурсов и узлов.
   
   1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
   1. [Создайте секрет](../../lockbox/operations/secret-create.md) {{ lockbox-name }} со следующими параметрами:
-     * **{{ ui-key.yacloud.common.name }}**  – `lockbox-secret`.
+     * **{{ ui-key.yacloud.common.name }}** — `lockbox-secret`.
      * **{{ ui-key.yacloud.lockbox.forms.label_key }}** — введите неконфиденциальный идентификатор `password`.
      * **{{ ui-key.yacloud.lockbox.forms.label_value }}** — введите конфиденциальные данные для хранения `p@$$w0rd`.
 
@@ -113,7 +113,7 @@
 ## Установите External Secrets Operator и настройте {{ lockbox-name }} {#install-eso-lockbox}
 
 1. Установите [External Secrets Operator](/marketplace/products/yc/external-secrets) согласно [инструкции](../../managed-kubernetes/operations/applications/external-secrets-operator.md).
-1. [Назначьте сервисному аккаунту](../../lockbox/operations/secret-access.md), который вы создали при [установке](#install-eso) External Secrets Operator, роль `lockbox.payloadViewer` на [созданный ранее](#deploy-infrastructure) секрет `lockbox-secret`.
+1. [Назначьте сервисному аккаунту](../../lockbox/operations/secret-access.md), который вы создали при установке External Secrets Operator, роль `lockbox.payloadViewer` на [созданный ранее](#deploy-infrastructure) секрет `lockbox-secret`.
 
 ## Настройте кластер {{ managed-k8s-name }} {#configure-k8s}
 

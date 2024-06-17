@@ -33,7 +33,7 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-Убедитесь, что в выбранном [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) есть [облачная сеть](../../vpc/concepts/network.md#network) с [подсетью](../../vpc/concepts/network.md#subnet) хотя бы в одной [зоне доступности](../../overview/concepts/geo-scope.md). Для этого на странице каталога выберите сервис **{{ vpc-name }}**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если нужных подсетей или сети нет, [создайте их](../../vpc/quickstart.md).
+Убедитесь, что в выбранном [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) есть [облачная сеть](../../vpc/concepts/network.md#network) с [подсетью](../../vpc/concepts/network.md#subnet) хотя бы в одной [зоне доступности](../../overview/concepts/geo-scope.md). Для этого на странице каталога выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если нужных подсетей или сети нет, [создайте их](../../vpc/quickstart.md).
 
 
 ### Необходимые платные ресурсы {#paid-resources}
@@ -48,39 +48,40 @@
 
 Чтобы создать ВМ:
 1. Откройте страницу каталога в [консоли управления]({{ link-console-main }}).
-1. В правом верхнем углу нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-1. В поле **Имя** введите имя ВМ `wordpress-vm`. Требования к имени:
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+1. В поле **{{ ui-key.yacloud.common.name }}** введите имя ВМ `wordpress-vm`. Требования к имени:
 
    {% include [name-format](../../_includes/name-format.md) %}
 
 1. Выберите зону доступности, в которой должна находиться ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
-1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и выберите [LAMP](/marketplace/products/yc/lamp) — образ, который содержит необходимый набор компонентов: операционную систему семейства Linux, веб-сервер Apache, СУБД {{ MY }} и интерпретатор PHP.
-1. В блоке **Диски** выберите тип [диска](../../compute/concepts/disk.md) и установите нужный размер.
-1. В блоке **Вычислительные ресурсы**:
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите [LAMP](/marketplace/products/yc/lamp) — образ, который содержит необходимый набор компонентов: операционную систему семейства Linux, веб-сервер Apache, СУБД {{ MY }} и интерпретатор PHP.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** выберите тип [диска](../../compute/concepts/disk.md) и установите нужный размер.
+1. В блоке **{{ ui-key.yacloud.compute.group.overview.label_instance-resource }}** на вкладке **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}**:
    * Выберите [платформу](../../compute/concepts/vm-platforms.md) ВМ.
    * Укажите необходимое количество vCPU и объем RAM.
 
    Для обычного WordPress сайта хватит минимальной конфигурации:
-   * **Платформа** — Intel Ice Lake.
-   * **Гарантированная доля vCPU** — 20%.
-   * **vCPU** — 2.
-   * **RAM** — 1 ГБ.
-1. В блоке **Сетевые настройки** выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной сети или подсети еще нет, вы можете создать их на странице создания ВМ.
-1. В поле **Публичный адрес** оставьте значение **Автоматически**, чтобы назначить ВМ случайный публичный IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
-1. Укажите данные для доступа на ВМ:
+   * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+   * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+   * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
+   * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+   * Выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной сети или подсети еще нет, вы можете создать их на странице создания ВМ.
+   * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный публичный IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
    * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) или создайте новый.
-   * В поле **Логин** введите имя пользователя.
-   * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
+   * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+   * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа.
 
      Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. раздел [{#T}](../../compute/operations/vm-connect/ssh.md).
 
    {% note alert %}
 
-   IP-адрес и [имя хоста (FQDN)](../../compute/concepts/network.md#hostname) для подключения к ВМ назначается ей при создании. Если вы выбрали вариант **Без адреса** в поле **Публичный адрес**, вы не сможете обращаться к ВМ из интернета.
+   IP-адрес и [имя хоста (FQDN)](../../compute/concepts/network.md#hostname) для подключения к ВМ назначается ей при создании. Если вы выбрали вариант `{{ ui-key.yacloud.component.compute.network-select.switch_none }}` в поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, вы не сможете обращаться к ВМ из интернета.
 
    {% endnote %}
 
-1. Нажмите кнопку **Создать ВМ**.
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    Создание ВМ может занять несколько минут. Когда ВМ перейдет в [статус](../../compute/concepts/vm-statuses.md) `RUNNING`, вы можете [загрузить на нее файлы веб-сайта](#upload-files).
 
@@ -92,12 +93,12 @@
 
 Чтобы скопировать публичный IP-адрес ВМ:
 1. Откройте страницу каталога в [консоли управления]({{ link-console-main }}).
-1. Выберите сервис **{{ compute-short-name }}**.
-1. Слева в меню выберите **Виртуальные машины**.
+1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
 1. Найдите созданную ВМ и нажмите на ее имя.
-1. В разделе **Сеть** скопируйте IP-адрес из поля **Публичный IPv4**.
+1. В разделе **{{ ui-key.yacloud.compute.instance.overview.section_network }}** скопируйте IP-адрес из поля **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}**.
 
-Выполните [подлючение к ВМ](../../compute/operations/vm-connect/ssh.md).
+Выполните [подключение к ВМ](../../compute/operations/vm-connect/ssh.md).
 
 ## Установите и настройте дополнительные компоненты {#additional-components}
 
@@ -433,7 +434,7 @@
 
   1. В интерфейсе введите название вашего домена `example.com` или `www.example.com`.
   1. Определите, нужно ли перенаправлять все страницы с `http` на `https` при открытии веб-сайта. Выберите `2` — перенаправить на https.
-  1. Протестируте ваш сайт — введите в адресную строку браузера `https://www.ssllabs.com/ssltest/analyze.html?d=example.com`.
+  1. Протестируйте ваш сайт — введите в адресную строку браузера `https://www.ssllabs.com/ssltest/analyze.html?d=example.com`.
 
 {% endlist %}
 

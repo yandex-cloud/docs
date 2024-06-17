@@ -10,7 +10,7 @@ description: "Follow this guide to link a cloud to a billing account."
 ## Requirements for linking a cloud {#bind-roles}
 
 Before linking a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), make sure that the [billing account](../concepts/billing-account.md) has been activated (has the `ACTIVE` or `TRIAL_ACTIVE` [status](../concepts/billing-account-statuses.md)) and that the user has all of the following [roles](../../iam/concepts/access-control/roles.md):
-* [resource-manager.clouds.owner](../../iam/concepts/access-control/roles.md#owner) for the cloud.
+* [resource-manager.clouds.owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) for the cloud.
 * `billing.accounts.owner` or `editor` in the billing account. To learn more about roles, see [Access management](../security/index.md#roles-list).
 
 ## Linking a cloud {#bind-cloud}

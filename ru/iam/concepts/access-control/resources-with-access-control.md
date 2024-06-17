@@ -13,34 +13,34 @@ description: "Из статьи вы узнаете, на какие ресур�
 ## Ресурсы, на которые можно назначать роли в консоли управления {#console}
 
 **{{ container-registry-name }}**
-* [Реестр](../../../container-registry/concepts/registry.md)
+* [Реестр](../../../container-registry/operations/roles/grant.md)
 
 **{{ compute-name }}**
 
 {% include notitle [compute-resources](../../../_includes/iam/resources-with-access-control/compute.md) %}
 
 **{{ iam-name }}**
-* [Сервисный аккаунт](../users/service-accounts.md)
+* [Сервисный аккаунт](../../operations/sa/assign-role-for-sa.md)
 
 **{{ kms-name }}**
 
 {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
 
 **{{ ydb-name }}**
-* [СУБД YDB](../../../ydb/concepts/index.md#ydb)
+* [СУБД YDB](../../../ydb/operations/manage-databases.html#add-access-binding)
 
 **{{ metadata-hub-name }}**
-* [Подключение к управляемым базам данных](../../../metadata-hub/concepts/connection-manager.md) в {{ connection-manager-full-name }}
+* [Подключение к управляемым базам данных](../../../metadata-hub/operations/connection-access.md) в {{ connection-manager-full-name }}
 
 **{{ objstorage-name }}**
-* [Бакет](../../../storage/concepts/bucket.md)
+* [Бакет](../../../storage/operations/buckets/iam-access.md)
 
 **{{ resmgr-name }}**
-* [Облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud)
-* [Каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder)
+* [Облако](../../../resource-manager/operations/cloud/set-access-bindings.md)
+* [Каталог](../../../resource-manager/operations/folder/set-access-bindings.md)
 
 **{{ lockbox-name }}**
-* [Секрет](../../../lockbox/concepts/secret.md)
+* [Секрет](../../../lockbox/operations/secret-access.md)
 
 ## Ресурсы, на которые можно назначать роли через YC CLI и API {{ yandex-cloud }} {#cli-api}
 
@@ -57,10 +57,10 @@ description: "Из статьи вы узнаете, на какие ресур�
 * [Группа рабочих столов](../../../cloud-desktop/concepts/desktops-and-groups.md)
 
 **{{ dns-name }}**
-* [Зона DNS](../../../dns/concepts/dns-zone.md)
+* [Зона DNS](../../../dns/operations/zone-access.md)
 
 **{{ sf-name }}**
-* [Функция](../../../functions/concepts/function.md)
+* [Функция](../../../functions/operations/function/role-add.md)
 
 **{{ cloud-logging-name }}**
 
@@ -71,33 +71,33 @@ description: "Из статьи вы узнаете, на какие ресур�
 {% include notitle [organization-resources](../../../_includes/iam/resources-with-access-control/organization.md) %}
 
 **{{ container-registry-name }}**
-* [Реестр](../../../container-registry/concepts/registry.md)
-* [Репозиторий](../../../container-registry/concepts/repository.md)
+* [Реестр](../../../container-registry/operations/roles/grant.md)
+* [Репозиторий](../../../container-registry/operations/roles/grant.md)
 
 **{{ compute-name }}**
 
 {% include notitle [compute-resources](../../../_includes/iam/resources-with-access-control/compute.md) %}
 
 **{{ iam-name }}**
-* [Сервисный аккаунт](../users/service-accounts.md)
+* [Сервисный аккаунт](../../operations/sa/assign-role-for-sa.md)
 
 **{{ kms-name }}**
 
 {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
 
 **{{ ydb-name }}**
-* [СУБД YDB](../../../ydb/concepts/index.md#ydb)
+* [СУБД YDB](../../../ydb/operations/manage-databases.html#add-access-binding)
 * Резервная копия СУБД YDB
 
 **{{ resmgr-name }}**
-* [Облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud)
-* [Каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder)
+* [Облако](../../../resource-manager/operations/cloud/set-access-bindings.md)
+* [Каталог](../../../resource-manager/operations/folder/set-access-bindings.md)
 
 **{{ serverless-containers-name }}**
-* [Контейнер](../../../serverless-containers/concepts/container.md)
+* [Контейнер](../../../serverless-containers/operations/role-add.md)
 
 **{{ lockbox-name }}**
-* [Секрет](../../../lockbox/concepts/secret.md)
+* [Секрет](../../../lockbox/operations/secret-access.md)
 
 ## Ресурсы, на которые можно назначать роли с помощью {{ TF }} {#terraform}
 

@@ -1,1 +1,1 @@
-The `functions.mdbProxiesUser` role allows you to connect to managed databases from a function.
+The `functions.mdbProxiesUser` role enables connecting to managed databases through [functions](../../functions/concepts/function.md).

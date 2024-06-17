@@ -5,7 +5,7 @@ description: "In this tutorial, you will learn how to set up a {{ CH }} source e
 
 # Transferring data from a {{ CH }} source endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data from a {{ CH }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data from a {{ CH }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ CH }}](#prepare) database for the transfer.
@@ -174,35 +174,53 @@ Connecting to the database with explicitly specified network addresses and ports
 
 - Management console {#console}
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTableFilter.include_tables.title }}**: Data is only transferred from listed tables.
+   * {% include [include_tables](../../../../_includes/data-transfer/fields/clickhouse/ui/include-tables.md) %}
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred.
+   * {% include [exclude_tables](../../../../_includes/data-transfer/fields/clickhouse/ui/exclude-tables.md) %}
 
-   The lists include the name of the schema (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
-
-   * `<schema_name>.<table_name>`: Fully qualified table name.
-   * `<schema_name>.*`: All tables in the specified schema.
-   * `<table_name>`: Table in the default schema.
+   {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
 
    Included and excluded table names must meet the ID naming rules in {{ CH }}. For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/syntax#syntax-identifiers). Escaping double quotes is not required.
 
    Leave the lists empty to transfer all the tables.
 
-- {{ TF }} {#tf}
+- CLI {#cli}
 
-   * `include_tables`: List of included tables. If this is on, the data will only be transferred from the tables in this list.
+   * {% include [include-table](../../../../_includes/data-transfer/fields/clickhouse/cli/include-table.md) %}
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * `exclude_tables`: List of excluded tables. Data from the listed tables will not be transferred.
+   * {% include [exclude-table](../../../../_includes/data-transfer/fields/clickhouse/cli/exclude-table.md) %}
 
-   The lists include the name of the schema (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
+   {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
 
-   * `<schema_name>.<table_name>`: Fully qualified table name.
-   * `<schema_name>.*`: All tables in the specified schema.
-   * `<table_name>`: Table in the default schema.
+   If no lists are specified, data from all tables will be transferred.
+
+- {{ TF }} {#tf}
+
+   * {% include [include_tables](../../../../_includes/data-transfer/fields/clickhouse/terraform/include-tables.md) %}
+
+      {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+
+   * {% include [exclude_tables](../../../../_includes/data-transfer/fields/clickhouse/terraform/exclude-tables.md) %}
+
+   {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
+
+   If no lists are specified, data from all tables will be transferred.
+
+- API {#api}
+
+   * {% include [includeTables](../../../../_includes/data-transfer/fields/clickhouse/api/include-tables.md) %}
+
+      {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+
+   * {% include [excludeTables](../../../../_includes/data-transfer/fields/clickhouse/api/exclude-tables.md) %}
+
+   {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
+
+   If no lists are specified, data from all tables will be transferred.
 
 {% endlist %}
 
@@ -238,7 +256,7 @@ If the list of included tables contains tables or views with other engines or th
 
 Configure the target endpoint:
 
-* [{{ CH }}](../target/clickhouse.md).
+* [{{ CH }}](../target/clickhouse.md)​.
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
 

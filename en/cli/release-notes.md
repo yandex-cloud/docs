@@ -7,6 +7,45 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ## Current version {#latest-release}
 
+### Version 0.126.0 (04/06/24) {#version0.126.0}
+
+#### Changes to the CLI {#cli}
+
+* Added the `region` field to the profile to manage different regions.
+* Added the `--region` flag to initialize the CLI with a specific region to the `init` command.
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ resmgr-name }} {#resmgr}
+* Added the `yc resource-manager cloud create` command to create a cloud.
+   * The `--billing-account-id` flag allows you to automatically link a new cloud to a billing account.
+* Added the `yc resource-manager cloud delete` command to delete a cloud.
+   * The `--delete-after` flag allows you to delete a cloud after a specified period of time.
+* Added the `--delete-after` flag for delayed deletion after a specified time to the `yc resource-manager folder delete` command.
+
+##### {{ load-testing-name }}
+* Added the `--platform-id` flag to create a VM on a specified platform to the `yc loadtesting agent create` command.
+* Added these parameters to manage the export of agent artifacts to {{ objstorage-name }} to the `yc loadtesting test create` command:
+   * `--artifacts-output-bucket` to specify the name of the bucket to export the artifacts to.
+   * `--artifacts-make-archive` to specify whether to export the artifacts as a single archive or separately.
+   * `--artifacts` to list specific files for export.
+
+##### {{ mos-name }}
+* Added the optional `--keystore-settings` parameter that allows setting up the {{ OS }} keystore contents to the `yc managed-opensearch cluster create` and `yc managed-opensearch cluster restore` commands.
+* Added these optional `--set-keystore-settings` and `--remove-keystore-settings` parameters to the `yc managed-opensearch cluster update` command:
+   * `--set-keystore-settings` to list records you want to add or replace. Keystore records not specified in this parameter will remain unchanged.
+   * `--remove-keystore-settings` to list records you want to remove from keystore.
+
+##### {{ sf-name }} {#serverless-functions}
+* Replaced the legacy `serverless.functions.invoker` role with the new `functions.functionInvoker` role in the `yc serverless function allow-unauthenticated-invoke` command.
+* The `yc serverless function deny-unauthenticated-invoke` command now deletes the legacy `serverless.functions.invoker` role and the new `functions.functionInvoker` role.
+
+##### {{ serverless-containers-name }} {#serverless-containers}
+* Replaced the legacy `serverless.containers.invoker` role with the new `serverless-containers.containerInvoker` role in the `yc serverless container allow-unauthenticated-invoke` command.
+* The `yc serverless container deny-unauthenticated-invoke` command now deletes the legacy `serverless.containers.invoker` role and the new `serverless-containers.containerInvoker` role.
+
+## Previous releases {#previous-releases}
+
 ### Version 0.125.0 (20/05/24) {#version0.125.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -31,8 +70,6 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 * Added the `yc organization-manager oslogin profile` group of commands for managing OS Login user profiles.
 * Fixed the `--expires-at` flag for interval values in the `yc organization-manager oslogin user-ssh-key create` and `yc organization-manager oslogin user-ssh-key update` commands. For example, the value of `5h` now indicates an interval before a future point.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.124.0 (22/04/24) {#version0.124.0}
 

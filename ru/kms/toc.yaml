@@ -28,10 +28,14 @@ items:
             href: operations/asymmetric-encryption-key.md
           - name: Шифрование данных
             href: operations/asymmetric-encryption.md
+          - name: Права доступа к асимметричной ключевой паре
+            href: operations/asymmetric-encryption-key-access.md
       - name: Электронная подпись
         items:
           - name: Ключевая пара электронной подписи
             href: operations/asymmetric-signature-key.md
+          - name: Права доступа к ключевой паре электронной подписи
+            href: operations/asymmetric-signature-key-access.md
           - name: Электронная подпись и проверка подписи
             href: operations/signature-verification.md
           - name: Электронная подпись файлов и артефактов с помощью Cosign

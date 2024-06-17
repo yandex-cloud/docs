@@ -340,6 +340,8 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
+      - name: May 2024
+        href: release-notes/2405.md
       - name: April 2024
         href: release-notes/2404.md
       - name: March 2024

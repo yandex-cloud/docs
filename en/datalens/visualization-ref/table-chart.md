@@ -77,12 +77,12 @@ To create a table:
 1. Under **Columns**, click the icon to the left of the dimension or measure name.
 1. In the window that opens, change the **Name** field value and click **Apply**.
 
-### Adding a tooltip to a table column {#hint-column}
+### Adding a tooltip to a table header {#hint-column}
 
 1. Under **Columns**, click the icon to the left of the dimension or measure name.
 1. In the window that opens, enable the **Tooltip** option, enter the text in the field below and click **Apply**. By default, when you enable the option, the tooltip text is substituted from the field description in the [dataset](../concepts/dataset/index.md).
 
-When the option is enabled, the ![image](../../_assets/console-icons/circle-question.svg) icon appears in the chart and on the dashboard next to the column name. Hover over the icon to bring up the tooltip.
+When the option is enabled, the ![image](../../_assets/console-icons/circle-question.svg) icon appears next to the table column header. Hover over the icon to bring up the tooltip.
 
 ### Setting up table data sorting by multiple columns {#sorting-columns}
 
