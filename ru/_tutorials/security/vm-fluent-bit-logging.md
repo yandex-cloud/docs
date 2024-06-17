@@ -137,8 +137,11 @@
 
 1. Создайте виртуальную среду и установите необходимые зависимости:
 
+   ```bash
+   sudo apt install python3-pip python3.8-venv
+   ```
+
     ```bash
-    sudo apt install python3-pip python3.8-venv
     python3 -m venv venv
     source venv/bin/activate
     pip3 install systemd-logging
@@ -289,22 +292,37 @@
     git clone https://github.com/yandex-cloud/fluent-bit-plugin-yandex.git
     ```
 
-1. Скомпилируйте библиотеку `yc-logging.so`:
+1. Запишите в переменные окружения версии пакетов:
 
     ```bash
     cd fluent-bit-plugin-yandex/
     export fluent_bit_version=3.0.3
     export golang_version=1.22.2
     export plugin_version=dev
-    CGO_ENABLED=1 go build -buildmode=c-shared \
-        -o ./yc-logging.so \
-        -ldflags "-X main.PluginVersion=${plugin_version}" \
-        -ldflags "-X main.FluentBitVersion=${fluent_bit_version}"
    ```
 
    Где:
    * `fluent_bit_version` — версия пакета `fluent-bit`. Для проверки версии воспользуйтесь командой `/opt/fluent-bit/bin/fluent-bit --version`.
    * `golang_version` — версия компилятора Go. Для проверки версии воспользуйтесь командой `go version`.
+
+1. Выйдите из виртуального окружения Python и назначьте права на директорию с плагином:
+
+   ```bash
+    deactivate
+    ```
+
+   ```bash
+    sudo chown -R $USER:$USER /fluent-bit-plugin-yandex
+    ```
+   
+1. Скомпилируйте библиотеку `yc-logging.so`:
+
+    ```bash
+    CGO_ENABLED=1 go build -buildmode=c-shared \
+        -o ./yc-logging.so \
+        -ldflags "-X main.PluginVersion=${plugin_version}" \
+        -ldflags "-X main.FluentBitVersion=${fluent_bit_version}"
+   ```
 
 1. Скопируйте библиотеку `yc-logging.so` в директорию библиотек `fluent-bit`:
 
