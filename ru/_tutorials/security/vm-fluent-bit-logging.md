@@ -137,8 +137,11 @@
 
 1. Создайте виртуальную среду и установите необходимые зависимости:
 
+   ```bash
+   sudo apt install python3-pip python3.8-venv
+   ```
+
     ```bash
-    sudo apt install python3-pip python3.8-venv
     python3 -m venv venv
     source venv/bin/activate
     pip3 install systemd-logging
@@ -248,36 +251,38 @@
     sudo apt-get update
     ```
 
-1. Установите пакет `td-agent-bit`:
+1. Установите пакет `fluent-bit`:
 
     ```bash
-    sudo apt-get install td-agent-bit
+    sudo apt-get install fluent-bit
     ```
 
-1. Запустите сервис `td-agent-bit`:
+1. Запустите сервис `fluent-bit`:
 
     ```bash
-    sudo systemctl start td-agent-bit
+    sudo systemctl start fluent-bit
     ```
 
-1. Проверьте статус сервиса `td-agent-bit`, он должен быть активен:
+1. Проверьте статус сервиса `fluent-bit`, он должен быть активен:
 
     ```bash
-    systemctl status td-agent-bit
+    systemctl status fluent-bit
     ```
 
     Результат:
 
     ```bash
-    ● td-agent-bit.service - TD Agent Bit
-         Loaded: loaded (/lib/systemd/system/td-agent-bit.service; disabled; vendor preset: enabled)
-         Active: active (running) since Wed 2022-02-02 12:09:11 UTC; 56s ago
-       Main PID: 7365 (td-agent-bit)
-          Tasks: 3 (limit: 2311)
-         Memory: 4.9M
-         CGroup: /system.slice/td-agent-bit.service
-                 └─7365 /opt/td-agent-bit/bin/td-agent-bit -c /etc/td-agent-bit/td-agent-bit.conf
-    ```
+    ● fluent-bit.service - Fluent Bit
+         Loaded: loaded (/lib/systemd/system/fluent-bit.service; disabled; vendor preset: enabled)
+         Active: active (running) since Tue 2024-04-30 09:00:58 UTC; 3h 35min ago
+           Docs: https://docs.fluentbit.io/manual/
+       Main PID: 589764 (fluent-bit)
+          Tasks: 9 (limit: 2219)
+         Memory: 18.8M
+            CPU: 2.543s
+         CGroup: /system.slice/fluent-bit.service
+                 └─589764 /opt/fluent-bit/bin/fluent-bit -c //etc/fluent-bit/fluent-bit.conf
+   ```
 
 ## Подключите плагин {#connect-plugin}
 
@@ -287,32 +292,52 @@
     git clone https://github.com/yandex-cloud/fluent-bit-plugin-yandex.git
     ```
 
-1. Скомпилируйте библиотеку `yc-logging.so`:
+1. Запишите в переменные окружения версии пакетов:
 
     ```bash
     cd fluent-bit-plugin-yandex/
-    export fluent_bit_version=1.8.6
+    export fluent_bit_version=3.0.3
+    export golang_version=1.22.2
     export plugin_version=dev
-    CGO_ENABLED=1 go build     -buildmode=c-shared \
-      -o ./yc-logging.so \
-      -ldflags "-X main.PluginVersion=${plugin_version}" \
-      -ldflags "-X main.FluentBitVersion=${fluent_bit_version}"
+   ```
+
+   Где:
+   * `fluent_bit_version` — версия пакета `fluent-bit`. Для проверки версии воспользуйтесь командой `/opt/fluent-bit/bin/fluent-bit --version`.
+   * `golang_version` — версия компилятора Go. Для проверки версии воспользуйтесь командой `go version`.
+
+1. Выйдите из виртуального окружения Python и назначьте права на директорию с плагином:
+
+   ```bash
+    deactivate
     ```
 
-1. Скопируйте библиотеку `yc-logging.so`:
+   ```bash
+    sudo chown -R $USER:$USER /fluent-bit-plugin-yandex
+    ```
+   
+1. Скомпилируйте библиотеку `yc-logging.so`:
 
     ```bash
-    sudo cp yc-logging.so /usr/lib/td-agent-bit/yc-logging.so
+    CGO_ENABLED=1 go build -buildmode=c-shared \
+        -o ./yc-logging.so \
+        -ldflags "-X main.PluginVersion=${plugin_version}" \
+        -ldflags "-X main.FluentBitVersion=${fluent_bit_version}"
+   ```
+
+1. Скопируйте библиотеку `yc-logging.so` в директорию библиотек `fluent-bit`:
+
+    ```bash
+    sudo cp yc-logging.so /usr/lib/fluent-bit/plugins/yc-logging.so
     ```
 
-1. Добавьте в файл с настройками плагинов `/etc/td-agent-bit/plugins.conf` путь до библиотеки `yc-logging.so`:
+1. Добавьте в файл с настройками плагинов `/etc/fluent-bit/plugins.conf` путь до библиотеки `yc-logging.so`:
 
     ```
     [PLUGINS]
-        Path /usr/lib/td-agent-bit/yc-logging.so
+        Path /usr/lib/fluent-bit/plugins/yc-logging.so
     ```
 
-1. Добавьте в файл `/etc/td-agent-bit/td-agent-bit.conf` настройки сервиса `td-agent-bit`:
+1. Добавьте в файл `/etc/fluent-bit/fluent-bit.conf` настройки сервиса `fluent-bit`:
 
 
     ```
@@ -336,10 +361,10 @@
     * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в [лог-группу по умолчанию](../../logging/concepts/log-group.md) которого будут передаваться логи.
     * `authorization` — настройки авторизации. Укажите `instance-service-account`, чтобы авторизоваться от имени сервисного аккаунта, который указали в блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** при [создании ВМ](#before-you-begin).
 
-1. Перезапустите сервис `td-agent-bit`:
+1. Перезапустите сервис `fluent-bit`:
 
     ```bash
-    sudo systemctl restart td-agent-bit
+    sudo systemctl restart fluent-bit
     ```
 
 ## Посмотрите логи {#read-logs}
@@ -348,7 +373,7 @@
 
 - Консоль управления {#console}
 
-    1.  В [консоли  управления]({{ link-console-main }}) перейдите в каталог, который указали в настройках сервиса `td-agent-bit`.
+    1.  В [консоли  управления]({{ link-console-main }}) перейдите в каталог, который указали в настройках сервиса `fluent-bit`.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Нажмите на строку c лог-группой по умолчанию `default`.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.logs }}**.
@@ -365,7 +390,7 @@
     yc logging read --folder-id=<идентификатор_каталога>
     ```
 
-    Где `--folder-id` — идентификатор каталога, который указан в настройках сервиса `td-agent-bit`.
+    Где `--folder-id` — идентификатор каталога, который указан в настройках сервиса `fluent-bit`.
 
 - API {#api}
 
