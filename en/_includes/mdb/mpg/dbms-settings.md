@@ -108,8 +108,8 @@
 
    The minimum value is `-1` (the setting is not applied), while the maximum one is `100`. The default value [depends on the selected host class](#settings-instance-dependent).
 
-   - If the number of vCPUs for the selected host class is 10 or more, the value is set to `5`.
-   - In other cases, the default value is calculated using the following formula:
+  - If the number of vCPUs for the selected host class is 10 or more, the value is set to `5`.
+  - In other cases, the default value is calculated using the following formula:
 
       ```text
       55 - 5 × <number_of_vCPUs_per_host>
@@ -182,10 +182,10 @@
 
    Acceptable values include:
 
-   - `backslash_quote` (`BACKSLASH_QUOTE` for {{ TF }}, API, and CLI): Quotation marks can be represented as `\'` (equivalent to `on`).
-   - `on` (`BACKSLASH_QUOTE_ON` for {{ TF }}, API, and CLI): Quotation marks can be represented as `\'`.
-   - `off` (`BACKSLASH_QUOTE_OFF` for {{ TF }}, API, and CLI): Quotation marks may only be used in the usual SQL way (`''`).
-   - `safe_encoding` (`BACKSLASH_QUOTE_SAFE_ENCODING` for {{ TF }}, API, and CLI): Quotation marks may be represented as `\'` only for the client encodings that do not use `\` in multi-byte characters.
+  - `backslash_quote` (`BACKSLASH_QUOTE` for {{ TF }}, API, and CLI): Quotation marks can be represented as `\'` (equivalent to `on`).
+  - `on` (`BACKSLASH_QUOTE_ON` for {{ TF }}, API, and CLI): Quotation marks can be represented as `\'`.
+  - `off` (`BACKSLASH_QUOTE_OFF` for {{ TF }}, API, and CLI): Quotation marks may only be used in the usual SQL way (`''`).
+  - `safe_encoding` (`BACKSLASH_QUOTE_SAFE_ENCODING` for {{ TF }}, API, and CLI): Quotation marks may be represented as `\'` only for the client encodings that do not use `\` in multi-byte characters.
 
    The default value is `safe_encoding`.
 
@@ -227,8 +227,8 @@
 
    Sets the output format for [binary string values](https://www.postgresql.org/docs/current/datatype-binary.html) (the `bytea` type):
 
-   - `hex` (`BYTEA_OUTPUT_HEX` for {{ TF }}, API, and CLI) encodes binary data as two hexadecimal digits per byte, for example, '`SELECT '\xDEADBEEF';`'.
-   - `escape` (`BYTEA_OUTPUT_ESCAPE` for {{ TF }}, API, and CLI) means the standard {{ PG }} format (ASCII characters only).
+  - `hex` (`BYTEA_OUTPUT_HEX` for {{ TF }}, API, and CLI) encodes binary data as two hexadecimal digits per byte, for example, '`SELECT '\xDEADBEEF';`'.
+  - `escape` (`BYTEA_OUTPUT_ESCAPE` for {{ TF }}, API, and CLI) means the standard {{ PG }} format (ASCII characters only).
 
    The default value is `hex`.
 
@@ -280,9 +280,9 @@
 
    Acceptable values include:
 
-   - `on` (`CONSTRAINT_EXCLUSION_ON` for {{ TF }}, API, and CLI): Use constraints for all tables.
-   - `off` (`CONSTRAINT_EXCLUSION_OFF` for {{ TF }}, API, and CLI): Do not use constraints.
-   - `partition` (`CONSTRAINT_EXCLUSION_PARTITION` for {{ TF }}, API, and CLI): Only use constraints for child tables and `UNION ALL` clauses.
+  - `on` (`CONSTRAINT_EXCLUSION_ON` for {{ TF }}, API, and CLI): Use constraints for all tables.
+  - `off` (`CONSTRAINT_EXCLUSION_OFF` for {{ TF }}, API, and CLI): Do not use constraints.
+  - `partition` (`CONSTRAINT_EXCLUSION_PARTITION` for {{ TF }}, API, and CLI): Only use constraints for child tables and `UNION ALL` clauses.
 
    The default value is `partition`.
 
@@ -320,10 +320,10 @@
 
    Acceptable values include:
 
-   - `read committed` (`TRANSACTION_ISOLATION_READ_COMMITTED` for {{ TF }}, API, and CLI): The query only sees the rows that were committed before it started.
-   - `read uncommitted` (`TRANSACTION_ISOLATION_READ_UNCOMMITTED` for {{ TF }}, API, and CLI): The behavior of this isolation level in {{ PG }} is identical to `read committed`.
-   - `repeatable read` (`TRANSACTION_ISOLATION_REPEATABLE_READ` for {{ TF }}, API, and CLI): All queries in the current transaction only see the rows that were committed before the first query to select or update data in this transaction.
-   - `serializable` (`TRANSACTION_ISOLATION_SERIALIZABLE` for {{ TF }}, API, and CLI): The strictest isolation level of all those mentioned. The behavior of this isolation level in {{ PG }} is identical to `repeatable read`. However, if the overlap of read and write operations of parallel serializable transactions is incompatible with their serial execution, one of the transactions is rolled back with the <q>serialization failure</q> error.
+  - `read committed` (`TRANSACTION_ISOLATION_READ_COMMITTED` for {{ TF }}, API, and CLI): The query only sees the rows that were committed before it started.
+  - `read uncommitted` (`TRANSACTION_ISOLATION_READ_UNCOMMITTED` for {{ TF }}, API, and CLI): The behavior of this isolation level in {{ PG }} is identical to `read committed`.
+  - `repeatable read` (`TRANSACTION_ISOLATION_REPEATABLE_READ` for {{ TF }}, API, and CLI): All queries in the current transaction only see the rows that were committed before the first query to select or update data in this transaction.
+  - `serializable` (`TRANSACTION_ISOLATION_SERIALIZABLE` for {{ TF }}, API, and CLI): The strictest isolation level of all those mentioned. The behavior of this isolation level in {{ PG }} is identical to `repeatable read`. However, if the overlap of read and write operations of parallel serializable transactions is incompatible with their serial execution, one of the transactions is rolled back with the <q>serialization failure</q> error.
 
    The default value is `read committed`.
 
@@ -343,8 +343,8 @@
 
    Adds an `OID` column containing a unique row ID. The setting has effect if the table is created:
 
-   - Without specifying `WITH OIDS` or `WITHOUT OIDS`.
-   - Using the `SELECT INTO` command.
+  - Without specifying `WITH OIDS` or `WITHOUT OIDS`.
+  - Using the `SELECT INTO` command.
 
    Using `OID` is considered deprecated in user tables, so enable this setting for backward compatibility reasons only.
 
@@ -548,9 +548,9 @@
 
    Allows executing queries in parallel mode for testing purposes:
 
-   - `off` (`FORCE_PARALLEL_MODE_OFF` for {{ TF }}, API, and CLI): Use parallel mode only when performance increase is expected.
-   - `on` (`FORCE_PARALLEL_MODE_ON` for {{ TF }}, API, and CLI): Force parallelize all the queries where it is safe.
-   - `regress` (`FORCE_PARALLEL_MODE_REGRESS` for {{ TF }}, API, and CLI): Equivalent to `on`, but the standard output is the same as when using `off`.
+  - `off` (`FORCE_PARALLEL_MODE_OFF` for {{ TF }}, API, and CLI): Use parallel mode only when performance increase is expected.
+  - `on` (`FORCE_PARALLEL_MODE_ON` for {{ TF }}, API, and CLI): Force parallelize all the queries where it is safe.
+  - `regress` (`FORCE_PARALLEL_MODE_REGRESS` for {{ TF }}, API, and CLI): Equivalent to `on`, but the standard output is the same as when using `off`.
 
    The default value is `off`.
 
@@ -682,7 +682,7 @@
 
    Specifies how long to wait for the lock to be released (in milliseconds). Locks can be used for tables, indexes, rows, and other database objects. If the timeout for an operation has expired, the operation is aborted.
 
-   The minimum value is `0` (timeout is off, you may wait to acquire a lock as long as you need), while the maximum one is `2147483647`. The default value is `0`.
+   The minimum value is `0` (timeout is off, you may wait to acquire a lock as long as you need), while the maximum one is `2147483647`. The default value is `1000`.
 
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT).
 
@@ -724,9 +724,9 @@
 
    Sets the level of detail for the {{ PG }} log entry per message. Log detail levels in ascending order of verbosity:
 
-   - `terse` (`LOG_ERROR_VERBOSITY_TERSE` for {{ TF }}, CLI, and API). The `DETAIL`, `HINT`, `QUERY`, and `CONTEXT` fields are excluded from the error message.
-   - `default` (`LOG_ERROR_VERBOSITY_DEFAULT` for {{ TF }}, CLI, and API). Default.
-   - `verbose` (`LOG_ERROR_VERBOSITY_VERBOSE` for {{ TF }}, CLI, and API). The error message includes the `SQLSTATE` error code, the source code file name, function name, and line number that generated the error.
+  - `terse` (`LOG_ERROR_VERBOSITY_TERSE` for {{ TF }}, CLI, and API). The `DETAIL`, `HINT`, `QUERY`, and `CONTEXT` fields are excluded from the error message.
+  - `default` (`LOG_ERROR_VERBOSITY_DEFAULT` for {{ TF }}, CLI, and API). Default.
+  - `verbose` (`LOG_ERROR_VERBOSITY_VERBOSE` for {{ TF }}, CLI, and API). The error message includes the `SQLSTATE` error code, the source code file name, function name, and line number that generated the error.
 
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ERROR-VERBOSITY).
 
@@ -812,10 +812,10 @@
 
    A filter for SQL statements to be written to the {{ PG }} log:
 
-   - `none` (`LOG_STATEMENT_NONE` for {{ TF }}, CLI, and API): Filter is disabled and SQL statements are not logged.
-   - `ddl` (`LOG_STATEMENT_DDL` for {{ TF }}, CLI, and API): SQL statements that allow you to change data definitions, such as `CREATE`, `ALTER`, and `DROP`, are logged.
-   - `mod` (`LOG_STATEMENT_MOD` for {{ TF }}, CLI, and API): All `ddl` statements and data-modifying statements, such as `INSERT` and `UPDATE`, are logged.
-   - `all` (`LOG_STATEMENT_ALL` for {{ TF }}, CLI, and API): All SQL statements are logged.
+  - `none` (`LOG_STATEMENT_NONE` for {{ TF }}, CLI, and API): Filter is disabled and SQL statements are not logged.
+  - `ddl` (`LOG_STATEMENT_DDL` for {{ TF }}, CLI, and API): SQL statements that allow you to change data definitions, such as `CREATE`, `ALTER`, and `DROP`, are logged.
+  - `mod` (`LOG_STATEMENT_MOD` for {{ TF }}, CLI, and API): All `ddl` statements and data-modifying statements, such as `INSERT` and `UPDATE`, are logged.
+  - `all` (`LOG_STATEMENT_ALL` for {{ TF }}, CLI, and API): All SQL statements are logged.
 
    The default value is `none`.
 
@@ -1031,10 +1031,10 @@
 
    Sets the level of output and detail of debugging information for the `pg_hint_plan` module. Only applies when [Pg hint plan enable hint](#setting-pg-hint-plan-enable) is enabled. Possible values (in ascending order of verbosity):
 
-   - `off` (`PG_HINT_PLAN_DEBUG_PRINT_OFF` for {{ TF }} and API): The output is disabled.
-   - `on` (`PG_HINT_PLAN_DEBUG_PRINT_ON` for {{ TF }} and API): Default.
-   - `detailed` (`PG_HINT_PLAN_DEBUG_PRINT_DETAILED` for {{ TF }} and API).
-   - `verbose` (`PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` for {{ TF }} and API).
+  - `off` (`PG_HINT_PLAN_DEBUG_PRINT_OFF` for {{ TF }} and API): The output is disabled.
+  - `on` (`PG_HINT_PLAN_DEBUG_PRINT_ON` for {{ TF }} and API): Default.
+  - `detailed` (`PG_HINT_PLAN_DEBUG_PRINT_DETAILED` for {{ TF }} and API).
+  - `verbose` (`PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` for {{ TF }} and API).
 
 - **Pg hint plan enable hint**{#setting-pg-hint-plan-enable} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
@@ -1044,21 +1044,21 @@
 
    Enables the use of the `hint_plan.hints` table. It contains <q>hints</q> for the `pg_hint_plan` module and is used when it is not possible edit queries. The table contains the following columns:
 
-   - `id`: A unique ID of the row with the <q>hint</q>. This column is populated automatically.
-   - `norm_query_string`: A pattern to match the <q>hinted</q> queries. Replace constants with a `?`. Whitespace characters are significant in the pattern.
-   - `application_name`: The application that initiated the sessions to apply the <q>hint</q> to.
-   - `hint`: A series of <q>hints</q> excluding surrounding comment marks.
+  - `id`: A unique ID of the row with the <q>hint</q>. This column is populated automatically.
+  - `norm_query_string`: A pattern to match the <q>hinted</q> queries. Replace constants with a `?`. Whitespace characters are significant in the pattern.
+  - `application_name`: The application that initiated the sessions to apply the <q>hint</q> to.
+  - `hint`: A series of <q>hints</q> excluding surrounding comment marks.
 
 - **Pg hint plan message level**{#setting-pg-hint-plan-message} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
    The level of debug messages for the `pg_hint_plan` module that will be included in the {{ PG }} log. Only applies when [Pg hint plan enable hint](#setting-pg-hint-plan-enable) is enabled. The possible values include:
 
-   - `error`
-   - `warning`
-   - `notice`
-   - `info` (default)
-   - `log`
-   - `debug`
+  - `error`
+  - `warning`
+  - `notice`
+  - `info` (default)
+  - `log`
+  - `debug`
 
 - **Pg qualstats enabled**{#setting-pg-qualstats-enabled} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
@@ -1080,9 +1080,9 @@
 
    Percentage of queries (from 0 to 1) that the `pg_qualstats` module collects statistics for. Only applies when [Pg qualstats enabled](#setting-pg-qualstats-enabled) is enabled. Specific setting values:
 
-   - `0`: Disables the setting.
-   - `1`: All queries are analyzed.
-   - `-1`: Automatic mode, percentage of queries is inverse to the value of the [Max connections](#setting-max-connections) setting and [depends on the selected host class](#settings-instance-dependent).
+  - `0`: Disables the setting.
+  - `1`: All queries are analyzed.
+  - `-1`: Automatic mode, percentage of queries is inverse to the value of the [Max connections](#setting-max-connections) setting and [depends on the selected host class](#settings-instance-dependent).
 
    By default, `-1`.
 
@@ -1096,9 +1096,9 @@
 
    Determines the type of query plan (generic or custom) to be used to execute [prepared statements](https://www.postgresql.org/docs/current/sql-prepare.html). The possible values include:
 
-   - `auto` (`PLAN_CACHE_MODE_AUTO` for {{ TF }} and API): Automatic selection.
-   - `force_custom_plan` (`PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN` for {{ TF }} and API): Force custom plans.
-   - `force_generic_plan` (`PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` for {{ TF }} and API): Force generic plans.
+  - `auto` (`PLAN_CACHE_MODE_AUTO` for {{ TF }} and API): Automatic selection.
+  - `force_custom_plan` (`PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN` for {{ TF }} and API): Force custom plans.
+  - `force_generic_plan` (`PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` for {{ TF }} and API): Force generic plans.
 
    The default value is `auto`.
 
@@ -1208,33 +1208,33 @@
 
    {% list tabs group=instructions %}
 
-   - Management console/CLI {#console}
+  - Management console/CLI {#console}
 
-      * `on`: A transaction is committed if the WAL is written to the master disk and quorum replica disk.
-      * `off`: A transaction is committed even if its data is not yet in the WAL. Writes are not synchronous, and the transaction data might be lost as a result of a disk subsystem failure.
-      * `local`: A transaction is committed if the WAL is written to the master disk.
-      * `remote_write`: A transaction is committed if the WAL is written to the master disk, and the quorum replica received the WAL and forwarded it to the OS to write it to the disk. If the master disk system is lost and the OS on the quorum replica fails, transaction data with this level of synchronization may be lost.
-      * `remote_apply`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and applied the changes from it.
+    - `on`: A transaction is committed if the WAL is written to the master disk and quorum replica disk.
+    - `off`: A transaction is committed even if its data is not yet in the WAL. Writes are not synchronous, and the transaction data might be lost as a result of a disk subsystem failure.
+    - `local`: A transaction is committed if the WAL is written to the master disk.
+    - `remote_write`: A transaction is committed if the WAL is written to the master disk, and the quorum replica received the WAL and forwarded it to the OS to write it to the disk. If the master disk system is lost and the OS on the quorum replica fails, transaction data with this level of synchronization may be lost.
+    - `remote_apply`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and applied the changes from it.
 
       The default value is `on`.
 
-   - {{ TF }} {#tf}
+  - {{ TF }} {#tf}
 
-      * `1` or `"SYNCHRONOUS_COMMIT_ON"`: A transaction is committed if the WAL is written to the master disk and quorum replica disk.
-      * `2` or `"SYNCHRONOUS_COMMIT_OFF"` : A transaction is committed even if its data is not yet in the WAL. Writes are not synchronous, and the transaction data might be lost as a result of a disk subsystem failure.
-      * `3` or `"SYNCHRONOUS_COMMIT_LOCAL"`: A transaction is committed if the WAL is written to the master disk.
-      * `4` or `"SYNCHRONOUS_COMMIT_REMOTE_WRITE"`: A transaction is committed if the WAL is written to the master disk, and the quorum replica received the WAL and forwarded it to the OS to write it to the disk. If the master disk system is lost and the OS on the quorum replica fails, transaction data with this level of synchronization may be lost.
-      * `5` or `"SYNCHRONOUS_COMMIT_REMOTE_APPLY"`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and applied the changes from it.
+    - `1` or `"SYNCHRONOUS_COMMIT_ON"`: A transaction is committed if the WAL is written to the master disk and quorum replica disk.
+    - `2` or `"SYNCHRONOUS_COMMIT_OFF"` : A transaction is committed even if its data is not yet in the WAL. Writes are not synchronous, and the transaction data might be lost as a result of a disk subsystem failure.
+    - `3` or `"SYNCHRONOUS_COMMIT_LOCAL"`: A transaction is committed if the WAL is written to the master disk.
+    - `4` or `"SYNCHRONOUS_COMMIT_REMOTE_WRITE"`: A transaction is committed if the WAL is written to the master disk, and the quorum replica received the WAL and forwarded it to the OS to write it to the disk. If the master disk system is lost and the OS on the quorum replica fails, transaction data with this level of synchronization may be lost.
+    - `5` or `"SYNCHRONOUS_COMMIT_REMOTE_APPLY"`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and applied the changes from it.
 
       The default value is `"SYNCHRONOUS_COMMIT_ON"`.
 
-   - API {#api}
+  - API {#api}
 
-      * `SYNCHRONOUS_COMMIT_ON`: A transaction is committed if the WAL is written to the master disk and quorum replica disk.
-      * `SYNCHRONOUS_COMMIT_OFF`: A transaction is committed even if its data is not yet in the WAL. Writes are not synchronous, and the transaction data might be lost as a result of a disk subsystem failure.
-      * `SYNCHRONOUS_COMMIT_LOCAL`: A transaction is committed if the WAL is written to the master disk.
-      * `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: A transaction is committed if the WAL is written to the master disk, and the quorum replica received the WAL and forwarded it to the OS to write it to the disk. If the master disk system is lost and the OS on the quorum replica fails, transaction data with this level of synchronization may be lost.
-      * `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and applied the changes from it.
+    - `SYNCHRONOUS_COMMIT_ON`: A transaction is committed if the WAL is written to the master disk and quorum replica disk.
+    - `SYNCHRONOUS_COMMIT_OFF`: A transaction is committed even if its data is not yet in the WAL. Writes are not synchronous, and the transaction data might be lost as a result of a disk subsystem failure.
+    - `SYNCHRONOUS_COMMIT_LOCAL`: A transaction is committed if the WAL is written to the master disk.
+    - `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: A transaction is committed if the WAL is written to the master disk, and the quorum replica received the WAL and forwarded it to the OS to write it to the disk. If the master disk system is lost and the OS on the quorum replica fails, transaction data with this level of synchronization may be lost.
+    - `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and applied the changes from it.
 
       The default value is `SYNCHRONOUS_COMMIT_ON`.
 
@@ -1372,8 +1372,8 @@
 
    The method used for encoding binary data in XML. The possible values include:
 
-   - `base64` (`XML_BINARY_BASE64` for {{ TF }}, API, and CLI): BASE64 encoding.
-   - `hex` (`XML_BINARY_HEX` for {{ TF }}, API, and CLI): Hexadecimal encoding.
+  - `base64` (`XML_BINARY_BASE64` for {{ TF }}, API, and CLI): BASE64 encoding.
+  - `hex` (`XML_BINARY_HEX` for {{ TF }}, API, and CLI): Hexadecimal encoding.
 
    The default value is `base64`.
 
@@ -1383,8 +1383,8 @@
 
    The default type of conversion between the XML and character string data. The possible values include:
 
-   - `document` (`XML_OPTION_DOCUMENT` for {{ TF }}, API, and CLI): An XML document.
-   - `content` (`XML_OPTION_CONTENT` for {{ TF }}, API, and CLI): A fragment of an XML document.
+  - `document` (`XML_OPTION_DOCUMENT` for {{ TF }}, API, and CLI): An XML document.
+  - `content` (`XML_OPTION_CONTENT` for {{ TF }}, API, and CLI): A fragment of an XML document.
 
    The default value is `content`.
 
