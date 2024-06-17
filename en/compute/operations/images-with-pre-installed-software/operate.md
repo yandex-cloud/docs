@@ -7,7 +7,7 @@ description: "This tutorial describes how to work with a VM from a public image 
 
 ## Connecting to a VM {#ways-to-connect}
 
-You can connect to a [virtual machine](../../concepts/vm.md) via SSH using an SSH key pair, [via OS Login](../vm-connect/os-login.md), or using a username and password.
+You can connect to a [virtual machine](../../concepts/vm.md) via SSH using an SSH key pair, [via OS Login](../vm-connect/os-login.md), or using a [serial console](../serial-console/index.md).
 
 ### Connecting via SSH {#connect}
 
@@ -27,17 +27,19 @@ This method for connecting to a virtual machine uses an SSH key pair: the public
 
 {% include [vm-connect-ssh-login](../../../_includes/vm-connect-ssh-login.md) %}
 
-### Connecting using your username and password {#logins-passwords}
+## Pre-installed software passwords {#logins-passwords}
 
-{% include [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md) %}
+In addition to operating system distributions, there are public images with pre-installed software available in {{ marketplace-name }}. To get passwords to configure the pre-installed software in such images:
 
-To get usernames and passwords for VMs from public images, use the following command:
+1. Connect to the VM.
 
-```
-sudo cat /root/default_passwords.txt
-```
+1. You can find the pre-installed software passwords in the `/root/default_passwords.txt` file. Only a superuser has read and write access to the file. Get a list of passwords using this command:
 
-If password authentication is not supported, you will not get a file with passwords.
+   ```bash
+   sudo cat /root/default_passwords.txt
+   ```
+
+If a public VM image has no pre-installed software, there will be no passwords file provided.
 
 ## Using SSL {#ssl}
 

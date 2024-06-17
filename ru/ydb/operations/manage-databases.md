@@ -579,6 +579,192 @@
 
 {% endlist %}
 
+## Назначить роль на базу данных {#add-access-binding}
+
+Вы можете предоставить пользователю, сервисному аккаунту или группе пользователей доступ к БД {{ ydb-name }}. Для этого назначьте [роль](../../iam/concepts/access-control/roles.md) на БД. Чтобы выбрать нужную, [узнайте](../security/index.md#roles-list), какие роли действуют в сервисе.
+
+{% list tabs group=instructions %}
+
+* Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится БД.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Нажмите на имя нужной БД.
+  1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к БД.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
+  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+
+* CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы назначить роль на БД:
+
+  1. Посмотрите описание команды CLI для назначения роли:
+
+     ```bash
+     yc ydb database add-access-binding --help
+     ```
+
+  1. Получите список БД вместе с их идентификаторами:
+
+     ```bash
+     yc ydb database list
+     ```
+
+  1. Получите [идентификатор пользователя](../../iam/operations/users/get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роль.
+  1. С помощью одной из команд ниже назначьте роль:
+
+     * Пользователю:
+
+        ```bash
+        yc ydb database add-access-binding \
+           --id <идентификатор_БД> \
+           --role <роль> \
+           --user-account-id <идентификатор_пользователя>
+        ```
+
+     * Федеративному пользователю:
+
+        ```bash
+        yc ydb database add-access-binding \
+           --id <идентификатор_БД> \
+           --role <роль> \
+           --user-account-id <идентификатор_пользователя>
+        ```
+
+     * Сервисному аккаунту:
+
+        ```bash
+        yc ydb database add-access-binding \
+           --id <идентификатор_БД> \
+           --role <роль> \
+           --service-account-id <идентификатор_сервисного_аккаунта>
+        ```
+
+     * Группе пользователей:
+
+        ```bash
+        yc ydb database add-access-binding \
+           --id <идентификатор_БД> \
+           --role <роль> \
+           --subject group:<идентификатор_группы>
+        ```
+
+* API {#api}
+
+  Воспользуйтесь вызовом gRPC API [DatabaseService/UpdateAccessBindings](../api-ref/grpc/database_service.md#UpdateAccessBindings) и передайте в запросе:
+
+  * Значение `ADD` в параметре `access_binding_deltas[].action`, чтобы добавить роль.
+  * Роль в параметре `access_binding_deltas[].access_binding.role_id`.
+  * Идентификатор субъекта, на кого назначается роль, в параметре `access_binding_deltas[].access_binding.subject.id`.
+  * Тип субъекта, на кого назначается роль, в параметре `access_binding_deltas[].access_binding.subject.type`.
+
+{% endlist %}
+
+## Назначить несколько ролей на базу данных {#set-access-bindings}
+
+{% list tabs group=instructions %}
+
+* Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится БД.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Нажмите на имя нужной БД.
+  1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к БД.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
+  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+
+* CLI {#cli}
+
+  {% include [set-access-bindings-cli](../../_includes/iam/roles/set-access-bindings-cli.md) %}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы назначить несколько ролей на базу данных:
+
+  1. Убедитесь, что на БД не назначены роли, которые вы не хотите потерять:
+
+     ```bash
+     yc ydb database list-access-bindings \
+        --id <идентификатор_БД>
+     ```
+
+  1. Посмотрите описание команды CLI для назначения ролей:
+
+     ```bash
+     yc ydb database set-access-bindings --help
+     ```
+
+  1. Получите список БД вместе с их идентификаторами:
+
+     ```bash
+     yc ydb database list
+     ```
+
+  1. Получите [идентификатор пользователя](../../iam/operations/users/get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роли.
+  1. С помощью одной из команд ниже назначьте роли:
+
+     * Пользователю с аккаунтом на Яндексе:
+
+        ```bash
+        yc ydb database set-access-bindings \
+           --id <идентификатор_БД> \
+           --access-binding role=<роль>,user-account-id=<идентификатор_пользователя>
+        ```
+
+     * Федеративному пользователю:
+
+        ```bash
+        yc ydb database set-access-bindings \
+           --id <идентификатор_БД> \
+           --access-binding role=<роль>,subject=federatedUser:<идентификатор_пользователя>
+        ```
+
+     * Сервисному аккаунту:
+
+        ```bash
+        yc ydb database set-access-bindings \
+           --id <идентификатор_БД> \
+           --access-binding role=<роль>,service-account-id=<идентификатор_сервисного_аккаунта>
+        ```
+
+     * Группе пользователей:
+
+        ```bash
+        yc ydb database set-access-bindings \
+           --id <идентификатор_БД> \
+           --access-binding role=<роль>,subject=group:<идентификатор_группы>
+        ```
+
+     Для каждой роли передайте отдельный флаг `--access-binding`. Пример:
+
+     ```bash
+     yc ydb database set-access-bindings \
+        --id <идентификатор_БД> \
+        --access-binding role=<роль1>,service-account-id=<идентификатор_сервисного_аккаунта> \
+        --access-binding role=<роль2>,service-account-id=<идентификатор_сервисного_аккаунта> \
+        --access-binding role=<роль3>,service-account-id=<идентификатор_сервисного_аккаунта>
+     ```
+
+* API {#api}
+
+  {% include [set-access-bindings-api](../../_includes/iam/roles/set-access-bindings-api.md) %}
+
+  Воспользуйтесь вызовом gRPC API [DatabaseService/SetAccessBindings](../api-ref/grpc/database_service.md#SetAccessBindings). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
+
+  * Роль в параметре `access_bindings[].role_id`.
+  * Идентификатор субъекта, на кого назначаются роли, в параметре `access_bindings[].subject.id`.
+  * Тип субъекта, на кого назначаются роли, в параметре `access_bindings[].subject.type`.
+
+{% endlist %}
+
 ## Удалить базу данных {#delete-db}
 
 {% list tabs group=instructions %}

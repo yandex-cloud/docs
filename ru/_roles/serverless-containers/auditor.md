@@ -1,1 +1,1 @@
-Роль `serverless-containers.auditor` позволяет смотреть список контейнеров и всю информацию о них, кроме переменных окружения ревизии.
+Роль `serverless-containers.auditor` позволяет просматривать информацию о [контейнерах](../../serverless-containers/concepts/container.md), кроме информации о [переменных](../../serverless-containers/concepts/runtime.md#environment-variables) окружения [ревизии](../../serverless-containers/concepts/container.md#revision).

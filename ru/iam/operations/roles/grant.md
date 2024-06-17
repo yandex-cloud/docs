@@ -1,397 +1,436 @@
 # Назначение роли
 
-Чтобы предоставить доступ к ресурсу, назначьте субъекту [роль](../../concepts/access-control/roles.md) на сам ресурс или ресурс, от которого наследуются права доступа, например на каталог или облако. Подробнее читайте в разделе [{#T}](../../concepts/access-control/index.md).
+Чтобы предоставить доступ к ресурсу, назначьте на него [роль](../../concepts/access-control/roles.md). Ее могут получить:
 
+* [пользователи с аккаунтом на Яндексе](../../concepts/users/accounts.md#passport);
+* [федеративные пользователи](../../concepts/users/accounts.md#saml-federation);
+* [сервисные аккаунты](../../concepts/users/service-accounts.md);
+* [группы пользователей](../../../organization/concepts/groups.md).
 
-## Назначить роль пользователю с аккаунтом на Яндексе {#access-to-user}
+Роль можно назначить не только на сам ресурс, но и на его родительский ресурс, так как от него наследуются права доступа. Например, если сервисному аккаунту назначить роль на облако, этот сервисный аккаунт получит разрешения на все ресурсы во всех каталогах этого облака. Подробнее см. в разделе [{#T}](../../concepts/access-control/index.md).
 
-В этом разделе описывается, как назначить роль пользователю с аккаунтом на Яндексе. В примерах ниже описано, как назначить роль [сервисному аккаунту](#access-to-sa), [пользователю федерации](#access-to-federated-user) или [всем пользователям сразу](#access-to-all).
+[Узнайте](../../concepts/access-control/resources-with-access-control.md), на какие ресурсы можно назначать роли.
 
+Чтобы выбрать роли, обратитесь к [их справочнику](../../roles-reference.md).
 
+## Назначить роль на каталог или облако {#cloud-or-folder}
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+* Консоль управления {#console}
 
-  В консоли управления можно назначить роль только на облако или каталог:
+   1. В [консоли управления]({{ link-console-main }}) выберите нужное облако или каталог.
+   1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к облаку или каталогу.
+   1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
+   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-  
-  1. [Добавьте пользователя в облако](../users/create.md) через {{ org-full-name }} или Cloud Console.
+* CLI {#cli}
 
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  1. Назначьте пользователю роль в облаке:
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-     {% include [set-access-binding-user-cloud-console](../../../_includes/resource-manager/set-access-binding-user-cloud-console.md) %}
+   Чтобы назначить роль на облако или каталог:
 
-  1. Назначьте пользователю роль в каталоге:
- 
-     {% include [set-access-binding-user-acc-abstract-console](../../../_includes/resource-manager/set-access-binding-user-acc-abstract-console.md) %}
+   1. Посмотрите описание команды CLI для назначения роли:
 
-- CLI {#cli}
+      ```bash
+      yc resource-manager <cloud_или_folder> add-access-binding --help
+      ```
 
-    {% include [cli-install](../../../_includes/cli-install.md) %}
+      Укажите `cloud` для облака и `folder` для каталога.
 
-    1. Выберите роль в [справочнике ролей {{ yandex-cloud }}](../../roles-reference.md).
-    1. [Получите идентификатор пользователя](../users/get.md).
-    1. Назначьте роль с помощью команды:
+   1. Получите список доступных облаков или каталогов вместе с их идентификаторами:
 
-        ```bash
-        yc <имя_сервиса> <категория_ресурса> add-access-binding <имя_или_идентификатор_ресурса> \
-            --role <идентификатор_роли> \
-            --subject userAccount:<идентификатор_пользователя>
-        ```
+      ```bash
+      yc resource-manager <cloud_или_folder> list
+      ```
 
-        Где:
+   1. Получите [идентификатор пользователя](../users/get.md), [сервисного аккаунта](../sa/get-id.md) или группы пользователей, которым назначаете роль.
+   1. С помощью одной из команд ниже назначьте роль:
 
-        * `<имя_сервиса>` — имя сервиса, на чей ресурс назначается роль, например `resource-manager`.
-        * `<категория_ресурса>` — категория ресурса, например `cloud`.
-        * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса. Вы можете указать ресурс по имени или идентификатору.
-        * `--role` — идентификатор роли, например `{{ roles-cloud-owner }}`.
-        * `--subject userAccount` — идентификатор аккаунта пользователя, которому назначается роль.
+      * Пользователю с аккаунтом на Яндексе:
 
-        Например, назначьте роль `viewer` на [облако](../../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
+         ```bash
+         yc resource-manager <cloud_или_folder> add-access-binding \
+            --id <идентификатор_облака_или_каталога> \
+            --role <роль> \
+            --user-account-id <идентификатор_пользователя>
+         ```
 
-        ```bash
-        yc resource-manager cloud add-access-binding mycloud \
-            --role viewer \
-            --subject userAccount:aje6o61dvog2********
-        ```
+      * Федеративному пользователю:
 
+         ```bash
+         yc resource-manager <cloud_или_folder> add-access-binding \
+            --id <идентификатор_облака_или_каталога> \
+            --role <роль> \
+            --subject federatedUser:<идентификатор_пользователя>
+         ```
 
-- {{ TF }} {#tf}
+      * Сервисному аккаунту:
 
-    {% include [terraform-install](../../../_includes/terraform-install.md) %}
+         ```bash
+         yc resource-manager <cloud_или_folder> add-access-binding \
+            --id <идентификатор_облака_или_каталога> \
+            --role <роль> \
+            --service-account-id <идентификатор_сервисного_аккаунта>
+         ```
 
-    1. Добавьте в конфигурационный файл параметры ресурса, укажите нужную роль и перечень пользователей облака:
+      * Группе пользователей:
 
-       * `cloud_id` — [идентификатор облака](../../../resource-manager/operations/cloud/get-id.md). Вы также можете назначить роль внутри отдельного каталога. Для этого вместо `cloud_id` укажите `folder_id` и нужный идентификатор каталога в параметрах ресурса.
-       * `role` — назначаемая роль. Обязательный параметр.
-       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
+         ```bash
+         yc resource-manager <cloud_или_folder> add-access-binding \
+            --id <идентификатор_облака_или_каталога> \
+            --role <роль> \
+            --subject group:<идентификатор_группы>
+         ```
 
-       Пример структуры конфигурационного файла:
+* API {#api}
 
-        ```
-        resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
-            cloud_id    = "<идентификатор_облака>"
-            role        = "<роль>"
-            members     = [
-            "serviceAccount:<идентификатор_сервисного_аккаунта>",
-            "userAccount:<идентификатор_пользователя>",
-            ]
-        }
-        ```
+   Чтобы назначить роль на облако, воспользуйтесь методом REST API [updateAccessBindings](../../../resource-manager/api-ref/Cloud/updateAccessBindings.md) для ресурса [Cloud](../../../resource-manager/api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/UpdateAccessBindings](../../../resource-manager/api-ref/grpc/cloud_service.md#UpdateAccessBindings).
 
+   Чтобы назначить роль на каталог, воспользуйтесь методом REST API [updateAccessBindings](../../../resource-manager/api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../../resource-manager/api-ref/grpc/folder_service.md#UpdateAccessBindings).
 
-        Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding` см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+   Передайте в запросе:
 
-    1. Проверьте корректность конфигурационных файлов.
-
-        1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-        1. Выполните проверку с помощью команды:
-
-            ```
-            terraform plan
-            ```
-
-       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Разверните облачные ресурсы.
-
-        1. Если в конфигурации нет ошибок, выполните команду:
-
-            ```
-            terraform apply
-            ```
-
-        1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
-
-        ```
-        yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
-        ```
-
-- API {#api}
-
-    Воспользуйтесь методом REST API `updateAccessBindings` для соответствующего ресурса.
-
-    1. Выберите роль в [справочнике ролей {{ yandex-cloud }}](../../roles-reference.md).
-    1. [Получите идентификатор пользователя](../users/get.md).
-    1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и идентификатор пользователя:
-
-        **body.json:**
-        ```json
-        {
-            "accessBindingDeltas": [{
-                "action": "ADD",
-                "accessBinding": {
-                    "roleId": "editor",
-                    "subject": {
-                        "id": "gfei8n54hmfh********",
-                        "type": "userAccount"
-                        }
-                    }
-                }
-            ]
-        }
-        ```
-
-    1. {% include [grant-role-folder-via-curl-step](../../../_includes/iam/grant-role-folder-via-curl-step.md) %}
-
-    Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса:
-    * [{#T}](../sa/set-access-bindings.md).
-    * [{#T}](../../../resource-manager/operations/cloud/set-access-bindings.md).
-    * [{#T}](../../../resource-manager/operations/folder/set-access-bindings.md).
+   * Значение `ADD` в параметре `accessBindingDeltas[].action`, чтобы добавить роль.
+   * Роль в параметре `accessBindingDeltas[].accessBinding.roleId`.
+   * Идентификатор субъекта, на кого назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.id`.
+   * Тип субъекта, на кого назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.type`.
 
 {% endlist %}
 
+## Назначить роль на организацию {#organization}
+
+Чтобы выдать права доступа на организацию, вам нужна роль не ниже `{{ roles-organization-admin }}`. Подробнее о последовательности ролей см. в [документе {{ org-full-name }}](../../../organization/security/index.md#roles-list).
+
+{% list tabs group=instructions %}
+
+* {{ org-name }} {#cloud-org}
+
+   Чтобы назначить роль на организацию:
+
+   1. [Войдите в аккаунт]({{ link-passport-login }}) администратора или владельца организации.
+   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
+   1. На панели слева выберите ![icon-acl](../../../_assets/console-icons/persons-lock.svg) [**{{ ui-key.yacloud_org.pages.acl }}**]({{ link-org-acl }}).
+   1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к организации.
+   1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
+   1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
+
+* CLI {#cli}
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   Чтобы назначить роль на организацию:
+
+   1. Посмотрите описание команды CLI для назначения роли:
+
+      ```bash
+      yc organization-manager organization add-access-binding --help
+      ```
+
+   1. Получите список доступных организаций вместе с их идентификаторами:
+
+      ```bash
+      yc organization-manager organization list
+      ```
+
+   1. Получите [идентификатор пользователя](../users/get.md), [сервисного аккаунта](../sa/get-id.md) или группы пользователей, которым назначаете роль.
+   1. С помощью одной из команд ниже назначьте роль:
+
+      * Пользователю с аккаунтом на Яндексе:
+
+         ```bash
+         yc organization-manager organization add-access-binding \
+            --id <идентификатор_организации> \
+            --role <роль> \
+            --user-account-id <идентификатор_пользователя>
+         ```
+
+      * Федеративному пользователю:
+
+         ```bash
+         yc organization-manager organization add-access-binding \
+            --id <идентификатор_организации> \
+            --role <роль> \
+            --subject federatedUser:<идентификатор_пользователя>
+         ```
+
+      * Сервисному аккаунту:
+
+         ```bash
+         yc organization-manager organization add-access-binding \
+            --id <идентификатор_организации> \
+            --role <роль> \
+            --service-account-id <идентификатор_сервисного_аккаунта>
+         ```
+
+      * Группе пользователей:
+
+         ```bash
+         yc organization-manager organization add-access-binding \
+            --id <идентификатор_организации> \
+            --role <роль> \
+            --subject group:<идентификатор_группы>
+         ```
+
+* {{ TF }} {#tf}
+
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+   Чтобы назначить роль на организацию:
+
+   1. Получите [идентификатор пользователя](../users/get.md), [сервисного аккаунта](../sa/get-id.md) или группы пользователей, которым назначаете роль.
+   1. Опишите в конфигурационном файле ресурс с ролью на организацию.
+
+      Пример структуры конфигурационного файла:
+
+      ```hcl
+      resource "yandex_organizationmanager_organization_iam_binding" "<название_ресурса>" {
+        organization_id = "<идентификатор_организации>"
+        role            = "<роль>"
+        members         = [<пользователи>]
+      }
+      ```
+
+      Где:
+
+      * `organization_id` — идентификатор организации. Обязательный параметр.
+      * `role` — назначаемая роль. Для каждой роли можно использовать только один ресурс `yandex_organizationmanager_organization_iam_binding`. Обязательный параметр.
+      * `members` — пользователи, которым назначается роль. Укажите:
+
+         * `members = ["userAccount:<идентификатор_пользователя>"]` — для пользователя с аккаунтом на Яндексе.
+         * `members = ["federatedUser:<идентификатор_пользователя>"]` — для федеративного пользователя.
+         * `members = ["serviceAccount:<идентификатор_пользователя>"]` — для сервисного аккаунта.
+         * `members = ["group:<идентификатор_пользователя>"]` — для группы пользователей.
+
+      Более подробную информацию см. в [документации провайдера]({{ tf-provider-link }}).
+
+   1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+   1. Назначьте роль.
+
+      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+      После этого в организации будут созданы нужные ресурсы. Проверить их создание можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
+
+      ```bash
+      yc organization-manager organization list-access-bindings <имя_или_идентификатор_организации>
+      ```
+
+* API {#api}
+
+   Чтобы назначить роль на организацию, воспользуйтесь методом REST API [updateAccessBindings](../../../organization/api-ref/Organization/updateAccessBindings.md) для ресурса [Organization](../../../organization/api-ref/Organization/index.md) или вызовом gRPC API [OrganizationService/UpdateAccessBindings](../../../organization/api-ref/grpc/organization_service.md#UpdateAccessBindings) и передайте в запросе:
+
+   * Значение `ADD` в параметре `accessBindingDeltas[].action`, чтобы добавить роль.
+   * Роль в параметре `accessBindingDeltas[].accessBinding.roleId`.
+   * Идентификатор субъекта, на кого назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.id`.
+   * Тип субъекта, на кого назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.type`.
+
+{% endlist %}
+
+## Назначить роль на ресурс {#resource}
+
+Вы можете назначить роль не только на облако или каталог, но и на их дочерние ресурсы. Они перечислены в разделе [{#T}](../../concepts/access-control/resources-with-access-control.md).
+
+{% list tabs group=instructions %}
+
+* Консоль управления {#console}
+
+   Чтобы назначить роль на ресурс:
+
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ресурс.
+   1. Откройте его страницу.
+   1. Перейдите в раздел ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к ресурсу.
+   1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
+   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+
+* CLI {#cli}
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   Чтобы назначить роль на ресурс:
+
+   1. Посмотрите описание команды CLI для назначения роли:
+
+      ```bash
+      yc <имя_сервиса> <ресурс> add-access-binding --help
+      ```
+
+      Пример для [виртуальной машины {{ compute-full-name }}](../../../compute/concepts/vm.md):
+
+      ```bash
+      {{ yc-compute-instance }} add-access-binding --help
+      ```
+
+   1. Получите список ресурсов вместе с их идентификаторами:
+
+      ```bash
+      yc <имя_сервиса> <ресурс> list
+      ```
+
+   1. Получите [идентификатор пользователя](../users/get.md), [сервисного аккаунта](../sa/get-id.md) или группы пользователей, которым назначаете роль.
+   1. С помощью одной из команд ниже назначьте роль:
+
+      * Пользователю с аккаунтом на Яндексе:
+
+         ```bash
+         yc <имя_сервиса> <ресурс> add-access-binding \
+            --id <идентификатор_ресурса> \
+            --role <роль> \
+            --user-account-id <идентификатор_пользователя>
+         ```
+
+      * Федеративному пользователю:
+
+         ```bash
+         yc <имя_сервиса> <ресурс> add-access-binding \
+            --id <идентификатор_ресурса> \
+            --role <роль> \
+            --subject federatedUser:<идентификатор_пользователя>
+         ```
+
+      * Сервисному аккаунту:
+
+         ```bash
+         yc <имя_сервиса> <ресурс> add-access-binding \
+            --id <идентификатор_ресурса> \
+            --role <роль> \
+            --service-account-id <идентификатор_сервисного_аккаунта>
+         ```
+
+      * Группе пользователей:
+
+         ```bash
+         yc <имя_сервиса> <ресурс> add-access-binding \
+            --id <идентификатор_ресурса> \
+            --role <роль> \
+            --subject group:<идентификатор_группы>
+         ```
+
+* API {#api}
+
+   Чтобы назначить роль на ресурс, воспользуйтесь методом REST API или вызовом gRPC API `updateAccessBindings` для нужного ресурса и передайте в запросе:
+
+   * Значение `ADD` в параметре `accessBindingDeltas[].action`, чтобы добавить роль.
+   * Роль в параметре `accessBindingDeltas[].accessBinding.roleId`.
+   * Идентификатор субъекта, на кого назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.id`.
+   * Тип субъекта, на кого назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.type`.
+
+{% endlist %}
 
 ## Назначить несколько ролей {#multiple-roles}
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+* Консоль управления {#console}
 
-    {% include [set-access-binding](../../../_includes/resource-manager/set-access-binding-multiple-users-console.md) %}
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ресурс.
+   1. Откройте его страницу.
+   1. Перейдите в раздел ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к ресурсу.
+   1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
+   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-- CLI {#cli}
+* CLI {#cli}
 
-    {% include [cli-install](../../../_includes/cli-install.md) %}
+   {% include [set-access-bindings-cli](../../../_includes/iam/roles/set-access-bindings-cli.md) %}
 
-    Команда `add-access-binding` позволяет добавить только одну роль. Вы можете назначить несколько ролей с помощью команды `set-access-binding`.
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    {% note alert %}
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    Команда `set-access-binding` полностью перезаписывает права доступа к ресурсу! Все текущие роли на ресурс будут удалены.
+   Чтобы назначить несколько ролей на ресурс:
 
-    {% endnote %}
+   1. Убедитесь, что на ресурс не назначены роли, которые вы не хотите потерять:
 
-    Например, чтобы назначить несколько ролей на каталог:
+      ```bash
+      yc <имя_сервиса> <ресурс> list-access-bindings \
+         --id <идентификатор_ресурса>
+      ```
 
-    1. Убедитесь, что на ресурс не назначено ролей, которые вы не хотите потерять:
+      Пример для [виртуальной машины {{ compute-full-name }}](../../../compute/concepts/vm.md):
 
-        ```bash
-        yc resource-manager folder list-access-binding my-folder
-        ```
+      ```bash
+      {{ yc-compute-instance }} list-access-bindings \
+         --id <идентификатор_ВМ>
+      ```
 
-    1. Назначьте роли. Например, назначьте одному пользователю роль `editor`, а другому `viewer`:
+   1. Посмотрите описание команды CLI для назначения ролей:
 
+      ```bash
+      yc <имя_сервиса> <ресурс> set-access-bindings --help
+      ```
 
-        ```bash
-        yc resource-manager folder set-access-bindings my-folder \
-            --access-binding role=editor,subject=userAccount:gfei8n54hmfh********
-            --access-binding role=viewer,subject=userAccount:helj89sfj80a********
-        ```
+   1. Получите список ресурсов вместе с их идентификаторами:
 
+      ```bash
+      yc <имя_сервиса> <ресурс> list
+      ```
 
-- API {#api}
+   1. Получите [идентификатор пользователя](../users/get.md), [сервисного аккаунта](../sa/get-id.md) или группы пользователей, которым назначаете роли.
+   1. С помощью одной из команд ниже назначьте роли:
 
-    1. Чтобы назначить одному пользователю роль `editor`, а другому `viewer`, в файл с телом запроса добавьте несколько привязок прав доступа в `accessBindingDeltas`.
+      * Пользователю с аккаунтом на Яндексе:
 
-        **body.json:**
-        ```json
-        {
-            "accessBindingDeltas": [{
-                "action": "ADD",
-                "accessBinding": {
-                    "roleId": "editor",
-                    "subject": {
-                        "id": "gfei8n54hmfh********",
-                        "type": "userAccount"
-                    }
-                }
-            },{
-                "action": "ADD",
-                "accessBinding": {
-                    "roleId": "viewer",
-                    "subject": {
-                        "id": "helj89sfj80a********",
-                        "type": "userAccount"
-                    }
-                }
-            }]
-        }
-        ```
+         ```bash
+         yc <имя_сервиса> <ресурс> set-access-bindings \
+            --id <идентификатор_ресурса> \
+            --access-binding role=<роль>,user-account-id=<идентификатор_пользователя>
+         ```
 
-    1. Назначьте указанные роли, например на каталог с идентификатором `b1gvmob95yys********`:
+      * Федеративному пользователю:
 
-        {% include [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md) %}
+         ```bash
+         yc <имя_сервиса> <ресурс> set-access-bindings \
+            --id <идентификатор_ресурса> \
+            --access-binding role=<роль>,subject=federatedUser:<идентификатор_пользователя>
+         ```
 
-    Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../api-ref/grpc/service_account_service.md#SetAccessBindings).
+      * Сервисному аккаунту:
 
-    {% note alert %}
+         ```bash
+         yc <имя_сервиса> <ресурс> set-access-bindings \
+            --id <идентификатор_ресурса> \
+            --access-binding role=<роль>,service-account-id=<идентификатор_сервисного_аккаунта>
+         ```
 
-    Метод `setAccessBindings` полностью перезаписывает права доступа к ресурсу! Все текущие роли на ресурс будут удалены.
+      * Группе пользователей:
 
-    {% endnote %}
+         ```bash
+         yc <имя_сервиса> <ресурс> set-access-bindings \
+            --id <идентификатор_ресурса> \
+            --access-binding role=<роль>,subject=group:<идентификатор_группы>
+         ```
 
-    1. В теле запроса укажите список новых привязок прав доступа.
+      Для каждой роли передайте отдельный флаг `--access-binding`. Пример:
 
-        **body.json:**
-        ```json
-        {
-            "accessBindings": [{
-                "roleId": "editor",
-                "subject": { "id": "ajei8n54hmfh********", "type": "userAccount" }
-            },{
-                "roleId": "viewer",
-                "subject": { "id": "helj89sfj80a********", "type": "userAccount" }
-            }]
-        }
-        ```
+      ```bash
+      yc <имя_сервиса> <ресурс> set-access-bindings \
+         --id <идентификатор_ресурса> \
+         --access-binding role=<роль1>,service-account-id=<идентификатор_сервисного_аккаунта> \
+         --access-binding role=<роль2>,service-account-id=<идентификатор_сервисного_аккаунта> \
+         --access-binding role=<роль3>,service-account-id=<идентификатор_сервисного_аккаунта>
+      ```
 
-    2. Назначьте роли:
+* API {#api}
 
-        ```bash
-        export FOLDER_ID=b1gvmob95yys********
-        export IAM_TOKEN=CggaATEVAgA...
-        curl -X POST \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer ${IAM_TOKEN}" \
-            -d '@body.json' \
-            "https://resource-manager.{{ api-host }}/resource-manager/v1/folders/${FOLDER_ID}:setAccessBindings"
-        ```
+   {% include [set-access-bindings-api](../../../_includes/iam/roles/set-access-bindings-api.md) %}
+
+   Чтобы назначить несколько ролей на ресурс, воспользуйтесь методом REST API или вызовом gRPC API `setAccessBindings` для нужного ресурса. Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
+
+   * Роль в параметре `accessBindings[].roleId`.
+   * Идентификатор субъекта, на кого назначаются роли, в параметре `accessBindings[].subject.id`.
+   * Тип субъекта, на кого назначаются роли, в параметре `accessBindings[].subject.type`.
 
 {% endlist %}
-
-
-## Доступ к ресурсу для сервисного аккаунта {#access-to-sa}
-
-{% include [grant-role-for-sa](../../../_includes/iam/grant-role-for-sa.md) %}
-
-
-## Доступ к ресурсу для федеративного пользователя {#access-to-federated-user}
-
-В консоли управления [федеративному пользователю](../../../organization/concepts/add-federation.md) можно назначить роль на отдельное облако или каталог.
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-    Назначение роли происходит так же, как назначение роли пользователю с аккаунтом на Яндексе. Рядом с именем пользователя будет указано имя федерации, к которой он относится.
-
-    В консоли управления можно назначить роль только на облако или каталог:
-
-    1. Назначьте пользователю роль в облаке:
-
-        {% include [set-access-binding-user-cloud-console](../../../_includes/resource-manager/set-access-binding-user-cloud-console.md) %}
-
-    1. Назначьте пользователю роль в каталоге:
-
-        {% include [set-access-binding-user-acc-abstract-console](../../../_includes/resource-manager/set-access-binding-user-acc-abstract-console.md) %}
-
-- CLI {#cli}
-
-    {% include [cli-install](../../../_includes/cli-install.md) %}
-
-    1. Выберите роль в [справочнике ролей {{ yandex-cloud }}](../../roles-reference.md).
-    1. [Получите идентификатор пользователя](../users/get.md).
-    1. Назначьте роль с помощью команды:
-
-        ```bash
-        yc <имя_сервиса> <категория_ресурса> add-access-binding <имя_или_идентификатор_ресурса> \
-            --role <идентификатор_роли> \
-            --subject federatedUser:<идентификатор_пользователя>
-        ```
-
-        Где:
-
-        * `<имя_сервиса>` — имя сервиса, на чей ресурс назначается роль, например `resource-manager`.
-        * `<категория_ресурса>` — категория ресурса, например `cloud`.
-        * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса. Вы можете указать ресурс по имени или идентификатору.
-        * `--role` — идентификатор роли, например `{{ roles-cloud-owner }}`.
-        * `--subject federatedUser` — идентификатор аккаунта пользователя, которому назначается роль.
-
-        Например, назначьте роль `viewer` на [облако](../../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
-
-        ```bash
-        yc resource-manager cloud add-access-binding mycloud \
-            --role viewer \
-            --subject federatedUser:aje6o61dvog2********
-        ```
-
-- API {#api}
-
-    Воспользуйтесь методом REST API `updateAccessBindings` для соответствующего ресурса.
-
-    1. Выберите роль в [справочнике ролей {{ yandex-cloud }}](../../roles-reference.md).
-    1. [Получите идентификатор пользователя](../users/get.md).
-    1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `federatedUser` и идентификатор пользователя:
-
-        **body.json:**
-
-        ```json
-        {
-            "accessBindingDeltas": [{
-                "action": "ADD",
-                "accessBinding": {
-                    "roleId": "editor",
-                    "subject": {
-                        "id": "gfei8n54hmfh********",
-                        "type": "federatedUser"
-                        }
-                    }
-                }
-            ]
-        }
-        ```
-
-    1. {% include [grant-role-folder-via-curl-step](../../../_includes/iam/grant-role-folder-via-curl-step.md) %}
-
-{% endlist %}
-
-
-
-## Доступ к ресурсу для группы пользователей {#access-group}
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-    Назначьте роль в облаке для группы пользователей:
-
-    1. В [консоли управления]({{ link-console-main }}) [выберите](../../../resource-manager/operations/cloud/switch-cloud.md) облако.
-    1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-    1. В открывшемся окне выберите раздел **{{ ui-key.yacloud.common.resource-acl.label_groups }}**.
-    1. Выберите группу из списка или воспользуйтесь поиском, чтобы найти группу по названию.
-    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль из списка или воспользуйтесь поиском.
-    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
-  
-    Название группы отобразится в разделе **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** облака вместе с остальными пользователями, у которых есть роли в этом облаке.
-
-- CLI {#cli}
-
-    {% include [cli-install](../../../_includes/cli-install.md) %}
-
-    1. Выберите роль в [справочнике ролей {{ yandex-cloud }}](../../roles-reference.md).
-    1. [Получите идентификатор пользователя](../users/get.md).
-    1. Назначьте роль с помощью команды:
-
-        ```bash
-        yc <имя_сервиса> <категория_ресурса> add-access-binding <имя_или_идентификатор_ресурса> \
-            --role <идентификатор_роли> \
-            --subject group:<идентификатор_группы>
-        ```
-
-        Где:
-
-        * `<имя_сервиса>` — имя сервиса, на чей ресурс назначается роль, например `resource-manager`.
-        * `<категория_ресурса>` — категория ресурса, например `cloud`.
-        * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса. Вы можете указать ресурс по имени или идентификатору.
-        * `--role` — идентификатор роли, например `{{ roles-cloud-owner }}`.
-        * `--subject group` — идентификатор группы, которой назначается роль.
-
-        Например, назначьте роль `viewer` на [облако](../../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
-
-        ```bash
-        yc resource-manager cloud add-access-binding mycloud \
-            --role viewer \
-            --subject group:aje6o61dvog2********
-        ```
-
-{% endlist %}
-
-## Доступ к ресурсу всем пользователям {#access-to-all}
-
-{% include [grant-role-for-all](../../../_includes/iam/grant-role-for-all.md) %}

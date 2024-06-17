@@ -1,0 +1,1 @@
+The `license-manager.subscriptionAgent` role enables [linking](../../marketplace/operations/users/lock-subscription.md) subscriptions to resources, apps, or services, as well as viewing info on [subscriptions](../../marketplace/concepts/users/subscription.md) and their links to resources, apps, or services.

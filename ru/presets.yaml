@@ -85,6 +85,7 @@ default:
   cloud-logging-name: Cloud Logging
   cloud-logging-short-name: Cloud Logging
   cloud-logs-name: Cloud Logs
+  cluster-id: cat0adul1fj0********
   cname-example: cl-msa87*****.edgecdn.ru
   coi: Container Optimized Image
   compute-full-name: Yandex Compute Cloud
@@ -3756,14 +3757,20 @@ default:
             column_product: Продукт
             column_service: Сервис
             column_unit: Ед. потребления
+            filter_label_aggregation: 'Группировка:'
             filter_label_all-filters: Фильтры
+            filter_label_label-key: 'Ключ метки:'
+            filter_label-services: 'Сервисы:'
             label_from: От
             label_product: Продукты
             label_service: Сервисы
+            label_title-usage-short: Потребление за
             label_to: До
             label_top-cost: Стоимость потребления
             label_top-total: К оплате
+            tab_label: По меткам
             tab_product: По продуктам
+            tab_service: По сервисам
             value_cost: Потребление
             value_folders: Каталогам
           exports:
@@ -4689,6 +4696,7 @@ default:
             field_platform: Платформа
             field_preemptible: Прерываемая
             label_sw-accelerated-net: Программно-ускоренная сеть
+            label_tab-custom: Своя конфигурация
             value_platform-tab-gpu: Есть GPU
         condition-column:
           condition_and: и
@@ -4790,17 +4798,18 @@ default:
             button_create: Создать диск
           edit:
             button_update: Сохранить изменения
-          field_new-availability-zone: Новая зона доступности
           label_disk-used: Подключен
           popup_detach-disk_button_detach: Отсоединить
         field_additional: Дополнительно
         field_disk-autodelete: Удалять вместе с виртуальной машиной
+        field_new-availability-zone: Новая зона доступности
         gpu_clusters: Кластеры GPU
         group:
           edit:
             label_title: Изменение группы виртуальных машин
           overview:
             label_instance-address: Публичный IP-адрес
+            label_instance-resource: Вычислительные ресурсы
             section_base: Общая информация
             section_instances-state: Состояния виртуальных машин
           switch_instances: Список ВМ
@@ -5342,6 +5351,8 @@ default:
             value_data-streams: Data Streams
             value_data-transfer: Data Transfer
             value_managed-clickhouse: Кластер ClickHouse
+            value_managed-mysql: Кластер MySQL
+            value_managed-postgresql: Кластер PostgreSQL
             value_serverless-functions: Функция
             value_storage: Бакет
             value_vpc: Сеть
@@ -5737,6 +5748,7 @@ default:
             label_title: Резервные копии
           databases:
             action_add-database: Создать базу данных
+            button_action-connect: Подключиться
             button_action-manage: Настроить
             button_action-remove: Удалить
             column_extensions: Расширения PostgreSQL
@@ -8090,7 +8102,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.1
+        tag: v0.2.2
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd

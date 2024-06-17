@@ -1,1 +1,1 @@
-The `functions.functionInvoker` role allows you to invoke functions.
+The `functions.functionInvoker` role enables invoking [functions](../../functions/concepts/function.md).

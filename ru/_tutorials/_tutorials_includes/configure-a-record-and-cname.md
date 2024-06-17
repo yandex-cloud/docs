@@ -3,37 +3,37 @@
 ### Добавьте зону DNS {#create-dns-zone}
 
 Чтобы добавить [публичную зону DNS](../../dns/concepts/dns-zone.md#public-zones):
-1. Откройте раздел **{{ dns-name }}** в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется создать [зону DNS](../../dns/concepts/dns-zone.md).
-1. Нажмите кнопку **Создать зону**.
+1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется создать [зону DNS](../../dns/concepts/dns-zone.md).
+1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
 1. Задайте настройки зоны DNS:
-   * **Имя** зоны DNS: `example-zone-1`.
-   * **Зона**: `example.com.`. Укажите ваш зарегистрированный домен.
-   * **Тип** — **Публичная**.
-1. Нажмите кнопку **Создать**.
+   * **{{ ui-key.yacloud.dns.label_zone }}** — `example.com.`. Или укажите ваш зарегистрированный домен.
+   * **{{ ui-key.yacloud.common.type }}** — `{{ ui-key.yacloud.dns.label_public }}`.
+   * **{{ ui-key.yacloud.common.name }}** — `example-zone-1`.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 ### Добавьте ресурсные записи {#create-dns-records}
 
 Создайте в публичной зоне записи DNS:
-1. В блоке **Сеть** на странице [виртуальной машины](../../compute/concepts/vm.md) в [консоли управления]({{ link-console-main }}) найдите [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) ВМ.
+1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице [виртуальной машины](../../compute/concepts/vm.md) в [консоли управления]({{ link-console-main }}) найдите [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) ВМ.
 1. Создайте запись [типа А](../../dns/concepts/resource-record.md#a):
-   * Откройте раздел **{{ dns-name }}** в каталоге, где находится зона DNS `example.com`.
+   * Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** в каталоге, где находится зона DNS `example.com`.
    * Выберите зону DNS `example.com` из списка.
-   * Нажмите кнопку **Создать запись**.
+   * Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
    * Задайте параметры записи:
-     * **Имя**: оставьте пустым.
-	 * **Тип записи**: оставьте значение `А`.
-	 * **TTL** (время кэширования записи): оставьте значение по умолчанию.
-	 * **Значение**: введите публичный адрес вашей ВМ.
-   * Нажмите кнопку **Создать**.
+     * **{{ ui-key.yacloud.common.name }}** — оставьте пустым.
+     * **{{ ui-key.yacloud.common.type }}** — оставьте значение `А`.
+     * **{{ ui-key.yacloud.dns.label_records }}** — введите публичный адрес вашей ВМ.
+     * **{{ ui-key.yacloud.dns.label_form-ttl }}** (время кэширования записи) — оставьте значение по умолчанию.
+   * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 1. Создайте запись [типа CNAME](../../dns/concepts/resource-record.md#cname):
    * Выберите зону DNS `example.com` из списка.
-   * Нажмите кнопку **Создать запись**.
+   * Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
    * Задайте параметры записи:
-     * **Имя**: `www`.
-     * **Тип записи**: выберите значение `CNAME`.
-     * **TTL** (время кэширования записи): оставьте значение по умолчанию.
-     * **Значение**: введите `example.com`.
-   * Нажмите кнопку **Создать**.
+     * **{{ ui-key.yacloud.common.name }}** — `www`.
+     * **{{ ui-key.yacloud.common.type }}** — выберите значение `CNAME`.
+     * **{{ ui-key.yacloud.dns.label_records }}** — введите `example.com`.
+     * **{{ ui-key.yacloud.dns.label_form-ttl }}** (время кэширования записи) — оставьте значение по умолчанию.
+   * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 ### Делегируйте доменное имя {#delegate-domain}
 

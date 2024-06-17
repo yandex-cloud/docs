@@ -12,11 +12,9 @@ Only a user with the `{{ roles-datalens-instances-admin }}` or `{{ roles-datalen
 
 To create a {{ datalens-short-name }} Usage Analytics connection:
 
-1. Go to the [connections page]({{ link-datalens-main }}/connections).
-1. Click **Create connection**.
+1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
 
-
-1. Select the **Usage Analytics** connection:
+1. Under **Files and services**, select the **Usage Analytics** connection:
 
    * **Light**: Provides aggregated statistics on the {{ datalens-short-name }} instance usage for a limited period of time (60 days). This connection is available with any [service plan](../../pricing.md#service-plans).
 
@@ -40,7 +38,8 @@ To create a {{ datalens-short-name }} Usage Analytics connection:
 
    {% endcut %}
 
-1. Click **Create connection**. If you use the new {{ datalens-short-name }} object model with [workbooks and collections](../../../datalens/workbooks-collections/index.md), select or create a workbook to save the connection in.
+1. Click **Create connection**.
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
 1. Enter a name for the connection and click **Create**.
 
 
@@ -63,12 +62,19 @@ Service usage statistics are generated considering the following:
    * [{{ billing-name }}](create-cloud-billing.md)
    * [{{ monitoring-full-name }}](create-monitoring.md)
 
-* When creating a new object (connection, dataset, chart, or dashboard), its name will not be visible in the statistics for some time (up to 24 hours). When renaming an object, you will see its old name for some time (up to 24 hours).
+* When creating a new object (connection, dataset, chart, or dashboard), you will see `__unknown__` instead of its name in the statistics for up to 24 hours. When renaming an object, you will see its old name for up to 24 hours.
 * Aggregated data is updated once in 24 hours.
+* Unused objects and inactive users are not presented in the statistics.
 
 ### DataLens Usage Analytics Light dashboard {#light-dash}
 
-On such a dashboard, you can see a summary on the number of objects of different types and the users who use them. At the top, there are filters by object and user. Using a custom table with object hierarchy, you can check which dashboards are used the most and where errors occur most often.
+The dashboard provides the following summary information:
+
+* Number of objects of different types
+* Number of executed queries and errors
+* Number of users using the objects
+
+At the top, there are filters by object and user. You can configure the statistics period with the help of the calendar. Use a custom table with object hierarchy to figure which dashboards are used the most and which areas are most prone to errors.
 
 ### DataLens Usage Analytics Detailed dashboard {#detailed-dash}
 

@@ -704,7 +704,7 @@ yc components update
 
 Ниже представлена инструкция по постепенной миграции нагрузки из старой группы узлов в новую. Инструкцию по миграции объектов `PersistentVolume` и `PersistentVolumeClaim` см. в подразделе [Миграция stateful-нагрузки](#stateful).
 
-1. [Создайте новую группу узлов](../operations/node-group/node-group-create.md#node-group-create) {{ managed-k8s-name }} в новой зоне доступности.
+1. [Создайте новую группу узлов](../operations/node-group/node-group-create.md) {{ managed-k8s-name }} в новой зоне доступности.
 
 1. Запретите запуск новых подов в старой группе узлов:
 

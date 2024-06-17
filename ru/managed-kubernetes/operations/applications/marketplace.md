@@ -36,7 +36,7 @@
 
 {% note info %}
 
-Для развертывания приложений необходима хотя бы одна [активная группа узлов](../node-group/node-group-create.md#node-group-create).
+Для развертывания приложений необходима хотя бы одна [активная группа узлов](../node-group/node-group-create.md).
 
 {% endnote %}
 

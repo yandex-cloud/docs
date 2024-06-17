@@ -14,7 +14,7 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-Убедитесь, что в выбранном [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) есть [сеть](../../vpc/concepts/network.md#network) с [подсетями](../../vpc/concepts/network.md#subnet) в [зонах доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-d`. Для этого на странице каталога выберите сервис **{{ vpc-name }}**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если нужных подсетей или сети нет, [создайте их](../../vpc/quickstart.md).
+Убедитесь, что в выбранном [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) есть [сеть](../../vpc/concepts/network.md#network) с [подсетями](../../vpc/concepts/network.md#subnet) в [зонах доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-d`. Для этого на странице каталога выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если нужных подсетей или сети нет, [создайте их](../../vpc/quickstart.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -26,26 +26,26 @@
 
 - Консоль управления {#console}
 
-  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-  1. В поле **Имя** введите имя ВМ — `joomla-pg-tutorial-web`.
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** введите имя ВМ — `joomla-pg-tutorial-web`.
   1. Выберите зону доступности, в которой будет находиться ВМ.
-  1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и выберите публичный образ [CentOS Stream](/marketplace/products/yc/centos-stream-8).
-  1. В блоке **Вычислительные ресурсы**:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите публичный образ [CentOS Stream](/marketplace/products/yc/centos-stream-8).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** на вкладке **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}**:
      * Выберите [платформу](../../compute/concepts/vm-platforms.md).
      * Укажите необходимое количество vCPU и объем RAM.
 
      Для функционального тестирования достаточно минимальной конфигурации:
-     * **Платформа** — Intel Ice Lake.
-     * **Гарантированная доля vCPU** — 20%.
-     * **vCPU** — 2.
-     * **RAM** — 1 ГБ.
-  1. В блоке **Сетевые настройки** выберите, к какой подсети необходимо подключить ВМ при создании.
-  1. Укажите данные для доступа на ВМ:
-     * В поле **Логин** введите имя пользователя.
-     * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
+     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+     * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
+     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите, к какой подсети необходимо подключить ВМ при создании.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа.
 
        Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать самостоятельно. Для создания ключей используйте сторонние инструменты, например утилиты `ssh-keygen` в Linux и macOS или [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) в Windows.
-  1. Нажмите кнопку **Создать ВМ**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   Создание ВМ может занять несколько минут.
 
@@ -59,17 +59,17 @@
 
 - Консоль управления {#console}
 
-  1. На странице каталога нажмите кнопку **Создать ресурс** и выберите **Кластер {{ PG }}**.
-  1. В поле **Имя** введите имя кластера — `joomla-pg-tutorial-db-cluster`.
-  1. В разделе **Класс хоста** выберите подходящий вам класс [хоста](../../managed-postgresql/concepts/instance-types.md).
-  1. В разделе **Размер хранилища** укажите 10 ГБ.
-  1. В разделе **База данных** укажите:
-     * **Имя БД** — `joomla-pg-tutorial-db`.
-     * **Имя пользователя** — `joomla`.
-     * **Пароль** — пароль, который вы будете использовать для доступа к БД.
-  1. В списке **Сеть** выберите сеть, к которой подключена ваша ВМ.
-  1. В разделе **Хосты** добавьте еще два хоста в других зонах доступности. При создании хостов не включайте для них **Публичный доступ**.
-  1. Нажмите кнопку **Создать кластер**.
+  1. На странице каталога нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_managed-postgresql }}**.
+  1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}** введите имя кластера — `joomla-pg-tutorial-db-cluster`.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите подходящий вам класс [хоста](../../managed-postgresql/concepts/instance-types.md).
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** укажите `10 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите:
+     * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `joomla-pg-tutorial-db`.
+     * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `joomla`.
+     * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — пароль, который вы будете использовать для доступа к БД.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите сеть, к которой подключена ваша ВМ.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** добавьте еще два хоста в других зонах доступности. При создании хостов не включайте для них **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
   Создание кластера БД может занять несколько минут.
 

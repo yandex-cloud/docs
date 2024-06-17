@@ -16,7 +16,18 @@ You can get a list of internal IP addresses that use cloud resources in the same
 
 _Public IP addresses_ allow cloud resources to exchange data with the internet and resources from other cloud networks. Public addresses are mapped to internal resource addresses using one-to-one NAT. You can assign public addresses to resources automatically or select them from the list of reserved addresses.
 
-Public IP addresses can be dynamic or static. When creating a cloud resource with a public IP, it is usually assigned a dynamic address. When a VM with a dynamic public IP is stopped, its address is released, and it gets a new public IP address when started next time. When the VM is restarted, its public IP address is saved.
+{% note info %}
+
+A virtual machine can access the internet and you can access the VM via a public IP address only if there is no `0.0.0.0/0` default [static route](./static-routes.md) in its subnet. If a virtual machine is [behind a NAT instance](../../tutorials/routing/nat-instance.md), you can connect to it via an internal IP address using the NAT instance as a jump host:
+
+```bash
+ssh -J <NAT_instance_user_name>@<NAT_instance_public_IP_address> \
+  <VM_user_name>@<VM_internal_IP_address>
+```
+
+{% endnote %}
+
+Public IP addresses can be dynamic or static. When creating a cloud resource with a public IP, it is usually assigned a dynamic address. When a VM with a dynamic public IP is stopped, its address is released, and it gets a new public IP address when started next time. If you restart the VM, it retains its public IP address.
 
 You can convert a dynamic public IP address to static. Static IP addresses do not change when resources are stopped, and you can reserve them in your folder for future use even if they are not linked to any cloud resources. To learn how to convert a dynamic IP address to static, see [{#T}](../../compute/operations/vm-control/vm-set-static-ip.md).
 
@@ -24,7 +35,6 @@ You can convert a dynamic public IP address to static. Static IP addresses do no
 
 
 For more information about IP address pricing, see the [{#T}](../pricing.md#prices-public-ip) section of the {{ vpc-name }} documentation.
-
 
 
 ### Outgoing traffic from TCP port 25 {#port-25}

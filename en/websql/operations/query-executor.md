@@ -16,7 +16,7 @@ A table with multiple rows may be difficult to view. Use the `LIMIT` condition a
 
 {% endnote %}
 
-You can view your executed queries [in the query history](history.md) and [save them as templates](templates.md).
+You can view your executed queries [in query history](history.md) and [save them as templates](templates.md).
 
 ## Exporting query execution results {#export-results}
 
@@ -34,9 +34,9 @@ A file with the results will be added to your browser's downloads section.
 1. Click **Settings** (![image](../../_assets/console-icons/gear.svg)) in the bottom-left corner.
 1. Go to the **Query editor** section.
 1. Set up the editor theme (`Visual Studio` or `High Contrast`), font size and type, and the editing features:
-   * Editor suggestions
+   * Editor tips
    * Syntax highlighting
    * Error highlighting
-   * Minimap
+   * Editor minimap
    * Autoclosing of quotes
    * Autoclosing of parentheses
