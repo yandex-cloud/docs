@@ -49,9 +49,43 @@ If `value`:
 
 #### Example {#examples}
 
-```
-MIN([Profit])
-```
+
+
+
+Source data
+
+| **City**          | **Category**        | **Orders**   | **Profit**   |
+|:------------------|:--------------------|:-------------|:-------------|
+| `'London'`        | `'Office Supplies'` | `8`          | `120.10`     |
+| `'London'`        | `'Furniture'`       | `1`          | `750.00`     |
+| `'Moscow'`        | `'Furniture'`       | `2`          | `1250.50`    |
+| `'Moscow'`        | `'Office Supplies'` | `4`          | `85.34`      |
+| `'San Francisco'` | `'Office Supplies'` | `23`         | `723.00`     |
+| `'San Francisco'` | `'Technology'`      | `12`         | `1542.00`    |
+| `'Detroit'`       | `'Furniture'`       | `5`          | `6205.87`    |
+| `'Detroit'`       | `'Technology'`      | `9`          | `2901.00`    |
+
+Grouped by `[City]`.
+
+Sorted by `[City]`.
+
+Formulas:
+
+- **City**: `[City]` ;
+- **Min Orders**: `MIN([Orders])` ;
+- **Min Profit**: `MIN([Profit])` .
+
+
+Result
+
+| **City**          | **Min Orders**   | **Min Profit**   |
+|:------------------|:-----------------|:-----------------|
+| `'Detroit'`       | `5`              | `2901.00`        |
+| `'London'`        | `1`              | `120.10`         |
+| `'Moscow'`        | `2`              | `85.34`          |
+| `'San Francisco'` | `12`             | `723.00`         |
+
+
 
 
 #### Data source support {#data-source-support}

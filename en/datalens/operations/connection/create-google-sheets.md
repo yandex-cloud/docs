@@ -14,10 +14,7 @@ Before creating a connection, learn about the [limitations](#restrictions).
 
 To create a Google Sheets connection:
 
-
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
-
-
 1. Click **Create connection**.
 1. Select the **Google Sheets** connection.
 
@@ -45,7 +42,6 @@ To create a Google Sheets connection:
 
    {% endlist %}
 
-
    {% note info %}
 
    To properly identify the data types, select **Format** → **Numbers** in the Google Sheets menu and set the column cell format.
@@ -58,6 +54,8 @@ To create a Google Sheets connection:
 1. Give your connection a name and click **Create**. The connection will appear in the list.
 
 You can add, rename, and delete files in the connection.
+
+
 
 {% cut "What do I do if a Google Sheets spreadsheet is not working properly?" %}
 
@@ -83,10 +81,11 @@ To quickly populate empty cells in a Google Sheets spreadsheet:
 
 {% endcut %}
 
-## Constraints {#restrictions}
+## Limitations {#restrictions}
 
 When creating a connection to Google Sheets, keep in mind the following limitations:
-* Maximum number of Google Sheets sheets per connection: 10. All sheets will be loaded when you create a connection, but you can only select 10 of them for concurrent work.
+
+* Maximum number of Google Sheets sheets per connection: 10. When creating a connection, all sheets will be loaded, but you can only select ten of them to work with at the same time.
 * Maximum size per sheet: 200 MB.
 * Maximum number of columns per sheet: 300.
 * Minimum number of rows per table: 2. In a table with one row, you cannot specify column types because you cannot tell a header from a data row.

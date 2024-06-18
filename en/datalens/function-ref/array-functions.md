@@ -141,7 +141,7 @@ Returns the number of elements in the array `array` equal to `value`. The type o
 
 **Syntax:**`GET_ITEM( array, index )`
 
-Returns the element with the index `index` from the array `array`. Index must be any integer. Indexes in an array begin with one.
+Returns the element with the index `index` from the array `array`. Index must be any integer. Indexes in an array begin with one. Returns the last item from the array if `index` is `-1`.
 
 
 

@@ -51,6 +51,13 @@ sourcePath: ru/_api-ref/datalens/function-ref/IF.md
 
 **Возвращаемый тип**: Зависит от типов аргументов
 
+{% note info %}
+
+Тип аргументов `result_1`, `result_2`, `default_result` должен совпадать.
+
+{% endnote %}
+
+
 #### Примеры {#examples}
 
 ```

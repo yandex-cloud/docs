@@ -21,6 +21,8 @@ sourcePath: ru/_api-ref/datalens/function-ref/aggregation-functions.md
 
 Если в поле с измерением добавить агрегацию, то поле становится показателем.
 
+Агрегатные функции можно использовать с константами, например, `COUNT(1)` или `SUM(1)`. Если в чарте не используются другие показатели и измерения, результатом такого выражения всегда будет значение `1`. Это происходит из-за того, что в функции не указано ни одного поля, поэтому {{ datalens-short-name }} в запросе не обращается ни к одной таблице источника.
+
 ## Синтаксис {#syntax}
 
 В большинстве случаев у агрегатных функций такой же синтаксис, как и у обычных функций:
@@ -42,12 +44,12 @@ AGGREGATE_FUNCTION_NAME(arg1, [arg2, ...])
 ```
 ### Уровень детализации (LOD) {#syntax-lod}
 
-Управление уровнем детализации (англ. level of detail - LOD) позволяет создавать вложенные агрегации и агрегации над всеми данными или группами, отличающимися от группировки, заданной на уровне чарта.
+Управление уровнем детализации (англ. level of detail — LOD) позволяет создавать вложенные агрегации и агрегации над всеми данными или группами, отличающимися от группировки, заданной на уровне чарта.
 
 Уровень детализации может быть задан с помощью одного из трех ключевых слов:
-- `FIXED` — данные группируются по перечисленным измерениям (`dim1, dim2, ...`) вне зависимости от того, какие измерения используются в чарте;
-- `INCLUDE` — перечисленные измерения (`dim1, dim2, ...`) добавляются к измерениям чарта;
-- `EXCLUDE` — используются все измерения чарта, кроме перечисленных (`dim1, dim2, ...`).
+* `FIXED` — данные группируются по перечисленным измерениям (`dim1, dim2, ...`) вне зависимости от того, какие измерения используются в чарте;
+* `INCLUDE` — перечисленные измерения (`dim1, dim2, ...`) добавляются к измерениям чарта;
+* `EXCLUDE` — используются все измерения чарта, кроме перечисленных (`dim1, dim2, ...`).
 
 Для любого из этих ключевых слов список может содержать неограниченное количество измерений или быть пустым.
 
@@ -71,9 +73,9 @@ AVG(MAX(SUM([Sales] FIXED [City], [Category], [Date]) FIXED [Category], [Date]) 
 
 #### Примеры LOD {#syntax-lod-examples}
 
-- средняя дневная сумма `[Sales]`: `AVG(SUM([Sales] INCLUDE [Date]))`;
-- отношение (дневной) суммы `[Sales]` к общей сумме: `SUM([Sales]) / SUM([Sales] FIXED)`;
-- сумма `[Sales]` всех заказов, которые меньше среднего: `SUM_IF(SUM([Sales] INCLUDE [Order ID]), SUM([Sales] INCLUDE [Order ID]) < AVG([Sales] FIXED))`.
+* Средняя дневная сумма `[Sales]`: `AVG(SUM([Sales] INCLUDE [Date]))`.
+* Отношение (дневной) суммы `[Sales]` к общей сумме: `SUM([Sales]) / SUM([Sales] FIXED)`.
+* Сумма `[Sales]` всех заказов, которые меньше среднего: `SUM_IF(SUM([Sales] INCLUDE [Order ID]), SUM([Sales] INCLUDE [Order ID]) < AVG([Sales] FIXED))`.
 
 #### Совместимость измерений {#syntax-lod-compatibility}
 
@@ -102,14 +104,14 @@ SUM(
 
 `BEFORE FILTER BY` применяется также и ко всем вложенным агрегатным функциям.
 Пример:
-- функция — `AVG(SUM([Sales] INCLUDE [Date]) BEFORE FILTER BY [City])`;
-- эквивалент — `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City]) BEFORE FILTER BY [City])`.
+* Формула — `AVG(SUM([Sales] INCLUDE [Date]) BEFORE FILTER BY [City])`.
+* Эквивалент — `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City]) BEFORE FILTER BY [City])`.
 
 Не используйте конфликтующие `BEFORE FILTER BY` в запросе:
-- корректная формула: `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City], [Category]) BEFORE FILTER BY [City])` — функции вложены друг в друга, и (`[City]`) является подмножеством (`[City], [Category]`);
-- корректная формула: `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [Category]) BEFORE FILTER BY [City])` — функции вложены друг в друга, поэтому списки полей комбинируются во второй из функций;
-- корректная формула: `SUM([Sales] BEFORE FILTER BY [City], [Category]) - SUM([Sales] BEFORE FILTER BY [City])` — (`[City]`) является подмножеством (`[City], [Category]`);
-- некорректная формула: `SUM([Sales] BEFORE FILTER BY [Category]) - SUM([Sales] BEFORE FILTER BY [City])` — функции не вложены, и ни одно из (`[Category]`) и (`[City]`) не является подмножеством другого.
+* Корректная формула: `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City], [Category]) BEFORE FILTER BY [City])` — функции вложены друг в друга, и (`[City]`) является подмножеством (`[City], [Category]`).
+* Корректная формула: `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [Category]) BEFORE FILTER BY [City])` — функции вложены друг в друга, поэтому списки полей комбинируются во второй из функций.
+* Корректная формула: `SUM([Sales] BEFORE FILTER BY [City], [Category]) - SUM([Sales] BEFORE FILTER BY [City])` — (`[City]`) является подмножеством (`[City], [Category]`).
+* Некорректная формула: `SUM([Sales] BEFORE FILTER BY [Category]) - SUM([Sales] BEFORE FILTER BY [City])` — функции не вложены, и ни одно из (`[Category]`) и (`[City]`) не является подмножеством другого.
 
 ## Ограничения использования {#usage-restrictions}
 
@@ -141,23 +143,23 @@ SUM(
 
 ## [ARG_MAX](ARG_MAX.md)
 
-**Синтаксис:**<br/>`ARG_MAX( value, comp )`<br/>или<br/>`ARG_MAX( value, comp
+**Синтаксис:**<br/>`ARG_MAX( value, expression_to_maximize )`<br/>или<br/>`ARG_MAX( value, expression_to_maximize
          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
          [ BEFORE FILTER BY ... ]
        )`
 
-Возвращает значение `value`, соответствующее максимальному значению `comp`. Если есть несколько значений `value`, соответствующих максимальному значению `comp`, то возвращет первое попавшееся из них. Это делает функцию недетерминированной.
+Возвращает значение `value`, соответствующее максимальному значению `expression_to_maximize`. Если есть несколько значений `value`, соответствующих максимальному значению `expression_to_maximize`, то возвращает первое попавшееся из них. Это делает функцию недетерминированной.
 
 
 
 ## [ARG_MIN](ARG_MIN.md)
 
-**Синтаксис:**<br/>`ARG_MIN( value, comp )`<br/>или<br/>`ARG_MIN( value, comp
+**Синтаксис:**<br/>`ARG_MIN( value, expression_to_minimize )`<br/>или<br/>`ARG_MIN( value, expression_to_minimize
          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
          [ BEFORE FILTER BY ... ]
        )`
 
-Возвращает значение `value`, соответствующее минимальному значению `comp`. Если есть несколько значений `value`, соответствующих минимальному значению `comp`, то возвращет первое попавшееся из них. Это делает функцию недетерминированной.
+Возвращает значение `value`, соответствующее минимальному значению `expression_to_minimize`. Если есть несколько значений `value`, соответствующих минимальному значению `expression_to_minimize`, то возвращает первое попавшееся из них. Это делает функцию недетерминированной.
 
 
 
@@ -191,6 +193,8 @@ SUM(
      )`
 
 Возвращает количество элементов в группе.
+
+Функцию можно использовать с константами, например, `COUNT(1)` или `COUNT()`. Если в чарте не используются другие показатели и измерения, результатом такого выражения всегда будет значение `1`. Это происходит из-за того, что в функции не указано ни одного поля, поэтому {{ datalens-short-name }} в запросе не обращается ни к одной таблице источника.
 
 
 

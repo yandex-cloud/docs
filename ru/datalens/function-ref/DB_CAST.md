@@ -38,9 +38,9 @@ DB_CAST( expression, native_type [ , param_1 [ , param_2 ] ] )
 | `PostgreSQL`      | `Массив дробных чисел` | `double precision[]`  |                              |                               |
 | `PostgreSQL`      | `Массив дробных чисел` | `real[]`              |                              |                               |
 | `PostgreSQL`      | `Массив дробных чисел` | `numeric[]`           | `Целое число`, `Целое число` |                               |
-| `PostgreSQL`      | `Массив целых числел`  | `smallint[]`          |                              |                               |
-| `PostgreSQL`      | `Массив целых числел`  | `integer[]`           |                              |                               |
-| `PostgreSQL`      | `Массив целых числел`  | `bigint[]`            |                              |                               |
+| `PostgreSQL`      | `Массив целых чисел`   | `smallint[]`          |                              |                               |
+| `PostgreSQL`      | `Массив целых чисел`   | `integer[]`           |                              |                               |
+| `PostgreSQL`      | `Массив целых чисел`   | `bigint[]`            |                              |                               |
 | `PostgreSQL`      | `Массив строк`         | `text[]`              |                              |                               |
 | `PostgreSQL`      | `Массив строк`         | `character varying[]` |                              |                               |
 | `PostgreSQL`      | `Массив строк`         | `varchar[]`           |                              |                               |
@@ -58,7 +58,7 @@ DB_CAST( expression, native_type [ , param_1 [ , param_2 ] ] )
 
 
 **Типы аргументов:**
-- `expression` — `Массив дробных чисел | Массив целых числел | Массив строк | Дата | Дробное число | Целое число | Строка`
+- `expression` — `Массив дробных чисел | Массив целых чисел | Массив строк | Дата | Дробное число | Целое число | Строка`
 - `native_type` — `Строка`
 - `param_1` — `Любой`
 - `param_2` — `Любой`

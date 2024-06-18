@@ -43,9 +43,43 @@ _Функция `AVG` также доступна в следующих кате
 
 #### Пример {#examples}
 
-```
-AVG([Profit])
-```
+
+
+
+Исходные данные
+
+| **City**          | **Category**        | **Orders**   | **Profit**   |
+|:------------------|:--------------------|:-------------|:-------------|
+| `'London'`        | `'Office Supplies'` | `8`          | `120.10`     |
+| `'London'`        | `'Furniture'`       | `1`          | `750.00`     |
+| `'Moscow'`        | `'Furniture'`       | `2`          | `1250.50`    |
+| `'Moscow'`        | `'Office Supplies'` | `4`          | `85.34`      |
+| `'San Francisco'` | `'Office Supplies'` | `23`         | `723.00`     |
+| `'San Francisco'` | `'Technology'`      | `12`         | `1542.00`    |
+| `'Detroit'`       | `'Furniture'`       | `5`          | `6205.87`    |
+| `'Detroit'`       | `'Technology'`      | `9`          | `2901.00`    |
+
+Группировка по `[City]`.
+
+Сортировка по `[City]`.
+
+Формулы:
+
+- **City**: `[City]` ;
+- **Avg Orders**: `AVG([Orders])` ;
+- **Avg Profit**: `AVG([Profit])` .
+
+
+Результат
+
+| **City**          | **Avg Orders**   | **Avg Profit**   |
+|:------------------|:-----------------|:-----------------|
+| `'Detroit'`       | `7.00`           | `4553.43`        |
+| `'London'`        | `4.50`           | `435.05`         |
+| `'Moscow'`        | `3.00`           | `667.92`         |
+| `'San Francisco'` | `17.50`          | `1132.50`        |
+
+
 
 
 #### Поддержка источников данных {#data-source-support}
