@@ -52,6 +52,8 @@ items:
         href: tutorials/loadtesting-overload-migration.md
       - name: Запуск внешних агентов для нагрузочного тестирования
         href: tutorials/loadtesting-external-agent.md
+      - name: Вызов нагрузочного тестирования из {{ GL }} CI
+        href: tutorials/loadtesting-gitlab-ci.md
       - name: Сравнение результатов нагрузочных тестов
         href: tutorials/loadtesting-results-compare.md
   - name: Концепции

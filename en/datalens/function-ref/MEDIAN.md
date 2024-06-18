@@ -55,7 +55,9 @@ Source data
 | `'Moscow'`        | `'Furniture'`       | `2`          | `1250.50`    |
 | `'Moscow'`        | `'Office Supplies'` | `4`          | `85.34`      |
 | `'San Francisco'` | `'Office Supplies'` | `23`         | `723.00`     |
+| `'San Francisco'` | `'Technology'`      | `12`         | `1542.00`    |
 | `'Detroit'`       | `'Furniture'`       | `5`          | `6205.87`    |
+| `'Detroit'`       | `'Technology'`      | `9`          | `2901.00`    |
 
 Formulas:
 
@@ -66,7 +68,7 @@ Result
 
 | **Median Profit**   |
 |:--------------------|
-| `750.00`            |
+| `1250.50`           |
 
 
 

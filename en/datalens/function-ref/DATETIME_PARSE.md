@@ -15,7 +15,7 @@ DATETIME_PARSE( value )
 ```
 
 #### Description {#description}
-Converts the `value` expression to date and time format. Unlike [DATETIME](DATETIME.md), it supports multiple formats.
+Converts the `value` expression to date and time format. Unlike [DATETIME](DATETIME.md), it supports multiple formats. The expression is processed on the {{ CH }} source side. For more information on the supported formats, see the relevant {{ CH }} [documentation](https://clickhouse.com/docs/en/sql-reference/functions/type-conversion-functions#parsedatetime32besteffort).
 
 **Argument types:**
 - `value` — `String`

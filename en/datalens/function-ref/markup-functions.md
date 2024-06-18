@@ -93,3 +93,16 @@ Enables specifying the size (in pixels) for the provided text.
 Wraps `text` into a hyperlink to URL `address`. When you click on the link, the page opens in a new browser tab.
 
 
+
+## [USER_INFO](USER_INFO.md)
+
+**Syntax:**`USER_INFO( user_id, user_info_type )`
+
+Returns the marked up text by `user_id` to display username or email depending on the `user_info_type` value:
+
+* `email`: Returns email.
+* `name`: Returns name.
+
+If the user has not been found, the function will return the original string from the source.
+
+

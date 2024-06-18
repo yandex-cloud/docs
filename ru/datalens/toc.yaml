@@ -588,6 +588,8 @@ items:
                 href: function-ref/SIZE.md
               - name: URL
                 href: function-ref/URL.md
+              - name: USER_INFO
+                href: function-ref/USER_INFO.md
           - name: Поддержка функций
             href: function-ref/availability.md
       - name: Туториалы по функциям

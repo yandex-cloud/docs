@@ -29,7 +29,7 @@ DATETRUNC( datetime, unit [ , number ] )
 - `"quarter"`;
 - `"year"`.
 
-При использовании функции с тремя аргументами, она обрабатывается на стороне {{ CH }} функцией [toStartOfInterval function](https://clickhouse.com/docs/en/sql-reference/functions/date-time-functions#tostartofinterval). Округление выполняется относительно определенного момента времени в соответствии с приведенной в описании функции таблицей. Например:
+При использовании функции с тремя аргументами, она обрабатывается на стороне {{ CH }} функцией [toStartOfInterval](https://clickhouse.com/docs/en/sql-reference/functions/date-time-functions#tostartofinterval). Округление выполняется относительно определенного момента времени в соответствии с приведенной в описании функции таблицей. Например:
 ```
 DATETRUNC(#2018-07-12 11:07:13#, "month", 4) = #2018-05-01 00:00:00#
 ```

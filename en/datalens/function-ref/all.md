@@ -147,17 +147,17 @@ Returns the arccosine of `number` in radians.
 
 Re-evaluate `measure` for a date/time with a given offset.
 The `date_dimension` argument is the dimension along which the offset is made.
-The `number` argument is an integer. It can be negative.
-The `unit` argument takes the following values:
+The `number` argument sets the offset in units of the `unit` argument. Set as an integer. It may take negative values. The default value is `1`.
+The `unit` argument sets the unit for `number`. It may take the following values:
 - `"year"`;
 - `"month"`;
 - `"week"`;
-- `"day"`;
+- `"day"` (default value);
 - `"hour"`;
 - `"minute"`;
 - `"second"`.
 
-Can also be used as `AGO( measure, date_dimension, number )`. In this case, the third argument is interpreted as the number of days.
+Can also be used as `AGO( measure, date_dimension, number )`. In this case, the `unit` argument takes the `"day"` value.
 
 See also [AT_DATE](AT_DATE.md), [LAG](LAG.md).
 
@@ -195,23 +195,23 @@ Returns one of the values of `value` from the group. This is a nondeterministic 
 
 ## [ARG_MAX](ARG_MAX.md)
 
-**Syntax:**<br/>`ARG_MAX( value, comp )`<br/>or<br/>`ARG_MAX( value, comp
+**Syntax:**<br/>`ARG_MAX( value, expression_to_maximize )`<br/>or<br/>`ARG_MAX( value, expression_to_maximize
          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
          [ BEFORE FILTER BY ... ]
        )`
 
-Returns `value` for the maximum value of `comp` in the group. If multiple values of `value` match the maximum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.
+Returns `value` for the maximum value of `expression_to_maximize` in the group. If multiple values of `value` match the maximum value of `expression_to_maximize`, then the first one encountered is returned. This makes the function non-deterministic.
 
 
 
 ## [ARG_MIN](ARG_MIN.md)
 
-**Syntax:**<br/>`ARG_MIN( value, comp )`<br/>or<br/>`ARG_MIN( value, comp
+**Syntax:**<br/>`ARG_MIN( value, expression_to_minimize )`<br/>or<br/>`ARG_MIN( value, expression_to_minimize
          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
          [ BEFORE FILTER BY ... ]
        )`
 
-Returns `value` for the minimum value of `comp` in the group. If multiple values of `value` match the minimum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.
+Returns `value` for the minimum value of `expression_to_minimize` in the group. If multiple values of `value` match the minimum value of `expression_to_minimize`, then the first one encountered is returned. This makes the function non-deterministic.
 
 
 
@@ -558,6 +558,8 @@ Returns the cotangent of `number` in radians.
 
 Returns the number of items in the group.
 
+Can be used with constants, such as `COUNT(1)` or `COUNT()`. If the chart does not use other measures and dimensions, the result of such an expression will always be `1`. This is because the function does not include any fields, so {{ datalens-short-name }} accesses no source tables in the query.
+
 
 
 ## [COUNT (window)](COUNT_WINDOW.md)
@@ -717,7 +719,7 @@ The date and time can be converted to the specified [time zone](https://en.wikip
 
 **Syntax:**`DATETIME_PARSE( value )`
 
-Converts the `value` expression to date and time format. Unlike [DATETIME](DATETIME.md), it supports multiple formats.
+Converts the `value` expression to date and time format. Unlike [DATETIME](DATETIME.md), it supports multiple formats. The expression is processed on the {{ CH }} source side. For more information on the supported formats, see the relevant {{ CH }} [documentation](https://clickhouse.com/docs/en/sql-reference/functions/type-conversion-functions#parsedatetime32besteffort).
 
 
 
@@ -936,7 +938,7 @@ Converts the `value` expression to [geopolygon](../concepts/data-types.md#geopol
 
 **Syntax:**`GET_ITEM( array, index )`
 
-Returns the element with the index `index` from the array `array`. Index must be any integer. Indexes in an array begin with one.
+Returns the element with the index `index` from the array `array`. Index must be any integer. Indexes in an array begin with one. Returns the last item from the array if `index` is `-1`.
 
 
 
@@ -2010,6 +2012,19 @@ Returns the string `string` in uppercase.
 **Syntax:**`URL( address, text )`
 
 Wraps `text` into a hyperlink to URL `address`. When you click on the link, the page opens in a new browser tab.
+
+
+
+## [USER_INFO](USER_INFO.md)
+
+**Syntax:**`USER_INFO( user_id, user_info_type )`
+
+Returns the marked up text by `user_id` to display username or email depending on the `user_info_type` value:
+
+* `email`: Returns email.
+* `name`: Returns name.
+
+If the user has not been found, the function will return the original string from the source.
 
 
 

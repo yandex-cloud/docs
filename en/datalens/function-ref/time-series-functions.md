@@ -70,17 +70,17 @@ AGO([Sales], [Date], "month" IGNORE DIMENSIONS [Month])
 
 Re-evaluate `measure` for a date/time with a given offset.
 The `date_dimension` argument is the dimension along which the offset is made.
-The `number` argument is an integer. It can be negative.
-The `unit` argument takes the following values:
+The `number` argument sets the offset in units of the `unit` argument. Set as an integer. It may take negative values. The default value is `1`.
+The `unit` argument sets the unit for `number`. It may take the following values:
 - `"year"`;
 - `"month"`;
 - `"week"`;
-- `"day"`;
+- `"day"` (default value);
 - `"hour"`;
 - `"minute"`;
 - `"second"`.
 
-Can also be used as `AGO( measure, date_dimension, number )`. In this case, the third argument is interpreted as the number of days.
+Can also be used as `AGO( measure, date_dimension, number )`. In this case, the `unit` argument takes the `"day"` value.
 
 See also [AT_DATE](AT_DATE.md), [LAG](LAG.md).
 
