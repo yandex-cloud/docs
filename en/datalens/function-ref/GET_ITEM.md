@@ -15,7 +15,7 @@ GET_ITEM( array, index )
 ```
 
 #### Description {#description}
-Returns the element with the index `index` from the array `array`. Index must be any integer. Indexes in an array begin with one.
+Returns the element with the index `index` from the array `array`. Index must be any integer. Indexes in an array begin with one. Returns the last item from the array if `index` is `-1`.
 
 **Argument types:**
 - `array` — `Array of fractional numbers | Array of integers | Array of strings`

@@ -94,3 +94,7 @@
 * **Message reside duration** (название метрик: `p99` – 99-й перцентиль, `p95` – 95-й перцентиль, `p90` – 90-й перцентиль, `p50` – 50-й перцентиль) — время обработки сообщений в очереди. Единицы измерения: `ms` (milliseconds) – миллисекунды.
       
   {% include [ymq-monitoring-message-duration.md](../../_includes/message-queue/ymq-monitoring-message-duration.md) %}
+
+#### См. также {#see-also}
+
+[{#T}](../metrics.md)

@@ -15,7 +15,7 @@ DATETIME_PARSE( value )
 ```
 
 #### Описание {#description}
-Переводит выражение `value` в формат даты и времени. В отличие от [DATETIME](DATETIME.md), поддерживает множество форматов.
+Переводит выражение `value` в формат даты и времени. В отличие от [DATETIME](DATETIME.md), поддерживает множество форматов. Обработка выражения происходит на стороне источника {{ CH }}. Подробнее о поддерживаемых форматах  читайте в [документации](https://clickhouse.com/docs/en/sql-reference/functions/type-conversion-functions#parsedatetime32besteffort) {{ CH }}.
 
 **Типы аргументов:**
 - `value` — `Строка`

@@ -16,6 +16,8 @@ Aggregate functions (or aggregations) are functions that combine multiple values
 
 If you add an aggregation to a dimension, it becomes a measure.
 
+Aggregate functions can be used with constants, such as `COUNT(1)` or `SUM(1)`. If the chart does not use other measures and dimensions, the result of such an expression will always be `1`. This is because the function does not include any fields, so {{ datalens-short-name }} accesses no source tables in the query.
+
 ## Syntax {#syntax}
 
 In most cases aggregate functions have the same syntax as regular functions:
@@ -40,9 +42,9 @@ For advanced cases, extended syntax may be required to indicate a custom level o
 Custom LOD make possible nested aggregations and aggregations over the entire set of rows or groups that are different from the grouping at the chart's level.
 
 LOD can be specified using one of three keywords:
-- `FIXED` — data is grouped using the listed dimensions (`dim1, dim2, ...`) regardless of the dimensions used by the chart;
-- `INCLUDE` — the listed dimensions (`dim1, dim2, ...`) are combined with the chart's dimensions;
-- `EXCLUDE` — all of the chart's dimensions are used with the exception of those listed (`dim1, dim2, ...`).
+* `FIXED` — data is grouped using the listed dimensions (`dim1, dim2, ...`) regardless of the dimensions used by the chart;
+* `INCLUDE` — the listed dimensions (`dim1, dim2, ...`) are combined with the chart's dimensions;
+* `EXCLUDE` — all of the chart's dimensions are used with the exception of those listed (`dim1, dim2, ...`).
 
 For any of these keywords the list may have any number of dimensions, or even be empty.
 
@@ -66,9 +68,9 @@ AVG(MAX(SUM([Sales] FIXED [City], [Category], [Date]) FIXED [Category], [Date]) 
 
 #### LOD Examples {#syntax-lod-examples}
 
-- average daily sum of `[Sales]`: `AVG(SUM([Sales] INCLUDE [Date]))`;
-- ratio of the (daily) sum of `[Sales]` to the total sum: `SUM([Sales]) / SUM([Sales] FIXED)`;
-- sum of `[Sales]` of all orders that are smaller than average: `SUM_IF(SUM([Sales] INCLUDE [Order ID]), SUM([Sales] INCLUDE [Order ID]) < AVG([Sales] FIXED))`.
+* Average daily sum of `[Sales]`: `AVG(SUM([Sales] INCLUDE [Date]))`;
+* Ratio of the (daily) sum of `[Sales]` to the total sum: `SUM([Sales]) / SUM([Sales] FIXED)`;
+* Sum of `[Sales]` of all orders that are smaller than average: `SUM_IF(SUM([Sales] INCLUDE [Order ID]), SUM([Sales] INCLUDE [Order ID]) < AVG([Sales] FIXED))`.
 
 #### Dimension Compatibility {#syntax-lod-compatibility}
 
@@ -97,14 +99,14 @@ If any fields are listed in `BEFORE FILTER BY`, then this aggregate function is 
 
 `BEFORE FILTER BY` applies to all nested aggregate functions too.
 Example:
-- Formula — `AVG(SUM([Sales] INCLUDE [Date]) BEFORE FILTER BY [City])`.
-- Equivalent — `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City]) BEFORE FILTER BY [City])`.
+* Formula — `AVG(SUM([Sales] INCLUDE [Date]) BEFORE FILTER BY [City])`.
+* Equivalent — `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City]) BEFORE FILTER BY [City])`.
 
 Do not use conflicting `BEFORE FILTER BY` clauses:
-- Valid: `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City], [Category]) BEFORE FILTER BY [City])` — functions are nested and (`[City]`) is a subset of (`[City], [Category]`).
-- Valid: `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [Category]) BEFORE FILTER BY [City])` — functions are nested, so field lists are combined in the second of the two functions.
-- Valid: `SUM([Sales] BEFORE FILTER BY [City], [Category]) - SUM([Sales] BEFORE FILTER BY [City])` — (`[City]`) is a subset of (`[City], [Category]`).
-- Not valid: `SUM([Sales] BEFORE FILTER BY [Category]) - SUM([Sales] BEFORE FILTER BY [City])` — functions are not nested and neither of (`[Category]`) and (`[City]`) is a subset of the other.
+* Valid: `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City], [Category]) BEFORE FILTER BY [City])` — functions are nested and (`[City]`) is a subset of (`[City], [Category]`).
+* Valid: `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [Category]) BEFORE FILTER BY [City])` — functions are nested, so field lists are combined in the second of the two functions.
+* Valid: `SUM([Sales] BEFORE FILTER BY [City], [Category]) - SUM([Sales] BEFORE FILTER BY [City])` — (`[City]`) is a subset of (`[City], [Category]`).
+* Not valid: `SUM([Sales] BEFORE FILTER BY [Category]) - SUM([Sales] BEFORE FILTER BY [City])` — functions are not nested and neither of (`[Category]`) and (`[City]`) is a subset of the other.
 
 ## Usage Restrictions {#usage-restrictions}
 
@@ -136,23 +138,23 @@ Returns one of the values of `value` from the group. This is a nondeterministic 
 
 ## [ARG_MAX](ARG_MAX.md)
 
-**Syntax:**<br/>`ARG_MAX( value, comp )`<br/>or<br/>`ARG_MAX( value, comp
+**Syntax:**<br/>`ARG_MAX( value, expression_to_maximize )`<br/>or<br/>`ARG_MAX( value, expression_to_maximize
          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
          [ BEFORE FILTER BY ... ]
        )`
 
-Returns `value` for the maximum value of `comp` in the group. If multiple values of `value` match the maximum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.
+Returns `value` for the maximum value of `expression_to_maximize` in the group. If multiple values of `value` match the maximum value of `expression_to_maximize`, then the first one encountered is returned. This makes the function non-deterministic.
 
 
 
 ## [ARG_MIN](ARG_MIN.md)
 
-**Syntax:**<br/>`ARG_MIN( value, comp )`<br/>or<br/>`ARG_MIN( value, comp
+**Syntax:**<br/>`ARG_MIN( value, expression_to_minimize )`<br/>or<br/>`ARG_MIN( value, expression_to_minimize
          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
          [ BEFORE FILTER BY ... ]
        )`
 
-Returns `value` for the minimum value of `comp` in the group. If multiple values of `value` match the minimum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.
+Returns `value` for the minimum value of `expression_to_minimize` in the group. If multiple values of `value` match the minimum value of `expression_to_minimize`, then the first one encountered is returned. This makes the function non-deterministic.
 
 
 
@@ -186,6 +188,8 @@ Returns the average of all values that meet the `condition` condition. If the va
      )`
 
 Returns the number of items in the group.
+
+Can be used with constants, such as `COUNT(1)` or `COUNT()`. If the chart does not use other measures and dimensions, the result of such an expression will always be `1`. This is because the function does not include any fields, so {{ datalens-short-name }} accesses no source tables in the query.
 
 
 

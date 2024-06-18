@@ -21,11 +21,13 @@ You can configure the features and appearance of the objects being embedded thro
 * `_lang`: For charts, defines the language for the menu that opens when you click ![image](../../_assets/console-icons/ellipsis.svg). The possible values are `ru` or `en`.
 * `_opened_info`: Displays dashboard [description](./settings.md#message-settings) as you open a dashboard, if filled. To enable the parameter, set to `1`.
 
+Provide the parameters in `<parameter_name>=<value>` format. For example, to set the auto-update time to 50 seconds, specify: `_autoupdate=50`.
+
 The parameter is added to the object address after the question mark (`?`). To send multiple parameters, list them separated by `&`, e.g.:
 
 
 ```html
-<iframe frameborder="0" src="https://datalens.yandex/bdzix********?_embedded=1&_no_controls=1&_lang=ru&_theme=dark"></iframe>
+<iframe frameborder="0" src="https://datalens.yandex/bdzix********?_embedded=1&_no_controls=1&_lang=ru&_theme=dark&_autoupdate=50"></iframe>
 ```
 
 Here are examples of public embedded charts and dashboards:

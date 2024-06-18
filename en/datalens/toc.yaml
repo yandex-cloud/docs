@@ -500,6 +500,8 @@ items:
                 href: function-ref/SIZE.md
               - name: URL
                 href: function-ref/URL.md
+              - name: USER_INFO
+                href: function-ref/USER_INFO.md
           - name: Time series functions
             items:
               - name: Overview

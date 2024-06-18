@@ -36,8 +36,6 @@
 
     Настраивать утилиту не обязательно — все необходимые параметры будут передаваться в команде и переменных окружения.
 
-1. Убедитесь, что утилита `grep` в вашей операционной системе поддерживает регулярные выражения, [совместимые с Perl (PCRE)](https://www.pcre.org/).
-
 
 ## Сохраните статический ключ доступа в секрет {{ lockbox-name }} {#store-key-into-secret}
 
@@ -111,8 +109,8 @@
   1. Сохраните значения [идентификатора ключа](../../iam/concepts/authorization/access-key.md#key-id) и [секретного ключа](../../iam/concepts/authorization/access-key.md#private-key) в отдельные переменные `KEY_ID` и `KEY_VALUE`:
 
       ```bash
-      KEY_ID=$(echo "$STATIC_KEY" | grep -Po "(?<=key_id: )([[:alnum:]_-]{25})") \
-        && KEY_VALUE=$(echo "$STATIC_KEY" | grep -Po "(?<=secret: )([[:alnum:]_-]{40})")
+      KEY_ID=$(echo | awk '{if (match($0, "key_id: ")) {print substr($0, RSTART + 8, 25)}}' <<< "$STATIC_KEY") \
+        && KEY_VALUE=$(echo | awk '{if (match($0, "secret: ")) {print substr($0, RSTART + 8, 40)}}' <<< "$STATIC_KEY")
       ```
 
   1. Создайте секрет {{ lockbox-name }} `static-key`, содержащий созданный статический ключ доступа:
@@ -176,8 +174,8 @@
 1. Сохраните идентификатор ключа, секретный ключ и значение региона размещения в переменные окружения AWS CLI:
 
     ```bash
-    export AWS_ACCESS_KEY_ID=$(echo "$SECRET" | grep -Po "(?<=key: )([[:alnum:]_-]{25})") \
-      && export AWS_SECRET_ACCESS_KEY=$(echo "$SECRET" | grep -Po "(?<=text_value: )([[:alnum:]_-]{40})") \
+    export AWS_ACCESS_KEY_ID=$(echo | awk '{if (match($0, "key: ")) {print substr($0, RSTART + 5, 25)}}' <<< "$SECRET") \
+      && export AWS_SECRET_ACCESS_KEY=$(echo | awk '{if (match($0, "text_value: ")) {print substr($0, RSTART + 12, 40)}}' <<< "$SECRET") \
       && export AWS_DEFAULT_REGION="{{ region-id }}"
     ```
 
@@ -211,8 +209,8 @@
     - AWS CLI {#aws-cli}
 
       ```bash
-      AWS_ACCESS_KEY_ID=$(echo "$SECRET" | grep -o -E "(\<)([[:alnum:]_-]{25})(\>)" --max-count=1) \
-        AWS_SECRET_ACCESS_KEY=$(echo "$SECRET" | grep -o -E "([[:alnum:]_-]{40})") \
+      AWS_ACCESS_KEY_ID=$(echo | awk '{if (match($0, "key: ")) {print substr($0, RSTART + 5, 25)}}' <<< "$SECRET") \
+        AWS_SECRET_ACCESS_KEY=$(echo | awk '{if (match($0, "text_value: ")) {print substr($0, RSTART + 12, 40)}}' <<< "$SECRET") \
         AWS_DEFAULT_REGION="{{ region-id }}" \
         aws --endpoint-url=https://storage.yandexcloud.net \
         s3 mb s3://<имя_бакета>

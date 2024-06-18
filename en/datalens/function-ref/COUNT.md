@@ -35,6 +35,8 @@ _Function `COUNT` is also found in the following categories: [Window functions](
 #### Description {#description}
 Returns the number of items in the group.
 
+Can be used with constants, such as `COUNT(1)` or `COUNT()`. If the chart does not use other measures and dimensions, the result of such an expression will always be `1`. This is because the function does not include any fields, so {{ datalens-short-name }} accesses no source tables in the query.
+
 **Argument types:**
 - `value` — `Any`
 

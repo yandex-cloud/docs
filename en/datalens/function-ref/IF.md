@@ -50,6 +50,13 @@ Checks conditional expressions `condition_1`, `result_1`, ... and returns the ma
 
 **Return type**: Depends on argument types
 
+{% note info %}
+
+Arguments `result_1`, `result_2`, `default_result` must be of the same type.
+
+{% endnote %}
+
+
 #### Examples {#examples}
 
 ```

@@ -58,6 +58,8 @@ items:
         href: operations/schema-uploading.md
       - name: Управление запросами
         href: operations/query.md
+      - name: Подключение с помощью IDE
+        href: operations/ide.md
   - name: Источники и приемники данных
     items:
       - name: Форматы данных и алгоритмы сжатия

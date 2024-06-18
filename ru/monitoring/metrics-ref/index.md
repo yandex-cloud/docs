@@ -25,6 +25,7 @@ description: "На странице приведен список справоч
 * [{{ mpg-full-name }}](managed-postgresql-ref.md)
 * [{{ mrd-full-name }}](managed-redis-ref.md)
 * [{{ ydb-full-name }}](ydb-ref.md)
+* [{{ message-queue-full-name }}](message-queue-ref.md)
 * [{{ monitoring-full-name }}](monitoring-ref.md)
 * [{{ objstorage-full-name }}](storage-ref.md)
 * [{{ captcha-full-name }}](captcha-ref.md)

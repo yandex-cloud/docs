@@ -5,7 +5,7 @@ description:
     режиме реального времени.  Data Streams непрерывно выполняет сбор данных из
     различных источников, например, истории посещений веб‑сайтов, логов работы
     приложений и системных журналов.  API сервиса совместим с Amazon Kinesis
-    Data Streams API.
+    Data Streams API и Kafka API.
 nav:
   title: Yandex Data Streams
 meta:
@@ -20,6 +20,14 @@ links:
   - title: Пошаговые инструкции
     description: Инструкции по выполнению базовых операций
     href: operations/
+  - title: HTTP API, совместимый с Amazon Kinesis Data Streams
+    description: >-
+      Описание поддерживаемых методов Amazon Kinesis Data Streams API, а также
+      примеры их использования
+    href: kinesisapi/
+  - title: Kafka API
+    description: Работа с потоками данных по протоколу Apache Kafka
+    href: kafkaapi/
   - title: Концепции
     description: Узнайте о концепциях и возможностях сервиса
     href: concepts/
