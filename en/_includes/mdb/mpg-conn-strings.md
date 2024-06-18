@@ -261,7 +261,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
 ### C++ userver {#userver}
 
-Install the userver framework following the instauction as [official site](https://userver.tech/)
+Install the userver framework following the instruction as [official site](https://userver.tech/)
 or use a [VM at Yandex Cloud Marketplace](https://yandex.cloud/en/marketplace/products/yc/userver).
 
 Create your project using the service template [with gRPC](https://github.com/userver-framework/pg_grpc_service_template)
