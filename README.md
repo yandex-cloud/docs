@@ -41,6 +41,10 @@
   
    `yfm -i docs -o docs-gen`, где `docs` — каталог с исходными текстами, а `docs-gen` — каталог, в котором будет находиться сгенерированная документация.
 
+## Гайд для сотрудников Yandex
+
+[Только для сотрудников](https://wiki.yandex-team.ru/doc-and-loc/doc/business-support-home/distant-author/editorship-lead/cloud-tasks/for-cloud-staff/rabota-na-github/)
+
 ## Лицензии
 
 © YANDEX LLC, 2018. Licensed under Creative Commons Attribution 4.0 International Public License. See the [LICENSE](LICENSE) file for more details.
