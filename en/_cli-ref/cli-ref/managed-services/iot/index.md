@@ -19,6 +19,8 @@ Syntax:
 	- [yc iot registry list](registry/list.md) — List IoT registries
 	- [yc iot registry create](registry/create.md) — Create new device registry
 	- [yc iot registry update](registry/update.md) — Update specified registry
+	- [yc iot registry enable](registry/enable.md) — Enable this registry
+	- [yc iot registry disable](registry/disable.md) — Disable this registry
 	- [yc iot registry logs](registry/logs.md) — Show logs for the specified registry
 	- [yc iot registry add-labels](registry/add-labels.md) — Add labels to specified registry
 	- [yc iot registry remove-labels](registry/remove-labels.md) — Remove labels from specified registry

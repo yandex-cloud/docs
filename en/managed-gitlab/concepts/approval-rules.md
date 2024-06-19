@@ -5,7 +5,13 @@ description: "With {{ mgl-name }}, you can flexibly set up mandatory approval ru
 
 # Approval rules in {{ mgl-name }}
 
-{% include [preview note](../../_includes/note-preview.md) %}
+{% note warning %}
+
+This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and is currently provided free of charge.
+
+Starting July 1, 2024, it is moving to the [General Availability](../../overview/concepts/launch-stages.md) stage and will be charged as per the [pricing policy](../pricing.md#prices-instance).
+
+{% endnote %}
 
 With {{ mgl-name }}, you can flexibly set up mandatory approval rules before any code can be added to the target branch of the project. This feature is an alternative to the [Approval Rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html) Enterprise Edition tool built in {{ GL }} and is available regardless of the {{ GL }} [version](https://about.gitlab.com/pricing).
 

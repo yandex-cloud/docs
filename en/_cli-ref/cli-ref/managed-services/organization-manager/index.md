@@ -18,6 +18,8 @@ Syntax:
 	- [yc organization-manager organization get](organization/get.md) — Show information about the specified organization
 	- [yc organization-manager organization list](organization/list.md) — List organizations
 	- [yc organization-manager organization update](organization/update.md) — Update the specified organization
+	- [yc organization-manager organization add-labels](organization/add-labels.md) — Add labels to specified organization
+	- [yc organization-manager organization remove-labels](organization/remove-labels.md) — Remove labels from specified organization
 	- [yc organization-manager organization list-access-bindings](organization/list-access-bindings.md) — List access bindings for the specified organization
 	- [yc organization-manager organization set-access-bindings](organization/set-access-bindings.md) — Set access bindings for the specified organization and delete all existing access bindings if there were any
 	- [yc organization-manager organization add-access-binding](organization/add-access-binding.md) — Add access binding for the specified organization

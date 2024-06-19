@@ -7,7 +7,9 @@
 `DeletePolicy` | Удаление политики резервного копирования
 `DeleteResource` | Удаление ВМ из сервиса {{ backup-name }}
 `ExecutePolicy` | Выполнение политики резервного копирования
-`RegisterResource` | Подключение ВМ к сервису {{ backup-name }}
+`InitResource` | Инициализация подключения ВМ к сервису {{ backup-name }}
+`RegisterResource` | Подключение ВМ к сервису {{ backup-name }} завершено
 `RevokePolicy` | Отзыв политики резервного копирования
 `StartRecoverBackup` | Запуск восстановления ВМ
 `UpdatePolicy` | Изменение политики резервного копирования
+`UpdateResource` | Обновление статуса подключения ВМ к сервису {{ backup-name }}

@@ -53,6 +53,7 @@ Syntax:
 |`--async-failure-ymq-arn`|<b>`string`</b><br/>YMQ ARN target for failure.|
 |`--async-failure-sa-id`|<b>`string`</b><br/>Service account for writing unsuccessful result of async invocation function.|
 |`--tmpfs-size`|<b>`byteSize`</b><br/>Size of memory for use as in-memory storage mounted as /tmp directory. Example: '512MB', '1GB'. The default value is 0B.|
+|`--concurrency`|<b>`int`</b><br/>The maximum number of requests processed by a function instance at the same time.|
 
 #### Global Flags
 

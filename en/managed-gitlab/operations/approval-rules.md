@@ -5,7 +5,13 @@ description: "Follow this guide to set up approval rules."
 
 # Setting up approval rules
 
-{% include [preview note](../../_includes/note-preview.md) %}
+{% note warning %}
+
+This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and is currently provided free of charge.
+
+Starting July 1, 2024, it is moving to the [General Availability](../../overview/concepts/launch-stages.md) stage and will be charged as per the [pricing policy](../pricing.md#prices-instance).
+
+{% endnote %}
 
 With {{ mgl-name }}, you can flexibly set up mandatory approval rules before any code can be added to the target branch of the project. For more information on how approval rules work, see [Approval rules](../concepts/approval-rules.md).
 
