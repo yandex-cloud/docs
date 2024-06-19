@@ -5,6 +5,7 @@ editable: false
 # Правила тарификации для {{ datalens-full-name }}
 
 
+
 ## Действующие правила тарификации {#effective-rules}
 
 В сервисе {{ datalens-full-name }} действуют тарифные планы, которые различаются набором предоставляемых услуг:
@@ -49,8 +50,21 @@ editable: false
 
 Пользователь считается активным и учитывается при тарификации, если его действия привели к запросу данных из источника: например, он открыл или редактировал дашборд, чарт или датасет. Публичные ссылки на дашборды и чарты работают без аутентификации и при подсчете активных пользователей не учитываются.
 
+## Цены для региона Россия {#prices}
 
-{% include [rub.md](../_pricing/datalens/rub.md) %}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include notitle [rub.md](../_pricing/datalens/rub.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include notitle [kzt.md](../_pricing/datalens/kzt.md) %}
+
+{% endlist %}
 
 

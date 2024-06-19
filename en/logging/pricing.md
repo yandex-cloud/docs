@@ -10,7 +10,10 @@ editable: false
 
 {{ cloud-logging-name }} charges you for the amount of data written and the time the data is stored.
 
-## Pricing {#prices}
+
+## Prices for Russia {#prices}
+
+
 
 
 ### Adding data {#data-ingested}
@@ -18,10 +21,7 @@ editable: false
 
 
 
-
 {% include [usd-data-ingested.md](../_pricing/logging/usd-data-ingested.md) %}
-
-
 
 
 ### Data storage {#storage}
@@ -29,8 +29,5 @@ editable: false
 
 
 
-
 {% include [usd-storage.md](../_pricing/logging/usd-storage.md) %}
-
-
 

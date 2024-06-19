@@ -4,6 +4,7 @@ editable: false
 
 # Правила тарификации {{ yandex-cloud }}
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 В {{ yandex-cloud }} вы можете использовать ресурсы как тарифицируемых, так и нетарифицируемых сервисов. Стоимость использования сервиса {{ billing-name }} входит в стоимость оплачиваемых сервисов и дополнительно не тарифицируется.
 
@@ -29,7 +30,7 @@ editable: false
 * {{ preview-stage }} [{{ websql-full-name }}](../websql/pricing.md)
 * [{{ wiki-full-name }}](../wiki/pricing.md)
 
-Тегом {{ preview-stage }} отмечены сервисы на стадии [Preview](../overview/concepts/launch-stages.md).
+ Тегом {{ preview-stage }} отмечены сервисы на стадии [Preview](../overview/concepts/launch-stages.md). 
 
 ## Тарифы отдельных сервисов {#billable}
 

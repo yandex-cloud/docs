@@ -9,11 +9,9 @@ editable: false
 
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mpg-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
 
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
-
 
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
@@ -39,13 +37,11 @@ editable: false
 
 * Размер хранилища, выделенный для кластеров БД.
 
-    
     * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами и более:
-        * для платформ Intel Broadwell и Intel Cascade Lake — с шагом 100 ГБ;
+                * для платформ Intel Broadwell и Intel Cascade Lake — с шагом 100 ГБ;
         * для платформы Intel Ice Lake — с шагом {{ local-ssd-v3-step }}.
 
     * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с тремя хостами и более, с шагом 93 ГБ.
-
 
 * Объем, занимаемый резервными копиями баз данных сверх заданного хранилища для кластера.
 
@@ -76,12 +72,16 @@ editable: false
 
 {% endnote %}
 
+## Цены для региона Россия {#prices}
 
-## Цены {#prices}
 
+
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 Все цены указаны с включением НДС.
+
 
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
@@ -89,9 +89,37 @@ editable: false
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
 
+#### Цены в час {#host-price-per-hour}
 
-{% include notitle [rub-host-resources.md](../_pricing/managed-postgresql/rub-host-resources.md) %}
 
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-host-resources-hourly](../_pricing/managed-postgresql/rub-host-resources-hourly.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-host-resources-hourly](../_pricing/managed-postgresql/kzt-host-resources-hourly.md) %}
+
+{% endlist %}
+
+
+
+#### Цены в месяц {#host-price-per-month}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-host-resources-monthly](../_pricing/managed-postgresql/rub-host-resources-monthly.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-host-resources-monthly](../_pricing/managed-postgresql/kzt-host-resources-monthly.md) %}
+
+{% endlist %}
 
 
 
@@ -99,11 +127,20 @@ editable: false
 
 ### Хранилище и резервные копии {#prices-storage}
 
+{% include [ice-lake-local-ssd-note](../_includes/ice-lake-local-ssd-note.md) %}
 
 
-{% include notitle [rub-storage.md](../_pricing/managed-postgresql/rub-storage.md) %}
+{% list tabs group=pricing %}
 
+- Цены в рублях {#prices-rub}
 
+  {% include [rub-storage.md](../_pricing/managed-postgresql/rub-storage.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-storage.md](../_pricing/managed-postgresql/kzt-storage.md) %}
+
+{% endlist %}
 
 
 
@@ -121,13 +158,4 @@ editable: false
 
 * {% include [backup-wal](../_includes/mdb/mpg/backup-wal.md) %}
 
-### Исходящий трафик {#prices-traffic}
-
-
-
-{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
-
-
-
-
-
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

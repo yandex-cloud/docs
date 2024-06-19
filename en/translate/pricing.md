@@ -4,6 +4,8 @@ editable: false
 
 # {{ translate-name }} pricing
 
+
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -17,13 +19,13 @@ The cost of using {{ translate-full-name }} is calculated based on the total num
 
 {% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 
-## Pricing {#prices}
+## Prices for Russia {#prices}
 
 
 ### Translation and language detection {#prices-translate-detect}
 
 
 
-
 {% include [usd.md](../_pricing/translate/usd.md) %}
+
 

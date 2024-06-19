@@ -1,5 +1,7 @@
 # Rules for estimating the cost of YQL queries to {{ ydb-short-name }}
 
+
+
 Backend resources are used to execute YQL queries. Information about consumed resources is available in the request statistics.
 
 To evaluate the {{ ydb-short-name }} API request cost, the CPU cost and the I/O cost are calculated. A maximum from the calculated values is selected.

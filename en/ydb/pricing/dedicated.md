@@ -12,7 +12,6 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-
 {% include [pricing-status.md](../_includes/pricing/pricing-status.md) %}
 
 ## What is included in {{ ydb-name }} cost {#rules}
@@ -61,38 +60,21 @@ Currently, you cannot order storage or web traffic this way.
 {% endnote %}
 
 
-## Pricing  {#prices}
+## Prices for Russia {#prices}
 
 
 ### Host computing resources {#prices-compute-units}
 
 
 
-
-
-{% include notitle [usd-compute-units.md](../../_pricing/ydb/usd-compute-units.md) %}
-
-
+{% include [usd-compute-units.md](../../_pricing/ydb/usd-compute-units.md) %}
 
 
 ### Storage and backups {#prices-storage}
 
 
 
+{% include [usd-storage.md](../../_pricing/ydb/usd-storage.md) %}
 
 
-{% include notitle [usd-storage.md](../../_pricing/ydb/usd-storage.md) %}
-
-
-
-
-### Egress traffic {#prices-traffic}
-
-
-
-
-
-{% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
-
-
-
+{% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}

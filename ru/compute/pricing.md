@@ -4,13 +4,9 @@ editable: false
 
 # Правила тарификации для {{ compute-name }}
 
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
-
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
-
 
 ## Из чего складывается стоимость использования {{ compute-short-name }} {#rules}
 
@@ -64,37 +60,75 @@ editable: false
 
 **Расчет стоимости для ВМ с 5% vCPU**:
 
-> 720 × (2 × 0,3100 ₽ + 2 × 0,3900 ₽) = 1008,0000&nbsp;₽
-> 
-> 
->
-> Итого: 1008,0000&nbsp;₽ — стоимость использования ВМ с 2 × 5% vCPU и 2 ГБ RAM в течение 30 дней.
 
-Где:
-* 720 — количество часов в 30 днях.
-* 2 — количество ядер 5% vCPU.
-* 0,3100&nbsp;₽ — стоимость часа использования 5% vCPU.
-* 2 — объем RAM (в гигабайтах).
-* 0,3900&nbsp;₽ — стоимость часа использования 1 ГБ RAM.
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  > 720 × (2 × 0,3100 ₽ + 2 × 0,3900 ₽) = 1008,0000&nbsp;₽
+  >
+  > Итого: 1008,0000&nbsp;₽ — стоимость использования ВМ с 2 × 5% vCPU и 2 ГБ RAM в течение 30 дней.
+
+  Где:
+  * 720 — количество часов в 30 днях.
+  * 2 — количество ядер 5% vCPU.
+  * 0,3100&nbsp;₽ — стоимость часа использования 5% vCPU.
+  * 2 — объем RAM (в гигабайтах).
+  * 0,3900&nbsp;₽ — стоимость часа использования 1 ГБ RAM.
+
+- Расчет в тенге {#prices-kzt}
+
+  > 720 × (2 × 1,5500&nbsp;₸ + 2 × 1,9500&nbsp;₸) = 5040,0000&nbsp;₸
+  >
+  > Итого: 5040,0000&nbsp;₸ — стоимость использования ВМ с 2 × 5% vCPU и 2 ГБ RAM в течение 30 дней.
+
+  Где:
+  * 720 — количество часов в 30 днях.
+  * 2 — количество ядер 5% vCPU.
+  * 1,5500&nbsp;₸ — стоимость часа использования 5% vCPU.
+  * 2 — объем RAM (в гигабайтах).
+  * 1,9500&nbsp;₸ — стоимость часа использования 1 ГБ RAM.
+
+{% endlist %}
+
+
 
 **Расчет стоимости для ВМ со 100% vCPU**:
 
-> 720 × (2 × 1,1200&nbsp;₽ + 2 × 0,3900&nbsp;₽) = 2174,4000&nbsp;₽
-> 
-> 
->
-> Итого: 2174,4000&nbsp;₽ — стоимость использования ВМ с 2 × 100% vCPU и 2 ГБ RAM в течение 30 дней.
 
-Где:
-* 720 — количество часов в 30 днях.
-* 2 — количество ядер 100% vCPU.
-* 1,1200&nbsp;₽ — стоимость часа использования 100% vCPU.
-* 2 — объем RAM (в гигабайтах).
-* 0,3900&nbsp;₽ — стоимость часа использования 1 ГБ RAM.
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  > 720 × (2 × 1,1200&nbsp;₽ + 2 × 0,3900&nbsp;₽) = 2174,4000&nbsp;₽
+  >
+  > Итого: 2174,4000&nbsp;₽ — стоимость использования ВМ с 2 × 100% vCPU и 2 ГБ RAM в течение 30 дней.
+
+  Где:
+  * 720 — количество часов в 30 днях.
+  * 2 — количество ядер 100% vCPU.
+  * 1,1200&nbsp;₽ — стоимость часа использования 100% vCPU.
+  * 2 — объем RAM (в гигабайтах).
+  * 0,3900&nbsp;₽ — стоимость часа использования 1 ГБ RAM.
+
+- Расчет в тенге {#prices-kzt}
+
+  > 720 × (2 × 5,6000&nbsp;₸ + 2 × 1,9500&nbsp;₸) = 10 872,0000&nbsp;₸
+  >
+  > Итого: 10 872,0000&nbsp;₸ — стоимость использования ВМ с 2 × 100% vCPU и 2 ГБ RAM в течение 30 дней.
+
+  Где:
+  * 720 — количество часов в 30 днях.
+  * 2 — количество ядер 100% vCPU.
+  * 5,6000&nbsp;₸ — стоимость часа использования 100% vCPU.
+  * 2 — объем RAM (в гигабайтах).
+  * 1,9500&nbsp;₸ — стоимость часа использования 1 ГБ RAM.
+
+{% endlist %}
+
+
 
 Таким образом, стоимость ВМ с 5% vCPU в два раза ниже стоимости ВМ со 100% vCPU.
-
-
 
 
 #### Операционные системы {#instance-os}
@@ -103,12 +137,9 @@ editable: false
 
 {{ price-per-hour-count-per-second }}
 
-
 #### Использование лицензий Microsoft {#license-microsoft}
 
 Правила использования лицензий Microsoft описаны в разделе [{#T}](../microsoft/licensing.md).
-
-
 
 ### Использование хранилища (диски, снимки и образы) {#disk}
 
@@ -137,7 +168,6 @@ editable: false
 Все остальные услуги {{ yandex-cloud }}, например, создание ВМ или выделение внешних IP-адресов, тарифицируются обычным образом. Исходящий трафик [тарифицируется](#prices-traffic) аналогично другим сервисам.
 
 
-
 ### Использование выделенных хостов {#dedicated-hosts}
 
 Стоимость выделенного хоста зависит от его [типа](concepts/dedicated-host.md#host-types) (модели процессора, количества ядер и оперативной памяти, количества и размера локальных SSD-дисков) и не зависит от количества ВМ, запущенных на нем.
@@ -153,19 +183,31 @@ vCPU и память ВМ, запущенных на выделенном хос
 Работа выделенного хоста типа `intel-6338-c108-m704-n3200x6` в течение одного часа тарифицируется следующим образом:
 
 
-| Ресурс | Стоимость за час | Доступно | Итого |
-| --- | --- | --- | ---: |
-| vCPU | 1,1828 ₽/vCPU | 108 vCPU | 127,7424 ₽ |
-| RAM | 0,3133 ₽/ГБ | 704 ГБ | 220,5632 ₽ |
-| Диск | 0,0122 ₽/ГБ | 19&nbsp;200 ГБ | 234,2400 ₽ |
-| | | **Итого** | **582,5456 ₽** |
+{% list tabs group=pricing %}
 
+- Расчет в рублях {#prices-rub}
+
+  | Ресурс | Стоимость за час | Доступно | Итого |
+  | --- | --- | --- | ---: |
+  | vCPU | 1,1828 ₽/vCPU | 108 vCPU | 127,7424 ₽ |
+  | RAM | 0,3133 ₽/ГБ | 704 ГБ | 220,5632 ₽ |
+  | Диск | 0,0122 ₽/ГБ | 19&nbsp;200 ГБ | 234,2400 ₽ |
+  | | | **Итого** | **582,5456 ₽** |
+
+- Расчет в тенге {#prices-kzt}
+
+  | Ресурс | Стоимость за час | Доступно | Итого |
+  | --- | --- | --- | ---: |
+  | vCPU | 5,9139 ₸/vCPU | 108 vCPU | 638,7012 ₸ |
+  | RAM | 1,5665 ₸/ГБ | 704 ГБ | 1102,8160 ₸ |
+  | Диск | 0,0611 ₸/ГБ | 19&nbsp;200 ГБ | 1173,1200 ₸ |
+  | | | **Итого** | **2914,6372 ₸** |
+
+{% endlist %}
 
 
 
 {% endcut %}
-
-
 
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
@@ -175,27 +217,40 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% note info %}
 
-По схеме CVoS можно заказать только ресурсы определенного вида: для недоступных видов ресурсов в колонках CVoS в разделе [Цены](#prices) стоят прочерки. Размер хранилища и интернет-трафика заказать таким образом пока невозможно.
+По схеме CVoS можно заказать только ресурсы определенного вида: для недоступных видов ресурсов в колонках CVoS в разделе [Цены для региона Россия](#prices) стоят прочерки. Размер хранилища и интернет-трафика заказать таким образом пока невозможно.
 
 {% endnote %}
 
+## Цены для региона Россия {#prices}
 
-## Цены {#prices}
 
+
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 Все цены указаны с включением НДС.
 
 
+
+
 Цена с (CVoS) доступна только для обычных ВМ. 
+
 
 ### Вычислительные ресурсы ВМ {#prices-instance-resources}
 
 
+{% list tabs group=pricing %}
 
-{% include [rub-instance-resources.md](../_pricing/compute/rub-instance-resources.md) %}
+- Цены в рублях {#prices-rub}
 
+  {% include [rub-instance-resources.md](../_pricing/compute/rub-instance-resources.md) %}
 
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-instance-resources.md](../_pricing/compute/kzt-instance-resources.md) %}
+
+{% endlist %}
 
 
 
@@ -203,15 +258,18 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 ### Кластеры GPU {#prices-gpu-clusters}
 
-{% note info %}
 
-Кластеры GPU переходят в [общий доступ](../overview/concepts/launch-stages.md) и начнут тарифицироваться 1 сентября 2023 года.
+{% list tabs group=pricing %}
 
-{% endnote %}
+- Цены в рублях {#prices-rub}
 
+  {% include [rub-gpu-clusters.md](../_pricing/compute/rub-gpu-clusters.md) %}
 
-{% include [rub-gpu-clusters.md](../_pricing/compute/rub-gpu-clusters.md) %}
+- Цены в тенге {#prices-kzt}
 
+  {% include [kzt-gpu-clusters.md](../_pricing/compute/kzt-gpu-clusters.md) %}
+
+{% endlist %}
 
 
 
@@ -219,14 +277,17 @@ vCPU и память ВМ, запущенных на выделенном хос
 ### Диски, снимки и образы {#prices-storage}
 
 
+{% list tabs group=pricing %}
 
-{% include [rub-storage.md](../_pricing/compute/rub-storage.md) %}
+- Цены в рублях {#prices-rub}
 
+  {% include [rub-storage.md](../_pricing/compute/rub-storage.md) %}
 
+- Цены в тенге {#prices-kzt}
 
+  {% include [kzt-storage.md](../_pricing/compute/kzt-storage.md) %}
 
-^1^ Тарификация высокопроизводительных дисков (SSD) начинается с 1 сентября 2023 года.
-
+{% endlist %}
 
 
 
@@ -234,8 +295,17 @@ vCPU и память ВМ, запущенных на выделенном хос
 ### Файловые хранилища {#prices-nfs}
 
 
-{% include [rub-nfs.md](../_pricing/compute/rub-nfs.md) %}
+{% list tabs group=pricing %}
 
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-nfs.md](../_pricing/compute/rub-nfs.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-nfs.md](../_pricing/compute/kzt-nfs.md) %}
+
+{% endlist %}
 
 
 
@@ -246,11 +316,21 @@ vCPU и память ВМ, запущенных на выделенном хос
 Указываются цены за 1 vCPU, 1 ГБ RAM и 1 ГБ хранилища на локальном диске. Тарифицируются все ресурсы, доступные на выделенном хосте, вне зависимости от того, используются ли они. Например, на хосте [типа](concepts/dedicated-host.md#host-types) `intel-6338-c108-m704-n3200x6` доступны 108 vCPU, 704 ГБ RAM и 19&nbsp;200 ГБ хранилища на локальных дисках. См. пример расчета [выше](#dedicated-hosts).
 
 
-{% include [rub-host-resources.md](../_pricing/compute/rub-host-resources.md) %}
+{% list tabs group=pricing %}
 
-{% include [rub-local-nvme.md](../_pricing/compute/rub-local-nvme.md) %}
+- Цены в рублях {#prices-rub}
 
+  {% include [rub-host-resources.md](../_pricing/compute/rub-host-resources.md) %}
 
+  {% include [rub-local-nvme.md](../_pricing/compute/rub-local-nvme.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-host-resources.md](../_pricing/compute/kzt-host-resources.md) %}
+
+  {% include [kzt-local-nvme.md](../_pricing/compute/kzt-local-nvme.md) %}
+
+{% endlist %}
 
 
 
@@ -258,22 +338,19 @@ vCPU и память ВМ, запущенных на выделенном хос
 ### Программно-ускоренная сеть {#software-accelerated-network}
 
 
+{% list tabs group=pricing %}
 
-{% include [rub-network.md](../_pricing/compute/rub-network.md) %}
+- Цены в рублях {#prices-rub}
 
+  {% include [rub-network.md](../_pricing/compute/rub-network.md) %}
 
+- Цены в тенге {#prices-kzt}
 
+  {% include [kzt-network.md](../_pricing/compute/kzt-network.md) %}
 
-
-
-### Исходящий трафик {#prices-traffic}
-
-
-
-{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+{% endlist %}
 
 
 
 
-
-
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

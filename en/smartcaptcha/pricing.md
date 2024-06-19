@@ -6,6 +6,8 @@ editable: false
 
 # {{ captcha-full-name }} pricing
 
+
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 ## What goes into the cost of using {{ captcha-full-name }} {#rules}
@@ -34,8 +36,7 @@ Examples of {{ captcha-name }} usage cost calculation:
 
 1. An intruder has passed the CAPTCHA test, obtained the `token`, and sent it 10 times after 10 minutes. The API will return the `failed` status to all requests. You will not be charged for any of them.
 
-## Pricing {#prices}
-
+## Pricing for Russia {#prices}
 
 
 

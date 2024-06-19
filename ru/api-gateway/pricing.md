@@ -6,6 +6,8 @@ editable: false
 
 # Правила тарификации для {{ api-gw-full-name }}
 
+
+
 ## Из чего складывается стоимость использования {{ api-gw-name }} {#rules}
 
 В рамках сервиса {{ api-gw-name }} тарифицируется количество запросов к созданным API-шлюзам и исходящий трафик. 
@@ -16,37 +18,52 @@ editable: false
 
 {% endnote %}
 
-
 ### Формула расчета стоимости {#price-formula}
 
-Стоимость в месяц = 120 ₽ × Количество миллионов запросов
+
+{% list tabs group=pricing %}
+
+- Стоимость в рублях {#prices-rub}
+
+  Стоимость в месяц = 120 ₽ × Количество миллионов запросов
+
+- Стоимость в тенге {#prices-kzt}
+
+  Стоимость в месяц = 600 ₸ × Количество миллионов запросов
+
+{% endlist %}
+
+
 
 {% include [not-charged-gateway.md](../_includes/pricing/price-formula/not-charged-gateway.md) %}
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-
-
-
 ### Пример расчета стоимости API-шлюза {#price-example}
 
 {% include [prices-example](../_includes/api-gateway/prices-example.md) %}
 
-## Цены {#prices}
+## Цены для региона Россия {#prices}
+
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 ### Запросы к API-шлюзам {#request}
 
 
-{% include notitle [rub.md](../_pricing/api-gateway/rub.md) %}
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub.md](../_pricing/api-gateway/rub.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt.md](../_pricing/api-gateway/kzt.md) %}
+
+{% endlist %}
 
 
 
-
-### Исходящий трафик {#prices-traffic}
-
-
-{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
-
-
-
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

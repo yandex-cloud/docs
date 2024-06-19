@@ -6,11 +6,9 @@ editable: false
 
 In this section, you can find {{ mrd-name }} pricing [rules](#rules) and [effective prices](#prices) for the service resources.
 
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
-
 
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
@@ -34,15 +32,15 @@ You pay for the following:
 
 * Storage allocated for DB clusters.
 
-   
    * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts running Intel Cascade Lake and Intel Ice Lake, in increments of 93 GB.
 
    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
-      * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
+            * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
       * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
 
-   For more information about platform-specific storage limitations, see [Disk types](./concepts/storage.md).
+   * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts for **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
 
+   For more information about platform-specific storage limitations, see [Disk types](./concepts/storage.md).
 
 * Space used by DB backups in excess of the storage requested for the cluster.
 
@@ -64,8 +62,9 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% endnote %}
 
+## Prices for Russia {#prices}
 
-## Pricing {#prices}
+
 
 
 
@@ -78,10 +77,7 @@ All prices are shown without VAT.
 
 
 
-
-
 {% include [usd-host.md](../_pricing/managed-redis/usd-host.md) %}
-
 
 
 ### Storage and backups {#prices-storage}
@@ -89,17 +85,9 @@ All prices are shown without VAT.
 
 
 
-
 {% include [usd-storage.md](../_pricing/managed-redis/usd-storage.md) %}
 
 
+{% include [storage-limitations-mrd](../_includes/mdb/mrd/storage-limitations-note.md) %}
 
-### Egress traffic {#prices-traffic}
-
-
-
-
-
-{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-
-
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

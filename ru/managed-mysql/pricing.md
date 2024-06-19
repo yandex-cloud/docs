@@ -8,11 +8,9 @@ editable: false
 
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mmy-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
 
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
-
 
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
@@ -28,20 +26,19 @@ editable: false
 
 ### Использование хостов БД {#rules-hosts-uptime}
 
-
-
 В зависимости от [типа хоста](concepts/index.md) стоимость вычисляется по-разному:
 
 * Стандартные хосты
 
   Стоимость начисляется за каждый час работы хоста в соответствии с выделенными для него вычислительными ресурсами.
 
+
 * Выделенные хосты
 
   Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../compute/pricing.md#prices) и наценки {{ mmy-name }} на эти ресурсы.
 
-Поддерживаемые конфигурации ресурсов приведены в разделе [Классы хостов](concepts/instance-types.md), цены за использование vCPU и RAM — в разделе [Цены](#prices).
 
+Поддерживаемые конфигурации ресурсов приведены в разделе [Классы хостов](concepts/instance-types.md), цены за использование vCPU и RAM — в разделе [Цены](#prices).
 
 Минимальная единица тарификации — минута (например, стоимость 1,5 минут работы хоста равна стоимости 2 минут). Время, когда хост {{ MY }} не может выполнять свои основные функции, не тарифицируется.
 
@@ -51,13 +48,11 @@ editable: false
 
 * Размер хранилища, выделенный для кластеров БД.
 
-    
     * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами и более:
-        * для платформ **Intel Broadwell** и **Intel Cascade Lake** — с шагом 100 ГБ;
+                * для платформ **Intel Broadwell** и **Intel Cascade Lake** — с шагом 100 ГБ;
         * для платформы **Intel Ice Lake** — с шагом {{ local-ssd-v3-step }}.
 
     * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с тремя хостами и более, с шагом 93 ГБ.
-
 
 * Объем, занимаемый резервными копиями баз данных сверх заданного хранилища для кластера.
 
@@ -80,65 +75,124 @@ editable: false
 
 {% endnote %}
 
+## Цены для региона Россия {#prices}
 
-## Цены {#prices}
 
+
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 Все цены указаны с включением НДС.
 
 
+
 Цены на хосты [вычисляются по-разному](#rules-hosts-uptime) в зависимости от выбранного типа хостов.
 
-
 От типа хостов также зависит цена на хранилище на локальных SSD-дисках (`local-ssd`).
-
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
-
 #### Стандартные хосты {#standard-hosts}
 
- {% include [RUB: standard hosts](../_pricing/managed-mysql/rub-hosts-standard.md) %} 
+
+**Цены в час**
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [RUB: standard hosts hour](../_pricing/managed-mysql/rub-hosts-standard-hour.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [KZT: standard hosts hour](../_pricing/managed-mysql/kzt-hosts-standard-hour.md) %}
+
+{% endlist %}
+
+
+
+**Цены в месяц**
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [RUB: standard hosts month](../_pricing/managed-mysql/rub-hosts-standard-month.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [KZT: standard hosts month](../_pricing/managed-mysql/kzt-hosts-standard-month.md) %}
+
+{% endlist %}
+
+
+
+
+
 
 #### Выделенные хосты {#dedicated-hosts}
 
 Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../compute/pricing.md#prices) и наценки {{ mmy-name }} на эти ресурсы.
 
- {% include [RUB: dedicated hosts](../_pricing/managed-mysql/rub-hosts-dedicated.md) %} 
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [RUB: dedicated hosts](../_pricing/managed-mysql/rub-hosts-dedicated.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [KZT: dedicated hosts](../_pricing/managed-mysql/kzt-hosts-dedicated.md) %}
+
+{% endlist %}
+
 
 
 
 ### Хранилище и резервные копии {#prices-storage}
 
 
-{% list tabs %}
+#### Стандартные хосты {#standard-hosts-storage}
 
-- Стандартные хосты
+{% include [local-ssd for Ice Lake by query only](../_includes/ice-lake-local-ssd-note.md) %}
 
-    {% include [local-ssd для Ice Lake только по запросу](../_includes/ice-lake-local-ssd-note.md) %}
 
-     {% include [rub-storage-standard.md](../_pricing/managed-mysql/rub-storage-standard.md) %} 
+{% list tabs group=pricing %}
 
-- Выделенные хосты
+- Цены в рублях {#prices-rub}
 
-    Стоимость начисляется из двух компонентов: [цены за хранилище {{ compute-full-name }}](../compute/pricing.md#prices) и цены {{ mmy-name }} на него. Все цены указаны за 1 ГБ в месяц.
+  {% include [rub-storage-standard.md](../_pricing/managed-mysql/rub-storage-standard.md) %}
 
-     {% include [rub-storage-dedicated.md](../_pricing/managed-mysql/rub-storage-dedicated.md) %} 
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-storage-standard.md](../_pricing/managed-mysql/kzt-storage-standard.md) %}
+
+{% endlist %}
+
+#### Выделенные хосты {#dedicated-hosts-storage}
+
+Стоимость начисляется из двух компонентов: [цены за хранилище {{ compute-full-name }}](../compute/pricing.md#prices) и цены {{ mmy-name }} на него. Все цены указаны за 1 ГБ в месяц.
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-storage-dedicated.md](../_pricing/managed-mysql/rub-storage-dedicated.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-storage-dedicated.md](../_pricing/managed-mysql/kzt-storage-dedicated.md) %}
 
 {% endlist %}
 
 
 
-### Исходящий трафик {#prices-traffic}
 
 
-
-{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
-
-
-
-
-
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

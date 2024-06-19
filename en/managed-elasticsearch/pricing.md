@@ -6,6 +6,8 @@ editable: false
 
 # Pricing policy for Managed Service for Elasticsearch
 
+
+
 {% include [Elasticsearch-end-of-service](../_includes/mdb/mes/note-end-of-service.md) %}
 
 In this section, you can find {{ mes-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
@@ -72,9 +74,9 @@ The cost of using a cluster with the following parameters for 30 days:
 
 The cost is calculated as follows:
 
-> > 3 × (2 × $0.013440 + 8 × $0.016800) + 3 × (2 × $0.013440 + 8 × $0.016800) = $0.967680
-> 
-> 
+
+
+> 3 × (2 × $0.013440 + 8 × $0.016800) + 3 × (2 × $0.013440 + 8 × $0.016800) = $0.967680
 >
 > Total: $0.967680 is the cost per hour of operation for all hosts.
 
@@ -85,9 +87,7 @@ Where:
 * 8 is the amount of RAM per host (in GB).
 * $0.016800 is the cost of using 1GB of RAM on 100% vCPU per hour.
 
-> > 720 × $0.967680 + 100 × $0.025600 = $699.289600
-> 
-> 
+> 720 × $0.967680 + 100 × $0.025600 = $699.289600
 >
 > Total: $699.289600 is the cost of using the cluster for 30 days.
 
@@ -98,8 +98,8 @@ Where:
 * $0.025600 is the cost of using 1 GB of network HDD storage per month.
 
 
-## Pricing {#prices}
 
+## Prices for Russia {#prices}
 
 
 All prices are shown without VAT.
@@ -113,17 +113,39 @@ As of June 13, 2022, the `Gold` [edition](./concepts/es-editions.md) in {{ mes-n
 
 {% endnote %}
 
+### Host computing resources {#prices-hosts}
+
+The cost for computing resources depends on the selected {{ ES }} edition:
 
 
 
-{% include [usd-hosts-and-storage.md](../_pricing/managed-elasticsearch/usd-hosts-and-storage.md) %}
+{% list tabs %}
+
+- Basic
+
+  {% include [usd-hosts-basic](../_pricing/managed-elasticsearch/usd-hosts-basic.md) %}
 
 
-### Egress traffic {#prices-traffic}
+- Gold
+
+  {% include [usd-hosts-gold](../_pricing/managed-elasticsearch/usd-hosts-gold.md) %}
+
+
+- Platinum
+
+  {% include [usd-hosts-platinum](../_pricing/managed-elasticsearch/usd-hosts-platinum.md) %}
+
+
+{% endlist %}
+
+
+### Storage {#prices-storage}
+
+{% include [local-ssd for Ice Lake only on request](../_includes/ice-lake-local-ssd-note.md) %}
 
 
 
+{% include [usd-storage.md](../_pricing/managed-elasticsearch/usd-storage.md) %}
 
-{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
-
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

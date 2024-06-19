@@ -6,6 +6,8 @@ editable: false
 
 # {{ api-gw-full-name }} pricing
 
+
+
 ## What goes into the cost of using {{ api-gw-name }} {#rules}
 
 In {{ api-gw-name }}, you are charged for the number of requests to the created API gateways and outgoing traffic.
@@ -16,36 +18,29 @@ In {{ api-gw-name }}, you are charged for the number of requests to the created 
 
 {% endnote %}
 
-
-
-
 ### Pricing formula {#price-formula}
 
+
+
 Cost per month = $0.96 × Number of millions of requests
+
 
 {% include [not-charged-gateway.md](../_includes/pricing/price-formula/not-charged-gateway.md) %}
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-
 ### Example of calculating the cost of an API gateway {#price-example}
 
 {% include [prices-example](../_includes/api-gateway/prices-example.md) %}
 
-## Pricing {#prices}
+## Prices for Russia {#prices}
 
 
 ### API gateway requests {#request}
 
 
 
-
-{% include notitle [usd.md](../_pricing/api-gateway/usd.md) %}
-
-
-### Egress traffic {#prices-traffic}
+{% include [usd.md](../_pricing/api-gateway/usd.md) %}
 
 
-
-
-{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

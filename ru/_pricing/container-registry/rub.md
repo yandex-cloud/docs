@@ -1,3 +1,3 @@
 Услуга | Цена за ГБ в месяц, вкл. НДС
 --- | ---
-Хранилище | {{ sku|RUB|cr.bucket.used_space.standard|month|int|string }}
+Хранилище | {{ sku|RUB|cr.bucket.used_space.standard|month|string }}

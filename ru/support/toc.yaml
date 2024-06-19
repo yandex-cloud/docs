@@ -24,6 +24,7 @@ items:
     items:
       - name: Действующие правила
         href: pricing.md
+      - name: Архив
         items:
           - name: До 1 октября 2023 года
             href: pricing-archive/pricing01102023.md

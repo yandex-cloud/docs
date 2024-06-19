@@ -1,7 +1,6 @@
 
 
 
-
 Let's assume, you created an API gateway that processed 10,000,000 requests over HTTPS.
 
 The cost of this API gateway will be:

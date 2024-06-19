@@ -4,6 +4,8 @@ editable: false
 
 # {{ mmg-name }} pricing
 
+
+
 In this section, you can find {{ mmg-name }} pricing [rules](#rules) and [effective prices](#prices) for the service resources.
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
@@ -64,12 +66,10 @@ The cost of using a cluster with the following parameters for 30 days:
 Cost calculation for {{ MG }} hosts:
 
 
-> 
+
 > 3 × (2&nbsp;×&nbsp;$0.012800 + 8&nbsp;×&nbsp;$0.007200) = $0.249600
-> 
 >
 > Total: $0.249600 is the cost per hour of {{ MG }} host operation.
-
 
 Where:
 * 3 is the number of {{ MG }} hosts.
@@ -78,24 +78,24 @@ Where:
 * 8 is the amount of RAM per {{ MG }} host (in GB).
 * $0.007200 is the cost of using 1GB of RAM on 100% vCPU per hour.
 
+
 Calculation for the storage cost and total cost:
 
 
-> 
+
 > 720 × $0.249600 + 100&nbsp;×&nbsp;$0.025600 = $182.272000
-> 
 >
 > Total: $182.272000 is the cost of using the cluster for 30 days.
-
 
 Where:
 * 720: Number of hours in 30 days.
 * $0.249600 is the cost per hour of {{ MG }} host operation.
 * 100: Amount of HDD network storage (in GB).
-* 0,025600&nbsp;$ is the cost of using 1 GB of network HDD storage per month.
+* $0.025600 is the cost of using 1 GB of network HDD storage per month.
 
 
-## Pricing {#prices}
+
+## Prices for Russia {#prices}
 
 
 
@@ -110,7 +110,6 @@ The prices for computing resources are the same for all types of hosts: mongod, 
 
 
 
-
 {% include [usd-host](../_pricing/managed-mongodb/usd-host.md) %}
 
 
@@ -119,16 +118,8 @@ The prices for computing resources are the same for all types of hosts: mongod, 
 
 
 
-
 {% include [usd-storage](../_pricing/managed-mongodb/usd-storage.md) %}
 
 
-
-### Egress traffic {#prices-traffic}
-
-
-
-
-{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 

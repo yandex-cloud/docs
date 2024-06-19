@@ -1,5 +1,3 @@
-## Pricing {#prices}
-
 All prices are net of VAT. Prices are given for a 30-day month. For shorter months, the cost is higher. For longer months, it is lower.
 
 | Service | Cost, without VAT |

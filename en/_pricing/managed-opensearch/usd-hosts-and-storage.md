@@ -1,5 +1,3 @@
-### Host computing resources {#prices-hosts}
-
 {% list tabs %}
 
 - Costs per hour

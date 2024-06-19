@@ -4,6 +4,8 @@ editable: false
 
 # {{ sws-full-name }} pricing
 
+
+
 To calculate the cost of using {{ sws-name }}, see the prices on this page.
 
 ## What goes into the cost of using {{ sws-name }} {#rules}
@@ -13,11 +15,10 @@ The {{ sws-name }} cost depends on the following parameters:
 * Number of [security profiles](./concepts/profiles.md)
 * Total number of [security rules](./concepts/rules.md) in all profiles
 
-## Pricing {#prices}
+## Prices for Russia {#prices}
 
 
 ### Requests {#requests}
-
 
 
 
@@ -42,5 +43,5 @@ Minimum billing units are one security profile per month and one security rule p
 
 
 
-
 {% include [usd-profiles-and-rules](../_pricing/smartwebsecurity/usd-profiles-and-rules.md) %}
+

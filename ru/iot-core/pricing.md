@@ -6,6 +6,8 @@ editable: false
 
 # Правила тарификации для {{ iot-name }}
 
+
+
 ## Из чего складывается стоимость использования {{ iot-name }} {#rules}
 
 В рамках сервиса {{ iot-name }} тарифицируется количество сообщений. Количество сообщений считается c округлением в большую сторону по формуле: 
@@ -43,13 +45,21 @@ editable: false
 * `PUBLISH` — отправка сообщения от MQTT-сервера сервиса к клиенту (устройства или реестра).
 * `PINGREQ` — проверка соединения от клиента (устройства или реестра) к MQTT-серверу сервиса.
 
-## Цены {#prices}
-
+## Цены для региона Россия {#prices}
 
 ### Объем данных {#volumes}
 
-   
-{% include [rub.md](../_pricing/iot-core/rub.md) %}
-   
-   
-   
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include notitle [rub.md](../_pricing/iot-core/rub.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include notitle [kzt.md](../_pricing/iot-core/kzt.md) %}
+
+{% endlist %}
+
+

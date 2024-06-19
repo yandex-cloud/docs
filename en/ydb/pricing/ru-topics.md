@@ -5,6 +5,8 @@ description: "In this tutorial, you will learn how to calculate the cost of topi
 
 # Rules for estimating the cost of topic operations
 
+
+
 ## Pricing modes
 
 Pricing for operations with data in [{{ ydb-short-name }} topics](https://ydb.tech/en/docs/concepts/topic) using {{ ydb-short-name }} Request Units applies to topics with _On-demand pricing mode_. In this mode, topics are by default created via the {{ ydb-short-name }} CLI/SDK and while creating a [CDC stream](https://ydb.tech/en/docs/concepts/cdc).

@@ -6,7 +6,6 @@ editable: false
 
 
 
-
 ## Из чего складывается стоимость использования {{ sf-name }} {#rules}
 
 В рамках сервиса {{ sf-name }} тарифицируется количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, время простоя [подготовленных экземпляров](concepts/function.md#provisioned-instances) и исходящий трафик.
@@ -21,15 +20,28 @@ editable: false
 
 {% endnote %}
 
-
 ### Формула расчета стоимости {#price-formula}
 
-Стоимость в месяц = 5,47 ₽ × Объем памяти (Гб) × Время обработки вызовов (Часы) + 16 ₽ × Количество миллионов вызовов
 
-{% include [not-charged-functions.md](../_includes/pricing/price-formula/not-charged-functions.md) %}
+{% list tabs group=pricing %}
 
-{% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
+- Стоимость в рублях {#prices-rub}
 
+  Стоимость в месяц = 5,47 ₽ × Объем памяти (Гб) × Время обработки вызовов (Часы) + 16 ₽ × Количество миллионов вызовов
+
+  {% include [not-charged-functions.md](../_includes/pricing/price-formula/not-charged-functions.md) %}
+
+  {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
+
+- Стоимость в тенге {#prices-kzt}
+
+  Стоимость в месяц = 27,35 ₸ × Объем памяти (Гб) × Время обработки вызовов (Часы) + 80 ₸ × Количество миллионов вызовов
+
+  {% include [not-charged-functions.md](../_includes/pricing/price-formula/not-charged-functions.md) %}
+
+  {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
+
+{% endlist %}
 
 
 
@@ -41,8 +53,6 @@ editable: false
 
 Использование [триггеров](concepts/trigger/index.md) не тарифицируется. Вы можете создавать и использовать триггеры в рамках доступных [квот и лимитов](concepts/limits.md).
 
-
-
 ## Навыки Алисы
 
 Функции {{ sf-name }}, которые используются для навыков Алисы, не тарифицируются и не расходуют [нетарифицируемый объем услуг](../billing/concepts/serverless-free-tier.md#sf), если:
@@ -51,45 +61,66 @@ editable: false
 
 При этом если функция использует другие ресурсы {{ yandex-cloud }}, они тарифицируются. Например, если функция делает запросы к очереди {{ message-queue-name }}, за них взимается плата в соответствии с [тарифами](../message-queue/pricing.md#requests-to-queues).
 
+## Цены для региона Россия {#prices}
 
 
-## Цены {#prices}
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 ### Вызов функции {#invoke}
 
 
-{% include [rub.md](../_pricing/functions/rub-invocations.md) %}
+{% list tabs group=pricing %}
 
-Оплачивается фактическое количество вызовов. Например, 1000 вызовов сверх нетарифицируемого объема стоит 0,016 ₽, если 1 миллион запросов стоит 16 ₽.
+- Цены в рублях {#prices-rub}
 
+  {% include [rub.md](../_pricing/functions/rub-invocations.md) %}
+
+  Оплачивается фактическое количество вызовов. Например, 1000 вызовов сверх нетарифицируемого объема стоит 0,016 ₽, если 1 миллион запросов стоит 16 ₽.
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt.md](../_pricing/functions/kzt-invocations.md) %}
+
+  Оплачивается фактическое количество вызовов. Например, 1000 вызовов сверх нетарифицируемого объема стоит 0,08 ₸, если 1 миллион запросов стоит 80 ₸.
+
+{% endlist %}
 
 
 
 ### Время выполнения функции {#execution}
 
 
-{% include [rub.md](../_pricing/functions/rub-compute.md) %}
+{% list tabs group=pricing %}
 
+- Цены в рублях {#prices-rub}
 
+  {% include [rub.md](../_pricing/functions/rub-compute.md) %}
 
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt.md](../_pricing/functions/kzt-compute.md) %}
+
+{% endlist %}
 
 
 
 ### Подготовленные экземпляры {#provisioned-instances}
 
 
-{% include [rub.md](../_pricing/functions/rub-compute-provisioned-instances.md) %}
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub.md](../_pricing/functions/rub-compute-provisioned-instances.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt.md](../_pricing/functions/kzt-compute-provisioned-instances.md) %}
+
+{% endlist %}
 
 
 
-
-
-
-### Исходящий трафик {#prices-traffic}
-
-
-{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
-
-
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 
