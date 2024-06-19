@@ -16,4 +16,3 @@
 | 50% vCPU | {{ sku|USD|mdb.cluster.mongodb.v3.cpu.c50|string }} | {{ sku|USD|mdb.cluster.mongodb.v3.cpu.c50|month|string }} |
 | 100% vCPU | {{ sku|USD|mdb.cluster.mongodb.v3.cpu.c100|string }} | {{ sku|USD|mdb.cluster.mongodb.v3.cpu.c100|month|string }} |
 | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.mongodb.v3.ram|string }} | {{ sku|USD|mdb.cluster.mongodb.v3.ram|month|string }} |
-

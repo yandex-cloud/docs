@@ -6,7 +6,6 @@ editable: false
 
 
 
-
 ## What goes into the cost of using {{ sf-name }} {#rules}
 
 In {{ sf-name }}, you pay for the number of function calls, computing resources allocated for the function, downtime of [provisioned instances](concepts/function.md#provisioned-instances), and outgoing traffic.
@@ -21,10 +20,9 @@ You are only charged for the [function calls](concepts/function-invoke.md) that 
 
 {% endnote %}
 
-
-
-
 ### Pricing formula {#price-formula}
+
+
 
 Monthly cost = $0.043760 × Memory (GB) × Call processing time (Hours) + $0.12800 × Millions of calls
 
@@ -41,8 +39,6 @@ Monthly cost = $0.043760 × Memory (GB) × Call processing time (Hours) + $0.128
 
 [Triggers](concepts/trigger/index.md) can be used free of charge. You can create and use triggers within the available [quotas and limits](concepts/limits.md).
 
-
-
 ## Alice skills
 
 {{ sf-name }} functions used for Alice skills are not billable and do not consume your [free amount of services](../billing/concepts/serverless-free-tier.md#sf), if:
@@ -51,13 +47,10 @@ Monthly cost = $0.043760 × Memory (GB) × Call processing time (Hours) + $0.128
 
 However, if the function uses other {{ yandex-cloud }} resources, they are billed. For example, if the function makes requests to the {{ message-queue-name }} queue, the requests are billed according to the [pricing](../message-queue/pricing.md#requests-to-queues).
 
-
-
-## Pricing {#prices}
+## Prices for Russia {#prices}
 
 
 ### Invoking a function {#invoke}
-
 
 
 
@@ -70,26 +63,15 @@ You pay for the actual number of invocations. For example, given that 1,000,000 
 
 
 
-
 {% include [usd.md](../_pricing/functions/usd-compute.md) %}
-
-
 
 
 ### Provisioned instances {#provisioned-instances}
 
 
 
-
 {% include [usd.md](../_pricing/functions/usd-compute-provisioned-instances.md) %}
 
 
-
-
-### Egress traffic {#prices-traffic}
-
-
-
-
-{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 

@@ -6,7 +6,6 @@ editable: false
 
 
 
-
 ## Из чего складывается стоимость использования {{ serverless-containers-name }} {#rules}
 
 В рамках сервиса {{ serverless-containers-name }} тарифицируется количество вызовов контейнеров, вычислительные ресурсы, выделенные для выполнения приложения, время простоя [подготовленных экземпляров](concepts/container.md#provisioned-instances) и исходящий трафик.
@@ -23,10 +22,22 @@ editable: false
 
 {% endnote %}
 
-
 ### Формула расчета стоимости {#formula}
 
-Стоимость в месяц = {{ sku|RUB|serverless.containers.compute.memory|pricingRate.10|string }} × Объем памяти (ГБ) × Время обработки вызовов (Часы) + {{ sku|RUB|serverless.containers.compute.cpu|pricingRate.5|string }} × Количество ядер × Время обработки вызовов (Часы) + {{ sku|RUB|serverless.containers.invocations|pricingRate.1|string }} × Количество миллионов вызовов
+
+{% list tabs group=pricing %}
+
+- Стоимость в рублях {#prices-rub}
+
+  Стоимость в месяц = {{ sku|RUB|serverless.containers.compute.memory|pricingRate.10|string }} × Объем памяти (ГБ) × Время обработки вызовов (Часы) + {{ sku|RUB|serverless.containers.compute.cpu|pricingRate.5|string }} × Количество ядер × Время обработки вызовов (Часы) + {{ sku|RUB|serverless.containers.invocations|pricingRate.1|string }} × Количество миллионов вызовов
+
+- Стоимость в тенге {#prices-kzt}
+
+  Стоимость в месяц = {{ sku|KZT|serverless.containers.compute.memory|pricingRate.10|string }} × Объем памяти (ГБ) × Время обработки вызовов (Часы) + {{ sku|KZT|serverless.containers.compute.cpu|pricingRate.5|string }} × Количество ядер × Время обработки вызовов (Часы) + {{ sku|KZT|serverless.containers.invocations|pricingRate.1|string }} × Количество миллионов вызовов
+
+{% endlist %}
+
+
 
 {% include [not-charged-sc.md](../_includes/pricing/price-formula/not-charged-serverless-containers.md) %}
 
@@ -40,27 +51,55 @@ editable: false
 * **Количество вызовов контейнера**: 3 000 000.
 * **Время выполнения при каждом вызове**: 150 мс.
 
-> 3,2 × (2 × (150 / 3&nbsp;600&nbsp;000) × 3&nbsp;000&nbsp;000 – 10) + 4,8 × (0,2 × (150 / 3&nbsp;600&nbsp;000) × 3&nbsp;000&nbsp;000 – 5) + 16 × ((3&nbsp;000&nbsp;000 – 1&nbsp;000&nbsp;000) / 1&nbsp;000&nbsp;000)
-> 
-> 
->
-> Итого: 896&nbsp;₽
 
-Где:
-* 3,2 — цена за 1 ГБ×час, свыше 10 ГБ×час в месяц.
-* 2 — объем RAM.
-* 150 / 3 600 000 — перевод мс в часы, так как время использования RAM считается в ГБ×час.
-* 3 000 000 — количество вызовов контейнера.
-* 10 — время использования RAM, которое не тарифицируется.
-* 4,8 — цена за час использования CPU, свыше 5 vCPU × час в месяц.
-* 0,2 — количество ядер vCPU.
-* 150 / 3 600 000 — перевод мс в часы, так как время использования CPU считается в ГБ×час.
-* 3 000 000 — количество вызовов контейнера.
-* 5 — время использования CPU, которое не тарифицируется.
-* 16 — цена за 1 млн вызовов контейнера, свыше 1 млн в месяц.
-* 3 000 000 — количество вызовов контейнера.
-* 1 000 000 — вычитаем, потому что первые миллион вызовов не тарифицируются.
-* 1 000 000 — делим, чтобы посчитать количество миллионов вызовов контейнера.
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  > 3,2 × (2 × (150 / 3&nbsp;600&nbsp;000) × 3&nbsp;000&nbsp;000 – 10) + 4,8 × (0,2 × (150 / 3&nbsp;600&nbsp;000) × 3&nbsp;000&nbsp;000 – 5) + 16 × ((3&nbsp;000&nbsp;000 – 1&nbsp;000&nbsp;000) / 1&nbsp;000&nbsp;000)
+  >
+  > Итого: 896&nbsp;₽
+
+  Где:
+  * 3,2 — цена за 1 ГБ×час, свыше 10 ГБ×час в месяц.
+  * 2 — объем RAM.
+  * 150 / 3 600 000 — перевод мс в часы, так как время использования RAM считается в ГБ×час.
+  * 3 000 000 — количество вызовов контейнера.
+  * 10 — время использования RAM, которое не тарифицируется.
+  * 4,8 — цена за час использования CPU, свыше 5 vCPU × час в месяц.
+  * 0,2 — количество ядер vCPU.
+  * 150 / 3 600 000 — перевод мс в часы, так как время использования CPU считается в ГБ×час.
+  * 3 000 000 — количество вызовов контейнера.
+  * 5 — время использования CPU, которое не тарифицируется.
+  * 16 — цена за 1 млн вызовов контейнера, свыше 1 млн в месяц.
+  * 3 000 000 — количество вызовов контейнера.
+  * 1 000 000 — вычитаем, потому что первые миллион вызовов не тарифицируются.
+  * 1 000 000 — делим, чтобы посчитать количество миллионов вызовов контейнера.
+
+- Расчет в тенге {#prices-kzt}
+
+  > 16 × (2 × (150 / 3&nbsp;600&nbsp;000) × 3&nbsp;000&nbsp;000 – 10) + 24 × (0,2 × (150 / 3&nbsp;600&nbsp;000) × 3&nbsp;000&nbsp;000 – 5) + 80 × ((3&nbsp;000&nbsp;000 – 1&nbsp;000&nbsp;000) / 1&nbsp;000&nbsp;000)
+  >
+  > Итого: 4480&nbsp;₸
+
+  Где:
+  * 16 — цена за 1 ГБ×час, свыше 10 ГБ×час в месяц.
+  * 2 — объем RAM.
+  * 150 / 3 600 000 — перевод мс в часы, так как время использования RAM считается в ГБ×час.
+  * 3 000 000 — количество вызовов контейнера.
+  * 10 — время использования RAM, которое не тарифицируется.
+  * 24 — цена за час использования CPU, свыше 5 vCPU × час в месяц.
+  * 0,2 — количество ядер vCPU.
+  * 150 / 3 600 000 — перевод мс в часы, так как время использования CPU считается в ГБ×час.
+  * 3 000 000 — количество вызовов контейнера.
+  * 5 — время использования CPU, которое не тарифицируется.
+  * 80 — цена за 1 млн вызовов контейнера, свыше 1 млн в месяц.
+  * 3 000 000 — количество вызовов контейнера.
+  * 1 000 000 — вычитаем, потому что первые миллион вызовов не тарифицируются.
+  * 1 000 000 — делим, чтобы посчитать количество миллионов вызовов контейнера.
+
+{% endlist %}
+
 
 
 Пример расчета стоимости контейнера, у которого:
@@ -69,55 +108,111 @@ editable: false
 * **Количество вызовов контейнера**: 3 000 000.
 * **Время выполнения при каждом вызове**: 150 мс.
 
-> 3,2 × (2 × (150 / 3&nbsp;600&nbsp;000) × 3&nbsp;000&nbsp;000 – 10) + 4,8 × (1 × (150 / 3&nbsp;600&nbsp;000) × 3&nbsp;000&nbsp;000 – 5) + 16 × ((3&nbsp;000&nbsp;000 – 1&nbsp;000&nbsp;000) / 1&nbsp;000&nbsp;000)
-> 
-> 
->
-> Итого: 1376&nbsp;₽
 
-Где:
-* 3,2 — цена за 1 ГБ×час, свыше 10 ГБ×час в месяц.
-* 2 — объем RAM.
-* 150 / 3 600 000 — перевод мс в часы, так как время использования RAM считается в ГБ×час.
-* 3 000 000 — количество вызовов контейнера.
-* 10 — время использования RAM, которое не тарифицируется.
-* 4,8 — цена за час использования CPU, свыше 5 vCPU × час в месяц.
-* 1 — количество ядер vCPU.
-* 150 / 3 600 000 — перевод мс в часы, так как время использования CPU считается в ГБ×час.
-* 3 000 000 — количество вызовов контейнера.
-* 5 — время использования CPU, которое не тарифицируется.
-* 16 — цена за 1 млн вызовов контейнера, свыше 1 млн в месяц.
-* 3 000 000 — количество вызовов контейнера.
-* 1 000 000 — вычитаем, потому что первые миллион вызовов не тарифицируются.
-* 1 000 000 — делим, чтобы посчитать количество миллионов вызовов контейнера.
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  > 3,2 × (2 × (150 / 3&nbsp;600&nbsp;000) × 3&nbsp;000&nbsp;000 – 10) + 4,8 × (1 × (150 / 3&nbsp;600&nbsp;000) × 3&nbsp;000&nbsp;000 – 5) + 16 × ((3&nbsp;000&nbsp;000 – 1&nbsp;000&nbsp;000) / 1&nbsp;000&nbsp;000)
+  >
+  > Итого: 1376&nbsp;₽
+
+  Где:
+  * 3,2 — цена за 1 ГБ×час, свыше 10 ГБ×час в месяц.
+  * 2 — объем RAM.
+  * 150 / 3 600 000 — перевод мс в часы, так как время использования RAM считается в ГБ×час.
+  * 3 000 000 — количество вызовов контейнера.
+  * 10 — время использования RAM, которое не тарифицируется.
+  * 4,8 — цена за час использования CPU, свыше 5 vCPU × час в месяц.
+  * 1 — количество ядер vCPU.
+  * 150 / 3 600 000 — перевод мс в часы, так как время использования CPU считается в ГБ×час.
+  * 3 000 000 — количество вызовов контейнера.
+  * 5 — время использования CPU, которое не тарифицируется.
+  * 16 — цена за 1 млн вызовов контейнера, свыше 1 млн в месяц.
+  * 3 000 000 — количество вызовов контейнера.
+  * 1 000 000 — вычитаем, потому что первые миллион вызовов не тарифицируются.
+  * 1 000 000 — делим, чтобы посчитать количество миллионов вызовов контейнера.
+
+- Расчет в тенге {#prices-kzt}
+
+  > 16 × (2 × (150 / 3&nbsp;600&nbsp;000) × 3&nbsp;000&nbsp;000 – 10) + 24 × (1 × (150 / 3&nbsp;600&nbsp;000) × 3&nbsp;000&nbsp;000 – 5) + 80 × ((3&nbsp;000&nbsp;000 – 1&nbsp;000&nbsp;000) / 1&nbsp;000&nbsp;000)
+  >
+  > Итого: 6880&nbsp;₸
+
+  Где:
+  * 16 — цена за 1 ГБ×час, свыше 10 ГБ×час в месяц.
+  * 2 — объем RAM.
+  * 150 / 3 600 000 — перевод мс в часы, так как время использования RAM считается в ГБ×час.
+  * 3 000 000 — количество вызовов контейнера.
+  * 10 — время использования RAM, которое не тарифицируется.
+  * 24 — цена за час использования CPU, свыше 5 vCPU × час в месяц.
+  * 1 — количество ядер vCPU.
+  * 150 / 3 600 000 — перевод мс в часы, так как время использования CPU считается в ГБ×час.
+  * 3 000 000 — количество вызовов контейнера.
+  * 5 — время использования CPU, которое не тарифицируется.
+  * 80 — цена за 1 млн вызовов контейнера, свыше 1 млн в месяц.
+  * 3 000 000 — количество вызовов контейнера.
+  * 1 000 000 — вычитаем, потому что первые миллион вызовов не тарифицируются.
+  * 1 000 000 — делим, чтобы посчитать количество миллионов вызовов контейнера.
+
+{% endlist %}
 
 
-## Цены {#prices}
+
+## Цены для региона Россия {#prices}
+
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 ### Вызов контейнера {#prices-invoking}
 
 
-{% include notitle [rub-invocation.md](../_pricing/serverless-containers/rub-invocations.md) %}
+{% list tabs group=pricing %}
 
+- Цены в рублях {#prices-rub}
+
+  {% include notitle [rub-invocation.md](../_pricing/serverless-containers/rub-invocations.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include notitle [kzt-invocation.md](../_pricing/serverless-containers/kzt-invocations.md) %}
+
+{% endlist %}
 
 
 
 ### Время использования RAM при обработке запросов {#prices-ram}
 
 
-{% include notitle [rub-ram.md](../_pricing/serverless-containers/rub-ram.md) %}
+{% list tabs group=pricing %}
 
+- Цены в рублях {#prices-rub}
+
+  {% include notitle [rub-ram.md](../_pricing/serverless-containers/rub-ram.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include notitle [kzt-ram.md](../_pricing/serverless-containers/kzt-ram.md) %}
+
+{% endlist %}
 
 
 
 ### Время использования CPU при обработке запросов {#prices-cpu}
 
 
-{% include notitle [rub-cpu.md](../_pricing/serverless-containers/rub-cpu.md) %}
+{% list tabs group=pricing %}
 
+- Цены в рублях {#prices-rub}
 
+  {% include notitle [rub-cpu.md](../_pricing/serverless-containers/rub-cpu.md) %}
 
+- Цены в тенге {#prices-kzt}
+
+  {% include notitle [kzt-cpu.md](../_pricing/serverless-containers/kzt-cpu.md) %}
+
+{% endlist %}
 
 
 
@@ -126,26 +221,35 @@ editable: false
 #### Время использования RAM {#prices-ram-provisioned-instances}
 
 
-{% include notitle [rub-ram-provisioned-instances.md](../_pricing/serverless-containers/rub-ram-provisioned-instances.md) %}
+{% list tabs group=pricing %}
 
+- Цены в рублях {#prices-rub}
+
+  {% include notitle [rub-ram-provisioned-instances.md](../_pricing/serverless-containers/rub-ram-provisioned-instances.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include notitle [kzt-ram-provisioned-instances.md](../_pricing/serverless-containers/kzt-ram-provisioned-instances.md) %}
+
+{% endlist %}
 
 
 
 #### Время использования CPU {#prices-cpu-provisioned-instances}
 
 
-{% include notitle [rub-cpu-provisioned-instances.md](../_pricing/serverless-containers/rub-cpu-provisioned-instances.md) %}
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include notitle [rub-cpu-provisioned-instances.md](../_pricing/serverless-containers/rub-cpu-provisioned-instances.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include notitle [kzt-cpu-provisioned-instances.md](../_pricing/serverless-containers/kzt-cpu-provisioned-instances.md) %}
+
+{% endlist %}
 
 
 
-
-
-
-### Исходящий трафик {#prices-traffic}
-
-
-{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
-
-
-
-
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

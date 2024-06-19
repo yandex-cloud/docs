@@ -1,5 +1,7 @@
 # Rules for estimating the cost of requests to {{ ydb-short-name }} via the Document API
 
+
+
 The cost per document requested via the Document API is equal to the RU (Request Units) cost per unit multiplied by the document size in blocks. The size in blocks equals the size in bytes divided by the block size and rounded up. Requesting a non-existent document is the same as reading a document with a size of 1 block. If a request processes multiple documents (for example, `BatchGetItem`), the total cost is equal to the sum of costs per document. If the `Query` method is used, pricing is based on the amount of data read, ignoring the number of documents.
 
 | Request type | Unit cost | Block size |

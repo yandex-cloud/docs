@@ -12,7 +12,6 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-
 {% include [pricing-status.md](../_includes/pricing/pricing-status.md) %}
 
 ## Из чего складывается стоимость использования {{ ydb-name }} {#rules}
@@ -61,8 +60,10 @@ editable: false
 {% endnote %}
 
 
-## Цены  {#prices}
+## Цены для региона Россия {#prices}
 
+
+{% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
 
 Все цены указаны с включением НДС. Цены за месяц указаны из расчета для месяца в 30 календарных дней. Для более коротких месяцев цена соответственно выше, для более длинных — ниже.
 
@@ -70,32 +71,51 @@ editable: false
 ### Вычислительные ресурсы хостов {#prices-compute-units}
 
 
+#### Цены в час {#price-per-hour}
 
-{% include notitle [rub-compute-units.md](../../_pricing/ydb/rub-compute-units.md) %}
+{% list tabs group=pricing %}
 
+- Цены в рублях {#prices-rub}
 
+  {% include [rub-compute-units-hour.md](../../_pricing/ydb/rub-compute-units-hour.md) %}
 
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-compute-units-hour.md](../../_pricing/ydb/kzt-compute-units-hour.md) %}
+
+{% endlist %}
+
+#### Цены в месяц {#price-per-month}
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-compute-units-month.md](../../_pricing/ydb/rub-compute-units-month.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-compute-units-month.md](../../_pricing/ydb/kzt-compute-units-month.md) %}
+
+{% endlist %}
 
 
 
 ### Хранилище и резервные копии {#prices-storage}
 
 
+{% list tabs group=pricing %}
 
-{% include notitle [rub-storage.md](../../_pricing/ydb/rub-storage.md) %}
+- Цены в рублях {#prices-rub}
 
+  {% include [rub-storage.md](../../_pricing/ydb/rub-storage.md) %}
+  
+- Цены в тенге {#prices-kzt}
 
+  {% include [kzt-storage.md](../../_pricing/ydb/kzt-storage.md) %}
 
-
-
-
-### Исходящий трафик {#prices-traffic}
-
-
-
-{% include notitle [rub-egress-traffic.md](../../_pricing/rub-egress-traffic.md) %}
+{% endlist %}
 
 
 
-
-
+{% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}

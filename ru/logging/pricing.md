@@ -10,16 +10,30 @@ editable: false
 
 В рамках сервиса {{ cloud-logging-name }} тарифицируются объем записываемых данных и время их хранения.
 
-## Цены {#prices}
+
+## Цены для региона Россия {#prices}
+
+
+
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 
 ### Запись данных {#data-ingested}
 
 
+{% list tabs group=pricing %}
 
-{% include [rub-data-ingested.md](../_pricing/logging/rub-data-ingested.md) %}
+- Цены в рублях {#prices-rub}
 
+  {% include [rub-data-ingested.md](../_pricing/logging/rub-data-ingested.md) %}
 
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-data-ingested.md](../_pricing/logging/kzt-data-ingested.md) %}
+
+{% endlist %}
 
 
 
@@ -27,10 +41,17 @@ editable: false
 ### Хранение данных {#storage}
 
 
+{% list tabs group=pricing %}
 
-{% include [rub-storage.md](../_pricing/logging/rub-storage.md) %}
+- Цены в рублях {#prices-rub}
 
+  {% include [rub-storage.md](../_pricing/logging/rub-storage.md) %}
 
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-storage.md](../_pricing/logging/kzt-storage.md) %}
+
+{% endlist %}
 
 
 

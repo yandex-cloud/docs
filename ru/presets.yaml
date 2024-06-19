@@ -755,6 +755,1077 @@ default:
   ZK: ZooKeeper
   zk-host-class: b2.medium
   zone-id: ru-central1-d
+  sku|KZT|ai:
+    mt:
+      detect|string: "2\_461,00\_₸"
+      translate|string: "2\_461,00\_₸"
+  sku|KZT|alb:
+    balancer:
+      active|string: "11,10\_₸"
+  sku|KZT|api-gateway:
+    requests:
+      v1|pricingRate:
+        '0':
+          1|string: "600,00\_₸"
+      v1|string: Не тарифицируется
+  sku|KZT|audit-trails:
+    events:
+      data_plane:
+        v1|string: "180,00\_₸"
+  sku|KZT|b2b:
+    tracker:
+      license:
+        v1|int|string: Не тарифицируется
+        v1|pricingRate:
+          100|int|string: "2\_000\_₸"
+          250|int|string: "1\_800\_₸"
+          6|int|string: "2\_200\_₸"
+  sku|KZT|backup:
+    protected_vms:
+      v2|month|string: "1\_194,00\_₸"
+    used_space:
+      v1|month|string: "21,00\_₸"
+  sku|KZT|cdn:
+    api:
+      network:
+        inet:
+          egress|string: "4,80\_₸"
+    logs:
+      raw|int|string: "25\_000\_₸"
+      shielding|int|string: "17\_500\_₸"
+  sku|KZT|compute:
+    filesystem:
+      hdd:
+        v1|month|string: "16,79\_₸"
+      ssd:
+        v1|month|string: "68,4825\_₸"
+    hostgroup:
+      cpu:
+        c100:
+          v1|string: "6,5794\_₸"
+          v3|string: "5,9139\_₸"
+          v4|string: "9,70\_₸"
+      localssd:
+        v1|month|string: "44,00\_₸"
+        v1|string: "0,0611\_₸"
+      ram:
+        v1|string: "1,7423\_₸"
+        v3|string: "1,5665\_₸"
+        v4|string: "1,75\_₸"
+    image|month|string: "15,60\_₸"
+    snapshot|month|string: "15,60\_₸"
+    vm:
+      cpu:
+        '50':
+          v2|string: "3,60\_₸"
+        c05:
+          preemptible:
+            v2|string: "0,50\_₸"
+          preemptible|string: "0,95\_₸"
+          v2|string: "0,80\_₸"
+        c05|string: "1,55\_₸"
+        c100:
+          gpu-standard:
+            preemptible:
+              v3|string: "1,80\_₸"
+            v3|string: "4,50\_₸"
+          highfreq-v3|string: "8,80\_₸"
+          preemptible:
+            v2|string: "1,60\_₸"
+            v3|string: "1,45\_₸"
+          preemptible|string: "1,70\_₸"
+          v2|string: "5,95\_₸"
+          v3|string: "5,25\_₸"
+        c100|string: "5,60\_₸"
+        c20:
+          preemptible:
+            v2|string: "0,80\_₸"
+            v3|string: "0,70\_₸"
+          preemptible|string: "1,35\_₸"
+          v2|string: "2,45\_₸"
+          v3|string: "2,20\_₸"
+        c20|string: "4,40\_₸"
+        c50:
+          preemptible:
+            v2|string: "1,10\_₸"
+            v3|string: "1,00\_₸"
+          v3|string: "3,20\_₸"
+      gpu:
+        gpu-standard:
+          preemptible:
+            v2|string: "312,00\_₸"
+            v3|string: "743,40\_₸"
+          preemptible|string: "312,00\_₸"
+          v2|string: "1\_247,60\_₸"
+          v3|string: "1\_858,50\_₸"
+        gpu-standard|string: "1\_247,60\_₸"
+        infiniband:
+          ic:
+            preemptible|string: "318,00\_₸"
+          ic|string: "318,00\_₸"
+        standard:
+          v3-t4:
+            preemptible|string: "80,00\_₸"
+          v3-t4|string: "320,00\_₸"
+      ram:
+        gpu-standard:
+          preemptible:
+            v3|string: "0,55\_₸"
+          v3|string: "1,40\_₸"
+        highfreq-v3|string: "1,60\_₸"
+        preemptible:
+          v2|string: "0,35\_₸"
+          v3|string: "0,35\_₸"
+        preemptible|string: "0,60\_₸"
+        v2|string: "1,55\_₸"
+        v3|string: "1,40\_₸"
+      ram|string: "1,95\_₸"
+  sku|KZT|cr:
+    bucket:
+      used_space:
+        standard|month|string: "15,00\_₸"
+    vulnerabilityscanner:
+      rescan:
+        v1|pricingRate:
+          6|string: "36,00\_₸"
+        v1|string: Не тарифицируется
+      scan:
+        v1|pricingRate:
+          6|string: "66,00\_₸"
+        v1|string: Не тарифицируется
+  sku|KZT|dns:
+    requests:
+      public:
+        authoritative:
+          v1|string: "160,00\_₸"
+        recursive:
+          v1|pricingRate:
+            1|string: "160,00\_₸"
+          v1|string: Не тарифицируется
+    zones:
+      v1|month|string: "180,00\_₸"
+      v1|string: "0,25\_₸"
+  sku|KZT|gitlab:
+    backup|month|string: "9,60\_₸"
+    instance:
+      cpu|string: "8,40\_₸"
+      disk|month|string: "65,05\_₸"
+      ram|string: "2,25\_₸"
+  sku|KZT|interconnect:
+    trunk:
+      direct:
+        100gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "9\_600\_000,00\_₸"
+        100mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "55\_350,00\_₸"
+        10gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "1\_070\_955,00\_₸"
+        1gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "221\_130,00\_₸"
+        200mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "103\_315,00\_₸"
+        20gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "2\_117\_250,00\_₸"
+        2gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "416\_920,00\_₸"
+        300mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "143\_890,00\_₸"
+        30gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "3\_138\_890,00\_₸"
+        3gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "587\_365,00\_₸"
+        400mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "177\_085,00\_₸"
+        40gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "4\_135\_875,00\_₸"
+        4gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "732\_475,00\_₸"
+        500mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "202\_890,00\_₸"
+        50gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "5\_108\_200,00\_₸"
+        50mbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "27\_675,00\_₸"
+        5gbps:
+          unmetered:
+            monthly_usage:
+              v1|string: "852\_240,00\_₸"
+      hosted_connections:
+        v1|string: "600,00\_₸"
+      physical_port:
+        1000base_lx:
+          monthly_usage:
+            v1|string: "11\_625,00\_₸"
+        100gbase_er4:
+          monthly_usage:
+            v1|string: "112\_500,00\_₸"
+        100gbase_lr4:
+          monthly_usage:
+            v1|string: "97\_190,00\_₸"
+        10gbase_er:
+          monthly_usage:
+            v1|string: "12\_565,00\_₸"
+        10gbase_lr:
+          monthly_usage:
+            v1|string: "11\_625,00\_₸"
+  sku|KZT|kms:
+    api:
+      asymmetric:
+        heavy:
+          v1|string: "72,00\_₸"
+        v1|string: "28,80\_₸"
+      v1:
+        encryptdecrypt|string: "14,40\_₸"
+    storage:
+      asymmetric:
+        v1|string: "14,40\_₸"
+      v1:
+        hsm|month|string: "1\_800,00\_₸"
+        software|month|string: "14,40\_₸"
+  sku|KZT|lockbox:
+    api:
+      v1:
+        get|string: "17,28\_₸"
+    storage:
+      v1:
+        active_secrets|month|string: "90,00\_₸"
+  sku|KZT|logging:
+    ingested:
+      traffic|pricingRate:
+        5|string: "116,38\_₸"
+      traffic|string: Не тарифицируется
+    storage:
+      data|month|string: Не тарифицируется
+      data|pricingRate:
+        720|month|string: "50,82\_₸"
+  sku|KZT|mdb:
+    cluster:
+      clickhouse:
+        v1:
+          cpu:
+            c100|month|string: "8\_208,00\_₸"
+            c100|string: "11,40\_₸"
+            c20|month|string: "1\_476,00\_₸"
+            c20|string: "2,05\_₸"
+            c5|month|string: "108,00\_₸"
+            c5|string: "0,15\_₸"
+            c50|month|string: "2\_448,00\_₸"
+            c50|string: "3,40\_₸"
+          ram|month|string: "1\_872,00\_₸"
+          ram|string: "2,60\_₸"
+        v2:
+          cpu:
+            c100|month|string: "6\_912,00\_₸"
+            c100|string: "9,60\_₸"
+            c20|month|string: "1\_476,00\_₸"
+            c20|string: "2,05\_₸"
+            c5|month|string: "108,00\_₸"
+            c5|string: "0,15\_₸"
+            c50|month|string: "2\_448,00\_₸"
+            c50|string: "3,40\_₸"
+          ram|month|string: "1\_872,00\_₸"
+          ram|string: "2,60\_₸"
+        v3:
+          cpu:
+            c100|month|string: "6\_192,00\_₸"
+            c100|string: "8,60\_₸"
+            c50|month|string: "2\_196,00\_₸"
+            c50|string: "3,05\_₸"
+          ram|month|string: "1\_692,00\_₸"
+          ram|string: "2,35\_₸"
+      elasticsearch:
+        v2:
+          cpu:
+            c100|month|string: "6\_048,00\_₸"
+            c100|string: "8,40\_₸"
+          ram:
+            basic|month|string: "7\_560,00\_₸"
+            basic|string: "10,50\_₸"
+            gold|month|string: "8\_856,00\_₸"
+            gold|string: "12,30\_₸"
+            platinum|month|string: "10\_188,00\_₸"
+            platinum|string: "14,15\_₸"
+        v3:
+          cpu:
+            c100|month|string: "6\_048,00\_₸"
+            c100|string: "8,40\_₸"
+          ram:
+            basic|month|string: "7\_560,00\_₸"
+            basic|string: "10,50\_₸"
+            gold|month|string: "8\_856,00\_₸"
+            gold|string: "12,30\_₸"
+            platinum|month|string: "10\_188,00\_₸"
+            platinum|string: "14,15\_₸"
+      greenplum:
+        v2:
+          cpu:
+            c100:
+              dedicated|string: "6,00\_₸"
+            c100|month|string: "8\_604,00\_₸"
+            c100|string: "11,95\_₸"
+          ram:
+            dedicated|string: "1,55\_₸"
+          ram|month|string: "2\_268,00\_₸"
+          ram|string: "3,15\_₸"
+        v3:
+          cpu:
+            c100:
+              dedicated|string: "5,40\_₸"
+            c100|month|string: "7\_740,00\_₸"
+            c100|string: "10,75\_₸"
+          ram:
+            dedicated|string: "1,40\_₸"
+          ram|month|string: "2\_052,00\_₸"
+          ram|string: "2,85\_₸"
+      kafka:
+        v2:
+          cpu:
+            c100|month|string: "6\_048,00\_₸"
+            c100|string: "8,40\_₸"
+            c50|month|string: "2\_700,00\_₸"
+            c50|string: "3,75\_₸"
+          ram|month|string: "1\_620,00\_₸"
+          ram|string: "2,25\_₸"
+        v3:
+          cpu:
+            c100|month|string: "5\_436,00\_₸"
+            c100|string: "7,55\_₸"
+            c50|month|string: "2\_448,00\_₸"
+            c50|string: "3,40\_₸"
+          ram|month|string: "1\_440,00\_₸"
+          ram|string: "2,00\_₸"
+      local-nvme:
+        ch|month|string: "65,05\_₸"
+        elasticsearch|month|string: "65,05\_₸"
+        greenplum:
+          dedicated|month|string: "21,05\_₸"
+        greenplum|month|string: "65,05\_₸"
+        kafka|month|string: "65,05\_₸"
+        mongodb|month|string: "65,05\_₸"
+        mysql:
+          dedicated|month|string: "21,05\_₸"
+        mysql|month|string: "65,05\_₸"
+        opensearch|month|string: "65,05\_₸"
+        pg|month|string: "65,05\_₸"
+        redis|month|string: "65,05\_₸"
+      mongodb:
+        v1:
+          cpu:
+            c100|month|string: "5\_760,00\_₸"
+            c100|string: "8,00\_₸"
+            c20|month|string: "1\_656,00\_₸"
+            c20|string: "2,30\_₸"
+            c5|month|string: "144,00\_₸"
+            c5|string: "0,20\_₸"
+            c50|month|string: "2\_700,00\_₸"
+            c50|string: "3,75\_₸"
+          ram|month|string: "3\_240,00\_₸"
+          ram|string: "4,50\_₸"
+        v2:
+          cpu:
+            c100|month|string: "5\_760,00\_₸"
+            c100|string: "8,00\_₸"
+            c20|month|string: "1\_656,00\_₸"
+            c20|string: "2,30\_₸"
+            c5|month|string: "144,00\_₸"
+            c5|string: "0,20\_₸"
+            c50|month|string: "2\_700,00\_₸"
+            c50|string: "3,75\_₸"
+          ram|month|string: "3\_240,00\_₸"
+          ram|string: "4,50\_₸"
+        v3:
+          cpu:
+            c100|month|string: "5\_760,00\_₸"
+            c100|string: "8,00\_₸"
+            c50|month|string: "2\_700,00\_₸"
+            c50|string: "3,75\_₸"
+          ram|month|string: "3\_240,00\_₸"
+          ram|string: "4,50\_₸"
+      mysql:
+        v1:
+          cpu:
+            c100|month|string: "6\_804,00\_₸"
+            c100|string: "9,45\_₸"
+            c20|month|string: "1\_548,00\_₸"
+            c20|string: "2,15\_₸"
+            c5|month|string: "144,00\_₸"
+            c5|string: "0,20\_₸"
+            c50|month|string: "2\_592,00\_₸"
+            c50|string: "3,60\_₸"
+          ram|month|string: "1\_836,00\_₸"
+          ram|string: "2,55\_₸"
+        v2:
+          cpu:
+            c100:
+              dedicated|string: "2,75\_₸"
+            c100|month|string: "6\_732,00\_₸"
+            c100|string: "9,35\_₸"
+            c20|month|string: "1\_548,00\_₸"
+            c20|string: "2,15\_₸"
+            c5|month|string: "144,00\_₸"
+            c5|string: "0,20\_₸"
+            c50|month|string: "2\_592,00\_₸"
+            c50|string: "3,60\_₸"
+          ram:
+            dedicated|string: "0,80\_₸"
+          ram|month|string: "1\_836,00\_₸"
+          ram|string: "2,55\_₸"
+        v3:
+          cpu:
+            c100:
+              dedicated|string: "2,50\_₸"
+            c100|month|string: "6\_048,00\_₸"
+            c100|string: "8,40\_₸"
+            c50|month|string: "2\_340,00\_₸"
+            c50|string: "3,25\_₸"
+          ram:
+            dedicated|string: "0,75\_₸"
+          ram|month|string: "1\_656,00\_₸"
+          ram|string: "2,30\_₸"
+      network-hdd:
+        ch|month|string: "16,00\_₸"
+        elasticsearch|month|string: "16,00\_₸"
+        greenplum|month|string: "16,00\_₸"
+        kafka|month|string: "16,00\_₸"
+        mongodb|month|string: "16,00\_₸"
+        mysql|month|string: "16,00\_₸"
+        opensearch|month|string: "16,00\_₸"
+        pg|month|string: "16,00\_₸"
+      network-nvme:
+        ch|month|string: "65,05\_₸"
+        elasticsearch|month|string: "65,05\_₸"
+        greenplum|month|string: "65,05\_₸"
+        kafka|month|string: "65,05\_₸"
+        mongodb|month|string: "65,05\_₸"
+        mysql|month|string: "65,05\_₸"
+        opensearch|month|string: "65,05\_₸"
+        pg|month|string: "65,05\_₸"
+        redis|month|string: "65,05\_₸"
+      network-ssd-nonreplicated:
+        ch|month|string: "44,00\_₸"
+        elasticsearch|month|string: "44,00\_₸"
+        greenplum|month|string: "44,00\_₸"
+        kafka|month|string: "44,00\_₸"
+        mongodb|month|string: "44,00\_₸"
+        mysql|month|string: "44,00\_₸"
+        opensearch|month|string: "44,00\_₸"
+        pg|month|string: "44,00\_₸"
+        redis|month|string: "44,00\_₸"
+      opensearch:
+        v2:
+          cpu:
+            c100|month|string: "6\_048,00\_₸"
+            c100|string: "8,40\_₸"
+            c50|month|string: "2\_419,20\_₸"
+            c50|string: "3,36\_₸"
+          ram|month|string: "2\_520,00\_₸"
+          ram|string: "3,50\_₸"
+        v3:
+          cpu:
+            c100|month|string: "6\_048,00\_₸"
+            c100|string: "8,40\_₸"
+            c50|month|string: "2\_419,20\_₸"
+            c50|string: "3,36\_₸"
+          ram|month|string: "2\_520,00\_₸"
+          ram|string: "3,50\_₸"
+      pg:
+        backup|month|string: "9,60\_₸"
+        v1:
+          cpu:
+            c100|month|string: "7\_704,00\_₸"
+            c100|string: "10,70\_₸"
+            c20|month|string: "1\_620,00\_₸"
+            c20|string: "2,25\_₸"
+            c5|month|string: "216,00\_₸"
+            c5|string: "0,30\_₸"
+            c50|month|string: "2\_700,00\_₸"
+            c50|string: "3,75\_₸"
+          ram|month|string: "1\_764,00\_₸"
+          ram|string: "2,45\_₸"
+        v2:
+          cpu:
+            c100|month|string: "6\_516,00\_₸"
+            c100|string: "9,05\_₸"
+            c20|month|string: "1\_620,00\_₸"
+            c20|string: "2,25\_₸"
+            c5|month|string: "216,00\_₸"
+            c5|string: "0,30\_₸"
+            c50|month|string: "2\_700,00\_₸"
+            c50|string: "3,75\_₸"
+          ram|month|string: "1\_764,00\_₸"
+          ram|string: "2,45\_₸"
+        v3:
+          cpu:
+            c100|month|string: "5\_868,00\_₸"
+            c100|string: "8,15\_₸"
+            c50|month|string: "2\_448,00\_₸"
+            c50|string: "3,40\_₸"
+          ram|month|string: "1\_584,00\_₸"
+          ram|string: "2,20\_₸"
+      redis:
+        v1:
+          cpu:
+            c100|month|string: "7\_200,00\_₸"
+            c100|string: "10,00\_₸"
+            c20|month|string: "1\_296,00\_₸"
+            c20|string: "1,80\_₸"
+            c5|month|string: "43,20\_₸"
+            c5|string: "0,06\_₸"
+          ram|month|string: "1\_944,00\_₸"
+          ram|string: "2,70\_₸"
+        v2:
+          cpu:
+            c100|month|string: "6\_048,00\_₸"
+            c100|string: "8,40\_₸"
+            c5|month|string: "396,00\_₸"
+            c5|string: "0,55\_₸"
+            c50|month|string: "3\_636,00\_₸"
+            c50|string: "5,05\_₸"
+          ram|month|string: "1\_620,00\_₸"
+          ram|string: "2,25\_₸"
+        v3:
+          cpu:
+            c100|month|string: "5\_436,00\_₸"
+            c100|string: "7,55\_₸"
+            c50|month|string: "3\_276,00\_₸"
+            c50|string: "4,55\_₸"
+          ram|month|string: "1\_440,00\_₸"
+          ram|string: "2,00\_₸"
+    dataproc:
+      v2:
+        cpu:
+          c100|string: "0,60\_₸"
+          c50|string: "0,30\_₸"
+        ram|string: "0,15\_₸"
+      v3:
+        cpu:
+          c100|string: "0,60\_₸"
+        ram|string: "0,15\_₸"
+    zk:
+      clickhouse:
+        v1:
+          cpu:
+            c100|month|string: "5\_112,00\_₸"
+            c100|string: "7,10\_₸"
+            c20|month|string: "2\_016,00\_₸"
+            c20|string: "2,80\_₸"
+            c5|month|string: "864,00\_₸"
+            c5|string: "1,20\_₸"
+            c50|month|string: "2\_808,00\_₸"
+            c50|string: "3,90\_₸"
+          ram|month|string: "1\_152,00\_₸"
+          ram|string: "1,60\_₸"
+        v2:
+          cpu:
+            c100|month|string: "4\_356,00\_₸"
+            c100|string: "6,05\_₸"
+            c20|month|string: "2\_016,00\_₸"
+            c20|string: "2,80\_₸"
+            c5|month|string: "864,00\_₸"
+            c5|string: "1,20\_₸"
+            c50|month|string: "2\_808,00\_₸"
+            c50|string: "3,90\_₸"
+          ram|month|string: "1\_152,00\_₸"
+          ram|string: "1,60\_₸"
+        v3:
+          cpu:
+            c100|month|string: "3\_924,00\_₸"
+            c100|string: "5,45\_₸"
+            c50|month|string: "2\_520,00\_₸"
+            c50|string: "3,50\_₸"
+          ram|month|string: "1\_008,00\_₸"
+          ram|string: "1,40\_₸"
+      kafka:
+        v2:
+          cpu:
+            c100|month|string: "4\_356,00\_₸"
+            c100|string: "6,05\_₸"
+            c50|month|string: "2\_808,00\_₸"
+            c50|string: "3,90\_₸"
+          ram|month|string: "1\_152,00\_₸"
+          ram|string: "1,60\_₸"
+        v3:
+          cpu:
+            c100|month|string: "3\_924,00\_₸"
+            c100|string: "5,45\_₸"
+            c50|month|string: "2\_520,00\_₸"
+            c50|string: "3,50\_₸"
+          ram|month|string: "1\_008,00\_₸"
+          ram|string: "1,40\_₸"
+  sku|KZT|mk8s:
+    master:
+      regional:
+        small|month|string: "80\_064,00\_₸"
+        small|string: "111,20\_₸"
+      zonal:
+        small|month|string: "31\_680,00\_₸"
+        small|string: "44,00\_₸"
+  sku|KZT|monitoring:
+    point:
+      dgauge:
+        read|pricingRate:
+          50|string: "21,00\_₸"
+        read|string: "35,00\_₸"
+        store|string: Не тарифицируется
+        write|pricingRate:
+          50|string: "28,00\_₸"
+        write|string: "49,00\_₸"
+    prometheus:
+      point:
+        remote_api:
+          read|string: Не тарифицируется
+          write|pricingRate:
+            10000|string: "3,00\_₸"
+            50|string: "10,50\_₸"
+          write|string: Не тарифицируется
+  sku|KZT|nbs:
+    network-hdd:
+      allocated|month|string: "14,60\_₸"
+      allocated|string: "0,0203\_₸"
+    network-nvme:
+      allocated|month|string: "59,55\_₸"
+      allocated|string: "0,0827\_₸"
+    network-ssd-io-m3:
+      allocated|month|string: "99,00\_₸"
+    network-ssd-nonreplicated:
+      allocated|month|string: "44,00\_₸"
+  sku|KZT|network:
+    egress:
+      inet|pricingRate:
+        100|string: "7,65\_₸"
+      inet|string: Не тарифицируется
+    ingress:
+      inet:
+        antiddos:
+          qrator|string: "12,15\_₸"
+    public_fips:
+      deallocated|string: "1,55\_₸"
+    public_fips|string: "1,20\_₸"
+  sku|KZT|nlb:
+    balancer:
+      active|string: "3,90\_₸"
+      internal:
+        active|string: "3,90\_₸"
+    vip_bytes:
+      egress|string: "0,30\_₸"
+      ingress|string: "0,30\_₸"
+  sku|KZT|searchapi:
+    requests:
+      day:
+        v1|int|string: "2\_400\_₸"
+      night:
+        v1|int|string: Не тарифицируется
+        v1|pricingRate:
+          1|int|string: "1\_800\_₸"
+  sku|KZT|serverless:
+    containers:
+      compute:
+        cpu|pricingRate:
+          5|string: "24,00\_₸"
+        cpu|string: Не тарифицируется
+        memory|pricingRate:
+          10|string: "16,00\_₸"
+        memory|string: Не тарифицируется
+        provision_enabled:
+          cpu|string: "5,15\_₸"
+          memory|string: "3,45\_₸"
+        provisioned_request:
+          cpu|string: "9,90\_₸"
+          memory|string: "6,60\_₸"
+      invocations|pricingRate:
+        1|string: "80,00\_₸"
+      invocations|string: Не тарифицируется
+    functions:
+      compute:
+        v1|pricingRate:
+          10|string: "27,35\_₸"
+        v1|string: Не тарифицируется
+      invocations:
+        v1|pricingRate:
+          1|string: "80,00\_₸"
+        v1|string: Не тарифицируется
+  sku|KZT|speechkit:
+    stt_long_running_deferred:
+      v1|string: "0,0125\_₸"
+    stt_long_running:
+      v1|string: "0,05\_₸"
+    stt:
+      v1|string: "0,80\_₸"
+    tts_gpu:
+      v1|string: "6\_600,00\_₸"
+    tts:
+      v3_bvcc_request:
+        v1|string: "0,80\_₸"
+      v3_bvprem_request:
+        v1|string: "0,80\_₸"
+      v3_bvss_request:
+        v1|string: "0,80\_₸"
+      v3_request:
+        v1|string: "0,80\_₸"
+  sku|KZT|storage:
+    api:
+      get:
+        cold|string: "4,85\_₸"
+        ice|string: "9,70\_₸"
+        standard|pricingRate:
+          10|string: "1,95\_₸"
+        standard|string: Не тарифицируется
+      head:
+        cold|string: "4,85\_₸"
+        ice|string: "9,70\_₸"
+        standard|pricingRate:
+          10|string: "1,95\_₸"
+        standard|string: Не тарифицируется
+      list:
+        cold|string: "5,90\_₸"
+        ice|string: "11,80\_₸"
+        standard|pricingRate:
+          10|string: "2,40\_₸"
+        standard|string: Не тарифицируется
+      network:
+        inet:
+          egress|pricingRate:
+            100|string: "7,65\_₸"
+            1024|string: "6,40\_₸"
+            102400|string: "5,75\_₸"
+            51200|string: "6,00\_₸"
+          egress|string: Не тарифицируется
+      options:
+        cold|string: "4,85\_₸"
+        ice|string: "9,70\_₸"
+        standard|pricingRate:
+          10|string: "1,95\_₸"
+        standard|string: Не тарифицируется
+      patch:
+        cold|string: "5,90\_₸"
+        ice|string: "11,80\_₸"
+        standard|pricingRate:
+          10|string: "2,40\_₸"
+        standard|string: Не тарифицируется
+      post:
+        cold|string: "5,90\_₸"
+        ice|string: "11,80\_₸"
+        standard|pricingRate:
+          10|string: "2,40\_₸"
+        standard|string: Не тарифицируется
+      put:
+        cold|string: "5,90\_₸"
+        ice|string: "11,80\_₸"
+        standard|pricingRate:
+          10|string: "2,40\_₸"
+        standard|string: Не тарифицируется
+    bucket:
+      transition:
+        cold|string: "5,90\_₸"
+        ice|string: "11,80\_₸"
+      used_space:
+        cold|month|string: "5,35\_₸"
+        ice|month|string: "2,6750\_₸"
+        standard|month|string: Не тарифицируется
+        standard|pricingRate:
+          720|month|string: "10,0499\_₸"
+  sku|KZT|support:
+    organization:
+      business:
+        fixed_consumption:
+          v1|string: "15\_000,00\_₸"
+  sku|KZT|sws:
+    profile:
+      v1|string: "1\_250,00\_₸"
+    requests:
+      v1|pricingRate:
+        '0':
+          01|string: "125\_000,00\_₸"
+        1|string: "17\_500,00\_₸"
+        10|string: "1\_000,00\_₸"
+        100|string: "700,00\_₸"
+        1000|string: "250,00\_₸"
+        10000|string: "125,00\_₸"
+      v1|string: Не тарифицируется
+    rule:
+      v1|string: "250,00\_₸"
+  sku|KZT|v1:
+    commitment:
+      selfcheckout:
+        m6:
+          compute:
+            vm:
+              cpu:
+                c100:
+                  standard:
+                    v2|string: "5,3550\_₸"
+                    v3|string: "4,7250\_₸"
+              ram:
+                standard:
+                  v2|string: "1,3950\_₸"
+                  v3|string: "1,26\_₸"
+          mdb:
+            ch:
+              cpu:
+                c100:
+                  v2|month|string: "5\_875,20\_₸"
+                  v2|string: "8,16\_₸"
+                  v3|month|string: "5\_263,20\_₸"
+                  v3|string: "7,31\_₸"
+              ram:
+                v2|month|string: "1\_591,20\_₸"
+                v2|string: "2,21\_₸"
+                v3|month|string: "1\_438,20\_₸"
+                v3|string: "1,9975\_₸"
+            greenplum:
+              cpu:
+                c100:
+                  v3|month|string: "6\_579,00\_₸"
+                  v3|string: "9,1375\_₸"
+              ram:
+                v3|month|string: "1\_744,20\_₸"
+                v3|string: "2,4225\_₸"
+            kafka:
+              cpu:
+                c100:
+                  v2|month|string: "5\_140,80\_₸"
+                  v2|string: "7,14\_₸"
+                  v3|month|string: "4\_620,60\_₸"
+                  v3|string: "6,4175\_₸"
+              ram:
+                v2|month|string: "1\_377,00\_₸"
+                v2|string: "1,9125\_₸"
+                v3|month|string: "1\_224,00\_₸"
+                v3|string: "1,70\_₸"
+            mysql:
+              cpu:
+                c100:
+                  v2|month|string: "5\_722,20\_₸"
+                  v2|string: "7,9475\_₸"
+                  v3|month|string: "5\_140,80\_₸"
+                  v3|string: "7,14\_₸"
+              ram:
+                v2|month|string: "1\_560,60\_₸"
+                v2|string: "2,1675\_₸"
+                v3|month|string: "1\_407,60\_₸"
+                v3|string: "1,9550\_₸"
+            opensearch:
+              cpu:
+                c100:
+                  v3|month|string: "5\_140,80\_₸"
+                  v3|string: "7,14\_₸"
+              ram:
+                v3|month|string: "2\_142,00\_₸"
+                v3|string: "2,9750\_₸"
+            pg:
+              cpu:
+                c100:
+                  v2|month|string: "5\_538,60\_₸"
+                  v2|string: "7,6925\_₸"
+                  v3|month|string: "4\_987,80\_₸"
+                  v3|string: "6,9275\_₸"
+              ram:
+                v2|month|string: "1\_499,40\_₸"
+                v2|string: "2,0825\_₸"
+                v3|month|string: "1\_346,40\_₸"
+                v3|string: "1,87\_₸"
+            redis:
+              cpu:
+                c100:
+                  v2|month|string: "5\_140,80\_₸"
+                  v2|string: "7,14\_₸"
+                  v3|month|string: "4\_620,60\_₸"
+                  v3|string: "6,4175\_₸"
+              ram:
+                v2|month|string: "1\_377,00\_₸"
+                v2|string: "1,9125\_₸"
+                v3|month|string: "1\_224,00\_₸"
+                v3|string: "1,70\_₸"
+          ydb:
+            cpu:
+              c100:
+                v2|month|string: "5\_722,20\_₸"
+                v2|string: "7,9475\_₸"
+            ram:
+              v2|month|string: "1\_560,60\_₸"
+              v2|string: "2,1675\_₸"
+        y1:
+          compute:
+            vm:
+              cpu:
+                c100:
+                  standard:
+                    v2|string: "5,0575\_₸"
+                    v3|string: "4,4625\_₸"
+              ram:
+                standard:
+                  v2|string: "1,3175\_₸"
+                  v3|string: "1,19\_₸"
+          mdb:
+            ch:
+              cpu:
+                c100:
+                  v2|month|string: "5\_391,36\_₸"
+                  v2|string: "7,4880\_₸"
+                  v3|month|string: "4\_829,76\_₸"
+                  v3|string: "6,7080\_₸"
+              ram:
+                v2|month|string: "1\_460,16\_₸"
+                v2|string: "2,0280\_₸"
+                v3|month|string: "1\_319,76\_₸"
+                v3|string: "1,8330\_₸"
+            greenplum:
+              cpu:
+                c100:
+                  v3|month|string: "6\_037,20\_₸"
+                  v3|string: "8,3850\_₸"
+              ram:
+                v3|month|string: "1\_600,56\_₸"
+                v3|string: "2,2230\_₸"
+            kafka:
+              cpu:
+                c100:
+                  v2|month|string: "4\_717,44\_₸"
+                  v2|string: "6,5520\_₸"
+                  v3|month|string: "4\_240,08\_₸"
+                  v3|string: "5,8890\_₸"
+              ram:
+                v2|month|string: "1\_263,60\_₸"
+                v2|string: "1,7550\_₸"
+                v3|month|string: "1\_123,20\_₸"
+                v3|string: "1,56\_₸"
+            mysql:
+              cpu:
+                c100:
+                  v2|month|string: "5\_250,96\_₸"
+                  v2|string: "7,2930\_₸"
+                  v3|month|string: "4\_717,44\_₸"
+                  v3|string: "6,5520\_₸"
+              ram:
+                v2|month|string: "1\_432,08\_₸"
+                v2|string: "1,9890\_₸"
+                v3|month|string: "1\_291,68\_₸"
+                v3|string: "1,7940\_₸"
+            opensearch:
+              cpu:
+                c100:
+                  v3|month|string: "4\_717,44\_₸"
+                  v3|string: "6,5520\_₸"
+              ram:
+                v3|month|string: "1\_965,60\_₸"
+                v3|string: "2,73\_₸"
+            pg:
+              cpu:
+                c100:
+                  v2|month|string: "5\_082,48\_₸"
+                  v2|string: "7,0590\_₸"
+                  v3|month|string: "4\_577,04\_₸"
+                  v3|string: "6,3570\_₸"
+              ram:
+                v2|month|string: "1\_375,92\_₸"
+                v2|string: "1,9110\_₸"
+                v3|month|string: "1\_235,52\_₸"
+                v3|string: "1,7160\_₸"
+            redis:
+              cpu:
+                c100:
+                  v2|month|string: "4\_717,44\_₸"
+                  v2|string: "6,5520\_₸"
+                  v3|month|string: "4\_240,08\_₸"
+                  v3|string: "5,8890\_₸"
+              ram:
+                v2|month|string: "1\_263,60\_₸"
+                v2|string: "1,7550\_₸"
+                v3|month|string: "1\_123,20\_₸"
+                v3|string: "1,56\_₸"
+          ydb:
+            cpu:
+              c100:
+                v2|month|string: "5\_250,96\_₸"
+                v2|string: "7,2930\_₸"
+            ram:
+              v2|month|string: "1\_432,08\_₸"
+              v2|string: "1,9890\_₸"
+  sku|KZT|vpc:
+    gateway:
+      shared_egress_gateway:
+        v1|string: "1,80\_₸"
+  sku|KZT|ydb:
+    cluster:
+      v1:
+        ssd|month|string: "106,90\_₸"
+      v2:
+        cpu|month|string: "6\_732,00\_₸"
+        cpu|string: "9,35\_₸"
+        ram|month|string: "1\_836,00\_₸"
+        ram|string: "2,55\_₸"
+    v1:
+      serverless:
+        requests|pricingRate:
+          1|string: "106,90\_₸"
+  sku|KZT|yds:
+    events:
+      puts|pricingRate:
+        2|string: "5,90\_₸"
+    reserved_resources:
+      128k:
+        12h|string: "0,6667\_₸"
+        1h|pricingRate:
+          744|string: "0,50\_₸"
+        1h|string: Не тарифицируется
+        24h|string: "1,00\_₸"
+        4h|string: "0,5833\_₸"
+      1m:
+        12h|string: "3,1667\_₸"
+        24h|string: "4,6667\_₸"
+        4h|string: "2,1667\_₸"
+      512k:
+        12h|string: "2,00\_₸"
+        24h|string: "3,00\_₸"
+        4h|string: "1,3333\_₸"
+    reserved_storage|month|string: "54,00\_₸"
+    reserved_throughput:
+      128k|month|string: "240,00\_₸"
+      1m|month|string: "1\_200,00\_₸"
+      512k|month|string: "720,00\_₸"
+  sku|KZT|ymq:
+    queue:
+      fifo:
+        requests|pricingRate:
+          '0':
+            1|string: "305,75\_₸"
+      std:
+        requests|pricingRate:
+          '0':
+            1|string: "243,80\_₸"
+        requests|string: Не тарифицируется
   sku|RUB|ai:
     mt:
       detect|string: "492,20\_₽"
@@ -768,6 +1839,10 @@ default:
         '0':
           1|string: "120,00\_₽"
       v1|string: Не тарифицируется
+  sku|RUB|audit-trails:
+    events:
+      data_plane:
+        v1|string: "36,00\_₽"
   sku|RUB|b2b:
     tracker:
       license:
@@ -790,6 +1865,11 @@ default:
       raw|int|string: "5\_000\_₽"
       shielding|int|string: "3\_500\_₽"
   sku|RUB|compute:
+    filesystem:
+      hdd:
+        v1|month|string: "3,3580\_₽"
+      ssd:
+        v1|month|string: "13,6965\_₽"
     hostgroup:
       cpu:
         c100:
@@ -874,7 +1954,16 @@ default:
   sku|RUB|cr:
     bucket:
       used_space:
-        standard|month|int|string: "3\_₽"
+        standard|month|string: "3,00\_₽"
+    vulnerabilityscanner:
+      rescan:
+        v1|pricingRate:
+          6|string: "7,20\_₽"
+        v1|string: Не тарифицируется
+      scan:
+        v1|pricingRate:
+          6|string: "13,20\_₽"
+        v1|string: Не тарифицируется
   sku|RUB|dns:
     requests:
       public:
@@ -883,6 +1972,7 @@ default:
         recursive:
           v1|pricingRate:
             1|string: "32,00\_₽"
+          v1|string: Не тарифицируется
     zones:
       v1|month|string: "36,00\_₽"
       v1|string: "0,05\_₽"
@@ -983,16 +2073,34 @@ default:
             v1|string: "2\_325,00\_₽"
   sku|RUB|kms:
     api:
+      asymmetric:
+        heavy:
+          v1|string: "14,40\_₽"
+        v1|string: "5,76\_₽"
       v1:
         encryptdecrypt|string: "2,88\_₽"
     storage:
+      asymmetric:
+        v1|string: "2,88\_₽"
       v1:
         hsm|month|string: "360,00\_₽"
         software|month|string: "2,88\_₽"
   sku|RUB|lockbox:
+    api:
+      v1:
+        get|string: "3,4560\_₽"
     storage:
       v1:
         active_secrets|month|string: "18,00\_₽"
+  sku|RUB|logging:
+    ingested:
+      traffic|pricingRate:
+        5|string: "23,2760\_₽"
+      traffic|string: Не тарифицируется
+    storage:
+      data|month|string: Не тарифицируется
+      data|pricingRate:
+        720|month|string: "10,1640\_₽"
   sku|RUB|mdb:
     cluster:
       clickhouse:
@@ -1224,6 +2332,7 @@ default:
           ram|month|string: "504,00\_₽"
           ram|string: "0,70\_₽"
       pg:
+        backup|month|string: "1,92\_₽"
         v1:
           cpu:
             c100|month|string: "1\_540,80\_₽"
@@ -1364,6 +2473,14 @@ default:
         write|pricingRate:
           50|string: "5,60\_₽"
         write|string: "9,80\_₽"
+    prometheus:
+      point:
+        remote_api:
+          read|string: Не тарифицируется
+          write|pricingRate:
+            10000|string: "0,60\_₽"
+            50|string: "2,10\_₽"
+          write|string: Не тарифицируется
   sku|RUB|nbs:
     network-hdd:
       allocated|month|string: "2,92\_₽"
@@ -1390,6 +2507,11 @@ default:
   sku|RUB|nlb:
     balancer:
       active|string: "0,78\_₽"
+      internal:
+        active|string: "0,78\_₽"
+    vip_bytes:
+      egress|string: "0,06\_₽"
+      ingress|string: "0,06\_₽"
   sku|RUB|searchapi:
     requests:
       day:
@@ -1728,6 +2850,10 @@ default:
             ram:
               v2|month|string: "286,4160\_₽"
               v2|string: "0,3978\_₽"
+  sku|RUB|vpc:
+    gateway:
+      shared_egress_gateway:
+        v1|string: "0,36\_₽"
   sku|RUB|ydb:
     cluster:
       v1:
@@ -1790,6 +2916,10 @@ default:
         '0':
           1|string: "0,960000\_$"
       v1|string: Не тарифицируется
+  sku|USD|audit-trails:
+    events:
+      data_plane:
+        v1|string: "0,288000\_$"
   sku|USD|b2b:
     tracker:
       license:
@@ -1812,6 +2942,11 @@ default:
       raw|string: "40,000000\_$"
       shielding|string: "28,000000\_$"
   sku|USD|compute:
+    filesystem:
+      hdd:
+        v1|month|string: "0,026864\_$"
+      ssd:
+        v1|month|string: "0,109572\_$"
     hostgroup:
       cpu:
         c100:
@@ -1897,6 +3032,26 @@ default:
     bucket:
       used_space:
         standard|month|string: "0,024000\_$"
+    vulnerabilityscanner:
+      rescan:
+        v1|pricingRate:
+          6|string: "0,057600\_$"
+        v1|string: Не тарифицируется
+      scan:
+        v1|pricingRate:
+          6|string: "0,105600\_$"
+        v1|string: Не тарифицируется
+  sku|USD|dns:
+    requests:
+      public:
+        authoritative:
+          v1|string: "0,256000\_$"
+        recursive:
+          v1|pricingRate:
+            1|string: "0,256000\_$"
+          v1|string: Не тарифицируется
+    zones:
+      v1|month|string: "0,288000\_$"
   sku|USD|gitlab:
     backup|month|string: "0,015360\_$"
     instance:
@@ -1994,16 +3149,34 @@ default:
             v1|string: "18,600000\_$"
   sku|USD|kms:
     api:
+      asymmetric:
+        heavy:
+          v1|string: "0,115200\_$"
+        v1|string: "0,046080\_$"
       v1:
         encryptdecrypt|string: "0,023040\_$"
     storage:
+      asymmetric:
+        v1|string: "0,023040\_$"
       v1:
         hsm|month|string: "2,880000\_$"
         software|month|string: "0,023040\_$"
   sku|USD|lockbox:
+    api:
+      v1:
+        get|string: "0,027648\_$"
     storage:
       v1:
         active_secrets|month|string: "0,144000\_$"
+  sku|USD|logging:
+    ingested:
+      traffic|pricingRate:
+        5|string: "0,186208\_$"
+      traffic|string: Не тарифицируется
+    storage:
+      data|month|string: Не тарифицируется
+      data|pricingRate:
+        720|month|string: "0,081312\_$"
   sku|USD|mdb:
     cluster:
       clickhouse:
@@ -2105,6 +3278,7 @@ default:
         mysql|month|string: "0,104080\_$"
         opensearch|month|string: "0,104080\_$"
         pg|month|string: "0,104080\_$"
+        redis|month|string: "0,104080\_$"
       mongodb:
         v1:
           cpu:
@@ -2206,6 +3380,7 @@ default:
         mysql|month|string: "0,070400\_$"
         opensearch|month|string: "0,070400\_$"
         pg|month|string: "0,070400\_$"
+        redis|month|string: "0,070400\_$"
       opensearch:
         v2:
           cpu:
@@ -2224,6 +3399,7 @@ default:
           ram|month|string: "4,032000\_$"
           ram|string: "0,005600\_$"
       pg:
+        backup|month|string: "0,015360\_$"
         v1:
           cpu:
             c100|month|string: "12,326400\_$"
@@ -2358,6 +3534,14 @@ default:
         write|pricingRate:
           50|string: "0,044800\_$"
         write|string: "0,078400\_$"
+    prometheus:
+      point:
+        remote_api:
+          read|string: Не тарифицируется
+          write|pricingRate:
+            10000|string: "0,004800\_$"
+            50|string: "0,016800\_$"
+          write|string: Не тарифицируется
   sku|USD|nbs:
     network-hdd:
       allocated|month|string: "0,023360\_$"
@@ -2384,6 +3568,11 @@ default:
   sku|USD|nlb:
     balancer:
       active|string: "0,006240\_$"
+      internal:
+        active|string: "0,006240\_$"
+    vip_bytes:
+      egress|string: "0,000480\_$"
+      ingress|string: "0,000480\_$"
   sku|USD|searchapi:
     requests:
       day:
@@ -2722,6 +3911,10 @@ default:
             ram:
               v2|month|string: "2,291328\_$"
               v2|string: "0,003182\_$"
+  sku|USD|vpc:
+    gateway:
+      shared_egress_gateway:
+        v1|string: "0,002880\_$"
   sku|USD|ydb:
     cluster:
       v1:

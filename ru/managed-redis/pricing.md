@@ -6,11 +6,9 @@ editable: false
 
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mrd-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
 
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
-
 
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
@@ -34,15 +32,13 @@ editable: false
 
 * Размер хранилища, выделенный для кластеров БД.
 
-    
     * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров на платформах Intel Cascade Lake и Intel Ice Lake с тремя или более хостами, с шагом 93 ГБ.
 
     * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами и более:
-        * для платформ **Intel Broadwell** и **Intel Cascade Lake** — с шагом 100 ГБ;
+                * для платформ **Intel Broadwell** и **Intel Cascade Lake** — с шагом 100 ГБ;
         * для платформы **Intel Ice Lake** — с шагом {{ local-ssd-v3-step }}.
 
     Подробнее об ограничениях хранилища, связанных с платформой, см. в разделе [Типы дисков](./concepts/storage.md).
-
 
 * Размер, занимаемый резервными копиями баз данных сверх запрошенного размера хранилища для кластера.
 
@@ -64,12 +60,16 @@ editable: false
 
 {% endnote %}
 
+## Цены для региона Россия {#prices}
 
-## Цены {#prices}
 
+
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 Все цены указаны с включением НДС.
+
 
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
@@ -77,8 +77,37 @@ editable: false
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
 
+#### Цены в час {#host-price-per-hour}
 
-{% include [rub-host.md](../_pricing/managed-redis/rub-host.md) %}
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-host-hourly](../_pricing/managed-redis/rub-host-hourly.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-host-hourly](../_pricing/managed-redis/kzt-host-hourly.md) %}
+
+{% endlist %}
+
+
+
+#### Цены в месяц {#host-price-per-month}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-host-monthly](../_pricing/managed-redis/rub-host-monthly.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-host-monthly](../_pricing/managed-redis/kzt-host-monthly.md) %}
+
+{% endlist %}
 
 
 
@@ -87,19 +116,21 @@ editable: false
 ### Хранилище и резервные копии {#prices-storage}
 
 
+{% list tabs group=pricing %}
 
-{% include [rub-storage.md](../_pricing/managed-redis/rub-storage.md) %}
+- Цены в рублях {#prices-rub}
 
+  {% include [rub-storage.md](../_pricing/managed-redis/rub-storage.md) %}
 
+- Цены в тенге {#prices-kzt}
 
+  {% include [kzt-storage.md](../_pricing/managed-redis/kzt-storage.md) %}
 
-
-### Исходящий трафик {#prices-traffic}
-
-
-
-{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
-
+{% endlist %}
 
 
 
+
+{% include [storage-limitations-mrd](../_includes/mdb/mrd/storage-limitations-note.md) %}
+
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

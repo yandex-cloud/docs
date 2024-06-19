@@ -6,6 +6,8 @@ editable: false
 
 # {{ mgl-full-name }} pricing
 
+
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 ## What goes into the cost of using {{ mgl-name }} {#rules}
@@ -44,6 +46,8 @@ The cost of using an instance with the following parameters for 30 days:
 
 Calculating the cost of computing resources:
 
+
+
 > 720 × (2 × $0.013440 + 8 × $0.003600) = $40.089600
 
 Where:
@@ -52,9 +56,11 @@ Where:
 * 2: Number of vCPUs.
 * $0.013440: Cost of using a vCPU per hour.
 * 8: Amount of RAM (in GB).
-* 0.003600$: Cost of using 1 GB of RAM per hour.
+* $0.003600: Cost of using 1 GB of RAM per hour.
+
 
 Calculation for storage and backup cost:
+
 
 > 30 × $0.104080 + 20 × 7 × $0.015360 = $5.272800
 
@@ -66,17 +72,20 @@ Where:
 * 7: Backup retention time.
 * $0.015360: Cost of storing 1 GB of backups.
 
+
 Total instance cost calculation:
+
+
 
 > $40.089600 + $5.272800 = $45.362400
 
 Where $45.362400 is the cost of using the instance for 30 days.
 
-## Pricing {#prices}
+
+## Prices for Russia {#prices}
 
 
 ### Computing resources of instances {#prices-instance}
-
 
 
 
@@ -87,17 +96,10 @@ Where $45.362400 is the cost of using the instance for 30 days.
 
 
 
-
 {% include [usd-storage.md](../_pricing/managed-gitlab/usd-storage.md) %}
 
 
-### Egress traffic {#prices-traffic}
-
-
-
-
-{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 
 ## Licenses {#license}
 

@@ -6,6 +6,8 @@ editable: false
 
 # Правила тарификации для {{ captcha-full-name }}
 
+
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 ## Из чего складывается стоимость использования {{ captcha-full-name }} {#rules}
@@ -34,11 +36,23 @@ editable: false
 
 1. Злоумышленник прошел капчу и, получив `token`, отправил его 10 раз спустя 10 минут. API вернет статус `failed` на все запросы. Ни один из них не тарифицируется.
 
-## Цены {#prices}
+## Цены для региона Россия {#prices}
+
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 
-{% include notitle [rub.md](../_pricing/smartcaptcha/rub.md) %}
+{% list tabs group=pricing %}
 
+- Цены в рублях {#prices-rub}
+
+  {% include notitle [rub.md](../_pricing/smartcaptcha/rub.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include notitle [kzt.md](../_pricing/smartcaptcha/kzt.md) %}
+
+{% endlist %}
 
 

@@ -26,7 +26,10 @@ If multiple [Docker images](concepts/docker-image.md) in the same registry use t
 
 {% endnote %}
 
-## Pricing {#prices}
+
+## Prices for Russia {#prices}
+
+
 
 
 ### Data storage {#prices-storage}
@@ -36,10 +39,7 @@ The cost of 1 GB per month is fixed and does not depend on the number of days in
 
 
 
-
 {% include [usd.md](../_pricing/container-registry/usd.md) %}
-
-
 
 
 Here is an example of proportional calculation. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using the formula:
@@ -57,18 +57,8 @@ First-time scan of the first six different Docker images per month is free of ch
 
 
 
-
-
 {% include [usd-scanner.md](../_pricing/container-registry/usd-scanner.md) %}
 
 
 
-
-
-
-
-
-{% include [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-
-
-
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

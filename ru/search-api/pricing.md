@@ -6,18 +6,32 @@ editable: false
 
 # Правила тарификации для {{ search-api-name }}
 
+
+
 ## Из чего складывается стоимость использования {{ search-api-name }} {#rules}
 
 Стоимость использования {{ search-api-name }} рассчитывается, исходя из количества инициированных поисковых запросов за календарный месяц ([Отчетный период](../billing/concepts/reporting-period.md)).
 
-## Цены {#prices}
+## Цены для региона Россия {#prices}
+
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 Уровень нетарифицированного потребления (free tier) для каждого пользователя составляет 1000 запросов в месяц в ночные часы^1^ с 00:00:00 по 07:59:59. Запросы, превышающие эти значения, оплачиваются по следующим тарифам.
 
 
-{% include [rub.md](../_pricing/search-api/rub.md) %}
+{% list tabs group=pricing %}
 
+- Цены в рублях {#prices-rub}
+
+  {% include notitle [rub.md](../_pricing/search-api/rub.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include notitle[kzt](../_pricing/search-api/kzt.md) %}
+
+{% endlist %}
 
 
 

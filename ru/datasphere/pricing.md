@@ -5,6 +5,7 @@ editable: false
 # Правила тарификации для {{ ml-platform-name }}
 
 
+
 ## Из чего складывается стоимость использования {{ ml-platform-name }} {#rules}
 
 При работе с платформой {{ ml-platform-name }} вы платите за использование вычислительных ресурсов — посекундно тарифицируется время вычисления или работы инстансов.
@@ -55,32 +56,63 @@ editable: false
 
 Цены за месяц использования формируются из расчета 720 часов в месяц.
 
-## Цены {#prices}
+## Цены для региона Россия {#prices}
+
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 Цены использования конфигураций действуют при запуске вычислений в [{{ ds-nb }}](concepts/project.md#mode), запуске заданий [{{ ds-jobs }}](concepts/jobs/index.md) и работе [{{ ds-inf }}](../datasphere/concepts/deploy/index.md).
 
 
-{% include [rub-unit-and-resource.md](../_pricing/datasphere/rub-unit-and-resource.md) %}
+### Стоимость юнита {#unit}
 
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-unit.md](../_pricing/datasphere/rub-unit.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-unit.md](../_pricing/datasphere/kzt-unit.md) %}
+
+{% endlist %}
+
+### Вычислительные ресурсы {#paug}
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-resource.md](../_pricing/datasphere/rub-resource.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-resource.md](../_pricing/datasphere/kzt-resource.md) %}
+
+{% endlist %}
 
 
 
 ### Хранение данных внутри {{ ml-platform-name }} {#prices-storage}
 
 
-{% include [rub-storage.md](../_pricing/datasphere/rub-storage.md) %}
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-storage.md](../_pricing/datasphere/rub-storage.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-storage.md](../_pricing/datasphere/kzt-storage.md) %}
+
+{% endlist %}
 
 
 
-
-### Исходящий трафик {#prices-traffic}
-
-
-{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
-
-
-
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 
 ## Примеры расчета стоимости {#price-example}
 
@@ -91,17 +123,40 @@ editable: false
 * **Вычислительные ресурсы:** конфигурация g1.1 с 8 CPU и 1 GPU.
 * **Время использования ВМ:** 10 мин.
 
-Расчет стоимости:
+Стоимость использования составит:
 
-> 72 × 600 = 43 200 юнитов за использование ВМ
-> 43 200 × 0,0012 = 51,8400&nbsp;₽
->
-> Итого: 51,8400&nbsp;₽ — стоимость использования {{ ml-platform-name }}.
 
-Где:
-* 72 — количество юнитов за конфигурацию g1.1.
-* 600 — время использования ВМ в секундах.
-* 0,0012 ₽ — стоимость 1 юнита.
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  > 72 × 600 = 43 200 юнитов за использование ВМ
+  > 43 200 × 0,0012 = 51,8400&nbsp;₽
+  >
+  > Итого: 51,8400&nbsp;₽ — стоимость использования {{ ml-platform-name }}.
+
+  Где:
+
+  * 72 — количество юнитов за конфигурацию g1.1.
+  * 600 — время использования ВМ в секундах.
+  * 0,0012 ₽ — стоимость 1 юнита.
+
+- Расчет в тенге {#prices-kzt}
+
+  > 72 × 600 = 43 200 юнитов за использование ВМ
+  > 43 200 × 0,0060 = 259,2000&nbsp;₸
+  >
+  > Итого: 259,2000&nbsp;₸ — стоимость использования {{ ml-platform-name }}.
+
+  Где:
+
+  * 72 — количество юнитов за конфигурацию g1.1.
+  * 600 — время использования ВМ в секундах.
+  * 0,0060 ₸ — стоимость 1 юнита.
+
+{% endlist %}
+
+
 
 ### {{ ds-inf }} {#price-example-node}
 
@@ -120,15 +175,38 @@ editable: false
 * (60 × 60) — количество секунд в 1 часе.
 * 60 — количество секунд в 1 минуте.
 
-Расчет стоимости:
+Стоимость использования {{ ds-inf }} составит:
 
-> 72 × 185 760 × 2 = 26 749 440 юнитов за работу ноды
-> 26 749 440 × 0,0012 = 32 099,3280&nbsp;₽
->
-> Итого: 32 099,3280&nbsp;₽ – стоимость использования {{ ml-platform-name }}.
 
-Где:
-* 72 — количество юнитов за конфигурацию g1.1.
-* 185 760 — время работы ноды в секундах.
-* 2 — количество инстансов в ноде.
-* 0,0012 ₽ — стоимость 1 юнита.
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  > 72 × 185 760 × 2 = 26 749 440 юнитов за работу ноды
+  > 26 749 440 × 0,0012 = 32 099,3280&nbsp;₽
+  >
+  > Итого: 32 099,3280&nbsp;₽ – стоимость использования {{ ml-platform-name }}.
+
+  Где:
+
+  * 72 — количество юнитов за конфигурацию g1.1.
+  * 185 760 — время работы ноды в секундах.
+  * 2 — количество инстансов в ноде.
+  * 0,0012 ₽ — стоимость 1 юнита.
+
+- Расчет в тенге {#prices-kzt}
+
+  > 72 × 185 760 × 2 = 26 749 440 юнитов за работу ноды
+  > 26 749 440 × 0,0060 = 160 496,6400&nbsp;₸
+
+  > Итого: 160 496,6400&nbsp;₸ – стоимость использования {{ ml-platform-name }}.
+
+  Где:
+  * 72 — количество юнитов за конфигурацию g1.1.
+  * 185 760 — время работы ноды в секундах.
+  * 2 — количество инстансов в ноде.
+  * 0,0060 ₸ — стоимость 1 юнита.
+
+{% endlist %}
+
+

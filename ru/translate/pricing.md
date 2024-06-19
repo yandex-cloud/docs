@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для {{ translate-name }}
 
+
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -17,13 +19,26 @@ editable: false
 
 {% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 
-## Цены {#prices}
+## Цены для региона Россия {#prices}
+
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 ### Перевод и определение языка текста {#prices-translate-detect}
 
 
-{% include [rub.md](../_pricing/translate/rub.md) %}
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub.md](../_pricing/translate/rub.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt.md](../_pricing/translate/kzt.md) %}
+
+{% endlist %}
 
 
 

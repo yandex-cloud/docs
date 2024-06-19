@@ -18,13 +18,26 @@ The cost of using {{ kms-name }} is based on:
 
 * Number of performed cryptographic operations ([encrypt](api-ref/SymmetricCrypto/encrypt), [decrypt](api-ref/SymmetricCrypto/decrypt), [reEncrypt](api-ref/SymmetricCrypto/reEncrypt), [generateDataKey](api-ref/SymmetricCrypto/generateDataKey)).
 
-## Pricing {#prices}
+
+## Prices for Russia {#prices}
 
 
 
 
+Billed hourly. Monthly charge is specified for reference based on 720 hours per month. The value is rounded.
+
+### Symmetric encryption {#symmetric}
 
 
-{% include [usd.md](../_pricing/kms/usd.md) %}
 
+
+{% include [usd.md](../_pricing/kms/usd-symmetric.md) %}
+
+
+### Asymmetric encryption {#asymmetric}
+
+
+
+
+{% include [usd.md](../_pricing/kms/usd-asymmetric.md) %}
 

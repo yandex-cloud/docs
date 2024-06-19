@@ -1,5 +1,3 @@
-### API gateway requests {#request}
-
 | Service | Price per 1 million requests, <br>without VAT |
 | ----- | ----- |
 | Requests to API gateways, up to 100000 requests per month | {{ sku|USD|api-gateway.requests.v1|string }} |

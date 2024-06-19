@@ -1,7 +1,6 @@
 
 
 
-
 Example of calculating the cost of a function that has:
 * **Memory specified when creating the version:** 512 MB
 * **Number of function calls:** 10,000,000
@@ -23,4 +22,3 @@ Where:
 * 10,000,000 is the number of function calls.
 * 1,000,000 is subtracted because the first million invocations are free of charge.
 * 1,000,000 is the divisor used to calculate the number of millions of function calls.
-

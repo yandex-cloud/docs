@@ -5,6 +5,8 @@ description: "The cost of using {{ tracker-name }} is based on the number of use
 
 # {{ tracker-full-name }} pricing
 
+
+
 {% note tip %}
 
 You don't have to pay anything for {{ tracker-name }} if you only have a small team since {{ tracker-name }} is free of charge for up to five employees.
@@ -19,11 +21,11 @@ The cost of using {{ tracker-name }} is based on the number of users with [full 
 
 You can find the FAQ for payments in [{#T}](payment.md).
 
-## Pricing {#sec_price}
+## Prices for Russia {#prices}
 
 
 
-
+For large companies, the cost of using {{ tracker-name }} is [calculated on a progressive scale](#sec_calculate). For the first 100 users, full access to {{ tracker-name }} costs {{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }} per user per month. If 100 employees are already subscribed to {{ tracker-name }}, the subscription fee for the next 150 users will be lower: {{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }} per user per month. If more than 250 employees are subscribed, the monthly fee for new users is {{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}.
 
 {% include [usd.md](../_pricing/tracker/usd.md) %}
 
@@ -52,6 +54,8 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 
 * For large companies, the monthly fee is calculated on a progressive scale.
 
+
+
 > For example, the following pricing was in effect in July:
 >
 > * For the first 100 users: $3.520000 per user per month.
@@ -72,13 +76,7 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 >
 > The following formula will be used to calculate the subscription fee for 270 users:
 >
-> 
->
-> 
->
-> >
 > ```
 > 100 × $3.520000 + 150 × $3.200000 + 20 × $2.880000
 > ```
->
 > 

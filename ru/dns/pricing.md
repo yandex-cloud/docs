@@ -7,13 +7,24 @@ editable: false
 # Правила тарификации для {{ dns-name }}
 
 
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
+
+
 ## Публичные DNS-запросы {#public-dns-requests}
 
 
+{% list tabs group=pricing %}
 
-{% include [rub-public-dns-requests.md](../_pricing/dns/rub-public-dns-requests.md) %}
+- Цены в рублях {#prices-rub}
 
+  {% include [rub-public-dns-requests](../_pricing/dns/rub-public-dns-requests.md) %}
 
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-public-dns-requests](../_pricing/dns/kzt-public-dns-requests.md) %}
+
+{% endlist %}
 
 
 
@@ -41,37 +52,24 @@ editable: false
 
 Стоимость публичных DNS-запросов рассчитывается пропорционально потреблению.
 
+
 Например, стоимость 50 тыс. авторитетных запросов к вашей публичной DNS-зоне за месяц составит:
 
 
-> (50 000 / 1 000 000) × 32 ₽ = 0,05 × 32 ₽ = 1,60 ₽
-> 
-> 
-> 
-> Итого: 1,60 ₽
+
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  {% include [rub-calculations](../_pricing/dns/rub-calculations.md) %}
+
+- Расчет в тенге {#prices-kzt}
+
+  {% include [kzt-calculations](../_pricing/dns/kzt-calculations.md) %}
+
+{% endlist %}
 
 
-
-Где:
-
-* (50 000 / 1 000 000) — количество миллионов выполненных запросов.
-* 32 ₽ — цена за 1 млн запросов в месяц.
-
-Например, стоимость 1,2 млн рекурсивных запросов внешних имен, выполненных с 6 по 31 декабря с ваших ВМ, за месяц составит:
-
-
-> (1,2 − 1,0) × 32 ₽ = 0,2 × 32 ₽ = 6,4000 ₽
-> 
-> 
-> 
-> Итого: 6,4000 ₽
-
-
-
-Где:
-
-* (1,2 − 1,0) — количество миллионов выполненных запросов. Первый миллион рекурсивных запросов не тарифицируется начиная с 6 декабря 2021.
-* 32 ₽ — цена за 1 млн рекурсивных запросов в месяц.
 
 ## DNS-зоны {#dns-zones}
 
@@ -81,14 +79,40 @@ editable: false
 
 Тарификация посекундная. Стоимость рассчитывается пропорционально потреблению.
 
-
 > Например, стоимость владения 2 DNS-зонами в течение 360 часов будет такой же, как стоимость владения 1 DNS-зоной в течение 720 часов.
 
 
+### За 1 пользовательскую зону DNS в месяц {#zone-month}
 
 
-{% include [rub-public-dns-zones.md](../_pricing/dns/rub-dns-zones.md) %}
+{% list tabs group=pricing %}
 
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-dns-zones-month](../_pricing/dns/rub-dns-zones-month.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-dns-zones-month](../_pricing/dns/kzt-dns-zones-month.md) %}
+
+{% endlist %}
+
+
+
+### За 1 пользовательскую зону DNS в час {#zone-hour}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-dns-zones-hour](../_pricing/dns/rub-dns-zones-hour.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-dns-zones-hour](../_pricing/dns/kzt-dns-zones-hour.md) %}
+
+{% endlist %}
 
 
 

@@ -1,11 +1,3 @@
-Calculation of the cost of usage for {{ iot-name }} if during a month:
-* 2,000,000 commands were sent.
-* The size of each command was 1,500 B.
-
-> (1,500 / 1,024) × 2,000,000
->
-> 4,000,000 messages were sent in total.
-
 
 
 
