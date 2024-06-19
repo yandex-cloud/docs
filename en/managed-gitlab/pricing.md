@@ -8,6 +8,12 @@ editable: false
 
 
 
+{% note warning %}
+
+Starting July 1, 2024, you will be charged for using [approval rules](concepts/approval-rules.md) depending on the [selected configuration](#prices-instance).
+
+{% endnote %}
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 ## What goes into the cost of using {{ mgl-name }} {#rules}
@@ -43,6 +49,7 @@ The cost of using an instance with the following parameters for 30 days:
 * **Instance type**: `s2.micro` (2 vCPU Intel Cascade Lake, 8 GB RAM).
 * **Storage**: 30 GB.
 * **Backups**: Size per backup is 20 GB, retention time is 7 days.
+* **Approval rules**: Disabled.
 
 Calculating the cost of computing resources:
 
@@ -85,7 +92,15 @@ Where $45.362400 is the cost of using the instance for 30 days.
 ## Prices for Russia {#prices}
 
 
+
+All prices are shown without VAT.
+
+
+{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
+
 ### Computing resources of instances {#prices-instance}
+
+Starting July 1, 2024, the cost of computing resources will depend on the [approval rules](concepts/approval-rules.md) configuration you select. Until June 30, inclusive, the cost of computing resources is calculated according to the rates of the basic configuration.
 
 
 

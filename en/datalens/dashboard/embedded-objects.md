@@ -99,6 +99,13 @@ Embedding private charts only works in the new {{ datalens-short-name }} object 
       * `embedId`: ID of the object to embed.
       * `iat`: Time of issuing a JWT token in [Unix Timestamp](https://en.wikipedia.org/wiki/Unix_time) format.
       * `exp`: Token expiration time in Unix Timestamp format.
+
+         {% note warning %}
+
+         Tokens with a difference of more than 10 hours between `exp` and `iat` are considered invalid.
+
+         {% endnote %}
+
       * `dlEmbedService`: Service ID string constant, `YC_DATALENS_EMBEDDING_SERVICE_MARK`.
       * `params`: Optional property that defines signed chart parameters transferred as part of the token. They cannot be changed without regenerating the token.
 

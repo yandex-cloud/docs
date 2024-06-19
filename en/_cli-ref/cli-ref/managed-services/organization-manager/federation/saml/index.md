@@ -18,6 +18,8 @@ Syntax:
 - [yc organization-manager federation saml list](list.md) — List federations
 - [yc organization-manager federation saml create](create.md) — Create a federation
 - [yc organization-manager federation saml update](update.md) — Update the specified federation
+- [yc organization-manager federation saml add-labels](add-labels.md) — Add labels to specified federation
+- [yc organization-manager federation saml remove-labels](remove-labels.md) — Remove labels from specified federation
 - [yc organization-manager federation saml delete](delete.md) — Delete the specified federation
 - [yc organization-manager federation saml add-user-accounts](add-user-accounts.md) — Add user accounts to the specified federation
 - [yc organization-manager federation saml delete-user-accounts](delete-user-accounts.md) — Delete user accounts from the specified federation

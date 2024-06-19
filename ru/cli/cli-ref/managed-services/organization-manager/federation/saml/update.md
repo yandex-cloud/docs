@@ -23,6 +23,7 @@ Syntax:
 |`--new-name`|<b>`string`</b><br/>A new name of the federation.|
 |`--description`|<b>`string`</b><br/>Specifies a textual description of the federation.|
 |`--issuer`|<b>`string`</b><br/>Specifies an issuer of the federation.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--cookie-max-age`|<b>`duration`</b><br/>Specifies a cookie lifetime of the federation.|
 |`--sso-binding`|<b>`string`</b><br/>Specifies a type of SSO binding of the federation. Values: 'post', 'redirect', 'artifact'|
 |`--auto-create-account-on-login`|Controls whether to create federated user accounts on first login to the federation.|

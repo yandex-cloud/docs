@@ -278,8 +278,8 @@ val a: Int = 1
 
 
 
+В виджет можно добавлять изображения, размещенные в хранилище [{{ objstorage-full-name }}](../../storage/quickstart.md). С тарифами сервиса можно ознакомиться в разделе [{#T}](../../storage/pricing.md). Изображения из внешних источников не поддерживаются.
 
-Допускается добавление изображений с доменов `*.yandex.ru`, `*.yandex-team.ru`, `*.yandex.net`, `yastat.net`, `yastatic.net`, `storage.yandexcloud.net`. Самый простой способ — загрузить и опубликовать изображение в [{{ objstorage-full-name }}](../../storage/quickstart.md) или в [Jing](https://jing.yandex-team.ru/).
 
 
 

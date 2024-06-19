@@ -8,6 +8,12 @@ editable: false
 
 
 
+{% note warning %}
+
+С 1 июля 2024 года за использование [правил ревью кода](concepts/approval-rules.md) будет взиматься плата в зависимости от [выбранной конфигурации](#prices-instance).
+
+{% endnote %}
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 ## Из чего складывается стоимость использования {{ mgl-name }} {#rules}
@@ -43,6 +49,7 @@ editable: false
 * **Тип инстанса**: `s2.micro` (2 vCPU Intel Cascade Lake, 8 ГБ RAM).
 * **Хранилище**: 30 ГБ.
 * **Резервные копии**: объем каждой копии — 20 ГБ, срок хранения — 7 дней.
+* **Правила ревью кода**: отключены.
 
 Расчет стоимости вычислительных ресурсов:
 
@@ -137,7 +144,15 @@ editable: false
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
+
+Все цены указаны с включением НДС.
+
+
+{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
+
 ### Вычислительные ресурсы инстансов {#prices-instance}
+
+С 1 июля 2024 года цена вычислительных ресурсов будет зависеть от выбранной конфигурации [правил ревью кода](concepts/approval-rules.md). До 30 июня включительно вы оплачиваете вычислительные ресурсы по тарифам базовой конфигурации.
 
 
 {% list tabs group=pricing %}

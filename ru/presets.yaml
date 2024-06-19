@@ -908,8 +908,10 @@ default:
   sku|KZT|gitlab:
     backup|month|string: "9,60\_₸"
     instance:
+      cpu|month|string: "6\_048,00\_₸"
       cpu|string: "8,40\_₸"
       disk|month|string: "65,05\_₸"
+      ram|month|string: "1\_620,00\_₸"
       ram|string: "2,25\_₸"
   sku|KZT|interconnect:
     trunk:
@@ -1979,8 +1981,10 @@ default:
   sku|RUB|gitlab:
     backup|month|string: "1,92\_₽"
     instance:
+      cpu|month|string: "1\_209,60\_₽"
       cpu|string: "1,68\_₽"
       disk|month|string: "13,01\_₽"
+      ram|month|string: "324,00\_₽"
       ram|string: "0,45\_₽"
   sku|RUB|interconnect:
     trunk:
@@ -3055,8 +3059,10 @@ default:
   sku|USD|gitlab:
     backup|month|string: "0,015360\_$"
     instance:
+      cpu|month|string: "9,676800\_$"
       cpu|string: "0,013440\_$"
       disk|month|string: "0,104080\_$"
+      ram|month|string: "2,592000\_$"
       ram|string: "0,003600\_$"
   sku|USD|interconnect:
     trunk:

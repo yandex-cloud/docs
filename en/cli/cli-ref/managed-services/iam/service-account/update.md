@@ -21,6 +21,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>service account name.|
 |`--new-name`|<b>`string`</b><br/>A new name of the service account.|
 |`--description`|<b>`string`</b><br/>Specifies a textual description of the service account.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

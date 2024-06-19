@@ -23,6 +23,8 @@ Aliases:
 	- [yc resource-manager cloud list](cloud/list.md) — List clouds
 	- [yc resource-manager cloud create](cloud/create.md) — Create a cloud
 	- [yc resource-manager cloud update](cloud/update.md) — Update the specified cloud
+	- [yc resource-manager cloud add-labels](cloud/add-labels.md) — Add labels to specified cloud
+	- [yc resource-manager cloud remove-labels](cloud/remove-labels.md) — Remove labels from specified cloud
 	- [yc resource-manager cloud delete](cloud/delete.md) — Delete the specified cloud
 	- [yc resource-manager cloud list-access-bindings](cloud/list-access-bindings.md) — List access bindings for the specified cloud
 	- [yc resource-manager cloud set-access-bindings](cloud/set-access-bindings.md) — Set access bindings for the specified cloud and delete all existing access bindings if there were any

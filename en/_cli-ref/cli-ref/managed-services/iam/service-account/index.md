@@ -22,9 +22,11 @@ Aliases:
 - [yc iam service-account list](list.md) — List service accounts
 - [yc iam service-account create](create.md) — Create a service account
 - [yc iam service-account update](update.md) — Update the specified service account
+- [yc iam service-account add-labels](add-labels.md) — Add labels to specified service account
+- [yc iam service-account remove-labels](remove-labels.md) — Remove labels from specified service account
 - [yc iam service-account delete](delete.md) — Delete the specified service account
 - [yc iam service-account list-access-bindings](list-access-bindings.md) — List access bindings for ACCESSING the specified service account. To determine if a service account has an access to a resource, use list-access-bindings command for the corresponding resource
-- [yc iam service-account set-access-bindings](set-access-bindings.md) — Set access bindings for ACCESSING the specified service account and DELETE all existing access bindings if there were any. To configure service account access to a resource use set-access-bindings command for the corresponding resource
+- [yc iam service-account set-access-bindings](set-access-bindings.md) — Set access bindings for ACCESSING the specified service account and DELETE all existing access bindings for all accounts if there were any. To configure service account access to a resource use set-access-bindings command for the corresponding resource
 - [yc iam service-account add-access-binding](add-access-binding.md) — Add access binding to ACCESS the specified service account as a resource. To configure service account access to a resource use add-access-binding command for the corresponding resource
 - [yc iam service-account remove-access-binding](remove-access-binding.md) — Remove access binding for ACCESSING the specified service account as a resource. To configure service account access to a resource use remove-access-binding command for the corresponding resource
 - [yc iam service-account list-operations](list-operations.md) — List operations for the specified service account
