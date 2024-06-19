@@ -23,6 +23,8 @@ Aliases:
 - [yc iot registry list](list.md) — List IoT registries
 - [yc iot registry create](create.md) — Create new device registry
 - [yc iot registry update](update.md) — Update specified registry
+- [yc iot registry enable](enable.md) — Enable this registry
+- [yc iot registry disable](disable.md) — Disable this registry
 - [yc iot registry logs](logs.md) — Show logs for the specified registry
 - [yc iot registry add-labels](add-labels.md) — Add labels to specified registry
 - [yc iot registry remove-labels](remove-labels.md) — Remove labels from specified registry

@@ -909,8 +909,10 @@ default:
   sku|KZT|gitlab:
     backup|month|string: ₸9.60
     instance:
+      cpu|month|string: ₸6048.00
       cpu|string: ₸8.40
       disk|month|string: ₸65.05
+      ram|month|string: ₸1620.00
       ram|string: ₸2.25
   sku|KZT|interconnect:
     trunk:
@@ -1980,8 +1982,10 @@ default:
   sku|RUB|gitlab:
     backup|month|string: ₽1.92
     instance:
+      cpu|month|string: ₽1209.60
       cpu|string: ₽1.68
       disk|month|string: ₽13.01
+      ram|month|string: ₽324.00
       ram|string: ₽0.45
   sku|RUB|interconnect:
     trunk:
@@ -3056,8 +3060,10 @@ default:
   sku|USD|gitlab:
     backup|month|string: $0.015360
     instance:
+      cpu|month|string: $9.676800
       cpu|string: $0.013440
       disk|month|string: $0.104080
+      ram|month|string: $2.592000
       ram|string: $0.003600
   sku|USD|interconnect:
     trunk:
