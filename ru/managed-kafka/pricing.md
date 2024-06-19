@@ -6,11 +6,9 @@ editable: false
 
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mkf-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
 
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
-
 
 ## Статус кластера {#running-stopped}
 
@@ -49,9 +47,11 @@ editable: false
 
     Стоимость начисляется за каждый час работы хоста в соответствии с выделенными для него вычислительными ресурсами.
 
+
 * Выделенные хосты
 
     {% include [Dedicated hosts prices](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+
 
 
 Минимальная единица тарификации — минута (например, стоимость 1,5 минут работы хоста равна стоимости 2 минут). Время, когда хост-брокер или {{ ZK }} не может выполнять свои основные функции, не тарифицируется.
@@ -60,115 +60,38 @@ editable: false
 
 Оплачивается объем хранилища, выделенный для кластеров.
 
-
 * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами-брокерами и более:
     * для платформы Intel Cascade Lake — с шагом 100 ГБ;
     * для платформы Intel Ice Lake — с шагом {{ local-ssd-v3-step }}.
 * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с тремя хостами-брокерами и более, с шагом 93 ГБ.
 
-
 Цена указывается за 1 месяц использования и формируется из расчета 720 часов в месяц. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
+
 
 ### Пример расчета стоимости кластера {#example}
 
-{% list tabs %}
+Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
-* Стандартные хосты
+* **Хосты-брокеры {{ KF }}**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
+* **Хранилище для хостов-брокеров {{ KF }}**: по 100 ГБ на сетевых HDD-дисках на каждый хост-брокер.
+* **Хосты {{ ZK }}** (создаются автоматически): 3 хоста класса `b3-c1-m4`: Intel Ice Lake, 2 × 50% vCPU, 4 ГБ RAM. 
+* **Хранилище для хостов {{ ZK }}**: по 10 ГБ на сетевых SSD-дисках на каждый хост.
 
-  Стоимость использования кластера со следующими параметрами в течение 30 дней:
-
-  * **Хосты-брокеры {{ KF }}**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
-  * **Хранилище для хостов-брокеров {{ KF }}**: по 100 ГБ на сетевых HDD-дисках на каждый хост-брокер.
-  * **Хосты {{ ZK }}** (создаются автоматически): 3 хоста класса `b3-c1-m4`: Intel Ice Lake, 2 × 50% vCPU, 4 ГБ RAM. 
-  * **Хранилище для хостов {{ ZK }}**: по 10 ГБ на сетевых SSD-дисках на каждый хост.
-
-  Расчет стоимости для хостов-брокеров {{ KF }}:
-
-  
-  > 3 × (2&nbsp;×&nbsp;1,5100&nbsp;₽ + 8&nbsp;×&nbsp;0,4000&nbsp;₽) = 18,6600&nbsp;₽
-  > 
-  > 
-  > 
-  > Итого: 18,6600&nbsp;₽ — стоимость часа работы хостов-брокеров {{ KF }}.
-  
+#### Стандартные хосты {#example-standard-hosts}
 
 
-  Где:
-  * 3 — количество хостов-брокеров {{ KF }}.
-  * 2 — количество vCPU.
-  * 1,5100&nbsp;₽ — стоимость часа использования 100% vCPU.
-  * 8 — объем RAM одного хоста (в гигабайтах).
-  * 0,4000&nbsp;₽ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+{% list tabs group=pricing %}
 
-  Расчет стоимости хранилища для хостов-брокеров {{ KF }}:
+- Расчет в рублях {#prices-rub}
 
-  
-  > 3 × 100 × 3,2000&nbsp;₽ = 960,0000&nbsp;₽
-  > 
-  > 
-  >
-  > Итого: 960,0000&nbsp;₽ — стоимость хранилища для хостов-брокеров {{ KF }}.
+  {% include [rub-example-standard-hosts](../_pricing/managed-kafka/rub-example-standard-hosts.md) %}
 
+- Расчет в тенге {#prices-kzt}
 
-
-  Где:
-  * 3 — количество хостов-брокеров {{ KF }}.
-  * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах).
-  * 3,2000&nbsp;₽ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
-
-  Расчет стоимости для хостов {{ ZK }}:
-
-  
-  > 3 × (2&nbsp;×&nbsp;0,7000&nbsp;₽ + 4&nbsp;×&nbsp;0,2800&nbsp;₽) = 7,5600&nbsp;₽
-  > 
-  > 
-  >
-  > Итого: 7,5600&nbsp;₽ — стоимость часа работы хостов {{ ZK }}.
-
-
-
-  Где:
-  * 3 — количество хостов {{ ZK }}.
-  * 2 — количество vCPU.
-  * 0,7000&nbsp;₽ — стоимость часа использования 50% vCPU.
-  * 4 — объем RAM одного хоста (в гигабайтах).
-  * 0,2800&nbsp;₽ — стоимость часа использования 1 ГБ RAM на 50% vCPU.
-
-  Расчет стоимости хранилища для хостов {{ ZK }}:
-
-  
-  > 3 × 10 × 13,0100&nbsp;₽ = 390,3000&nbsp;₽
-  > 
-  > 
-  >
-  > Итого: 390,3000&nbsp;₽ — стоимость хранилища для хостов {{ ZK }}.
-
-
-
-  Где:
-  * 3 — количество хостов {{ ZK }}.
-  * 10 — объем хранилища на сетевых SSD-дисках (в гигабайтах).
-  * 13,0100&nbsp;₽ — стоимость месяца использования 1 ГБ хранилища на сетевых SSD-дисках.
-
-  Расчет итоговой стоимости:
-
-  
-  > 720 × (18,6600&nbsp;₽ + 7,5600&nbsp;₽) + 960,0000&nbsp;₽ + 390,3000&nbsp;₽ = 20&nbsp;228,7000&nbsp;₽
-  > 
-  > 
-  >
-  > Итого: 20&nbsp;228,7000&nbsp;₽ — стоимость использования кластера в течение 30 дней.
-
-
-
-  Где:
-  * 720 — количество часов в 30 днях.
-  * 18,6600&nbsp;₽ — стоимость часа работы хостов-брокеров {{ KF }}.
-  * 7,5600&nbsp;₽ — стоимость часа работы хостов {{ ZK }}.
-  * 960,0000&nbsp;₽ — стоимость хранилища для хостов-брокеров {{ KF }}.
-  * 390,3000&nbsp;₽ — стоимость хранилища для хостов {{ ZK }}.
+  {% include [kzt-example-standard-hosts](../_pricing/managed-kafka/kzt-example-standard-hosts.md) %}
 
 {% endlist %}
+
 
 
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
@@ -179,17 +102,21 @@ editable: false
 
 {% note info %}
 
-По схеме CVoS можно заказать только ресурсы определенного вида: для недоступных видов ресурсов в колонках CVoS в разделе [Цены](#prices) стоят прочерки. Объем хранилища и интернет-трафика заказать таким образом пока невозможно. 
+По схеме CVoS можно заказать только ресурсы определенного вида: для недоступных видов ресурсов в колонках CVoS в разделе [Цены для региона Россия](#prices) стоят прочерки. Объем хранилища и интернет-трафика заказать таким образом пока невозможно.
 
 {% endnote %}
 
+## Цены для региона Россия {#prices}
 
-## Цены {#prices}
+
+
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 
 
 Все цены указаны с включением НДС.
-
 
 
 Цены на хосты [вычисляются по-разному](#rules-hosts-uptime) в зависимости от выбранного типа хостов.
@@ -198,20 +125,66 @@ editable: false
 
 От типа хостов также зависит цена на быстрое локальное хранилище.
 
-
 ### Вычислительные ресурсы хостов-брокеров {{ KF }} {#prices-kafka-brokers}
-
 
 #### Стандартные хосты {#prices-kafka-standard}
 
- {% include notitle [RUB: standard broker hosts](../_pricing/managed-kafka/rub-hosts-standard.md) %}
+
+**Цены в час**
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-hosts-standard-hour](../_pricing/managed-kafka/rub-hosts-standard-hour.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-hosts-standard-hour](../_pricing/managed-kafka/kzt-hosts-standard-hour.md) %}
+
+{% endlist %}
+
+
+
+**Цены в месяц**
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-hosts-standard-month](../_pricing/managed-kafka/rub-hosts-standard-month.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-hosts-standard-month](../_pricing/managed-kafka/kzt-hosts-standard-month.md) %}
+
+{% endlist %}
+
+
+
+
+
 
 
 #### Выделенные хосты {#prices-kafka-dedicated}
 
 {% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
- {% include notitle [RUB: dedicated broker hosts](../_pricing/managed-kafka/rub-hosts-dedicated.md) %}
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [RUB: dedicated broker hosts](../_pricing/managed-kafka/rub-hosts-dedicated.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [KZT: dedicated broker hosts](../_pricing/managed-kafka/kzt-hosts-dedicated.md) %}
+
+{% endlist %}
+
 
 
 
@@ -225,39 +198,54 @@ editable: false
 
 {% endnote %}
 
-{% list tabs %}
 
-* Стандартные хосты
-
-     {% include notitle [RUB: standard ZooKeeper hosts](../_pricing/managed-kafka/rub-hosts-zk-standard.md) %}
+#### Стандартные хосты {#zookeeper-standard}
 
 
-* Выделенные хосты
+{% list tabs group=pricing %}
 
-    {% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+- Цены в рублях {#prices-rub}
 
-    Уточняйте стоимость в [технической поддержке]({{ link-console-support }}).
+  {% include [RUB: standard ZooKeeper hosts](../_pricing/managed-kafka/rub-hosts-zk-standard.md) %}
 
+- Цены в тенге {#prices-kzt}
 
+  {% include [KZT: standard ZooKeeper hosts](../_pricing/managed-kafka/kzt-hosts-zk-standard.md) %}
 
 {% endlist %}
 
 
 
+
+
+
+#### Выделенные хосты {#zookeeper-dedicated}
+
+{% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+
+Уточняйте стоимость в [технической поддержке]({{ link-console-support }}).
+
+
+
+
 ### Хранилище {#prices-storage}
 
-
- {% include notitle [RUB: Storage prices](../_pricing/managed-kafka/rub-storage.md) %}
-
+{% include [local-ssd for Intel Ice Lake only by request](../_includes/ice-lake-local-ssd-note.md) %}
 
 
-### Исходящий трафик {#prices-traffic}
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include notitle [RUB: Storage prices](../_pricing/managed-kafka/rub-storage.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include notitle [KZT: Storage prices](../_pricing/managed-kafka/kzt-storage.md) %}
+
+{% endlist %}
 
 
 
-{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
 
-
-
-
-
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

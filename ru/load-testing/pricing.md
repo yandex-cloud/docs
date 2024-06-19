@@ -4,15 +4,52 @@ editable: false
 
 # Правила тарификации для {{ load-testing-full-name }}
 
-Плата за использование вычислительных ресурсов [агентов](concepts/agent.md) взимается по тарифам [{{ compute-full-name }}](../compute/pricing.md).
 
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
+
+
+Плата за использование вычислительных ресурсов [агентов](concepts/agent.md) взимается по тарифам [{{ compute-full-name }}](../compute/pricing.md).
 
 Тарификация посекундная. Цены за месяц использования формируются из расчета 720 часов в месяц. 
 
 Тесты, запущенные с нескольких агентов, тарифицируются как сумма тестов, запущенных каждым из агентов.
 
+## Время выполнения тестов {#test-time}
 
-{% include [rub](../_pricing/load-testing/rub.md) %}
+Оплачивается продолжительность выполнения тестов.
 
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [test-time-rub](../_pricing/load-testing/test-time-rub.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [test-time-kzt](../_pricing/load-testing/test-time-kzt.md) %}
+
+{% endlist %}
+
+
+
+## Хранение результатов тестов {#test-results-storage}
+
+Оплачивается продолжительность тестов, результаты которых будут храниться.
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [test-results-rub](../_pricing/load-testing/test-results-rub.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [test-results-kzt](../_pricing/load-testing/test-results-kzt.md) %}
+
+{% endlist %}
 
 

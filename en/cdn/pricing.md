@@ -6,15 +6,16 @@ editable: false
 
 # {{ cdn-full-name }} pricing
 
+
+
 The cost of using {{ cdn-name }} is based on:
-* Amount of outgoing traffic from CDN servers, including traffic requested by user {{ yandex-cloud }} resources, such as {{ compute-full-name}} [virtual machines](../compute/concepts/vm.md). Incoming traffic received by CDN servers from the {{ yandex-cloud }} services and resources or from the Internet, is not charged.
+* Amount of outgoing traffic from CDN servers, including traffic requested by user {{ yandex-cloud }} resources, such as {{ compute-full-name }} [virtual machines](../compute/concepts/vm.md). Incoming traffic received by CDN servers from the {{ yandex-cloud }} services and resources or from the Internet, is not charged.
 * Paid features enabled for resources, such as [origin shielding](concepts/origins-shielding.md) and [log export](concepts/logs.md).
 
-## Pricing {#prices}
+## Prices for Russia {#prices}
 
 
 ### Egress traffic {#traffic}
-
 
 
 
@@ -24,7 +25,6 @@ The cost of using {{ cdn-name }} is based on:
 ### Paid features {#paid-features}
 
 Billing occurs on a monthly basis. If a function is enabled or disabled on any day of a month, the full monthly price will be charged for the month on the last day.
-
 
 
 

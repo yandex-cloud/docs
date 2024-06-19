@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для {{ mmg-name }}
 
+
+
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mmg-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
@@ -64,38 +66,76 @@ editable: false
 Расчет стоимости для хостов {{ MG }}:
 
 
-> 3 × (2&nbsp;×&nbsp;1,6000&nbsp;₽ + 8&nbsp;×&nbsp;0,9000&nbsp;₽) = 31,2000&nbsp;₽
-> 
-> 
->
-> Итого: 31,2000&nbsp;₽ — стоимость часа работы хостов {{ MG }}.
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  > 3 × (2&nbsp;×&nbsp;1,6000&nbsp;₽ + 8&nbsp;×&nbsp;0,9000&nbsp;₽) = 31,2000&nbsp;₽
+  >
+  > Итого: 31,2000&nbsp;₽ — стоимость часа работы хостов {{ MG }}.
+
+  Где:
+  * 3 — количество хостов {{ MG }}.
+  * 2 — количество vCPU.
+  * 1,6000&nbsp;₽ — стоимость часа использования 100% vCPU.
+  * 8 — объем RAM одного хоста {{ MG }} (в гигабайтах).
+  * 0,9000&nbsp;₽ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+
+- Расчет в тенге {#prices-kzt}
+
+  > 3 × (2&nbsp;×&nbsp;8,0000&nbsp;₸ + 8&nbsp;×&nbsp;4,5000&nbsp;₸) = 156,0000&nbsp;₸
+  >
+  > Итого: 156,0000&nbsp;₸ — стоимость часа работы хостов {{ MG }}.
+
+  Где:
+  * 3 — количество хостов {{ MG }}.
+  * 2 — количество vCPU.
+  * 8,0000&nbsp;₸ — стоимость часа использования 100% vCPU.
+  * 8 — объем RAM одного хоста {{ MG }} (в гигабайтах).
+  * 4,5000&nbsp;₸ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+
+{% endlist %}
 
 
-Где:
-* 3 — количество хостов {{ MG }}.
-* 2 — количество vCPU.
-* 1,6000&nbsp;₽ — стоимость часа использования 100% vCPU.
-* 8 — объем RAM одного хоста {{ MG }} (в гигабайтах).
-* 0,9000&nbsp;₽ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
 
 Расчет стоимости хранилища и итоговой стоимости:
 
 
-> 720 × 31,2000&nbsp;₽ + 100&nbsp;×&nbsp;3,2000&nbsp;₽ = 22&nbsp;784,0000&nbsp;₽
-> 
-> 
->
-> Итого: 22&nbsp;784,0000&nbsp;₽ — стоимость использования кластера в течение 30 дней.
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  > 720 × 31,2000&nbsp;₽ + 100&nbsp;×&nbsp;3,2000&nbsp;₽ = 22&nbsp;784,0000&nbsp;₽
+  >
+  > Итого: 22&nbsp;784,0000&nbsp;₽ — стоимость использования кластера в течение 30 дней.
+
+  Где:
+  * 720 — количество часов в 30 днях.
+  * 31,2000&nbsp;₽ — стоимость часа работы хостов {{ MG }}.
+  * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах).
+  * 3,2000&nbsp;₽ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
+
+- Расчет в тенге {#prices-kzt}
+
+  > 720 × 156,0000&nbsp;₸ + 100&nbsp;×&nbsp;16,0000&nbsp;₸ = 113&nbsp;920,0000&nbsp;₸
+  >
+  > Итого: 113&nbsp;920,0000&nbsp;₸ — стоимость использования кластера в течение 30 дней.
+
+  Где:
+  * 720 — количество часов в 30 днях.
+  * 156,0000&nbsp;₸ — стоимость часа работы хостов {{ MG }}.
+  * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах).
+  * 16,0000&nbsp;₸ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
+
+{% endlist %}
 
 
-Где:
-* 720 — количество часов в 30 днях.
-* 31,2000&nbsp;₽ — стоимость часа работы хостов {{ MG }}.
-* 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах).
-* 3,2000&nbsp;₽ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
 
 
-## Цены {#prices}
+## Цены для региона Россия {#prices}
+
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 
@@ -109,26 +149,39 @@ editable: false
 Цены на вычислительные ресурсы одинаковы для всех видов хостов — mongod, mongos и mongocfg.
 
 
-{% include [rub-host](../_pricing/managed-mongodb/rub-host.md) %}
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-host](../_pricing/managed-mongodb/rub-host.md) %}
 
 
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-host](../_pricing/managed-mongodb/kzt-host.md) %}
+
+
+{% endlist %}
 
 
 
 ### Хранилище и резервные копии {#prices-storage}
 
 
-{% include [rub-storage](../_pricing/managed-mongodb/rub-storage.md) %}
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-storage](../_pricing/managed-mongodb/rub-storage.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-storage](../_pricing/managed-mongodb/kzt-storage.md) %}
+
+{% endlist %}
 
 
 
-
-
-### Исходящий трафик {#prices-traffic}
-
-
-{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
-
-
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 
 

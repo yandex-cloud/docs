@@ -4,6 +4,8 @@ editable: false
 
 # {{ mgp-name }} pricing
 
+
+
 In this section, you can find {{ mgp-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
 
 {% include [use-calculator](../../_includes/pricing/use-calculator.md) %}
@@ -73,11 +75,11 @@ The cost of using a cluster with the following parameters for 30 days:
 * **Dedicated hosts**: 3 `s2.medium` hosts: Intel Cascade Lake, 8 × 100% vCPU, 32 GB RAM.
 * **Storage for dedicated hosts**: 50 GB of local SSD storage.
 
+
+
 Cost calculation for standard hosts:
 
-> 
 > 3 × (8&nbsp;×&nbsp;$0.017231 + 32&nbsp;×&nbsp;$0.004564) = $0.851688
-> 
 >
 > Total: $0.851688 is the cost per hour of standard host operation.
 
@@ -90,9 +92,7 @@ Where:
 
 Cost calculation for dedicated hosts:
 
-> 
 > 3 × (8&nbsp;×&nbsp;$0.009595 + 32&nbsp;×&nbsp;$0.002538) = $0.473928
-> 
 >
 > Total: $0.473928 is the cost per hour of dedicated host operation.
 
@@ -105,8 +105,6 @@ Where:
 
 Calculation for the storage cost and total cost:
 
-> 
-> 
 > (720 × $0.851688 + 100 × $0.104080) + (720 × $0.473928 + 50 × $0.104080) = $970.0555
 >
 > Total: $970.0555 is the cost of using the cluster for 30 days.
@@ -120,6 +118,7 @@ Where:
 * 50: Amount of local SSD storage (in GB) for dedicated hosts.
 * $0.104080: Cost of using 1 GB of local SSD storage per month.
 
+
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../../_includes/mdb/cvos.md) %}
@@ -132,8 +131,7 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% endnote %}
 
-## Pricing {#prices}
-
+## Prices for Russia {#prices}
 
 
 All prices are shown without VAT.
@@ -154,35 +152,49 @@ The cost calculation will be different depending on the [host configuration](../
 * For hosts i2 and i3 (`io-optimized`), the cost is made up of the price for {{ mgp-name }} host computing resources (see the table below) and [the price for software-accelerated network use](../../compute/pricing.md#software-accelerated-network).
 * For hosts with other configurations, you only pay for their computing resources:
 
-    {% include notitle [USD: standard hosts](../../_pricing/managed-greenplum/usd-hosts-standard.md) %}
+**Costs per hour**
+
+
+
+{% include [usd-hosts-standard-hour](../../_pricing/managed-greenplum/usd-hosts-standard-hour.md) %}
+
+
+**Costs per month**
+
+
+
+{% include [usd-hosts-standard-month](../../_pricing/managed-greenplum/usd-hosts-standard-month.md) %}
 
 
 #### Dedicated hosts {#dedicated-hosts}
 
 The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} markup for using these resources.
 
- {% include notitle [USD: dedicated hosts](../../_pricing/managed-greenplum/usd-hosts-dedicated.md) %}
+
+
+{% include [usd-hosts-dedicated](../../_pricing/managed-greenplum/usd-hosts-dedicated.md) %}
 
 
 ### Storage and backups {#prices-storage}
+
+
 
 {% list tabs %}
 
 - Standard hosts
 
-   {% include [local-ssd for Intel Ice Lake only on request](../../_includes/ice-lake-local-ssd-note.md) %}
+  {% include [local-ssd for Intel Ice Lake only on request](../../_includes/ice-lake-local-ssd-note.md) %}
 
-   {% include notitle [usd-storage-standard.md](../../_pricing/managed-greenplum/usd-storage-standard.md) %}
-
+  {% include [usd-storage-standard](../../_pricing/managed-greenplum/usd-storage-standard.md) %}
 
 - Dedicated hosts
 
-   The cost is made up of two components: the [{{ compute-full-name }} storage cost](../../compute/pricing.md#prices) and the {{ mgp-name }} price for it. All prices are shown per 1 GB per month.
+  The cost is made up of two components: the [{{ compute-full-name }} storage cost](../../compute/pricing.md#prices) and the {{ mgp-name }} price for it. All prices are shown per 1 GB per month.
 
-   {% include notitle [usd-storage-dedicated.md](../../_pricing/managed-greenplum/usd-storage-dedicated.md) %}
-
+  {% include [usd-storage-dedicated](../../_pricing/managed-greenplum/usd-storage-dedicated.md) %}
 
 {% endlist %}
+
 
 The cost of [cold storage in {{ objstorage-full-name }}](../tutorials/yezzey.md) is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
 
@@ -194,8 +206,7 @@ Pricing for backup storage has the following specifics:
 
 * {% include [backup-wal](../../_includes/mdb/mgp/backup-wal.md) %}
 
-### Egress traffic {#prices-traffic}
+{% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}
 
- {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %} 
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

@@ -9,11 +9,9 @@ editable: false
 
 In this section, you can find {{ mpg-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
 
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
-
 
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
@@ -39,13 +37,11 @@ You are charged for the following:
 
 * Storage allocated for DB clusters.
 
-   
    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
-      * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
+            * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
       * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
 
    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
-
 
 * Space used by DB backups in excess of the storage amount specified for the cluster.
 
@@ -76,8 +72,9 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% endnote %}
 
+## Prices for Russia {#prices}
 
-## Pricing {#prices}
+
 
 
 
@@ -90,22 +87,17 @@ All prices are shown without VAT.
 
 
 
-
-
-{% include notitle [usd-host-resources.md](../_pricing/managed-postgresql/usd-host-resources.md) %}
-
-
+{% include [usd-host-resources.md](../_pricing/managed-postgresql/usd-host-resources.md) %}
 
 
 ### Storage and backups {#prices-storage}
 
+{% include [ice-lake-local-ssd-note](../_includes/ice-lake-local-ssd-note.md) %}
 
 
 
 
-{% include notitle [usd-storage.md](../_pricing/managed-postgresql/usd-storage.md) %}
-
-
+{% include [usd-storage.md](../_pricing/managed-postgresql/usd-storage.md) %}
 
 
 Pricing for backup storage has the following specifics:
@@ -121,13 +113,4 @@ Pricing for backup storage has the following specifics:
 
 * {% include [backup-wal](../_includes/mdb/mpg/backup-wal.md) %}
 
-### Egress traffic {#prices-traffic}
-
-
-
-
-
-{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-
-
-
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

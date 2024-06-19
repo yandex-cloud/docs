@@ -6,7 +6,6 @@ editable: false
 
 
 
-
 ## What goes into the cost of using {{ serverless-containers-name }} {#rules}
 
 In {{ serverless-containers-name }}, you are billed for the number of container invocations, computing resources allocated for the application, downtime of [provisioned instances](concepts/container.md#provisioned-instances), and outgoing traffic.
@@ -23,10 +22,12 @@ You are only charged for the container invocations that have caused your applica
 
 {% endnote %}
 
-
 ### Pricing formula {#formula}
 
+
+
 Monthly cost = {{ sku|USD|serverless.containers.compute.memory|pricingRate.10|string }} × Memory (GB) × Invocation processing time (Hours) + {{ sku|USD|serverless.containers.compute.cpu|pricingRate.5|string }} × vCPU count × Invocation processing time (Hours) + {{ sku|USD|serverless.containers.invocations|pricingRate.1|string }} × Millions of invocations
+
 
 {% include [not-charged-sc.md](../_includes/pricing/price-formula/not-charged-serverless-containers.md) %}
 
@@ -40,9 +41,9 @@ Example of calculating the cost of a container with the following parameters:
 * **Number of container invocations**: 3,000,000
 * **Execution time of each call**: 150 ms
 
-> 
+
+
 > 0.0256 × (2 × (150 / 3,600,000) × 3,000,000 – 10) + 0.0384 × (0.2 × (150 / 3,600,000) × 3,000,000 – 5) + 0.1280 × ((3,000,000 – 1,000,000) / 1,000,000)
-> 
 >
 > Total: $7.1680
 
@@ -69,9 +70,9 @@ Example of calculating the cost of a container with the following parameters:
 * **Number of container invocations**: 3,000,000
 * **Execution time of each call**: 150 ms
 
-> 
+
+
 > 0.0256 × (2 × (150 / 3,600,000) × 3,000,000 – 10) + 0.0384 × (1 × (150 / 3,600,000) × 3,000,000 – 5) + 0.1280 × ((3,000,000 – 1,000,000) / 1,000,000)
-> 
 >
 > Total: $11.0080
 
@@ -92,11 +93,10 @@ Where:
 * 1,000,000 is the divisor used to calculate the number of millions of container invocations.
 
 
-## Pricing {#prices}
+## Prices for Russia {#prices}
 
 
 ### Invoking a container {#prices-invoking}
-
 
 
 
@@ -107,7 +107,6 @@ Where:
 
 
 
-
 {% include notitle [usd-ram.md](../_pricing/serverless-containers/usd-ram.md) %}
 
 
@@ -115,16 +114,12 @@ Where:
 
 
 
-
 {% include notitle [usd-cpu.md](../_pricing/serverless-containers/usd-cpu.md) %}
-
-
 
 
 ### Provisioned instances {#provisioned-instances}
 
 #### RAM usage time {#prices-ram-provisioned-instances}
-
 
 
 
@@ -135,17 +130,7 @@ Where:
 
 
 
-
 {% include notitle [usd-cpu-provisioned-instances.md](../_pricing/serverless-containers/usd-cpu-provisioned-instances.md) %}
 
 
-
-
-### Egress traffic {#prices-traffic}
-
-
-
-
-{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-
-
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

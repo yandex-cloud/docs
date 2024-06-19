@@ -6,6 +6,8 @@ editable: false
 
 # Правила тарификации для {{ mgl-full-name }}
 
+
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 ## Из чего складывается стоимость использования {{ mgl-name }} {#rules}
@@ -44,60 +46,132 @@ editable: false
 
 Расчет стоимости вычислительных ресурсов:
 
-> 720 × (2 × 1,68&nbsp;₽ + 8 × 0,45&nbsp;₽) = 5011,20&nbsp;₽
 
-Где:
+{% list tabs group=pricing %}
 
-* 720 — количество часов в 30 днях.
-* 2 — количество vCPU.
-* 1,68&nbsp;₽ — стоимость часа использования vCPU.
-* 8 — объем RAM (в гигабайтах).
-* 0,45&nbsp;₽ — стоимость часа использования 1 ГБ RAM.
+- Расчет в рублях {#prices-rub}
+
+  > 720 × (2 × 1,68&nbsp;₽ + 8 × 0,45&nbsp;₽) = 5011,20&nbsp;₽
+  
+  Где:
+
+  * 720 — количество часов в 30 днях.
+  * 2 — количество vCPU.
+  * 1,68&nbsp;₽ — стоимость часа использования vCPU.
+  * 8 — объем RAM (в гигабайтах).
+  * 0,45&nbsp;₽ — стоимость часа использования 1 ГБ RAM.
+
+- Расчет в тенге {#prices-kzt}
+
+  > 720 × (2 × 8,40&nbsp;₸ + 8 × 2,25&nbsp;₸) = 25&nbsp;056,00&nbsp;₸
+
+  Где:
+
+  * 720 — количество часов в 30 днях.
+  * 2 — количество vCPU.
+  * 8,40&nbsp;₸ — стоимость часа использования vCPU.
+  * 8 — объем RAM (в гигабайтах).
+  * 2,25&nbsp;₸ — стоимость часа использования 1 ГБ RAM.
+
+{% endlist %}
+
+
 
 Расчет стоимости хранилища и резервных копий:
 
-> 30 × 13,01&nbsp;₽ + 20 × 7 × 1,92&nbsp;₽ = 659,10&nbsp;₽
 
-Где:
+{% list tabs group=pricing %}
 
-* 30 — объем хранилища (в гигабайтах).
-* 13,01&nbsp;₽ — стоимость месяца использования 1 ГБ хранилища.
-* 20 — объем каждой резервной копии.
-* 7 — срок хранения резервных копий.
-* 1,92&nbsp;₽ — стоимость хранения 1 ГБ резервных копий.
+- Расчет в рублях {#prices-rub}
+
+  > 30 × 13,01&nbsp;₽ + 20 × 7 × 1,92&nbsp;₽ = 659,10&nbsp;₽
+
+  Где:
+
+  * 30 — объем хранилища (в гигабайтах).
+  * 13,01&nbsp;₽ — стоимость месяца использования 1 ГБ хранилища.
+  * 20 — объем каждой резервной копии.
+  * 7 — срок хранения резервных копий.
+  * 1,92&nbsp;₽ — стоимость хранения 1 ГБ резервных копий.
+
+- Расчет в тенге {#prices-kzt}
+
+  > 30 × 65,05&nbsp;₸ + 20 × 7 × 9,60&nbsp;₸ = 3295,50&nbsp;₸
+
+  Где:
+
+  * 30 — объем хранилища (в гигабайтах).
+  * 65,05&nbsp;₸ — стоимость месяца использования 1 ГБ хранилища.
+  * 20 — объем каждой резервной копии.
+  * 7 — срок хранения резервных копий.
+  * 9,60&nbsp;₸ — стоимость хранения 1 ГБ резервных копий.
+
+{% endlist %}
+
+
 
 Расчет итоговой стоимости инстанса:
 
-> 5011,20&nbsp;₽ + 659,10&nbsp;₽ = 5670,30&nbsp;₽
 
-Где 5670,30&nbsp;₽ — стоимость использования инстанса в течение 30 дней.
+{% list tabs group=pricing %}
 
-## Цены {#prices}
+- Расчет в рублях {#prices-rub}
+
+  > 5011,20&nbsp;₽ + 659,10&nbsp;₽ = 5670,30&nbsp;₽
+
+  Где 5670,30&nbsp;₽ — стоимость использования инстанса в течение 30 дней.
+
+- Расчет в тенге {#prices-kzt}
+
+  > 25&nbsp;056,00&nbsp;₸ + 3295,50&nbsp;₸ = 28&nbsp;351,50&nbsp;₸
+
+  Где 28&nbsp;351,50&nbsp;₸ — стоимость использования инстанса в течение 30 дней.
+
+{% endlist %}
+
+
+
+## Цены для региона Россия {#prices}
+
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 ### Вычислительные ресурсы инстансов {#prices-instance}
 
 
-{% include [rub-instance-resources.md](../_pricing/managed-gitlab/rub-instance-resources.md) %}
+{% list tabs group=pricing %}
 
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-instance-resources.md](../_pricing/managed-gitlab/rub-instance-resources.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-instance-resources.md](../_pricing/managed-gitlab/kzt-instance-resources.md) %}
+
+{% endlist %}
 
 
 
 ### Хранилище и резервные копии {#prices-storage}
 
 
-{% include [rub-storage.md](../_pricing/managed-gitlab/rub-storage.md) %}
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-storage.md](../_pricing/managed-gitlab/rub-storage.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-storage.md](../_pricing/managed-gitlab/kzt-storage.md) %}
+
+{% endlist %}
 
 
 
-
-### Исходящий трафик {#prices-traffic}
-
-
-{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
-
-
-
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 
 ## Лицензии {#license}
 

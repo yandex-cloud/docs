@@ -267,8 +267,10 @@ placement_policy:
 
 We do not recommend using [placement groups](placement-groups.md) for VMs on dedicated hosts.
 
+
 ## Pricing {#billing}
 
 For information about pricing for dedicated hosts, see [{#T}](../pricing.md#prices-dedicated-host).
+
 
 _Intel and Xeon are trademarks of Intel Corporation or its subsidiaries._

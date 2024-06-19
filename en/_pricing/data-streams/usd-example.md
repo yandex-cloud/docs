@@ -1,3 +1,26 @@
+> &lceil; 50 / 40 &rceil; = 2
+
+Where:
+* 50: Size of one message in KB.
+* 40: [Size of units](#event) of written data in KB.
+* 2: Number of data units written per message.
+
+While calculating the cost, the number of units of written data is rounded up to an integer. In this example, the number is rounded to 2.
+
+> 2 × 2 = 4
+
+Where:
+* 2: Number of messages per second.
+* 2: Number of data units written per message.
+* 4: Number of data units written per second.
+
+> 4 × 60 × 60 × 24 × 31 = 10,713,600
+
+Where:
+* 4: Number of data units written per second.
+* 60 × 60 × 24 × 31: Number of seconds in the month.
+* 10,713,600: Number of data units written per month.
+
 > 0.001709 × 24 × 31 = 1.269264
 
 Where:

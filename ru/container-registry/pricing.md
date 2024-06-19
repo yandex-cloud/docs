@@ -26,7 +26,14 @@ editable: false
 
 {% endnote %}
 
-## Цены {#prices}
+
+## Цены для региона Россия {#prices}
+
+
+
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 
 ### Хранение данных {#prices-storage}
@@ -34,10 +41,17 @@ editable: false
 Цены за ГБ в месяц фиксированны и не зависят от количества дней в месяце. Стоимость услуги хранения в день для более коротких месяцев будет выше, для более длинных — ниже.
 
 
+{% list tabs group=pricing %}
 
-{% include [rub.md](../_pricing/container-registry/rub.md) %}
+- Цены в рублях {#prices-rub}
 
+  {% include [rub.md](../_pricing/container-registry/rub.md) %}
 
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt.md](../_pricing/container-registry/kzt.md) %}
+
+{% endlist %}
 
 
 
@@ -56,19 +70,19 @@ editable: false
 Первичное сканирование первых шести разных Docker-образов в месяц не тарифицируется. Последующие шесть сканирований любых Docker-образов в месяц не тарифицируется.
 
 
+{% list tabs group=pricing %}
 
-{% include [rub-scanner.md](../_pricing/container-registry/rub-scanner.md) %}
+- Цены в рублях {#prices-rub}
 
+  {% include [rub-scanner.md](../_pricing/container-registry/rub-scanner.md) %}
 
+- Цены в тенге {#prices-kzt}
 
+  {% include [kzt-scanner.md](../_pricing/container-registry/kzt-scanner.md) %}
 
-
-
-
-
-{% include [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
-
-
+{% endlist %}
 
 
 
+
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

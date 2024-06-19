@@ -120,6 +120,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 
 
+
 ## Examples of cost calculations with free tier {#examples}
 
 Usage cost is calculated based on the pricing plans of the relevant service and does not include the amount of services provided for free. Here is an example:

@@ -5,6 +5,8 @@ description: "In this tutorial, you will learn how to calculate the cost of quer
 
 # Rules for estimating the cost of queries to {{ ydb-short-name }} via ad-hoc APIs
 
+
+
 ## ReadTable
 
 The `ReadTable` operation lets you efficiently read large ranges of data from a table. The request cost only depends on the amount of data read based on the rate of 128 RU per 1 MB. When calculating the cost, the amount is rounded up to a multiple of 1 MB.

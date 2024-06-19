@@ -4,6 +4,8 @@ editable: false
 
 # {{ ml-platform-name }} pricing
 
+
+
 ## What goes into the cost of using {{ ml-platform-name }} {#rules}
 
 When using {{ ml-platform-name }}, you pay for the use of computing resources: the computation and instance running time is charged per second.
@@ -54,11 +56,10 @@ If you need to store large amounts of data, you can use {{ objstorage-full-name 
 
 The monthly usage rate is based on 720 hours per month.
 
-## Pricing {#prices}
+## Prices for Russia {#prices}
 
 
 The prices of the configurations are valid for computations in [{{ ds-nb }}](concepts/project.md#mode), [{{ ds-jobs }}](concepts/jobs/index.md) jobs, and the use of [{{ ds-inf }}](../datasphere/concepts/deploy/index.md).
-
 
 
 
@@ -69,17 +70,10 @@ The prices of the configurations are valid for computations in [{{ ds-nb }}](con
 
 
 
-
 {% include [usd-storage.md](../_pricing/datasphere/usd-storage.md) %}
 
 
-### Egress traffic {#prices-traffic}
-
-
-
-
-{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 
 ## Examples of cost calculation {#price-example}
 
@@ -92,15 +86,19 @@ Cost of using {{ ml-platform-name }} with the following parameters:
 
 The cost is calculated as follows:
 
+
+
 > 72 × 600 = 43,200 units for VM usage
 > 43,200 × 0.0000096 = $&nbsp;0.4147200
 >
 > Total: $&nbsp;0.4147200 is the cost of using {{ ml-platform-name }}.
 
 Where:
+
 * 72: Number of units per g1.1 configuration.
 * 600: VM usage time in seconds.
 * $0.0000096: Cost per unit.
+
 
 ### {{ ds-inf }} {#price-example-node}
 
@@ -121,13 +119,17 @@ Where:
 
 The cost is calculated as follows:
 
+
+
 > 72 × 185,760 × 2 = 26,749,440 units for running a node
 > 26,749,440 × 0.0000096 = $&nbsp;256.7946240
 >
 > Total cost of using {{ ml-platform-name }}: $&nbsp;256.7946240.
 
 Where:
+
 * 72: Number of units per g1.1 configuration.
 * 185,760: Node runtime in seconds.
 * 2: Number of instances per node.
 * $0.0000096: Cost per unit.
+

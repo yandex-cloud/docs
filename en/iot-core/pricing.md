@@ -6,6 +6,8 @@ editable: false
 
 # {{ iot-name }} pricing
 
+
+
 ## What goes into the cost of using {{ iot-name }} {#rules}
 
 In {{ iot-name }}, you are charged for the number of messages. The message count is rounded up using the following formula:
@@ -43,12 +45,11 @@ List of commands charged under {{ iot-name }}:
 * `PUBLISH`: Send a message from the MQTT server of the service to the client (device or registry).
 * `PINGREQ`: Check the connection from the client (device or registry) to the MQTT server of the service.
 
-## Pricing {#prices}
-
+## Prices for Russia {#prices}
 
 ### Data volume {#volumes}
 
 
 
+{% include notitle [usd.md](../_pricing/iot-core/usd.md) %}
 
-{% include [usd.md](../_pricing/iot-core/usd.md) %}

@@ -6,6 +6,8 @@ editable: false
 
 # {{ yds-full-name }} pricing
 
+
+
 {{ yds-name }} supports two pricing modes:
 
 * [Based on allocated resources](#rules): You pay a fixed hourly rate for the established throughput limit and message retention period and additionally for the number of units of actually written data.
@@ -28,64 +30,38 @@ Pricing for the allocated resources includes the established segment throughput 
 A single-shard stream receives two 50 KB messages per second. The message retention period is 12 hours.
 
 Calculation of the monthly cost of processing data (provided that there are 31 days in the month):
-> &lceil; 50 / 40 &rceil; = 2
-
-Where:
-* 50: Size of one message in KB.
-* 40: [Size of units](#event) of written data in KB.
-* 2: Number of data units written per message.
-
-While calculating the cost, the number of units of written data is rounded up to an integer. In this example, the number is rounded to 2.
-
-> 2 × 2 = 4
-
-Where:
-* 2: Number of messages per second.
-* 2: Number of data units written per message.
-* 4: Number of data units written per second.
-
-> 4 × 60 × 60 × 24 × 31 = 10,713,600
-
-Where:
-* 4: Number of data units written per second.
-* 60 × 60 × 24 × 31: Number of seconds in the month.
-* 10,713,600: Number of data units written per month.
-
 
 
 
 {% include [usd.md](../_pricing/data-streams/usd-example.md) %}
 
 
-### Pricing {#prices}
+## Pricing for Russia {#prices}
 
 
-#### Cost per unit of written data {#event}
+### Cost per unit of written data {#event}
 
 The first 2,000,000 units of written data per month are free of charge.
-
 
 
 
 {% include [usd.md](../_pricing/data-streams/usd-event.md) %}
 
 
-#### Cost of allocated resources {#resources}
+### Cost of allocated resources {#resources}
 
-#### Pricing based on storage time {#time-limit}
+### Pricing based on storage time {#time-limit}
 
 Cost of using allocated resources per hour:
-
 
 
 
 {% include [usd.md](../_pricing/data-streams/usd-resources.md) %}
 
 
-#### Pricing based on storage size {#storage-limit}
+### Pricing based on storage size {#storage-limit}
 
 Data is stored for up to 7 days.
-
 
 
 

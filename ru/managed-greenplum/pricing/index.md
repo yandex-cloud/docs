@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для {{ mgp-name }}
 
+
+
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mgp-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
 
 {% include [use-calculator](../../_includes/pricing/use-calculator.md) %}
@@ -73,52 +75,98 @@ editable: false
 * **Выделенные хосты**: 3 хоста класса `s2.medium`: Intel Cascade Lake, 8 × 100% vCPU, 32 ГБ RAM.
 * **Хранилище для выделенных хостов**: 50 ГБ на локальных SSD-дисках.
 
-Расчет стоимости для стандартных хостов:
 
-> 3 × (8&nbsp;×&nbsp;2,1500&nbsp;₽ + 32&nbsp;×&nbsp;0,5700&nbsp;₽) = 106,3200&nbsp;₽
-> 
-> 
->
-> Итого: 106,3200&nbsp;₽ — стоимость часа работы стандартных хостов.
+{% list tabs group=pricing %}
 
-Где:
-* 3 — количество стандартных хостов.
-* 8 — количество vCPU.
-* 2,1500&nbsp;₽ — стоимость часа использования 100% vCPU.
-* 32 — объем RAM одного стандартного хоста (в гигабайтах).
-* 0,5700&nbsp;₽ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+- Расчет в рублях {#prices-rub}
 
-Расчет стоимости для выделенных хостов:
+  Расчет стоимости для стандартных хостов:
 
-> 3 × (8&nbsp;×&nbsp;1,2000&nbsp;₽ + 32&nbsp;×&nbsp;0,3100&nbsp;₽) = 58,5600&nbsp;₽
-> 
-> 
->
-> Итого: 58,5600&nbsp;₽ — стоимость часа работы выделенных хостов.
+  > 3 × (8&nbsp;×&nbsp;2,1500&nbsp;₽ + 32&nbsp;×&nbsp;0,5700&nbsp;₽) = 106,3200&nbsp;₽
+  >
+  > Итого: 106,3200&nbsp;₽ — стоимость часа работы стандартных хостов.
 
-Где:
-* 3 — количество выделенных хостов.
-* 8 — количество vCPU.
-* 1,2000&nbsp;₽ — стоимость часа использования 100% vCPU.
-* 32 — объем RAM одного выделенного хоста (в гигабайтах).
-* 0,3100&nbsp;₽ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+  Где:
+  * 3 — количество стандартных хостов.
+  * 8 — количество vCPU.
+  * 2,1500&nbsp;₽ — стоимость часа использования 100% vCPU.
+  * 32 — объем RAM одного стандартного хоста (в гигабайтах).
+  * 0,5700&nbsp;₽ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
 
-Расчет стоимости хранилища и итоговой стоимости:
+  Расчет стоимости для выделенных хостов:
 
-> (720 × 106,3200&nbsp;₽ + 100 × 3,2000&nbsp;₽) + (720 × 58,5600&nbsp;₽ + 50 × 13,0100&nbsp;₽) = 119&nbsp;684,1000&nbsp;₽
-> 
-> 
->
-> Итого: 119&nbsp;684,1000&nbsp;₽ — стоимость использования кластера в течение 30 дней.
+  > 3 × (8&nbsp;×&nbsp;1,2000&nbsp;₽ + 32&nbsp;×&nbsp;0,3100&nbsp;₽) = 58,5600&nbsp;₽
+  >
+  > Итого: 58,5600&nbsp;₽ — стоимость часа работы выделенных хостов.
 
-Где:
-* 720 — количество часов в 30 днях.
-* 106,3200&nbsp;₽ — стоимость часа работы стандартных хостов.
-* 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах) для стандартных хостов.
-* 3,2000&nbsp;₽ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
-* 58,5600&nbsp;₽ — стоимость часа работы выделенных хостов.
-* 50 — объем хранилища на локальных SSD-дисках (в гигабайтах) для выделенных хостов.
-* 13,0100&nbsp;₽ — стоимость месяца использования 1 ГБ хранилища на локальных SSD-дисках.
+  Где:
+  * 3 — количество выделенных хостов.
+  * 8 — количество vCPU.
+  * 1,2000&nbsp;₽ — стоимость часа использования 100% vCPU.
+  * 32 — объем RAM одного выделенного хоста (в гигабайтах).
+  * 0,3100&nbsp;₽ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+
+  Расчет стоимости хранилища и итоговой стоимости:
+
+  > (720 × 106,3200&nbsp;₽ + 100 × 3,2000&nbsp;₽) + (720 × 58,5600&nbsp;₽ + 50 × 13,0100&nbsp;₽) = 119&nbsp;684,1000&nbsp;₽
+  >
+  > Итого: 119&nbsp;684,1000&nbsp;₽ — стоимость использования кластера в течение 30 дней.
+
+  Где:
+  * 720 — количество часов в 30 днях.
+  * 106,3200&nbsp;₽ — стоимость часа работы стандартных хостов.
+  * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах) для стандартных хостов.
+  * 3,2000&nbsp;₽ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
+  * 58,5600&nbsp;₽ — стоимость часа работы выделенных хостов.
+  * 50 — объем хранилища на локальных SSD-дисках (в гигабайтах) для выделенных хостов.
+  * 13,0100&nbsp;₽ — стоимость месяца использования 1 ГБ хранилища на локальных SSD-дисках.
+
+- Расчет в тенге {#prices-kzt}
+
+  Расчет стоимости для стандартных хостов:
+
+  > 3 × (8&nbsp;×&nbsp;10,7500&nbsp;₸ + 32&nbsp;×&nbsp;2,8500&nbsp;₸) = 531,6000&nbsp;₸
+  >
+  > Итого: 531,6000&nbsp;₸ — стоимость часа работы стандартных хостов.
+
+  Где:
+  * 3 — количество стандартных хостов.
+  * 8 — количество vCPU.
+  * 10,7500&nbsp;₸ — стоимость часа использования 100% vCPU.
+  * 32 — объем RAM одного стандартного хоста (в гигабайтах).
+  * 2,8500&nbsp;₸ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+
+  Расчет стоимости для выделенных хостов:
+
+  > 3 × (8&nbsp;×&nbsp;6,0000&nbsp;₸ + 32&nbsp;×&nbsp;1,5500&nbsp;₸) = 292,8000&nbsp;₸
+  >
+  > Итого: 292,8000&nbsp;₸ — стоимость часа работы выделенных хостов.
+
+  Где:
+  * 3 — количество выделенных хостов.
+  * 8 — количество vCPU.
+  * 6,0000&nbsp;₸ — стоимость часа использования 100% vCPU.
+  * 32 — объем RAM одного выделенного хоста (в гигабайтах).
+  * 1,5500&nbsp;₸ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+
+  Расчет стоимости хранилища и итоговой стоимости:
+
+  > (720 × 531,6000&nbsp;₸ + 100 × 16,0000&nbsp;₸) + (720 × 292,8000&nbsp;₸ + 50 × 65,0500&nbsp;₸) = 598&nbsp;420,5000&nbsp;₸
+  >
+  > Итого: 598&nbsp;420,5000&nbsp;₸ — стоимость использования кластера в течение 30 дней.
+
+  Где:
+  * 720 — количество часов в 30 днях.
+  * 531,6000&nbsp;₸ — стоимость часа работы стандартных хостов.
+  * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах) для стандартных хостов.
+  * 16,0000&nbsp;₸ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
+  * 292,8000&nbsp;₸ — стоимость часа работы выделенных хостов.
+  * 50 — объем хранилища на локальных SSD-дисках (в гигабайтах) для выделенных хостов.
+  * 65,0500&nbsp;₸ — стоимость месяца использования 1 ГБ хранилища на локальных SSD-дисках.
+
+{% endlist %}
+
+
 
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
@@ -132,9 +180,10 @@ editable: false
 
 {% endnote %}
 
-## Цены {#prices}
+## Цены для региона Россия {#prices}
 
 
+{% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
 
 Все цены указаны с включением НДС.
 
@@ -154,35 +203,95 @@ editable: false
 * Для хостов i2 и i3 (`io-optimized`) стоимость складывается из цены за вычислительные ресурсы хостов {{ mgp-name }} (см. таблицу ниже) и [цены за использование программно-ускоренной сети](../../compute/pricing.md#software-accelerated-network).
 * Для хостов других конфигураций оплачиваются только их вычислительные ресурсы:
 
-     {% include notitle [RUB: standard hosts](../../_pricing/managed-greenplum/rub-hosts-standard.md) %}
+**Цены в час**
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-hosts-standard-hour](../../_pricing/managed-greenplum/rub-hosts-standard-hour.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-hosts-standard-hour](../../_pricing/managed-greenplum/kzt-hosts-standard-hour.md) %}
+
+{% endlist %}
+
+
+
+**Цены в месяц**
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-hosts-standard-month](../../_pricing/managed-greenplum/rub-hosts-standard-month.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-hosts-standard-month](../../_pricing/managed-greenplum/kzt-hosts-standard-month.md) %}
+
+{% endlist %}
+
 
 
 #### Выделенные хосты {#dedicated-hosts}
 
 Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices) и наценки {{ mgp-name }} на эти ресурсы.
 
- {% include notitle [RUB: dedicated hosts](../../_pricing/managed-greenplum/rub-hosts-dedicated.md) %}
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-hosts-dedicated](../../_pricing/managed-greenplum/rub-hosts-dedicated.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-hosts-dedicated](../../_pricing/managed-greenplum/kzt-hosts-dedicated.md) %}
+
+{% endlist %}
+
 
 
 ### Хранилище и резервные копии {#prices-storage}
 
-{% list tabs %}
 
-- Стандартные хосты
+#### Стандартные хосты {#storage-standard}
 
-  {% include [local-ssd для Ice Lake только по запросу](../../_includes/ice-lake-local-ssd-note.md) %}
+{% include [local-ssd для Ice Lake только по запросу](../../_includes/ice-lake-local-ssd-note.md) %}
 
-  {% include notitle [rub-storage-standard.md](../../_pricing/managed-greenplum/rub-storage-standard.md) %}
+{% list tabs group=pricing %}
 
+- Цены в рублях {#prices-rub}
 
-- Выделенные хосты
+  {% include [rub-storage-standard](../../_pricing/managed-greenplum/rub-storage-standard.md) %}
 
-  Стоимость начисляется из двух компонентов: [цены за хранилище {{ compute-full-name }}](../../compute/pricing.md#prices) и цены {{ mgp-name }} на него. Все цены указаны за 1 ГБ в месяц.
+- Цены в тенге {#prices-kzt}
 
-  {% include notitle [rub-storage-dedicated.md](../../_pricing/managed-greenplum/rub-storage-dedicated.md) %}
-
+  {% include [kzt-storage-standard](../../_pricing/managed-greenplum/kzt-storage-standard.md) %}
 
 {% endlist %}
+
+#### Выделенные хосты {#storage-dedicated}
+
+Стоимость начисляется из двух компонентов: [цены за хранилище {{ compute-full-name }}](../../compute/pricing.md#prices) и цены {{ mgp-name }} на него. Все цены указаны за 1 ГБ в месяц.
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-storage-dedicated](../../_pricing/managed-greenplum/rub-storage-dedicated.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-storage-dedicated](../../_pricing/managed-greenplum/kzt-storage-dedicated.md) %}
+
+{% endlist %}
+
+
 
 Стоимость хранения данных в [холодном хранилище {{ objstorage-full-name }}](../tutorials/yezzey.md) рассчитывается по [правилам тарификации {{ objstorage-name }}](../../storage/pricing.md).
 
@@ -194,8 +303,7 @@ editable: false
 
 * {% include [backup-wal](../../_includes/mdb/mgp/backup-wal.md) %}
 
-### Исходящий трафик {#prices-traffic}
+{% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}
 
- {% include notitle [rub-egress-traffic.md](../../_pricing/rub-egress-traffic.md) %} 
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

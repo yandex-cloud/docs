@@ -6,7 +6,6 @@
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-
 When you use {{ ydb-name }} in Serverless mode, you are billed for each request made to the database. Users don't have to indicate the resources they need: the database quickly adapts to changes in the user load. Apart from requests, the user pays for the data stored in {{ ydb-name }} on an hourly basis. Other operations, such as restoring data from backups, are charged additionally.
 
 ## What goes into the cost of using {{ ydb-name }} Serverless mode {#rules}
@@ -77,6 +76,7 @@ Actual (on-demand) consumption of RUs per month will be:
 > 128 RU × 1024 = 131072 RU
 
 Where:
+
 * 128: Cost of request for 1 MB of data.
 * 1024: Amount of data copied, in MB.
 
@@ -86,9 +86,12 @@ The number of RUs used (131072) is [less than 1000000](#prices), so creating a b
 
 Actual (on-demand) consumption of RUs per month will be:
 
+
+
 > 128 RU × 1024 × 10 = 1310720 RU
 
 Where:
+
 * 128: Cost of request for 1 MB of data.
 * 1,024 × 10: Amount of data copied, in MB.
 
@@ -99,8 +102,10 @@ The number of RUs used (1,310,720) [exceeds 1,000,000](#prices), so the cost of 
 > Total: $0.053146 is the cost of creating a backup of 10 GB of data.
 
 Where:
+
 * 1310720 RU is actual (on-demand) consumption of RUs per month.
 * $0.171040: Cost of 1 million RUs.
+
 
 ### Restoring data from backups {#rules-backup-restore}
 
@@ -123,6 +128,7 @@ Actual (on-demand) consumption of RUs per month will be:
 > 0.5 RU × 1024 × 1024 = 524288 RU
 
 Where:
+
 * 0.5: Cost of request for 1 KB of data.
 * 1024 × 1024: Amount of data recovered, in KB.
 
@@ -132,9 +138,12 @@ The number of RUs used (524288) is [less than 1000000](#prices), so recovery fro
 
 Actual (on-demand) consumption of RUs per month will be:
 
+
+
 > 0.5 RU × 1024 × 1024 × 10 = 5242880 RU
 
 Where:
+
 * 0.5: Cost of request for 1 KB of data.
 * 1024 × 1024 × 10: Amount of data recovered, in KB.
 
@@ -145,22 +154,17 @@ The number of RUs used (5242880) [exceeds 1000000](#prices), so the cost of reco
 > Total: $0.725702 is the cost of recovery from a backup of 10 GB of data.
 
 Where:
+
 * 5242880 RU: Actual (on-demand) consumption of RUs per month.
 * $0.171040: Cost of 1 million RUs.
 
-## Pricing  {#prices}
+
+## Prices for Russia {#prices}
 
 
 
 
-
-{% include notitle [usd-serverless](../../_pricing/ydb/usd-serverless.md) %}
-
+{% include [usd-serverless](../../_pricing/ydb/usd-serverless.md) %}
 
 
-
-
-{% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
-
-
-
+{% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}
