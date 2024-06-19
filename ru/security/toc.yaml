@@ -76,6 +76,8 @@ items:
           Защищенный доступ пользователей к облачным ресурсам на основе
           WireGuard VPN
         href: tutorials/remote-wireguard-vpn.md
+      - name: Использование Ansible с сервисной учетной записью и функцией OS Login
+        href: tutorials/ansible-oslogin.md
   - name: Инструкции
     items:
       - name: Удаление паспортного аккаунта из {{ org-full-name }}
