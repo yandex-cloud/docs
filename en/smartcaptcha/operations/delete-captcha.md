@@ -1,7 +1,7 @@
 # Deleting a CAPTCHA
 
 
-In this section, you will learn how to delete a CAPTCHA.
+In this section, you will learn how to delete a [CAPTCHA](../concepts/validation.md).
 
 {% list tabs group=instructions %}
 
@@ -14,4 +14,4 @@ In this section, you will learn how to delete a CAPTCHA.
 
 {% endlist %}
 
-The keys of the deleted CAPTCHA become invalid. The service will return an error message to any request made using these keys.
+The deleted CAPTCHA's [keys](../concepts/keys.md) will become invalid. The service will return an error message to any request made using these keys.

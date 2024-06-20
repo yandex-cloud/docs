@@ -12,3 +12,4 @@
 * [Устранение ошибки WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED](warning-remote-host-identification-has-changed.md)
 * [Устранение поломки нереплицируемого диска](non-replicated-disk-broke-down.md)
 * [Недоступна CUDA на платформе GPU](cuda-unavailable.md)
+* [Устранение ошибки `FAILED_PRECONDITION: Relocation to zone "ru-central1-a/b/c" is disabled`](failed-precondition-relocation-to-zone-is-disabled.md)

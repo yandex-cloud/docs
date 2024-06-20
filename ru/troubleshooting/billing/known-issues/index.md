@@ -17,5 +17,6 @@
 * [Устранение ошибки «Приглашение не найдено» при подключении к партнерской программе](cannot-access-partner-programme.md)
 * [Могут ли ресурсы удалиться при неоплате](cloud-and-files-removal.md)
 * [Облако зависло в статусе `Creating` или долго не создается](cloud-stuck-in-creating-status.md)
+* [Устранение ошибки `message: Unauthorized; description: Unauthorized`](error-unauthorized.md)
 * [Устранение ошибки `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS`](error-prohibited-user-account-usage-status.md)
 * [Устранение ошибки `Веб-страница временно недоступна` при оплате картой Сбера](unable-to-pay-with-sber-card.md)

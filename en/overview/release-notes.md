@@ -12,12 +12,14 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 * [{{ interconnect-full-name }}](../interconnect/release-notes.md)
 * [{{ compute-full-name }}](../compute/release-notes.md)
 * [{{ objstorage-full-name }}](../storage/release-notes.md)
+* [{{ sws-full-name }}](../smartwebsecurity/release-notes.md)
 * [{{ vpc-full-name }}](../vpc/release-notes.md)
 
 ## Data platform {#data-platform}
 
 * [{{ dataproc-full-name }}](../data-proc/release-notes/index.md) and [{{ dataproc-name }} images](../data-proc/release-notes/images.md)
 * [{{ data-transfer-full-name }}](../data-transfer/release-notes/index.md)
+* [{{ maf-full-name }}](../managed-airflow/release-notes.md)
 * [{{ mkf-full-name }}](../managed-kafka/release-notes.md)
 * [{{ mch-full-name }}](../managed-clickhouse/release-notes.md)
 * [{{ mgp-full-name }}](../managed-greenplum/release-notes.md)
@@ -26,6 +28,7 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 * [{{ mos-full-name }}](../managed-opensearch/release-notes.md)
 * [{{ mpg-full-name }}](../managed-postgresql/release-notes.md)
 * [{{ mrd-full-name }}](../managed-redis/release-notes.md)
+* [{{ metadata-hub-name }}](../metadata-hub/release-notes/index.md)
 * [{{ websql-full-name }}](../websql/release-notes/index.md)
 
 ## Containers {#containers}

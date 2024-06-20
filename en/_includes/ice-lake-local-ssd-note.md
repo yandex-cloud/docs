@@ -1,6 +1,13 @@
 {% note info %}
 
-When using standard hosts on **Intel Ice Lake**, access to local SSD storage (`local-ssd`) is provided on request. Contact [technical support]({{ link-console-support }}) or your account manager.
+
+Access to the following disk types is provided on request:
+
+* Network SSD storage with 3 replicas.
+* Local SSD storage, when using standard hosts on **Intel Ice Lake**.
+
+Contact [technical support]({{ link-console-support }}) or your account manager.
+
 
 {% endnote %}
 

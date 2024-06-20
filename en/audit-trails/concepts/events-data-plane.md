@@ -10,7 +10,9 @@ The general value format is as follows:
 
 On this page, you will find events for the following services:
 
+* [{{ compute-name }}](#compute)
 * [{{ dns-name }}](#dns)
+* [{{ iam-name }}](#iam)
 * [{{ kms-name }}](#kms)
 * [{{ lockbox-name }}](#lockbox)
 * [{{ mmg-name }}](#mmg)
@@ -18,12 +20,25 @@ On this page, you will find events for the following services:
 * [{{ mpg-name }}](#mpg)
 * [{{ objstorage-name }}](#objstorage)
 * [{{ speechsense-name }}](#speechsense)
+* [{{ wiki-name }}](#wiki)
+
+## {{ compute-name }} {#compute}
+
+Service name: `compute`.
+
+{% include [compute-events-dp](../../_includes/audit-trails/events/compute-events-dp.md) %}
 
 ## {{ dns-name }} {#dns}
 
 Service name: `dns`.
 
 {% include [dns-events-dp](../../_includes/audit-trails/events/dns-events-dp.md) %}
+
+## {{ iam-name }} {#iam}
+
+Service name: `iam`.
+
+{% include [iam-events-dp](../../_includes/audit-trails/events/iam-events-dp.md) %}
 
 ## {{ kms-name }} {#kms}
 
@@ -72,3 +87,10 @@ Service name: `storage`.
 Service name: `speechsense`.
 
 {% include [speechsense-events-dp](../../_includes/audit-trails/events/speechsense-events-dp.md) %}
+
+## {{ wiki-name }} {#wiki}
+
+Service name: `wiki`.
+
+{% include [wiki-events-dp](../../_includes/audit-trails/events/wiki-events-dp.md) %}
+

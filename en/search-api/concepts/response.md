@@ -108,7 +108,7 @@ Result sorting parameters. The possible values include:
 * `tm`: By document update time.
 |
 * `order`: Sorting order. The default value is `descending`. When sorting by update time, the parameter may take the `ascending` value.
-* `priority`: This is a service attribute set to `no`.
+* `priority`: Service attribute which takes the `no` value.
 ||
 || maxpassages | Maximum number of passages that can be provided per search result | N/A||
 || groupings |
@@ -177,7 +177,7 @@ In some cases, the tag is mutually exclusive with other tags of the `response` g
 * `strict`
 * `all`
 ||
-|| found-human | String in the language matching the selected [search type](../operations/registration.md). It shows the number of found documents and contains related information. | N/A ||
+|| found-human | String in the language matching the selected [search type](../operations/workaround.md). It shows the number of found documents and contains related information. | N/A ||
 |#
 
 #### misspell / reask {#misspell-block}
@@ -206,7 +206,7 @@ The possible values include:
 
 * `Misspell`: Typo
 * `KeyboardLayout`: Incorrect keyboard layout
-* `Volapyuk`: Query is made in Russian transliterated into English. It is used if `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }} (yandex.ru)` is selected for [search type](../operations/registration.md#search-type).
+* `Volapyuk`: Query is made in Russian transliterated into English. It is used if `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }} (yandex.ru)` is selected for [search type](../operations/workaround.md).
 | Missing
 ||
 || source-text |

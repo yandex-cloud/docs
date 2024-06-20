@@ -235,7 +235,7 @@ You need to create a log table in advance:
 
 ## Create an instance group {#create-vms}
 
-As web servers for your site, you will use an [instance group](../../compute/concepts/instance-groups/index.md) {{ compute-name }}. The servers will be deployed on the LEMP stack (Linux, NGINX, MySQL, PHP). For more information, see [Website on LAMP or LEMP stack](../../tutorials/web/lamp-lemp.md).
+As web servers for your site, you will use an [instance group](../../compute/concepts/instance-groups/index.md) {{ compute-name }}. The servers will be deployed on the LEMP stack (Linux, NGINX, MySQL, PHP). For more information, see [Website on LAMP or LEMP stack](../../tutorials/web/lamp-lemp/index.md).
 
 To create an instance group:
 

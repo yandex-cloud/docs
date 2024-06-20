@@ -5,7 +5,7 @@ description: "Follow this guide to learn how to send asynchronous requests to mo
 
 # Sending an asynchronous request
 
-You can request {{ yagpt-full-name }} models in [asynchronous mode](../../concepts/index.md#working-mode). In response to such a request, you will get the operation ID you can use to [track its progress](../../../api-design-guide/concepts/operation.md#monitoring).
+You can request {{ yagpt-full-name }} models in [asynchronous mode](../../concepts/index.md#working-mode). In response to an asynchronous request, the model will return an [Operation object](../../../api-design-guide/concepts/operation.md) containing an operation ID, which you can use to [track its execution](../../../api-design-guide/concepts/operation.md#monitoring) and get the result after generation is completed. Use this mode if you do not need an urgent response, since asynchronous requests take longer to complete than [synchronous](./create-prompt.md) ones.
 
 ## Getting started {#before-begin}
 
@@ -56,7 +56,7 @@ You can request {{ yagpt-full-name }} models in [asynchronous mode](../../concep
    * `FOLDER_ID`: ID of the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
    * `IAM_TOKEN`: IAM token received [before starting](#before-begin).
 
-   In response, the service will return an [Operation object](../../../api-design-guide/concepts/operation.md):
+   In response, the service will return the Operation object:
 
    ```json
    {

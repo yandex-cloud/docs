@@ -5,7 +5,7 @@ description: "Follow this guide to create a CAPTCHA."
 
 # Creating a CAPTCHA
 
-{{ captcha-name }} allows you to create a CAPTCHA of multiple levels of complexity. You can:
+{{ captcha-name }} allows you to create [CAPTCHAs](../concepts/validation.md) of several complexity levels. You can:
 
 * Connect a CAPTCHA to multiple websites.
 * Set the parameters of all CAPTCHA layout elements, including background, possible errors, or the **I'm not a robot** button style.

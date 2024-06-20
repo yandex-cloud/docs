@@ -1,6 +1,5 @@
 # Management event reference
 
-
 The value of the `event_type` field in a management event audit log is determined by the event source service.
 
 The general value format is as follows:
@@ -321,6 +320,7 @@ Service name: `speechsense`.
 Service name: `network`.
 
 {% include [vpc-events](../../_includes/audit-trails/events/vpc-events.md) %}
+
 
 
 ## {{ ydb-short-name }} {#ydb}

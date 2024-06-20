@@ -10,49 +10,49 @@
 
 Ниже описаны события для сервисов:
 
-* [{{ compute-name }}](#compute)
-* [{{ dns-name }}](#dns)
-* [{{ iam-name }}](#iam)
-* [{{ kms-name }}](#kms)
-* [{{ lockbox-name }}](#lockbox)
-* [{{ mmg-name }}](#mmg)
-* [{{ mmy-name }}](#mmy)
-* [{{ mpg-name }}](#mpg)
-* [{{ objstorage-name }}](#objstorage)
-* [{{ speechsense-name }}](#speechsense)
-* [{{ wiki-name }}](#wiki)
+* [{{ dns-full-name }}](#dns)
+* [{{ compute-full-name }}](#compute)
+* [{{ iam-full-name }}](#iam)
+* [{{ kms-full-name }}](#kms)
+* [{{ lockbox-full-name }}](#lockbox)
+* [{{ mmg-full-name }}](#mmg)
+* [{{ mmy-full-name }}](#mmy)
+* [{{ mpg-full-name }}](#mpg)
+* [{{ objstorage-full-name }}](#objstorage)
+* [{{ speechsense-full-name }}](#speechsense)
+* [{{ wiki-full-name }}](#wiki)
 
-## {{ compute-name }} {#compute}
-
-Имя сервиса — `compute`.
-
-{% include [compute-events-dp](../../_includes/audit-trails/events/compute-events-dp.md) %}
-
-## {{ dns-name }} {#dns}
+## {{ dns-full-name }} {#dns}
 
 Имя сервиса — `dns`.
 
 {% include [dns-events-dp](../../_includes/audit-trails/events/dns-events-dp.md) %}
 
-## {{ iam-name }} {#iam}
+## {{ compute-full-name }} {#compute}
+
+Имя сервиса — `compute`.
+
+{% include [compute-events-dp](../../_includes/audit-trails/events/compute-events-dp.md) %}
+
+## {{ iam-full-name }} {#iam}
 
 Имя сервиса — `iam`.
 
 {% include [iam-events-dp](../../_includes/audit-trails/events/iam-events-dp.md) %}
 
-## {{ kms-name }} {#kms}
+## {{ kms-full-name }} {#kms}
 
 Имя сервиса — `kms`.
 
 {% include [kms-events-dp](../../_includes/audit-trails/events/kms-events-dp.md) %}
 
-## {{ lockbox-name }} {#lockbox}
+## {{ lockbox-full-name }} {#lockbox}
 
 Имя сервиса — `lockbox`.
 
 {% include [lockbox-events-dp](../../_includes/audit-trails/events/lockbox-events-dp.md) %}
 
-## {{ mmg-name }} {#mmg}
+## {{ mmg-full-name }} {#mmg}
 
 {% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
 
@@ -60,7 +60,7 @@
 
 {% include [mmg-events-dp](../../_includes/audit-trails/events/mmg-events-dp.md) %}
 
-## {{ mmy-name }} {#mmy}
+## {{ mmy-full-name }} {#mmy}
 
 {% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
 
@@ -68,7 +68,7 @@
 
 {% include [mmy-events-dp](../../_includes/audit-trails/events/mmy-events-dp.md) %}
 
-## {{ mpg-name }} {#mpg}
+## {{ mpg-full-name }} {#mpg}
 
 {% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
 
@@ -76,19 +76,19 @@
 
 {% include [mpg-events-dp](../../_includes/audit-trails/events/mpg-events-dp.md) %}
 
-## {{ objstorage-name }} {#objstorage}
+## {{ objstorage-full-name }} {#objstorage}
 
 Имя сервиса — `storage`.
 
 {% include [storage-events-dp](../../_includes/audit-trails/events/storage-events-dp.md) %}
 
-## {{ speechsense-name }} {#speechsense}
+## {{ speechsense-full-name }} {#speechsense}
 
 Имя сервиса — `speechsense`.
 
 {% include [speechsense-events-dp](../../_includes/audit-trails/events/speechsense-events-dp.md) %}
 
-## {{ wiki-name }} {#wiki}
+## {{ wiki-full-name }} {#wiki}
 
 Имя сервиса — `wiki`.
 

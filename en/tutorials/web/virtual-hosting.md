@@ -1,1 +1,1 @@
-{% include [virtual-hosting](../../_tutorials/web/virtual-hosting.md) %}
+{% include [virtual-hosting](../../_tutorials/applied/virtual-hosting.md) %}

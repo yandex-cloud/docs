@@ -37,9 +37,24 @@ description: "Следуя данной инструкции, вы сможет�
 
 1. Убедитесь, что для узла включен [внешний доступ](./node-group/node-group-update.md#node-internet-access).
 
-1. Чтобы активировать доступ к узлу через {{ oslogin }}:
+1. Активируйте доступ к узлу через {{ oslogin }}, изменив способ подключения к узлам.
+
+    {% include [node-connect-mode-reconciling-warning](../../_includes/managed-kubernetes/node-connect-mode-reconciling-warning.md) %}
 
     {% list tabs group=instructions %}
+
+    - Консоль управления {#console}
+
+        1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder), где находится кластер {{ managed-k8s-name }}, к узлу которого нужен доступ.
+        1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+        1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+        1. Выберите нужную группу узлов.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+        1. Выберите опцию **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}**.
+
+            {% include [note-oslogin-ssh-warning](../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}
+
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
     - CLI {#cli}
 
@@ -64,6 +79,8 @@ description: "Следуя данной инструкции, вы сможет�
           ```
   
           Имя группы узлов можно запросить со [списком групп узлов в каталоге](./node-group/node-group-list.md#list).
+
+          {% include [note-oslogin-ssh-warning](../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}
 
     - {{ TF }} {#tf}
 
@@ -90,6 +107,8 @@ description: "Следуя данной инструкции, вы сможет�
           }
           ```
 
+          {% include [note-oslogin-ssh-warning](../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}
+
       1. Проверьте корректность конфигурационных файлов.
 
           {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -115,6 +134,8 @@ description: "Следуя данной инструкции, вы сможет�
           * Параметр `nodeTemplate.metadata`, в котором перечислены без изменений все существующие метаданные группы узлов в виде пар `ключ=значение`.
 
             Для ключа `enable-oslogin` замените текущее значение на `true`. Если такого ключа нет, добавьте его.
+
+            {% include [note-oslogin-ssh-warning](../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}
 
             {% cut "Пример перечисления метаданных в параметре" %}
 

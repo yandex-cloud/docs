@@ -5,6 +5,12 @@ description: "This page presents {{ foundation-models-full-name }} release notes
 
 # {{ foundation-models-full-name }} release notes
 
+## Release on 07/06/2024 {#070624}
+
+Updated the {{ yandexart-name }} model:
+* Compared to the previous version, the updated model understands text requests better and creates more realistic images.
+* Added the optional `aspectRatio` parameter to specify the image aspect ratio.
+
 ## Release on 29/05/2024 {#280524}
 
 Added the [text classification](../concepts/classifier/index.md) feature.

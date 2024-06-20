@@ -12,6 +12,6 @@ With {{ search-api-name }}, you can get default search results and those optimiz
 
 Apart from various text search options, {{ search-api-name }} allows you to [search for images](pic-search.md) based on a text query.
 
-When [signing up](../operations/registration.md) for {{ search-api-name }}, you need to select one of the three available types of text search: `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}`, `{{ ui-key.yacloud.search-api.test-query.label_search_type-turkish }}`, or `{{ ui-key.yacloud.search-api.test-query.label_search_type-international }}`. The search type determines the search result _ranking formula_ and the _search database_, i.e., the documents covered by the search. Once signed up, you will be able to change the selected search type.
+When [signing up](../operations/workaround.md) for {{ search-api-name }}, you need to select one of the three available types of text search: `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}`, `{{ ui-key.yacloud.search-api.test-query.label_search_type-turkish }}`, or `{{ ui-key.yacloud.search-api.test-query.label_search_type-international }}`. The search type determines the search result _ranking formula_ and the _search database_, i.e., the documents covered by the search. Once signed up, you will be able to change the selected search type.
 
 

@@ -71,6 +71,7 @@ items:
         hidden: true
       - name: Setting up and testing PT Application Firewall
         href: tutorials/pt-application-firewall.md
+        hidden: true
       - name: Secure user access to cloud resources based on WireGuard VPN
         href: tutorials/remote-wireguard-vpn.md
   - name: Guides
