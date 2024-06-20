@@ -43,7 +43,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
    {% note warning %}
 
-   To monitor secondary disks attached to the host, specify the paths to their mount points in the `-v` parameter of the `docker run` command. For more information, see [{#T}](./configuration.md#linux_metrics_input).
+   To monitor secondary disks attached to the host, specify the paths to their mount points in the `-v` parameter of the `docker run` command. For more information, see [{#T}](./inputs.md#linux_metrics_input).
 
    {% endnote %}
 
@@ -84,7 +84,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
        {{ registry }}/yc/unified-agent
    ```
 
-   By default, the [status](configuration.md#status) section of the agent's configuration file specifies `host: null`. Please keep this in mind if you are using your own configuration file.
+   By default, the [status](services.md#status) section of the agent's configuration file specifies `host: null`. Please keep this in mind if you are using your own configuration file.
 
    For more information about agent configuration, see [{#T}](./configuration.md).
 
@@ -159,9 +159,9 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
 - When creating a VM {#vm}
 
-   You can install the agent when creating a VM in the [management console]({{ link-console-main }}). To do this, enable the **{{ ui-key.yacloud.compute.instances.create.unified-agent }}** option under **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}**. The agent is installed automatically with the default configuration file that will send [basic VM metrics](./configuration.md#linux_metrics_input) and [agent health metrics](./configuration.md#agent_metrics_input). You will be [charged](../../../pricing.md) for metric delivery.
+   You can install the agent when creating a VM in the [management console]({{ link-console-main }}). To do this, enable the **{{ ui-key.yacloud.compute.instances.create.unified-agent }}** option under **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}**. The agent is installed automatically with the default configuration file that will send [basic VM metrics](./inputs.md#linux_metrics_input) and [agent health metrics](./inputs.md#agent_metrics_input). You will be [charged](../../../pricing.md) for metric delivery.
 
-   The installed agent is a regular [Unified Agent](./index.md) that you can additionally [set up](./configuration.md) to deliver custom metrics or [logs to {{ cloud-logging-name }}](./configuration.md#yc_logs_output).
+   The installed agent is a regular [Unified Agent](./index.md) that you can additionally [set up](./configuration.md) to deliver custom metrics or [logs to {{ cloud-logging-name }}](./outputs.md#yc_logs_output).
 
    To install the agent while creating a VM in the CLI or API, add the following line to [user-defined metadata](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`):
 
@@ -181,12 +181,12 @@ If you install {{ unified-agent-short-name }} using Docker, you can configure th
 
 | Environment variable | Default value | Description |
 -------------------- | --------------------- | --------
-| `UA_STATUS_PORT` | `16241` | The port where the agent status will be available.<br/>For more information, see [{#T}](./configuration.md#status). |
-| `UA_LOG_PRIORITY` | `NOTICE` | The agent's logging level.<br/>For more information, see [{#T}](./configuration.md#agent_log). |
-| `FOLDER_ID` | A required parameter,<br/>has no default value<br/> | ID of the folder the metrics are going to be saved to.<br/>For more information, see [{#T}](./configuration.md#yc_metrics_output). |
-| `PROC_DIRECTORY` | `/proc` | A directory with mounted [procfs](https://en.wikipedia.org/wiki/Procfs) where the agent is going to get the Linux system metrics.<br/>For more information, see [{#T}](./configuration.md#linux_metrics_input). |
-| `SYS_DIRECTORY` | `/sys` | A directory with mounted [sysfs](https://en.wikipedia.org/wiki/Sysfs) where the agent is going to get the Linux system metrics.<br/>For more information, see [{#T}](./configuration.md#linux_metrics_input). |
-| `UA_LINUX_RESOURCE_CPU`<br/>`UA_LINUX_RESOURCE_MEMORY`<br/>`UA_LINUX_RESOURCE_NETWORK`</br>`UA_LINUX_RESOURCE_STORAGE`<br/>`UA_LINUX_RESOURCE_IO`<br/>`UA_LINUX_RESOURCE_KERNEL` | `basic` | The detail level of the system metrics for CPU, network, disks, I/O system, and Linux kernel.<br/>For more information, see [{#T}](./configuration.md#linux_metrics_input). |
+| `UA_STATUS_PORT` | `16241` | Port where the [agent status](./services.md#status) will be available. |
+| `UA_LOG_PRIORITY` | `NOTICE` | [Agent's logging](./services.md#agent_log) level. |
+| `FOLDER_ID` | No | ID of the folder to write metrics to (a required parameter). |
+| `PROC_DIRECTORY` | `/proc` | Directory with mounted [procfs](https://en.wikipedia.org/wiki/Procfs) from where the agent will get [Linux system metrics](./inputs.md#linux_metrics_input). |
+| `SYS_DIRECTORY` | `/sys` | Directory with mounted [sysfs](https://en.wikipedia.org/wiki/Sysfs) from where the agent will get [Linux system metrics](./inputs.md#linux_metrics_input). |
+| `UA_LINUX_RESOURCE_CPU`<br/>`UA_LINUX_RESOURCE_MEMORY`<br/>`UA_LINUX_RESOURCE_NETWORK`</br>`UA_LINUX_RESOURCE_STORAGE`<br/>`UA_LINUX_RESOURCE_IO`<br/>`UA_LINUX_RESOURCE_KERNEL` | `basic` | Detail level of the [system metrics](./inputs.md#linux_metrics_input) for CPU, network, disks, I/O system, and Linux kernel. |
 
 #### What's next {#what-is-next}
 

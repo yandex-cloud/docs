@@ -138,3 +138,4 @@ resource "yandex_compute_instance" "vm-1" {
 * [Блокировка состояний {{ TF }} с помощью {{ ydb-name }}](../../tutorials/infrastructure-management/terraform-state-lock.md).
 * [Использование модулей {{ yandex-cloud }} в {{ TF }}](../../tutorials/infrastructure-management/terraform-modules.md).
 * [Источники данных {{ TF }}](../../tutorials/infrastructure-management/terraform-data-sources.md).
+* [IaC: Terraform](https://yandex.cloud/ru/training/terraform?utm_source=inhouse&utm_medium=telegram&utm_campaign=announcement) — обучающий курс по управлению инфраструктурой в облаке с помощью {{ TF }}.

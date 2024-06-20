@@ -11,6 +11,7 @@
 | `CreateMlModel` | Creating a machine learning model |
 | `CreateShardGroup` | Creating a shard group |
 | `CreateUser` | Creating a database user |
+| `DeleteBackup` | Deleting backups |
 | `DeleteCluster` | Deleting a cluster |
 | `DeleteClusterExternalDictionary` | Deleting an external dictionary |
 | `DeleteClusterHosts` | Deleting hosts from a cluster |

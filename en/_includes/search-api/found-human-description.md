@@ -1,1 +1,1 @@
-A string in the language matching the selected [search type](../../search-api/operations/registration.md). It shows the number of found documents and contains related information.
+A string in the language matching the selected [search type](../../search-api/operations/workaround.md#registration). It shows the number of found documents and contains related information.

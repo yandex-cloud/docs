@@ -21,3 +21,4 @@
 * [Как создать виртуальную машину с доступом по паролю](create-password-protected-vm.md)
 * [Какое максимальное количество сетевых интерфейсов можно подключить к одной виртуальной машине](maximum-web-interfaces-for-one-vm.md)
 * [Как увеличить количество сетевых соединений](increase-network-connections.md)
+* [Как настроить защиту RDP-подключения на Windows](rdp-protection-for-windows.md)

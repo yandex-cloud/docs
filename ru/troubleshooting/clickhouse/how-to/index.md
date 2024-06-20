@@ -1,1 +1,3 @@
-## Примеры конфигураций и сценариев ClickHouse {#configuration-examples}
+## Примеры конфигураций и сценариев {{ mch-full-name }} {#configuration-examples}
+
+* [Как указать `max_execution_time`](set-max-execution-time.md)

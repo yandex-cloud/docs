@@ -85,7 +85,7 @@ The `request` group provides aggregate information about request parameters. It 
 Result sorting parameters. Service tag, sets to `rlv`: sorting by relevance.
 |
 * `order`: Sorting order. Service attribute, sets to `descending` (direct sorting order).
-* `priority`: Service attribute. Sets to `no`.
+* `priority`: Service attribute which takes the `no` value.
 ||
 || maxpassages | Maximum number of text snippets generated for each image. Service tag, sets to `1`. | Missing||
 || groupings |
@@ -106,7 +106,7 @@ Contains grouping parameters in the `groupby` tag.
 
 Results of processing the search query, information about which is provided in the [request](#request-el) tag.
 
-It contains the `date` attribute with the query date and time (UTC) in `<year><month><day>Т<hour><minute><second>` format.
+It contains the `date` attribute with the query date and time (UTC) in `<year><month><day>T<hour><minute><second>` format.
 
 This group consists of the following sections:
 
@@ -135,7 +135,7 @@ In some cases, the tag is mutually exclusive with other tags of the `response` g
 * `strict`
 * `all`
 ||
-|| found-human | String in the language matching the selected [search type](../operations/registration.md). Contains information about the number of found images and related information. | Missing ||
+|| found-human | String in the language matching the selected [search type](../operations/workaround.md). Contains information about the number of found images and related information. | Missing ||
 |#
 
 
@@ -231,7 +231,7 @@ It is a more accurate estimate as compared to the value provided in the `found`
 * `all`
 ||
 || found-docs-human |
-String in the language matching the selected [search type](../operations/registration.md). Contains information about the number of found images and related information.
+String in the language matching the selected [search type](../operations/workaround.md). Contains information about the number of found images and related information.
 
 The value being provided must be used when generating search results.
 

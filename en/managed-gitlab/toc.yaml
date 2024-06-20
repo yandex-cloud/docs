@@ -42,6 +42,10 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: Installing {{ GL }} Runner on a virtual machine
+        href: tutorials/install-gitlab-runner.md
+      - name: Secure storage of {{ GL }} CI passwords as {{ lockbox-name }} secrets
+        href: tutorials/gitlab-lockbox-integration.md
       - name: >-
           Continuous deployment of {{ managed-k8s-name }} containerized
           applications

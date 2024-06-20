@@ -773,16 +773,6 @@
 
     {% endlist %}
 
-1. На вкладке **Keys** SAML-приложения включите опции **Encrypt Assertions** и **Client Signature Required**.
-
-1. Для обеих опций выберите метод **Import**.
-
-1. В поле **Archive Format** выберите **Certificate PEM**. (возможно понадобится сначала сначала сгенерировать сертификаты, чтобы после нажатия кнопки **Import key** стал доступен вариант **Certificate PEM**)
-{#signature}
-1. Нажмите кнопку **Browse** и выберите сертификат для подписи запросов аутентификации. Сертификат доступен на странице сведений о федерации в {{ org-full-name }} в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
-
-1. Нажмите **Confirm**.
-
 1. Добавьте пользователей:
 
     1. На панели слева выберите **Users**.

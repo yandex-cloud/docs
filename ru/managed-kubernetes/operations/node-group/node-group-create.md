@@ -101,8 +101,6 @@
      * `--node-taints` — [taint-политики](../../concepts/index.md#taints-tolerations) {{ k8s }}. Можно указать несколько политик.
      * `--container-network-settings` — значение [MTU](https://ru.wikipedia.org/wiki/Maximum_transmission_unit) для сетевых соединений с подами группы. Настройка не применима для кластеров с контроллерами сетевых политик Calico или Cilium.
 
-     {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
-
      Результат:
 
      ```text
@@ -114,6 +112,28 @@
            hours: 22
          duration: 36000s
      ```
+
+  1. Чтобы добавить метаданные для узлов, используйте параметр `--metadata` или `--metadata-from-file`.
+
+        {% include [connect-metadata-list](../../../_includes/managed-kubernetes/connect-metadata-list.md) %}
+
+        {% note warning %}
+
+        {% include [node-group-metadata-warning](../../../_includes/managed-kubernetes/node-group-metadata-warning.md) %}
+
+        {% endnote %}
+
+        Добавьте метаданные одним из способов:
+
+        * С помощью `--metadata`: укажите одну или несколько пар `ключ=значение`, разделенных запятыми.
+
+            {% include [metadata-key-explicit](../../../_includes/managed-kubernetes/metadata-key-explicit.md) %}
+
+        * С помощью `--metadata-from-file`: укажите одну или несколько пар `ключ=путь_к_файлу_со_значением`, разделенных запятыми.
+
+            {% include [metadata-key-from-file](../../../_includes/managed-kubernetes/metadata-key-from-file.md) %}
+
+        {% include [node-group-metadata-postponed-update-note](../../../_includes/managed-kubernetes/node-group-metadata-postponed-update-note.md) %}
 
   1. Чтобы указать [группу размещения](../../../compute/concepts/placement-groups.md) для узлов {{ managed-k8s-name }}:
      1. Получите список групп размещения с помощью команды `yc compute placement-group list`.
@@ -128,13 +148,8 @@
 - {{ TF }} {#tf}
 
   Чтобы создать [группу узлов {{ managed-k8s-name }}](../../concepts/index.md#node-group):
-  1. В каталоге с [файлом описания кластера](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) создайте конфигурационный файл, содержащий параметры новой группы узлов {{ managed-k8s-name }}:
-     * Имя группы узлов {{ managed-k8s-name }}.
-     * Идентификатор [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) в параметре `cluster_id`.
-     * [Платформу](../../../compute/concepts/vm-platforms.md) для узлов {{ managed-k8s-name }}.
-     * Настройку среды запуска контейнеров в параметре `container_runtime`.
-     * [Облачные метки группы узлов](../../../resource-manager/concepts/labels.md) в блоке `nodeTemplate.labels`.
-     * Настройки масштабирования в блоке `scale_policy`.
+
+  1. В каталоге с [файлом описания кластера](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) создайте конфигурационный файл, содержащий параметры новой группы узлов {{ managed-k8s-name }}.
 
      Пример структуры конфигурационного файла:
 
@@ -217,6 +232,43 @@
        }
        ```
 
+     * Чтобы добавить метаданные для узлов, передайте их в параметре `instance_template.metadata`.
+
+        {% include [connect-metadata-list](../../../_includes/managed-kubernetes/connect-metadata-list.md) %}
+
+        {% note warning %}
+
+        {% include [node-group-metadata-warning](../../../_includes/managed-kubernetes/node-group-metadata-warning.md) %}
+
+        {% endnote %}
+
+        Добавьте метаданные одним из способов:
+
+        * Укажите одну или несколько пар `ключ=значение`.
+
+            {% include [metadata-key-explicit](../../../_includes/managed-kubernetes/metadata-key-explicit.md) %}
+
+        * Укажите одну или несколько пар `ключ=file(путь_к_файлу_со_значением)`.
+
+            {% include [metadata-key-from-file](../../../_includes/managed-kubernetes/metadata-key-from-file.md) %}
+
+        ```hcl
+        resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
+          ...
+          instance_template {
+            metadata = {
+              "ключ_1" = "значение"
+              "ключ_2" = file("<путь_к_файлу_со_значением>")
+              ...
+            }
+            ...
+          }
+          ...
+        }
+        ```
+
+        {% include [node-group-metadata-postponed-update-note](../../../_includes/managed-kubernetes/node-group-metadata-postponed-update-note.md) %}
+
      * Чтобы добавить [DNS-записи](../../../dns/concepts/resource-record.md):
 
        {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
@@ -248,23 +300,39 @@
   * Настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates) в параметрах `maintenancePolicy`.
   * Список изменяемых настроек в параметре `updateMask`.
 
-  {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+    {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
-  Чтобы узлы использовали [нереплицируемые диски](../../../compute/concepts/disk.md#disks_types), передайте значение `network-ssd-nonreplicated` для параметра `nodeTemplate.bootDiskSpec.diskTypeId`.
+  * Чтобы узлы использовали [нереплицируемые диски](../../../compute/concepts/disk.md#disks_types), передайте значение `network-ssd-nonreplicated` для параметра `nodeTemplate.bootDiskSpec.diskTypeId`.
 
-  Размер нереплицируемых дисков можно менять только с шагом 93 ГБ. Максимальный размер такого диска — 4 ТБ.
+    Размер нереплицируемых дисков можно менять только с шагом 93 ГБ. Максимальный размер такого диска — 4 ТБ.
 
-  {% include [Нереплицируемый диск не имеет резервирования](../../../_includes/managed-kubernetes/nrd-no-backup-note.md) %}
+    {% include [Нереплицируемый диск не имеет резервирования](../../../_includes/managed-kubernetes/nrd-no-backup-note.md) %}
 
-  Чтобы разрешить использование узлами группы {{ managed-k8s-name }} [небезопасных параметров ядра](../../concepts/index.md#node-group), передайте их имена в параметре `allowedUnsafeSysctls`.
+  * Чтобы разрешить использование узлами группы {{ managed-k8s-name }} [небезопасных параметров ядра](../../concepts/index.md#node-group), передайте их имена в параметре `allowedUnsafeSysctls`.
 
-  Чтобы задать [taint-политики](../../concepts/index.md#taints-tolerations), передайте их значения в параметре `nodeTaints`.
+  * Чтобы задать [taint-политики](../../concepts/index.md#taints-tolerations), передайте их значения в параметре `nodeTaints`.
 
-  Чтобы задать шаблон имени узлов {{ managed-k8s-name }}, передайте его в параметре `nodeTemplate.name`. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
+  * Чтобы задать шаблон имени узлов {{ managed-k8s-name }}, передайте его в параметре `nodeTemplate.name`. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
 
-  {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
+    {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
-  Чтобы добавить [DNS-записи](../../../dns/concepts/resource-record.md), передайте их настройки в параметре `nodeTemplate.v4AddressSpec.dnsRecordSpecs`. В [FQDN](../../../glossary/fqdn.md) записи DNS можно использовать шаблон с переменными для имени узлов `nodeTemplate.name`.
+  * Чтобы добавить метаданные для узлов, передайте их в параметре `nodeTemplate.metadata`.
+
+    {% include [connect-metadata-list](../../../_includes/managed-kubernetes/connect-metadata-list.md) %}
+
+    {% note warning %}
+
+    {% include [node-group-metadata-warning](../../../_includes/managed-kubernetes/node-group-metadata-warning.md) %}
+
+    {% endnote %}
+
+    Добавьте метаданные, указав одну или несколько пар `ключ=значение`, разделенных запятыми.
+
+    {% include [metadata-key-explicit](../../../_includes/managed-kubernetes/metadata-key-explicit.md) %}
+
+    {% include [node-group-metadata-postponed-update-note](../../../_includes/managed-kubernetes/node-group-metadata-postponed-update-note.md) %}
+
+  * Чтобы добавить [DNS-записи](../../../dns/concepts/resource-record.md), передайте их настройки в параметре `nodeTemplate.v4AddressSpec.dnsRecordSpecs`. В [FQDN](../../../glossary/fqdn.md) записи DNS можно использовать шаблон с переменными для имени узлов `nodeTemplate.name`.
 
 {% endlist %}
 

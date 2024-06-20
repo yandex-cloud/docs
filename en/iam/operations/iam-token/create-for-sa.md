@@ -122,68 +122,104 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
 - Python {#python}
 
-   Example of creating a JWT using [PyJWT](https://github.com/jpadilla/pyjwt/).
+   Example of creating a JWT using [PyJWT](https://github.com/jpadilla/pyjwt/):
+   - Verified for Python 3.12.2 and PyJWT 2.8.0.
+   - The required data is read from the JSON file obtained when creating the authorized key.
 
-   Install the `cryptography` module to use the `PS256` algorithm:
+   Install the `PyJWT` and `cryptography` modules to use the `PS256` algorithm:
 
    ```bash
+   pip3 install PyJWT
    pip3 install cryptography
    ```
 
    ```python
    import time
    import jwt
+   import json
 
-   service_account_id = "<service_account_ID>"
-   key_id = "<public_key_ID>" # ID of the Key resource belonging to the service account.
-
-   with open("<private_key_file>", 'r') as private:
-     private_key = private.read() # Reading the private key from the file.
+   # Reading the private key from the JSON file
+   with open('<JSON_file_with_keys>', 'r') as f:
+     obj = f.read()
+     obj = json.loads(obj)
+     private_key = obj['private_key']
+     key_id = obj['id']
+     service_account_id = obj['service_account_id']
 
    now = int(time.time())
    payload = {
            'aud': 'https://iam.{{ api-host }}/iam/v1/tokens',
            'iss': service_account_id,
            'iat': now,
-           'exp': now + 360}
+           'exp': now + 3600
+         }
 
    # JWT generation.
    encoded_token = jwt.encode(
        payload,
        private_key,
        algorithm='PS256',
-       headers={'kid': key_id})
+       headers={'kid': key_id}
+     )
+
+   #Writing the key to the file
+   with open('jwt_token.txt', 'w') as j:
+      j.write(encoded_token)
+
+   # Printing to the console
+   print(encoded_token)
+
    ```
 
 - Java {#java}
 
-   Example of creating a JWT using [JJWT](https://github.com/jwtk/jjwt).
+   Example of creating a JWT using the [JJWT](https://github.com/jwtk/jjwt), [Bouncy Castle](https://github.com/bcgit/bc-java), and [Jackson Databind](https://github.com/FasterXML/jackson-databind) libraries:
+   - Verified for Java 21 and JJWT 0.12.5.
+   - The required data is read from the JSON file obtained when creating the authorized key.
 
    ```java
+   package com.mycompany.java.jwt;
+
+   import com.fasterxml.jackson.databind.ObjectMapper;
    import io.jsonwebtoken.Jwts;
    import io.jsonwebtoken.SignatureAlgorithm;
    import org.bouncycastle.util.io.pem.PemObject;
    import org.bouncycastle.util.io.pem.PemReader;
 
-   import java.io.FileReader;
+   import java.io.StringReader;
+   import java.nio.file.Files;
+   import java.nio.file.Paths;
    import java.security.KeyFactory;
    import java.security.PrivateKey;
    import java.security.spec.PKCS8EncodedKeySpec;
    import java.time.Instant;
    import java.util.Date;
 
-   public class JwtTest {
+   public class JavaJwt {
+
+       public static class KeyInfo {
+
+           public String id;
+           public String service_account_id;
+           public String private_key;
+       }
+
        public static void main(String[] args) throws Exception {
+
+           String content = new String(Files.readAllBytes(Paths.get("<JSON_file_with_keys>")));
+           KeyInfo keyInfo = (new ObjectMapper()).readValue(content, KeyInfo.class);
+
+           String privateKeyString = keyInfo.private_key;
+           String serviceAccountId = keyInfo.service_account_id;
+           String keyId = keyInfo.id;
+
            PemObject privateKeyPem;
-           try (PemReader reader = new PemReader(new FileReader("<private_key_file>"))) {
+           try (PemReader reader = new PemReader(new StringReader(privateKeyString))) {
                privateKeyPem = reader.readPemObject();
            }
 
            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
            PrivateKey privateKey = keyFactory.generatePrivate(new PKCS8EncodedKeySpec(privateKeyPem.getContent()));
-
-           String serviceAccountId = "<service account ID>";
-           String keyId = "<public_key_ID>";
 
            Instant now = Instant.now();
 
@@ -193,246 +229,311 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
                    .setIssuer(serviceAccountId)
                    .setAudience("https://iam.{{ api-host }}/iam/v1/tokens")
                    .setIssuedAt(Date.from(now))
-                   .setExpiration(Date.from(now.plusSeconds(360)))
+                   .setExpiration(Date.from(now.plusSeconds(3600)))
                    .signWith(privateKey, SignatureAlgorithm.PS256)
                    .compact();
+           System.out.println(encodedToken);
        }
    }
    ```
 
 - C# {#csharp}
 
-   Example of creating a JWT using [jose-jwt](https://www.nuget.org/packages/jose-jwt/).
+   Example of creating a JWT using [jose-jwt](https://www.nuget.org/packages/jose-jwt/):
+   - Verified for jose-jwt 5.0.0.
 
-   * .NET 4.7+:
+   **Net Framework / Net Core**:
 
-      ```c#
-      using System;
-      using System.Collections.Generic;
-      using System.IO;
-      using System.Security.Cryptography;
-      using Jose;
-      using Org.BouncyCastle.Crypto.Parameters;
-      using Org.BouncyCastle.OpenSsl;
-      using Org.BouncyCastle.Security;
+   Verified for Net Framework 4.8.1 and Net Core 3.1.
 
-      class Program
-      {
-          static void Main(string[] args)
-          {
-              var serviceAccountId = "<service_account_ID>";
-              var keyId = "<public_key_ID>";
-              var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+   ```c#
+   using System;
+   using System.Collections.Generic;
+   using System.IO;
+   using System.Security.Cryptography;
+   using Jose;
+   using Org.BouncyCastle.Crypto.Parameters;
+   using Org.BouncyCastle.OpenSsl;
+   using Org.BouncyCastle.Security;
 
-              var headers = new Dictionary<string, object>()
-              {
-                  { "kid", keyId }
-              };
+   namespace ConsoleApp
+   {
+       class Program
+       {
+           static void Main(string[] args)
+           {
+               var serviceAccountId = "<service_account_ID>";
+               var keyId = "<public_key_ID>";
+               var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
-            var payload = new Dictionary<string, object>()
-            {
-                { "aud", "https://iam.{{ api-host }}/iam/v1/tokens" },
-                { "iss", serviceAccountId },
-                { "iat", now },
-                { "exp", now + 3600 }
-            };
+               var headers = new Dictionary<string, object>()
+               {
+                   { "kid", keyId }
+               };
 
-              RsaPrivateCrtKeyParameters privateKeyParams;
-              using (var pemStream = File.OpenText("<private_key_file>"))
-              {
-                  privateKeyParams = new PemReader(pemStream).ReadObject() as RsaPrivateCrtKeyParameters;
-              }
+               var payload = new Dictionary<string, object>()
+               {
+                   { "aud", "https://iam.{{ api-host }}/iam/v1/tokens" },
+                   { "iss", serviceAccountId },
+                   { "iat", now },
+                   { "exp", now + 3600 }
+               };
 
-              using (var rsa = new RSACryptoServiceProvider())
-              {
-                  rsa.ImportParameters(DotNetUtilities.ToRSAParameters(privateKeyParams));
-                  string encodedToken = Jose.JWT.Encode(payload, rsa, JwsAlgorithm.PS256, headers);
-              }
-          }
-      }
-      ```
+               RsaPrivateCrtKeyParameters privateKeyParams;
+               using (var pemStream = File.OpenText("<private_key_file>"))
+               {
+                   privateKeyParams = new PemReader(pemStream).ReadObject() as RsaPrivateCrtKeyParameters;
+               }
 
-   * .NET 5.0+ and .NET Core 2.2+:
+               using (var rsa = RSA.Create())
+               {
+                   rsa.ImportParameters(DotNetUtilities.ToRSAParameters(privateKeyParams));
+                   string encodedToken = Jose.JWT.Encode(payload, rsa, JwsAlgorithm.PS256, headers);
+               }
+           }
+       }
+   }
 
-      ```c#
-      using System;
-      using System.Collections.Generic;
-      using System.IO;
-      using System.Security.Cryptography;
-      using Jose;
+   ```
 
-      namespace ConsoleApp
-      {
-          class Program
-          {
-              static void Main(string[] args)
-              {
-                  var serviceAccountId = "<service_account_ID>";
-                  var keyId = "<public_key_ID>";
-                  var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+   **.NET 5.0+**:
 
-                  var headers = new Dictionary<string, object>()
-                  {
-                      { "kid", keyId }
-                  };
+   Verified for NET 5.0, NET 6.0, NET 7.0, and NET 8.0.
 
-                  var payload = new Dictionary<string, object>()
-                  {
-                      { "aud", "https://iam.{{ api-host }}/iam/v1/tokens" },
-                      { "iss", serviceAccountId },
-                      { "iat", now },
-                      { "exp", now + 3600 }
-                  };
+   ```c#
+   using System;
+   using System.Collections.Generic;
+   using System.IO;
+   using System.Security.Cryptography;
+   using Jose;
 
-                  using (var rsa = RSA.Create())
-                  {
-                      rsa.ImportFromPem(File.ReadAllText("<private_key_file>").ToCharArray());
-                      string encodedToken = Jose.JWT.Encode(payload, rsa, JwsAlgorithm.PS256, headers);
-                  }
-              }
-          }
-      }
-      ```
+   namespace ConsoleApp
+   {
+       class Program
+       {
+           static void Main(string[] args)
+           {
+               var serviceAccountId = "<service_account_ID>";
+               var keyId = "<public_key_ID>";
+               var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+               var headers = new Dictionary<string, object>()
+               {
+                   { "kid", keyId }
+               };
+
+               var payload = new Dictionary<string, object>()
+               {
+                   { "aud", "https://iam.{{ api-host }}/iam/v1/tokens" },
+                   { "iss", serviceAccountId },
+                   { "iat", now },
+                   { "exp", now + 3600 }
+               };
+
+               using (var rsa = RSA.Create())
+               {
+                   rsa.ImportFromPem(File.ReadAllText("<private_key_file>").ToCharArray());
+                   string encodedToken = Jose.JWT.Encode(payload, rsa, JwsAlgorithm.PS256, headers);
+               }
+           }
+       }
+   }
+   ```
 
 - Go {#go}
 
    Example of creating a JWT using [golang-jwt](https://github.com/golang-jwt/jwt).
+   - Verified for Go1.22.1 and golang-jwt v5.
+   - The private key is read from the JSON file obtained when creating the authorized key.
+
+   Install the required packages:
+
+   ```
+   install jwt v5
+   go get -u github.com/golang-jwt/jwt/v5
+   ```
 
    ```go
-   import (
-     "crypto/rsa"
-     "io/ioutil"
-     "time"
+   package main
 
-     "github.com/golang-jwt/jwt/v4"
+   import (
+   	"crypto/rsa"
+   	"encoding/json"
+   	"log"
+   	"os"
+   	"time"
+
+   	"github.com/golang-jwt/jwt/v5"
    )
+
+   func main() {
+     // Getting a token
+   	 token := signedToken()
+     // Saving the token to the file
+   	 err := os.WriteFile("jwt_token.txt", []byte(token), 0644)
+   	 if err != nil {
+   		log.Fatal(err)
+   	 }
+   	 // Printing the token to the console
+   	 fmt.Println("Here is token:")
+   	 fmt.Println(token)
+   }
 
    const (
      keyID            = "<public_key_ID>"
      serviceAccountID = "<service_account_ID>"
-     keyFile          = "<private_key_file>"
+     keyFile          = "<JSON_file_with_keys>"
    )
 
    // JWT generation.
    func signedToken() string {
-     claims := jwt.RegisteredClaims{
-             Issuer:    serviceAccountID,
-             ExpiresAt: jwt.NewNumericDate(time.Now().UTC().Add(1 * time.Hour)),
-             IssuedAt:  jwt.NewNumericDate(time.Now().UTC()),
-             NotBefore: jwt.NewNumericDate(time.Now().UTC()),
-             Audience:  []string{"https://iam.{{ api-host }}/iam/v1/tokens"},
-     }
-     token := jwt.NewWithClaims(jwt.SigningMethodPS256, claims)
-     token.Header["kid"] = keyID
+   	 claims := jwt.RegisteredClaims{
+   	 	Issuer:    serviceAccountID,
+   	 	ExpiresAt: jwt.NewNumericDate(time.Now().UTC().Add(1 * time.Hour)),
+   	 	IssuedAt:  jwt.NewNumericDate(time.Now().UTC()),
+   	 	NotBefore: jwt.NewNumericDate(time.Now().UTC()),
+   	 	Audience:  []string{"https://iam.{{ api-host }}/iam/v1/tokens"},
+   	 }
+   	 token := jwt.NewWithClaims(jwt.SigningMethodPS256, claims)
+   	 token.Header["kid"] = keyID
 
-     privateKey := loadPrivateKey()
-     signed, err := token.SignedString(privateKey)
-     if err != nil {
-         panic(err)
-     }
-     return signed
+   	 privateKey := loadPrivateKey()
+   	 signed, err := token.SignedString(privateKey)
+   	 if err != nil {
+   		panic(err)
+   	 }
+   	 return signed
+   }
+
+   type keyFileStruct struct {
+   	 PrivateKey string `json:"private_key"`
    }
 
    func loadPrivateKey() *rsa.PrivateKey {
-     data, err := ioutil.ReadFile(keyFile)
-     if err != nil {
-         panic(err)
-     }
-     rsaPrivateKey, err := jwt.ParseRSAPrivateKeyFromPEM(data)
-     if err != nil {
-         panic(err)
-     }
-     return rsaPrivateKey
+   	 data, err := os.ReadFile(keyFile)
+   	 if err != nil {
+   		panic(err)
+   	 }
+
+   	 var keyData keyFileStruct
+   	 if err := json.Unmarshal(data, &keyData); err != nil {
+   		panic(err)
+   	 }
+
+   	 rsaPrivateKey, err := jwt.ParseRSAPrivateKeyFromPEM([]byte(keyData.PrivateKey))
+   	 if err != nil {
+   		panic(err)
+   	 }
+   	 return rsaPrivateKey
    }
    ```
 
 - Node.js {#node}
 
    Example of creating a JWT using [node-jose](https://github.com/cisco/node-jose):
+   - Verified for Node.js v20.12.1 and node-jose 2.2.0.
+   - The required data is read from the JSON file obtained when creating the authorized key.
 
    ```js
    var jose = require('node-jose');
    var fs = require('fs');
 
-   var key = fs.readFileSync(require.resolve('<private_key_file>'));
+   var json = JSON.parse(fs.readFileSync(require.resolve('<JSON_file_with_keys>')));
 
-   var serviceAccountId = '<service_account_ID>';
-   var keyId = '<public_key_ID>';
+   var key = json.private_key;
+   var serviceAccountId = json.service_account_id;
+   var keyId = json.id;
+
    var now = Math.floor(new Date().getTime() / 1000);
 
-   var payload = { aud: "https://iam.{{ api-host }}/iam/v1/tokens",
-                   iss: serviceAccountId,
-                   iat: now,
-                   exp: now + 3600 };
+   var payload = {
+      aud: "https://iam.{{ api-host }}/iam/v1/tokens",
+      iss: serviceAccountId,
+      iat: now,
+      exp: now + 3600
+   };
 
    jose.JWK.asKey(key, 'pem', { kid: keyId, alg: 'PS256' })
-       .then(function(result) {
-           jose.JWS.createSign({ format: 'compact' }, result)
-               .update(JSON.stringify(payload))
-               .final()
-               .then(function(result) {
-                   // result is an created JWT.
-               });
-       });
+      .then(function (result) {
+         jose.JWS.createSign({ format: 'compact' }, result)
+            .update(JSON.stringify(payload))
+            .final()
+            .then(function (result) {
+               console.log(result);
+            });
+      });
    ```
 
 - PHP {#php}
 
-   Example of creating a JWT using [PHP JWT Framework](https://github.com/web-token/jwt-framework).
+   Example of creating a JWT using [PHP JWT Framework](https://github.com/web-token/jwt-framework):
+   - Verified for PHP v8.3.4 and web-token/jwt-framework v3.3.5.
+   - Verified for PHP v7.4.33 and web-token/jwt-framework v2.2.11.
+   - The required data is read from the JSON file obtained when creating the authorized key.
+
 
    ```php
+   require 'vendor/autoload.php';
+
    use Jose\Component\Core\AlgorithmManager;
-   use Jose\Component\Core\Converter\StandardConverter;
    use Jose\Component\KeyManagement\JWKFactory;
-   use Jose\Component\Signature\JWSBuilder;
    use Jose\Component\Signature\Algorithm\PS256;
+   use Jose\Component\Signature\JWSBuilder;
    use Jose\Component\Signature\Serializer\CompactSerializer;
 
-   $service_account_id = '<service_account_ID>';
-   $key_id = '<public_key_ID>';
+   // Reading data from the file
+   $keyData = json_decode(file_get_contents("<JSON_file_with_keys>"), true);
+   $privateKeyPem = $keyData['private_key'];
+   $keyId = $keyData['id'];
+   $serviceAccountId = $keyData['service_account_id'];
 
-   $jsonConverter = new StandardConverter();
-   $algorithmManager = AlgorithmManager::create([
-       new PS256()
+   // You need to delete the private key header/metadata
+   if (strpos($privateKeyPem, "PLEASE DO NOT REMOVE THIS LINE!") === 0) {
+       $privateKeyPem = substr($privateKeyPem, strpos($privateKeyPem, "\n") + 1);
+   }
+
+   $jwk = JWKFactory::createFromKey(
+       $privateKeyPem,
+       null,
+       [
+           'alg' => 'PS256',
+           'use' => 'sig',
+           'kid' => $keyId,
+       ]
+   );
+
+   $algorithmManager = new AlgorithmManager([new PS256()]);
+   $jwsBuilder = new JWSBuilder($algorithmManager);
+
+   $payload = json_encode([
+       'iss' => $serviceAccountId,
+       'aud' => "https://iam.{{ api-host }}/iam/v1/tokens",
+       'iat' => time(),
+       'nbf' => time(),
+       'exp' => time() + 3600,
    ]);
 
-   $jwsBuilder = new JWSBuilder($jsonConverter, $algorithmManager);
-
-   $now = time();
-
-   $claims = [
-       'aud' => 'https://iam.{{ api-host }}/iam/v1/tokens',
-       'iss' => $service_account_id,
-       'iat' => $now,
-       'exp' => $now + 360
-   ];
-
-   $header = [
-       'alg' => 'PS256',
-       'typ' => 'JWT',
-       'kid' => $key_id
-   ];
-
-   $key = JWKFactory::createFromKeyFile('<private_key_file>');
-
-   $payload = $jsonConverter->encode($claims);
-
-   // Signature creation.
    $jws = $jwsBuilder
        ->create()
        ->withPayload($payload)
-       ->addSignature($key, $header)
+       ->addSignature($jwk, ['alg' => 'PS256', 'typ'=>'JWT', 'kid' => $keyId])
        ->build();
 
-   $serializer = new CompactSerializer($jsonConverter);
 
-   // JWT generation.
-   $token = $serializer->serialize($jws);
+   $serializer = new CompactSerializer();
+   $token = $serializer->serialize($jws, 0);
+
+   // Saving the token to the file
+   file_put_contents('jwt_token.txt', $token);
+   // Printing the token to the console
+   echo "JWT Token: " . $token . PHP_EOL;
    ```
 
 - C++ {#cpp}
 
-   Example of creating a JWT using [jwt-cpp](https://github.com/Thalhammer/jwt-cpp).
+   Example of creating a JWT using [jwt-cpp](https://github.com/Thalhammer/jwt-cpp):
+   - Verified for C++ 14 and jwt-cpp 0.7.0.
+   - The required data is read from the JSON file obtained when creating the authorized key.
 
    ```cpp
    #include <chrono>
@@ -441,64 +542,98 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
    #include "jwt-cpp/jwt.h"
 
-   int main(int argc, char *argv[])
+   int main()
    {
-       std::ifstream priv_key_file("<private_key_file>");
-       std::ifstream pub_key_file("<public_key_file>");
+       std::ifstream key_file("<JSON_file_with_keys>");
+       std::string content((std::istreambuf_iterator<char>(key_file)),
+           (std::istreambuf_iterator<char>()));
+
+       picojson::value v;
+       std::string err = picojson::parse(v, content);
+       auto privateKey = v.get("private_key").to_str();
+       auto serviceAccountId = v.get("service_account_id").to_str();
+       auto keyId = v.get("id").to_str();
 
        auto now = std::chrono::system_clock::now();
        auto expires_at = now + std::chrono::hours(1);
-       auto serviceAccountId = "<service_account_ID>";
-       auto keyId = "<public_key_ID>";
-       std::set<std::string> audience;
-       audience.insert("https://iam.{{ api-host }}/iam/v1/tokens");
+       picojson::array audience_array;
+       audience_array.push_back(picojson::value("https://iam.{{ api-host }}/iam/v1/tokens"));
        auto algorithm = jwt::algorithm::ps256(
-           std::string(std::istreambuf_iterator<char>{pub_key_file}, {}),
-           std::string(std::istreambuf_iterator<char>{priv_key_file}, {}));
+           "",
+           privateKey);
 
        // JWT generation.
        auto encoded_token = jwt::create()
            .set_key_id(keyId)
            .set_issuer(serviceAccountId)
-           .set_audience(audience)
+           .set_audience(audience_array)
            .set_issued_at(now)
            .set_expires_at(expires_at)
            .sign(algorithm);
+
+       std::cout << encoded_token;
    }
    ```
 
 - Ruby {#ruby}
 
-   Example of creating a JWT using [ruby-jwt](https://github.com/jwt/ruby-jwt).
+   Example of creating a JWT using [ruby-jwt](https://github.com/jwt/ruby-jwt):
+   - Verified for Ruby 3.2.3 and jwt 2.8.1.
+   - The required data is read from the JSON file obtained when creating the authorized key.
+
+   Install the jwt package:
+
+   ```
+   gem install jwt
+   ```
+
 
    ```ruby
+
    require 'jwt'
+   require 'json'
+   require 'time'
 
-   privateKey = OpenSSL::PKey::RSA.new(File.read('<private_key_file>'))
+   KEY_FILE = '<JSON_file_with_keys>'
+   KEY_DATA = JSON.parse(File.read(KEY_FILE))
+   KEY_ID = KEY_DATA['id']
+   SERVICE_ACCOUNT_ID = KEY_DATA['service_account_id']
 
-   issuedAt = Time.now.to_i
-   expirationTime = issuedAt + 360
+   def load_private_key
+     OpenSSL::PKey::RSA.new(KEY_DATA['private_key'])
+   rescue IOError, JSON::ParserError, OpenSSL::PKey::RSAError => e
+     raise "Failed to load or parse private key: #{e.message}"
+   end
 
-   serviceAccountId = "<service_account_ID>"
+   def signed_token
+     payload = {
+       iss: SERVICE_ACCOUNT_ID,
+       exp: Time.now.to_i + 3600,
+       iat: Time.now.to_i,
+       nbf: Time.now.to_i,
+       aud: "https://iam.{{ api-host }}/iam/v1/tokens"
+     }
 
-   # ID of the Key resource belonging to the service account.
-   keyId = "<public_key_ID>"
+     header = {
+       kid: KEY_ID
+     }
 
-   headers = { kid: keyId }
-   payload = {
-       typ: 'JWT',
-       aud: "https://iam.{{ api-host }}/iam/v1/tokens",
-       iss: serviceAccountId,
-       iat: issuedAt,
-       exp: expirationTime,
-       data: 'data' }
+     private_key = load_private_key
 
-   # JWT generation.
-   token = JWT.encode(
-       payload,
-       privateKey,
-       'PS256',
-       headers)
+     JWT.encode(payload, private_key, 'PS256', header)
+   end
+
+   # Main execution
+   begin
+     token = signed_token
+     File.write('jwt_token.txt', token)
+     # Or, alternatively, print the token to the console
+     # puts "Here is the token:"
+     # puts token
+   rescue => e
+     puts "An error occurred: #{e.message}"
+   end
+
    ```
 
 {% endlist %}

@@ -1,6 +1,6 @@
 1. [Prepare your cloud](#before-begin).
 1. [Create an infrastructure](#deploy).
-1. [Check that the hosting is running properly](#test).
+1. [Check that the hosting is up and running](#test).
 
 We will use the `my-site.com` domain name as an example.
 
@@ -94,13 +94,11 @@ To create an infrastructure using {{ TF }}:
 
    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-1. [Get public IP addresses](../../compute/operations/instance-groups/get-info.md): you will need them to [check that the hosting is running properly](#test).
+1. [Get public IP addresses](../../compute/operations/instance-groups/get-info.md): you will need them to [check that the hosting is up and running](#test).
 
-{% endlist %}
+After creating the infrastructure, [check that the hosting is up and running](#test).
 
-After creating the infrastructure, [check that the hosting is running properly](#test).
-
-## Check that the hosting is running properly {#test}
+## Check that the hosting is up and running {#test}
 
 {% include [tls-termination-test](../_tutorials_includes/tls-termination-test.md) %}
 
@@ -108,7 +106,7 @@ After creating the infrastructure, [check that the hosting is running properly](
 
 To stop paying for the resources you created:
 
-1. Open the `tls-termination-config.tf` configuration file and delete the description of the infrastructure being created from it.
+1. Open the `tls-termination-config.tf` configuration file and delete from it the description of the infrastructure you created.
 1. Apply the changes:
 
    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

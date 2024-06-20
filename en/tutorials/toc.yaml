@@ -19,6 +19,10 @@ items:
         href: security/vm-fluent-bit-logging.md
       - name: Writing load balancer logs to {{ PG }}
         href: security/logging.md
+      - name: >-
+          Secure storage of {{ GL }} CI passwords as {{ lockbox-full-name }}
+          secrets
+        href: security/gitlab-lockbox-integration.md
   - name: Storing and recovering data
     items:
       - name: All tutorials
@@ -188,9 +192,15 @@ items:
         items:
           - name: Static site in {{ objstorage-name }}
             href: web/static.md
-          - name: Website based on LAMP or LEMP stack
-            href: web/lamp-lemp.md
-          - name: Joomla-based website with {{ PG }} DB
+          - name: Website on a LAMP or LEMP stack
+            items:
+              - name: Overview
+                href: web/lamp-lemp/index.md
+              - name: Management console
+                href: web/lamp-lemp/console.md
+              - name: '{{ TF }}'
+                href: web/lamp-lemp/terraform.md
+          - name: Joomla-based website with PostgreSQL
             href: web/joomla-postgresql.md
           - name: WordPress website
             href: web/wordpress.md
@@ -202,8 +212,14 @@ items:
             href: web/wordpress-transfer.md
           - name: 1C-Bitrix website
             href: web/bitrix-website.md
-          - name: OpenCart based online store
-            href: internet-store/opencart.md
+          - name: OpenCart online store
+            items:
+              - name: Overview
+                href: internet-store/opencart/index.md
+              - name: Management console
+                href: internet-store/opencart/console.md
+              - name: '{{ TF }}'
+                href: internet-store/opencart/terraform.md
           - name: Setting up virtual hosting
             href: web/virtual-hosting.md
           - name: Binding a domain name to a VM with a web server

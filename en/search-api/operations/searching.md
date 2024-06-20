@@ -16,7 +16,7 @@ description: "Follow this guide to learn how to use {{ search-api-name }} to sen
 1. [Create](../../iam/operations/sa/create.md) a service account.
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) the `{{ roles-search-api-executor }}` role to the created service account.
 1. [Create](../../iam/operations/api-key/create.md) an API key for the created service account.
-1. [Sign up](./registration.md) for {{ search-api-name }}.
+1. [Sign up](./workaround.md) for {{ search-api-name }}.
 
 ## Create a search query {#form-request}
 

@@ -8,13 +8,13 @@ description: "This page provides a list of tutorials on creating sites, using 1C
 ## Creating a site {#web}
 
 * [Static website in {{ objstorage-full-name }}](../web/static.md)
-* [Website on LAMP or LEMP stack](../web/lamp-lemp.md)
+* [Website on a LAMP or LEMP stack](../web/lamp-lemp/index.md)
 * [Joomla-based website with {{ PG }} database](../web/joomla-postgresql.md)
 * [Creating a website in WordPress](../web/wordpress.md)
 * [WordPress website with a {{ MY }} database cluster](../web/wordpress-mysql.md)
 * [Transferring a WordPress website from a different hosting provider to {{ yandex-cloud }}](../web/wordpress-transfer.md)
 * [1C-Bitrix website](../web/bitrix-website.md)
-* [OpenCart-based online store](../internet-store/opencart.md)
+* [OpenCart online store](../internet-store/opencart/index.md)
 * [Setting up virtual hosting](../web/virtual-hosting.md)
 * [Assigning a domain name to a VM with a web server](../web/bind-domain-vm.md)
 * [Creating a Python web application with Flask](../web/flask.md)

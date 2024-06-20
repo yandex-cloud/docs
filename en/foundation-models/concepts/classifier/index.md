@@ -7,6 +7,8 @@ There are three types of classification available in {{ foundation-models-name }
 * _Multi-class_ classification puts a request into one (and only one) of more than two classes. For example, a computer CPU can belong to one generation only.
 * _Multi-label_ classification allows putting a request into a number of different non-mutually exclusive classes at the same time. For example, several [hashtags](https://en.wikipedia.org/wiki/Hashtag) can belong to the same post on social media at the same time.
 
+Classification models are only available in [synchronous mode](../index.md#working-mode).
+
 {{ foundation-models-name }} provides {{ yagpt-name }} classifiers of these two types: [prompt-based](#readymade) and [trainable](#trainable).
 
 ## Prompt-based classifiers {#readymade}
@@ -145,6 +147,6 @@ Where:
 * `label`: Class name.
 * `confidence`: Probability of the request text belonging to this class.
 
-   In multi-class classification, the sum of the `confidence` values for all classes is always `1`.
+   In multi-class classification, the sum of values of probability (`confidence`) fields for all classes is always equal to `1`.
 
-   In multi-label classification, the `confidence` value for each class is calculated independently (the sum of the values is not equal to `1`).
+   When classifying with multiple labels, the value of the probability (`confidence`) field for each class is calculated independently (the sum of values is not equal to `1`).

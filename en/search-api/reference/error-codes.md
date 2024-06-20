@@ -29,9 +29,9 @@ Cannot validate the transmitted XML file or incorrect request parameters are set
 ||
 || 19 | A search query contains incompatible parameters (e.g., incompatible values of the `groupings` element). ||
 || 20 | Unknown error cause. If you encounter this error again, contact [support]({{ link-console-support }}). ||
-|| 31 | The request includes an ID of a folder (the `folderid` field) whose user has not [registered](../operations/registration.md) with {{ search-api }}. ||
+|| 31 | The request includes an ID of a folder (the `folderid` field) whose user has not [registered](../operations/workaround.md) with {{ search-api }}. ||
 || 32 | Limit on the allowed daily number of queries exceeded. Learn about the [limits](../concepts/limits.md) and request a quota increase. ||
-|| 33 | IP address a search query was sent from does not match the one(s) specified during [registration](../operations/registration.md). ||
+|| 33 | IP address a search query was sent from does not match the one(s) specified during [registration](../operations/workaround.md). ||
 || 37 | Error in request parameters. Mandatory parameters may be missing or mutually exclusive parameters may be defined. ||
 || 42 | The provided API key failed authentication or authorization. Check that your API key is valid and that the [service account](../../iam/concepts/users/service-accounts.md) used to send requests has the `search-api.executor` [role](../security/index.md). ||
 || 44 | The IP address you are trying to access is no longer supported. Fix the value to match the address specified during registration. ||

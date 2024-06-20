@@ -12,3 +12,5 @@
 * [Устранение ошибок с доступом или входом в проект](opening-project-issues.md)
 * [Устранение ошибки KernelNotResponding: The kernel died unexpectedly](error-kernel-not-responding.md)
 * [Устранение ошибки `ConnectTimeoutError` при установке пакетов через pip](error-connect-timeout-when-installing-via-pip.md)
+* [Устранение ошибки `A value is trying to be set on a copy of a slice from a DataFrame`](error-value-is-trying-to-be-set-on-a-copy-of-a-slice-from-a-dataframe.md)
+* [Устранение ошибки `Device or resource busy`](error-device-or-resource-busy.md)

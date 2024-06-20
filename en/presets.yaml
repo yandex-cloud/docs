@@ -154,6 +154,7 @@ default:
   dt-type-repl: '**Replication**'
   dt-white-ip-list-uri: >-
     https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
+  emb-vector: 256
   ES: Elasticsearch
   external-ip-examples:
     '0': 84.201.155.117
@@ -5812,6 +5813,7 @@ default:
         labels: Labels
         logs: Logs
         metadata: Metadata
+        metadata-add-field: Add field
         metric: Metric
         monitoring: Monitoring
         move: Move

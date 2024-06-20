@@ -469,3 +469,216 @@ description: "Следуя данной инструкции, вы сможет�
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 {% endlist %}
+
+## Изменить способ подключения к узлам в группе узлов {#switch-node-connect-mode}
+
+{% include [node-connect-mode-reconciling-warning](../../../_includes/managed-kubernetes/node-connect-mode-reconciling-warning.md) %}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер {{ managed-k8s-name }}.
+    1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+    1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+    1. Выберите нужную группу узлов.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+    1. Измените настройки для способов подключения:
+
+        1. Чтобы включить или выключить доступ к узлам через {{ oslogin }}, используйте опцию **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}**.
+
+            {% include [note-oslogin-ssh-warning](../../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}
+
+            {% include [configure-connect-oslogin](../../../_includes/managed-kubernetes/configure-connect-oslogin.md) %}
+
+        1. {% include [enable-ssh-access](../../../_includes/managed-kubernetes/enable-ssh-access.md) %}
+
+            {% include [configure-connect-ssh](../../../_includes/managed-kubernetes/configure-connect-ssh.md) %}
+
+        1. {% include [disable-ssh-access](../../../_includes/managed-kubernetes/disable-ssh-access.md) %}
+
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+    1. {% include [configure-oslogin-access](../../../_includes/managed-kubernetes/configure-oslogin-access.md) %}
+
+    1. {% include [enable-ssh-access](../../../_includes/managed-kubernetes/enable-ssh-access.md) %}
+
+        {% include [configure-connect-ssh](../../../_includes/managed-kubernetes/configure-connect-ssh.md) %}
+
+    1. {% include [disable-ssh-access](../../../_includes/managed-kubernetes/disable-ssh-access.md) %}
+
+- {{ TF }} {#tf}
+
+    1. {% include [configure-oslogin-access](../../../_includes/managed-kubernetes/configure-oslogin-access.md) %}
+
+    1. {% include [enable-ssh-access](../../../_includes/managed-kubernetes/enable-ssh-access.md) %}
+
+        {% include [configure-connect-ssh](../../../_includes/managed-kubernetes/configure-connect-ssh.md) %}
+
+    1. {% include [disable-ssh-access](../../../_includes/managed-kubernetes/disable-ssh-access.md) %}
+
+- API {#api}
+
+    1. {% include [configure-oslogin-access](../../../_includes/managed-kubernetes/configure-oslogin-access.md) %}
+
+    1. {% include [enable-ssh-access](../../../_includes/managed-kubernetes/enable-ssh-access.md) %}
+
+        {% include [configure-connect-ssh](../../../_includes/managed-kubernetes/configure-connect-ssh.md) %}
+
+    1. {% include [disable-ssh-access](../../../_includes/managed-kubernetes/disable-ssh-access.md) %}
+
+{% endlist %}
+
+## Изменить метаданные {#update-metadata}
+
+{% note warning %}
+
+{% include [node-group-metadata-warning](../../../_includes/managed-kubernetes/node-group-metadata-warning.md) %}
+
+После изменения метаданных группа узлов временно перейдет в статус `Reconciling`: все узлы в группе будут пересозданы для применения изменений.
+
+{% endnote %}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер {{ managed-k8s-name }}.
+    1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+    1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+    1. Выберите нужную группу узлов.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+    1. Раскройте блок **{{ ui-key.yacloud.common.metadata }}** и измените, добавьте или удалите метаданные для узлов.
+
+        Чтобы добавить метаданные, используйте кнопку **{{ ui-key.yacloud.common.metadata-add-field }}**. Укажите ключ и значение каждого элемента метаданных в отдельном наборе полей.
+
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    1. Чтобы добавить или изменить метаданные с определенным ключом:
+
+        1. Посмотрите описание команды CLI для добавления и обновления метаданных группы узлов {{ managed-k8s-name }}:
+
+            ```bash
+            {{ yc-k8s }} node-group add-metadata --help
+            ```
+
+        1. Чтобы добавить новые метаданные или изменить их, если они существуют, выполните команду:
+
+            ```bash
+            {{ yc-k8s }} node-group add-metadata \
+              --name <имя_группы_узлов> \
+              --metadata <ключ>=<значение>
+            ```
+
+            Имя группы узлов можно запросить со [списком групп узлов в каталоге](./node-group-list.md#list).
+
+            Перечень существующих метаданных можно запросить вместе с [подробной информацией о группе узлов](./node-group-list.md#get).
+
+            {% note tip %}
+
+            Используйте параметр `--metadata-from-file` вместо `--metadata`, если нужно получить значение из файла:
+
+            ```bash
+            --metadata-from-file <ключ>=<путь_к_файлу_со_значением>
+            ```
+
+            {% include [metadata-key-from-file](../../../_includes/managed-kubernetes/metadata-key-from-file.md) %}
+
+            {% endnote %}
+
+    1. Чтобы удалить метаданные с определенным ключом:
+
+        1. Посмотрите описание команды CLI для удаления метаданных группы узлов {{ managed-k8s-name }}::
+
+            ```bash
+            {{ yc-k8s }} node-group remove-metadata --help
+            ```
+
+        1. Удалите существующие метаданные:
+
+            ```bash
+            {{ yc-k8s }} node-group remove-metadata \
+              --name <имя_группы_узлов> \
+              --keys <ключ>
+            ```
+
+            Имя группы узлов можно запросить со [списком групп узлов в каталоге](./node-group-list.md#list).
+
+            Перечень существующих метаданных можно запросить вместе с [подробной информацией о группе узлов](./node-group-list.md#get).
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов {{ managed-k8s-name }}.
+
+        О том, как создать такой файл, см. в разделе [{#T}](./node-group-create.md).
+
+    1. Чтобы добавить, изменить или удалить метаданные с определенным ключом, измените перечень ключей и значений в параметре `instance_template.metadata`. Если такого параметра нет — добавьте его.
+
+        ```hcl
+        resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
+          cluster_id = yandex_kubernetes_cluster.<имя_кластера>.id
+          ...
+          instance_template {
+            metadata = {
+              "<ключ>" = "<значение>"
+              ...
+            }
+            ...
+          }
+          ...
+        }
+        ```
+
+        {% note tip %}
+
+        Используйте функцию `file()`, если нужно получить значение из файла:
+
+        ```hcl
+        "<ключ>" = file("<путь_к_файлу_со_значением>")
+        ```
+
+        {% include [metadata-key-from-file](../../../_includes/managed-kubernetes/metadata-key-from-file.md) %}
+
+        {% endnote %}
+
+    1. Проверьте корректность конфигурационных файлов.
+
+        {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+
+- API {#api}
+
+    1. {% include [get-metadata-via-api](../../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
+
+    1. Воспользуйтесь методом REST API [update](../../api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/index.md) и передайте в запросе:
+
+        * Идентификатор группы узлов в параметре `nodeGroupId`.
+
+        * Параметр `updateMask` со значением `nodeTemplate.metadata`.
+
+            {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+
+        * Параметр `nodeTemplate.metadata`, в котором перечислены метаданные группы узлов.
+
+            Внесите нужные изменения в перечень метаданных, который был получен на предыдущем шаге: добавьте, измените или удалите пары `ключ=значение`. Затем передайте обновленный перечень в параметре `nodeTemplate.metadata`.
+
+            {% note alert %}
+
+            Метаданные, не перечисленные в параметре `nodeTemplate.metadata`, будут удалены.
+
+            {% endnote %}
+
+{% endlist %}

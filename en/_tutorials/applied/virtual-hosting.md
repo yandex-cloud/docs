@@ -8,7 +8,7 @@ description: "In this guide, you will learn how to build a virtual hosting of se
 
 This use case describes how to set up virtual hosting, i.e., how to use [{{ alb-full-name }}](../../application-load-balancer/) to host multiple websites with different domain names on the same [IP address](../../vpc/concepts/address.md).
 
-As examples, we will use three domain names: `site-a.com`, `site-b.com`, and `default.com`.
+As examples, we are going to use these three domain names: `site-a.com`, `site-b.com`, and `default.com`.
 
 To create a virtual hosting:
 1. [Prepare your cloud](#before-begin).
@@ -22,7 +22,7 @@ To create a virtual hosting:
 1. [Create and configure HTTP routers](#create-http-routers).
 1. [Create an L7 load balancer](#create-l7-balancer).
 1. [Configure the DNS for the sites](#configure-dns).
-1. [Check that the hosting is running properly](#test).
+1. [Test the hosting](#test).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -36,7 +36,7 @@ The cost of virtual hosting includes:
 * Fee for continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using a [public static IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using computing resources of the [L7 load balancer](../../application-load-balancer/concepts/index.md) (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
-* Fee for public DNS queries and [DNS zones](../../dns/concepts/dns-zone.md) if using [{{ dns-full-name }}](../../dns/) (see [pricing {{ dns-name }}](../../dns/pricing.md)).
+* Fee for public DNS queries and [DNS zones](../../dns/concepts/dns-zone.md) if using [{{ dns-full-name }}](../../dns/) (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 
 ## Create a cloud network {#create-network}
 
@@ -142,7 +142,7 @@ In the same way, import certificates for `site-b.com` and `default.com`, naming 
 
 ## Create instance groups for the sites {#create-vms}
 
-{{ compute-name }} VMs will act as web servers for the two websites: one [group](../../compute/concepts/instance-groups/index.md) of multiple identical instances for each website. In this use case, the servers will be deployed on the LEMP stack (Linux, NGINX, {{ MY }}, PHP). For more information, see the [Website on LAMP or LEMP stack](../../tutorials/web/lamp-lemp.md) use case.
+{{ compute-name }} VMs will act as web servers for the two websites: one [group](../../compute/concepts/instance-groups/index.md) of multiple identical instances for each website. In this use case, the servers will be deployed on a LEMP stack (Linux, NGINX, {{ MY }}, PHP). For more information, see the [Website on a LAMP or LEMP stack](../../tutorials/web/lamp-lemp/index.md) use case.
 
 To create an instance group for `site-a.com`:
 
@@ -355,7 +355,7 @@ To configure the DNS for `site-a.com`:
 1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
 1. Copy the IP address of the load balancer that you created.
 1. On the site of your DNS hosting provider, go to the DNS settings.
-1. Create or edit the A record for `site-a.com` so that it points to the copied IP address:
+1. Create or edit the A record for `site-a.com` so that it refers to the copied IP address:
 
    ```text
    site-a.com. A <L7_load_balancer_IP_address>
@@ -390,11 +390,11 @@ To configure the DNS for `site-a.com`:
 
 Follow the same steps to configure the DNS for `site-b.com` and `default.com` using the same IP address.
 
-Wait 15-20 minutes after setting up the DNS and check that the sites are running properly.
+Wait 15-20 minutes after setting up the DNS and check that the sites are up and running.
 
-## Check that the hosting is running properly {#test}
+## Test the hosting {#test}
 
-To make sure that the hosting is running properly, open each of the three sites in your browser:
+To test the hosting, open each of the three sites in your browser:
 * `https://site-a.com` and `https://site-b.com`: The pages you [uploaded to the VMs](#upload-sites-files) should be displayed.
 * `https://default.com`: The `404 Not Found` error page configured when [creating the HTTP router](#create-http-routers-default) should be displayed.
 
