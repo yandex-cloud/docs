@@ -10,3 +10,5 @@ description: "Various {{ lockbox-full-name }} use cases in {{ yandex-cloud }}."
 
 * [{#T}](ci-cd-serverless.md)
 
+
+* [{#T}](gitlab-lockbox-integration.md)

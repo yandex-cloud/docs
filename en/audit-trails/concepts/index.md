@@ -5,7 +5,7 @@ description: "{{ at-full-name }} lets you collect audit logs about {{ yandex-clo
 
 # {{ at-full-name }} overview
 
-{{ at-full-name }} allows you to collect audit logs at the configuration and service level for {{ yandex-cloud }} resources and upload them to {{ objstorage-name }} buckets, {{ yds-name }} streams, or {{ cloud-logging-name }} log groups:
+{{ at-full-name }} allows you to collect management event and data event audit logs for {{ yandex-cloud }} resources and upload them to {{ objstorage-name }} buckets, {{ yds-name }} streams, or {{ cloud-logging-name }} log groups:
 
 * [Uploading audit logs to a bucket](../operations/index.md#bucket).
 * [Uploading audit logs to Cloud Logging](../operations/index.md#logging).
@@ -43,6 +43,7 @@ Collecting audit logs enables you to use analytical tools and promptly respond t
 * {{ org-full-name }}
 * {{ resmgr-full-name }}
 * {{ vpc-full-name }}
+* {{ websql-full-name }}
 * {{ ydb-full-name }}
 * {{ yq-full-name }}
 
@@ -59,7 +60,7 @@ The following [management events](./events.md) are logged:
 * Creating/editing security groups
 * Actions with encryption keys and secrets
 
-## Data audit logs {#data-plane-logs}
+## Data event audit logs {#data-plane-logs}
 
 {{ at-name }} collects [data event](./control-plane-vs-data-plane.md#data-plane-events) audit logs for the following {{ yandex-cloud }} services:
 
@@ -70,6 +71,7 @@ The following [management events](./events.md) are logged:
 * {{ mpg-full-name }}
 * {{ mmg-full-name }}
 * {{ mmy-full-name }}
+* {{ websql-full-name }}
 
 ## Current service limits {#known-restrictions}
 

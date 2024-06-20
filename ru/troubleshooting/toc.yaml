@@ -10,6 +10,8 @@ items:
         hidden: true
       - name: Устранение ошибки `no_route` при открытии адреса
         href: application-load-balancer/known-issues/error-no-route.md
+      - name: Устранение сложностей с добавлением маршрута
+        href: application-load-balancer/known-issues/cannot-add-route.md
       - name: Примеры конфигураций и сценариев Application Load Balancer
         href: application-load-balancer/how-to/index.md
         hidden: true
@@ -81,6 +83,8 @@ items:
         href: billing/known-issues/payment-not-confirmed-issue.md
       - name: Облако зависло в статусе `Creating` или долго не создается
         href: billing/known-issues/cloud-stuck-in-creating-status.md
+      - name: Устранение ошибки `message Unauthorized; description Unauthorized`
+        href: billing/known-issues/error-unauthorized.md
       - name: Устранение ошибки `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS`
         href: billing/known-issues/error-prohibited-user-account-usage-status.md
       - name: >-
@@ -185,6 +189,8 @@ items:
       - name: Примеры конфигураций и сценариев ClickHouse
         href: clickhouse/how-to/index.md
         hidden: true
+      - name: Как указать `max_execution_time`
+        href: clickhouse/how-to/set-max-execution-time.md
   - name: Cloud CDN
     items:
       - name: Все решения для Cloud CDN
@@ -247,6 +253,8 @@ items:
         href: functions/how-to/static-ip-address.md
       - name: Возможности асинхорнной работы облачных функций
         href: functions/how-to/async-functions-invokes.md
+      - name: Как настроить аутентификацию для `boto3`
+        href: functions/how-to/boto3-authentification.md
   - name: Cloud Logging
     items:
       - name: Все решения для Cloud Logging
@@ -313,6 +321,11 @@ items:
           compute/known-issues/the-limit-of-maximum-number-of-cores-has-exceeded.md
       - name: Недоступна CUDA на платформе GPU
         href: compute/known-issues/cuda-unavailable.md
+      - name: >-
+          Устранение ошибки `FAILED_PRECONDITION Relocation to zone
+          "ru-central1-a/b/c" is disabled`
+        href: >-
+          compute/known-issues/failed-precondition-relocation-to-zone-is-disabled.md
       - name: Примеры конфигураций и сценариев Cloud CDN
         href: compute/how-to/index.md
         hidden: true
@@ -364,6 +377,8 @@ items:
         href: compute/how-to/maximum-web-interfaces-for-one-vm.md
       - name: Как увеличить количество сетевых соединений
         href: compute/how-to/increase-network-connections.md
+      - name: Как настроить защиту RDP-подключения на Windows
+        href: compute/how-to/rdp-protection-for-windows.md
   - name: Container Registry
     items:
       - name: Все решения для Container Registry
@@ -477,6 +492,8 @@ items:
         href: datalens/known-issues/metrika-not-all-fields.md
       - name: Устранение ошибки `SSL is required`
         href: datalens/known-issues/error-ssl-is-required.md
+      - name: Устранение неверного значения поля `Итого` в сводной таблице
+        href: datalens/known-issues/incorrect-value-in-field-total.md
   - name: DataProc
     items:
       - name: Все решения для DataProc
@@ -489,6 +506,8 @@ items:
           dataproc/known-issues/hosts-of-dataproc-cluster-are-in-status-unknown-after-creation.md
       - name: Устранение ошибки доступа к бакетам S3 из кластера DataProc 1.4
         href: dataproc/known-issues/cannot-access-buckets.md
+      - name: Нет логов в YARN Resource Manager Web UI после выполнения заданий
+        href: dataproc/known-issues/yarn-resource-manager-does-not-display-logs.md
       - name: Примеры конфигураций и сценариев DataProc
         href: dataproc/how-to/index.md
         hidden: true
@@ -534,6 +553,13 @@ items:
           pip
         href: >-
           datasphere/known-issues/error-connect-timeout-when-installing-via-pip.md
+      - name: >-
+          Устранение ошибки `A value is trying to be set on a copy of a slice
+          from a DataFrame`
+        href: >-
+          datasphere/known-issues/error-value-is-trying-to-be-set-on-a-copy-of-a-slice-from-a-dataframe.md
+      - name: Устранение ошибки `Device or resource busy`
+        href: datasphere/known-issues/error-device-or-resource-busy.md
       - name: Примеры конфигураций и сценариев DataSphere
         href: datasphere/how-to/index.md
         hidden: true
@@ -741,6 +767,11 @@ items:
           managed-k8s-name }} средствами csi-s3
         href: >-
           managed-kubernetes/known-issues/unable-to-mount-volume-to-pods-via-csi-s3.md
+      - name: >-
+          Кластер {{ managed-k8s-name }} слишком долго находится в состоянии
+          `Starting` после переименования
+        href: >-
+          managed-kubernetes/known-issues/cluster-stuck-in-starting-after-renaming.md
       - name: Примеры конфигураций и сценариев {{ managed-k8s-name }}
         href: managed-kubernetes/how-to/index.md
         hidden: true
@@ -793,6 +824,8 @@ items:
         hidden: true
       - name: Устранение ошибки HTTP 500 в {{ mgl-name }}
         href: managed-gitlab/known-issues/error-500.md
+      - name: Устранение ошибки 413 при выполнении операции `git push`
+        href: managed-gitlab/known-issues/error-413.md
       - name: Примеры конфигураций и сценариев {{ mgl-name }}
         href: managed-gitlab/how-to/index.md
         hidden: true
@@ -815,6 +848,8 @@ items:
         href: managed-ydb/known-issues/resource-exhausted.md
       - name: Устранение ошибки Unauthenticated
         href: managed-ydb/known-issues/sdk-unauthenticated.md
+      - name: Устранение ошибки 503 `Service Unavailable`
+        href: managed-ydb/known-issues/error-503.md
       - name: Примеры конфигураций и сценариев Managed Service for YDB
         href: managed-ydb/how-to/index.md
         hidden: true
@@ -1028,6 +1063,8 @@ items:
         href: serverless-containers/known-issues/service-account-is-not-available.md
       - name: Устранение ошибки user container exec format error
         href: serverless-containers/known-issues/exec-format-error.md
+      - name: Устранение ошибки `No space left on device`
+        href: serverless-containers/known-issues/no-space-left-on-device.md
       - name: Примеры конфигураций и сценариев Serverless Containers
         href: serverless-containers/how-to/index.md
         hidden: true
@@ -1139,6 +1176,8 @@ items:
         href: vpc/how-to/difference-nat-gateway-and-nat-instance.md
       - name: Как перенести IP в другую зону доступности
         href: vpc/how-to/transferring-ip-to-a-different-zone.md
+      - name: Как заблокировать IP-адрес
+        href: vpc/how-to/block-ip-address.md
   - name: Консоль управления
     items:
       - name: Все решения для Консоли управления

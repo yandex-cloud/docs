@@ -16,3 +16,4 @@
 * [Устранение ошибки ERR.DS_API.US.BAD_REQUEST data.key should not start with /](err-ds-api-us-bad-request-data-key-should-not-start-with.md)
 * [В датасетах по Яндекс Метрике отображаются не все поля](metrika-not-all-fields.md)
 * [Устранение ошибки `SSL is required`](error-ssl-is-required.md)
+* [Устранение неверного значения поля `Итого` в сводной таблице](incorrect-value-in-field-total.md)

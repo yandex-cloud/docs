@@ -65,9 +65,24 @@
    * (Опционально) Нажмите кнопку **{{ ui-key.yacloud.k8s.node-groups.create.label_add-location }}** и укажите дополнительную зону доступности и сеть, чтобы создать узлы {{ managed-k8s-name }} в разных зонах доступности.
 
 
-1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}** укажите данные для доступа на узел {{ managed-k8s-name }}:
-   * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
-   * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [публичного ключа](../../managed-kubernetes/operations/node-connect-ssh.md#creating-ssh-keys).
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}** настройте один из способов подключения к узлам в группе узлов {{ managed-k8s-name }}:
+
+    * Чтобы подключаться к узлам через {{ oslogin }}, выберите опцию **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}**.
+
+        При выборе этой опции будет нельзя указать SSH-ключи, так как эти способы подключения являются взаимоисключающими.
+
+        Настройка и использование {{ oslogin }} подробно рассмотрены в разделе [{#T}](../../managed-kubernetes/operations/node-connect-oslogin.md).
+
+    * Чтобы подключаться к узлам с использованием SSH-ключей, укажите необходимые реквизиты:
+
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [публичного ключа](../../managed-kubernetes/operations/node-connect-ssh.md#creating-ssh-keys).
+
+        Подготовка реквизитов, настройка и использование SSH-ключей подробно рассмотрены в разделе [{#T}](../../managed-kubernetes/operations/node-connect-ssh.md).
+
+    {% include [node-group-metadata-postponed-update-note](./node-group-metadata-postponed-update-note.md) %}
+
 1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_maintenance }}**:
    * В поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** выберите окно для обновлений:
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}` — отключение автоматических обновлений.
@@ -78,6 +93,19 @@
    * Чтобы иметь возможность изменять [небезопасные параметры ядра](../../managed-kubernetes/concepts/index.md#node-group) на узлах группы {{ managed-k8s-name }}, используйте кнопку **{{ ui-key.yacloud.k8s.node-groups.create.button_add-sysctl }}**. Для ввода имени каждого параметра ядра создайте отдельное поле.
    * Чтобы задать [taint-политики узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#taints-tolerations), используйте кнопку **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-taint }}**. Укажите ключ, значение и эффект каждой taint-политики в отдельном наборе полей.
    * Чтобы задать [{{ k8s }}-метки](../../managed-kubernetes/concepts/index.md#node-labels) узлов группы, используйте кнопку **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-label }}**. Укажите ключ и значение каждой {{ k8s }}-метки в отдельном наборе полей.
+
+1. (Опционально) Раскройте блок **{{ ui-key.yacloud.common.metadata }}** и добавьте метаданные для узлов.
+
+    {% note warning %}
+
+    {% include [node-group-metadata-warning](./node-group-metadata-warning.md) %}
+
+    {% endnote %}
+
+    Чтобы добавить метаданные, используйте кнопку **{{ ui-key.yacloud.common.metadata-add-field }}**. Укажите ключ и значение каждого элемента метаданных в отдельном наборе полей.
+
+    {% include [node-group-metadata-postponed-update-note](./node-group-metadata-postponed-update-note.md) %}
+
 1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 Процесс создания группы узлов {{ managed-k8s-name }} может занять несколько минут в зависимости от количества узлов.

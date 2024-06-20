@@ -11,11 +11,11 @@
 | Type of limit | {{ gpt-pro }} and fine-tuned models | {{ gpt-lite }} |
 ----- | ----- | -----
 | Number of concurrent generations | 1 | 1 |
-| Number of requests per hour, [synchronous mode](../yandexgpt/concepts/index.md#working-mode) | 100 | 100 |
 | Number of requests per second, [asynchronous mode](../yandexgpt/concepts/index.md#working-mode) (request) | 10 | 10 |
 | Number of requests per second, asynchronous mode (getting a response) | 50 | 50 |
 | Number of requests per hour, asynchronous mode (request) | 5,000 | 5,000 |
 | Number of tokenization requests per second | 50 | 50 |
+| Number of free requests per hour for users without a billing account. Available only in the management console | {{ gpt-freetier }} | {{ gpt-freetier }} |
 
 ##### Text classification {#yandexgpt-quotas-classification}
 
@@ -38,6 +38,7 @@
 | Type of limit | Value |
 ----- | -----
 | Number of input tokens | 2,000 |
+| Output vector size | {{ emb-vector }} |
 
 ##### Text generation {#yandexgpt-limits-generation}
 
@@ -46,7 +47,6 @@
 | Number of tokens per response | 2,000 | 2,000 |
 | Maximum number of token per response in the management console | 500 | 500 |
 | Total number of tokens | {{ yagpt-max-tokens }} | {{ yagpt-max-tokens }} |
-| Number of free requests per hour for users without a billing account. Available only in the management console | {{ gpt-freetier }} | — |
 
 ##### Image generation {#yandexart-limits-generation}
 

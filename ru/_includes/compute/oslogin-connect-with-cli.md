@@ -40,6 +40,14 @@
       yc compute ssh \
         --id <идентификатор_ВМ>
       ```
+      
+      Для подключения по OS login по внутреннему IP-адресу используйте параметр `--internal-address`:
+      
+      ```bash
+      yc compute ssh \
+        --name <имя_ВМ> \
+        --internal-address
+      ```
 
    * **CentOS 7, Ubuntu 18.04**
 
@@ -55,4 +63,13 @@
       yc compute ssh \
         --id <идентификатор_ВМ> \
         -o "PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com"
+      ```
+
+      Для подключения по OS login по внутреннему IP-адресу используйте параметр `--internal-address`:
+
+      ```bash
+      yc compute ssh \
+        --name <имя_ВМ> \
+        -o "PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com" \
+        --internal-address
       ```

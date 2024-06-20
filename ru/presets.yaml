@@ -5813,6 +5813,7 @@ default:
         labels: Метки
         logs: Логи
         metadata: Метаданные
+        metadata-add-field: Добавить поле
         metric: Метрика
         monitoring: Мониторинг
         move: Переместить

@@ -50,6 +50,8 @@ items:
         href: tutorials/kubernetes-lockbox-secrets.md
       - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md
+      - name: Secure storage of {{ GL }} CI passwords as {{ lockbox-name }} secrets
+        href: tutorials/gitlab-lockbox-integration.md
   - name: Quotas and limits
     href: concepts/limits.md
   - name: Access management

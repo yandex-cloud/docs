@@ -7,7 +7,11 @@
 
 In a {{ mgp-name }} cluster, the type of disks for master hosts and segment hosts may differ.
 
-{% include [ice-lake-local-ssd-note](../../_includes/ice-lake-local-ssd-note.md) %}
+{% note info %}
+
+When using standard hosts on **Intel Ice Lake**, access to local SSD storage is provided on request. Contact [technical support]({{ link-console-support }}) or your account manager.
+
+{% endnote %}
 
 ## Specifics of local SSD storage {#local-storage-features}
 

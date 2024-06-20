@@ -10,8 +10,6 @@ items:
     href: quickstart.md
   - name: Step-by-step guides
     items:
-      - name: Registration
-        href: operations/registration.md
       - name: How to activate
         href: operations/workaround.md
       - name: Query testing

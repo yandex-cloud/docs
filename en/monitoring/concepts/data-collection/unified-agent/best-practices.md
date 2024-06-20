@@ -1,6 +1,4 @@
-# Best practices for using the agent
-
-This section offers recommendations for using {{unified-agent-full-name}}.
+# Agent best practices
 
 ## One agent per host {#one-agent-per-host}
 
@@ -35,7 +33,7 @@ routes:
             cloud_meta: {}
 ```
 
-See also [{#T}](configuration.md#agent_metrics_input).
+See also [{#T}](inputs.md#agent_metrics_input).
 
 ## Using storage {#storage}
 
@@ -81,4 +79,4 @@ routes:
         name: cloud_monitoring
 ```
 
-See also [{#T}](configuration.md#storages).
+See also [{#T}](storage.md).

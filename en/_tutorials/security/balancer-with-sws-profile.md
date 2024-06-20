@@ -42,7 +42,7 @@ To create a security profile:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create your profile in.
+   1. In the [management console]({{ link-console-main }}), select a folder you want to create the profile in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
    1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 

@@ -8,7 +8,7 @@
 1. [Create and configure an HTTP router](#create-http-router).
 1. [Create an L7 load balancer](#create-l7-balancer).
 1. [Configure the site's DNS](#configure-dns).
-1. [Check that the hosting is running properly](#test).
+1. [Test the hosting](#test).
 
 We will use the `my-site.com` domain name as an example.
 
@@ -167,7 +167,7 @@ To create an [instance group](../../compute/concepts/instance-groups/index.md) f
 
 It may take a few minutes to create an instance group. Wait until the group switches to the `RUNNING` [status](../../compute/concepts/instance-groups/statuses.md#group-statuses), and all VMs in it switch to the `RUNNING_ACTUAL` [status](../../compute/concepts/instance-groups/statuses.md#vm-statuses).
 
-Copy the public IP addresses of the created VMs: they will be listed on the VM page in the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section. You will need the IP addresses to [check that the hosting is running properly](#test).
+Copy the public IP addresses of the VMs you created: they will be listed on the VM page in the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section. You will need the IP addresses later to [test the hosting](#test).
 
 {% endlist %}
 
@@ -261,7 +261,7 @@ The `my-site.com` domain name must be mapped to the L7 load balancer IP address 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. Copy the IP address of the load balancer that you created.
    1. On the site of your DNS hosting provider, go to the DNS settings.
-   1. Create or edit the [A record](../../dns/concepts/resource-record.md#a) for `my-site.com` so that it points to the copied IP address:
+   1. Create or edit the [A record](../../dns/concepts/resource-record.md#a) for `my-site.com` so that it refers to the copied IP address:
 
       ```text
       my-site.com. A <L7_load_balancer_IP_address>
@@ -292,9 +292,9 @@ The `my-site.com` domain name must be mapped to the L7 load balancer IP address 
 
 {% endlist %}
 
-After setting up the DNS, [check that the hosting is running properly](#test).
+After configuring DNS, [test the hosting](#test).
 
-## Check that the hosting is running properly {#test}
+## Test the hosting {#test}
 
 {% include [tls-termination-test](../_tutorials_includes/tls-termination-test.md) %}
 

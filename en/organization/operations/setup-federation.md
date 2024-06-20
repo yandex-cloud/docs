@@ -36,7 +36,7 @@ For IdP-specific examples, see our tutorials:
 
    1. In the **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** field, specify the time before the browser asks the user to re-authenticate.
 
-   1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, specify the IdP server ID to be used for authentication. The format of the ID depends on the server type.
+   1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, specify the IdP server ID to use for authentication. The format of the ID depends on the server type.
 
       To learn how to get the IdP server ID, consult the provider's documentation or contact their support.
 
@@ -112,7 +112,7 @@ For IdP-specific examples, see our tutorials:
          {% include [fed-users-note](../../_includes/organization/fed-users-note.md) %}
 
       * (Optional) `--case-insensitive-name-ids`: If enabled, federated user name IDs will be case-insensitive.
-      * (Optional) {% include [forceauthn-cli-enable](../../_includes/organization/forceauth-cli-enable.md) %}
+      * {% include [forceauthn-cli-enable](../../_includes/organization/forceauth-cli-enable.md) %}
 
 - {{ TF }} {#tf}
 

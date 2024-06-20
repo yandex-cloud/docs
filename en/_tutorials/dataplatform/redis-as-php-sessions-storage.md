@@ -28,7 +28,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       For more information, see [{#T}](../../vpc/concepts/security-groups.md).
 
 
-   1. [Create a virtual machine with LAMP/LEMP](../../tutorials/web/lamp-lemp.md#create-vm) in {{ compute-full-name }} of any suitable configuration.
+   1. [Create a virtual machine with LAMP/LEMP](../../tutorials/web/lamp-lemp/console.md#create-vm) in {{ compute-full-name }} of any suitable configuration.
 
       
       When creating a VM, select the security group that you set up earlier. To check the security settings, enter the VM's public IP address in the browser address bar: the default page of the web server should be displayed.

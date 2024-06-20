@@ -13,6 +13,7 @@
 | `CreateInstance` | Creating a VM instance |
 | `CreateSnapshot` | Creating a disk snapshot |
 | `CreateSnapshotSchedule` | Creating a disk snapshot schedule |
+| `DecommissionHost` | Withdrawing a dedicated host for [maintenance](../../../compute/concepts/dedicated-host.md#maintenance) |
 | `DeleteDisk` | Deleting a disk |
 | `DeleteFilesystem` | Deleting a file system |
 | `DeleteGpuCluster` | Deleting a GPU cluster |
@@ -34,6 +35,7 @@
 | `UpdateDisk` | Changing a disk |
 | `UpdateFilesystem` | Modifying a file system |
 | `UpdateGpuCluster` | Updating a GPU cluster |
+| `UpdateHost` | Updating the [automatic release date](../../../compute/concepts/dedicated-host.md#maintenance) of a dedicated host |
 | `UpdateHostGroup` | Updating a group of dedicated hosts |
 | `UpdateImage` | Updating a disk image |
 | `UpdateInstance` | Updating a VM instance |

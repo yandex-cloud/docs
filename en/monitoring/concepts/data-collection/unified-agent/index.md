@@ -1,29 +1,15 @@
 # Agent for delivering metrics
 
-{{ unified-agent-full-name }} is an agent for delivering metrics for virtual machines and user applications.
+{{ unified-agent-full-name }} is the agent for delivering additional metrics of virtual machines and user applications to {{ monitoring-full-name }}.
 
 The agent supports:
 
-- Collecting Linux system metrics (CPU, RAM, disk).
+- [Collecting Linux system metrics](../../../operations/unified-agent/linux_metrics.md) (CPU, RAM, disk).
 - Collecting metrics in the [Prometheus](https://prometheus.io/) format.
 - Delivering metrics to {{ monitoring-full-name }}.
 - File storage for reliable data delivery.
 
-To install the agent configured for [delivering Linux system metrics](../../../operations/unified-agent/linux_metrics.md), run this Docker command:
-
-```bash
-docker run \
-    -p 16241:16241 -it --detach --uts=host \
-    --name=ua \
-    -v /proc:/ua_proc \
-    -e PROC_DIRECTORY=/ua_proc \
-    -e FOLDER_ID=a1bs81qpemb4******** \
-    {{ registry }}/yc/unified-agent
-```
-
-Where `FOLDER_ID` is the ID of the folder to write metrics to.
-
-For other examples of how to use the agent, see [{#T}](../../../operations/index.md#working-with-metrics). Learn more about {{ unified-agent-short-name }} installation methods in [{#T}](./installation.md). The syntax of the agent's configuration file is described in [{#T}](./configuration.md).
+You can find the examples of using the agent in [{#T}](../../../operations/index.md#working-with-metrics). Learn more about {{ unified-agent-short-name }} installation methods in [{#T}](./installation.md). The syntax of the agent's configuration file is described in [{#T}](./configuration.md).
 
 {% note info %}
 
@@ -45,121 +31,64 @@ Message routing is implemented with the help of delivery routes which consist of
 
 You can create named channels and pipes. This will help you avoid duplicate configurations and route messages from multiple inputs to the same output.
 
-### Messages {#messages}
+## How {{ unified-agent-short-name }} works {#scheme}
+
+![Unified-Agent-Concept](../../../../_assets/monitoring/concepts/unified-agent-concept.svg)
+
+## Messages {#messages}
 
 A message is the minimum atomic unit of user information that a system or application sends to {{ unified-agent-short-name }}.
 
 A message consist of a body, a timestamp, user metadata in `key:value` format, and a serial number.
 
-### Sessions {#sessions}
+## Sessions {#sessions}
 
-Sessions are an ordered stream of messages. Sessions have an ID that must be unique among all running sessions as well as user metadata in the `key:value` format.
+A session is an ordered stream of messages. A session has an ID that must be unique among all the ongoing sessions as well as user metadata in the `key:value` format.
 
 All messages sent during a session contain both message metadata and session metadata.
 
-### Inputs {#inputs}
-The agent receives messages transmitted during sessions via an input. Inputs can contain settings for session infrastructure limits.
+Types of information to collect (inputs), pipes (filters), interim storage spaces (storages), and outputs are specified in the {{ unified-agent-short-name }} configuration file.
 
-Sample input definition in the configuration file:
+## Inputs {#inputs}
+An input is used by the agent to receive the messages transmitted during sessions. An input can contain the session infrastructure settings used to configure various limits.
 
-```yaml
-- input:
-    plugin: ... # plugin name
-    id: ... # A recommended input ID used in metrics and logs
-    flow_control: # A setting for the session infrastructure
-    ...
-```
+See also the [list of available inputs](inputs.md).
 
-See also:
+## Outputs {#outputs}
 
-- [List of implemented inputs](configuration.md#inputs).
-- [Session infrastructure settings](configuration.md#flow_control).
+Outputs are used by the agent to send messages to third-party systems. The currently supported outputs are `yc_metrics`, which writes a metric to the {{ monitoring-full-name }} API, and several debug outputs.
 
-### Outputs {#outputs}
+See also [the list of available outputs](outputs.md).
 
-The output is used by the agent to send messages to third-party systems. The currently supported outputs are `yc_metrics`, which writes a metric to the {{ monitoring-full-name }} API, and several debug outputs.
+## Filters {#filters}
 
-Sample output definition in the configuration file:
-```yaml
-- output:
-    plugin: ... # plugin name
-    id: ... # A recommended output ID that's used in metrics and agent operation logs
-```
-
-See also [the list of available outputs](configuration.md#outputs).
-
-### Filters {#filters}
-
-Filters are designed to dispose of, convert, and aggregate messages.
+Filters are designed to discard, convert, and aggregate messages.
 
 Filter types:
 
 - regular: Handle each message separately.
 - cumulative: Transform a set of input messages into one output message.
 
-Sample filter definition in the configuration file:
+See also the [list of available filters](filters.md).
 
-```yaml
-- filter:
-    plugin: ... # plugin name
-    id: ... # A recommended filter ID that's used in metrics and logs
-    config: # filter configuration
-        ...
-```
+## Storages {#storages}
+Storages are intended to store messages from their receipt as an input until their transmission to the output.
+Using a storage can help you avoid data loss if the agent fails to write the data to the specified output. This may happen due to network issues or destination API unavailability.
 
-See also the [list of available filters](configuration.md#filters).
+See also the [storage configuration guide](storage.md).
 
-### Storages {#storages}
-Storages are intended to store messages on an interim basis.
+## Routing {#routing}
 
-Sample storage definition in the configuration file:
-```yaml
-- input:
-    plugin: ... # plugin name
-    id: ... # A recommended storage ID that's used in metrics and logs
-    flow_control: # A setting for the session infrastructure
-    ...
-```
-
-See also the [list of available storages](configuration.md#storages).
-
-### Routing {#routing}
-
-#### Pipes {#pipes}
-Pipes define a sequence of filters or storages that messages pass through.
+### Pipes {#pipes}
+Pipes contain:
+* Sequence of filters that messages pass through.
+* Link to the storage where the messages will be stored before their transmission to the output.
 
 Pipes can be named.
 
-Sample pipe definition in the configuration file:
-```yaml
-...
-- pipe:
-    - filter:
-        plugin: ...
-        config: ...
-    - filter:
-        plugin: ...
-        config: ...
-    - storage_ref:
-        storage: ...
-    - filter:
-        plugin: ...
-        config: ...
-    ...
-```
+See also the [pipe configuration guide](routing.md#pipes).
 
-Sample named pipe definition in the configuration file:
-
-```yaml
-pipes:
-    - name: named_pipe
-      pipe:
-         ...
-```
-
-For a complete example of a pipe configuration, see [{#T}](configuration.md#pipes).
-
-#### Channels {#channels}
+### Channels {#channels}
 
 Channels group a pipe with a node, one of an output, a named channel, or a splitter.
 
@@ -167,88 +96,14 @@ Splitters let you specify a set of channels, copying incoming messages to each o
 
 Channels can be named.
 
-Sample channel definition in the configuration file:
+See also the [named channel configuration guide](routing.md#channels).
 
-```yaml
-channel:
-    pipe:
-        ...
-    output:
-        plugin: ...
-        config: ...
-
-channel:
-    pipe:
-        ...
-    channel_ref: named_channel
-
-channel:
-    pipe:
-        ...
-    fanout:
-        - channel:
-            output:
-                ...
-        - channel:
-            pipe:
-                pipe_ref: named_pipe
-            output:
-                ...
-        - channel:
-            channel_ref: named_channel
-
-        - channel:
-            fanout:
-                ...
-```
-
-Sample named channel definition in the configuration file:
-
-```yaml
-channels:
-    - name: named_pipe
-      channel:
-         ...
-```
-
-See also a [sample named channel configuration](configuration.md#channels).
-
-#### Routes {#routes}
+### Routes {#routes}
 
 Routes combine an input and a channel.
 
-Sample route definition in the configuration file:
+Routes, channels, and pipes enable you to set up any message processing tree.
 
-```yaml
-routes:
-    - input:
-        plugin: ...
-        id: ...
-        config: ...
+See the diagram for the relations between the items of the message processing tree.
 
-      channel:
-        ...
-
-    # Sending messages from different inputs to a single output
-    - input:
-        ... (input 1)
-      channel:
-        channel_ref: named_channel
-        output:
-            output_ref: named_output
-
-    - input:
-        ... (input 2)
-      channel:
-        channel_ref: named_channel
-        output:
-            output_ref: named_output
-
-channels:
-    - name: named_channel
-      channel:
-        output:
-            ...
-```
-
-Routes, channels, and pipes let you set up any message processing tree you like.
+![Unified-Agent-Config](../../../../_assets/monitoring/concepts/unified-agent-config.svg)

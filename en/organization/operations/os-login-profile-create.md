@@ -21,9 +21,12 @@ To create an OS Login profile for a user:
   1. Go to the **{{ ui-key.yacloud_org.page.user.title_tab-os-login }}** tab.
   1. Click **{{ ui-key.yacloud_org.entity.oslogin-profile.action.create }}**.
   1. Enter the username.
+
+      {% include [note-info-user-name-limits](../../_includes/organization/note-info-user-name-limits.md) %}
+
   1. Enter a unique numeric user ID (UID) within the range of `1,000` to `65,534`.
   1. (Optional) Enter the path to the user's home directory.
-  1. (Optional) Enter the path to the shell executable file.
+  1. (Optional) Enter the path to the shell's executable file.
   1. Click **{{ ui-key.yacloud_org.forms.action.create }}**.
 
 - API {#api}

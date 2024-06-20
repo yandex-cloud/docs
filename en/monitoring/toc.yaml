@@ -61,7 +61,21 @@ items:
       - name: Installation and startup
         href: concepts/data-collection/unified-agent/installation.md
       - name: Configuration
-        href: concepts/data-collection/unified-agent/configuration.md
+        items:
+          - name: Overview
+            href: concepts/data-collection/unified-agent/configuration.md
+          - name: Inputs
+            href: concepts/data-collection/unified-agent/inputs.md
+          - name: Outputs
+            href: concepts/data-collection/unified-agent/outputs.md
+          - name: Routing
+            href: concepts/data-collection/unified-agent/routing.md
+          - name: Storages
+            href: concepts/data-collection/unified-agent/storage.md
+          - name: Filters
+            href: concepts/data-collection/unified-agent/filters.md
+          - name: Service
+            href: concepts/data-collection/unified-agent/services.md
       - name: Agent best practices
         href: concepts/data-collection/unified-agent/best-practices.md
       - name: Deletion

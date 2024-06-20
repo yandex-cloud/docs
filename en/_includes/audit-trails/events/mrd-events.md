@@ -7,6 +7,7 @@
 | `DeleteCluster` | Deleting a cluster |
 | `DeleteClusterHosts` | Deleting hosts from a cluster |
 | `DeleteClusterShard` | Deleting a shard from a cluster |
+| `EnableClusterSharding` | Enabling cluster sharding |
 | `MoveCluster` | Moving a cluster |
 | `RebalanceCluster` | Rebalancing a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
