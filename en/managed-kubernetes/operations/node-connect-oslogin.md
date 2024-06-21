@@ -41,34 +41,56 @@ Set up your cluster node for connection:
 
    {% list tabs group=instructions %}
 
-   - Using the CLI {#cli}
+   - CLI {#cli}
 
-      Add the `enable-oslogin=true` parameter to the node configuration:
+      {% include [cli-install](../../_includes/cli-install.md) %}
 
-      ```bash
-      {{ yc-k8s }} node-group update --name <node_group_name> --metadata enable-oslogin=true
-      ```
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   - Using {{ TF }} {#tf}
+      To enable {{ oslogin }} for all nodes in a node group:
+
+      1. View the description of the CLI command for adding and updating the {{ managed-k8s-name }} node group metadata:
+
+         ```bash
+         {{ yc-k8s }} node-group add-metadata --help
+         ```
+
+      1. Run this command:
+
+         ```bash
+         {{ yc-k8s }} node-group add-metadata \
+           --name <node_group_name> \
+           --metadata enable-oslogin=true
+         ```
+
+         You can request the name of a node group with a [list of node groups in the folder](./node-group/node-group-list.md#list).
+
+   - {{ TF }} {#tf}
 
       1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
          For more information about creating this file, see [{#T}](./node-group/node-group-create.md).
 
-      1. Add the `enable-oslogin = "true"` parameter to the `metadata` section:
+      1. Add the `instance_template.metadata` parameter to the node group description, or change it if it already exists.
+
+         In this parameter, specify the `enable-oslogin` metadata key with the `true` value:
 
          ```hcl
          resource "yandex_kubernetes_node_group" "<node_group_name>" {
-         ...
-           instance_template {
+           cluster_id = yandex_kubernetes_cluster.<cluster_name>.id
            ...
-             metadata         = {
-               enable-oslogin = "true"
+           instance_template {
+             metadata = {
+               "enable-oslogin" = "true"
+               ...
              }
+             ...
            }
+           ...
          }
          ```
-      1. Make sure the configuration files are valid.
+
+      1. Make sure the configuration files are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -77,6 +99,53 @@ Set up your cluster node for connection:
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
       For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+
+   - API {#api}
+
+      1. {% include [get-metadata-via-api](../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
+
+      1. Use the [update](../api-ref/NodeGroup/update.md) API method and include the following in the request:
+
+         * ID of the node group in the `nodeGroupId` parameter.
+
+         * `updateMask` parameter with the `nodeTemplate.metadata` value.
+
+            {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+         * `nodeTemplate.metadata` parameter that lists all existing node group metadata as `key=value` pairs without modification.
+
+            For the `enable-oslogin` key, replace the current value with `true`. If there is no such key, add it.
+
+            {% cut "Example of listing metadata in a parameter" %}
+
+            > * Existing metadata keys in a node group:
+            >
+            >    ```json
+            >    "nodeTemplate": {
+            >        "metadata": {
+            >            "enable-oslogin": "undefined",
+            >            "<existing_key_1>": "<existing_value_1>",
+            >            "<existing_key_2>": "<existing_value_2>"
+            >        },
+            >        ...
+            >    }
+            >    ```
+            >
+            > * Metadata keys to provide in an API request:
+            >
+            >    ```json
+            >    "nodeTemplate": {
+            >        "metadata": {
+            >            "enable-oslogin": "true",
+            >            "<existing_key_1>": "<existing_value_1>",
+            >            "<existing_key_2>": "<existing_value_2>"
+            >        }
+            >    }
+            >    ```
+
+            {% endcut %}
+
+            {% include [Alert API Updating Metadata](../../_includes/managed-kubernetes/metadata-updating-alert.md) %}
 
    {% endlist %}
 
@@ -168,7 +237,7 @@ Set up your cluster node for connection:
    Where:
 
    * `<certificate_file_path>`: Path to the previously saved `Identity` certificate file, e.g., `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
-   * `<username>`: Organization user's username. It is specified at the end of the exported {{ oslogin }} certificate's name. In the example above, it is `orgusername`.
+   * `<username>`: Organization user's name. It is specified at the end of the exported {{ oslogin }} certificate's name. In the example above, it is `orgusername`.
    * `<public_IP_address_of_node>`: Public IP address of the node obtained earlier.
 
    If this is your first time connecting to the node, you will get an unknown host warning:

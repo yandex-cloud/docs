@@ -1,5 +1,7 @@
 # Bank card payments for individuals
 
+{% include [individual-nonresidents](../../_includes/billing/individual-nonresidents.md) %}
+
 Individuals can top up their personal account and pay for the resources they use with a [bank card](#debit-card) linked to their billing account.
 
 {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}

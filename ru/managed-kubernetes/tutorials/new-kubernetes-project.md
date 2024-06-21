@@ -7,7 +7,9 @@
 
 Чтобы запустить приложение:
 1. [{#T}](#create-sa).
+1. [{#T}](#create-sg).
 1. [{#T}](#create-k8s-res).
+1. [{#T}](#cluster-connect).
 1. [{#T}](#create-cr-res).
 1. [{#T}](#setup-alb).
 1. [{#T}](#create-ingress).
@@ -289,17 +291,21 @@
      --output sa-key.json
    ```
 
-{% include [create-k8s-res](../../_includes/managed-kubernetes/create-k8s-res.md) %}
+## Создайте группы безопасности {#create-sg}
+
+{% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+{% include [configure-sg-alb-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-manual.md) %}
+
+{% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+## Подготовьте ресурсы {{ k8s }} {#create-k8s-res}
+
+{% include notitle [create-k8s-res](../../_includes/managed-kubernetes/create-k8s-res.md) %}
 
 ## Подключитесь к кластеру {{ managed-k8s-name }} {#cluster-connect}
 
-1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
-
-    {% include [configure-sg-alb-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-manual.md) %}
-
-    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
-
-1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+{% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Подготовьте ресурсы {{ container-registry-name }} {#create-cr-res}
 

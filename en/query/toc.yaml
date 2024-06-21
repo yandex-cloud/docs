@@ -34,7 +34,7 @@ items:
             href: concepts/federated-processing.md
           - name: Data partitioning
             href: concepts/partitioning.md
-          - name: Extended partitioning
+          - name: Partition projection
             href: concepts/partition-projection.md
       - name: Streaming data processing
         items:
@@ -82,6 +82,8 @@ items:
         href: sources-and-sinks/clickhouse.md
       - name: Working with {{ mpg-name }} databases
         href: sources-and-sinks/postgresql.md
+      - name: Working with {{ ydb-name }} databases
+        href: sources-and-sinks/ydb.md
       - name: Writing metrics to {{ monitoring-full-name }}
         href: sources-and-sinks/monitoring.md
   - name: Use cases

@@ -32,7 +32,7 @@ Field | Description
 organizationId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
 subjectId | **string**<br><p>The maximum string length in characters is 50.</p> 
 login | **string**<br><p>Required. The maximum string length in characters is 32. Value must match the regular expression ``^[^.]*?[^~.]$``.</p> 
-uid | **string** (int64)<br><p>Acceptable values are 1 to 9223372036854775807, inclusive.</p> 
+uid | **string** (int64)<br><p>Acceptable values are 1000 to 9223372036854775807, inclusive.</p> 
 homeDirectory | **string**<br><p>The maximum string length in characters is 255.</p> 
 shell | **string**<br><p>The maximum string length in characters is 255.</p> 
  

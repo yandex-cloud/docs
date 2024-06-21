@@ -14,5 +14,3 @@
 * [Перевод с расчетного счета](payment-methods-business.md)
 * [Отчетные документы](documents.md)
 * [Активация промокода](../operations/activate-promocode.md)
-
-

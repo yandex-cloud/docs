@@ -1,6 +1,6 @@
 # Data partitioning
 
-{{ objstorage-full-name }} lets you store very large amounts of data. Queries may only affect some of this data. If you describe the markup rules for the structure of your data storage in {{ yq-full-name }}, then you don't even need to read data that isn't required for a query from {{ objstorage-full-name }}. This makes query execution much faster without affecting the results.
+{{ objstorage-full-name }} allows you to store very large amounts of data. Queries may only affect some of this data. If you describe the markup rules for the structure of your data storage in {{ yq-full-name }}, then you do not even need to read data that is not required for a query from {{ objstorage-full-name }}. This makes query execution much faster without affecting the results.
 
 For example, data is stored in the following structure of folders:
 
@@ -86,7 +86,7 @@ WITH
 ```
 
 
-The `partitioned_by` parameter lists data schema columns used to partition data stored in {{ objstorage-full-name }}. The order of specifying fields in the partitioned_by parameter determines the nesting of {{ objstorage-full-name }} folders.
+The `partitioned_by` parameter lists data schema columns used to partition data stored in {{ objstorage-full-name }}. The order of specifying fields in the `partitioned_by` parameter determines the nesting of {{ objstorage-full-name }} folders.
 
 For example, `partitioned_by=(year, month)` defines the folder structure
 
@@ -121,9 +121,9 @@ Partitioning is only possible by the following set of YQL data types:
 
 If other data types are used for partitioning, an error is returned.
 
-## Supported storage path formats
+## Supported storage path formats {#formats}
 
-Storage path format where each folder's name explicitly specifies a column name is called "[Hive-Metastore format](https://en.wikipedia.org/wiki/Apache_Hive)" or just "Hive format".
+Storage path format where each folder's name explicitly specifies a column name is called [Hive-Metastore format](https://en.wikipedia.org/wiki/Apache_Hive) or just Hive format.
 
 This format looks as follows:
 ```
@@ -142,4 +142,4 @@ The basic partitioning mode in {{ yq-full-name }} only supports Hive format.
 
 {% endnote %}
 
-To specify arbitrary storage paths, use the [Extended data partitioning](partition-projection.md) mode.
+To specify arbitrary storage paths, use [Partition projection](partition-projection.md).

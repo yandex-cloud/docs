@@ -132,7 +132,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
 
       1. Run a check using this command:
 
@@ -273,7 +273,7 @@ Create a new key or use an existing one. To create a key:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
 
       1. Run a check using this command:
 
@@ -426,7 +426,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
 
       1. Run a check using this command:
 
@@ -574,7 +574,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash

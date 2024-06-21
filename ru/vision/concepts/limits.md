@@ -7,8 +7,10 @@ editable: false
 
 # Квоты и лимиты в {{ vision-name }}
 
-В сервисе {{ vision-full-name }} действуют следующие ограничения:
+{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-{% include [quotes-limits-def.md](../../_includes/quotes-limits-def-without-ui.md) %}
+
+Если вам необходимо больше ресурсов, отправьте [запрос в техническую поддержку]({{ link-console-support }}) и расскажите, какие потребляемые квоты нужно увеличить, для каких [моделей](ocr/index.md#models) и на сколько.
+
 
 {% include [vision-limits](../../_includes/vision-limits.md) %}

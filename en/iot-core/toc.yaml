@@ -224,6 +224,10 @@ items:
                 href: api-ref/Registry/deleteCertificate.md
               - name: deletePassword
                 href: api-ref/Registry/deletePassword.md
+              - name: disable
+                href: api-ref/Registry/disable.md
+              - name: enable
+                href: api-ref/Registry/enable.md
               - name: get
                 href: api-ref/Registry/get.md
               - name: getByName

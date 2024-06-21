@@ -190,6 +190,8 @@ items:
                 href: api-ref/ApiKey/list.md
               - name: listOperations
                 href: api-ref/ApiKey/listOperations.md
+              - name: listScopes
+                href: api-ref/ApiKey/listScopes.md
               - name: update
                 href: api-ref/ApiKey/update.md
           - name: IamToken

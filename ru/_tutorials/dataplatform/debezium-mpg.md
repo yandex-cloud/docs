@@ -140,7 +140,7 @@
     publication.name=mpg_publication
     slot.name=debezium_slot
     heartbeat.interval.ms=15000
-    heartbeat.topics.prefix=__debezium-heartbeat
+    heartbeat.topics.prefix=debezium-heartbeat
     snapshot.mode=always
     ```
 
@@ -177,13 +177,13 @@
 
 1. Создайте служебный топик для отслеживания состояния коннектора:
 
-    * **{{ ui-key.yacloud.common.name }}** — `__debezium-heartbeat.mpg`.
+    * **{{ ui-key.yacloud.common.name }}** — `debezium-heartbeat.mpg`.
 
         Имена служебных топиков [конструируются](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-property-heartbeat-topics-prefix) по принципу `<префикс_для_heartbeat>.<имя_сервера>`.
 
         Согласно [файлу настроек коннектора Debezium](#setup-debezium):
 
-        * Префикс `__debezium-heartbeat` указан в параметре `heartbeat.topics.prefix`.
+        * Префикс `debezium-heartbeat` указан в параметре `heartbeat.topics.prefix`.
         * Имя сервера `mpg` указано в параметре `database.server.name`.
 
     * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}** — `Compact`.
@@ -241,7 +241,7 @@
     kafkacat \
         -C \
         -b <FQDN_хоста-брокера_1>:9091,...,<FQDN_хоста-брокера_N>:9091 \
-        -t mpg.db1.measurements \
+        -t mpg.public.measurements \
         -X security.protocol=SASL_SSL \
         -X sasl.mechanisms=SCRAM-SHA-512 \
         -X sasl.username=debezium \

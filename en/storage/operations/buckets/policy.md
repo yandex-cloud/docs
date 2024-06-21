@@ -2,15 +2,15 @@
 
 {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
 
-[Bucket policies](../../concepts/policy.md) set permissions for actions on [buckets](../../concepts/bucket.md), [objects](../../concepts/object.md), and object groups.
+[Bucket policies](../../concepts/policy.md) set permissions for operations with [buckets](../../concepts/bucket.md), [objects](../../concepts/object.md), and object groups.
 
 ## Applying or editing a policy {#apply-policy}
 
-The minimum role required to apply or modify an access policy is `storage.configurer`. See the [role description](../../../storage/security/#storage-configurer) for details.
+The minimum role required to apply or modify an access policy is `storage.configurer`. See the [role description](../../../storage/security/index.md#storage-configurer) for details.
 
 {% note info %}
 
-If a previous bucket policy already exists for a bucket, it will be completely overwritten once you apply the changes.
+If the bucket has already had a bucket policy, it will be completely overwritten once you apply the changes.
 
 {% endnote %}
 
@@ -85,18 +85,18 @@ To apply or edit a bucket access policy:
       * `Version`: Version of the access policy description. This is an optional parameter.
       * `Statement`: Access policy rules:
          * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-         * `Principal`: ID of the requested permission subject. The possible recipients are a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
+         * `Principal`: ID of the requested permission subject. The possible grantees are a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
 
             
             You can get the IDs in any of the following ways:
-            * [User](../../../iam/operations/users/get.md)
-            * [Service account](../../../iam/operations/sa/get-id.md)
+            * [User](../../../iam/operations/users/get.md).
+            * [Service account](../../../iam/operations/sa/get-id.md).
             * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
 
 
          * `Action`: [Action](../../s3/api-ref/policy/actions.md) to be allowed when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
          * `Resource`: Resource to apply the rule to.
-         * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to be checked. This is an optional parameter.
+         * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional parameter.
 
    1. Run this command:
 
@@ -162,18 +162,18 @@ To apply or edit a bucket access policy:
       * `Version`: Version of the access policy description. This is an optional parameter.
       * `Statement`: Access policy rules:
          * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-         * `Principal`: ID of the requested permission subject. The possible recipients are a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
+         * `Principal`: ID of the requested permission subject. The possible grantees are a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
 
             
             You can get the IDs in any of the following ways:
-            * [User](../../../iam/operations/users/get.md)
-            * [Service account](../../../iam/operations/sa/get-id.md)
+            * [User](../../../iam/operations/users/get.md).
+            * [Service account](../../../iam/operations/sa/get-id.md).
             * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
 
 
          * `Action`: [Action](../../s3/api-ref/policy/actions.md) to be allowed when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
          * `Resource`: Resource to apply the rule to.
-         * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to be checked. This is an optional parameter.
+         * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional parameter.
 
       Once completed, save the configuration to a file named `policy.json`.
    1. Run this command:
@@ -237,22 +237,22 @@ To apply or edit a bucket access policy:
       * `Version`: Version of the access policy description. This is an optional parameter.
       * `Statement`: Access policy rules:
          * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-         * `Principal`: ID of the requested permission subject. The possible recipients are a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
+         * `Principal`: ID of the requested permission subject. The possible grantees are a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
 
             
             You can get the IDs in any of the following ways:
-            * [User](../../../iam/operations/users/get.md)
-            * [Service account](../../../iam/operations/sa/get-id.md)
+            * [User](../../../iam/operations/users/get.md).
+            * [Service account](../../../iam/operations/sa/get-id.md).
             * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-main }}groups) tab in the {{ org-name }} interface.
 
 
          * `Action`: [Action](../../s3/api-ref/policy/actions.md) to be allowed when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
          * `Resource`: Resource to apply the rule to.
-         * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to be checked. This is an optional parameter.
+         * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional parameter.
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
    1. Make sure the configuration files are correct.
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -273,7 +273,7 @@ To apply or edit a bucket access policy:
 
 - API {#api}
 
-   To manage your bucket policy, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [PutBucketPolicy](../../s3/api-ref/policy/put.md) S3 API method. If a previous access policy already exists for a bucket, it will be completely overwritten once you apply the new policy.
+   To manage your bucket policy, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [PutBucketPolicy](../../s3/api-ref/policy/put.md) S3 API method. If a bucket policy has already been set for the bucket, it will be completely overwritten once you apply the new policy.
 
 {% endlist %}
 

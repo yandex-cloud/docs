@@ -40,14 +40,14 @@ clusterId | <p>Required. ID of the MongoDB cluster to update hosts from. To get 
  
 Field | Description
 --- | ---
-updateHostSpecs[] | **object**<br><p>Required. New configurations to apply to hosts.</p> <p>Must contain at least one element.</p> 
-updateHostSpecs[].<br>hostName | **string**<br><p>Required. Names of hosts to update.</p> <p>The maximum string length in characters is 253.</p> 
-updateHostSpecs[].<br>hidden | **boolean** (boolean)<br><p>Is host hidden in replSet</p> 
-updateHostSpecs[].<br>secondaryDelaySecs | **integer** (int64)<br><p>The number of seconds "behind" the primary that this replica set member should "lag"</p> 
-updateHostSpecs[].<br>priority | **number** (double)<br><p>Priority of host for the election in replSet</p> 
-updateHostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the host should get a public IP address on update.</p> 
+updateHostSpecs[] | **object**<br><p>Required. New configurations to apply to hosts of a Managed Service for MongoDB cluster.</p> <p>Must contain at least one element.</p> 
+updateHostSpecs[].<br>hostName | **string**<br><p>Required. Host to be updated. Specify the <a href="https://yandex.cloud/en/docs/managed-mongodb/operations/connect/#fqdn">host FQDN</a>.</p> <p>The maximum string length in characters is 253.</p> 
+updateHostSpecs[].<br>hidden | **boolean** (boolean)<br><p>Determines if the host is a hidden replica set member.</p> <p>Such members cannot become primary in a replica set, and they are invisible to client applications. However, hidden members can participate in elections of the primary host. For more information, see the <a href="https://www.mongodb.com/docs/manual/core/replica-set-hidden-member/">MongoDB documentation</a>.</p> 
+updateHostSpecs[].<br>secondaryDelaySecs | **integer** (int64)<br><p>The time, in seconds, by which the given replica set member lags behind the primary host.</p> 
+updateHostSpecs[].<br>priority | **number** (double)<br><p>Priority of the host to be elected as the primary in the replica set.</p> <p>The minimum value is ``0`` if the Managed Service for MongoDB cluster contains three or more secondary hosts. Otherwise, the minimum value is ``1``.</p> 
+updateHostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether the host should get a public IP address after the update.</p> 
 updateHostSpecs[].<br>updateMask | **string**<br><p>Field mask that specifies which fields of the MongoDB host should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-updateHostSpecs[].<br>tags | **object**<br><p>Host tags</p> 
+updateHostSpecs[].<br>tags | **object**<br><p>Host tag list that contains key-value pairs for the given replica set member. For more information about how to specify the tags and what values to choose, see the <a href="https://www.mongodb.com/docs/manual/reference/replica-configuration/#mongodb-rsconf-rsconf.members-n-.tags">MongoDB documentation</a>.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

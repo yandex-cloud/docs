@@ -43,7 +43,7 @@ To renew a certificate, follow the steps below. Keep track of the lifecycle of y
 
    {% note info %}
 
-   If the certificate is used for a [static website in {{ objstorage-name }}](../../tutorials/web/static.md) and doesn't contain [masked domains](https://en.wikipedia.org/wiki/Wildcard_certificate),
+   If the certificate is used for a [static website in {{ objstorage-name }}](../../tutorials/web/static/index.md) and doesn't contain [masked domains](https://en.wikipedia.org/wiki/Wildcard_certificate),
    the rights can be checked automatically. For more information, see [Checking rights automatically](challenges.md#auto).
 
    {% endnote %}

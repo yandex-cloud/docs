@@ -34,13 +34,12 @@
 
      {% endnote %}
 
-  1. [Создайте кластер {{ managed-k8s-name }}](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../operations/node-group/node-group-create.md). При создании кластера {{ managed-k8s-name }} укажите ранее созданные сервисные аккаунты для ресурсов и узлов.
-
   1. {% include [configure-sg-manual](../../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
         {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-  1. [Настройте группу безопасности](../../../managed-gitlab/operations/configure-security-group.md) для работы [инстанса {{ mgl-name }}](../../../managed-gitlab/concepts/index.md#instance).
+  1. [Создайте группу безопасности](../../../managed-gitlab/operations/configure-security-group.md) для работы [инстанса {{ mgl-name }}](../../../managed-gitlab/concepts/index.md#instance).
+  1. [Создайте кластер {{ managed-k8s-name }}](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../operations/node-group/node-group-create.md). При создании кластера {{ managed-k8s-name }} укажите ранее созданные сервисные аккаунты для ресурсов и узлов и группы безопасности для кластера.
   1. [Создайте реестр {{ container-registry-full-name }}](../../../container-registry/operations/registry/registry-create.md).
   1. [Сохраните идентификатор созданного реестра](../../../container-registry/operations/registry/registry-list.md#registry-get) — он понадобится для следующих шагов.
 

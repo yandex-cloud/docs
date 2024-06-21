@@ -14,4 +14,8 @@ description: "Follow this guide to delete a security profile."
    1. Next to the profile to delete, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
    1. Confirm the deletion.
 
+- API {#api}
+
+   Use the [delete](../api-ref/SecurityProfile/delete.md) REST API method for the [SecurityProfile](../api-ref/SecurityProfile/) resource or the [SecurityProfileService/Delete](../api-ref/grpc/security_profile_service.md#Delete) gRPC API call.
+
 {% endlist %}

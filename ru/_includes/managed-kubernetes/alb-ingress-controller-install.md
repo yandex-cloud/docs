@@ -11,7 +11,7 @@
 
 1. {% include [check-sg-prerequsites](./security-groups/check-sg-prerequsites-lvl3.md) %}
 
-    Также [убедитесь](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md), что  настроены группы безопасности, необходимые для работы {{ alb-name }}.
+    Также [убедитесь](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md), что настроены группы безопасности, необходимые для работы {{ alb-name }}.
 
     {% include [sg-common-warning](./security-groups/sg-common-warning.md) %}
 

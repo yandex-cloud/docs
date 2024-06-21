@@ -11,14 +11,15 @@ A billing threshold is a negative [personal account balance](../concepts/persona
 
 Your billing threshold is valid for 1 month.
 
-The billing threshold is only valid when you select a bank card as your payment method. If you do, when you reach your threshold, an attempt will be made to debit your card to cover what you owe.
-
 {% note alert %}
 
 The billing threshold amount and the total arrears when you are blocked may be different, since access to resources is not suspended immediately. The fact that you have a billing threshold does not guarantee that you will not spend over your threshold.
 
 {% endnote %}
 
+The billing threshold is only valid when you select a bank card as your payment method. If you do, when you reach your threshold, an attempt will be made to debit your card to cover what you owe.
+
+{% include [card-business-nonresidents](../../_includes/billing/card-business-nonresidents.md) %}
 
 ## Billing threshold amount {#amount}
 

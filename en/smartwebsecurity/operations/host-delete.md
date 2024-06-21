@@ -16,4 +16,8 @@ description: "Follow this guide to disconnect a security profile from a virtual 
    1. Next to the host from which you want to disconnect the profile, click ![options](../../_assets/console-icons/ellipsis.svg) and select ![disconnect](../../_assets/console-icons/arrow-shape-left-from-line.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_disconnect-host }}**.
    1. Confirm your action.
 
+- API {#api}
+
+   {% include [api-host](../../_includes/smartwebsecurity/api-host.md) %}
+
 {% endlist %}

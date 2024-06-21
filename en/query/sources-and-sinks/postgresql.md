@@ -1,21 +1,21 @@
 # Working with {{ mpg-name }} databases
 
-This section describes the basic information about working with [{{ mpg-name }}](https://yandex.cloud/en/services/managed-postgresql).
+This section provides the basic information about working with [{{ mpg-name }}](https://yandex.cloud/en/services/managed-postgresql).
 
-Example of reading data from {{ mpg-name }}:
+To work with a {{ mpg-name }} database, follow these steps:
+1. Create a [connection](../concepts/glossary.md#connection) containing your database connection credentials.
+1. [Run a query](#query) to the database.
+
+Example of a query for reading data from {{ mpg-name }}:
 
 ```sql
 SELECT * FROM postgresql_mdb_connection.my_table
 ```
 
 Where:
-* `postgresql_mdb_connection`: Name of the created database connection.
+* `postgresql_mdb_connection`: Name of the DB connection you created.
 * `my_table`: Name of the table in the database.
 
-
-To work with a {{ mpg-name }} database, follow these steps:
-1. Create a [connection](../concepts/glossary.md#connection) containing your database connection credentials.
-1. [Run a query](#query) to the database.
 
 ## Setting up a connection {#create_connection}
 
@@ -59,7 +59,7 @@ SELECT * FROM <connection>.<table_name>
 ```
 
 Where:
-* `<connection>`: Name of the established database connection.
+* `<connection>`: Name of the DB connection you created.
 * `<table_name>`: Name of the table in the database.
 
 ## Limitations {#limits}
@@ -67,9 +67,9 @@ Where:
 There are several restrictions when working with {{ PG }} clusters.
 
 Limitations:
-1. No query types are supported other than the `SELECT` data read queries.
+1. {% include [!](_includes/supported_requests.md) %}
 1. {{ yq-short-name }} uses the [type system](https://ydb.tech/docs/en/yql/reference/types/primitive) {{ ydb-full-name }}. However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ PG }} types (`date` and `timestamp`).
- Therefore, {{ yq-short-name }} returns date and time values read from {{ PG }} as plain strings (the `Optional<Utf8>` type) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
+Therefore, {{ yq-short-name }} returns date and time values read from {{ PG }} as plain strings (the `Optional<Utf8>` type) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
 
 ## Filter pushdown {#predicate_pushdown}
 
@@ -82,26 +82,26 @@ In a {{ PG }} DB, the optionality of column values (whether or not the column ca
 The table below shows how {{ PG }} and {{ yq-full-name }} types map. All other data types except those listed are not supported.
 
 | Data type {{ PG }} | Data type {{ yq-full-name }} | Notes |
-|---|----|------|
-| `boolean` | `Optional<Bool>` |
-| `smallint` | `Optional<Int16>` |
-| `int2` | `Optional<Int16>` |
-| `integer` | `Optional<Int32>` |
-| `int` | `Optional<Int32>` |
-| `int4` | `Optional<Int32>` |
-| `serial` | `Optional<Int32>` |
-| `serial4` | `Optional<Int32>` |
-| `bigint` | `Optional<Int64>` |
-| `int8` | `Optional<Int64>` |
-| `bigserial` | `Optional<Int64>` |
-| `serial8` | `Optional<Int64>` |
-| `real` | `Optional<Float>` |
-| `float4` | `Optional<Float>` |
-| `double precision` | `Optional<Double>` |
-| `float8` | `Optional<Double>` |
-| `date` | `Optional<Utf8>` |
-| `timestamp` | `Optional<Utf8>` |
-| `bytea` | `Optional<String>` |
+| :---: | :---: | :--- |
+| `boolean` | `Optional<Bool>` | |
+| `smallint` | `Optional<Int16>` | |
+| `int2` | `Optional<Int16>` | |
+| `integer` | `Optional<Int32>` | |
+| `int` | `Optional<Int32>` | |
+| `int4` | `Optional<Int32>` | |
+| `serial` | `Optional<Int32>` | |
+| `serial4` | `Optional<Int32>` | |
+| `bigint` | `Optional<Int64>` | |
+| `int8` | `Optional<Int64>` | |
+| `bigserial` | `Optional<Int64>` | |
+| `serial8` | `Optional<Int64>` | |
+| `real` | `Optional<Float>` | |
+| `float4` | `Optional<Float>` | |
+| `double precision` | `Optional<Double>` | |
+| `float8` | `Optional<Double>` | |
+| `date` | `Optional<Utf8>` | |
+| `timestamp` | `Optional<Utf8>` | |
+| `bytea` | `Optional<String>` | |
 | `character` | `Optional<Utf8>` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply; the string is padded with spaces to the required length. |
 | `character varying` | `Utf8` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |
 | `text` | `Utf8` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |

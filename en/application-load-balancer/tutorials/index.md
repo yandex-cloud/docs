@@ -12,3 +12,6 @@ description: "Various {{ alb-full-name }} use cases in {{ yandex-cloud }}"
 * [{#T}](tls-termination/index.md)
 * [{#T}](logging.md)
 * [{#T}](load-testing-grpc-autoscaling.md)
+* [{#T}](gateway-api.md)
+* [{#T}](alb-ingress-controller.md)
+* [{#T}](alb-ingress-controller-log-options.md)

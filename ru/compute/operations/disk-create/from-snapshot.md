@@ -117,8 +117,8 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API {#api}
 
-  1. Получите список снимков с помощью метода [SnapshotService/List](../../api-ref/grpc/snapshot_service.md#List) gRPC API или метода [list](../../api-ref/Snapshot/list.md) ресурса `Snapshot` REST API.
-  1. Создайте диск с помощью метода [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) gRPC API или метода [create](../../api-ref/Disk/create.md) ресурса `Disk` REST API. В запросе укажите идентификатор снимка.
+  1. Получите список снимков с помощью вызова gRPC API [SnapshotService/List](../../api-ref/grpc/snapshot_service.md#List) или метода [list](../../api-ref/Snapshot/list.md) ресурса `Snapshot` REST API.
+  1. Создайте диск с помощью вызова gRPC API [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) или метода [create](../../api-ref/Disk/create.md) ресурса `Disk` REST API. В запросе укажите идентификатор снимка.
 
 {% endlist %}
 

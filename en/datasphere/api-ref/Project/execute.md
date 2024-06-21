@@ -27,6 +27,8 @@ projectId | <p>Required. ID of the project to execute notebook/cell in.</p> <p>T
   "outputVariableNames": [
     "string"
   ],
+  "spec": "string",
+  "sparkConnectorId": "string",
 
   //  includes only one of the fields `notebookId`, `cellId`
   "notebookId": "string",
@@ -39,8 +41,10 @@ projectId | <p>Required. ID of the project to execute notebook/cell in.</p> <p>T
  
 Field | Description
 --- | ---
-inputVariables | **object**<br><p>Values of input variables.</p> 
+inputVariables | **object**<br><p>Values of input variables. Input variables will be available in the project as environment variables.</p> 
 outputVariableNames[] | **string**<br><p>Names of output variables.</p> 
+spec | **string**<br><p>Specification of the VM</p> 
+sparkConnectorId | **string**<br><p>ID of the Spark Connector</p> <p>The maximum string length in characters is 200.</p> 
 notebookId | **string** <br> includes only one of the fields `notebookId`, `cellId`<br><br><p>The path to the executable notebook in the project storage. The maximum string length is 200 characters.</p> <p>To get the path, right-click on the notebook in JupyterLab and select ``Copy path``.</p> <p>The maximum string length in characters is 200.</p> 
 cellId | **string** <br> includes only one of the fields `notebookId`, `cellId`<br><br><p>ID of the cell to execute. Deprecated</p> <p>The maximum string length in characters is 200.</p> 
  

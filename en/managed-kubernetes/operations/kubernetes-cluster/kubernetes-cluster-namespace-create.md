@@ -17,7 +17,7 @@ To create a namespace in a {{ managed-k8s-name }} cluster:
    1. In the top-right corner, click **{{ ui-key.yacloud.k8s.namespaces.button_create }}**.
    1. Specify a **{{ ui-key.yacloud.k8s.namespaces.popup-add_field_name }}** for the namespace. It must be compliant with [RFC 1123](https://datatracker.ietf.org/doc/html/rfc1123):
 
-      {% include [name-format-2](../../../_includes/name-format-2.md) %}
+      {% include [namespace-name](../../../_includes/managed-kubernetes/namespace-name.md) %}
 
       {% include [note-namespace-kube](../../../_includes/managed-kubernetes/note-namespace-kube.md) %}
 
@@ -35,7 +35,7 @@ To create a namespace in a {{ managed-k8s-name }} cluster:
 
    The namespace name must comply with [RFC 1123](https://datatracker.ietf.org/doc/html/rfc1123):
 
-   {% include [name-format-2](../../../_includes/name-format-2.md) %}
+   {% include [namespace-name](../../../_includes/managed-kubernetes/namespace-name.md) %}
 
    {% include [note-namespace-kube](../../../_includes/managed-kubernetes/note-namespace-kube.md) %}
 
