@@ -13,7 +13,7 @@
 
 1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) tab.
-1. Under **Applications available for installation**, select [NodeLocal DNS](/marketplace/products/yc/node-local-dns) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [NodeLocal DNS](/marketplace/products/yc/node-local-dns) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Select the `kube-system` [namespace](../../concepts/index.md#namespace).
    * **Application name**: Specify the name for the application to be deployed in the {{ managed-k8s-name }} cluster.
@@ -30,7 +30,7 @@ After installing NodeLocal DNS, use the following values:
 ## Installation using a Helm chart {#helm-install}
 
 1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
-
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/), from NodeLocal DNS, run the following command:
 
    ```bash

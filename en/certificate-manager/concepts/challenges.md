@@ -150,7 +150,7 @@ A check is performed automatically if the following conditions are met:
 
 A check is performed automatically if the following conditions are met:
 * The certificate status is `Renewing`: it is being [renewed](managed-certificate.md#renew).
-* The certificate is used in the [HTTPS configuration](../../storage/operations/hosting/certificate#cert-manager) of a static website in [{{ objstorage-name }}](../../tutorials/web/static.md).
+* The certificate is used in the [HTTPS configuration](../../storage/operations/hosting/certificate#cert-manager) of a static website in [{{ objstorage-name }}](../../tutorials/web/static/index.md).
 * For each certificate domain, the following is configured:
    * An [alias](../../storage/operations/hosting/own-domain.md) for the static website bucket where the certificate is used.
    * Or a [redirect](../../storage/operations/hosting/multiple-domains.md) to the domain with the alias for the bucket.

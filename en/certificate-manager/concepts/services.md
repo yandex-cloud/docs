@@ -52,5 +52,5 @@ You can store a {{ certificate-manager-name }} user certificate's public part in
 
 #### See also {#see-also}
 
-* [Static website in {{ objstorage-name }}](../../tutorials/web/static.md)
+* [Static website in {{ objstorage-name }}](../../tutorials/web/static/index.md)
 * [{{ api-gw-full-name }}](../../api-gateway/)

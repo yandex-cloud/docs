@@ -38,6 +38,7 @@ description: "In this article, you will learn how to work with the managed servi
 * [{#T}](applications/upgrade-alb-ingress-controller.md)
 * [{#T}](applications/istio.md)
 * [{#T}](applications/jaeger.md)
+* [{#T}](applications/kruise.md)
 * [{#T}](applications/kyverno.md)
 * [{#T}](applications/loki.md)
 * [{#T}](applications/metrics-provider.md)

@@ -23,6 +23,10 @@ description: "Follow this guide to connect a security profile to a virtual host.
 
       In the **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** tab, you will see the connected virtual hosts.
 
+- API {#api}
+
+   {% include [api-host](../../_includes/smartwebsecurity/api-host.md) %}
+
 {% endlist %}
 
 {% include [auto-scaling-tip](../../_includes/smartwebsecurity/auto-scaling-tip.md) %}

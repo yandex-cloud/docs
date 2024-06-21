@@ -5209,8 +5209,6 @@ default:
           time-shift: Задержка вычисления
       prometheus:
         approved:
-          tab:
-            write: Запись метрик
           widget-monitoring:
             title: Мониторить процесс записи
       service:

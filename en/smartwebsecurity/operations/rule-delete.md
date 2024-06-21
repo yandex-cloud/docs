@@ -15,4 +15,8 @@ description: "Follow this guide to delete a rule from a security profile."
    1. In the **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** tab, next to the rule to delete, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
    1. Confirm the deletion.
 
+- API {#api}
+
+   {% include [api-profile-update](../../_includes/smartwebsecurity/api-profile-update.md) %}
+
 {% endlist %}

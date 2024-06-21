@@ -10,9 +10,11 @@ sourcePath: overlay/security/start_auth.md
 
 To allow access to {{ ydb-short-name }} resources (databases and database users), assign the required roles from the list below to the Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), or [system group](../../iam/concepts/access-control/system-group.md). A role can be assigned to a parent resource (directory or cloud) whose roles are inherited by nested resources.
 
-You can also grant a role for access to a specific database. This will allow a user without any roles in the directory hosting the database to access the database according to the role assigned.
+You can also grant a role to access a specific database. This will allow a user without any roles in the directory hosting the database to access the database according to the role assigned.
 
-Only users with the `admin`, `resource-manager.clouds.owner`, or `organization-manager.organizations.owner` role for a resource can assign roles for this resource.
+Roles for a resource can be assigned by users who have the `ydb.admin` role or one of the following roles for that resource:
+
+{% include [roles-list](../../_includes/iam/roles-list.md) %}
 
 {% note info %}
 

@@ -90,7 +90,7 @@
 1. Установите провайдер:
 
    ```bash
-   kubectl crossplane install provider {{ registry }}/crp0kch415f0lke009ft/crossplane/provider-jet-yc:v0.1.33
+   kubectl crossplane install provider xpkg.upbound.io/yandexcloud/crossplane-provider-yc:v0.4.1
    ```
 
    Актуальная версия провайдера доступна в [GitHub-репозитории](https://github.com/yandex-cloud/crossplane-provider-yc).

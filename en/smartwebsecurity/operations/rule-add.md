@@ -17,6 +17,10 @@ description: "Follow this guide to add a rule to a security profile."
 
       {% include [add-rule](../../_includes/smartwebsecurity/add-rule.md) %}
 
+- API {#api}
+
+   {% include [api-profile-update](../../_includes/smartwebsecurity/api-profile-update.md) %}
+
 {% endlist %}
 
 ### See also {#see-also}

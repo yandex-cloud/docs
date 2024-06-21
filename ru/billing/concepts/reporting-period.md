@@ -6,7 +6,6 @@
 
 В последний день месяца в [Яндекс Балансе](https://balance.yandex.ru/) формируются [отчетные документы](../payment/documents.md) для организаций и ИП. Если к платежному аккаунту привязана карта, [рассчитывается](../payment/payment-methods-card-business.md#payment-amount) итоговая сумма к оплате и инициируется списание средств с этой карты.
 
-
 Подробнее о циклах оплаты:
-- [для физических лиц](../payment/billing-cycle-individual.md);
-- [для организаций и ИП](../payment/billing-cycle-business.md).
+* [для физических лиц](../payment/billing-cycle-individual.md);
+* [для организаций и ИП](../payment/billing-cycle-business.md).

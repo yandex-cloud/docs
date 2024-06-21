@@ -190,8 +190,14 @@ items:
         href: applied/index.md
       - name: Creating a site
         items:
-          - name: Static site in {{ objstorage-name }}
-            href: web/static.md
+          - name: Static website in {{ objstorage-full-name }}
+            items:
+              - name: Overview
+                href: web/static/index.md
+              - name: Management console
+                href: web/static/console.md
+              - name: Terraform
+                href: web/static/terraform.md
           - name: Website on a LAMP or LEMP stack
             items:
               - name: Overview

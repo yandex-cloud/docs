@@ -7,6 +7,7 @@
 1. [Создайте сервисные аккаунты](#create-sa).
    1. [Создайте сервисный аккаунт для ресурсов](#res-sa).
    1. [Создайте сервисный аккаунт для узлов {{ managed-k8s-name }}](#node-sa).
+1. [Создайте группы безопасности](#create-sg).
 1. [Подготовьте необходимые ресурсы {{ k8s }}](#create-k8s-res).
    1. [Создайте кластер {{ managed-k8s-name }}](#create-cluster).
    1. [Создайте группу узлов {{ managed-k8s-name }}](#create-node-groups).
@@ -103,7 +104,7 @@
      --subject serviceAccount:$RES_SA_ID
    ```
 
-### Создайте сервисный аккаунт для узлов групп безопасности {#node-sa}
+### Создайте сервисный аккаунт для узлов кластера {#node-sa}
 
 Чтобы создать сервисный аккаунт, от имени которого узлы {{ managed-k8s-name }} будут скачивать из реестра необходимые Docker-образы.
 1. Запишите в переменную идентификатор каталога из конфигурации вашего профиля CLI:
@@ -169,7 +170,15 @@
      --subject serviceAccount:$NODE_SA_ID
    ```
 
-{% include [create-k8s-res](../../_includes/managed-kubernetes/create-k8s-res.md) %}
+## Создайте группы безопасности {#create-sg}
+
+{% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+{% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+## Подготовьте ресурсы {{ k8s }} {#create-k8s-res}
+
+{% include notitle [create-k8s-res](../../_includes/managed-kubernetes/create-k8s-res.md) %}
 
 ## Подготовьте ресурсы {{ container-registry-name }} {#create-cr-res}
 
@@ -253,11 +262,7 @@ yc container registry configure-docker
 
 ## Подключитесь к кластеру {{ managed-k8s-name }} {#cluster-connect}
 
-1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
-
-    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
-
-1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+{% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Запустите тестовое приложение {#test-app}
 

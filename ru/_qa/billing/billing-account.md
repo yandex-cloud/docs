@@ -36,9 +36,11 @@
 
 После создания платежного аккаунта вы не можете изменить его тип, однако можете [создать новый](../../billing/operations/create-new-account.md).
 
+
 #### Как подключить порог оплаты?  {#credit}
 
 [Порог оплаты](../../billing/concepts/billing-threshold.md) подключается автоматически после [активации платной версии](../../billing/operations/activate-commercial.md) и завершения первого отчетного периода.
+
 
 {% include [change-payment-method](../../billing/_includes/change-payment-method.md) %}
 
@@ -63,11 +65,13 @@
 
 
 
+
 #### Не могу привязать банковскую карту при создании платежного аккаунта. Что делать?  {#cant-create}
 
 Скорее всего, платежная система вашей карты не поддерживается нашим сервисом.
 
 Для решения проблемы попробуйте привязать другую карту или, если вы являетесь юридическим лицом, создайте платежный аккаунт с типом **{{ ui-key.yacloud_billing.billing.account.create-new.account-type_label_company }}** и способом оплаты **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}**.
+
 
 #### Почему при создании платежного аккаунта появляется ошибка «Недоступная страна для плательщика»?  {#account-error}
 

@@ -158,7 +158,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need _at least_ the 
 
    {% cut "Optional parameters" %}
 
-   You can apply a [predefined ACL](../../storage/concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../iam/concepts/users/service-accounts.md), [user groups](../../organization/concepts/groups.md) and [system groups](../../storage/concepts/acl.md#system-groups) (e.g., a group including all internet users or a group including all authenticated {{ yandex-cloud }} users). These settings are not compatible: a bucket should have either a predefined ACL or a set of individual permissions.
+   You can apply a [predefined ACL](../../storage/concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../iam/concepts/users/service-accounts.md), [user groups](../../organization/concepts/groups.md) and [system groups](../../storage/concepts/acl.md#system-groups) (e.g., a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). These settings are not compatible: a bucket should have either a predefined ACL or a set of individual permissions.
 
    {% note info %}
 
@@ -303,7 +303,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need _at least_ the 
       For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
    1. Make sure the configuration files are correct.
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash

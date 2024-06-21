@@ -168,6 +168,14 @@ editable: false
 ### Хранилище и резервные копии {#prices-storage}
 
 
+{% note info %}
+
+Доступ к хранилищу на сетевых SSD-дисках с тремя репликами предоставляется по запросу. Обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+
+{% endnote %}
+
+
+
 {% list tabs group=pricing %}
 
 - Цены в рублях {#prices-rub}
@@ -183,5 +191,4 @@ editable: false
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
-
 

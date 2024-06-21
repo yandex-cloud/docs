@@ -118,6 +118,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongocfg": {
@@ -175,6 +180,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongos": {
@@ -199,6 +209,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongoinfra": {
@@ -273,6 +288,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       }
     },
@@ -350,6 +370,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongocfg": {
@@ -407,6 +432,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongos": {
@@ -431,6 +461,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongoinfra": {
@@ -505,6 +540,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       }
     },
@@ -618,6 +658,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongocfg": {
@@ -675,6 +720,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongos": {
@@ -714,6 +764,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongoinfra": {
@@ -803,6 +858,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       }
     },
@@ -916,6 +976,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongocfg": {
@@ -973,6 +1038,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongos": {
@@ -1012,6 +1082,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongoinfra": {
@@ -1101,6 +1176,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       }
     },
@@ -1217,6 +1297,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongocfg": {
@@ -1274,6 +1359,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongos": {
@@ -1313,6 +1403,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongoinfra": {
@@ -1402,6 +1497,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       }
     },
@@ -1518,6 +1618,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongocfg": {
@@ -1575,6 +1680,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongos": {
@@ -1614,6 +1724,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongoinfra": {
@@ -1703,6 +1818,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       }
     },
@@ -1858,6 +1978,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongocfg": {
@@ -1915,6 +2040,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongos": {
@@ -1954,6 +2084,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongoinfra": {
@@ -2043,6 +2178,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       }
     },
@@ -2204,6 +2344,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongocfg": {
@@ -2261,6 +2406,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongos": {
@@ -2300,6 +2450,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongoinfra": {
@@ -2389,6 +2544,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       }
     },
@@ -2550,6 +2710,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongocfg": {
@@ -2607,6 +2772,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongos": {
@@ -2646,6 +2816,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       },
       "mongoinfra": {
@@ -2735,6 +2910,11 @@ A set of methods for managing MongoDB Cluster resources.
           "resourcePresetId": "string",
           "diskSize": "string",
           "diskTypeId": "string"
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "integer",
+          "emergencyUsageThreshold": "integer",
+          "diskSizeLimit": "integer"
         }
       }
     },
@@ -2846,6 +3026,10 @@ config.<br>mongodb_3_6.<br>mongod.<br>resources | **object**<br><p>Resources all
 config.<br>mongodb_3_6.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_3_6.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_3_6.<br>mongod.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_3_6.<br>mongod.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_3_6.<br>mongod.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_3_6.<br>mongod.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_3_6.<br>mongod.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_3_6.<br>mongocfg | **object**<br><p>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster.</p> 
 config.<br>mongodb_3_6.<br>mongocfg.<br>config | **object**
 config.<br>mongodb_3_6.<br>mongocfg.<br>config.<br>effectiveConfig | **object**<br><p>Effective mongocfg settings for a MongoDB 3.6 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -2882,6 +3066,10 @@ config.<br>mongodb_3_6.<br>mongocfg.<br>resources | **object**<br><p>Resources a
 config.<br>mongodb_3_6.<br>mongocfg.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_3_6.<br>mongocfg.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_3_6.<br>mongocfg.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_3_6.<br>mongocfg.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_3_6.<br>mongocfg.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_3_6.<br>mongocfg.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_3_6.<br>mongocfg.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_3_6.<br>mongos | **object**<br><p>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster.</p> 
 config.<br>mongodb_3_6.<br>mongos.<br>config | **object**
 config.<br>mongodb_3_6.<br>mongos.<br>config.<br>effectiveConfig | **object**<br><p>Effective settings for a MongoDB 3.6 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -2897,6 +3085,10 @@ config.<br>mongodb_3_6.<br>mongos.<br>resources | **object**<br><p>Resources all
 config.<br>mongodb_3_6.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_3_6.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_3_6.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_3_6.<br>mongos.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_3_6.<br>mongos.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_3_6.<br>mongos.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_3_6.<br>mongos.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_3_6.<br>mongoinfra | **object**<br><p>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster.</p> 
 config.<br>mongodb_3_6.<br>mongoinfra.<br>configMongos | **object**
 config.<br>mongodb_3_6.<br>mongoinfra.<br>configMongos.<br>effectiveConfig | **object**<br><p>Effective settings for a MongoDB 3.6 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -2943,6 +3135,10 @@ config.<br>mongodb_3_6.<br>mongoinfra.<br>resources | **object**<br><p>Resources
 config.<br>mongodb_3_6.<br>mongoinfra.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_3_6.<br>mongoinfra.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_3_6.<br>mongoinfra.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_3_6.<br>mongoinfra.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_3_6.<br>mongoinfra.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_3_6.<br>mongoinfra.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_3_6.<br>mongoinfra.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_4_0 | **object** <br>`config` includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`<br>
 config.<br>mongodb_4_0.<br>mongod | **object**<br><p>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster.</p> 
 config.<br>mongodb_4_0.<br>mongod.<br>config | **object**<br><p>Configuration for mongod 4.0 hosts.</p> 
@@ -2992,6 +3188,10 @@ config.<br>mongodb_4_0.<br>mongod.<br>resources | **object**<br><p>Resources all
 config.<br>mongodb_4_0.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_4_0.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_4_0.<br>mongod.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_4_0.<br>mongod.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_4_0.<br>mongod.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_0.<br>mongod.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_0.<br>mongod.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_4_0.<br>mongocfg | **object**<br><p>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster.</p> 
 config.<br>mongodb_4_0.<br>mongocfg.<br>config | **object**<br><p>Configuration for mongocfg 4.0 hosts.</p> 
 config.<br>mongodb_4_0.<br>mongocfg.<br>config.<br>effectiveConfig | **object**<br><p>Effective mongocfg settings for a MongoDB 4.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -3028,6 +3228,10 @@ config.<br>mongodb_4_0.<br>mongocfg.<br>resources | **object**<br><p>Resources a
 config.<br>mongodb_4_0.<br>mongocfg.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_4_0.<br>mongocfg.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_4_0.<br>mongocfg.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_4_0.<br>mongocfg.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_4_0.<br>mongocfg.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_0.<br>mongocfg.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_0.<br>mongocfg.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_4_0.<br>mongos | **object**<br><p>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster.</p> 
 config.<br>mongodb_4_0.<br>mongos.<br>config | **object**<br><p>Configuration for mongos 4.0 hosts.</p> 
 config.<br>mongodb_4_0.<br>mongos.<br>config.<br>effectiveConfig | **object**<br><p>Effective mongos settings for a MongoDB 4.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -3043,6 +3247,10 @@ config.<br>mongodb_4_0.<br>mongos.<br>resources | **object**<br><p>Resources all
 config.<br>mongodb_4_0.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_4_0.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_4_0.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_4_0.<br>mongos.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_4_0.<br>mongos.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_0.<br>mongos.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_0.<br>mongos.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_4_0.<br>mongoinfra | **object**<br><p>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster.</p> 
 config.<br>mongodb_4_0.<br>mongoinfra.<br>configMongos | **object**
 config.<br>mongodb_4_0.<br>mongoinfra.<br>configMongos.<br>effectiveConfig | **object**<br><p>Effective mongos settings for a MongoDB 4.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -3089,6 +3297,10 @@ config.<br>mongodb_4_0.<br>mongoinfra.<br>resources | **object**<br><p>Resources
 config.<br>mongodb_4_0.<br>mongoinfra.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_4_0.<br>mongoinfra.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_4_0.<br>mongoinfra.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_4_0.<br>mongoinfra.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_4_0.<br>mongoinfra.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_0.<br>mongoinfra.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_0.<br>mongoinfra.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_4_2 | **object** <br>`config` includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`<br>
 config.<br>mongodb_4_2.<br>mongod | **object**<br><p>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster.</p> 
 config.<br>mongodb_4_2.<br>mongod.<br>config | **object**<br><p>Configuration for mongod 4.2 hosts.</p> 
@@ -3159,6 +3371,10 @@ config.<br>mongodb_4_2.<br>mongod.<br>resources | **object**<br><p>Resources all
 config.<br>mongodb_4_2.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_4_2.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_4_2.<br>mongod.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_4_2.<br>mongod.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_4_2.<br>mongod.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_2.<br>mongod.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_2.<br>mongod.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_4_2.<br>mongocfg | **object**<br><p>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster.</p> 
 config.<br>mongodb_4_2.<br>mongocfg.<br>config | **object**<br><p>Configuration for mongocfg 4.2 hosts.</p> 
 config.<br>mongodb_4_2.<br>mongocfg.<br>config.<br>effectiveConfig | **object**<br><p>Effective mongocfg settings for a MongoDB 4.2 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -3195,6 +3411,10 @@ config.<br>mongodb_4_2.<br>mongocfg.<br>resources | **object**<br><p>Resources a
 config.<br>mongodb_4_2.<br>mongocfg.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_4_2.<br>mongocfg.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_4_2.<br>mongocfg.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_4_2.<br>mongocfg.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_4_2.<br>mongocfg.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_2.<br>mongocfg.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_2.<br>mongocfg.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_4_2.<br>mongos | **object**<br><p>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster.</p> 
 config.<br>mongodb_4_2.<br>mongos.<br>config | **object**<br><p>Configuration for mongos 4.2 hosts.</p> 
 config.<br>mongodb_4_2.<br>mongos.<br>config.<br>effectiveConfig | **object**<br><p>Effective mongos settings for a MongoDB 4.2 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -3216,6 +3436,10 @@ config.<br>mongodb_4_2.<br>mongos.<br>resources | **object**<br><p>Resources all
 config.<br>mongodb_4_2.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_4_2.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_4_2.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_4_2.<br>mongos.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_4_2.<br>mongos.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_2.<br>mongos.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_2.<br>mongos.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_4_2.<br>mongoinfra | **object**<br><p>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster.</p> 
 config.<br>mongodb_4_2.<br>mongoinfra.<br>configMongos | **object**
 config.<br>mongodb_4_2.<br>mongoinfra.<br>configMongos.<br>effectiveConfig | **object**<br><p>Effective mongos settings for a MongoDB 4.2 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -3268,6 +3492,10 @@ config.<br>mongodb_4_2.<br>mongoinfra.<br>resources | **object**<br><p>Resources
 config.<br>mongodb_4_2.<br>mongoinfra.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_4_2.<br>mongoinfra.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_4_2.<br>mongoinfra.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_4_2.<br>mongoinfra.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_4_2.<br>mongoinfra.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_2.<br>mongoinfra.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_2.<br>mongoinfra.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_4_4 | **object** <br>`config` includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`<br>
 config.<br>mongodb_4_4.<br>mongod | **object**<br><p>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster.</p> 
 config.<br>mongodb_4_4.<br>mongod.<br>config | **object**<br><p>Configuration for mongod 4.4 hosts.</p> 
@@ -3338,6 +3566,10 @@ config.<br>mongodb_4_4.<br>mongod.<br>resources | **object**<br><p>Resources all
 config.<br>mongodb_4_4.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_4_4.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_4_4.<br>mongod.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_4_4.<br>mongod.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_4_4.<br>mongod.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_4.<br>mongod.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_4.<br>mongod.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_4_4.<br>mongocfg | **object**<br><p>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster.</p> 
 config.<br>mongodb_4_4.<br>mongocfg.<br>config | **object**<br><p>Configuration for mongocfg 4.4 hosts.</p> 
 config.<br>mongodb_4_4.<br>mongocfg.<br>config.<br>effectiveConfig | **object**<br><p>Effective mongocfg settings for a MongoDB 4.4 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -3374,6 +3606,10 @@ config.<br>mongodb_4_4.<br>mongocfg.<br>resources | **object**<br><p>Resources a
 config.<br>mongodb_4_4.<br>mongocfg.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_4_4.<br>mongocfg.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_4_4.<br>mongocfg.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_4_4.<br>mongocfg.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_4_4.<br>mongocfg.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_4.<br>mongocfg.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_4.<br>mongocfg.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_4_4.<br>mongos | **object**<br><p>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster.</p> 
 config.<br>mongodb_4_4.<br>mongos.<br>config | **object**<br><p>Configuration for mongos 4.4 hosts.</p> 
 config.<br>mongodb_4_4.<br>mongos.<br>config.<br>effectiveConfig | **object**<br><p>Effective mongos settings for a MongoDB 4.4 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -3395,6 +3631,10 @@ config.<br>mongodb_4_4.<br>mongos.<br>resources | **object**<br><p>Resources all
 config.<br>mongodb_4_4.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_4_4.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_4_4.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_4_4.<br>mongos.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_4_4.<br>mongos.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_4.<br>mongos.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_4.<br>mongos.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_4_4.<br>mongoinfra | **object**<br><p>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster.</p> 
 config.<br>mongodb_4_4.<br>mongoinfra.<br>configMongos | **object**
 config.<br>mongodb_4_4.<br>mongoinfra.<br>configMongos.<br>effectiveConfig | **object**<br><p>Effective mongos settings for a MongoDB 4.4 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -3447,6 +3687,10 @@ config.<br>mongodb_4_4.<br>mongoinfra.<br>resources | **object**<br><p>Resources
 config.<br>mongodb_4_4.<br>mongoinfra.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_4_4.<br>mongoinfra.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_4_4.<br>mongoinfra.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_4_4.<br>mongoinfra.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_4_4.<br>mongoinfra.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_4.<br>mongoinfra.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_4.<br>mongoinfra.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_5_0 | **object** <br>`config` includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`<br>
 config.<br>mongodb_5_0.<br>mongod | **object**<br><p>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster.</p> 
 config.<br>mongodb_5_0.<br>mongod.<br>config | **object**<br><p>Configuration for mongod 5.0 hosts.</p> 
@@ -3520,6 +3764,10 @@ config.<br>mongodb_5_0.<br>mongod.<br>resources | **object**<br><p>Resources all
 config.<br>mongodb_5_0.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_5_0.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_5_0.<br>mongod.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_5_0.<br>mongod.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_5_0.<br>mongod.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_5_0.<br>mongod.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_5_0.<br>mongod.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_5_0.<br>mongocfg | **object**<br><p>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster.</p> 
 config.<br>mongodb_5_0.<br>mongocfg.<br>config | **object**<br><p>Configuration for mongocfg 5.0 hosts.</p> 
 config.<br>mongodb_5_0.<br>mongocfg.<br>config.<br>effectiveConfig | **object**<br><p>Effective mongocfg settings for a MongoDB 5.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -3556,6 +3804,10 @@ config.<br>mongodb_5_0.<br>mongocfg.<br>resources | **object**<br><p>Resources a
 config.<br>mongodb_5_0.<br>mongocfg.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_5_0.<br>mongocfg.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_5_0.<br>mongocfg.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_5_0.<br>mongocfg.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_5_0.<br>mongocfg.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_5_0.<br>mongocfg.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_5_0.<br>mongocfg.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_5_0.<br>mongos | **object**<br><p>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster.</p> 
 config.<br>mongodb_5_0.<br>mongos.<br>config | **object**<br><p>Configuration for mongos 5.0 hosts.</p> 
 config.<br>mongodb_5_0.<br>mongos.<br>config.<br>effectiveConfig | **object**<br><p>Effective mongos settings for a MongoDB 5.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -3577,6 +3829,10 @@ config.<br>mongodb_5_0.<br>mongos.<br>resources | **object**<br><p>Resources all
 config.<br>mongodb_5_0.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_5_0.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_5_0.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_5_0.<br>mongos.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_5_0.<br>mongos.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_5_0.<br>mongos.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_5_0.<br>mongos.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_5_0.<br>mongoinfra | **object**<br><p>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster.</p> 
 config.<br>mongodb_5_0.<br>mongoinfra.<br>configMongos | **object**
 config.<br>mongodb_5_0.<br>mongoinfra.<br>configMongos.<br>effectiveConfig | **object**<br><p>Effective mongos settings for a MongoDB 5.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -3629,6 +3885,10 @@ config.<br>mongodb_5_0.<br>mongoinfra.<br>resources | **object**<br><p>Resources
 config.<br>mongodb_5_0.<br>mongoinfra.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_5_0.<br>mongoinfra.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_5_0.<br>mongoinfra.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_5_0.<br>mongoinfra.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_5_0.<br>mongoinfra.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_5_0.<br>mongoinfra.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_5_0.<br>mongoinfra.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_6_0 | **object** <br>`config` includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`<br>
 config.<br>mongodb_6_0.<br>mongod | **object**<br><p>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster.</p> 
 config.<br>mongodb_6_0.<br>mongod.<br>config | **object**<br><p>Configuration for mongod 6.0 hosts.</p> 
@@ -3702,6 +3962,10 @@ config.<br>mongodb_6_0.<br>mongod.<br>resources | **object**<br><p>Resources all
 config.<br>mongodb_6_0.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_6_0.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_6_0.<br>mongod.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_6_0.<br>mongod.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_6_0.<br>mongod.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_6_0.<br>mongod.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_6_0.<br>mongod.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_6_0.<br>mongocfg | **object**<br><p>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster.</p> 
 config.<br>mongodb_6_0.<br>mongocfg.<br>config | **object**<br><p>Configuration for mongocfg 6.0 hosts.</p> 
 config.<br>mongodb_6_0.<br>mongocfg.<br>config.<br>effectiveConfig | **object**<br><p>Effective mongocfg settings for a MongoDB 6.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -3738,6 +4002,10 @@ config.<br>mongodb_6_0.<br>mongocfg.<br>resources | **object**<br><p>Resources a
 config.<br>mongodb_6_0.<br>mongocfg.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_6_0.<br>mongocfg.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_6_0.<br>mongocfg.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_6_0.<br>mongocfg.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_6_0.<br>mongocfg.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_6_0.<br>mongocfg.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_6_0.<br>mongocfg.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_6_0.<br>mongos | **object**<br><p>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster.</p> 
 config.<br>mongodb_6_0.<br>mongos.<br>config | **object**<br><p>Configuration for mongos 6.0 hosts.</p> 
 config.<br>mongodb_6_0.<br>mongos.<br>config.<br>effectiveConfig | **object**<br><p>Effective mongos settings for a MongoDB 6.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -3759,6 +4027,10 @@ config.<br>mongodb_6_0.<br>mongos.<br>resources | **object**<br><p>Resources all
 config.<br>mongodb_6_0.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_6_0.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_6_0.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_6_0.<br>mongos.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_6_0.<br>mongos.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_6_0.<br>mongos.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_6_0.<br>mongos.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_6_0.<br>mongoinfra | **object**<br><p>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster.</p> 
 config.<br>mongodb_6_0.<br>mongoinfra.<br>configMongos | **object**
 config.<br>mongodb_6_0.<br>mongoinfra.<br>configMongos.<br>effectiveConfig | **object**<br><p>Effective mongos settings for a MongoDB 6.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -3811,6 +4083,10 @@ config.<br>mongodb_6_0.<br>mongoinfra.<br>resources | **object**<br><p>Resources
 config.<br>mongodb_6_0.<br>mongoinfra.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_6_0.<br>mongoinfra.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_6_0.<br>mongoinfra.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_6_0.<br>mongoinfra.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_6_0.<br>mongoinfra.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_6_0.<br>mongoinfra.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_6_0.<br>mongoinfra.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_4_4Enterprise | **object** <br>`config` includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`<br>
 config.<br>mongodb_4_4Enterprise.<br>mongod | **object**<br><p>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config | **object**<br><p>Configuration for mongod 4.4 hosts.</p> 
@@ -3914,6 +4190,10 @@ config.<br>mongodb_4_4Enterprise.<br>mongod.<br>resources | **object**<br><p>Res
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_4_4Enterprise.<br>mongod.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongod.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongod.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongod.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongocfg | **object**<br><p>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongocfg.<br>config | **object**<br><p>Configuration for mongocfg 4.4 hosts.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongocfg.<br>config.<br>effectiveConfig | **object**<br><p>Effective mongocfg settings for a MongoDB 4.4 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -3950,6 +4230,10 @@ config.<br>mongodb_4_4Enterprise.<br>mongocfg.<br>resources | **object**<br><p>R
 config.<br>mongodb_4_4Enterprise.<br>mongocfg.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongocfg.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongocfg.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_4_4Enterprise.<br>mongocfg.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongocfg.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongocfg.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongocfg.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongos | **object**<br><p>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongos.<br>config | **object**<br><p>Configuration for mongos 4.4 hosts.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongos.<br>config.<br>effectiveConfig | **object**<br><p>Effective mongos settings for a MongoDB 4.4 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -3971,6 +4255,10 @@ config.<br>mongodb_4_4Enterprise.<br>mongos.<br>resources | **object**<br><p>Res
 config.<br>mongodb_4_4Enterprise.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_4_4Enterprise.<br>mongos.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongos.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongos.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongos.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongoinfra | **object**<br><p>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongoinfra.<br>configMongos | **object**
 config.<br>mongodb_4_4Enterprise.<br>mongoinfra.<br>configMongos.<br>effectiveConfig | **object**<br><p>Effective mongos settings for a MongoDB 4.4 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -4023,6 +4311,10 @@ config.<br>mongodb_4_4Enterprise.<br>mongoinfra.<br>resources | **object**<br><p
 config.<br>mongodb_4_4Enterprise.<br>mongoinfra.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongoinfra.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongoinfra.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_4_4Enterprise.<br>mongoinfra.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongoinfra.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongoinfra.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongoinfra.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_5_0Enterprise | **object** <br>`config` includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`<br>
 config.<br>mongodb_5_0Enterprise.<br>mongod | **object**<br><p>Configuration and resource allocation for mongod in a MongoDB 5.0 cluster.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config | **object**<br><p>Configuration for mongod 5.0 hosts.</p> 
@@ -4132,6 +4424,10 @@ config.<br>mongodb_5_0Enterprise.<br>mongod.<br>resources | **object**<br><p>Res
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_5_0Enterprise.<br>mongod.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongod.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongod.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongod.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongocfg | **object**<br><p>Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongocfg.<br>config | **object**<br><p>Configuration for mongocfg 5.0 hosts.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongocfg.<br>config.<br>effectiveConfig | **object**<br><p>Effective mongocfg settings for a MongoDB 5.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -4168,6 +4464,10 @@ config.<br>mongodb_5_0Enterprise.<br>mongocfg.<br>resources | **object**<br><p>R
 config.<br>mongodb_5_0Enterprise.<br>mongocfg.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongocfg.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongocfg.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_5_0Enterprise.<br>mongocfg.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongocfg.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongocfg.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongocfg.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongos | **object**<br><p>Configuration and resource allocation for mongos in a MongoDB 5.0 cluster.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongos.<br>config | **object**<br><p>Configuration for mongos 5.0 hosts.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongos.<br>config.<br>effectiveConfig | **object**<br><p>Effective mongos settings for a MongoDB 5.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -4189,6 +4489,10 @@ config.<br>mongodb_5_0Enterprise.<br>mongos.<br>resources | **object**<br><p>Res
 config.<br>mongodb_5_0Enterprise.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_5_0Enterprise.<br>mongos.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongos.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongos.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongos.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongoinfra | **object**<br><p>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongoinfra.<br>configMongos | **object**
 config.<br>mongodb_5_0Enterprise.<br>mongoinfra.<br>configMongos.<br>effectiveConfig | **object**<br><p>Effective mongos settings for a MongoDB 5.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -4241,6 +4545,10 @@ config.<br>mongodb_5_0Enterprise.<br>mongoinfra.<br>resources | **object**<br><p
 config.<br>mongodb_5_0Enterprise.<br>mongoinfra.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongoinfra.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongoinfra.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_5_0Enterprise.<br>mongoinfra.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongoinfra.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongoinfra.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongoinfra.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_6_0Enterprise | **object** <br>`config` includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`<br>
 config.<br>mongodb_6_0Enterprise.<br>mongod | **object**<br><p>Configuration and resource allocation for mongod in a MongoDB 6.0 cluster.</p> 
 config.<br>mongodb_6_0Enterprise.<br>mongod.<br>config | **object**<br><p>Configuration for mongod 6.0 hosts.</p> 
@@ -4350,6 +4658,10 @@ config.<br>mongodb_6_0Enterprise.<br>mongod.<br>resources | **object**<br><p>Res
 config.<br>mongodb_6_0Enterprise.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_6_0Enterprise.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_6_0Enterprise.<br>mongod.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_6_0Enterprise.<br>mongod.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_6_0Enterprise.<br>mongod.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_6_0Enterprise.<br>mongod.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_6_0Enterprise.<br>mongod.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_6_0Enterprise.<br>mongocfg | **object**<br><p>Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster.</p> 
 config.<br>mongodb_6_0Enterprise.<br>mongocfg.<br>config | **object**<br><p>Configuration for mongocfg 6.0 hosts.</p> 
 config.<br>mongodb_6_0Enterprise.<br>mongocfg.<br>config.<br>effectiveConfig | **object**<br><p>Effective mongocfg settings for a MongoDB 6.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -4386,6 +4698,10 @@ config.<br>mongodb_6_0Enterprise.<br>mongocfg.<br>resources | **object**<br><p>R
 config.<br>mongodb_6_0Enterprise.<br>mongocfg.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_6_0Enterprise.<br>mongocfg.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_6_0Enterprise.<br>mongocfg.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_6_0Enterprise.<br>mongocfg.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_6_0Enterprise.<br>mongocfg.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_6_0Enterprise.<br>mongocfg.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_6_0Enterprise.<br>mongocfg.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_6_0Enterprise.<br>mongos | **object**<br><p>Configuration and resource allocation for mongos in a MongoDB 6.0 cluster.</p> 
 config.<br>mongodb_6_0Enterprise.<br>mongos.<br>config | **object**<br><p>Configuration for mongos 6.0 hosts.</p> 
 config.<br>mongodb_6_0Enterprise.<br>mongos.<br>config.<br>effectiveConfig | **object**<br><p>Effective mongos settings for a MongoDB 6.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -4407,6 +4723,10 @@ config.<br>mongodb_6_0Enterprise.<br>mongos.<br>resources | **object**<br><p>Res
 config.<br>mongodb_6_0Enterprise.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_6_0Enterprise.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_6_0Enterprise.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_6_0Enterprise.<br>mongos.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_6_0Enterprise.<br>mongos.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_6_0Enterprise.<br>mongos.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_6_0Enterprise.<br>mongos.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 config.<br>mongodb_6_0Enterprise.<br>mongoinfra | **object**<br><p>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster.</p> 
 config.<br>mongodb_6_0Enterprise.<br>mongoinfra.<br>configMongos | **object**
 config.<br>mongodb_6_0Enterprise.<br>mongoinfra.<br>configMongos.<br>effectiveConfig | **object**<br><p>Effective mongos settings for a MongoDB 6.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
@@ -4459,6 +4779,10 @@ config.<br>mongodb_6_0Enterprise.<br>mongoinfra.<br>resources | **object**<br><p
 config.<br>mongodb_6_0Enterprise.<br>mongoinfra.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_6_0Enterprise.<br>mongoinfra.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>mongodb_6_0Enterprise.<br>mongoinfra.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
+config.<br>mongodb_6_0Enterprise.<br>mongoinfra.<br>diskSizeAutoscaling | **object**<br><p>Disk size autoscaling settings</p> 
+config.<br>mongodb_6_0Enterprise.<br>mongoinfra.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **integer** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_6_0Enterprise.<br>mongoinfra.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **integer** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+config.<br>mongodb_6_0Enterprise.<br>mongoinfra.<br>diskSizeAutoscaling.<br>diskSizeLimit | **integer** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
 networkId | **string**<br><p>ID of the network that the cluster belongs to.</p> 
 health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: State of the cluster is unknown (``health`` for every host in the cluster is UNKNOWN).</li> <li>ALIVE: Cluster is alive and well (``health`` for every host in the cluster is ALIVE).</li> <li>DEAD: Cluster is inoperable (``health`` for every host in the cluster is DEAD).</li> <li>DEGRADED: Cluster is working below capacity (``health`` for at least one host in the cluster is not ALIVE).</li> </ul> 
 status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 

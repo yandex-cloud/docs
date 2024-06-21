@@ -37,7 +37,7 @@ createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a
 name | **string**<br><p>Name of the registry. The name is unique within the folder.</p> 
 description | **string**<br><p>Description of the registry. 0-256 characters long.</p> 
 labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
-status | **string**<br><p>Status of the registry.</p> <ul> <li>CREATING: Registry is being created.</li> <li>ACTIVE: Registry is ready to use.</li> <li>DELETING: Registry is being deleted.</li> </ul> 
+status | **string**<br><p>Status of the registry.</p> <ul> <li>CREATING: Registry is being created.</li> <li>ACTIVE: Registry is ready to use.</li> <li>DELETING: Registry is being deleted.</li> <li>DISABLED: Registry is disabled.</li> </ul> 
 logGroupId | **string**<br><p>ID of the logs group for the specified registry.</p> 
 logOptions | **object**<br><p>Options for logging registry events</p> 
 logOptions.<br>disabled | **boolean** (boolean)<br><p>Is logging from registry disabled.</p> 
@@ -54,6 +54,8 @@ Method | Description
 [delete](delete.md) | Deletes the specified registry.
 [deleteCertificate](deleteCertificate.md) | Deletes the specified registry certificate.
 [deletePassword](deletePassword.md) | Deletes the specified password.
+[disable](disable.md) | Disables the specified registry.
+[enable](enable.md) | Enables the specified registry.
 [get](get.md) | Returns the specified registry.
 [getByName](getByName.md) | 
 [list](list.md) | Retrieves the list of registries in the specified folder.

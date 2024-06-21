@@ -258,10 +258,10 @@ editable: false
 
 ### Хранилище и резервные копии {#prices-storage}
 
+{% include [local-ssd для Ice Lake только по запросу](../../_includes/ice-lake-local-ssd-note.md) %}
+
 
 #### Стандартные хосты {#storage-standard}
-
-{% include [local-ssd для Ice Lake только по запросу](../../_includes/ice-lake-local-ssd-note.md) %}
 
 {% list tabs group=pricing %}
 

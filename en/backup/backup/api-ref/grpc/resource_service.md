@@ -58,6 +58,8 @@ last_backup_time | **[google.protobuf.Timestamp](https://developers.google.com/p
 next_backup_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 resource_id | **string**<br>Resource ID is used to identify Compute Cloud instance in backup service. 
 is_active | **bool**<br>Status `is_active` shows whether current Compute Cloud instance controls Cloud Backup resource. If status `is_active` is false it means Compute Cloud instance is not able to manipulate Cloud Backup resource. 
+init_status | enum **InitStatus**<br>Status of resource initialization in cloud backup service. <ul><li>`REGISTERING`: Registration of instance in cloud backups have started.</li><li>`REGISTRED`: Instance is registered in cloud backups.</li><li>`FAILED_REGISTRATION`: Instance registration failed.</li><li>`DELETED`: Instance is deleted from cloud backup service.</li></ul>
+metadata | **string**<br>Metadata to provide details about instance registration process if status is FAILED_REGISTRATION or REGISTERING 
 
 
 ## Get {#Get}
@@ -96,6 +98,8 @@ last_backup_time | **[google.protobuf.Timestamp](https://developers.google.com/p
 next_backup_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 resource_id | **string**<br>Resource ID is used to identify Compute Cloud instance in backup service. 
 is_active | **bool**<br>Status `is_active` shows whether current Compute Cloud instance controls Cloud Backup resource. If status `is_active` is false it means Compute Cloud instance is not able to manipulate Cloud Backup resource. 
+init_status | enum **InitStatus**<br>Status of resource initialization in cloud backup service. <ul><li>`REGISTERING`: Registration of instance in cloud backups have started.</li><li>`REGISTRED`: Instance is registered in cloud backups.</li><li>`FAILED_REGISTRATION`: Instance registration failed.</li><li>`DELETED`: Instance is deleted from cloud backup service.</li></ul>
+metadata | **string**<br>Metadata to provide details about instance registration process if status is FAILED_REGISTRATION or REGISTERING 
 
 
 ## Delete {#Delete}

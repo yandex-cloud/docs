@@ -27,7 +27,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
 
       ```bash
       {{ yc-k8s }} node-group create \
-        --allowed-unsafe-sysctls=<names_of_unsafe_kernel_parameters> \
+        --allowed-unsafe-sysctls <names_of_unsafe_kernel_parameters> \
         --cluster-name <cluster_name> \
         --cores <number_of_vCPUs> \
         --core-fraction <guaranteed_vCPU_share> \
@@ -47,7 +47,8 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
         --template-labels <node_group_cloud_labels> \
         --version <{{ k8s }}_version_on_group_nodes> \
         --node-name <node_name_template> \
-        --node-taints <taints>
+        --node-taints <taints> \
+        --container-network-settings pod-mtu=<MTU_value_for_group_pods>
       ```
 
       Where:
@@ -88,6 +89,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
          {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
       * `--node-taints`: {{ k8s }} [taint policies](../../concepts/index.md#taints-tolerations). You can specify multiple policies.
+      * `--container-network-settings`: [MTU](https://en.wikipedia.org/wiki/Maximum_transmission_unit) value for network connections to group pods. This setting is not applicable for clusters with Calico or Cilium network policy controllers.
 
       {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
 

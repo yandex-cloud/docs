@@ -6,19 +6,17 @@ description: "Follow this guide to top up your personal account."
 # Top up your personal account
 
 
+{% include [card-business-nonresidents](../../_includes/billing/card-business-nonresidents.md) %}
+
 {% include [personal-account-balance](../_includes/personal-account-balance.md) %}
 
-{{ yandex-cloud }} reserves the right to automatically debit your linked card during the current reporting period if your account balance exceeds the established credit limit.
 
 The method for topping up your personal account depends on your legal status.
 
-{% note info %}
-
-A billing cycle runs automatically for [individuals](../payment/billing-cycle-individual.md) as well as [businesses and individual entrepreneurs](../payment/billing-cycle-business.md) if they have a bank card linked to their billing account.
-
-{% endnote %}
 
 ## Individuals {#individuals}
+
+{% include [individual-nonresidents](../../_includes/billing/individual-nonresidents.md) %}
 
 To top up your personal account:
 
@@ -67,12 +65,5 @@ To top up your personal account:
 
    {% include [payment-bill-note](../_includes/payment-bill-note.md) %}
 
-- Bank card {#card}
-
-   Enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Then enter your card details and click **Pay**.
-
-   {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
-
-   Your payment will be processed in real time and completed within 15 minutes.
 
 {% endlist %}

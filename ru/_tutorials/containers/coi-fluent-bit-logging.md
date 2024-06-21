@@ -272,7 +272,7 @@ yc compute instance create \
 
 - API {#api}
 
-  Посмотреть записи в лог-группе можно с помощью метода API [read](../../logging/api-ref/grpc/log_reading_service.md).
+  Посмотреть записи в лог-группе можно с помощью вызова gRPC API [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read).
 
 {% endlist %}
 

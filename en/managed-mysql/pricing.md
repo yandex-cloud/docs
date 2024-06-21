@@ -112,13 +112,13 @@ The usage cost includes two components: [the cost of {{ compute-full-name }} com
 
 ### Storage and backups {#prices-storage}
 
+{% include [local-ssd for Intel Ice Lake only on request](../_includes/ice-lake-local-ssd-note.md) %}
+
 
 
 {% list tabs %}
 
 - Standard hosts
-
-  {% include [local-ssd for Ice Lake by query only](../_includes/ice-lake-local-ssd-note.md) %}
 
   {% include [usd-storage-standard.md](../_pricing/managed-mysql/usd-storage-standard.md) %}
 

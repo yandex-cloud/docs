@@ -18,6 +18,18 @@ To enable access via a secure token:
 
    {% list tabs group=instructions %}
 
+   - Management console {#console}
+
+      1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+      1. Click the resource name.
+      1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+      1. Enable **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**:
+
+         {% include [enable-secure-token](../../../_includes/cdn/enable-secure-token.md) %}
+
+      1. Click **{{ ui-key.yacloud.common.save }}**.
+
    - CLI {#cli}
 
       {% include [include](../../../_includes/cli-install.md) %}
@@ -139,6 +151,15 @@ To enable access via a secure token:
 To disable access to a CDN resource via a secure token:
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+   1. Click the resource name.
+   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. Enable **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 

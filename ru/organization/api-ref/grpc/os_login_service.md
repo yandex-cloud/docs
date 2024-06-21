@@ -219,7 +219,7 @@ Field | Description
 organization_id | **string**<br>Required.  The maximum string length in characters is 50.
 subject_id | **string**<br> The maximum string length in characters is 50.
 login | **string**<br>Required.  The maximum string length in characters is 32. Value must match the regular expression ` ^[^.]*?[^~.]$ `.
-uid | **int64**<br> Acceptable values are 1 to 9223372036854775807, inclusive.
+uid | **int64**<br> Acceptable values are 1000 to 9223372036854775807, inclusive.
 home_directory | **string**<br> The maximum string length in characters is 255.
 shell | **string**<br> The maximum string length in characters is 255.
 
@@ -279,7 +279,7 @@ Field | Description
 --- | ---
 os_login_profile_id | **string**<br>Required.  The maximum string length in characters is 50.
 login | **string**<br>Required.  The maximum string length in characters is 32. Value must match the regular expression ` ^[^.]*?[^~.]$ `.
-uid | **int64**<br> Acceptable values are 1 to 9223372036854775807, inclusive.
+uid | **int64**<br> Acceptable values are 1000 to 9223372036854775807, inclusive.
 home_directory | **string**<br> The maximum string length in characters is 255.
 shell | **string**<br> The maximum string length in characters is 255.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 

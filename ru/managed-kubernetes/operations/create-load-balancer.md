@@ -58,12 +58,11 @@ title: "Обеспечение доступа к приложению, запу�
 
   1. Создайте [облачную сеть](../../vpc/operations/network-create.md) и [подсеть](../../vpc/operations/subnet-create.md).
   1. Создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с [ролью](../../iam/concepts/access-control/roles.md) `editor`.
-  1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](node-group/node-group-create.md) с параметрами:
-     * [Версия {{ k8s }}](../concepts/release-channels-and-updates.md) — 1.25 или выше.
-     * Публичный доступ в интернет.
   1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+  1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](node-group/node-group-create.md) с публичным доступом в интернет и с группами безопасности, подготовленными ранее.
 
 - {{ TF }} {#tf}
 

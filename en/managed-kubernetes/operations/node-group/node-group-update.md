@@ -328,16 +328,16 @@ You can perform the following actions with [cloud labels](../../../resource-mana
       For more information about creating this file, see [{#T}](node-group-create.md).
    1. Add the `labels` property to the {{ managed-k8s-name }} node group description:
 
-     ```hcl
-     resource "yandex_kubernetes_node_group" "<node_group_name>" {
-       cluster_id = yandex_kubernetes_cluster.<cluster_name>.id
-       ...
-       labels = {
-         "<cloud_label>" = "<value>"
-       }
-       ...
-     }
-     ```
+      ```hcl
+      resource "yandex_kubernetes_node_group" "<node_group_name>" {
+        cluster_id = yandex_kubernetes_cluster.<cluster_name>.id
+        ...
+        labels = {
+          "<cloud_label>" = "<value>"
+        }
+        ...
+      }
+      ```
 
    1. Make sure the configuration files are correct.
 

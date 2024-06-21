@@ -117,6 +117,14 @@ The prices for computing resources are the same for all types of hosts: mongod, 
 ### Storage and backups {#prices-storage}
 
 
+{% note info %}
+
+Access to network SSD storage with 3 replicas is provided on request. Contact [technical support]({{ link-console-support }}) or your account manager.
+
+{% endnote %}
+
+
+
 
 {% include [usd-storage](../_pricing/managed-mongodb/usd-storage.md) %}
 

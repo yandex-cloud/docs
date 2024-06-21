@@ -105,4 +105,5 @@ SELECT * FROM <соединение>.<имя_таблицы>
 | `character` | `Optional<Utf8>` | [Правила сортировки](https://www.postgresql.org/docs/current/collation.html) по умолчанию, строка дополняется пробелами до требуемой длины. |
 | `character varying` | `Utf8` | [Правила сортировки](https://www.postgresql.org/docs/current/collation.html) по умолчанию. |
 | `text` | `Utf8` | [Правила сортировки](https://www.postgresql.org/docs/current/collation.html) по умолчанию. |
+| `json` | `Json` | |
 

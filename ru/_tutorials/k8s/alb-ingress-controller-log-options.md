@@ -53,21 +53,21 @@
 
         Данные ключа необходимы для [установки](#install-alb-ingress-controller) приложения ALB Ingress Controller.
 
-    1. [Создайте кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) {{ managed-k8s-name }}. При создании задайте настройки:
-
-        * Укажите ранее созданный сервисный аккаунт для ресурсов.
-        * Если вы планируете работать с кластером в пределах сети {{ yandex-cloud }}, выделять кластеру публичный IP-адрес не нужно. Для подключений извне предоставьте кластеру публичный адрес.
-
-    1. [Создайте группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). При создании задайте настройки:
-
-        * Укажите ранее созданный сервисный аккаунт для узлов.
-        * Выделите публичный IP-адрес, чтобы предоставить группе узлов доступ в интернет и возможность скачивать Docker-образы и компоненты.
-
     1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
         {% include [configure-sg-alb-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-manual.md) %}
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+    1. [Создайте кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) {{ managed-k8s-name }}. При создании задайте настройки:
+
+        * Укажите ранее созданные сервисный аккаунт для ресурсов и группы безопасности.
+        * Если вы планируете работать с кластером в пределах сети {{ yandex-cloud }}, выделять кластеру публичный IP-адрес не нужно. Для подключений извне предоставьте кластеру публичный адрес.
+
+    1. [Создайте группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). При создании задайте настройки:
+
+        * Укажите ранее созданные сервисный аккаунт для узлов и группы безопасности.
+        * Выделите публичный IP-адрес, чтобы предоставить группе узлов доступ в интернет и возможность скачивать Docker-образы и компоненты.
 
     1. [Создайте пользовательскую лог-группу {{ cloud-logging-name }}](../../logging/operations/create-group.md).
 

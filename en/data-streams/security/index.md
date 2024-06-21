@@ -4,9 +4,11 @@
 
 {{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. If a user does not have any roles assigned, almost all operations are forbidden.
 
-To allow access to {{ yds-full-name }} resources (data streams, {{ ydb-full-name }} databases storing them, and database users), assign the Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), or [system group](../../iam/concepts/access-control/system-group.md) the required roles from the list below. Currently, a role can only be assigned to a parent resource (folder or cloud). Roles are inherited by nested resources.
+To allow access to {{ yds-full-name }} resources (data streams, {{ ydb-full-name }} databases storing them, and database users), assign the Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), or [system group](../../iam/concepts/access-control/system-group.md) the required roles from the list below. Currently, a role can only be assigned for a parent resource (folder or cloud). Roles are inherited by nested resources.
 
-Only users with the `admin`, `resource-manager.clouds.owner`, or `organization-manager.organizations.owner` role for a resource can assign roles for this resource.
+Roles for a resource can be assigned by users who have the `yds.admin` role or one of the following roles for that resource:
+
+{% include [roles-list](../../_includes/iam/roles-list.md) %}
 
 {% note info %}
 

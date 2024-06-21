@@ -3,6 +3,8 @@ title: "Access management in {{ objstorage-full-name }} (S3)"
 description: "Access management in {{ objstorage-full-name }} (S3), a service for scalable data storage. This section describes the resources for which you can assign a role and the roles existing in the service."
 ---
 
+
+
 # Managing access with {{ iam-full-name }}
 
 {% include [full-overview](../../_includes/storage/security/full-overview.md) %}
@@ -20,7 +22,7 @@ Roles for a resource can be assigned by users who have the `storage.admin` role 
 
 ## Which resources you can assign a role for {#resources}
 
-Using the {{ yandex-cloud }} console or the YC CLI, you can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or an individual bucket. These assigned roles will also apply to nested resources.
+You can use the {{ yandex-cloud }} console or the YC CLI to assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or individual bucket. These assigned roles will also apply to nested resources.
 
 To learn how to manage access to buckets and objects in them, see [{#T}](../concepts/acl.md).
 
@@ -60,7 +62,6 @@ To learn how to manage access to buckets and objects in them, see [{#T}](../conc
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
-
 
 ## See also {#see-also}
 

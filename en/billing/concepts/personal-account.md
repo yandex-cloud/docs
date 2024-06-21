@@ -1,6 +1,6 @@
 # Personal account
 
-A personal account is your unique ID in the {{ billing-name }} service used to pay for resources during the entire term of your [agreement](contract.md). It holds the funds that you credit to it using a bank card or bank transfer (the crediting method depends on your legal status).
+A personal account is your unique ID in the {{ billing-name }} service used to pay for resources during the entire term of your [agreement](contract.md). It holds the funds that you credit to it using bank transfer (the crediting method depends on your legal status).
 
 The funds are debited from your personal account only if you have no [grants](bonus-account.md).
 
@@ -18,7 +18,6 @@ Upon activation of the paid version, your personal account balance will equal ze
 
 {% include [personal-account-balance](../_includes/personal-account-balance.md) %}
 
-Your balance can go negative due to the [billing threshold](billing-threshold.md) applied after you activate the paid version – and only if paying with a bank card.
 
 We recommend that you [monitor](../operations/pay-the-bill.md) and top up your personal account balance so that it is always positive.
 

@@ -23,11 +23,6 @@ To top up your personal account:
 
 {% list tabs group=payments %}
 
-- Bank card {#card}
-
-   Enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.popup-refill_button_individual-action }}**. Then enter your card details and click **Pay**. We accept Visa and MasterCard.
-
-   Your payment will be processed in real time and completed within 15 minutes.
 
 - Bank transfer {#transfer}
 
