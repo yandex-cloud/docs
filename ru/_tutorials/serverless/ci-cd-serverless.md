@@ -16,7 +16,7 @@
 Чтобы построить пайплайн CI/CD с использованием serverless-продуктов:
 1. [Создайте инстанс {{ GL }}](#create-gitlab).
 1. [Настройте {{ GL }}](#configure-gitlab).
-1. [Создайте {{ GLR }}](#runner).
+1. [Создайте {{ GLR }}](#runners).
 1. [Загрузите файлы в репозиторий {{ GL }}](#add-files).
 1. [Создайте переменные окружения {{ GL }}](#add-variables).
 1. [Создайте файл конфигурации сценария CI](#add-ci).
@@ -94,9 +94,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
 
 {% include [Create a project](../../_includes/managed-gitlab/initialize.md) %}
 
-## Создайте {{ GLR }} {#runner}
-
-Установите приложение {{ GLR }} согласно [инструкции](../../managed-kubernetes/operations/applications/gitlab-runner.md).
+{% include [create glr](../../_includes/managed-gitlab/k8s-runner.md) %}
 
 ## Загрузите файлы в репозиторий {{ GL }} {#add-files}
 
@@ -148,8 +146,8 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
 
 ## Создайте файл конфигурации сценария CI {#add-ci}
 
-1. На панели слева в {{ GL }} перейдите в раздел **Repository** и выберите вкладку **Files**.
-1. Справа от имени проекта нажмите кнопку ![image](../../_assets/console-icons/plus.svg) и в выпадающем меню выберите пункт **New file**.
+1. Откройте проект `gitlab-test`.
+1. В строке навигации по репозиторию нажмите кнопку ![image](../../_assets/console-icons/plus.svg) и в выпадающем меню выберите пункт **New file**.
 1. Назовите файл `.gitlab-ci.yml` и добавьте в него этапы сборки:
 
    {% cut ".gitlab-ci.yml" %}
@@ -275,7 +273,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
 
 ## Проверьте результат {#check-result}
 
-Чтобы проверить результаты выполнения сценария сборки, на панели слева в {{ GL }} выберите в выпадающем меню пункт **CI/CD** → **Pipelines**. Все пять этапов должны успешно завершиться.
+Чтобы проверить результаты выполнения сценария сборки, на панели слева в проекте `gitlab-test` выберите пункт **Build**, в выпадающем меню выберите пункт **Pipelines**. Все пять этапов должны успешно завершиться.
 
 Приложение будет доступно по адресу служебного домена API-шлюза {{ api-gw-name }} в каталоге `prod`. Адрес можно посмотреть в [консоли управления]({{ link-console-main }}) или в значении поля `domain` в логе выполнения скрипта `bootstrap.sh`.
 

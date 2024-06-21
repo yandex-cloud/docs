@@ -20,6 +20,10 @@ description: "Follow this guide to edit basic settings in a security profile."
       * [{{ captcha-name }}](../../smartcaptcha/).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
+- API {#api}
+
+   {% include [api-profile-update](../../_includes/smartwebsecurity/api-profile-update.md) %}
+
 {% endlist %}
 
 ### See also {#see-also}

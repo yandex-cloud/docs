@@ -51,7 +51,7 @@ description: "Записи в лог-группе можно фильтрова�
 
 - API {#api}
 
-    Задать фильтр можно с помощью метода API [read](../api-ref/grpc/log_reading_service.md).
+    Задать фильтр можно с помощью вызова gRPC API [LogReadingService/Read](../api-ref/grpc/log_reading_service.md#Read).
 
 {% endlist %}
 

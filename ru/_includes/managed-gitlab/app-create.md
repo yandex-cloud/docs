@@ -3,9 +3,8 @@
 Создайте тестовое приложение, которое можно будет развернуть в [кластере {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster):
 1. Добавьте в проект `Dockerfile`:
    1. Авторизуйтесь в {{ GL }}.
-   1. На главной странице выберите репозиторий.
-   1. Выберите раздел **Repository** → **Files**.
-   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) и в выпадающем меню выберите пункт **New file**.
+   1. Откройте проект {{ GL }}.
+   1. В строке навигации по репозиторию нажмите кнопку ![image](../../_assets/console-icons/plus.svg) и в выпадающем меню выберите пункт **New file**.
    1. Назовите файл `Dockerfile` и добавьте в него код:
 
       ```Dockerfile
@@ -16,8 +15,8 @@
    1. Напишите комментарий к коммиту в поле **Commit message**: `Dockerfile for test application`.
    1. Нажмите кнопку **Commit changes**.
 1. Добавьте в проект манифест создания ресурсов кластера {{ managed-k8s-name }}:
-   1. Выберите раздел **Repository** → **Files**.
-   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) и в выпадающем меню выберите пункт **New file**.
+   1. Откройте проект {{ GL }}.
+   1. В строке навигации по репозиторию нажмите кнопку ![image](../../_assets/console-icons/plus.svg) и в выпадающем меню выберите пункт **New file**.
    1. Назовите файл `k8s.yaml`:
 
       {% cut "k8s.yaml" %}

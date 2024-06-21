@@ -15,20 +15,11 @@ The initial grant terms of use differ for individual and business accounts.
 Learn more about grants in the [{{ billing-name }} documentation](../billing/concepts/bonus-account.md).
 
 
-## Individual account {#personal}
-
-
-
-
-
-Both parts can be used simultaneously.
-
-
 ## Business account {#business}
 
-Grant terms of use depend on:
-* Your country of residence.
-* The payment method you select when registering and [creating your billing account](../billing/quickstart/index.md).
+
+Grant terms of use depend on your country of residence.
+
 
 ### Grant terms of use {#terms-august}
 
@@ -52,11 +43,9 @@ Grant terms of use depend on:
 
    | Payment method | Using the grant |
    --- | ---
-   | Bank card | The grant is provisionally divided into two parts and distributed across the services as follows:<br>_Part 1_: $15 of the total grant amount. It can be used to pay for [{{ compute-full-name }}](/services/compute) services, [{{ marketplace-full-name }}](/marketplace) tools, and [support](../support) services.<br>_Part 2_: $35 from the total grant amount. It can be used to pay for features of other {{ yandex-cloud }} services. |
    | Bank transfer | The total grant in the amount of $50 can be used to pay for any {{ yandex-cloud }} services. |
 
 {% endlist %}
-
 
 For more information about [billing accounts](../billing/concepts/billing-account.md) and the [terms and conditions for non-residents of Russia](../billing/qa/non-resident.md), see the {{ billing-name }} documentation.
 

@@ -5209,8 +5209,6 @@ default:
           time-shift: Evaluation delay
       prometheus:
         approved:
-          tab:
-            write: Writing metrics
           widget-monitoring:
             title: Monitor writing progress
       service:

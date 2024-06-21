@@ -4,7 +4,7 @@
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [security profile](../concepts/profiles.md).
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your [security profile](../concepts/profiles.md).
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
    1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
    1. Select one of the creation options:
@@ -33,6 +33,10 @@
 
       The rules you created will appear under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** in the table.
    1. Click **{{ ui-key.yacloud.common.create }}**.
+
+- API {#api}
+
+   Use the [create](../api-ref/SecurityProfile/create.md) REST API method for the [SecurityProfile](../api-ref/SecurityProfile/) resource or the [SecurityProfileService/Create](../api-ref/grpc/security_profile_service.md#Create) gRPC API call.
 
 {% endlist %}
 

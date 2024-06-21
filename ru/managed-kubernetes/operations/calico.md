@@ -27,14 +27,14 @@ description: "Следуя данной инструкции, вы сможет�
    - Вручную {#manual}
 
      1. [Создайте облачную сеть](../../vpc/operations/network-create.md) и [подсеть](../../vpc/operations/subnet-create.md).
-     1. [Создайте группу безопасности](../../vpc/operations/security-group-create.md) и добавьте в нее [правила](connect/security-groups.md), которые разрешают служебный трафик внутри кластера и доступ к API {{ k8s }}.
-     1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](node-group/node-group-create.md) любой подходящей конфигурации. При создании укажите сеть, подсеть и группу безопасности, подготовленные заранее. Также в кластере задействуйте контроллер сетевых политик Calico:
-        * В консоли управления, выбрав опцию **{{ ui-key.yacloud.k8s.clusters.create.field_network-policy }}**.
-        * С помощью CLI, указав флаг `--enable-network-policy`.
-        * С помощью метода [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster).
      1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+     1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](node-group/node-group-create.md) любой подходящей конфигурации. При создании укажите сеть, подсеть и группы безопасности, подготовленные заранее. Также в кластере задействуйте контроллер сетевых политик Calico:
+        * В консоли управления, выбрав опцию **{{ ui-key.yacloud.k8s.clusters.create.field_network-policy }}**.
+        * С помощью CLI, указав флаг `--enable-network-policy`.
+        * С помощью метода [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster).
 
    - {{ TF }} {#tf}
 

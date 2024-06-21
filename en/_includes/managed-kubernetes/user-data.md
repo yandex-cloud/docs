@@ -1,5 +1,5 @@
 {% note warning %}
 
-The `user-data` key is not supported for transmitting user data. Parameters for ssh connections must be specified in the `ssh-keys` key in the VM metadata.
+The `user-data` VM metadata key is not supported for user data transmission. Use the `ssh-keys` key to provide parameters for SSH connections.
 
 {% endnote %}

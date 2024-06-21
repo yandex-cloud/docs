@@ -62,6 +62,7 @@ attach_project_disk | **bool**<br>Should project disk be attached to VM.
 cloud_instance_types[] | **[CloudInstanceType](#CloudInstanceType)**<br>VM specification. The minimum number of elements is 1.
 extended_working_storage | **[ExtendedWorkingStorage](#ExtendedWorkingStorage)**<br>Extended working storage configuration. 
 arguments[] | **[Argument](#Argument)**<br>List of literal arguments. 
+output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc)**<br>List of DataSets descriptions to create 
 
 
 ### File {#File}
@@ -133,6 +134,17 @@ Field | Description
 --- | ---
 name | **string**<br> 
 value | **string**<br> 
+
+
+### OutputDatasetDesc {#OutputDatasetDesc}
+
+Field | Description
+--- | ---
+name | **string**<br>Name to create dataset with 
+description | **string**<br>Description to show in UI 
+labels | **map<string,string>**<br> 
+size_gb | **int64**<br>Size of dataset to create 
+var | **string**<br>Var name to replace in cmd, like in FileDesc 
 
 
 ### Operation {#Operation}
@@ -210,6 +222,7 @@ attach_project_disk | **bool**<br>Should project disk be attached to VM.
 cloud_instance_types[] | **[CloudInstanceType](#CloudInstanceType1)**<br>VM specification. The minimum number of elements is 1.
 extended_working_storage | **[ExtendedWorkingStorage](#ExtendedWorkingStorage1)**<br>Extended working storage configuration. 
 arguments[] | **[Argument](#Argument1)**<br>List of literal arguments. 
+output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc1)**<br>List of DataSets descriptions to create 
 
 
 ### File {#File1}
@@ -281,6 +294,17 @@ Field | Description
 --- | ---
 name | **string**<br> 
 value | **string**<br> 
+
+
+### OutputDatasetDesc {#OutputDatasetDesc1}
+
+Field | Description
+--- | ---
+name | **string**<br>Name to create dataset with 
+description | **string**<br>Description to show in UI 
+labels | **map<string,string>**<br> 
+size_gb | **int64**<br>Size of dataset to create 
+var | **string**<br>Var name to replace in cmd, like in FileDesc 
 
 
 ### Operation {#Operation1}
@@ -400,6 +424,7 @@ attach_project_disk | **bool**<br>Should project disk be attached to VM.
 cloud_instance_types[] | **[CloudInstanceType](#CloudInstanceType2)**<br>VM specification. The minimum number of elements is 1.
 extended_working_storage | **[ExtendedWorkingStorage](#ExtendedWorkingStorage2)**<br>Extended working storage configuration. 
 arguments[] | **[Argument](#Argument2)**<br>List of literal arguments. 
+output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc2)**<br>List of DataSets descriptions to create 
 
 
 ### FileDesc {#FileDesc2}
@@ -463,6 +488,17 @@ name | **string**<br>
 value | **string**<br> 
 
 
+### OutputDatasetDesc {#OutputDatasetDesc2}
+
+Field | Description
+--- | ---
+name | **string**<br>Name to create dataset with 
+description | **string**<br>Description to show in UI 
+labels | **map<string,string>**<br> 
+size_gb | **int64**<br>Size of dataset to create 
+var | **string**<br>Var name to replace in cmd, like in FileDesc 
+
+
 ### File {#File2}
 
 Field | Description
@@ -478,6 +514,7 @@ compression_type | enum **FileCompressionType**<br>File compression info
 Field | Description
 --- | ---
 output_files[] | **[StorageFile](#StorageFile2)**<br>Uploaded output files with URLs. 
+output_datasets[] | **[OutputDataset](#OutputDataset)**<br>Created datasets 
 result | **[JobResult](#JobResult)**<br>Result of the job. 
 
 
@@ -487,6 +524,14 @@ Field | Description
 --- | ---
 file | **[File](#File3)**<br> 
 url | **string**<br>File URL. 
+
+
+### OutputDataset {#OutputDataset}
+
+Field | Description
+--- | ---
+desc | **[OutputDatasetDesc](#OutputDatasetDesc3)**<br>Dataset description 
+id | **string**<br>Id of created dataset 
 
 
 ### JobResult {#JobResult}
@@ -681,6 +726,7 @@ attach_project_disk | **bool**<br>Should project disk be attached to VM.
 cloud_instance_types[] | **[CloudInstanceType](#CloudInstanceType3)**<br>VM specification. The minimum number of elements is 1.
 extended_working_storage | **[ExtendedWorkingStorage](#ExtendedWorkingStorage3)**<br>Extended working storage configuration. 
 arguments[] | **[Argument](#Argument3)**<br>List of literal arguments. 
+output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc3)**<br>List of DataSets descriptions to create 
 
 
 ### FileDesc {#FileDesc4}
@@ -744,6 +790,17 @@ name | **string**<br>
 value | **string**<br> 
 
 
+### OutputDatasetDesc {#OutputDatasetDesc3}
+
+Field | Description
+--- | ---
+name | **string**<br>Name to create dataset with 
+description | **string**<br>Description to show in UI 
+labels | **map<string,string>**<br> 
+size_gb | **int64**<br>Size of dataset to create 
+var | **string**<br>Var name to replace in cmd, like in FileDesc 
+
+
 ### File {#File4}
 
 Field | Description
@@ -804,6 +861,7 @@ attach_project_disk | **bool**<br>Should project disk be attached to VM.
 cloud_instance_types[] | **[CloudInstanceType](#CloudInstanceType4)**<br>VM specification. The minimum number of elements is 1.
 extended_working_storage | **[ExtendedWorkingStorage](#ExtendedWorkingStorage4)**<br>Extended working storage configuration. 
 arguments[] | **[Argument](#Argument4)**<br>List of literal arguments. 
+output_datasets[] | **[OutputDatasetDesc](#OutputDatasetDesc4)**<br>List of DataSets descriptions to create 
 
 
 ### FileDesc {#FileDesc5}
@@ -865,6 +923,17 @@ Field | Description
 --- | ---
 name | **string**<br> 
 value | **string**<br> 
+
+
+### OutputDatasetDesc {#OutputDatasetDesc4}
+
+Field | Description
+--- | ---
+name | **string**<br>Name to create dataset with 
+description | **string**<br>Description to show in UI 
+labels | **map<string,string>**<br> 
+size_gb | **int64**<br>Size of dataset to create 
+var | **string**<br>Var name to replace in cmd, like in FileDesc 
 
 
 ### File {#File5}

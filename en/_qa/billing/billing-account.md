@@ -36,9 +36,6 @@ To unblock your new billing account, [activate the paid version](../../billing/o
 
 You cannot change a billing account type once it is created, but you can [create a new one](../../billing/operations/create-new-account.md).
 
-#### How do I enable a billing threshold? {#credit}
-
-[Billing threshold](../../billing/concepts/billing-threshold.md) is enabled automatically after the [paid version is activated](../../billing/operations/activate-commercial.md) and the first reporting period ends.
 
 {% include [change-payment-method](../../billing/_includes/change-payment-method.md) %}
 
@@ -54,11 +51,6 @@ If you did not receive an email within that period, send a request to: [{{ billi
 {% include [change-payment-docs](../../billing/_includes/change-payment-docs.md) %}
 
 
-#### I can't link a bank card when creating a billing account. What should I do? {#cant-create}
-
-Most likely, our service does not support your bank card's payment system.
-
-To resolve the issue, try linking a different bank card or, if you are a legal entity, create a billing account of the **{{ ui-key.yacloud_billing.billing.account.create-new.account-type_label_company }}** type with the **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}** payment method.
 
 #### Why do I get an error saying _The country is not available to the payer_ when creating a billing account? {#account-error}
 

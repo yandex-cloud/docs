@@ -100,6 +100,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to Redis hosts.
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access)**<br>Access policy to DB 
 redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources}
@@ -116,6 +117,15 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
@@ -220,6 +230,7 @@ resources | **[Resources](#Resources1)**<br>Resources allocated to Redis hosts.
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access1)**<br>Access policy to DB 
 redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling1)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources1}
@@ -236,6 +247,15 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling1}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow1}
@@ -295,6 +315,7 @@ tls_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protoc
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 persistence_mode | **[Cluster.PersistenceMode](#Cluster2)**<br>Persistence mode 
 announce_hostnames | **bool**<br>Enable FQDN instead of ip 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Window of maintenance operations. 
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -311,6 +332,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to Redis hosts.
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access2)**<br>Access policy to DB 
 redis | **[config.RedisConfig](#RedisConfig)**<br>Unified configuration of a Redis cluster 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources2}
@@ -329,6 +351,15 @@ Field | Description
 data_lens | **bool**<br>Allow access for DataLens 
 
 
+### DiskSizeAutoscaling {#DiskSizeAutoscaling2}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
+
+
 ### HostSpec {#HostSpec}
 
 Field | Description
@@ -338,6 +369,27 @@ subnet_id | **string**<br>ID of the subnet that the host should belong to. This 
 shard_name | **string**<br>ID of the Redis shard the host belongs to. To get the shard ID use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 replica_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>A replica with a low priority number is considered better for promotion. A replica with priority of 0 will never be selected by Redis Sentinel for promotion. Works only for non-sharded clusters. Default value is 100. 
 assign_public_ip | **bool**<br>Whether the host should get a public IP address on creation. <br>Possible values: <ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
+
+
+### MaintenanceWindow {#MaintenanceWindow2}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow2)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow2)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
+
+Empty.
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### Operation {#Operation}
@@ -380,7 +432,7 @@ network_id | **string**<br>
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
 status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
@@ -412,27 +464,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to Redis hosts.
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access3)**<br>Access policy to DB 
 redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
-
-
-### MaintenanceWindow {#MaintenanceWindow2}
-
-Field | Description
---- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow2)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow2)**<br>Maintenance operation can be scheduled on a weekly basis. 
-
-
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
-
-Empty.
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
-
-Field | Description
---- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
-hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
 ### MaintenanceOperation {#MaintenanceOperation2}
@@ -484,6 +516,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to Redis hosts.
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access3)**<br>Access policy to DB 
 redis | **[config.RedisConfig](#RedisConfig)**<br>Unified configuration of a Redis cluster 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources3}
@@ -500,6 +533,15 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling3}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow3}
@@ -595,6 +637,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to Redis hosts.
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access4)**<br>Access policy to DB 
 redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
 ### MaintenanceOperation {#MaintenanceOperation3}
@@ -734,6 +777,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to Redis hosts.
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access4)**<br>Access policy to DB 
 redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources4}
@@ -750,6 +794,15 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling4}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow4}
@@ -870,6 +923,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to Redis hosts.
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access5)**<br>Access policy to DB 
 redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources5}
@@ -886,6 +940,15 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling5}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow5}
@@ -1009,6 +1072,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to Redis hosts.
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access6)**<br>Access policy to DB 
 redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources6}
@@ -1025,6 +1089,15 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling6}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow6}
@@ -1145,6 +1218,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to Redis hosts.
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access7)**<br>Access policy to DB 
 redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources7}
@@ -1161,6 +1235,15 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling7}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow7}
@@ -1220,6 +1303,7 @@ tls_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protoc
 persistence_mode | **[Cluster.PersistenceMode](#Cluster8)**<br>Persistence mode 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 announce_hostnames | **bool**<br>Enable FQDN instead of ip 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Window of maintenance operations. 
 
 
 ### ConfigSpec {#ConfigSpec2}
@@ -1236,6 +1320,7 @@ resources | **[Resources](#Resources8)**<br>Resources allocated to Redis hosts.
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access8)**<br>Access policy to DB 
 redis | **[config.RedisConfig](#RedisConfig)**<br>Unified configuration of a Redis cluster 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources8}
@@ -1254,6 +1339,15 @@ Field | Description
 data_lens | **bool**<br>Allow access for DataLens 
 
 
+### DiskSizeAutoscaling {#DiskSizeAutoscaling8}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
+
+
 ### HostSpec {#HostSpec1}
 
 Field | Description
@@ -1263,6 +1357,27 @@ subnet_id | **string**<br>ID of the subnet that the host should belong to. This 
 shard_name | **string**<br>ID of the Redis shard the host belongs to. To get the shard ID use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 replica_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>A replica with a low priority number is considered better for promotion. A replica with priority of 0 will never be selected by Redis Sentinel for promotion. Works only for non-sharded clusters. Default value is 100. 
 assign_public_ip | **bool**<br>Whether the host should get a public IP address on creation. <br>Possible values: <ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
+
+
+### MaintenanceWindow {#MaintenanceWindow8}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
+
+Empty.
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### Operation {#Operation7}
@@ -1306,7 +1421,7 @@ network_id | **string**<br>
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
 status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
@@ -1338,27 +1453,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to Redis hosts.
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access9)**<br>Access policy to DB 
 redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
-
-
-### MaintenanceWindow {#MaintenanceWindow8}
-
-Field | Description
---- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br>Maintenance operation can be scheduled on a weekly basis. 
-
-
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
-
-Empty.
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
-
-Field | Description
---- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
-hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
 ### MaintenanceOperation {#MaintenanceOperation8}
@@ -1461,6 +1556,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to Redis hosts.
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access9)**<br>Access policy to DB 
 redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources9}
@@ -1477,6 +1573,15 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling9}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow9}
@@ -1599,6 +1704,7 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to Redis hosts.
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access10)**<br>Access policy to DB 
 redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources10}
@@ -1615,6 +1721,15 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling10}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow10}
@@ -2240,6 +2355,7 @@ resources | **[Resources](#Resources12)**<br>Resources allocated to Redis hosts.
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access11)**<br>Access policy to DB 
 redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling11)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources12}
@@ -2256,6 +2372,15 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling11}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow11}
@@ -2376,6 +2501,7 @@ resources | **[Resources](#Resources13)**<br>Resources allocated to Redis hosts.
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access12)**<br>Access policy to DB 
 redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling12)**<br>Disk size autoscaling settings 
 
 
 ### Resources {#Resources13}
@@ -2392,6 +2518,15 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling12}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow12}

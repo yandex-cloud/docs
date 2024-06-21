@@ -36,7 +36,9 @@ computeInstanceId | <p>Required. Compute Cloud instance ID.</p> <p>The maximum s
     "lastBackupTime": "string",
     "nextBackupTime": "string",
     "resourceId": "string",
-    "isActive": true
+    "isActive": true,
+    "initStatus": "string",
+    "metadata": "string"
   }
 }
 ```
@@ -57,3 +59,5 @@ resource.<br>lastBackupTime | **string** (date-time)<br><p>String in <a href="ht
 resource.<br>nextBackupTime | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 resource.<br>resourceId | **string**<br><p>Resource ID is used to identify Compute Cloud instance in backup service.</p> 
 resource.<br>isActive | **boolean** (boolean)<br><p>Status ``is_active`` shows whether current Compute Cloud instance controls Cloud Backup resource. If status ``is_active`` is false it means Compute Cloud instance is not able to manipulate Cloud Backup resource.</p> 
+resource.<br>initStatus | **string**<br><p>Status of resource initialization in cloud backup service.</p> <ul> <li>REGISTERING: Registration of instance in cloud backups have started.</li> <li>REGISTRED: Instance is registered in cloud backups.</li> <li>FAILED_REGISTRATION: Instance registration failed.</li> <li>DELETED: Instance is deleted from cloud backup service.</li> </ul> 
+resource.<br>metadata | **string**<br><p>Metadata to provide details about instance registration process if status is FAILED_REGISTRATION or REGISTERING</p> 

@@ -82,6 +82,7 @@ SELECT * FROM <соединение>.<имя_таблицы>
 | `Timestamp` | `Timestamp` |
 | `String` | `String` |
 | `Utf8` | `Utf8` |
+| `Json` | `Json` |
 
 ### Опциональные типы данных {#supported_types_nullable}
 
@@ -103,4 +104,5 @@ SELECT * FROM <соединение>.<имя_таблицы>
 | `Optional<Timestamp>` | `Optional<Timestamp>` |
 | `Optional<String>` | `Optional<String>` |
 | `Optional<Utf8>` | `Optional<Utf8>` |
+| `Optional<Json>` | `Optional<Json>` |
 

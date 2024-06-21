@@ -34,7 +34,7 @@ To use Istio, you need a node group with at least 6 GB of RAM.
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the cluster name and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
-1. Under **Applications available for installation**, select [Istio](/marketplace/products/yc/istio) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Istio](/marketplace/products/yc/istio) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Istio. We do not recommend installing the application in the `default` namespace.
    * **Application name**: Enter a name for the application.
@@ -45,7 +45,7 @@ To use Istio, you need a node group with at least 6 GB of RAM.
 ## Installation using a Helm chart {#helm-install}
 
 1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
-
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Istio, run this command:
 
    ```bash

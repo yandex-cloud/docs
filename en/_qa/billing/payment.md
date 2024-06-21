@@ -14,8 +14,6 @@ For more information, see [How to pay for resources](../../billing/payment/index
 
 {% include [change-payment-method](../../billing/_includes/change-payment-method.md) %}
 
-#### What cards are accepted for payment? {#card-types}
-{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
 #### Is there a minimum payment amount? {#minimum}
 Depending on the currency, the minimum payment amount is:
@@ -52,16 +50,6 @@ Depending on the currency, the minimum payment amount is:
 
 
 
-#### I linked a card to my business billing account. When will money be debited from it? {#unlink-card}
-
-If this is your trial period, funds will not be debited from the bank card you linked.
-Since you do not automatically upgrade to the paid version at the end of the trial period, funds are only debited after activating the paid version and using {{ yandex-cloud }} services.
-
-If you upgraded to the paid version and used {{ yandex-cloud }} services, do the following to stop incurring charges:
-
-1. Settle your arrears (if any).
-1. Delete all billable service resources.
-1. Contact [technical support]({{ link-console-support }}) to deactivate your account.
 
 #### I linked a cloud to a new billing account. How do I pay for services now? {#unlink-cloud}
 

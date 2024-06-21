@@ -55,6 +55,11 @@ To create a [resource](../../concepts/resource.md):
 
          For more information, see [{#T}](../../concepts/clients-to-servers-tls.md).
       1. Select the **{{ ui-key.yacloud.cdn.label_host-header }}** value (`{{ ui-key.yacloud.cdn.value_host-header-default }}` or `{{ ui-key.yacloud.cdn.value_host-header-resend }}`) or choose `{{ ui-key.yacloud.cdn.value_host-header-custom }}` and enter the **{{ ui-key.yacloud.cdn.label_custom-host-header }}**. For more information, see [{#T}](../../concepts/servers-to-origins-host.md).
+      1. To restrict access to resource content with [secure tokens](../../concepts/secure-tokens.md), enable **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**:
+
+         {% include [enable-secure-token](../../../_includes/cdn/enable-secure-token.md) %}
+
+         For more information, see [{#T}](enable-secure-token.md).
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}

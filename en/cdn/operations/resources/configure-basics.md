@@ -40,6 +40,12 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
       For more information, see [{#T}](../../concepts/clients-to-servers-tls.md).
 
+      To restrict access to resource content with [secure tokens](../../concepts/secure-tokens.md), enable **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**:
+
+      {% include [enable-secure-token](../../../_includes/cdn/enable-secure-token.md) %}
+
+      For more information, see [{#T}](enable-secure-token.md).
+
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

@@ -492,8 +492,10 @@ project_id | **string**<br>Required. ID of the project to execute notebook/cell 
 target | **oneof:** `notebook_id` or `cell_id`<br>
 &nbsp;&nbsp;notebook_id | **string**<br>The path to the executable notebook in the project storage. The maximum string length is 200 characters. <br>To get the path, right-click on the notebook in JupyterLab and select `Copy path`. The maximum string length in characters is 200.
 &nbsp;&nbsp;cell_id | **string**<br>ID of the cell to execute. Deprecated The maximum string length in characters is 200.
-input_variables | **google.protobuf.Struct**<br>Values of input variables. 
+input_variables | **google.protobuf.Struct**<br>Values of input variables. Input variables will be available in the project as environment variables. 
 output_variable_names[] | **string**<br>Names of output variables. 
+spec | **string**<br>Specification of the VM 
+spark_connector_id | **string**<br>ID of the Spark Connector The maximum string length in characters is 200.
 
 
 ### Operation {#Operation5}
@@ -527,7 +529,7 @@ target | **oneof:** `notebook_id` or `cell_id`<br>
 Field | Description
 --- | ---
 checkpoint_id | **string**<br>ID of the checkpoint resulting from the execution. 
-output_variables | **google.protobuf.Struct**<br>Values of output variables resulting from the execution. 
+output_variables | **google.protobuf.Struct**<br>Values of output variables resulting from the execution. Deprecated 
 execution_status | enum **ExecutionStatus**<br>Execution final status. <ul><li>`OK`: Execution finished successfully.</li><li>`ERROR`: Execution ended with error.</li><li>`ABORTED`: Execution was aborted.</li></ul>
 
 

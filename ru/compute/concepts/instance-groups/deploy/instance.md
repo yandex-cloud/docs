@@ -60,15 +60,16 @@
 * `resources_spec.{memory,cores,core_fraction,gpus}` — объем памяти, CPU, [% гарантии CPU](../../performance-levels.md), [количество GPU](../../gpus.md). 
 * `boot_disk_spec` — загрузочный диск.
 * `metadata` — метаданные виртуальной машины.
+* Параметры сетевых интерфейсов:
+
+  * `network_interface_specs.network_id` — идентификатор сети.
+  * `network_interface_specs.subnet_ids` — идентификаторы подсетей.
+  * `network_interface_specs.primary_v4_address_spec` — параметры публичного IP-адреса v4.
+  * `network_interface_specs.primary_v6_address_spec` — параметры публичного IP-адреса v6.
+
 
 ### Параметры, изменение которых приводит к пересозданию виртуальной машины {#ch-temp-with-recreate}
 
-* Параметры сетевых интерфейсов, которые нельзя обновлять без пересоздания виртуальной машины:
-
-    * `network_interface_specs.network_id`
-    * `network_interface_specs.subnet_ids`
-    * `network_interface_specs.primary_v4_address_spec`
-    * `network_interface_specs.primary_v6_address_spec`
-
+* `network_interface_specs` — только при добавлении или удалении сетевых интерфейсов. Изменение параметров имеющихся интерфейсов не приводит к пересозданию ВМ.
 * `secondary_disk_specs` — дополнительные диски нельзя обновлять без пересоздания виртуальной машины. Диски сохраняются по возможности.
 * `scheduling_policy` — превратить обычную виртуальную машину в прерываемую и наоборот нельзя без пересоздания.

@@ -36,4 +36,5 @@ Method | Description
 [get](get.md) | Returns the specified API key.
 [list](list.md) | Retrieves the list of API keys for the specified service account.
 [listOperations](listOperations.md) | Retrieves the list of operations for the specified API key.
+[listScopes](listScopes.md) | Retrieves the list of scopes.
 [update](update.md) | Updates the specified API key.

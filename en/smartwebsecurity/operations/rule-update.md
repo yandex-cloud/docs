@@ -36,6 +36,10 @@ description: "Follow this guide to edit a rule in a security profile."
       To remove a condition, click ![options](../../_assets/console-icons/trash-bin.svg).
    1. Click **{{ ui-key.yacloud.common.save-changes }}**.
 
+- API {#api}
+
+   {% include [api-profile-update](../../_includes/smartwebsecurity/api-profile-update.md) %}
+
 {% endlist %}
 
 ### See also {#see-also}

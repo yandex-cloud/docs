@@ -66,16 +66,6 @@ items:
             href: operations/application-load-balancer-relocate.md
           - name: Deleting an L7 load balancer
             href: operations/application-load-balancer-delete.md
-      - name: Tools for {{ managed-k8s-name }}
-        items:
-          - name: Installing an Ingress controller
-            href: operations/k8s-ingress-controller-install.md
-          - name: Updating an Ingress controller
-            href: operations/k8s-ingress-controller-upgrade.md
-          - name: Installing Gateway API
-            href: operations/k8s-gateway-api-install.md
-          - name: Creating or updating resources based on configuration
-            href: operations/k8s-ingress-controller-apply.md
       - name: Viewing operations with the service's resources
         href: operations/operation-logs.md
   - name: Tutorials
@@ -102,6 +92,12 @@ items:
         href: tutorials/logging.md
       - name: Deploying and load testing a gRPC service with scaling
         href: tutorials/load-testing-grpc-autoscaling.md
+      - name: Setting up the Gateway API
+        href: tutorials/gateway-api.md
+      - name: Setting up the {{ alb-name }} Ingress controller
+        href: tutorials/alb-ingress-controller.md
+      - name: Logging settings for {{ alb-name }} Ingress controllers
+        href: tutorials/alb-ingress-controller-log-options.md
   - name: Concepts
     items:
       - name: Overview
@@ -126,6 +122,10 @@ items:
             href: tools/k8s-ingress-controller/index.md
           - name: How it works
             href: tools/k8s-ingress-controller/principles.md
+          - name: Installing an Ingress controller
+            href: operations/k8s-ingress-controller-install.md
+          - name: Updating an Ingress controller
+            href: operations/k8s-ingress-controller-upgrade.md
           - name: Resource configuration
             items:
               - name: Ingress
@@ -140,6 +140,8 @@ items:
         items:
           - name: Overview
             href: tools/k8s-gateway-api/index.md
+          - name: Installing Gateway API
+            href: operations/k8s-gateway-api-install.md
           - name: Resource configuration
             items:
               - name: Gateway
@@ -148,10 +150,12 @@ items:
                 href: k8s-ref/http-route.md
               - name: Service for Gateway API
                 href: k8s-ref/service-for-gateway.md
-      - name: Security groups' settings
+      - name: Configuring security groups
         href: tools/k8s-ingress-controller/security-groups.md
       - name: Working with service accounts
         href: tools/k8s-ingress-controller/service-account.md
+      - name: Creating or updating resources based on a configuration
+        href: operations/k8s-ingress-controller-apply.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
