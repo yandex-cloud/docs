@@ -174,7 +174,6 @@ default:
   GP: Greenplum®
   gp:
     docs:
-      pivotal: https://gpdb.docs.pivotal.io
       vmware: https://docs.vmware.com/en/VMware-Greenplum
   gpt-freetier: 10
   gpt-lite: YandexGPT Lite
@@ -5590,6 +5589,7 @@ default:
           switch_acts: Отчётные документы
           tab_reconciliation-reports-title: Акты сверки
         label_accounts: Аккаунты
+        label_service: Биллинг
       cdn:
         button_activate-shielding: Включить
         button_add-domain: Добавить доменное имя
@@ -5804,6 +5804,7 @@ default:
         label_https: HTTPS
         label_key: Ключ
         label_list: Список
+        label_load-more: Загрузить еще
         label_status: Статус
         label_subnet: Подсеть
         label_tcp: TCP
@@ -7148,6 +7149,7 @@ default:
           field_initialization-action-uri: URI
           field_security-group: Группы безопасности
           host_column_assign_public_ip: Публичный доступ
+          host_column_replica-priority: Приоритет мастера
           host_column_shard-name: Имя шарда
           host_column_subnetwork: Подсеть
           host_column_zone: Зона доступности
@@ -9329,8 +9331,8 @@ default:
         tag: 0.5.5
     yc_externaldns:
       helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/externaldns/helm/externaldns
-        tag: 0.5.0
+        name: cr.yandex/yc-marketplace/yandex-cloud/externaldns/chart/externaldns
+        tag: 0.5.1
     yc_falco:
       helmChart:
         name: cr.yandex/yc-marketplace/falco

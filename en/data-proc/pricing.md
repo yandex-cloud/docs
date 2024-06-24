@@ -123,6 +123,8 @@ This functionality is at the [Preview](../overview/concepts/launch-stages.md) st
 
 - Standard hosts
 
+  {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
+
   {% include [usd-standard-hosts](../_pricing/data-proc/usd-standard-hosts.md) %}
 
 - Dedicated hosts

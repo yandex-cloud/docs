@@ -253,6 +253,7 @@ description: "Из статьи вы узнаете, как задать нас�
 * [Ошибка при трансфере шардированного кластера](#sharded)
 * [Ошибка при переносе коллекций timeseries](#timeseries)
 * [Не распознается IP-адрес или FQDN внешнего кластера](#cluster-config-issue)
+* [Ошибка на стадии копирования](#history-lost)
 
 См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
@@ -267,3 +268,5 @@ description: "Из статьи вы узнаете, как задать нас�
 {% include [timeseries](../../../../_includes/data-transfer/troubles/mongodb/timeseries.md) %}
 
 {% include [cluster configuration](../../../../_includes/data-transfer/troubles/mongodb/cluster-configuration.md) %}
+
+{% include [history lost](../../../../_includes/data-transfer/troubles/mongodb/history-lost.md) %}

@@ -95,6 +95,10 @@ editable: false
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
+
+{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
+
+
 #### Стандартные хосты {#standard-hosts}
 
 

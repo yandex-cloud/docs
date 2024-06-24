@@ -592,7 +592,7 @@ items:
                 href: function-ref/USER_INFO.md
           - name: Поддержка функций
             href: function-ref/availability.md
-      - name: Туториалы по функциям
+      - name: Примеры использования функций
         items:
           - name: Агрегатные функции
             href: concepts/aggregation-tutorial.md

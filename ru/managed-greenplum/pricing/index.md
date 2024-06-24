@@ -198,6 +198,10 @@ editable: false
 
 #### Стандартные хосты {#standard-hosts}
 
+
+{% include [Доступ к Compute Optimized по запросу](../../_includes/mdb/note-compute-optimized-request.md) %}
+
+
 Стоимость вычисляется по-разному в зависимости от [конфигурации хостов](../concepts/instance-types.md):
 
 * Для хостов i2 и i3 (`io-optimized`) стоимость складывается из цены за вычислительные ресурсы хостов {{ mgp-name }} (см. таблицу ниже) и [цены за использование программно-ускоренной сети](../../compute/pricing.md#software-accelerated-network).
@@ -238,6 +242,10 @@ editable: false
 
 
 #### Выделенные хосты {#dedicated-hosts}
+
+
+{% include [Доступ к Compute Optimized по запросу](../../_includes/mdb/note-compute-optimized-request.md) %}
+
 
 Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices) и наценки {{ mgp-name }} на эти ресурсы.
 

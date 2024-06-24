@@ -29,6 +29,10 @@ description: "На странице представлен список прак
   * [{#T}](managed-schema-registry.md)
   * [{#T}](confluent-schema-registry.md)
 
+## {{ AF }} {#airflow}
+
+  * [{#T}](yandex-query-automation.md)
+
 ## {{ CH }} {#clickhouse}
 
 * [{#T}](mysql-to-clickhouse.md)

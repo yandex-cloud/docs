@@ -130,6 +130,10 @@ editable: false
 #### Стандартные хосты {#prices-kafka-standard}
 
 
+{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
+
+
+
 **Цены в час**
 
 
@@ -200,6 +204,10 @@ editable: false
 
 
 #### Стандартные хосты {#zookeeper-standard}
+
+
+{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
+
 
 
 {% list tabs group=pricing %}

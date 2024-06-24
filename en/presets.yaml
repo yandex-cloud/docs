@@ -5590,6 +5590,7 @@ default:
           switch_acts: Reporting documents
           tab_reconciliation-reports-title: Reconciliation reports
         label_accounts: Accounts
+        label_service: Billing
       cdn:
         button_activate-shielding: Activate
         button_add-domain: Add domain name
@@ -5804,6 +5805,7 @@ default:
         label_https: HTTPS
         label_key: Key
         label_list: List
+        label_load-more: Load more
         label_status: Status
         label_subnet: Subnet
         label_tcp: TCP
@@ -7146,6 +7148,7 @@ default:
           field_initialization-action-uri: URI
           field_security-group: Security groups
           host_column_assign_public_ip: Public access
+          host_column_replica-priority: Master priority
           host_column_shard-name: Shard name
           host_column_subnetwork: Subnet
           host_column_zone: Availability zone
@@ -9329,8 +9332,8 @@ default:
         tag: 0.5.5
     yc_externaldns:
       helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/externaldns/helm/externaldns
-        tag: 0.5.0
+        name: cr.yandex/yc-marketplace/yandex-cloud/externaldns/chart/externaldns
+        tag: 0.5.1
     yc_falco:
       helmChart:
         name: cr.yandex/yc-marketplace/falco
