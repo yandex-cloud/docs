@@ -59,7 +59,11 @@ QL charts have the same [general settings](../../concepts/chart/settings.md#comm
       | to | datetime | Upper time limit |
       | step | number | Step on the time scale (seconds) |
 
+      {% note info %}
+
       On the dashboard, you can use a single selector for the date with a special `interval` name instead of the two selectors, `from` and `to`.
+
+      {% endnote %}
 
    - {{ monitoring-short-name }}
 
@@ -82,7 +86,11 @@ QL charts have the same [general settings](../../concepts/chart/settings.md#comm
       | from | datetime | Lower time limit |
       | to | datetime | Upper time limit |
 
+      {% note info %}
+
       On the dashboard, you can use a single selector for the date with a special `interval` name instead of the two selectors, `from` and `to`.
+
+      {% endnote %}
 
    {% endlist %}
 

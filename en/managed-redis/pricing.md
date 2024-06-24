@@ -76,6 +76,10 @@ All prices are shown without VAT.
 ### Host computing resources {#prices-hosts}
 
 
+{% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
+
+
+
 
 {% include [usd-host.md](../_pricing/managed-redis/usd-host.md) %}
 

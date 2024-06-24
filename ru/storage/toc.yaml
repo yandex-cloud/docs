@@ -7,7 +7,13 @@ label:
   when: region == "kz"
 items:
   - name: Начало работы
-    href: quickstart.md
+    items:
+      - name: Обзор
+        href: quickstart/index.md
+      - name: Начало работы c {{ objstorage-name }}
+        href: quickstart.md
+      - name: Начало работы с AWS CLI
+        href: quickstart/quickstart-aws-cli.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции

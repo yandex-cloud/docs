@@ -147,6 +147,10 @@ The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
 
 #### Standard hosts {#standard-hosts}
 
+
+{% include [Access to Compute Optimized on request](../../_includes/mdb/note-compute-optimized-request.md) %}
+
+
 The cost calculation will be different depending on the [host configuration](../concepts/instance-types.md):
 
 * For hosts i2 and i3 (`io-optimized`), the cost is made up of the price for {{ mgp-name }} host computing resources (see the table below) and [the price for software-accelerated network use](../../compute/pricing.md#software-accelerated-network).
@@ -167,6 +171,10 @@ The cost calculation will be different depending on the [host configuration](../
 
 
 #### Dedicated hosts {#dedicated-hosts}
+
+
+{% include [Access to Compute Optimized on request](../../_includes/mdb/note-compute-optimized-request.md) %}
+
 
 The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} markup for using these resources.
 

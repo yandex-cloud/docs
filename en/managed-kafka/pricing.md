@@ -116,6 +116,10 @@ The cost of fast local storage also depends on the type of hosts.
 #### Standard hosts {#prices-kafka-standard}
 
 
+{% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
+
+
+
 
 {% list tabs %}
 
@@ -154,6 +158,10 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 
 #### Standard hosts {#zookeeper-standard}
+
+
+{% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
+
 
 
 
