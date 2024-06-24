@@ -86,6 +86,10 @@ All prices are shown without VAT.
 ### Host computing resources {#prices-hosts}
 
 
+{% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
+
+
+
 
 {% include [usd-host-resources.md](../_pricing/managed-postgresql/usd-host-resources.md) %}
 

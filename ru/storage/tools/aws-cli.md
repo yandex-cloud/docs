@@ -19,7 +19,7 @@
 
 ## Настройка {#setup}
 
-Для настройки AWS CLI введите команду `aws configure`. Команда запросит значения для следующих параметров:
+Для настройки AWS CLI в терминале введите команду `aws configure`. Команда запросит значения для следующих параметров:
 1. `AWS Access Key ID` — идентификатор статического ключа, созданного при [подготовке к работе](#before-you-begin).
 1. `AWS Secret Access Key` — содержимое статического ключа.
 1. `Default region name` — регион `{{ region-id }}`.
@@ -78,7 +78,15 @@
 Учитывайте особенности AWS CLI при работе с {{ objstorage-name }}:
 
 * AWS CLI работает с {{ objstorage-name }} как с иерархической файловой системой и ключи объектов имеют вид пути к файлу.
-* По умолчанию клиент настроен на работу с серверами Amazon. Поэтому при запуске команды `aws` для работы с {{ objstorage-name }} обязательно используйте параметр `--endpoint-url`. Чтобы при каждом запуске не указывать параметр вручную, вы можете использовать псевдоним или файл конфигурации.
+* По умолчанию клиент настроен на работу с серверами Amazon. Поэтому при запуске команды `aws` для работы с {{ objstorage-name }} обязательно используйте параметр `--endpoint-url`. Чтобы при каждом запуске не указывать параметр вручную, вы можете использовать файл конфигурации или псевдоним.
+    * (поддерживается в AWS CLI версий 1.29.0, 2.13.0 и выше) В файле конфигурации `.aws/config` добавьте параметр `endpoint_url`:
+
+       ```text
+       endpoint_url = https://{{ s3-storage-host }}
+       ```
+
+       После этого вы сможете вызывать команды без явного указания эндпоинта. Например, вместо `aws --endpoint-url=https://{{ s3-storage-host }} s3 ls` можно указывать `aws s3 ls`. Подробнее смотрите в документации [AWS CLI](https://docs.aws.amazon.com/sdkref/latest/guide/feature-ss-endpoints.html).
+
     * Создайте псевдоним (alias) с помощью команды:
     
       ```bash
@@ -96,20 +104,6 @@
       ```bash
       {{ storage-aws-cli-alias }} ls
       ```
-
-    * (поддерживается в AWS CLI версий 1.29.0, 2.13.0 и выше) В файле конфигурации `.aws/config` добавьте параметр `endpoint_url`:
-
-       ```text
-       endpoint_url = https://{{ s3-storage-host }}
-       ```
-
-       После этого вы сможете вызывать команды без явного указания эндпоинта. Например, вместо `aws --endpoint-url=https://{{ s3-storage-host }} s3 ls` можно указывать `aws s3 ls`. Подробнее смотрите в документации [AWS CLI](https://docs.aws.amazon.com/sdkref/latest/guide/feature-ss-endpoints.html).
-
-* При работе в macOS, в некоторых случаях требуется запуск вида:
-
-  ```bash
-  export PYTHONPATH=/Library/Python/2.7/site-packages; aws --endpoint-url=https://{{ s3-storage-host }} s3 ls
-  ```
 
 ## Примеры операций {#aws-cli-examples}
 
@@ -246,3 +240,8 @@ aws s3 cp s3://bucket-name/textfile.txt textfile.txt
 ```text
 download: s3://bucket-name/path_style_prefix/textfile.txt to ./textfile.txt
 ```
+
+
+## См. также {#see-also}
+
+* [{#T}](../quickstart/quickstart-aws-cli.md).

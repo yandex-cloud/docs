@@ -12,6 +12,9 @@
    | 50% vCPU | {{ sku|USD|mdb.cluster.opensearch.v3.cpu.c50|string }} | — | — |
    | 100% vCPU | {{ sku|USD|mdb.cluster.opensearch.v3.cpu.c100|string }} | {{ sku|USD|v1.commitment.selfcheckout.m6.mdb.opensearch.cpu.c100.v3|string }} (-15%) | {{ sku|USD|v1.commitment.selfcheckout.y1.mdb.opensearch.cpu.c100.v3|string }} (-22%) |
    | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.opensearch.v3.ram|string }} | {{ sku|USD|v1.commitment.selfcheckout.m6.mdb.opensearch.ram.v3|string }} (-15%) | {{ sku|USD|v1.commitment.selfcheckout.y1.mdb.opensearch.ram.v3|string }} (-22%) |
+   | **Intel Ice Lake (Compute Optimized)** |
+   | 100% vCPU | $0.021520 | - | - |
+   | RAM (for 1 GB) | $0.006480 | - | - |
 
 - Costs per month
 
@@ -25,6 +28,9 @@
    | 50% vCPU | {{ sku|USD|mdb.cluster.opensearch.v3.cpu.c50|month|string }} | — | — |
    | 100% vCPU | {{ sku|USD|mdb.cluster.opensearch.v3.cpu.c100|month|string }} | {{ sku|USD|v1.commitment.selfcheckout.m6.mdb.opensearch.cpu.c100.v3|month|string }} (-15%) | {{ sku|USD|v1.commitment.selfcheckout.y1.mdb.opensearch.cpu.c100.v3|month|string }} (-22%) |
    | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.opensearch.v3.ram|month|string }} | {{ sku|USD|v1.commitment.selfcheckout.m6.mdb.opensearch.ram.v3|month|string }} (-15%) | {{ sku|USD|v1.commitment.selfcheckout.y1.mdb.opensearch.ram.v3|month|string }} (-22%) |
+   | **Intel Ice Lake (Compute Optimized)** |
+   | 100% vCPU | $15.494400 | - | - |
+   | RAM (for 1 GB) | $4.665600 | - | - |
 
 {% endlist %}
 

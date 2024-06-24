@@ -54,23 +54,17 @@
 
 ## {{ mmg-full-name }} {#mmg}
 
-{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
-
 Имя сервиса — `mdb.mongodb`.
 
 {% include [mmg-events-dp](../../_includes/audit-trails/events/mmg-events-dp.md) %}
 
 ## {{ mmy-full-name }} {#mmy}
 
-{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
-
 Имя сервиса — `mdb.mysql`.
 
 {% include [mmy-events-dp](../../_includes/audit-trails/events/mmy-events-dp.md) %}
 
 ## {{ mpg-full-name }} {#mpg}
-
-{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
 
 Имя сервиса — `mdb.postgresql`.
 

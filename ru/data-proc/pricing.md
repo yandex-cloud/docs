@@ -152,6 +152,8 @@ editable: false
 
 #### Стандартные хосты {#standard-hosts}
 
+{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
+
 {% list tabs group=pricing %}
 
 - Цены в рублях {#prices-rub}

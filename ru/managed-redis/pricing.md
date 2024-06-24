@@ -77,6 +77,10 @@ editable: false
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
 
+{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
+
+
+
 #### Цены в час {#host-price-per-hour}
 
 

@@ -164,11 +164,19 @@ All prices are shown without VAT.
 ### {{ CH }} host computing resources {#prices-clickhouse}
 
 
+{% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
+
+
+
 
 {% include [usd-host-ch.md](../_pricing/managed-clickhouse/usd-host-ch.md) %}
 
 
 ### {{ ZK }} host computing resources {#prices-zookeeper}
+
+
+{% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
+
 
 
 {% note info %}

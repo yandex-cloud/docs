@@ -109,6 +109,8 @@
 
 {% include [cluster configuration](../../_includes/data-transfer/troubles/mongodb/cluster-configuration.md) %}
 
+{% include [history lost](../../_includes/data-transfer/troubles/mongodb/history-lost.md) %}
+
 ## {{ MY }} {#mysql}
 
 {% include [binlog-size](../../_includes/data-transfer/troubles/mysql/binlog-size.md) %}

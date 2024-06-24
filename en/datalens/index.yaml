@@ -7,7 +7,6 @@ description:
   - >-
     With Yandex DataLens, you can track your product and business metrics
     directly from data sources to make data-driven decisions.
-  - Yandex DataLens is currently free of charge.
 meta:
   title: Yandex DataLens
   description: >-
@@ -39,6 +38,9 @@ links:
   - title: Access management
     description: Permissions required to use the service
     href: security/
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing
   - title: Courses
     description: Available courses and training programs
     href: training

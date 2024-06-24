@@ -34,6 +34,8 @@ items:
     items:
       - name: Автоматизация работы с {{ dataproc-name }}
         href: tutorials/data-proc-automation.md
+      - name: Автоматизация задач {{ yq-full-name }}
+        href: tutorials/yandex-query-automation.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

@@ -224,6 +224,10 @@ editable: false
 ### Вычислительные ресурсы хостов {{ CH }} {#prices-clickhouse}
 
 
+{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
+
+
+
 #### Цены в час {#prices-clickhouse-hour}
 
 
@@ -261,6 +265,10 @@ editable: false
 
 
 ### Вычислительные ресурсы хостов {{ ZK }} {#prices-zookeeper}
+
+
+{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
+
 
 
 {% note info %}

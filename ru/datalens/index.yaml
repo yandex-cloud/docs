@@ -7,7 +7,6 @@ description:
   - >-
     С помощью Yandex DataLens вы можете отслеживать продуктовые и бизнес-метрики
     напрямую из источников, чтобы принимать решения, основанные на данных.
-  - Yandex DataLens не тарифицируется.
 meta:
   title: Yandex DataLens
   description: >-
@@ -19,7 +18,9 @@ links:
     description: Как начать работать с DataLens
     href: quickstart
   - title: Практические руководства
-    description: Пройдите туториалы с примерами использования сервиса DataLens
+    description: >-
+      Пройдите практические руководства с примерами использования сервиса
+      DataLens
     href: tutorials/
   - title: Подключение
     description: Подключитесь к различным источникам данных
@@ -39,6 +40,9 @@ links:
   - title: Управление доступом
     description: Какие права доступа нужны для работы с сервисом
     href: security/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
