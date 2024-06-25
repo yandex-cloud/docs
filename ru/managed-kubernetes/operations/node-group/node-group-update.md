@@ -6,6 +6,10 @@ description: "Следуя данной инструкции, вы сможет�
 # Изменение группы узлов {{ managed-k8s-name }}
 
 
+{% include [node-vm-explained](../../../_includes/managed-kubernetes/node-vm-explained.md) %}
+
+{% include [node-vm-manipulation-warning](../../../_includes/managed-kubernetes/node-vm-manipulation-warning.md) %}
+
 {% include [yc-node-group-list](../../../_includes/managed-kubernetes/node-group-list.md) %}
 
 Перед началом работы убедитесь, что в [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) достаточно [свободных ресурсов](../../concepts/limits.md).
@@ -29,12 +33,6 @@ description: "Следуя данной инструкции, вы сможет�
 * [Вычислительные ресурсы](../../../compute/concepts/vm-platforms.md) и размер [диска](../../../compute/concepts/disk.md) узлов {{ managed-k8s-name }}.
 * Шаблон имени узлов {{ managed-k8s-name }}.
 * Политику [обновлений](../../concepts/release-channels-and-updates.md#updates).
-
-{% note alert %}
-
-Не изменяйте параметры [виртуальных машин](../../../compute/concepts/vm.md), принадлежащих [кластеру {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster), с помощью [интерфейсов {{ compute-full-name }}](../../../compute/operations/vm-control/vm-update.md). Это приведет к нарушению работы группы узлов и всего кластера {{ managed-k8s-name }}.
-
-{% endnote %}
 
 Инструкция по изменению [зоны доступности](../../../overview/concepts/geo-scope.md) группы узлов приведена в разделе [{#T}](../../tutorials/migration-to-an-availability-zone.md).
 

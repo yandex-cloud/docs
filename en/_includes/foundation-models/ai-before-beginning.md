@@ -1,6 +1,6 @@
 # Authentication with the {{ foundation-models-full-name }} API
 
-To work with the {{ foundation-models-full-name }} API, you need to get authenticated using your account:
+To use the {{ foundation-models-full-name }} API, you need to authenticate:
 
 {% list tabs group=authentication %}
 

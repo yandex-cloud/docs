@@ -4,6 +4,10 @@
 Charts are created in a wizard based on the data from one or more datasets (see [{#T}](./multidataset-chart.md) for details).
 
 
+
+{% include [datalens-db-query-note](../../../_includes/datalens/datalens-db-query-note.md) %}
+
+
 You can create an unlimited number of charts based on a single dataset.
 
 The workspace in the wizard interface is divided into three main panels:

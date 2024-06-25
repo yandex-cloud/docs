@@ -12,16 +12,8 @@ description: "In this tutorial, you will learn how to connect to {{ MY }} in {{ 
 To create a {{ MY }} connection:
 
 
-
-1. Go to the [connections page]({{ link-datalens-main }}/connections).
-
-
-1. Click **Create connection**.
-
-
-
-1. Select **MySQL** as the connection type.
-
+1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
+1. Under **Databases**, select the **MySQL** connection.
 
 
 1. Select the connection type:
@@ -34,7 +26,7 @@ To create a {{ MY }} connection:
 
       * **Cluster**: Specify a cluster from the list of available {{ MY }} clusters. Cluster settings must have the **{{ datalens-short-name }} access** option enabled. If you do not have an available cluster, click **Create new**.
 
-      {% include [datalens-cluster-list](../../../_includes/datalens/datalens-cluster-list.md) %}
+        {% include [datalens-cluster-list](../../../_includes/datalens/datalens-cluster-list.md) %}
 
       * **Hostname**: Select the host name from the list of hosts available in the {{ MY }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
       * **Port**: Specify the {{ MY }} connection port. The default port is 3306.
@@ -53,12 +45,15 @@ To create a {{ MY }} connection:
    {% endlist %}
 
 
+1. (Optional) Make sure the connection works properly. To do this, click **Check connection**.
+1. Click **Create connection**.
 
 
-1. Click **Create connection**. If you use a new {{ datalens-short-name }} object model with [workbooks and collections](../../../datalens/workbooks-collections/index.md), select or create a workbook to save the connection to.
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+
+
 1. Enter a name for the connection and click **Create**.
 
-{% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}
 
 ## Additional settings {#additional-settings}
 

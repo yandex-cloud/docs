@@ -1,6 +1,12 @@
 # Selectors
 
-Selectors are filters that affect the results of queries in the linked [widgets](./widget.md). A selector can be linked to a chart or another selector. For more information, see [{#T}](./link.md).
+Selectors are filters that affect the results of queries in the linked [widgets](./widget.md).
+
+
+{% include [datalens-db-query-note](../../_includes/datalens/datalens-db-query-note.md) %}
+
+
+A selector can be linked to a chart or another selector. For more information, see [{#T}](./link.md).
 
 
 A selector works within a single dashboard tab. For more information on how to add a selector to a dashboard, see [{#T}](../operations/dashboard/add-selector.md).

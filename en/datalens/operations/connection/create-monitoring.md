@@ -15,13 +15,13 @@ description: "Follow this guide to create a {{ monitoring-name }} connection."
 
 To create a {{ monitoring-name }} connection:
 
-1. Go to the [connections page]({{ link-datalens-main }}/connections).
-1. Click **Create connection**.
-1. Select **Monitoring** as the connection type.
+1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
+1. Under **Files and services**, select the **Monitoring** connection.
 1. Specify the connection parameters:
 
    * **Cloud and folder**: Select the folder where your service account is located.
    * **Service account**: Select an existing service account or create a new one.
 
-1. Click **Create connection**. If you use a new {{ datalens-short-name }} object model with [workbooks and collections](../../../datalens/workbooks-collections/index.md), select or create a workbook to save the connection to.
-1. Enter the connection name and click **Create**. The connection will appear in the list.
+1. Click **Create connection**.
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+1. Enter a name for the connection and click **Create**.

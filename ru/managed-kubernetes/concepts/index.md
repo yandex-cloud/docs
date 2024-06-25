@@ -45,6 +45,10 @@ _Мастер_ — компонент, который управляет кла�
 
 _Группа узлов_ — группа ВМ с одинаковой конфигурацией в кластере {{ k8s }}, на которых запускаются пользовательские контейнеры.
 
+{% include [node-vm-explained-short](../../_includes/managed-kubernetes/node-vm-explained-short.md) %}
+
+{% include [node-vm-manipulation-warning](../../_includes/managed-kubernetes/node-vm-manipulation-warning.md) %}
+
 ### Конфигурация {#config}
 
 

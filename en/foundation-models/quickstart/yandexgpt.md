@@ -4,9 +4,9 @@
 
 In this section, you will learn how to use the {{ yagpt-name }} neural network to generate text in [synchronous mode](../concepts/index.md#working-mode) without adding context. For other examples, see [Guides on how to use {{ yagpt-full-name }}](../operations/index.md#yandexgpt-api)
 
-The [management console]({{ link-console-main }}/link/foundation-models/yandexgpt) provides a quick and easy way for new users without a [billing account](../../billing/concepts/billing-account.md) to try out the model with {{ gpt-freetier }} free prompts per hour. To access the API and increase usage [quotas](../concepts/limits.md), [link](../../billing/operations/pin-cloud.md) your billing account to the cloud.
+The [management console]({{ link-console-main }}/link/foundation-models/yandexgpt) provides a quick and easy way for new users without a [billing account](../../billing/concepts/billing-account.md) to try out the model with {{ gpt-freetier }} free prompts per hour. To access the API and increase usage [quotas](../concepts/limits.md), [link](../../billing/operations/pin-cloud.md) your billing account to your cloud.
 
-For information about {{ yagpt-full-name }} usage costs, see [{#T}](../pricing.md).
+For information about {{ yagpt-full-name }} pricing, see [{#T}](../pricing.md).
 
 ## Getting started {#before-begin}
 
@@ -28,7 +28,7 @@ To get started in {{ yandex-cloud }}:
 
    To work with the {{ yagpt-name }} API, you need to get authenticated using your account:
 
-   1. Get an IAM token for your [Yandex account](../../iam/operations/iam-token/create.md) or [federated account](../../iam/operations/iam-token/create-for-federation.md).
+   1. Get an IAM token: see the guide for a [Yandex account](../../iam/operations/iam-token/create.md) or [federated account](../../iam/operations/iam-token/create-for-federation.md).
    1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-yagpt-user }}` role or higher.
    1. When accessing {{ yagpt-full-name }} via the API, provide the received parameters in each request:
 

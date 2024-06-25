@@ -10,3 +10,11 @@ description: "Следуя данной инструкции, вы сможет�
 {% include [oslogin-export-certificate](../../../_includes/compute/oslogin-export-certificate.md) %}
 
 С помощью экспортированного сертификата OS Login вы можете [подключиться](./os-login.md#connect-via-exported-certificate) к виртуальной машине, для которой [настроен](../vm-control/vm-update.md#enable-oslogin-access) доступ по OS Login.
+
+#### См. также {#see-also}
+
+* [{#T}](../../../organization/operations/os-login-access.md)
+* [{#T}](../../../organization/operations/add-ssh.md)
+* [{#T}](./os-login.md)
+* [Подключиться к узлу {{ k8s }} через OS Login](../../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [Использовать сервисный аккаунт с профилем OS Login для управления ВМ с помощью Ansible](../../../tutorials/security/sa-oslogin-ansible.md)

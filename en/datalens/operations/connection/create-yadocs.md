@@ -8,12 +8,8 @@ description: "Follow this guide to create a connection to Yandex Documents."
 
 To create a connection to Yandex Documents:
 
-
-1. Go to the [connections page]({{ link-datalens-main }}/connections).
-
-
-1. Click **Create connection**.
-1. Select the **Yandex Documents** connection.
+1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
+1. Under **Files and services**, select the **Yandex Documents** connection.
 1. Add files depending on access permissions:
 
    {% list tabs %}
@@ -58,7 +54,12 @@ To create a connection to Yandex Documents:
 
 1. Set the **Show column headers** option to **Yes** or **No**.
 1. (Optional) Enable automatic updates for the spreadsheet data. To do this, in the top-right corner, select **Update automatically**. The spreadsheet data will be updated once in 30 minutes or less often. To update the data manually, click **Update data**.
-1. Click **Create connection**. If you use a new {{ datalens-short-name }} object model with [workbooks and collections](../../../datalens/workbooks-collections/index.md), select or create a workbook to save the connection to.
+1. Click **Create connection**.
+
+
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+
+
 1. Enter a name for the connection and click **Create**.
 
 You can add, rename, and delete files in the connection.

@@ -10,9 +10,9 @@ There are two interfaces for {{ yagpt-full-name }} in {{ yandex-cloud }}. You ca
 
 * In **Prompt mode**, you submit a ready-made prompt to the model and get the result. The model treats each new question as a stand-alone task without saving the context of the previous request. In this format, you can choose between the summary models, {{ gpt-lite }} and {{ gpt-pro }}, in the management console.
 
-* In **Chat** mode, you can chat with the model to update your instructions and elaborate on your previous inputs. The communication context is transmitted in every message and maintained throughout the current session until you explicitly start a new one. To work in chat mode, use the {{ gpt-pro }} model.
+* In **Chat mode**, you can chat with the model to update your instructions and elaborate on your previous inputs. The communication context is transmitted in every message and maintained throughout the current session until you explicitly start a new one. To work in chat mode, use the {{ gpt-pro }} model.
 
-Both [prompt](../../operations/yandexgpt/create-prompt.md) and [chat](../../operations/yandexgpt/create-chat.md) messages are available if using the API. You can also use the API to work with models in [asynchronous mode](../../operations/yandexgpt/async-request.md).
+Both the [prompt mode](../../operations/yandexgpt/create-prompt.md) and [chat mode](../../operations/yandexgpt/create-chat.md) are available via the API. You can use the API to work with models in [asynchronous mode](../../operations/yandexgpt/async-request.md).
 
 To learn more about the {{ yagpt-full-name }} models, see [{#T}](models.md).
 
@@ -37,7 +37,7 @@ Example:
     },
     {
       "role": "user",
-      "text": "Name any three groups of goods one can find in a grocery store. For each group, provide three subgroups that belong to this group. Present the result as a JSON object, with each group of goods as a key in the JSON object and arrays from the relevant subgroups as values. No introductory phrases or explanations needed, just data. Do not use Markdown!"
+      "text": "Name any three groups of goods one can find in a grocery store. For each group, provide three subgroups. Present the result as a JSON object, with each group of goods as a key in the JSON object and arrays from the relevant subgroups as values. No introductory phrases or explanations needed, just data. Do not use Markdown!"
     }
   ]
 }
@@ -75,4 +75,4 @@ If you do not get the expected result using the prompt, try [fine-tuning](../../
 
 * [{#T}](../../operations/yandexgpt/create-prompt.md)
 * [{#T}](../../operations/yandexgpt/create-chat.md)
-* [{#T}](../../operations/yandexgpt/async-request.md).
+* [{#T}](../../operations/yandexgpt/async-request.md)

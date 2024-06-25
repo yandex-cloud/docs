@@ -36,7 +36,7 @@
    - {{ mpg-name }}
 
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующий кластер {{ mpg-name }} или создайте новый.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mpg-name }} или создайте новый с ролью [`{{ roles.mpg.viewer }}`](../../managed-postgresql/security/index.md#mpg-viewer), от имени которого будет выполняться подключение к кластерам `{{ mpg-name }}`.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mpg-name }} или создайте новый с [ролью](../../managed-postgresql/security/index.md#managed-postgresql-viewer) `{{ roles.mpg.viewer }}`, от имени которого будет выполняться подключение к кластерам `{{ mpg-name }}`.
       * **{{ ui-key.yql.yq-connection-form.login.input-label }}**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ PG }}.
       * **{{ ui-key.yql.yq-connection-form.password.input-label }}**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ PG }}.
 
@@ -44,7 +44,7 @@
    - {{ mch-name }}
 
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующий кластер {{ mch-name }} или создайте новый.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mch-name }} или создайте новый с [ролью `{{ roles.mch.viewer }}`](../../managed-clickhouse/security.md#managed-clickhouse-viewer), от имени которого будет выполняться подключение к кластерам `{{ mch-name }}`.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mch-name }} или создайте новый с [ролью](../../managed-clickhouse/security.md#managed-clickhouse-viewer) `{{ roles.mch.viewer }}`, от имени которого будет выполняться подключение к кластерам `{{ mch-name }}`.
       * **{{ ui-key.yql.yq-connection-form.login.input-label }}**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ CH }}.
       * **{{ ui-key.yql.yq-connection-form.password.input-label }}**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ CH }}.
 
@@ -57,6 +57,8 @@
    {% endlist %}
 
 1. Нажмите кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
+
+Чтобы использовать соединение, в настройках которого указан сервисный аккаунт, пользователю нужна [роль](../../iam/security/index.md#iam-serviceAccounts-user) `iam.serviceAccounts.user`.
 
 Далее вы можете [создать привязку](binding.md#create).
 

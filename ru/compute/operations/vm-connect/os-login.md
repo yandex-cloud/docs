@@ -32,3 +32,11 @@ description: "Следуя данной инструкции, вы сможет�
 ## Подключиться к ВМ по OS Login с SSH-ключом через YC CLI {#connect-via-key}
 
 {% include [oslogin-connect-with-key](../../../_includes/compute/oslogin-connect-with-key.md) %}
+
+#### См. также {#see-also}
+
+* [{#T}](../../../organization/operations/os-login-access.md)
+* [{#T}](../../../organization/operations/add-ssh.md)
+* [{#T}](./os-login-export-certificate.md)
+* [Подключиться к узлу {{ k8s }} через OS Login](../../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [Использовать сервисный аккаунт с профилем OS Login для управления ВМ с помощью Ansible](../../../tutorials/security/sa-oslogin-ansible.md)

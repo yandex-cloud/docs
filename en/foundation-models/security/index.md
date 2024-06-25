@@ -36,7 +36,7 @@
 
 #### See also {#see-also}
 
-* [How to assign a role](../../iam/operations/roles/grant.md).
-* [How to revoke a role](../../iam/operations/roles/revoke.md).
-* [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [How to assign a role](../../iam/operations/roles/grant.md)
+* [How to revoke a role](../../iam/operations/roles/revoke.md)
+* [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md)
+* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance)

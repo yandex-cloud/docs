@@ -7,12 +7,8 @@ description: "Follow this guide to create an AppMetrica connection."
 
 To create an AppMetrica connection:
 
-
-1. Go to the [connections page]({{ link-datalens-main }}/connections).
-
-
-1. Click **Create connection**.
-1. Select **AppMetrica** as the connection type.
+1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
+1. Under **Files and services**, select the **AppMetrica** connection.
 1. Specify the connection parameters:
 
    * **OAuth token**: Click **Get token** or enter the [OAuth token](#get-oauth-token) manually to access the AppMetrica data.
@@ -25,7 +21,12 @@ To create an AppMetrica connection:
 1. Leave the **Automatically create a dashboard, charts, and a dataset on the connection** option enabled if you need a folder with a standard set of datasets and charts and a ready-made dashboard.
 
 
-1. Click **Create connection**. If you use a new {{ datalens-short-name }} object model with [workbooks and collections](../../../datalens/workbooks-collections/index.md), select or create a workbook to save the connection to.
+1. Click **Create connection**.
+
+
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+
+
 1. Enter a name for the connection and click **Create**.
 
 {% include [datalens-appmetrica-note](../../../_includes/datalens/datalens-appmetrica-note.md) %}
