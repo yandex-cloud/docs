@@ -19,4 +19,6 @@
         * Выберите или создайте новый бакет.
         * Выберите или создайте новый [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с ролью [`storage.viewer`](../../storage/security/index.md#storage-viewer), от имени которого будет выполняться доступ к данным.
 
+          {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
+
 1. Нажмите кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.

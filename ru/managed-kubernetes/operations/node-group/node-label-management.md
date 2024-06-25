@@ -1,5 +1,9 @@
 # Управление {{ k8s }}-метками узлов
 
+{% include [node-vm-explained](../../../_includes/managed-kubernetes/node-vm-explained.md) %}
+
+{% include [node-vm-manipulation-warning](../../../_includes/managed-kubernetes/node-vm-manipulation-warning.md) %}
+
 ## Назначить {{ k8s }}-метки при создании группы узлов {#node-group-creation}
 
 Вы можете добавлять [{{ k8s }}-метки](../../concepts/index.md#node-labels) сразу на все узлы {{ managed-k8s-name }} в [группе узлов](../../concepts/index.md#node-group). Для этого задайте набор меток в параметре `node_labels` при [создании группы узлов {{ managed-k8s-name }}](../../operations/node-group/node-group-create.md).

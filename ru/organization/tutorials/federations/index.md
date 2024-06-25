@@ -12,4 +12,5 @@ description: "Различные сценарии использования {{ 
 
 ## Сопоставление групп пользователей
 
+* [{#T}](./group-mapping/entra-id.md)
 * [{#T}](./group-mapping/keycloak.md)

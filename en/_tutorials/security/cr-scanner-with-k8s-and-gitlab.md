@@ -50,7 +50,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
 ## Configure the CI script {#ci}
 
-1. Create the [{{ GL }} environment variables](https://docs.gitlab.com/ee/ci/variables/README.html):
+1. Create the [{{ GL }} environment variables]({{ gl.docs }}/ee/ci/variables/):
    1. Go to **Settings** in the left-hand {{ GL }} panel and select **CI/CD** from the drop-down list.
    1. Click **Expand** next to **Variables**.
    1. Add the following environment variables depending on the {{ managed-k8s-name }} authentication method in {{ GL }}:

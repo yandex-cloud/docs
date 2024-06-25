@@ -11,16 +11,8 @@ description: "In this tutorial, you will learn how to connect to {{ MS }} Server
 
 To create a {{ MS }} connection:
 
-
-
-1. Go to the [connections page]({{ link-datalens-main }}/connections).
-
-
-1. Click **Create connection**.
-
-
-
-1. Select **MS SQL Server** as the connection type.
+1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
+1. Under **Databases**, select the **MS SQL Server** connection.
 1. Specify the connection parameters:
 
    * **Hostname**: Specify the path to a master host or a {{ MS }} master host IP address. You can specify multiple hosts in a comma-separated list. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
@@ -31,10 +23,14 @@ To create a {{ MS }} connection:
    * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
    * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
-1. Click **Create connection**. If you use a new {{ datalens-short-name }} object model with [workbooks and collections](../../../datalens/workbooks-collections/index.md), select or create a workbook to save the connection to.
-1. Enter a name for the connection and click **Create**.
+1. (Optional) Make sure the connection works properly. To do this, click **Check connection**.
+1. Click **Create connection**.
 
-{% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}
+
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+
+
+1. Enter a name for the connection and click **Create**.
 
 ## Additional settings {#additional-settings}
 

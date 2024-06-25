@@ -336,11 +336,11 @@
 
 {% endlist %}
 
-{% note alert %}
+Процесс создания группы узлов {{ managed-k8s-name }} может занять несколько минут в зависимости от количества узлов.
 
-После создания группы узлов {{ managed-k8s-name }} в {{ compute-full-name }} появится одна или несколько ВМ с автоматически сгенерированными именами. Не изменяйте имена ВМ, принадлежащих кластеру {{ managed-k8s-name }}. Это приведет к нарушению работы группы узлов и всего кластера {{ managed-k8s-name }}.
+{% include [node-vm-explained-short](../../../_includes/managed-kubernetes/node-vm-explained-short.md) %}
 
-{% endnote %}
+{% include [node-vm-manipulation-warning](../../../_includes/managed-kubernetes/node-vm-manipulation-warning.md) %}
 
 ## Примеры {#examples}
 

@@ -12,7 +12,7 @@ Only a user with the `{{ roles-datalens-instances-admin }}` or `{{ roles-datalen
 
 To create a {{ datalens-short-name }} Usage Analytics connection:
 
-1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
+1. Open the [page for creating a new connection]({{ link-datalens-main }}/connections/new).
 
 1. Under **Files and services**, select the **Usage Analytics** connection:
 
@@ -80,7 +80,7 @@ At the top, there are filters by object and user. You can configure the statisti
 
 This dashboard is divided into three sections:
 
-* **Objects**: This section provides a summary about the number of different types of objects. At the top, there are filters by object. Using a customizable table with a hierarchy of objects, you can estimate: which dashboards are used most of all, which charts load longer than others on average, where errors occur most often, etc.
+* **Objects**: This section provides a summary about the number of different types of objects. At the top, there are filters by object. Use a custom table with object hierarchy to figure which dashboards are used the most, which charts take longer than others to load, which areas are most prone to errors, and other information.
 
 * **Users and Dashboard Views**: In this section, you can see who is using your objects. The tabs provide information by both views and queries.
 

@@ -9,11 +9,11 @@ description: "In this tutorial, you will learn about installing and starting up 
 
 {{ unified-agent-short-name }} is supported by the following operating systems:
 
-- Ubuntu 14.04 or higher
-- Debian 9 or higher
-- CentOS 7 or higher
-- Fedora 32 or higher
-- Fedora CoreOS
+- Ubuntu 14.04 or higher (it can be [installed using any method](#setup))
+- Debian 9 or higher (Docker image, deb package, or binary file)
+- CentOS 7 or higher (Docker image)
+- Fedora 32 or higher (Docker image)
+- Fedora CoreOS (Docker image)
 
 ## Before you begin installation {#before-you-begin}
 
@@ -21,7 +21,7 @@ Prior to installing {{ unified-agent-full-name }}, follow these steps:
 
 1. Create a VM in {{ yandex-cloud }} or a host outside {{ yandex-cloud }} on one of the [supported operating systems](#supported-os), for example, Ubuntu 14.04 or older.
 
-1. (Optional) [Install Docker](https://docs.docker.com/install/) if you want to use Docker to run {{ unified-agent-short-name }}.
+1. (Optional) [Install Docker](https://docs.docker.com/install/) if you want to use Docker to run {{ unified-agent-short-name }}. Docker is pre-installed in Fedora CoreOS.
    - Set up a public IPv4 address (recommended).
    - [Configure Docker to work with IPv6](https://docs.docker.com/config/daemon/ipv6) and [enable network address translation](https://medium.com/@skleeschulte/how-to-enable-ipv6-for-docker-containers-on-ubuntu-18-04-c68394a219a2) if you cannot use a public IPv4 address.
 

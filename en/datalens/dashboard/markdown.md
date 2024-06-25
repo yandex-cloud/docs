@@ -275,14 +275,17 @@ will be displayed as a highlighted Kotlin code snippet:
 val a: Int = 1
 ```
 
-
 ## Image {#image}
+
 
 
 You can add images from the `*.yandex.ru`, `*.yandex.net`, `yastat.net`, `yastatic.net`, or `storage.yandexcloud.net` domains. The easiest way is to upload and post an image in [{{ objstorage-full-name }}](../../storage/quickstart.md). The service is free of charge for up to 1 GB of standard storage per month.
 
 
+
+
 You can add images of any format.
+
 
 To upload an image from **{{ objstorage-short-name }}** to a widget:
 
@@ -300,12 +303,13 @@ To upload an image from **{{ objstorage-short-name }}** to a widget:
 
    {% endnote %}
 
-1. Go to your {{ datalens-name }} dashboard and create a widget named **Text**.
+1. Open the dashboard in {{ datalens-name }} and [create](../operations/dashboard/add-text.md) a **Text** widget.
 1. Paste the following code in the widget:
 
    ```markdown
-   ![alt text](https://image_link "Text of a hint displayed when hovering over the image" =100x200)
+   ![alt text](https://link_to_image "Text for tip on hover" =100x200)
    ```
+
 
 
 ## Cuts {#cuts}
@@ -331,7 +335,6 @@ will be displayed as:
 Content displayed on click.
 
 {% endcut %}
-
 
 ## Tooltips {#term}
 

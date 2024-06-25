@@ -1,4 +1,4 @@
-In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) you can [tune](../../datasphere/concepts/models/foundation-models.md#tuning-abilities) the [{{ gpt-pro }}](../../foundation-models/concepts/yandexgpt/models.md) neural network to adhere to the specified answer format or text analysis principles to make it more tailored to your specific tasks. To do this, prepare a file with pairs of prompts and reference responses and start tuning. You cannot train the model on new information, e.g., a support service knowledge base.
+In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), you can [tune](../../datasphere/concepts/models/foundation-models.md#tuning-abilities) the [{{ gpt-pro }}](../../foundation-models/concepts/yandexgpt/models.md) neural network to adhere to the specified response format or text analysis principles to make it more tailored to your specific tasks. To do this, prepare a file with pairs of prompts and reference responses and start tuning. You cannot train the model on new information, e.g., a support service knowledge base.
 
 {% note info %}
 
@@ -76,21 +76,13 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
 ## Tune the model {#model-tuning}
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-
 1. In the left-hand panel, click **{{ ui-key.yc-ui-datasphere.common.foundation-models }}**.
-
 1. Select the **YandexGPT** model and click **{{ ui-key.yc-ui-datasphere.common.tuning-model }}**.
-
 1. In the window that opens, specify your project and click **{{ ui-key.yc-ui-datasphere.common.add }}**.
-
 1. In the **{{ ui-key.yc-ui-datasphere.common.name }}** field, enter a model name, e.g., `my-first-model`.
-
 1. Set **{{ ui-key.yc-ui-datasphere.foundation-model.learning-rate }}**. The learning rate determines the step size at each iteration when searching for the optimal solution. The higher the value, the faster the model will converge, but also the higher the risk of model tuning.
-
 1. Under **{{ ui-key.yc-ui-datasphere.foundation-model.data-for-tuning }}**, attach a JSON file with request and response pairs in the **{{ ui-key.yc-ui-datasphere.foundation-model.samples-file }}** field.
-
 1. Click **{{ ui-key.yc-ui-datasphere.foundation-model.start-tuning }}** and wait for the model to be tuned. This may take several hours.
-
 1. To check the status of your fine-tuned model:
 
    * {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
@@ -106,15 +98,10 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
 - Playground {#playground}
 
    1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-
    1. In the list of available project resources, select **{{ ui-key.yc-ui-datasphere.common.models }}**.
-
    1. In the **{{ ui-key.yc-ui-datasphere.common.projects-resources }}** tab, select **{{ ui-key.yc-ui-datasphere.common.tuned-foundation-models }}**.
-
    1. Select your fine-tuned model and click **{{ ui-key.yc-ui-datasphere.foundation-model.test-in-playground }}**.
-
    1. Under **{{ ui-key.yc-ui-datasphere.yagpt-playground.request.title }}**, specify your request to the model.
-
    1. To change variability, move the slider in the **{{ ui-key.yc-ui-datasphere.yagpt-playground.temperature.title }}** field. With a higher value, you get a more unpredictable result.
    1. Click **{{ ui-key.yc-ui-datasphere.yagpt-playground.send-request }}**.
 

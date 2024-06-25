@@ -1,4 +1,4 @@
-The name of the metric is written in the `name` label.
+The metric name is written in the `name` label.
 
 All {{ managed-k8s-name }} metrics share the `service=managed-kubernetes` label.
 
@@ -8,7 +8,7 @@ Common labels for all container metrics:
 
 | Label | Value |
 ----|----
-| cluster-id | Cluster name |
+| cluster_id | Cluster ID |
 | container | Container name |
 | namespace | Namespace name |
 | pod | Pod name |
@@ -39,7 +39,7 @@ Common labels for all master metrics:
 
 | Label | Value |
 ----|----
-| cluster-id | Cluster name |
+| cluster_id | Cluster ID |
 | host | Cluster ID |
 
 Master metrics:
@@ -55,7 +55,7 @@ Common labels for all node metrics:
 
 | Label | Value |
 ----|----
-| cluster-id | Cluster name |
+| cluster_id | Cluster ID |
 | node | Node name |
 
 Node metrics:
@@ -85,7 +85,7 @@ Common labels for all pod metrics:
 
 | Label | Value |
 ----|----
-| cluster-id | Cluster name |
+| cluster_id | Cluster ID |
 | namespace | Namespace name |
 | pod | Pod name |
 
@@ -109,7 +109,7 @@ Common labels for all persistent volume metrics:
 
 | Label | Value |
 ----|----
-| cluster-id | Cluster name |
+| cluster_id | Cluster ID |
 | namespace | Namespace name |
 | persistentvolumeclaim | Persistent volume claim name |
 

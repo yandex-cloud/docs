@@ -176,3 +176,11 @@ description: "Следуя данной инструкции, вы сможет�
   Воспользуйтесь методом REST API [updateSettings](../../organization/api-ref/OsLogin/updateSettings.md) для ресурса [OsLogin](../../organization/api-ref/OsLogin/index.md) или вызовом gRPC API [OsLoginService/UpdateSettings](../../organization/api-ref/grpc/os_login_service.md#UpdateSettings).
 
 {% endlist %}
+
+#### См. также {#see-also}
+
+* [{#T}](../operations/os-login-profile-create.md)
+* [{#T}](../operations/add-ssh.md)
+* [{#T}](../../compute/operations/vm-connect/os-login.md)
+* [Подключиться к узлу {{ k8s }} через OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [Использовать сервисный аккаунт с профилем OS Login для управления ВМ с помощью Ansible](../../tutorials/security/sa-oslogin-ansible.md)

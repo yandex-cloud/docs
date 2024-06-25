@@ -14,7 +14,7 @@ description: "Из статьи вы узнаете, как посмотреть
 1. Выберите нужные параметры отображения диаграммы:
    * В поле **{{ ui-key.yacloud_billing.billing.account.detail.label_title-usage-short }}** выберите временной диапазон для построения диаграммы. 
    * В поле **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_label-key }}** выберите ресурсы {{ ml-platform-name }}, по которым вы хотите посмотреть детализацию.
-   * В поле **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_aggregation }}** выберите диапазон для аггрегации данных.
+   * В поле **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_aggregation }}** выберите диапазон для агрегации данных.
    * При необходимости задайте дополнительные фильтры в поле **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_all-filters }}**.
 
 При изменении параметров диаграмма автоматически обновляется.

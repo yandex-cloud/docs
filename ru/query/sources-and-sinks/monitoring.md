@@ -26,6 +26,9 @@ FROM $query;
 1. В открывшемся окне в поле **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** указать название соединения с {{ monitoring-name }}.
 1. В выпадающем поле **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** выбрать `{{ ui-key.yql.yq-connection.monitoring.select-item }}`.
 1. В поле **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** выбрать сервисный аккаунт, который будет использоваться для записи метрик, или создать новый, выдав ему права [`monitoring.editor`](../../monitoring/security/index.md).
+
+   {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
+
 1. Создать соединение, нажав кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
 ## Модель данных

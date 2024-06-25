@@ -355,6 +355,11 @@ default:
   mgp-full-name: Yandex Managed Service for Greenplum®
   mgp-name: Managed Service for Greenplum®
   mgp-short-name: Managed Service for Greenplum®
+  microsoft-idp:
+    azure-ad-legacy: Azure Active Directory
+    entra-full: Microsoft Entra
+    entra-id-full: Microsoft Entra ID
+    entra-id-short: Entra ID
   mkf-full-name: Yandex Managed Service for Apache Kafka®
   mkf-mkc: Managed Kafka Connect
   mkf-msr: Managed Schema Registry
@@ -790,8 +795,8 @@ default:
         inet:
           egress|string: "4,80\_₸"
     logs:
-      raw|int|string: "25\_000\_₸"
-      shielding|int|string: "17\_500\_₸"
+      raw|string: "25\_000,00\_₸"
+      shielding|string: "17\_500,00\_₸"
   sku|KZT|compute:
     filesystem:
       hdd:
@@ -1470,6 +1475,8 @@ default:
       invocations|string: Не тарифицируется
     functions:
       compute:
+        provision_enabled|string: "6,00\_₸"
+        provisioned_request|string: "11,50\_₸"
         v1|pricingRate:
           10|string: "27,35\_₸"
         v1|string: Не тарифицируется
@@ -1863,8 +1870,8 @@ default:
         inet:
           egress|string: "0,96\_₽"
     logs:
-      raw|int|string: "5\_000\_₽"
-      shielding|int|string: "3\_500\_₽"
+      raw|string: "5\_000,00\_₽"
+      shielding|string: "3\_500,00\_₽"
   sku|RUB|compute:
     filesystem:
       hdd:
@@ -2543,6 +2550,8 @@ default:
       invocations|string: Не тарифицируется
     functions:
       compute:
+        provision_enabled|string: "1,20\_₽"
+        provisioned_request|string: "2,30\_₽"
         v1|pricingRate:
           10|string: "5,47\_₽"
         v1|string: Не тарифицируется

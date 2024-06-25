@@ -1,10 +1,15 @@
 # {{ yagpt-full-name }} models
 
-{{ yagpt-full-name }} provides access to large text generative neural networks: the standard {{ gpt-lite }} suitable for real-time tasks, the large {{ yagpt-name }} 3-based {{ gpt-pro }}, which is more accurate when it comes to sophisticated prompts, and the special {{ gpt-lite }}-based summary model. In addition, a {{ yagpt-name }} 3-based {{ gpt-lite }} RC model is available in Release Candidate status.
+{{ yagpt-full-name }} provides access to large generative models:
+
+* Standard {{ gpt-lite }} suitable for solving tasks in real time.
+* Large {{ gpt-pro }} based on {{ yagpt-name }} 3 that provides more accurate responses to complex prompts.
+* Special summary model based on {{ gpt-lite }}.
+* {{ gpt-lite }} RC model based on {{ yagpt-name }} 3 available in Release Candidate status.
 
 If out-of-the-box models are not enough, you can [fine-tune](../../tutorials/yagpt-tuning) {{ gpt-pro }} in [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) for it to better respond to your requests.
 
-To [access](../../operations/yandexgpt/create-prompt.md) your model via the API, under `modelUri`, specify its [URI](https://en.wikipedia.org/wiki/URI) which contains the [folder ID](../../../resource-manager/operations/folder/get-id.md). The `/latest` option specifies the version of the model to invoke and is optional.
+To [access](../../operations/yandexgpt/create-prompt.md) your model via the API, under `modelUri`, specify its [URI](https://en.wikipedia.org/wiki/URI) which contains the [folder ID](../../../resource-manager/operations/folder/get-id.md). The `/latest` segment specifies the model version and is optional.
 
 ## {{ yagpt-full-name }} generation models {#yandexgpt-generation}
 
