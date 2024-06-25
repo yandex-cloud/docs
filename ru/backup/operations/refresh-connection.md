@@ -26,6 +26,12 @@
           sudo apt install uuid-dev
           ```
 
+          Если вы используете дистрибутив Astra Linux, дополнительно установите пакет uuid-runtime:
+
+          ```bash
+          sudo apt install uuid-runtime
+          ```
+
       1. Выполните команду:
 
           ```bash
@@ -38,7 +44,7 @@
           ...
           Deleting old resource bound for instance_id epdoe4g6dbq4******** and resource_id: F07543A1-BDC1-415A-A143-C18E********
           Updating ids in {{ backup-name }}
-          Finished     
+          Finished
           ```
 
     - Windows {#windows}

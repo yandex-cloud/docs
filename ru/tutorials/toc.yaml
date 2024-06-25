@@ -25,6 +25,10 @@ items:
         href: security/gitlab-lockbox-integration.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         href: security/static-key-in-lockbox.md
+      - name: >-
+          Сервисный аккаунт с профилем OS Login для управления ВМ с помощью
+          Ansible
+        href: security/sa-oslogin-ansible.md
   - name: Хранение и восстановление данных
     items:
       - name: Все руководства

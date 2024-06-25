@@ -107,5 +107,3 @@
     {% include [node-group-metadata-postponed-update-note](./node-group-metadata-postponed-update-note.md) %}
 
 1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-
-Процесс создания группы узлов {{ managed-k8s-name }} может занять несколько минут в зависимости от количества узлов.

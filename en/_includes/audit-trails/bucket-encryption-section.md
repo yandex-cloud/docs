@@ -8,7 +8,7 @@ To store logs in encrypted form:
 
    ```bash
    yc kms symmetric-key add-access-binding \
-       --role kms.kms.keys.encrypter \
+       --role kms.keys.encrypter \
        --id <key_ID> \
        --service-account-id <service_account_ID>
    ```

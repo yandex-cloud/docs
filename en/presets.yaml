@@ -793,8 +793,8 @@ default:
         inet:
           egress|string: ₸4.80
     logs:
-      raw|int|string: ₸25000
-      shielding|int|string: ₸17500
+      raw|string: ₸25000.00
+      shielding|string: ₸17500.00
   sku|KZT|compute:
     filesystem:
       hdd:
@@ -1473,6 +1473,8 @@ default:
       invocations|string: Free
     functions:
       compute:
+        provision_enabled|string: ₸6.00
+        provisioned_request|string: ₸11.50
         v1|pricingRate:
           10|string: ₸27.35
         v1|string: Free
@@ -1866,8 +1868,8 @@ default:
         inet:
           egress|string: ₽0.96
     logs:
-      raw|int|string: ₽5000
-      shielding|int|string: ₽3500
+      raw|string: ₽5000.00
+      shielding|string: ₽3500.00
   sku|RUB|compute:
     filesystem:
       hdd:
@@ -2546,6 +2548,8 @@ default:
       invocations|string: Free
     functions:
       compute:
+        provision_enabled|string: ₽1.20
+        provisioned_request|string: ₽2.30
         v1|pricingRate:
           10|string: ₽5.47
         v1|string: Free

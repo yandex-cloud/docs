@@ -14,9 +14,8 @@ Before creating a connection, learn about the [limitations](#restrictions).
 
 To create a Google Sheets connection:
 
-1. Go to the [connections page]({{ link-datalens-main }}/connections).
-1. Click **Create connection**.
-1. Select the **Google Sheets** connection.
+1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
+1. Under **Files and services**, select the **Google Sheets** connection.
 
 
 1. Add files depending on access permissions:
@@ -25,7 +24,7 @@ To create a Google Sheets connection:
 
    - Public spreadsheet
 
-      1. Click **+ Add file** and specify the link to the file. To do this, in the Google Sheets access settings, select `Anyone with the link` and copy the link to the desired sheet from the browser's address bar. If you copy the link from the Google Sheets sharing window, it will lead to the spreadsheet's first sheet.
+      1. Click **+ Add file** and specify the link to the file. To do this, in the Google Sheets access settings, select `Anyone with the link` and copy the link to the sheet you need from the browser's address bar. If you copy the link from the Google Sheets sharing window, it will lead to the spreadsheet's first sheet.
       1. Click **Add**. If the file contains multiple sheets, specify the ones you want to upload in the **Add sheets** window. You cannot select empty sheets. Enable the **Sheets** option to select all available sheets. Each sheet is uploaded to a separate table. Click **Add**.
       1. The information about the added file and the uploaded data will be displayed at the center of the screen.
 
@@ -50,8 +49,9 @@ To create a Google Sheets connection:
 
 1. Set the **Show column headers** option to **Yes** or **No**.
 1. (Optional) Enable automatic updates for the spreadsheet data. To do this, in the top-right corner, select **Update automatically**. The spreadsheet data will be updated once in 30 minutes or less often. To update the data manually, click **Update data**.
-1. Click **Create connection**. If you use a new {{ datalens-short-name }} object model with [workbooks and collections](../../../datalens/workbooks-collections/index.md), select or create a workbook to save the connection to.
-1. Give your connection a name and click **Create**. The connection will appear in the list.
+1. Click **Create connection**.
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+1. Enter a name for the connection and click **Create**.
 
 You can add, rename, and delete files in the connection.
 

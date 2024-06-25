@@ -11,6 +11,6 @@ To get a usable image, follow these tips:
    * Aesthetic, beautiful, realistic, close-up.
    * Professional photo, 4k, high resolution, high detail.
    * Dali style, Monet style, Repin style.
-   * Pixel graphics, minecraft style, anime style.
+   * Pixel graphics, Minecraft style, anime style.
    * Bright lighting, dim lighting, soft lighting, neon lighting.
-1. Replace rare and complex concepts with their descriptions. For example, instead of using a rare holiday name, you can write that people eat candies and walk in the square.
+1. Use descriptions instead of rare and complex concepts. For example, instead of using a little-known holiday name, you can write that people eat candies and stroll in the city square.

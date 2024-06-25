@@ -5,7 +5,7 @@ description: "Follow this guide to learn how to use {{ yagpt-full-name }} in cha
 
 # How to create a chat with {{ yagpt-name }}
 
-{{ yagpt-full-name }} models do not retain the context of previous messages, so to make a dialog with the model, you need to save the message history on the client side and send it with each request to the model. The [chat](../../concepts/yandexgpt/index.md) available in {{ foundation-models-name }} Playground consists of a series of prompts where the context of each new request includes the model's responses to previous ones. {{ yagpt-full-name }} models can handle a context of up to {{ yagpt-max-tokens }} tokens.
+{{ yagpt-full-name }} models do not retain the context of previous messages, so to make a dialog with the model, you need to save the message history on the client side and send it with each request to the model. The [chat](../../concepts/yandexgpt/index.md) available in {{ foundation-models-name }} Playground consists of a series of prompts where the context of each new request includes the model's responses to previous ones. {{ yagpt-full-name }} models can work with context of up to {{ yagpt-max-tokens }} [tokens](../../concepts/yandexgpt/tokens.md).
 
 To create a chat with the model in your application and avoid delays in responses, send prompts in [synchronous](../../concepts/index.md#working-mode) mode using the [completion](../../text-generation/api-ref/TextGeneration/completion.md) method.
 

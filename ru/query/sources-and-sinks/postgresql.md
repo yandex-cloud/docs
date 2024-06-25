@@ -35,6 +35,9 @@ SELECT * FROM postgresql_mdb_connection.my_table
 
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующий кластер {{ mpg-name }} или создайте новый.
       * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mpg-name }} или создайте новый с ролью [`{{ roles.mpg.viewer }}`](../../managed-postgresql/security/index.md#mpg-viewer), от имени которого будет выполняться подключение к кластерам `{{ mpg-name }}`.
+
+        {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
+
       * **{{ ui-key.yql.yq-connection-form.database.input-label }}**  — выберите базу данных, которая будет использоваться при работе с кластером {{ PG }}.
       * **{{ ui-key.yql.yq-connection-form.schema.input-label }}**  — укажите [пространство имен](https://www.postgresql.org/docs/current/catalog-pg-namespace.html), которое будет использоваться при работе с базой данных {{ PG }}.
       * **{{ ui-key.yql.yq-connection-form.login.input-label }}**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ PG }}.

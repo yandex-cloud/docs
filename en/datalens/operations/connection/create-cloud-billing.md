@@ -5,9 +5,9 @@ Access to a billing account is granted to a user or service account [on the list
 
 To create a {{ yandex-cloud }} Billing connection:
 
-1. Go to the [connections page]({{ link-datalens-main }}/connections).
-1. Click **Create connection**.
-1. Select a **{{ yandex-cloud }} Billing** connection.
+1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
+1. Under **Files and services**, select the **{{ yandex-cloud }} Billing** connection.
 1. Select **Automatically create a dashboard, charts, and a dataset on the connection** if you want to get a ready-to-use {{ yandex-cloud }} Billing Dashboard with a dataset and a set of charts.
-1. Click **Create connection**. If you use a new {{ datalens-short-name }} object model with [workbooks and collections](../../../datalens/workbooks-collections/index.md), select or create a workbook to save the connection to.
-1. Enter the connection name and click **Create**.
+1. Click **Create connection**.
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+1. Enter a name for the connection and click **Create**.

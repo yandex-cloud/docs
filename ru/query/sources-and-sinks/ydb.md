@@ -35,6 +35,8 @@ SELECT * FROM ydb_connection.my_table
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующую базу данных {{ ydb-name }} или создайте новую.
       * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ ydb-name }}, от имени которого будет выполняться подключение к кластерам `{{ ydb-name }}` и аутентификация в базе данных. Если сервисного аккаунта нет, создайте его и назначьте ему [роль](../../ydb/security/index.md#ydb-viewer) `ydb.viewer`.
 
+        {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
+
 
 1. Нажмите кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 

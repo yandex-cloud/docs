@@ -168,6 +168,125 @@ description: "Управление ресурсами {{ ml-platform-full-name }
 
 {% endlist %}
 
+## Работа с ресурсами {#resources}
+
+### Активация и деактивация ресурсов {#activate-deactivate}
+
+В {{ ml-platform-name }} для каждого ресурса реализована своя группа методов API. С помощью вызовов методов `Activate` и `Deactivate` соответствующей группы в проекте  можно активировать и деактивировать необходимые ресурсы.
+
+| Описание | gRPC | REST |
+| --- | --- | --- |
+| Активирует датасет | [Activate](grpc/dataset_service.md#Activate) | [activate](Dataset/activate.md) |
+| Деактивирует датасет | [Deactivate](grpc/dataset_service.md#Deactivate) | [deactivate](Dataset/deactivate.md) |
+| Активирует коннектор S3 | [Activate](grpc/s3_service.md#Activate) | [activate](S3/activate.md) |
+| Деактивирует коннектор S3 | [Deactivate](grpc/s3_service.md#Deactivate) | [deactivate](S3/deactivate.md) |
+| Активирует Docker-образ | [Activate](grpc/docker_image_service.md#Activate) | [activate](DockerImage/activate.md) |
+
+{% list tabs %}
+
+- gRPC
+
+  **Пример**. Активация датасета:
+
+    ```bash
+    grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d "{\"project_id\": \"<идентификатор_проекта>\", \"dataset_id\": \"<идентификатор_датасета>\"}" \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.DatasetService/Activate
+    ```
+
+  **Пример**. Деактивация датасета:
+
+    ```bash
+    grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d "{\"project_id\": \"<идентификатор_проекта>\", \"dataset_id\": \"<идентификатор_датасета>\"}" \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.DatasetService/Deactivate
+    ```
+
+  Подробную информацию о вызовах `DatasetService` см. в [API-документации](grpc/dataset_service.md).
+
+- REST
+
+  **Пример**. Активация датасета:
+
+    ```bash
+    curl -H "Authorization: Bearer <IAM-токен>" \
+      -X POST "https://datasphere.{{ api-host }}/datasphere/v2/dataset/activate" \
+      -d "{ \"datasetId\": \"<идентификатор_датасета>\", \"projectId\": \"<идентификатор_проекта>\" }"
+    ```
+
+  **Пример**. Деактивация датасета:
+
+    ```bash
+    curl -H "Authorization: Bearer <IAM-токен>" \
+      -X POST "https://datasphere.{{ api-host }}/datasphere/v2/dataset/deactivate" \
+      -d "{ \"datasetId\": \"<идентификатор_датасета>\", \"projectId\": \"<идентификатор_проекта>\" }"
+    ```
+
+  Подробную информацию о методах `Dataset` см. в [API-документации](Dataset/index.md).
+
+{% endlist %}
+
+### Добавление и удаление ресурсов {#add-remove}
+
+С помощью API вы можете добавлять и удалять ресурсы в проект (`ProjectService`, `Project`) или сообществ (`CommunityService`, `Community`).
+
+Чтобы в своем проекте использовать ресурсы другого проекта, нужно [поделиться](../operations/index.md#share) ресурсом в сообществе и добавить его в свой проект.
+
+| Описание | gRPC | REST |
+| --- | --- | --- |
+| Добавляет ресурс в сообщество | [AddResource](grpc/community_service.md#AddResource) | [addResource](Community/addResource.md) |
+| Удаляет ресурс из сообщества | [RemoveResource](grpc/community_service.md#RemoveResource) | [removeResource](Community/removeResource.md) |
+| Добавляет ресурс в проект | [AddResource](grpc/project_service.md#AddResource) | [addResource](Project/addResource.md) |
+| Удаляет ресурс из проекта | [RemoveResource](grpc/project_service.md#RemoveResource) | [removeResource](Project/removeResource.md) |
+
+{% list tabs %}
+
+- gRPC
+
+  **Пример**. Добавление ресурса в проект:
+
+    ```bash
+    grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d "{\"project_id\": \"<идентификатор_проекта>\", \"resource_id\": \"<идентификатор_ресурса>\"}" \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.ProjectService/AddResource
+    ```
+
+  **Пример**. Удаление ресурса из проекта:
+
+    ```bash
+    grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d "{\"project_id\": \"<идентификатор_проекта>\", \"resource_id\": \"<идентификатор_ресурса>\"}" \
+      datasphere.{{ api-host }}:443 \
+      yandex.cloud.datasphere.v2.ProjectService/RemoveResource
+    ```
+
+  Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/project_service.md).
+
+- REST
+
+  **Пример**. Добавление ресурса в проект:
+
+    ```bash
+    curl -H "Authorization: Bearer <IAM-токен>" \
+      -X POST "https://datasphere.{{ api-host }}/datasphere/v2/projects/<идентификатор_ресурса>:addResource" \
+      -d "{ \"projectId\": \"<идентификатор_проекта>\" }"
+    ```
+
+  **Пример**. Удаление ресурса из проекта:
+
+    ```bash
+    curl -H "Authorization: Bearer <IAM-токен>" \
+      -X POST "https://datasphere.{{ api-host }}/datasphere/v2/projects/<идентификатор_ресурса>:removeResource" \
+      -d "{ \"projectId\": \"<идентификатор_проекта>\" }"
+    ```
+
+  Подробную информацию о методах `Project` см. в [API-документации](Project/index.md).
+
+{% endlist %}
+
 ## Управление доступами {#access}
 
 С помощью API вы можете настраивать доступ к проекту (`ProjectService`, `Project`) или сообществу (`CommunityService`, `Community`).

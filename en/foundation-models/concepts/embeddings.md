@@ -6,7 +6,7 @@ The process of converting text into such vectors is called _vectorization_, and 
 
 ## Models for text vectorization {#yandexgpt-embeddings}
 
-{{ foundation-models-full-name }} provides two text vectorization models. You can access the model's API via its [URI](https://en.wikipedia.org/wiki/URI) which contains the [folder ID](../../resource-manager/operations/folder/get-id.md). The `/latest` option specifies the version of the model to invoke and is optional.
+{{ foundation-models-full-name }} provides two text vectorization models. You can access the model's API via its [URI](https://en.wikipedia.org/wiki/URI) which contains the [folder ID](../../resource-manager/operations/folder/get-id.md). The `/latest` segment specifies the model version and is optional.
 
 | Purpose | Output vector size | Operation mode | URI |
 |---|---|---|---|

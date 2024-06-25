@@ -2,6 +2,8 @@
 
 This section describes how data aggregation and grouping work in {{ datalens-short-name }}, how to correctly formulate expressions with aggregations, and also gives examples of SQL queries with aggregations for {{ CH }}.
 
+{{ datalens-short-name }} accesses the source directly: it sends requests to select data using the SQL dialect of the source database. The request is formed based on the fields used in charts and the functions used in those fields. So, if you understand the basic principles of aggregation in SQL, it will be easier for you to deal with aggregate functions in {{ datalens-short-name }}.
+
 As source data, we will use the [Selling.csv](https://storage.yandexcloud.net/doc-files/Selling.csv) file with the data on sales in cities.
 
 ## SQL basic concepts {#basic-sql}

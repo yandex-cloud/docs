@@ -29,6 +29,8 @@ In asynchronous mode, the model responds to a request by sending an [Operation o
 
 Different models support different operating modes.
 
+## Prompt {#prompt}
+
 Generative models are managed using _prompts_. A good prompt should contain the context of your request to the model (instruction) and the actual task the model should complete based on the provided context. The more specific your prompt, the more accurate will be the results returned by the model.
 
 Apart from the prompt, other request parameters will impact the model's output too. Use {{ foundation-models-name }} Playground in the [management console]({{ link-console-main }}) to test your requests.

@@ -22,7 +22,10 @@ To get started in {{ yandex-cloud }}:
 
 - API {#api}
 
-   To use request examples via the API, install [cURL](https://curl.haxx.se) for sending API requests to [jq](https://github.com/jqlang/jq) to work with JSON files.
+   To run sample requests using the API, install:
+
+   * [cURL](https://curl.haxx.se) to send API requests
+   * [jq](https://github.com/jqlang/jq) utility to work with JSON files
 
    To work with the {{ yandexart-name }} API, you need to get authenticated using your account:
 

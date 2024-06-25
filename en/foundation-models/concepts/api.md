@@ -1,6 +1,6 @@
 # Specifics of API implementation in {{ foundation-models-full-name }}
 
-{{ foundation-models-full-name }} provides access to various fundamental models. Each model has its own API.
+{{ foundation-models-full-name }} provides access to various foundation models. Each model has its own API.
 
 {{ foundation-models-name }} APIs are designed based on gRPC. The API methods and data structures are described using Protocol Buffers (proto 3).
 

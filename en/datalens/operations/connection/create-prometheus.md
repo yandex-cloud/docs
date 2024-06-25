@@ -7,9 +7,8 @@ description: "Follow this guide to create a {{ prometheus-name }} connection."
 
 To create a {{ prometheus-name }} connection:
 
-1. Go to the [connections page]({{ link-datalens-main }}/connections).
-1. Click **Create connection**.
-1. Select the **{{ prometheus-name }}** source.
+1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
+1. Under **Databases**, select the **{{ prometheus-name }}** connection.
 1. Specify the connection parameters:
 
    * **Hostname**: Specify the path to the {{ prometheus-name }} host. You can specify multiple hosts in a comma-separated list. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
@@ -20,7 +19,11 @@ To create a {{ prometheus-name }} connection:
    * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
    * **HTTPS**: Enable the secure connection option if your server supports HTTPS.
 
-1. Click **Create connection**. If you use a new {{ datalens-short-name }} object model with [workbooks and collections](../../../datalens/workbooks-collections/index.md), select or create a workbook to save the connection to.
-1. Enter a name for the connection and click **Create**.
+1. (Optional) Make sure the connection works properly. To do this, click **Check connection**.
+1. Click **Create connection**.
 
-{% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}
+
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+
+
+1. Enter a name for the connection and click **Create**.

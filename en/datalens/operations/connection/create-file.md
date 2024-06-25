@@ -7,16 +7,8 @@ description: "Follow this guide to create a connection to a file."
 
 To create a connection to a file:
 
-
-
-1. Go to the [connections page]({{ link-datalens-main }}/connections).
-
-
-1. Click **Create connection**.
-
-
-
-1. Select **Files** as the connection type.
+1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
+1. Under **Files and services**, select the **Files** connection.
 1. Click **Upload files** and select the file. The information about the added file and the uploaded data will be displayed in the central area of the screen.
 
    {% note info %}
@@ -51,7 +43,12 @@ To create a connection to a file:
    {% endlist %}
 
 1. Repeat steps 4 and 5 to add files.
-1. Click **Create connection**. If you use a new {{ datalens-short-name }} object model with [workbooks and collections](../../../datalens/workbooks-collections/index.md), select or create a workbook to save the connection to.
-1. Enter a connection name and click **Create**. The connection will appear in the list.
+1. Click **Create connection**.
+
+
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+
+
+1. Enter a name for the connection and click **Create**.
 
 You can add, rename, and delete files in the connection.

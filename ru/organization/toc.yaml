@@ -84,6 +84,10 @@ items:
             href: tutorials/federations/integration-keycloak.md
           - name: Сопоставление групп пользователей
             items:
+              - name: >-
+                  Сопоставление групп пользователей в {{
+                  microsoft-idp.entra-id-full }}
+                href: tutorials/federations/group-mapping/entra-id.md
               - name: Сопоставление групп пользователей в Keycloak
                 href: tutorials/federations/group-mapping/keycloak.md
   - name: Концепции

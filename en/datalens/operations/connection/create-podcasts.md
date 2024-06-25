@@ -9,15 +9,15 @@ You will get access after uploading a podcast to Yandex Music. The podcast is li
 
 {% endnote %}
 
-1. Go to the [connections page]({{ link-datalens-main }}/connections).
-1. Click **Create connection**.
-1. Select the **Podcasts Analytics** connection.
+1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
+1. Under **Partner connections**, select the **Podcasts Analytics** connection.
 
    ![image](../../../_assets/datalens/operations/connection/create-podcasts.png)
 
 1. Click **Get key**. If this is your first time creating a connection to Yandex Music podcasts, grant the service the required permissions.
 1. Leave the **Automatically create a dashboard, charts, and a dataset on the connection** option enabled if you need a folder with a standard set of datasets and charts and a ready-made dashboard.
-1. Click **Check connection**.
-1. After successfully checking the connection, click **Create connection**. If you use a new {{ datalens-short-name }} object model with [workbooks and collections](../../../datalens/workbooks-collections/index.md), select or create a workbook to save the connection to.
-1. Enter a connection name and click **Create**.
+1. (Optional) Make sure the connection works properly. To do this, click **Check connection**.
+1. Click **Create connection**.
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+1. Enter a name for the connection and click **Create**.
 1. Go to the **Dashboards** menu and open the **Yandex Music podcast analytics** dashboard. If there is no data, check that your current account has access to podcasts by writing to [technical support](https://yandex.com/support/music/podcast-authors/statistics.html).

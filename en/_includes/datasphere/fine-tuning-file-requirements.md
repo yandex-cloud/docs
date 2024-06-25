@@ -1,4 +1,4 @@
-To fine-tune a {{ yagpt-name }} model, prepare a [UTF-8](https://{{ lang }}.wikipedia.org/wiki/UTF-8) encoded file in [JSON Lines](https://jsonlines.org/) format with examples of at least ten prompts and reference responses. The file may contain up to 10,000 questions and responses. The maximum prompt length is 4,000 characters; the maximum reference response length is 2,000 characters.
+To fine-tune a {{ yagpt-name }} model, prepare a [UTF-8](https://{{ lang }}.wikipedia.org/wiki/UTF-8) encoded file in [JSON Lines](https://jsonlines.org/) format with examples of at least ten prompts and reference responses. The file may contain up to 10,000 prompts and responses. The maximum prompt length is 4,000 characters; the maximum reference response length is 2,000 characters.
 
 File contents example:
 

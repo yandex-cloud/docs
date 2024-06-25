@@ -12,7 +12,7 @@ The following services are currently available within the platform:
 
 | Service | Description |
 |---|---|
-| [{{ api-gw-full-name }}](../../api-gateway/index.yaml) | Service for creating API gateways |
+| [{{ api-gw-full-name }}](../../api-gateway/index.yaml) | Service for managing API gateways |
 | [{{ alb-full-name }}](../../application-load-balancer/index.yaml) | Service for distributing incoming traffic between web application components |
 | [{{ at-full-name }}](../../audit-trails/index.yaml) | Service for collecting and exporting audit logs |
 | [{{ certificate-manager-full-name }}](../../certificate-manager/index.yaml) | Service for managing TLS certificates |
@@ -30,13 +30,14 @@ The following services are currently available within the platform:
 | [{{ postbox-full-name }}](../../postbox/index.yaml) | {{ preview-stage }} Transactional email service |
 | [{{ compute-full-name }}](../../compute/index.yaml) | Service for creating and managing VMs |
 | [{{ container-registry-full-name }}](../../container-registry/index.yaml) | Service for managing Docker images and containers |
-| [{{ dataproc-full-name }}](../../data-proc/index.yaml) | Managed Apache Hadoop® clusters |
+| [{{ dataproc-full-name }}](../../data-proc/index.yaml) | Service for managing Apache Hadoop® and {{ SPRK }} clusters |
 | [{{ yds-full-name }}](../../data-streams/index.yaml) | Service for managing data streams in real time |
-| [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) | Service for database migration |
+| [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) | Service for migrating databases, object storages, and message brokers |
 | [{{ datalens-full-name }}](../../datalens/index.yaml) | Data visualization and analytics |
-| [{{ ml-platform-full-name }}](../../datasphere/index.yaml) | ML development |
+| [{{ ml-platform-full-name }}](../../datasphere/index.yaml) | Full-cycle ML development service |
 | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/index.md) | Protection from DDoS attacks |
 | [{{ forms-full-name }}](../../forms/index.yaml) | Service for creating and integrating forms |
+| [{{ foundation-models-full-name }}](../../foundation-models/index.yaml) | {{ preview-stage }} Service providing large generative models for businesses |
 | [{{ iam-full-name }}](../../iam/index.yaml) | Cloud resource access management |
 | [{{ iot-full-name }}](../../iot-core/index.yaml) | IoT service that provides two-way messaging between registries and devices over the MQTT protocol |
 | [{{ kms-full-name }}](../../kms/index.yaml) | Encryption key management |
@@ -54,8 +55,9 @@ The following services are currently available within the platform:
 | [{{ mpg-full-name }}](../../managed-postgresql/index.yaml) | Service for creating and managing {{ PG }} clusters |
 | [{{ mrd-full-name }}™](../../managed-redis/index.yaml) | Service for creating and managing {{ RD }} clusters |
 | [{{ ydb-full-name }}](../../ydb/index.yaml) | {{ ydb-full-name }} database management service |
-| [{{ marketplace-full-name }}](../../marketplace/index.yaml) | Marketplace of turnkey developer tools and other services |
-| [{{ message-queue-full-name }}](../../message-queue/index.yaml) | Queue service for messaging between components of distributed applications and microservices |
+| [{{ marketplace-full-name }}](../../marketplace/index.yaml) | Store with out-of-the-box tools for development, data analysis, security, business apps, and more |
+| [{{ message-queue-full-name }}](../../message-queue/index.yaml) | Service for messaging between applications |
+| [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml) | {{ preview-stage }} Service for managing database connections, storing data exchange workflows, and describing datasets |
 | [{{ monitoring-full-name }}](../../monitoring/index.yaml) | Service for collecting and visualizing metrics |
 | [{{ network-load-balancer-full-name }}](../../network-load-balancer/index.yaml) | Service for distributing network load across cloud resources |
 | [{{ objstorage-full-name }}](../../storage/index.yaml) | All-purpose scalable cloud object storage |
@@ -64,7 +66,7 @@ The following services are currently available within the platform:
 | [{{ search-api-full-name }}](../../search-api/index.yaml) | Search query service |
 | [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) | Serverless launch of containerized applications |
 | [{{ captcha-full-name }}](../../smartcaptcha/index.yaml) | Service for identifying system users |
-| [{{ sws-full-name }}](../../smartwebsecurity/index.yaml) | Service for protection against DDoS attacks at the L7 application level of the OSI model |
+| [{{ sws-full-name }}](../../smartwebsecurity/index.yaml) | Service for protection against DDoS attacks and bots at the application level (L7) |
 | [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/index.yaml) | Speech recognition and synthesis technology service |
 |[{{ speechsense-full-name }}](../../speechsense/index.yaml) | {{ preview-stage }} Speech analytics service for analyzing voice and text communication channels |
 | [{{ tracker-full-name }}](../../tracker/index.yaml) | Service for collaboration and organization of processes in a company |
@@ -72,8 +74,7 @@ The following services are currently available within the platform:
 | [{{ vpc-full-name }}](../../vpc/index.yaml) | Cloud network management service |
 | [{{ vision-full-name }}](../../vision/index.yaml) | Computer vision service for image analysis |
 | [{{ websql-full-name }}](../../websql/index.yaml) | {{ preview-stage }} Service for connecting to managed database clusters |
-| [{{ wiki-full-name }}](../../wiki/index.yaml) | Service for creating a corporate database |
-| [{{ yagpt-full-name }}](../../yandexgpt/index.yaml) | {{ preview-stage }} Generative language model for business |
+| [{{ wiki-full-name }}](../../wiki/index.yaml) | Service for creating a corporate knowledge base |
 
 
 
@@ -84,6 +85,8 @@ You can use the {{ yandex-cloud }} [management console]({{ link-console-main }})
 
 Services at the Preview stage are available only to some users. If you want to use one of these services, send us a request for access. You can do this on the page of the service you want to use.
 
+
+{% include [Apache trademark](../../_includes/data-proc/trademark.md) %}
 
 {% include [Greenplum trademark](../../_includes/mdb/mgp/trademark.md) %}
 

@@ -2,7 +2,7 @@ title: Yandex Translate
 href: index.yaml
 label:
   title: RU
-  description: The service is available in Russia only.
+  description: This service is only available in Russia.
   theme: unknown
   when: region == "kz"
 items:
@@ -34,6 +34,8 @@ items:
         href: concepts/glossary.md
       - name: Glossary support
         href: concepts/glossary-supported-pairs.md
+      - name: Translation of special characters and HTML markup
+        href: concepts/translate-html.md
   - name: API reference
     items:
       - name: Overview

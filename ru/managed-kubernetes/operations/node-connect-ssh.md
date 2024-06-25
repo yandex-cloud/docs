@@ -24,6 +24,10 @@ description: "Следуя данной инструкции, вы сможет�
 
 Подробнее см. в разделе [Подключение к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md).
 
+{% include [node-vm-explained](../../_includes/managed-kubernetes/node-vm-explained.md) %}
+
+{% include [node-vm-manipulation-warning](../../_includes/managed-kubernetes/node-vm-manipulation-warning.md) %}
+
 ## Создайте пары ключей SSH {#creating-ssh-keys}
 
 Подготовьте ключи для использования с вашим узлом кластера {{ managed-k8s-name }}. Для этого:
