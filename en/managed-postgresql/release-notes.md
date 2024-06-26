@@ -4,6 +4,10 @@ This section contains {{ mpg-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## May 2024 {#may-2024}
+
+* Users with the `mdb_admin` role can now use the `pg_stat_reset_single_table_counters()` and `pg_stat_reset_single_function_counters()` functions.
+
 ## March 2024 {#mar-2024}
 
 * Added the ability to configure incremental [auto increase of cluster storage size](./operations/storage-space.md#disk-size-autoscale). The user can set the disk storage usage threshold and the maximum disk size. Upon reaching the threshold, the disk size will automatically increase in fixed increments up to its maximum. {{ tag-con }} {{ tag-cli }} {{ tag-api }}

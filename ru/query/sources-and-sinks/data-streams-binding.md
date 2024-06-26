@@ -18,7 +18,7 @@ LIMIT 10;
 Для чтения данных из {{ yds-full-name }} c помощью привязок к данным необходимо:
 
 1. [Настроить соединение с данными](./data-streams.md#create_connection).
-1. В поле **{{ ui-key.yql.yq-binding-form.connection-type.title }}** выбрать `{{ ui-key.yql.yq-connection.datastreams.select-item }}`.
+1. В поле **{{ ui-key.yql.yq-binding-form.connection-type.title }}** выбрать `{{ ui-key.yql.yq-connection.action_datastreams }}`.
 1. В выпадающем поле **{{ ui-key.yql.yq-binding-form.connection.title }}** выбрать соединение, созданное в первом пункте.
 1. В поле **{{ ui-key.yql.yq-binding-form.binding-name.title }}** указать название привязки к данным.
 1. В поле **{{ ui-key.yql.yq-binding-form.binding-stream.title }}** указать название потока данных {{ yds-full-name }}.

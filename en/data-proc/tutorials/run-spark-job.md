@@ -330,6 +330,8 @@ You can save the calculation results to HDFS on the {{ dataproc-name }} cluster 
 
 All service and debugging information will be saved to `data-proc-bucket`. For each job, the {{ dataproc-name }} agent creates a separate folder with a path, such as `dataproc/clusters/<cluster_ID>/jobs/<job_ID>`.
 
+{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+
 Below are the two application versions, one for [Python](#cli-python) and one for [Scala](#cli-scala).
 
 ### Running a PySpark job {#cli-python}

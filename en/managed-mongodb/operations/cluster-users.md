@@ -49,7 +49,7 @@ You can add and delete users as well as manage their individual settings and dat
 
    1. Click the cluster name and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
 
-   1. Click **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
 
    1. Enter the DB user name and password.
 

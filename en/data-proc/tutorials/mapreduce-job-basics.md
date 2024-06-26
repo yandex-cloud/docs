@@ -78,6 +78,8 @@ To run MapReduce on Hadoop, we use the Streaming interface. At the same time, th
    3157107417
    ```
 
+{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+
 ## Delete the resources you created {#clear-out}
 
 {% include [basic-clear-out](../../_includes/data-proc/tutorials/basic-clear-out.md) %}

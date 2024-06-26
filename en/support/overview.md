@@ -1,14 +1,9 @@
 
 # Technical support procedure
 
-
-
 {{ yandex-cloud }} provides technical support under different service plans. You can choose the one that best suits you. The cost of paid technical support plans includes two components: fixed and supplemental. The supplemental part is calculated as a percentage of the cost of resources consumed during the month. For more information about the plans, see the [Pricing policy](pricing.md).
 
-
 ## Contacting support {#response-time}
-
-
 
 Depending on your service plan, you can contact technical support using one of these methods:
 
@@ -16,11 +11,14 @@ Depending on your service plan, you can contact technical support using one of t
 
 The expected response time is shown in the table below.
 
+
 | Channel | Basic | Business | Premium |
 |----------------------------------------------------------------------------------|-----------------------------------------------|-----------------------------------------------------------------------|-----------------------------------------------------------------------|
 |                                                                                  | For personal and research projects | For professional projects | For business projects with stringent fault tolerance requirements. |
 | Request to [Support Center](support-center.md) | Normal: 24 hours<br>Increase quotas: 30 minutes | Normal: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes | Normal: 2 hours<br>Critical: 15 minutes<br>Increase quotas: 30 minutes |
 | Chat in [Telegram](tg-chat.md) | 15 minutes | 5 minutes | 5 minutes, a messenger of your choice |
+
+
 
 Only {{ yandex-cloud }} [organization members](../organization/concepts/membership.md) can send requests to support. [Make sure](./support-center.md#before-you-begin) you are making a request on behalf of the right organization. If you have an issue with your infrastructure's production environment, specify _{{ ui-key.support-center.tickets.common.label_ticket-type-critical }}_ for the request type.
 
@@ -29,13 +27,10 @@ Regardless of your service plan, you can request the following from technical su
 * [Service logs](request.md#logs) related to your resources and actions in {{ yandex-cloud }}.
 * [Your personal data](request.md#personal) stored by Yandex.
 
-
-
 ## Types of requests to support {#request-types}
 
-
-
 The types of requests available depend on the selected plan and are shown in the table below.
+
 
 {% note info %}
 
@@ -70,25 +65,23 @@ Technical support includes diagnosing issues in third-party software used in con
 
 - [Operating systems](https://yandex.cloud/en/marketplace?categories=os) on {{ yandex-cloud }} VM instances created from public images provided by {{ yandex-cloud }}.
 - Databases and cluster management systems created in:
-   - [{{ maf-full-name }}](../managed-airflow)
-   - [{{ mkf-full-name }}](../managed-kafka/index.yaml)
-   - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)
-      - [{{ mgp-full-name }}](../managed-greenplum/index.yaml)
-   - [{{ managed-k8s-full-name }}](../managed-kubernetes/index.yaml)
-   - [{{ mmg-full-name }}](../managed-mongodb/index.yaml)
-   - [{{ mmy-full-name }}](../managed-mysql/index.yaml)
-   - [{{ mos-full-name }}](../managed-opensearch/index.yaml)
-   - [{{ mrd-full-name }}](../managed-redis/index.yaml)
-   - [{{ mpg-full-name }}](../managed-postgresql/index.yaml)
+    - [{{ maf-full-name }}](../managed-airflow)
+    - [{{ mkf-full-name }}](../managed-kafka/index.yaml)
+    - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)
+    - [{{ mgp-full-name }}](../managed-greenplum/index.yaml)
+    - [{{ managed-k8s-full-name }}](../managed-kubernetes/index.yaml)
+    - [{{ mmg-full-name }}](../managed-mongodb/index.yaml)
+    - [{{ mmy-full-name }}](../managed-mysql/index.yaml)
+    - [{{ mos-full-name }}](../managed-opensearch/index.yaml)
+    - [{{ mrd-full-name }}](../managed-redis/index.yaml)
+    - [{{ mpg-full-name }}](../managed-postgresql/index.yaml)
 
 {% include [end-of-life](../_includes/compute/end-of-life.md) %}
 
 If the technical support cannot resolve your third-party software issue, contact the software vendor's support service. In some cases, contacting the vendor's support service requires a valid technical support contract with the vendor or its partners.
 
-
 ## How to change your service plan {#change-service-plan}
 
 {% include [change-tariff](../_includes/support/change-pricing.md) %}
-
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

@@ -159,7 +159,7 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will contai
    1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
    1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
    1. Enter a name for the connection, e.g., `storage-connection`.
-   1. Select the **{{ ui-key.yql.yq-connection.object-storage.select-item }}** connection type and specify the **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**.
+   1. Select the **{{ ui-key.yql.yq-connection.action_object-storage }}** connection type and specify the **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**.
    1. In the **{{ ui-key.yql.yq-connection-form.bucket-auth.input-label }}** field, select `{{ ui-key.yql.yq-connection-form.private.button-text }}` and set the parameters:
 
       * **{{ ui-key.yql.yq-connection-form.cloud.input-label }}**: `data-folder`.
@@ -186,7 +186,7 @@ To create a data binding:
    1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-binding-add.create-binding.button-text }}**.
    1. Under **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}**:
 
-      * **{{ ui-key.yql.yq-binding-form.connection-type.title }}**: Select **{{ ui-key.yql.yq-connection.object-storage.select-item }}**.
+      * **{{ ui-key.yql.yq-binding-form.connection-type.title }}**: Select **{{ ui-key.yql.yq-connection.action_object-storage }}**.
       * **{{ ui-key.yql.yq-binding-form.connection.title }}**: Select `storage-connection`.
 
    1. Under **{{ ui-key.yql.yq-binding-form.binding-parameters.title }}**:
@@ -287,7 +287,7 @@ The {{ mch-name }} table will contain the names of the items.
    1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
    1. Click ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
    1. Enter a name for the connection, e.g., `clickhouse`.
-   1. Select the **{{ ui-key.yql.yq-connection.click-house.select-item }}** connection type.
+   1. Select the **{{ ui-key.yql.yq-connection.action_clickhouse }}** connection type.
    1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
 
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select the previously created `clickhouse` cluster.
@@ -366,7 +366,7 @@ The {{ mpg-name }} table will contain the names of the customers.
    1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
    1. Click ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
    1. Enter a name for the connection, e.g., `postgresql`.
-   1. Select the **{{ ui-key.yql.yq-connection.postgersql.select-item }}** connection type.
+   1. Select the **{{ ui-key.yql.yq-connection.action_postgersql }}** connection type.
    1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
 
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select the previously created `postgresql` cluster.

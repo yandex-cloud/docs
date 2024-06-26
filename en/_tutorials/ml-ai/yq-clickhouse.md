@@ -176,7 +176,7 @@ To create a {{ yq-name }} [connection](../../query/concepts/glossary.md#connecti
    1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
    1. Click ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
    1. Enter a name for the connection, e.g., `clickhouse`.
-   1. Select the **{{ ui-key.yql.yq-connection.click-house.select-item }}** connection type.
+   1. Select the **{{ ui-key.yql.yq-connection.action_clickhouse }}** connection type.
    1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
 
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select the previously created `clickhouse` cluster.

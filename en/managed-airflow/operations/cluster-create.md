@@ -73,7 +73,7 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
 
       * (Optional) Triggerer services
 
-   1. (Optional) Under **{{ ui-key.yacloud.airflow.section_dependencies }}**, specify the names of pip packages to install additional libraries and applications for running DAG files in the cluster.
+   1. (Optional) Under **{{ ui-key.yacloud.airflow.section_dependencies }}**, specify pip and deb package names to install additional libraries and applications in the cluster to run DAG files.
 
       To specify multiples packages, click **{{ ui-key.yacloud.common.add }}**.
 
@@ -85,11 +85,11 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
       clickhouse-driver~=0.2.0
       ```
 
-      The package name format and version are defined by the install command: `pip install` for pip packages.
+      The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
 
       {% note warning %}
 
-      To install pip packages from public repositories, specify a network with configured [egress NAT](../../vpc/operations/create-nat-gateway.md) under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**.
+      To install pip and deb packages from public repositories, specify a network with configured [egress NAT](../../vpc/operations/create-nat-gateway.md) under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**.
 
       {% endnote %}
 

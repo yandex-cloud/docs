@@ -70,6 +70,8 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
          {% include [storages-step-settings-no-hdd](../../_includes/mdb/settings-storages-no-hdd.md) %}
 
 
+        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
+
 
       * Select the storage size. The available storage size is limited by [quotas and limits](../concepts/limits.md#mrd-limits).
 
@@ -150,6 +152,7 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
         --enable-tls \
         --resource-preset <host_class> \
         --disk-size <storage_size_in_GB> \
+        --disk-type-id <disk_type> \
         --password=<user_password> \
         --backup-window-start <time> \
         --deletion-protection=<deletion_protection>
@@ -165,6 +168,9 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
          * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
          * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
          * `replica-priority`: Priority for selecting the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+      * `--disk-type-id`: Disk type.
+
+         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
 
       * `--backup-window-start`: Backup start time in `HH:MM:SS` format.

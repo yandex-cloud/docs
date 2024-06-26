@@ -327,7 +327,7 @@ To connect to a {{ mpg-name }} cluster from a Docker container, add the followin
 
 {% include [conn-strings-environment](../../_includes/mdb/mpg-conn-strings-env.md) %}
 
-You can only connect to publicly accessible {{ PG }} hosts using an SSL certificate. Prior to connecting to such hosts, [generate a certificate](#get-ssl-cert).
+You can only connect to public {{ PG }} hosts using an SSL certificate. Prior to connecting to such hosts, [generate a certificate](#get-ssl-cert).
 
 The examples below assume that the `root.crt` SSL certificate is located in the directory:
 

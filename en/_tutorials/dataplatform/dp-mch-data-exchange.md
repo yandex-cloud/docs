@@ -196,6 +196,8 @@ Prepare the infrastructure:
 
 1. Wait for the job to complete and make sure the output bucket's `csv` folder contains the source table.
 
+{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+
 ## Export data to {{ mch-name }} {#import-to-mch}
 
 1. Prepare a script file:
@@ -261,7 +263,9 @@ Prepare the infrastructure:
       SELECT * FROM people;
       ```
 
-   If the import was successful, the response will contain a table with the data.
+   If the import is successful, the response will contain a table with the data.
+
+{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
 
 ## Delete the resources you created {#clear-out}
 

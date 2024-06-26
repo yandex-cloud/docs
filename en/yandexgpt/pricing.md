@@ -60,7 +60,6 @@ Where:
 
 ## Pricing {#prices}
 
-
 ### Text generation in {{ yagpt-full-name }} {#pricing-generating}
 
 

@@ -91,7 +91,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
       {{ yc-mdb-ch }} cluster update --help
       ```
 
-   1. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
+   1. Request a list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
 
       
       ```bash
@@ -657,7 +657,7 @@ Changing some [cluster-level settings](../concepts/settings-list.md#dbms-cluster
    * Cluster ID in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Settings for access from other services  and access to SQL queries from the management console  in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
+   * [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}

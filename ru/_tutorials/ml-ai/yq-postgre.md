@@ -174,7 +174,7 @@
   1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
   1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Введите имя соединения, например `postgresql`.
-  1. Выберите тип соединения **{{ ui-key.yql.yq-connection.postgersql.select-item }}**.
+  1. Выберите тип соединения **{{ ui-key.yql.yq-connection.action_postgersql }}**.
   1. В блоке **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
 
      * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите ранее созданный кластер `postgresql`.

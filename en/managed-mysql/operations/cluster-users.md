@@ -43,7 +43,7 @@ You can add and remove users, as well as manage their settings.
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the name of the cluster you need and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
    1. Enter the database username and password.
 
       {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}

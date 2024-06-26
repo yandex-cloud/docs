@@ -68,7 +68,7 @@ We recommend changing the host class only when the cluster has no active workloa
       {{ yc-mdb-pg }} cluster update --help
       ```
 
-   1. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
+   1. Request a list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
 
       
       ```bash
@@ -431,7 +431,7 @@ You can change the DBMS settings of the hosts in your cluster.
    * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * [Connection pooler mode](../concepts/pooling.md) in the `configSpec.poolerConfig.poolingMode` parameter.
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
+   * [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Settings for protection of the cluster, its databases, and users against deletion in the `deletionProtection` parameter: `true` or `false`.
 
       By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.

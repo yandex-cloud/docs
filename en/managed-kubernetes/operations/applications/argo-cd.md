@@ -58,6 +58,10 @@ To access the application via `localhost`:
      argo-cd ./argo-cd/
    ```
 
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/marketplace/argo-cd.md)
+
 ## See also {#see-also}
 
 * [Argo CD documentation](https://argo-cd.readthedocs.io/en/stable/operator-manual/).

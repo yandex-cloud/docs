@@ -150,6 +150,8 @@ editable: false
 
 #### Исходящий трафик {#prices-traffic}
 
+{% include notitle [note-public-ip-traffic.md](../_includes/pricing/note-public-ip-traffic.md) %}
+
 {% include notitle [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 
 
