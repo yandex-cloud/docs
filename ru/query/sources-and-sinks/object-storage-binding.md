@@ -23,7 +23,7 @@ WHERE
 1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-binding-add.create-binding.button-text }}**.
 1. В блоке **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}**:
 
-   1. В поле **{{ ui-key.yql.yq-binding-form.connection-type.title }}** выберите `{{ ui-key.yql.yq-connection.object-storage.select-item }}`.
+   1. В поле **{{ ui-key.yql.yq-binding-form.connection-type.title }}** выберите `{{ ui-key.yql.yq-connection.action_object-storage }}`.
    1. В поле **{{ ui-key.yql.yq-binding-form.connection.title }}** выберите соединение или [создайте новое](./object-storage.md#create_connection).
 
 1. В блоке **{{ ui-key.yql.yq-binding-form.binding-parameters.title }}**:

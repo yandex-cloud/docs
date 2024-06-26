@@ -144,7 +144,7 @@ To allow {{ mgl-name }} to save Docker images and their tags in {{ container-reg
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. Create a [static key](../../iam/concepts/authorization/access-key.md) for the `account-for-container-registry` service account.
+1. Create a [static key](../../iam/concepts/authorization/access-key.md) for the `account-for-container-registry` service account [you created earlier](#before-you-begin):
 
    ```bash
    yc iam key create --service-account-name account-for-container-registry -o key.json

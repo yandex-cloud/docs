@@ -102,6 +102,8 @@ In this section, we provide a simple example that demonstrates how to use [PySpa
 
    {% endcut %}
 
+{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+
 ## Delete the resources you created {#clear-out}
 
 {% include [Delete the cluster, buckets and the service account](../../_includes/data-proc/tutorials/basic-clear-out.md) %}

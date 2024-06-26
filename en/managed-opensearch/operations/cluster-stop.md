@@ -1,15 +1,15 @@
 ---
-title: "Stopping and starting {{ OS }} clusters"
-description: "If necessary, you can stop and restart an {{ OS }} cluster. When a cluster is stopped, all data in it is retained. It will be available again when you restart the cluster."
+title: "Stopping and starting an {{ OS }} cluster"
+description: "You can stop and restart an {{ OS }} cluster as needed. When stopped, a cluster retains all its data. The data will be available again as soon as you restart the cluster."
 keywords:
   - Stopping OpenSearch
   - Starting OpenSearch
   - OpenSearch
 ---
 
-# Stopping and starting {{ OS }} clusters
+# Stopping and starting an {{ OS }} cluster
 
-You can stop and restart {{ OS }} clusters, if required. When a cluster is stopped, all data in it is retained and will be available again when you restart the cluster.
+You can stop and restart an {{ OS }} cluster as needed. When stopped, a cluster retains all its data. The data will be available again as soon as you restart the cluster.
 
 
 You are not charged for the time when your cluster is stopped; however, you still have to pay for the storage size based on the [pricing policy](../pricing.md).

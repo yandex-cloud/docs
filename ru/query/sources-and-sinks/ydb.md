@@ -30,7 +30,7 @@ SELECT * FROM ydb_connection.my_table
    1. В блоке **{{ ui-key.yql.yq-connection-form.general-parameters.section-title }}**:
 
       * **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** — название соединения с {{ ydb-name }}.
-      * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** — `{{ ui-key.yql.yq-connection.ydb.select-item }}`.
+      * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** — `{{ ui-key.yql.yq-connection.action_ydb }}`.
    1. В блоке **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующую базу данных {{ ydb-name }} или создайте новую.
       * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ ydb-name }}, от имени которого будет выполняться подключение к кластерам `{{ ydb-name }}` и аутентификация в базе данных. Если сервисного аккаунта нет, создайте его и назначьте ему [роль](../../ydb/security/index.md#ydb-viewer) `ydb.viewer`.

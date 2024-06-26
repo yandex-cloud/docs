@@ -4,6 +4,8 @@ In {{ mgp-name }}, you can use [{{ objstorage-full-name }}](../../../storage/ind
 
 To get started, [create a static access key](../../../iam/operations/sa/create-access-key.md). You will need to specify its data in the source parameters.
 
+## Create an external data source
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -18,6 +20,40 @@ To get started, [create a static access key](../../../iam/operations/sa/create-a
    1. Enter a source name.
    1. Configure at least one [optional setting](../../concepts/settings-list.md#s3-settings).
    1. Click **{{ ui-key.yacloud.common.create }}**.
+
+- CLI {#cli}
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   To create an external S3 data source:
+
+   1. View the description of the CLI command to create a data source:
+
+      ```bash
+      {{ yc-mdb-gp }} pxf-datasource create s3 --help
+      ```
+
+   1. Configure the data source:
+
+      ```bash
+      {{ yc-mdb-gp }} pxf-datasource create s3 <external_data_source_name> \
+         --cluster-id=<cluster_ID> \
+         --access-key=<static_key_ID> \
+         --secret-key=<secret_part_of_static_key> \
+         --endpoint=<S3_storage_address> \
+         --fast-upload=<fast_upload>
+      ```
+
+      Where:
+
+      * `cluster-id`: Cluster ID. You can get it with a [list of clusters in the folder](../cluster-list.md#list-cluster).
+      * `access-key`, `secret-key`: [ID and contents of the static access key](../../../iam/concepts/authorization/access-key.md).
+      * `endpoint`: S3 storage address. {{ objstorage-name }} is set to `{{ s3-storage-host }}`. This is a default value.
+      * `fast-upload`: Fast upload of large files to S3 storage. The possible values are:
+         * `true` (default): PXF generates files on the disk before sending them to S3 storage.
+         * `false`: PXF generates files in RAM (if RAM capacity is reached, it writes them to disk).
 
 - API {#api}
 

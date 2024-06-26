@@ -11,7 +11,7 @@
 1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
 1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-binding-add.create-binding.button-text }}**.
 1. В блоке **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}**:
-   1. Выберите тип соединения, для которого нужно создать привязку: `{{ ui-key.yql.yq-connection.datastreams.select-item }}` или `{{ ui-key.yql.yq-connection.object-storage.select-item }}`.
+   1. Выберите тип соединения, для которого нужно создать привязку: `{{ ui-key.yql.yq-connection.action_datastreams }}` или `{{ ui-key.yql.yq-connection.action_object-storage }}`.
    1. Выберите или создайте новое соединение.
 1. В блоке **{{ ui-key.yql.yq-binding-form.binding-parameters.title }}**:
    1. Введите имя и описание привязки. Требования к имени:

@@ -37,6 +37,8 @@ For more information about {{ mmy-name }} cluster structure, see [Resource relat
 
       * Select the [disk type](../concepts/storage.md).
 
+         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
+
          
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
@@ -144,6 +146,10 @@ For more information about {{ mmy-name }} cluster structure, see [Resource relat
       
       * `assign-public-ip`: Public access to the host, `true` or `false`.
 
+
+      * `--disk-type`: Disk type.
+
+         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
       * `backup-priority`: Priority when selecting a new master host, between `0` and `100`.
       * `backup-priority`: Backup priority, between `0` and `100`.

@@ -33,6 +33,9 @@ links:
   - title: Мобильное приложение
     description: ''
     href: mobile-app/
+  - title: Регионы
+    description: ''
+    href: concepts/region
   - title: Зоны доступности
     description: ''
     href: concepts/geo-scope

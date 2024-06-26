@@ -43,7 +43,7 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
    
    * `<new_shard_name>`: Must be unique within the cluster.
 
-      May contain Latin letters, numbers, hyphens, and underscores. The maximum length is 63 characters.
+      It may contain Latin letters, numbers, hyphens, and underscores. The maximum length is 63 characters.
    * `--cluster-name`: Cluster name.
 
       You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -180,7 +180,7 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Name of the shard in the `shardName` parameter.
    * Shard settings in the `configSpec` parameter.
-   * List of settings you want to update, in the `updateMask` parameter.
+   * List of settings to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

@@ -85,6 +85,7 @@ default:
   cloud-logging-name: Cloud Logging
   cloud-logging-short-name: Cloud Logging
   cloud-logs-name: Cloud Logs
+  cluster-id: cat0adul1fj0********
   cname-example: cl-msa87*****.edgecdn.ru
   coi: Container Optimized Image
   compute-full-name: Yandex Compute Cloud
@@ -6107,7 +6108,7 @@ default:
           overview:
             button_action-edit: Edit VM
             button_add-public-ip: Add public IP address
-            button_edit-network-interface: Edit network interface
+            button_edit-network-interface: Edit
             button_remove-public-ip: Disassociate public IP address
             field_ua-enabled: Agent for delivering metrics
             label_network-interface: Network interface
@@ -7060,7 +7061,6 @@ default:
             button_action-password: Change password
             button_action-remove: Delete
             button_action-update: Configure
-            button_add: Add
             button_advanced-settings: Additional settings
             popup-add_button_add: Create
             popup-button_add: Create
@@ -7561,7 +7561,6 @@ default:
           button_upload: Upload
           cors:
             button_cors_empty-create: Configure
-            label_title: CORS
           encryption:
             button_save: Save
             field_key: KMS Key
@@ -7622,6 +7621,7 @@ default:
             field_name: ' Name'
             field_size-limit: Max size
             label_size-limit-disabled: No limit
+          switch_cors: CORS
           switch_encryption: Encryption
           switch_files: Objects
           switch_https: HTTPS
@@ -9128,7 +9128,7 @@ default:
           button-text: Create
         binding-fields-templates:
           button:
-            label: Automatically fill columns for
+            label: Automatically fill settings for
         binding-fields:
           title: Columns
         binding-format-settings-delimiter:
@@ -9233,18 +9233,12 @@ default:
         general:
           section-header: General
       yq-connection:
-        click-house:
-          select-item: Managed Service for ClickHouse
-        datastreams:
-          select-item: Data Streams
-        monitoring:
-          select-item: Monitoring
-        object-storage:
-          select-item: Object Storage
-        postgersql:
-          select-item: Managed Service for PostgreSQL
-        ydb:
-          select-item: Managed Service for YDB
+        action_clickhouse: Managed Service for ClickHouse
+        action_datastreams: Data Streams
+        action_monitoring: Monitoring
+        action_object-storage: Object Storage
+        action_postgersql: Managed Service for PostgreSQL
+        action_ydb: Managed Service for YDB
       yq-ide-aside:
         bindings:
           tab-text: Bindings

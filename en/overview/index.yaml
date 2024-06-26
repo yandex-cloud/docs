@@ -23,6 +23,9 @@ links:
   - title: Mobile app
     description: ''
     href: mobile-app/
+  - title: Regions
+    description: ''
+    href: concepts/region
   - title: Availability zones
     description: ''
     href: concepts/geo-scope

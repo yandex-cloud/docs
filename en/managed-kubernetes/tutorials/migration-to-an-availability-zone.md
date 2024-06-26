@@ -704,7 +704,7 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
 
 See below how to gradually migrate a workload from the old node group to the new one. For instructions on migrating the `PersistentVolume` and `PersistentVolumeClaim` objects, see the [Migrating a stateful workload](#stateful) subsection.
 
-1. [Create a new {{ managed-k8s-name }} node group](../operations/node-group/node-group-create.md#node-group-create) in the new availability zone.
+1. [Create a new {{ managed-k8s-name }} node group](../operations/node-group/node-group-create.md) in the new availability zone.
 
 1. Disable running new pods in the old node group:
 

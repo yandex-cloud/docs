@@ -38,7 +38,7 @@ The examples for Windows were tested in the following environment:
 
    ```bash
    sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
-   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD******** && \
+   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
    echo "deb https://packages.{{ ch-domain }}/deb stable main" | sudo tee \
    /etc/apt/sources.list.d/clickhouse.list
    ```
@@ -250,7 +250,7 @@ To connect to a {{ mch-name }} cluster from a Docker container, add the followin
    # Connect the DEB repository.
    RUN apt-get update && \
        apt-get install wget --yes apt-transport-https ca-certificates dirmngr && \
-       apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD******** && \
+       apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
        echo "deb https://packages.{{ ch-domain }}/deb stable main" | tee \
        /etc/apt/sources.list.d/clickhouse.list && \
        # Install dependencies.
@@ -270,7 +270,7 @@ To connect to a {{ mch-name }} cluster from a Docker container, add the followin
    # Connect the DEB repository.
    RUN apt-get update && \
        apt-get install wget --yes apt-transport-https ca-certificates dirmngr && \
-       apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD******** && \
+       apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
        echo "deb https://packages.{{ ch-domain }}/deb stable main" | tee \
        /etc/apt/sources.list.d/clickhouse.list && \
        # Install dependencies.

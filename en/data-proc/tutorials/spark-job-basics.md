@@ -109,6 +109,8 @@ In this section, we provide a simple example that demonstrates how to use the Sp
 
    {% endcut %}
 
+{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+
 ## Delete the resources you created {#clear-out}
 
 {% include [basic-clear-out](../../_includes/data-proc/tutorials/basic-clear-out.md) %}

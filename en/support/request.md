@@ -5,10 +5,7 @@ description: "You can contact support to request {{ yandex-cloud }} log entries,
 
 # Data requests
 
-
-
 Regardless of your [service plan](overview.md), you can request from the technical support:
-
 
 * Log records from {{ yandex-cloud }} services about your resources.
 

@@ -39,6 +39,14 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 {% include [mmy-settings-dependence](../../_includes/mdb/mmy/note-info-settings-dependence.md) %}
 
+When changing the host class:
+
+* Your single-host cluster will be unavailable for a few minutes with database connections terminated.
+* Your multi-host cluster will get a new master host. Its hosts will be stopped and updated one by one. When stopped, a host will be unavailable for a few minutes.
+* Using a [special FQDN](./connect.md#special-fqdns) does not guarantee a stable database connection: user sessions may be terminated.
+
+We recommend changing the host class only when the cluster has no active workload.
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -62,7 +70,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       {{ yc-mdb-my }} cluster update --help
       ```
 
-   1. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
+   1. Request a list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
 
       
       ```bash
@@ -456,7 +464,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
    * Cluster ID in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Settings for access to SQL queries from the management console in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
+   * [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Retention period of automatic backups in the `configSpec.backupRetainPeriodDays` parameter. Acceptable values are from `7` to `60`. The default value is `7`.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 

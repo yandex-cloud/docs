@@ -37,10 +37,6 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
          * `PRODUCTION`: For stable versions of your apps.
          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
       1. Select {{ KF }} version 3.5 or lower.
-      1. To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), enable the **{{ ui-key.yacloud.kafka.field_schema-registry }}** setting.
-
-         {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
-
    1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the [platform](../../compute/concepts/vm-platforms.md), host type, and host class.
 
       The host class defines the technical specifications of the [VMs](../../compute/concepts/vm.md) that {{ KF }} brokers will be deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
@@ -48,6 +44,8 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
       [Changing the host class](cluster-update.md#change-brokers) for a {{ mkf-name }} cluster changes the characteristics of all instances already created.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
       * Select the disk type.
+
+         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
          
          {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
@@ -98,7 +96,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
    1. Configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings), if required.
    1. Click **{{ ui-key.yacloud.common.create }}**.
-   1. Wait until the {{ mkf-name }} cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running` and its state to `Alive`. This may take some time.
+   1. Wait until the {{ mkf-name }} cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running`, and its state to `Alive`. This may take some time.
 
 - CLI {#cli}
 
@@ -141,6 +139,8 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
       * `--resource-preset`: [Host class](../concepts/instance-types.md).
       * `--disk-type`: [Disk type](../concepts/storage.md).
 
+         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
+
       * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
          {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -165,9 +165,8 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-   
-   1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
 
+   
    1. To create a {{ mkf-name }} cluster hosted on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), specify the host IDs as a comma-separated list in the `--host-group-ids` parameter when creating the cluster:
 
       ```bash
@@ -287,7 +286,6 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
    To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), set the `configSpec.schemaRegistry` parameter to `true`. You cannot edit this setting after you create a {{ mkf-name }} cluster.
 
-   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
    
    To create a {{ mkf-name }} cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), provide a list of host IDs in the `hostGroupIds` parameter.
@@ -362,6 +360,8 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
       * `--resource-preset`: [Host class](../concepts/instance-types.md).
       * `--disk-type`: [Disk type](../concepts/storage.md).
 
+         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
+
       * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
          {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -386,9 +386,8 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-   
-   1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
 
+   
    1. To create a {{ mkf-name }} cluster hosted on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), specify the host IDs as a comma-separated list in the `--host-group-ids` parameter when creating the cluster:
 
       ```bash
@@ -509,7 +508,6 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
    To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), set the `configSpec.schemaRegistry` parameter to `true`. You cannot edit this setting after you create a {{ mkf-name }} cluster.
 
-   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
    
    To create a {{ mkf-name }} cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), provide a list of host IDs in the `hostGroupIds` parameter.

@@ -18,7 +18,7 @@ LIMIT 10;
 To read data from {{ yds-full-name }} using bindings:
 
 1. [Setting up a data connection](./data-streams.md#create_connection).
-1. In the **{{ ui-key.yql.yq-binding-form.connection-type.title }}** field, select `{{ ui-key.yql.yq-connection.datastreams.select-item }}`.
+1. In the **{{ ui-key.yql.yq-binding-form.connection-type.title }}** field, select `{{ ui-key.yql.yq-connection.action_datastreams }}`.
 1. In the drop-down list of the **{{ ui-key.yql.yq-binding-form.connection.title }}** field, select the connection you created in the first step.
 1. Specify a name for the data binding in the **{{ ui-key.yql.yq-binding-form.binding-name.title }}** field.
 1. Specify a name for a {{ yds-full-name }} stream in the **{{ ui-key.yql.yq-binding-form.binding-stream.title }}** field.

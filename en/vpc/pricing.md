@@ -99,6 +99,8 @@ The minimum billing unit is 1 MB.
 
 #### Egress traffic {#prices-traffic}
 
+{% include notitle [note-public-ip-traffic.md](../_includes/pricing/note-public-ip-traffic.md) %}
+
 {% include notitle [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 
 

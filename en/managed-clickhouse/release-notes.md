@@ -4,6 +4,10 @@ This section contains {{ mch-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## May 2024 {#may-2024}
+
+* New {{ CH }} version is now available: [24.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-244-2024-04-30).
+
 ## April 2024 {#apr-2024}
 
 * New {{ CH }} version is now available: [24.3 LTS](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-243-lts-2024-03-27).

@@ -7,7 +7,7 @@
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the bucket you want to configure CORS for.
-   1. In the left-hand menu, select **{{ ui-key.yacloud.storage.bucket.cors.label_title }}**.
+   1. In the left-hand menu, select **{{ ui-key.yacloud.storage.bucket.switch_cors }}**.
    1. Click **{{ ui-key.yacloud.storage.bucket.cors.button_cors_empty-create }}**.
    1. This will open a page where you can add, delete, and edit configuration rules. For a detailed description of the configuration fields, see [{#T}](../../s3/api-ref/cors/xml-config.md).
 
