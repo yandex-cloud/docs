@@ -12,7 +12,7 @@ To create a binding:
 1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-binding-add.create-binding.button-text }}**.
 1. Under **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}**:
 
-   1. Select the type of connection to create a binding for: `{{ ui-key.yql.yq-connection.datastreams.select-item }}` or `{{ ui-key.yql.yq-connection.object-storage.select-item }}`.
+   1. Select the type of connection to create a binding for: `{{ ui-key.yql.yq-connection.action_datastreams }}` or `{{ ui-key.yql.yq-connection.action_object-storage }}`.
    1. Select a connection or create a new one.
 
 1. Under **{{ ui-key.yql.yq-binding-form.binding-parameters.title }}**:

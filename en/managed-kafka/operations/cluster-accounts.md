@@ -37,7 +37,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
    1. Enter your username and password.
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}

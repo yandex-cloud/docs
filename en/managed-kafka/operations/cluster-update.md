@@ -27,6 +27,13 @@ You can increase the number of broker hosts if the following conditions are met:
 
 You cannot have fewer broker hosts. To meet the cluster [fault tolerance conditions](../concepts/index.md#fault-tolerance), you need at least three broker hosts.
 
+When changing the broker host class:
+
+* Your single broker host cluster will be unavailable for a few minutes with topic connections terminated.
+* In a cluster of multiple broker hosts, each host in turn will be stopped and updated. Once stopped, a host will be unavailable for a few minutes.
+
+We recommend changing the class of broker hosts only when the cluster has no active workload.
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -449,23 +456,23 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
    1. Run the following command with a list of settings to update:
 
+      
       ```bash
       {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
          --maintenance-window type=<maintenance_type>,`
                              `day=<day_of_week>,`
                              `hour=<hour> \
-         --datatransfer-access=<access_to_cluster> \
-         --deletion-protection=<deletion_protection>\
+         --deletion-protection=<deletion_protection> \
          --schema-registry=<data_schema_management>
       ```
 
+
    You can change the following settings:
 
-   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters), where `type` is the maintenance type:
+   * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) setting (including for disabled clusters), where `type` is the maintenance type:
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-   * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -528,11 +535,8 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
 
-   * Settings for the [maintenance](../concepts/maintenance.md) window (for disabled clusters as well) in the `maintenanceWindow` parameter.
+   * [Maintenance](../concepts/maintenance.md) window setting (including for disabled clusters) in the `maintenanceWindow` parameter.
 
-   * Cluster access configuration settings for [{{ data-transfer-full-name }}](../../data-transfer/) in serverless mode, in the `configSpec.access.dataTransfer` parameter.
-
-      This enables you to connect to {{ data-transfer-full-name }} running in {{ k8s }} via a special network. As a result, other operations, e.g., transfer launch and deactivation, will run faster.
 
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 

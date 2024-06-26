@@ -179,6 +179,8 @@ Merge the data from the two tables into one and upload it in Parquet format to t
 
 1. Wait for the job to complete and make sure the output bucket's `parquet` folder contains the `part-00000-***` Parquet file.
 
+{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+
 ## Export your data to {{ CH }} {#export-data}
 
 Transfer the joined table from {{ objstorage-name }} to {{ CH }}:

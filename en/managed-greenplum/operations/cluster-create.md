@@ -95,6 +95,8 @@ For more information, see [{#T}](../concepts/index.md).
       * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
          * Select the [disk type](../concepts/storage.md).
 
+            {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
+
             
             {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
 
@@ -362,9 +364,9 @@ For more information, see [{#T}](../concepts/index.md).
 
    * Public access settings in the `assignPublicIp` parameter.
    * Backup window settings in the `config.backupWindowStart` parameter.
-   * Settings for access from [{{ datalens-full-name }}](../../datalens/concepts/index.md), in the `config.access.dataLens` parameter.
-   * Settings for access from [{{ data-transfer-full-name }}](../../data-transfer/), in the `config.access.dataTransfer` parameter.
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
+   * Settings for access from [{{ datalens-full-name }}](../../datalens/concepts/index.md) in the `config.access.dataLens` parameter.
+   * Settings for access from [{{ data-transfer-full-name }}](../../data-transfer/) in the `config.access.dataTransfer` parameter.
+   * [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters) in the `maintenanceWindow` parameter.
    * [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings) in the `configSpec.greenplumConfig_<version>` parameter.
    * [Scheduled maintenance operations](../concepts/maintenance.md#regular-ops) settings in the `configSpec.backgroundActivities.analyzeAndVacuum` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
@@ -375,7 +377,7 @@ For more information, see [{#T}](../concepts/index.md).
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ GP }} cluster with the settings of another cluster created earlier. To do so, you need to import the configuration of the source {{ GP }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ GP }} cluster has lots of settings and you need to create a similar one.
+You can create a {{ GP }} cluster with the settings of another one created earlier. To do so, you need to import the configuration of the source {{ GP }} cluster to {{ TF }}. Thus you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing is a convenient option when the source {{ GP }} cluster has lots of settings and you need to create a similar one.
 
 To create a {{ GP }} cluster copy:
 

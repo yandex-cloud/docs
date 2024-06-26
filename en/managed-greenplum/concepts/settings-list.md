@@ -31,27 +31,27 @@ You can use the following settings:
 
 You can use the following settings:
 
-* **Access Key**{#setting-access-key} {{ tag-con }} {{ tag-api }}
+* **Access Key**{#setting-access-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     S3 storage public access key.
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/s3_objstore_cfg.html#minio-server-configuration-1).
 
-* **Secret Key**{#setting-secret-key} {{ tag-con }} {{ tag-api }}
+* **Secret Key**{#setting-secret-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     S3 storage secret access key.
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/s3_objstore_cfg.html#minio-server-configuration-1).
 
-* **Fast Upload**{#setting-fast-upload} {{ tag-con }} {{ tag-api }}
+* **Fast Upload**{#setting-fast-upload} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    This setting manages the fast upload of large files to S3 storage. If disabled, PXF generates files on the disk before sending them to S3 storage. If enabled, PXF generates files in RAM (if RAM capacity is reached, it writes them to disk).
+    This setting controls fast uploading of large files to S3 storage. If disabled, PXF generates files on the disk before sending them to S3 storage. If enabled, PXF generates files in RAM (if RAM capacity is reached, it writes them to disk).
 
     Fast upload is enabled by default.
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/s3_objstore_cfg.html#minio-server-configuration-1).
 
-* **Endpoint**{#setting-endpoint} {{ tag-con }} {{ tag-api }}
+* **Endpoint**{#setting-endpoint} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     S3 storage address. {{ objstorage-full-name }} is set to `{{ s3-storage-host }}`. This is a default value.
 
@@ -61,53 +61,43 @@ You can use the following settings:
 
 You can use the following settings:
 
-* **Driver**{#setting-driver} {{ tag-con }} {{ tag-api }}
+* **Driver**{#setting-driver} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     JDBC driver class in Java. The possible values include:
 
-    * `com.simba.athena.jdbc.Driver`
-    * `com.clickhouse.jdbc.ClickHouseDriver`
-    * `com.ibm.as400.access.AS400JDBCDriver`
-    * `com.microsoft.sqlserver.jdbc.SQLServerDriver`
-    * `com.mysql.cj.jdbc.Driver`
-    * `org.postgresql.Driver`
-    * `oracle.jdbc.driver.OracleDriver`
-    * `net.snowflake.client.jdbc.SnowflakeDriver`
-    * `io.trino.jdbc.TrinoDriver`
+    {% include [JBDC driver](../../_includes/mdb/mgp/jdbc-driver.md) %}
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#jdbc-server-configuration-2).
 
-* **Url**{#setting-url} {{ tag-con }} {{ tag-api }}
+* **Url**{#setting-url} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Database URL. Examples:
 
-    * `jdbc:mysql://mysqlhost:{{ port-mmy }}/testdb`: For a local {{ MY }} DB.
-    * `jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/db1`: For a {{ mpg-name }} cluster. The address contains a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns) of the master host in the cluster.
-    * `jdbc:oracle:thin:@host.example:1521:orcl`: For an Oracle DB.
+    {% include [URL examples](../../_includes/mdb/mgp/url-examples.md) %}
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#jdbc-server-configuration-2).
 
-* **User**{#setting-user} {{ tag-con }} {{ tag-api }}
+* **User**{#setting-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     DB owner username.
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#jdbc-server-configuration-2).
 
-* **Password**{#setting-password} {{ tag-con }} {{ tag-api }}
+* **Password**{#setting-password} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     DB user password.
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#jdbc-server-configuration-2).
 
-* **Statement Batch Size**{#setting-statement-batch-size} {{ tag-con }} {{ tag-api }}
+* **Statement Batch Size**{#setting-statement-batch-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    Number of rows in a batch to read from an external table.
+    Number of rows in a batch for reading from an external table.
 
     The default value is `100`.
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#statementlevel-properties-5).
 
-* **Statement Fetch Size**{#setting-statement-fetch-size} {{ tag-con }} {{ tag-api }}
+* **Statement Fetch Size**{#setting-statement-fetch-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Number of rows to buffer when reading from an external table.
 
@@ -115,7 +105,7 @@ You can use the following settings:
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#statementlevel-properties-5).
 
-* **Statement Query Timeout**{#setting-statement-query-timeout} {{ tag-con }} {{ tag-api }}
+* **Statement Query Timeout**{#setting-statement-query-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Time (in seconds) the JDBC driver waits for a read or write operation to complete.
 
@@ -123,13 +113,13 @@ You can use the following settings:
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#statementlevel-properties-5).
 
-* **Pool Enabled**{#setting-pool-enabled} {{ tag-con }} {{ tag-api }}
+* **Pool Enabled**{#setting-pool-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     This setting determines whether the JDBC connection pool is used. It is enabled by default.
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#about-jdbc-connection-pooling-9).
 
-* **Pool Maximum Size**{#setting-pool-maximum-size} {{ tag-con }} {{ tag-api }}
+* **Pool Maximum Size**{#setting-pool-maximum-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Maximum number of database server connections.
 
@@ -137,7 +127,7 @@ You can use the following settings:
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#about-jdbc-connection-pooling-9).
 
-* **Pool Connection Timeout**{#setting-pool-connection-timeout} {{ tag-con }} {{ tag-api }}
+* **Pool Connection Timeout**{#setting-pool-connection-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Maximum time (in milliseconds) to wait for a connection from the pool.
 
@@ -145,7 +135,7 @@ You can use the following settings:
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#about-jdbc-connection-pooling-9).
 
-* **Pool Idle Timeout**{#setting-pool-idle-timeout} {{ tag-con }} {{ tag-api }}
+* **Pool Idle Timeout**{#setting-pool-idle-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Maximum time (in milliseconds) before an inactive connection is considered idle.
 
@@ -153,7 +143,7 @@ You can use the following settings:
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#about-jdbc-connection-pooling-9).
 
-* **Pool Minimum Idle**{#setting-pool-minimum-idle} {{ tag-con }} {{ tag-api }}
+* **Pool Minimum Idle**{#setting-pool-minimum-idle} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Minimum number of idle connections in the pool.
 

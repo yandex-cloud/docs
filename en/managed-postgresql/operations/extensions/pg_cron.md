@@ -32,9 +32,3 @@ In the selected database, the `cron` schema with tables and functions required f
    * `alter_job`: Changes a job.
 
 To learn more about the `pg_cron` extension, see the [official documentation](https://github.com/citusdata/pg_cron).
-
-{% note warning %}
-
-The `schedule_in_database` function is used to create a job in another database even if the user doesn't have the necessary permission. After installing the `pg_cron` extension, the user with the `mdb_admin` role can circumvent access rights restrictions.
-
-{% endnote %}

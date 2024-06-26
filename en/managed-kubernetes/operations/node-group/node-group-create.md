@@ -1,9 +1,9 @@
 # Creating a node group
 
 
-To create a [node group](../../concepts/index.md#node-group), [create a {{ managed-k8s-name }} cluster](../kubernetes-cluster/kubernetes-cluster-create.md) first and make sure that the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) has enough [free resources](../../concepts/limits.md).
+A [node group](../../concepts/index.md#node-group) is a group of VMs in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) that have the same configuration and run the user's containers.
 
-## Create a node group {#node-group-create}
+Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster first and make sure that the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) has enough [free resources](../../concepts/limits.md).
 
 {% list tabs group=instructions %}
 
@@ -214,7 +214,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
 
       {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 
-   1. Create a {{ managed-k8s-name }} cluster.
+   1. Create a {{ managed-k8s-name }} node group.
 
       {% include [terraform-create-cluster-step-3](../../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
@@ -259,3 +259,135 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
 After you create a {{ managed-k8s-name }} node group, {{ compute-full-name }} will display one or more VMs with automatically generated names. Do not update the names of the VMs that belong to a {{ managed-k8s-name }} cluster. This will disrupt the operation of the node group and the entire {{ managed-k8s-name }} cluster.
 
 {% endnote %}
+
+## Examples {#examples}
+
+Create a node group for the {{ managed-k8s-name }} cluster with the following test characteristics:
+
+* Name: `k8s-demo-ng`.
+* Description: `Test node group`.
+* Node name template: `test-{instance.short_id}-{instance_group.id}`.
+* [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster): Specify the [ID](../kubernetes-cluster/kubernetes-cluster-list.md) of an existing cluster, e.g., `{{ cluster-id }}`.
+* [{{ k8s }} version](../../concepts/release-channels-and-updates.md) on the group nodes: `1.29`.
+* [Platform](../../../compute/concepts/vm-platforms.md) for the nodes: `standard-v3`.
+* Number of vCPUs for the nodes: two.
+* [Guaranteed vCPU share](../../../compute/concepts/performance-levels.md): 50%
+* [Disk size](../../../compute/concepts/disk.md#maximum-disk-size): 64 GB.
+* [Disk type](../../../compute/concepts/disk.md#disks_types): `network-ssd`.
+* Number of nodes: one.
+* Number of nodes that {{ managed-k8s-name }} can create in the group during its [update](../../concepts/release-channels-and-updates.md#node-group): no more than three.
+* Number of nodes that the service can delete from the group during its update: no more than one.
+* RAM: 2 GB.
+* [Update](../../concepts/release-channels-and-updates.md#updates) time: From 22:00 to 08:00 UTC.
+* [Network acceleration](../../../compute/concepts/software-accelerated-network.md) type: `standard` (no acceleration).
+* Network settings:
+   * [Security group ID](../../../vpc/operations/security-group-get-info.md), e.g., `{{ security-group }}`.
+   * [Subnet ID](../../../vpc/operations/subnet-get-info.md), e.g., `e9bj3s90g9hm********`.
+   * Assigning public and internal IP addresses to nodes: Enabled.
+* [{{ k8s }} label](../../concepts/index.md#node-labels): `node-label1=node-value1`.
+* {{ k8s }} [taint](../../concepts/index.md#taints-tolerations): `taint1=taint-value1:NoSchedule`.
+* [{{ yandex-cloud }} resource label](../../../resource-manager/concepts/labels.md) assigned by the VM: `template-label1=template-value1`.
+* Permission to use [unsafe kernel parameters](../../concepts/index.md#config): Enabled. Added the `kernel.msg*` and `net.core.somaxconn` parameters.
+* VM being the only node of the group: [Preemptible](../../../compute/concepts/preemptible-vm.md).
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+   Run the following command:
+
+   ```bash
+   {{ yc-k8s }} node-group create \
+     --name k8s-demo-ng \
+     --description 'Test node group' \
+     --node-name test-{instance.short_id}-{instance_group.id} \
+     --cluster-id {{ cluster-id }} \
+     --version 1.29 \
+     --platform-id standard-v3 \
+     --cores 2 \
+     --core-fraction 50 \
+     --disk-size 64 \
+     --disk-type network-ssd \
+     --fixed-size 1 \
+     --max-expansion 3 \
+     --max-unavailable 1 \
+     --memory 2 \
+     --daily-maintenance-window 'start=22:00,duration=10h' \
+     --network-acceleration-type standard \
+     --network-interface security-group-ids={{ security-group }},subnets=e9bj3s90g9hm********,ipv4-address=nat \
+     --node-labels node-label1=node-value1 \
+     --node-taints taint1=taint-value1:NoSchedule \
+     --template-labels template-label1=template-value1 \
+     --allowed-unsafe-sysctls='kernel.msg*,net.core.somaxconn' \
+     --preemptible
+   ```
+
+- {{ TF }}
+
+   1. Place the node group configuration file in the same folder as the [cluster description file](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create).
+
+      ```hcl
+      resource "yandex_kubernetes_node_group" "k8s-demo-ng" {
+        name        = "k8s-demo-ng"
+        description = "Test node group"
+        cluster_id  = "{{ cluster-id }}"
+        version     = "1.29"
+        instance_template {
+          name = "test-{instance.short_id}-{instance_group.id}"
+          platform_id = "standard-v3"
+          resources {
+            cores         = 2
+            core_fraction = 50
+            memory        = 2
+          }
+          boot_disk {
+            size = 64
+            type = "network-ssd"
+          }
+          network_acceleration_type = "standard"
+          network_interface {
+            security_group_ids = ["{{ security-group }}"]
+            subnet_ids         = ["e9bj3s90g9hm********"]
+            nat                = true
+          }
+          scheduling_policy {
+            preemptible = true
+          }
+        }
+        scale_policy {
+          fixed_scale {
+            size = 1
+          }
+        }
+        deploy_policy {
+          max_expansion   = 3
+          max_unavailable = 1
+        }
+        maintenance_policy {
+          auto_upgrade = true
+          auto_repair  = true
+          maintenance_window {
+            start_time = "22:00"
+            duration   = "10h"
+          }
+        }
+        node_labels = {
+          node-label1 = "node-value1"
+        }
+        node_taints = ["taint1=taint-value1:NoSchedule"]
+        labels = {
+          "template-label1" = "template-value1"
+        }
+        allowed_unsafe_sysctls = ["kernel.msg*", "net.core.somaxconn"]
+      }
+      ```
+
+   1. Check that the configuration file is correct.
+
+      {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
+
+   1. Create a {{ managed-k8s-name }} node group.
+
+      {% include [terraform-create-cluster-step-3](../../../_includes/mdb/terraform-create-cluster-step-3.md) %}
+
+{% endlist %}

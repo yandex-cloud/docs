@@ -56,7 +56,7 @@ On the server where PostgreSQL is set up and running:
 
 ## Connect {{ yq-name }} to your data stream {#connect-query}
 
-1. [Create a connection](../operations/connection.md#create) named `yds-connection` of the `{{ ui-key.yql.yq-connection.datastreams.select-item }}` type.
+1. [Create a connection](../operations/connection.md#create) named `yds-connection` of the `{{ ui-key.yql.yq-connection.action_datastreams }}` type.
 1. On the binding creation page:
    * Enter the binding name: `debezium`.
    * Specify the stream: `cdebezium`.

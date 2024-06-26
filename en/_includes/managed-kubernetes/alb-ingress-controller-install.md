@@ -75,16 +75,14 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
    ```
 
 
-## See also {#see-also}
-
-* Description of Ingress controllers in documentation:
-
-   * [{{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/)
-   * [{{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md)
-
+## Use cases {#examples}
 
 * [{{ alb-name }} Ingress controller configuration tutorial](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
 * [{{ alb-name }} Ingress controller logging configuration tutorial](../../managed-kubernetes/tutorials/alb-ingress-controller-log-options.md).
 
+## See also {#see-also}
 
+* Description of Ingress controllers in the documentation:
+   * [{{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
+   * [{{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 * [Restrictions when updating the ALB Ingress Controller](../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md).

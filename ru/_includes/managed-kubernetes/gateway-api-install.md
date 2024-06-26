@@ -61,10 +61,14 @@
       --create-namespace \
       --set folderId='<идентификатор_каталога>' \
       --set networkId='<идентификатор_облачной_сети>' \
-      --set subnetId='<идентификатор_подсети>' \
+      --set subnet1Id='<идентификатор_подсети_1>' \
+      --set subnet2Id='<идентификатор_подсети_2>' \
+      --set subnet3Id='<идентификатор_подсети_3>' \
       --set-file saKeySecretKey='<путь_к_файлу_sa-key.json>' \
       gateway-api ./gateway-api/
    ```
+
+   В команде укажите сеть и ее подсети, в которых нужно [располагать балансировщики](../../application-load-balancer/concepts/application-load-balancer.md#lb-location).
 
 ## Примеры использования {#examples}
 

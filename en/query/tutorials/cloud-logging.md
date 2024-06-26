@@ -63,7 +63,7 @@ You can skip the `--group-name`, `--message`, and `--json-payload` flags and spe
 
 ## Connect {{ yq-name }} to your data stream {#connect-query}
 
-1. [Create a connection](../operations/connection.md#create) named `cloud-logging-connection` of the `{{ ui-key.yql.yq-connection.datastreams.select-item }}` type.
+1. [Create a connection](../operations/connection.md#create) named `cloud-logging-connection` of the `{{ ui-key.yql.yq-connection.action_datastreams }}` type.
 1. On the binding creation page:
    * Select **{{ ui-key.yql.yq-binding-form.binding-fields-templates.button.label }} {{ cloud-logging-short-name }}**.
    * Enter the binding name: `cloud-logging-binding`.

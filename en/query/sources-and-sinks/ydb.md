@@ -30,7 +30,7 @@ To create a connection to {{ ydb-name }}:
    1. Under **{{ ui-key.yql.yq-connection-form.general-parameters.section-title }}**:
 
       * **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}**: Name of the connection to {{ ydb-name }}.
-      * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}**: `{{ ui-key.yql.yq-connection.ydb.select-item }}`.
+      * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}**: `{{ ui-key.yql.yq-connection.action_ydb }}`.
    1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ ydb-name }} database or create a new one.
       * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select the {{ ydb-name }} [service account](../../iam/concepts/users/service-accounts.md) to use for connecting to `{{ ydb-name }}` clusters and database authentication. If you do not have a service account, create one and assign the `ydb.viewer` [role](../../ydb/security/index.md#ydb-viewer) to it.

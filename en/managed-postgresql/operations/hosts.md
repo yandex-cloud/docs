@@ -184,7 +184,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
 {% note warning %}
 
-If you cannot [connect](connect.md) to the added host, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you cannot [connect](connect.md) to the host you added, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the host's subnet.
 
 {% endnote %}
 
@@ -283,7 +283,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
 
 {% note warning %}
 
-If you cannot [connect](connect.md) to the changed host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you cannot [connect](connect.md) to the host after you changed it, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the host's subnet.
 
 {% endnote %}
 

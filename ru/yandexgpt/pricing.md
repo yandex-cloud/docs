@@ -60,7 +60,6 @@ editable: false
 
 ## Цены {#prices}
 
-
 ### Генерация текста в {{ yagpt-full-name }} {#pricing-generating}
 
 

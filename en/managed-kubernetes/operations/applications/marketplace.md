@@ -36,7 +36,7 @@
 
 {% note info %}
 
-To deploy applications, you need at least one [active node group](../node-group/node-group-create.md#node-group-create).
+To deploy applications, you need at least one [active node group](../node-group/node-group-create.md).
 
 {% endnote %}
 

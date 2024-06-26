@@ -60,7 +60,7 @@ We recommend changing the host class only when the cluster has no active workloa
       {{ yc-mdb-mg }} cluster update --help
       ```
 
-   1. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
+   1. Request a list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
 
       
       ```bash
@@ -359,7 +359,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    You can change the following settings:
 
-   * `--backup-retain-period`: The retention period for automatic backups (in days)
+   * `--backup-retain-period`: The retention period for automatic backups (in days).
       
       The `<retention_period>` parameter value must be in the range from {{ mmg-backup-retention-min }} to {{ mmg-backup-retention-max }} (the default value is {{ mmg-backup-retention }}). This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). For more information, see [Backups](../concepts/backup.md).
 
@@ -456,7 +456,7 @@ You can change the DBMS settings of the hosts in your cluster.
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New backup start time in the `configSpec.backupWindowStart` parameter.
    * Settings for access from other services in the `configSpec.access` parameter.
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
+   * [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Permission to collect statistics for cluster performance diagnostics in the `performanceDiagnostics.profilingEnabled` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 

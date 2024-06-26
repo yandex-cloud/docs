@@ -56,6 +56,10 @@
 
    This command also creates a new namespace required for Fluent Bit.
 
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/fluent-bit-logging.md)
+
 ## See also {#see-also}
 
 * [Fluent Bit documentation](https://docs.fluentbit.io/manual).

@@ -97,6 +97,10 @@ If you no longer need the Kyverno application, delete it:
 
 {% endlist %}
 
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/marketplace/kyverno.md)
+
 ## See also {#see-also}
 
 * [Kyverno documentation](https://kyverno.io/docs/).

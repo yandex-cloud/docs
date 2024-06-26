@@ -26,6 +26,47 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
    1. Configure at least one [optional setting](../../concepts/settings-list.md#jdbc-settings).
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
+- CLI {#cli}
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   To create an external JDBC data source:
+
+   1. View the description of the CLI command to create a data source:
+
+      ```bash
+      {{ yc-mdb-gp }} pxf-datasource create jdbc --help
+      ```
+
+   1. Configure the data source:
+
+      ```bash
+      {{ yc-mdb-gp }} pxf-datasource create jdbc <external_data_source_name> \
+         --cluster-id=<cluster_ID> \
+         --driver=<driver_address> \
+         --url=<database_URL> \
+         --user=<username> \
+         --password=<password>
+      ```
+
+      Where:
+
+      * `cluster-id`: Cluster ID. You can get it with a [list of clusters in the folder](../cluster-list.md#list-cluster).
+      * `driver`: JDBC driver class in Java. The possible values are:
+
+         {% include [JBDC driver](../../../_includes/mdb/mgp/jdbc-driver.md) %}
+
+      * `url`: Database URL. Examples:
+
+         {% include [URL examples](../../../_includes/mdb/mgp/url-examples.md) %}
+
+      * `user`: DB owner username.
+      * `password`: DB user password.
+
+      You can also configure [advanced settings](../../concepts/settings-list.md#jdbc-settings).
+
 - API {#api}
 
    To add a JDBC data source to a {{ mgp-name }} cluster, use the [create](../../api-ref/PXFDatasource/create.md) REST API method for the [PXFDatasource](../../api-ref/PXFDatasource/index.md) resource or the [PXFDatasourceService/Create](../../api-ref/grpc/pxf_service.md#Create) gRPC API call and provide the following in the request:

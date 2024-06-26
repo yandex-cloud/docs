@@ -52,6 +52,8 @@ You can find the query execution results and additional diagnostic information i
 
 The job ID is contained in the YC CLI job execution command output and in the API response to the job execution.
 
+{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+
 ## Running jobs using the Hive CLI {#run-job-hive-shell}
 
 1. Connect to the master host over SSH and run the `hive` command.
@@ -121,3 +123,5 @@ The job ID is contained in the YC CLI job execution command output and in the AP
    12      593842
    Time taken: 12.137 seconds, Fetched: 12 row(s)
    ```
+
+{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}

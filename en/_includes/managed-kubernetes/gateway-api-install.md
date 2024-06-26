@@ -66,6 +66,10 @@ In {{ managed-k8s-name }}, the Gateway API launches [{{ alb-full-name }}](../../
       gateway-api ./gateway-api/
    ```
 
+## Use cases {#examples}
+
+* [{#T}](../../managed-kubernetes/tutorials/marketplace/gateway-api.md)
+
 ## See also {#see-also}
 
 * [Gateway API project description](https://gateway-api.sigs.k8s.io/).

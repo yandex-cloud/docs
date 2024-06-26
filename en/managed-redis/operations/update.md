@@ -118,6 +118,19 @@ Learn more about other cluster updates:
 ## Changing the host class {#change-resource-preset}
 
 
+When changing the host class:
+
+* Your single-host cluster will be unavailable for a few minutes with database connections terminated.
+* In a non-sharded multiple-host cluster:
+   * The master will change. Its hosts will be stopped and updated one by one. Once stopped, a host will be unavailable for a few minutes.
+   * Using a [special FQDN](./connect/non-sharded.md#special-fqdns) does not guarantee a stable database connection: user sessions may be terminated.
+* In a sharded cluster:
+   * The master will change in each multiple-host shard.
+   * Hosts in each shard will be stopped and updated one at a time. The shard's stopped master host will be unavailable for a few minutes.
+   * Master host name resolution may not be available. If public access to the host is enabled, you can only connect using the host IP address.
+
+We recommend changing the host class only when the cluster has no active workload.
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -150,7 +163,7 @@ Learn more about other cluster updates:
       {{ yc-mdb-rd }} cluster update --help
       ```
 
-   1. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
+   1. Request a list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
 
       
       ```bash

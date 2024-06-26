@@ -56,7 +56,7 @@ description: "Следуя данному руководству, вы смож�
 
 ## Подключите {{ yq-name }} к потоку данных {#connect-query}
 
-1. [Создайте соединение](../operations/connection.md#create) с именем `yds-connection` и типом `{{ ui-key.yql.yq-connection.datastreams.select-item }}`.
+1. [Создайте соединение](../operations/connection.md#create) с именем `yds-connection` и типом `{{ ui-key.yql.yq-connection.action_datastreams }}`.
 1. На странице создания привязки:
     * Введите имя привязки `debezium`.
     * Укажите поток данных `cdebezium`.

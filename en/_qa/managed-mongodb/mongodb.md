@@ -49,3 +49,16 @@ For more information on {{ mmg-short-name }} limits, see [Quotas and limits](../
 To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when you [update your cluster](../../managed-mongodb/operations/update.md#change-disk-size).
 
 If you are using the `network-hdd` storage type, consider switching to `network-ssd` or `network-ssd-nonreplicated` by [restoring the cluster](../../managed-mongodb/operations/cluster-backups.md#restore) from a backup.
+
+#### How do I get access to the local.oplog.rs service collection? {#oplog-permission}
+
+To grant a user read access to `oplog`, assign them the `mdbReplication` role in the `admin` database. To do this, run the following command in the {{ yandex-cloud }} CLI:
+
+```bash
+{{ yc-mdb-mg }} user update <username> \
+  --cluster-name <cluster_name> \
+  --permission database=admin,role=mdbReplication,role=<other_role>,... \
+  --permission database=<other_DB_name>,role=<role>,...
+```
+
+To avoid deleting user roles that are already assigned, list both the existing and new roles in the command.

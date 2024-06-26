@@ -15,6 +15,8 @@ After creating a cluster, you can:
 
 * [{#T}](#change-gp-settings).
 
+* [{#T}](#change-resource-preset).
+
 * [{#T}](#change-disk-size).
 
 * [Configure {{ GP }} servers according to the {{ GP }} documentation](#change-gp-settings).
@@ -151,7 +153,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
          {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      * **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**: Activates the {{ yandex-cloud }} [{{ YZ }} extension](https://github.com/yezzey-gp/yezzey/). This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
+      * **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**: Activates the {{ yandex-cloud }} [{{ YZ }} extension](https://github.com/yezzey-gp/yezzey/). This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
          You cannot disable this option after you save your cluster settings.
 
@@ -224,8 +226,8 @@ If you enabled public access to the cluster but cannot access it from the inter
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Public access settings in the `config.assignPublicIp` parameter.
    * Backup window settings in the `config.backupWindowStart` parameter.
-   * Settings for access from [{{ datalens-full-name }}](../../datalens/concepts/index.md), in the `config.access.dataLens` parameter.
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
+   * Settings for access from [{{ datalens-full-name }}](../../datalens/concepts/index.md) in the `config.access.dataLens` parameter.
+   * [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -323,6 +325,122 @@ You can change the DBMS settings of the hosts in your cluster.
    * List of cluster configuration fields to update in the `updateMask` parameter.
 
       {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
+
+## Change the host class {#change-resource-preset}
+
+You can change the host class for both master hosts and segment hosts. When changing the host class:
+
+* The cluster's primary master host will change.
+* Using a [special FQDN](./connect.md#fqdn-master) does not guarantee a stable database connection: user sessions may be terminated.
+
+We recommend changing the host class only when the cluster has no active workload.
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the required class for {{ GP }} master hosts or segment hosts.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To change the [host class](../concepts/instance-types.md) for the cluster:
+
+   1. View a description of the update cluster CLI command:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster update --help
+      ```
+
+   1. Request a list of available classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
+      * For master hosts:
+
+         ```bash
+         {{ yc-mdb-gp }} resource-preset list master
+         ```
+
+      * For segment hosts:
+
+         ```bash
+         {{ yc-mdb-gp }} resource-preset list segment
+         ```
+
+      
+      ```text
+      +-------------+--------------------------------+--------------------------------+-------+----------+--------------------+---------------------+
+      |     ID      |            ZONE IDS            |           DISK TYPES           | CORES |  MEMORY  | HOST COUNT DIVIDER | MAX SEGMENT IN HOST |
+      +-------------+--------------------------------+--------------------------------+-------+----------+--------------------+---------------------+
+      | i2.2xlarge  | {{ region-id }}-a, {{ region-id }}-b   | local-ssd,                     |    16 | 128.0 GB |                  1 |                   0 |
+      |             |                                | network-ssd-nonreplicated      |       |          |                    |                     |
+      | ...                                                                                                                                         |
+      +-------------+--------------------------------+--------------------------------+-------+----------+--------------------+---------------------+
+      ```
+
+
+   1. Specify the required classes in the cluster update command:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster update <cluster_name_or_ID> \
+          --master-config resource-id=<class_ID_of_master_hosts> \
+          --segment-config resource-id=<class_ID_of_segment_hosts>
+      ```
+
+      {{ mgp-short-name }} will run the update host class command for the cluster.
+
+- {{ TF }} {#tf}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about how to create this file, see [Creating clusters](cluster-create.md).
+
+      For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
+
+   1. In the {{ mgp-name }} cluster description, change the `resource_preset_id` attribute value under `master_subcluster.resources` or `segment_subcluster.resources`:
+
+      ```hcl
+      resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
+        ...
+        master_subcluster {
+          resources {
+            resource_preset_id = "<host_class>"
+            ...
+          }
+        segment_subcluster {
+          resources {
+            resource_preset_id = "<host_class>"
+            ...
+          }
+        }
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [Terraform timeouts](../../_includes/mdb/mgp/terraform-timeouts.md) %}
+
+- API {#api}
+
+   To change the class of cluster hosts, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Master host class ID in the `masterConfig.resources.resourcePresetId` parameter or segment host class ID in the `segmentConfig.resources.resourcePresetId` parameter. You can get a list of supported values by using the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resource.
+   * List of settings you need to update (in this case, `masterConfig.resources.resourcePresetId` or `segmentConfig.resources.resourcePresetId`) in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

@@ -29,7 +29,7 @@ SELECT * FROM postgresql_mdb_connection.my_table
    1. В блоке **{{ ui-key.yql.yq-connection-form.general-parameters.section-title }}**:
 
       * **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** — название соединения с {{ mpg-name }}.
-      * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** — `{{ ui-key.yql.yq-connection.postgersql.select-item }}`.
+      * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** — `{{ ui-key.yql.yq-connection.action_postgersql }}`.
 
    1. В блоке **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
 

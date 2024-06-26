@@ -59,7 +59,11 @@ The External Secrets Operator with {{ lockbox-name }} support enables you to con
 
    This command creates a new namespace required for using the External Secrets Operator.
 
-#### See also {#see-also}
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/kubernetes-lockbox-secrets.md)
+
+## See also {#see-also}
 
 * [External Secrets Operator description](https://external-secrets.io/v0.8.1/provider/yandex-lockbox/).
 * [{{ lockbox-name }} documentation](../../../lockbox/).

@@ -97,6 +97,8 @@ In this article, a simple example demonstrates how Hive is used in {{ dataproc-n
    {% endcut %}
 
 
+{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+
 ## Delete the resources you created {#clear-out}
 
 {% include [tutorials-basic-clear-out.md](../../_includes/data-proc/tutorials/basic-clear-out.md) %}

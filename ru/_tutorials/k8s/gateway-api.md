@@ -116,19 +116,19 @@
 
    ```bash
    yc dns zone add-records \
-     --name <имя_вашей_DNS-зоны> \
-     --record '*.prod.<имя_вашей_DNS-зоны> 60 A <IP-адрес_для_среды_prod>' && \
+     --name <имя_DNS-зоны> \
+     --record '*.prod 60 A <IP-адрес_для_среды_prod>' && \
    yc dns zone add-records \
-     --name <имя_вашей_DNS-зоны> \
-     --record '*.dev.<имя_вашей_DNS-зоны> 60 A <IP-адрес_для_среды_dev>'
+     --name <имя_DNS-зоны> \
+     --record '*.dev 60 A <IP-адрес_для_среды_dev>'
    ```
 
    >Пример корректной команды:
    >
    >```bash
    >yc dns zone add-records \
-   >  --name my-test-domain.com \
-   >  --record '*.dev.my-test-domain.com 60 A 171.154.241.41'
+   >  --name my-domain-name \
+   >  --record '*.dev 60 A 171.154.241.41'
    >```
 
 1. Создайте [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) для TLS-секретов:
@@ -146,17 +146,30 @@
      -out gateway-cert-prod.pem \
      -nodes \
      -days 365 \
-     -subj '/CN=*.prod.<имя_вашей_DNS-зоны>' && \
+     -subj '/CN=*.prod.<доменная_зона>' && \
    openssl req -x509 \
       -newkey rsa:4096 \
       -keyout gateway-key-dev.pem \
       -out gateway-cert-dev.pem \
       -nodes \
       -days 365 \
-      -subj '/CN=*.dev.<имя_вашей_DNS-зоны>'
+      -subj '/CN=*.dev.<доменная_зона>'
    ```
 
+   >Пример корректной команды:
+   >
+   >```bash
+   >openssl req -x509 \
+   >  -newkey rsa:4096 \
+   >  -keyout gateway-key-prod.pem \
+   >  -out gateway-cert-prod.pem \
+   >  -nodes \
+   >  -days 365 \
+   >  -subj '/CN=*.prod.my-test-domain.com'
+   >```
+
    На основании этих сертификатов в кластере {{ k8s }} будут созданы секреты для тестовых сред `prod` и `dev`.
+
 1. Создайте секреты:
 
    ```bash
@@ -172,10 +185,10 @@
 
 Для проверки работы Gateway API будут созданы два приложения (`tutum/hello-world` и `nginxdemos/hello`). Для каждого приложения понадобится настройка и выполнение трех YAML-файлов:
 * `dev-gw.yaml` и `prod-gw.yaml` — настройки Gateway. В этих манифестах нужно указать:
-  * [Группу безопасности](../../managed-kubernetes/operations/connect/security-groups.md), в которой развернут ваш кластер {{ k8s }}, в параметре `metadata.annotations.gateway.alb.yc.io/security-groups`.
-  * Имя вашей DNS-зоны с префиксами `*.dev` и `*.prod` в параметрах `hostname`.
+  * [Группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md), в которых развернут кластер {{ k8s }}, в параметре `metadata.annotations.gateway.alb.yc.io/security-groups`.
+  * Доменную зону с префиксами `*.dev` и `*.prod` в параметрах `hostname`.
   * IP-адреса для сред `dev` и `prod` в параметре `spec.addresses.value`.
-* `dev-route.yaml` и `prod-route.yaml` — настройка маршрутизации для приложений. В этих манифестах нужно указать имя вашей DNS-зоны с префиксами `app.dev` и `app.prod` в параметре `spec.hostnames`.
+* `dev-route.yaml` и `prod-route.yaml` — настройка маршрутизации для приложений. В этих манифестах нужно указать доменную зону с префиксами `app.dev` и `app.prod` в параметре `spec.hostnames`.
 * `dev-app.yaml` и `prod-app.yaml` — настройки приложений. С помощью этих манифестов будут созданы:
   * Пространство имен (уникальное для каждого приложения).
   * [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) приложения.
@@ -194,14 +207,14 @@
    metadata:
      name: gateway-api-dev
      annotations:
-       gateway.alb.yc.io/security-groups: <группа_безопасности_кластера>
-    spec:
+       gateway.alb.yc.io/security-groups: <идентификаторы_групп_безопасности_кластера>
+   spec:
      gatewayClassName: yc-df-class
      listeners:
      - name: gateway-api-dev
        protocol: HTTP
        port: 80
-       hostname: "*.dev.<имя_вашей_DNS-зоны>"
+       hostname: "*.dev.<доменная_зона>"
        allowedRoutes:
          namespaces:
            from: Selector
@@ -214,7 +227,7 @@
      - name: gateway-api-dev-tls
        protocol: HTTPS
        port: 443
-       hostname: "*.dev.<имя_вашей_DNS-зоны>"
+       hostname: "*.dev.<доменная_зона>"
        allowedRoutes:
          namespaces:
            from: Selector
@@ -233,7 +246,7 @@
          mode: Terminate
      addresses:
       - type: IPAddress
-         value: <IP-адрес_для_среды_dev>
+        value: "<IP-адрес_для_среды_dev>"
    ```
 
    {% endcut %}
@@ -251,7 +264,7 @@
      namespace: dev-app
    spec:
      hostnames:
-     - "app.dev.<имя_вашей_DNS-зоны>"
+     - "app.dev.<доменная_зона>"
      parentRefs:
      - name: gateway-api-dev
        namespace: default
@@ -330,14 +343,14 @@
    metadata:
      name: gateway-api-prod
      annotations:
-       gateway.alb.yc.io/security-groups: <группа_безопасности_кластера>
+       gateway.alb.yc.io/security-groups: <идентификаторы_групп_безопасности_кластера>
    spec:
      gatewayClassName: yc-df-class
      listeners:
      - name: gateway-api-prod
        protocol: HTTP
        port: 80
-       hostname: "*.prod.<имя_вашей_DNS-зоны>"
+       hostname: "*.prod.<доменная_зона>"
        allowedRoutes:
          namespaces:
            from: Selector
@@ -350,7 +363,7 @@
      - name: gateway-api-prod-tls
        protocol: HTTPS
        port: 443
-       hostname: "*.prod.<имя_вашей_DNS-зоны>"
+       hostname: "*.prod.<доменная_зона>"
        allowedRoutes:
          namespaces:
            from: Selector
@@ -369,7 +382,7 @@
          mode: Terminate
      addresses:
        - type: IPAddress
-         value: <IP-адрес_для_среды_prod>
+         value: "<IP-адрес_для_среды_prod>"
    ```
 
    {% endcut %}
@@ -387,7 +400,7 @@
      namespace: prod-app
    spec:
      hostnames:
-     - "app.prod.<имя_вашей_DNS-зоны>"
+     - "app.prod.<доменная_зона>"
      parentRefs:
      - name: gateway-api-prod
        namespace: default
@@ -488,8 +501,8 @@
 ## Проверьте работу Gateway API {#check-apps}
 
 Для проверки работы Gateway API перейдите по ссылкам в браузере:
-* `app.prod.<имя_вашей_DNS-зоны>`.
-* `dev.prod.<имя_вашей_DNS-зоны>`.
+* `app.prod.<доменная_зона>`.
+* `app.dev.<доменная_зона>`.
 
 {% include [Настройка групп безопасности при недоступности ресурса](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 

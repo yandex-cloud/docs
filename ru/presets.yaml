@@ -6111,7 +6111,7 @@ default:
           overview:
             button_action-edit: Изменить ВМ
             button_add-public-ip: Добавить публичный IP-адрес
-            button_edit-network-interface: Изменить сетевой интерфейс
+            button_edit-network-interface: Изменить
             button_remove-public-ip: Отвязать публичный IP-адрес
             field_ua-enabled: Агент для поставки метрик
             label_network-interface: Сетевой интерфейс
@@ -7066,7 +7066,6 @@ default:
             button_action-password: Изменить пароль
             button_action-remove: Удалить
             button_action-update: Настроить
-            button_add: Добавить
             button_advanced-settings: Дополнительные настройки
             popup-add_button_add: Создать
             popup-button_add: Создать
@@ -7567,7 +7566,6 @@ default:
           button_upload: Загрузить
           cors:
             button_cors_empty-create: Настроить
-            label_title: CORS
           encryption:
             button_save: Сохранить
             field_key: Ключ KMS
@@ -7628,6 +7626,7 @@ default:
             field_name: Имя
             field_size-limit: Макс. размер
             label_size-limit-disabled: Без ограничения
+          switch_cors: CORS
           switch_encryption: Шифрование
           switch_files: Объекты
           switch_https: HTTPS
@@ -9132,7 +9131,7 @@ default:
           button-text: Создать
         binding-fields-templates:
           button:
-            label: Автоматически заполнить колонки для
+            label: Автоматически заполнить настройки для
         binding-fields:
           title: Колонки
         binding-format-settings-delimiter:
@@ -9237,18 +9236,12 @@ default:
         general:
           section-header: Общее
       yq-connection:
-        click-house:
-          select-item: Managed Service for ClickHouse
-        datastreams:
-          select-item: Data Streams
-        monitoring:
-          select-item: Monitoring
-        object-storage:
-          select-item: Object Storage
-        postgersql:
-          select-item: Managed Service for PostgreSQL
-        ydb:
-          select-item: Managed Service for YDB
+        action_clickhouse: Managed Service for ClickHouse
+        action_datastreams: Data Streams
+        action_monitoring: Monitoring
+        action_object-storage: Object Storage
+        action_postgersql: Managed Service for PostgreSQL
+        action_ydb: Managed Service for YDB
       yq-ide-aside:
         bindings:
           tab-text: Привязки

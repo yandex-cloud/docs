@@ -85,7 +85,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
    1. Enter the database username and password.
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
@@ -626,7 +626,7 @@ Let's say you need to add a new user named `ro-user` with the password `Passw0rd
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the `mych` cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
    1. Enter `ro-user` as the DB username and `Passw0rd` as the password.
    1. Click ![image](../../_assets/console-icons/plus.svg) and select the `db1` database from the drop-down list.
    1. Select **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Settings → Readonly**.

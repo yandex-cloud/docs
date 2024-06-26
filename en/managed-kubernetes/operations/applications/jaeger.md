@@ -131,3 +131,11 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
    ```
 
    For more information about this installation type, see the [Jaeger documentation](https://github.com/jaegertracing/helm-charts).
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/marketplace/jaeger-over-ydb.md)
+
+## See also {#see-also}
+
+* [Jaeger documentation](https://www.jaegertracing.io/docs/).
