@@ -7,7 +7,7 @@ description: "In this tutorial, you will learn how to manage {{ mch-name }} clus
 
 {{ mch-name }} provides two ways for you to manage users and their individual settings:
 
-* Using native {{ yandex-cloud }} interfaces, such as CLI, API, or management console. Select this method to create, update, and delete users and custom user settings using {{ mch-full-name }} features.
+* Using native {{ yandex-cloud }} interfaces, such as the CLI, API, or management console. Select this method to create, update, and delete users and custom user settings using {{ mch-full-name }} features.
 * SQL queries to the cluster. Select this method to use your existing solutions to create and manage users or if you are using [RBAC](https://en.wikipedia.org/wiki/Role-based_access_control).
 
 {% note warning %}
@@ -77,7 +77,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 {% endlist %}
 
-## Adding a user {#adduser}
+## Creating a user {#adduser}
 
 {% list tabs group=instructions %}
 
@@ -176,7 +176,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 - API {#api}
 
-   To add a user, use the [create](../api-ref/User/create.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Create](../api-ref/grpc/user_service.md#Create) gRPC API call and provide the following in the request:
+   To create a user, use the [create](../api-ref/User/create.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Create](../api-ref/grpc/user_service.md#Create) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
    * New username, in the `userSpec.name` parameter.
@@ -542,7 +542,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
    1. To change a user account, use the [ALTER USER]({{ ch.docs }}/sql-reference/statements/alter/user/) statement. To edit the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), for instance, run the command below listing the settings to modify:
 
       ```sql
-      ALTER USER <username> SETTINGS <list_of_{{ CH }}_settings>;
+      ALTER USER <user_name> SETTINGS <{{ CH }}_settings_list>;
       ```
 
 {% endlist %}
@@ -653,7 +653,7 @@ Let's say you need to add a new user named `ro-user` with the password `Passw0rd
       SET readonly=0
       ```
 
-      As a result, the command should display a message stating that you can't change the setting in read-only mode:
+      As a result, the command should display a message stating that you cannot change the setting in read-only mode:
 
       ```
       DB::Exception: Cannot modify 'readonly' setting in readonly mode.

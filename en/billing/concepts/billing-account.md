@@ -5,7 +5,6 @@ Billing accounts are used to identify users paying for resources in {{ yandex-cl
 A billing account can be linked to multiple clouds and one [personal account](personal-account.md). You can only use the payment method that corresponds to the type of billing account and your [agreement](contract.md).
 
 
-
 The relationship between clouds, billing accounts, personal accounts, and payment methods is shown in the diagram below.
 
 ![image](../../_assets/billing/cloud-billing-account-svg.svg)

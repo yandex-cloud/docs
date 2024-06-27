@@ -1,6 +1,5 @@
 # Questions about payments
 
-
 #### Who can pay for resources? {#how-to-buy}
 
 Resources are paid for by crediting funds to an individual [personal account](../../billing/concepts/personal-account.md) as per the [contract](../../billing/concepts/contract.md). Funds can be credited to a personal account by individual entrepreneurs, businesses, and individuals.

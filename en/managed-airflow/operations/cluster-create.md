@@ -14,7 +14,7 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
 
 ## Before creating a cluster {#before-creating}
 
-1. In the folder where you want to create a cluster, [create a service account](../../iam/operations/sa/create.md) with the `storage.viewer` role.
+1. In the folder where you want to create a cluster, [create a service account](../../iam/operations/sa/create.md) with the `managed-airflow.integrationProvider` role.
 1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the service account.
 1. [Create a {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md) to store [DAG files](../concepts/index.md#about-the-service).
 
@@ -37,18 +37,21 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
          1. Enter a label in `key: value` format.
          1. Click **Enter**.
 
-   1. Under **{{ ui-key.yacloud.airflow.section_accesses }}**, set a password for the admin user. The password must be not less than 8 characters long and contain at least:
+   1. Under **{{ ui-key.yacloud.airflow.section_accesses }}**:
 
-      * One uppercase letter
-      * One lowercase letter
-      * One digit
-      * One special character
+      * Set a password for the admin user. The password must be not less than 8 characters long and contain at least:
+         * One uppercase letter
+         * One lowercase letter
+         * One digit
+         * One special character
 
       {% note info %}
 
       Save the password locally or memorize it. The service does not show passwords after the registry is created.
 
       {% endnote %}
+
+      * Select the [previously created](#before-creating) service account with the `managed-airflow.integrationProvider` role.
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select:
 
@@ -67,7 +70,7 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
 
          {% note info %}
 
-         If the minimum and maximum number of workers are the same, a fixed amount of workers will be created. If the minimum value is smaller than the maximum one, then, if there are no jobs in the queue, the number of workers will be equal to the minimum value; otherwise, the number of workers will be increasing without exceeding the specified maximum value.
+         If the issue queue is empty, the number of workers will be the minimum value. When issues appear, the number of workers will increase up to the maximum value.
 
          {% endnote %}
 

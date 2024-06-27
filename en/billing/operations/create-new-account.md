@@ -5,7 +5,6 @@ description: "Follow this guide to create a new billing account."
 
 # Creating a new billing account
 
-
 {% include [individual-nonresidents](../../_includes/billing/individual-nonresidents.md) %}
 
 Cloud members can create one or more [billing accounts](../concepts/billing-account.md).

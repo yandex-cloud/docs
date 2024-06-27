@@ -68,7 +68,7 @@ Create the required resources:
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [data-migration-pgsql-mpg.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-pgsql-mpg/data-migration-pgsql-mpg.tf) configuration file to the same working directory.
+   1. Download the [data-migration-pgsql-mpg.tf](https://github.com/yandex-cloud-examples/yc-postgresql-data-migration-from-on-premise/blob/main/data-migration-pgsql-mpg.tf) configuration file to the same working directory.
 
       This file describes:
 
@@ -354,7 +354,7 @@ Create the required resources:
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [data-restore-pgsql-mpg.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-pgsql-mpg/data-restore-pgsql-mpg.tf) configuration file to the same working directory.
+   1. Download the [data-restore-pgsql-mpg.tf](https://github.com/yandex-cloud-examples/yc-postgresql-data-migration-from-on-premise/blob/main/data-restore-pgsql-mpg.tf) configuration file to the same working directory.
 
       This file describes:
 
@@ -399,7 +399,7 @@ Create the required resources:
 
 ### Create a database dump {#dump}
 
-1. Switch the database to the <q>read-only</q> mode.
+1. Switch the database to read-only mode.
 1. Create a dump using the [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) utility. To speed up the process, run it in multithreaded mode by providing the number of available CPU cores in the `--jobs` argument:
 
    ```bash

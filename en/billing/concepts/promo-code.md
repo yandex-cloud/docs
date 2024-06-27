@@ -2,7 +2,6 @@
 
 A **promo code** is a password that allows you to get an additional discount on {{ yandex-cloud }} services.
 
-
 ## Get and activate a promo code {#activate-promocode}
 
 A promo code can be provided to you as part of a Yandex promotional offer.

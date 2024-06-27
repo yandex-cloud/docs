@@ -50,7 +50,7 @@ You can add and remove cluster hosts and manage their settings. For information 
 
 {% endlist %}
 
-## Adding a host {#add}
+## Creating a host {#add}
 
 The number of hosts in {{ mrd-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**.
 
@@ -64,10 +64,10 @@ Public access to hosts can only be configured for clusters created with enabled 
 
 - Management console {#console}
 
-   To add a host to the cluster:
+   To create a host:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
    1. Specify the host parameters:
       * Availability zone.
 
@@ -84,7 +84,7 @@ Public access to hosts can only be configured for clusters created with enabled 
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To add a host to the cluster:
+   To create a host:
    1. Request a list of cluster subnets to select one for the new host:
 
       ```bash
@@ -136,11 +136,11 @@ Public access to hosts can only be configured for clusters created with enabled 
          * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
          * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
          * `replica-priority`: Priority for selecting the host as a master if the [primary master fails](../concepts/replication.md#master-failover). It is only available for non-sharded clusters.
-         * `shard-name`: Name of the shard to which the host must be added if the cluster is sharded.
+         * `shard-name`: Name of the shard in which the host must be created if the cluster is sharded.
 
 - {{ TF }} {#tf}
 
-   To add a host to the cluster:
+   To create a host:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about how to create this file, see [Creating clusters](cluster-create.md).

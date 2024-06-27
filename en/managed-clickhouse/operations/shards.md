@@ -6,7 +6,7 @@ You can enable sharding for a cluster as well as add and configure individual sh
 
 {{ mch-name }} clusters are created with one shard. To start sharding data, [add](#add-shard) one or more shards and [create](../tutorials/sharding.md#example) a distributed table.
 
-## Adding a shard {#add-shard}
+## Creating a shard {#add-shard}
 
 The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
@@ -29,7 +29,7 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To add a shard to a cluster, run the command below (not all the supported parameters are listed):
+   To create a shard, run the command below (not all the supported parameters are listed):
 
    ```bash
    {{ yc-mdb-ch }} shards add <new_shard_name> \
@@ -91,7 +91,7 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
 
 - API {#api}
 
-   To add a shard to a cluster, use the [addShard](../api-ref/Cluster/addShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) gRPC API call.
+   To create a shard, use the [addShard](../api-ref/Cluster/addShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) gRPC API call.
 
    To copy the data schema from a random replica of one of the shards to the hosts of the new shard, include the `copySchema` parameter set to `true` in the request.
 

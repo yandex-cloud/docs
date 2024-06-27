@@ -73,7 +73,6 @@
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы задать параметры, в данном сценарии используется блок `locals`:
 
-      
       ```
       locals {
         cloud_id    = "<идентификатор_облака>"
@@ -91,8 +90,8 @@
       terraform {
         required_providers {
           yandex = {
-          source = "yandex-cloud/yandex"
-        }
+            source = "yandex-cloud/yandex"
+          }
         }
       }
 
@@ -125,8 +124,6 @@
         secret_key = "${yandex_iam_service_account_static_access_key.buckets-account-key.secret_key}"
       }
       ```
-
-
 
       Более подробную информацию о ресурсах, которые вы можете создать с помощью [{{ TF }}](https://www.terraform.io/docs/language/index.html), см. в [документации провайдера]({{ tf-provider-link }}).
 
@@ -189,16 +186,18 @@
 
   ```bash
   yc kms symmetric-key create \
-    --name key-1 \
+    --name bucket-key \
     --default-algorithm aes-256 \
-    --rotation-period 7d
+    --rotation-period 168h
   ```
 
   Где:
 
   * `--name` — имя ключа.
   * `--default-algorithm` — алгоритм шифрования: `aes-128`, `aes-192` или `aes-256`.
-  * `--rotation-period` — период ротации ключа. Чтобы создать ключ без автоматической ротации, не указывайте параметр `--rotation-period`.
+  * `--rotation-period` — период ротации ключа. Значение задается в часах, минутах и секундах и не может быть менее 24 часов. Например: `--rotation-period 27h14m27s`.
+
+      Чтобы создать ключ без автоматической ротации, не указывайте параметр `--rotation-period`.
 
   Вместе с ключом создается его первая версия. Она указана в поле `primary_version`.
 
@@ -206,7 +205,6 @@
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы задать параметры, в данном сценарии используется блок `locals`:
 
-      
       ```
       locals {
         cloud_id    = "<идентификатор_облака>"
@@ -218,7 +216,7 @@
         sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
         sa_key_desc = "Статический ключ для ${local.sa_name}"
 
-        key_name    = "key-1" # Имя ключа KMS.
+        key_name    = "bucket-key" # Имя ключа KMS.
         key_desc    = "Ключ для шифрования бакетов"
 
         bucket_name = "Имя бакета"
@@ -227,10 +225,10 @@
       terraform {
         required_providers {
           yandex = {
-          source = "yandex-cloud/yandex"
+            source = "yandex-cloud/yandex"
+          }
         }
-        }
-        }
+      }
 
       provider "yandex" {
         token     = local.oauth
@@ -269,8 +267,6 @@
       }
       ```
 
-
-
   1. Проверьте корректность конфигурационных файлов.
 
       1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
@@ -298,7 +294,7 @@
           * Сервисный аккаунт `new-buckets-account`.
           * Роль `editor` для сервисного аккаунта `new-buckets-account`.
           * Статический ключ для сервисного аккаунта.
-          * Ключ {{ kms-short-name }} с названием `key-1`.
+          * Ключ {{ kms-short-name }} с названием `bucket-key`.
           * Бакет.
 
           Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}).
@@ -321,7 +317,7 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, созданный ранее.
   1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите ключ `key-1`.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите ключ `bucket-key`.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 - AWS CLI {#aws-cli}
@@ -345,13 +341,10 @@
 	}'
   ```
 
-  В результате успешного выполнения команды все новые объекты в бакете будут шифроваться ключом `key-1`.
-
 - {{ TF }} {#tf}
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы задать параметры, в данном сценарии используется блок `locals`:
 
-      
       ```
       locals {
         cloud_id    = "<идентификатор_облака>"
@@ -363,7 +356,7 @@
         sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
         sa_key_desc = "Статический ключ для ${local.sa_name}"
 
-        key_name    = "key-1" # Имя ключа KMS.
+        key_name    = "bucket-key" # Имя ключа KMS.
         key_desc    = "Ключ для шифрования бакетов"
 
         bucket_name = "Имя бакета" # Имя бакета.
@@ -372,7 +365,7 @@
       terraform {
         required_providers {
           yandex = {
-          source = "yandex-cloud/yandex"
+            source = "yandex-cloud/yandex"
           }
         }
       }
@@ -422,8 +415,6 @@
       }
       ```
 
-
-
   1. Проверьте корректность конфигурационных файлов.
 
 	    1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
@@ -451,14 +442,14 @@
           * Сервисный аккаунт `new-buckets-account`.
           * Роль `editor` для сервисного аккаунта `new-buckets-account`.
           * Статический ключ для сервисного аккаунта.
-          * Ключ {{ kms-short-name }} с названием `key-1`.
+          * Ключ {{ kms-short-name }} с названием `bucket-key`.
           * Бакет с шифрованием.
 
           Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}).
 
-          В результате успешного выполнения команды все новые объекты в бакете будут шифроваться ключом `key-1`.
-
 {% endlist %}
+
+В результате все новые объекты в бакете будут шифроваться ключом `bucket-key`.
 
 ## Отключите шифрование {#disable-encryption}
 
@@ -491,13 +482,10 @@
     --endpoint-url=https://{{ s3-storage-host }}
   ```
 
-  В результате успешного выполнения шифрование в бакете будет отключено.
-
 - {{ TF }} {#tf}
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы отключить шифрование, удалите или закомментируйте блок `server_side_encryption_configuration` для ресурса `yandex_storage_bucket`:
 
-      
       ```
       locals {
         cloud_id    = "<идентификатор_облака>"
@@ -509,7 +497,7 @@
         sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
         sa_key_desc = "Статический ключ для ${local.sa_name}"
 
-        key_name    = "key-1"
+        key_name    = "bucket-key"
         key_desc    = "Ключ для шифрования бакетов"
 
         bucket_name = "Имя бакета"
@@ -570,8 +558,6 @@
       }
       ```
 
-
-
   1. Проверьте корректность конфигурационных файлов.
 
       1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
@@ -598,9 +584,9 @@
           * Сервисный аккаунт `new-buckets-account`.
           * Роль `editor` для сервисного аккаунта `new-buckets-account`.
           * Статический ключ для сервисного аккаунта.
-          * Ключ {{ kms-short-name }} с названием `key-1`.
+          * Ключ {{ kms-short-name }} с названием `bucket-key`.
           * Бакет.
 
-          В указанном каталоге шифрование для бакета будет отключено. Проверить изменение ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
-
 {% endlist %}
+
+В результате в указанном каталоге шифрование для бакета будет отключено. Проверить изменение ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).

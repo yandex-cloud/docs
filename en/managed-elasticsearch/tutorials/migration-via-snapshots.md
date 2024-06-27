@@ -11,10 +11,10 @@ description: "{{ mes-name }} clusters support the snapshot mechanism. This allow
 
 To migrate data from the *source cluster* in {{ ES }} to the *target cluster* in {{ mes-name }}:
 
-1. [{#T}](#before-you-begin).
-1. [{#T}](#create-snapshot).
-1. [{#T}](#restore-snapshot).
-1. [{#T}](#finish-migration).
+1. [{#T}](#before-you-begin)
+1. [{#T}](#create-snapshot)
+1. [{#T}](#restore-snapshot)
+1. [{#T}](#finish-migration)
 
 If you no longer need the resources you are using, [delete them](#clear-out).
 
@@ -58,7 +58,7 @@ You cannot use a snapshot if the {{ ES }} version in the source cluster is highe
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [mes-migration.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/mes-migration.tf) configuration file to the same working directory. The file describes:
+   1. Download the [mes-migration.tf](https://github.com/yandex-cloud-examples/yc-elasticsearch-migration-via-snapshots/blob/main/mes-migration.tf) configuration file to the same working directory. The file describes:
 
       * Network.
       * Subnet.

@@ -20,7 +20,7 @@ Prepare the infrastructure:
    1. [Create a {{ mgp-name }} cluster](../../../managed-greenplum/operations/cluster-create.md) with any suitable configuration.
 
    
-   1. In the cluster subnet, [set up an NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
+   1. In the cluster subnet, [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
 
    
@@ -50,7 +50,7 @@ Prepare the infrastructure:
       10.2010
       ```
 
-   1. Download the [infrastructure configuration file](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/greenplum-s3-vm.tf) to the same working directory.
+   1. Download the [infrastructure configuration file](https://github.com/yandex-cloud-examples/yc-greenplum-config-server-for-s3/blob/main/greenplum-s3-vm.tf) to the same working directory.
 
       This file describes:
 

@@ -48,6 +48,8 @@ items:
         href: tutorials/index.md
       - name: Синхронизация с секретами Managed Service for Kubernetes
         href: tutorials/kubernetes-lockbox-secrets.md
+      - name: Хранение подключений и переменных {{ AF }} в {{ lockbox-full-name }}
+        href: tutorials/lockbox-and-airflow.md
       - name: >-
           Построение пайплайна CI/CD в {{ GL }} с использованием
           serverless-продуктов

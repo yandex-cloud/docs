@@ -1,7 +1,7 @@
 # Creating a {{ PG }} cluster for 1С:Enterprise
 
 
-{{ mpg-name }} allows you to create fault-tolerant {{ PG }} clusters optimized for 1C:Enterprise. To this end, the service supports PostgreSQL versions {{ pg.versions.console.str-1c }} with all the necessary [extensions](#extensions) installed and the connection pooler configuration modified.
+{{ mpg-name }} allows you to create fault-tolerant {{ PG }} clusters optimized for 1C:Enterprise. To this end, the service supports PostgreSQL versions {{ pg.versions.console.str-1c }} with all the required [extensions](#extensions) installed and the connection pooler configuration modified.
 
 {% note warning %}
 
@@ -20,7 +20,7 @@ Select your [host class](../../managed-postgresql/concepts/instance-types.md) ba
    [Create](../../managed-postgresql/operations/cluster-create.md#create-cluster) a {{ mpg-name }} cluster of any suitable configuration with the following settings:
 
    * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`
-   * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: {{ PG }} version used for working with 1C:Enterprise. The names of these versions end with `-1c`.
+   * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: {{ PG }} version used for working with 1C:Enterprise. The names of such versions end with `-1c`.
    * **{{ ui-key.yacloud.mdb.forms.section_resource }}**: At least `s2.small`.
    * **{{ ui-key.yacloud.mdb.forms.section_host }}**: Add at least two more hosts in different availability zones. This provides the fault tolerance of the cluster. The database is automatically replicated. For more information, see [{#T}](../../managed-postgresql/concepts/replication.md).
 
@@ -31,7 +31,7 @@ Select your [host class](../../managed-postgresql/concepts/instance-types.md) ba
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [postgresql-1c.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/postgresql-1c.tf) configuration file to the same working directory.
+   1. Download the [postgresql-1c.tf](https://github.com/yandex-cloud-examples/yc-postgresql-1c/blob/main/postgresql-1c.tf) configuration file to the same working directory.
 
       This file describes:
 
@@ -43,7 +43,7 @@ Select your [host class](../../managed-postgresql/concepts/instance-types.md) ba
    1. Specify the infrastructure settings under `locals` in the `postgresql-1c.tf` configuration file:
 
       * `cluster_name`: Cluster name.
-      * `pg_version`: {{ PG }} version used for working with 1C:Enterprise. The names of these versions end with `-1c`.
+      * `pg_version`: {{ PG }} version used for working with 1C:Enterprise. The names of such versions end with `-1c`.
       * `db_name`: Database name.
       * `username` and `password`: Database owner username and password.
 

@@ -8,7 +8,7 @@ To set up shared use of tables with two {{ dataproc-name }} clusters through {{ 
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-If a {{ dataproc-name }} cluster contains tables that should be available in another {{ dataproc-name }} cluster, transfer the tables to the appropriate cluster using {{ metastore-name }}.
+If a {{ dataproc-name }} cluster contains tables that should be available in another {{ dataproc-name }} cluster, [transfer the tables](../../../data-proc/tutorials/metastore-import.md) to the appropriate cluster using {{ metastore-name }}.
 
 ## Getting started {#before-you-begin}
 
@@ -28,10 +28,10 @@ Prepare the infrastructure:
       * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
          * `SPARK`
          * `YARN`
-      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-sa`
-      * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}**: `spark:spark.sql.hive.metastore.sharedPrefixes` with the `com.amazonaws,ru.yandex.cloud` value. Required for PySpark jobs and integration with {{ metastore-name }}.
-      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Bucket you created for output data
-      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`
+      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-sa`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}**: `spark:spark.sql.hive.metastore.sharedPrefixes` with the `com.amazonaws,ru.yandex.cloud` value. You need it to run PySpark jobs and integrate with {{ metastore-name }}.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Bucket you created for output data.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`.
 
    1. If the cloud network uses [security groups](../../../vpc/concepts/security-groups.md), [add](../../../vpc/operations/security-group-add-rule.md) the following rule for outgoing traffic to the {{ dataproc-name }} cluster security group:
 
@@ -47,7 +47,7 @@ Prepare the infrastructure:
    1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [dataproc-to-dataproc.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/dataproc-to-dataproc.tf) configuration file to the same working directory.
+   1. Download the [dataproc-to-dataproc.tf](https://github.com/yandex-cloud-examples/yc-data-proc-to-data-proc/blob/main/dataproc-to-dataproc.tf) configuration file to the same working directory.
 
       This file describes:
 

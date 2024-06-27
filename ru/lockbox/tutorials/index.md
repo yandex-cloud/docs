@@ -9,3 +9,4 @@ description: "Различные сценарии использования {{ 
 * [{#T}](ci-cd-serverless.md)
 * [{#T}](gitlab-lockbox-integration.md)
 * [{#T}](static-key-in-lockbox.md)
+* [{#T}](lockbox-and-airflow.md)

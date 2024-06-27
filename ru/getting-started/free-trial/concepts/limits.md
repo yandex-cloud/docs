@@ -18,7 +18,6 @@ editable: false
 
 ## {{ billing-name }} {#billing}
 
-
 {% include [pin-cloud-trial](../../../billing/_includes/pin-cloud-trial.md) %}
 
 ## {{ marketplace-full-name }} {#marketplace}

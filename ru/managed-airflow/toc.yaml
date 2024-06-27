@@ -34,6 +34,8 @@ items:
     items:
       - name: Автоматизация работы с {{ dataproc-name }}
         href: tutorials/data-proc-automation.md
+      - name: Хранение подключений и переменных {{ AF }} в {{ lockbox-full-name }}
+        href: tutorials/lockbox-secrets-in-maf-cluster.md
       - name: Автоматизация задач {{ yq-full-name }}
         href: tutorials/yandex-query-automation.md
   - name: Управление доступом

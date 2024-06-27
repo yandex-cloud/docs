@@ -1,6 +1,5 @@
 # Billing cycle for individuals
 
-
 {% include [individual-nonresidents](../../_includes/billing/individual-nonresidents.md) %}
 
 The diagram shows the cycle of debiting an individual's bank card, as well as suspending and blocking the use of resources.
