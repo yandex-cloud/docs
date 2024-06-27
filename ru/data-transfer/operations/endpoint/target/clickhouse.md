@@ -44,7 +44,7 @@ description: "Из статьи вы узнаете, как задать нас�
 * [{{ CH }}](../source/clickhouse.md);
 * [{{ GP }}](../source/greenplum.md);
 * [{{ KF }}](../source/kafka.md);
-* [Aibyte](../../../transfer-matrix.md#airbyte);
+* [{{ AB }}](../../../transfer-matrix.md#airbyte);
 * [{{ metrika }}](../source/metrika.md);
 * [{{ DS }}](../source/data-streams.md);
 * [{{ objstorage-full-name }}](../source/object-storage.md);

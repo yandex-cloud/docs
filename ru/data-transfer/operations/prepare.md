@@ -8,7 +8,7 @@ description: "Из статьи вы узнаете, как подготовит
 
 ## Подготовка источника {#source}
 
-### Источники Airbyte® {#source-airbyte}
+### Источники {{ AB }} {#source-airbyte}
 
 #### Источник AWS CloudTrail {#source-aws}
 

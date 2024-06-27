@@ -91,6 +91,9 @@ Prepare the target for receiving the data:
 * [{{ PG }}](operations/prepare.md#target-pg)
 
 
+* [{{ ydb-full-name }}](operations/prepare.md#target-ydb)
+
+
 ## Creating an endpoint for the source {#source}
 
 1. Go to the folder page and select **{{ data-transfer-full-name }}**.
