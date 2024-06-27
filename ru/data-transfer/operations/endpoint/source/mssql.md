@@ -21,7 +21,7 @@
 
 ## Настройка эндпоинта-источника Microsoft SQL Server {#endpoint-settings}
 
-При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта задайте настройки доступа к {{ MS }}.
+При [создании](../index.md#create) эндпоинта выберите тип базы данных `MSSQL` и задайте настройки доступа к {{ MS }}. Вы можете [изменить](../index.md#update) настройки после создания эндпоинта.
 
 {% list tabs group=instructions %}
 
@@ -47,9 +47,7 @@
     
 {% endlist %}
 
-Подробнее о настройках см. в [документации Airbyte®](https://docs.airbyte.com/integrations/sources/mssql/).
-
-{% include [airbyte-trademark](../../../../_includes/data-transfer/airbyte-trademark.md) %}
+Подробнее о настройках см. в [документации {{ AB }}](https://docs.airbyte.com/integrations/sources/mssql/).
 
 
 ## Настройка приемника данных {#supported-targets}
@@ -70,3 +68,9 @@
 {% include [Internet access](../../../../_includes/data-transfer/notes/internet-access.md) %}
 
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).
+
+{% include [airbyte-trademark](../../../../_includes/data-transfer/airbyte-trademark.md) %}
+
+{% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}
+
+{% include [greenplum-trademark](../../../../_includes/mdb/mgp/trademark.md) %}

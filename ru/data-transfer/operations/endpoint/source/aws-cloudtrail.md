@@ -21,7 +21,7 @@
 
 ## Настройка эндпоинта-источника AWS CloudTrail {#endpoint-settings}
 
-При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта задайте настройки доступа к AWS. Подробное описание см. в [документации Airbyte®](https://docs.airbyte.com/integrations/sources/aws-cloudtrail).
+При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта задайте настройки доступа к AWS. Подробное описание см. в [документации {{ AB }}](https://docs.airbyte.com/integrations/sources/aws-cloudtrail).
 
 {% list tabs group=instructions %}
 

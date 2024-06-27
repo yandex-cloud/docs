@@ -1,6 +1,6 @@
 * Источники:
  
-    * Airbyte®:
+    * {{ AB }}:
         * [AWS CloudTrail](../../data-transfer/operations/endpoint/source/aws-cloudtrail.md)
         * [BigQuery](../../data-transfer/operations/endpoint/source/bigquery.md)
         * [MS SQL Server](../../data-transfer/operations/endpoint/source/mssql.md)
@@ -15,6 +15,7 @@
     * [Oracle](../../data-transfer/operations/endpoint/source/oracle.md)
     * [{{ PG }}](../../data-transfer/operations/endpoint/source/postgresql.md)
     * [{{ yds-full-name }}](../../data-transfer/operations/endpoint/source/data-streams.md)
+    * [{{ ydb-full-name }}](../../data-transfer/operations/endpoint/source/ydb.md)
 * Приемники:
     * [{{ KF }}](../../data-transfer/operations/endpoint/target/kafka.md)
     * [{{ CH }}](../../data-transfer/operations/endpoint/target/clickhouse.md)
@@ -26,3 +27,4 @@
     * [{{ OS }}](../../data-transfer/operations/endpoint/target/opensearch.md)
     * [{{ PG }}](../../data-transfer/operations/endpoint/target/postgresql.md)
     * [{{ yds-full-name }}](../../data-transfer/operations/endpoint/target/data-streams.md)
+    * [{{ ydb-full-name }}](../../data-transfer/operations/endpoint/target/yandex-database.md)

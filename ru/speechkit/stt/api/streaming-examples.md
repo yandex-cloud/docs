@@ -98,7 +98,6 @@
             # Отправьте данные для распознавания.
             it = stub.StreamingRecognize(gen(folder_id, audio_file_name), metadata=(
                 ('authorization', 'Bearer %s' % iam_token),
-                ('Transfer-encoding', 'chunked'),
             ))
 
             # Обработайте ответы сервера и выведите результат в консоль.
@@ -220,7 +219,6 @@
 
         const serviceMetadata = new grpc.Metadata();
         serviceMetadata.add('authorization', `Bearer ${iamToken}`);
-        serviceMetadata.add('Transfer-encoding', `chunked`);
 
         const packageDefinition = protoLoader.loadSync('../yandex/cloud/ai/stt/v2/stt_service.proto', {
             includeDirs: ['node_modules/google-proto-files', '..']

@@ -1,5 +1,6 @@
 default:
   a100-epyc: AMD EPYC™ with NVIDIA® Ampere® A100
+  AB: Airbyte®
   adv-ddos-protection: Advanced Yandex DDoS Protection
   AF: Apache Airflow™
   alb-full-name: Yandex Application Load Balancer
@@ -8893,6 +8894,7 @@ default:
         create: Создать
         create-community: Создать сообщество
         create-resource: Создать ресурс
+        custom: Другое
         datasets: Датасеты
         deactivate: Деактивировать
         delete: Удалить

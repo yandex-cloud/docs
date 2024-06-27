@@ -45,7 +45,7 @@
 
 ### Создайте сервисный аккаунт для проекта {{ ml-platform-name }} {#create-sa}
 
-Для доступа к проекту {{ml-platform-name }} из функции {{ sf-name }} вам понадобится сервисный аккаунт с ролью `{{ roles-datasphere-project-editor }}`.
+Для доступа к проекту {{ml-platform-name }} из функции {{ sf-name }} вам понадобится сервисный аккаунт с ролями `{{ roles-datasphere-project-editor }}` и `{{ roles-functions-invoker }}`.
 
 {% list tabs group=instructions %}
 
@@ -54,14 +54,14 @@
    1. Перейдите в каталог `data-folder`.
    1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `reddit-user`.
-   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту роль `datasphere.community-project.editor`.
+   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту роли `{{ roles-datasphere-project-editor }}` и `{{ roles-functions-invoker }}`.
    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
 ### Добавьте сервисный аккаунт в проект {#sa-to-project}
 
-Чтобы сервисный аккаунт мог запускать проект {{ ml-platform-name }}, добавьте его в список участников проекта. 
+Чтобы сервисный аккаунт мог запускать проект {{ ml-platform-name }}, добавьте его в список участников проекта.
 
 {% list tabs group=instructions %}
 
@@ -72,6 +72,16 @@
     1. Выберите аккаунт `reddit-user` и нажмите **{{ ui-key.yc-ui-datasphere.common.add }}**.
 
 {% endlist %}
+
+### Настройте проект {#setup-project}
+
+Чтобы сократить расходы на использование сервиса {{ml-platform-name }}, настройте время, через которое освобождается закрепленная за проектом ВМ.
+
+1. {% include [include](../../_includes/datasphere/ui-find-project.md) %}
+1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.common.general }}** нажмите кнопку ![pencil](../../_assets/console-icons/pencil-to-line.svg) **{{ ui-key.yc-ui-datasphere.common.edit }}**
+1. Для настройки **{{ ui-key.yc-ui-datasphere.edit-project-page.dedicated-vm-inactivity-timeout }}** выберите `{{ ui-key.yc-ui-datasphere.common.custom }}` и укажите 5 минут.
+1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
 ## Создайте ноутбук {#create-notebook}
 
@@ -188,7 +198,7 @@
     1. Выберите способ **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
     1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}** и введите имя файла, например `index`.
     1. Введите код функции, подставив идентификатор вашего проекта и абсолютный путь к ноутбуку в проекте:
-    
+
         ```python
         import requests
     
@@ -242,9 +252,10 @@
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите функцию и укажите:
 
-    	{% include [function-settings](../../_includes/functions/function-settings.md) %}
+       * [{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}](../../functions/concepts/function.md#tag).
+       * {{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }} `reddit-user`, от имени которого будет вызываться функция.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.    
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 {% endlist %}
 
@@ -253,6 +264,7 @@
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
+
 * [Удалите](../../functions/operations/function/function-delete) функцию;
 * [Удалите](../../functions/operations/trigger/trigger-delete) триггер;
 * [Удалите](../../datasphere/operations/projects/delete) проект.
