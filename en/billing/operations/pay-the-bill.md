@@ -5,7 +5,6 @@ description: "Follow this guide to top up your personal account."
 
 # Top up your personal account
 
-
 {% include [card-business-nonresidents](../../_includes/billing/card-business-nonresidents.md) %}
 
 {% include [personal-account-balance](../_includes/personal-account-balance.md) %}

@@ -1,6 +1,5 @@
 # Monitor expenses
 
-
 This checklist item will guide you through setting up your organization's payments for resources.
 
 After you are done creating a billing account, your [personal account balance](../../billing/concepts/personal-account.md#balance) will be zero by default. We recommend monitoring and [topping up](../../billing/operations/pay-the-bill.md) your account balance so that it always stays positive.

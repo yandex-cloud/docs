@@ -45,8 +45,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. Download the configuration file for the appropriate cluster type to the same working directory:
 
-      * [redis-cluster-non-sharded-and-vm.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/redis-as-php-session-storage/redis-cluster-non-sharded-and-vm-for-php.tf): For a non-sharded cluster.
-      * [redis-cluster-sharded-and-vm.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/redis-as-php-session-storage/redis-cluster-sharded-and-vm-for-php.tf): For a [sharded](../../managed-redis/concepts/sharding.md) cluster.
+      * [redis-cluster-non-sharded-and-vm-for-php.tf](https://github.com/yandex-cloud-examples/yc-redis-as-php-session-storage/blob/main/redis-cluster-non-sharded-and-vm-for-php.tf): For a non-sharded cluster.
+      * [redis-cluster-sharded-and-vm-for-php.tf](https://github.com/yandex-cloud-examples/yc-redis-as-php-session-storage/blob/main/redis-cluster-sharded-and-vm-for-php.tf): For a [sharded](../../managed-redis/concepts/sharding.md) cluster.
 
       Each file describes:
 

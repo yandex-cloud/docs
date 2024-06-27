@@ -1,6 +1,5 @@
 # Questions about the trial period and paid version
 
-
 #### Is there a trial period for {{ yandex-cloud }}? {#trial}
 
 Yes, there is. For more information, see the [Trial period](../../getting-started/free-trial/concepts/quickstart.md) document.

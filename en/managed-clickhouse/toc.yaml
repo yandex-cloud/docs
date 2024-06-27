@@ -20,9 +20,11 @@ items:
             href: operations/cluster-create.md
           - name: Changing cluster settings
             href: operations/update.md
+          - name: Changing {{ CH }} settings at the user level
+            href: operations/change-query-level-settings.md
           - name: Updating the {{ CH }} version
             href: operations/cluster-version-update.md
-          - name: Stopping and starting clusters
+          - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
           - name: Managing hosts
             items:
@@ -99,8 +101,8 @@ items:
       - name: Exchanging data with {{ dataproc-full-name }}
         href: tutorials/exchange-data-with-dp.md
       - name: >-
-          Configuring {{ dns-full-name }} for accessing clusters from other
-          cloud networks
+          "Configuring {{ dns-full-name }} for accessing clusters from other
+          cloud networks"
         href: tutorials/dns-peering.md
       - name: Analyzing {{ objstorage-full-name }} logs in {{ datalens-full-name }}
         href: tutorials/storage-logs-analysis.md

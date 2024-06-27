@@ -5,7 +5,6 @@ description: "When you create your first billing account, you receive an initial
 
 # Initial grant for individual and business accounts
 
-
 {% include [grant-amount](_includes/grant-amount.md) %}
 
 

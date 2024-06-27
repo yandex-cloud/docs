@@ -37,15 +37,15 @@
 
 ### Образы на базе Windows {#windows}
 
-* [Kosmos VM 2022 на базе Windows Server Datacenter 2022](/marketplace/products/fotonsrv/kosmosvm2022).
-* [Kosmos VM 2019 на базе Windows Server Datacenter 2019](/marketplace/products/fotonsrv/kosmosvm2019).
-* [Kosmos VM 2016 на базе Windows Server Datacenter 2016](/marketplace/products/fotonsrv/kosmosvm2016).
-* [Kosmos VM RDS (5 лицензий)](/marketplace/products/fotonsrv/kos-5-rds).
-* [Kosmos VM RDS (10 лицензий)](/marketplace/products/fotonsrv/kos-10-rds).
-* [Kosmos VM RDS (50 лицензий)](/marketplace/products/fotonsrv/kos-50-rds).
-* [Kosmos BD WEB 2019](/marketplace/products/fotonsrv/kosmosbdweb2019).
-* [Kosmos BD Standard 2019](/marketplace/products/fotonsrv/kosmosbdstd2019).
-* [Kosmos VM Visio Pro 2021](/marketplace/products/fotonsrv/kosmosvisio).
+* [Kosmos VM 2022 на базе Windows Server Datacenter 2022](/marketplace/products/fotonsrv/kosmosvm2022)
+* [Kosmos VM 2019 на базе Windows Server Datacenter 2019](/marketplace/products/fotonsrv/kosmosvm2019)
+* [Kosmos VM 2016 на базе Windows Server Datacenter 2016](/marketplace/products/fotonsrv/kosmosvm2016)
+* [Kosmos VM RDS (5 лицензий)](/marketplace/products/fotonsrv/kos-5-rds)
+* [Kosmos VM RDS (10 лицензий)](/marketplace/products/fotonsrv/kos-10-rds)
+* [Kosmos VM RDS (50 лицензий)](/marketplace/products/fotonsrv/kos-50-rds)
+* [Kosmos BD WEB 2019](/marketplace/products/fotonsrv/kosmosbdweb2019)
+* [Kosmos BD Standard 2019](/marketplace/products/fotonsrv/kosmosbdstd2019)
+* [Kosmos VM Visio Pro 2021](/marketplace/products/fotonsrv/kosmosvisio)
 
 {% note info %}
 
@@ -57,8 +57,8 @@
 
 Вы можете установить агента {{ backup-name }} самостоятельно:
 
-* [Инструкция для Linux](../operations/connect-vm-linux.md).
-* [Инструкция для Windows](../operations/connect-vm-windows.md).
+* [Инструкция для Linux](../operations/connect-vm-linux.md)
+* [Инструкция для Windows](../operations/connect-vm-windows.md)
 
 С полным списком поддерживаемых ОС можно ознакомиться в [документации провайдера резервного копирования](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html).
 

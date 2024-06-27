@@ -31,7 +31,8 @@ description: "На странице представлен список прак
 
 ## {{ AF }} {#airflow}
 
-  * [{#T}](yandex-query-automation.md)
+* [{#T}](lockbox-and-airflow.md)
+* [{#T}](yandex-query-automation.md)
 
 ## {{ CH }} {#clickhouse}
 

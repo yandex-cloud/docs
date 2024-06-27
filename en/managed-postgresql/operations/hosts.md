@@ -52,7 +52,7 @@ You can add and remove cluster hosts and manage their settings. For information 
 
 {% endlist %}
 
-## Adding a host {#add}
+## Creating a host {#add}
 
 The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) page and find the **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}** section.
 
@@ -60,10 +60,10 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
 - Management console {#console}
 
-   To add a host to the cluster:
+   To create a host:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and go to the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
-   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
 
    
    1. Specify the host parameters:
@@ -79,7 +79,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To add a host to the cluster:
+   To create a host:
 
    
    1. Request a list of cluster subnets to select one for the new host:
@@ -134,7 +134,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
 - {{ TF }} {#tf}
 
-   To add a host to the cluster:
+   To create a host:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about how to create this file, see [Creating clusters](cluster-create.md).
@@ -175,7 +175,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
 - API {#api}
 
-   To add a host to a cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+   To create a host, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 

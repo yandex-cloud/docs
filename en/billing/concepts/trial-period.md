@@ -5,7 +5,6 @@ description: "The trial period is a one-time introductory offer for legal entiti
 
 # Trial period for new customers
 
-
 {% include [free-trial-conditions](../../_includes/free-trial-conditions.md) %}
 
 The trial period allows you to use {{ yandex-cloud }} resources for free with some limitations. You pay for the resources you consume from the [initial grant](bonus-account.md#start). After the end of the trial period, the resources will be retained but discontinued. To resume working with {{ yandex-cloud }}, you will need to fully upgrade to the paid version.

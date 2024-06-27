@@ -22,6 +22,7 @@ After creating a cluster, you can change its basic and advanced settings.
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, edit the cluster name and description, delete labels, or add new ones.
 
+   1. Under **{{ ui-key.yacloud.airflow.section_accesses }}**, select a service account or [create a new one](../../iam/operations/sa/create.md#create-sa) with the `managed-airflow.integrationProvider` role. Thus the cluster will get the permissions required for working with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a [security group](../../vpc/concepts/security-groups.md) for cluster network traffic or create a new group.
 
       {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}

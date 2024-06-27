@@ -18,7 +18,6 @@ Technical support is provided in full during the trial period. For more informat
 
 ## {{ billing-name }} {#billing}
 
-
 {% include [pin-cloud-trial](../../../billing/_includes/pin-cloud-trial.md) %}
 
 ## {{ marketplace-full-name }} {#marketplace}

@@ -22,7 +22,6 @@ Using {{ CK }} is associated with the following limitations:
 
 * You can only create clusters of three or more hosts.
 * {{ CK }} support cannot be enabled or disabled after creating a cluster.
-* To use {{ CK }}, you need {{ CH }} {{ mch-ck-version }} or higher.
 * You cannot switch clusters using {{ ZK }} hosts to {{ CK }}.
 * To [migrate a host](../operations/host-migration.md) from {{ CK }} to a different availability zone, you need to contact [support]({{ link-console-support }}).
 

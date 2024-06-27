@@ -88,7 +88,7 @@ You can learn more about the `catboostEvaluate()` function in the [{{ CH }} docu
 
 {% endlist %}
 
-## Adding a model {#add}
+## Creating a model {#add}
 
 {% note info %}
 
@@ -112,7 +112,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
       * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-name }}**: Model name. Model name is one of the arguments of the `catboostEvaluate()` function, which is used to call the model in {{ CH }}.
       * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}**: Model address in {{ objstorage-full-name }}.
 
-   1. Click **{{ ui-key.yacloud.clickhouse.cluster.ml-models.label_add-ml-model }}** and wait for the model to be added.
+   1. Click **{{ ui-key.yacloud.clickhouse.cluster.ml-models.label_add-ml-model }}** and wait for the model to be created.
 
 - CLI {#cli}
 
@@ -120,10 +120,10 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To add a model to a cluster, run the command:
+   To create a model, run this command:
 
    ```bash
-   {{ yc-mdb-ch }} ml-model create <model_name \
+   {{ yc-mdb-ch }} ml-model create <model_name> \
      --cluster-name=<cluster_name> \
      --type=ML_MODEL_TYPE_CATBOOST \
      --uri=<link_to_model_file_in_Object_Storage>
@@ -164,7 +164,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
 - API {#api}
 
-   To add a model, use the [create](../api-ref/MlModel/create.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/Create](../api-ref/grpc/ml_model_service.md#Create) gRPC API call and provide the following in the request:
+   To create a model, use the [create](../api-ref/MlModel/create.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/Create](../api-ref/grpc/ml_model_service.md#Create) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter.
    * Model name in the `mlModelName` parameter.

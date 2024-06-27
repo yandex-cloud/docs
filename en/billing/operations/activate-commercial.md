@@ -1,6 +1,5 @@
 # Activate the paid version
 
-
 You need to activate the paid version within sixty days after the trial period expires. Otherwise, all of your resources are deleted automatically.
 
 {% include [trial-period](../../_includes/trial-period.md) %}

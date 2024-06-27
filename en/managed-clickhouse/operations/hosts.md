@@ -3,7 +3,7 @@
 You can perform the following actions on {{ CH }} hosts:
 
 * [Get a list of cluster hosts](#list-hosts).
-* [Add a host](#add-host).
+* [Create a host](#add-host).
 * [Update {{ CH }} host settings](#update).
 * [Restart a host](#restart).
 * [Remove a host](#remove-host).
@@ -20,7 +20,7 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
 
 {% include notitle [get-hosts](../../_includes/mdb/mch/get-hosts.md) %}
 
-## Adding a host {#add-host}
+## Creating a host {#add-host}
 
 The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**.
 
@@ -30,7 +30,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
 
    
    1. Specify the host parameters:
@@ -47,7 +47,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To add a host to a cluster:
+   To create a host:
 
    
    1. Request a list of cluster subnets to select one for the new host:
@@ -137,7 +137,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
 
 - API {#api}
 
-   To add a host, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) gRPC API call and provide the following in the request:
+   To create a host, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New host settings in one or more `hostSpecs` parameters.
 

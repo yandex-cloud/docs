@@ -58,12 +58,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [kafka-connect.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/kafka-connect.tf) configuration file to the same working directory.
+   1. Download the [kafka-connect.tf](https://github.com/yandex-cloud-examples/yc-kafka-connect/blob/main/kafka-connect.tf) configuration file to the same working directory.
 
       This file describes:
 
-      * Network
-      * Subnet
+      * Network.
+      * Subnet.
 
       
       * Default security group and rules required to connect to the cluster and VM from the internet.

@@ -48,7 +48,7 @@ To create a cluster:
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Set the cluster parameters and click **{{ ui-key.yacloud.common.create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
-1. Wait until the cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running` and its state to `Alive`. This may take some time.
+1. Wait until the cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running` and its state, to `Alive`. This may take some time.
 
 Then create a topic in the cluster.
 

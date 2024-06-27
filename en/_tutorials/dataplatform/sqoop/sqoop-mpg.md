@@ -44,7 +44,7 @@ You can create other resources manually or using {{ TF }}.
 1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
 1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-1. Download the [clusters-postgresql-data-proc-and-vm.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/sqoop/clusters-postgresql-data-proc-and-vm.tf) configuration file and save it to the same working directory.
+1. Download the [clusters-postgresql-data-proc-and-vm.tf](https://github.com/yandex-cloud-examples/yc-data-proc-postgresql-data-import/blob/main/clusters-postgresql-data-proc-and-vm.tf) configuration file and save it to the same working directory.
 
    This file describes:
 

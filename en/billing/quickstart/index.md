@@ -14,7 +14,6 @@ To work with most {{ yandex-cloud }} services, you need a billing account. The a
 
 Within a single user account, all payers must contract with the same legal entity and pay in the same currency.
 
-
 New customers who are legal entities are eligible for a trial period. The [trial period](../concepts/trial-period.md) allows you to discover the features of the cloud infrastructure for free with some limitations. To fully use the resources, you need to switch to the paid version after your trial period ends.
 
 {% include [individual-nonresident](../../_includes/billing/individual-nonresidents.md) %}

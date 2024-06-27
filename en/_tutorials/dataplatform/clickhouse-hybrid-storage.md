@@ -22,8 +22,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md):
 
-      * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: {{ mch-ck-version }} or higher.
-
       
       * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}**: Standard (`network-hdd`), fast (`network-ssd`), or non-replicated (`network-ssd-nonreplicated`) network disks.
 
@@ -59,7 +57,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * Default security group and rules required to connect to the cluster from the internet.
 
 
-      * {{ mch-name }} cluster with hybrid storage enabled
+      * {{ mch-name }} cluster with hybrid storage enabled.
 
    1. In `clickhouse-hybrid-storage.tf`, specify the username and password to use to access the {{ mch-name }} cluster.
 
@@ -142,7 +140,7 @@ Between network disk storage and object storage, data is not moved line by line 
 
 To learn more about configuring TTL, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl).
 
-## Completing a table with data {#fill-table-with-data}
+## Populate the table with data {#fill-table-with-data}
 
 1. Disconnect from the database.
 1. Download the test dataset:
@@ -178,7 +176,7 @@ To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tu
 ## Check the placement of data in a cluster {#check-table-tiering}
 
 1. [Connect to the database](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client).
-1. Find out where the table rows are placed:
+1. Check where the table rows are placed:
 
    ```sql
    SELECT
@@ -230,7 +228,7 @@ To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tu
 
 As you can see from the SQL command results, the data in the table was successfully distributed in hybrid storage between different storage levels.
 
-## Running a test query {#submit-test-query}
+## Run a test query {#submit-test-query}
 
 Run a test query to the `tutorial.hits_v1` table that addresses data on multiple storage levels at once:
 

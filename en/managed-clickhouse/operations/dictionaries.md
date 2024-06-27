@@ -33,7 +33,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To add an external dictionary to a {{ CH }} cluster:
+   To get a list of external dictionaries in a {{ CH }} cluster:
 
    1. View a description of the CLI command for getting detailed cluster information:
 
@@ -60,7 +60,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
 {% endlist %}
 
-## Adding a dictionary {#add-dictionary}
+## Creating a dictionary {#add-dictionary}
 
 {% list tabs group=instructions %}
 
@@ -68,7 +68,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
    {% note warning %}
 
-   If the dictionary is added via the console, it cannot be managed via SQL.
+   If the dictionary was created in the console, it cannot be managed via SQL.
 
    {% endnote %}
 
@@ -89,7 +89,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To add an external dictionary to a {{ CH }} cluster:
+   To create an external dictionary in a {{ CH }} cluster:
 
    1. View a description of the CLI command for adding dictionaries:
 
@@ -114,7 +114,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
    {% endnote %}
 
-   To add a dictionary, use the [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/CreateExternalDictionary](../api-ref/grpc/cluster_service.md#CreateExternalDictionary) gRPC API call.
+   To create a dictionary, use the [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/CreateExternalDictionary](../api-ref/grpc/cluster_service.md#CreateExternalDictionary) gRPC API call.
 
 - SQL {#sql}
 
@@ -157,7 +157,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
    To remove an external dictionary:
 
-   1. View a description of the CLI's remove dictionary command:
+   1. View a description of the CLI command for removing a dictionary:
 
       ```bash
       {{ yc-mdb-ch }} cluster remove-external-dictionary --help

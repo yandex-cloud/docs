@@ -76,14 +76,13 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
 
 You can request the shard name with a [list of cluster shards](#list) and the cluster name with a [list of clusters in a folder](cluster-list.md).
 
-## Adding a shard {#add}
+## Creating a shard {#add}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to add a shard to.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Click the cluster name and go to the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
    1. Click **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
    1. Specify **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}**.
@@ -105,7 +104,7 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
    {{ yc-mdb-rd }} shards add --help
    ```
 
-   To add to a cluster a shard of two hosts, one with public access and the other with a [host priority](../concepts/replication.md#master-failover) of `50`:
+   To create a shard of two hosts, one with public access and the other with a [host priority](../concepts/replication.md#master-failover) of `50`, run this command:
 
    ```bash
    {{ yc-mdb-rd }} shards add --name=<new_shard_name> \
@@ -154,7 +153,7 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
 
 - API {#api}
 
-   To add a shard, use the [addShard](../api-ref/Cluster/addShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) gRPC API call and provide the following in the request:
+   To create a shard, use the [addShard](../api-ref/Cluster/addShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter.
    * Name of the shard in the `shardName` parameter.
    * Shard host configuration in the array of `hostSpecs` parameters.

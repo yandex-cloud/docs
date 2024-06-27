@@ -4,7 +4,7 @@
 <br>![datastories logo](../../_assets/logos/datastories_logo.png =300x)||
 |#
 
-As an example, we use two CSV tables to be joined, imported to Parquet format, and transferred to {{ mch-name }} as a single table.
+In this example, we use two CSV tables which we will merge into a single one, import it to Parquet format, and transfer to {{ mch-name }}.
 
 ## Getting started {#before-you-begin}
 
@@ -67,7 +67,7 @@ Prepare the infrastructure:
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [s3-dataproc-ch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/s3-dataproc-ch.tf) configuration file to the same working directory.
+   1. Download the [s3-dataproc-ch.tf](https://github.com/yandex-cloud-examples/yc-data-proc-clickhouse-data-export/blob/main/s3-dataproc-ch.tf) configuration file to the same working directory.
 
       This file describes:
 

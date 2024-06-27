@@ -356,149 +356,17 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
 ## Changing {{ CH }} settings {#change-clickhouse-config}
 
-{% note info %}
-
-You can only update the value of [Max server memory usage]({{ ch.docs }}/operations/server-configuration-parameters/settings/#max_server_memory_usage) by [changing the {{ CH }} host class](#change-resource-preset).
-
-For more information, see [Memory management](../concepts/memory-management.md).
-
-{% endnote %}
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
-   1. Configure the [{{ CH }} settings](../concepts/settings-list.md#dbms-cluster-settings) by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
-   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
-
-- CLI {#cli}
-
-   {% include [cli-install](../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-   To change [{{ CH }} server](../concepts/settings-list.md) settings:
-
-   1. View the full list of settings specified for the cluster:
-
-      ```bash
-      {{ yc-mdb-ch }} cluster get <cluster_name_or_ID> --full
-      ```
-
-   1. View a description of the update cluster configuration CLI command:
-
-      ```bash
-      {{ yc-mdb-ch }} cluster update-config --help
-      ```
-
-   1. Set the required parameter values:
-
-      ```bash
-      {{ yc-mdb-ch }} cluster update-config <cluster_name_or_ID> \
-        --set <name_of_parameter_1>=<value_1>,...
-      ```
-
-      {{ mch-short-name }} runs the update cluster settings operation.
-
-      All the supported parameters are listed in the [description of settings for{{ CH }}](../concepts/settings-list.md).
-
-- {{ TF }} {#tf}
-
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
-
-      For more information about how to create this file, see [Creating clusters](cluster-create.md).
-
-   1. In the {{ mch-name }} cluster description, change the values of the parameters in the `clickhouse.config` block:
-
-      ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
-        ...
-        clickhouse {
-          ...
-
-          config {
-            # General DBMS settings
-            ...
-
-            merge_tree {
-              # MergeTree engine settings
-              ...
-            }
-
-            kafka {
-              # General settings to get data from Apache Kafka
-              ...
-            }
-
-            kafka_topic {
-              # Settings for an individual Apache Kafka topic
-              ...
-            }
-
-            rabbit_mq {
-              # Settings to get data from {{ RMQ }}
-              username = "<username>"
-              password = "<password>"
-            }
-
-            compression {
-              # Data compression settings
-              method              = "<compression_method>"
-              min_part_size       = <data_part_size>
-              min_part_size_ratio = <size_ratio>
-            }
-
-            graphite_rollup {
-              # GraphiteMergeTree engine settings for thinning and aggregation/averaging
-              # (rollup) of Graphite data.
-              ...
-            }
-          }
-        ...
-        }
-      ...
-      }
-      ```
-
-      Where:
-      * `method`: Compression method, `LZ4` or `ZSTD`.
-      * `min_part_size`: Minimum size of a table data part, bytes.
-      * `min_part_size_ratio`: Ratio between the smallest table chunk and full table size.
-
-   1. Make sure the settings are correct.
-
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-   1. Confirm updating the resources.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
-
-- API {#api}
-
-   To change {{ CH }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
-
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * Required values in the `configSpec.clickhouse.config` parameter.
-
-      All supported settings are described in the [{{ CH }} settings](../concepts/settings-list.md#dbms-cluster-settings) section and in the [API reference](../api-ref/Cluster/update.md).
-
-   * List of settings to update, in the `updateMask` parameter.
-
-   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
-
-{% endlist %}
-
-{% note warning %}
+See below how to change the [{{ CH }} settings available in {{ yandex-cloud }}](../concepts/settings-list.md). If you want to change {{ CH }} settings not available in {{ yandex-cloud }} at the user level, see [{#T}](change-query-level-settings.md).
 
 Changing some [cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings) will restart {{ CH }} servers on the cluster hosts.
 
+{% note info %}
+
+You cannot directly update the [Max server memory usage]({{ ch.docs }}/operations/server-configuration-parameters/settings/#max_server_memory_usage) value. {{ mch-name }} sets this value automatically depending on the amount of RAM available to {{ CH }} hosts. To change the setting's value, [change the class of {{ CH }} hosts](#change-resource-preset). For more information, see [Memory management](../concepts/memory-management.md).
+
 {% endnote %}
+
+{% include [change-clickhouse-settings](../../_includes/mdb/mch/change-clickhouse-settings.md) %}
 
 ## Changing additional cluster settings {#change-additional-settings}
 
@@ -562,7 +430,7 @@ Changing some [cluster-level settings](../concepts/settings-list.md#dbms-cluster
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters), where `type` is the maintenance type:
+   * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters), where `type` is the maintenance type:
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 

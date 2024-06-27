@@ -35,7 +35,7 @@ You can add and remove users, as well as manage their settings.
 
 {% endlist %}
 
-## Adding a user {#adduser}
+## Creating a user {#adduser}
 
 {% list tabs group=instructions %}
 
@@ -122,7 +122,7 @@ You can add and remove users, as well as manage their settings.
 
 - API {#api}
 
-   To add a user, use the [create](../api-ref/User/create.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Create](../api-ref/grpc/user_service.md#Create) gRPC API call and provide the following in the request:
+   To create a user, use the [create](../api-ref/User/create.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Create](../api-ref/grpc/user_service.md#Create) gRPC API call and provide the following in the request:
 
    * ID of the cluster in which you want to create a user, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userSpec.name` parameter.

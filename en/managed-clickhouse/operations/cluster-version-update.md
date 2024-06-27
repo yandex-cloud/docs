@@ -3,12 +3,9 @@ title: "How to update a {{ CH }} cluster version in {{ mch-full-name }}"
 description: "Follow this guide to update a {{ CH }} cluster version."
 ---
 
-# Updating the {{ CH }} version
+# Upgrading the {{ CH }} version
 
-You can update the {{ CH }} version used by the cluster to any of the [supported {{ mch-name }} versions](../concepts/update-policy.md#versioning-policy), but you cannot switch:
-
-* From version 22.0 and higher to a version lower than 22.0.
-* To a version lower than {{ mch-ck-version }} if the cluster was created with {{ CK }} support.
+You can update the {{ CH }} version used by the cluster to any of the [supported {{ mch-name }} versions](../concepts/update-policy.md#versioning-policy); however, switching from versions lower than 23.8 to 23.8 or higher is performed in steps. For example, to upgrade {{ mch-name }} from 22.8 to 24.3, follow these steps: 22.8 → 23.3 → 23.8 → 24.3.
 
 To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
@@ -18,9 +15,7 @@ To learn more about updates within a single version and host maintenance, see [M
 
 - Management console {#console}
 
-   You can view a list of available versions on the create and edit cluster screen in the [management console]({{ link-console-main }}):
-
-   ![ch-versions](../../_assets/mdb/clickhouse-version.png)
+   In the [management console]({{ link-console-main }}), open the page where {{ mos-name }} clusters are [created](cluster-create.md) or [updated](update.md). You can view the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
 
 - CLI {#cli}
 
@@ -94,14 +89,14 @@ Make sure this does not affect your applications:
           description: Console charts
           link: {{ link-console-main }}/folders/b1gqs1teo2q2********/managed-clickhouse/cluster/c9q8p8j2gaih********?section=monitoring
       config:
-          version: "19.1"
+          version: "23.8"
           ...
       ```
 
    1. Update the {{ CH }} version:
 
       ```bash
-      {{ yc-mdb-ch }} cluster update --id c9q8p8j2gaih******** --version 19.4
+      {{ yc-mdb-ch }} cluster update --id c9q8p8j2gaih******** --version 24.3
       ```
 
    When the update starts, the cluster status will switch to **UPDATING**. Wait for the operation to complete and then check the cluster version.

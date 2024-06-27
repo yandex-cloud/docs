@@ -1,7 +1,6 @@
 # End of trial period
 
 
-
 The trial period ends automatically when you use up the [grant](../../usage-grant.md) or when it expires.
 
 

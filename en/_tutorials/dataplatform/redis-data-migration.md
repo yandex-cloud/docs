@@ -56,8 +56,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. Download the configuration file for the appropriate cluster type to the same working directory:
 
-         * [redis-cluster-non-sharded.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/redis-migration/redis-cluster-non-sharded.tf): For an unsharded cluster.
-         * [redis-cluster-sharded.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/redis-migration/redis-cluster-sharded.tf): For a [sharded](../../managed-redis/concepts/sharding.md) cluster.
+         * [redis-cluster-non-sharded.tf](https://github.com/yandex-cloud-examples/yc-redis-data-migration-from-on-premise/blob/main/redis-cluster-non-sharded.tf): For an unsharded cluster.
+         * [redis-cluster-sharded.tf](https://github.com/yandex-cloud-examples/yc-redis-data-migration-from-on-premise/blob/main/redis-cluster-sharded.tf): For a [sharded](../../managed-redis/concepts/sharding.md) cluster.
 
          Each file describes:
 

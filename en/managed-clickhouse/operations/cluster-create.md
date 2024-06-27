@@ -49,9 +49,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
-   1. Select the {{ CH }} version from the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** drop-down list to use for the {{ mch-name }} cluster:
-      * For most clusters, we recommend selecting the latest LTS version.
-      * If you plan to use hybrid storage in a cluster, we recommend selecting version {{ mch-ck-version }} or higher.
+   1. From the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** drop-down list, select the {{ CH }} version which the {{ mch-name }} cluster will use. For most clusters, we recommend selecting the latest LTS version.
 
    
    1. If you are expecting to use data from a {{ objstorage-name }} bucket with [restricted access](../../storage/concepts/bucket#bucket-access), select a service account from the drop-down list or create a new one. For more information about setting up service accounts, see [Configuring access to {{ objstorage-name }}](s3-access.md).
@@ -106,7 +104,9 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
          {% endnote %}
 
-      * Configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings), if required.
+      * Configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings), if required. You can specify them later.
+
+         Using the {{ yandex-cloud }} interfaces, you can manage a limited number of settings. Using SQL queries, you can [apply {{ CH }} settings at the user level](change-query-level-settings.md).
 
    
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host the cluster and security groups for cluster network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
@@ -234,25 +234,15 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
 
-      1. To enable [{{ CK }}](../concepts/replication.md#ck) in a cluster:
-
-         * Specify a {{ CH }} version ({{ mch-ck-version }} or higher) in the `--version` option.
-         * Set `--embedded-keeper` to `true`.
+      1. To enable [{{ CK }}](../concepts/replication.md#ck) in a cluster, set the `--embedded-keeper` parameter to `true`.
 
          ```bash
          {{ yc-mdb-ch }} cluster create \
            ...
-           --version "<{{ CH }}_version: {{ mch-ck-version }}_or higher>" \
            --embedded-keeper true
          ```
 
          {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
-
-         To get a list of available {{ CH }} versions, run the following command:
-
-         ```bash
-         {{ yc-mdb-ch }} version list
-         ```
 
       1. To configure [hybrid storage settings](../concepts/storage.md#hybrid-storage-settings):
 
@@ -315,7 +305,10 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    1. Create a configuration file with a description of the cluster and its hosts.
 
       * Database cluster: Description of the cluster and its hosts. Also as required here:
-         * Specify [DBMS settings](../concepts/settings-list.md).
+         * Specify [DBMS settings](../concepts/settings-list.md). You can specify them later.
+
+            Using the {{ yandex-cloud }} interfaces, you can manage a limited number of settings. Using SQL queries, you can [apply {{ CH }} settings at the user level](change-query-level-settings.md).
+
          * Enable deletion protection.
 
             {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -460,8 +453,6 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
-      To use {{ CK }}, your {{ CH }} version must be {{ mch-ck-version }} or higher. You can get the list of available {{ CH }} versions using the [list](../api-ref/Versions/list.md) REST API method for the [Versions](../api-ref/Versions/index.md) resource or the [VersionsService/List](../api-ref/grpc/versions_service.md#List) gRPC API call.
-
    * If `embeddedKeeper` is undefined or `false`, replication and query distribution will be managed using {{ ZK }}.
 
       
@@ -592,7 +583,6 @@ To create a {{ CH }} cluster copy:
      --network-name default \
      --clickhouse-resource-preset {{ host-class }} \
      --host type=clickhouse,zone-id={{ region-id }}-a,subnet-id=b0cl69g98qum******** \
-     --version {{ versions.keeper }} \
      --embedded-keeper true \
      --clickhouse-disk-size 20 \
      --clickhouse-disk-type {{ disk-type-example }} \
