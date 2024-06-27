@@ -282,7 +282,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
 {% endlist %}
 
-## Adding a shard {#add-shard}
+## Creating a shard {#add-shard}
 
 The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ mmg-full-name }}**.
 
@@ -302,7 +302,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To add a shard to a cluster, run the command below (not all the supported parameters are listed):
+   To create a shard, run the command below (not all the supported parameters are listed):
 
    ```bash
    {{ yc-mdb-mg }} shards add <new_shard_name> \
@@ -351,7 +351,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
 - API {#api}
 
-   To add a shard to a cluster, use the [addShard](../api-ref/Cluster/addShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) gRPC API call and provide the following in the request:
+   To create a shard, use the [addShard](../api-ref/Cluster/addShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter.
    * Name of the shard in the `shardName` parameter.

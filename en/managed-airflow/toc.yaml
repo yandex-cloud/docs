@@ -28,6 +28,8 @@ items:
         href: concepts/index.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Impersonation
+        href: concepts/impersonation.md
   - name: Tutorials
     items:
       - name: Automating {{ dataproc-name }} operations

@@ -14,7 +14,7 @@ _Пользовательская переменная_ — значение, к
 * `instance_template.hostname` — имя хоста.
 * `instance_template.metadata` — метаданные ВМ. Переменные можно использовать только в значениях ключей поля `metadata`.
 * `instance_template.name` — имя ВМ.
-* `instance_template.labels` — метки ВМ. Переменные можно использовать только в значениях ключей поля `labels`.
+* `instance_template.labels` — [метки](../../../resource-manager/concepts/labels.md) ВМ. Переменные можно использовать только в значениях ключей поля `labels`.
 * `instance_template.boot_disk_spec.disk_id` — идентификатор загрузочного диска.
 * `instance_template.boot_disk_spec.disk_spec.description` — описание загрузочного диска.
 * `instance_template.boot_disk_spec.disk_spec.image_id` — идентификатор образа загрузочного диска.
@@ -47,9 +47,10 @@ _Пользовательская переменная_ — значение, к
 Системная переменная | Описание
 --- | ---
 `{instance_group.id}` | Идентификатор группы ВМ.
-`{instance_group.labels.label_key}` | Значение метки с ключом `label_key`.
-`{instance.index}` | Уникальный номер ВМ в группе.</br>Возможные значения: от 1 до N, где N — количество ВМ в группе.
+`{instance_group.labels.label_key}` | Значение метки группы ВМ с ключом `label_key`.
+`{instance.index}` | Уникальный номер ВМ в группе.
 `{instance.index_in_zone}` | Номер ВМ в зоне. Уникален в рамках зоны для конкретной группы</br>ВМ.
+`{instance.labels.another_label_key}` | Значение метки ВМ с ключом `another_label_key`.
 `{instance.short_id}` | Идентификатор ВМ, уникальный в рамках группы. Состоит из четырех букв.
 `{instance.tag}` | Тег ВМ в группе внутри зоны доступности. Подробнее см. [Политика распределения](policies/allocation-policy.md).
 `{instance.zone_id}` | Идентификатор зоны.

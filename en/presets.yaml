@@ -329,7 +329,6 @@ default:
   marketplace-name: Cloud Marketplace
   marketplace-short-name: Marketplace
   mch-backup-retention: 7
-  mch-ck-version: 22.3
   mch-dedup-retention: 30
   mch-full-name: Yandex Managed Service for ClickHouse®
   mch-name: Managed Service for ClickHouse®
@@ -5041,6 +5040,8 @@ default:
         label_service: Yandex Cloud Billing
         switch_accounts: List of accounts
         title_accounts: Billing accounts
+      common:
+        button_cron-1min: Every minute
       component:
         iam-delete-folder-or-cloud-dialog:
           label_delete-now: Delete now
@@ -6344,6 +6345,7 @@ default:
         button_zone-create: Create zone
         label_additional-settings: Additional settings
         label_auto-select-zone: Detect automatically
+        label_create-subdomain: Create subdomain
         label_dns-internal-settings: DNS settings for internal addresses
         label_form-ttl: TTL (in seconds)
         label_fqdn-equal-to-zone: Matches zone name (@)
@@ -7135,6 +7137,8 @@ default:
           config_field_version: Version
           config_field_zone: Availability zone
           database_field_admin-password: Admin password
+          database_field_lc-collate: Locale for sorting (LC_COLLATE)
+          database_field_lc-ctype: Charset locale (LC_CTYPE)
           database_field_name: DB name
           database_field_sql-database-management: Managing databases via SQL
           database_field_sql-user-management: User management via SQL
@@ -7414,6 +7418,7 @@ default:
             field_payload: Payload
             field_payload-template: Payload template
             field_tag: Version tag
+            label_result-success: Done
             label_title-test-result: Test result
             value_alice-skill: Alice's skill
             value_empty: Without preset

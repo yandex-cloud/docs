@@ -56,7 +56,7 @@ Both methods are also suitable for [migrating](../../managed-kafka/operations/ho
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [kafka-mirrormaker-connector.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/kafka-connectors/kafka-mirrormaker-connector.tf) configuration file to the same working directory.
+   1. Download the [kafka-mirrormaker-connector.tf](https://github.com/yandex-cloud-examples/yc-kafka-data-migration-from-on-premise/blob/main/kafka-mirrormaker-connector.tf) configuration file to the same working directory.
 
       This file describes:
 
@@ -126,7 +126,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [kafka-mirror-maker.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/kafka-mirror-maker.tf) configuration file to the same working directory.
+   1. Download the [kafka-mirror-maker.tf](https://github.com/yandex-cloud-examples/yc-kafka-data-migration-from-on-premise/blob/main/kafka-mirror-maker.tf) configuration file to the same working directory.
 
       This file describes:
 

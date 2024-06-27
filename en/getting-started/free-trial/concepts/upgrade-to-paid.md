@@ -1,6 +1,5 @@
 # Upgrading to the paid version
 
-
 You do not upgrade to the paid version automatically after the trial period ends. To upgrade to the paid version, go to [{{ billing-name }}]({{ link-console-billing }}), open the billing account page and click **{{ ui-key.yacloud_billing.billing.account.dashboard.button_go-pay}}**. You can upgrade to the paid version during the trial period or 60 days after it expires with no data loss.
 
 {% note info %}

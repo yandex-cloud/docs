@@ -19,7 +19,7 @@ Object storage uses a service bucket with unlimited storage capacity. It has the
 
 To start using hybrid storage:
 
-1. Create a cluster of the appropriate type with {{ CH }} version {{ mch-ck-version }} or higher. You do not need to configure object storage.
+1. Create a cluster of the appropriate type. You do not need to configure object storage.
 
 1. Add databases and tables to the cluster. If the default storage policy is not suitable for some tables, set the appropriate policies for these tables:
 
@@ -114,7 +114,7 @@ The number of hosts you can create together with a {{ CH }} cluster depends on t
 
    This cluster will be fault-tolerant.
 
-   Local SSD storage impacts the cost of a cluster: you are charged for it even if it is not running. You can find more information in the [pricing policy](../pricing.md).
+   Local SSD storage has an effect on how much a cluster will cost: you pay for it even if it is stopped. You can find more information in the [pricing policy](../pricing.md).
 
 * With non-replicated network SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts.
 

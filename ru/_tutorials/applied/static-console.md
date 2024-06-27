@@ -17,14 +17,16 @@
 
 ## Создайте публичный бакет {#create-public-bucket}
 
+Чтобы создать бакет для файлов статического сайта:
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  Чтобы создать бакет для файлов статического сайта:
-  1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
-  1. На странице каталога нажмите кнопку **Создать ресурс** и выберите **Бакет**.
-  1. В поле **Имя** введите имя бакета, например, `www.example.com`. Имя бакета станет частью доменного имени сайта. После настройки бакет будет доступен по двум адресам:
+  1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете создавать бакет.
+  1. На странице каталога нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** введите имя бакета. После настройки бакет будет доступен по двум адресам:
+
      * `http(s)://<имя_бакета>.{{ s3-web-host }}`
      * `http(s)://{{ s3-web-host }}/<имя_бакета>`
 
@@ -32,49 +34,52 @@
 
      {% include [bucket-name-reqs](../../_includes/bucket-name-reqs.md) %}
 
+     Если у вас есть зарегистрированное доменное имя (например `example.com`), и вы хотите, чтобы ваш сайт был доступен по адресу `www.example.com`, в качестве имени бакета укажите `www.example.com`.
+
      {% note info %}
 
      Если вы планируете использовать собственный домен для веб-сайта, имя бакета должно в точности совпадать с именем вашего домена, а домен должен быть третьего и более уровня. Подробнее см. в разделе [{#T}](../../storage/operations/hosting/own-domain.md).
 
      {% endnote %}
 
-  1. Укажите максимальный размер бакета в ГБ.
-  1. Включите **Публичный** доступ на чтение [объектов](../../storage/concepts/object.md).
-  1. Нажмите кнопку **Создать бакет**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** укажите `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
 
 ## Включите веб-сайт для бакета {#turn-on-hosting}
 
-{% list tabs group=instructions %}
+1. Загрузите и настройте главную страницу и страницу обработки ошибок будущего сайта. Для этого создайте на вашем компьютере файлы:
 
-- Консоль управления {#console}
+    * `index.html` с текстом `Hello, world!`. Содержимое файла будет отображаться при обращении к главной странице веб-сайта.
+    * `error.html` с текстом `Error!`. Содержимое файла будет отображаться при ответах веб-сайта с ошибками `4xx`.
 
-  Необходимо загрузить и настроить индексную страницу и страницу ошибки. Для этого:
-  1. Создайте на компьютере файлы:
-     * `index.html` с текстом `Hello, world!`.
+1. Загрузите созданные файлы в бакет:
 
-       Содержимое файла будет показываться при обращении к главной странице веб-сайта.
-     * `error.html` с текстом `Error!`.
+    {% list tabs group=instructions %}
 
-       Содержимое файла будет показываться при ответах веб-сайта с ошибками `4xx`.
-  1. На вкладке **Объекты** на странице вашего бакета нажмите кнопку **Загрузить**. В открывшемся окне выберите созданные файлы и нажмите кнопку подтверждения.
-  1. Нажмите кнопку **Загрузить**.
-  1. Откройте вкладку **Веб-сайт** на странице вашего бакета.
-  1. Выберите **Хостинг**.
-  1. В поле **Главная страница** укажите `index.html`.
-  1. В поле **Страница ошибки** укажите `error.html`.
-  1. Нажмите кнопку **Сохранить**.
-  1. Проверьте, что главная страница веб-сайта открывается. Для этого подключитесь к сайту через браузер по ссылке вида `http://<имя_бакета>.{{ s3-web-host }}`.
-  1. Проверьте, что страница ошибки открывается. Для этого подключитесь к сайту через браузер по ссылке вида `http://<имя_бакета>.{{ s3-web-host }}/error-check`.
+    - Консоль управления {#console}
 
-  {% note info %}
+      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен бакет.
+      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и в открывшемся окне выберите созданный ранее бакет.
+      1. На вкладке **{{ ui-key.yacloud.storage.bucket.switch_files }}** на странице вашего бакета нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}**. В открывшемся окне выберите созданные файлы и подтвердите загрузку.
+      1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}** и в открывшемся окне:
 
-  По умолчанию сайт доступен только по протоколу HTTP, например, `http://www.example.com` или `http://www.example.com.{{ s3-web-host }}`. Чтобы поддержать для сайта протокол HTTPS, [загрузите собственный сертификат безопасности](../../storage/operations/hosting/certificate.md) в {{ objstorage-name }}.
+          1. Выберите `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
+          1. В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите `index.html`.
+          1. В поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите `error.html`.
+          1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
-  {% endnote %}
+    {% endlist %}
 
-{% endlist %}
+1. Убедитесь, что главная страница веб-сайта открывается. Для этого подключитесь к сайту через браузер по ссылке вида `http://<имя_бакета>.{{ s3-web-host }}`.
+1. Убедитесь, что страница ошибки открывается. Для этого подключитесь к сайту через браузер по ссылке вида `http://<имя_бакета>.{{ s3-web-host }}/error-check`.
+
+{% note info %}
+
+По умолчанию сайт доступен только по протоколу HTTP, например, `http://www.example.com` или `http://www.example.com.{{ s3-web-host }}`. Чтобы поддержать для сайта протокол HTTPS, [загрузите собственный сертификат безопасности](../../storage/operations/hosting/certificate.md) в {{ objstorage-name }}.
+
+{% endnote %}
 
 ## Настройте DNS {#configure-dns}
 
@@ -92,38 +97,45 @@
 
 ### Добавьте зону {#create-dns-zone}
 
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  Чтобы добавить публичную зону:
-  1. Откройте раздел **{{ dns-name }}** в каталоге, где требуется создать зону DNS.
-  1. Нажмите кнопку **Создать зону**.
-  1. Задайте настройки зоны:
-	 * **Имя** зоны: `example-zone-1`.
-	 * **Зона**: `example.com.`. Укажите ваш зарегистрированный домен.
-	 * **Тип** — **Публичная**.
-  1. Нажмите кнопку **Создать**.
-
-{% endlist %}
-
-### Добавьте запись типа CNAME {#create-cname-record}
+Чтобы создать публичную зону DNS:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  Создайте в публичной зоне запись DNS [типа CNAME](../../dns/concepts/resource-record.md#cname):
-  1. Выберите зону `example.com` из списка.
-  1. Нажмите кнопку **Создать запись**.
-  1. Задайте параметры записи:
-	 * **Имя**: `www`.
-	 * **Тип записи**: выберите значение `CNAME`.
-	 * **TTL** (время кеширования записи): оставьте значение по умолчанию.
-	 * **Значение**: введите `www.example.com.{{ s3-web-host }}.`.
-  1. Нажмите кнопку **Создать**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать публичную зону.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}** и в открывшемся окне задайте настройки зоны DNS:
+
+      * **{{ ui-key.yacloud.dns.label_zone }}** — укажите ваше зарегистрированное доменное имя. Например: `example.com.`. Значение поля должно заканчиваться точкой.
+      * **{{ ui-key.yacloud.common.type }}** — `{{ ui-key.yacloud.dns.label_public }}`.
+      * **{{ ui-key.yacloud.common.name }}** — `example-zone-1`.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
+
+### Добавьте ресурсную запись типа CNAME {#create-cname-record}
+
+Создайте в публичной зоне DNS ресурсную запись типа [CNAME](../../dns/concepts/resource-record.md#cname):
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится публичная зона DNS.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** и выберите созданную ранее зону DNS. 
+  1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}** и в открывшемся окне задайте параметры записи:
+
+      * В поле **{{ ui-key.yacloud.common.name }}** выберите `{{ ui-key.yacloud.dns.label_create-subdomain }}` и введите значение поддомена, например: `www`.
+      * В поле **{{ ui-key.yacloud.common.type }}** выберите `CNAME`.
+      * В поле **{{ ui-key.yacloud.dns.label_records }}** укажите значение ресурсной записи. Например: `www.example.com.{{ s3-web-host }}`, где `www.example.com` — имя созданного ранее публичного бакета.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+{% endlist %}
+
+Имя поддомена в CNAME-записи должно соответствовать имени бакета. Например, если вы создаете CNAME-запись с именем `www.example.com.`, ваш бакет должен иметь имя `www.example.com`.
 
 ### Делегируйте доменное имя {#delegate-domain}
 
@@ -158,4 +170,5 @@ ns1.{{ dns-ns-host-sld }}.
 
 Чтобы перестать платить за ресурсы:
 * [Удалите загруженные файлы](../../storage/operations/objects/delete.md).
+* [Удалите бакет](../../storage/operations/buckets/delete.md).
 * [Удалите зону DNS](../../dns/operations/zone-delete.md).

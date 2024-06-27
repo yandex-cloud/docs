@@ -1,6 +1,5 @@
 # Migrating a database from a third-party {{ MY }} cluster to a {{ mmy-full-name }} cluster
 
-
 There are two ways to migrate data from a third-party _source cluster_ to a {{ mmy-name }} _target cluster_:
 
 * [Transferring data using {{ data-transfer-full-name }}](#data-transfer).
@@ -82,7 +81,7 @@ Create the required resources:
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [data-migration-mysql-mmy.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-mysql-mmy/data-migration-mysql-mmy.tf) configuration file to the same working directory.
+   1. Download the [data-migration-mysql-mmy.tf](https://github.com/yandex-cloud-examples/yc-mysql-data-migration-from-on-premise/blob/main/data-migration-mysql-mmy.tf) configuration file to the same working directory.
 
       This file describes:
 

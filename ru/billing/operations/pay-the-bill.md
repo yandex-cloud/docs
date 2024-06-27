@@ -5,7 +5,6 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Пополнить лицевой счет
 
-
 {% include [card-business-nonresidents](../../_includes/billing/card-business-nonresidents.md) %}
 
 {% include [personal-account-balance](../_includes/personal-account-balance.md) %}

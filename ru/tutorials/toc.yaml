@@ -370,6 +370,8 @@ items:
         href: dataplatform/managed-schema-registry.md
       - name: Использование Confluent Schema Registry с {{ mkf-name }}
         href: dataplatform/confluent-schema-registry.md
+      - name: Хранение подключений и переменных {{ AF }} в {{ lockbox-full-name }}
+        href: dataplatform/lockbox-and-airflow.md
       - name: Автоматизация задач {{ yq-full-name }} с помощью {{ maf-full-name }}
         href: dataplatform/yandex-query-automation.md
       - name: >-

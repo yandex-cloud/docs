@@ -73,7 +73,7 @@ You have to create:
 
    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. [Download the file with the provider settings](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-   1. [Download the cluster configuration file](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/data-proc-nat-gateway.tf) to the same working directory.
+   1. [Download the cluster configuration file](https://github.com/yandex-cloud-examples/yc-data-proc-configure-network/blob/main/data-proc-nat-gateway.tf) to the same working directory.
 
       The file describes:
 

@@ -1,6 +1,5 @@
 # Monitor expenses
 
-
 The guide in this checklist item will help you activate the paid version and set up payment for resources in your organization.
 
 ## Activate the paid version {#pay-activate}

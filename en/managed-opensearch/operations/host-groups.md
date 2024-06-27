@@ -54,14 +54,14 @@ For information about migrating host groups in a {{ mos-name }} cluster to a dif
 
 {% endlist %}
 
-## Adding a host group to a cluster {#add-host-group}
+## Creating a host group {#add-host-group}
 
-The following restrictions apply when adding host groups:
+The following limitations apply when creating host groups:
 
 * A {{ mos-name }} cluster may contain only one `Dashboards` host group.
 * If you are adding a group of `{{ OS }}` hosts and assign the `MANAGER` role to the hosts, the minimum number of hosts with such a role will be three.
 
-To add a host group to a cluster:
+To create a host group:
 
 {% list tabs group=instructions %}
 
@@ -69,7 +69,7 @@ To add a host group to a cluster:
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
-   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_add-node-group }}**.
+   1. Click **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_add-node-group }}**.
    1. Specify the group parameters:
 
       * [Group type](../concepts/host-groups.md): `{{ OS }}` or `Dashboards`.
@@ -105,7 +105,7 @@ To add a host group to a cluster:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To add a host group to a cluster, run the command:
+   To create a host group, run this command:
 
    ```bash
    {{ yc-mdb-os }} node-group add --cluster-name <cluster_name> \
@@ -128,7 +128,7 @@ To add a host group to a cluster:
                              `assign-public-ip=<assign-public-ip=<assign_public_IP:_true_or_false>
    ```
 
-   Specify the required parameters in the command depending on what type of host group you want to add:
+   Specify the required parameters in the command depending on what type of host group you want to create:
 
    {% include [cli-for-os-and-dashboards-groups](../../_includes/managed-opensearch/cli-for-os-and-dashboards-groups.md) %}
 
@@ -140,7 +140,7 @@ To add a host group to a cluster:
 
       For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
 
-   1. To add а host group of the `{{ OS }}` type, add the `node_groups` section to `opensearch`:
+   1. To create а host group of the `{{ OS }}` type, add the `node_groups` section to `opensearch`:
 
       ```hcl
       resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
@@ -172,7 +172,7 @@ To add a host group to a cluster:
       * `assign_public_ip`: Public access to the host, `true` or `false`.
       * `roles`: `DATA` and `MANAGER` host roles.
 
-   1. To add а host group of the `Dashboards` type, add the `dashboards` section to `config`:
+   1. To create а host group of the `Dashboards` type, add the `dashboards` section to `config`:
 
       ```hcl
       resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
@@ -213,9 +213,9 @@ To add a host group to a cluster:
 
 - API {#api}
 
-   To add a group of `{{ OS }}` hosts, use the [addOpenSearchNodeGroup](../api-ref/Cluster/addOpenSearchNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#AddOpenSearchNodeGroup) gRPC API call.
+   To create a host group of the `{{ OS }}` type, use the [addOpenSearchNodeGroup](../api-ref/Cluster/addOpenSearchNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#AddOpenSearchNodeGroup) gRPC API call.
 
-   To add a group of `Dashboards` hosts, use the [addDashboardsNodeGroup](../api-ref/Cluster/addDashboardsNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#AddDashboardsNodeGroup) gRPC API call.
+   To create a host group of the `Dashboards` type, use the [addDashboardsNodeGroup](../api-ref/Cluster/addDashboardsNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#AddDashboardsNodeGroup) gRPC API call.
 
    Provide the group configuration under `nodeGroupSpec` in the request:
 

@@ -1,7 +1,6 @@
 # Billing cycle for businesses and individual entrepreneurs
 
 
-
 1. You [activate the paid version](../operations/activate-commercial.md) before the [trial period](../../billing/concepts/trial-period.md) expires.
 
    {% include [billing-how-to-use-grant](../../_includes/billing-how-to-use-grant.md) %}

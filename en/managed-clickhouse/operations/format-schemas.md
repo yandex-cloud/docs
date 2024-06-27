@@ -27,7 +27,7 @@ You can find examples of working with the Cap'n Proto and Protobuf formats when 
 1. [Get a link](s3-access.md#get-link-to-object) to the schema file.
 
 
-## Connecting the format schema {#add-format-schema}
+## Creating a format schema {#add-format-schema}
 
 {% list tabs group=instructions %}
 
@@ -45,7 +45,7 @@ You can find examples of working with the Cap'n Proto and Protobuf formats when 
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To connect a format schema to a cluster, run the command:
+   To create a format schema, run this command:
    - For **Cap'n Proto**:
 
       ```bash
@@ -101,7 +101,7 @@ You can find examples of working with the Cap'n Proto and Protobuf formats when 
 
 - API {#api}
 
-   To add a data format schema, use the [create](../api-ref/FormatSchema/create.md) REST API method for the [FormatSchema](../api-ref/FormatSchema/index.md) resource or the [FormatSchemaService/Create](../api-ref/grpc/format_schema_service.md#Create) gRPC API call and provide the following in the request:
+   To create a format schema, use the [create](../api-ref/FormatSchema/create.md) REST API method for the [FormatSchema](../api-ref/FormatSchema/index.md) resource or the [FormatSchemaService/Create](../api-ref/grpc/format_schema_service.md#Create) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
    * Format schema name in the `formatSchemaName` parameter.
@@ -248,7 +248,7 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
    To delete a data format schema, use the [delete](../api-ref/FormatSchema/delete.md) REST API method for the [FormatSchema](../api-ref/FormatSchema/index.md) resource or the [FormatSchemaService/Delete](../api-ref/grpc/format_schema_service.md#Delete) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-   * Format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster ](#list-format-schemas).
+   * Format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas).
 
 {% endlist %}
 
@@ -307,7 +307,7 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
    To get detailed information about a data format schema, use the [get](../api-ref/FormatSchema/get.md) REST API method for the [FormatSchema](../api-ref/FormatSchema/index.md) resource or the [FormatSchemaService/Get](../api-ref/grpc/format_schema_service.md#Get) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-   * Format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster ](#list-format-schemas).
+   * Format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas).
 
 {% endlist %}
 

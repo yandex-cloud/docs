@@ -8,15 +8,16 @@ description: "This page provides a list of step-by-step guides for {{ mch-name }
 ## Clusters {#clusters}
 
 * [Information about existing clusters](cluster-list.md)
-* [Creating clusters](cluster-create.md)
+* [Creating a cluster](cluster-create.md)
 * [Changing cluster settings](update.md)
+* [{#T}](change-query-level-settings.md)
 * [{#T}](cluster-version-update.md)
-* [Stopping and starting clusters](cluster-stop.md)
+* [Stopping and starting a cluster](cluster-stop.md)
 * [{#T}](zk-hosts.md)
 * [Managing cluster hosts](hosts.md)
 * [Migrating cluster hosts to a different availability zone](host-migration.md)
 * [Managing backups](cluster-backups.md)
-* [Deleting clusters](cluster-delete.md)
+* [Deleting a cluster](cluster-delete.md)
 
 ## Connecting to a cluster {#connect}
 

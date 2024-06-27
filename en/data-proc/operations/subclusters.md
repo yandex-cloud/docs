@@ -33,7 +33,7 @@ Each cluster may have only 1 subcluster with a master host, which is why you can
 
 {% endlist %}
 
-## Adding a subcluster {#add-subcluster}
+## Creating a subcluster {#add-subcluster}
 
 The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ link-console-quotas }}) by the number of vCPUs and the amount of RAM that VMs in your cloud can use. To view the available resources, go to the [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) section and find **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 

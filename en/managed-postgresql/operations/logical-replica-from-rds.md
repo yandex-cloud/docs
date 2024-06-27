@@ -63,7 +63,7 @@ Create the required resources:
 
 - Manually {#manual}
 
-   [Create a {{ mpg-name }} cluster](../operations/cluster-create.md) with public host access. In this case:
+   [Create a {{ mpg-name }} cluster](../operations/cluster-create.md) with public host access. Note that:
 
    * The {{ PG }} version must be the same or higher than the version in the source cluster. You cannot perform migration while downgrading {{ PG }} version.
    * The name of the database must be the same as in the source cluster.
@@ -76,7 +76,7 @@ Create the required resources:
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [logical-replica-amazon-rds-to-postgresql.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/logical-replica-amazon-rds-to-postgresql.tf) configuration file to the same working directory.
+   1. Download the [logical-replica-amazon-rds-to-postgresql.tf](https://github.com/yandex-cloud-examples/yc-postgresql-amazon-rds-replica/blob/main/logical-replica-amazon-rds-to-postgresql.tf) configuration file to the same working directory.
 
       This file describes:
 

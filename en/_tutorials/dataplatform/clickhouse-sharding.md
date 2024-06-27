@@ -70,9 +70,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. In the same working directory, download the configuration file for one of the sharding examples described below:
 
-      * [simple-sharding.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/simple-sharding.tf): Classic sharding
-      * [sharding-with-group.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/sharding-with-group.tf): Group-based sharding
-      * [advanced-sharding-with-groups.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/advanced-sharding-with-groups.tf): Advanced group-based sharding
+      * [simple-sharding.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-sharding/blob/main/simple-sharding.tf): Classic sharding
+      * [sharding-with-groups.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-sharding/blob/main/advanced-sharding-with-groups.tf): Group-based sharding
+      * [advanced-sharding-with-groups.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-sharding/blob/main/advanced-sharding-with-groups.tf): Advanced group-based sharding
 
       Each file describes:
 
@@ -230,7 +230,7 @@ To test your new distributed table named `tutorial.hits_v1_distributed`:
    ```
 
 
-1. Complete the table with the test data:
+1. Populate the table with test data:
 
    ```bash
    clickhouse-client \

@@ -5045,6 +5045,8 @@ default:
         label_service: Yandex Cloud Billing
         switch_accounts: Список аккаунтов
         title_accounts: Платёжные аккаунты
+      common:
+        button_cron-1min: Каждую минуту
       component:
         iam-delete-folder-or-cloud-dialog:
           label_delete-now: Удалить сейчас
@@ -6350,6 +6352,7 @@ default:
         button_zone-create: Создать зону
         label_additional-settings: Дополнительные настройки
         label_auto-select-zone: Определять автоматически
+        label_create-subdomain: Создать поддомен
         label_dns-internal-settings: Настройки DNS для внутренних адресов
         label_form-ttl: TTL (в секундах)
         label_fqdn-equal-to-zone: Совпадает с именем зоны (@)
@@ -7141,6 +7144,8 @@ default:
           config_field_version: Версия
           config_field_zone: Зона доступности
           database_field_admin-password: Пароль пользователя admin
+          database_field_lc-collate: Локаль сортировки (LC_COLLATE)
+          database_field_lc-ctype: Локаль набора символов (LC_CTYPE)
           database_field_name: Имя БД
           database_field_sql-database-management: Управление базами данных через SQL
           database_field_sql-user-management: Управление пользователями через SQL
@@ -7420,6 +7425,7 @@ default:
             field_payload: Входные данные
             field_payload-template: Шаблон данных
             field_tag: Тег версии
+            label_result-success: Выполнена
             label_title-test-result: Результат тестирования
             value_alice-skill: Навык Алисы
             value_empty: Без шаблона
