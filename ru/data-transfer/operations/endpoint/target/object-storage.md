@@ -30,7 +30,7 @@
 * [{{ MY }}](../source/mysql.md);
 * [{{ MG }}](../source/mongodb.md);
 * [{{ KF }}](../source/kafka.md);
-* [Aibyte](../../../transfer-matrix.md#airbyte);
+* [{{ AB }}](../../../transfer-matrix.md#airbyte);
 * [{{ DS }}](../source/data-streams.md);
 * [Oracle](../source/oracle.md)
 * [{{ ydb-name }}](../source/ydb.md);

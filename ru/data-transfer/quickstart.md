@@ -68,7 +68,7 @@
 
 Подготовьте источник к отправке данных:
 
-* Airbyte®:
+* {{ AB }}:
     * [AWS CloudTrail](operations/prepare.md#source-aws)
     * [BigQuery](operations/prepare.md#source-bigquery)
     * [Microsoft SQL Server](operations/prepare.md#source-mssql)
@@ -89,6 +89,9 @@
 * [{{ MY }}](operations/prepare.md#target-my)
 * [{{ objstorage-name }}](operations/prepare.md#target-storage)
 * [{{ PG }}](operations/prepare.md#target-pg)
+
+
+* [{{ ydb-full-name }}](operations/prepare.md#target-ydb)
 
 
 ## Создайте эндпоинт для источника {#source}

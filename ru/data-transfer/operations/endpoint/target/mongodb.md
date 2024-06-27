@@ -33,7 +33,7 @@ description: "Из статьи вы узнаете, как задать нас�
 Настройте один из поддерживаемых источников данных:
 
 * [{{ MG }}](../source/mongodb.md);
-* [Aibyte](../../../transfer-matrix.md#airbyte);
+* [{{ AB }}](../../../transfer-matrix.md#airbyte);
 * [{{ DS }}](../source/data-streams.md);
 * [{{ KF }}](../source/kafka.md).
 
