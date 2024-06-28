@@ -22,6 +22,20 @@ items:
         href: operations/upload-dags.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
+  - name: Практические руководства
+    items:
+      - name: Все практические руководства
+        href: tutorials/index.md
+      - name: Автоматизация работы с {{ dataproc-name }}
+        href: tutorials/data-proc-automation.md
+      - name: Автоматизация задач {{ yq-full-name }}
+        href: tutorials/yandex-query-automation.md
+      - name: >-
+          Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud }}
+          Python SDK
+        href: tutorials/using-python-sdk.md
+      - name: Хранение подключений и переменных {{ AF }} в {{ lockbox-full-name }}
+        href: tutorials/lockbox-secrets-in-maf-cluster.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -30,14 +44,6 @@ items:
         href: concepts/limits.md
       - name: Имперсонация
         href: concepts/impersonation.md
-  - name: Практические руководства
-    items:
-      - name: Автоматизация работы с {{ dataproc-name }}
-        href: tutorials/data-proc-automation.md
-      - name: Хранение подключений и переменных {{ AF }} в {{ lockbox-full-name }}
-        href: tutorials/lockbox-secrets-in-maf-cluster.md
-      - name: Автоматизация задач {{ yq-full-name }}
-        href: tutorials/yandex-query-automation.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

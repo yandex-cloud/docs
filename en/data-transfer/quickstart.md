@@ -68,7 +68,7 @@ Different systems can act as a source and as a target.
 
 Prepare the source for sending data:
 
-* Airbyte®:
+* {{ AB }}:
    * [AWS CloudTrail](operations/prepare.md#source-aws)
    * [BigQuery](operations/prepare.md#source-bigquery)
    * [Microsoft SQL Server](operations/prepare.md#source-mssql)

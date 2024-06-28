@@ -37,7 +37,8 @@ organizationId | <p>Required. ID of the organization to list communities in.</p>
       "description": "string",
       "labels": "object",
       "createdById": "string",
-      "organizationId": "string"
+      "organizationId": "string",
+      "zoneId": "string"
     }
   ],
   "nextPageToken": "string"
@@ -55,4 +56,5 @@ communities[].<br>description | **string**<br><p>Description of the comminuty.</
 communities[].<br>labels | **object**<br><p>Labels of the community.</p> 
 communities[].<br>createdById | **string**<br><p>ID of the user who created the community.</p> 
 communities[].<br>organizationId | **string**<br><p>ID of the organization to which community belongs.</p> 
+communities[].<br>zoneId | **string**<br><p>ID of the zone where this community was created</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/datasphere/api-ref/v2/Community/list#query_params">pageSize</a>, use the <a href="/docs/datasphere/api-ref/v2/Community/list#responses">nextPageToken</a> as the value for the <a href="/docs/datasphere/api-ref/v2/Community/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/datasphere/api-ref/v2/Community/list#responses">nextPageToken</a> to continue paging through the results.</p> 

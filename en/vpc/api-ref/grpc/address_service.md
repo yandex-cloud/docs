@@ -40,9 +40,9 @@ Field | Description
 id | **string**<br>ID of the address. Generated at creation time. 
 folder_id | **string**<br>ID of the folder that the address belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the address. The name is unique within the folder. 
-description | **string**<br>Description of the address. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+name | **string**<br>Name of the address. The name is unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
+description | **string**<br>Description of the address. 0-256 characters long. 
+labels | **map<string,string>**<br>Address labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 address | **oneof:** `external_ipv4_address`<br>External ipv4 address specification.
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address)**<br>External ipv4 address specification. 
 reserved | **bool**<br>Specifies if address is reserved or not. 
@@ -101,9 +101,9 @@ Field | Description
 id | **string**<br>ID of the address. Generated at creation time. 
 folder_id | **string**<br>ID of the folder that the address belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the address. The name is unique within the folder. 
-description | **string**<br>Description of the address. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+name | **string**<br>Name of the address. The name is unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
+description | **string**<br>Description of the address. 0-256 characters long. 
+labels | **map<string,string>**<br>Address labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 address | **oneof:** `external_ipv4_address`<br>External ipv4 address specification.
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address1)**<br>External ipv4 address specification. 
 reserved | **bool**<br>Specifies if address is reserved or not. 
@@ -172,9 +172,9 @@ Field | Description
 id | **string**<br>ID of the address. Generated at creation time. 
 folder_id | **string**<br>ID of the folder that the address belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the address. The name is unique within the folder. 
-description | **string**<br>Description of the address. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+name | **string**<br>Name of the address. The name is unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
+description | **string**<br>Description of the address. 0-256 characters long. 
+labels | **map<string,string>**<br>Address labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 address | **oneof:** `external_ipv4_address`<br>External ipv4 address specification.
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address2)**<br>External ipv4 address specification. 
 reserved | **bool**<br>Specifies if address is reserved or not. 
@@ -293,9 +293,9 @@ Field | Description
 id | **string**<br>ID of the address. Generated at creation time. 
 folder_id | **string**<br>ID of the folder that the address belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the address. The name is unique within the folder. 
-description | **string**<br>Description of the address. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+name | **string**<br>Name of the address. The name is unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
+description | **string**<br>Description of the address. 0-256 characters long. 
+labels | **map<string,string>**<br>Address labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 address | **oneof:** `external_ipv4_address`<br>External ipv4 address specification.
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address3)**<br>External ipv4 address specification. 
 reserved | **bool**<br>Specifies if address is reserved or not. 
@@ -389,9 +389,9 @@ Field | Description
 id | **string**<br>ID of the address. Generated at creation time. 
 folder_id | **string**<br>ID of the folder that the address belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the address. The name is unique within the folder. 
-description | **string**<br>Description of the address. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+name | **string**<br>Name of the address. The name is unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
+description | **string**<br>Description of the address. 0-256 characters long. 
+labels | **map<string,string>**<br>Address labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 address | **oneof:** `external_ipv4_address`<br>External ipv4 address specification.
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address4)**<br>External ipv4 address specification. 
 reserved | **bool**<br>Specifies if address is reserved or not. 
@@ -556,9 +556,9 @@ Field | Description
 id | **string**<br>ID of the address. Generated at creation time. 
 folder_id | **string**<br>ID of the folder that the address belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the address. The name is unique within the folder. 
-description | **string**<br>Description of the address. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+name | **string**<br>Name of the address. The name is unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
+description | **string**<br>Description of the address. 0-256 characters long. 
+labels | **map<string,string>**<br>Address labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 address | **oneof:** `external_ipv4_address`<br>External ipv4 address specification.
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address5)**<br>External ipv4 address specification. 
 reserved | **bool**<br>Specifies if address is reserved or not. 

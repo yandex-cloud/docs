@@ -9,8 +9,3 @@ The initial grant is valid for 60 days. The grant amount and currency depend on 
 * For residents of Kazakhstan, the grant amount is at least ₸24,000, including VAT.
 * For non-residents of Russia and Kazakhstan, the grant amount is at least $50, excluding taxes and fees.
 
-The initial grant is valid for 60 days. The grant amount and currency depend on your country of residence:
-
-* For residents of Russia and tax residents of Belarus, the grant amount is at least ₽6,400, including VAT.
-* For residents of Kazakhstan, the grant amount is at least ₸38,400, including VAT.
-* For non-residents of Russia and Kazakhstan, the grant amount is at least $80, excluding taxes and fees.

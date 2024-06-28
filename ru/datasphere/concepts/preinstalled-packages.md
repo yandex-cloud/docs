@@ -4,9 +4,7 @@
 
 Вы можете выбрать один из стандартных образов DS Default или [создать собственное окружение](../operations/user-images.md) для работы в {{ ml-platform-name }}. Стандартные образы отличаются версиями Python и набором библиотек.
 
-По умолчанию в проектах {{ ml-platform-short-name }} используется образ с Python 3.10. Если вам нужен Python 3.7 или Python 3.8, воспользуйтесь инструкцией [{#T}](../operations/projects/python-version.md).
-
-{% include [python-disclaimer](../../_includes/datasphere/python-disclaimer.md) %}
+По умолчанию в проектах {{ ml-platform-short-name }} используется образ с Python 3.10. Если вам нужен Python 3.8, воспользуйтесь инструкцией [{#T}](../operations/projects/python-version.md).
 
 ## Список предустановленных пакетов {#preinstalled-packages}
 
@@ -19,12 +17,6 @@
 ```
 
 {% include [packs](../../_includes/datasphere/migration/preinstalled-packs.md) %}
-
-{% note warning %}
-
-Системный образ DS Default (Python 3.7) не работает с [конфигурациями](configurations.md) g2.x (GPU A100).
-
-{% endnote %}
 
 ## Обновление {#update}
 

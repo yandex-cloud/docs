@@ -42,9 +42,9 @@ Field | Description
 id | **string**<br>ID of the network. 
 folder_id | **string**<br>ID of the folder that the network belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the network. The name is unique within the folder. 3-63 characters long. 
+name | **string**<br>Name of the network. The name is unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Optional description of the network. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 default_security_group_id | **string**<br>ID of default security group for network. 
 
 
@@ -79,9 +79,9 @@ Field | Description
 id | **string**<br>ID of the network. 
 folder_id | **string**<br>ID of the folder that the network belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the network. The name is unique within the folder. 3-63 characters long. 
+name | **string**<br>Name of the network. The name is unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Optional description of the network. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 default_security_group_id | **string**<br>ID of default security group for network. 
 
 
@@ -135,9 +135,9 @@ Field | Description
 id | **string**<br>ID of the network. 
 folder_id | **string**<br>ID of the folder that the network belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the network. The name is unique within the folder. 3-63 characters long. 
+name | **string**<br>Name of the network. The name is unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Optional description of the network. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 default_security_group_id | **string**<br>ID of default security group for network. 
 
 
@@ -192,9 +192,9 @@ Field | Description
 id | **string**<br>ID of the network. 
 folder_id | **string**<br>ID of the folder that the network belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the network. The name is unique within the folder. 3-63 characters long. 
+name | **string**<br>Name of the network. The name is unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Optional description of the network. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 default_security_group_id | **string**<br>ID of default security group for network. 
 
 
@@ -268,24 +268,24 @@ Field | Description
 id | **string**<br>ID of the subnet. 
 folder_id | **string**<br>ID of the folder that the subnet belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the subnet. The name is unique within the project. 3-63 characters long. 
+name | **string**<br>Name of the subnet. The name must be unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Optional description of the subnet. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels, `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 network_id | **string**<br>ID of the network the subnet belongs to. 
 zone_id | **string**<br>ID of the availability zone where the subnet resides. 
 v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
-dhcp_options | **[DhcpOptions](#DhcpOptions)**<br> 
+dhcp_options | **[DhcpOptions](#DhcpOptions)**<br>DHCP options for the subnet. 
 
 
 ### DhcpOptions {#DhcpOptions}
 
 Field | Description
 --- | ---
-domain_name_servers[] | **string**<br> 
-domain_name | **string**<br> 
-ntp_servers[] | **string**<br> 
+domain_name_servers[] | **string**<br>A list of DHCP servers for this subnet. 
+domain_name | **string**<br>A domain name to us as a suffix when resolving host names in this subnet. 
+ntp_servers[] | **string**<br>List of NTP servers for this subnet. 
 
 
 ## ListSecurityGroups {#ListSecurityGroups}
@@ -318,9 +318,9 @@ Field | Description
 id | **string**<br>ID of the security group. 
 folder_id | **string**<br>ID of the folder that the security group belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the security group. 1-63 characters long. 
+name | **string**<br>Name of the security group. The name must be unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Description of the security group. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_./\\@0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_./\\@0-9a-z]*`. 
 network_id | **string**<br>ID of the network that the security group belongs to. 
 status | enum **Status**<br>Security group status. <ul><li>`CREATING`: Security group is being created.</li><li>`ACTIVE`: Security is active and it's rules are applied to the network interfaces.</li><li>`UPDATING`: Security group is updating. Updating is a long operation because we must update all instances in SG.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 rules[] | **[SecurityGroupRule](#SecurityGroupRule)**<br>List of the security group rules. 
@@ -390,9 +390,9 @@ Field | Description
 id | **string**<br>ID of the route table. 
 folder_id | **string**<br>ID of the folder that the route table belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the route table. The name is unique within the project. 3-63 characters long. 
+name | **string**<br>Name of the route table. The name must be unique within the folder. Value must match the regular expression `|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?`. 
 description | **string**<br>Optional description of the route table. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels, `key:value` pairs. No more than 64 per resource. The string length in characters for each key must be 1-63. Each value must match the regular expression `[-_0-9a-z]*`. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 network_id | **string**<br>ID of the network the route table belongs to. 
 static_routes[] | **[StaticRoute](#StaticRoute)**<br>List of static routes. 
 
@@ -496,9 +496,9 @@ Field | Description
 id | **string**<br>ID of the network. 
 folder_id | **string**<br>ID of the folder that the network belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the network. The name is unique within the folder. 3-63 characters long. 
+name | **string**<br>Name of the network. The name is unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Optional description of the network. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 default_security_group_id | **string**<br>ID of default security group for network. 
 
 

@@ -2,12 +2,6 @@
 
 В {{ ml-platform-name }} вы можете использовать [коннекторы Spark](../../concepts/spark-connector.md), чтобы работать с уже существующими или автоматически создаваемыми кластерами [{{ dataproc-full-name }}](../../../data-proc/).
 
-{% note info %}
-
-Коннекторы Spark находятся на стадии [Preview](../../../overview/concepts/launch-stages.md). Доступ к функциональности предоставляется по запросу в техническую поддержку.
-
-{% endnote %}
-
 ## Перед началом работы {#before-begin}
 
 {% include [settings-for-dataproc](../../../_includes/datasphere/settings-for-dataproc.md) %}

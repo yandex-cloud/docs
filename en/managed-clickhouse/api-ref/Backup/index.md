@@ -35,5 +35,6 @@ type | **string**<br><p>How this backup was created (manual/automatic/etc...).</
 ## Methods {#methods}
 Method | Description
 --- | ---
+[delete](delete.md) | Deletes the specified ClickHouse Backup.
 [get](get.md) | Returns the specified ClickHouse Backup resource.
 [list](list.md) | Retrieves the list of Backup resources available for the specified folder.
