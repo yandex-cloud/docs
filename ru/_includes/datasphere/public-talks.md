@@ -9,6 +9,8 @@ description: "Видеозаписи конференций и вебинаро�
 
 ### 2024 год {#2024}
 
+* {{ dataproc-name }} + {{ ml-platform-name }}. Новые возможности работы. [Видео](https://www.youtube.com/watch?v=H97HZ4ja1-4).
+
 * Новые возможности работы с моделями. [Видео](https://www.youtube.com/watch?v=3W5ePOLQg64).
 
 * Дообучение модели {{ yagpt-name }} в {{ ml-platform-full-name }}. [Видео](https://www.youtube.com/watch?v=hGrH0Shovtk).

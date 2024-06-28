@@ -53,9 +53,9 @@ description | **string**<br><p>Description of the subnet.</p> <p>The maximum str
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 routeTableId | **string**<br><p>ID of route table the subnet is linked to.</p> <p>The maximum string length in characters is 50.</p> 
 dhcpOptions | **object**
-dhcpOptions.<br>domainNameServers[] | **string**
-dhcpOptions.<br>domainName | **string**
-dhcpOptions.<br>ntpServers[] | **string**
+dhcpOptions.<br>domainNameServers[] | **string**<br><p>A list of DHCP servers for this subnet.</p> 
+dhcpOptions.<br>domainName | **string**<br><p>A domain name to us as a suffix when resolving host names in this subnet.</p> 
+dhcpOptions.<br>ntpServers[] | **string**<br><p>List of NTP servers for this subnet.</p> 
 v4CidrBlocks[] | **string**<br><p>New CIDR blocks which will overwrite the existing ones.</p> 
  
 ## Response {#responses}

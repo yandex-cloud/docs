@@ -52,9 +52,9 @@ zoneId | **string**<br><p>Required. ID of the availability zone where the subnet
 v4CidrBlocks[] | **string**<br><p>Required. CIDR block. The range of internal addresses that are defined for this subnet. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16.</p> 
 routeTableId | **string**<br><p>ID of route table the subnet is linked to.</p> <p>The maximum string length in characters is 50.</p> 
 dhcpOptions | **object**
-dhcpOptions.<br>domainNameServers[] | **string**
-dhcpOptions.<br>domainName | **string**
-dhcpOptions.<br>ntpServers[] | **string**
+dhcpOptions.<br>domainNameServers[] | **string**<br><p>A list of DHCP servers for this subnet.</p> 
+dhcpOptions.<br>domainName | **string**<br><p>A domain name to us as a suffix when resolving host names in this subnet.</p> 
+dhcpOptions.<br>ntpServers[] | **string**<br><p>List of NTP servers for this subnet.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

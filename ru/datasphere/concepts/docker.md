@@ -10,10 +10,8 @@
 
 ## Требования к Docker-образу {#requirements}
 
-{% include [python-disclaimer](../../_includes/datasphere/python-disclaimer.md) %}
-
 Чтобы Docker-образ запускался и корректно работал в {{ ml-platform-name }}, он должен содержать:
-* установку Python 3.7, 3.8, 3.9 или 3.10;
+* установку Python 3.8, 3.9, 3.10 или 3.11;
 * установку pip;
 * пользователя `--uid 1000 jupyter`.
 

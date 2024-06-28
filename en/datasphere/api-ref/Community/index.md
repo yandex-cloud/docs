@@ -14,7 +14,8 @@ A set of methods for managing Community resources.
   "description": "string",
   "labels": "object",
   "createdById": "string",
-  "organizationId": "string"
+  "organizationId": "string",
+  "zoneId": "string"
 }
 ```
  
@@ -27,6 +28,7 @@ description | **string**<br><p>Description of the comminuty.</p>
 labels | **object**<br><p>Labels of the community.</p> 
 createdById | **string**<br><p>ID of the user who created the community.</p> 
 organizationId | **string**<br><p>ID of the organization to which community belongs.</p> 
+zoneId | **string**<br><p>ID of the zone where this community was created</p> 
 
 ## Methods {#methods}
 Method | Description

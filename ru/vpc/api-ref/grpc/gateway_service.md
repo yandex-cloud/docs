@@ -39,9 +39,9 @@ Field | Description
 id | **string**<br>ID of the gateway. Generated at creation time. 
 folder_id | **string**<br>ID of the folder that the gateway belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the gateway. The name is unique within the folder. 
-description | **string**<br>Description of the gateway. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+name | **string**<br>Name of the gateway. The name is unique within the folder. Value must match the regular expression ``\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``. 
+description | **string**<br>Description of the gateway. 0-256 characters long. 
+labels | **map<string,string>**<br>Gateway labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_./\\@0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_./\\@0-9a-z]*`. 
 gateway | **oneof:** `shared_egress_gateway`<br>Gateway specification
 &nbsp;&nbsp;shared_egress_gateway | **[SharedEgressGateway](#SharedEgressGateway)**<br>Gateway specification 
 
@@ -81,9 +81,9 @@ Field | Description
 id | **string**<br>ID of the gateway. Generated at creation time. 
 folder_id | **string**<br>ID of the folder that the gateway belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the gateway. The name is unique within the folder. 
-description | **string**<br>Description of the gateway. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+name | **string**<br>Name of the gateway. The name is unique within the folder. Value must match the regular expression ``\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``. 
+description | **string**<br>Description of the gateway. 0-256 characters long. 
+labels | **map<string,string>**<br>Gateway labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_./\\@0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_./\\@0-9a-z]*`. 
 gateway | **oneof:** `shared_egress_gateway`<br>Gateway specification
 &nbsp;&nbsp;shared_egress_gateway | **[SharedEgressGateway](#SharedEgressGateway1)**<br>Gateway specification 
 
@@ -148,9 +148,9 @@ Field | Description
 id | **string**<br>ID of the gateway. Generated at creation time. 
 folder_id | **string**<br>ID of the folder that the gateway belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the gateway. The name is unique within the folder. 
-description | **string**<br>Description of the gateway. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+name | **string**<br>Name of the gateway. The name is unique within the folder. Value must match the regular expression ``\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``. 
+description | **string**<br>Description of the gateway. 0-256 characters long. 
+labels | **map<string,string>**<br>Gateway labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_./\\@0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_./\\@0-9a-z]*`. 
 gateway | **oneof:** `shared_egress_gateway`<br>Gateway specification
 &nbsp;&nbsp;shared_egress_gateway | **[SharedEgressGateway](#SharedEgressGateway2)**<br>Gateway specification 
 
@@ -216,9 +216,9 @@ Field | Description
 id | **string**<br>ID of the gateway. Generated at creation time. 
 folder_id | **string**<br>ID of the folder that the gateway belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the gateway. The name is unique within the folder. 
-description | **string**<br>Description of the gateway. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+name | **string**<br>Name of the gateway. The name is unique within the folder. Value must match the regular expression ``\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``. 
+description | **string**<br>Description of the gateway. 0-256 characters long. 
+labels | **map<string,string>**<br>Gateway labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_./\\@0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_./\\@0-9a-z]*`. 
 gateway | **oneof:** `shared_egress_gateway`<br>Gateway specification
 &nbsp;&nbsp;shared_egress_gateway | **[SharedEgressGateway](#SharedEgressGateway3)**<br>Gateway specification 
 
@@ -354,9 +354,9 @@ Field | Description
 id | **string**<br>ID of the gateway. Generated at creation time. 
 folder_id | **string**<br>ID of the folder that the gateway belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the gateway. The name is unique within the folder. 
-description | **string**<br>Description of the gateway. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+name | **string**<br>Name of the gateway. The name is unique within the folder. Value must match the regular expression ``\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``. 
+description | **string**<br>Description of the gateway. 0-256 characters long. 
+labels | **map<string,string>**<br>Gateway labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_./\\@0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_./\\@0-9a-z]*`. 
 gateway | **oneof:** `shared_egress_gateway`<br>Gateway specification
 &nbsp;&nbsp;shared_egress_gateway | **[SharedEgressGateway](#SharedEgressGateway4)**<br>Gateway specification 
 

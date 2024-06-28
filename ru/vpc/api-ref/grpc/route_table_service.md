@@ -39,9 +39,9 @@ Field | Description
 id | **string**<br>ID of the route table. 
 folder_id | **string**<br>ID of the folder that the route table belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the route table. The name is unique within the project. 3-63 characters long. 
+name | **string**<br>Name of the route table. The name must be unique within the folder. Value must match the regular expression `|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?`. 
 description | **string**<br>Optional description of the route table. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels, `key:value` pairs. No more than 64 per resource. The string length in characters for each key must be 1-63. Each value must match the regular expression `[-_0-9a-z]*`. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 network_id | **string**<br>ID of the network the route table belongs to. 
 static_routes[] | **[StaticRoute](#StaticRoute)**<br>List of static routes. 
 
@@ -89,9 +89,9 @@ Field | Description
 id | **string**<br>ID of the route table. 
 folder_id | **string**<br>ID of the folder that the route table belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the route table. The name is unique within the project. 3-63 characters long. 
+name | **string**<br>Name of the route table. The name must be unique within the folder. Value must match the regular expression `|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?`. 
 description | **string**<br>Optional description of the route table. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels, `key:value` pairs. No more than 64 per resource. The string length in characters for each key must be 1-63. Each value must match the regular expression `[-_0-9a-z]*`. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 network_id | **string**<br>ID of the network the route table belongs to. 
 static_routes[] | **[StaticRoute](#StaticRoute1)**<br>List of static routes. 
 
@@ -172,9 +172,9 @@ Field | Description
 id | **string**<br>ID of the route table. 
 folder_id | **string**<br>ID of the folder that the route table belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the route table. The name is unique within the project. 3-63 characters long. 
+name | **string**<br>Name of the route table. The name must be unique within the folder. Value must match the regular expression `|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?`. 
 description | **string**<br>Optional description of the route table. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels, `key:value` pairs. No more than 64 per resource. The string length in characters for each key must be 1-63. Each value must match the regular expression `[-_0-9a-z]*`. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 network_id | **string**<br>ID of the network the route table belongs to. 
 static_routes[] | **[StaticRoute](#StaticRoute3)**<br>List of static routes. 
 
@@ -243,9 +243,9 @@ Field | Description
 id | **string**<br>ID of the route table. 
 folder_id | **string**<br>ID of the folder that the route table belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the route table. The name is unique within the project. 3-63 characters long. 
+name | **string**<br>Name of the route table. The name must be unique within the folder. Value must match the regular expression `|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?`. 
 description | **string**<br>Optional description of the route table. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels, `key:value` pairs. No more than 64 per resource. The string length in characters for each key must be 1-63. Each value must match the regular expression `[-_0-9a-z]*`. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 network_id | **string**<br>ID of the network the route table belongs to. 
 static_routes[] | **[StaticRoute](#StaticRoute4)**<br>List of static routes. 
 
@@ -377,9 +377,9 @@ Field | Description
 id | **string**<br>ID of the route table. 
 folder_id | **string**<br>ID of the folder that the route table belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the route table. The name is unique within the project. 3-63 characters long. 
+name | **string**<br>Name of the route table. The name must be unique within the folder. Value must match the regular expression `|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?`. 
 description | **string**<br>Optional description of the route table. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels, `key:value` pairs. No more than 64 per resource. The string length in characters for each key must be 1-63. Each value must match the regular expression `[-_0-9a-z]*`. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 network_id | **string**<br>ID of the network the route table belongs to. 
 static_routes[] | **[StaticRoute](#StaticRoute4)**<br>List of static routes. 
 

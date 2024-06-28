@@ -21,7 +21,8 @@ POST https://datasphere.{{ api-host }}/datasphere/v2/communities
   "description": "string",
   "organizationId": "string",
   "billingAccountId": "string",
-  "labels": "object"
+  "labels": "object",
+  "zoneId": "string"
 }
 ```
 
@@ -33,6 +34,7 @@ description | **string**<br><p>Description of the community.</p>
 organizationId | **string**<br><p>Required. ID of the organization where community should be created.</p> 
 billingAccountId | **string**<br><p>ID of the billing account for the created community. Optional, billing account could be bound to community later.</p> 
 labels | **object**<br><p>Labels of the community.</p> 
+zoneId | **string**<br><p>Required. ID of the zone where community will be created (all projects and other resources will be in this zone)</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
