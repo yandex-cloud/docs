@@ -41,9 +41,9 @@ Field | Description
 id | **string**<br>ID of the security group. 
 folder_id | **string**<br>ID of the folder that the security group belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the security group. 1-63 characters long. 
+name | **string**<br>Name of the security group. The name must be unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Description of the security group. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_./\\@0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_./\\@0-9a-z]*`. 
 network_id | **string**<br>ID of the network that the security group belongs to. 
 status | enum **Status**<br>Security group status. <ul><li>`CREATING`: Security group is being created.</li><li>`ACTIVE`: Security is active and it's rules are applied to the network interfaces.</li><li>`UPDATING`: Security group is updating. Updating is a long operation because we must update all instances in SG.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 rules[] | **[SecurityGroupRule](#SecurityGroupRule)**<br>List of the security group rules. 
@@ -114,9 +114,9 @@ Field | Description
 id | **string**<br>ID of the security group. 
 folder_id | **string**<br>ID of the folder that the security group belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the security group. 1-63 characters long. 
+name | **string**<br>Name of the security group. The name must be unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Description of the security group. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_./\\@0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_./\\@0-9a-z]*`. 
 network_id | **string**<br>ID of the network that the security group belongs to. 
 status | enum **Status**<br>Security group status. <ul><li>`CREATING`: Security group is being created.</li><li>`ACTIVE`: Security is active and it's rules are applied to the network interfaces.</li><li>`UPDATING`: Security group is updating. Updating is a long operation because we must update all instances in SG.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 rules[] | **[SecurityGroupRule](#SecurityGroupRule1)**<br>List of the security group rules. 
@@ -241,9 +241,9 @@ Field | Description
 id | **string**<br>ID of the security group. 
 folder_id | **string**<br>ID of the folder that the security group belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the security group. 1-63 characters long. 
+name | **string**<br>Name of the security group. The name must be unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Description of the security group. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_./\\@0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_./\\@0-9a-z]*`. 
 network_id | **string**<br>ID of the network that the security group belongs to. 
 status | enum **Status**<br>Security group status. <ul><li>`CREATING`: Security group is being created.</li><li>`ACTIVE`: Security is active and it's rules are applied to the network interfaces.</li><li>`UPDATING`: Security group is updating. Updating is a long operation because we must update all instances in SG.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 rules[] | **[SecurityGroupRule](#SecurityGroupRule2)**<br>List of the security group rules. 
@@ -353,9 +353,9 @@ Field | Description
 id | **string**<br>ID of the security group. 
 folder_id | **string**<br>ID of the folder that the security group belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the security group. 1-63 characters long. 
+name | **string**<br>Name of the security group. The name must be unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Description of the security group. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_./\\@0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_./\\@0-9a-z]*`. 
 network_id | **string**<br>ID of the network that the security group belongs to. 
 status | enum **Status**<br>Security group status. <ul><li>`CREATING`: Security group is being created.</li><li>`ACTIVE`: Security is active and it's rules are applied to the network interfaces.</li><li>`UPDATING`: Security group is updating. Updating is a long operation because we must update all instances in SG.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 rules[] | **[SecurityGroupRule](#SecurityGroupRule3)**<br>List of the security group rules. 
@@ -462,9 +462,9 @@ Field | Description
 id | **string**<br>ID of the security group. 
 folder_id | **string**<br>ID of the folder that the security group belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the security group. 1-63 characters long. 
+name | **string**<br>Name of the security group. The name must be unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Description of the security group. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_./\\@0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_./\\@0-9a-z]*`. 
 network_id | **string**<br>ID of the network that the security group belongs to. 
 status | enum **Status**<br>Security group status. <ul><li>`CREATING`: Security group is being created.</li><li>`ACTIVE`: Security is active and it's rules are applied to the network interfaces.</li><li>`UPDATING`: Security group is updating. Updating is a long operation because we must update all instances in SG.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 rules[] | **[SecurityGroupRule](#SecurityGroupRule4)**<br>List of the security group rules. 
@@ -654,9 +654,9 @@ Field | Description
 id | **string**<br>ID of the security group. 
 folder_id | **string**<br>ID of the folder that the security group belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the security group. 1-63 characters long. 
+name | **string**<br>Name of the security group. The name must be unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Description of the security group. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_./\\@0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_./\\@0-9a-z]*`. 
 network_id | **string**<br>ID of the network that the security group belongs to. 
 status | enum **Status**<br>Security group status. <ul><li>`CREATING`: Security group is being created.</li><li>`ACTIVE`: Security is active and it's rules are applied to the network interfaces.</li><li>`UPDATING`: Security group is updating. Updating is a long operation because we must update all instances in SG.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 rules[] | **[SecurityGroupRule](#SecurityGroupRule6)**<br>List of the security group rules. 

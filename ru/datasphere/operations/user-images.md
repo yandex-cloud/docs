@@ -6,15 +6,13 @@
 
 ## Создать Docker-образ {#create}
 
-{% include [python-disclaimer](../../_includes/datasphere/python-disclaimer.md) %}
-
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. В правом верхнем углу нажмите **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. Во всплывающем окне выберите **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 1. Заполните поля:
     * **{{ ui-key.yc-ui-datasphere.docker.build-path }}** — путь внутри проекта, где будет размещаться созданный Docker-образ; `.` — корневая директория.
     * **{{ ui-key.yc-ui-datasphere.docker.repository }}** — имя образа, например `tensorflow`.
     * **{{ ui-key.yc-ui-datasphere.docker.tag }}** — тег образа, например `1.0.0`.
-    * **{{ ui-key.yc-ui-datasphere.docker.docker-template }}** — шаблон скрипта для установки Python: `python_3_7` или `python_3_8`.
+    * **{{ ui-key.yc-ui-datasphere.docker.docker-template }}** — шаблон скрипта для установки Python.
     * **{{ ui-key.yc-ui-datasphere.docker.dockerfile }}** — набор инструкций для создания Docker-образа.
 
       Отредактируйте содержимое поля. Например, следующий код создаст Docker-образ с `python_3_8` на основе оригинального образа TensorFlow:
@@ -64,12 +62,6 @@
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите ![docker](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 1. Напротив образа по умолчанию нажмите ![Options](../../_assets/console-icons/ellipsis.svg) и выберите ![Apply](../../_assets/console-icons/circle-check-fill.svg) **{{ ui-key.yc-ui-datasphere.common.activate }}**.
-
-{% note warning %}
-
-Системный образ Python 3.7 не работает с [конфигурациями](../../datasphere/concepts/configurations.md) g2.x (GPU A100).
-
-{% endnote %}
 
 ## Поделиться Docker-образом {#share}
 

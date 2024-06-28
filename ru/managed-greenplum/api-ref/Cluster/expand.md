@@ -25,7 +25,10 @@ clusterId | <p>Required. ID of the Greenplum Cluster resource to update. To get 
 {
   "segmentHostCount": "string",
   "addSegmentsPerHostCount": "string",
-  "duration": "string"
+  "duration": "string",
+  "parallel": "string",
+  "closeCluster": true,
+  "delayRedistribution": true
 }
 ```
 
@@ -35,6 +38,9 @@ Field | Description
 segmentHostCount | **string** (int64)<br><p>Number of hosts for add to the segment subcluster</p> 
 addSegmentsPerHostCount | **string** (int64)<br><p>Number of segments per host to add</p> 
 duration | **string** (int64)<br><p>Redistribute duration, in seconds</p> 
+parallel | **string** (int64)<br><p>Redistribute process parallelilsm, 0 - for automatic detection</p> 
+closeCluster | **boolean** (boolean)<br><p>Deny all client connections during the expand operation</p> 
+delayRedistribution | **boolean** (boolean)<br><p>Perfrom redistribution process by small chunks as background activity</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

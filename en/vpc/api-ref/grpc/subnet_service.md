@@ -43,24 +43,24 @@ Field | Description
 id | **string**<br>ID of the subnet. 
 folder_id | **string**<br>ID of the folder that the subnet belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the subnet. The name is unique within the project. 3-63 characters long. 
+name | **string**<br>Name of the subnet. The name must be unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Optional description of the subnet. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels, `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 network_id | **string**<br>ID of the network the subnet belongs to. 
 zone_id | **string**<br>ID of the availability zone where the subnet resides. 
 v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
-dhcp_options | **[DhcpOptions](#DhcpOptions)**<br> 
+dhcp_options | **[DhcpOptions](#DhcpOptions)**<br>DHCP options for the subnet. 
 
 
 ### DhcpOptions {#DhcpOptions}
 
 Field | Description
 --- | ---
-domain_name_servers[] | **string**<br> 
-domain_name | **string**<br> 
-ntp_servers[] | **string**<br> 
+domain_name_servers[] | **string**<br>A list of DHCP servers for this subnet. 
+domain_name | **string**<br>A domain name to us as a suffix when resolving host names in this subnet. 
+ntp_servers[] | **string**<br>List of NTP servers for this subnet. 
 
 
 ## List {#List}
@@ -94,24 +94,24 @@ Field | Description
 id | **string**<br>ID of the subnet. 
 folder_id | **string**<br>ID of the folder that the subnet belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the subnet. The name is unique within the project. 3-63 characters long. 
+name | **string**<br>Name of the subnet. The name must be unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Optional description of the subnet. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels, `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 network_id | **string**<br>ID of the network the subnet belongs to. 
 zone_id | **string**<br>ID of the availability zone where the subnet resides. 
 v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
-dhcp_options | **[DhcpOptions](#DhcpOptions1)**<br> 
+dhcp_options | **[DhcpOptions](#DhcpOptions1)**<br>DHCP options for the subnet. 
 
 
 ### DhcpOptions {#DhcpOptions1}
 
 Field | Description
 --- | ---
-domain_name_servers[] | **string**<br> 
-domain_name | **string**<br> 
-ntp_servers[] | **string**<br> 
+domain_name_servers[] | **string**<br>A list of DHCP servers for this subnet. 
+domain_name | **string**<br>A domain name to us as a suffix when resolving host names in this subnet. 
+ntp_servers[] | **string**<br>List of NTP servers for this subnet. 
 
 
 ## Create {#Create}
@@ -143,9 +143,9 @@ dhcp_options | **[DhcpOptions](#DhcpOptions2)**<br>
 
 Field | Description
 --- | ---
-domain_name_servers[] | **string**<br> 
-domain_name | **string**<br> 
-ntp_servers[] | **string**<br> 
+domain_name_servers[] | **string**<br>A list of DHCP servers for this subnet. 
+domain_name | **string**<br>A domain name to us as a suffix when resolving host names in this subnet. 
+ntp_servers[] | **string**<br>List of NTP servers for this subnet. 
 
 
 ### Operation {#Operation}
@@ -178,15 +178,15 @@ Field | Description
 id | **string**<br>ID of the subnet. 
 folder_id | **string**<br>ID of the folder that the subnet belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the subnet. The name is unique within the project. 3-63 characters long. 
+name | **string**<br>Name of the subnet. The name must be unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Optional description of the subnet. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels, `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 network_id | **string**<br>ID of the network the subnet belongs to. 
 zone_id | **string**<br>ID of the availability zone where the subnet resides. 
 v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
-dhcp_options | **[DhcpOptions](#DhcpOptions3)**<br> 
+dhcp_options | **[DhcpOptions](#DhcpOptions3)**<br>DHCP options for the subnet. 
 
 
 ## Update {#Update}
@@ -217,9 +217,9 @@ v4_cidr_blocks[] | **string**<br>New CIDR blocks which will overwrite the existi
 
 Field | Description
 --- | ---
-domain_name_servers[] | **string**<br> 
-domain_name | **string**<br> 
-ntp_servers[] | **string**<br> 
+domain_name_servers[] | **string**<br>A list of DHCP servers for this subnet. 
+domain_name | **string**<br>A domain name to us as a suffix when resolving host names in this subnet. 
+ntp_servers[] | **string**<br>List of NTP servers for this subnet. 
 
 
 ### Operation {#Operation1}
@@ -252,15 +252,15 @@ Field | Description
 id | **string**<br>ID of the subnet. 
 folder_id | **string**<br>ID of the folder that the subnet belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the subnet. The name is unique within the project. 3-63 characters long. 
+name | **string**<br>Name of the subnet. The name must be unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Optional description of the subnet. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels, `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 network_id | **string**<br>ID of the network the subnet belongs to. 
 zone_id | **string**<br>ID of the availability zone where the subnet resides. 
 v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
-dhcp_options | **[DhcpOptions](#DhcpOptions4)**<br> 
+dhcp_options | **[DhcpOptions](#DhcpOptions4)**<br>DHCP options for the subnet. 
 
 
 ## AddCidrBlocks {#AddCidrBlocks}
@@ -311,24 +311,24 @@ Field | Description
 id | **string**<br>ID of the subnet. 
 folder_id | **string**<br>ID of the folder that the subnet belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the subnet. The name is unique within the project. 3-63 characters long. 
+name | **string**<br>Name of the subnet. The name must be unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Optional description of the subnet. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels, `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 network_id | **string**<br>ID of the network the subnet belongs to. 
 zone_id | **string**<br>ID of the availability zone where the subnet resides. 
 v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
-dhcp_options | **[DhcpOptions](#DhcpOptions4)**<br> 
+dhcp_options | **[DhcpOptions](#DhcpOptions4)**<br>DHCP options for the subnet. 
 
 
 ### DhcpOptions {#DhcpOptions4}
 
 Field | Description
 --- | ---
-domain_name_servers[] | **string**<br> 
-domain_name | **string**<br> 
-ntp_servers[] | **string**<br> 
+domain_name_servers[] | **string**<br>A list of DHCP servers for this subnet. 
+domain_name | **string**<br>A domain name to us as a suffix when resolving host names in this subnet. 
+ntp_servers[] | **string**<br>List of NTP servers for this subnet. 
 
 
 ## RemoveCidrBlocks {#RemoveCidrBlocks}
@@ -379,24 +379,24 @@ Field | Description
 id | **string**<br>ID of the subnet. 
 folder_id | **string**<br>ID of the folder that the subnet belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the subnet. The name is unique within the project. 3-63 characters long. 
+name | **string**<br>Name of the subnet. The name must be unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Optional description of the subnet. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels, `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 network_id | **string**<br>ID of the network the subnet belongs to. 
 zone_id | **string**<br>ID of the availability zone where the subnet resides. 
 v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
-dhcp_options | **[DhcpOptions](#DhcpOptions5)**<br> 
+dhcp_options | **[DhcpOptions](#DhcpOptions5)**<br>DHCP options for the subnet. 
 
 
 ### DhcpOptions {#DhcpOptions5}
 
 Field | Description
 --- | ---
-domain_name_servers[] | **string**<br> 
-domain_name | **string**<br> 
-ntp_servers[] | **string**<br> 
+domain_name_servers[] | **string**<br>A list of DHCP servers for this subnet. 
+domain_name | **string**<br>A domain name to us as a suffix when resolving host names in this subnet. 
+ntp_servers[] | **string**<br>List of NTP servers for this subnet. 
 
 
 ## Delete {#Delete}
@@ -526,24 +526,24 @@ Field | Description
 id | **string**<br>ID of the subnet. 
 folder_id | **string**<br>ID of the folder that the subnet belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the subnet. The name is unique within the project. 3-63 characters long. 
+name | **string**<br>Name of the subnet. The name must be unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Optional description of the subnet. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels, `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 network_id | **string**<br>ID of the network the subnet belongs to. 
 zone_id | **string**<br>ID of the availability zone where the subnet resides. 
 v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
-dhcp_options | **[DhcpOptions](#DhcpOptions6)**<br> 
+dhcp_options | **[DhcpOptions](#DhcpOptions6)**<br>DHCP options for the subnet. 
 
 
 ### DhcpOptions {#DhcpOptions6}
 
 Field | Description
 --- | ---
-domain_name_servers[] | **string**<br> 
-domain_name | **string**<br> 
-ntp_servers[] | **string**<br> 
+domain_name_servers[] | **string**<br>A list of DHCP servers for this subnet. 
+domain_name | **string**<br>A domain name to us as a suffix when resolving host names in this subnet. 
+ntp_servers[] | **string**<br>List of NTP servers for this subnet. 
 
 
 ## Relocate {#Relocate}
@@ -594,24 +594,24 @@ Field | Description
 id | **string**<br>ID of the subnet. 
 folder_id | **string**<br>ID of the folder that the subnet belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the subnet. The name is unique within the project. 3-63 characters long. 
+name | **string**<br>Name of the subnet. The name must be unique within the folder. Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. 
 description | **string**<br>Optional description of the subnet. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels, `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression `[-_0-9a-z]*`. The string length in characters for each key must be 1-63. Each key must match the regular expression `[a-z][-_0-9a-z]*`. 
 network_id | **string**<br>ID of the network the subnet belongs to. 
 zone_id | **string**<br>ID of the availability zone where the subnet resides. 
 v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
-dhcp_options | **[DhcpOptions](#DhcpOptions7)**<br> 
+dhcp_options | **[DhcpOptions](#DhcpOptions7)**<br>DHCP options for the subnet. 
 
 
 ### DhcpOptions {#DhcpOptions7}
 
 Field | Description
 --- | ---
-domain_name_servers[] | **string**<br> 
-domain_name | **string**<br> 
-ntp_servers[] | **string**<br> 
+domain_name_servers[] | **string**<br>A list of DHCP servers for this subnet. 
+domain_name | **string**<br>A domain name to us as a suffix when resolving host names in this subnet. 
+ntp_servers[] | **string**<br>List of NTP servers for this subnet. 
 
 
 ## ListUsedAddresses {#ListUsedAddresses}

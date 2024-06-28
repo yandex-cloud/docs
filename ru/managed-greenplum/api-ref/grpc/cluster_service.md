@@ -1577,6 +1577,9 @@ cluster_id | **string**<br>Required. ID of the Greenplum Cluster resource to upd
 segment_host_count | **int64**<br>Number of hosts for add to the segment subcluster 
 add_segments_per_host_count | **int64**<br>Number of segments per host to add 
 duration | **int64**<br>Redistribute duration, in seconds 
+parallel | **int64**<br>Redistribute process parallelilsm, 0 - for automatic detection 
+close_cluster | **bool**<br>Deny all client connections during the expand operation 
+delay_redistribution | **bool**<br>Perfrom redistribution process by small chunks as background activity 
 
 
 ### Operation {#Operation2}

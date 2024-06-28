@@ -44,6 +44,7 @@ description | **string**<br>Description of the community.
 organization_id | **string**<br>Required. ID of the organization where community should be created. 
 billing_account_id | **string**<br>ID of the billing account for the created community. Optional, billing account could be bound to community later. 
 labels | **map<string,string>**<br>Labels of the community. 
+zone_id | **string**<br>Required. ID of the zone where community will be created (all projects and other resources will be in this zone) 
 
 
 ### Operation {#Operation}
@@ -80,6 +81,7 @@ description | **string**<br>Description of the comminuty.
 labels | **map<string,string>**<br>Labels of the community. 
 created_by_id | **string**<br>ID of the user who created the community. 
 organization_id | **string**<br>ID of the organization to which community belongs. 
+zone_id | **string**<br>ID of the zone where this community was created 
 
 
 ## Get {#Get}
@@ -106,6 +108,7 @@ description | **string**<br>Description of the comminuty.
 labels | **map<string,string>**<br>Labels of the community. 
 created_by_id | **string**<br>ID of the user who created the community. 
 organization_id | **string**<br>ID of the organization to which community belongs. 
+zone_id | **string**<br>ID of the zone where this community was created 
 
 
 ## Update {#Update}
@@ -163,6 +166,7 @@ description | **string**<br>Description of the comminuty.
 labels | **map<string,string>**<br>Labels of the community. 
 created_by_id | **string**<br>ID of the user who created the community. 
 organization_id | **string**<br>ID of the organization to which community belongs. 
+zone_id | **string**<br>ID of the zone where this community was created 
 
 
 ## Delete {#Delete}
@@ -242,6 +246,7 @@ description | **string**<br>Description of the comminuty.
 labels | **map<string,string>**<br>Labels of the community. 
 created_by_id | **string**<br>ID of the user who created the community. 
 organization_id | **string**<br>ID of the organization to which community belongs. 
+zone_id | **string**<br>ID of the zone where this community was created 
 
 
 ## ListAccessBindings {#ListAccessBindings}

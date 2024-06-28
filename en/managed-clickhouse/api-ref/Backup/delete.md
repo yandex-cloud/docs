@@ -1,62 +1,23 @@
 ---
 editable: false
-sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/update.md
+sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Backup/delete.md
 ---
 
-# Virtual Private Cloud API, REST: Subnet.update
-Updates the specified subnet.
-Method starts an asynchronous operation that can be cancelled while it is in progress.
+# Managed Service for ClickHouse API, REST: Backup.delete
+Deletes the specified ClickHouse Backup.
  
 
  
 ## HTTP request {#https-request}
 ```
-PATCH https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}
+DELETE https://{{ api-host-mdb }}/managed-clickhouse/v1/backups/{backupId}
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-subnetId | <p>Required. ID of the Subnet resource to update.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Body parameters {#body_params}
- 
-```json 
-{
-  "updateMask": "string",
-  "name": "string",
-  "description": "string",
-  "labels": "object",
-  "routeTableId": "string",
-  "dhcpOptions": {
-    "domainNameServers": [
-      "string"
-    ],
-    "domainName": "string",
-    "ntpServers": [
-      "string"
-    ]
-  },
-  "v4CidrBlocks": [
-    "string"
-  ]
-}
-```
-
- 
-Field | Description
---- | ---
-updateMask | **string**<br><p>Field mask that specifies which fields of the Subnet resource are going to be updated.</p> <p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-name | **string**<br><p>Name of the subnet. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``.</p> 
-description | **string**<br><p>Description of the subnet.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
-routeTableId | **string**<br><p>ID of route table the subnet is linked to.</p> <p>The maximum string length in characters is 50.</p> 
-dhcpOptions | **object**
-dhcpOptions.<br>domainNameServers[] | **string**<br><p>A list of DHCP servers for this subnet.</p> 
-dhcpOptions.<br>domainName | **string**<br><p>A domain name to us as a suffix when resolving host names in this subnet.</p> 
-dhcpOptions.<br>ntpServers[] | **string**<br><p>List of NTP servers for this subnet.</p> 
-v4CidrBlocks[] | **string**<br><p>New CIDR blocks which will overwrite the existing ones.</p> 
+backupId | <p>Required. Required. ID of the backup to delete.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
