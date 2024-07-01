@@ -5,9 +5,6 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Подготовка собственных образов с продуктами Microsoft
-        href: prepare-image.md
-        hidden: true
       - name: Использование своей лицензии для продуктов Microsoft
         href: byol.md
       - name: Безопасная передача пароля в скрипт инициализации

@@ -116,7 +116,7 @@ To host your static website in the cloud, create a bucket:
          * `standard`: Standard storage
          * `cold`: Cold storage
          * `ice`: Ice storage
-      * `--max_size`: Maximum bucket size (bytes). `0`: No limit.
+      * `--max_size`: Maximum bucket size, in bytes. `0`: No limit.
       * `--public-read`: Flag to enable public access to read bucket objects.
       * `--public-list`: Flag to enable public access to view the list of bucket objects.
       * `--public-config-read`: Flag to enable public access to read the bucket configuration.
@@ -187,14 +187,14 @@ To host your static website in the cloud, create a bucket:
       Where:
 
       * `yandex_iam_service_account`: Description of the service account that will create and use a bucket:
-         * `name`: Service account name.
+         * `name`: Service account name
       * `yandex_storage_bucket`: Bucket description:
          * `bucket`: Bucket name. Specify the domain name you registered, e.g., `gatsbytest.ru`.
 
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```
@@ -250,7 +250,7 @@ To configure a bucket for static website hosting:
       Where:
 
       * `index`: Absolute path to the file of the website home page.
-      * `error`: Absolute path to the file displayed to the user upon a `4xx` error.
+      * `error`: Absolute path to the file the user will see in case of `4xx` errors.
 
    1. Run the following command:
 
@@ -317,11 +317,11 @@ To configure a bucket for static website hosting:
       * `acl`: Parameters for [ACL](../../storage/concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
          * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
-         * `error_document`: Absolute path to the file displayed to the user on `4xx` errors. This is an optional parameter.
+         * `error_document`: Absolute path to the file the user will see in case of `4xx` errors. This is an optional parameter.
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```
@@ -623,7 +623,7 @@ To configure access to your website over a secure protocol, get a security certi
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+      1. In the [management console]({{ link-console-main }}), select the folder.
       1. Select **{{ objstorage-name }}**.
       1. Click the name of the appropriate bucket, which is `gatsbytest.ru` in our example.
       1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.

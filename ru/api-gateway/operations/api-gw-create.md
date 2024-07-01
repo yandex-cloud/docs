@@ -55,6 +55,9 @@ paths:
   1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** введите название API-шлюза.
   1. (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_description }}** введите описание API-шлюза.
   1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте текст [спецификаций OpenAPI](https://ru.wikipedia.org/wiki/OpenAPI_(спецификация)).
+
+      {% include [add-extentions-constructor](../../_includes/api-gateway/add-extentions-constructor.md) %}
+
   1. При необходимости задайте дополнительные настройки API-шлюза.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 

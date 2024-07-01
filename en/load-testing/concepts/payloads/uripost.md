@@ -17,24 +17,32 @@ hello!
 uripost
 ```
 
-## Configuration for Phantom {#phantom-config}
+## Configuring load generators
 
-```
-phantom:
-  ammo_type: uripost # Required, otherwise the load testing tool won't be able to distinguish it from uri-style.
-  ammofile: /path/to/ammo_file # or an HTTP link
-```
+{% list tabs group=instructions %}
 
-## Configuration for Pandora {#pandora-config}
+- Phantom {#phantom}
 
-When configuring the Pandora load generator using a file, specify the `uripost` type in the `ammo` section:
+   When configuring the Phantom load generator using a YAML file, specify the `uripost` type and the path to the file with request headers and endpoints:
 
-```
-config_content:
-          pools:
-             ammo:
-               type: uripost
-               file: ./ammo.uripost
-```
+   ```
+   phantom:
+     ammo_type: uripost # Required, otherwise the load testing tool won't be able to distinguish it from uri-style.
+     ammofile: ./ammo.txt # or HTTP link
+   ```
+
+- Pandora {#pandora}
+
+   When configuring the Pandora load generator using a file, specify the `uripost` type in the `ammo` section:
+
+   ```
+   config_content:
+      pools:
+         ammo:
+            type: uripost
+            file: ./ammo.uripost
+   ```
+
+{% endlist %}
 
 When uploading a file with test data via the management console, data types and paths are filled in automatically.

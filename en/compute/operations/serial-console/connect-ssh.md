@@ -18,7 +18,7 @@ To set up a secure connection:
    * `NO`: Reject.
 
    Make sure the fingerprint from the link matches the fingerprint received from the client.
-* You can download the public [SSH key](https://{{ s3-storage-host }}/cloud-certs/serialssh-knownhosts) of the host before each connection to the serial console.
+* You can download the host's public [SSH key](https://{{ s3-storage-host }}/cloud-certs/serialssh-knownhosts) before each connection to the serial console.
 
    Use the public SSH key you receive when connecting to the serial console.
 
@@ -44,7 +44,7 @@ To connect to the VM, you need its ID. For information about how to get the VM I
 
 Your next steps depend on whether [OS Login](../../../organization/concepts/os-login.md) access is enabled for the VM. If OS Login access is [enabled](../vm-connect/enable-os-login.md) for the VM, you can connect to the serial console using an exported SSH certificate. SSH keys are used to connect to VMs with OS Login access disabled.
 
-Some OSs may request user credentials for access to a VM. So you need to create a local user password before connecting to the serial consoles of such VMs.
+Some OS's may request user credentials to access a VM. In such cases, you need to create a local user password before connecting to the serial consoles of such VMs.
 
 {% list tabs %}
 

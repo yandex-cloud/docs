@@ -220,7 +220,7 @@ Prepare the network infrastructure to host the availability group.
    ```
    yc load-balancer network-load-balancer add-listener \
       --name ya-loadbalancer \
-      --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-subnet-id=<subnet_ID>
+      --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-address=192.168.1.62,internal-subnet-id=<subnet_ID>
    ```
 
 - PowerShell {#powershell}
@@ -234,7 +234,7 @@ Prepare the network infrastructure to host the availability group.
    ```
    yc load-balancer network-load-balancer add-listener `
       --name ya-loadbalancer `
-      --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-subnet-id=$($inlbSubnet.id)
+      --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-address=192.168.1.62,internal-subnet-id=$($inlbSubnet.id)
    ```
 
 {% endlist %}
@@ -291,7 +291,7 @@ Prepare the network infrastructure to host the availability group.
 
 ### Prepare Windows Server images {#prepare-images}
 
-Before creating VM instances, [prepare your Windows Server image](../../microsoft/prepare-image.md) to use it in {{ yandex-cloud }} with your own license.
+Before creating VM instances, prepare your Windows Server image to use it in {{ yandex-cloud }} with your own license.
 
 
 
@@ -1287,7 +1287,7 @@ Install SQL Server on your database servers:
 
    {% endlist %}
 
-1. Create a [Listener](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlavailabilitygrouplistener?view=sqlserver-ps#description):
+1. Create a [listener](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlavailabilitygrouplistener?view=sqlserver-ps#description) with the `192.168.1.62` IP address, which belongs to the internal network load balancer:
 
    {% list tabs group=programming_language %}
 

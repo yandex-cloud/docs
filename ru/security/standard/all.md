@@ -4,7 +4,7 @@
 
 {% include notitle [authentication](../../_includes/security/standard/authentication.md) %}
 
-## 2. Сетевая безопасность
+## 2. Сетевая безопасность {#network-security}
 
 {% include notitle [network-security](../../_includes/security/standard/network-security.md) %}
 
@@ -28,6 +28,7 @@
 
 {% include notitle [backup](../../_includes/security/standard/backup.md) %}
 
+
 ## 8. Физическая безопасность {#physical-security}
 
 {% include notitle [physical-security](../../_includes/security/standard/physical-security.md) %}
@@ -35,5 +36,6 @@
 ## 9. Защита приложений {#app-security}
 
 {% include notitle [app-security](../../_includes/security/standard/app-security.md) %}
+
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

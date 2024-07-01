@@ -4,6 +4,8 @@
 
 {% include [ip](../../../_includes/serverless-containers/ip.md) %}
 
+{% include [add-extentions-console](../../../_includes/api-gateway/add-extentions-console.md) %}
+
 ## Поддерживаемые параметры {#parameters}
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}

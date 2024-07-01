@@ -21,9 +21,6 @@ The size of the [disk](../../concepts/disk.md) must be a multiple of 93 GB.
 
    1. Add a disk description, if required.
    1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to place the disk in.
-
-      {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
-
    1. Select `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}` as the disk type.
    1. Select the required block size.
    1. Specify the required disk size.
@@ -92,11 +89,9 @@ The size of the [disk](../../concepts/disk.md) must be a multiple of 93 GB.
       * `type`: Disk type. Specify `network-ssd-nonreplicated` to create a non-replicated disk.
       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
 
-         {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
-
       For more information about the `yandex_compute_disk` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
    1. Make sure the configuration files are correct.
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash

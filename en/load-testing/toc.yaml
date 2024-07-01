@@ -2,7 +2,7 @@ title: Yandex Load Testing
 href: index.yaml
 label:
   title: RU
-  description: The service is available in Russia only.
+  description: This service is only available in Russia.
   theme: unknown
   when: region == "kz"
 items:
@@ -20,6 +20,8 @@ items:
         href: operations/security-groups-target.md
       - name: Creating a test with data from a bucket
         href: operations/create-test-bucket.md
+      - name: Collecting user requests using Dispatcher
+        href: operations/payload-dispatcher.md
       - name: Transferring test logs to {{ cloud-logging-name }}
         href: operations/logging.md
       - name: Creating and configuring a regression dashboard
@@ -74,6 +76,8 @@ items:
             href: concepts/payloads/raw.md
           - name: HTTP_JSON
             href: concepts/payloads/http-json.md
+          - name: GRPC_JSON
+            href: concepts/payloads/grpc-json.md
       - name: Testing threads
         href: concepts/testing-stream.md
       - name: Autostop

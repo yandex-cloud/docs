@@ -1,0 +1,1 @@
+Чтобы добавить [расширение x-yc-apigateway-integration](../../api-gateway/concepts/extensions/index.md#integration) в спецификацию, вы можете воспользоваться [конструктором спецификаций](../../api-gateway/operations/spec-constructor/index.md).

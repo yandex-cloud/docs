@@ -83,7 +83,7 @@ In some cases, the process may take longer if moving to the `{{ region-id }}-d` 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, configure each [network interface](../../concepts/network.md) of your VM as follows:
          1. In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the subnet that corresponds to the selected availability zone.
          1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, choose a method for public IP address assignment:
-            * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool. In this case, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md) in additional settings.
+            * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP address pool. In this case, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md) in additional settings.
             * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
             * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Do not assign a public IP address.
 

@@ -72,7 +72,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
 ## Configure the CI script {#ci}
 
-1. Create the [{{ GL }} environment variables](https://docs.gitlab.com/ee/ci/variables/README.html):
+1. Create the [{{ GL }} environment variables]({{ gl.docs }}/ee/ci/variables/):
    1. Go to **Settings** in the left-hand {{ GL }} panel and select **CI/CD** from the drop-down list.
    1. Click **Expand** next to **Variables**.
    1. Add the following environment variables depending on the {{ k8s }} authentication method in {{ GL }}:
@@ -284,8 +284,8 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
    1. Click **Commit changes**.
 
    In the `.gitlab-ci.yml` file, the following two steps of project build are described:
-   * Build a Docker image using the `Dockerfile` and push the image to {{ container-registry-name }}.
-   * Set up an environment to work with {{ k8s }} and apply `k8s.yaml` configurations to {{ managed-k8s-name }} clusters. This way, the application is deployed on the previously created {{ managed-k8s-name }} cluster.
+   * Building a Docker image using the `Dockerfile` and pushing the image to {{ container-registry-name }}.
+   * Setting up an environment to work with {{ k8s }} and applying `k8s.yaml` configurations to {{ managed-k8s-name }} clusters. This way, the application is deployed on the previously created {{ managed-k8s-name }} cluster.
 
 ## Check the result {#check-result}
 

@@ -2,6 +2,8 @@
 
 Расширение `x-yc-apigateway-integration:object_storage` передает управление обработки запроса в {{ objstorage-short-name }} с целью раздачи статических файлов.
 
+{% include [add-extentions-console](../../../_includes/api-gateway/add-extentions-console.md) %}
+
 ## Поддерживаемые параметры {#parameters}
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}

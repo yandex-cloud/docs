@@ -1,0 +1,1 @@
+To find out the ID, [get](../../network-load-balancer/operations/target-group-list.md#list) a list of target groups in the folder.

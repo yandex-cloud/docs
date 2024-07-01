@@ -4,7 +4,7 @@
    * In the window that opens, enter the network name and specify the folder to host the network.
    * (Optional) To automatically create subnets, select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
    * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
-    Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+   Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
 
 * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, choose a method for assigning an IP address:
 

@@ -1,6 +1,8 @@
 # Расширение x-yc-apigateway-integration:cloud_ydb
 
-Расширение `x-yc-apigateway-integration:cloud_ydb` позволяет выполнять операции с [документными таблицами](../../../ydb/concepts/dynamodb-tables.md) в базе данных {{ ydb-full-name }}. Чтобы взаимодействовать с {{ ydb-short-name }}, используется [Document API](../../../ydb/docapi/api-ref/index.md), который совместим с Amazon DynamoDB. 
+Расширение `x-yc-apigateway-integration:cloud_ydb` позволяет выполнять операции с [документными таблицами](../../../ydb/concepts/dynamodb-tables.md) в базе данных {{ ydb-full-name }}. Чтобы взаимодействовать с {{ ydb-short-name }}, используется [Document API](../../../ydb/docapi/api-ref/index.md), который совместим с Amazon DynamoDB.
+
+{% include [add-extentions-console](../../../_includes/api-gateway/add-extentions-console.md) %}
 
 ## Поддерживаемые операции
 

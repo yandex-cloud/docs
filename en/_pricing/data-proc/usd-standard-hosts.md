@@ -15,5 +15,5 @@
 | 100% vCPU           | $0.009577                  |
 | RAM (for 1 GB)      | $0.002538                  |
 | **Intel Ice Lake (Compute Optimized)** |
-| 100% vCPU | $0.001520 |
-| RAM (for 1 GB) | $0.000240 |
+| 100% vCPU | $0.015600 |
+| RAM (for 1 GB) | $0.002800 |

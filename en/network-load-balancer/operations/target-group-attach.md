@@ -30,6 +30,8 @@ description: "Follow this guide to attach a target group to a network load balan
       yc load-balancer network-load-balancer attach-target-group --help
       ```
 
+   1. Find out the ID or name of the load balancer by getting a [list of network load balancers in the folder](load-balancer-list.md#list).
+
    1. Attach a target group to your load balancer by specifying the group ID and health check settings in the appropriate command parameters:
 
       ```bash
@@ -48,8 +50,6 @@ description: "Follow this guide to attach a target group to a network load balan
       Where:
 
       {% include [target-group-cli-description](../../_includes/network-load-balancer/target-group-cli-description.md) %}
-
-      You can get the load balancer ID and name with a [list of network load balancers in the folder](load-balancer-list.md#list) and the target group ID with a [list of folder target groups](target-group-list.md#list).
 
       For more information about check parameters, see [Resource health check](../concepts/health-check).
 
@@ -80,6 +80,9 @@ description: "Follow this guide to attach a target group to a network load balan
       * `name`: Name of the network load balancer.
       * `attached_target_group`: Description of the network load balancer's target group parameters:
          * `target_group_id`: Target group ID.
+
+            {% include [get-target-group-id](../../_includes/network-load-balancer/get-target-group-id.md) %}
+
          * `healthcheck`: Health check parameters. Enter a name, a port number ranging from `1` to `32767`, and a path for health checks.
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
