@@ -5,7 +5,6 @@ label:
   description: Сервис доступен только в регионе Россия.
   theme: unknown
   when: region == "kz"
-stage: preview
 items:
   - name: Начало работы
     href: quickstart.md
@@ -13,13 +12,17 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Управление соединениями
+      - name: Создание подключения
+        href: operations/create-connection.md
+      - name: Управление подключениями
         href: operations/connect.md
-      - name: Работа с редактором SQL-запросов
+      - name: Просмотр информации об объектах в базе данных
+        href: operations/view-db-objects-info.md
+      - name: Работа с редактором запросов
         href: operations/query-executor.md
-      - name: Работа с сохраненными SQL-запросами
+      - name: Работа с сохраненными запросами
         href: operations/templates.md
-      - name: История запросов
+      - name: Работа с историей запросов
         href: operations/history.md
   - name: Концепции
     items:
@@ -27,12 +30,14 @@ items:
         href: concepts/index.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Управление доступом
+    href: security/index.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений
     items:
       - name: Все изменения
         href: release-notes/index.md
-  - name: Правила тарификации
-    href: pricing.md
 base: ru/websql

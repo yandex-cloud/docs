@@ -1556,6 +1556,50 @@ For more information, see [{#T}](../vpc/security/index.md).
 For more information, see [{#T}](../vision/security/index.md).
 
 
+## {{ websql-full-name }} {#websql-roles}
+
+#### websql.executedQueries.viewer {#websql-executedQueries-viewer}
+
+{% include [websql.executedQueries.viewer](../_roles/websql/executedQueries/viewer.md) %}
+
+#### websql.savedQueries.viewer {#websql-savedQueries-viewer}
+
+{% include [websql.savedQueries.viewer](../_roles/websql/savedQueries/viewer.md) %}
+
+#### websql.executedQueries.editor {#websql-executedQueries-editor}
+
+{% include [websql.executedQueries.editor](../_roles/websql/executedQueries/editor.md) %}
+
+#### websql.savedQueries.editor {#websql-savedQueries-editor}
+
+{% include [websql.savedQueries.editor](../_roles/websql/savedQueries/editor.md) %}
+
+#### websql.executedQueries.admin {#websql-executedQueries-admin}
+
+{% include [websql.executedQueries.admin](../_roles/websql/executedQueries/admin.md) %}
+
+#### websql.savedQueries.admin {#websql-savedQueries-admin}
+
+{% include [websql.savedQueries.admin](../_roles/websql/savedQueries/admin.md) %}
+
+#### websql.viewer {#websql-viewer}
+
+{% include [websql.viewer](../_roles/websql/viewer.md) %}
+
+#### websql.user {#websql-user}
+
+{% include [websql.user](../_roles/websql/user.md) %}
+
+#### websql.editor {#websql-editor}
+
+{% include [websql.editor](../_roles/websql/editor.md) %}
+
+#### websql.admin {#websql-admin}
+
+{% include [websql.admin](../_roles/websql/admin.md) %}
+
+
+
 ## {{ wiki-full-name }} {#wiki-roles}
 
 #### wiki.viewer {#wiki-viewer}

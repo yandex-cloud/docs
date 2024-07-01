@@ -7543,6 +7543,7 @@ default:
           title_security-rules: Правила безопасности
         title_default-template: По преднастроенному шаблону
         title_no-template: С чистого листа
+        title_profiles: Профили безопасности
       smartcaptcha:
         button_captcha-settings-create: Создать капчу
         label_additional-challenge: Дополнительное задание
