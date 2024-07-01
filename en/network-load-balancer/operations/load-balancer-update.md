@@ -13,15 +13,15 @@ description: "Follow this guide to change network load balancer settings."
 
 After you create a network load balancer, you can:
 
-* [{#T}](#change-name-and-description).
+* [{#T}](#change-name-and-description)
 
-* [{#T}](#change-labels).
+* [{#T}](#change-labels)
 
-* [{#T}](#change-target-group).
+* [{#T}](#change-target-group)
 
-* [{#T}](#add-target-group).
+* [{#T}](#add-target-group)
 
-* [{#T}](#add-listener).
+* [{#T}](#add-listener)
 
 ## Changing a load balancer's name and description {#change-name-and-description}
 
@@ -42,13 +42,13 @@ After you create a network load balancer, you can:
 
    To change the name and description of a load balancer:
 
+   1. Find out the ID or name of the load balancer by getting a [list of network load balancers in the folder](load-balancer-list.md#list).
+
    1. View the current `name` and `description` of the load balancer:
 
       ```bash
       yc load-balancer network-load-balancer get <load_balancer_name_or_ID>
       ```
-
-      You can get the load balancer ID and name with a [list of network load balancers in the folder](load-balancer-list.md#list).
 
    1. View a description of the update load balancer configuration CLI command:
 
@@ -231,7 +231,7 @@ After you create a network load balancer, you can:
 
       {% include [target-group-cli-description](../../_includes/network-load-balancer/target-group-cli-description.md) %}
 
-      You can get the load balancer ID and name with a [list of network load balancers in the folder](load-balancer-list.md#list) and the target group ID with a [list of folder target groups](target-group-list.md#list).
+      You can get the load balancer ID and name with a [list of network load balancers in the folder](load-balancer-list.md#list).
 
 - {{ TF }} {#tf}
 
@@ -266,6 +266,9 @@ After you create a network load balancer, you can:
       * `name`: Name of the network load balancer.
       * `attached_target_group`: Description of the network load balancer's target group parameters:
          * `target_group_id`: Target group ID.
+
+            {% include [get-target-group-id](../../_includes/network-load-balancer/get-target-group-id.md) %}
+
          * `healthcheck`: Health check parameters. Enter a name, a port number ranging from `1` to `32767`, and a path for health checks.
 
    1. Make sure the settings are correct.
@@ -281,7 +284,10 @@ After you create a network load balancer, you can:
    Use the [update](../api-ref/NetworkLoadBalancer/update.md) API method and include the following in the request:
 
    * Load balancer ID in the `networkLoadBalancerId` parameter. To find out the ID, [get a list of network load balancers in the folder](load-balancer-list.md#list).
-   * Target group ID and its health check settings in the `attachedTargetGroups` parameter. To find out the ID, [get a list of target groups in the folder](target-group-list.md#list).
+   * Target group ID and its health check settings in the `attachedTargetGroups` parameter.
+
+      {% include [get-target-group-id](../../_includes/network-load-balancer/get-target-group-id.md) %}
+
    * List of cluster configuration fields to update in the `updateMask` parameter (in this case, `attachedTargetGroups`).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}

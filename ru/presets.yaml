@@ -913,11 +913,22 @@ default:
   sku|KZT|gitlab:
     backup|month|string: "9,60\_₸"
     instance:
-      cpu|month|string: "6\_048,00\_₸"
-      cpu|string: "8,40\_₸"
+      advanced:
+        cpu|month|string: "12\_096,00\_₸"
+        cpu|string: "16,80\_₸"
+        ram|month|string: "3\_240,00\_₸"
+        ram|string: "4,50\_₸"
       disk|month|string: "65,05\_₸"
-      ram|month|string: "1\_620,00\_₸"
-      ram|string: "2,25\_₸"
+      free:
+        cpu|month|string: "6\_048,00\_₸"
+        cpu|string: "8,40\_₸"
+        ram|month|string: "1\_620,00\_₸"
+        ram|string: "2,25\_₸"
+      standard:
+        cpu|month|string: "8\_460,00\_₸"
+        cpu|string: "11,75\_₸"
+        ram|month|string: "2\_268,00\_₸"
+        ram|string: "3,15\_₸"
   sku|KZT|interconnect:
     trunk:
       direct:
@@ -1988,11 +1999,22 @@ default:
   sku|RUB|gitlab:
     backup|month|string: "1,92\_₽"
     instance:
-      cpu|month|string: "1\_209,60\_₽"
-      cpu|string: "1,68\_₽"
+      advanced:
+        cpu|month|string: "2\_419,20\_₽"
+        cpu|string: "3,36\_₽"
+        ram|month|string: "648,00\_₽"
+        ram|string: "0,90\_₽"
       disk|month|string: "13,01\_₽"
-      ram|month|string: "324,00\_₽"
-      ram|string: "0,45\_₽"
+      free:
+        cpu|month|string: "1\_209,60\_₽"
+        cpu|string: "1,68\_₽"
+        ram|month|string: "324,00\_₽"
+        ram|string: "0,45\_₽"
+      standard:
+        cpu|month|string: "1\_692,00\_₽"
+        cpu|string: "2,35\_₽"
+        ram|month|string: "453,60\_₽"
+        ram|string: "0,63\_₽"
   sku|RUB|interconnect:
     trunk:
       direct:
@@ -3068,11 +3090,22 @@ default:
   sku|USD|gitlab:
     backup|month|string: "0,015360\_$"
     instance:
-      cpu|month|string: "9,676800\_$"
-      cpu|string: "0,013440\_$"
+      advanced:
+        cpu|month|string: "19,353600\_$"
+        cpu|string: "0,026880\_$"
+        ram|month|string: "5,184000\_$"
+        ram|string: "0,007200\_$"
       disk|month|string: "0,104080\_$"
-      ram|month|string: "2,592000\_$"
-      ram|string: "0,003600\_$"
+      free:
+        cpu|month|string: "9,676800\_$"
+        cpu|string: "0,013440\_$"
+        ram|month|string: "2,592000\_$"
+        ram|string: "0,003600\_$"
+      standard:
+        cpu|month|string: "13,536000\_$"
+        cpu|string: "0,018800\_$"
+        ram|month|string: "3,628800\_$"
+        ram|string: "0,005040\_$"
   sku|USD|interconnect:
     trunk:
       direct:
@@ -9313,7 +9346,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.2
+        tag: v0.2.3
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd

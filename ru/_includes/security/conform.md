@@ -1,5 +1,6 @@
 # Соответствие требованиям
 
+
 ## Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ {#law}
 
 В {{ yandex-cloud }} действуют меры по защите персональных данных (ПДн), указанные в постановлении №1119 и приказе ФСТЭК №21 в соответствии с требованиями к 1 уровню защищенности (УЗ-1).
@@ -12,6 +13,8 @@
 * [Заключение о соответствии системы защиты персональных данных требованиям ФЗ-152 «О персональных данных»](https://{{ s3-storage-host }}/yc-compliance/conformance-ru-pdp-2023-11-23.pdf).
 * [Соглашение об обработке данных](https://yandex.ru/legal/cloud_dpa/?lang=ru).
 * [Действия клиентов по защите ПД](https://{{ s3-storage-host }}/yc-compliance/recomendations/fz-152-ru-2023-11-23.pdf).
+
+
 
 ## GDPR (General Data Protection Regulation) {#gdpr}
 
@@ -41,7 +44,6 @@
 * [Приложение к сертификату ISO 27017](https://{{ s3-storage-host }}/yc-compliance/certificates/4-ISO-27017-03-2024-part-2.pdf).
 * [Сертификат ISO 27701](https://{{ s3-storage-host }}/yc-compliance/certificates/ISO-27701-03-2024-part-1.pdf).
 * [Приложение к сертификату ISO 27701](https://{{ s3-storage-host }}/yc-compliance/certificates/ISO-27701-03-2024-part-2.pdf).
-
 
 
 

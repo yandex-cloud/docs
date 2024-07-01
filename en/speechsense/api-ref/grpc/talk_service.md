@@ -38,6 +38,16 @@ Field | Description
 --- | ---
 connection_id | **string**<br>id of connection this talk belongs too 
 fields | **map<string,string>**<br>channel defined fields 
+users[] | **[UserMetadata](#UserMetadata)**<br>per user specific metadata 
+
+
+### UserMetadata {#UserMetadata}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+role | enum **UserRole**<br> 
+fields | **map<string,string>**<br> 
 
 
 ### AudioStreamingRequest {#AudioStreamingRequest}
@@ -108,6 +118,16 @@ Field | Description
 --- | ---
 connection_id | **string**<br>id of connection this talk belongs too 
 fields | **map<string,string>**<br>channel defined fields 
+users[] | **[UserMetadata](#UserMetadata)**<br>per user specific metadata 
+
+
+### UserMetadata {#UserMetadata1}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+role | enum **UserRole**<br> 
+fields | **map<string,string>**<br> 
 
 
 ### AudioRequest {#AudioRequest}
@@ -177,6 +197,16 @@ Field | Description
 --- | ---
 connection_id | **string**<br>id of connection this talk belongs too 
 fields | **map<string,string>**<br>channel defined fields 
+users[] | **[UserMetadata](#UserMetadata)**<br>per user specific metadata 
+
+
+### UserMetadata {#UserMetadata2}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+role | enum **UserRole**<br> 
+fields | **map<string,string>**<br> 
 
 
 ### TextContent {#TextContent}

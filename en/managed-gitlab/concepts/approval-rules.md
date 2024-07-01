@@ -5,14 +5,6 @@ description: "With {{ mgl-name }}, you can flexibly set up mandatory approval ru
 
 # Approval rules in {{ mgl-name }}
 
-{% note warning %}
-
-This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and is currently provided free of charge.
-
-Starting July 1, 2024, it is moving to the [General Availability](../../overview/concepts/launch-stages.md) stage and will be charged as per the [pricing policy](../pricing.md#prices-instance).
-
-{% endnote %}
-
 With {{ mgl-name }}, you can flexibly set up mandatory approval rules before any code can be added to the target branch of the project. This feature is an alternative to the [Approval Rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html) Enterprise Edition tool built in {{ GL }} and is available regardless of the {{ GL }} [version](https://about.gitlab.com/pricing).
 
 If a {{ GL }} instance has the approval rules enabled, {{ mgl-name }} analyzes approvals by reviewers for compliance with the specified rules. If there are not enough approvals, a thread is created in a merge request that blocks it from being merged to the target branch. Editing the merge request creates or updates a comment in the thread with its current compliance status. Once all the required approvals are obtained, the thread is closed.
@@ -34,6 +26,8 @@ One day before the expiration date, {{ GL }} sends a notification that the token
 Issue a new token and add it to your {{ GL }} instance settings before the previous token expires. Otherwise, {{ mgl-name }} will not operate correctly.
 
 ## Available configurations {#packages}
+
+{% include [note-approval-rules-pricing](../../_includes/managed-gitlab/note-approval-rules-pricing.md) %}
 
 You can choose a suitable configuration based on your team's objectives:
 

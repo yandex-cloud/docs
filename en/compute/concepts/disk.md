@@ -1,5 +1,5 @@
 ---
-description: "Disks are virtual versions of physical storage devices, such as SSDs and HDDs. Disks are designed for storing data and are attached to VMs. Detaching a disk does not delete its data."
+description: "Disks are virtual counterparts of physical storage devices, such as SSDs and HDDs. Disks are designed for storing data and are attached to VMs. Detaching a disk does not delete its data."
 keywords:
   - disk
   - ssh
@@ -11,7 +11,7 @@ keywords:
 # Disks
 
 
-_Disks_ are virtual versions of physical storage devices, such as SSD and HDD.
+In {{ cloud-desktop-name }}, _disks_ are virtual counterparts of physical storage devices, such as SSDs and HDDs.
 
 Disks are designed for storing data and are attached to VMs. Detaching a disk does not delete its data.
 
@@ -42,13 +42,9 @@ If a physical disk hosting a network drive fails, the VM will continue running a
 
 ### Non-replicated disks and high-performance SSDs {#nr-disks}
 
-Non-replicated disks and high-performance SSDs outperform network SSDs but have the following limitations:
+Non-replicated disks and high-performance SSDs outperform network SSDs but their size must be a multiple of 93 GB.
 
-* Disk size must be a multiple of 93 GB.
-
-  {% include [pricing-gb-size](../../_includes/pricing-gb-size.md) %}
-
-* {% include [nrd-az](../../_includes/compute/nrd-az.md) %}
+{% include [pricing-gb-size](../../_includes/pricing-gb-size.md) %}
 
 {% note alert %}
 

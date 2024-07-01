@@ -23,9 +23,6 @@ To create a [placement group](../../concepts/disk-placement-group.md) for [non-r
 
    1. If required, add a group description.
    1. Specify the [availability zone](../../../overview/concepts/geo-scope.md).
-
-      {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
-
    1. Select a placement strategy: [spread](../../concepts/disk-placement-group.md#spread) or [partition](../../concepts/disk-placement-group.md#partition).
 
       If you select the partition placement strategy, specify the number of partitions for non-replicated disks.

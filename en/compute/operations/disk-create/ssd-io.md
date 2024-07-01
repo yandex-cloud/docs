@@ -19,11 +19,6 @@ The size of a disk must be a multiple of 93 GB.
 
    1. Add a disk description, if required.
    1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to place the disk in.
-
-      
-      {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
-
-
    1. Select `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-io-m3 }}` as the disk type.
    1. Select the required block size.
    1. Specify the required disk size.

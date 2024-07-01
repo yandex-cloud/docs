@@ -12,7 +12,7 @@ To back up and recover a VM using Hystax Acura Backup:
 1. [Configure network traffic permissions](#network-settings).
 1. [Create a bucket](#create-bucket).
 1. [Create a VM with Hystax Acura Backup](#create-acura-vm).
-1. [Make the VM's IP address static](#static-ip).
+1. [Make the VM IP address static](#static-ip).
 1. [Set up Hystax Acura Backup](#setup-hystax-acura).
 1. [Prepare and install an agent on the VM](#prepare-agent).
 1. [Create a VM backup](#start-protection).
@@ -192,7 +192,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
 
    {% endlist %}
 
-## Make your VM's IP address static {#static-ip}
+## Make the VM IP address static {#static-ip}
 
 VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup may reboot, make the IP static.
 

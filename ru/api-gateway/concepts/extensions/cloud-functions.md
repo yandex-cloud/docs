@@ -2,6 +2,8 @@
 
 Расширение `x-yc-apigateway-integration:cloud_functions` вызывает указанную функцию. В качестве входных данных функция получает информацию о HTTP-запросе и значения параметров, указанных в спецификации, на выходе клиенту возвращается результат выполнения функции.
 
+{% include [add-extentions-console](../../../_includes/api-gateway/add-extentions-console.md) %}
+
 ## Поддерживаемые параметры {#parameters}
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
