@@ -56,9 +56,12 @@
       * Нелегитимные запросы и атаки блокируются.
       * Подозрительные запросы направляются в [{{ captcha-name }}](../smartcaptcha/) для дополнительной верификации.
 
-  Вы также можете подключить к профилю безопасности [профиль WAF](./concepts/waf.md). Подробнее см. на странице [{#T}](./quickstart/quickstart-waf.md).
+  Вы также можете подключить к профилю безопасности:
 
-  {% include [note-preview-waf](../_includes/smartwebsecurity/note-preview-waf.md) %}
+  * [профиль WAF](./concepts/waf.md), подробнее см. [{#T}](./quickstart/quickstart-waf.md).
+  * [профиль ARL](./concepts/arl.md), подробнее см. [{#T}](./quickstart/quickstart-arl.md).
+
+  {% include [note-preview-waf](../_includes/smartwebsecurity/note-preview-waf-arl.md) %}
 
 {% endlist %}
 
@@ -84,6 +87,7 @@
 ### См. также {#see-also}
 
 * [{#T}](./quickstart/quickstart-waf.md)
+* [{#T}](./quickstart/quickstart-arl.md)
 * [{#T}](./concepts/profiles.md)
 * [{#T}](./operations/profile-create.md)
 * [Создать L7-балансировщик с профилем безопасности](./tutorials/balancer-with-sws-profile.md)

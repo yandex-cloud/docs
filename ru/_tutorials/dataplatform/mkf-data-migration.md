@@ -63,12 +63,13 @@
         * сеть;
         * подсеть;
         * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру из интернета;
-        * кластер {{ mkf-name }} с [пользователем-администратором](../../managed-kafka/operations/cluster-accounts.md#create-account) `admin-cloud` и с включенной настройкой [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics);
-        * MirrorMaker-коннектор.
+        * кластер-приемник {{ mkf-name }} с включенной настройкой [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics);
+        * [пользователь-администратор](../../managed-kafka/operations/cluster-accounts.md#create-account) `admin-cloud` для кластера-приемника;
+        * MirrorMaker-коннектор для кластера-приемника.
 
     1. Укажите в файле `kafka-mirrormaker-connector.tf`:
 
-        * имена и пароли пользователей кластера-источника и кластера-приемника;
+        * имя пользователя кластера-источника и пароли для пользователей кластера-источника и кластера-приемника;
         * FQDN хостов-брокеров кластера-источника;
         * псевдонимы кластера-источника и кластера-приемника;
         * шаблон фильтрации для переносимых топиков;
@@ -133,12 +134,14 @@
         * сеть;
         * подсеть;
         * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру и виртуальной машине из интернета;
-        * кластер {{ mkf-name }} с [пользователем-администратором](../../managed-kafka/operations/cluster-accounts.md#create-account) `admin-cloud` и с включенной настройкой [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics);
+        * кластер {{ mkf-name }} с включенной настройкой [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics);
+        * [пользователь-администратор](../../managed-kafka/operations/cluster-accounts.md#create-account) {{ KF }} `admin-cloud`;
         * виртуальная машина с публичным доступом из интернета.
 
     1. Укажите в файле `kafka-mirror-maker.tf`:
 
-        * Пароль пользователя-администратора {{ mkf-name }}.
+        * Версию {{ KF }}.
+        * Пароль пользователя-администратора {{ KF }}.
         * Идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list) с Ubuntu без [GPU](../../glossary/gpu.md). Например, для [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
         * Логин и путь к файлу [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в используемом образе указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
 
