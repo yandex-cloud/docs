@@ -36,13 +36,13 @@ The number of free dedicated hosts of each type per [availability zone](../../ov
 
 Current types: on Intel<sup>®</sup> Ice Lake
 
-| Type and processor<br>(Ice Lake platform) | Processors | Cores | vCPU^1^ | RAM, GB | Disks | Disk size |
-  --- | --- | --- | --- | --- | --- | ---
-| `intel-6338-c108-m704-n3200x6`<br>[Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6338](https://ark.intel.com/content/www/us/en/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html) | 2 | 64 | 108 | 704 | 6 | 3198924357632 B <br>(~2.91 TB) |
-| `intel-6354-c56-m454-n3200x6`<br>[Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6354](https://ark.intel.com/content/www/us/en/ark/products/212460/intel-xeon-gold-6354-processor-39m-cache-3-00-ghz.html) | 2 | 32 | 56 | 454 | 6 | 3198924357632 B <br>(~2.91 TB) |
+| Type and processor | Processors | Cores | vCPU^1^ | RAM, GB | Disks | Disk size |
+--- | --- | --- | --- | --- | --- | ---
+| **Ice Lake**<br>`intel-6338-c108-m704-n3200x6`<br>[Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6338](https://ark.intel.com/content/www/us/en/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html) | 2 | 64 | 108 | 704 | 6 | 3198924357632&nbsp;B <br>(~ 2.91 TB) |
+| **Ice Lake Compute-Optimized**<br>`intel-6354-c56-m454-n3200x6`<br>[Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6354](https://ark.intel.com/content/www/us/en/ark/products/212460/intel-xeon-gold-6354-processor-39m-cache-3-00-ghz.html) | 2 | 32 | 56 | 454 | 6 | 3198924357632&nbsp;B <br>(~ 2.91 TB) |
 
 
-You can create hosts of these types only in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. For more information, see [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
+You can create hosts of these types only in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d` availability zones. For more information, see [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
 
 
 {% cut "Archived types: Intel Cascade Lake platform" %}
@@ -71,7 +71,7 @@ The above lists of the current and archived types are provided for indicative pu
 
     For more information, see the [guide on creating host groups](../operations/dedicated-host/create-host-group.md).
 
-^1^ This specifies the number of vCPUs where you can run VMs. Other vCPUs of the host are allocated for system usage (see [below](#resource-fragmentation) for details): 14 vCPUs running on the Intel® Xeon® Gold 6230 processors, and 20 vCPUs, on Intel® Xeon® Gold 6230R and Intel® Xeon® Gold 6338.
+^1^ This specifies the number of vCPUs where you can run VMs. Other vCPUs of the host are allocated for system usage (see [below](#resource-fragmentation) for details): 20 vCPUs running on the Intel® Xeon® Gold 6338 processors, and 8 vCPUs, on Intel® Xeon® Gold 6354.
 
 ## Using physical resources of a host {#resource}
 
@@ -79,13 +79,19 @@ The above lists of the current and archived types are provided for indicative pu
 
 There are two processors installed on a physical server. However, not all their cores are available for running VMs. Some cores are allocated for system usage.
 
-For example, a dedicated host with two Intel® Xeon® Gold 6230 processors can use 66 vCPUs to run VMs (34 on the first processor and 32 on the second one). The remaining 14 vCPUs (6 + 8) are used by the system.
+For example, a dedicated `intel-6354-c56-m454-n3200x6` host has:
+* Two Intel® Xeon® Gold 6354 CPUs
+* 32 vCPUs on each processor, where:
+   * 4 vCPUs are allocated for system usage.
+   * 28 vCPUs are available to run user VMs.
 
-When creating a VM on a dedicated host, you may encounter resource fragmentation, when the number of free vCPUs is sufficient, but you are unable to run your VM. For example, you can only run 10 VMs with 6 vCPUs each on a dedicated host with 66 vCPUs.
+When creating a VM on a dedicated host, you may encounter resource fragmentation, when the number of free vCPUs is sufficient, but you are unable to run your VM.
 
 ![Resource fragmentation](../../_assets/compute/resource-fragmentation.svg "Resource fragmentation")
 
-In this case, you can run two VMs with two and four vCPUs to use the dedicated host's vCPUs at full capacity.
+For example, a dedicated host from this diagram has 56 vCPUs (2 × 28) available to a user, but you can use it to run only eight VMs with six vCPUs each. A VM cannot use vCPUs from different physical CPUs at once.
+
+In this case, you can run two more VMs with four vCPUs each to fully use the dedicated host's vCPUs.
 
 ### Local and network disks {#resource-disks}
 
@@ -103,6 +109,8 @@ When working with local disks attached to VMs on dedicated hosts, you cannot:
 * Change an existing VM's RAM and CPU. To modify these parameters, recreate the VM.
 * Attach additional network disks to a `stopped` VM. You can only attach additional network disks to a [running](../operations/vm-control/vm-stop-and-start.md#start) VM.
 * Attach additional local disks to a VM or delete the attached ones. To change the local disks attached, recreate the VM. For more information about creating VMs with local disks on dedicated hosts, see the [guides](../operations/index.md#dedicated-host).
+
+You can connect a local disk to a VM on a dedicated host only if you [create](../operations/dedicated-host/running-host-vms.md) the VM using the [YC CLI](../../cli/cli-ref/managed-services/compute/instance/create.md) or [API](../api-ref/Instance/create.md). To connect multiple local disks, when running the `yc compute instance create` command, set the `--attach-local-disk` parameter as many times as you need, once for each disk you are connecting.
 
 If a dedicated host fails, the data stored on local disks will be lost. To ensure data security, set up replication yourself, e.g., using [{{ backup-full-name }}](../../backup/concepts/index.md).
 

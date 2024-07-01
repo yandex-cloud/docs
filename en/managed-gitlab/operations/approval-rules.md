@@ -5,14 +5,6 @@ description: "Follow this guide to set up approval rules."
 
 # Setting up approval rules
 
-{% note warning %}
-
-This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and is currently provided free of charge.
-
-Starting July 1, 2024, it is moving to the [General Availability](../../overview/concepts/launch-stages.md) stage and will be charged as per the [pricing policy](../pricing.md#prices-instance).
-
-{% endnote %}
-
 With {{ mgl-name }}, you can flexibly set up mandatory approval rules before any code can be added to the target branch of the project. For more information on how approval rules work, see [Approval rules](../concepts/approval-rules.md).
 
 Before getting started, [create a service account](create-user.md#create) with administrator privileges and [add it to your {{ GL }} project](create-user.md#add-to-project). Assign the `Maintainer` or `Owner` [role]({{ gl.docs }}/ee/user/permissions.html) to the account, as other roles do not provide enough permissions to set up approval rules. Next, log in to the {{ GL }} instance and set up the approval rules via the service account.
@@ -76,6 +68,9 @@ To create a token:
    1. Select **{{ mgl-name }}**.
    1. Select the instance and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** at the top of the page.
    1. In the **{{ ui-key.yacloud.gitlab.field_approval-rules }}** field, select the required [configuration](../concepts/approval-rules.md#packages).
+
+      {% include [note-approval-rules-pricing](../../_includes/managed-gitlab/note-approval-rules-pricing.md) %}
+
    1. In the **{{ ui-key.yacloud.gitlab.field_approval-rules-token }}** field, specify the [token you created earlier](#gitlab-token).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 

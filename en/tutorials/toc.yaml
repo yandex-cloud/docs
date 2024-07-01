@@ -206,8 +206,14 @@ items:
                 href: web/lamp-lemp/console.md
               - name: '{{ TF }}'
                 href: web/lamp-lemp/terraform.md
-          - name: Joomla-based website with PostgreSQL
-            href: web/joomla-postgresql.md
+          - name: Creating a Joomla website with a PostgreSQL database
+            items:
+              - name: Overview
+                href: web/joomla-postgresql/index.md
+              - name: Management console
+                href: web/joomla-postgresql/console.md
+              - name: '{{ TF }}'
+                href: web/joomla-postgresql/terraform.md
           - name: WordPress website
             href: web/wordpress.md
           - name: WordPress website on a {{ MY }} database
@@ -216,8 +222,14 @@ items:
               Transferring a WordPress website from a different hosting provider
               to {{ yandex-cloud }}
             href: web/wordpress-transfer.md
-          - name: 1C-Bitrix website
-            href: web/bitrix-website.md
+          - name: Building a 1C-Bitrix website
+            items:
+              - name: Overview
+                href: web/bitrix-website/index.md
+              - name: Management console
+                href: web/bitrix-website/console.md
+              - name: '{{ TF }}'
+                href: web/bitrix-website/terraform.md
           - name: OpenCart online store
             items:
               - name: Overview
@@ -237,7 +249,13 @@ items:
       - name: 1C
         items:
           - name: 1C-Bitrix online store
-            href: internet-store/bitrix-shop.md
+            items:
+              - name: Overview
+                href: internet-store/bitrix-shop/index.md
+              - name: Management console
+                href: internet-store/bitrix-shop/console.md
+              - name: '{{ TF }}'
+                href: internet-store/bitrix-shop/terraform.md
           - name: >-
               Creating a cluster of 1C:Enterprise Linux servers with a {{
               mpg-name }} cluster

@@ -8,12 +8,6 @@ editable: false
 
 
 
-{% note warning %}
-
-Starting July 1, 2024, you will be charged for using [approval rules](concepts/approval-rules.md) depending on the [selected configuration](#prices-instance).
-
-{% endnote %}
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 ## What goes into the cost of using {{ mgl-name }} {#rules}
@@ -31,6 +25,8 @@ In all calculations, 1 GB = 2<sup>10</sup> MB = 2<sup>20</sup> KB = 2<sup>30</su
 ### Using computing resources {#rules-hosts-uptime}
 
 You are charged per hour of VM use.
+
+The cost of computing resources depends on the [approval rules](concepts/approval-rules.md) configuration you select.
 
 The minimum billing unit is one hour (e.g., the cost of 1.5 hours of operation is the same as the cost of 2 hours of operation).
 
@@ -100,7 +96,7 @@ All prices are shown without VAT.
 
 ### Computing resources of instances {#prices-instance}
 
-Starting July 1, 2024, the cost of computing resources will depend on the [approval rules](concepts/approval-rules.md) configuration you select. Until June 30, inclusive, the cost of computing resources is calculated according to the rates of the basic configuration.
+The cost of computing resources depends on the [approval rules](concepts/approval-rules.md) configuration you select:
 
 
 

@@ -2,6 +2,8 @@
 
  Расширение `x-yc-apigateway-integration:cloud_datastreams` позволяет обращаться к {{ yds-full-name }} для выполнения операции с [потоком](../../../data-streams/concepts/glossary.md#stream-concepts). На данный момент поддерживается только операция [PutRecord](../../../data-streams/kinesisapi/methods/putrecord.md). 
 
+{% include [add-extentions-console](../../../_includes/api-gateway/add-extentions-console.md) %}
+
 ## Поддерживаемые параметры {#parameters}
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}

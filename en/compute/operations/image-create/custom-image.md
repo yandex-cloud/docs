@@ -187,7 +187,7 @@ If working with a VM requires a [GPU](../../concepts/gpus.md), [install NVIDIA d
 
 ## Create an image file {#create-image-file}
 
-The supported formats are `Qcow2`, `VMDK`, and `RAW`.
+The supported formats include `Qcow2`, `VMDK`, `RAW`, and `VHD`.
 
 We recommend that you use `Qcow2` format with an optimized cluster size for faster import. To convert your image from other formats, use the `qemu-img` utility:
 

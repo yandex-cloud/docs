@@ -21,6 +21,7 @@ Types of payloads:
 * [PHANTOM](payloads/phantom.md)
 * [RAW](payloads/raw.md)
 * [HTTP_JSON](payloads/http-json.md)
+* [GRPC_JSON](payloads/grpc-json.md)
 
 To store payloads, you can use [{{ objstorage-full-name }}](../../storage/). In this case, a data file is uploaded to a [bucket](../../storage/concepts/bucket.md) and remains in the user's cloud.
 

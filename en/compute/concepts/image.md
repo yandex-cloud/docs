@@ -21,7 +21,7 @@ To regularly back up your data on disks, use [snapshots](snapshot.md).
 
 {% endnote %}
 
-You can create an image from a disk, snapshot, or another image. If you have an image file, you can [import](../operations/image-create/upload.md) it to {{ yandex-cloud }}. To create a Windows disk image, follow [this guide](../../microsoft/prepare-image.md).
+You can create an image from a disk, snapshot, or another image. If you have an image file, you can [import](../operations/image-create/upload.md) it to {{ yandex-cloud }}.
 
 When you create a Windows boot disk image, specify this in the operating system type. This is important for proper CPU emulation and calculating resource usage costs.
 

@@ -1,1 +1,0 @@
-We recommend creating non-replicated and high-performance disks in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones.

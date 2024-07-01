@@ -25,6 +25,5 @@ If you need to upload a custom VM image, complete these steps:
 
 The above recommendations apply to VM disk images that use the Linux kernel as a guest operating system.
 If you need to deploy an image of a product based on Microsoft Windows®, this guide is not for you.
-Follow the [Preparing Custom Images with Microsoft Products](../../../microsoft/prepare-image.md) guide.
 
 {% endnote %}

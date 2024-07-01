@@ -1,6 +1,6 @@
 # Creating an OpenCart online store using {{ TF }}
 
-To create an [OpenCart online store](../bitrix-shop.md) using {{ TF }}:
+To create an [OpenCart online store](index.md) using {{ TF }}:
 
 {% include [opencart](../../../_tutorials/applied/opencart-terraform.md) %}
 

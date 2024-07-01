@@ -4,4 +4,4 @@
 | Storage based on network SSDs | {{ sku|USD|mdb.cluster.network-nvme.redis|month|string }} |
 | Network SSD storage with 3 replicas | $0.174240 |
 | Storage based on local SSDs<sup>*</sup> | {{ sku|USD|mdb.cluster.local-nvme.redis|month|string }} |
-| Backup over storage size | $0.032594 |
+| Backup over storage size | $0.015360 |

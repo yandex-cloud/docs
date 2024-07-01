@@ -32,7 +32,7 @@ resourceId | <p>Required. ID of the resource to perform purge operation on.</p> 
  
 Field | Description
 --- | ---
-paths[] | **string**<br><p>Set of paths: Paths of the files to remove from the cache.</p> <p>You may use asterisk (``*``) as a wildcard character that substitutes any number of characters.</p> <p>If an empty array of paths is specified, the cache is purged entirely.</p> 
+paths[] | **string**<br><p>Set of paths: Paths of the files to remove from the cache.</p> <p>You may use asterisk (``*``) as a wildcard character that substitutes any number of characters.</p> <p>If an empty array of paths is specified (``"paths": []``), the cache is purged entirely.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

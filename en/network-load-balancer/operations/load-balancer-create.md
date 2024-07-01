@@ -147,6 +147,9 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
             * `ip_version`: External IP address specification. Set the IP address version: `ipv4` or `ipv6`. The default value is `ipv4`.
       * `attached_target_group`: Description of the network load balancer's target group parameters:
          * `target_group_id`: Target group ID.
+
+            {% include [get-target-group-id](../../_includes/network-load-balancer/get-target-group-id.md) %}
+
          * `healthcheck`: Health check parameters. Enter a name, a port number ranging from `1` to `32767`, and a path for health checks.
 
       For more information about the `yandex_lb_network_load_balancer` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).

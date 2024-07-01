@@ -1,4 +1,4 @@
-To get a list of available images using the YC CLI, run this command:
+To get a list of available images using the CLI, run this command:
 
 ```bash
 yc compute image list --folder-id standard-images

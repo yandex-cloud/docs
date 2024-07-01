@@ -29,7 +29,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 resource_id | **string**<br>Required. ID of the resource to perform purge operation on. The maximum string length in characters is 50.
-paths[] | **string**<br>Set of paths: Paths of the files to remove from the cache. <br>You may use asterisk (`*`) as a wildcard character that substitutes any number of characters. <br>If an empty array of paths is specified, the cache is purged entirely. 
+paths[] | **string**<br>Set of paths: Paths of the files to remove from the cache. <br>You may use asterisk (`*`) as a wildcard character that substitutes any number of characters. <br>If an empty array of paths is specified (`"paths": []`), the cache is purged entirely. 
 
 
 ### Operation {#Operation}

@@ -15,5 +15,5 @@
 | 100% vCPU              | 1,17 ₽                  |
 | RAM (за 1 ГБ)          | 0,31 ₽                  |
 | **Intel Ice Lake (Compute Optimized)** |
-| 100% vCPU | 0,19 ₽ |
-| RAM (за 1 ГБ) | 0,03 ₽ |
+| 100% vCPU | 1,95 ₽ |
+| RAM (за 1 ГБ) | 0,35 ₽ |

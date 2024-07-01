@@ -22,6 +22,8 @@ When creating a VM, you need to select its [image](../../concepts/image.md) with
 
 - CLI {#cli}
 
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
    {% include [standard-images](../../../_includes/standard-images.md) %}
 
 - API {#api}

@@ -68,11 +68,11 @@ x-yc-apigateway:
 Все типы поддерживают подстановку параметров — замену всех ключей на соответствующее значение. Ключ должен быть определен как параметр соответствующей операции (допускаются все типы параметров, определенные в [OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification) — `path`, `query`, `header`, `cookie`).
 Подстановка параметров производится только в некоторых значениях, в зависимости от типа расширения.
 
-## Расширение components:x-yc-apigateway-integrations
+## Расширение components:x-yc-apigateway-integrations {#integrations}
 
 Расширение `x-yc-apigateway-integrations` позволяет указывать интеграцию в стандартной секции [components](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#components-object). На определенные таким образом интеграции можно ссылаться с помощью параметра `$ref` в расширении `x-yc-apigateway-integration`.
 
-### Спецификация расширения
+### Спецификация расширения {#intg-spec}
 
 Пример спецификации расширения:
 ```yaml

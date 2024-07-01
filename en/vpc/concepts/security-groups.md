@@ -219,6 +219,10 @@ For consistent and reliable operation of network services, you must explicitly a
 
 To avoid network connectivity issues when deploying and using {{ managed-k8s-name }} clusters, carefully follow [this guide](../../managed-kubernetes/operations/connect/security-groups.md).
 
+#### Security groups and {{ alb-name }} tools for {{ managed-k8s-name }} {#security-groups-and-alb-for-k8s}
+
+For proper operation of the [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) or [Gateway API](https://github.com/kubernetes-sigs/gateway-api), you need to configure security groups for the {{ managed-k8s-name }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node groups](../../managed-kubernetes/concepts/index.md#node-group), and for the {{ alb-name }} [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md). For more information, see [this guide](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+
 {% note alert %}
 
 {{ yandex-cloud }} supports automatic [filtering of egress SMTP traffic](./limits.md#vpc-egress-traffic-filter).

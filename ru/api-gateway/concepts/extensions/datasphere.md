@@ -2,6 +2,8 @@
 
 Расширение `x-yc-apigateway-integration:cloud_datasphere` вызывает ноду {{ ml-platform-name }}, развернутую в виде отдельного микросервиса. В запросе к {{ api-gw-short-name }} должен быть JSON-объект, который содержит входные переменные, указанные при создании ноды, и их значения. В ответе от {{ api-gw-short-name }} будет JSON-объект, который содержит выходные переменные, указанные при создании ноды, и их значения, полученные после ее выполнения.
 
+{% include [add-extentions-console](../../../_includes/api-gateway/add-extentions-console.md) %}
+
 ## Поддерживаемые параметры {#parameters}
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
@@ -10,7 +12,7 @@
 ----|----|----
 `folder_id` | `string` | Идентификатор [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан проект {{ ml-platform-name }} и развернута нода.
 `node_id` | `string` | Идентификатор ноды {{ ml-platform-name }}.
-`service_account_id` | `string` | Идентификатор сервисного аккаунта. Используется для авторизации при вызове ноды {{ ml-platform-name }}. Если параметр не указан, используется значение [верхнеуровнего параметра](./index.md#top-level) `service_account_id`.
+`service_account_id` | `string` | Идентификатор сервисного аккаунта. Используется для авторизации при вызове ноды {{ ml-platform-name }}. Если параметр не указан, используется значение [верхнеуровневого параметра](./index.md#top-level) `service_account_id`.
 
 ## Спецификация расширения {#spec}
 

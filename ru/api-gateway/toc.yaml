@@ -37,6 +37,28 @@ items:
             href: operations/api-gw-migration.md
           - name: Удалить API-шлюз
             href: operations/api-gw-delete.md
+      - name: Конструктор спецификаций
+        items:
+          - name: Обзор
+            href: operations/spec-constructor/index.md
+          - name: '{{ sf-name }}'
+            href: operations/spec-constructor/cloud-functions.md
+          - name: Статический ответ
+            href: operations/spec-constructor/dummy.md
+          - name: '{{ objstorage-name }}'
+            href: operations/spec-constructor/object-storage.md
+          - name: '{{ serverless-containers-name }}'
+            href: operations/spec-constructor/containers.md
+          - name: Обращение по HTTP
+            href: operations/spec-constructor/http.md
+          - name: '{{ message-queue-name }}'
+            href: operations/spec-constructor/ymq.md
+          - name: '{{ yds-name }}'
+            href: operations/spec-constructor/datastreams.md
+          - name: '{{ ydb-name }}'
+            href: operations/spec-constructor/ydb.md
+          - name: '{{ ml-platform-short-name }}'
+            href: operations/spec-constructor/datasphere.md
   - name: Практические руководства
     items:
       - name: Все практические руководства

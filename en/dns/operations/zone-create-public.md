@@ -30,19 +30,26 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 
    1. View a description of the CLI create zone command:
 
-      ```
+      ```bash
       yc dns zone create --help
       ```
 
    1. Create a new public DNS zone in the default folder:
 
+      ```bash
+      yc dns zone create --name <zone_name> \
+        --zone <domain_zone>. \
+        --public-visibility=true
       ```
-      yc dns zone create --name production-zone --zone www.example.com. --public-visibility
-      ```
+      Where:
+
+      * `--name`: Zone name. It must be unique within the folder. This is an optional parameter.
+      * `--zone`: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This is a required parameter.
+      * `--public-visibility`: Flag for creating a public zone.
 
       Result:
 
-      ```
+      ```bash
       id: aet2q4fn8i8i********
       folder_id: aoerb349v3h4********
       created_at: "2021-03-03T19:07:08.685Z"
@@ -53,79 +60,43 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      1. DNS zone parameters:
-
-         * `zone`: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This is a required parameter.
-         * `folder_id`: ID of the folder to create a zone in. If not specified, the default folder is used. This is an optional parameter.
-         * `name`: Zone name. It must be unique within the folder. This is an optional parameter.
-         * `description`: Zone description. This is an optional parameter.
-         * `labels`: Set of DNS zone labels. This is an optional parameter.
-         * `public`: Zone visibility, public or private. This is an optional parameter.
-
-      1. DNS record parameters:
-
-         * `zone_id`: ID of the zone where the record set will be located. This is a required parameter.
-         * `name`: Domain name. This is a required parameter.
-         * `type`: DNS record type. This is a required parameter.
-         * `ttl`: Record time to live (TTL) in seconds before updating the record value. This is an optional parameter.
-         * `data`: Record value. This is an optional parameter.
-
-      Here is an example of the configuration file structure:
-
       ```hcl
-      resource "yandex_vpc_network" "foo" {}
-
       resource "yandex_dns_zone" "zone1" {
-        name        = "my-public-zone"
-        description = "Test public zone"
+        name        = "<zone_name>"
+        description = "<zone_description>"
 
         labels = {
-          label1 = "test-public"
+          label1 = "<zone_label>"
         }
 
-        zone    = "test.example-public2.com."
+        zone    = "<domain_zone>."
         public  = true
       }
-
-      resource "yandex_dns_recordset" "rs1" {
-        zone_id = yandex_dns_zone.zone1.id
-        name    = "test.example-public.com."
-        type    = "A"
-        ttl     = 200
-        data    = ["10.1.0.1"]
-      }
       ```
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      Where:
 
+      * `name`: Zone name. It must be unique within the folder. This is an optional parameter.
+      * `description`: Zone description. This is an optional parameter.
+      * `labels`: Set of DNS zone labels. This is an optional parameter.
+      * `zone`: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This is a required parameter.
+      * `public`: Zone visibility, public or private. This is an optional parameter.
 
-   1. Run a check using this command:
-      ```
-      terraform plan
-      ```
+      For more information about the `yandex_dns_zone` resource parameters, see the [provider documentation]({{ tf-provider-link }}/dns_zone).
 
-      The terminal will display a list of resources with parameters. This is a test step; no resources will be created. If the configuration contains any errors, {{ TF }} will point them out.
+   1. Create resources:
 
-      {% note alert %}
-
-      You will be charged for all the resources created with {{ TF }}. Check the pricing plan carefully.
-
-      {% endnote %}
-
-   1. To create resources, run the command:
-      ```
-      terraform apply
-      ```
-
-   1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-      ```
+      ```bash
       yc dns zone get <zone_name>
       ```
 
