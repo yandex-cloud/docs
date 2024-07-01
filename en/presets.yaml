@@ -7537,6 +7537,7 @@ default:
           title_security-rules: Security rules
         title_default-template: From a preset template
         title_no-template: From scratch
+        title_profiles: Security profiles
       smartcaptcha:
         button_captcha-settings-create: Create captcha
         label_additional-challenge: Additional challenge

@@ -15,6 +15,8 @@ items:
         href: quickstart.md
       - name: Начало работы с WAF
         href: quickstart/quickstart-waf.md
+      - name: Начало работы с ARL
+        href: quickstart/quickstart-arl.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -58,6 +60,8 @@ items:
         href: concepts/profiles.md
       - name: WAF
         href: concepts/waf.md
+      - name: ARL (лимит на запросы)
+        href: concepts/arl.md
       - name: Правила
         href: concepts/rules.md
       - name: Условия

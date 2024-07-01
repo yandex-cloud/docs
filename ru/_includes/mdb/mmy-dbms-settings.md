@@ -223,6 +223,24 @@
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size).
 
+- **Innodb lru scan depth**{#setting-innodb-lru-scan-depth} {{ tag-con }} {{ tag-api }}
+
+  Количество свободных страниц, которое Innodb старается сохранить в каждом буферном пуле, чтобы ускорить операции чтения и создания страниц.
+
+  Минимальное значение — `100`, максимальное — `4294967295`, значение по умолчанию — `1024`.
+
+  Чем выше значение настройки, тем больше она влияет на производительность и память кластера:
+
+  * Увеличивайте значение, только если при типичной рабочей нагрузке у кластера есть запасные ресурсы для ввода-вывода данных.
+  * Уменьшайте значение, если не хватает ресурсов при выставленном значении.
+
+  В большинстве случаев значение по умолчанию подходит.
+
+  Подробнее см. в блоге Percona и документации {{ MY }}:
+
+  * [расчет значения настройки](https://www.percona.com/blog/tuning-mysql-innodb-flushing-for-a-write-intensive-workload/);
+  * [описание настройки]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth).
+
 - **Innodb numa interleave**{#setting-innodb-numa-interleave} {{ tag-all }}
 
   Управляет политикой [NUMA Interleave](https://www.kernel.org/doc/html/latest/admin-guide/mm/numa_memory_policy.html#components-of-memory-policies) при выделении памяти для буфера InnoDB.
@@ -445,6 +463,14 @@
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_digest_length).
 
+- **Max execution time**{#setting-max-execution-time} {{ tag-all }}
+
+  Таймаут выполнения SQL-запросов `SELECT` в миллисекундах.
+
+  Минимальное значение — `0`, в этом случае нет ограничений на время выполнения запросов. Максимальное значение — `4294967295`.
+
+  Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_execution_time).
+
 - **Max heap table size**{#setting-max-heap-table-size} {{ tag-all }}
 
   Максимальный размер пользовательских [MEMORY-таблиц]({{ my.docs }}/refman/8.0/en/memory-storage-engine.html) (в байтах). Изменение значения этой настройки не влияет на уже существующие MEMORY-таблицы. Эта настройка также используется совместно с [Tmp table size](#setting-tmp-table-size) для ограничения размера внутренних таблиц, хранящихся в оперативной памяти.
@@ -542,6 +568,30 @@
   Минимальное значение — `0` (нет ограничений), максимальное значение — `1048576`. По умолчанию: `0`.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_regexp_time_limit).
+
+- **Replication optimize for static plugin config**{#setting-replication-optimize-for-static-plugin-config} {{ tag-con }} {{ tag-api }}
+
+  Разрешает репликам использовать общие блокировки (shared locks) при [полусинхронной репликации]({{ my.docs }}/refman/8.0/en/replication-semisync.html). Если настройка не включена, реплики используют большее количество блокировок. В результате возрастает конкуренция между репликами в попытках получить блокировки, производительность кластера снижается.
+
+  Настройка улучшает производительность реплик и хостов-источников репликации, так как они используют единый механизм блокировок.
+
+  Включите эту настройку вместе с настройкой **Replication sender observe commit only**. Так производительность кластера будет выше даже при большом количестве реплик.
+
+  По умолчанию настройка выключена.
+
+  Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/replication-options-replica.html#sysvar_replication_optimize_for_static_plugin_config).
+
+- **Replication sender observe commit only**{#setting-replication-sender-observe-commit-only} {{ tag-con }} {{ tag-api }}
+
+  Включает ограничение обратных вызовов (callbacks) при [полусинхронной репликации]({{ my.docs }}/refman/8.0/en/replication-semisync.html). Если их не ограничивать, растет число блокировок и конкуренция за них между репликами. В результате производительность кластера ухудшается.
+
+  Настройка улучшает производительность реплик и хостов-источников репликации, так как они используют единый механизм блокировок.
+
+  Включите эту настройку вместе с настройкой **Replication optimize for static plugin config**. Так производительность кластера будет выше даже при большом количестве реплик.
+
+  По умолчанию настройка выключена.
+
+  Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/replication-options-replica.html#sysvar_replication_sender_observe_commit_only).
 
 - **Rpl semi sync master wait for slave count**{#setting-rpl-wait-slave-count} {{ tag-all }}
 
