@@ -50,7 +50,7 @@ When switching to the _Business_ plan, the price for the first month is calculat
 
 A user is active and subject to billing if their actions have resulted in a query to a data source, e.g., they opened or edited a dashboard, chart, or dataset. Public URLs to dashboards and charts work without authentication and do not contribute to the active user count.
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 

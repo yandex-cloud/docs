@@ -1,8 +1,8 @@
 # Donut chart ![](../../_assets/datalens/ring.svg)
 
-This chart shows the proportion of different categories using donut segments. The sum of all segments is 100%. The size of each segment corresponds to the percentage of a category in the total amount. A number in the center of a ring depends on the selected measure and indicates the overall total. Donut charts are a good choice if you need to display a small number of segments.
+This chart shows the proportion of different categories using ring segments. The sum of all segments is 100%. The size of each segment matches the percentage of a category in the total amount. A number in the center of a ring depends on the selected measure and indicates the overall total. Donut charts are a good choice if you need to display a small number of segments.
 
-![donut-chart](../../_assets/datalens/visualization-ref/ring-chart/ring-chart.png)
+![ring-chart](../../_assets/datalens/visualization-ref/ring-chart/ring-chart.png)
 
 {% cut "Source table" %}
 
@@ -21,7 +21,7 @@ This chart shows the proportion of different categories using donut segments. Th
 | Wizard<br/> section | Description |
 ----- | ----
 | Color | Dimension. You can only specify one field here. |
-| Measures | Affects the size of ring segments. The total value of a measure is displayed in the center of a ring. You can only specify one field here. |
+| Measures | Affects the size of ring segments. You can only specify one field here. The total value of a measure is displayed in the center of a ring. Сalculations using [LOD expressions](../concepts/lod-aggregation.md), [window functions](../function-ref/window-functions.md), and [time series functions](../function-ref/time-series-functions.md) are not presented in the total value. |
 | Sorting | Measure or dimension from the **Color** section. Affects segment sorting. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon. |
 | Labels | Measure. Displays measure values on the chart. To add callouts with category names to the chart, drag the [Measure Names](../concepts/chart/measure-values.md) dimension to this section. |
 | Filters | Dimension or measure. Used as a filter. |

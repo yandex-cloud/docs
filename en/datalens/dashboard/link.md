@@ -35,6 +35,24 @@ Some widgets cannot influence other widgets. The table below shows possible type
 | **Selector** | Two-way<br/>Incoming<br/>Outgoing<br/>Not linked | Outgoing<br/>Not linked |
 | **Chart** | Incoming<br/>Not linked | — |
 
+{% note info %}
+
+You can add multiple charts to a single widget on the dashboard. The link between a [QL chart](../concepts/chart/ql-charts.md) and a selector will appear in the link configuration window only when you select that QL chart in the widget. If a different chart is selected in the widget, the QL chart link will be marked `Undefined`.
+
+{% cut "QL chart selected in the widget" %}
+
+![image](../../_assets/datalens/dashboard/links/ql-chart-link-active.png)
+
+{% endcut %}
+
+{% cut "A different chart selected in the widget" %}
+
+![image](../../_assets/datalens/dashboard/links/ql-chart-link-inactive.png)
+
+{% endcut %}
+
+{% endnote %}
+
 ## Alias {#alias}
 
 An alias is a link between fields of different datasets defining how widgets influence each other when linked.
@@ -54,6 +72,7 @@ Creating aliases is required when you need to:
 * Establish links between a selector of the **Based on dataset** type from one dataset and charts from another dataset, so that the selector values filter the values in the charts.
 
 * Establish links between a selector of the **Manual input** type and other selectors, so that the values of one selector filter the list of available values of another selector.
+
 
 You can specify an alias for a pair of linked widgets. In this case:
 

@@ -32,7 +32,7 @@ The cost of bot support includes:
 
 1. [Download](https://{{ s3-storage-host }}/doc-files/slackbot.zip) the archive with the files required to create a bot.
 1. If you do not have a folder yet, [create](../../resource-manager/operations/folder/create.md) one.
-1. [Create](../../iam/operations/sa/create.md#create-sa) a service account named `sa-slack` and [assign](../../iam/operations/roles/grant.md#access-to-sa) it the `{{ roles-editor }}` role for your folder.
+1. [Create](../../iam/operations/sa/create.md#create-sa) a service account named `sa-slack` and [assign](../../iam/operations/roles/grant.md#cloud-or-folder) it the `{{ roles-editor }}` role for your folder.
 
 ## Create an app and connect it to {{ yandex-cloud }} {#app}
 
@@ -133,7 +133,7 @@ Using functions, you can configure the bot's reactions to user actions in the ch
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python312`.
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`.
-      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: [sa-slack](#prepare) service account you created `earlier`.
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-slack` service account you created [earlier](#prepare).
 
    1. Create a file named `requirements.txt` and specify the following libraries in it:
 
@@ -160,7 +160,7 @@ Using functions, you can configure the bot's reactions to user actions in the ch
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python312`.
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`.
-      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: [sa-slack](#prepare) service account you created `earlier`.
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-slack` service account you created [earlier](#prepare).
 
    1. Create a file named `requirements.txt` and specify the following libraries in it:
 
@@ -212,7 +212,7 @@ A command will not work if the relevant method is not configured for it in the [
 
 {% endnote %}
 
-1. [Select](https://api.slack.com/apps) the `ServerlessBotApp` app.
+1. Select the `ServerlessBotApp` [app](https://api.slack.com/apps).
 1. In the app control menu, select **Features** → **Slash Commands** and click **Create New Command**.
 1. Add a command for the `for-slack-bot-hello-from-serverless` function:
 
