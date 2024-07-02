@@ -7,6 +7,27 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.128.0 (02.07.24) {#version0.128.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ api-gw-name }} {#api-gw}
+
+В команды `yc serverless api-gateway create` и `yc serverless api-gateway update` добавлен параметр `--execution-timeout` для указания тайм-аута на максимальное время обработки запроса к API-шлюзу.
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mch-name }}**
+
+* Добавлен параметр `--convert-tables-to-replicated` для конвертации таблиц в реплицируемые при добавлении в кластер {{ ZK }}.
+* Добавлены команды `{{ yc-mdb-ch }} hosts add` и `{{ yc-mdb-ch }} shards add`. Параметр `copy-schema` включен по умолчанию.
+
+**{{ mgp-name }}**
+
+* В команду `yc managed-greenplum cluster expand` добавлены опции `delay-redistribution`, `parallel`, `close-cluster`.
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.127.0 (17.06.24) {#version0.127.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -41,11 +62,9 @@ description: "На странице представлены релизы YC CLI
 
 * Добавлены команды для включения и выключения реестров `yc iot registry enable` и `yc iot registry disable`.
 
-##### {{ sf-name }} {#serverless-functions}
+##### {{ sf-name }} {#cloud-functions}
 
 * Для команды `yc serverless function version create` добавлен новый флаг `concurrency`.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.126.0 (04.06.24) {#version0.126.0}
 
@@ -57,30 +76,35 @@ description: "На странице представлены релизы YC CLI
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 ##### {{ resmgr-name }} {#resmgr}
+
 * Добавлена команда `yc resource-manager cloud create` для создания облака.
    * Флаг `--billing-account-id` позволяет автоматически привязать созданное облако к платежному аккаунту.
 * Добавлена команда `yc resource-manager cloud delete` для удаления облака.
    * Флаг `--delete-after` позволяет удалить облако через указанное время.
 * В команду `yc resource-manager folder delete` добавлен флаг `--delete-after` для отложенного удаления через указанное время.
 
-##### {{load-testing-name}}
+##### {{ load-testing-name }} {#load-testing}
+
 * В команду `yc loadtesting agent create` добавлен флаг `--platform-id` для создания виртуальной машины на указанной платформе.
 * В команду `yc loadtesting test create` добавлены параметры для управления выгрузкой артефактов агента в {{ objstorage-name }}:
   * `--artifacts-output-bucket` для указания имени бакета, в который будут выгружаться артефакты.
   * `--artifacts-make-archive` для определения того, будут ли артефкаты выгружаться  одним архивом или по отдельности.
   * `--artifacts` для указания конкретных файлов, которые будут выгружены.
 
-##### {{ mos-name }}
+##### {{ mos-name }} {#mos}
+
 * В команды `yc managed-opensearch cluster create` и `yc managed-opensearch cluster restore` добавлен опциональный параметр `--keystore-settings`, который позволяет задать содержимое {{ OS }} keystore.
 * В команду `yc managed-opensearch cluster update` добавлены опциональные параметры `--set-keystore-settings` и `--remove-keystore-settings`:
    * `--set-keystore-settings` для указания списка записей, которые будут добавлены или заменены. Записи в keystore, которые не указаны в этом параметре, останутся без изменений.
    * `--remove-keystore-settings` для указания списка записей, которые должны быть удалены из keystore.
 
-##### {{ sf-name }} {#serverless-functions}
+##### {{ sf-name }} {#cloud-functions}
+
 * В команде `yc serverless function allow-unauthenticated-invoke` устаревшая роль `serverless.functions.invoker` заменена на новую `functions.functionInvoker`.
 * Команда `yc serverless function deny-unauthenticated-invoke` теперь удаляет устаревшую роль `serverless.functions.invoker` и новую роль `functions.functionInvoker`.
 
 ##### {{ serverless-containers-name }} {#serverless-containers}
+
 * В команде `yc serverless container allow-unauthenticated-invoke` устаревшая роль `serverless.containers.invoker` заменена на новую `serverless-containers.containerInvoker`.
 * Команда `yc serverless container deny-unauthenticated-invoke` теперь удаляет устаревшую роль `serverless.containers.invoker` и новую роль `serverless-containers.containerInvoker`.
 
