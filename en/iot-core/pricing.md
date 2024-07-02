@@ -45,7 +45,7 @@ List of commands charged under {{ iot-name }}:
 * `PUBLISH`: Send a message from the MQTT server of the service to the client (device or registry).
 * `PINGREQ`: Check the connection from the client (device or registry) to the MQTT server of the service.
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 ### Data volume {#volumes}
 

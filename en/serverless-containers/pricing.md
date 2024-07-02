@@ -26,7 +26,7 @@ You are only charged for the container invocations that have caused your applica
 
 
 
-Monthly cost = {{ sku|USD|serverless.containers.compute.memory|pricingRate.10|string }} × Memory (GB) × Invocation processing time (Hours) + {{ sku|USD|serverless.containers.compute.cpu|pricingRate.5|string }} × vCPU count × Invocation processing time (Hours) + {{ sku|USD|serverless.containers.invocations|pricingRate.1|string }} × Millions of invocations
+Monthly cost = {{ sku|USD|serverless.containers.compute.memory|pricingRate.10|string }} × Memory (GB) × Invocation processing time (Hours) + {{ sku|USD|serverless.containers.compute.cpu|pricingRate.5|string }} × Number of cores × Invocation processing time (Hours) + {{ sku|USD|serverless.containers.invocations|pricingRate.1|string }} × Millions of invocations
 
 
 {% include [not-charged-sc.md](../_includes/pricing/price-formula/not-charged-serverless-containers.md) %}
@@ -48,20 +48,20 @@ Example of calculating the cost of a container with the following parameters:
 > Total: $7.1680
 
 Where:
-* 0.0256 is the cost of 1 GB×hour in excess of 10 GB×hour per month.
-* 2 is the amount of RAM.
+* 0.0256: Price per 1 GB×hour in excess of 10 GB×hour per month.
+* 2: Amount of RAM.
 * 150 / 3,600,000 converts milliseconds to hours, as RAM usage time is calculated in GB×hour.
-* 3,000,000 is the number of container invocations.
-* 10 is the free of charge RAM usage time.
-* 0.0384 is the cost per hour of CPU usage in excess of 5 vCPU × hour per month.
-* 0.2 is the number of vCPU cores.
+* 3,000,000: Number of container invocations.
+* 10: RAM usage time free of charge.
+* 0.0384: Price per 1 hour of CPU usage in excess of 5 vCPUs × hour per month.
+* 0.2: Number of vCPU cores.
 * 150 / 3,600,000 converts milliseconds to hours, as CPU usage time is calculated in GB×hour.
-* 3,000,000 is the number of container invocations.
-* 5 is the free of charge CPU usage time.
-* 0.1280 is the cost of 1 million container invocations in excess of 1 million per month.
-* 3,000,000 is the number of container invocations.
-* 1,000,000 is subtracted because the first million invocations are free of charge.
-* 1,000,000 is the divisor used to calculate the number of millions of container invocations.
+* 3,000,000: Number of container invocations.
+* 5: CPU usage time free of charge.
+* 0.1280: Price per 1 million container invocations in excess of 1 million per month.
+* 3,000,000: Number of container invocations.
+* 1,000,000: Subtracted because the first million invocations are free of charge.
+* 1,000,000: Divisor to calculate the number of millions of container invocations.
 
 
 Example of calculating the cost of a container with the following parameters:
@@ -77,23 +77,23 @@ Example of calculating the cost of a container with the following parameters:
 > Total: $11.0080
 
 Where:
-* 0.0256 is the cost of 1 GB×hour in excess of 10 GB×hour per month.
-* 2 is the amount of RAM.
+* 0.0256: Price per 1 GB×hour in excess of 10 GB×hour per month.
+* 2: Amount of RAM.
 * 150 / 3,600,000 converts milliseconds to hours, as RAM usage time is calculated in GB×hour.
-* 3,000,000 is the number of container invocations.
-* 10 is the free of charge RAM usage time.
-* 0.0384 is the cost per hour of CPU usage in excess of 5 vCPU × hour per month.
-* 1 is the number of vCPU cores.
+* 3,000,000: Number of container invocations.
+* 10: RAM usage time free of charge.
+* 0.0384: Price per 1 hour of CPU usage in excess of 5 vCPUs × hour per month.
+* 1: Number of vCPU cores.
 * 150 / 3,600,000 converts milliseconds to hours, as CPU usage time is calculated in GB×hour.
-* 3,000,000 is the number of container invocations.
-* 5 is the free of charge CPU usage time.
-* 0.1280 is the cost of 1 million container invocations in excess of 1 million per month.
-* 3,000,000 is the number of container invocations.
-* 1,000,000 is subtracted because the first million invocations are free of charge.
-* 1,000,000 is the divisor used to calculate the number of millions of container invocations.
+* 3,000,000: Number of container invocations.
+* 5: CPU usage time free of charge.
+* 0.1280: Price per 1 million container invocations in excess of 1 million per month.
+* 3,000,000: Number of container invocations.
+* 1,000,000: Subtracted because the first million invocations are free of charge.
+* 1,000,000: Divisor to calculate the number of millions of container invocations.
 
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 ### Invoking a container {#prices-invoking}

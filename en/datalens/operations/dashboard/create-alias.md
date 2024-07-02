@@ -5,6 +5,7 @@ description: "Follow this guide to add an alias for widgets in {{ datalens-full-
 
 # Creating an alias
 
+
 To add an [alias](../../dashboard/link.md#alias) for a pair of widgets:
 
 

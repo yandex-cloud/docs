@@ -33,7 +33,7 @@ Cost per month = $0.96 × Number of millions of requests
 
 {% include [prices-example](../_includes/api-gateway/prices-example.md) %}
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 ### API gateway requests {#request}

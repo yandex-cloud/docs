@@ -30,8 +30,8 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
       * Under **General settings**:
 
-         * **Dataset**: Dataset with data for the selector.
-         * **Field**: Dataset field with selector values. It can be a dimension or a measure (for more information, see [{#T}](../../concepts/dataset/data-model.md#field)).
+         * **Dataset**: Dataset with data for the selector. You can choose a dataset from the list of objects or provide a link. This is a required field.
+         * **Field**: Dataset field with selector values. It can be a dimension or a measure (for more information, see [{#T}](../../concepts/dataset/data-model.md#field)). This is a required field.
          * **Selector type**: Drop-down list, input field, calendar, or checkbox.
 
             {% note info %}
@@ -50,7 +50,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
       * Under **Appearance**:
 
-         * **Title**: Used to choose a selector when establishing a link with other widgets. The options puts you in control of how the title appears on the dashboard.
+         * **Header**: Used to pick a selector when establishing a link with other widgets. The options puts you in control of how the title appears on the dashboard. This is a required field.
          * **Inner title**: Text that is displayed in the selector to indicate a comparison operation. You can change the default value to your own one. For example, you can specify the `=` or `equal to` value for the **Equal to** operation. The parameter is only available for the **List** type.
          * **Tooltip**: This option allows adding a text comment to the selector. By default, with this option enabled, the tooltip text is substituted from the field description in the [dataset](../../concepts/dataset/index.md). You can change the tooltip text. When you change the dataset field description, the text is not automatically updated.
 
@@ -62,7 +62,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
       * Under **General settings**:
 
-         * **Field or parameter name**: Field name, which can be used to link the selector with other widgets in the [alias](../../dashboard/link.md#alias) configuration window.
+         * **Field or parameter**: Field name you can use to link the selector with other widgets in the [alias](../../dashboard/link.md#alias) configuration window. This is a required field.
 
             ![image](../../../_assets/datalens/selector-settings/field-name.png =650x)
 
@@ -86,7 +86,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
       * Under **Appearance**:
 
-         * **Title**: Used to choose a selector when establishing a link with other widgets.
+         * **Header**: Used to pick a selector when establishing a link with other widgets.
 
             ![image](../../../_assets/datalens/selector-settings/caption.png =650x)
 

@@ -1,6 +1,6 @@
 # Assigning a role for a resource
 
-To provide access to a [resource](../../../iam/concepts/access-control/resources-with-access-control.md), assign a user a [role](../../../iam/concepts/access-control/roles.md) to the resource itself or a resource from which access privileges are inherited, such as a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) or a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud). For more information, see [{#T}](../../../iam/concepts/access-control/index.md).
+To grant access to a [resource](../../../iam/concepts/access-control/resources-with-access-control.md), assign the subject a [role](../../../iam/concepts/access-control/roles.md) for the resource itself or a resource from which access permissions are inherited, e.g., a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) or [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud). For the current list of resources you can assign roles for, see [{#T}](../../security/index.md#resources).
 
 {% list tabs group=instructions %}
 
@@ -160,5 +160,3 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
    To assign a user, service account, or group a role for access to a resource, use the `updateAccessBindings` method for the `registry` and `repository` resources.
 
 {% endlist %}
-
-Read more about role management in the {{ iam-full-name }} [documentation](../../../iam/concepts/index.md).

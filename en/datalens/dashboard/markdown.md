@@ -279,7 +279,7 @@ val a: Int = 1
 
 
 
-You can add images from the `*.yandex.ru`, `*.yandex.net`, `yastat.net`, `yastatic.net`, or `storage.yandexcloud.net` domains. The easiest way is to upload and post an image in [{{ objstorage-full-name }}](../../storage/quickstart.md). The service is free of charge for up to 1 GB of standard storage per month.
+You can add images from the [{{ objstorage-full-name }}](../../storage/quickstart.md) storage to the widget. To learn more about the service pricing plans, see [{#T}](../../storage/pricing.md). Images from external sources are not supported.
 
 
 
@@ -314,7 +314,7 @@ To upload an image from **{{ objstorage-short-name }}** to a widget:
 
 ## Cuts {#cuts}
 
-Use cuts to hide content, e.g., additional information or long blocks of code.
+Use `cuts` to hide content, e.g., additional information or long blocks of code.
 
 For example, the following markup:
 
