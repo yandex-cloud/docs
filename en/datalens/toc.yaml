@@ -594,7 +594,7 @@ items:
                 href: function-ref/SUM_IF_WINDOW.md
           - name: Function Availability
             href: function-ref/availability.md
-      - name: Function tutorials
+      - name: Examples of using functions
         items:
           - name: Aggregate functions
             href: concepts/aggregation-tutorial.md

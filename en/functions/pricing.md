@@ -47,7 +47,7 @@ Monthly cost = $0.043760 × Memory (GB) × Call processing time (Hours) + $0.128
 
 However, if the function uses other {{ yandex-cloud }} resources, they are billed. For example, if the function makes requests to the {{ message-queue-name }} queue, the requests are billed according to the [pricing](../message-queue/pricing.md#requests-to-queues).
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 ### Invoking a function {#invoke}

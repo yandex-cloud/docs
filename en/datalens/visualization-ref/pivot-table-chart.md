@@ -47,7 +47,7 @@ Pivot tables make it easier to work with large amounts of data and let you analy
 | Strings | Dimensions |
 | Measures | Measures. If you add more than one measure to a section, the **Columns** section will contain the [Measure Names](../concepts/chart/measure-values.md) dimension that defines the location of the measure headers. [Measure Names](../concepts/chart/measure-values.md) can be moved to **Rows**. |
 | Colors | Measure. Affects shading of all cells containing indicators. It may only contain one measure. |
-| Sorting | Dimensions and measures specified in the **Columns** and **Rows** sections.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon. Sorting by measure only impacts a request to the source and does not affect the pivot table. |
+| Sorting | Dimensions and measures under **Columns** and **Rows**.<br/>Multiple dimensions and measures can be used.<br/>The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.<br/>{{ datalens-short-name }} first groups columns or rows in the order they are listed in their respective sections, and only then sorts the groups according to the **Sorting** section.<br/>The order of fields in the section affects the sorting order of the table fields.<br/>Sorting by measure impacts only the query to the source but not the pivot table. |
 | Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a pivot table {#create-diagram}
@@ -139,7 +139,7 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
 
 {% endnote %}
 
-### Setting up a field fill color {#set-field-colour}
+### Setting up a field fill color {#set-field-color}
 
 1. Under **Columns**, **Rows**, or **Measures**, click the icon to the left of the field name.
 1. In the window that opens, enable **Column fill color**.

@@ -27,7 +27,8 @@ If multiple [Docker images](concepts/docker-image.md) in the same registry use t
 {% endnote %}
 
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
+
 
 
 
@@ -45,7 +46,7 @@ The cost of 1 GB per month is fixed and does not depend on the number of days in
 Here is an example of proportional calculation. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using the formula:
 
 ```
-Storage_cost = Cost_per_GB_per_month * 15 * 12 / 24 / 30
+Storage_price = Price_per_GB_per_month * 15 * 12 / 24 / 30
 ```
 
 

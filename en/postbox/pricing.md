@@ -1,3 +1,5 @@
-# {{ postbox-name }} pricing
+# {{ postbox-name }} pricing policy
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, using {{ postbox-full-name }} is free of charge.
+
+
+At the [Preview](../overview/concepts/launch-stages.md) stage, {{ postbox-full-name }} is free of charge.
