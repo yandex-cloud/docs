@@ -5,7 +5,7 @@ editable: false
 # Technical support pricing
 
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 
@@ -13,14 +13,14 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-The cost depends on the service plan selected. The plan you choose covers your organization and can only be changed by its owner or administrator. You can use one billing account to pay for technical support for multiple organizations that may have different support service plans activated. Service packages under various service plans are described in [Requesting technical support](overview.md).
+The cost depends on the service plan selected. The plan you choose covers your organization and can only be changed by its owner or administrator. You can use one billing account to pay for technical support of multiple organizations that may have different support service plans activated. Service packages under various service plans are described in [Requesting technical support](overview.md).
 
 
 
 
 | Service plan | Basic | Business | Premium |
 --- |----------------|------------------------------|--------
-| **Cost** | Free of charge | {{ sku|USD|support.organization.business.fixed_consumption.v1|int|string }} per month from the billing account selected at the time of service plan activation and 5% of the cost of organization resource usage, regardless of which billing account the organization's resources are linked to. | Contact us |
+| **Cost** | Free of charge | {{ sku|USD|support.organization.business.fixed_consumption.v1|int|string }} per month from the billing account selected at the time of service plan activation and 5% of the organization's resource consumption cost, regardless of which billing account the organization's resources are linked to. | Contact us |
 
 
 {% note info %}
@@ -36,7 +36,7 @@ The basic service plan is provided to all {{ yandex-cloud }} users at no separat
 ### Business {#business}
 
 This plan is good for business projects requiring 24/7 support.
-The price is calculated based on the amount of resources consumed over the current reporting period (calendar month). To calculate the cost of using the service, use our [calculator](/prices#calculator) or see the calculation methods in the sections below.
+The price is calculated based on the amount of resources consumed over the current reporting period (calendar month). To calculate the cost of using the service, use [our calculator](/prices#calculator) or see the calculation methods in the sections below.
 
 #### Service plan cost {#business-price}
 
@@ -51,9 +51,9 @@ The price is calculated based on the amount of resources consumed over the curre
 
 
 
-  If a customer consumes $800 worth of resources a month, technical support will cost:
-  {{ sku|USD|support.organization.business.fixed_consumption.v1|int|string }} + $800 * 0.05 = $64
-  This amount will be debited from a single billing account.
+If a customer consumes $800 worth of resources a month, technical support will cost:
+{{ sku|USD|support.organization.business.fixed_consumption.v1|int|string }} + $800 * 0.05 = $64.
+This amount will be charged to a single billing account.
 
 
 #### Example of calculating the cost for an organization whose resources are paid from two billing accounts {#business-example-two-ba}

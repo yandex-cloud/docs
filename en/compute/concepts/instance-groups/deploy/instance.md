@@ -60,15 +60,16 @@ In some cases, changing the instance template (`instance_template`) causes the i
 * `resources_spec.{memory,cores,core_fraction,gpus}`: RAM, CPU, [guaranteed CPU %](../../performance-levels.md), [number of GPUs](../../gpus.md).
 * `boot_disk_spec`: Boot disk.
 * `metadata`: Instance metadata.
+* Network interface parameters:
+
+   * `network_interface_specs.network_id`: Network ID
+   * `network_interface_specs.subnet_ids`: Subnet IDs
+   * `network_interface_specs.primary_v4_address_spec`: Parameters of the public IPv4 address
+   * `network_interface_specs.primary_v6_address_spec`: Parameters of the public IPv6 address
+
 
 ### Parameters whose update leads to instance recreation {#ch-temp-with-recreate}
 
-* Network parameters you cannot update without recreating the instance:
-
-   * `network_interface_specs.network_id`
-   * `network_interface_specs.subnet_ids`
-   * `network_interface_specs.primary_v4_address_spec`
-   * `network_interface_specs.primary_v6_address_spec`
-
+* `network_interface_specs`: Only when adding or deleting network interfaces. Updating the parameters of the available interfaces does not lead to instance recreation.
 * `secondary_disk_specs`: You cannot update secondary disks without recreating the instance. Disks are retained whenever possible.
 * `scheduling_policy`: You cannot convert a regular instance to a preemptible instance or vice versa without recreating it.

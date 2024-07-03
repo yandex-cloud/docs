@@ -34,7 +34,7 @@ The number of free dedicated hosts of each type per [availability zone](../../ov
 
 ### List of types {#host-types-list}
 
-Current types: on Intel<sup>®</sup> Ice Lake
+Current types: based on Intel<sup>®</sup> Ice Lake
 
 | Type and processor | Processors | Cores | vCPU^1^ | RAM, GB | Disks | Disk size |
 --- | --- | --- | --- | --- | --- | ---
@@ -45,7 +45,7 @@ Current types: on Intel<sup>®</sup> Ice Lake
 You can create hosts of these types only in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d` availability zones. For more information, see [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
 
 
-{% cut "Archived types: Intel Cascade Lake platform" %}
+{% cut "Archived types: based on Intel Cascade Lake" %}
 
 {% note alert %}
 

@@ -10,7 +10,8 @@ When using {{ network-load-balancer-full-name }}, you pay for the incoming and o
 For a network load balancer with a public IP address, you additionally pay for outbound internet traffic like in other [{{ yandex-cloud }}](../vpc/pricing.md#prices-traffic) services. Charges for outgoing traffic include the traffic generated when targets respond to health checks.
 
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
+
 
 
 

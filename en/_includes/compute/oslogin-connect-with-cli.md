@@ -41,6 +41,14 @@
         --id <VM_ID>
       ```
 
+      To connect via OS login by internal IP address, use the `--internal-address` parameter:
+
+      ```bash
+      yc compute ssh \
+        --name <VM_name> \
+        --internal-address
+      ```
+
    * **CentOS 7, Ubuntu 18.04**
 
       ```bash
@@ -55,4 +63,13 @@
       yc compute ssh \
         --id <VM_ID> \
         -o "PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com"
+      ```
+
+      To connect via OS login by internal IP address, use the `--internal-address` parameter:
+
+      ```bash
+      yc compute ssh \
+        --name <VM_name> \
+        -o "PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com" \
+        --internal-address
       ```

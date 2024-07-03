@@ -7,6 +7,46 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ## Current version {#latest-release}
 
+### Version 0.127.0 (17/06/24) {#version0.127.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ iam-name }} {#iam}
+
+* Added the `yc iam service-account add-labels` and `yc iam service-account remove-labels` commands to manage labels.
+* Added the `--labels` parameter defining DB labels to the `yc iam service-account create` and `yc iam service-account update` commands.
+
+##### {{ org-name }} {#organization}
+
+* Added the following commands to manage labels:
+   * `yc organization-manager organization add-labels`
+   * `yc organization-manager organization remove-labels`
+   * `yc organization-manager federation saml add-labels`
+   * `yc organization-manager federation saml remove-labels`
+* Added the `--labels` parameter to the following commands to define DB labels:
+   * `yc organization-manager organization update`
+   * `yc organization-manager federation saml create`
+   * `yc organization-manager federation saml update`
+
+#### Managed database services {#managed-db}
+
+* Now you can also use the `yc managed-kafka cluster create` and `yc managed-kafka cluster update` commands to set parameters for the `disk-size-autoscaling` configuration.
+
+##### {{ resmgr-name }} {#resmgr}
+
+* Added the `yc resource-manager cloud add-labels` and `yc resource-manager cloud remove-labels` commands to manage labels.
+* Added the `--labels` parameter defining DB labels to the `yc resource-manager cloud update` command.
+
+##### {{ iot-name }} {#iot}
+
+* Added the `yc iot registry enable` and `yc iot registry disable` commands to enable and disables registries.
+
+##### {{ sf-name }} {#serverless-functions}
+
+* Added the new `concurrency` flag to the `yc serverless function version create` command.
+
+## Previous releases {#previous-releases}
+
 ### Version 0.126.0 (04/06/24) {#version0.126.0}
 
 #### Changes to the CLI {#cli}
@@ -43,8 +83,6 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 ##### {{ serverless-containers-name }} {#serverless-containers}
 * Replaced the legacy `serverless.containers.invoker` role with the new `serverless-containers.containerInvoker` role in the `yc serverless container allow-unauthenticated-invoke` command.
 * The `yc serverless container deny-unauthenticated-invoke` command now deletes the legacy `serverless.containers.invoker` role and the new `serverless-containers.containerInvoker` role.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.125.0 (20/05/24) {#version0.125.0}
 
@@ -316,7 +354,7 @@ Added the `yc loadtesting` command tree to manage the load testing service:
 
 ##### {{ compute-name }} {#compute}
 
-* The `yc compute instance`, `yc compute disk`, `yc compute image`, `yc compute snapshot`, `yc compute snapshot-schedule`, `yc compute placement-group`, `yc compute host-group`, `yc compute disk-placement-group`, `yc compute filesystem`, and `yc compute gpu-cluster` commands can now show access rights that you can manage using `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding`.
+* The `yc compute instance`, `yc compute disk`, `yc compute image`, `yc compute snapshot`, `yc compute snapshot-schedule`, `yc compute placement-group`, `yc compute host-group`, `yc compute disk-placement-group`, `yc compute filesystem`, and `yc compute gpu-cluster` commands can now show and manage access permissions using `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding`.
 * Added the `yc compute instance simulate-maintenance-event` command.
 
 ### Version 0.114.0 (05/12/23) {#version0.114.0}
@@ -811,7 +849,7 @@ Added the following flags to the `yc serverless container revision deploy` comma
 * Added the `yc application-load-balancer load-balancer logging` command to set up load balancer logs. Command parameters:
    * `--log-group-id`, `--log-group-name`: Specify a log group from {{ cloud-logging-name }}.
    * `--enable` and `--disable`: Enable and disable load balancer logging to a log group from {{ cloud-logging-name }}.
-   * `--discard`: Set up discard rules for certain logs based on HTTP or GRPC codes.
+   * `--discard`: Set up discard rules for certain logs based on HTTP or gRPC codes.
 
 
 ##### Managed database services {#managed-db}
@@ -1454,8 +1492,8 @@ Added commands for {{ mgp-name }} primary support:
 
 ##### {{ ydb-name }} {#ydb}
 
-* Added the `--labels` parameter, which defines a set of database labels, to the `yc ydb database create` command.
-* Added the `--labels` parameter, which changes the entire set of database labels, to the `yc ydb database update` command.
+* Added the `--labels` parameter to the `yc ydb database create` command. The parameter defines the set of DB labels.
+* Added the `--labels` parameter to the `yc ydb database update` command. The parameter changes the whole set of DB labels.
 * Added the `yc ydb database add-labels` and `yc ydb database remove-labels` commands to manage labels.
 
 
@@ -1588,7 +1626,7 @@ Added new flags to the `yc managed-clickhouse cluster create` and `yc managed-cl
 
 ##### {{ managed-k8s-name }} {#k8s}
 
-* Added the `--node-labels` parameter to the `yc k8s node-group update` command: it changes the entire set of labels for the nodes in the group.
+* Added the `--node-labels` parameter to the `yc k8s node-group update` command. The parameter changes the whole set of labels for the group's nodes.
 * Added the `yc k8s node-group add-node-labels` command to add labels to nodes in the group.
 * Added the `yc k8s node-group remove-node-labels` command to remove labels from nodes in the group.
 
@@ -1950,7 +1988,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 * `yc dataproc cluster create` and `yc dataproc cluster update` commands.
 
-   Added the `--security-group-ids` flag that allows you to specify a set of security groups for a cluster.
+   Added the `--security-group-ids` flag you can use to specify a set of security groups for a cluster.
 
 
 ### Version 0.73.0 (17/03/21) {#version0.73.0}
@@ -2100,7 +2138,7 @@ Added the `yc iam federation list-user-accounts` command for listing federation 
 
 * `yc <managed DB service name> cluster create`, `yc <managed DB service name> cluster update`, and `yc <managed DB service name> cluster restore` commands.
 
-   The `--security-group-ids` flag allows you to specify a set of security groups for a cluster.
+   The `--security-group-ids` flag allows specifying a set of security groups for a cluster.
 
 **{{ mkf-name }}**
 
@@ -2173,10 +2211,10 @@ Added primary support for {{ mkf-name }}:
 
 * `yc managed-clickhouse cluster create`, `yc managed-clickhouse cluster restore`, and `yc managed-clickhouse cluster update` commands.
 
-   Added flags:
+   Added the flags:
    * `--admin-password`, `--generate-admin-password`, and `--read-admin-password` to set the `admin` user password that is used when user management via SQL is enabled.
    * `--enable-sql-database-management` to enable database management via SQL.
-   * `--enable-sql-user-management` to enable user and access right management via SQL.
+   * `--enable-sql-user-management` to enable user and access permission management via SQL.
 
 **{{ mmy-name }}**
 
@@ -2440,9 +2478,9 @@ These certificates can be used in {{ yandex-cloud }} services to provide connect
 
 Added support for {{ api-gw-full-name }}.
 
-{{ api-gw-name }} is a service for managing API gateways that supports [OpenAPI Specification 3.0](https://github.com/OAI/OpenAPI-Specification) and a set of extensions for interacting with other cloud services.
+{{ api-gw-name }} is an API gateway management service supporting [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) and extensions for compatibility with other cloud services.
 
-{{ api-gw-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. If you want to learn more about , see [our relevant documentation](../api-gateway/).
+{{ api-gw-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. If you want to learn more about the service, see [our relevant documentation](../api-gateway/).
 
 #### {{ iam-name }} {#iam}
 
@@ -2615,7 +2653,7 @@ Added support for {{ api-gw-full-name }}.
    Added mounting of `docker volumes` into a Docker container created in {{ coi }} by using the `container-volume-tmpfs` and `container-volume-host-path` flags.
 * `yc compute instance update-container` command.
 
-   Added ability to update `docker volumes` in a Docker container created in {{ coi }}.
+   Now you can update `docker volumes` in a Docker container created in {{ coi }}.
 
 
 ### Version 0.54.0 (24/03/20) {#version0.54.0}
@@ -3131,7 +3169,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
    Added flag `--connection-pool-discard` to disable the connection pooler.
 * `{{ yc-mdb-pg }} user create` and `yc managed-postgresql user update` commands.
 
-   Added ability to specify a user's login and set their access rights using the`--login` and `--grants` flags.
+   You can now specify the login and configure user access permissions using the`--login` and `--grants` flags.
 
 ### Version 0.36.0 (27/08/19) {#version0.36.0}
 
@@ -3216,7 +3254,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 * `{{ yc-mdb-pg }} user create` and `{{ yc-mdb-pg }} user update` commands.
 
-   Added ability to set user parameters with such flags as `--lock_timeout` and `--log_min_duration_statement`.
+   Now you can set up user parameters using flags including `--lock_timeout` and `--log_min_duration_statement`.
 
 ### Version 0.32.0 (05/07/19) {#version0.32.0}
 

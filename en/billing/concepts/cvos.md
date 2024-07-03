@@ -58,7 +58,7 @@ See details of using and paying for your CVoS below.
 
    4.2. If the actual volume exceeds the CVoS, the difference between the total volume and the CVoS will be additionally charged based on [standard prices](/prices). Go to step 5.
 
-1. At the beginning of the next billing period, your personal account balance and payment for the services used are verified: depending on the [billing account type](../concepts/billing-account.md#ba-types), you may be issued an invoice. For more information, see [Billing cycle for individuals](../../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../../billing/payment/billing-cycle-business.md).
+1. At the beginning of the next billing period, your personal account balance and payments for the services are reviewed. Depending on your [billing account type](../concepts/billing-account.md#ba-types), you may get an invoice. For more information, see [Billing cycle for individuals](../../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../../billing/payment/billing-cycle-business.md).
 
 ## Charged amount {#formula}
 

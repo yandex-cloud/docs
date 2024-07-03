@@ -1,5 +1,9 @@
 # История изменений в {{ objstorage-full-name }}
 
+## II квартал 2024 {#q2-2024}
+
+Улучшен дизайн консоли управления: настройки бакета теперь сгруппированы на вкладках ![image](../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}** и ![image](../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+
 ## I квартал 2024 {#q1-2024}
 
 * Улучшена работа с [жизненными циклами](./concepts/lifecycles.md) объектов в бакете:

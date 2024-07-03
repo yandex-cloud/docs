@@ -7667,6 +7667,7 @@ default:
           switch_https: HTTPS
           switch_lifecycle: Lifecycle
           switch_policy: Access policy
+          switch_security: Security
           switch_server-logs: Logging
           switch_settings: Settings
           switch_website: Website

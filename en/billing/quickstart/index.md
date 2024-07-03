@@ -36,7 +36,7 @@ New customers who are legal entities are eligible for a trial period. The [trial
 
 ### Learn more
 
-- [Billing accounts](../concepts/billing-account.md)
+- [Billing account](../concepts/billing-account.md)
 - [Trial period](../../getting-started/free-trial/concepts/quickstart.md)
 
 ### Get started with {{ yandex-cloud }} {#start}

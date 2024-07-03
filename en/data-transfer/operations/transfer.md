@@ -87,7 +87,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
    1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
    1. Click **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
    1. Select the source endpoint or [create](./endpoint/index.md#create) a new one.
-   1. Select the target endpoint or [create](./endpoint/index.md#create) a new one.
+   1. Select the target endpoint or [create](./endpoint/index.md#create) a new one. Make sure the [subnet](../concepts/network.md) specified for the target endpoint belongs to the same availability zone as the subnet for the source enpoint.
    1. Specify the transfer parameters:
       * **{{ ui-key.yacloud.common.name }}**.
       * (Optional) **{{ ui-key.yacloud.common.description }}**.

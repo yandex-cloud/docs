@@ -12,8 +12,8 @@ editable: false
 
 The {{ compute-name }} usage cost is based on:
 * VM computing resources:
-   * Type and number of cores (vCPUs)
-   * Number of graphics accelerators ([GPUs](concepts/gpus.md))
+   * Type and number of vCPUs
+   * Number of [GPUs](concepts/gpus.md)
    * Amount of memory (RAM)
 * Operating systems
 * Type and size of storage:
@@ -25,7 +25,7 @@ The {{ compute-name }} usage cost is based on:
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-The monthly usage rate is based on 720 hours per month.
+The monthly prices are based on 720 hours per month.
 
 ### VM usage {#instance}
 
@@ -41,9 +41,9 @@ For information about external IP address usage pricing, see [{#T}](../vpc/prici
 
 #### Computing resources {#instance-resources}
 
-When creating a VM, you specify the number of vCPUs and graphics accelerators ([GPUs](concepts/gpus.md)), as well as the basic level of core performance and the amount of RAM in GB. For more information, see [{#T}](concepts/performance-levels.md).
+When creating a VM, specify the number of vCPUs and [GPUs](concepts/gpus.md), as well as the basic core performance level and RAM in GB. For more information, see [{#T}](concepts/performance-levels.md).
 
-The basic level of core performance depends on the [platform](concepts/vm-platforms.md) you select.
+The basic level of vCPU performance depends on the [platform](concepts/vm-platforms.md) you select.
 
 {{ price-per-hour-count-per-second }}
 
@@ -64,14 +64,14 @@ Both VMs have been running for 30 days.
 
 > 720 × (2 × $0.002480 + 2 × $0.003120) = $8.064000
 >
-> Total: $8.064000 is the cost of using a VM with 2 × 5% vCPUs and 2 GB of RAM during 30 days.
+> Total: $8.064000, cost of using a VM with 2 × 5% vCPU and 2 GB of RAM for 30 days.
 
 Where:
 * 720: Number of hours in 30 days.
 * 2 is the number of 5% vCPUs.
-* $0.002480 is the cost of using 5% vCPU per hour.
-* 2 is the amount of RAM (in GB).
-* $0.003120 is the cost of using 1 GB of RAM per hour.
+* $0.002480: Cost of using 5% vCPU per hour.
+* 2: Amount of RAM (in GB).
+* $0.003120: Cost of using 1 GB of RAM per hour.
 
 
 **VM cost with 100% vCPU**:
@@ -80,7 +80,7 @@ Where:
 
 > 720 × (2 × $0.008960 + 2 × $0.003120) = $17.395200
 >
-> $17.395200 is the cost of using a VM with 2 × 100% vCPUs and 2 GB of RAM during 30 days.
+> Total: $17.395200, cost of using a VM with 2 × 100% vCPU and 2 GB of RAM for 30 days.
 
 Where:
 * 720: Number of hours in 30 days.
@@ -113,7 +113,7 @@ If you created an image or snapshot, you pay for the storage of this object sepa
 
 After deleting a VM instance, you will still be charged for disks, snapshots, and images. If you no longer need these resources, delete them.
 
-The cost is specified for one month of use. You are charged per second of usage.
+The price covers one month of use. You are charged per second of usage.
 
 {% note warning %}
 
@@ -164,21 +164,21 @@ An `intel-6338-c108-m704-n3200x6` dedicated host running for an hour is charged 
 
 {% note info %}
 
-You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices for Russia](#prices). Currently, you cannot order storage or web traffic this way.
+CVoS discount is only available for certain types of resources. For non-supported types, CVoS columns feature dashes under [Prices for the Russia region](#prices). Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 
 
 
-All prices are shown without VAT.
+All prices below do not include VAT.
 
 
 
-The price with a CVoS is only available for regular VMs.
+CVoS adjusted price is only available for regular VMs.
 
 
 ### VM computing resources {#prices-instance-resources}

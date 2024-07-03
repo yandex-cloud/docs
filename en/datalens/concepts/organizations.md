@@ -19,7 +19,7 @@ Before organizations were introduced, {{ datalens-short-name }} instances were c
 
 ## Limitations {#restrictions}
 
-* To use {{ datalens-short-name }} within an organization, a user must have the `{{ roles-datalens-creator }}` role for the organization. To learn more about roles, see [Roles](../../iam/concepts/access-control/roles.md).
+* To use {{ datalens-short-name }} within an organization, a user must have the `{{ roles-datalens-visitor }}` role for the organization. To learn more about roles, see [Roles](../../iam/concepts/access-control/roles.md).
 * You can only create new {{ datalens-short-name }} instances at the organization level. Creating a {{ datalens-short-name }} instance in an existing cloud without an organization is no longer supported. You must first create an organization, and then create {{ datalens-short-name }} within it.
 * An organization can only have a single {{ datalens-short-name }} instance. If you have a cloud with a previously created {{ datalens-short-name }} instance in a folder of this cloud, you will no longer be able to create {{ datalens-short-name }} at the organization level when you create an organization and link your cloud to it. In this case, to use {{ datalens-short-name }}, you will need to select **No organization** mode and then the cloud folder that already contains a {{ datalens-short-name }} instance. For more information, see [{#T}](../operations/organizations/change-organization.md).
 * To create {{ datalens-short-name }} in an organization, you will require the `admin` or `owner` roles for it.

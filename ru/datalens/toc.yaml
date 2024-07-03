@@ -720,8 +720,6 @@ items:
         href: dashboard/versioning.md
       - name: Параметры
         href: dashboard/dashboard_parameters.md
-      - name: Встраивание объектов
-        href: dashboard/embedded-objects.md
       - name: Markdown
         href: dashboard/markdown.md
       - name: Пошаговые инструкции
@@ -786,10 +784,14 @@ items:
         href: security/row-level-security.md
       - name: Публичный доступ
         href: concepts/datalens-public.md
+      - name: Встраивание объектов
+        items:
+          - name: Публичное встраивание
+            href: security/embedded-objects.md
+          - name: Непубличное встраивание
+            href: security/private-embedded-objects.md
   - name: Настройки сервиса
     items:
-      - name: Настройка тарифного плана
-        href: settings/service-plan.md
       - name: Стилизация интерфейса
         href: settings/ui-customization.md
   - name: Marketplace
@@ -804,6 +806,8 @@ items:
     items:
       - name: Действующие правила
         href: pricing.md
+      - name: Настройка тарифного плана
+        href: settings/service-plan.md
       - name: Архив
         items:
           - name: До 23 апреля 2024 года

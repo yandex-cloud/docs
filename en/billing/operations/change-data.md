@@ -48,5 +48,5 @@ You cannot change a business or TIN in the billing account settings. If these de
 
 ##### See also
 
-* [Change the payment method](change-payment-method.md)
+* [Changing the payment method](change-payment-method.md)
 * [Configuring notifications](budgets.md)

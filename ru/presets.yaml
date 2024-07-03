@@ -7673,6 +7673,7 @@ default:
           switch_https: HTTPS
           switch_lifecycle: Жизненный цикл
           switch_policy: Политика доступа
+          switch_security: Безопасность
           switch_server-logs: Логирование
           switch_settings: Настройки
           switch_website: Веб-сайт

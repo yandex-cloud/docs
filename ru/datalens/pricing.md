@@ -28,7 +28,7 @@ editable: false
 Аутентификация | Яндекс ID | Яндекс ID, корпоративные учетные записи / SSO¹
 [Стилизация интерфейса {{ datalens-name }}](./settings/ui-customization.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
 [Статистика использования сервиса {{ datalens-name }}](./operations/connection/create-usage-tracking.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
-[Безопасное встраивание непубличных объектов](./dashboard/embedded-objects.md#private-embedding) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
+[Безопасное встраивание непубличных объектов](./security/private-embedded-objects.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
 [SLA](https://yandex.ru/legal/cloud_sla_datalens) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)  
 Техническая поддержка | [Базовый тариф](../support/pricing.md#base) (если у пользователя не подключен [Бизнес](../support/pricing.md#business) или [Премиум](../support/pricing.md#premium)) | [Тариф Бизнес](../support/pricing.md#business) (распространяется только на {{ datalens-name }}) и повышенный приоритет в рассмотрении обращений относительно тарифа Community
 
