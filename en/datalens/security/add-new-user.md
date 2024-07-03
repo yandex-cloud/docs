@@ -40,7 +40,7 @@ To invite a user with a Yandex account, follow [this guide](../../organization/o
 
 {% note warning %}
 
-Users can only use {{ datalens-short-name }} if they have a role that enables access to the service. To ensure they have access, wait for them to accept the invitation to your organization and [assign](../../organization/security/index.md#add-role) them the `{{ roles-datalens-creator }}` role.
+Users can only use {{ datalens-short-name }} if they have a role that enables access to the service. To ensure they have access, wait for them to accept the invitation to your organization and [assign](../../organization/security/index.md#add-role) them the `{{ roles-datalens-visitor }}` role.
 
 {% endnote %}
 
@@ -52,6 +52,6 @@ Only available with the _Business_ [service plan](../settings/service-plan.md). 
 
 {% endnote %}
 
-If you set up an [identity federation](../../organization/concepts/add-federation.md), follow [this guide](../../organization/operations/add-account.md#add-user-sso) to add a new federated user. After that, make sure to [assign](../../organization/security/index.md#add-role) them the `{{ roles-datalens-creator }}` role.
+If you set up an [identity federation](../../organization/concepts/add-federation.md), follow [this guide](../../organization/operations/add-account.md#add-user-sso) to add a new federated user. After that, make sure to [assign](../../organization/security/index.md#add-role) them the `{{ roles-datalens-visitor }}` role.
 
 {% include [datalens-federation-user-link](../../_includes/datalens/datalens-federation-user-link.md) %}

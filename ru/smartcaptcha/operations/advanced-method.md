@@ -71,7 +71,7 @@ function handleScriptLoadingError() {
 const scriptElement = document.createElement('script');
 scriptElement.src = 'https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction';
 scriptElement.onerror = handleScriptLoadingError;
-document.body.appendElement(scriptElement);
+document.body.appendChild(scriptElement);
 ```
 
 ## Что дальше {#whats-next}

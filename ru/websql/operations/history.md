@@ -49,7 +49,7 @@
 
 ## Настроить права доступа для опубликованного запроса {#set-access-rights-to-published-query}
 
-Чтобы настроить права доступа:
+Чтобы настроить [права доступа](../security/index.md):
 
 1. Перейдите в раздел ![image](../../_assets/console-icons/clock-arrow-rotate-left.svg) **История запросов**. 
 

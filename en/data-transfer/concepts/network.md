@@ -7,11 +7,7 @@ You can specify the subnet manually in the endpoint settings (for **On-Premise**
 
 If hosts are referenced by domain names in the endpoint settings, the DNS servers specified in the selected subnet DHCP settings will be used to resolve them into IP addresses. All subnet's DNS servers must resolve the host domain name into an IP address; otherwise, the transfer may fail, since an arbitrary DNS server is used for transfer service name resolution in the subnet. For more information, see [IP addresses and domain names in endpoint settings](#ip-addresses-and-domain-names).
 
-{% note info %}
-
 The subnets selected for both endpoints of the same transfer must belong to the same availability zone.
-
-{% endnote %}
 
 ## MDB cluster subnets {#managed-cluster-subnets}
 

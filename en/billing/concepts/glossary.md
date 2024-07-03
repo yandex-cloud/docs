@@ -21,7 +21,7 @@ Budget
 <br/>For more information, refer to the [Budget](budget.md) section.
 
 Grant
-:   Discount given to a business, a sole proprietorship, or an individual when using any {{ yandex-cloud }} services. The discount is applied to the total cost of services consumed, including VAT.
+:   Discount on any {{ yandex-cloud }} services provided to a business, individual entrepreneur, or individual. The discount is applied to the total cost of services consumed, including VAT.
 <br/>For more information, refer to the [Grant](bonus-account.md) section.
 
 Usage details

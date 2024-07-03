@@ -1,27 +1,27 @@
 # Personal account
 
-A personal account is your unique ID in the {{ billing-name }} service used to pay for resources during the entire term of your [agreement](contract.md). It holds the funds that you credit to it using bank transfer (the crediting method depends on your legal status).
+A personal account is your unique {{ billing-name }} ID used to pay for resources throughout the term of your [agreement](contract.md). It holds the money you add to it via wire transfer (the method depends on your legal status).
 
-The funds are debited from your personal account only if you have no [grants](bonus-account.md).
+Your personal account money is used only if there are no [grants](bonus-account.md).
 
 ## Creating a personal account {#create-ls}
 
-Your personal account is created automatically once you [activate the paid version](../operations/activate-commercial.md). The account is virtual and does not have the status of a settlement or bank account. It cannot be disabled.
+A personal account is created automatically as soon as you [activate the paid version](../operations/activate-commercial.md). This account is virtual and does not have the settlement account or bank account status. It cannot be disabled.
 
-## Personal account number  {#id}
+## Personal account number {#id}
 
-You can find your personal account number in [Payment invoice](bill.md).
+You can look up your personal account number [Payment invoice](bill.md).
 
 ## Personal account balance {#balance}
 
-Upon activation of the paid version, your personal account balance will equal zero by default.
+Upon activation of the paid version, your personal account balance will be zero by default.
 
 {% include [personal-account-balance](../_includes/personal-account-balance.md) %}
 
 
-We recommend that you [monitor](../operations/pay-the-bill.md) and top up your personal account balance so that it is always positive.
+We recommend that you [keep track](../operations/pay-the-bill.md) and maintain a positive balance at all times.
 
-If you fail to top up your personal account on time, the use of the {{ yandex-cloud }} services may be suspended. Prior to suspension, a payment notice will be sent to the email address specified in your billing account. You will receive payment notices seven and three days prior to suspension, as well as on the day of suspension. After you top up your personal account, access to resource consumption will be restored within 24 hours.
+If you fail to top up your personal account on time, your use of {{ yandex-cloud }} services may be suspended. Prior to suspension, a payment notice will be sent to the email address specified in your billing account. You will get payment notices seven and three days prior to suspension, as well as on the suspension day. After you top up your personal account, your access to resources will be restored within 24 hours.
 
 ## Methods and terms of crediting funds to your personal account {#methods}
 
