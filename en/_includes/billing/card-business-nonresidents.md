@@ -1,5 +1,5 @@
 {% note info %}
 
-Bank card payments are not available for non-residents of Russia and Kazakhstan.
+Payment by credit/debit card is not available for non-residents of Russia and Kazakhstan.
 
 {% endnote %}

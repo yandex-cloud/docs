@@ -53,7 +53,7 @@ The outstanding charges shall be paid within the deadline stipulated in the [agr
 
 {% note info %}
 
-We recommend that you track spending on your personal account and [top up the balance so that it is always positive](../operations/pay-the-bill.md). If your personal account balance exceeds the billing threshold amount and you fail to pay your arrears before the deadline stipulated in the agreement, {{ yandex-cloud }} reserves the right to change the status of your personal account to [SUSPENDED](../concepts/billing-account-statuses.md).
+We recommend that you keep track of the money you spend from your personal account and [maintain a positive balance at all times](../operations/pay-the-bill.md). If your personal account balance exceeds the billing threshold or you fail to pay the arrears within the timeline set forth in the agreement, {{ yandex-cloud }} reserves the right to change the status of your billing account to [SUSPENDED](../concepts/billing-account-statuses.md).
 
 {% endnote %}
 

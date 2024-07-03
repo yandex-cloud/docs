@@ -117,8 +117,8 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
 
 - API {#api}
 
-   1. Retrieve a list of snapshots using the [SnapshotService/List](../../api-ref/grpc/snapshot_service.md#List) gRPC API method or the [list](../../api-ref/Snapshot/list.md) method of the REST API `Snapshot` resource.
-   1. Create a disk using the [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) gRPC API method or the [create](../../api-ref/Disk/create.md) method of the REST API `Disk` resource. Specify the snapshot ID in your request.
+   1. Get a list of snapshots using the [SnapshotService/List](../../api-ref/grpc/snapshot_service.md#List) gRPC API call or the [list](../../api-ref/Snapshot/list.md) REST API method for the `Snapshot` resource.
+   1. Create a disk using the [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) gRPC API call or the [create](../../api-ref/Disk/create.md) REST API method for the `Disk` resource. Specify the snapshot ID in your request.
 
 {% endlist %}
 

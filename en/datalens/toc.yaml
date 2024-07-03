@@ -790,8 +790,6 @@ items:
         href: concepts/datalens-public.md
   - name: Service settings
     items:
-      - name: Configuring a service plan
-        href: settings/service-plan.md
       - name: UI customization
         href: settings/ui-customization.md
   - name: Marketplace
@@ -806,6 +804,8 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
+      - name: Configuring a service plan
+        href: settings/service-plan.md
       - name: Archive
         items:
           - name: Before April 23, 2024

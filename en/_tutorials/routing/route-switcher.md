@@ -100,7 +100,7 @@ The infrastructure support cost includes:
 
    - API {#api}
 
-      To create a service account, use the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API method or the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the `ServiceAccount` resource.
+      To create a service account, use the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call or the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the `ServiceAccount` resource.
 
    {% endlist %}
 
@@ -199,7 +199,7 @@ The infrastructure support cost includes:
    sudo apt install git
    ```
 
-1. Clone the `yandex-cloud-examples/yc-route-switcher` repository from GitHub and navigate to the scenario directory:
+1. Clone the `yandex-cloud-examples/yc-route-switcher` repository from GitHub and navigate to the folder:
 
    ```bash
    git clone https://github.com/yandex-cloud-examples/yc-route-switcher.git
@@ -326,7 +326,7 @@ The infrastructure support cost includes:
    {% endlist %}
 
 1. Enter the `admin` username and password.
-   To find out the password, run the following command in your workstation's directory with the terraform script:
+   To find out the password, run the following command in your workstation's terraform scenario folder:
 
    ```bash
    terraform output test_vm_password

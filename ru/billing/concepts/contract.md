@@ -38,3 +38,7 @@
 ## Номер договора{#id}
 
 Номер договора отображается в сервисе {{ billing-name }} на странице ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_billing.billing.account.switch_overview }}**. 
+
+## Расторжение договора {#termination}
+
+После самостоятельного [удаления платежного аккаунта](../operations/delete-account.md) договор будет расторгнут. В этом случае предупреждать компанию ООО «Яндекс.Облако», ТОО «Облачные Сервисы Казахстан» или Iron Hive doo Beograd (Serbia) о расторжении договора не нужно.

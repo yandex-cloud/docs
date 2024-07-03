@@ -26,8 +26,9 @@ You can use a custom SSH key to connect to VMs with OS Login access enabled. To 
    ```bash
    yc compute ssh \
      --name <VM_name> \
-     --identity-file <path_to_private_SSH_key_file>
-     --login <username>
+     --identity-file <path_to_private_SSH_key_file> \
+     --login <username> \
+     --internal-address
    ```
 
    Where:
@@ -35,5 +36,6 @@ You can use a custom SSH key to connect to VMs with OS Login access enabled. To 
    * `--name`: Previously obtained VM name. You can specify the VM ID instead of its name by using the `--id` parameter.
    * `--identity-file`: Path to the previously saved private SSH key file, e.g., `/home/user1/.ssh/id_ed25519`.
    * `--login`: OS Login username.
+   * (Optional) `--internal-address`: To connect using an internal IP address.
 
 You will connect to the specified virtual machine using your SSH key. If this is your first time connecting to this VM, a new user profile will be created in the VM's operating system.

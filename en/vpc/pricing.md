@@ -19,7 +19,8 @@ In {{ vpc-short-name }}, you pay for the hourly use of public IP addresses.
 After deleting or stopping resources, you will continue to pay for the reserved public IP addresses. If you no longer need the IP addresses, delete them.
 
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
+
 
 
 
@@ -34,7 +35,7 @@ A public IP address can be in one of the following two states:
 1. **Inactive**: When a _static_ public IP address is not linked to a cloud resource or is linked to a stopped resource.
 
 
-All prices are shown without VAT.
+All prices are net of VAT.
 
 
 
@@ -56,8 +57,8 @@ For example, the cost of an inactive public static address will be:
 
 Where:
 
-* $0.001920 is the cost of using a public IP address per hour.
-* $0.002480 is the cost of reserving an inactive public static IP address for an hour.
+* $0.001920: Cost of using a public IP address per hour.
+* $0.002480: Cost of reserving an inactive public static IP address per hour.
 
 
 
@@ -99,8 +100,6 @@ The minimum billing unit is 1 MB.
 
 #### Egress traffic {#prices-traffic}
 
-{% include notitle [note-public-ip-traffic.md](../_includes/pricing/note-public-ip-traffic.md) %}
-
 {% include notitle [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 
 
@@ -109,7 +108,7 @@ The minimum billing unit is 1 MB.
 
 
 
-All prices are shown without VAT.
+All prices below do not include VAT.
 
 {% include [usd-ddos](../_pricing/vpc/usd-ddos.md) %}
 
@@ -138,7 +137,7 @@ The excess is calculated by multiplying 1 Mbps of traffic by the prevailing traf
 
 
 
-All prices are shown without VAT.
+All prices below do not include VAT.
 
 {% include [usd-advanced-ddos](../_pricing/vpc/usd-advanced-ddos.md) %}
 
@@ -162,7 +161,7 @@ With the {{ adv-ddos-protection }} service plan, you can additionally activate t
 
 
 
-All prices are shown without VAT.
+All prices below do not include VAT.
 
 {% include [usd-advanced-ddos-services](../_pricing/vpc/usd-advanced-ddos-services.md) %}
 
@@ -171,11 +170,11 @@ All prices are shown without VAT.
 
 
 
-All prices are shown without VAT.
+All prices below do not include VAT.
 
 {% include [usd-waf](../_pricing/vpc/usd-waf.md) %}
 
 
 The Managed Web Application Firewall plan includes the following services:
 
-{% include [waf-services.md](../_pricing/vpc/waf-services.md) %}
+{% include [waf-services](../_pricing/vpc/waf-services.md) %}

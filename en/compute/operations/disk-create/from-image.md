@@ -65,7 +65,7 @@ To create a disk from an [image](../../concepts/image.md):
       +----------------------+------------+--------+----------------------+--------+
       ```
 
-   1. Select the identifier (`ID`) or name (`NAME`) of the desired image.
+   1. Select the identifier (`ID`) or name (`NAME`) of the image you need.
 
    1. Create a disk from the selected image.
 
@@ -117,8 +117,8 @@ To create a disk from an [image](../../concepts/image.md):
 
 - API {#api}
 
-   1. Retrieve a list of images using the [ImageService/List](../../api-ref/grpc/image_service.md#List) grPC API method or the [list](../../api-ref/Image/list.md) method of the REST API `Image` resource.
-   1. Create a disk using the [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) gRPC API method or the [create](../../api-ref/Disk/create.md) method of the REST API `Disk` resource. Specify the image ID in your request.
+   1. Get a list of images using the [ImageService/List](../../api-ref/grpc/image_service.md#List) gRPC API call or the [list](../../api-ref/Image/list.md) REST API method for the `Image` resource.
+   1. Create a disk using the [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) gRPC API call or the [create](../../api-ref/Disk/create.md) REST API method for the `Disk` resource. Specify the image ID in your request.
 
 {% endlist %}
 

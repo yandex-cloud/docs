@@ -50,6 +50,8 @@ items:
         href: tutorials/loadtesting-overload-migration.md
       - name: Running external agents for load testing
         href: tutorials/loadtesting-external-agent.md
+      - name: Invoking load testing from {{ GL }}} CI
+        href: tutorials/loadtesting-gitlab-ci.md
       - name: Comparing load test results
         href: tutorials/loadtesting-results-compare.md
   - name: Concepts

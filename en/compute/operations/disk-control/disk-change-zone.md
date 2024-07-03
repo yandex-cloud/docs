@@ -76,7 +76,7 @@ To attach the disk to a VM from a different availability zone, move it:
 
       {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
 
-   1. Select the `ID` of the appropriate disk.
+   1. Select the `ID` of the disk.
 
    1. Move the disk to a different availability zone:
 

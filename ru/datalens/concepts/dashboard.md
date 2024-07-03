@@ -18,7 +18,6 @@ _Дашборд_ — страница или набор страниц, на к�
 * [{#T}](../dashboard/settings.md)
 * [{#T}](../dashboard/versioning.md)
 * [{#T}](../dashboard/dashboard_parameters.md)
-* [{#T}](../dashboard/embedded-objects.md)
 * [{#T}](../dashboard/markdown.md)
 * Пошаговые инструкции:
 
@@ -43,3 +42,4 @@ _Дашборд_ — страница или набор страниц, на к�
 #### См. также {#see-also}
 
 * [{#T}](../security/index.md)
+* [{#T}](../security/embedded-objects.md)

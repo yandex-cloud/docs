@@ -28,7 +28,6 @@ items:
         items:
           - name: Before October 1, 2023
             href: pricing-archive/pricing01102023.md
-    href: pricing.md
   - name: FAQ
     href: qa.md
 base: en/support

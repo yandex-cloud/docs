@@ -1,4 +1,4 @@
-# Billing accounts
+# Billing account
 
 Billing accounts are used to identify users paying for resources in {{ yandex-cloud }}.
 
