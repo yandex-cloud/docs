@@ -5,7 +5,7 @@ description: "В инструкции пошагово изложен проце
 
 # Установка и настройка {{ TF }} и провайдера для подключения к {{ ydb-short-name }}
 
-{{ TF }} можно скачать с официального сайта [HashiCorp](https://developer.hashicorp.com/terraform/downloads), но если сайт не доступен — воспользуйтесь нашим специально созданным [зеркалом](https://hashicorp-releases.yandexcloud.net/terraform/). Скачайте дистрибутив {{ TF }} для вашей платформы и добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH: export PATH=$PATH:/path/to/terraform`.
+{{ TF }} можно скачать с официального сайта [HashiCorp](https://developer.hashicorp.com/terraform/downloads), но если сайт недоступен — воспользуйтесь нашим специально созданным [зеркалом](https://hashicorp-releases.yandexcloud.net/terraform/). Скачайте дистрибутив {{ TF }} для вашей платформы и добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH: export PATH=$PATH:/path/to/terraform`.
 
 
 ## Установка {{ TF }} для Windows, Linux и macOS с сайта HashiCorp {#terraform-install-on-dif-os}

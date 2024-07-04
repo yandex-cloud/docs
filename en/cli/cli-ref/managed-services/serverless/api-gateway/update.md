@@ -37,6 +37,7 @@ Syntax:
 |`--variables`|<b>`key=value[,key=value...]`</b><br/>A list of values for variables in gateway specification.|
 |`--canary-weight`|<b>`int`</b><br/>Percentage of requests, which will be processed by canary release.|
 |`--canary-variables`|<b>`key=value[,key=value...]`</b><br/>A list of values for variables in gateway specification of canary release.|
+|`--execution-timeout`|<b>`duration`</b><br/>Execution timeout.|
 
 #### Global Flags
 

@@ -1,6 +1,6 @@
 # Working with issues
 
-To open your issue list, in the left-hand menu, select ![](../../_assets/tracker/svg/tasks.svg) **{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}** → **All my issues** or follow the [link]({{ link-tracker }}issues/my-issues). To get started with an issue, go to the issue's page.
+To open your issue list, in the left-hand menu, select ![](../../_assets/tracker/svg/tasks.svg) **Issues** → **All my issues** or follow the [link]({{ link-tracker }}issues/my-issues). To get started with an issue, go to the issue's page.
 
 
 ## Accepting an issue {#section_qpp_5rn_jz}

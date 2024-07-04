@@ -5,7 +5,7 @@ description: "На странице представлен список поша
 
 # Пошаговые инструкции для {{ mgp-name }}
 
-## Кластеры
+## Кластеры {#clusters}
 
 * [Информация об имеющихся кластерах](cluster-list.md)
 * [{#T}](calculate-specs.md)
@@ -18,11 +18,11 @@ description: "На странице представлен список поша
 * [Управление резервными копиями](cluster-backups.md)
 * [Удаление кластера](cluster-delete.md)
 
-## Базы данных
+## Базы данных {#databases}
 
 * [{#T}](connect.md)
 
-## Пользователи и сессии
+## Пользователи и сессии {#users-and-sessions}
 
 * [{#T}](roles-and-users.md)
 * [{#T}](resource-groups.md)
@@ -30,7 +30,7 @@ description: "На странице представлен список поша
 * [{#T}](command-center.md)
 * [{#T}](cluster-process.md)
 
-## Внешние таблицы PXF
+## Внешние таблицы PXF {#pxf}
 
 * [{#T}](external-tables.md)
 * [{#T}](pxf/create-s3-source.md)
@@ -38,24 +38,25 @@ description: "На странице представлен список поша
 * [{#T}](pxf/create-hdfs-source.md)
 * [{#T}](pxf/create-hive-source.md)
 * [{#T}](pxf/create-table.md)
+* [{#T}](pxf/settings.md)
 
-## Работа с утилитой `gpfdist`
+## Работа с утилитой `gpfdist` {#gpfdist}
 
 * [{#T}](gpfdist/connect.md)
 
-## Расширения {{ GP }}
+## Расширения {{ GP }} {#extensions}
 
 * [Управление расширениями](./extensions/cluster-extensions.md)
 * [Использование pgcrypto](./extensions/pgcrypto.md)
 * [Использование uuid-cb](./extensions/uuid-cb.md)
 
-## Логи и мониторинг
+## Логи и мониторинг {#logs-and-monitoring}
 
 * [Просмотр логов кластера](cluster-logs.md)
 * [{#T}](performance-diagnostics.md)
 * [Мониторинг состояния кластера и хостов](monitoring.md)
 
-## Вспомогательные утилиты
+## Вспомогательные утилиты {#tools}
 
 * [{#T}](greenplum-db.md)
 

@@ -4,13 +4,17 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## Июнь 2024 {#june-2024}
+
+Доступна новая версия {{ CH }} [24.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-245-2024-05-30).
+
 ## Май 2024 {#may-2024}
 
-* Доступна новая версия {{ CH }} [24.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-244-2024-04-30).
+Доступна новая версия {{ CH }} [24.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-244-2024-04-30).
 
 ## Апрель 2024 {#apr-2024}
 
-* Доступна новая версия {{ CH }} [24.3 LTS](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-243-lts-2024-03-27).
+Доступна новая версия {{ CH }} [24.3 LTS](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-243-lts-2024-03-27).
 
 ## Март 2024 {#mar-2024}
 
@@ -25,11 +29,11 @@
 
 ## II квартал 2023 {#q2-2023}
 
-* Доступны новые версии {{ CH }} [23.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-234-2023-04-26) и [23.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-235-2023-06-08).
+Доступны новые версии {{ CH }} [23.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-234-2023-04-26) и [23.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-235-2023-06-08).
 
 ## I квартал 2023 {#q1-2023}
 
-* Доступна новая версия {{ CH }} [23.3](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-233-lts-2023-03-30).
+Доступна новая версия {{ CH }} [23.3](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-233-lts-2023-03-30).
 
 ## IV квартал 2022 {#q4-2022}
 

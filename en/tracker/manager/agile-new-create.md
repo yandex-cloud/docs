@@ -11,7 +11,7 @@ description: "In this tutorial, you will learn how to create a board in {{ track
 
 To create a basic board:
 
-1. In the left-hand panel, click **{{ ui-key.startrek.ui_components_NavigationBar.boards }}** → **Create board**.
+1. In the left-hand panel, click **Boards** → **Create board**.
 
 1. Select the **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--simple }}** board type and click **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.submit-btn }}**. This will create a new board named **New board**. This board field is editable, so you can change its value and rename the board.
 
@@ -25,7 +25,7 @@ After [adding issues to the board](agile-new-set-board.md#add-task), you can cus
 
 To create a board with a backlog and sprints:
 
-1. In the left-hand panel, click **{{ ui-key.startrek.ui_components_NavigationBar.boards }}** → **Create board**.
+1. In the left-hand panel, click **Boards** → **Create board**.
 
 1. Select the **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--scrum }}** board type and click **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.submit-btn }}**. This will create a new board named **New board**. This board field is editable, so you can change its value and rename the board.
 

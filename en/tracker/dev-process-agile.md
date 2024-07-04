@@ -10,7 +10,7 @@ If you selected such template as *Basic development model*, *Scrum*, or *Kanban*
 
 You can also [create multiple issue boards](manager/create-agile-board.md). This can be useful if you have multiple work groups or issue types:
 
-1. In the left-hand panel, select ![](../_assets/tracker/svg/boards.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.boards }}** and click **{{ ui-key.startrek.ui_components_NavigationBar_BoardsPanel.create-button }}**.
+1. In the left-hand panel, select ![](../_assets/tracker/svg/boards.svg)&nbsp;**Boards** and click **Create board**.
 
 1. Select the [board type](#board_types).
 

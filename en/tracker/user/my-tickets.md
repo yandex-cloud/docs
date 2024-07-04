@@ -7,15 +7,15 @@ description: "In this tutorial, you will learn how to view a list of your issues
 
 To find issues you're working on:
 
-1. In the left-hand panel, open ![](../../_assets/tracker/svg/tasks.svg) **{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}**.
+1. In the left-hand panel, open ![](../../_assets/tracker/svg/tasks.svg) **Issues**.
 
 1. To find the issues in which you are the reporter, assignee, or follower, select the **All my issues** filter.
 
 1. If you cannot see all relevant issues, expand the list:
 
-   * In the left-hand panel at the bottom of the page, click **{{ ui-key.startrek.ui_components_NavigationBar_IssuesPanel.filter-items-link }}** or [follow the direct link]({{ link-tracker }}issues/my-issues).
+   * In the left-hand panel at the bottom of the page, click **Full list of filtered issues** or [follow the direct link]({{ link-tracker }}issues/my-issues).
 
-   * To open all issues available to you in {{ tracker-name }}, at the bottom of the window, click **{{ ui-key.startrek.ui_components_NavigationBar_IssuesPanel.all-items-link }}** or follow the [direct link]({{ link-tracker }}issues).
+   * To open all issues available to you in {{ tracker-name }}, at the bottom of the window, click **All issues** or follow the [direct link]({{ link-tracker }}issues).
 
 To search for issues in the list, use [filtering by parameters](#q-filters) or [add search criteria](default-filters.md#add-condition).
 
@@ -40,7 +40,7 @@ Use filters to narrow down your issue list and display only those issues that ma
 
 If you want to find an issue using its name:
 
-1. In the left-hand panel, open ![](../../_assets/tracker/svg/tasks.svg) **{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}** or follow the [link]({{ link-tracker }}issues/).
+1. In the left-hand panel, open ![](../../_assets/tracker/svg/tasks.svg) **Issues** or follow the [link]({{ link-tracker }}issues/).
 
 1. In the **{{ ui-key.startrek.ui_components_filter-pane.search-placeholder }}** field, enter the text to search for.
 

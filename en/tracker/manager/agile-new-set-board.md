@@ -1,6 +1,6 @@
 # Configuring a board
 
-To go to the board page, click ![](../../_assets/tracker/svg/boards.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.boards }}** in the left-hand panel and select the board.
+To go to the board page, click ![](../../_assets/tracker/svg/boards.svg)&nbsp;**Boards** in the left-hand panel and select the board.
 
 ## Create an issue {#create-task}
 
@@ -99,7 +99,7 @@ You can only add one note per column. It will be shown to all users at the top o
 
 To always have quick access to the board, add it to favorites. To do this, go to the board's page, then, on the top panel of the page, click ![](../../_assets/tracker/svg/favourites.svg) to the right of the board name.
 
-To find your favorite boards, select ![](../../_assets/tracker/svg/boards.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.boards }}** in the left-hand panel and filter the boards by the **Favorites** value.
+To find your favorite boards, select ![](../../_assets/tracker/svg/boards.svg)&nbsp;**Boards** in the left-hand panel and filter the boards by the **Favorites** value.
 
 ## Show the sprint issues {#sprint-tasks}
 

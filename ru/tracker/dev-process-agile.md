@@ -4,7 +4,7 @@
 
 Вы можете [создать несколько досок задач](manager/create-agile-board.md), например для разных рабочих групп или для задач разного типа:
 
-1. На панели слева выберите ![](../_assets/tracker/svg/boards.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.boards }}**, затем нажмите **{{ ui-key.startrek.ui_components_NavigationBar_BoardsPanel.create-button }}**.
+1. На панели слева выберите ![](../_assets/tracker/svg/boards.svg)&nbsp;**Доски задач**, затем нажмите **Создать доску**.
 
 1. Выберите [тип доски](#board_types).
 

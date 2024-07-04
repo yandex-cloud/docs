@@ -2,7 +2,7 @@
 
 Issues are displayed on the board as cards with basic issue parameters. You can [customize](#cards) the appearance of cards on the board.
 
-To open the board page, select ![](../../_assets/tracker/svg/boards.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.boards }}** in the left-hand panel and click the relevant board in the list.
+To open the board page, select ![](../../_assets/tracker/svg/boards.svg)&nbsp;**Boards** in the left-hand panel and click the relevant board in the list.
 
 ## Configuring issue cards {#cards}
 

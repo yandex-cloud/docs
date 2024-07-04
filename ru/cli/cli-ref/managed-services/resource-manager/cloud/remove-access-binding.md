@@ -25,6 +25,9 @@ Syntax:
 |`--user-account-id`|<b>`string`</b><br/>User account, whose access will be updated.|
 |`--user-yandex-login`|<b>`string`</b><br/>User account, whose access will be updated.|
 |`--all-authenticated-users`|Access will be updated for all authenticated users|
+|`--group-members`|<b>`string`</b><br/>Update access for members of the group with specified ID|
+|`--organization-users`|<b>`string`</b><br/>Update access for users of organization with specified ID|
+|`--federation-users`|<b>`string`</b><br/>Update access for users of federation with specified ID|
 |`--subject`|<b>`string`</b><br/>Subject whose access will be updated; in TYPE:ID format, e.g. userAccount:\<ID\>, serviceAccount:\<ID\>, system:\<ID\>.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
