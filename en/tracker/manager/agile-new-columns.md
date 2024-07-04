@@ -2,7 +2,7 @@
 
 Issue cards are distributed across columns according to their statuses. Set up the board's columns to see relevant statuses and move issues between them. There are two types of board columns: [by status](#status) and [custom](#user-columns).
 
-Go to the board page, click ![](../../_assets/tracker/svg/boards.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.boards }}** in the left-hand panel and select the board.
+Go to the board page, click ![](../../_assets/tracker/svg/boards.svg)&nbsp;**Boards** in the left-hand panel and select the board.
 
 ## Columns by status {#status}
 

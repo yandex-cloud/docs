@@ -13,7 +13,7 @@ You can set up your [start page](startpage.md) in the old interface to show one 
 
 1. Click the [{{ link-settings }}]({{ link-settings }}) link.
 
-1. Under **{{ ui-key.startrek.ui_components_NavigationBar.start-page-title }}**, choose the filter, dashboard, or issue board you want to see on the home page. To use **My page** as the startup page, select it in the list.
+1. Under **Start page**, choose the filter, dashboard, or issue board you want to see on the home page. To use **My page** as the startup page, select it in the list.
 
 1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -114,4 +114,4 @@ To enable the new {{ tracker-name }} interface:
 
 1. Click the link [{{ link-settings }}]({{ link-settings }}).
 
-1. Under **{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}**, enable the **{{ ui-key.startrek.ui_components_NavigationBar.new-ui }}** option.
+1. Under **Interface**, enable the **New interface** option.

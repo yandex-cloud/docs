@@ -329,7 +329,7 @@
 - Консоль управления {#console}
 
   1. Выберите кластер `s3-logs`.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_explore }}**.
+  1. Перейдите на вкладку **SQL**.
   1. В поле **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** введите пароль.
   1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
   1. В окне справа напишите SQL-запрос:

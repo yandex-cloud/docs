@@ -80,5 +80,5 @@ As a home page, you can use any [filter](create-filter.md), [dashboard](dashboar
 
 For now, you can only change the home page in the old interface:
 1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
-1. Under **{{ ui-key.startrek.ui_components_NavigationBar.start-page-title }}**, choose the filter, dashboard, or issue board you want to see on the homepage.
+1. Under **Start page**, choose the filter, dashboard, or issue board you want to see on the homepage.
 1. Click **{{ ui-key.yacloud.common.save }}**.

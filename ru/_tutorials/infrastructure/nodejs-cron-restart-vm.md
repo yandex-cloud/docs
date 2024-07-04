@@ -37,6 +37,12 @@
 
 Создайте [секрет](../../lockbox/quickstart.md) {{ lockbox-name }} для хранения [OAuth-токена](../../iam/concepts/authorization/oauth-token.md).
 
+{% note info %}
+
+Используйте [OAuth-токен](../../iam/concepts/authorization/oauth-token.md), если у вас нет возможности автоматически запрашивать [IAM-токен](../../iam/concepts/authorization/iam-token.md). IAM-токен обновляется чаще, поэтому более безопасен.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

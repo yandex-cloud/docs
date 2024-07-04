@@ -10,7 +10,7 @@
 
    {% note info %}
 
-   Чтобы открыть список ваших задач, в меню слева выберите ![](../../_assets/tracker/svg/tasks.svg) **{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}** → **Все мои задачи** или перейдите по [ссылке]({{ link-tracker }}issues/my-issues). Чтобы начать работать с задачей, перейдите на ее страницу.
+   Чтобы открыть список ваших задач, в меню слева выберите ![](../../_assets/tracker/svg/tasks.svg) **Задачи** → **Все мои задачи** или перейдите по [ссылке]({{ link-tracker }}issues/my-issues). Чтобы начать работать с задачей, перейдите на ее страницу.
 
   {% endnote %}
 

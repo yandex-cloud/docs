@@ -10,7 +10,7 @@
 
 Чтобы открыть все задачи, которые доступны вам в {{ tracker-name }}: 
 
-* на панели слева откройте ![](../../_assets/tracker/svg/tasks.svg) **{{ ui-key.startrek.ui_components_NavigationBar_IssuesPanel.caption }}**, затем в нижней части окна нажмите кнопку **{{ ui-key.startrek.ui_components_NavigationBar_IssuesPanel.all-items-link }}**;
+* на панели слева откройте ![](../../_assets/tracker/svg/tasks.svg) **Задачи**, затем в нижней части окна нажмите кнопку **Все задачи**;
 * или перейдите по [прямой ссылке]({{ link-tracker }}issues).
 
 ### Шаг 2. Задайте условия фильтрации {#set-conditions}

@@ -4667,20 +4667,6 @@ default:
         links-tab: Связи
       ui_components_ModalTextEditor:
         save: Сохранить
-      ui_components_NavigationBar_BoardsPanel:
-        create-button: Создать доску
-      ui_components_NavigationBar_IssuesPanel:
-        all-items-link: Все задачи
-        caption: Задачи
-        filter-items-link: Полный список задач по фильтру
-        search-input-placeholder: Поиск по названию задачи
-      ui_components_NavigationBar:
-        appearance-title: Интерфейс
-        boards: Доски задач
-        issue-lists-menu-item: Задачи
-        new-ui: Новый интерфейс
-        start-page-title: Стартовая страница
-        templates-settings: Управление шаблонами
       ui_components_new-process_ProcessTypeStep:
         next-button: Продолжить
         process-type-development: Разработка
@@ -7286,7 +7272,6 @@ default:
           switch_databases: Базы данных
           switch_datalens: DataLens
           switch_diagnostics: Диагностика производительности
-          switch_explore: SQL
           switch_hosts: Хосты
           switch_logs: Логи
           switch_monitoring: Мониторинг
@@ -7427,6 +7412,7 @@ default:
             label_mount-point-name: Точка монтирования
             label_mount-point-path: Путь монтирования
             label_mq: Очередь сообщений
+            label_readonly: Только чтение
             label_success-sa: Назначение для успешного результата
             label_title: Редактор
             label_title-params: Параметры

@@ -10,7 +10,7 @@ To go to a project issue board:
 
 {% note info %}
 
-You can also open the project issue board in the ![](../../_assets/tracker/svg/boards.svg) **{{ ui-key.startrek.ui_components_NavigationBar.boards }}** section in the left-hand panel. By default, this board is named **`<project_name>` project board**.
+You can also open the project issue board in the ![](../../_assets/tracker/svg/boards.svg) **Boards** section in the left-hand panel. By default, this board is named **`<project_name>` project board**.
 
 {% endnote %}
 

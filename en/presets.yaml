@@ -4665,20 +4665,6 @@ default:
         links-tab: Links
       ui_components_ModalTextEditor:
         save: Save
-      ui_components_NavigationBar_BoardsPanel:
-        create-button: Create board
-      ui_components_NavigationBar_IssuesPanel:
-        all-items-link: All issues
-        caption: Issues
-        filter-items-link: Full list of filtered issues
-        search-input-placeholder: Search by issue name
-      ui_components_NavigationBar:
-        appearance-title: Interface
-        boards: Boards
-        issue-lists-menu-item: Issues
-        new-ui: New interface
-        start-page-title: Start page
-        templates-settings: Template management
       ui_components_new-process_ProcessTypeStep:
         next-button: Next
         process-type-development: Development
@@ -7280,7 +7266,6 @@ default:
           switch_databases: Databases
           switch_datalens: DataLens
           switch_diagnostics: Performance diagnostics
-          switch_explore: SQL
           switch_hosts: Hosts
           switch_logs: Logs
           switch_monitoring: Monitoring
@@ -7421,6 +7406,7 @@ default:
             label_mount-point-name: Mount point
             label_mount-point-path: Mount path
             label_mq: Message Queue
+            label_readonly: Read only
             label_success-sa: Destination for successful result
             label_title: Editor
             label_title-params: Parameters
