@@ -14,9 +14,9 @@ You can add your important issues to Favorites so that they are always at hand:
 
 To open the list of your favorite issues:
 
-1. In the left-hand panel, open ![](../../_assets/tracker/svg/tasks.svg) **{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}**.
+1. In the left-hand panel, open ![](../../_assets/tracker/svg/tasks.svg) **Issues**.
 
-1. In the list on the right, select the **Favorite issues** filter and then click **{{ ui-key.startrek.ui_components_NavigationBar_IssuesPanel.filter-items-link }}** at the bottom of the window.
+1. In the list on the right, select the **Favorite issues** filter and then click **Full list of filtered issues** at the bottom of the window.
 
 You can also open your favorite issues by the [link]({{ link-tracker }}issues/favorite).
 
@@ -58,6 +58,6 @@ To add an [agile board](../manager/agile.md#sec_boards) to Favorites:
 
 To open the list of your favorite boards:
 
-1. In the left-hand panel, open ![](../../_assets/tracker/svg/boards.svg) **{{ ui-key.startrek.ui_components_NavigationBar.boards }}**.
+1. In the left-hand panel, open ![](../../_assets/tracker/svg/boards.svg) **Boards**.
 
 1. In the list on the right, select the **Favorites** filter.

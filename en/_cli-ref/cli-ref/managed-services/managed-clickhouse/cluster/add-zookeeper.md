@@ -23,6 +23,7 @@ Syntax:
 |`--disk-size`|<b>`byteSize`</b><br/>Storage volume available to a ZooKeeper host.|
 |`--disk-type`|<b>`string`</b><br/>Storage type for the host.|
 |`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Configurations for ClickHouse Zookeeper hosts that should be added to the cluster.<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the new host should reside.</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> </ul>|
+|`--convert-tables-to-replicated`|Convert tables to replicated.|
 
 #### Global Flags
 

@@ -11,7 +11,7 @@
 В этом случае необходимо создать [политику доступа к бакету](../../../storage/concepts/policy.md), в которой будут указаны диапазоны IP-адресов, которые используются сервисом Yandex Cloud CDN.
 
 Список задействованных сервисом IP-адресов и подсетей можно получить по следующим ссылкам:
-- [Список публичных IP-адресов провайдера Edge Center](https://api.edgecenter.ru/cdn/public-ip-list);
+- [Список публичных IP-адресов провайдера Edge Center](https://api.edgecenter.ru/cdn/public_ips_list);
 - [Список IP-подсетей провайдера Edge Center (c указанием CIDR)](https://api.edgecenter.ru/cdn/public-net-list).
 
 {% note info %}

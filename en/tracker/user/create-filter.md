@@ -10,7 +10,7 @@ You can use your saved filters to pick issues for [dashboards](dashboard.md) and
 
 The open all the issues that are available to you in {{ tracker-name }}:
 
-* In the left-hand panel, open ![](../../_assets/tracker/svg/tasks.svg) **{{ ui-key.startrek.ui_components_NavigationBar_IssuesPanel.caption }}**, then at the bottom of the window, click **{{ ui-key.startrek.ui_components_NavigationBar_IssuesPanel.all-items-link }}**.
+* In the left-hand panel, open ![](../../_assets/tracker/svg/tasks.svg) **Issues**, then at the bottom of the window, click **All issues**.
 * Or follow the [direct link]({{ link-tracker }}issues).
 
 ### Step 2. Set filter criteria {#set-conditions}

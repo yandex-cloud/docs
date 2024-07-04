@@ -14,9 +14,9 @@
 
 Чтобы открыть список избранных задач:
 
-1. На панели слева откройте ![](../../_assets/tracker/svg/tasks.svg) **{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}**.
+1. На панели слева откройте ![](../../_assets/tracker/svg/tasks.svg) **Задачи**.
 
-1. В списке справа выберите фильтр **Избранные задачи**, затем в нижней части окна нажмите кнопку **{{ ui-key.startrek.ui_components_NavigationBar_IssuesPanel.filter-items-link }}**.
+1. В списке справа выберите фильтр **Избранные задачи**, затем в нижней части окна нажмите кнопку **Полный список задач по фильтру**.
 
 Вы также можете открыть список избранных задач по [ссылке]({{ link-tracker }}issues/favorite).
 
@@ -58,6 +58,6 @@
 
 Чтобы открыть список избранных досок:
 
-1. На панели слева откройте ![](../../_assets/tracker/svg/boards.svg) **{{ ui-key.startrek.ui_components_NavigationBar.boards }}**.
+1. На панели слева откройте ![](../../_assets/tracker/svg/boards.svg) **Доски задач**.
 
 1. В списке справа выберите фильтр **Избранные**.

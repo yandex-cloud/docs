@@ -328,7 +328,7 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
 - Management console {#console}
 
   1. Select the `s3-logs` cluster.
-  1. Go to the **{{ ui-key.yacloud.mysql.cluster.switch_explore }}** tab.
+  1. Go to the **SQL** tab.
   1. In the **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** field, enter the password.
   1. Click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
   1. In the window on the right, write an SQL query:

@@ -6,7 +6,7 @@ To find the issues you're working on, use the _system filters_ preset. The filte
 
 Find your issues using preset system filters.
 
-1. Go to the page with the issue list. To do this, in the left-hand panel, open ![](../../_assets/tracker/svg/tasks.svg) **{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}** or follow the [link]({{ link-tracker }}issues).
+1. Go to the page with the issue list. To do this, in the left-hand panel, open ![](../../_assets/tracker/svg/tasks.svg) **Issues** or follow the [link]({{ link-tracker }}issues).
 
 1. In the drop-down list, select one of the options:
 
@@ -30,7 +30,7 @@ Find your issues using preset system filters.
 
 1. On the filter page, you'll see the selected issue list. You can add filtering conditions, set up the list's layout, or safe the list to a file:
 
-   * To search for issues in the list, use the **{{ ui-key.startrek.ui_components_NavigationBar_IssuesPanel.search-input-placeholder }}** bar or [add search criteria](#add-condition).
+   * To search for issues in the list, use the **Search by issue name** bar or [add search criteria](#add-condition).
 
 
    * To group issues by a certain parameter, click ![](../../_assets/tracker/svg/group.svg) **Not grouped** to the right of the search bar and select the desired parameter.

@@ -5,7 +5,7 @@
 ## Настроить список событий {#section_iqn_y55_xgb}
 
 
-1. На панели слева нажмите ![](../../_assets/tracker/svg/settings.svg) **Настройки**. Затем выберите ![](../../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** и нажмите **Настройки уведомлений**. Вы также можете перейти по ссылке [{{ link-sub-roles }}]({{ link-sub-roles }}).
+1. На панели слева нажмите ![](../../_assets/tracker/svg/settings.svg) **Настройки**. Затем выберите ![](../../_assets/tracker/svg/interface.svg)&nbsp;**Интерфейс** и нажмите **Настройки уведомлений**. Вы также можете перейти по ссылке [{{ link-sub-roles }}]({{ link-sub-roles }}).
 
 1. Выберите роль и настройте список событий, уведомления о которых хотите получать по почте или в [отчете об изменениях](notification-digest.md):
     - чтобы добавить событие, нажмите кнопку ![](../../_assets/tracker/button-plus.png);
@@ -35,7 +35,7 @@
 Чтобы добавить роли и настроить для них уведомления:
 
 
-1. На панели слева нажмите ![](../../_assets/tracker/svg/settings.svg) **{{ ui-key.yacloud.component.navigation-menu.label_notifications }}**. Затем выберите ![](../../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** и нажмите **Настройки уведомлений**. Вы также можете перейти по ссылке [{{ link-sub-roles }}]({{ link-sub-roles }}).
+1. На панели слева нажмите ![](../../_assets/tracker/svg/settings.svg) **{{ ui-key.yacloud.component.navigation-menu.label_notifications }}**. Затем выберите ![](../../_assets/tracker/svg/interface.svg)&nbsp;**Интерфейс** и нажмите **Настройки уведомлений**. Вы также можете перейти по ссылке [{{ link-sub-roles }}]({{ link-sub-roles }}).
 
 1. В нижней части страницы нажмите кнопку **Добавить роль** и выберите роль. Чтобы удалить роль, нажмите на значок ![](../../_assets/tracker/remove-task-type.png) возле названия роли.
 

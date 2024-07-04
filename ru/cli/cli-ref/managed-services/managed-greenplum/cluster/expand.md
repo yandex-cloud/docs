@@ -20,6 +20,9 @@ Syntax:
 |`--segment-host-count`|<b>`int`</b><br/>Number of hosts for add to the segment subcluster. Default is 1.|
 |`--add-segments-per-host-count`|<b>`int`</b><br/>Number of segments per host to add. Default is 1.|
 |`--duration-seconds`|<b>`int`</b><br/>Redistribute duration, in seconds. Default is 2 hours (7200 seconds)|
+|`--parallel`|<b>`int`</b><br/>Redistribute process parallelilsm. Default is 0 for autodetection|
+|`--close-cluster`|Deny all client connections during the expand operation|
+|`--delay-redistribution`|Perfrom redistribution process by small chunks as background activity|
 |`--id`|<b>`string`</b><br/>Greenplum cluster id.|
 |`--name`|<b>`string`</b><br/>Greenplum cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|

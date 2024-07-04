@@ -11,8 +11,8 @@ To implement this scenario, restrict public access to the bucket from IP address
 In this case, you need to create a [bucket access policy](../../../storage/concepts/policy.md) to specify IP ranges used by Yandex Cloud CDN.
 
 You can get a list of IPs and subnets used by the service at the links:
-- [List of public IP addresses of the Edge Center provider](https://api.edgecenter.ru/cdn/public-ip-list)
-- [List of IP subnets of the Edge Center provider (with CIDRs)](https://api.edgecenter.ru/cdn/public-net-list).
+- [List of public IP addresses of the Edge Center provider](https://api.edgecenter.ru/cdn/public_ips_list)
+- [List of IP subnets of the Edge Center provider (with CIDRs)](https://api.edgecenter.ru/cdn/public_net_list).
 
 {% note info %}
 

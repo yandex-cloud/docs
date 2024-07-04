@@ -5,6 +5,8 @@ description: "Из статьи вы узнаете, как создать по�
 
 # Создать политику резервного копирования
 
+{% include [policy-execute-time](../../../_includes/backup/policy-execute-time.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
