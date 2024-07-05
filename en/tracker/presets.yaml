@@ -62,7 +62,7 @@ default:
   mobile-google-link: https://play.google.com/store/apps/details?id=ru.yandex.cloud.tracker
   mobile-apple-link: https://apps.apple.com/ru/app/yandex-cloud/id1351761680
   mobile-huawei-link: https://appgallery.huawei.com/#/app/C107995179
-  mobile-apk-link: https://storage.yandexcloud.net/public-mobile/android/tracker.apk
+  mobile-apk-link: https://storage.yandexcloud.net/tracker-mobile/android/tracker.apk
   yfm-link: https://diplodoc.com/docs/en/index-yfm
   link-iso-8601: http://dotat.at/tmp/ISO_8601-2004_E.pdf
   link-rfc7578: https://tools.ietf.org/html/rfc7578
