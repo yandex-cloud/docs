@@ -11,7 +11,7 @@ Delivered [data events](./concepts/events-data-plane.md) are billed.
 [Management events](./concepts/events.md) are currently not billed.
 
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 
@@ -30,7 +30,7 @@ For example, delivering 17,000 data events will cost:
 
 
 > (17,000 / 100,000) × $0.288 = 0.17 × $0.288 = $0.05
-> 
+>
 > Total: $0.05
 
 
@@ -45,19 +45,16 @@ For example, delivering 17,000 data events will cost:
   * Number of times the secret is accessed: 7,000.
 
 
-   
- 
-  The cost is calculated as follows:
-
+  
   > (2 × 7,000 / 100,000) × $0.288 = 0.14 × $0.288 = $0.04
   >
   > Total: $0.04
 
   Where:
-   
+
   * 2: Number of events delivered per a single access to a secret.
   * 7,000: Number of times the secret is accessed.
-  * 0.288: Price for delivering 100,000 events.
+  * 0.288: Price of delivering 100,000 events.
   * 100,000: Divide to reduce the number of events to a billing unit.
 
 
@@ -73,9 +70,6 @@ For example, delivering 17,000 data events will cost:
      This includes the events of creating objects in buckets and changing object tags.
 
 
-   
- 
-  The cost is calculated as follows:
   
   > ((25,000 - 1,000) / 100,000) × $0.288 = 0.24 × $0.288 = $0.07
   >
@@ -85,7 +79,6 @@ For example, delivering 17,000 data events will cost:
 
   * 25,000: Total number of delivered {{ objstorage-name }} events.
   * 1,000: Number of delivered management events that are not billed.
-  * 0.288: Price for delivering 100,000 events.
+  * 0.288: Price of delivering 100,000 events.
   * 100,000: Divide to reduce the number of events to a billing unit.
-
 

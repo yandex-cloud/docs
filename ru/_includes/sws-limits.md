@@ -3,9 +3,11 @@
 **Вид ограничения** | **Значение**
 ----- | -----
 Максимальное количество [профилей безопасности](../smartwebsecurity/concepts/profiles.md) в [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) | 5
+Максимальное количество [профилей ARL](../smartwebsecurity/concepts/arl.md) в облаке | 5
 Максимальное количество [профилей WAF](../smartwebsecurity/concepts/waf.md) в облаке | 10
 Максимальное суммарное количество [правил профилей безопасности](../smartwebsecurity/concepts/rules.md) в облаке | 250
 Максимальное суммарное количество [правил-исключений WAF](../smartwebsecurity/concepts/waf.md#exclusion-rules) в облаке | 250
+Максимальное суммарное количество [правил в профилях ARL](../smartwebsecurity/concepts/rules.md#arl-rules) в облаке | 250
 Максимальное суммарное количество [условий](../smartwebsecurity/concepts/conditions.md) для сопоставления IP-адресов в облаке | 2500
 
 #### Лимиты {#limits}

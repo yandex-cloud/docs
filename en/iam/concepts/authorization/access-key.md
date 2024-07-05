@@ -57,9 +57,11 @@ The following services support authentication based on static access keys:
 * [{{ objstorage-name }}](../../../storage/s3/index.md)
 * [{{ message-queue-name }}](../../../message-queue/api-ref/index.md)
 * [{{ ydb-name }}](../../../ydb/docapi/tools/aws-setup.md)
+* [{{ yds-full-name }}](../../../data-streams/index.yaml)
 
 #### See also {#see-also}
 
 * [{#T}](../../operations/sa/create-access-key.md)
 * [{#T}](./index.md)
 * [{#T}](./sts.md)
+* [{#T}](../../tutorials/static-key-in-lockbox.md)

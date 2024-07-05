@@ -1,4 +1,4 @@
-# Setting up access rights for service accounts
+# Setting up service account access permissions
 
 This section describes how to assign [roles](../../concepts/access-control/roles.md) for the [service account](../../concepts/users/service-accounts.md) as a resource. To assign the service account a role for another resource, follow the guide in [{#T}](assign-role-for-sa.md).
 
@@ -14,7 +14,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
+   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Choose a service account and click the row with its name.
    1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -122,7 +122,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```
@@ -216,12 +216,12 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
 ## Examples {#examples}
 
-* [{#T}](#multiple-roles).
-* [{#T}](#impersonation).
-* [{#T}](#access-to-sa).
-* [{#T}](#access-to-all).
+* [{#T}](#multiple-roles)
+* [{#T}](#impersonation)
+* [{#T}](#access-to-sa)
+* [{#T}](#access-to-all)
 
-### Assign multiple roles {#multiple-roles}
+### Assigning multiple roles {#multiple-roles}
 
 {% list tabs group=instructions %}
 
@@ -233,7 +233,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
    {% note alert %}
 
-   The `set-access-binding` command completely rewrites the access rights to the resource. All current resource roles will be deleted.
+   The `set-access-binding` command completely rewrites access permissions for the resource. All current resource roles will be deleted.
 
    {% endnote %}
 

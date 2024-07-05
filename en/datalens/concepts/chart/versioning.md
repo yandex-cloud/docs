@@ -37,6 +37,8 @@ All versions fall into the following types:
 
    To create a draft after editing a chart, click the down arrow in the top-right corner and select **Save as draft**.
 
+   You can display a draft version of your chart on the dashboard. To do this, [add](../../operations/chart/add-parameters.md) the `unreleased` parameter set to `1` to the widget parameters for this chart.
+
 * **Outdated**: This is a version that is neither current nor a draft.
 
    ![image](../../../_assets/datalens/concepts/old-version.png)

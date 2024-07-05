@@ -36,7 +36,7 @@ Examples of {{ captcha-name }} usage cost calculation:
 
 1. An intruder has passed the CAPTCHA test, obtained the `token`, and sent it 10 times after 10 minutes. The API will return the `failed` status to all requests. You will not be charged for any of them.
 
-## Pricing for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 

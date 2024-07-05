@@ -4,9 +4,9 @@
 {{ managed-k8s-name }} supports snapshots, which are a point-in-time copy of a [PersistentVolume](../concepts/volume.md#provisioning-volumes). For more information about snapshots, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
 
 To create a snapshot and then restore it:
-1. [{#T}](#create-pvc-pod).
-1. [{#T}](#create-snapshot).
-1. [{#T}](#restore-from-snapshot).
+1. [{#T}](#create-pvc-pod)
+1. [{#T}](#create-snapshot)
+1. [{#T}](#restore-from-snapshot)
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -18,11 +18,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Manually {#manual}
 
-      1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration with {{ k8s }} version 1.20 or higher.
-
       1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
          {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+      1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared in advance.
 
    - {{ TF }} {#tf}
 

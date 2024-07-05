@@ -4,8 +4,8 @@
 The [Time-Slicing GPUs plugin in {{ k8s }}](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/gpu-sharing.html) is used to alternate workloads that run on a single [GPU](../../compute/concepts/gpus.md) with oversubscription.
 
 To install the Time-Slicing GPUs plugin in {{ managed-k8s-name }}:
-1. [{#T}](#configure-time-slicing).
-1. [{#T}](#check-time-slicing).
+1. [{#T}](#configure-time-slicing)
+1. [{#T}](#check-time-slicing)
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -15,13 +15,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md).
-
-1. [Create a {{ managed-k8s-name }} node group](../operations/node-group/node-group-create.md) with the [NVIDIA® Tesla® T4 GPU](../../compute/concepts/gpus.md#tesla-t4).
-
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md). When creating it, specify the security groups prepared in advance.
+
+1. [Create a {{ managed-k8s-name }} node group](../operations/node-group/node-group-create.md) with [GPU NVIDIA® Tesla® T4](../../compute/concepts/gpus.md#tesla-t4) and the security groups prepared earlier.
 
 1. {% include [Настройка kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 

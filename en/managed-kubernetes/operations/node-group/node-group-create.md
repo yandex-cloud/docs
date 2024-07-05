@@ -59,10 +59,20 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
       * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.
       * `--disk-size`: [Disk size](../../../compute/concepts/disk.md#maximum-disk-size) of the {{ managed-k8s-name }} node.
       * `--disk-type`: [Disk type](../../../compute/concepts/disk.md#disks_types) of the {{ managed-k8s-name }} node, `network-nvme` or `network-hdd`.
-      * `--fixed-size`: Number of nodes in the {{ managed-k8s-name }} node group.
+      * Type of scaling:
+
+         * `--fixed-size`: Fixed number of nodes in a {{ managed-k8s-name }} node group.
+         * `--auto-scale`: [{{ managed-k8s-name }} cluster automatic scaling](../../concepts/node-group/cluster-autoscaler.md) settings:
+
+            * `min`: Minimum number of nodes in the group.
+            * `max`: Maximum number of nodes in the group.
+            * `initial`: Initial number of nodes in the group.
+
+         You cannot change the scaling type after you create a node group.
+
       * `--location`: [Availability zone](../../../overview/concepts/geo-scope.md), [network](../../../vpc/concepts/network.md#network), and [subnet](../../../vpc/concepts/network.md#subnet) to host {{ managed-k8s-name }} nodes. You can specify several options.
 
-         If you transmit `--location`, `--network-interface`, and `--public-ip` in the same command, you will [get an error](../../qa/troubleshooting.md#conflicting-flags). It is sufficient to specify the location of a {{ managed-k8s-name }} node group either in `--location` or `--network-interface`.
+         If you provide `--location`, `--network-interface`, and `--public-ip` in the same command, you will [get an error](../../qa/troubleshooting.md#conflicting-flags). It is sufficient to specify the location of a {{ managed-k8s-name }} node group either in `--location` or `--network-interface`.
 
          {% include [assign-public-ip-addresses](../../../_includes/managed-kubernetes/assign-public-ip-addresses.md) %}
 
@@ -88,10 +98,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
          {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
-      * `--node-taints`: {{ k8s }} [taint policies](../../concepts/index.md#taints-tolerations). You can specify multiple policies.
+      * `--node-taints`: {{ k8s }} [taints](../../concepts/index.md#taints-tolerations). You can specify multiple values.
       * `--container-network-settings`: [MTU](https://en.wikipedia.org/wiki/Maximum_transmission_unit) value for network connections to group pods. This setting is not applicable for clusters with Calico or Cilium network policy controllers.
-
-      {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
 
       Result:
 
@@ -104,6 +112,28 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
             hours: 22
           duration: 36000s
       ```
+
+   1. To add metadata for nodes, use the `--metadata` or `--metadata-from-file` parameter.
+
+      {% include [connect-metadata-list](../../../_includes/managed-kubernetes/connect-metadata-list.md) %}
+
+      {% note warning %}
+
+      {% include [node-group-metadata-warning](../../../_includes/managed-kubernetes/node-group-metadata-warning.md) %}
+
+      {% endnote %}
+
+      Add metadata using one of the following methods:
+
+      * Using `--metadata`, specify one or more `key=value` pairs separated by commas.
+
+         {% include [metadata-key-explicit](../../../_includes/managed-kubernetes/metadata-key-explicit.md) %}
+
+      * Using `--metadata-from-file`, specify one or more `key=path_to_file_with_value` pairs separated by commas.
+
+         {% include [metadata-key-from-file](../../../_includes/managed-kubernetes/metadata-key-from-file.md) %}
+
+      {% include [node-group-metadata-postponed-update-note](../../../_includes/managed-kubernetes/node-group-metadata-postponed-update-note.md) %}
 
    1. To specify a [placement group](../../../compute/concepts/placement-groups.md) for {{ managed-k8s-name }} nodes:
       1. Retrieve a list of placement groups using the `yc compute placement-group list` command.
@@ -118,13 +148,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 - {{ TF }} {#tf}
 
    To create a [{{ managed-k8s-name }} node group](../../concepts/index.md#node-group):
-   1. In the folder containing the [cluster description file](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create), create a configuration file with the new {{ managed-k8s-name }} node group's parameters:
-      * {{ managed-k8s-name }} node group name.
-      * [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) ID in the `cluster_id` parameter.
-      * {{ managed-k8s-name }} node [platform](../../../compute/concepts/vm-platforms.md).
-      * Container runtime environment setting in the `container_runtime` parameter.
-      * [Node group cloud labels](../../../resource-manager/concepts/labels.md) in the `nodeTemplate.labels` section.
-      * Scaling settings in the `scale_policy` parameter.
+
+   1. In the folder containing the [cluster description file](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create), create a configuration file with the new {{ managed-k8s-name }} node group's parameters.
 
       Here is an example of the configuration file structure:
 
@@ -153,7 +178,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
       ```
 
       Where:
-      * `cluster_id`: ID of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster).
+      * `cluster_id`: [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) ID.
       * `--name`: Name of the {{ managed-k8s-name }} node group.
       * `instance_template`: {{ managed-k8s-name }} node parameters:
          * `name`: {{ managed-k8s-name }} node name template. The name is unique if the template contains at least one of the following variables:
@@ -170,6 +195,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
          * `container_runtime`, `type`: [containerd](https://containerd.io/) runtime environment.
          * `labels`: [Node group cloud labels](../../../resource-manager/concepts/labels.md). You can specify multiple labels separated by commas.
          * `scale_policy`: Scaling settings.
+
+            You cannot change the scaling type after you create a node group.
 
       {% note warning %}
 
@@ -205,6 +232,43 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
          }
          ```
 
+      * To add metadata for nodes, provide it in the `instance_template.metadata` parameter.
+
+         {% include [connect-metadata-list](../../../_includes/managed-kubernetes/connect-metadata-list.md) %}
+
+         {% note warning %}
+
+         {% include [node-group-metadata-warning](../../../_includes/managed-kubernetes/node-group-metadata-warning.md) %}
+
+         {% endnote %}
+
+         Add metadata using one of the following methods:
+
+         * Specify one or more `key=value` pairs.
+
+            {% include [metadata-key-explicit](../../../_includes/managed-kubernetes/metadata-key-explicit.md) %}
+
+         * Specify one or more `key=file(path_to_file_with_value)` pairs.
+
+            {% include [metadata-key-from-file](../../../_includes/managed-kubernetes/metadata-key-from-file.md) %}
+
+         ```hcl
+         resource "yandex_kubernetes_node_group" "<node_group_name>" {
+           ...
+           instance_template {
+             metadata = {
+               "key_1" = "value"
+               "key_2" = file("<path_to_file_with_value>")
+               ...
+             }
+             ...
+           }
+           ...
+         }
+         ```
+
+         {% include [node-group-metadata-postponed-update-note](../../../_includes/managed-kubernetes/node-group-metadata-postponed-update-note.md) %}
+
       * To add [DNS records](../../../dns/concepts/resource-record.md):
 
          {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
@@ -230,27 +294,45 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
    * [containerd](https://containerd.io/) runtime environment in the `nodeTemplate.containerRuntimeSettings.type` parameter.
    * [Node group cloud labels](../../../resource-manager/concepts/labels.md) in the `nodeTemplate.labels` parameter.
    * [Scaling settings](../../concepts/autoscale.md#ca) in the `scalePolicy` parameter.
+
+      You cannot change the scaling type after you create a node group.
    * {{ managed-k8s-name }} node group [placement settings](../../../overview/concepts/geo-scope.md) in the `allocationPolicy` parameters.
    * [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings in the `maintenancePolicy` parameters.
    * List of settings to be changed in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
-   For nodes to use [non-replicated disks](../../../compute/concepts/disk.md#disks_types), pass the `network-ssd-nonreplicated` value for the `nodeTemplate.bootDiskSpec.diskTypeId` parameter.
+   * For nodes to use [non-replicated disks](../../../compute/concepts/disk.md#disks_types), provide the `network-ssd-nonreplicated` value for the `nodeTemplate.bootDiskSpec.diskTypeId` parameter.
 
-   You can only change the size of non-replicated disks in 93 GB increments. The maximum size of this type of disk is 4 TB.
+     You can only change the size of non-replicated disks in 93 GB increments. The maximum size of this type of disk is 4 TB.
 
-   {% include [Non-replicated disks have no redundancy](../../../_includes/managed-kubernetes/nrd-no-backup-note.md) %}
+     {% include [Non-replicated disks have no redundancy](../../../_includes/managed-kubernetes/nrd-no-backup-note.md) %}
 
-   To enable {{ managed-k8s-name }} group nodes to use [unsafe kernel parameters](../../concepts/index.md#node-group), provide their names in the `allowedUnsafeSysctls` parameter.
+   * To enable {{ managed-k8s-name }} group nodes to use [unsafe kernel parameters](../../concepts/index.md#node-group), provide their names in the `allowedUnsafeSysctls` parameter.
 
-   To set [taint policies](../../concepts/index.md#taints-tolerations), provide their values in the `nodeTaints` parameter.
+   * To set [taints](../../concepts/index.md#taints-tolerations), provide their values in the `nodeTaints` parameter.
 
-   To set a template for {{ managed-k8s-name }} node names, provide it in the `nodeTemplate.name` parameter. The name is unique if the template contains at least one of the following variables:
+   * To set a template for {{ managed-k8s-name }} node names, provide it in the `nodeTemplate.name` parameter. The name is unique if the template contains at least one of the following variables:
 
-   {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
+     {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
-   To add [DNS records](../../../dns/concepts/resource-record.md), provide their settings in the `nodeTemplate.v4AddressSpec.dnsRecordSpecs` parameter. In a DNS record's FQDN, you can use the `nodeTemplate.name` node name template with variables.
+   * To add metadata for nodes, provide it in the `nodeTemplate.metadata` parameter.
+
+     {% include [connect-metadata-list](../../../_includes/managed-kubernetes/connect-metadata-list.md) %}
+
+     {% note warning %}
+
+     {% include [node-group-metadata-warning](../../../_includes/managed-kubernetes/node-group-metadata-warning.md) %}
+
+     {% endnote %}
+
+     Add metadata by specifying one or more `key=value` pairs separated by commas.
+
+     {% include [metadata-key-explicit](../../../_includes/managed-kubernetes/metadata-key-explicit.md) %}
+
+     {% include [node-group-metadata-postponed-update-note](../../../_includes/managed-kubernetes/node-group-metadata-postponed-update-note.md) %}
+
+   * To add [DNS records](../../../dns/concepts/resource-record.md), provide their settings in the `nodeTemplate.v4AddressSpec.dnsRecordSpecs` parameter. In a DNS record's FQDN, you can use the `nodeTemplate.name` node name template with variables.
 
 {% endlist %}
 
@@ -270,13 +352,13 @@ Create a node group for the {{ managed-k8s-name }} cluster with the following te
 * [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster): Specify the [ID](../kubernetes-cluster/kubernetes-cluster-list.md) of an existing cluster, e.g., `{{ cluster-id }}`.
 * [{{ k8s }} version](../../concepts/release-channels-and-updates.md) on the group nodes: `1.29`.
 * [Platform](../../../compute/concepts/vm-platforms.md) for the nodes: `standard-v3`.
-* Number of vCPUs for the nodes: two.
-* [Guaranteed vCPU share](../../../compute/concepts/performance-levels.md): 50%
+* Number of vCPUs for the nodes: Two.
+* [Guaranteed vCPU share](../../../compute/concepts/performance-levels.md): 50%.
 * [Disk size](../../../compute/concepts/disk.md#maximum-disk-size): 64 GB.
 * [Disk type](../../../compute/concepts/disk.md#disks_types): `network-ssd`.
-* Number of nodes: one.
-* Number of nodes that {{ managed-k8s-name }} can create in the group during its [update](../../concepts/release-channels-and-updates.md#node-group): no more than three.
-* Number of nodes that the service can delete from the group during its update: no more than one.
+* Number of nodes: One.
+* Number of nodes that {{ managed-k8s-name }} can create in the group during its [update](../../concepts/release-channels-and-updates.md#node-group): No more than three.
+* Number of nodes that the service can delete from the group during its update: No more than one.
 * RAM: 2 GB.
 * [Update](../../concepts/release-channels-and-updates.md#updates) time: From 22:00 to 08:00 UTC.
 * [Network acceleration](../../../compute/concepts/software-accelerated-network.md) type: `standard` (no acceleration).

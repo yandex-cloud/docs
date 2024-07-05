@@ -7,12 +7,14 @@ description: "To perform operations via the API in {{ objstorage-full-name }}, a
 
 You can use the following types of APIs to work with {{ objstorage-name }}:
 
-* [AWS S3 API](#aws-s3-api).
-* [{{ yandex-cloud }} gRPC and REST APIs](#yandex-api).
+* [AWS S3 API](#aws-s3-api)
+* [{{ yandex-cloud }} gRPC and REST APIs](#yandex-api)
 
 ## AWS S3 API {#aws-s3-api}
 
 To authenticate in the [AWS S3 API](../s3/api-ref/) and work with {{ TF }} and other [supported tools](../tools/), use a [static access key](../../iam/concepts/authorization/access-key.md). A static access key is issued for a specific service account, and all actions involving this key are performed on behalf of the associated service account. For more information, see [How do I use the S3 API?](../../storage/s3/).
+
+{% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
 
 For a full list of S3 API methods, see [S3 API reference](../s3/api-ref/).
 

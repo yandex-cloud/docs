@@ -25,7 +25,6 @@ description: "Различные сценарии использования {{ 
 * [{#T}](node-from-model.md)
 * [{#T}](node-from-docker.md)
 * [{#T}](node-from-docker-fast-api.md)
-* [{#T}](stable-diffusion.md)
 * [{#T}](yagpt-tuning.md)
 * [{#T}](yagpt-tuning-classifier.md)
 

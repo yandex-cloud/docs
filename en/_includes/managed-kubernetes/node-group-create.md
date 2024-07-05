@@ -65,9 +65,24 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
    * (Optional) Click **{{ ui-key.yacloud.k8s.node-groups.create.label_add-location }}** and specify an additional availability zone and network to create {{ managed-k8s-name }} nodes in different zones.
 
 
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the information required to access the {{ managed-k8s-name }} node:
-   * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-   * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../managed-kubernetes/operations/node-connect-ssh.md#creating-ssh-keys) file.
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, configure one of the methods of connecting to nodes in a {{ managed-k8s-name }} node group:
+
+   * To connect to nodes via {{ oslogin }}, select the **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}** option.
+
+      If you select this option, you will be unable to specify SSH keys because these connection methods are mutually exclusive.
+
+      For more on configuring and using {{ oslogin }}, see [{#T}](../../managed-kubernetes/operations/node-connect-oslogin.md).
+
+   * To connect to nodes using SSH keys, specify the required details:
+
+      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../managed-kubernetes/operations/node-connect-ssh.md#creating-ssh-keys) file.
+
+      For more on preparing, configuring, and using SSH keys, see [{#T}](../../managed-kubernetes/operations/node-connect-ssh.md).
+
+   {% include [node-group-metadata-postponed-update-note](./node-group-metadata-postponed-update-note.md) %}
+
 1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_maintenance }}**:
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** field, select your preferred maintenance window:
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}`: Automatic updates disabled.
@@ -76,8 +91,21 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}`: Updates will take place within the time interval specified in the **{{ ui-key.yacloud.k8s.clusters.create.label_maintenance-weekly }}** field.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_additional }}**:
    * To be able to edit [unsafe kernel parameters](../../managed-kubernetes/concepts/index.md#node-group) on the {{ managed-k8s-name }} group nodes, click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-sysctl }}**. To enter the name of each kernel parameter, create a separate field.
-   * To set up [taint policies for {{ managed-k8s-name }} nodes](../../managed-kubernetes/concepts/index.md#taints-tolerations), click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-taint }}**. Enter the key, value, and effect of each taint policy in a separate set of fields.
+   * To set up [taints for {{ managed-k8s-name }} nodes](../../managed-kubernetes/concepts/index.md#taints-tolerations), click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-taint }}**. Enter the key, value, and effect of each taint in a separate set of fields.
    * To set up [{{ k8s }} labels](../../managed-kubernetes/concepts/index.md#node-labels) for group nodes, click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-label }}**. Enter the key and value of each {{ k8s }} label in a separate set of fields.
+
+1. (Optional) Open the **{{ ui-key.yacloud.common.metadata }}** block and add metadata for the nodes.
+
+   {% note warning %}
+
+   {% include [node-group-metadata-warning](./node-group-metadata-warning.md) %}
+
+   {% endnote %}
+
+   To add metadata, click **{{ ui-key.yacloud.common.metadata-add-field }}**. Specify the key and value for each metadata element in a separate set of fields.
+
+   {% include [node-group-metadata-postponed-update-note](./node-group-metadata-postponed-update-note.md) %}
+
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
 Creating a group of {{ managed-k8s-name }} nodes may take a few minutes depending on the number of nodes.

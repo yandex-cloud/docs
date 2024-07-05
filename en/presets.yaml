@@ -537,6 +537,8 @@ default:
       clusters:
         agent: k8s.clusters.agent
       editor: k8s.editor
+    maf:
+      user: managed-airflow.user
     mch:
       admin: managed-clickhouse.admin
       editor: managed-clickhouse.editor

@@ -16,6 +16,8 @@ To replace a connection in a dataset:
 1. Delete all the tables from the workspace.
 1. On the left side of the screen, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the connection and select **Replace connection**.
 1. Select another connection.
+1. Drag the tables to be used as a data source for the dataset to the workspace.
+1. Edit or delete the [calculated fields](../../concepts/calculations/index.md) which use fields not present in the new table.
 1. In the top-right corner, click **Save**.
 
 {% note info %}

@@ -93,7 +93,7 @@
    kubectl crossplane install provider xpkg.upbound.io/yandexcloud/crossplane-provider-yc:v0.4.1
    ```
 
-   The current provider version is available in the [GitHub repository](https://github.com/yandex-cloud/provider-jet-yc).
+   The current provider version is available in the [GitHub repository](https://github.com/yandex-cloud/crossplane-provider-yc).
 
 ## Use cases {#examples}
 

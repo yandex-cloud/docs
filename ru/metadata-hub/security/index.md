@@ -49,6 +49,9 @@ description: "Управление доступом в сервисе {{ metadat
 
 {% include [connection-manager.admin](../../_roles/connection-manager/admin.md) %}
 
+#### connection-manager.user {#connection-manager-user}
+
+{% include [connection-manager.user](../../_roles/connection-manager/user.md) %}
 
 
 ### Примитивные роли {#primitive-roles}

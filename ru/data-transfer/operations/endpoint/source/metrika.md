@@ -45,6 +45,44 @@ noIndex: true
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.visits.title }}** — выберите, передавать ли информацию о визитах.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.visits.columns.title }}** — выберите поля визита, которые нужно экспортировать. Помимо выбранных полей, всегда экспортируется несколько обязательных полей.
 
+- {{ TF }} {#tf}
+
+    * Тип эндпоинта — `metrika_source`.
+
+    * {% include [counter_ids](../../../../_includes/data-transfer/fields/metrika/terraform/counter-ids.md) %}
+
+    * {% include [token](../../../../_includes/data-transfer/fields/metrika/token.md) %}
+
+    * {% include [streams](../../../../_includes/data-transfer/fields/metrika/streams.md) %}
+
+    Пример структуры конфигурационного файла:
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
+      name = "<имя_эндпоинта>"
+      settings {
+        metrika_source {
+          counter_ids = [<номера_счетчиков>]
+          token {
+            raw = "<токен>"
+          }
+          streams {
+            type    = "<тип_данных>"
+            columns = ["<список_полей>"]
+          }
+        }
+      }
+    }
+    ```
+
+- API {#api}
+
+    * {% include [counterIds](../../../../_includes/data-transfer/fields/metrika/api/counter-ids.md) %}
+
+    * {% include [token](../../../../_includes/data-transfer/fields/metrika/token.md) %}
+
+    * {% include [streams](../../../../_includes/data-transfer/fields/metrika/streams.md) %}
+
 {% endlist %}
 
 Подробнее о настройках см. в [документации сервиса]({{ link-yandex }}/support/metrica/index.html).

@@ -23,6 +23,8 @@ items:
           Secure storage of {{ GL }} CI passwords as {{ lockbox-full-name }}
           secrets
         href: security/gitlab-lockbox-integration.md
+      - name: Storing a static access key in a {{ lockbox-name }} secret
+        href: security/static-key-in-lockbox.md
   - name: Storing and recovering data
     items:
       - name: All tutorials

@@ -14,15 +14,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
-
-1. [Create a node group](../operations/node-group/node-group-create.md) on a platform with a GPU, and enable **{{ ui-key.yacloud.k8s.node-groups.create.field_driverless-gpu }}**.
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration. When creating it, specify the security groups prepared in advance.
+
+1. [Create a node group](../operations/node-group/node-group-create.md) on a platform with a GPU, and enable **{{ ui-key.yacloud.k8s.node-groups.create.field_driverless-gpu }}**. Specify the security groups prepared in advance.
 
 1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
 

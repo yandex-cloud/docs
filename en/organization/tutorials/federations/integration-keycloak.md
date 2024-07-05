@@ -199,7 +199,7 @@ To follow the steps in this section, you will need:​
              --issuer "http://<host>:8080/realms/master" \
              --sso-binding POST \
              --sso-url "http://<host>:8080/realms/master/protocol/saml" \
-             --force-authn  
+             --force-authn
          ```
 
       - Keycloak 16 or lower
@@ -285,7 +285,7 @@ To follow the steps in this section, you will need:​
 
             {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-         * `--sso-binding`: Specify the Single Sign-On binding type. Most identity providers support the `POST` binding type.
+         * `--sso-binding`: Single sign-on binding type. Most identity providers support the `POST` binding type.
 
          * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
@@ -308,7 +308,7 @@ To follow the steps in this section, you will need:​
                "forceAuthn": true
            },
            "ssoBinding": "POST"
-         }       
+         }
          ```
 
       - Keycloak 16 or lower
@@ -326,7 +326,7 @@ To follow the steps in this section, you will need:​
              "forceAuthn": true
            },
            "ssoBinding": "POST"
-         }       
+         }
          ```
 
          Where:
@@ -400,7 +400,7 @@ To follow the steps in this section, you will need:​
 
          * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
-         * `ssoBinding`: Specify the Single Sign-On binding type. Most identity providers support the `POST` binding type.
+         * `ssoBinding`: Single sign-on binding type. Most identity providers support the `POST` binding type.
 
    1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
@@ -440,7 +440,7 @@ To follow the steps in this section, you will need:​
             {{ link-keycloak-example-old }}
             ```
 
-      * `sso_binding`: Specify the Single Sign-On binding type. Most identity providers support the `POST` binding type.
+      * `sso_binding`: Single sign-on binding type. Most identity providers support the `POST` binding type.
       * `sso_url`: URL of the page the browser redirects the user to for authentication:
 
          - Keycloak 17 or higher
@@ -518,7 +518,7 @@ To follow the steps in this section, you will need:​
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```
@@ -614,7 +614,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
 {% note tip %}
 
-To make sure authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to your federation, i.e., the current one and those to be used afterwards. If one certificate turns invalid, {{ yandex-cloud }} will attempt to verify the signature with another one.
+To make sure authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to your federation, i.e., the current one and those to use afterwards. If one certificate goes invalid, {{ yandex-cloud }} will try another one to verify the signature.
 
 {% endnote %}
 
@@ -761,21 +761,11 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
       1. In the **Archive Format** field, select **Certificate PEM**.
          {#signature}
-      1. Click **Select file** and select the certificate to be used for signing authentication requests. The certificate is available on the {{ org-full-name }} federation information page in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
+      1. Click **Select file** and select the certificate to use for signing authentication requests. The certificate is available on the {{ org-full-name }} federation information page in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
 
       1. Click **Import**.
 
    {% endlist %}
-
-1. In the SAML application **Keys** tab, enable **Encrypt Assertions** and **Client Signature Required**.
-
-1. Select the **Import** method for both options.
-
-1. In the **Archive Format** field, select **Certificate PEM**. (You might need to generate certificates first so that clicking **Import key** makes the **Certificate PEM** option available.)
-   {#signature}
-1. Click **Browse** and select the certificate to use for signing authentication requests. The certificate is available on the {{ org-full-name }} federation information page in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
-
-1. Click **Confirm**.
 
 1. Add users:
 
@@ -879,7 +869,7 @@ You can set up a mapping between the SAML message attributes and the personal da
 
 1. Enable the option for mapping the identity provider roles and {{ org-full-name }}:
 
-   1. In the left-hand panel, select **Client Scopes**  →  **role_list**.
+   1. In the left-hand panel, select **Client Scopes** → **role_list**.
 
    1. Go to the **Mappers** tab and select **role list**.
 

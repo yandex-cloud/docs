@@ -71,6 +71,8 @@ The `aws configure` command saves the static key and the region.
      s3 mb s3://<bucket_name>
    ```
 
+{% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
+
 ## Specifics {#specifics}
 
 Give consideration to the AWS CLI specifics when using {{ objstorage-name }}:

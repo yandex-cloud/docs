@@ -27,14 +27,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
    - Manually {#manual}
 
       1. [Create a cloud network](../../vpc/operations/network-create.md) and [subnet](../../vpc/operations/subnet-create.md).
-      1. [Create a security group](../../vpc/operations/security-group-create.md) and add [rules](connect/security-groups.md) allowing service traffic within the cluster and access to the {{ k8s }} API.
-      1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](node-group/node-group-create.md) in any suitable configuration. When creating these, specify the network, subnet, and security group prepared in advance. Also, enable the Calico network policy controller in the cluster:
-         * In the management console, select **{{ ui-key.yacloud.k8s.clusters.create.field_network-policy }}**.
-         * Using the CLI, set the `--enable-network-policy` flag.
-         * Using the [create](../api-ref/Cluster/create.md) method for the [Cluster](../api-ref/Cluster) resource.
       1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
          {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+      1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](node-group/node-group-create.md) in any suitable configuration. When creating them, specify the network, subnet, and the security groups prepared in advance. Also, enable the Calico network policy controller in the cluster:
+         * In the management console, by selecting **{{ ui-key.yacloud.k8s.clusters.create.field_network-policy }}**.
+         * Using the CLI, by setting the `--enable-network-policy` flag.
+         * Using the [create](../api-ref/Cluster/create.md) method for the [Cluster](../api-ref/Cluster) resource.
 
    - {{ TF }} {#tf}
 

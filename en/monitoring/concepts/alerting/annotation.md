@@ -1,6 +1,6 @@
 # Annotation
 
-Annotations allow complementing notification text with additional information the user can configure when creating an alert.
+Annotations enable you to save additional information during alert calculation. Annotations are not provided in notifications; you can view them on the alert page.
 
 Annotations support [mustache templates](http://mustache.github.io/): you can use them to add alert parameters to your annotations.
 

@@ -1,6 +1,6 @@
 ---
 title: "How to work with encryption keys. Step-by-step guides"
-description: "Step-by-step guides on using encryption keys in {{ yandex-cloud }}. In this tutorial, you will learn how to manage encryption keys and their versions. Find out about encrypting data using the {{ yandex-cloud }} CLI and API."
+description: "Step-by-step guides on using encryption keys in {{ yandex-cloud }}. In this tutorial, you will learn how to manage encryption keys and their versions. Learn about encrypting data using the {{ yandex-cloud }} CLI and API."
 ---
 
 # Step-by-step guides for {{ kms-name }}
@@ -28,9 +28,11 @@ description: "Step-by-step guides on using encryption keys in {{ yandex-cloud }}
 
 - [{#T}](asymmetric-encryption-key.md)
 - [{#T}](asymmetric-encryption.md)
+- [{#T}](asymmetric-encryption-key-access.md)
 
 ## Digital signature {#digital-signature}
 
 - [{#T}](asymmetric-signature-key.md)
+- [{#T}](asymmetric-signature-key-access.md)
 - [{#T}](signature-verification.md)
 - [{#T}](signature-verification-cosign.md)

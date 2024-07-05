@@ -4,8 +4,8 @@
 A [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) allows you to run workloads on [GPUs](../../compute/concepts/gpus.md), which may be of use for tasks with special computing requirements.
 
 To run workloads using GPUs on {{ managed-k8s-name }} cluster [pods](../concepts/index.md#pod):
-1. [{#T}](#create-pod-gpu).
-1. [{#T}](#check-pod).
+1. [{#T}](#create-pod-gpu)
+1. [{#T}](#check-pod)
 
 If you no longer need the resources you created, [delete them](#delete-resources).
 
@@ -15,14 +15,15 @@ If you no longer need the resources you created, [delete them](#delete-resources
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
-1. [Create a {{ managed-k8s-name }} node group](../operations/node-group/node-group-create.md) with the following settings:
-   * **{{ ui-key.yacloud.k8s.node-group.overview.label_platform }}**: Select `{{ ui-key.yacloud.component.compute.resources.value_platform-tab-gpu }}` → `Intel Broadwell with NVIDIA® Tesla v100`.
-   * **{{ ui-key.yacloud.component.compute.resources.field_gpus }}**: Specify the required number of GPUs.
-
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration. When creating it, specify the security groups prepared in advance.
+1. [Create a {{ managed-k8s-name }} node group](../operations/node-group/node-group-create.md) with the following settings:
+   * **{{ ui-key.yacloud.k8s.node-group.overview.label_platform }}**: Select `{{ ui-key.yacloud.component.compute.resources.value_platform-tab-gpu }}` → `Intel Broadwell with NVIDIA® Tesla v100`.
+   * **{{ ui-key.yacloud.component.compute.resources.field_gpus }}**: Specify the required number of GPUs.
+   * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Select the security groups created earlier.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 

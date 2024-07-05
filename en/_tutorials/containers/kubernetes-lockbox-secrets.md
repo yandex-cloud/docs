@@ -43,11 +43,11 @@ The cost of resources for syncing secrets includes:
 
       {% endnote %}
 
-   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for the resources and nodes.
-
    1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
       {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for the resources, nodes, and security groups.
 
    1. [Create a {{ lockbox-name }} secret](../../lockbox/operations/secret-create.md) with the following properties:
       * **{{ ui-key.yacloud.common.name }}**: `lockbox-secret`.
@@ -111,7 +111,7 @@ The cost of resources for syncing secrets includes:
 
 ## Install the External Secrets Operator and set up {{ lockbox-name }} {#install-eso-lockbox}
 
-1. Follow [this guide](../../managed-kubernetes/operations/applications/external-secrets-operator.md) to install the [External Secrets Operator](/marketplace/products/yc/external-secrets).
+1. Follow this [guide](../../managed-kubernetes/operations/applications/external-secrets-operator.md) to install the [External Secrets Operator](/marketplace/products/yc/external-secrets).
 1. [Assign the service account](../../lockbox/operations/secret-access.md) you created when installing the External Secrets Operator the `lockbox.payloadViewer` role for the [previously created](#deploy-infrastructure) `lockbox-secret`.
 
 ## Configure a {{ managed-k8s-name }} {#configure-k8s}

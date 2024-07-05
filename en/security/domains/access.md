@@ -75,7 +75,7 @@ When using service accounts:
    ```
 
 * Store the service account keys and manage them in compliance with the standard requirements.
-* Follow the principle of least privilege and [assign to the service account](../../iam/operations/roles/grant.md#access-to-sa) only those roles that are needed to run the application.
+* Follow the principle of least privilege and [assign to the service account](../../iam/operations/roles/grant.md) only the roles necessary to run the application.
 
    {% note info %}
 
@@ -155,4 +155,4 @@ If you grant third-party contractors access to your clouds, make sure to follow 
 When developing an access model for your infrastructure, we recommend the following approach:
 * Place all critical resources in a separate cloud. These include resources related to the processing of payment data, personal data, and trade secret data.
 * Place the resource groups requiring different administrative permissions in different folders (DMZ, CDE, security, backoffice, and so forth).
-* Place shared resources (such as network and security groups) in a separate shared resource folder.
+* Place shared resources (e.g., network and security groups) in a separate shared resource folder.

@@ -28,7 +28,7 @@ items:
             href: operations/buckets/cors.md
           - name: Configuring access permissions using {{ iam-short-name }}
             href: operations/buckets/iam-access.md
-          - name: Editing the ACL of a bucket
+          - name: Editing a bucket ACL
             href: operations/buckets/edit-acl.md
           - name: Access policy management
             href: operations/buckets/policy.md
@@ -142,6 +142,8 @@ items:
         href: tutorials/object-storage-to-ydb.md
       - name: Hosting a static Gatsby-based website in {{ objstorage-name }}
         href: tutorials/gatsby-static-website.md
+      - name: Storing a static access key in a {{ lockbox-name }} secret
+        href: tutorials/static-key-in-lockbox.md
   - name: Concepts
     items:
       - name: Overview

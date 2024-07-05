@@ -5,21 +5,11 @@
 The agent supports:
 
 - [Collecting Linux system metrics](../../../operations/unified-agent/linux_metrics.md) (CPU, RAM, disk).
-- Collecting metrics in the [Prometheus](https://prometheus.io/) format.
+- Collecting metrics in [Prometheus](https://prometheus.io/) format.
 - Delivering metrics to {{ monitoring-full-name }}.
 - File storage for reliable data delivery.
 
 You can find the examples of using the agent in [{#T}](../../../operations/index.md#working-with-metrics). Learn more about {{ unified-agent-short-name }} installation methods in [{#T}](./installation.md). The syntax of the agent's configuration file is described in [{#T}](./configuration.md).
-
-{% note info %}
-
-{{ unified-agent-full-name }} is distributed under Apache License 2.0.
-To learn more about the license, run these commands:
-
-- `unified_agent --license`: Displays the full text of the license.
-- `unified_agent --credits`: Displays the list of and licenses for libraries used by the agent.
-
-{% endnote %}
 
 ## Concepts {#basics}
 
@@ -43,7 +33,7 @@ A message consist of a body, a timestamp, user metadata in `key:value` format, a
 
 ## Sessions {#sessions}
 
-A session is an ordered stream of messages. A session has an ID that must be unique among all the ongoing sessions as well as user metadata in the `key:value` format.
+A session is an ordered stream of messages. A session has an ID that must be unique among all the ongoing sessions as well as user metadata in `key:value` format.
 
 All messages sent during a session contain both message metadata and session metadata.
 

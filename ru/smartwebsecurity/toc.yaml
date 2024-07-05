@@ -49,7 +49,9 @@ items:
     items:
       - name: Создание L7-балансировщика с профилем безопасности
         href: tutorials/balancer-with-sws-profile.md
-      - name: Создание L7-балансировщика с защитой от DDoS на уровне L3 модели OSI
+      - name: >-
+          Создание L7-балансировщика с защитой от DDoS на уровне L3-L4 модели
+          OSI
         href: tutorials/alb-with-ddos-protection.md
   - name: Концепции
     expanded: true

@@ -44,7 +44,7 @@ Where:
 | Metric | Type | Description | Labels |
 |:---------------------|:------|:-------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `license_active` | GAUGE | License status (`0` — for inactive license, `1` — for active license) |                                                                                                                                                       |
-| `license_parameters` | GAUGE | License options | `type`, parameter type: `max_stt_connections`: Maximum number of connections to `stt` service; `max_tts_rps`: Maximum RPS  for the `tts` service |
+| `license_parameters` | GAUGE | License options | `type`, parameter type: `max_stt_connections`: Maximum number of connections to `stt` service; `max_tts_rps`: Maximum RPS for the `tts` service |
 
 ## Envoy metrics {#envoy-metrics}
 

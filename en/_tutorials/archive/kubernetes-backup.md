@@ -21,20 +21,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Manually {#manual}
 
-   1. [Create two {{ managed-k8s-name }} clusters](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
-
-      One {{ managed-k8s-name }} cluster will be used for creating a node group backup and the other one for restoring data from the backup.
-
-      If you intend to use your clusters within the {{ yandex-cloud }} network, there is no need to allocate a public IP address to them. To allow connections from outside the network, assign a public IP to the clusters.
-
-   1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in each cluster and allocate a public IP address to each group.
-
    1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
       You must configure these security groups for each cluster and node group.
 
       {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
+   1. [Create two {{ managed-k8s-name }} clusters](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md). When creating them, specify the security groups prepared in advance.
+
+      One {{ managed-k8s-name }} cluster will be used for creating a node group backup and the other one for restoring data from the backup.
+
+      If you intend to use your clusters within the {{ yandex-cloud }} network, there is no need to allocate a public IP address to them. To allow connections from outside the network, assign a public IP to the clusters.
+
+   1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in each cluster. When creating, allocate each group a public IP address and specify the security groups prepared in advance.
    1. [Create a bucket in {{ objstorage-name }}](../../storage/operations/buckets/create.md).
    1. [Create a service account](../../iam/operations/sa/create.md) with the `compute.admin` [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to work with Velero.
    1. Grant the [service account](../../iam/concepts/users/service-accounts.md) **READ and WRITE** permissions to a [bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }}. To do this, [configure the bucket ACL](../../storage/operations/buckets/edit-acl.md).

@@ -77,7 +77,7 @@ An example of the `case` element:
     # This event is added to the health counters (Errors) and pipeline counters (DroppedMessages/DroppedBytes).
     # An ERROR-level entry is added to the agent logs.
     # Situations like this are seen as abnormal.
-    # To avoid them, add the last "catch all channel" element to the case without the "when" filter.
+    # To avoid them, add the last "catch all channel" element to the case without the 'when' filter.
     case:
       # Inside "when", you can define the conditions for matching between the message and session metadata, similar to the "match" filter.
       - when:
@@ -108,9 +108,9 @@ An example of the `case` element:
 
 ## channels section {#channels}
 
-You can describe a [channel](index.md#channels) in the `routes`:`channel` section or in a separate `channels` section. You can use channels from this section in delivery routes, referring to them by name.
+You can describe a [channel](index.md#channels) in the `routes`:`channel` section or in a separate `channels` section. You can use channels from the separate section in delivery routes, referring to them by name.
 
-An example of the `channels` section:
+Example of the `channels` section:
 
 ```yaml
 channels:
@@ -143,7 +143,7 @@ Here is an example of a delivery route that uses a named channel:
 
 ## pipes section {#pipes}
 
-You can describe a [pipe](index.md#pipes) in the `routes` section within the `channel`:`pipe` element or in a separate `pipes` section. You can use pipes from this section in channels, referring to them by name.
+You can describe a [pipe](index.md#pipes) in the `routes` section within the `channel`:`pipe` element or in a separate `pipes` section. You can use pipes from the separate section in channels, referring to them by name.
 
 Example of the `pipes` section:
 

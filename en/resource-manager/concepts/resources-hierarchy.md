@@ -21,13 +21,13 @@ A [cloud](#cloud) belongs to an organization.
 
 Organizations do not interact with each other. The resources of an organization cannot interact with the resources of another organization using {{ yandex-cloud }} tools. Organization management is performed by [{{ org-full-name }}](../../organization/).
 
-Within your organization, you can configure resource access rights at the following [levels](#access-rights-inheritance):
+Within your organization, you can configure access permissions for a resource at the following [levels](#access-rights-inheritance):
 * Organization.
 * Cloud.
 * Folder.
 * Individual resource if the service supports access control at this level.
 
-A new user (organization member) is not granted access to resources within organization clouds by default. The access rights must be granted to them explicitly by assigning the respective role for a resource or a folder, the resource's cloud or organization.
+By default, a new user (organization member) has no access to the resources residing in the organization's clouds. Access permissions must be granted explicitly by assigning a role specifically for a resource or its folder, cloud, or organization.
 
 ## {{ resmgr-name }} Resources {#rm-resources}
 
@@ -53,19 +53,15 @@ The `{{ roles-cloud-member }}` role does not grant any rights to handle resource
 
 {% include [roles-cloud-member-organization](../../_includes/roles-cloud-member-organization.md) %}
 
-#### Public access to the cloud {#public-access}
-
-You can make your cloud (and any of its resources) public by [assigning a role to the system group](../../iam/operations/roles/grant.md#access-to-all). Then to access a resource, you do not have to be a cloud member. You just need to know the resource ID. Learn more about [system groups](../../iam/concepts/access-control/system-group.md).
-
 ### Folder {#folder}
 
 A _folder_ is a space where {{ yandex-cloud }} resources are created and grouped.
 
 Just like folders in your file system, {{ yandex-cloud }} folders make resource management simpler. You can group your resources into folders by the resource type, project, or department that uses those resources, or any other criteria of your choice.
 
-## Inheritance of access rights {#access-rights-inheritance}
+## Inheriting access permissions {#access-rights-inheritance}
 
-When a user ([subject](../../iam/concepts/access-control/index.md#subject)) performs an operation with a resource, the {{ iam-name }} service verifies the user's access rights to this resource.
+When a user ([subject](../../iam/concepts/access-control/index.md#subject)) performs an operation with a resource, {{ iam-name }} check the user's access permissions for the resource.
 
 Resource access permissions are inherited as follows:
 * Organization access permissions apply to the organization's resources:

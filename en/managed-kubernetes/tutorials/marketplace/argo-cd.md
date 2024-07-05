@@ -34,13 +34,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       {% endnote %}
 
-   1. [Create a {{ managed-k8s-name }} cluster](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for the resources and nodes.
-
    1. {% include [configure-sg-manual](../../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
       {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-   1. [Configure a security group](../../../managed-gitlab/operations/configure-security-group.md) for the [{{ mgl-name }} instance](../../../managed-gitlab/concepts/index.md#instance).
+   1. [Create a security group](../../../managed-gitlab/operations/configure-security-group.md) for the [{{ mgl-name }} instance](../../../managed-gitlab/concepts/index.md#instance).
+   1. [Create a {{ managed-k8s-name }} cluster](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for resources and nodes as well as the security groups for the cluster.
    1. [Create a registry in {{ container-registry-full-name }}](../../../container-registry/operations/registry/registry-create.md).
    1. [Save the ID of the registry created](../../../container-registry/operations/registry/registry-list.md#registry-get), as you will need it at the next steps.
 

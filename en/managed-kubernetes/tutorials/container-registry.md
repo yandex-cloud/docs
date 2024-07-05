@@ -7,6 +7,7 @@ To integrate {{ managed-k8s-name }} with {{ container-registry-name }}:
 1. [Create service accounts](#create-sa).
    1. [Create a service account for resources](#res-sa).
    1. [Create a service account for {{ managed-k8s-name }} nodes](#node-sa).
+1. [Create security groups](#create-sg).
 1. [Prepare the required {{ k8s }} resources](#create-k8s-res).
    1. [Create a {{ managed-k8s-name }} cluster](#create-cluster).
    1. [Create a {{ managed-k8s-name }} node group](#create-node-groups).
@@ -103,7 +104,7 @@ To create a service account for creating the resources required by the {{ manage
      --subject serviceAccount:$RES_SA_ID
    ```
 
-### Create a service account for security group nodes {#node-sa}
+### Create a service account for cluster nodes {#node-sa}
 
 To create a service account to be used by {{ managed-k8s-name }} nodes to download Docker images from the registry:
 1. Write the folder ID from your CLI profile configuration to the variable:
@@ -169,9 +170,17 @@ To create a service account to be used by {{ managed-k8s-name }} nodes to downlo
      --subject serviceAccount:$NODE_SA_ID
    ```
 
-{% include [create-k8s-res](../../_includes/managed-kubernetes/create-k8s-res.md) %}
+## Create security groups {#create-sg}
 
-## Create resources {{ container-registry-name }} {#create-cr-res}
+{% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+{% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+## Prepare {{ k8s }} resources {#create-k8s-res}
+
+{% include notitle [create-k8s-res](../../_includes/managed-kubernetes/create-k8s-res.md) %}
+
+## Create {{ container-registry-name }} resources {#create-cr-res}
 
 ### Create a registry {#registry-create}
 
@@ -253,11 +262,7 @@ Build a Docker image and push it to the registry.
 
 ## Connect to the {{ managed-k8s-name }} cluster {#cluster-connect}
 
-1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
-
-   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
-
-1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+{% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Run the test app {#test-app}
 

@@ -37,9 +37,24 @@ Set up your cluster node for connection:
 
 1. Make sure to enable [external access](./node-group/node-group-update.md#node-internet-access) for the node.
 
-1. To allow access to a node via {{ oslogin }}:
+1. Activate node access via {{ oslogin }} by changing the method of connecting to nodes.
+
+   {% include [node-connect-mode-reconciling-warning](../../_includes/managed-kubernetes/node-connect-mode-reconciling-warning.md) %}
 
    {% list tabs group=instructions %}
+
+   - Management console {#console}
+
+      1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** section in the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster whose node you need access to.
+      1. Click the name of the {{ managed-k8s-name }} cluster.
+      1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+      1. Select the required node group.
+      1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+      1. Select **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}**.
+
+         {% include [note-oslogin-ssh-warning](../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}
+
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
    - CLI {#cli}
 
@@ -64,6 +79,8 @@ Set up your cluster node for connection:
          ```
 
          You can request the name of a node group with a [list of node groups in the folder](./node-group/node-group-list.md#list).
+
+         {% include [note-oslogin-ssh-warning](../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}
 
    - {{ TF }} {#tf}
 
@@ -90,6 +107,8 @@ Set up your cluster node for connection:
          }
          ```
 
+         {% include [note-oslogin-ssh-warning](../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}
+
       1. Make sure the configuration files are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -115,6 +134,8 @@ Set up your cluster node for connection:
          * `nodeTemplate.metadata` parameter that lists all existing node group metadata as `key=value` pairs without modification.
 
             For the `enable-oslogin` key, replace the current value with `true`. If there is no such key, add it.
+
+            {% include [note-oslogin-ssh-warning](../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}
 
             {% cut "Example of listing metadata in a parameter" %}
 
