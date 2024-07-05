@@ -7,7 +7,9 @@
 | `DeletePolicy` | Deleting backup policies |
 | `DeleteResource` | Deleting a VM from {{ backup-name }} |
 | `ExecutePolicy` | Executing backup policies |
-| `RegisterResource` | Connecting a VM to {{ backup-name }} |
+| `InitResource` | Initializing VM connection to {{ backup-name }} |
+| `RegisterResource` | Connecting VM to {{ backup-name }} is complete |
 | `RevokePolicy` | Revoking backup policies |
 | `StartRecoverBackup` | Starting VM recovery |
 | `UpdatePolicy` | Updating backup policies |
+| `UpdateResource` | Updating the status of VM connection to {{ backup-name }} |

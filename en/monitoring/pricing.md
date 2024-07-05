@@ -13,10 +13,10 @@ Currently, {{ monitoring-short-name }} charges for writing custom metrics via th
 Reading metrics via the {{ prometheus-name }} Remote API is not yet billable.
 
 Pricing features:
-* After writing or reading the first 50 million values via the {{ monitoring-short-name }} API, the writing charge is reduced. For more information, refer to [{#T}](#prices).
+* After writing or reading the first 50 million values via the {{ monitoring-short-name }} API, the writing charge is reduced. See [{#T}](#prices).
 * There is no charge for writing {{ yandex-cloud }} resource metrics collected automatically.
-* Reading metrics via the {{ monitoring-short-name }} interface and {{ yandex-cloud }} console is not charged.
-* Incoming and outgoing traffic in {{ monitoring-short-name }} is not charged.
+* There is no charge for reading metrics via the {{ monitoring-short-name }} interface and {{ yandex-cloud }} console.
+* There is no charge for incoming and outgoing traffic in {{ monitoring-short-name }}.
 
 
 ### Cost calculation example {#example}
@@ -30,7 +30,7 @@ The cost of using {{ monitoring-short-name }} for 30 days if writing 20 metrics 
 
 
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 
@@ -42,7 +42,7 @@ The cost of using {{ monitoring-short-name }} for 30 days if writing 20 metrics 
 
 The minimum billing unit is 1 metric value. The cost is rounded to the nearest cent.
 
-For example, the cost of writing the first 100,000 values is `(100,000 values / 1 million) × $0.0784 = $0.00784`, which is rounded to `$0.01`. The cost of writing 150,000 values is `(150,000 values / 1 million) × $0.0784 = $0.01176`, which is rounded to `$0.01`. Where `$0.0784` is the cost per 1 million values (when writing up to 50 million values).
+For example, writing the first 100,000 values will cost `(100,000 values / 1 million) × $0.0784 = $0.00784`, rounded to `$0.01`. Whereas writing 150,000 values will cost `(150,000 values / 1 million) × $0.0784 = $0.01176`, rounded to `$0.01`. Where `$0.0784` is the price per 1 million values (if writing up to 50 million values).
 
 {% include [usd.md](../_pricing/monitoring/usd.md) %}
 

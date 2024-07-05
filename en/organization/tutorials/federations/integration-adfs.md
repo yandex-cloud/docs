@@ -100,7 +100,7 @@ To follow the steps in this section, you will need:​
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
       * `--cookie-max-age`: Time before the browser asks the user to re-authenticate.
-      * `--issuer`: ID of the IdP server to be used for authentication.
+      * `--issuer`: ID of the IdP server to use for authentication.
 
          Enter a link in `http://<ADFS>/adfs/services/trust` format, where `<ADFS>` is the FQDN of your AD FS server.
 
@@ -110,7 +110,7 @@ To follow the steps in this section, you will need:​
 
          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-      * `--sso-binding`: Specify the Single Sign-On binding type. Most identity providers support the `POST` binding type.
+      * `--sso-binding`: Single sign-on binding type. Most identity providers support the `POST` binding type.
 
       * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
@@ -124,11 +124,11 @@ To follow the steps in this section, you will need:​
       * `description`: Federation description.
       * `organization_id`: Organization ID.
       * `labels`: Set of key/value label pairs assigned to the federation.
-      * `issuer`: ID of the IdP server to be used for authentication.
+      * `issuer`: ID of the IdP server to use for authentication.
 
          Enter a link in `http://<ADFS>/adfs/services/trust` format, where `<ADFS>` is the FQDN of your AD FS server.
 
-      * `sso_binding`: Specify the Single Sign-On binding type. Most identity providers support the `POST` binding type.
+      * `sso_binding`: Single sign-on binding type. Most identity providers support the `POST` binding type.
       * `sso_url`: URL of the page the browser redirects the user to for authentication.
 
          Enter a link in `https://<ADFS>/adfs/ls/` format, where `<ADFS>` is the FQDN of your AD FS server.
@@ -164,7 +164,7 @@ To follow the steps in this section, you will need:​
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```
@@ -214,7 +214,7 @@ To follow the steps in this section, you will need:​
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
       * `cookieMaxAge`: Time before the browser asks the user to re-authenticate.
-      * `issuer`: ID of the IdP server to be used for authentication.
+      * `issuer`: ID of the IdP server to use for authentication.
 
          Enter a link in `http://<ADFS>/adfs/services/trust` format, where `<ADFS>` is the FQDN of your AD FS server.
 
@@ -224,7 +224,7 @@ To follow the steps in this section, you will need:​
 
          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-      * `ssoBinding`: Specify the Single Sign-On binding type. Most identity providers support the `POST` binding type.
+      * `ssoBinding`: Single sign-on binding type. Most identity providers support the `POST` binding type.
 
       * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
@@ -338,7 +338,7 @@ To add a certificate to a federation:
 
 {% note tip %}
 
-To make sure authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to your federation, i.e., the current one and those to be used afterwards. If one certificate turns invalid, {{ yandex-cloud }} will attempt to verify the signature with another one.
+To make sure authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to your federation, i.e., the current one and those to use afterwards. If one certificate goes invalid, {{ yandex-cloud }} will try another one to verify the signature.
 
 {% endnote %}
 
@@ -375,7 +375,7 @@ Create a relying party trust for the federation you created in the cloud:
 
 1. In the next step, you are asked to specify a certificate for signing tokens. This step is optional, so click **Next**.
 
-1. In the _Configure URL_ step, select **Enable support for the SAML 2.0 WebSSO protocol** and specify the ACS URL to redirect users to after successful authentication.
+1. In the _Configure URL_ step, select **Enable support for the SAML 2.0 WebSSO protocol**  and specify the ACS URL to redirect users to after successful authentication.
 
    {% cut "How to get a federation ID" %}
 
@@ -401,7 +401,7 @@ Create a relying party trust for the federation you created in the cloud:
 
 1. On the next page, you can choose who can authenticate using this federation. By default, the **Permit for everyone** policy is selected enabling access for all users.
 
-   You can choose a different policy. For example, to grant access to a specific group of users, select **Permit specific group** and click the `<parameter>` word to select the groups to allow access to. [Read more about access control policies](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-in-ad-fs).
+   You can choose a different policy. For example, to grant access to a specific user group, select **Permit specific group** and click `<parameter>` to select the groups. [Read more about access control policies](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-in-ad-fs).
 
    ![image](../../../_assets/iam/federations/specify-access-policy-ad.png)
 
@@ -610,4 +610,4 @@ Now that you finished configuring authentication with Active Directory, test tha
 
 #### What's next {#what-is-next}
 
-* [Assign roles to the new users](../../../iam/operations/roles/grant.md#access-to-federated-user).
+* [Assign roles to the new users](../../../iam/operations/roles/grant.md).

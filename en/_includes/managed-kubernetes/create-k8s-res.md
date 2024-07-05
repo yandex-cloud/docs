@@ -2,7 +2,7 @@
 
 ### Create a {{ managed-k8s-name }} cluster {#create-cluster}
 
-Create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and specify the previously created [service accounts](../../iam/concepts/users/service-accounts.md) in the `--service-account-id` and `--node-service-account-id` flags.
+Create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and specify the previously created [service accounts](../../iam/concepts/users/service-accounts.md) in the `--service-account-id` and `--node-service-account-id` flags and security groups in the `--security-group-ids` flag.
 
 {% list tabs group=programming_language %}
 
@@ -18,7 +18,8 @@ Create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/inde
      --subnet-name yc-auto-subnet-0 \
      --public-ip \
      --service-account-id $RES_SA_ID \
-     --node-service-account-id $NODE_SA_ID
+     --node-service-account-id $NODE_SA_ID \
+     --security-group-ids <security_group_IDs>
    ```
 
 - PowerShell {#powershell}
@@ -26,14 +27,15 @@ Create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/inde
    Run this command:
 
    ```shell script
-   > yc managed-kubernetes cluster create `
+   yc managed-kubernetes cluster create `
      --name k8s-demo `
      --network-name yc-auto-network `
      --zone {{ region-id }}-a `
      --subnet-name yc-auto-subnet-0 `
      --public-ip `
      --service-account-id $RES_SA_ID `
-     --node-service-account-id $NODE_SA_ID
+     --node-service-account-id $NODE_SA_ID `
+     --security-group-ids <security_group_IDs>
    ```
 
 {% endlist %}
@@ -46,7 +48,7 @@ Create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/inde
    1. Check that your {{ managed-k8s-name }} cluster was created successfully:
       * Look for `Running` in the **{{ ui-key.yacloud.k8s.cluster.overview.label_status }}** column.
       * Look for `Healthy` in the **{{ ui-key.yacloud.k8s.cluster.overview.label_health }}** column.
-1. Create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concepts/index.md#node-group):
+1. Create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concepts/index.md#node-group) and specify the previously created security groups in the `--network-interface security-group-groups-ids` flag:
 
    {% list tabs group=programming_language %}
 
@@ -62,14 +64,14 @@ Create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/inde
         --core-fraction 50 \
         --disk-type network-ssd \
         --fixed-size 2 \
-        --network-interface subnets=yc-auto-subnet-0,ipv4-address=nat \
+        --network-interface subnets=yc-auto-subnet-0,ipv4-address=nat,security-group-ids=[<security_group_IDs>] \
         --async
       ```
 
    - PowerShell {#powershell}
 
       ```shell script
-      > yc managed-kubernetes node-group create `
+      yc managed-kubernetes node-group create `
         --name k8s-demo-ng `
         --cluster-name k8s-demo `
         --platform standard-v3 `
@@ -78,7 +80,7 @@ Create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/inde
         --core-fraction 50 `
         --disk-type network-ssd `
         --fixed-size 2 `
-        --network-interface subnets=yc-auto-subnet-0,ipv4-address=nat `
+        --network-interface subnets=yc-auto-subnet-0,ipv4-address=nat,security-group-ids=[<security_group_IDs>] `
         --async
       ```
 

@@ -6,22 +6,22 @@ description: "Follow this guide to create an NGINX Ingress controller and protec
 # Installing an NGINX Ingress controller with a Let's Encrypt® certificate manager
 
 To use [{{ k8s }}](https://kubernetes.io) to create an [NGINX Ingress controller](https://kubernetes.github.io/ingress-nginx/) and protect it with a certificate, follow these steps:
-1. [{#T}](#install-controller).
-1. [{#T}](#install-certs-manager).
-1. [{#T}](#install-objects).
-1. [{#T}](#connecting-certs-manager).
-1. [{#T}](#test-controller).
+1. [{#T}](#install-controller)
+1. [{#T}](#install-certs-manager)
+1. [{#T}](#install-objects)
+1. [{#T}](#connecting-certs-manager)
+1. [{#T}](#test-controller)
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-begin}
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `editor`, `container-registry.images.puller`, and `load-balancer.admin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). The `load-balancer.admin` role is required to create a [network load balancer](../../network-load-balancer/concepts/index.md).
-1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../operations/node-group/node-group-create.md) in any suitable configuration. In the cluster settings, specify the service account you created earlier.
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
+1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../operations/node-group/node-group-create.md) in any suitable configuration. In the cluster settings, specify the service account and the security groups created earlier.
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
 1. If you already have a certificate for the domain zone, [add its details](../../certificate-manager/operations/import/cert-create.md) to the [{{ certificate-manager-full-name }}](../../certificate-manager/) service. Alternatively, you can [add a new Let's Encrypt® certificate](../../certificate-manager/operations/managed/cert-create.md).

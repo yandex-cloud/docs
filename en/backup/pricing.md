@@ -41,10 +41,10 @@ To pay less, delete the backups of the deleted VMs that you no longer need.
 
 The size of VM backups can fall short of the VM disk size, e.g., if the VM disk usage is low and the level of data compression is high, or exceed it, e.g., when there are many backups and their data is continuously modified and poorly compressed.
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
-The monthly usage rate is based on 720 hours per month.
+The monthly prices are based on 720 hours per month.
 
 ### Protected {{ backup-name }} VMs {#prices-vms}
 
@@ -70,11 +70,11 @@ Here is an example of calculating the cost of {{ backup-name }} for one month fo
 
 > 1 VM × $1.910400 + 50 GB × $0.033600 = $3.590400
 
-> $3.590400 is the cost of using {{ backup-name }} to protect one VM with the total size of backups amounting to 50 GB per month, without VAT.
+> Total: $3.590400, cost of using {{ backup-name }} to protect one VM with a total of 50 GB of backups per month, without VAT.
 
 Where:
 * 1: Number of VMs linked to backup policies.
-* $1.910400: Cost of connecting 1 VM to {{ backup-name }} per month, without VAT.
+* $1.910400: Price of connecting 1 VM to {{ backup-name }} per month, without VAT.
 * 50 GB: Total size of backups.
-* $0.033600: Cost of storing 1 GB of backups per month, without VAT.
+* $0.033600: Price of storing 1 GB of backups per month, without VAT.
 

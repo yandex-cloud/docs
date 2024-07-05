@@ -11,7 +11,8 @@ In {{ managed-k8s-name }}, you are charged for using [masters](concepts/index.md
 Nodes are charged based on the [{{ compute-full-name }} pricing policy](../compute/pricing.md).
 
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
+
 
 
 

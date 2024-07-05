@@ -4,9 +4,9 @@ The cluster autoscaler resizes the [node group](../index.md#node-group) based on
 
 ## How the autoscaler works {#how-scale}
 
-You specify the minimum and maximum size of the node group, and the [{{ k8s }} cluster](../index.md#kubernetes-cluster) periodically checks the status of the pods and nodes:
-* If the pods can't be scheduled onto the existing nodes due to insufficient resources (vCPU, RAM), the number of nodes in the group gradually increases to the maximum specified.
-* If the load on the nodes is insufficient and all pods can be scheduled onto fewer nodes in the group, the number of nodes gradually decreases to the minimum specified.
+When [creating a node group](../../operations/node-group/node-group-create.md#node-group-create), you specify the minimum and maximum number of nodes in the group, and the [{{ k8s }} cluster](../index.md#kubernetes-cluster) will check the status of pods and nodes from time to time:
+* If pods cannot be assigned due to a lack of resources (vCPU, RAM) on the existing nodes, the number of nodes in the group will gradually increase to the specified maximum number.
+* If the load on the nodes is insufficient, and all pods can be assigned with fewer nodes per group, the number of nodes per group will gradually decrease to the specified minimum number.
 
 {% note warning %}
 

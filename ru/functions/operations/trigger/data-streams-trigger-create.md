@@ -1,6 +1,6 @@
 # Создать триггер для {{ yds-name }}, который вызывает функцию {{ sf-name }}
 
- Создайте [триггер для {{ yds-name }}](../../concepts/trigger/data-streams-trigger.md), который будет вызывать [функцию](../../concepts/function.md) {{ sf-name }} при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts). 
+Создайте [триггер для {{ yds-name }}](../../concepts/trigger/data-streams-trigger.md), который будет вызывать [функцию](../../concepts/function.md) {{ sf-name }} при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts).
 
 ## Перед началом работы {#before-you-begin}
 

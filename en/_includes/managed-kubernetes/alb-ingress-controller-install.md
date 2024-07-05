@@ -11,7 +11,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 
 1. {% include [check-sg-prerequsites](./security-groups/check-sg-prerequsites-lvl3.md) %}
 
-   Also [make sure](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) that you have configured the security groups required for {{ alb-name }}.
+   [Make sure](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) you have configured the security groups required for {{ alb-name }} as well.
 
    {% include [sg-common-warning](./security-groups/sg-common-warning.md) %}
 

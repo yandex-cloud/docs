@@ -10,7 +10,7 @@ To create a static access key:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
+   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Choose a service account and click the row with its name.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
@@ -93,9 +93,9 @@ To create a static access key:
 
       For more information about the `yandex_iam_service_account_static_access_key` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
 
-   1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -169,7 +169,8 @@ Add a description when creating an access key.
 
 {% endlist %}
 
-#### What's next {#what-is-next}
+#### See also {#see-also}
 
 * [Configuring tools to work with {{ objstorage-name }}](../../../storage/tools/)
 * [{#T}](assign-role-for-sa.md)
+* [{#T}](../../tutorials/static-key-in-lockbox.md)

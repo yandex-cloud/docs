@@ -32,7 +32,7 @@ items:
         items:
           - name: Creating a group
             href: operations/groups/create.md
-          - name: Setting up group access bindings
+          - name: Setting up group access permissions
             href: operations/groups/access-binding-object.md
           - name: Granting group permissions
             href: operations/groups/access-binding-subject.md
@@ -44,9 +44,9 @@ items:
             href: operations/sa/update.md
           - name: Assigning roles to a service account
             href: operations/sa/assign-role-for-sa.md
-          - name: Setting up access rights for service accounts
+          - name: Setting up service account access permissions
             href: operations/sa/set-access-bindings.md
-          - name: Getting the service account ID
+          - name: Getting service account ID
             href: operations/sa/get-id.md
           - name: Deleting a service account
             href: operations/sa/delete.md
@@ -82,6 +82,10 @@ items:
             href: operations/authorized-key/create.md
           - name: Deleting authorized keys
             href: operations/authorized-key/delete.md
+  - name: Tutorials
+    items:
+      - name: Storing a static access key in a {{ lockbox-name }} secret
+        href: tutorials/static-key-in-lockbox.md
   - name: Concepts
     items:
       - name: Overview

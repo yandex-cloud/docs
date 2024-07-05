@@ -15,7 +15,7 @@ The {{ sws-name }} cost depends on the following parameters:
 * Number of [security profiles](./concepts/profiles.md)
 * Total number of [security rules](./concepts/rules.md) in all profiles
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 ### Requests {#requests}

@@ -19,14 +19,14 @@ For full configuration of the resources for the {{ alb-name }} Ingress controlle
 
 1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
 1. If you already have a certificate for the domain zone, [add its details](../../certificate-manager/operations/import/cert-create.md) to the [{{ certificate-manager-full-name }}](../../certificate-manager/) service. Alternatively, you can [add a new Let's Encrypt® certificate](../../certificate-manager/operations/managed/cert-create.md).
-1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
-1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
    {% include [configure-sg-alb-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-manual.md) %}
 
    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
+1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
+1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 1. [Install the {{ alb-name }} Ingress controller](../../managed-kubernetes/operations/applications/alb-ingress-controller.md).
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
@@ -696,7 +696,6 @@ Specifying a name for the Ingress group settings using the `ingress.alb.yc.io/gr
 ## Make sure the {{ managed-k8s-name }} cluster applications are accessible through {{ alb-name }} {#verify-setup}
 
 1. If you have no [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/products/yc/externaldns) installed, [add an A record to your domain zone](../../dns/operations/resource-record-create.md). In the **Value** field, specify the public IP address of the Ingress controller. If you are using ExternalDNS with a plugin for {{ dns-full-name }}, this record will be created automatically.
-1. [Configure the load balancer's security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups).
 1. Test {{ alb-name }}:
 
    {% list tabs %}

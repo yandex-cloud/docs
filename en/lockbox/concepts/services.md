@@ -40,6 +40,7 @@ For a {{ serverless-containers-name }} container to access the data stored in a 
 #### See also {#see-also}
 
 * [{#T}](../../functions/operations/function/lockbox-secret-transmit.md)
-* [Creating a {{ connection-manager-name }} connection](../../metadata-hub/operations/create-connection.md).
-* [Syncing with {{ lockbox-name }} secrets in {{ managed-k8s-name }}](../../managed-kubernetes/tutorials/kubernetes-lockbox-secrets.md).
-* [{#T}](../../serverless-containers/operations/lockbox-secret-transmit.md).
+* [Creating a {{ connection-manager-name }} connection](../../metadata-hub/operations/create-connection.md)
+* [Syncing with {{ lockbox-name }} secrets in {{ managed-k8s-name }}](../../managed-kubernetes/tutorials/kubernetes-lockbox-secrets.md)
+* [{#T}](../../serverless-containers/operations/lockbox-secret-transmit.md)
+* [{#T}](../../managed-gitlab/tutorials/gitlab-lockbox-integration.md)

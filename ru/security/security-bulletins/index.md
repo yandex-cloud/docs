@@ -2,6 +2,8 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+{% include [05.07.2024 — CVE-2024-6387 RegreSSHion](../../_includes/security/security-bulletins/cve-2024-6387-regresshion.md) %}
+
 {% include [06.03.2024 — CVE-2023-23919 Multiple OpenSSL error handling issues in nodejs crypto library](../../_includes/security/security-bulletins/cve-2023-23919.md) %}
 
 {% include [06.03.2024 — CVE-2023-23946 GitLab Critical Security Release: 15.8.2, 15.7.7 and 15.6.8](../../_includes/security/security-bulletins/cve-2023-23946.md) %}

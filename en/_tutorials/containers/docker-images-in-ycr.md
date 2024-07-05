@@ -11,7 +11,7 @@ Storing images from {{ GL }} projects in {{ container-registry-full-name }} has
 
    {{ container-registry-full-name }} stores images and tags in [registries](../../container-registry/concepts/registry.md) for which [individual quotas](../../container-registry/concepts/limits.md) are allocated. Because of this, accumulating Docker images and tags does not affect the space available on the instance disk.
 
-* The images are still available in {{ container-registry-full-name }}, even if {{ mgl-name }} is not.
+* The images are still available in {{ container-registry-full-name }}, even if {{ mgl-name }} is not.
 
 * {{ container-registry-full-name }} supports the [Docker image vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md). Use the scanner to detect vulnerabilities and fix them before deploying your application. You can learn more about security scans in the [{{ yandex-cloud }} blog](/blog/posts/2023/04/vulnerability-scanner-and-yandex-container-registry).
 
@@ -121,9 +121,8 @@ Infrastructure support costs include fees for the following resources:
 Create a test application that can be deployed in a {{ managed-k8s-name }} cluster. To do this, add `Dockerfile` to the project:
 
 1. Log in to {{ GL }}.
-1. On the home page, select a repository.
-1. Select the **Repository** → **Files** section.
-1. Click ![image](../../_assets/console-icons/plus.svg) and select **New file** from the drop-down menu.
+1. Open the {{ GL }} project.
+1. Click ![image](../../_assets/console-icons/plus.svg) in the repository navigation bar and select **New file** from the drop-down menu.
 1. Name the file as `Dockerfile` and add the following code to it:
 
    ```Dockerfile
@@ -178,9 +177,8 @@ To build images from a Dockerfile without Docker, use [kaniko](https://github.co
 
 To publish Docker images from your {{ GL }} project in {{ container-registry-full-name }}, create a CI script:
 
-1. Open the {{ GL }} project.
-1. In the left-hand panel, select **Repository** and click the **Files** tab.
-1. Click ![image](../../_assets/console-icons/plus.svg) to the right of the project name and select **New file** from the drop-down menu.
+1. Open the `gitlab-test` project.
+1. Click ![image](../../_assets/console-icons/plus.svg) in the repository navigation bar and select **New file** from the drop-down menu.
 1. Name the file as `.gitlab-ci.yml`. Add to it the steps to build a Docker image and push it to {{ container-registry-full-name }}:
 
    {% cut ".gitlab-ci.yml" %}
@@ -217,7 +215,7 @@ To publish Docker images from your {{ GL }} project in {{ container-registry-ful
 
 Each commit is followed by a build script. To check the script execution results:
 
-1. In the left-hand panel in {{ GL }}, select **CI/CD** → **Pipelines** in the drop-down menu.
+1. Select **Build** on the left-hand panel in the `gitlab-test` project, and then select **Pipelines** from the drop-down menu.
 
 1. Make sure that the `build` step has the `passed` status. This means that the CI script has been executed successfully.
 
@@ -235,7 +233,7 @@ Specifics of working with the policy:
 
 * External {{ container-registry-name }} and Docker image lifecycle policies [affect CI script performance](https://docs.gitlab.com/ee/user/packages/container_registry/reduce_container_registry_storage.html#use-with-external-container-registries).
 
-* The policy imposes a [limit](../../container-registry/concepts/limits.md#container-registry-limits) on the maximum number of images that you can check per policy run. If the number of images in your {{ container-registry-name }} repository exceeds this limit, run the policy several times. You can check all your images in this manner.
+* The policy imposes a [limit](../../container-registry/concepts/limits.md#container-registry-limits) on the maximum number of images that you can check per policy run. If the number of images in your {{ container-registry-name }} repository exceeds this limit, run the policy several times. You can check all your images in this manner.
 
 ## Scan your Docker images for vulnerabilities {#vulnerability-scanner}
 
@@ -243,8 +241,7 @@ To detect vulnerabilities in your Docker images, you can additionally activate a
 
 To enable scanning, expand your {{ GL }} project's CI script:
 
-1. Open the project.
-1. In the left-hand panel in {{ GL }}, go to **Repository** and click the **Files** tab.
+1. Open the `gitlab-test` project.
 1. Open the `.gitlab-ci.yml` file.
 1. Add to it the steps for vulnerability scanning of your Docker image:
 
@@ -296,7 +293,7 @@ To enable scanning, expand your {{ GL }} project's CI script:
 
 To make sure that the image scan was successful:
 
-1. In the left-hand panel in {{ GL }}, select **CI/CD** → **Pipelines** in the drop-down menu.
+1. Select `Build` on the left-hand panel in the **gitlab-test** project, and then select **Pipelines** from the drop-down menu.
 1. Make sure that the `build` and `test` steps have the `passed` status. This means that the CI script has been executed successfully.
 1. Go to the [management console]({{ link-console-main }}/), then open the {{ container-registry-full-name }} registry.
 1. Open your repository with Docker images from the {{ GL }} project.

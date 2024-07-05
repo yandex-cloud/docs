@@ -52,6 +52,8 @@ items:
         href: tutorials/ci-cd-serverless.md
       - name: Secure storage of {{ GL }} CI passwords as {{ lockbox-name }} secrets
         href: tutorials/gitlab-lockbox-integration.md
+      - name: Storing a static access key in a {{ lockbox-name }} secret
+        href: tutorials/static-key-in-lockbox.md
   - name: Quotas and limits
     href: concepts/limits.md
   - name: Access management

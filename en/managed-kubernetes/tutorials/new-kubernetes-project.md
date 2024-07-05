@@ -6,11 +6,13 @@ This article describes how to run a new {{ k8s }} project in {{ yandex-cloud }}.
 If you need to create a {{ managed-k8s-name }} cluster with no internet access, see the [{#T}](k8s-cluster-with-no-internet.md) section.
 
 To launch an app:
-1. [{#T}](#create-sa).
-1. [{#T}](#create-k8s-res).
-1. [{#T}](#create-cr-res).
-1. [{#T}](#setup-alb).
-1. [{#T}](#create-ingress).
+1. [{#T}](#create-sa)
+1. [{#T}](#create-sg)
+1. [{#T}](#create-k8s-res)
+1. [{#T}](#cluster-connect)
+1. [{#T}](#create-cr-res)
+1. [{#T}](#setup-alb)
+1. [{#T}](#create-ingress)
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -289,19 +291,23 @@ To create a service account that lets nodes download the necessary Docker images
      --output sa-key.json
    ```
 
-{% include [create-k8s-res](../../_includes/managed-kubernetes/create-k8s-res.md) %}
+## Create security groups {#create-sg}
+
+{% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+{% include [configure-sg-alb-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-manual.md) %}
+
+{% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+## Prepare {{ k8s }} resources {#create-k8s-res}
+
+{% include notitle [create-k8s-res](../../_includes/managed-kubernetes/create-k8s-res.md) %}
 
 ## Connect to the {{ managed-k8s-name }} cluster {#cluster-connect}
 
-1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+{% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-   {% include [configure-sg-alb-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-manual.md) %}
-
-   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
-
-1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-
-## Create resources {{ container-registry-name }} {#create-cr-res}
+## Create {{ container-registry-name }} resources {#create-cr-res}
 
 ### Create a registry {#registry-create}
 

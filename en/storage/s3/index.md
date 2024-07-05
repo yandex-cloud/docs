@@ -21,6 +21,8 @@ To use the API:
 
 To access the HTTP API directly, you need static key authentication, which is supported by the tools listed in [{#T}](../tools/index.md).
 
+{% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
+
 For a list of supported Amazon S3 HTTP API methods, see the [API reference](api-ref/index.md).
 
 ## General API request format {#common-request-form}

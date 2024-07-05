@@ -28,10 +28,14 @@ items:
             href: operations/asymmetric-encryption-key.md
           - name: Data encryption
             href: operations/asymmetric-encryption.md
+          - name: Access permissions for an asymmetric key pair
+            href: operations/asymmetric-encryption-key-access.md
       - name: Digital signature
         items:
           - name: Digital signature key pair
             href: operations/asymmetric-signature-key.md
+          - name: Access permissions for a digital signature key pair
+            href: operations/asymmetric-signature-key-access.md
           - name: Digital signature and its verification
             href: operations/signature-verification.md
           - name: Digital signature of files and artifacts using Cosign

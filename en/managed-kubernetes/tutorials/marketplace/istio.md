@@ -38,11 +38,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          {% endnote %}
 
-      1. [Create a {{ k8s }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../../managed-kubernetes/operations/node-group/node-group-create.md) with at least 6 GB of RAM.
-
       1. {% include [configure-sg-manual](../../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
          {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+      1. [Create a {{ k8s }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../../managed-kubernetes/operations/node-group/node-group-create.md) with at least 6 GB of RAM and the security groups created earlier.
 
    - {{ TF }} {#tf}
 

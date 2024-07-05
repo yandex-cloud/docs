@@ -139,6 +139,9 @@ To set up log transfer:
 
    ```bash
    sudo apt install python3-pip python3.8-venv
+   ```
+
+   ```bash
    python3 -m venv venv
    source venv/bin/activate
    pip3 install systemd-logging
@@ -254,13 +257,13 @@ To set up log transfer:
    sudo apt-get install fluent-bit
    ```
 
-1. Start `fluent-bit`:
+1. Run the `fluent-bit` service:
 
    ```bash
    sudo systemctl start fluent-bit
    ```
 
-1. Recheck the `fluent-bit` service status, it should be active:
+1. Check the `fluent-bit` service status, it should be active:
 
    ```bash
    systemctl status fluent-bit
@@ -269,16 +272,16 @@ To set up log transfer:
    Result:
 
    ```bash
-    ● fluent-bit.service - Fluent Bit
-         Loaded: loaded (/lib/systemd/system/fluent-bit.service; disabled; vendor preset: enabled)
-         Active: active (running) since Tue 2024-04-30 09:00:58 UTC; 3h 35min ago
-           Docs: https://docs.fluentbit.io/manual/
-       Main PID: 589764 (fluent-bit)
-          Tasks: 9 (limit: 2219)
-         Memory: 18.8M
-            CPU: 2.543s
-         CGroup: /system.slice/fluent-bit.service
-                 └─589764 /opt/fluent-bit/bin/fluent-bit -c //etc/fluent-bit/fluent-bit.conf
+   ● fluent-bit.service - Fluent Bit
+        Loaded: loaded (/lib/systemd/system/fluent-bit.service; disabled; vendor preset: enabled)
+        Active: active (running) since Tue 2024-04-30 09:00:58 UTC; 3h 35min ago
+          Docs: https://docs.fluentbit.io/manual/
+      Main PID: 589764 (fluent-bit)
+         Tasks: 9 (limit: 2219)
+        Memory: 18.8M
+           CPU: 2.543s
+        CGroup: /system.slice/fluent-bit.service
+                └─589764 /opt/fluent-bit/bin/fluent-bit -c //etc/fluent-bit/fluent-bit.conf
    ```
 
 ## Enable the plugin {#connect-plugin}
@@ -289,37 +292,52 @@ To set up log transfer:
    git clone https://github.com/yandex-cloud/fluent-bit-plugin-yandex.git
    ```
 
-1. Compile the `yc-logging.so` library:
+1. Write the package versions to the environment variables:
 
    ```bash
    cd fluent-bit-plugin-yandex/
    export fluent_bit_version=3.0.3
    export golang_version=1.22.2
    export plugin_version=dev
-   CGO_ENABLED=1 go build -buildmode=c-shared \
-     -o ./yc-logging.so \
-     -ldflags "-X main.PluginVersion=${plugin_version}" \
-     -ldflags "-X main.FluentBitVersion=${fluent_bit_version}"
    ```
 
    Where:
-   * `fluent_bit_version`: Version of installed `fluent-bit` package. To check it manually run `/opt/fluent-bit/bin/fluent-bit --version`.
-   * `golang_version`: Version of the Go compiler. To check it manually run `go version`.
+   * `fluent_bit_version`: `fluent-bit` version. To check the version, use the `/opt/fluent-bit/bin/fluent-bit --version` command.
+   * `golang_version`: Go compiler version. To check the version, use the `go version` command.
 
-1. Copy the `yc-logging.so` to `fluent-bit` library folder:
+1. Exit the Python virtual environment and provide permissions for the plugin directory:
+
+   ```bash
+    deactivate
+   ```
+
+   ```bash
+    sudo chown -R $USER:$USER /fluent-bit-plugin-yandex
+   ```
+
+1. Compile the `yc-logging.so` library:
+
+   ```bash
+   CGO_ENABLED=1 go build -buildmode=c-shared \
+       -o ./yc-logging.so \
+       -ldflags "-X main.PluginVersion=${plugin_version}" \
+       -ldflags "-X main.FluentBitVersion=${fluent_bit_version}"
+   ```
+
+1. Copy the `yc-logging.so` library to the `fluent-bit` library directory:
 
    ```bash
    sudo cp yc-logging.so /usr/lib/fluent-bit/plugins/yc-logging.so
    ```
 
-1. To the `/etc/fluent-bit/plugins.conf` file with plugin settings, add the path to the `yc-logging.so` library:
+1. Add the path to the `yc-logging.so` library to the `/etc/fluent-bit/plugins.conf` file with plugin settings:
 
    ```
    [PLUGINS]
        Path /usr/lib/fluent-bit/plugins/yc-logging.so
    ```
 
-1. To the `/etc/fluent-bit/fluent-bit.conf` file, add the `fluent-bit` service settings:
+1. Add the `fluent-bit` service settings to the `/etc/fluent-bit/fluent-bit.conf` file:
 
 
    ```
@@ -355,7 +373,7 @@ To set up log transfer:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder that you specified in the `fluent-bit` service settings.
+   1. In the [management console]({{ link-console-main }}), go to the folder you specified in the `fluent-bit` settings.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
    1. Click the row with the `default` log group.
    1. Go to the **{{ ui-key.yacloud.common.logs }}** tab.
@@ -372,11 +390,11 @@ To set up log transfer:
    yc logging read --folder-id=<folder_ID>
    ```
 
-   Where `--folder-id` is the folder ID specified in the `fluent-bit` service settings.
+   Where `--folder-id` is the folder ID specified in the `fluent-bit` settings.
 
 - API {#api}
 
-   To view log group entries, use the [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read) gRPC API call.
+   To view log group records, use the [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read) gRPC API call.
 
 {% endlist %}
 
