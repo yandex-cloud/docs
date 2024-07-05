@@ -51,7 +51,7 @@ You can filter log group records using the filter expression language. With the 
 
 - API {#api}
 
-   You can set a filter using the API [read](../api-ref/grpc/log_reading_service.md) method.
+   You can set a filter using the [LogReadingService/Read](../api-ref/grpc/log_reading_service.md#Read) gRPC API call.
 
 {% endlist %}
 
@@ -137,12 +137,12 @@ Apart from checking for an exact match, the filter expression language supports 
 
 * **Greater than**, **Less than**, **Less than or equal to**, and **Greater than or equal to**
 
-   ```
-   parameter > "value"
-   parameter < "value"
-   parameter >= "value"
-   parameter <= "value"
-   ```
+    ```
+    parameter > "value"
+    parameter < "value"
+    parameter >= "value"
+    parameter <= "value"
+    ```
 
 Strings are compared in lexicographic order.
 

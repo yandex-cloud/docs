@@ -27,7 +27,7 @@ description: "Из статьи вы узнаете, на какие ресур�
 {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
 
 **{{ ydb-name }}**
-* [СУБД YDB](../../../ydb/operations/manage-databases.html#add-access-binding)
+* [СУБД YDB](../../../ydb/operations/manage-databases.md#add-access-binding)
 
 **{{ metadata-hub-name }}**
 * [Подключение к управляемым базам данных](../../../metadata-hub/operations/connection-access.md) в {{ connection-manager-full-name }}
@@ -86,7 +86,7 @@ description: "Из статьи вы узнаете, на какие ресур�
 {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
 
 **{{ ydb-name }}**
-* [СУБД YDB](../../../ydb/operations/manage-databases.html#add-access-binding)
+* [СУБД YDB](../../../ydb/operations/manage-databases.md#add-access-binding)
 * Резервная копия СУБД YDB
 
 **{{ resmgr-name }}**

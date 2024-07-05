@@ -49,6 +49,10 @@ When using SQL queries in datasets, we recommend:
 
 You can enable or disable the use of subqueries as a source when [creating](../connection.md) or editing a connection.
 
+## Default preview {#preview-default}
+
+By default, the dataset data uploaded from the source is displayed in the preview area. You can disable default data preview. To do this, click ![image](../../../_assets/console-icons/gear.svg) → ![image](../../../_assets/console-icons/check.svg) **Enable default preview** in the top-right corner of the dataset and save the dataset. Now, when you open the dataset, the data will not appear in the preview area. To display the data, click **Preview** at the top of the screen.
+
 #### See also {#see-also}
 
 * [{#T}](../../operations/dataset/create.md)

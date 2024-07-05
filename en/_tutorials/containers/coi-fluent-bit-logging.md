@@ -1,10 +1,10 @@
 The [Fluent Bit](https://fluentbit.io/) log processor allows you to transfer logs from [VM instances](../../compute/concepts/vm.md) created from {{ coi }} images to [{{ cloud-logging-full-name }}](../../logging/). The [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex) module is used to transfer logs.
 
 To configure log transfer from a VM instance created from the {{ coi }} image:
-1. [Create an application that generates logs](#generate-logs).
+1. [Create a log-generating application](#generate-logs).
 1. [Create a Docker image and push it to the registry](#create-docker).
 1. [Configure Fluent Bit](#fluent-bit).
-1. [Create a VM from the {{ coi }} image](#create-vm).
+1. [Create a VM from the {{ coi }}](#create-vm).
 
 ## Getting started {#before-you-begin}
 
@@ -12,9 +12,9 @@ To configure log transfer from a VM instance created from the {{ coi }} image:
 1. [Create a registry](../../container-registry/operations/registry/registry-create.md) in [{{ container-registry-full-name }}](../../container-registry/).
 1. [Create a cloud network](../../vpc/operations/network-create.md). Select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** when creating it.
 
-## Create an application that generates logs {#generate-logs}
+## Create a log-generating application {#generate-logs}
 
-Create a `logs.py` file:
+Create the `logs.py` file:
 
 ```py
 import logging
@@ -162,7 +162,7 @@ if __name__ == '__main__':
          - /etc/fluentbit/parsers.conf:/fluent-bit/etc/parsers.conf
    ```
 
-1. Create a `user-data.yaml` file. It describes rules to read container logs. In the `users` section, update the username and SSH key, if required. Learn more about how to generate SSH keys [here](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+1. Create the `user-data.yaml` file. It describes the container log reading rules. In the `users` section, change the username and SSH key as needed. Learn more about how to generate SSH keys [here](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
    ```yaml
    #cloud-config
@@ -252,7 +252,7 @@ yc compute instance create \
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder with the `default` log group, the ID of which you specified in `spec.yaml`.
+   1. In the [management console]({{ link-console-main }}), go to the folder with the `default` log group whose ID you specified in `spec.yaml`.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
    1. Select the `default` log group. The page that opens will show the log group records.
 
@@ -272,15 +272,15 @@ yc compute instance create \
 
 - API {#api}
 
-   You can view the entries in a log group using the API [read](../../logging/api-ref/grpc/log_reading_service.md).
+   You can view the log group records using the [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read) gRPC API call.
 
 {% endlist %}
 
 ## Delete the resources you created {#delete-resources}
 
 If you no longer need the resources you created, delete them:
-1. [Delete a cloud network](../../vpc/operations/network-delete.md).
-1. [Delete a Docker image](../../container-registry/operations/docker-image/docker-image-delete.md).
-1. [Delete a registry](../../container-registry/operations/registry/registry-delete.md).
-1. [Delete a VM](../../compute/operations/vm-control/vm-delete.md).
-1. [Delete a log group](../../logging/operations/delete-group.md).
+1. [Delete the cloud network](../../vpc/operations/network-delete.md).
+1. [Delete the Docker image](../../container-registry/operations/docker-image/docker-image-delete.md).
+1. [Delete the registry](../../container-registry/operations/registry/registry-delete.md).
+1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
+1. [Delete the log group](../../logging/operations/delete-group.md).

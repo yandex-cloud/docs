@@ -34,12 +34,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * `thumbor-sa` service account for Thumbor.
 
-   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration.
-
    1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
       {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
+   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared in advance.
    1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-full-name }}.
    1. [Grant the `thumbor-sa` service account](../../storage/operations/objects/edit-acl.md) the `READ` permission for the bucket.
 
@@ -204,7 +203,7 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
 1. Configure a CNAME record for your domain:
 
    1. Go to your domain's DNS settings on the site of your DNS hosting provider.
-   1. Set up a CNAME record so that it refers to the previously copied URL on the `.edgecdn.ru` domain. For example, if the website domain name is `{{ domain-name-example }}`, create a CNAME record or replace an existing one for `cdn`:
+   1. Prepare a CNAME record so that it points to the previously copied address on the `.edgecdn.ru` domain. For example, if the website domain name is `{{ domain-name-example }}`, create a CNAME record or replace an existing one for `cdn`:
 
       ```http
       cdn CNAME {{ cname-example }}.
@@ -253,7 +252,7 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
       --forward-host-header
    ```
 
-   Sample resource domain name: `{{ domain-name-example }}`.
+   Resource domain name example: `{{ domain-name-example }}`
 
    Result example:
 

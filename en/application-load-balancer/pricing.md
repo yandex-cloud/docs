@@ -37,11 +37,11 @@ Calculating cost per hour:
 
 > 8 × $0.017760 = $0.142080
 >
-> Total: $0.142080 is the cost of using a load balancer per hour.
+> Total: $0.142080, cost of using a load balancer per hour.
 
 Where:
 * 8: Number of resource units.
-* $0.017760: Cost per resource unit.
+* $0.017760: Price per resource unit.
 
 
 Calculating the cost per month (30 days) with the same hourly load:
@@ -50,7 +50,7 @@ Calculating the cost per month (30 days) with the same hourly load:
 
 > $0.142080 × 720 = $102.297600
 >
-> Total: $102.297600 is the cost of using the load balancer per month.
+> Total: $102.297600, cost of using a load balancer per month.
 
 Where:
 * $0.142080: Cost of using a load balancer per hour.
@@ -59,7 +59,7 @@ Where:
  
 
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 

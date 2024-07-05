@@ -27,8 +27,6 @@ items:
     href: interconnect/index.yaml
   - name: Cloud Logging
     href: logging/index.yaml
-  - name: Cloud Notification Service
-    href: notifications/index.yaml
   - name: Compute Cloud
     href: compute/index.yaml
   - name: Container Registry

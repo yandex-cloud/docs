@@ -2,6 +2,8 @@
 editable: false
 ---
 
-# Pricing for {{ cloud-desktop-full-name }}
+# {{ cloud-desktop-full-name }} pricing
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ cloud-desktop-name }} can be used free of charge.
+
+
+At the [Preview](../overview/concepts/launch-stages.md) stage, {{ cloud-desktop-name }} is free of charge.

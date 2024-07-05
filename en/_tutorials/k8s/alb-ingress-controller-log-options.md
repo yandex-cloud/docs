@@ -53,21 +53,21 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       The key data is required for the [installation](#install-alb-ingress-controller) of the ALB Ingress Controller application.
 
-   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create). Use these settings:
-
-      * Specify the previously created service account for resources.
-      * If you intend to use your cluster within the {{ yandex-cloud }} network, there is no need to allocate a public IP address to it. To allow connections from outside the network, assign a public IP to the cluster.
-
-   1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md). Use these settings:
-
-      * Specify the previously created service account for nodes.
-      * Allocate it a public IP address to grant internet access to the node group and allow pulling Docker images and components.
-
    1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
       {% include [configure-sg-alb-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-manual.md) %}
 
       {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create). Configure the settings:
+
+      * Specify the previously created service account for resources as well as security groups.
+      * If you intend to use your cluster within the {{ yandex-cloud }} network, there is no need to allocate a public IP address to it. To allow connections from outside the network, assign a public IP address to the cluster.
+
+   1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md). Configure the settings:
+
+      * Specify the previously created service account for nodes as well as security groups.
+      * Allocate it a public IP address to grant internet access to the node group and allow pulling Docker images and components.
 
    1. [Create a custom {{ cloud-logging-name }} log group](../../logging/operations/create-group.md).
 

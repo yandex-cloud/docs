@@ -9,17 +9,17 @@ To set up a local DNS in a [{{ managed-k8s-name }} cluster](../concepts/index.md
 
 ## Getting started {#before-you-begin}
 
-1. [Create a service account](../../iam/operations/sa/create.md) and [grant it the roles](../../iam/operations/sa/assign-role-for-sa.md) of `k8s.tunnelClusters.agent` and `vpc.publicAdmin`.
-1. [Create a security group](../../vpc/operations/security-group-create.md) and add [rules](connect/security-groups.md) allowing service traffic within the cluster and access to the {{ k8s }} API.
-1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
-
-   When creating it, specify the service account and security group prepared in advance. Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**, select **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
-
-1. [Create a node group](node-group/node-group-create.md) of any suitable configuration. When creating it, specify the security group prepared in advance.
+1. [Create a service account](../../iam/operations/sa/create.md) and [grant](../../iam/operations/sa/assign-role-for-sa.md) the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles to it.
 
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
+
+   When creating it, specify the service account and the security groups prepared in advance. Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**, select **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
+
+1. [Create a node group](node-group/node-group-create.md) of any suitable configuration. When creating it, specify the security groups prepared in advance.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 

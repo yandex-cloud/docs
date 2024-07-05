@@ -1,4 +1,4 @@
-# Setting up folder access rights
+# Setting up folder access permissions
 
 To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder) resources, assign the user a [role](../../../iam/concepts/access-control/roles.md) for the appropriate folder.
 
@@ -242,7 +242,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   {% note alert %}
 
-  The `set-access-binding` command completely rewrites the access rights to the resource. All current resource roles will be deleted.
+  The `set-access-binding` command completely rewrites access permissions for the resource. All current resource roles will be deleted.
 
   {% endnote %}
 
@@ -374,7 +374,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   {% note alert %}
 
-  The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
+  The `setAccessBindings` method completely rewrites access permissions for the resource. All current resource roles will be deleted.
 
   {% endnote %}
 

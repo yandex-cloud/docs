@@ -19,7 +19,7 @@ The {{ GL }} Agent does not execute CI/CD pipelines. To do this, install [{{ GL 
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
-{% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
@@ -27,23 +27,23 @@ The {{ GL }} Agent does not execute CI/CD pipelines. To do this, install [{{ GL 
 
 1. Prepare for {{ GL }} Agent installation:
 
-    1. [Create a {{ mgl-name }} instance](../../../managed-gitlab/operations/instance/instance-create.md) or a standalone instance.
-    1. Create an agent configuration file in the repository:
-       1. Open your [{{ GL }} instance](../../../managed-gitlab/concepts/index.md#instance) and go to your project.
-       1. In the `main` branch, create a new `.gitlab/agents/<{{ GL }}_agent_name>` folder.
-       1. In the `<{{ GL }}_agent_name>` folder, create an empty `config.yaml` file.
-    1. Register the agent in {{ GL }} and get an access token:
-       1. Open your {{ GL }} instance and go to your project.
-       1. Click **Infrastructure** and select **{{ k8s }} clusters**.
-       1. Click **Connect a cluster** and select the agent name: `<{{ GL }}_agent_name>`.
-       1. Click **Register**.
-       1. {{ GL }} will create a token required to install the application. Store the token in a secure place.
+   1. [Create a {{ mgl-name }} instance](../../../managed-gitlab/operations/instance/instance-create.md) or a standalone instance.
+   1. Create an agent configuration file in the repository:
+      1. Open your [{{ GL }} instance](../../../managed-gitlab/concepts/index.md#instance) and go to your project.
+      1. In the `main` branch, create a new `.gitlab/agents/<{{ GL }}_agent_name>` folder.
+      1. In the `<{{ GL }}_agent_name>` folder, create an empty `config.yaml` file.
+   1. Register the agent in {{ GL }} and get an access token:
+      1. Open your {{ GL }} instance and go to your project.
+      1. Select **Operate** on the left-hand panel, and then select **{{ k8s }} clusters** from the drop-down menu.
+      1. Click **Connect a cluster** and select the agent name: `<{{ GL }}_agent_name>`.
+      1. Click **Register**.
+      1. {{ GL }} will create a token required to install the application. Store the token in a secure place.
 
-    {% note info %}
+   {% note info %}
 
-    For more information about setting up and registering an agent, see the [{{ GL }} documentation](https://docs.gitlab.com/ee/user/clusters/agent/install/).
+   For more information about setting up and registering an agent, see the [{{ GL }} documentation](https://docs.gitlab.com/ee/user/clusters/agent/install/).
 
-    {% endnote %}
+   {% endnote %}
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 

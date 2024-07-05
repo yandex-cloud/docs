@@ -1,4 +1,4 @@
-# Setting up cloud access rights
+# Setting up cloud access permissions
 
 To grant a user access to cloud resources, assign the user a [role](../../../iam/concepts/access-control/roles.md) for the cloud.
 
@@ -82,7 +82,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   1. Describe the properties of the cloud access rights in a configuration file:
+   1. Describe the cloud access permission parameters in the configuration file:
       * `cloud_id`: cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`.
       * `role`: Role to be assigned. You can get a list of roles using the [CLI](../../../cli/quickstart.md) command: `yc iam role list`. In one `yandex_resourcemanager_cloud_iam_member` resource, you can assign only one role.
       * `member`: User to assign the role to. Each `yandex_resourcemanager_cloud_iam_member` resource may have one of the following values:
@@ -107,7 +107,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
 
       For more information about the `yandex_resourcemanager_cloud_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_member).
-   1. In the command line, go to the directory where you created the configuration file.
+   1. In the command line, go to the folder where you created the configuration file.
    1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -135,7 +135,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
    1. Confirm the changes: type `yes` in the terminal and press **Enter**.
 
-      After that access rights are granted for the cloud.
+      This will assign access permissions for the cloud.
 
 - API {#api}
 
@@ -219,7 +219,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
    {% note alert %}
 
-   The `set-access-binding` command completely rewrites the access rights to the resource. All current resource roles will be deleted.
+   The `set-access-binding` command completely rewrites access permissions for the resource. All current resource roles will be deleted.
 
    {% endnote %}
 
@@ -247,11 +247,11 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
 - {{ TF }} {#tf}
 
-   1. Describe the properties of the cloud access rights in a configuration file. Assign the `editor` role to one user and the `viewer` role to another user:
+   1. Describe the cloud access permission parameters in the configuration file. Assign the `editor` role to one user and the `viewer` role to another user:
 
       ```hcl
       data "yandex_resourcemanager_cloud" "project1" {
-      name = "Project 1"
+        name = "Project 1"
       }
 
       resource "yandex_resourcemanager_cloud_iam_member" "editor" {
@@ -267,7 +267,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       }
       ```
 
-   1. In the command line, go to the directory where you created the configuration file.
+   1. In the command line, go to the folder where you created the configuration file.
    1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -295,7 +295,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
    1. Confirm the changes: type `yes` in the terminal and press **Enter**.
 
-      After that access rights are granted for the cloud.
+      This will assign access permissions for the cloud.
 
 - API {#api}
 
@@ -330,7 +330,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
    {% note alert %}
 
-   The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
+   The `setAccessBindings` method completely rewrites access permissions for the resource. All current resource roles will be deleted.
 
    {% endnote %}
 
@@ -412,7 +412,7 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
       }
       ```
 
-   1. In the command line, go to the directory where you created the configuration file.
+   1. In the command line, go to the folder where you created the configuration file.
    1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -440,7 +440,7 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
 
    1. Confirm the changes: type `yes` in the terminal and press **Enter**.
 
-      After that access rights are granted for the cloud.
+      This will assign access permissions for the cloud.
 
 - API {#api}
 

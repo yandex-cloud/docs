@@ -25,19 +25,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
      --output key.json
    ```
 
-1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md). A Let's Encrypt® will be issued for the domain in this zone after you pass the [DNS-01 challenge](https://letsencrypt.org/ru/docs/challenge-types/#проверка-dns-01).
-
-1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../operations/node-group/node-group-create.md) in any suitable configuration.
+1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md). A Let's Encrypt® certificate will be issued for the domain in this zone after you pass the [DNS-01 challenge](https://letsencrypt.org/ru/docs/challenge-types/#проверка-dns-01).
 
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
+1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared in advance.
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Create a certificate {#create-cert}
 
-1. Install the cert-manager app with the {{ dns-full-name }} ACME webhook plugin [according to the guide](../../managed-kubernetes/operations/applications/cert-manager-cloud-dns.md).
+1. Install the cert-manager app with the {{ dns-full-name }} ACME webhook plugin [by following the guide](../../managed-kubernetes/operations/applications/cert-manager-cloud-dns.md).
 
    During the installation, specify the service account and the authorized key created at the [Getting started](#before-begin) step.
 

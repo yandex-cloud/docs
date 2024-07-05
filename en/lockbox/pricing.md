@@ -20,22 +20,24 @@ The prices are valid as of March 10, 2024.
 
 
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 
 
-### Cost of storing secrets {#secrets}
 
-Billing is hourly. The cost per month is provided for reference only, assuming a 720-hour (30-day) month. The value is rounded.
-
+### Secret storage price {#secrets}
 
 
+
+
+
+Billing is hourly. The price per month is provided for reference only based on 720 hours (30 days) per month. The value is rounded.
 
 {% include [usd.md](../_pricing/lockbox/usd-secrets.md) %}
 
 
-### Cost of requests for secrets {#requests}
+### Price of requests for secrets {#requests}
 
 
 

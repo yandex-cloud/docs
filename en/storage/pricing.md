@@ -35,7 +35,8 @@ Data operations are billed according to the following policy:
 * You are not charged for deleting data (DELETE operation).
 
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
+
 
 
 
@@ -62,13 +63,11 @@ Storage_cost = Cost_per_GB_per_month × 15 × 12 / 24 / 30
 
 
 
-
 > For example, if the monthly cost of storing 1 GB of data in standard storage is $0.016167 and the amount of data stored per month is 23 GB, the storage cost per month will be:
 > (23 − 1) × $0.016167 = 22 × $0.016167 = $0.355674
 
 
 ^3^ The minimum billable storage time of an object in ice storage is 12 months. If you delete an object that was stored for less than 12 months, you will be charged the remaining cost after deletion.
-
 
 
 
@@ -105,7 +104,6 @@ The first 10,000 PUT, POST, PATCH, and LIST operations and the first 100,000 GET
 
 
 
-
 > For example, if the monthly cost of 10,000 GET operations in standard storage is $0.003129 and the amount of GET operations per month is 24,500, the total monthly cost of data operations will be:
 > ((24,500 − 10,000) / 10,000) × $0.003129 = (14,500 / 10,000) × $0.003129 = $0.00453705
 
@@ -122,8 +120,7 @@ The minimum billing unit is 1 MB. The billing period is a calendar month.
 {% include [usd.md](../_pricing/storage/usd-egress.md) %}
 
 
-The first 100 GB of outgoing traffic per month for {{ objstorage-name }} are free of charge.
-
+The first 100 GB of outgoing traffic per month for {{ objstorage-name }} is free of charge.
 
 
 

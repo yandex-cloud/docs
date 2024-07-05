@@ -11,7 +11,8 @@ editable: false
 {{ cloud-logging-name }} charges you for the amount of data written and the time the data is stored.
 
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
+
 
 
 

@@ -2,7 +2,8 @@
 
 Пользователи с этой ролью могут:
 * просматривать информацию о [кластерах Apache Airflow™](../../managed-airflow/concepts/index.md#cluster), а также создавать, изменять и удалять их;
-* использовать веб-интерфейс для доступа к [компонентам Apache Airflow™](../../managed-airflow/concepts/index.md#components).
+* [использовать веб-интерфейс](../../managed-airflow/operations/af-interfaces.md#web-gui) Apache Airflow™;
+* [отправлять запросы](../../managed-airflow/operations/af-interfaces.md#rest-api) к API Apache Airflow™.
 
 Включает разрешения, предоставляемые ролью `managed-airflow.user`.
 

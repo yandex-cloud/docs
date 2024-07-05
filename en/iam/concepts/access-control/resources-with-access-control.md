@@ -13,34 +13,34 @@ If you need to grant access to a resource that is not on the list, assign the ro
 ## Resources for which you can assign roles in the management console {#console}
 
 **{{ container-registry-name }}**
-* [Registry](../../../container-registry/concepts/registry.md)
+* [Registry](../../../container-registry/operations/roles/grant.md)
 
 **{{ compute-name }}**
 
 {% include notitle [compute-resources](../../../_includes/iam/resources-with-access-control/compute.md) %}
 
 **{{ iam-name }}**
-* [Service account](../users/service-accounts.md)
+* [Service account](../../operations/sa/assign-role-for-sa.md)
 
 **{{ kms-name }}**
 
 {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
 
 **{{ ydb-name }}**
-* [YDB DBMS](../../../ydb/concepts/index.md#ydb)
+* [YDB DBMS](../../../ydb/operations/manage-databases.md#add-access-binding)
 
 **{{ metadata-hub-name }}**
-* [Connection to managed databases](../../../metadata-hub/concepts/connection-manager.md) in {{ connection-manager-full-name }}
+* [Connection to managed databases](../../../metadata-hub/operations/connection-access.md) in {{ connection-manager-full-name }}
 
 **{{ objstorage-name }}**
-* [Bucket](../../../storage/concepts/bucket.md)
+* [Bucket](../../../storage/operations/buckets/iam-access.md)
 
 **{{ resmgr-name }}**
-* [Cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud)
-* [Folder](../../../resource-manager/concepts/resources-hierarchy.md#folder)
+* [Cloud](../../../resource-manager/operations/cloud/set-access-bindings.md)
+* [Folder](../../../resource-manager/operations/folder/set-access-bindings.md)
 
 **{{ lockbox-name }}**
-* [Secret](../../../lockbox/concepts/secret.md)
+* [Secret](../../../lockbox/operations/secret-access.md)
 
 ## Resources for which you can assign roles via the YC CLI and {{ yandex-cloud }} API {#cli-api}
 
@@ -57,10 +57,10 @@ If you need to grant access to a resource that is not on the list, assign the ro
 * [Desktop groups](../../../cloud-desktop/concepts/desktops-and-groups.md)
 
 **{{ dns-name }}**
-* [DNS zone](../../../dns/concepts/dns-zone.md)
+* [DNS zone](../../../dns/operations/zone-access.md)
 
 **{{ sf-name }}**
-* [Function](../../../functions/concepts/function.md)
+* [Function](../../../functions/operations/function/role-add.md)
 
 **{{ cloud-logging-name }}**
 
@@ -71,33 +71,33 @@ If you need to grant access to a resource that is not on the list, assign the ro
 {% include notitle [organization-resources](../../../_includes/iam/resources-with-access-control/organization.md) %}
 
 **{{ container-registry-name }}**
-* [Registry](../../../container-registry/concepts/registry.md)
-* [Repository](../../../container-registry/concepts/repository.md)
+* [Registry](../../../container-registry/operations/roles/grant.md)
+* [Repository](../../../container-registry/operations/roles/grant.md)
 
 **{{ compute-name }}**
 
 {% include notitle [compute-resources](../../../_includes/iam/resources-with-access-control/compute.md) %}
 
 **{{ iam-name }}**
-* [Service account](../users/service-accounts.md)
+* [Service account](../../operations/sa/assign-role-for-sa.md)
 
 **{{ kms-name }}**
 
 {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
 
 **{{ ydb-name }}**
-* [YDB DBMS](../../../ydb/concepts/index.md#ydb)
+* [YDB DBMS](../../../ydb/operations/manage-databases.md#add-access-binding)
 * YDB DBMS backup
 
 **{{ resmgr-name }}**
-* [Cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud)
-* [Folder](../../../resource-manager/concepts/resources-hierarchy.md#folder)
+* [Cloud](../../../resource-manager/operations/cloud/set-access-bindings.md)
+* [Folder](../../../resource-manager/operations/folder/set-access-bindings.md)
 
 **{{ serverless-containers-name }}**
-* [Container](../../../serverless-containers/concepts/container.md)
+* [Container](../../../serverless-containers/operations/role-add.md)
 
 **{{ lockbox-name }}**
-* [Secret](../../../lockbox/concepts/secret.md)
+* [Secret](../../../lockbox/operations/secret-access.md)
 
 ## Resources for which you can assign roles using {{ TF }} {#terraform}
 

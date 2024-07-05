@@ -88,7 +88,7 @@ To implement an example:
                  # Synthesis parameters
                  hints=[
                    tts_pb2.Hints(voice= 'alexander'), # (Optional) Specify the voice. The default value is marina
-                   tts_pb2.Hints(role = 'good') # (Optional) Specify the role only if applicable for this voice
+                   tts_pb2.Hints(role = 'good'), # (Optional) Specify the role only if applicable for this voice
                    tts_pb2.Hints(speed=1.1), # (Optional) Specify synthesis speed
                  ],
 
