@@ -18,7 +18,7 @@ Users or third-party tools, such as [{{ TF }}](https://www.terraform.io/) or [An
 
 To connect through a standard SSH client using an SSH certificate to a VM or {{ k8s }} node with OS Login access enabled, you must [export](../../compute/operations/vm-connect/os-login-export-certificate.md) the OS Login certificate and use it when connecting. The certificate is valid for one hour. After this time has elapsed, you will need to export a new certificate to connect to the VM or {{ k8s }} node.
 
-To [connect](../../compute/operations/vm-connect/os-login.md#connect-via-key) to a VM or {{ k8s }} node with OS Login access enabled through the YC CLI with an SSH key, you need to create an [SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) and [add](../../organization/operations/add-ssh.md) it to the organization user profile in {{ org-name }}.
+To [connect](../../compute/operations/vm-connect/os-login.md#connect-via-key) to a VM or {{ k8s }} node with OS Login access enabled through the YC CLI with an SSH key, you need to create an [SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) and [add](../../organization/operations/add-ssh.md) it to the organization user profile in {{ org-name }}. You can also add an SSH key to the [service account](../../iam/concepts/users/service-accounts.md) profile to be able to [connect](../../tutorials/security/sa-oslogin-ansible.md) to a VM via OS Login on behalf of that service account.
 
 OS Login has the following benefits:
 
@@ -33,4 +33,5 @@ OS Login has the following benefits:
 * [{#T}](../operations/os-login-access.md)
 * [{#T}](../operations/os-login-profile-create.md)
 * [{#T}](../../compute/operations/vm-connect/os-login.md)
-* [{#T}](../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [Connecting to a {{ k8s }} node via OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [Using a service account with an OS Login profile for VM management via Ansible](../../tutorials/security/sa-oslogin-ansible.md)

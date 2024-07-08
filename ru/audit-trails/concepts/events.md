@@ -53,6 +53,7 @@
 * [{{ sws-full-name }}](#smartwebsecurity)
 * [{{ speechsense-full-name }}](#speechsense)
 * [{{ vpc-full-name }}](#vpc)
+* [{{ websql-full-name }}](#websql)
 
 ## {{ api-gw-full-name }} {#api-gateway}
 
@@ -325,5 +326,10 @@
 
 {% include [vpc-events](../../_includes/audit-trails/events/vpc-events.md) %}
 
+## {{ websql-full-name }} {#websql}
+
+Имя сервиса — `websql`.
+
+{% include [websql-events](../../_includes/audit-trails/events/websql-events.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

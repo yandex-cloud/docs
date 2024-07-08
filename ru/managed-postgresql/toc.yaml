@@ -40,7 +40,7 @@ items:
         items:
           - name: Подключение к базе данных
             href: operations/connect.md
-          - name: SQL-запросы в консоли управления
+          - name: SQL-запросы в {{ websql-full-name }}
             href: operations/web-sql-query.md
           - name: Копирование и заполнение таблицы
             href: operations/copy-write-data.md

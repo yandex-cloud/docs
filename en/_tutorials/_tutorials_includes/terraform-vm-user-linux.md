@@ -1,4 +1,4 @@
-To add a user to the [VM](../../compute/concepts/vm.md) being created, under `metadata`, include the `user-data` parameter with the user metadata. To do this:
+{{ yandex-cloud }} uses the [cloud-init](https://cloud-init.io) mechanism to add users and change many other parameters of the new [virtual machine's](../../compute/concepts/vm.md) OS. To do this, provide the `cloud-init` configuration text in the `user-data` parameter under `metadata`. In our case, these will be system users:
 1. Create a UTF-8 encoded text file containing the metadata, for example:
 
    {% include [user-data](../../_includes/compute/user-data.md) %}

@@ -12,4 +12,5 @@ description: "Various {{ org-full-name }} use cases in {{ yandex-cloud }}."
 
 ## Mapping user groups
 
+* [{#T}](./group-mapping/entra-id.md)
 * [{#T}](./group-mapping/keycloak.md)

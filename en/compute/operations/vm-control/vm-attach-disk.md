@@ -1,8 +1,8 @@
 # Attaching a disk to a VM
 
-You can attach a [disk](../../concepts/disk.md) to either a [running or stopped](../../concepts/vm-statuses.md) [VM](../../concepts/vm.md).
+You can attach an extra [disk](../../concepts/disk.md) to [either a running or stopped VM](../../concepts/vm-statuses.md).
 
-For a disk to be successfully attached to a running VM, the VM's operating system must be ready to accept commands to attach disks. Before attaching a disk, either make sure the OS is loaded up or stop the VM; otherwise, the attach disk operation will fail. If an error occurs, stop the VM and try again.
+{% include [second-disk-without-restart](../../../_includes/compute/second-disk-without-restart.md) %}
 
 {% include [disk-auto-delete](../../_includes_service/disk-auto-delete.md) %}
 
@@ -282,7 +282,7 @@ You can only attach a local disk to a VM on a [dedicated host](../../concepts/de
 
       1. Save the changes and close the file.
 
-   1. Check the status of your file systems:
+   1. Check the state of your file systems:
 
       ```bash
       df

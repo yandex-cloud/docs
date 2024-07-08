@@ -17,6 +17,7 @@ description: "Для корректной работы Ingress-контролл�
 * Правила для проверок состояния бэкендов, разрешающие:
   * Балансировщику — отправлять трафик узлам кластера по протоколу TCP на порт 10501 (назначение трафика — подсети или группы безопасности групп узлов кластера).
   * Группам узлов — принимать этот трафик (источник трафика — подсети балансировщика или его группа безопасности).
+
 Группы безопасности кластера и групп узлов указываются в их настройках. Подробнее см. инструкции:
 * По [созданию](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [изменению](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md#update-cluster) кластера.
 * По [созданию](../../../managed-kubernetes/operations/node-group/node-group-create.md) и [изменению](../../../managed-kubernetes/operations/node-group/node-group-update.md) группы узлов.
@@ -37,6 +38,39 @@ description: "Для корректной работы Ingress-контролл�
 * [Подключаться](../../../managed-kubernetes/operations/node-connect-ssh.md) к узлам по [SSH](../../../glossary/ssh-keygen.md) и управлять кластером через [API](../../../glossary/rest-api.md), `kubectl` и другие утилиты можно только из CIDR `203.0.113.0/24` \[Упр\].
 
 Тогда в группах безопасности нужно создать следующие правила:
+
+* [Группа безопасности балансировщика](../../concepts/application-load-balancer.md#security-groups):
+
+  {% list tabs group=traffic %}
+
+  - Исходящий трафик {#outgoing}
+
+    {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
+    --- | --- | --- | --- | ---
+    `Весь` (`{{ port-any }}`) | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.140.0.0/24`[^\[Узл\]^](#example) | Для отправки трафика, в том числе для проверок состояния, на узлы
+
+  - Входящий трафик {#incoming}
+
+    {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
+    --- | --- | --- | --- | ---
+    `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | Для получения входящего HTTP-трафика
+    `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | Для получения входящего HTTPS-трафика
+    `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — | Для проверок состояния узлов балансировщика
+
+  {% endlist %}
+
+* Группа безопасности группы узлов для проверок состояния бэкендов:
+
+  {% list tabs group=traffic %}
+
+  - Входящий трафик {#incoming}
+
+    {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
+    --- | --- | --- | --- | ---
+    `10501` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.128.0.0/24`[^\[Б\]^](#example)<br>`10.129.0.0/24`[^\[Б\]^](#example)<br>`10.130.0.0/24`[^\[Б\]^](#example) | Для проверок состояния бэкендов
+
+  {% endlist %}
+
 * Группа безопасности кластера и группы узлов для служебного трафика:
 
   {% list tabs group=traffic %}
@@ -51,7 +85,7 @@ description: "Для корректной работы Ingress-контролл�
 
     {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
     --- | --- | --- | --- | ---
-    `Весь` (`{{ port-any }}`) | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — | Для сетевого балансировщика нагрузки
+    `10256` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — | Для сетевого балансировщика нагрузки
     `Весь` (`{{ port-any }}`) | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`) | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`) | Для трафика между [мастером](../../../managed-kubernetes/concepts/index.md#master) и узлами
     `Весь` (`{{ port-any }}`) | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`) | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.96.0.0/16`[^\[К\]^](#example)<br>`10.112.0.0/16`[^\[С\]^](#example) | Для трафика между [подами](../../../managed-kubernetes/concepts/index.md#pod) и [сервисами](../../../managed-kubernetes/concepts/index.md#service)
     `Весь` (`{{ port-any }}`) | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_ipv6-icmp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.0.0.0/8`<br>`192.168.0.0/16`<br>`172.16.0.0/12` | Для проверки работоспособности узлов из подсетей внутри {{ yandex-cloud }}
@@ -95,34 +129,4 @@ description: "Для корректной работы Ingress-контролл�
 
   {% endlist %}
 
-* Группа безопасности группы узлов для проверок состояния бэкендов:
-
-  {% list tabs group=traffic %}
-
-  - Входящий трафик {#incoming}
-
-    {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
-    --- | --- | --- | --- | ---
-    `10501` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.128.0.0/24`[^\[Б\]^](#example)<br>`10.129.0.0/24`[^\[Б\]^](#example)<br>`10.130.0.0/24`[^\[Б\]^](#example) | Для проверок состояния бэкендов
-
-  {% endlist %}
-
-* Группа безопасности балансировщика:
-
-  {% list tabs group=traffic %}
-
-  - Исходящий трафик {#outgoing}
-
-    {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
-    --- | --- | --- | --- | ---
-    `Весь` (`{{ port-any }}`) | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.140.0.0/24`[^\[Узл\]^](#example) | Для отправки трафика, в том числе для проверок состояния, на узлы
-
-  - Входящий трафик {#incoming}
-
-    {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
-    --- | --- | --- | --- | ---
-    `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | Для получения входящего HTTP-трафика
-    `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | Для получения входящего HTTPS-трафика
-    `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — | Для проверок состояния узлов балансировщика
-
-  {% endlist %}
+Подробнее о группах безопасности для кластера и групп узлов см. в разделе [{#T}](../../../managed-kubernetes/operations/connect/security-groups.md) документации {{ managed-k8s-name }}.

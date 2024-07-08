@@ -74,3 +74,15 @@ Mar 25 12:34:46 intr13-vm yc-container-daemon[518]:
 ```
 
 **Как исправить:** остановите ВМ и [увеличьте размер диска](../../compute/operations/disk-control/update.md#change-disk-size).
+
+## Платформа запрошенного образа не соответствует платформе хоста {#platforms-not-match}
+
+**Пример:**
+
+```
+WARNING: The requested image's platform (linux/arm64/v8) does not match the detected host platform (linux/amd64/v4) and no specific platform was requested
+```
+
+**Как исправить:** используйте Docker-образ с поддержкой той платформы, которая соответствует ОС и архитектуре вашей ВМ.
+
+Один Docker-образ может поддерживать [несколько платформ](https://docs.docker.com/build/building/multi-platform/). При запуске такого образа Docker автоматически выбирает вариант, который соответствует ОС и архитектуре вашего хоста. Если образ не содержит вариант, соответствующий вашей платформе, он не запустится, и появится сообщение об ошибке.

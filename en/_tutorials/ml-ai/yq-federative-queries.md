@@ -292,7 +292,7 @@ The {{ mch-name }} table will contain the names of the items.
 
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select the previously created `clickhouse` cluster.
       * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select the `yq-sa` service account.
-      * Enter **{{ ui-key.yql.yq-connection-form.login.input-label }}** and **{{ ui-key.yql.yq-connection-form.password.input-label }}** you specified when creating the cluster.
+      * Enter **{{ ui-key.yql.yq-connection-form.login.input-label }}** and **{{ ui-key.yql.yq-connection-form.password.input-label }}** specified when you created the cluster.
 
    1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
@@ -372,7 +372,7 @@ The {{ mpg-name }} table will contain the names of the customers.
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select the previously created `postgresql` cluster.
       * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: `yq-sa`.
       * **{{ ui-key.yql.yq-connection-form.database.input-label }}**: `db1`.
-      * Enter **{{ ui-key.yql.yq-connection-form.login.input-label }}** and **{{ ui-key.yql.yq-connection-form.password.input-label }}** you specified when creating the cluster.
+      * Enter **{{ ui-key.yql.yq-connection-form.login.input-label }}** and **{{ ui-key.yql.yq-connection-form.password.input-label }}** specified when you created the cluster.
 
    1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 

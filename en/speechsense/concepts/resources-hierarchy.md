@@ -24,9 +24,9 @@ A _connection_ is a {{ speechsense-name }} entity that contains:
 
 * Uploaded [voice call recordings](../operations/data/upload-data.md) or [chat conversations](../operations/data/upload-chat-text.md).
 * Record types: audio or text messages.
-* Record metadata received from PBX, CRM systems, or other sources.
+* Records metadata collected from chats, PBX, CRM systems, or other sources.
 
-   Metadata includes parameters such as names and IDs of the agent and customer, conversation date, and conversation language. You can use metadata to generate [reports](reports/index.md) for analyzing a [dialog](dialogs.md) or a group of dialogs.
+   Metadata presents such parameters as agent's, client's, and bot's (the latter for chats only) names and IDs, dialog date and language. You can use metadata to analyze a [dialog](dialogs.md) or a group of dialogs using [reports](reports/index.md).
 
 If groups of dialogs have different metadata sets or record types, you can create a separate connection for each group.
 
@@ -38,15 +38,15 @@ A project can be viewed as a cross-section of data uploaded to a connection. Whe
 
 Use multiple projects to group dialogs. For example, you can designate a separate project for each of your company's customers or products.
 
-## Inheritance of access rights {#access-rights-inheritance}
+## Inheriting access permissions {#access-rights-inheritance}
 
-When a user performs an operation in {{ speechsense-name }}, [{{ iam-full-name }}](../../iam/index.yaml) checks the user's access rights. These rights are inherited:
+When a user performs an operation in {{ speechsense-name }}, [{{ iam-full-name }}](../../iam/index.yaml) checks the user's access permissions. Permissions that can be inherited:
 
-* Rights to an organization extend to the organization's resources, including spaces, connections, and projects.
-* Rights to a space extend to all connections and projects within that space.
-* Rights to a project extend to all dialogs and reports within that project.
+* Permissions for an organization extend to the organization's resources, including spaces, connections, and projects.
+* Permissions for a space extend to all connections and projects within that space.
+* Permissions for a project extend to all dialogs and reports within that project.
 
-No access rights are granted to connections. Connections are subject to space rights. To learn more about the roles available in the service, see [{#T}](../security/index.md).
+No access permissions are granted for connections. Connections are subject to space permissions. To learn more about the roles available in the service, see [{#T}](../security/index.md).
 
 > **Examples**:
 >

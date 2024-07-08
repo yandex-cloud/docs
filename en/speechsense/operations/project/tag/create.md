@@ -20,14 +20,14 @@ To create a project [tag](../../../concepts/tags.md), you need either the `{{ ro
 
 1. Click **Create tag**.
 
-You can search for key phrases not just through the whole recording, but also within a separate channel: agent's speech or customer's speech. For {{ speechsense-name }} to find keywords and assign tags in the correct channel, specify it for the new tag:
+You can search for key phrases in the whole dialog or a particular channel: agent or customer. For {{ speechsense-name }} to look for keywords and assign tags in the correct channel, specify it for the new tag:
 
 1. In the line with the tag, click ![icon](../../../../_assets/console-icons/ellipsis.svg) and then ![icon](../../../../_assets/console-icons/arrow-right-arrow-left.svg) **Change channel**.
-1. Specify the channel depending on where {{ speechsense-name }} should search for the tag keywords:
+1. Specify the channel based on where you want {{ speechsense-name }} to search for the tag keywords:
 
-   * **Agent and customer**: Anywhere in the recording.
-   * **Agent**: Agent's speech only.
-   * **Customer**: Customer's speech only.
+   * **Agent and customer**: Whole dialog
+   * **Agent**: Agent's utterances or messages only
+   * **Customer**: Customer's utterances or messages only
 
 1. Click **Save**.
 

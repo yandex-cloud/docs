@@ -42,8 +42,8 @@ The cost of text vectorization (getting text embeddings) depends on the size of 
 
 ### Calculating text vectorization cost {#price-example-embedding}
 
-> In this example, we will calculate the cost of using {{ yagpt-name }} for text vectorization with the following parameters:
-> * Number of tokens in the request: 2,000.
+> Cost of using {{ yagpt-name }} for text vectorization with the following parameters:
+> * Number of tokens in the request: 2,000
 >
 > The cost is calculated as follows:
 >

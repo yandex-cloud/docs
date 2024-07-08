@@ -1,6 +1,6 @@
 # Working with reports
 
-You can use [reports in {{ speechsense-name }}](../../concepts/reports/index.md) to analyze recorded conversations between agents and customers and assess agent performance. Build a report:
+You can use [{{ speechsense-name }} reports](../../concepts/reports/index.md) to analyze dialogs between agents and customers and evaluate agents' performance. Build a report:
 
 * [Evaluation form](#build-an-evaluation-form): To analyze several evaluation parameters.
 * [Details](#build-a-details-report): To analyze changes in a single evaluation parameter over time.
@@ -8,7 +8,7 @@ You can use [reports in {{ speechsense-name }}](../../concepts/reports/index.md)
 ## Building the _Evaluation form_ report {#build-an-evaluation-form}
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-1. Go to the space you need and select the appropriate project.
+1. Go to the space you need and select a project.
 1. Go to the **Reports** tab.
 1. Click **Create report** → **Evaluation form**.
 1. In the window that opens, click ![image](../../../_assets/console-icons/plus.svg) **Add parameter**.
@@ -40,13 +40,13 @@ A report enables you to directly switch to the list of dialogs that meet the cri
 To switch from a report to a dialog list:
 
 1. [Build](#build-an-evaluation-form) an **Evaluation form** report.
-1. In the report chart, click the rectangle of the evaluation parameter you need. This opens a list of dialogs satisfying the active filters and the selected parameter.
-1. Go to the dialog you need. Its page will show the details about it, e.g, the agent's performance results in the dialog summary, agent and customer tags, and the dialog text recognized using {{ speechsense-name }}.
+1. In the report chart, click the rectangle of the evaluation parameter you need. This will open a list of dialogs according to the active filters and the parameter you selected.
+1. Go to the dialog of your choice. Its page will show detailed info about the dialog, e.g, the agent's performance data in the form of dialog summary, agent and customer tags, transcript of the audio recognized using {{ speechsense-name }}.
 
 ## Building the _Details_ report {#build-a-details-report}
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-1. Go to the space you need and select the appropriate project.
+1. Go to the space you need and select a project.
 1. Go to the **Reports** tab.
 1. Click **Create report** → **Details**.
 1. In the window that opens, click ![image](../../../_assets/console-icons/plus.svg) **Add parameter**.

@@ -19,7 +19,7 @@ To work with {{ objstorage-name }} via the AWS CLI, you can use the following se
 
 ## Setup {#setup}
 
-To configure the AWS CLI, enter the `aws configure` command. The command requests values for the following parameters:
+To configure the AWS CLI, run the `aws configure` command in your terminal. The command requests values for the following parameters:
 1. `AWS Access Key ID`: ID of a static key created [when getting started](#before-you-begin).
 1. `AWS Secret Access Key`: the contents of the static key.
 1. `Default region name`: `{{ region-id }}` region.
@@ -73,12 +73,20 @@ The `aws configure` command saves the static key and the region.
 
 {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
 
-## Specifics {#specifics}
+## Things to consider {#specifics}
 
-Give consideration to the AWS CLI specifics when using {{ objstorage-name }}:
+Give consideration to the special aspects of using the AWS CLI with {{ objstorage-name }}:
 
 * The AWS CLI treats {{ objstorage-name }} as a hierarchical file system and object keys look like file paths.
-* The client is configured to work with Amazon servers by default. Therefore, when running the `aws` command to work with {{ objstorage-name }}, make sure to use the `--endpoint-url` parameter. To avoid having to specify the parameter manually each time you run the command, use an alias or a configuration file.
+* The client is configured to work with Amazon servers by default. Therefore, when running the `aws` command to work with {{ objstorage-name }}, make sure to use the `--endpoint-url` parameter. To avoid adding the parameter manually each time you run the command, you can use a configuration file or an alias.
+   * In the `.aws/config` configuration file, add the `endpoint_url` parameter (this is supported by the AWS CLI versions 1.29.0, 2.13.0, and higher):
+
+      ```text
+      endpoint_url = https://{{ s3-storage-host }}
+      ```
+
+      This enables you to invoke commands without explicitly specifying an endpoint. For example, you can use `aws s3 ls` instead of `aws --endpoint-url=https://{{ s3-storage-host }} s3 ls`. For more information, see the [AWS CLI](https://docs.aws.amazon.com/sdkref/latest/guide/feature-ss-endpoints.html) documentation.
+
    * To create an alias, use the following command:
 
       ```bash
@@ -96,20 +104,6 @@ Give consideration to the AWS CLI specifics when using {{ objstorage-name }}:
       ```bash
       {{ storage-aws-cli-alias }} ls
       ```
-
-   * In the `.aws/config` configuration file, add the `endpoint_url` parameter (this is supported by the AWS CLI versions 1.29.0, 2.13.0, and higher):
-
-      ```text
-      endpoint_url = https://{{ s3-storage-host }}
-      ```
-
-      This enables you to invoke commands without explicitly specifying an endpoint. For example, you can use `aws s3 ls` instead of `aws --endpoint-url=https://{{ s3-storage-host }} s3 ls`. For more information, see the [AWS CLI](https://docs.aws.amazon.com/sdkref/latest/guide/feature-ss-endpoints.html) documentation.
-
-* When using macOS, in some cases you need to run the command:
-
-   ```bash
-   export PYTHONPATH=/Library/Python/2.7/site-packages; aws --endpoint-url=https://{{ s3-storage-host }} s3 ls
-   ```
 
 ## Example operations {#aws-cli-examples}
 
@@ -246,3 +240,8 @@ Result:
 ```text
 download: s3://bucket-name/path_style_prefix/textfile.txt to ./textfile.txt
 ```
+
+
+## See also {#see-also}
+
+* [{#T}](../quickstart/quickstart-aws-cli.md).

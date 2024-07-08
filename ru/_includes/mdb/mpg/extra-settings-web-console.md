@@ -13,10 +13,9 @@
 - **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** — опция разрешает анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../../datalens/concepts/index.md).
 
 
-- **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** — опция разрешает выполнять SQL-запросы к базам кластера из консоли управления {{ yandex-cloud }}.
+- **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** — опция разрешает [выполнять SQL-запросы](../../../managed-postgresql/operations/web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
 
 
-- {% include [datatransfer access](../console/datatransfer-access.md) %}
 
 
 

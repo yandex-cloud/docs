@@ -21,6 +21,7 @@
 * [{{ objstorage-full-name }}](#objstorage)
 * [{{ speechsense-full-name }}](#speechsense)
 * [{{ wiki-full-name }}](#wiki)
+* [{{ websql-full-name }}](#websql)
 
 ## {{ dns-full-name }} {#dns}
 
@@ -88,3 +89,8 @@
 
 {% include [wiki-events-dp](../../_includes/audit-trails/events/wiki-events-dp.md) %}
 
+## {{ websql-full-name }} {#websql}
+
+Имя сервиса — `websql`.
+
+{% include [websql-events-dp](../../_includes/audit-trails/events/websql-events-dp.md) %}

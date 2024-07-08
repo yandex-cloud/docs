@@ -61,10 +61,14 @@ In {{ managed-k8s-name }}, the Gateway API launches [{{ alb-full-name }}](../../
       --create-namespace \
       --set folderId='<folder_ID>' \
       --set networkId='<cloud_network_ID>' \
-      --set subnetId='<subnet_ID>' \
-      --set-file saKeySecretKey='<sa-key.json_file_path>' \
+      --set subnet1Id='<subnet_ID_1>' \
+      --set subnet2Id='<subnet_ID_2>' \
+      --set subnet3Id='<subnet_ID_3>' \
+      --set-file saKeySecretKey='<path_to_the_sa-key.json_file>' \
       gateway-api ./gateway-api/
    ```
+
+   In the command, specify the network and its subnets to host the [load balancers](../../application-load-balancer/concepts/application-load-balancer.md#lb-location).
 
 ## Use cases {#examples}
 

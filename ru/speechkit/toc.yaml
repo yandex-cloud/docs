@@ -102,8 +102,22 @@ items:
                 href: stt-v3/api-ref/grpc/index.md
               - name: Recognizer
                 href: stt-v3/api-ref/grpc/stt_service.md
+              - name: AsyncRecognizer
+                href: stt-v3/api-ref/grpc/AsyncRecognizer.md
               - name: OperationService
                 href: stt-v3/api-ref/grpc/operation_service.md
+          - name: API v3 REST (англ.)
+            items:
+              - name: Overview
+                href: stt-v3/api-ref/index.md
+              - name: AsyncRecognizer
+                items:
+                  - name: Overview
+                    href: stt-v3/api-ref/AsyncRecognizer/index.md
+                  - name: getRecognition
+                    href: stt-v3/api-ref/AsyncRecognizer/getRecognition.md
+                  - name: recognizeFile
+                    href: stt-v3/api-ref/AsyncRecognizer/recognizeFile.md
       - name: Синтез
         items:
           - name: API v1

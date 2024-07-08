@@ -44,11 +44,11 @@ Changes to the tag apply only to the dialogs uploaded to the project after the c
 1. To change the channel of a single tag:
 
    1. In the line with the tag, click ![icon](../../../../_assets/console-icons/ellipsis.svg) and then ![icon](../../../../_assets/console-icons/arrow-right-arrow-left.svg) **Change channel**.
-   1. Specify the channel depending on where {{ speechsense-name }} should search for the tag keywords:
+   1. Specify the channel based on where you want {{ speechsense-name }} to look for the tag keywords:
 
-      * **Agent and customer**: Anywhere in the recording.
-      * **Agent**: Agent's speech only.
-      * **Customer**: Customer's speech only.
+      * **Agent and customer**: Whole dialog
+      * **Agent**: Agent's utterances or messages only
+      * **Customer**: Customer's utterances or messages only
 
    1. Click **Save**.
 

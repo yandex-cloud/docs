@@ -7,11 +7,9 @@ description: "Follow this guide to connect to a node via {{ oslogin }}."
 
 [{{ oslogin }}](../../organization/concepts/os-login.md) is used instead of SSH keys to access {{ yandex-cloud }} virtual machines via SSH. With {{ oslogin }}, you can connect to {{ managed-k8s-name }} nodes.
 
-{% note info %}
+{% include [node-vm-explained](../../_includes/managed-kubernetes/node-vm-explained.md) %}
 
-To connect via {{ oslogin }}, make sure to enable [external network access](./node-group/node-group-update.md#node-internet-access).
-
-{% endnote %}
+{% include [node-vm-manipulation-warning](../../_includes/managed-kubernetes/node-vm-manipulation-warning.md) %}
 
 [Configure your cluster node](#configure-node) and then connect to it using one of the two methods:
 
@@ -25,6 +23,8 @@ To connect via {{ oslogin }}, make sure to enable [external network access](./no
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
 1. [Enable access via {{ oslogin }}](../../organization/operations/os-login-access.md) at the organization level.
+
+1. [Enable access to nodes from the internet](./node-group/node-group-update.md#node-internet-access) for the node group containing the node you need to connect to.
 
 1. Make sure the account you are using to connect to the node [has one of these roles](../../iam/operations/roles/grant.md) assigned:
 

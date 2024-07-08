@@ -4,9 +4,7 @@ In {{ yandex-cloud }}, _Services_ allow you to manage specific cloud resources a
 
 ## List of {{ yandex-cloud }} services {#list}
 
-Services at the [Preview](./launch-stages.md) stage are labeled as {{ preview-stage }}.
-
-The following services are currently available within the platform:
+There are different service packages available in different [regions](region.md). Services at the [Preview](./launch-stages.md) stage are labeled {{ preview-stage }}.
 
 | Service | Description | Russia | Kazakhstan |
 |---|---|---|---|
@@ -59,6 +57,7 @@ The following services are currently available within the platform:
 | [{{ monitoring-full-name }}](../../monitoring/index.yaml) | Service for collecting and visualizing metrics | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ network-load-balancer-full-name }}](../../network-load-balancer/index.yaml) | Service for distributing network load across cloud resources | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ objstorage-full-name }}](../../storage/index.yaml) | All-purpose scalable cloud object storage | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| [{{ yq-full-name }}](../../query/index.yaml) | Service for running queries using the common SQL dialect | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ resmgr-full-name }}](../../resource-manager/index.yaml) | Cloud resource management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ search-api-full-name }}](../../search-api/index.yaml) | Service for making search queries | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) | Serverless launch of containerized applications | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |

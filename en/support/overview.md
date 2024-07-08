@@ -16,7 +16,7 @@ The expected response time is shown in the table below.
 |----------------------------------------------------------------------------------|-----------------------------------------------|-----------------------------------------------------------------------|-----------------------------------------------------------------------|
 |                                                                                  | For personal and research projects | For professional projects | For business projects with stringent fault tolerance requirements. |
 | Request to [Support Center](support-center.md) | Normal: 24 hours<br>Increase quotas: 30 minutes | Normal: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes | Normal: 2 hours<br>Critical: 15 minutes<br>Increase quotas: 30 minutes |
-| Chat in [Telegram](tg-chat.md) | 15 minutes | 5 minutes | 5 minutes, a messenger of your choice |
+| Chat, [Telegram](tg-chat.md) | 15 minutes | 5 minutes | 5 minutes, a messenger of your choice |
 
 
 

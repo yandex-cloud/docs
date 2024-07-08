@@ -19,7 +19,7 @@ The cost of using {{ translate-full-name }} is calculated based on the total num
 
 {% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 ### Translation and language detection {#prices-translate-detect}
