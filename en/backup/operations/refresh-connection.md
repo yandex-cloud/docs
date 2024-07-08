@@ -26,6 +26,12 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
           sudo apt install uuid-dev
           ```
 
+          If you use the Astra Linux distribution, you also need to install the uuid-runtime package:
+
+          ```bash
+          sudo apt install uuid-runtime
+          ```
+
       1. Run this command:
 
           ```bash

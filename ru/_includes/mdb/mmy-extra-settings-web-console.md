@@ -8,19 +8,14 @@
 
   {% include [Maintenance window](console/maintenance-window-description.md) %}
 
-- **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**
-  
-  Разрешает анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../datalens/concepts/index.md).
+- **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** — разрешает анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../datalens/concepts/index.md).
   
   Подробнее о настройке подключения см. в разделе [Подключение к {{ datalens-name }}](../../managed-mysql/operations/datalens-connect.md).
 
 
-- **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**
-
-  Разрешает [выполнять SQL-запросы](../../managed-mysql/operations/web-sql-query.md) к базам кластера из консоли управления {{ yandex-cloud }}.
+- **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** — опция разрешает [выполнять SQL-запросы](../../managed-mysql/operations/web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
 
 
-- {% include [datatransfer access](console/datatransfer-access.md) %}
 
 - **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** — включите эту опцию, чтобы воспользоваться инструментом [Диагностика производительности](../../managed-mysql/operations/performance-diagnostics.md) в кластере.
 

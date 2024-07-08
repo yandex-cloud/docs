@@ -25,6 +25,10 @@ items:
         href: security/gitlab-lockbox-integration.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
         href: security/static-key-in-lockbox.md
+      - name: >-
+          Using a service account with an OS Login profile for VM management via
+          Ansible
+        href: security/sa-oslogin-ansible.md
   - name: Storing and recovering data
     items:
       - name: All tutorials

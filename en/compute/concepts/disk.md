@@ -1,5 +1,5 @@
 ---
-description: "Disks are virtual counterparts of physical storage devices, such as SSDs and HDDs. Disks are designed for storing data and are attached to VMs. Detaching a disk does not delete its data."
+description: "Disks are virtual counterparts of physical storage devices, such as SSDs and HDDs. Disk enable data storage and operate connected to virtual machines. Detaching a disk does not delete its data."
 keywords:
   - disk
   - ssh
@@ -11,9 +11,9 @@ keywords:
 # Disks
 
 
-In {{ cloud-desktop-name }}, _disks_ are virtual counterparts of physical storage devices, such as SSDs and HDDs.
+_Disks_ are virtual counterparts of physical storage devices, such as SSDs and HDDs.
 
-Disks are designed for storing data and are attached to VMs. Detaching a disk does not delete its data.
+Disk enable data storage and operate connected to virtual machines. Detaching a disk does not delete its data.
 
 Each disk is located in one of the [availability zones](../../overview/concepts/geo-scope.md) and [replicated](#backup) within it (unless it is a non-replicated disk) for data protection. Disks are not replicated to other zones.
 
@@ -66,7 +66,9 @@ If you need enhanced performance and guaranteed fault tolerance, we recommend us
 
 You can only attach each disk to one VM at a time. Additionally, both the disk and the VM must be in the same availability zone.
 
-To successfully boot a VM up, you will need a boot drive. Optionally, you can then attach more disks to your VM.
+A VM must have a boot disk attached. You can also attach extra disks to your VM.
+
+{% include [second-disk-without-restart](../../_includes/compute/second-disk-without-restart.md) %}
 
 {% include [attach-empty-disk](../_includes_service/attach-empty-disk.md) %}
 

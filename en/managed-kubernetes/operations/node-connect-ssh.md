@@ -24,6 +24,10 @@ To connect to a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes
 
 For more information, see [Connecting to a VM via SSH](../../compute/operations/vm-connect/ssh.md).
 
+{% include [node-vm-explained](../../_includes/managed-kubernetes/node-vm-explained.md) %}
+
+{% include [node-vm-manipulation-warning](../../_includes/managed-kubernetes/node-vm-manipulation-warning.md) %}
+
 ## Create SSH key pairs {#creating-ssh-keys}
 
 Prepare the keys for use with your {{ managed-k8s-name }} cluster node. To do this:
@@ -350,7 +354,7 @@ To connect to a {{ managed-k8s-name }} cluster node, specify the [public IP addr
 
 - Management console {#console}
 
-  1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section in the folder where you  created your {{ managed-k8s-name }} cluster.
+  1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section in the folder where you created your {{ managed-k8s-name }} cluster.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Click the instance group with the name that matches the {{ managed-k8s-name }} node group ID.
   1. In the window that opens, go to the **{{ ui-key.yacloud.compute.group.switch_instances }}** tab.
@@ -361,7 +365,7 @@ To connect to a {{ managed-k8s-name }} cluster node, specify the [public IP addr
 
   1. Find out the ID of the instance group that corresponds to the {{ managed-k8s-name }} node group.
 
-      The ID is shown in the `INSTANCE GROUP ID` column.
+     The ID is shown in the `INSTANCE GROUP ID` column.
 
      ```bash
      yc managed-kubernetes node-group list
@@ -450,9 +454,9 @@ You can connect to a {{ managed-k8s-name }} node over SSH once it starts (the st
 
   In Windows, a connection is established using the PuTTY application.
   1. Run the Pageant application.
-     1. Right-click on the Pageant icon in the task bar.
+     1. Right-click the Pageant icon in the task bar.
      1. In the context menu, select **Add key**.
-     1. Select a PuTTY-generated private key in the `.ppk` format. If a password is set for the key, enter it.
+     1. Select a PuTTY-generated private key in `.ppk` format. If a password is set for the key, enter it.
   1. Run PuTTY.
      1. In the **Host Name (or IP address)** field, enter the [public IP address](#node-public-ip) of the VM you want to connect to. Specify port `22` and **SSH** as the connection type.
 

@@ -50,7 +50,7 @@ items:
             href: operations/connect/code-examples.md
       - name: Базы данных
         items:
-          - name: SQL-запросы в консоли управления
+          - name: SQL-запросы в {{ websql-full-name }}
             href: operations/web-sql-query.md
           - name: Управление базами данных
             href: operations/databases.md

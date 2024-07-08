@@ -14,7 +14,7 @@ The main entity in the service is the _{{ k8s }} cluster_.
 
 {{ k8s }} clusters consist of a master and one or more node groups. The master is responsible for managing the {{ k8s }} cluster. Containerized user applications run on nodes.
 
-The service fully manages the master and monitors the status and health of node groups. Users can manage nodes directly and configure {{ k8s }} clusters using the {{ yandex-cloud }} management console and the {{ managed-k8s-name }} CLI and API.
+The service fully manages the master and monitors the state and health of node groups. Users can manage nodes directly and configure {{ k8s }} clusters using the {{ yandex-cloud }} management console and the {{ managed-k8s-name }} CLI and API.
 
 {% include [Install kubectl](../../_includes/managed-kubernetes/note-node-group-internet-access.md) %}
 
@@ -44,6 +44,10 @@ There are two types of masters that differ by their location in [availability zo
 ## Node group {#node-group}
 
 A _node group_ is a group of VMs in a {{ k8s }} cluster that have the same configuration and run the user's containers.
+
+{% include [node-vm-explained-short](../../_includes/managed-kubernetes/node-vm-explained-short.md) %}
+
+{% include [node-vm-manipulation-warning](../../_includes/managed-kubernetes/node-vm-manipulation-warning.md) %}
 
 ### Configuration {#config}
 
@@ -133,7 +137,7 @@ _Node labels_ is a mechanism for grouping nodes in {{ managed-k8s-name }}. There
 
 You can use both types of labels at the same time, e.g., when [creating a node group](../operations/node-group/node-group-create.md) in the CLI or {{ TF }}.
 
-You can use the [{{ managed-k8s-name }} API](../api-ref/index.md) and [{{ k8s }} API]({{ k8s-docs }}/concepts/overview/kubernetes-api) for {{ k8s }} label management. API specifics:
+You can use the [{{ managed-k8s-name }} API](../api-ref/index.md) and [{{ k8s }} API]({{ k8s-docs }}/concepts/overview/kubernetes-api) for {{ k8s }} label management. Things to consider:
 
 * {{ k8s }} labels added via the {{ k8s }} API may be lost because, when [updating or modifying a node group](../operations/node-group/node-group-update.md), some nodes are recreated with different names and some of the old ones are deleted.
 * If {{ k8s }} labels are created via the {{ managed-k8s-name }} API, you cannot delete them using the {{ k8s }} API. Otherwise, the labels will be restored once they are deleted.
@@ -156,7 +160,7 @@ A prefix is an optional part of a key. The prefix requirements are as follows:
 A name is a required part of a key. The naming requirements are as follows:
 * It may be up to 63 characters long.
 * It may contain lowercase Latin letters, numbers, hyphens, underscores, and periods.
-* The first and the last characters must be a letter or number.
+* Use a letter or number for the first and last characters.
 
 For more information about adding and deleting {{ k8s }} labels, see [{#T}](../operations/node-group/node-label-management.md). Adding or deleting a label will not result in the node group recreation.
 

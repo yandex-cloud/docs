@@ -1,5 +1,9 @@
 # Managing {{ k8s }} node labels
 
+{% include [node-vm-explained](../../../_includes/managed-kubernetes/node-vm-explained.md) %}
+
+{% include [node-vm-manipulation-warning](../../../_includes/managed-kubernetes/node-vm-manipulation-warning.md) %}
+
 ## Assigning {{ k8s }} labels when creating a node group {#node-group-creation}
 
 You can add [{{ k8s }} labels](../../concepts/index.md#node-labels) to all {{ managed-k8s-name }} nodes in a [node group](../../concepts/index.md#node-group) at the same time. To do this, specify the labels using the `node_labels` parameter when [creating a {{ managed-k8s-name }} node group](../../operations/node-group/node-group-create.md).

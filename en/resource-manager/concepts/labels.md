@@ -13,7 +13,7 @@ Labels are subject to the following limitations:
    * May contain lowercase Latin letters, numbers, hyphens, and underscores.
    * Must start with a letter.
 * The value:
-   * May be up to 63 characters long.
+   * It may be up to 63 characters long.
    * May contain lowercase Latin letters, numbers, hyphens, and underscores.
 
 ## Label usage examples {#examples}
@@ -28,7 +28,7 @@ Labels are subject to the following limitations:
 
 * Grouping resources by various criteria, such as project, team, environment, application, etc.
 
-   For example, you can use the `environment:production` and `environment:test` labels to specify that {{ yandex-cloud }} resources belong to the production and test environments.
+   For example, you can use the `environment:production` and `environment:test` labels to mark {{ yandex-cloud }} resources as belong to the production and test environments.
 
 * Automating actions with a resource group, such as launching, stopping, or deleting the labeled resources.
 
@@ -43,10 +43,12 @@ List of services whose resources support labels:
 * [{{ dns-full-name }}](../../dns/index.yaml)
 * [{{ sf-full-name }}](../../functions/index.yaml)
 * [{{ cloud-logging-full-name }}](../../logging/index.yaml)
+* [{{ org-full-name }}](../../organization/index.yaml)
 * [{{ compute-full-name }}](../../compute/index.yaml)
 * [{{ container-registry-full-name }}](../../container-registry/index.yaml)
 * [{{ dataproc-full-name }}](../../data-proc/index.yaml)
 * [{{ ml-platform-full-name }}](../../datasphere/index.yaml)
+* [{{ iam-full-name }}](../../iam/index.yaml)
 * [{{ iot-full-name }}](../../iot-core/index.yaml)
 * [{{ kms-full-name }}](../../kms/index.yaml)
 * [{{ lockbox-full-name }}](../../lockbox/index.yaml)

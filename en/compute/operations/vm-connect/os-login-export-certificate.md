@@ -10,3 +10,10 @@ You can use a certificate to enable a user or a third-party tool, such as [Terra
 {% include [oslogin-export-certificate](../../../_includes/compute/oslogin-export-certificate.md) %}
 
 You can use the exported OS Login certificate to [connect](./os-login.md#connect-via-exported-certificate) to a VM with OS Login access [configured](../vm-control/vm-update.md#enable-oslogin-access).
+
+#### See also {#see-also}
+
+* [{#T}](../../../organization/operations/os-login-access.md)
+* [{#T}](../../../organization/operations/add-ssh.md)
+* [{#T}](./os-login.md)
+* [Connecting to a {{ k8s }} node via OS Login](../../../managed-kubernetes/operations/node-connect-oslogin.md)

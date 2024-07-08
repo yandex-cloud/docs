@@ -136,7 +136,7 @@ To enable OS Login access at the organization level:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -176,3 +176,11 @@ To enable OS Login access at the organization level:
    Use the [updateSettings](../../organization/api-ref/OsLogin/updateSettings.md) REST API method for the [OsLogin](../../organization/api-ref/OsLogin/index.md) resource or the [OsLoginService/UpdateSettings](../../organization/api-ref/grpc/os_login_service.md#UpdateSettings) gRPC API call.
 
 {% endlist %}
+
+#### See also {#see-also}
+
+* [{#T}](../operations/os-login-profile-create.md)
+* [{#T}](../operations/add-ssh.md)
+* [{#T}](../../compute/operations/vm-connect/os-login.md)
+* [Connecting to a {{ k8s }} node via OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [Using a service account with an OS Login profile for VM management via Ansible](../../tutorials/security/sa-oslogin-ansible.md)

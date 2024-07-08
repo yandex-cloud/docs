@@ -200,15 +200,10 @@ mysql --host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
 {% endlist %}
 
 
-## Подключение из браузера {#browser}
+## Подключение из {{ websql-full-name }} {#websql}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
+{% include [WebSQL](../../_includes/mdb/mmy/websql.md) %}
 
-Используйте сервис [{{ websql-full-name }}](../../websql) для подключения к кластеру {{ MY }} в {{ yandex-cloud }}.
-
-{% include notitle [connect-to-cluster](../../_includes/websql/connect-to-cluster.md) %}
-
-{% include notitle [execute-sql](../../_includes/websql/execute-sql.md) %}
 
 
 ## Подготовка к подключению из Docker-контейнера {#connection-docker}

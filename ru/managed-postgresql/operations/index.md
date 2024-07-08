@@ -5,7 +5,7 @@ description: "На странице представлен список поша
 
 # Пошаговые инструкции для {{ mpg-name }}
 
-## Кластеры
+## Кластеры {#clusters}
 
 * [Получение информации об имеющихся кластерах](cluster-list.md)
 * [Создание кластера](cluster-create.md)
@@ -19,19 +19,19 @@ description: "На странице представлен список поша
 * [Обновление версии {{ PG }}](cluster-version-update.md)
 * [Удаление кластера](cluster-delete.md)
 
-## Базы данных
+## Базы данных {#databases}
 
 * [Подключение к базе данных в кластере](connect.md)
-* [SQL-запросы в консоли управления](web-sql-query.md)
+* [{#T}](web-sql-query.md)
 * [Копирование и заполнение таблицы с локальной машины](copy-write-data.md)
 * [Управление базами данных](databases.md)
 
-## Пользователи {{ PG }}
+## Пользователи {{ PG }} {#users}
 
 * [Управление пользователями](cluster-users.md)
 * [Назначение привилегий и ролей пользователям](grant.md)
 
-## Расширения и словари {{ PG }}
+## Расширения и словари {{ PG }} {#extensions-and-dictionaries}
 
 * [Управление расширениями](./extensions/cluster-extensions.md)
 * [Использование pg_cron](./extensions/pg_cron.md)
@@ -39,7 +39,7 @@ description: "На странице представлен список поша
 * [Использование pgcrypto](./extensions/pgcrypto.md)
 * [Использование словаря Hunspell для полнотекстового поиска](./extensions/hunspell.md)
 
-## Логи и мониторинг
+## Логи и мониторинг {#logs-and-monitoring}
 
 * [Просмотр логов кластера](cluster-logs.md)
 * [Диагностика производительности](performance-diagnostics.md)

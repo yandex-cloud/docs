@@ -21,3 +21,4 @@ Data events can be logged for the following services:
 * [{{ mmy-full-name }}](../../managed-mysql/)
 * [{{ mpg-full-name }}](../../managed-postgresql/)
 * [{{ objstorage-full-name }}](../../storage/)
+* [{{ websql-full-name }}](../../websql/)

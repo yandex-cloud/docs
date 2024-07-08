@@ -358,6 +358,11 @@ default:
   mgp-full-name: Yandex Managed Service for Greenplum®
   mgp-name: Managed Service for Greenplum®
   mgp-short-name: Managed Service for Greenplum®
+  microsoft-idp:
+    azure-ad-legacy: Azure Active Directory
+    entra-full: Microsoft Entra
+    entra-id-full: Microsoft Entra ID
+    entra-id-short: Entra ID
   mkf-full-name: Yandex Managed Service for Apache Kafka®
   mkf-mkc: Managed Kafka Connect
   mkf-msr: Managed Schema Registry
@@ -5787,6 +5792,7 @@ default:
           switch_datalens: DataLens
           switch_dictionaries: Dictionaries
           switch_explore: SQL
+          switch_explore-websql: WebSQL
           switch_format-schemas: Data format schemas
           switch_logs: Logs
           switch_ml-models: Machine learning
@@ -7090,6 +7096,8 @@ default:
             popup-button_add: Create
             popup-button_save: Save
             popup-password_button_change: Edit
+          websql-connections:
+            action_create-connection: Create connection
         clusters:
           button_action-connect: Connect
           button_action-delete: Delete
@@ -7125,6 +7133,7 @@ default:
           additional-field-metrika: Access from Metrica and AppMetrica
           additional-field-serverless: Serverless access
           additional-field-websql: Access from the management console
+          additional-field-websql-service: WebSQL access
           additional-field-yandex-query_ru: Yandex Query access
           backup-retain-period: Retention period for automatic backups, days
           backup-window-start: Backup start time (UTC)
@@ -7306,6 +7315,7 @@ default:
           switch_datalens: DataLens
           switch_diagnostics: Performance diagnostics
           switch_explore: SQL
+          switch_explore-websql: WebSQL
           switch_hosts: Hosts
           switch_logs: Logs
           switch_monitoring: Monitoring
@@ -9331,7 +9341,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.3
+        tag: v0.2.5
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
@@ -9357,7 +9367,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/external-secrets/chart/external-secrets
-        tag: 0.5.5
+        tag: 0.9.16
     yc_externaldns:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/externaldns/chart/externaldns

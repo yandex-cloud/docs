@@ -5,21 +5,27 @@
 * Standard {{ gpt-lite }} suitable for solving tasks in real time.
 * Large {{ gpt-pro }} based on {{ yagpt-name }} 3 that provides more accurate responses to complex prompts.
 * Special summary model based on {{ gpt-lite }}.
-* {{ gpt-lite }} RC model based on {{ yagpt-name }} 3 available in Release Candidate status.
 
 If out-of-the-box models are not enough, you can [fine-tune](../../tutorials/yagpt-tuning) {{ gpt-pro }} in [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) for it to better respond to your requests.
 
-To [access](../../operations/yandexgpt/create-prompt.md) your model via the API, under `modelUri`, specify its [URI](https://en.wikipedia.org/wiki/URI) which contains the [folder ID](../../../resource-manager/operations/folder/get-id.md). The `/latest` segment specifies the model version and is optional.
+To [access](../../operations/yandexgpt/create-prompt.md) your model via the API, under `modelUri`, specify its [URI](https://en.wikipedia.org/wiki/URI) which contains the [folder ID](../../../resource-manager/operations/folder/get-id.md). The `/latest`, `/rc`, and `/deprecated` segments indicate the model version. `/latest` is used by default.
 
-## {{ yagpt-full-name }} generation models {#yandexgpt-generation}
+## {{ yagpt-full-name }} generative models {#yandexgpt-generation}
 
-| Model | {{ yagpt-name}} generation | URI | Operation mode |
-|---|---|---|---|
-| {{ gpt-pro }} | 3 | `gpt://<folder_ID>/yandexgpt/latest` | [Asynchronous, synchronous](../index.md#working-mode) |
-| {{ gpt-lite }} | 2 | `gpt://<folder_ID>/yandexgpt-lite/latest` | Asynchronous, synchronous |
-| {{ gpt-lite }} RC | 3 | `gpt://<folder_ID>/yandexgpt-lite/rc` | Asynchronous, synchronous |
-| Summary | 2 | `gpt://<folder_ID>/summarization/latest` | Asynchronous, synchronous |
-| Model fine-tuned in {{ ml-platform-full-name }} | 3 | `ds://<fine_tuned_model_ID>` | Asynchronous, synchronous |
+{% note info %}
+
+When updating models, {{ yagpt-name }} generations available in different branches (`/latest`, `/rc`, and `/deprecated`) may change.
+
+{% endnote %}
+
+#|
+|| **Model** | **URI** | **{{ yagpt-name }} generation** | **[Operating modes](../index.md#working-mode)** ||
+|| **{{ gpt-lite }}**</br>(until June 24, 2024) | `gpt://<folder_ID>/yandexgpt-lite/deprecated`</br>`gpt://<folder_ID>/yandexgpt-lite/latest`</br>`gpt://<folder_ID>/yandexgpt-lite/rc` | 2</br>2</br>3 | Asynchronous, synchronous ||
+|| **{{ gpt-lite }}**</br>(after June 24, 2024) | `gpt://<folder_ID>/yandexgpt-lite/deprecated`</br>`gpt://<folder_ID>/yandexgpt-lite/latest`</br>`gpt://<folder_ID>/yandexgpt-lite/rc` | 2</br>3</br>3 | Asynchronous, synchronous ||
+|| **{{ gpt-pro }}** | `gpt://<folder_ID>/yandexgpt/latest` | 3 | Asynchronous, synchronous ||
+|| **Summary** | `gpt://<folder_ID>/summarization/latest` | 2 | Asynchronous, synchronous ||
+|| **Model fine-tuned in {{ ml-platform-full-name }}** | `ds://<fine-tuned_model_ID>` | 3 | Asynchronous, synchronous ||
+|#
 
 Modified models share usage [quotas](../limits.md#quotas) with their basic models.
 

@@ -10,7 +10,7 @@ This page explains what you may need to do to restore your infrastructure after 
 
 Where possible, your VMs, disks, and subnets were moved to the `{{ region-id }}-d` zone. Check whether you can access them and everything works well. However, due to [forced migration risks](./zone-migration.md#technical-risks), your resources may not be available. In this case, restore them from the snapshots.
 
-Your static public IP addresses from `{{ region-id }}-c` might be unavailable. If required, you can [reserve](../../vpc/operations/get-static-ip.md) new static external IP addresses from `{{ region-id }}-d` and [link](../../compute/operations/vm-control/vm-attach-public-ip.md) them to your resources.
+Your static public IP addresses from the `{{ region-id }}-c` zone may not be available. If required, [reserve](../../vpc/operations/get-static-ip.md) new static external IP addresses from the `{{ region-id }}-d` zone and [assign](../../compute/operations/vm-control/vm-attach-public-ip.md) them to your resources.
 
 If you are unable to restore your infrastructure after a forced migration, contact [technical support]({{ link-console-support }}).
 

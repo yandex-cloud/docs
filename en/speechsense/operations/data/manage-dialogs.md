@@ -1,11 +1,11 @@
 # Working with dialogs
 
-In the [dialog](../../concepts/dialogs.md), you can listen to an audio recording or view the transcript of the call between the agent and the customer. You can also obtain information about the dialog, such as whether the agent was able to assist the customer during the conversation.
+In a [dialog](../../concepts/dialogs.md), you can listen to an audio of the conversation or view the text chat between a customer and an agent or bot. You can also get the related information, e.g., whether the agent was able to help the customer in the course of the conversation.
 
 ## Viewing a list of dialogs {#list-dialogs}
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-1. Go to the space you need and select the appropriate project.
+1. Go to the space you need and select a project.
 
 By default, the **Dialogs** tab displays 20 most recent dialogs. To see the previous dialogs, click **Load more** at the end of the list.
 
@@ -14,7 +14,7 @@ To search for dialogs, you can use [filters](#filters-dialogs) and the [search b
 ## Finding dialogs using filters {#filters-dialogs}
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-1. Go to the space you need and select the appropriate project.
+1. Go to the space you need and select a project.
 1. On the **Dialogs** tab, click ![image](../../../_assets/console-icons/plus.svg) **Add filter**.
 1. Select the required filter and enter its value.
 1. Click **Apply**.
@@ -28,14 +28,14 @@ Full-text search allows you to find dialogs containing a specific word or phrase
 To perform a search:
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-1. Go to the space you need and select the appropriate project.
+1. Go to the space you need and select a project.
 1. On the **Dialogs** tab, enter the desired text fragment in the search bar.
-1. (Optional) To the right of the search bar, select the channel in which to perform the search: **Customer** or **Operator**, from the dropdown list.
+1. (Optional) To the right of the search bar, select from the dropdown list the channel you want to search in: **Customer** or **Agent**.
 
 ## Viewing a dialog {#view-dialog}
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-1. Go to the space you need and select the appropriate project.
+1. Go to the space you need and select a project.
 1. Find the required dialog using [filters](#filters-dialogs) and the [search bar](#find-dialogs).
 1. Open the dialog in one of the following ways:
 
@@ -54,7 +54,7 @@ Search criteria:
 Follow these steps:
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-1. Go to the space you need and select the appropriate project.
+1. Go to the space you need and select a project.
 1. In the **Dialogs** tab, enter `good service` in the search bar.
 1. To the right of the search bar, select the **Customer** channel from the drop-down list.
 1. Click ![image](../../../_assets/console-icons/plus.svg) **Add filter**.

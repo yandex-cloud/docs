@@ -12,7 +12,7 @@ editable: false
 
 {{ speechsense-name }} cost depends on the length of the two-channel audio files. The billing unit is a one-second segment of a two-channel audio file.
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 

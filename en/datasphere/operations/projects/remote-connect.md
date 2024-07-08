@@ -11,18 +11,13 @@ Only users with the `{{ roles-datasphere-project-developer }}` [role](../../secu
 Here is an example of connecting to a project using [Visual Studio Code](https://code.visualstudio.com/):
 
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
-
 1. In the project settings, select a [VM configuration](../../concepts/configurations.md) for a remote connection and run the project.
-
 1. In the top-right corner, click **Share** ⟶ **Link for external IDE**.
-
 1. Click **Copy link**.
-
-1. Open a notebook in Visual Studio Code.
-
-1. In the top-right corner, click **Select Notebook Kernel** ⟶ **Existing {{ jlab }} Server**.
-
-1. Paste the link and press **Enter**.
+1. Open an `ipynb` file in Visual Studio Code.
+1. In the top-right corner, click the button with your Python version.
+1. On the panel that opens, click **Select Notebook Kernel** ⟶ **Existing {{ jlab }} Server**.
+1. Paste the link you get and press **Enter**.
 
 Once connection is established, all computations will be run in {{ ml-platform-name }}. The started VM will be running until you stop it in the {{ ml-platform-name }} interface.
 

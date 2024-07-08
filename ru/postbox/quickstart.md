@@ -168,8 +168,8 @@
 
 
     def main():
-       if sys.version_info[0] < 3:
-          raise Exception("Must be using Python 3")
+        if sys.version_info[0] < 3:
+            raise Exception("Must be using Python 3")
 
         parser = argparse.ArgumentParser(
             description="Convert a Secret Access Key to an SMTP password."

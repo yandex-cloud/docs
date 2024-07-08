@@ -41,7 +41,7 @@ description: "Следуя данной инструкции, вы сможет�
 Чтобы кластер работал корректно, создайте правила для входящего и исходящего трафика, и **примените их к кластеру и группам узлов**:
 1. Добавьте правила для входящего трафика.
    * Для сетевого балансировщика нагрузки:
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `10256`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
    * Для передачи служебного трафика между [мастером](../../concepts/index.md#master) и [узлами](../../concepts/index.md#node-group):
@@ -66,6 +66,8 @@ description: "Следуя данной инструкции, вы сможет�
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+
+О том, как настроить группы безопасности для L7-балансировщика, см. в разделе [{#T}](../../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
 
 ## Создать правило для подключения к сервисам из интернета {#rules-nodes}
 
@@ -147,8 +149,7 @@ description: "Следуя данной инструкции, вы сможет�
       protocol          = "TCP"
       description       = "Правило разрешает проверки доступности с диапазона адресов балансировщика нагрузки. Нужно для работы отказоустойчивого кластера и сервисов балансировщика."
       predefined_target = "loadbalancer_healthchecks"
-      from_port         = 0
-      to_port           = 65535
+      port              = 10256
     }
     ingress {
       protocol          = "ANY"

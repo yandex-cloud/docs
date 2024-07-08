@@ -1,7 +1,13 @@
 # Bucket actions logging mechanism
 
 
-In {{ objstorage-name }}, there is an option to log all actions performed with a [bucket](../concepts/bucket.md). For example, you can use logging for an internal security audit or to get more granular information about bucket-related operations.
+{{ objstorage-name }} features a [bucket](./bucket.md) actions _logging mechanism_. For example, you can use logging for an internal security audit or to get more granular information about bucket-related operations.
+
+{% note info %}
+
+Actions performed with objects as part of their [lifecycle](./lifecycles.md) are not logged.
+
+{% endnote %}
 
 By default, logging is disabled. Once you enable this option, {{ objstorage-name }} will start writing data on bucket actions in a form of an [object](../concepts/object.md) once an hour.
 
@@ -89,6 +95,10 @@ Most requests to a bucket are written to the log file, if the bucket for logging
 However, {{ objstorage-name }} does not guarantee that the logs are saved in a complete and timely manner. It may take up to a few hours to record an action with the bucket in a log file. In some cases, a record might fail to appear in the file.
 
 The log file provides an overview of the nature of traffic in the bucket, but is not intended for logging each and every request. In the payment documents, you might find a few requests that do not show up in the log file.
+
+### No object lifecycle action logging {#lifecycle}
+
+In buckets with [lifecycle](./lifecycles.md) rules configured, actions performed with objects as part of their lifecycle are not logged.
 
 ### Enabling logging takes time {#long-engagement}
 

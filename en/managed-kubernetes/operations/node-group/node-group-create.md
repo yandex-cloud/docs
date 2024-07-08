@@ -300,7 +300,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
    * [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings in the `maintenancePolicy` parameters.
    * List of settings to be changed in the `updateMask` parameter.
 
-   {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+     {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
    * For nodes to use [non-replicated disks](../../../compute/concepts/disk.md#disks_types), provide the `network-ssd-nonreplicated` value for the `nodeTemplate.bootDiskSpec.diskTypeId` parameter.
 
@@ -310,7 +310,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
    * To enable {{ managed-k8s-name }} group nodes to use [unsafe kernel parameters](../../concepts/index.md#node-group), provide their names in the `allowedUnsafeSysctls` parameter.
 
-   * To set [taints](../../concepts/index.md#taints-tolerations), provide their values in the `nodeTaints` parameter.
+   * To set [taint policies](../../concepts/index.md#taints-tolerations), provide their values in the `nodeTaints` parameter.
 
    * To set a template for {{ managed-k8s-name }} node names, provide it in the `nodeTemplate.name` parameter. The name is unique if the template contains at least one of the following variables:
 
@@ -336,11 +336,11 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
 {% endlist %}
 
-{% note alert %}
+Creating a group of {{ managed-k8s-name }} nodes may take a few minutes depending on the number of nodes.
 
-After you create a {{ managed-k8s-name }} node group, {{ compute-full-name }} will display one or more VMs with automatically generated names. Do not update the names of the VMs that belong to a {{ managed-k8s-name }} cluster. This will disrupt the operation of the node group and the entire {{ managed-k8s-name }} cluster.
+{% include [node-vm-explained-short](../../../_includes/managed-kubernetes/node-vm-explained-short.md) %}
 
-{% endnote %}
+{% include [node-vm-manipulation-warning](../../../_includes/managed-kubernetes/node-vm-manipulation-warning.md) %}
 
 ## Examples {#examples}
 

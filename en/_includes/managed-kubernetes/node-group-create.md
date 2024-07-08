@@ -107,5 +107,3 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
    {% include [node-group-metadata-postponed-update-note](./node-group-metadata-postponed-update-note.md) %}
 
 1. Click **{{ ui-key.yacloud.common.create }}**.
-
-Creating a group of {{ managed-k8s-name }} nodes may take a few minutes depending on the number of nodes.

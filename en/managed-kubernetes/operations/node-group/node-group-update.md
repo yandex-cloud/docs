@@ -6,6 +6,10 @@ description: "Follow this guide to update a {{ managed-k8s-name }} node group."
 # Updating a {{ managed-k8s-name }} node group
 
 
+{% include [node-vm-explained](../../../_includes/managed-kubernetes/node-vm-explained.md) %}
+
+{% include [node-vm-manipulation-warning](../../../_includes/managed-kubernetes/node-vm-manipulation-warning.md) %}
+
 {% include [yc-node-group-list](../../../_includes/managed-kubernetes/node-group-list.md) %}
 
 Before you start, make sure you have enough [free resources](../../../resource-manager/concepts/resources-hierarchy.md#cloud) in your [cloud](../../concepts/limits.md).
@@ -29,12 +33,6 @@ You can change the following parameters of a [{{ managed-k8s-name }} node group]
 * [Computing resources](../../../compute/concepts/vm-platforms.md) and {{ managed-k8s-name }} node [disk](../../../compute/concepts/disk.md) size.
 * {{ managed-k8s-name }} node name template.
 * [Updates](../../concepts/release-channels-and-updates.md#updates) policy.
-
-{% note alert %}
-
-Do not reconfigure [VMs](../../../compute/concepts/vm.md) belonging to a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) with the help of the [{{ compute-full-name }} interfaces](../../../compute/operations/vm-control/vm-update.md). This will disrupt the operation of the node group and the whole {{ managed-k8s-name }} cluster.
-
-{% endnote %}
 
 To learn how to change the [availability zone](../../../overview/concepts/geo-scope.md) of a node group, see [{#T}](../../tutorials/migration-to-an-availability-zone.md).
 

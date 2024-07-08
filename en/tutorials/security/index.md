@@ -6,3 +6,4 @@
 * [Writing load balancer logs to {{ PG }}](logging.md)
 * [Secure storage of {{ GL }} CI passwords as {{ lockbox-full-name }} secrets](gitlab-lockbox-integration.md)
 * [{#T}](static-key-in-lockbox.md)
+* [{#T}](sa-oslogin-ansible.md)

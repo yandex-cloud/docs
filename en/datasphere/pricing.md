@@ -54,9 +54,9 @@ If you need to store large amounts of data, you can use {{ objstorage-full-name 
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-The monthly usage rate is based on 720 hours per month.
+The monthly prices are based on 720 hours per month.
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 The prices of the configurations are valid for computations in [{{ ds-nb }}](concepts/project.md#mode), [{{ ds-jobs }}](concepts/jobs/index.md) jobs, and the use of [{{ ds-inf }}](../datasphere/concepts/deploy/index.md).
@@ -84,14 +84,14 @@ Cost of using {{ ml-platform-name }} with the following parameters:
 * **Computing resources**: g1.1 configuration with 8 CPUs and 1 GPU.
 * **VM usage time**: 10 minutes.
 
-The cost is calculated as follows:
+The cost of using the service will be:
 
 
 
 > 72 × 600 = 43,200 units for VM usage
-> 43,200 × 0.0000096 = $&nbsp;0.4147200
+> 43,200 × 0.0000096 = $0.4147200
 >
-> Total: $&nbsp;0.4147200 is the cost of using {{ ml-platform-name }}.
+> Total: $0.4147200, cost of using {{ ml-platform-name }}.
 
 Where:
 
@@ -117,14 +117,14 @@ Where:
 * (60 × 60): Number of seconds in 1 hour.
 * 60: Number of seconds in 1 minute.
 
-The cost is calculated as follows:
+The cost of using {{ ds-inf }} will be:
 
 
 
 > 72 × 185,760 × 2 = 26,749,440 units for running a node
-> 26,749,440 × 0.0000096 = $&nbsp;256.7946240
+> 26,749,440 × 0.0000096 = $256.7946240
 >
-> Total cost of using {{ ml-platform-name }}: $&nbsp;256.7946240.
+> Total: $256.7946240, cost of using {{ ml-platform-name }}.
 
 Where:
 
