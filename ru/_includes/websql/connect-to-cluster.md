@@ -4,7 +4,7 @@
 
 Чтобы создать подключение к кластеру управляемых БД:
 
-1. Убедитесь, что в настройках кластера включена опция **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
+1. Убедитесь, что в настройках кластера включена опция **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}**.
 1. Откройте [**Подключения**]({{ websql-link }}) {{ websql-full-name }}.
 1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) **Подключения** нажмите ![image](../../_assets/console-icons/square-plus.svg).
 1. Укажите **Имя** подключения.

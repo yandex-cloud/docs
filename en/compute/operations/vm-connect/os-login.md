@@ -13,7 +13,7 @@ description: "Follow this guide to connect to a VM via OS Login."
 
 {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-[Сreate](./os-login-create-vm.md) a new virtual machine with OS Login support, if required, or [set up](./enable-os-login.md) access via OS Login for an existing VM.
+[Create](./os-login-create-vm.md) a new virtual machine with OS Login support or [set up](./enable-os-login.md) access via OS Login for an existing VM as needed.
 
 ## Connecting to a VM via OS Login using an SSH certificate over the YC CLI {#connect-via-cli}
 
@@ -32,3 +32,10 @@ The certificate is valid for one hour. After this time has elapsed, you will nee
 ## Connecting to a VM via OS Login using an SSH key over the YC CLI {#connect-via-key}
 
 {% include [oslogin-connect-with-key](../../../_includes/compute/oslogin-connect-with-key.md) %}
+
+#### See also {#see-also}
+
+* [{#T}](../../../organization/operations/os-login-access.md)
+* [{#T}](../../../organization/operations/add-ssh.md)
+* [{#T}](./os-login-export-certificate.md)
+* [Connecting to a {{ k8s }} node via OS Login](../../../managed-kubernetes/operations/node-connect-oslogin.md)

@@ -347,8 +347,7 @@
       protocol          = "TCP"
       description       = "Правило разрешает проверки доступности с диапазона адресов балансировщика нагрузки. Нужно для работы отказоустойчивого кластера {{ managed-k8s-name }} и сервисов балансировщика."
       predefined_target = "loadbalancer_healthchecks"
-      from_port         = 0
-      to_port           = 65535
+      port              = 10256
     }
     ingress {
       protocol          = "ANY"
@@ -533,8 +532,7 @@
       protocol          = "TCP"
       description       = "Правило разрешает проверки доступности с диапазона адресов балансировщика нагрузки. Нужно для работы отказоустойчивого кластера {{ managed-k8s-name }} и сервисов балансировщика."
       predefined_target = "loadbalancer_healthchecks"
-      from_port         = 0
-      to_port           = 65535
+      port              = 10256
     }
     ingress {
       protocol          = "ANY"

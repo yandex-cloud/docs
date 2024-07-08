@@ -1,4 +1,6 @@
 ---
+title: "{{ speechkit-full-name }} pricing policy"
+description: "This article describes the {{ speechkit-full-name }} pricing policy."
 editable: false
 ---
 
@@ -107,13 +109,13 @@ The cost of using {{ speechkit-short-name }} for speech synthesis using the API�
 
 The cost is calculated as follows:
 
-> 2,023 × (10.56 / 1,000,000) = $&nbsp;0.02
+> 2,023 × (10.56 / 1,000,000) = $0.02
 >
-> Total: $&nbsp;0.02.
+> Total: $0.02
 
 Where:
-* 10.56 is the cost per million characters.
-* 10.56 / 1,000,000 is the cost per character.
+* 10.56 is the cost per one million characters.
+* 10.56 / 1,000,000 is the cost per one character.
 
 
 #### Speech synthesis using the API v3 {#price-example-tts-v3}
@@ -127,9 +129,9 @@ The cost of using {{ speechkit-short-name }} for speech synthesis using the API�
 
 The cost is calculated as follows:
 
-> (1 + 2 + 3) × 0.001280 = $&nbsp;0.00768
+> (1 + 2 + 3) × 0.001280 = $0.00768
 >
-> Total: $&nbsp;0.00768
+> Total: $0.00768
 
 Where:
 * 1 is the number of billing units charged for the first request of 150 characters.
@@ -149,9 +151,9 @@ The cost of using {{ speechkit-short-name }} for streaming speech recognition wi
 
 The cost is calculated as follows:
 
-> ((1 + 1) + (3 + 1)) × 0.001280 = $&nbsp;0.00768
+> ((1 + 1) + (3 + 1)) × 0.001280 = $0.00768
 >
-> Total: $&nbsp;0.00768
+> Total: $0.00768
 
 Where:
 * (1 + 1) is the number of billing units charged for the first 5-second audio fragment rounded up to 15 seconds with recognition settings message considered.
@@ -170,9 +172,9 @@ The cost of using {{ speechkit-short-name }} for synchronous speech recognition 
 
 The cost is calculated as follows:
 
-> (1 + 3) × 0.001280 = $&nbsp;0.00512
+> (1 + 3) × 0.001280 = $0.00512
 >
-> Total: $&nbsp;0.00512
+> Total: $0.00512
 
 Where:
 * 1 is the number of billing units charged for the first 5-second audio fragment rounded up to 15 seconds.
@@ -192,9 +194,9 @@ The cost of using {{ speechkit-short-name }} for asynchronous speech recognition
 
 The cost is calculated as follows:
 
-> (15 + 30 + 16 + 32) × 0.000128 = $&nbsp;0.011904
+> (15 + 30 + 16 + 32) × 0.000128 = $0.011904
 >
-> Total: $&nbsp;0.011904
+> Total: $0.011904
 
 Where:
 * 15 is the number of billing units charged for the first single-channel 5-second audio fragment rounded up to 2 channels and 15 seconds.
@@ -216,9 +218,9 @@ The cost of using {{ speechkit-short-name }} for asynchronous speech recognition
 
 The cost is calculated as follows:
 
-> (15 + 30 + 40) × 0.000032 = $&nbsp;0.00272
+> (15 + 30 + 40) × 0.000032 = $0.00272
 >
-> Total: $&nbsp;0.00272
+> Total: $0.00272
 
 Where:
 * 15 is the number of billing units charged for the first 2-channel 2-second audio fragment rounded up to 15 seconds.
@@ -227,7 +229,7 @@ Where:
 * 0.000032: Cost per billing unit.
 
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 ### Speech synthesis {#prices-tts}

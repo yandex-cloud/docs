@@ -20,7 +20,7 @@ description: "In this tutorial, you will learn how to set up a {{ GP }} source e
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-   * [Migrating the {{ GP }} cluster](../../../tutorials/managed-greenplum.md).
+   * [Migrating a {{ GP }} cluster](../../../tutorials/managed-greenplum.md).
 
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
@@ -78,11 +78,11 @@ Connecting to the database with explicitly specified network addresses and ports
 
 - Management console {#console}
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTableFilter.include_tables.title }}**: Data is only transferred from listed tables.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTableFilter.include_tables.title }}**: Only data from the tables listed here will be transferred.
 
       If a table is partitioned, you can use this field to specify both the entire table and individual partitions.
 
-      Make sure that, for tables to be included in the list, [all the necessary privileges are granted](../../../../data-transfer/operations/prepare.md#source-gp) to the user on whose behalf data will be transferred.
+      Make sure that, for tables to be included in the list, [all the necessary privileges are granted](../../../../data-transfer/operations/prepare.md#source-gp) to the user to perform the data transfer.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
@@ -116,7 +116,7 @@ The service performs operations on a {{ GP }} cluster with the [READ COMMITTED](
 
 During operation with parallel copy enabled, {{ data-transfer-name }} maintains an open transaction on the {{ GP }} master host. If this transaction is interrupted, a transfer will return an error.
 
-With parallel copy disabled, a transfer will move data from {{ GP }} objects such as `TABLE`, `VIEW`, `FOREIGN TABLE`, and `EXTERNAL TABLE`. Data from these objects will be treated as data from ordinary tables and processed by the target accordingly. With parallel copy enabled, a transfer will only move tables (`TABLE` objects). Tables with the `DISTRIBUTED REPLICATED`({{ gp.docs.pivotal }}/6-19/admin_guide/distribution.html) [allocation policy] will not be transferred.
+With parallel copy disabled, a transfer will move data from {{ GP }} objects such as `TABLE`, `VIEW`, `FOREIGN TABLE`, and `EXTERNAL TABLE`. Data from these objects will be treated as data from ordinary tables and processed by the target accordingly. With parallel copy enabled, a transfer will only move tables (`TABLE` objects). Tables with the `DISTRIBUTED REPLICATED`({{ gp.docs.vmware }}/6-19/admin_guide/distribution.html) [allocation policy] will not be transferred.
 
 ### Snapshot consistency {#snapshot-consistency}
 

@@ -12,7 +12,7 @@ editable: false
 
 The cost of using {{ search-api-name }} is calculated based on the number of search requests initiated within a calendar month ([Reporting period](../billing/concepts/reporting-period.md)).
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 Free tier includes 1,000 requests per user per month during night hours^1^ from 00:00:00 to 07:59:59. The following pricing applies to requests beyond this threshold.

@@ -13,7 +13,7 @@ This section offers tips and recommendations on contacts with technical support.
 
 #### How do I contact technical support? {#support-channels}
 
-You can contact technical support in the [Support]({{ link-console-support }}) section of the management console.
+You can contact technical support from the management console in the [Support]({{ link-console-support }}) section.
 
 #### How do I contact technical support if I cannot log in to the management console? {#requesting-support-without-ui}
 

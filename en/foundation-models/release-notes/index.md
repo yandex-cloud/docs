@@ -5,6 +5,10 @@ description: "This page presents {{ foundation-models-full-name }} release notes
 
 # {{ foundation-models-full-name }} release notes
 
+## Release on 21/06/2024 {#210624}
+
+Starting from June 24, 2024, the {{ gpt-lite }} model based on {{ yagpt-name }} 3 is available by default (the `latest` branch). The deprecated model based on {{ yagpt-name }} 2 is available in the `deprecated` branch until July 1, 2024.
+
 ## Release on 07/06/2024 {#070624}
 
 Updated the {{ yandexart-name }} model:

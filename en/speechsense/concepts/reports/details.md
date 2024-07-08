@@ -13,7 +13,7 @@ To generate the **Details** report, specify the following settings:
 * [Evaluation parameter](#parameter): Report shows changes in its values.
 * [Filters](#filters): Applied to dialogs in the report.
 
-After you configured the settings, you can [build a report](../../operations/data/manage-reports.md#build-a-details-report). It will show the evaluation parameter values for multiple data cross-sections as a [chart and table](#display).
+With the settings configured, you can now [build a report](../../operations/data/manage-reports.md#build-a-details-report). It will present the evaluation parameter values for multiple data cross-sections in [chart and table](#display) form.
 
 ### Evaluation parameter {#parameter}
 
@@ -22,7 +22,7 @@ _Evaluation parameter_: Parameter whose changes you can view in the report. Only
 The report considers the total, average, minimum, or maximum value of the evaluation parameter for the selected period. For example, such values may be useful in the following cases:
 
 * Total: How many times the customer asked to call a supervisor during the conversation.
-* Average: Average duration of the conversation.
+* Average: Average dialog duration.
 * Minimum or maximum: To determine the agent with the least or most violations.
 
 In the report, you can select an evaluation parameter of one of the following types:

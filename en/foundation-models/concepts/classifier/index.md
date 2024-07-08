@@ -23,7 +23,7 @@ Classification models are only available in [synchronous mode](../index.md#worki
 
 ### Zero-shot classifier {#zero-shot}
 
-The Zero-shot classifier allows to perform classification by providing only the [model ID](./models.md), task description, request text, and an array of class names in the request body.
+The Zero-shot classifier allows to perform binary and multi-class classification by providing only the [model ID](./models.md), task description, request text, and an array of class names in the request body.
 
 Request body format for the Zero-shot classifier:
 
@@ -53,7 +53,7 @@ Where:
 
 ### Few-shot classifier {#few-shot}
 
-The Few-shot classifier allows delivering to the model an array of sample requests for the classes specified in the `labels` field. Sample requests are delivered to the `samples` field of the request body allowing to improve the classifier output quality.
+The Few-shot classifier allows to perform binary and multi-class classification by delivering to the model an array of sample requests for the classes specified in the `labels` field. Sample requests are delivered to the `samples` field of the request body allowing to improve the classifier output quality.
 
 Request body format for the Few-shot classifier:
 
@@ -95,6 +95,12 @@ Where:
 
 * `text`: Message text.
 * `samples`: Array of sample requests for the classes specified in the `labels` field. Sample requests are provided as objects, each one containing one text request sample and the class to which such request should belong.
+
+{% note warning %}
+
+You can deliver multiple classification examples in a single request. All examples in the request must not exceed 6,000 tokens.
+
+{% endnote %}
 
 ## Trainable classifiers {#trainable}
 

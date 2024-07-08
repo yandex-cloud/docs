@@ -9,7 +9,7 @@ description: "{{ data-transfer-full-name }} considers the specifics of sources a
 
 ## {{ CH }} {#clickhouse}
 
-{{ dt-type-copy }} and {{ dt-type-copy-repl }} transfers (in the copy step) _from {{ CH }} to {{ CH }}_ do not support `VIEW` objects. In source endpoints of the {{ CH }} type, `VIEW` objects must be on the "List of excluded tables" if the "List of included tables" is empty or not specified. If the "List of included tables" is not empty, it must not contain `VIEW` objects.
+The {{ dt-type-copy }} and {{ dt-type-copy-repl }} type transfers (at the copying stage) _from {{ CH }} to {{ CH }}_ do not support `VIEW`. In source endpoints of the {{ CH }} type, `VIEW` objects must be on the "List of excluded tables" if the "List of included tables" is empty or not specified. If the "List of included tables" is not empty, it must not contain `VIEW` objects.
 
 The source supports `MATERIALIZED VIEW` objects but handles them as regular tables. This means that in transfers _from {{ CH }} to {{ CH }}_, `MATERIALIZED VIEW` items are transferred as tables rather than `MATERIALIZED VIEW` objects.
 
@@ -20,7 +20,7 @@ If replication is enabled on a {{ CH }} target, the engines for recreating table
 
 ## {{ GP }} {#greenplum}
 
-Transfers _from {{ GP }} to {{ GP }}_ and _from {{ GP }} to {{ PG }}_ do not support moving a schema in the current {{data-transfer-full-name}} version. If there are user-defined table data types in these transfers, create these data types in the target database manually before starting a transfer. To manually transfer a schema, use [`pg_dump`]({{ gp.docs.pivotal }}/6-19/utility_guide/ref/pg_dump.html).
+Transfers _from {{ GP }} to {{ GP }}_ and _from {{ GP }} to {{ PG }}_ do not support moving a schema in the current {{ data-transfer-full-name }} version. If there are user-defined table data types in these transfers, create these data types in the target database manually before starting a transfer. To manually transfer a schema, use [pg_dump]({{ gp.docs.vmware }}/5/greenplum-database/utility_guide-client_utilities-pg_dump.html).
 
 The source treats `FOREIGN TABLE` and `EXTERNAL TABLE` as a regular view and uses the general algorithm for `VIEW` objects when handling them.
 
@@ -94,7 +94,7 @@ You can speed up data transfers using [sharded copying](./sharded.md).
 
 ### Number of connections to a database {#postgresql-connection-limit}
 
-{{ PG }} has a [limit on the number of user connections](../../managed-postgresql/concepts/settings-list.md#setting-conn-limit) to the database. If this limit is exceeded for a transfer, the transfer will not work properly or work at all.
+{{ PG }} has a [limit on the number of times a user can connect](../../managed-postgresql/concepts/settings-list.md#setting-conn-limit) to the database. If this limit is exceeded for a transfer, the transfer will work incorrectly or fail.
 
 You can calculate the number of connections a transfer will require using the following formulas:
 

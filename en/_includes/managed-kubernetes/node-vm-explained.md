@@ -1,0 +1,1 @@
+Individual nodes in node groups are {{ compute-full-name }} virtual machines with automatically generated names. To configure nodes, follow the instructions below or [other node group management guides](../../managed-kubernetes/operations/index.md#node-group).

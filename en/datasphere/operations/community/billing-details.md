@@ -5,34 +5,16 @@ description: "In this tutorial, you will learn how to view your spending details
 
 # Viewing service usage details {{ ml-platform-name }}
 
-You can get your usage data in {{ ml-platform-name }} itemized down to a project by building a dashboard in [{{ datalens-full-name }}](../../../datalens/). To do this:
+You can get your {{ ml-platform-name }} usage details in the [{{ billing-name }}]({{ link-console-billing }}) interface:
 
-1. Open or create a new instance on the [{{ datalens-name }} home page]({{ link-datalens-main }}).
-1. Create a connection with the **Yandex Cloud Billing** connector type.
-1. Enter a name for the connection and click **Create**.
-1. Open **{{ yandex-cloud }} Billing Dashboard** and go to **Labels**.
-1. Select:
-   * **Usage date**: Dates of interest.
-   * **Billing account name**: One or more payment accounts.
-   * **Cloud name (ID)**: Leave this field empty.
-   * **Label key**: Labels for viewing statistics; you can set multiple values at the same time:
+1. Select the billing account linked to the {{ ml-platform-name }} community.
+1. Navigate to the **{{ ui-key.yacloud_billing.billing.account.detail.tab_service}}** tab in **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
+1. In the **{{ ui-key.yacloud_billing.billing.account.detail.filter_label-services }}** field, select {{ ml-platform-name }}.
+1. Go to the **{{ ui-key.yacloud_billing.billing.account.detail.tab_label}}** tab.
+1. Select the preferred chart presentation parameters:
+   * In the **{{ ui-key.yacloud_billing.billing.account.detail.label_title-usage-short }}** field, select a time range for the chart.
+   * In the **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_label-key }}** field, select the {{ ml-platform-name }} resources you want to view the details for.
+   * In the **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_aggregation }}** field, select the data aggregating range.
+   * Configure additional filters in the **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_all-filters }}** field as needed.
 
-      | Label | Statistics after September 13, 2023 | Statistics before September 13, 2023 |
-      | --- | ---| ---|
-      | Statistics on projects | `system-datasphere-project_id` | `project_id` |
-      | Statistics on communities | `system-datasphere-resource_id` | `resource_id` |
-      | Statistics on user [labels](../../../resource-manager/concepts/labels.md) | `<label_name>` | `<label_name>` |
-
-{% note warning %}
-
-The itemized costs are available only for the projects launched after October 20, 2022.
-
-{% endnote %}
-
-In the resulting table **Costs by label value breakdown**, you will only see itemized costs by {{ ml-platform-name }} communities.
-
-{% note info %}
-
-In the itemized table, you could also see costs from other services, which aren't linked to your cloud ID, for example, from {{ tracker-full-name }}.
-
-{% endnote %}
+As soon as you change the parameters, the chart will be automatically refreshed.

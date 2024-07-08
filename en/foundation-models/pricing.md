@@ -53,7 +53,7 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, {{ yandexart-name
 
 {% include [error-request](../_includes/speechkit/error-request.md) %}
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 ### Text generation in {{ yagpt-full-name }} {#pricing-generating}
@@ -86,7 +86,7 @@ Number of units per token for the {{ gpt-lite }} model in synchronous mode: 1
 Total number of units in the usage breakdown: 750
 
 
-Total: ($0.0016 / 1,000 units) × 750 units = $0.0015.
+Total: ($0.0016 / 1,000 units) × 750 units = $0.0015
 
 > Cost of using {{ yagpt-full-name }} for text generation with the following parameters:
 > * Number of prompt tokens: 115
@@ -96,12 +96,13 @@ Total: ($0.0016 / 1,000 units) × 750 units = $0.0015.
 
 
 The cost is calculated as follows:
+
 Number of prompt and response tokens: 115 + 1,500 = 1,615
 Cost of 1,000 tokens for the {{ gpt-pro }} model in asynchronous mode: $0.0048
 Number of units per token for the {{ gpt-pro }} model in asynchronous mode: 3
 Total number of units in the usage breakdown: 1,615 × 3 = 4,845
 
-Total: ($0.0048 / 1,000 tokens) × 1,615 tokens = $0.007752.
+Total: ($0.0048 / 1,000 tokens) × 1,615 tokens = $0.007752
 
 
 > Cost of using {{ yagpt-full-name }} for text generation with the following parameters:
@@ -117,7 +118,7 @@ Cost of 1,000 tokens for the model fine-tuned in {{ ml-platform-name }}, synchro
 Number of units per token for the model fine-tuned in {{ ml-platform-name }}, synchronous mode: 6
 Total number of units in the usage breakdown: 1,050 × 6 = 6,300
 
-Total: ($0.0016 / 1,000 units) × 6,300 units = $0.01008 **or** ($0.0096 / 1,000 tokens) × 1,050 tokens = $0.01008.
+Total: ($0.0016 / 1,000 units) × 6,300 units = $0.01008 **or** ($0.0096 / 1,000 tokens) × 1,050 tokens = $0.01008
 
 
 ### Calculating text vectorization cost {#price-example-embedding}
@@ -129,11 +130,11 @@ Total: ($0.0016 / 1,000 units) × 6,300 units = $0.01008 **or** ($0.0096 / 1,000
 >
 > 2,000 × 1.0 × ($0.00008 / 1,000) = $0.00016
 >
-> Total: $0.00016.
+> Total: $0.00016
 
 Where:
-* $0.00008: Cost per 1,000 tokens.
-* $0.00008 / 1,000: Cost per token.
+* $0.00008: Cost for processing 1,000 tokens.
+* $0.00008 / 1,000: Cost for processing one token.
 
 
 

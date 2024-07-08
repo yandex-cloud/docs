@@ -7,8 +7,10 @@ editable: false
 
 # Quotas and limits in {{ vision-name }}
 
-{{ vision-full-name }} has the following limits:
+{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-{% include [quotes-limits-def.md](../../_includes/quotes-limits-def-without-ui.md) %}
+
+If you need more resources, contact [support]({{ link-console-support }}) and tell us which quotas you need to increase, for which [models](ocr/index.md#models), and by how much.
+
 
 {% include [vision-limits](../../_includes/vision-limits.md) %}

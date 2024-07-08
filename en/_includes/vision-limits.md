@@ -4,7 +4,8 @@
 ----- | -----
 | Number of requests per second, [synchronous mode](../vision/ocr/api-ref/TextRecognition/index.md) | 1 |
 | Number of requests per second, [asynchronous mode](../vision/ocr/api-ref/TextRecognitionAsync/index.md) | 10 |
-
+| Number of requests per second, synchronous mode (getting a response) | 50 |
+| Number of requests per second, asynchronous mode (getting a response) | 50 |
 
 #### Limits {#vision-limits}
 

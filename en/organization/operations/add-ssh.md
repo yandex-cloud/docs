@@ -5,11 +5,11 @@ description: "Follow this guide to add SSH keys to a user profile that will allo
 
 # Adding an SSH key
 
-Upload SSH keys to the organization user profile in {{ org-name }} to use them to connect to virtual machines and {{ managed-k8s-full-name }} cluster nodes with [OS Login](../concepts/os-login.md) access enabled.
+Upload SSH keys to the organization user or service account profile in {{ org-name }} so it can connect to virtual machines and {{ managed-k8s-full-name }} cluster nodes with [OS Login](../concepts/os-login.md) access enabled.
 
 To add an SSH key to a user profile, make sure the **{{ ui-key.yacloud_org.form.oslogin-settings.title_user-ssh-key-settings }}** option is [enabled](./os-login-access.md) at the organization level. If required, [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a new SSH key pair.
 
-To add an SSH key to an organization user profile:
+To add an SSH key to an OS Login profile:
 
 {% list tabs group=instructions %}
 
@@ -78,7 +78,7 @@ To add an SSH key to an organization user profile:
       yc organization-manager oslogin user-ssh-key create \
         --organization-id <organization_ID> \
         --name "<key_name>" \
-        --subject-id <user_ID> \
+        --subject-id <user_or_service_account_ID> \
         --data "<public_SSH_key>" \
         --expires-at <key_expiration_date>
       ```
@@ -87,7 +87,7 @@ To add an SSH key to an organization user profile:
 
       * `--organization-id`: Previously obtained organization ID.
       * `--name`: Uploaded key name.
-      * `--subject-id`: Previously obtained [ID](./users-get.md) of the user to whose profile you add the SSH key.
+      * `--subject-id`: Previously obtained ID of the [user](./users-get.md) or [service account](../../iam/operations/sa/get-id.md) to whose profile you are adding the SSH key.
       * `--data`: Contents of a public SSH key.
       * `--expires-at`: Uploaded key expiration date. This is an optional parameter. It allows you to set any expiration date for the uploaded key. You can specify the value in two formats:
 
@@ -126,7 +126,7 @@ To add an SSH key to an organization user profile:
       Where:
 
       * `organization_id`: Organization ID. You can get the organization ID using the [YC CLI](../../cli/quickstart.md) `yc organization-manager organization list` command or in the [management console]({{ link-console-main }}).
-      * `subject_id`: [ID](./users-get.md) of the user to whose profile the SSH key is being added.
+      * `subject_id`: ID of the [user](./users-get.md) or [service account](../../iam/operations/sa/get-id.md) to whose profile you are adding the SSH key.
       * `data`: Contents of a public SSH key.
       * `name`: Uploaded key name.
       * `expires_at`: Uploaded key expiration date. This is an optional parameter. It allows you to set any time and date for the uploaded key, after which the key becomes invalid. The value is set in [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) format, e.g., `YYYY-MM-DDT00:00:00Z`.
@@ -135,7 +135,7 @@ To add an SSH key to an organization user profile:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -176,4 +176,14 @@ To add an SSH key to an organization user profile:
 
 {% endlist %}
 
+You can only add an SSH key to a service account profile using the CLI, {{ TF }}, or API.
+
 To allow users to upload SSH keys to their own profiles, [enable](./os-login-access.md) the **{{ ui-key.yacloud_org.form.oslogin-settings.title_allow-edit-own-keys }}** option.
+
+#### See also {#see-also}
+
+* [{#T}](../operations/os-login-access.md)
+* [{#T}](../operations/os-login-profile-create.md)
+* [{#T}](../../compute/operations/vm-connect/os-login.md)
+* [Connecting to a {{ k8s }} node via OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [Using a service account with an OS Login profile for VM management via Ansible](../../tutorials/security/sa-oslogin-ansible.md)

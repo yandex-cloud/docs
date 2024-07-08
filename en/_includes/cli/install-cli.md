@@ -71,7 +71,7 @@
       if [ -f '/Users/<username>/yandex-cloud/completion.zsh.inc' ]; then source '/Users/<username>/yandex-cloud/completion.zsh.inc'; fi
       ```
 
-   1. After the installation is complete, add the following lines to the configuration file. Insert them above the lines automatically added by the installation script.
+   1. After the installation is complete, add the following lines to the `~/.zshrc` configuration file. Insert them above the lines automatically added by the installation script.
 
       ```
       if [ -f $(brew --prefix)/etc/zsh_completion ]; then

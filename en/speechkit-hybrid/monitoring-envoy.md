@@ -23,9 +23,9 @@ Where:
 |:------------------------|:----------|:----------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `active_services` | GAUGE | Number of running {{ sk-hybrid-name }} services  | `type`, service type: `stt`/`tts`. |
 | `log4j2_appender_total` | COUNTER | Number of logs with this level. | `level`, the [logging level](operations/logging.md). |
-| `grpc_statuses` | COUNTER | GRPC method status | `app` (application), `method` (GRPC method), `status` (query status). To track the connection with Yandex Billing, in the `method` label, specify the values: `yandex.cloud.ds.billing.BillingService/Register`, `yandex.cloud.ds.billing.BillingService/SendBillingData`. |
-| `grpc_durations` | HISTOGRAM | Histogram of the GRPC query processing time | `app` (application), `method` (GRPC method), `status` (query status). |
-| `grpc_requests` | GAUGE | Different metrics of GRPC queries | `app` (application), `method` (GRPC method), `status` (query status). |
+| `grpc_statuses` | COUNTER | gRPC method operating states | `app` (application), `method` (gRPC method), `status` (query status). To track the connection with Yandex Billing, in the `method` label, specify the values: `yandex.cloud.ds.billing.BillingService/Register`, `yandex.cloud.ds.billing.BillingService/SendBillingData`. |
+| `grpc_durations` | HISTOGRAM | Histogram of the gRPC query processing time | `app` (application), `method` (gRPC method), `status` (query status). |
+| `grpc_requests` | GAUGE | Various metrics of gRPC queries | `app` (application), `method` (gRPC method), `status` (query status). |
 
 ### Metrics for the Cloud Billing license model {#metrics-cloud-billing}
 
@@ -75,7 +75,7 @@ To get only significant metrics that changed at least once, use the URL: `<IP ad
 Informative Envoy metrics for {{ sk-hybrid-name }} monitoring:
 
 * [Upstream metrics](https://www.envoyproxy.io/docs/envoy/latest/configuration/upstream/cluster_manager/cluster_stats) for Envoy communications with the `stt`/`tts` service clusters.
-* [Downstream metrics](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/stats) for Envoy communications with external resources. e.g.:
+* [Downstream metrics](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/stats) for Envoy communications with external resources. For example:
 
    | Metric | Type | Description | Labels |
    |:-------------------------------|:--------|:----------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|

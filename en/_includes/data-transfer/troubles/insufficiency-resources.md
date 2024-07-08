@@ -9,4 +9,4 @@ errors detected on secondary workers: secondary worker #3 failed:
 pod instance restarted 5h41m39.092446028s ago
 ```
 
-**Solution:** contact [technical support]({{ link-console-support }}) or your account manager to request more transfer resources.
+**Solution**: Contact [technical support]({{ link-console-support }}) or your account manager to have your transfer resources increased.

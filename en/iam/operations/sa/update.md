@@ -5,11 +5,17 @@ description: "Follow this guide to update a service account."
 
 # Updating a service account
 
+You can change a service account's name and description. Using the {{ yandex-cloud }} API you can also [label](../../../resource-manager/concepts/labels.md) a service account.
+
+To change a service account's roles, follow [this guide](assign-role-for-sa.md).
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
+   To update a service account:
+
+   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the service account and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-edit }}**.
    1. Change the name of your service account.
@@ -25,13 +31,15 @@ description: "Follow this guide to update a service account."
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
+   To update a service account:
+
    1. See the description of the update service account command:
 
       ```bash
       yc iam service-account update --help
       ```
 
-   1. Select a service account (for example, `my-robot`):
+   1. Select a service account, e.g., `my-robot`:
 
       ```bash
       yc iam service-account list
@@ -64,7 +72,7 @@ description: "Follow this guide to update a service account."
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   To change the name or description of a service account:
+   To update a service account:
 
    1. Open the {{ TF }} configuration file and edit the fragment with the service account description.
       Example of the service account description in the {{ TF }} configuration:

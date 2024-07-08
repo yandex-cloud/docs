@@ -310,7 +310,7 @@ yc certificate-manager certificate list
      Где:
 
      * `ingress.alb.yc.io/subnets` — одна или несколько подсетей, с которыми будет работать {{ alb-name }}.
-     * `ingress.alb.yc.io/security-groups` — одна или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для {{ alb-name }}. Если параметр не задан, используется группа безопасности по умолчанию. Хотя бы одна из групп безопасности должна разрешать исходящие TCP-соединения к портам 10501 и 10502 в подсети группы узлов {{ managed-k8s-name }} или в ее группу безопасности.
+     * `ingress.alb.yc.io/security-groups` — одна или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для {{ alb-name }}. Если параметр не задан, используется группа безопасности по умолчанию. Хотя бы одна из групп безопасности должна разрешать исходящее TCP-соединение к порту 10501 в подсети группы узлов {{ managed-k8s-name }} или в ее группу безопасности.
      * `ingress.alb.yc.io/external-ipv4-address` — предоставление публичного доступа к {{ alb-name }} из интернета. Укажите [заранее полученный IP-адрес](../../vpc/operations/get-static-ip.md) либо установите значение `auto`, чтобы получить новый.
 
        Если вы указали значение `auto`, то при удалении Ingress-контроллера [IP-адрес](../../vpc/concepts/address.md) также будет удален из [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud). Чтобы избежать этого, используйте имеющийся зарезервированный адрес.
@@ -580,7 +580,7 @@ yc certificate-manager certificate list
 
      Где:
      * `ingress.alb.yc.io/subnets` — одна или несколько подсетей, с которыми будет работать {{ alb-name }}.
-     * `ingress.alb.yc.io/security-groups` — одна или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для {{ alb-name }}. Если параметр не задан, используется группа безопасности по умолчанию. Хотя бы одна из групп безопасности должна разрешать исходящие TCP-соединения к портам 10501 и 10502 в подсети группы узлов {{ managed-k8s-name }} или в ее группу безопасности.
+     * `ingress.alb.yc.io/security-groups` — одна или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для {{ alb-name }}. Если параметр не задан, используется группа безопасности по умолчанию. Хотя бы одна из групп безопасности должна разрешать исходящее TCP-соединение к порту 10501 в подсети группы узлов {{ managed-k8s-name }} или в ее группу безопасности.
      * `ingress.alb.yc.io/external-ipv4-address` — предоставление публичного доступа к {{ alb-name }} из интернета. Укажите [заранее полученный IP-адрес](../../vpc/operations/get-static-ip.md) либо установите значение `auto`, чтобы получить новый.
 
        Если вы указали значение `auto`, то при удалении Ingress-контроллера [IP-адрес](../../vpc/concepts/address.md) также будет удален из [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud). Чтобы избежать этого, используйте имеющийся зарезервированный адрес.

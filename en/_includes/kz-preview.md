@@ -1,5 +1,5 @@
 {% note warning %}
 
-This feature is available in [the Russia region](../overview/concepts/region.md) only.
+This feature is only available in the [Russia region](../overview/concepts/region.md).
 
 {% endnote %}

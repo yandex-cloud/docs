@@ -66,7 +66,7 @@ Error example:
 {"code": 13, "message": "internal"}
 ```
 
-**Solution**: Contact [support]({{ link-console-support }}) or your account manager and specify the `request_id`. If you are using `curl` for API calls, add the `-v` flag to facilitate error diagnostics.
+**Solution**: Contact [technical support]({{ link-console-support }}) or your account manager and provide the `request_id`. If you are using `curl` for API calls, add the `-v` flag to facilitate error diagnostics.
 
 ## Network {#network}
 
@@ -108,6 +108,8 @@ Error example:
 {% include [timeseries](../../_includes/data-transfer/troubles/mongodb/timeseries.md) %}
 
 {% include [cluster configuration](../../_includes/data-transfer/troubles/mongodb/cluster-configuration.md) %}
+
+{% include [history lost](../../_includes/data-transfer/troubles/mongodb/history-lost.md) %}
 
 ## {{ MY }} {#mysql}
 
@@ -184,6 +186,6 @@ Error example:
 
 ## How to report a problem {#support}
 
-If you followed the tips provided but the problem persists, contact [tech support]({{ link-console-support }}).
+If you followed the tips provided but the problem persists, contact [technical support]({{ link-console-support }}).
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

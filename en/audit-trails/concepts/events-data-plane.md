@@ -21,6 +21,7 @@ On this page, you will find events for the following services:
 * [{{ objstorage-full-name }}](#objstorage)
 * [{{ speechsense-full-name }}](#speechsense)
 * [{{ wiki-full-name }}](#wiki)
+* [{{ websql-full-name }}](#websql)
 
 ## {{ dns-full-name }} {#dns}
 
@@ -54,23 +55,17 @@ Service name: `lockbox`.
 
 ## {{ mmg-full-name }} {#mmg}
 
-{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
-
 Service name: `mdb.mongodb`.
 
 {% include [mmg-events-dp](../../_includes/audit-trails/events/mmg-events-dp.md) %}
 
 ## {{ mmy-full-name }} {#mmy}
 
-{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
-
 Service name: `mdb.mysql`.
 
 {% include [mmy-events-dp](../../_includes/audit-trails/events/mmy-events-dp.md) %}
 
 ## {{ mpg-full-name }} {#mpg}
-
-{% include [note-sending](../../_includes/audit-trails/note-sending.md) %}
 
 Service name: `mdb.postgresql`.
 
@@ -94,3 +89,8 @@ Service name: `wiki`.
 
 {% include [wiki-events-dp](../../_includes/audit-trails/events/wiki-events-dp.md) %}
 
+## {{ websql-full-name }} {#websql}
+
+Service name: `websql`.
+
+{% include [websql-events-dp](../../_includes/audit-trails/events/websql-events-dp.md) %}

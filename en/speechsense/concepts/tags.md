@@ -1,20 +1,20 @@
 # Dialog tags
 
-Dialogs are _tagged_ using classifiers. {{ speechsense-name }} determines whether the dialog has certain key phrases, classifies the dialog, and adds a tag to it. For example, there are tags that show the agent has thanked the customer for waiting or that the customer has contacted support a second time.
+Dialogs are _tagged_ using classifiers. {{ speechsense-name }} scans the dialog for specific key phrases, classifies the dialog, and adds a tag to it. For example, there are tags that show the agent has thanked the customer for waiting or that the customer has contacted support a second time.
 
-In the transcript, you can view which tags were assigned to the agent's and customer's channels. If you click a tag, the words it refers to will be highlighted with the appropriate color.
+In the dialog text, you can view a list of tags assigned to agent and customer channels. If you click a tag, the words it refers to will be highlighted with the tag's color.
 
 ## How to assign tags {#attach}
 
-After a tag is created, [activate it in the project](../operations/project/tag/change.md#activate-tag) so it can be assigned to a recording. {{ speechsense-name }} searches for key phrases and assigns a tag only after its activation. If activation is disabled, tags will remain in the dialogs they are already assigned to and will not be added to new ones.
+For tags to be assigned to dialogs, [activate your tag in the project](../operations/project/tag/change.md#activate-tag) after you create it. {{ speechsense-name }} searches for key phrases and assigns a tag only after its activation. If activation is disabled, tags will remain in the dialogs they are already assigned to and will not be added to new ones.
 
-After a tag is activated, [assign a channel to it](../operations/project/tag/change.md#tag-channel). Depending on the channel, {{ speechsense-name }} will search for keywords in different parts of the recording:
+After a tag is activated, [assign a channel to it](../operations/project/tag/change.md#tag-channel). Depending on the channel, {{ speechsense-name }} looks for keywords in different parts of the dialog:
 
-* **Operator and customer**: Anywhere in the recording.
-* **Operator**: Agent's speech only.
-* **Customer**: Customer's speech only.
+* **Agent and customer**: Whole dialog
+* **Agent**: Agent's utterances or messages only
+* **Customer**: Customer's utterances or messages only
 
-For example, if the tag has the **Customer** channel assigned, and the tag keyword is present in the agent's speech only, the tag is not given to the call recording.
+For example, if a tag has the **Customer** channel assigned, and the tag's keyword only occurs in the agent's utterances or messages, the tag will not be assigned to the dialog.
 
 No matter what tags, a channel must be configured at the [project](resources-hierarchy.md#project) level. This allows for flexible tag assignment management across different projects.
 

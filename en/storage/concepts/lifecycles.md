@@ -1,6 +1,12 @@
 # Object lifecycles
 
-{{ objstorage-name }} allows you to define the actions that are automatically applied to individual objects or object groups in a bucket at specific points in time.
+With _object lifecycles_, you can [configure](../operations/buckets/lifecycles.md) actions to be automatically performed with individual objects or groups of objects in a bucket at specified points in time.
+
+{% note info %}
+
+In buckets with [logging enabled](./server-logs.md), actions performed with objects as part of the object lifecycle are not logged.
+
+{% endnote %}
 
 Types of actions:
 

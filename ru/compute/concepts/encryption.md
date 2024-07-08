@@ -57,4 +57,4 @@
 
 ### См. также {#see-also}
 
-* [{#T}](../../security/domains/encryption.md)
+* [{#T}](../../security/standard/encryption.md)
