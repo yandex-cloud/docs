@@ -53,7 +53,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/index.md
 
 - Python {#python}
 
-  1. [Установите](https://www.python.org/downloads/) Python версии 3.6 и выше.
+  1. [Установите](https://www.python.org/downloads/) Python версии 3.8 и выше.
   1. Установите библиотеку Boto3:
 
      ```bash
