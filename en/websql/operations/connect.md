@@ -1,140 +1,122 @@
-# Managing connections
+# Connection management
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
+The ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section in {{ websql-full-name }} enables you to:
 
-In [{{ websql-full-name }}]({{ websql-link }}), you can do the following using the **Connection Manager** panel (![image](../../_assets/console-icons/folder-tree.svg)):
+* Create a connection to public databases or managed database clusters. To learn more about creating connections, see [this guide](create-connection.md).
+* [View information about a managed database cluster](#view-cluster-settings).
+* [View information about a connection](#view-connection-settings).
+* [View information about a database](#view-db-settings).
+* [Change connection settings](#change-connection-settings).
+* [Update a connection](#update-connection).
+* [Add a connection to a managed database cluster](#add-connection-to-cluster).
+* [Delete the connection you no longer need](#delete-connection).
 
-* Add connections with [{{ mpg-full-name }}](../../managed-postgresql/operations/cluster-list.md), [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-list.md), and [{{ mmy-full-name }}](../../managed-mysql/operations/cluster-list.md) [managed database clusters](#connect-cluster).
-* Add connections with [public databases](#connect-db).
-* [Check connection settings](#view-connection-settings).
-* [Re-establish previously created connections](#update-connection).
-* [Delete connections](#delete-connection) that you no longer need.
-* [Work with demo connections](#demo) to explore {{ websql-full-name }}.
+## Viewing information about a managed database cluster {#view-cluster-settings}
 
-## Connecting to a managed database cluster in {{ yandex-cloud }} {#connect-cluster}
+To view cluster settings:
 
-{% include [clickhouse-warning](../../_includes/websql/clickhouse-warning.md) %}
+1. Under ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}), select the managed database cluster.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the cluster name and select **Cluster information**.
 
-{% include notitle [connect-to-cluster](../../_includes/websql/connect-to-cluster.md) %}
+This will bring up a panel with cluster settings.
 
-If the connection is successful, you will see the cluster structure in the connection manager tree. Hosts of the same cluster will appear in a [_connection group_](#add-connection-to-group).
-
-## Connecting to a public database {#connect-db}
-
-To connect to a public database via the internet:
-
-{% include notitle [connect-to-db](../../_includes/websql/connect-to-db.md) %}
-
-If the connection is successful, you will see the database structure in the connection manager tree.
-
-## Adding a connection to a connection group {#add-connection-to-group}
-
-The databases belonging to the same cluster are displayed in the connections tree as _connection groups_. In the connection settings, such databases will have the same URL and port number.
-
-To add a connection to a group:
-
-1. Select a group in the connections tree.
-1. Click **...** to the right of the group name and select **Add connection**.
-1. In the window that opens, you will see the preconfigured settings for the cluster connection. You can specify the database name as well as the username and password for access to it.
-1. Click **Connect**.
-
-## Renaming a connection group {#rename-group}
-
-To rename a connection group:
-
-1. Select a group in the connections tree.
-1. Click **...** to the right of the group name and choose **Rename group**.
-1. In the window that opens, specify a new group name and click **Apply**.
-
-## Viewing connection settings {#view-connection-settings}
+## Viewing information about a connection {#view-connection-settings}
 
 To view connection settings:
 
-1. Select a connection or connection group.
-1. Click **...** to the right of the connection name and choose **Connection information**.
+1. Under ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}), select the connection.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the connection name and select **Connection information**.
 
-A panel with connection settings will open.
+This will bring up a panel with connection settings.
 
-There are groups of tables and views (`VIEW`) within a single connection.
+There are groups of tables and views (`VIEW`) within a single connection. For more information on how to view info about tables and views, see [this guide](view-db-objects-info.md).
 
-## Viewing information about a table {#view-table}
+## Viewing information about a database {#view-db-settings}
 
-To view detailed information about a table and its columns:
+To view database settings:
 
-1. Select the connection and database.
-1. In the **Tables** group, select a table.
-1. To the right of the table name, click ![image](../../_assets/console-icons/sliders-vertical.svg) and select **Table information**.
+1. Under ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}), select the database.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the database name and select **Database information**.
 
-This opens a panel with information about the table, including its name, size, and an approximate number of table rows. You can also get the following information about table columns:
+This will bring up a panel with DB settings.
 
-* Column name.
-* Data type.
-* Whether or not the column is nullable.
-* Whether or not the column is a primary key.
+## Changing connection settings {#change-connection-settings}
 
-If the table contains indexes or triggers, the same panel will display information about columns and indexing types, as well as trigger events.
+### Changing connection settings for a managed database cluster {#change-cluster-connection-settings}
 
-## Viewing information about a view {#view-view}
+To change connection settings:
 
-To see detailed information about a view:
+1. Under ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}), select the connection.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the connection name and select **Edit connection**.
+1. Enter a new name for the connection.
+1. In the **Cluster** field, select the managed database cluster you want to connect to.
+1. Specify the **Username** you will use to connect to cluster databases.
+1. To change the password, select the **Change password** option and enter a new user password.
+1. List the **Databases** you want to connect to. You can only connect to the databases that exist in this cluster. The user you specified must have access to them configured.
+1. Click **Apply**.
 
-1. Select the connection and database.
-1. In the **Views** group, select the view.
-1. To the right of the view name, click ![image](../../_assets/console-icons/sliders-vertical.svg) and select **View overview**.
+### Changing connection settings for a public database {#change-public-db-connection-settings}
 
-A panel will open showing information about the view name and its columns:
+To change connection settings:
 
-* Column name.
-* Data type.
-* Whether or not the column is nullable.
+1. Under ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}), select the connection.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the connection name and select **Edit connection**.
+1. Enter a new name for the connection.
+1. Under **Hosts**, configure the hosts:
+   * Specify the database host FQDN and port number for connecting to the database.
+   * For {{ CH }}, also specify the Native Protocol port and [shard](../../managed-clickhouse/operations/shards.md#list-shards) name.
+   * (Optional) Enable TLS.
 
-## Viewing information about a schema {#view-scheme}
+      If your company has a certification authority (CA), the certificate issued by the CA will be used by default. If the company has no CA, upload the server's TLS certificate.
 
-To see detailed information about a database schema:
+1. Specify the **Username** you will use to connect to cluster databases.
+1. To change the password, select the **Change password** option and enter a new user password.
+1. List the **Databases** you want to connect to. You can only connect to existing databases. The user you specified must have access to them configured.
+1. Click **Apply**.
 
-1. Select the connection and database.
-1. Select the schema.
-1. To the right of the schema name, click ![image](../../_assets/console-icons/sliders-vertical.svg) and select **Schema information**.
+## Updating a connection {#update-connection}
 
-A panel will open with information about the schema type and its sequences, if any.
-
-## Reconnecting to databases and clusters {#update-connection}
-
-In the Connection manager, you can view the status of connections and refresh them or reconnect to databases and clusters. Active connections are marked in green, inactive connections are marked in red.
+In the ![image](../../_assets/console-icons/folder-tree.svg) [**Connection**]({{ websql-link }}) section, you can view the status of connections and update them or reconnect to databases. Active connections are marked in green, while inactive ones, in red.
 
 {% note tip %}
 
-Use the search field on the **Connection manager** panel to find a connection with the appropriate database, table, or schema.
+Use the search field on the **Connection** panel to find a connection with the appropriate database, table, or schema.
 
 {% endnote %}
 
-To refresh an active connection:
+### Updating an active connection {#update-active-connection}
 
-1. Select an active connection.
-1. Click **...** to the right of the connection name and choose **Refresh connection**.
+1. Select the active DB connection.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the database name and select **Update database**.
 
-This will update the entire hierarchy for this connection, including tables and views. If a table was deleted from a database, you will need to refresh the connection for the changes to appear in {{ websql-full-name }}.
+This will update the entire hierarchy for this database, including tables and views. If a table was deleted from a database, you will need to refresh the connection for the changes to appear in {{ websql-full-name }}.
 
-To refresh all active connections, click ![image](../../_assets/console-icons/arrows-rotate-right.svg) in the top-right corner of the **Connection manager** panel.
+To refresh all active connections, click ![image](../../_assets/console-icons/arrows-rotate-right.svg) in the top-right corner of the ![image](../../_assets/console-icons/folder-tree.svg) [**Connection**]({{ websql-link }}) section.
 
-To re-establish inactive connections:
+### Reconnecting inactive connections {#reconnect-inactive-connection}
 
-1. Select an inactive connection.
-1. Click **...** to the right of the connection name and choose **Reconnect**.
-1. Enter your username and password for database access and click **Connect**.
+1. Select the inactive connection.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the database name and select **Reconnect**.
+
+## Adding a connection to a managed database cluster {#add-connection-to-cluster}
+
+Connections to databases within a cluster are grouped into an expandable list under the name of that cluster. In the connection settings, such databases will have the same URL and port number.
+
+If you already have a database connection in a cluster, you can add a connection to another database in the same cluster:
+
+1. Under ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}), select the cluster you need in the connection tree.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the cluster name and select **Add connection**.
+1. In the window that opens, the **Database type** and **Cluster** fields will be automatically filled out. Specify the connection name, database name, and the relevant login credentials.
+1. Click **Connect**.
 
 ## Deleting a connection {#delete-connection}
 
-To delete the connections you no longer use:
+1. Under ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}), select the connection.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of its name and select **Delete connection**.
+1. In the window that opens, click **Apply**.
 
-1. Select a connection or connection group.
-1. Click **...** to the right of their name and choose **Delete connection** or **Delete group**.
+The connection will be deleted from both {{ websql-full-name }} and {{ connection-manager-name }} in {{ metadata-hub-name }}.
 
-## Managing demo connections {#demo}
-
-Demo connections are pre-established connections with test databases that allow you to explore the {{ websql-full-name }} features. Demo connections are added by default. You cannot [delete](#delete-connection) or [rename](#rename-group) them, but you can hide them in the **Connection manager** panel:
-
-1. Click **Settings** (![image](../../_assets/console-icons/gear.svg)) in the bottom-left corner.
-1. Disable **Show demo connections** in the general settings.
+You can also delete a connection from {{ connection-manager-name }} in {{ metadata-hub-name }}. This connection will be automatically deleted from {{ websql-full-name }}. Deletion is limited to the user's folder.
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

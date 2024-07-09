@@ -10,7 +10,7 @@ Users who have access to support chat can get their questions about {{ yandex-cl
 To start chatting with technical support in Telegram:
 
 1. Open the {{ support-center-name }} [home page]({{ link-console-support }}).
-1. In the bottom-left corner, select **{{ ui-key.yacloud.component.navigation-menu.label_help-center }}** and then **Telegram chat**.
+1. In the bottom-left corner, click ![image](../_assets/console-icons/circle-question.svg) and then select **Telegram chat**.
 1. Select an [organization](../organization/quickstart.md) to work with technical support.
 1. Follow the instructions in the **Enter code from Telegram** window: confirm the token you received and use the link to open the Telegram chat.
 1. You can use the following chat commands:

@@ -68,7 +68,7 @@ There are several restrictions when working with {{ PG }} clusters.
 
 Limitations:
 1. {% include [!](_includes/supported_requests.md) %}
-1. {{ yq-short-name }} uses the [type system](https://ydb.tech/docs/en/yql/reference/types/primitive) {{ ydb-full-name }}. However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ PG }} types (`date` and `timestamp`).
+1. {{ yq-short-name }} uses the {{ ydb-full-name }} [type system](https://ydb.tech/docs/en/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ PG }} types (`date` and `timestamp`).
 Therefore, {{ yq-short-name }} returns date and time values read from {{ PG }} as plain strings (the `Optional<Utf8>` type) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
 
 ## Filter pushdown {#predicate_pushdown}
@@ -105,4 +105,5 @@ The table below shows how {{ PG }} and {{ yq-full-name }} types map. All other d
 | `character` | `Optional<Utf8>` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply; the string is padded with spaces to the required length. |
 | `character varying` | `Utf8` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |
 | `text` | `Utf8` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |
+| `json` | `Json` | |
 

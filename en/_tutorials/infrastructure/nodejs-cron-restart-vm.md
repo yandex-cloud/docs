@@ -45,7 +45,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store an [O
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret, e.g., `oauth-token`.
-   1. Under **{{ ui-key.yacloud.lockbox.forms.section_version }}**:
+   1. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
       * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter `key_token`.
       * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the OAuth token value required for function authorization.
    1. Click **{{ ui-key.yacloud.common.create }}**.

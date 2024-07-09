@@ -16,7 +16,7 @@ editable: false
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 ### Requests to queues {#requests-to-queues}

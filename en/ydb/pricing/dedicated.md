@@ -14,27 +14,27 @@ editable: false
 
 {% include [pricing-status.md](../_includes/pricing/pricing-status.md) %}
 
-## What is included in {{ ydb-name }} cost {#rules}
+## What goes into the cost of using {{ ydb-name }} {#rules}
 
 When using {{ ydb-name }} in dedicated mode, you pay for the following:
 * Type and size of [storage groups](../concepts/resources.md#storage-groups) allocated for the DB.
 * [Computing resources](../concepts/resources.md#resource-presets) allocated to the DB.
 
 Other consumed resources to be additionally paid for:
-* The space used in {{ objstorage-full-name }} to store on-demand backups.
+* Space used in {{ objstorage-full-name }} to store on-demand backups.
 * Egress traffic from {{ yandex-cloud }}.
 
 {% include [pricing-gb-size](../_includes/pricing/pricing-gb-size.md) %}
 
 ### Using computing resources {#rules-hosts-uptime}
 
-The cost is calculated for each hour of VM operation in accordance with its class. Exact class characteristics are given in [{#T}](../concepts/index.md).
+The cost is calculated for each hour of VM operation in accordance with its class. To view the specifications for each class, see [{#T}](../concepts/index.md).
 
-The minimum billing unit is one hour (for example, the cost of 1.5 hours of operation is the same as the cost of 2 hours of operation).
+The minimum billing unit is one hour; for example, you will be charged for 2 hours when using a VM for 90 minutes (1.5 hours).
 
 ### Disk space usage {#rules-storage}
 
-You are charged for the following:
+You pay for the following:
 * Storage allocated for DB storage groups.
 * Space used by on-demand DB backups saved in {{ objstorage-name }}.
 
@@ -44,7 +44,7 @@ You are charged for the following:
 
    {% endnote %}
 
-The cost is specified for one month of use. The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
+The price covers one month of use. The minimum billing unit is 1 GB per hour (e.g., storing 1 GB for 1.5 hours costs the same as for 2 hours).
 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
@@ -60,7 +60,7 @@ Currently, you cannot order storage or web traffic this way.
 {% endnote %}
 
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 ### Host computing resources {#prices-compute-units}
@@ -74,7 +74,7 @@ Currently, you cannot order storage or web traffic this way.
 
 
 
-{% include [usd-storage.md](../../_pricing/ydb/usd-storage.md) %}
+{% include notitle [usd-storage.md](../../_pricing/ydb/usd-storage.md) %}
 
 
 {% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}

@@ -10,7 +10,11 @@ Currently, the following data write formats are supported:
 |Compression format|Name in {{ yq-name }}|
 |--|--|
 |[Gzip](https://en.wikipedia.org/wiki/Gzip)|gzip|
+|[Zstd](https://en.wikipedia.org/wiki/Zstandard)|zstd|
 |[LZ4](https://en.wikipedia.org/wiki/LZ4_(compression_algorithm))|lz4|
+|[Brotli](https://en.wikipedia.org/wiki/Brotli)|brotli|
+|[Bzip2](https://en.wikipedia.org/wiki/Bzip2)|bzip2|
+|[Xz](https://en.wikipedia.org/wiki/Lempel–Ziv–Markov_chain_algorithm#xz_and_7z_formats)|xz|
 
 `Parquet` file format supports its own internal compression algorithms. {{ yq-name }} allows writing data in `parquet` format using the following compression algorithms:
 

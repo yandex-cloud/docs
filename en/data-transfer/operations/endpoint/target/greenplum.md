@@ -20,7 +20,7 @@ description: "In this tutorial, you will learn how to set up a {{ GP }} target e
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
    * [Migrating the {{ GP }} cluster](../../../tutorials/managed-greenplum.md).
-   * [Migration with storage changed from {{ MY }} to {{ GP }}](../../../tutorials/mmy-to-mgp.md).
+   * [Migration with the storage change from {{ MY }} to {{ GP }}](../../../tutorials/mmy-to-mgp.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
    * [Delivering data from {{ KF }} to {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md).
@@ -39,7 +39,7 @@ Configure one of the supported data sources:
 * [{{ MY }}](../source/mysql.md).
 * [{{ GP }}](../source/greenplum.md).
 * [{{ KF }}](../source/kafka.md).
-* [Airbyte](../../../transfer-matrix.md#airbyte).
+* [{{ AB }}](../../../transfer-matrix.md#airbyte).
 * [{{ DS }}](../source/data-streams.md).
 * [{{ objstorage-full-name }}](../source/object-storage.md).
 * [{{ ydb-name }}](../source/ydb.md).
@@ -100,13 +100,13 @@ Connecting to the database with explicitly specified network addresses and ports
 
    **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
 
-   * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only going to do replication without copying data.
+   * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option only for replication without data copying.
 
-   * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Completely delete tables included in the transfer (used by default).
+   * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Completely delete the tables included in the transfer (default).
 
-      Use this option so that the latest version of the table schema is always transferred to the target database from the source whenever the transfer is activated.
+      Use this option to always transfer the latest version of the table schema to the target database from the source whenever the transfer is activated.
 
-   * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`: Delete only the data from the tables included in the transfer but leave the schema.
+   * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`: Delete only the data from the tables included in the transfer but keep the schema.
 
       Use this option if the schema in the target database differs from the one that would have been transferred from the source during the transfer.
 

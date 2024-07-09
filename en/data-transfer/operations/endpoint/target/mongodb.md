@@ -32,8 +32,8 @@ For a detailed description of possible {{ data-transfer-full-name }} data transf
 
 Configure one of the supported data sources:
 
-* [{{ MG }}](../source/mongodb.md)​
-* [Airbyte](../../../transfer-matrix.md#airbyte)
+* [{{ MG }}](../source/mongodb.md)
+* [{{ AB }}](../../../transfer-matrix.md#airbyte)
 * [{{ DS }}](../source/data-streams.md)
 * [{{ KF }}](../source/kafka.md)​
 

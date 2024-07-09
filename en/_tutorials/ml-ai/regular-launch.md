@@ -45,7 +45,7 @@ The cost of implementing regular runs includes:
 
 ### Create a service account for the {{ ml-platform-name }} project {#create-sa}
 
-To access a {{ ml-platform-name }} project from a {{ sf-name }} function, you need a service account with the `{{ roles-datasphere-project-editor }}` role.
+To access a {{ ml-platform-name }} project from a {{ sf-name }} function, you need a service account with the `{{ roles-datasphere-project-editor }}` and `{{ roles-functions-invoker }}` roles.
 
 {% list tabs group=instructions %}
 
@@ -54,7 +54,7 @@ To access a {{ ml-platform-name }} project from a {{ sf-name }} function, you ne
    1. Go to the `data-folder` folder.
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `reddit-user`.
-   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `datasphere.community-project.editor` role to the service account.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-datasphere-project-editor }}` and `{{ roles-functions-invoker }}` roles to the service account.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
@@ -72,6 +72,16 @@ To enable the service account to run a {{ ml-platform-name }} project, add it to
    1. Select the `reddit-user` account and click **{{ ui-key.yc-ui-datasphere.common.add }}**.
 
 {% endlist %}
+
+### Configure the project {#setup-project}
+
+To reduce {{ ml-platform-name }} usage costs, configure the time to release the VM attached to the project.
+
+1. {% include [include](../../_includes/datasphere/ui-find-project.md) %}
+1. Go to the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab.
+1. Under **{{ ui-key.yc-ui-datasphere.common.general }}**, click ![pencil](../../_assets/console-icons/pencil-to-line.svg) **{{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. To configure **{{ ui-key.yc-ui-datasphere.edit-project-page.dedicated-vm-inactivity-timeout }}**, select `{{ ui-key.yc-ui-datasphere.common.custom }}` and specify 5 minutes.
+1. Click **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
 ## Create a notebook {#create-notebook}
 
@@ -242,7 +252,8 @@ To run a function every 15 minutes, you will need a [timer](../../functions/conc
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
-      {% include [function-settings](../../_includes/functions/function-settings.md) %}
+      * [{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}](../../functions/concepts/function.md#tag).
+      * `reddit-user` {{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }} used to call the function.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -253,6 +264,7 @@ From now on, the `stock_sentiments_data.csv` file will be updated every 15 minut
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
+
 * [Delete](../../functions/operations/function/function-delete) the function.
 * [Delete](../../functions/operations/trigger/trigger-delete) the trigger.
 * [Delete](../../datasphere/operations/projects/delete) the project.

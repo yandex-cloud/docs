@@ -44,7 +44,7 @@ Configure one of the supported data sources:
 * [{{ CH }}](../source/clickhouse.md).
 * [{{ GP }}](../source/greenplum.md).
 * [{{ KF }}](../source/kafka.md).
-* [Airbyte](../../../transfer-matrix.md#airbyte).
+* [{{ AB }}](../../../transfer-matrix.md#airbyte).
 * [{{ metrika }}](../source/metrika.md).
 * [{{ DS }}](../source/data-streams.md).
 * [{{ objstorage-full-name }}](../source/object-storage.md).

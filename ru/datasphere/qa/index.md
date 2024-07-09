@@ -38,7 +38,9 @@ description: "Как получить логи моей работы в серв
 
 #### Можно ли в {{ ml-platform-name }} запускать ячейки по расписанию? {#regular-launch}
 
-В самой {{ ml-platform-name }} такой возможности нет. Вы можете использовать [{{ sf-full-name }}](../../functions/concepts/trigger/timer.md), чтобы автоматически запускать исполнение ячеек с помощью [API {{ ml-platform-name }}](../api-ref/overview.md). Пример использования регулярных запусков подробно описан в [руководстве](../tutorials/regular-launch.md).
+Запуск вычислений по расписанию можно реализовать с помощью [повторного запуска заданий](../concepts/jobs/fork.md) {{ ds-jobs }} и их [интеграции с {{ maf-full-name }}](../concepts/jobs/airflow.md).
+
+Также вы можете использовать [{{ sf-full-name }}](../../functions/concepts/trigger/timer.md), чтобы автоматически запускать исполнение ноутбука с помощью [API {{ ml-platform-name }}](../api-ref/overview.md). Пример использования регулярных запусков подробно описан в [руководстве](../tutorials/regular-launch.md).
 
 #### Мой браузер не может открыть проект {{ ml-platform-name }} в IDE. Как это исправить? {#browser}
 

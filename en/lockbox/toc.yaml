@@ -48,6 +48,8 @@ items:
         href: tutorials/index.md
       - name: Syncing with Managed Service for Kubernetes secrets
         href: tutorials/kubernetes-lockbox-secrets.md
+      - name: Storing {{ AF }} connections and variables in {{ lockbox-full-name }}
+        href: tutorials/lockbox-and-airflow.md
       - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md
       - name: Secure storage of {{ GL }} CI passwords as {{ lockbox-name }} secrets

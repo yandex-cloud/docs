@@ -4,7 +4,7 @@ This copying is run at certain time intervals. With this method, only the data t
 
 {% note info %}
 
-You can configure incremental copy for such sources as {{ PG }}, {{ CH }}, and Airbyte.
+You can configure incremental copy for {{ PG }}, {{ CH }}, and {{ AB }} sources.
 
 {% endnote %}
 

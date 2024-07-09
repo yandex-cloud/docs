@@ -393,6 +393,8 @@ items:
             href: alb-ref/gateway.md
           - name: HTTPRoute
             href: alb-ref/http-route.md
+          - name: TLSRoute
+            href: alb-ref/tls-route.md
           - name: Service для Gateway API
             href: alb-ref/service-for-gateway.md
   - name: Инструменты {{ network-load-balancer-name }}

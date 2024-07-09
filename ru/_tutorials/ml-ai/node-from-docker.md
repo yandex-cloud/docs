@@ -150,7 +150,7 @@
 1. Соберите Docker-образ:
 
    ```bash
-   docker build -t triton-docker --platfom linux/amd64 .
+   docker build -t triton-docker --platform linux/amd64 .
    ```
 
 ### Загрузите Docker-образ в {{ container-registry-name }} {#push-docker}

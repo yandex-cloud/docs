@@ -787,9 +787,9 @@ default:
       license:
         v1|int|string: Free
         v1|pricingRate:
-          100|int|string: ₸2000
-          250|int|string: ₸1800
-          6|int|string: ₸2200
+          100|string: ₸2000.00
+          250|string: ₸1800.00
+          6|string: ₸2200.00
   sku|KZT|backup:
     protected_vms:
       v2|month|string: ₸1194.00
@@ -903,6 +903,9 @@ default:
         v1|pricingRate:
           6|string: ₸66.00
         v1|string: Free
+  sku|KZT|datalens:
+    users:
+      v1|string: ₸4950.00
   sku|KZT|dns:
     requests:
       public:
@@ -1501,6 +1504,11 @@ default:
         v1|pricingRate:
           1|string: ₸80.00
         v1|string: Free
+  sku|KZT|smart_captcha:
+    check:
+      requests:
+        v1|pricingRate:
+          250|string: ₸500.00
   sku|KZT|speechkit:
     stt_long_running_deferred:
       v1|string: ₸0.0125
@@ -1873,9 +1881,9 @@ default:
       license:
         v1|int|string: Free
         v1|pricingRate:
-          100|int|string: ₽400
-          250|int|string: ₽360
-          6|int|string: ₽440
+          100|string: ₽400.00
+          250|string: ₽360.00
+          6|string: ₽440.00
   sku|RUB|backup:
     protected_vms:
       v2|month|string: ₽238.80
@@ -1989,6 +1997,9 @@ default:
         v1|pricingRate:
           6|string: ₽13.20
         v1|string: Free
+  sku|RUB|datalens:
+    users:
+      v1|string: ₽990.00
   sku|RUB|dns:
     requests:
       public:
@@ -2587,6 +2598,11 @@ default:
         v1|pricingRate:
           1|string: ₽16.00
         v1|string: Free
+  sku|RUB|smart_captcha:
+    check:
+      requests:
+        v1|pricingRate:
+          250|string: ₽100.00
   sku|RUB|speechkit:
     stt_long_running_deferred:
       v1|string: ₽0.0025
@@ -2682,7 +2698,6 @@ default:
     profile:
       v1|string: ₽250.00
     requests:
-      v1|int|string: Free
       v1|pricingRate:
         '0':
           01|string: ₽25000.00
@@ -2691,6 +2706,7 @@ default:
         100|string: ₽140.00
         1000|string: ₽50.00
         10000|string: ₽25.00
+      v1|string: Free
     rule:
       v1|string: ₽50.00
   sku|RUB|v1:
@@ -3081,6 +3097,9 @@ default:
         v1|pricingRate:
           6|string: $0.105600
         v1|string: Free
+  sku|USD|datalens:
+    users:
+      v1|string: $7.920000
   sku|USD|dns:
     requests:
       public:
@@ -3661,6 +3680,11 @@ default:
         v1|pricingRate:
           1|string: $0.128000
         v1|string: Free
+  sku|USD|smart_captcha:
+    check:
+      requests:
+        v1|pricingRate:
+          250|string: $0.800000
   sku|USD|speechkit:
     stt_long_running_deferred:
       v1|string: $0.000020
@@ -5425,6 +5449,9 @@ default:
     yacloud:
       airflow:
         button_create-cluster: Create a cluster
+        cluster:
+          overview:
+            section_dependencies: Dependencies
         section_accesses: Access settings
         section_airflow-configuration: Airflow configuration
         section_dependencies: Dependencies
@@ -5433,6 +5460,7 @@ default:
         section_triggerer: Triggerer configuration
         section_webserver: Web server configuration
         section_workers: Worker configuration
+        title_pip-packages: Pip packages
       alb:
         button_add-backend: Create backend
         button_add-discard-rule: Add discard rule
@@ -5983,7 +6011,6 @@ default:
         navigation-menu:
           label_account: Account
           label_billing: Billing
-          label_help-center: Help center
           label_monitoring: Monitoring
           label_notifications: Notifications
         security-group-field:
@@ -6565,6 +6592,7 @@ default:
             label_mdb: Managed Databases
             label_message-queue: Message Queue
             label_monitoring: Monitoring
+            label_postbox: Cloud Postbox
             label_products: All services
             label_search-api: Search API
             label_serverless-containers: Serverless Containers
@@ -6932,18 +6960,18 @@ default:
         button_deactivate-secret: Deactivate
         field_make-version-current: Set as current version
         forms:
-          button_add-pair: Add pair
+          button_add-pair: Add key/value
           button_schedule-destruction: Schedule
-          field_deletion-protection: Don't destroy secret
-          field_kms-key: KMS key
+          field_deletion-protection: Block secret deletion
           label_key: Key
           label_value: Value
-          section_version: Version
+          title_kms-key: KMS key
         label_secret-general-section: Information about secret
         label_secret-id: ID
         label_secret-versions-section: Versions
         label_section-overview: Overview
         label_section-secrets: Secrets
+        label_version-dialog-title: Version
       logging:
         button_create-group: Create group
         button_create-sink: Create sink
@@ -7304,6 +7332,18 @@ default:
             title_node-groups: Node groups
             title_virtual-node-group: Virtual node group
         title_opensearch-dashboards-section: OpenSearch Dashboards
+      postbox:
+        button_create-configuration-set: Create configuration
+        button_create-identity: Create address
+        button_validate: Verify address
+        label_address: Domain
+        label_configuration-sets: Configurations
+        label_dns-record-value: Value
+        label_event-destinations: Subscriptions
+        label_identities: Addresses
+        label_private-key: Private key
+        label_selector: Selector
+        label_signature-verification: Signature verification
       postgresql:
         cluster:
           additional-field-pooling_mode: Pooling mode
@@ -7572,7 +7612,7 @@ default:
       smartcaptcha:
         button_captcha-settings-create: Create captcha
         label_additional-challenge: Additional challenge
-        label_allowed-sites: Site list
+        label_allowed-sites: Host list
         label_captcha-settings-list: Captcha list
         label_client-key: Client key
         label_complexity: Complexity

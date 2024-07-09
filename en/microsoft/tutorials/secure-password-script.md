@@ -168,8 +168,8 @@ The password must:
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter the secret name, `win-secret`.
-   1. In the **{{ ui-key.yacloud.lockbox.forms.field_kms-key }}** field, specify the `win-secret-key` key.
-   1. Under **{{ ui-key.yacloud.lockbox.forms.section_version }}**:
+   1. In the **{{ ui-key.yacloud.lockbox.forms.title_kms-key }}** field, specify the `win-secret-key` key.
+   1. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
       * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter the username for the `Administrator`.
       * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}**, enter the administrator password.
    1. Add more users if needed by clicking **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** and entering the username and password for the next user.

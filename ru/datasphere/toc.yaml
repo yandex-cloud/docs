@@ -185,6 +185,10 @@ items:
             href: concepts/jobs/docker.md
           - name: Среда исполнения заданий
             href: concepts/jobs/environment.md
+          - name: Повторный запуск заданий
+            href: concepts/jobs/fork.md
+          - name: Интеграция с {{ maf-name }}
+            href: concepts/jobs/airflow.md
       - name: Ресурсы
         items:
           - name: Обзор

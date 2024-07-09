@@ -1,30 +1,71 @@
 # About {{ websql-full-name }}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
+{{ websql-full-name }} is a {{ yandex-cloud }} service that allows you to connect to public databases and managed database clusters.
 
-{{ websql-full-name }} is a {{ yandex-cloud }} service that allows you to connect to clusters of managed and public databases. You can view database tables and schemas, and run SQL queries. It is a web-based tool that simplifies writing SQL queries by suggesting prompts and commands.
+Once connected to a database, you will be able to view DB schemas, tables, and views, as well as run queries. It is a web-based tool that simplifies writing queries by suggesting prompts and commands.
+
+You can connect to managed database clusters from clouds and folders that belong to your {{ yandex-cloud }} [organization](../../organization/concepts/manage-services.md). If you [switch to a different organization](../../organization/operations/manage-organizations.md#switch-to-another-org), you will have access to clusters from other clouds and folders. The connections you added will be available while you are in the current {{ yandex-cloud }} organization.
+
+{{ websql-full-name }} supports the following DB versions:
+
+* {{ PG }}: 12, 13, 14, 15, and 16
+* {{ MY }}: 5 and 8
+* {{ CH }}: 23 and 24
 
 ## GUI {#user-interface}
 
 To work with {{ websql-full-name }}, use:
 
-* _Control panel_: Far-left panel with icons for **Connection manager** ![image](../../_assets/console-icons/folder-tree.svg), **Saved queries** ![image](../../_assets/console-icons/floppy-disk.svg), and **Query history** ![image](../../_assets/console-icons/clock-arrow-rotate-left.svg).
-* _Connection manager_: Panel for viewing existing database connections and adding new ones.
-* _Data panel_: Far-right panel where you can build SQL queries and view the results of their execution, view connection settings and DB table information.
+* _Control panel_: Far-left panel with icons for ![image](../../_assets/console-icons/folder-tree.svg) **Connections**, ![image](../../_assets/console-icons/floppy-disk.svg) **Saved queries**, and ![image](../../_assets/console-icons/clock-arrow-rotate-left.svg) **Query history**.
+* _Connections_: Panel for viewing existing database connections and adding new ones.
+* _Data panel_: Far-right panel where you can build queries and view the results of their execution, as well as view connection settings and DB object information.
 
-## Connection manager {#connection}
+In the {{ websql-full-name }} interface, the URL of the current page automatically includes the IDs of the {{ websql-full-name }} entities you open. This enables you to share a direct link to a cluster, connection, database, saved query, or historical query in {{ websql-full-name }} with other users.
 
-In {{ websql-full-name }}, you can establish, update database connections and monitor their status. Database connections with the same URL and port number constitute _connection groups_. You can edit connection settings, rename or delete groups. Once you establish a connection with the database, you can view tables, schemas, and `views`.
+> For example, while using {{ websql-full-name }}, you saved a query and want to share it with another user. To do this, go to the ![image](../../_assets/console-icons/floppy-disk.svg) **Saved queries** section, select the query you need, and copy its URL from the address bar.
+> The URL will look like this:
+> ```
+> https://websql.yandex.cloud/folders/<ID_of_your_folder>/saved-queries/<saved_query_ID>`
+> ```
+> This link will take the user directly to the page with the saved query in {{ websql-full-name }}.
 
-In the connection manager, you can work with different types of connections:
-* [External connections](../operations/connect.md#connect-db): Connections to publicly available databases via the Internet.
-* [{{ yandex-cloud }} cluster connections](../operations/connect.md#connect-cluster): Connections to clusters of managed databases through the internal Yandex Cloud network. Such databases do not necessarily have to be publicly available.
-* [Demo connections](../operations/connect.md#demo) are pre-established connections with test databases you can use to explore {{ websql-full-name }} features.
+## Connections {#connection}
 
-There are groups of tables and views within a single connection. View grouping is available when there is at least one view in the database.
+In {{ websql-full-name }}, you can create, use, and manage DB connections. In the ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section, you can work with the following types of connections:
+* [Connections to {{ yandex-cloud }} clusters](../operations/create-connection.md#connect-cluster): Connections to databases in managed database clusters via the {{ yandex-cloud }} internal network. Such clusters do not necessarily have to be publicly available.
+* [External connections](../operations/create-connection.md#connect-db): Connections to public databases over the internet.
 
-## SQL queries {#tables}
+**{{ yandex-cloud }} connections** automatically displays {{ PG }}, {{ CH }}, and {{ MY }} clusters from the current folder if the user has access to them. You can select a different folder in the bar above the **Connections** section. The list of clusters will update automatically.
 
-For each database, you can run SQL queries using tooltips: start typing a query command and select the suitable one from the list. You can also use ready-made _templates_ or save your queries as _custom templates_.
+Connections to databases within a single managed database cluster are grouped into an expandable list under the name of that cluster. You cannot change this name in {{ websql-full-name }} but you can update the cluster name in the managed database service. The ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section will automatically show this update.
 
-_Query history_ allows you to see and repeat your previous queries.
+External connections are not grouped together even if they share the same DB host address.
+
+{{ websql-full-name }} also supports integration with [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml) at the user folder level. Connections created in {{ websql-full-name}} automatically appear in {{ metadata-hub-name }} {{ connection-manager-name }} and vice versa.
+
+You can also [edit connection settings](../operations/connect.md#change-connection-settings) and [delete connections you no longer need](../operations/connect.md#delete-connection). After you connect to a DB, you can [view schemas, tables, and views](../operations/view-db-objects-info.md) (`VIEW`). Tables and views within one connection are grouped together. Grouping of views is available if there is at least one view in the DB.
+
+## Queries {#queries}
+
+For each database, you can run queries using tooltips: start typing a query command and select the suitable one from the drop-down list. You can also use ready-made _templates_ or [save your queries](../operations/templates.md#save-query) as [custom templates](#saved-queries).
+
+[Query history](#query-log) allows you to [see](../operations/history.md) and repeat your previous queries.
+
+To learn more about running queries, see [this guide](../operations/query-executor.md).
+
+## Saved queries {#saved-queries}
+
+A _saved query_ is a query saved as a template. You can save any query. It will appear in the ![image](../../_assets/console-icons/floppy-disk.svg) **Saved queries** section on the control panel.
+
+To learn more about using saved queries, see [this guide](../operations/templates.md).
+
+## Historical queries {#query-log}
+
+_Historical queries_ are queries executed in your {{ yandex-cloud }} [organization](../../organization/concepts/manage-services.md) within the current connection session. They are displayed in the ![image](../../_assets/console-icons/clock-arrow-rotate-left.svg) **Query history** section. Next to each query, you can find its status:
+
+* ![image](../../_assets/websql/success.svg): Query executed successfully.
+* ![image](../../_assets/websql/error.svg): Query execution failed.
+* ![image](../../_assets/websql/unknown.svg): Unexpected error on the {{ websql-full-name }} side.
+
+To learn more about handling historical queries, see [this guide](../operations/history.md).
+

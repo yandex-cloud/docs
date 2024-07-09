@@ -37,14 +37,14 @@ For a detailed description of possible {{ data-transfer-full-name }} data transf
 
 Configure one of the supported data sources:
 
-* [{{ PG }}](../source/postgresql.md)​
+* [{{ PG }}](../source/postgresql.md)
 * [{{ MY }}](../source/mysql.md)
 * [{{ GP }}](../source/greenplum.md)
 * [{{ KF }}](../source/kafka.md)
-* [Airbyte](../../../transfer-matrix.md#airbyte)
-* [{{ DS }}](../source/data-streams.md)​
+* [{{ AB }}](../../../transfer-matrix.md#airbyte)
+* [{{ DS }}](../source/data-streams.md)
 * [{{ objstorage-full-name }}](../source/object-storage.md)
-* [{{ ydb-name }}](../source/ydb.md).
+* [{{ ydb-name }}](../source/ydb.md)
 * [Oracle](../source/oracle.md).
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).

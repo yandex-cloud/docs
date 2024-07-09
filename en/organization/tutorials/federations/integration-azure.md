@@ -8,7 +8,7 @@ Authentication setup includes the following steps:
 
 1. [Creating and setting up a federation in {{ org-full-name }}](#yc-settings).
 
-1. [Setting up Single Sign-On (SSO)](#sso-settings).
+1. [Setting up single sign-on (SSO)](#sso-settings).
 
 1. [Authentication](#test-auth).
 
@@ -146,7 +146,7 @@ Add users to the IdP server:
 
       * `--cookie-max-age`: Time before the browser asks the user to re-authenticate.
 
-      * `--issuer`: ID of the IdP server to be used for authentication.
+      * `--issuer`: ID of the IdP server to use for authentication.
 
          Use the link from the **Azure AD ID** field on the Azure AD **SAML-based sign-on** page. The link should have the following format:
          ```
@@ -163,7 +163,7 @@ Add users to the IdP server:
 
          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-      * `--sso-binding`: Specify the single sign-on binding type. Most identity providers support the `POST` binding type.
+      * `--sso-binding`: Single sign-on binding type. Most identity providers support the `POST` binding type.
 
       * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
@@ -225,7 +225,7 @@ Add users to the IdP server:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```
@@ -296,7 +296,7 @@ Add users to the IdP server:
 
          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-      * `ssoBinding`: Specify the single sign-on binding type. Most identity providers support the `POST` binding type.
+      * `ssoBinding`: Single sign-on binding type. Most identity providers support the `POST` binding type.
 
       * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
@@ -378,12 +378,12 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
 {% note tip %}
 
-To make sure authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to your federation, i.e., the current one and those to be used afterwards. If one certificate turns invalid, {{ yandex-cloud }} will attempt to verify the signature with another one.
+To make sure authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to your federation, i.e., the current one and those to use afterwards. If one certificate goes invalid, {{ yandex-cloud }} will try another one to verify the signature.
 
 {% endnote %}
 
 
-## Setting up Single Sign-On (SSO) {#sso-settings}
+## Setting up single sign-on (SSO) {#sso-settings}
 
 ### Specify the redirect URL {#add-link}
 
@@ -392,12 +392,6 @@ Once you have created a federation, complete the creation of the SAML applicatio
 1. Open the **SAML-based sign-on** SAML application settings page.
 
 1. In Section **1. Basic SAML** configuration, specify information on {{ yandex-cloud }} acting as the service provider. To do this, in the **ID (entity)** and **Response URL (assertion consumer service URL)** fields, enter the ACS URL to redirect users to after successful authentication.
-
-   {% cut "How to get a federation ID" %}
-
-   {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
-
-   {% endcut %}
 
    
    {% cut "How to get the federation ACS URL" %}
@@ -411,13 +405,19 @@ Once you have created a federation, complete the creation of the SAML applicatio
 
 ### Configure user attribute mapping {#claims-mapping}
 
+{% note warning %}
+
+It is mandatory to configure user attribute mapping.
+
+{% endnote %}
+
 Following user authentication, the IdP server will send a SAML message to {{ yandex-cloud }} containing:
 
 * Information about successful authentication.
 
 * User attributes, such as the name ID, name, and email address.
 
-You can set up a mapping between the SAML message attributes and the personal data stored on the IdP server. To do this, on the **SAML-based sign-on** page in Section **2. User** Attributes & Claims, click **Edit**.
+To configure mapping between SAML message attributes and personal data, on the **SAML-based sign-on** page under **2. User Attributes & Claims**, click **Edit**.
 
 The types of personal data supported by {{ org-full-name }} for Azure AD are listed below.
 

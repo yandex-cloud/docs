@@ -16,7 +16,7 @@ The service is located at: `stt.{{ api-host }}:443`
 | config<br>.specification<br>.audioEncoding | **string**<br>[Format](../../formats.md) of the audio being provided.<br/>Acceptable values include:<ul><li>`LINEAR16_PCM`: [LPCM without WAV header](../../formats.md#lpcm).</li><li>`OGG_OPUS` (default): [OggOpus](../../formats.md#oggopus) format.</li></ul> |
 | config<br>.specification<br>.sampleRateHertz | **integer** (int64)<br>Sampling frequency of the audio being provided.<br/>This parameter is required if `format` is set to `LINEAR16_PCM`. Acceptable values include:<ul><li>`48000` (default): Sampling rate of 48 kHz.</li><li>`16000`: Sampling rate of 16 kHz.</li><li>`8000`: Sampling rate of 8 kHz.</li></ul> |
 | config.<br>specification.<br>rawResults | **boolean** <br>Flag that toggles spelling out numbers. `true`: Spell out. `false` (default): Write as numbers. |
-| folderId | **string**<br><p>[ID of the folder](../../../resource-manager/operations/folder/get-id.md) that you have access to. It is required for authorization with a user account (see [{#T}](../../concepts/auth.md)). Do not use this field if you make a request on behalf of a service account.</p> <p>The maximum string length is 50 characters.</p> |
+| folderId | **string**<br><p>[ID of the folder](../../../resource-manager/operations/folder/get-id.md) that you have access to. It is required for authentication with a user account (see [{#T}](../../concepts/auth.md)). Do not use this field if you make a request on behalf of a service account.</p> <p>The maximum string length is 50 characters.</p> |
 
 ### Experimental additional recognition settings {#additional-settings}
 
@@ -27,8 +27,6 @@ For streaming recognition models, new recognition settings are supported. They a
 | `x-normalize-partials` | **boolean**<br>Flag that allows you to get intermediate recognition results (parts of a recognized utterance) in a normalized format: numbers are specified as digits, the profanity filter is enabled, etc.<br>Acceptable values include:<ul><li>`true `: Return a normalized result.</li><li>`false` (default): Return an non-normalized result. |
 
 ### Audio message {#audio-msg}
-
-Use the `"Transfer-Encoding: chunked"` header for data streaming.
 
 | Parameter | Description |
 ----- | -----
@@ -61,9 +59,9 @@ List of possible gRPC errors returned by the service:
 ----- | ----- | -----
 | 3 | `INVALID_ARGUMENT` | Incorrect request parameters specified. Details are provided in the `details` field. |
 | 9 | `RESOURCE_EXHAUSTED` | Client exceeded a quota. |
-| 16 | `UNAUTHENTICATED` | Operation requires authentication. Check the IAM token and the folder ID that you provided. |
+| 16 | `UNAUTHENTICATED` | The operation requires authentication. Check the IAM token and the folder ID that you provided. |
 | 13 | `INTERNAL` | Internal server error. This error means that the operation cannot be performed due to a server-side technical problem, e.g., due to insufficient computing resources. |
 
 ## Use cases {#examples}
 
-* [{#T}](streaming-examples.md).
+* [{#T}](streaming-examples.md)

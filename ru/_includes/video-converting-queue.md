@@ -45,7 +45,7 @@
    * `{{ roles-functions-invoker }}`.
 
 1. [Создайте статический ключ](../iam/operations/sa/create-access-key.md) для сервисного аккаунта. Сохраните **Идентификатор ключа** и **Ваш секретный ключ**.
-1. [Создайте секрет](../lockbox/quickstart.md) с именем `ffmpeg-sa-secret` в {{ lockbox-name }}. В блоке **{{ ui-key.yacloud.lockbox.forms.section_version }}** задайте:
+1. [Создайте секрет](../lockbox/quickstart.md) с именем `ffmpeg-sa-secret` в {{ lockbox-name }}. В блоке **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}** задайте:
 
    * Ключ — `ACCESS_KEY_ID`, значение — **Идентификатор ключа** из предыдущего шага.
    * Ключ — `SECRET_ACCESS_KEY`, значение — **Ваш секретный ключ** из предыдущего шага.

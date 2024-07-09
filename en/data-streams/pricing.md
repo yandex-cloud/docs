@@ -29,17 +29,17 @@ Pricing for the allocated resources includes the established segment throughput 
 
 A single-shard stream receives two 50 KB messages per second. The message retention period is 12 hours.
 
-Calculation of the monthly cost of processing data (provided that there are 31 days in the month):
+Data processing cost per month (for a 31-day month):
 
 
 
 {% include [usd.md](../_pricing/data-streams/usd-example.md) %}
 
 
-## Pricing for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
-### Cost per unit of written data {#event}
+### Price per unit of written data {#event}
 
 The first 2,000,000 units of written data per month are free of charge.
 
@@ -48,11 +48,19 @@ The first 2,000,000 units of written data per month are free of charge.
 {% include [usd.md](../_pricing/data-streams/usd-event.md) %}
 
 
-### Cost of allocated resources {#resources}
+### Price of allocated resources {#resources}
 
 ### Pricing based on storage time {#time-limit}
 
-Cost of using allocated resources per hour:
+The price is specified for one hour of using allocated resources:
+
+#### Data storage price with segment throughput limit of up to 128 KB/s {#up-to-128}
+
+
+#### Data storage price with segment throughput limit of up to 512 KB/s {#up-to-512}
+
+
+#### Data storage price with segment throughput limit of up to 1 MB/s {#up-to-1}
 
 
 

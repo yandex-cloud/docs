@@ -1,11 +1,11 @@
 To build a query:
-1. In the **Connection manager**, select a database, table, or image.
+1. Under [**Connections**]({{ websql-link }}), select a database, table, or image.
 1. In the data panel, you will see a form with the default query:
 
    ```sql
    SELECT * FROM <table_name> LIMIT 10;
    ```
-1. Use this query or edit it. The interface will suggest relevant parts of the SQL query and highlight errors.
+1. Use this query or edit it. The interface will suggest relevant parts of the query and highlight errors.
 1. Click **Run**.
 
 In the results panel, you will see a table with the query results.
@@ -28,4 +28,4 @@ When editing or running a query, you can use the following keyboard shortcuts (c
 
 {% endlist %}
 
-Click **Open Command Palette** (![image](../../_assets/websql/palette.svg)) to view a complete list of available commands and their corresponding keyboard shortcuts.
+Click ![image](../../_assets/websql/palette.svg) **Open Command Palette** to view a complete list of available commands and their corresponding keyboard shortcuts.

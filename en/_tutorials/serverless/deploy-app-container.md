@@ -284,7 +284,7 @@ A [{{ lockbox-name }} secret](../../lockbox/concepts/secret.md) will store the e
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter the secret name: `mongodb-creds`.
-   1. Under **{{ ui-key.yacloud.lockbox.forms.section_version }}**:
+   1. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
       * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter `login`.
       * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter `mongo_db_user` as your DB user name.
    1. Click **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** and specify the second secret:

@@ -1,10 +1,16 @@
-1. Go to the **Connection manager** (![image](../../_assets/console-icons/folder-tree.svg)) section and click ![image](../../_assets/console-icons/square-plus.svg) in the top-right corner.
-1. Click **External connection**.
-1. Specify the connection parameters:
-   * **Database type**: Select {{ PG }}, {{ CH }}, or {{ MY }}.
-   * **Database URL**: Specify the DB host address in `https://<address>` format.
-   * **Port**: Specify the number of the port for connections.
-   * **Database**: Enter the DB name.
-   * **User** and **Password**: Enter the username and password to access the database.
-   * **SSL certificate**: Enable this option if your cluster uses a secure SSL connection. The {{ websql-full-name }} certificate is used by default.
-1. Click **Connect**.
+1. Open [**Connections**]({{ websql-link }}) in {{ websql-full-name }}.
+1. Under ![image](../../_assets/console-icons/folder-tree.svg) **Connections**, click ![image](../../_assets/console-icons/square-plus.svg).
+1. In the bottom-left corner of the window that opens, click **External connection**.
+1. **Name** the connection.
+1. In the **Database type** field, select the database you need: {{ PG }}, {{ CH }}, or {{ MY }}.
+1. Under **Hosts**, configure the hosts:
+   * Specify the database host FQDN and port number for connecting to the database.
+   * For {{ CH }}, also specify the Native Protocol port and [shard](../../managed-clickhouse/operations/shards.md#list-shards) name.
+   * (Optional) Enable TLS.
+
+      If your company has a certification authority (CA), the certificate issued by the CA will be used by default. If the company has no CA, upload the server's TLS certificate.
+
+1. Specify the **Username** you will use to connect to the database.
+1. Enter the user **Password**.
+1. List the **Databases** you want to connect to. You can only connect to existing databases. The user you specified must have access to them configured.
+1. Click **Create**.

@@ -4,6 +4,8 @@
 
 `NetworkPolicy` — стандартный ресурс {{ k8s }}. В этом справочнике описаны поля и аннотации ресурса, которые поддерживают {{ network-load-balancer-name }} для {{ managed-k8s-name }}. Полный справочник ресурса см. в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/network-policy-v1/).
 
+Подробнее о сетевых политиках см. в разделе [{#T}](../../../managed-kubernetes/concepts/network-policy.md).
+
 ## NetworkPolicy {#network-policy}
 
 ```yaml

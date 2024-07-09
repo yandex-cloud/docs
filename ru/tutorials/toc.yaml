@@ -620,38 +620,56 @@ items:
     items:
       - name: Все руководства
         href: datalens/index.md
-      - name: Визуализация данных из файла
-        href: datalens/data-from-csv-visualization.md
-      - name: Создание и публикация диаграммы с картой Москвы из CSV-файла
-        href: datalens/data-from-csv-to-public-visualization.md
-      - name: Анализ продаж сети магазинов из БД {{ CH }}
-        href: datalens/data-from-ch-visualization.md
-      - name: Анализ открытых данных ДТП на дорогах России
-        href: datalens/data-from-csv-geo-visualization.md
-      - name: >-
-          Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и {{
-          marketplace-name }}
-        href: datalens/data-from-ch-to-geolayers-visualization.md
-      - name: Веб-аналитика с подключением к Яндекс Метрике
-        href: datalens/data-from-metrica-visualization.md
-      - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
-        href: datalens/data-from-metrica-yc-visualization.md
-      - name: Аналитика мобильного приложения на данных AppMetrica
-        href: datalens/data-from-appmetrica-visualization.md
-      - name: Анализ статистики подкастов Яндекс Музыки (для авторов подкастов)
-        href: datalens/data-from-podcasts.md
-      - name: Визуализация данных с помощью QL-чарта
-        href: datalens/data-from-ch-to-sql-chart.md
-      - name: Анализ customer journey мобильного приложения на данных AppMetrica
-        href: datalens/data-from-appmetrica-yc-visualization.md
-      - name: Анализ логов {{ objstorage-name }} при помощи {{ datalens-name }}
-        href: datalens/storage-logs-analysis.md
-      - name: >-
-          Визуализация данных из {{ tracker-name }} при помощи {{ datalens-name
-          }}
-        href: datalens/data-from-tracker.md
-      - name: Визуализация географических данных с помощью API Яндекс Геокодера
-        href: datalens/data-from-ch-geocoder.md
+      - name: Знакомство с {{ datalens-short-name }}
+        items:
+          - name: Простой дашборд из CSV-файла
+            href: datalens/data-from-csv-visualization.md
+          - name: Публичный чарт с картой Москвы из CSV-файла
+            href: datalens/data-from-csv-to-public-visualization.md
+          - name: Дашборд сети магазинов из БД {{ CH }}
+            href: datalens/data-from-ch-visualization.md
+      - name: Работа с геоданными
+        items:
+          - name: Анализ открытых данных ДТП на дорогах России
+            href: datalens/data-from-csv-geo-visualization.md
+          - name: >-
+              Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и
+              Marketplace
+            href: datalens/data-from-ch-to-geolayers-visualization.md
+          - name: >-
+              Геокодинг с помощью API Яндекс Карт для визуализации в {{
+              datalens-short-name }}
+            href: datalens/data-from-ch-geocoder.md
+      - name: Аналитика сервисов
+        items:
+          - name: 'Яндекс Метрика: прямое подключение'
+            href: datalens/data-from-metrica-visualization.md
+          - name: 'Яндекс Метрика: экспорт, постобработка и визуализация данных'
+            href: datalens/data-from-metrica-yc-visualization.md
+          - name: 'AppMetrica: прямое подключение'
+            href: datalens/data-from-appmetrica-visualization.md
+          - name: 'AppMetrica: экспорт, постобоработка и визуализация данных'
+            href: datalens/data-from-appmetrica-yc-visualization.md
+          - name: 'Битрикс24: прямое подключение'
+            href: datalens/data-from-bitrix24-visualization.md
+          - name: '{{ tracker-full-name }}: экспорт и визуализация данных'
+            href: datalens/data-from-tracker.md
+          - name: Анализ логов {{ objstorage-name }} при помощи {{ datalens-name }}
+            href: datalens/storage-logs-analysis.md
+          - name: 'Подкасты Яндекс Музыки: статистика'
+            href: datalens/data-from-podcasts.md
+          - name: Визуализация данных {{ yq-full-name }}
+            href: datalens/data-from-yandex-query-visualization.md
+          - name: Визуализация данных {{ monitoring-full-name }}
+            href: datalens/data-from-monitoring-visualization.md
+          - name: Визуализация данных из {{ ytsaurus-name }} CHYT
+            href: datalens/data-from-ch-over-yt.md
+      - name: Функциональные
+        items:
+          - name: Использование параметров
+            href: datalens/data-from-ch-with-parameters.md
+          - name: Примеры создания QL-чартов
+            href: datalens/data-from-ch-to-sql-chart.md
   - name: Бессерверные технологии
     items:
       - name: Все руководства

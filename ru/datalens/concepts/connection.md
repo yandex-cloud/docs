@@ -33,10 +33,9 @@ _Подключение_ содержит информацию о парамет
 
 Вы можете добавить дополнительные типы подключений из списка доступных в [{{ datalens-short-name }} Marketplace](marketplace.md).
 
-
+## Подключение внешней БД {#external-db-connection}
 
 {% include [connection-note](../../_includes/datalens/datalens-connection-note.md) %}
-
 
 
 ## Управление доступом {#access-management}

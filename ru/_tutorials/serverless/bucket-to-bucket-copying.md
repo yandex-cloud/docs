@@ -268,7 +268,7 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета: `s3-static-key`.
-  1. В блоке **{{ ui-key.yacloud.lockbox.forms.section_version }}**:
+  1. В блоке **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
 
      1. Добавьте значение идентификатора ключа:
 

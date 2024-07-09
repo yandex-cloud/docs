@@ -1,8 +1,14 @@
 # Getting started with {{ websql-full-name }}
 
-{% include notitle [preview](../_includes/note-preview.md) %}
+You can connect to managed database clusters from clouds and folders that belong to your [organization](../organization/concepts/manage-services.md) {{ yandex-cloud }}. If you [switch to a different organization](../organization/operations/manage-organizations.md#switch-to-another-org), you will have access to clusters from other clouds and folders. The connections you added will be available while you are in the current {{ yandex-cloud }} organization.
 
-{{ websql-full-name }} is a {{ yandex-cloud }} service that allows you to connect to clusters of managed and public databases. You can view database tables and schemas, and run SQL queries. It is a web-based tool that simplifies writing SQL queries by suggesting prompts and commands.
+Once connected to a database, you will be able to view DB schemas, tables, and views, as well as run queries. It is a web-based tool that simplifies writing queries by suggesting prompts and commands.
+
+{{ websql-full-name }} supports the following DB versions:
+
+* {{ PG }}: 12, 13, 14, 15, and 16
+* {{ MY }}: 5 and 8
+* {{ CH }}: 23 and 24
 
 In this section, you will learn how to connect to:
 
@@ -15,25 +21,24 @@ In this section, you will learn how to connect to:
 1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../billing/quickstart/index.md).
 1. Select the organization to work with {{ websql-full-name }} in or [create a new one](../organization/operations/enable-org).
 
-## Connecting to a managed database cluster within {{ yandex-cloud }} {#connect-cluster}
-
-{% include [clickhouse-warning](../_includes/websql/clickhouse-warning.md) %}
+## How to connect to a managed database cluster within {{ yandex-cloud }} {#connect-cluster}
 
 {% include notitle [connect-cluster](../_includes/websql/connect-to-cluster.md) %}
 
-If the connection is successful, you will see the cluster structure in the connection manager tree. Hosts of the same cluster will appear in the _connection group_.
+If the connection is successful, you will see the cluster structure in the connection tree. Connections to databases within a cluster are grouped into an expandable list under the name of that cluster.
 
-## Connecting to a public database {#connect-db}
+## How to connect to a public database {#connect-db}
 
 To connect to a public database via the internet:
 
 {% include notitle [connect-db](../_includes/websql/connect-to-db.md) %}
 
-If the connection is successful, you will see the database structure in the connection manager tree.
+If the connection is successful, you will see the database structure in the connection tree.
 
 ## What's next {#what-is-next}
 
-* [Execute SQL queries](operations/query-executor.md)
+* [Manage connections](operations/connect.md)
+* [Run queries](operations/query-executor.md)
 * [Create query templates](operations/templates.md)
 * [View query history](operations/history.md)
 

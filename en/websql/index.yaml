@@ -1,15 +1,15 @@
 title: Yandex WebSQL
 description:
   - >-
-    <em>Yandex WebSQL is at the <a
-    href="/docs/overview/concepts/launch-stages">Preview stage</a>. Access to
-    the service is available on request</em>.
-  - >-
     Yandex WebSQL is a Yandex Cloud service that will allow you to connect to
     managed database clusters, work with databases, tables and schemas, and
-    execute SQL queries. The service works in the browser, does not require
+    execute queries. The service works in the browser, does not require
     additional authorization and offers convenient hints for working with SQL
     commands.
+  - >-
+    Yandex WebSQL supports integration with Yandex MetaData Hub at the user
+    folder level. Connections created in WebSQL automatically appear in MetaData
+    Hub Connection Manager and vice versa.
   - >-
     Yandex WebSQL supports the following database versions: <ul> <li>PostgreSQL:
     12, 13, 14, 15, 16.</li> <li>MySQL: 5, 8.</li> <li>ClickHouse®: 23, 24.</li>

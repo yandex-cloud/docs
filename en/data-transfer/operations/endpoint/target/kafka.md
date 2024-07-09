@@ -35,7 +35,7 @@ Configure one of the supported data sources:
 * [{{ PG }}](../source/postgresql.md).
 * [{{ MY }}](../source/mysql.md).
 * [{{ KF }}](../source/kafka.md).
-* [Airbyte](../../../transfer-matrix.md#airbyte).
+* [{{ AB }}](../../../transfer-matrix.md#airbyte).
 * [{{ DS }}](../source/data-streams.md).
 * [{{ ydb-name }}](../source/ydb.md).
 * [{{ ES }}](../source/elasticsearch.md).

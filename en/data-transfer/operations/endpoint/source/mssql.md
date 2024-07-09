@@ -21,7 +21,7 @@ For a detailed description of possible {{ data-transfer-full-name }} data transf
 
 ## Configuring the Microsoft SQL Server source endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, configure access to {{ MS }}.
+When [creating](../index.md#create) an endpoint, select `MSSQL` as your database type and configure access to {{ MS }}. You can [change](../index.md#update) the settings after you create an endpoint.
 
 {% list tabs group=instructions %}
 
@@ -47,9 +47,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% endlist %}
 
-For more information about settings, see the [Airbyte® documentation](https://docs.airbyte.com/integrations/sources/mssql/).
-
-{% include [airbyte-trademark](../../../../_includes/data-transfer/airbyte-trademark.md) %}
+For more information about the settings, see the [{{ AB }} documentation](https://docs.airbyte.com/integrations/sources/mssql/).
 
 
 ## Configuring the data target {#supported-targets}
@@ -70,3 +68,9 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 {% include [Internet access](../../../../_includes/data-transfer/notes/internet-access.md) %}
 
 After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+
+{% include [airbyte-trademark](../../../../_includes/data-transfer/airbyte-trademark.md) %}
+
+{% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}
+
+{% include [greenplum-trademark](../../../../_includes/mdb/mgp/trademark.md) %}

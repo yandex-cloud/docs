@@ -1,4 +1,4 @@
-# Health checks and autohealing of instances in a group
+# Health checks and autohealing of group instances
 
 {{ ig-name }} regularly runs health checks for instances in your instance group. If an instance stopped or an app is taking too long to respond, {{ ig-name }} tries to heal the instance by either restarting it or creating a new one, depending on the [recovery policy](policies/healing-policy.md). The instances will be [auto-healed](#healthcheck-cases) based on the [deployment policy](policies/deploy-policy.md).
 
@@ -72,10 +72,10 @@ The fields and options in the management console are located under **{{ ui-key.y
 | --- | --- |
 | `health_checks_spec`<br/>**{{ ui-key.yacloud.compute.groups.create.field_enable-health-check }}** | Settings for application health checks If the key is missing in the YAML specification or the option is disabled in the management console, no health checks are run. |
 | `health_checks_specs` | List of health checks. If health checks are enabled, the list should contain at least one health check. You can set up multiple health checks in the YAML specification and only one health check in the management console. |
-| `interval`<br/>**{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}** | Interval between two consecutive health checks, from 1 to 300 seconds. The interval must be at least 1 second longer than the timeout. The default value is `2s`. |
+| `interval`<br/>**{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}** | Interval between two consecutive health checks, from 1 to 300 seconds. It must be at least one second longer than the timeout. The default value is `2s`. |
 | `timeout`<br/>**{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}** | Check timeout, from 1 to 60 seconds: if the instance fails to respond to the health check during this time, it fails the health check. The default value is `1s`. |
-| `unhealthy_threshold`<br/>**{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}** | Number of consecutive failed health checks after which the instance is considered unhealthy and stopped automatically. Possible values: 0 and from 2 to 10. The default value is 2. The default value is 0. |
-| `healthy_threshold`<br/>**{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}** | Number of consecutive successful health checks after which the instance is considered healthy. Possible values: 0 and from 2 to 10. The default value is 2. The default value is 0. |
+| `unhealthy_threshold`<br/>**{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}** | Number of consecutive failed health checks after which the instance is considered unhealthy and autohealed. Possible values: 0 and from 2 to 10. The default value is 2. The value of 0 is equivalent to the default value. |
+| `healthy_threshold`<br/>**{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}** | Number of consecutive successful health checks after which the instance is considered healthy. Possible values: 0 and from 2 to 10. The default value is 2. The value of 0 is equivalent to the default value. |
 | `http_options`<br/>**{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `HTTP` | Settings for HTTP health checks Health checks are performed over HTTP or TCP. Therefore, the health check description in the YAML specification must contain only one key: either `http_options` or `tcp_options`. |
 | `port`<br/>**{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** | Port in the range from 1 to 65535 to send health check requests over HTTP to. |
 | `path`<br/>**{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** | Path to send health check requests over HTTP through. |
@@ -100,7 +100,11 @@ To autoheal instances, {{ ig-name }} may restart them or create new ones. The he
 
 If you set both `max_expansion` and `max_unavailable`, {{ ig-name }} will use both autohealing methods.
 
-> For example, let's assume you set `max_expansion = 1` and `max_unavailable = 1`. When one instance fails the check, {{ ig-name }} will be restarting this instance and creating a new one at the same time. The instance that passes all checks successfully will continue running, while the other will be undeployed.
+A fully loaded instance with the `RUNNING_ACTUAL` or `RUNNING_OUTDATED` status is considered running in terms of the `max_unavailable` quota even if it did not pass a health check. To stop such an instance automatically, you need to have unused `max_unavailable` quota.
+
+Additional instances under the `max_expansion` quota are created only in case you do not have sufficient `max_unavailable` quota. In other words, restarting an instance takes priority over creating a new one.
+
+> For example, let's assume you set `max_expansion = 1` and `max_unavailable = 1`. When one of the instances fails the check, {{ ig-name }} will restart this instance. If another instance fails the check at the same time, {{ ig-name }} will not be able to restart it due to exceeding the `max_unavailable` parameter. Instead, it will begin to create a new instance while restarting the first one.
 
 To limit the autohealing and deployment speed, you can also set:
 * Maximum number of instances deployed simultaneously, using the `max_creating` parameter. This includes the instances being created and started with the `CREATING` and `STARTING` statuses.
