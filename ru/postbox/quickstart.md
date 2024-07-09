@@ -17,45 +17,30 @@
 
 ## Создайте адрес {#create-address}
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создали сервисный аккаунт.
-1. В списке сервисов выберите **{{ postbox-name }}**.
-1. Нажмите кнопку **Создать адрес**.
-1. Укажите **Домен**, с которого будете отправлять письма. Домен может быть любого уровня.
-1. Укажите **Селектор**: `postbox`.
+{% list tabs group=instructions %}
 
-    {% note info %}
+- Консоль управления {#console}
 
-    Вы можете указать селектор, отличный от `postbox`. Указанный селектор должен использоваться только в одной ресурсной записи — той, которую вы создадите на шаге [{#T}](#verify-domain).
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создали сервисный аккаунт.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
+    1. Укажите **{{ ui-key.yacloud.postbox.label_address }}**, с которого будете отправлять письма. Домен может быть любого уровня.
+    1. Укажите **{{ ui-key.yacloud.postbox.label_selector }}**: `postbox`.
 
-    {% endnote %}
+        {% note info %}
 
-1. Скопируйте в поле **Приватный ключ** содержимое файла приватного ключа `privatekey.pem`, [созданного ранее](#service-account-and-keys).
-1. Нажмите кнопку **Создать**.
+        Вы можете указать селектор, отличный от `postbox`. Указанный селектор должен использоваться только в одной ресурсной записи — той, которую вы создадите на шаге [{#T}](#verify-domain).
+
+        {% endnote %}
+
+    1. Скопируйте в поле **{{ ui-key.yacloud.postbox.label_private-key }}** содержимое файла приватного ключа `privatekey.pem`, [созданного ранее](#service-account-and-keys).
+    1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
+
+{% endlist %}
 
 ## Пройдите проверку владения доменом {#verify-domain}
 
-Чтобы рассылать письма, подтвердите владение доменом. После создания записи на ее странице сформируются настройки DKIM-подписи. Их нужно указать в качестве значений ресурсной записи, которую необходимо добавить в вашу доменную зону. Вы можете добавить запись у вашего регистратора или в сервисе [{{ dns-full-name }}](../dns/), если вы делегировали ваш домен. 
-
-Пример создания ресурсной записи в **{{ dns-name }}**:
-
-1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся адрес и ваша доменная зона.
-1. В списке сервисов выберите **{{ dns-name }}**.
-1. Выберите вашу доменную зону.
-1. Нажмите кнопку **Создать запись**.
-1. В поле **Имя** укажите сгенерированное при создании адреса имя вида `postbox._domainkey.example.com`.
-1. В списке **Тип** выберите `TXT`.
-1. В поле **Значение** скопируйте содержимое поля **Значение** из блока **Подтверждение подписи**. Обратите внимание, что значение записи нужно разбить на отдельные строки, например:
-		
-		( "v=DKIM1;h=sha256;k=rsa; "
-
-		"p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAui6NEIfZdLfcbcJV4oqY5lWyYXV1ht1zYdrSHCVCWWBaOZ2mIGVzycDKPicLSDZBlN4I8HO2ajclFfQn3013klP7i6VrDSXMmO9hRGgVU+ZhoFJrsMRdbDK/1SIU1k7xiJIudB+YPcc69Y/jHQJk32q7b"
-
-		"UC617oEwSL/sQHeueS0rMLrmPyOtXELLLHrx9IiHM8ACb6zFY/lWx3AnuOLOv4JXYPAQe+b2zvERpHA+AbaCUHi8dJVm1aY/TceakHkUMlWzh4YeSfuQkaNI1PEnLGA3u0WIGyvtTdA3FWhT3w3BFsVWCTFPIxjORvaY/eZMMcj3WM7GUtORbebAOUyBwIDAQAB" )
-1. Нажмите кнопку **Создать**.
-1. Выберите созданный адрес.
-1. Нажмите кнопку **Проверить адрес**. Если запись верна, статус проверки на странице адреса изменится на `Success`.
-
-Ответы DNS-сервера кешируются, поэтому возможны задержки при обновлении ресурсной записи.
+{% include [check-domain](../_includes/postbox/check-domain.md) %}
 
 ## Отправьте проверочное письмо {#send-test-letter}
 
@@ -120,7 +105,7 @@
 1. Отправьте письмо с помощью AWS CLI:
 
     ```bash
-    aws sesv2 send-email --from-email-address mail@example.com --destination file://destination.json --content file://message.json --endpoint-url https://postbox.cloud.yandex.net
+    aws sesv2 send-email --from-email-address mail@example.com --destination file://destination.json --content file://message.json --endpoint-url {{ postbox-endpoint }}
     ```
 
 1. Проверьте почтовый ящик, указанный в `destination.json`, — туда должно прийти тестовое письмо.
@@ -199,3 +184,7 @@
     {% endnote %}
 
 1. Отправьте письмо с помощью вашего почтового клиента и убедитесь, что оно пришло на указанные адреса.
+
+## См. также {#see-also}
+
+* [{#T}](concepts/notification.md)

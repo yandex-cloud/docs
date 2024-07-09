@@ -9,10 +9,30 @@ label:
 items:
   - name: Начало работы
     href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Создание адреса
+        href: operations/create-adress.md
+      - name: Проверка владения доменом
+        href: operations/check-domain.md
+      - name: Создание конфигурации
+        href: operations/create-configuration.md
+      - name: Привязка конфигурации к адресу
+        href: operations/bind-configuration.md
   - name: Концепции
     items:
+      - name: Уведомления о доставке писем
+        href: concepts/notification.md
+      - name: Термины и определения
+        href: concepts/glossary.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Инструменты
+    items:
+      - name: AWS CLI
+        href: tools/aws-cli.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

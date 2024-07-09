@@ -18,6 +18,7 @@ noIndex: true
 
 ## Ресурсы Gateway API {#gateway-api}
 
-* [Gateway](gateway.md) — правила приема входящего трафика и выбора маршрутов (`HTTPRoute`) для этого трафика.
-* [HTTPRoute](http-route.md) — правила маршрутизации трафика по бэкендам или его перенаправления.
+* [Gateway](gateway.md) — правила приема входящего трафика и выбора маршрутов (`HTTPRoute` и `TLSRoute`) для этого трафика.
+* [HTTPRoute](http-route.md) — правила для перенаправления или маршрутизации HTTP-, HTTPS- и gRPC-трафика по бэкендам.
+* [TLSRoute](./tls-route.md) — правила для маршрутизации TLS-трафика по бэкендам.
 * [Service](service-for-gateway.md) — описание сервисов {{ k8s }}, используемых в качестве бэкендов.

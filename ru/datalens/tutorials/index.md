@@ -10,11 +10,10 @@ description: "В разделе описаны сценарии использо
 
 * Знакомство с {{ datalens-short-name }}
 
-  * [Визуализация данных из CSV-файла](data-from-csv-visualization.md)
-  * [Создание и публикация диаграммы с картой Москвы из CSV-файла](data-from-csv-to-public-visualization.md)
-  * [Анализ продаж сети магазинов из БД {{ CH }}](data-from-ch-visualization.md)
-  * [Визуализация данных из CHYT](data-from-ch-over-yt.md)
-
+  * [Простой дашборд из CSV-файла](data-from-csv-visualization.md)
+  * [Публичный чарт с картой Москвы из CSV-файла](data-from-csv-to-public-visualization.md)
+  * [Дашборд сети магазинов из БД {{ CH }}](data-from-ch-visualization.md)
+  
 * Работа с геоданными
 
   * [Анализ открытых данных ДТП на дорогах России](data-from-csv-geo-visualization.md)
@@ -23,20 +22,21 @@ description: "В разделе описаны сценарии использо
 
 * Аналитика сервисов
 
-  * [Веб-аналитика с подключением к Яндекс Метрике](data-from-metrica-visualization.md)
-  * [Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики](data-from-metrica-yc-visualization.md)
-  * [Аналитика мобильного приложения на данных AppMetrica](data-from-appmetrica-visualization.md)
-  * [Визуализация данных Битрикс24](data-from-bitrix24-visualization.md)
+  * [Яндекс Метрика: прямое подключение](data-from-metrica-visualization.md)
+  * [Яндекс Метрика: экспорт, постобработка и визуализация данных](data-from-metrica-yc-visualization.md)
+  * [AppMetrica: прямое подключение](data-from-appmetrica-visualization.md)
+  * [AppMetrica: экспорт, постобоработка и визуализация данных](data-from-appmetrica-yc-visualization.md)
+  * [Битрикс24: прямое подключение](data-from-bitrix24-visualization.md)
+  * [{{ tracker-full-name }}: экспорт и визуализация данных](data-from-tracker.md)
+  * [Подкасты Яндекс Музыки: статистика](data-from-podcasts.md)
   * [Визуализация данных {{ yq-full-name }}](data-from-yandex-query-visualization.md)
   * [Визуализация данных {{ monitoring-full-name }}](data-from-monitoring-visualization.md)
-  * [Визуализация данных из {{ tracker-full-name }}](data-from-tracker.md)
-  * [Анализ статистики подкастов Яндекс Музыки (для авторов подкастов)](data-from-podcasts.md)
-  * [Построение чартов customer journeys на данных AppMetrica](data-from-appmetrica-yc-visualization.md)
+  * [Визуализация данных из {{ ytsaurus-name }} CHYT](data-from-ch-over-yt.md)
 
 * Функциональные
 
-  * [Визуализация данных с использованием параметров](data-from-ch-with-parameters.md)
-  * [Визуализация данных с помощью QL-чарта](data-from-ch-to-sql-chart.md)
+  * [Использование параметров](data-from-ch-with-parameters.md)
+  * [Примеры создания QL-чартов](data-from-ch-to-sql-chart.md)
 
 
 

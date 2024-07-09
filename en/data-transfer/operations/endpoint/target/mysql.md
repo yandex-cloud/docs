@@ -19,8 +19,8 @@ description: "In this tutorial, you will learn how to set up a {{ MY }} target e
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
 * [Migrating the {{ MY }} cluster](../../../tutorials/managed-mysql-to-mysql.md).
-* [Migration with storage changed from {{ PG }} to {{ MY }}](../../../tutorials/mpg-to-mmy.md).
-* [Migration with storage changed from {{ objstorage-name }} to {{ MY }}](../../../tutorials/objs-mmy-migration.md).
+* [Migration with the storage change from {{ PG }} to {{ MY }}](../../../tutorials/mpg-to-mmy.md).
+* [Migration with the storage change from {{ objstorage-name }} to {{ MY }}](../../../tutorials/objs-mmy-migration.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
 
@@ -33,11 +33,11 @@ For a detailed description of possible {{ data-transfer-full-name }} data transf
 Configure one of the supported data sources:
 
 * [{{ PG }}](../source/postgresql.md).
-* [{{ MY }}](../source/mysql.md).
-* [{{ KF }}](../source/kafka.md).
-* [Airbyte](../../../transfer-matrix.md#airbyte).
-* [{{ DS }}](../source/data-streams.md).
-* [{{ objstorage-full-name }}](../source/object-storage.md).
+* [{{ MY }}](../source/mysql.md)
+* [{{ KF }}](../source/kafka.md)
+* [{{ AB }}](../../../transfer-matrix.md#airbyte)
+* [{{ DS }}](../source/data-streams.md)
+* [{{ objstorage-full-name }}](../source/object-storage.md)
 * [{{ ydb-name }}](../source/ydb.md).
 
 ## Preparing the target database {#prepare}
@@ -184,13 +184,13 @@ You can configure **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only going to do replication without copying data.
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option only for replication without data copying.
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Completely delete tables included in the transfer (used by default).
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Completely delete the tables included in the transfer (default).
 
-         Use this option so that the latest version of the table schema is always transferred to the target database from the source whenever the transfer is activated.
+         Use this option to always transfer the latest version of the table schema to the target database from the source whenever the transfer is activated.
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`: Delete only the data from the tables included in the transfer but leave the schema.
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`: Delete only the data from the tables included in the transfer but keep the schema.
 
          Use this option if the schema in the target database differs from the one that would have been transferred from the source during the transfer.
 

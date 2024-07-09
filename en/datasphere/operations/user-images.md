@@ -6,15 +6,13 @@ You can configure the environment to run your code using [Docker images](../conc
 
 ## Creating a Docker image {#create}
 
-{% include [python-disclaimer](../../_includes/datasphere/python-disclaimer.md) %}
-
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 1. Fill out the fields below:
    * **{{ ui-key.yc-ui-datasphere.docker.build-path }}**: Path inside the project where the created Docker image will be stored. `.` is the root directory.
    * **{{ ui-key.yc-ui-datasphere.docker.repository }}**: Image name, e.g., `tensorflow`.
    * **{{ ui-key.yc-ui-datasphere.docker.tag }}**: Image tag, e.g., `1.0.0`.
-   * **{{ ui-key.yc-ui-datasphere.docker.docker-template }}**: Template of the script used to install Python (`python_3_7` or `python_3_8`).
+   * **{{ ui-key.yc-ui-datasphere.docker.docker-template }}**: Template of the script to install Python.
    * **{{ ui-key.yc-ui-datasphere.docker.dockerfile }}**: A set of instructions for creating a Docker image.
 
       Edit the contents of the field. For example, the following code will create a Docker image with `python_3_8` based on the original TensorFlow image:
@@ -64,12 +62,6 @@ To return to the default environment:
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![docker](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 1. Click ![Options](../../_assets/console-icons/ellipsis.svg) next to the default image and select ![Apply](../../_assets/console-icons/circle-check-fill.svg) **{{ ui-key.yc-ui-datasphere.common.activate }}**.
-
-{% note warning %}
-
-The Python 3.7 system image won't work with the g2.x (GPU A100) [configurations](../../datasphere/concepts/configurations.md).
-
-{% endnote %}
 
 ## Sharing a Docker image {#share}
 

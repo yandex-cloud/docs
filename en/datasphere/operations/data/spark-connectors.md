@@ -2,12 +2,6 @@
 
 In {{ ml-platform-name }}, you can use [Spark connectors](../../concepts/spark-connector.md) to work with existing or automatically created [{{ dataproc-full-name }}](../../../data-proc/) clusters.
 
-{% note info %}
-
-Spark connectors are at the [Preview](../../../overview/concepts/launch-stages.md) stage. To access the feature, contact support.
-
-{% endnote %}
-
 ## Getting started {#before-begin}
 
 {% include [settings-for-dataproc](../../../_includes/datasphere/settings-for-dataproc.md) %}
@@ -46,7 +40,7 @@ Spark connectors are at the [Preview](../../../overview/concepts/launch-stages.m
 
 {% include [ui-before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 
-1. Run any cell by selecting **Run** ⟶ **Run Selected Cells** or pressing **Shift** + **Enter**.
+1. Run any cell by selecting **Run** → **Run Selected Cells** or pressing **Shift** + **Enter**.
 1. In the **{{ ui-key.yc-ui-datasphere.open-project.select-configuration }}** window that opens, go to the **{{ ui-key.yc-ui-datasphere.open-project.with-dataproc-cluster }}** tab.
 1. Select the required configuration and connector.
 1. Click **{{ ui-key.yc-ui-datasphere.common.select }}**.

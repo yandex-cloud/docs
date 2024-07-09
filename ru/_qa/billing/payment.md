@@ -99,4 +99,4 @@
 
 #### Можно ли вывести деньги с баланса? {#refund}
 
-Чтобы вернуть денежные средства, которые не будут использованы для оплаты услуг {{ yandex-cloud }}, [обратитесь]({{ link-console-support }}) в раздел **{{ ui-key.yacloud.component.navigation-menu.label_help-center }}** в консоли управления или отправьте письмо на адрес [{{ link-support-mail }}](mailto:{{ link-support-mail }}).
+Чтобы вернуть денежные средства, которые не будут использованы для оплаты услуг {{ yandex-cloud }}, [обратитесь]({{ link-console-support }}) в {{ support-center-name }} или отправьте письмо на адрес [{{ link-support-mail }}](mailto:{{ link-support-mail }}).

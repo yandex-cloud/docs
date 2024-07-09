@@ -463,6 +463,7 @@ default:
   port-mrd-sentinel: 26379
   port-mrd-tls: 6380
   port-ssh: 22
+  postbox-endpoint: https://postbox.cloud.yandex.net
   postbox-full-name: Yandex Cloud Postbox
   postbox-name: Yandex Cloud Postbox
   preview-stage: <code><b><small>Preview</small></b></code>
@@ -784,9 +785,9 @@ default:
       license:
         v1|int|string: Не тарифицируется
         v1|pricingRate:
-          100|int|string: "2\_000\_₸"
-          250|int|string: "1\_800\_₸"
-          6|int|string: "2\_200\_₸"
+          100|string: "2\_000,00\_₸"
+          250|string: "1\_800,00\_₸"
+          6|string: "2\_200,00\_₸"
   sku|KZT|backup:
     protected_vms:
       v2|month|string: "1\_194,00\_₸"
@@ -900,6 +901,9 @@ default:
         v1|pricingRate:
           6|string: "66,00\_₸"
         v1|string: Не тарифицируется
+  sku|KZT|datalens:
+    users:
+      v1|string: "4\_950,00\_₸"
   sku|KZT|dns:
     requests:
       public:
@@ -1498,6 +1502,11 @@ default:
         v1|pricingRate:
           1|string: "80,00\_₸"
         v1|string: Не тарифицируется
+  sku|KZT|smart_captcha:
+    check:
+      requests:
+        v1|pricingRate:
+          250|string: "500,00\_₸"
   sku|KZT|speechkit:
     stt_long_running_deferred:
       v1|string: "0,0125\_₸"
@@ -1870,9 +1879,9 @@ default:
       license:
         v1|int|string: Не тарифицируется
         v1|pricingRate:
-          100|int|string: "400\_₽"
-          250|int|string: "360\_₽"
-          6|int|string: "440\_₽"
+          100|string: "400,00\_₽"
+          250|string: "360,00\_₽"
+          6|string: "440,00\_₽"
   sku|RUB|backup:
     protected_vms:
       v2|month|string: "238,80\_₽"
@@ -1986,6 +1995,9 @@ default:
         v1|pricingRate:
           6|string: "13,20\_₽"
         v1|string: Не тарифицируется
+  sku|RUB|datalens:
+    users:
+      v1|string: "990,00\_₽"
   sku|RUB|dns:
     requests:
       public:
@@ -2584,6 +2596,11 @@ default:
         v1|pricingRate:
           1|string: "16,00\_₽"
         v1|string: Не тарифицируется
+  sku|RUB|smart_captcha:
+    check:
+      requests:
+        v1|pricingRate:
+          250|string: "100,00\_₽"
   sku|RUB|speechkit:
     stt_long_running_deferred:
       v1|string: "0,0025\_₽"
@@ -2679,7 +2696,6 @@ default:
     profile:
       v1|string: "250,00\_₽"
     requests:
-      v1|int|string: Не тарифицируется
       v1|pricingRate:
         '0':
           01|string: "25\_000,00\_₽"
@@ -2688,6 +2704,7 @@ default:
         100|string: "140,00\_₽"
         1000|string: "50,00\_₽"
         10000|string: "25,00\_₽"
+      v1|string: Не тарифицируется
     rule:
       v1|string: "50,00\_₽"
   sku|RUB|v1:
@@ -3078,6 +3095,9 @@ default:
         v1|pricingRate:
           6|string: "0,105600\_$"
         v1|string: Не тарифицируется
+  sku|USD|datalens:
+    users:
+      v1|string: "7,920000\_$"
   sku|USD|dns:
     requests:
       public:
@@ -3658,6 +3678,11 @@ default:
         v1|pricingRate:
           1|string: "0,128000\_$"
         v1|string: Не тарифицируется
+  sku|USD|smart_captcha:
+    check:
+      requests:
+        v1|pricingRate:
+          250|string: "0,800000\_$"
   sku|USD|speechkit:
     stt_long_running_deferred:
       v1|string: "0,000020\_$"
@@ -5424,6 +5449,9 @@ default:
     yacloud:
       airflow:
         button_create-cluster: Создать кластер
+        cluster:
+          overview:
+            section_dependencies: Зависимости
         section_accesses: Настройки доступа
         section_airflow-configuration: Конфигурация Airflow
         section_dependencies: Зависимости
@@ -5432,6 +5460,7 @@ default:
         section_triggerer: Конфигурация triggerer
         section_webserver: Конфигурация веб-сервера
         section_workers: Конфигурация воркеров
+        title_pip-packages: Pip-пакеты
       alb:
         button_add-backend: Создать бэкенд
         button_add-discard-rule: Добавить правило отбрасывания логов
@@ -5982,7 +6011,6 @@ default:
         navigation-menu:
           label_account: Учетная запись
           label_billing: Биллинг
-          label_help-center: Центр поддержки
           label_monitoring: Monitoring
           label_notifications: Уведомления
         security-group-field:
@@ -6566,6 +6594,7 @@ default:
             label_mdb: Managed Databases
             label_message-queue: Message Queue
             label_monitoring: Monitoring
+            label_postbox: Cloud Postbox
             label_products: Все сервисы
             label_search-api: Search API
             label_serverless-containers: Serverless Containers
@@ -6933,18 +6962,18 @@ default:
         button_deactivate-secret: Деактивировать
         field_make-version-current: Сделать текущей версией
         forms:
-          button_add-pair: Добавить пару
+          button_add-pair: Добавить ключ/значение
           button_schedule-destruction: Запланировать
           field_deletion-protection: Запретить удаление секрета
-          field_kms-key: Ключ KMS
           label_key: Ключ
           label_value: Значение
-          section_version: Версия
+          title_kms-key: Ключ KMS
         label_secret-general-section: Информация о секрете
         label_secret-id: Идентификатор
         label_secret-versions-section: Версии
         label_section-overview: Обзор
         label_section-secrets: Секреты
+        label_version-dialog-title: Версия
       logging:
         button_create-group: Создать группу
         button_create-sink: Создать приёмник логов
@@ -7305,6 +7334,18 @@ default:
             title_node-groups: Группы хостов
             title_virtual-node-group: Группа виртуальных хостов
         title_opensearch-dashboards-section: OpenSearch Dashboards
+      postbox:
+        button_create-configuration-set: Создать конфигурацию
+        button_create-identity: Создать адрес
+        button_validate: Проверить адрес
+        label_address: Домен
+        label_configuration-sets: Конфигурации
+        label_dns-record-value: Значение
+        label_event-destinations: Подписки
+        label_identities: Адреса
+        label_private-key: Приватный ключ
+        label_selector: Селектор
+        label_signature-verification: Подтверждение подписи
       postgresql:
         cluster:
           additional-field-pooling_mode: Режим работы менеджера подключений
@@ -7573,7 +7614,7 @@ default:
       smartcaptcha:
         button_captcha-settings-create: Создать капчу
         label_additional-challenge: Дополнительное задание
-        label_allowed-sites: Список сайтов
+        label_allowed-sites: Список хостов
         label_captcha-settings-list: Список капч
         label_client-key: Ключ клиента
         label_complexity: Сложность

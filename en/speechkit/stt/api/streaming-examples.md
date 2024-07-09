@@ -98,7 +98,6 @@ To try the examples in this section:
              # Send data for recognition.
              it = stub.StreamingRecognize(gen(folder_id, audio_file_name), metadata=(
                  ('authorization', 'Bearer %s' % iam_token),
-                 ('Transfer-encoding', 'chunked'),
              ))
 
              # Process the server responses and output the result to the console.
@@ -215,19 +214,18 @@ To try the examples in this section:
          };
 
          // Set audio send frequency in milliseconds.
-         // For LPCM format, the frequency can be calculated using the formula: CHUNK_SIZE * 1,000 / ( 2 * sampleRateHertz);
+         // To calculate the frequency for the LPCM format, use this formula: CHUNK_SIZE * 1000 / ( 2 * sampleRateHertz).
          const FREQUENCY = 250;
 
          const serviceMetadata = new grpc.Metadata();
          serviceMetadata.add('authorization', `Bearer ${iamToken}`);
-         serviceMetadata.add('Transfer-encoding', `chunked`);
 
          const packageDefinition = protoLoader.loadSync('../yandex/cloud/ai/stt/v2/stt_service.proto', {
              includeDirs: ['node_modules/google-proto-files', '..']
          });
          const packageObject = grpc.loadPackageDefinition(packageDefinition);
 
-         // Establish a server connection.
+         // Connect to the server.
          const serviceConstructor = packageObject.yandex.cloud.ai.stt.v2.SttService;
          const grpcCredentials = grpc.credentials.createSsl(fs.readFileSync('./roots.pem'));
          const service = new serviceConstructor('stt.{{ api-host }}:443', grpcCredentials);

@@ -32,7 +32,7 @@
 
       Результат:
 
-      ```
+      ```text
       +----------------------+------------------+-------------------------------+
       |          ID          |       NAME       |          DESCRIPTION          |
       +----------------------+------------------+-------------------------------+
@@ -41,13 +41,18 @@
       +----------------------+------------------+-------------------------------+
       ```
 
-  1. Создайте API-ключ для сервисного аккаунта `my-robot` и запишите ответ в файл:
+  1. Создайте API-ключ для сервисного аккаунта и запишите ответ в файл:
 
       ```bash
-      yc iam api-key create --service-account-name my-robot > api-key.yaml
+      yc iam api-key create --service-account-name <имя_сервисного_аккаунта> > api_key.yaml
       ```
 
-      В ответе в свойстве `secret` будет содержаться API-ключ:
+      Где:
+      
+      * `--service-account-name` — имя сервисного аккаунта. Обязательный параметр.
+      * `api_key.yaml` — файл, в который сохраняется ответ.
+      
+      В результате вы получите файл `api_key.yaml`, который содержит значение API-ключа в поле `secret`:
 
       ```
       api_key:
@@ -57,80 +62,70 @@
       secret: AQVN1HHJReSrfo9jU3aopsXrJyfq_UHs********
       ```
 
-      О том, как передать ключ в запросе, читайте в документации [сервисов](../../concepts/authorization/api-key.md#supported-services), которые поддерживают такой способ авторизации.
+  О том, как передать ключ в запросе, читайте в документации [сервисов](../../concepts/authorization/api-key.md#supported-services), которые поддерживают такой способ авторизации.
 
 - {{ TF }} {#tf}
 
-    {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-    1. Добавьте в конфигурационный файл параметры ресурса:
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-       * `service_account_id` — [идентификатор](../sa/get-id.md) сервисного аккаунта. Обязательный параметр.
-       * `description` — описание ключа. Необязательный параметр.
-       * `pgp_key` — дополнительный PGP-ключ для шифрования закрытого ключа. Необязательный параметр. Указывается публичная часть ключа в кодировке base64, либо в виде `keybase:keybaseusername`.
+  1. Опишите в конфигурационном файле {{ TF }}параметры ресурсов, которые необходимо создать:
 
-       Пример структуры конфигурационного файла:
+      ```hcl
+      resource "yandex_iam_service_account_api_key" "sa-api-key" {
+        service_account_id = "<идентификатор_сервисного_аккаунта>"
+        description        = "<описание_ключа>"
+        pgp_key            = "<pgp-ключ>"
+      }
+      ```
 
-       ```
-       resource "yandex_iam_service_account_api_key" "sa-api-key" {
-         service_account_id = "<идентификатор_сервисного_аккаунта>"
-         description        = "<описание_ключа>"
-         pgp_key            = "<pgp-ключ>"
-       }
-       ```
+      Где:
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_api_key).
+      * `service_account_id` — [идентификатор](../sa/get-id.md) сервисного аккаунта. Обязательный параметр.
+      * `description` — описание ключа. Необязательный параметр.
+      * `pgp_key` — дополнительный PGP-ключ для шифрования закрытого ключа. Указывается публичная часть ключа в кодировке base64, либо в виде `keybase:keybaseusername`. Необязательный параметр.
 
-    1. Проверьте корректность конфигурационных файлов.
+      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_api_key).
 
-       1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-       1. Выполните проверку с помощью команды:
+  1. Создайте ресурсы:
 
-          ```
-          terraform plan
-          ```
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
 
-    1. Разверните облачные ресурсы.
-
-       1. Если в конфигурации нет ошибок, выполните команду:
-
-          ```
-          terraform apply
-          ```
-
-       1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-
-       После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}), а также с помощью команды CLI:
-
-       ```
-       yc iam key list --service-account-id <идентификатор_сервисного_аккаунта>
-       ```
+      ```bash
+      yc iam key list --service-account-id <идентификатор_сервисного_аккаунта>
+      ```
 
 - API {#api}
 
-  1. [Узнайте идентификатор сервисного аккаунта](../sa/get-id.md).
-  1. Создайте API-ключ с помощью метода REST API [create](../../api-ref/ApiKey/create.md) для ресурса [ApiKey](../../api-ref/ApiKey/index.md):
+  Создайте API-ключ с помощью метода REST API [create](../../api-ref/ApiKey/create.md) для ресурса [ApiKey](../../api-ref/ApiKey/index.md):
 
-      ```bash
-      export SERVICEACCOUNT_ID=<идентификатор_сервисного_аккаунта>
-      export IAM_TOKEN=CggaATEVAgA...
-      curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer $IAM_TOKEN" \
-        -d "{ \"serviceAccountId\": \"$SERVICEACCOUNT_ID\" }" \
-        https://iam.{{ api-host }}/iam/v1/apiKeys
-      ```
-      Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService/Create](../../api-ref/grpc/api_key_service.md#Create).
+  ```bash
+  export SERVICEACCOUNT_ID=<идентификатор_сервисного_аккаунта>
+  export IAM_TOKEN=<токен>
+  curl -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -d "{ \"serviceAccountId\": \"$SERVICEACCOUNT_ID\" }" \
+    https://iam.{{ api-host }}/iam/v1/apiKeys
+  ```
+
+  Где:
+
+  * `SERVICEACCOUNT_ID` — [идентификатор](../sa/get-id.md) сервисного аккаунта. Обязательный параметр.
+  * `IAM_TOKEN` — [IAM-токен](../../concepts/authorization/iam-token.md). Обязательный параметр.
+
+  Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService/Create](../../api-ref/grpc/api_key_service.md#Create).
 
 {% endlist %}
 
 ## Примеры {#examples}
 
-### Добавить описание при создании {#add-description}
+### Добавить описание при создании API-ключа {#add-description}
 
-Чтобы было проще найти API-ключ, не зная его идентификатора, добавьте описание при создании:
+Чтобы добавить описание API-ключа при его создании:
 
 {% list tabs group=instructions %}
 
@@ -141,54 +136,30 @@
     --description "this API-key is for my-robot"
   ```
 
+  Где:
+
+  * `--service-account-name` — имя сервисного аккаунта. Обязательный параметр.
+  * `--description` — описание API-ключа. Необязательный параметр.
+
 - {{ TF }} {#tf}
 
-    1. Добавьте в конфигурационный файл параметры ресурса:
+  ```hcl
+  resource "yandex_iam_service_account_api_key" "sa-api-key" {
+    service_account_id = "<идентификатор_сервисного_аккаунта>"
+    description        = "this API-key is for my-robot"
+  }
+  ```
 
-       * `service_account_id` — идентификатор сервисного аккаунта. Обязательный параметр.
-       * `description` — описание ключа. Необязательный параметр.
+  Где:
 
-       {% cut "Пример добавления описания при создании API-ключа сервисного аккаунта с помощью {{ TF }}" %}
-
-         ```
-         resource "yandex_iam_service_account_api_key" "sa-api-key" {
-           service_account_id = "<идентификатор_сервисного_аккаунта>"
-           description        = "this API-key is for my-robot"
-         }
-         ```
-
-       {% endcut %}
-
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_api_key).
-
-    1. Проверьте корректность конфигурационных файлов.
-
-       1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-       1. Выполните проверку с помощью команды:
-
-          ```
-          terraform plan
-          ```
-
-       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Разверните облачные ресурсы.
-
-       1. Если в конфигурации нет ошибок, выполните команду:
-
-          ```
-          terraform apply
-          ```
-
-       1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-
-       После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+  * `service_account_id` — [идентификатор](../sa/get-id.md) сервисного аккаунта. Обязательный параметр.
+  * `description` — описание ключа. Необязательный параметр.
 
 - API {#api}
 
   ```bash
   export SERVICEACCOUNT_ID=<идентификатор_сервисного_аккаунта>
-  export IAM_TOKEN=CggaATEVAgA...
+  export IAM_TOKEN=<IAM-токен>
   curl -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $IAM_TOKEN" \
@@ -198,6 +169,11 @@
     }" \
     https://iam.{{ api-host }}/iam/v1/apiKeys
   ```
+
+  Где:
+
+  * `SERVICEACCOUNT_ID` - [идентификатор сервисного аккаунта](../sa/get-id). Обязательный параметр.
+  * `IAM_TOKEN` - [IAM-токен](../../concepts/authorization/iam-token.md). Обязательный параметр.
 
 {% endlist %}
 

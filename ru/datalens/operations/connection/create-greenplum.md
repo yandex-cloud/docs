@@ -5,7 +5,13 @@ description: "Из статьи вы узнаете, как подключить
 
 # Создание подключения к {{ GP }}
 
+
+{% note warning %}
+
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
+
+{% endnote %}
+
 
 ## Подключение к {{ GP }} {#greenplum-connection}
 

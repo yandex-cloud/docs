@@ -8,7 +8,7 @@ To create a [secret](../../lockbox/concepts/secret.md):
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret.
-   1. (Optional) Under **{{ ui-key.yacloud.lockbox.forms.field_kms-key }}**, specify an existing [key](../../kms/concepts/key.md) or [create a new one](../../kms/operations/key.md#create).
+   1. (Optional) Under **{{ ui-key.yacloud.lockbox.forms.title_kms-key }}**, specify an existing [key](../../kms/concepts/key.md) or [create a new one](../../kms/operations/key.md#create).
 
       The specified [{{ kms-full-name }}](../../kms/) key is used to encrypt your secret. If you do not specify a key, the secret will be encrypted with a special system key.
 
@@ -19,7 +19,7 @@ To create a [secret](../../lockbox/concepts/secret.md):
       {% endnote %}
 
    1. (Optional) Enable **{{ ui-key.yacloud.lockbox.forms.field_deletion-protection }}**. You cannot delete a secret with this option enabled. This does not protect the secret's contents.
-   1. Under **{{ ui-key.yacloud.lockbox.forms.section_version }}**:
+   1. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
 
       * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter a non-secret ID.
       * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the confidential data you want to store.

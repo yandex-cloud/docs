@@ -53,7 +53,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
 
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret, such as `secret-loadtest`.
-   1. Under **{{ ui-key.yacloud.lockbox.forms.section_version }}**:
+   1. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
       * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter a non-secret ID, such as `key-loadtest`.
       * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, upload the file with the public and private authorized keys.
    1. Click **{{ ui-key.yacloud.common.create }}**.

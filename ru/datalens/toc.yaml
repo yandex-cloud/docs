@@ -33,50 +33,58 @@ items:
     items:
       - name: Обзор
         href: tutorials/index.md
-      - name: Визуализация данных из CSV-файла
-        href: tutorials/data-from-csv-visualization.md
-      - name: Создание и публикация диаграммы с картой Москвы из CSV-файла
-        href: tutorials/data-from-csv-to-public-visualization.md
-      - name: Анализ открытых данных ДТП на дорогах России
-        href: tutorials/data-from-csv-geo-visualization.md
-      - name: Анализ продаж сети магазинов из БД {{ CH }}
-        href: tutorials/data-from-ch-visualization.md
-      - name: Визуализация данных из CHYT
-        href: tutorials/data-from-ch-over-yt.md
-      - name: >-
-          Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и
-          Marketplace
-        href: tutorials/data-from-ch-to-geolayers-visualization.md
-      - name: Анализ статистики подкастов Яндекс Музыки (для авторов подкастов)
-        href: tutorials/data-from-podcasts.md
-      - name: Визуализация данных {{ monitoring-full-name }}
-        href: tutorials/data-from-monitoring-visualization.md
-      - name: Визуализация данных Битрикс24
-        href: tutorials/data-from-bitrix24-visualization.md
-      - name: Визуализация данных из {{ tracker-full-name }}
-        href: tutorials/data-from-tracker.md
-      - name: Визуализация данных {{ yq-full-name }}
-        href: tutorials/data-from-yandex-query-visualization.md
-      - name: Веб-аналитика с подключением к Яндекс Метрике
-        href: tutorials/data-from-metrica-visualization.md
-      - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
-        href: tutorials/data-from-metrica-yc-visualization.md
-      - name: Аналитика мобильного приложения на данных AppMetrica
-        href: tutorials/data-from-appmetrica-visualization.md
-      - name: Построение чартов customer journeys на данных AppMetrica
-        href: tutorials/data-from-appmetrica-yc-visualization.md
-      - name: Визуализация данных с помощью QL-чарта
-        href: tutorials/data-from-ch-to-sql-chart.md
-      - name: Визуализация данных с использованием параметров
-        href: tutorials/data-from-ch-with-parameters.md
-      - name: Визуализация данных с использованием инструмента "Тепловые карты"
-        hidden: true
-        href: tutorials/data-on-heat-map-dashboard.md
-      - name: >-
-          Геокодинг с помощью API Яндекс Карт для визуализации в {{
-          datalens-short-name }}
-        href: tutorials/data-from-ch-geocoder.md
-  - name: Подключение
+      - name: Знакомство с {{ datalens-short-name }}
+        items:
+          - name: Простой дашборд из CSV-файла
+            href: tutorials/data-from-csv-visualization.md
+          - name: Публичный чарт с картой Москвы из CSV-файла
+            href: tutorials/data-from-csv-to-public-visualization.md
+          - name: Дашборд сети магазинов из БД {{ CH }}
+            href: tutorials/data-from-ch-visualization.md
+      - name: Работа с геоданными
+        items:
+          - name: Анализ открытых данных ДТП на дорогах России
+            href: tutorials/data-from-csv-geo-visualization.md
+          - name: >-
+              Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и
+              Marketplace
+            href: tutorials/data-from-ch-to-geolayers-visualization.md
+          - name: >-
+              Геокодинг с помощью API Яндекс Карт для визуализации в {{
+              datalens-short-name }}
+            href: tutorials/data-from-ch-geocoder.md
+          - name: Визуализация данных с использованием инструмента "Тепловые карты"
+            hidden: true
+            href: tutorials/data-on-heat-map-dashboard.md
+      - name: Аналитика сервисов
+        items:
+          - name: 'Яндекс Метрика: прямое подключение'
+            href: tutorials/data-from-metrica-visualization.md
+          - name: 'Яндекс Метрика: экспорт, постобработка и визуализация данных'
+            href: tutorials/data-from-metrica-yc-visualization.md
+          - name: 'AppMetrica: прямое подключение'
+            href: tutorials/data-from-appmetrica-visualization.md
+          - name: 'AppMetrica: экспорт, постобоработка и визуализация данных'
+            href: tutorials/data-from-appmetrica-yc-visualization.md
+          - name: 'Битрикс24: прямое подключение'
+            href: tutorials/data-from-bitrix24-visualization.md
+          - name: '{{ tracker-full-name }}: экспорт и визуализация данных'
+            href: tutorials/data-from-tracker.md
+          - name: 'Подкасты Яндекс Музыки: статистика'
+            href: tutorials/data-from-podcasts.md
+          - name: Визуализация данных {{ yq-full-name }}
+            href: tutorials/data-from-yandex-query-visualization.md
+          - name: Визуализация данных {{ monitoring-full-name }}
+            href: tutorials/data-from-monitoring-visualization.md
+          - name: Визуализация данных из {{ ytsaurus-name }} CHYT
+            href: tutorials/data-from-ch-over-yt.md
+      - name: Функциональные
+        items:
+          - name: Использование параметров
+            href: tutorials/data-from-ch-with-parameters.md
+          - name: Примеры создания QL-чартов
+            href: tutorials/data-from-ch-to-sql-chart.md
+  - name: Подключения
     items:
       - name: Обзор
         href: concepts/connection.md
@@ -136,7 +144,7 @@ items:
             href: operations/connection/create-cloud-billing.md
           - name: Создание подключения к Snowflake
             href: operations/connection/create-snowflake.md
-  - name: Датасет
+  - name: Датасеты
     items:
       - name: Обзор
         href: concepts/dataset/index.md
@@ -702,7 +710,7 @@ items:
         href: concepts/chart/inspector.md
       - name: Управление доступом
         href: concepts/chart/access-management.md
-  - name: Дашборд
+  - name: Дашборды
     items:
       - name: Обзор
         href: concepts/dashboard.md
@@ -810,6 +818,8 @@ items:
         href: settings/service-plan.md
       - name: Архив
         items:
+          - name: До 1 июня 2024 года
+            href: pricing-archive/pricing01062024.md
           - name: До 23 апреля 2024 года
             href: pricing-archive/pricing23042024.md
   - name: История изменений

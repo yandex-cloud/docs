@@ -13,8 +13,8 @@ To evaluate the {{ ydb-short-name }} API request cost, the CPU cost and the I/O 
 * I/O cost.
 
    The following values are calculated:
-   * The number of disk reads. The number of read records and data blocks is compared, and the largest of them is selected. The number of blocks is calculated by dividing the amount of bytes read by the block size of 4 KB and rounding the result up.
-   * The number of disk writes. The number of written rows and data blocks is compared, and the largest of them is selected. The number of blocks is calculated by dividing the amount of bytes written by a block size of 1 KB and rounding the value up.
+   * Number of disk reads. The number of read records and data blocks is compared, and the largest of them is selected. The number of blocks is calculated by dividing the amount of bytes read by the block size of 4 KB and rounding the result up.
+   * Number of disk writes. The number of written rows and data blocks is compared, and the largest of them is selected. The number of blocks is calculated by dividing the amount of bytes written by a block size of 1 KB and rounding the value up.
 
    This includes I/O operations on tables and indexes. Row deletes are billed based on their count.
 
@@ -26,13 +26,13 @@ Some row conversions involve data reads or deletes before editing, and this may 
 
 {% endnote %}
 
-Unit costs in RU:
+Unit costs in RUs:
 
 | Estimated parameter | Cost |
 :--- | :---:
 | One CPU time increment | 1 RU |
 | One read | 1 RU |
-| One write | 2 RU |
+| One write | 2 RUs |
 
 The following operations are not billed:
 * Creating, updating, and deleting table schemas.
@@ -89,7 +89,7 @@ Where:
 To evaluate the CPU cost, the request's total CPU time is divided by 1.5 ms, `( 475 + 514 + 4062 + 870 ) / 1500 = 3.95`. The result is rounded down and converted to RU:
 
 ```text
-3 × 1 RU = 3 RU
+3 × 1 RU = 3 RUs
 ```
 
 To get the I/O cost:
@@ -107,9 +107,9 @@ To get the I/O cost:
 I/O cost:
 
 ```text
-2 × 1 RU + 3 × 2 RU = 8 RU
+2 × 1 RU + 3 × 2 RUs = 8 RUs
 ```
 
-The request cost is 8 RU.
+The request cost is 8 RUs.
 
 {% endcut %}

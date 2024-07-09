@@ -268,7 +268,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter the secret name: `s3-static-key`.
-   1. Under **{{ ui-key.yacloud.lockbox.forms.section_version }}**:
+   1. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
 
       1. Add the key ID value:
 

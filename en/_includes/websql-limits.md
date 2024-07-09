@@ -1,4 +1,4 @@
 
 | Limit | Value |
 | ----- | ----- |
-| Number of SQL queries for {{ CH }} | 1 |
+| Number of queries for {{ CH }} | 1 |
