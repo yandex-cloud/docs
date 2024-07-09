@@ -284,7 +284,7 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета — `mongodb-creds`.
-  1. В блоке **{{ ui-key.yacloud.lockbox.forms.section_version }}**:
+  1. В блоке **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
       * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}**  введите `login`.
       * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите логин пользователя БД — `mongo_db_user`.
   1. Нажмите **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** и укажите второй секрет:

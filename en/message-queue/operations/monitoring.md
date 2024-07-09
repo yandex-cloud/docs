@@ -71,8 +71,8 @@ To view this information:
 
 **Delete messages stats** contains charts with information about deleting messages:
 
-* **Deleted messages, count**: Number of messages deleted from the queue in a unit of time using [DeleteMessage](../api-ref/message/DeleteMessage) or [DeleteMessageBatch](../api-ref/message/DeleteMessageBatch) method.
-* **DeleteMessage duration**: The time it takes to execute a `DeleteMessage` request.
+* **Deleted messages, count**: Number of messages deleted from the queue in a unit of time using the [DeleteMessage](../api-ref/message/DeleteMessage) or [DeleteMessageBatch](../api-ref/message/DeleteMessageBatch) method.
+* **DeleteMessage duration**: Time it takes to execute a `DeleteMessage` request.
 
    {% include [ymq-monitoring-query-duration.md](../../_includes/message-queue/ymq-monitoring-query-duration.md) %}
 
@@ -92,6 +92,10 @@ To view this information:
 
 * **Age of oldest message in queue** (metric name: `queue.messages.oldest_age_milliseconds`): Retention time of the oldest message in the queue. The metric name is obsolete and its `milliseconds` part does not reflect the current units of measure. Currently, the metric is measured in seconds (`s`).
 
-* **Message reside duration** (metric names: `p99` for the 99th percentile, `p95` for the 95th percentile, `p90` for the 90th percentile, `p50` for the 50th percentile): Enqueued metrics processing time. Measured in milliseconds (`ms`).
+* **Message reside duration** (metric names: `p99` for the 99th percentile, `p95` for the 95th percentile, `p90` for the 90th percentile, `p50` for the 50th percentile): Enqueued message processing time in milliseconds (`ms`).
 
    {% include [ymq-monitoring-message-duration.md](../../_includes/message-queue/ymq-monitoring-message-duration.md) %}
+
+#### See also {#see-also}
+
+[{#T}](../metrics.md)

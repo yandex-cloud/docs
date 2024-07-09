@@ -1,9 +1,13 @@
 # Поля ресурса Gateway
 
 
-В ресурсе `Gateway` определяются правила приема входящего трафика и выбора маршрутов ([ресурсов `HTTPRoute`](../../../application-load-balancer/k8s-ref/http-route.md)) для этого трафика. По этим правилам [Gateway API {{ alb-name }}](../../../application-load-balancer/tools/k8s-gateway-api/index.md) создает [балансировщик](../../../application-load-balancer/concepts/application-load-balancer.md) с нужными обработчиками и [HTTP-роутерами](../../../application-load-balancer/concepts/http-router.md).
+В ресурсе `Gateway` определяются правила приема входящего трафика и выбора маршрутов (ресурсов [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md) и [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md)) для этого трафика. По этим правилам [Gateway API {{ alb-name }}](../../../application-load-balancer/tools/k8s-gateway-api/index.md) создает:
 
-`Gateway` предназначен для оператора кластера. Разработчики приложений должны использовать `HTTPRoute`.
+* [балансировщик](../../../application-load-balancer/concepts/application-load-balancer.md) с нужными обработчиками;
+* [группы бэкендов](../../../application-load-balancer/concepts/backend-group.md);
+* [HTTP-роутеры](../../../application-load-balancer/concepts/http-router.md) (если используются ресурсы [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md)).
+
+`Gateway` предназначен для оператора кластера. Разработчики приложений должны использовать `TLSRoute` или `HTTPRoute`.
 
 `Gateway` — ресурс {{ k8s }}, определенный [проектом {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API {{ alb-name }}. Полное описание конфигурации ресурса см. в [документации {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.Gateway).
 
@@ -121,7 +125,7 @@ addresses:
 
     {% include [k8s-ingress-controller-hostnames-wildcard](../../application-load-balancer/k8s-ingress-controller-hostnames-wildcard.md) %}
   
-    К обработчику будут привязаны только те маршруты (ресурсы [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md)), доменные имена которых (поле `spec.hostnames`) <q>пересекаются</q> с доменным именем в этом поле.
+    К обработчику будут привязаны только те маршруты (ресурсы [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md) и [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md)), доменные имена которых (поле `spec.hostnames`) <q>пересекаются</q> с доменным именем в этом поле.
 
   * `port` (`int32`)
     
@@ -129,15 +133,15 @@ addresses:
     
   * `protocol` (`string`)
     
-    Протокол, по которому обработчик принимает входящий трафик: `HTTP` или `HTTPS`.
+    Протокол, по которому обработчик принимает входящий трафик: `HTTP`, `HTTPS` или `TLS`.
 
   * `tls` (`GatewayTlsConfig`)
 
-    Настройки, по которым обработчик принимает входящий HTTPS-трафик.
+    Настройки TLS, которые используются при работе с входящим HTTPS- или TLS-трафиком.
   
     * `mode` (`string`)
       
-      Режим терминирования TLS-соединений. 
+      Режим терминирования TLS-соединений.
       
       Единственное поддерживаемое значение и значение по умолчанию — `Terminate`: соединения терминируются с использованием сертификатов из поля `certificateRefs`, расшифрованный трафик отправляется на бэкенды. Режим `Passthrough` (соединения не терминируются) не поддерживается.
 
@@ -145,7 +149,7 @@ addresses:
   
       Список ресурсов {{ k8s }}, в которых хранятся TLS-сертификаты.
 
-      Используется, только если значение поля `protocol` — `HTTPS`. В этом случае в списке должен быть хотя бы один сертификат.
+      Используется, только если значение поля `protocol` — `HTTPS` или `TLS`. В этом случае в списке должен быть хотя бы один сертификат.
 
       В балансировщике используется только первый сертификат из списка, остальные игнорируются.
   
@@ -180,13 +184,13 @@ addresses:
 
   * `allowedRoutes` (`AllowedRoutes`)
 
-    Правила, по которым для обработчика выбираются маршруты (ресурсы `HTTPRoute`). По этим маршрутам создаются [HTTP-роутеры](../../../application-load-balancer/concepts/http-router.md) и [группы бэкендов](../../../application-load-balancer/concepts/backend-group.md), привязываемые к обработчику.
-  
-    Чтобы `HTTPRoute` был выбран, в его [конфигурации](../../../application-load-balancer/k8s-ref/http-route.md#spec) (поле `spec.parentRefs`) должно быть указание на `Gateway`.
-  
+    Правила, по которым для обработчика выбираются маршруты (ресурсы [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md) и [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md)). Чтобы маршрут был выбран, в конфигурации этих ресурсов должно быть указание на `Gateway` в поле `spec.parentRefs`.
+
+    По этим маршрутам создаются [группы бэкендов](../../../application-load-balancer/concepts/backend-group.md), привязываемые к обработчику. При использовании `HTTPRoute` также создаются [HTTP-роутеры](../../../application-load-balancer/concepts/http-router.md).
+
     * `namespaces` (`RouteNamespaces`)
   
-      Правило выбора пространств имен, к которым относятся ресурсы `HTTPRoute`, привязываемые к обработчику.
+      Правило выбора пространств имен, к которым относятся ресурсы `HTTPRoute` и `TLSRoute`, привязываемые к обработчику.
   
       * `from` (`string`)
         

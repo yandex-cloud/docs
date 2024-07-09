@@ -15,6 +15,9 @@ links:
   - title: Начало работы
     description: Узнайте, как начать работать с Yandex Cloud Postbox
     href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits

@@ -6,13 +6,23 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
+### Release on June 26, 2024 {#260624}
+
+The `general:rc` updates from [June 3](#030624) are now available in the `general` model.
+
+Improved recognition quality for Uzbek in `general:rc`.
+
+## Previous versions {#previous}
+
+### Release on June 3, 2024 {#030624}
+
+Upon user requests, `general:rc` recognition quality has been improved for abbreviations and medical terms in Russian.
+
 ### Release on April 23, 2024 {#230424}
 
 The `general:rc` updates of [April 9](#090424) are now available in the `general` model.
 
-## Previous versions {#previous}
-
-### Release on 09/04/24 {#090424}
+### Release on April 9, 2024 {#090424}
 
 Changed the format of [classifiers](stt/analysis.md) in the `general:rc` model. The `formal_greeting`, `informal_greeting`, `formal_farewell`, `informal_farewell`, `insult`, and `profanity` classifiers now return results as a triggering probability. The `answerphone` and `negative` classifiers now return only the triggering probability rather than the probability of belonging to two classes.
 

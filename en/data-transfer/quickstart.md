@@ -1,7 +1,7 @@
 # Getting started with {{ data-transfer-name }}
 
 Copy or replicate data from a source to a target by creating [endpoints](concepts/index.md#endpoint) and configuring [transfers](concepts/index.md#transfer) between them.
-For more information, refer to the [full list of endpoints](transfer-matrix.md) and possible transfers between them.
+See the [full list of endpoints](transfer-matrix.md) and possible transfers between them.
 
 
 ## Getting started {#before-you-begin}

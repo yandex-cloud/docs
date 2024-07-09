@@ -1,13 +1,16 @@
-You can establish connections to managed DB clusters from your {{ yandex-cloud }} [organization's](../../organization/concepts/manage-services.md) clouds and folders. If you [switch to a different organization](../../organization/operations/manage-organizations.md#switch-to-another-org), a set of clusters from other clouds and folders will be available to you. Added connections will be available while you are working in the current {{ yandex-cloud }} organization.
+Before creating a connection, make sure that you have selected the required folder. If you have access to {{ PG }}, {{ CH }}, or {{ MY }} clusters previously created in that folder, they will automatically appear in the **{{ yandex-cloud }} connections** subsection. You will only need to create a connection to the appropriate database in the cluster.
 
-To create a connection to a managed DB cluster:
+If you already have cluster connections created in {{ metadata-hub-name }} {{ connection-manager-name }}, they will appear automatically.
+
+To create a connection to a managed database cluster:
 
 1. Make sure **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** is enabled in the cluster settings.
-1. In {{ websql-full-name }}, go to the **Connection manager** section and click ![image](../../_assets/console-icons/square-plus.svg) in the top-right corner.
-1. Specify the connection parameters:
-   * **Cloud**: Select a cloud.
-   * **Folder**: Select the folder where you created the database cluster.
-   * **Cluster**: Select the cluster.
-1. Click **Connect** to connect to the selected cluster.
-
-
+1. Open [**Connections**]({{ websql-link }}) in {{ websql-full-name }}.
+1. Under ![image](../../_assets/console-icons/folder-tree.svg) **Connections**, click ![image](../../_assets/console-icons/square-plus.svg).
+1. **Name** the connection.
+1. In the **Database type** field, select the database you need: {{ PG }}, {{ CH }}, or {{ MY }}.
+1. In the **Cluster** field, select the managed database cluster you want to connect to.
+1. Specify the **Username** you will use to connect to cluster databases.
+1. Enter the user **Password**.
+1. List the **Databases** you want to connect to. You can only connect to the databases that exist in this cluster. The user you specified must have access to them configured.
+1. Click **Create**.

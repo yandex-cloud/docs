@@ -4,9 +4,7 @@
 
 You have the option to select one of the standard DS Default images or to create a [custom environment](../operations/user-images.md) for working in {{ ml-platform-name }}. Standard images differ in their Python versions and sets of libraries.
 
-By default, an image with Python 3.10 is used in {{ ml-platform-short-name }} projects. If you need Python 3.7 or Python 3.8, follow the guide in [{#T}](../operations/projects/python-version.md).
-
-{% include [python-disclaimer](../../_includes/datasphere/python-disclaimer.md) %}
+By default, an image with Python 3.10 is used in {{ ml-platform-short-name }} projects. If you need Python 3.8, use this guide: [{#T}](../operations/projects/python-version.md).
 
 ## List of pre-installed packages {#preinstalled-packages}
 
@@ -19,12 +17,6 @@ To view a list of installed packages and their versions, you can also run the fo
 ```
 
 {% include [packs](../../_includes/datasphere/migration/preinstalled-packs.md) %}
-
-{% note warning %}
-
-The DS Default (Python 3.7) system image is incompatible with the g2.x (GPU A100) [configurations](configurations.md).
-
-{% endnote %}
 
 ## Updating {#update}
 

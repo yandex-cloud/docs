@@ -1,6 +1,6 @@
 ---
-title: "How to prepare for the transfer"
-description: "In this tutorial, you will learn how to prepare for the transfer."
+title: "How to prepare for a transfer"
+description: "In this tutorial, you will learn how to prepare for a transfer."
 ---
 
 # Preparing for a transfer
@@ -8,7 +8,7 @@ description: "In this tutorial, you will learn how to prepare for the transfer."
 
 ## Preparing a source {#source}
 
-### Airbyte® sources {#source-airbyte}
+### {{ AB }} sources {#source-airbyte}
 
 #### AWS CloudTrail source {#source-aws}
 

@@ -55,7 +55,7 @@
   1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `yq-sa`.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту роли:
-     * `datasphere.community-project.editor` — для запуска вычислений {{ ml-platform-name }}.
+     * `datasphere.community-projects.editor` — для запуска вычислений {{ ml-platform-name }}.
      * `yq.editor` — для отправки запросов {{ yq-name }}.
      * `storage.viewer` — для просмотра содержимого бакета и объектов {{ objstorage-name }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -188,7 +188,7 @@
 
 В {{ yq-name }} можно существенно снизить время запроса, если настроить правила [партицирования](../../query/concepts/partitioning.md) (размещения) данных в {{ objstorage-name }}, которые позволят считывать только нужные данные. Например, когда файлы в бакете рассортированы в каталогах по годам, то при запросе {{ yq-name }} будет искать данные только в заданных каталогах.
 
-{{ yq-name }} поддерживает два варианта указания правил размещения данных [Hive-партицирование](../../query/concepts/partitioning.md#formats) и [Расширенное партицирование](../../query/concepts/partition-projection.md).
+{{ yq-name }} поддерживает два варианта указания правил размещения данных: [Hive-партицирование](../../query/concepts/partitioning.md#formats) и [Расширенное партицирование](../../query/concepts/partition-projection.md).
 
 ### Hive-партицирование {#hive}
 

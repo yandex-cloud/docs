@@ -4,12 +4,6 @@
 
 The Spark connector is a special resource that stores connection and interaction settings for [existing and temporary](./data-proc.md#types) {{ dataproc-name }} clusters. The selected clusters are automatically connected or created when you start computing in the IDE. When creating a resource, you can also specify data for connection to the S3 object storage.
 
-{% note info %}
-
-Spark connectors are at the [Preview](../../overview/concepts/launch-stages.md) stage. To access the feature, contact support.
-
-{% endnote %}
-
 ## Information about a Spark connector as a resource {#info}
 
 The following information is stored for each Spark connector:

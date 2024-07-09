@@ -69,7 +69,7 @@ There are different service packages available in different [regions](region.md)
 | [{{ translate-full-name }}](../../translate/index.yaml) | Machine translation service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ vpc-full-name }}](../../vpc/index.yaml) | Cloud network management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ vision-full-name }}](../../vision/index.yaml) | Computer vision service for image analysis | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ websql-full-name }}](../../websql/index.yaml) | {{ preview-stage }} Service for connecting to managed database clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
+| [{{ websql-full-name }}](../../websql/index.yaml) | Service for connecting to managed database clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ wiki-full-name }}](../../wiki/index.yaml) | Service for creating a corporate knowledge base | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 
 ## How to enable services {#enable}

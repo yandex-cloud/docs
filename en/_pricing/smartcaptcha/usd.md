@@ -1,7 +1,7 @@
 | Service | Price per 1000 requests, <br>without VAT |
 | ----- | ----- |
 | Requests to the {{ captcha-name }} API, up to 250000 per month | Free |
-| Requests to the {{ captcha-name }} API, more than 250000 per month | $0.800000 |
+| Requests to the {{ captcha-name }} API, more than 250000 per month | {{ sku|USD|smart_captcha.check.requests.v1|pricingRate.250|string }} |
 
 You pay for the actual number of requests.
 

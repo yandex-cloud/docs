@@ -30,3 +30,20 @@ editable: false
 {% endlist %}
 
 
+
+### Пример расчета стоимости {#price-example}
+
+
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  {% include [rub-speechsense](../_pricing_examples/speechsense/rub-speechsense.md) %}
+
+- Расчет в тенге {#prices-kzt}
+
+  {% include [kzt-speechsense](../_pricing_examples/speechsense/kzt-speechsense.md) %}
+
+{% endlist %}
+
+

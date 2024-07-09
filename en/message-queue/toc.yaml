@@ -12,7 +12,7 @@ items:
         href: quickstart.md
       - name: Supported tools
         href: instruments/index.md
-      - name: Sample code
+      - name: Code snippets
         items:
           - name: Python
             href: instruments/python.md
@@ -138,6 +138,8 @@ items:
             href: api-ref/data-types/SendMessageBatchResultEntry.md
       - name: Common errors
         href: api-ref/common-errors.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: Public materials
     href: public-talks.md
   - name: FAQ

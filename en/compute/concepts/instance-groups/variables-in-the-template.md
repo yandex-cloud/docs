@@ -14,7 +14,7 @@ A VM instance template is described in a YAML file using the `instance_template`
 * `instance_template.hostname`: Hostname.
 * `instance_template.metadata`: Instance metadata. Variables can only be used in the `metadata` field key values.
 * `instance_template.name`: Instance name.
-* `instance_template.labels`: Instance labels. Variables can only be used in the `labels` field key values.
+* `instance_template.labels`: Instance [labels](../../../resource-manager/concepts/labels.md). Variables can only be used in the `labels` field key values.
 * `instance_template.boot_disk_spec.disk_id`: Boot disk ID.
 * `instance_template.boot_disk_spec.disk_spec.description`: Boot disk description.
 * `instance_template.boot_disk_spec.disk_spec.image_id`: Boot disk image ID.
@@ -45,11 +45,12 @@ You can see an [example](#example) of substitution stages below.
 {{ ig-name }} will only replace the fixed list of system variables with the calculated values:
 
 | System variable | Description |
-| --- | --- |
+--- | ---
 | `{instance_group.id}` | Instance group ID |
-| `{instance_group.labels.label_key}` | Label value with `label_key` |
-| `{instance.index}` | Unique instance number in the group.</br>The possible values are 1 to N, where N is the number of instances in the group. |
+| `{instance_group.labels.label_key}` | Value of the instance group label with `label_key` as its key. |
+| `{instance.index}` | Unique instance number in the group. |
 | `{instance.index_in_zone}` | Instance number in the zone. It is unique for a specific group</br>of instances within a zone. |
+| `{instance.labels.another_label_key}` | Value of the instance label with `another_label_key` as its key. |
 | `{instance.short_id}` | Instance ID that is unique within the group. It consists of four alphabetic characters. |
 | `{instance.tag}` | Tag of an instance in the group within the availability zone. For more information, see the [Allocation policy](policies/allocation-policy.md). |
 | `{instance.zone_id}` | Zone ID |
@@ -70,7 +71,7 @@ At this stage, {{ ig-name }} will do the following:
 System and user-defined variables are specified as values for template fields in curly brackets (`{}`). {{ ig-name }} will convert them according to the rules below:
 
 | Template field value | Field value</br>after conversion | Conversion description |
-| --- | --- | --- |
+--- | --- | ---
 | `{specified_key}` | `value` | The value is inserted from the list created in advance. |
 | `{unknown_key}` | `{unknown_key}` | If the specified key is not supported by the substitution feature, {{ ig-name }} will not replace it. |
 | `not_var{{specified_key}}` | `{specified_key}` | At stage 1, the internal level of brackets is removed. |

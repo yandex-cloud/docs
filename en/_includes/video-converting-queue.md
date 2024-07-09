@@ -42,7 +42,7 @@ The infrastructure support cost includes:
    * `{{ roles-functions-invoker }}`
 
 1. [Create a static key](../iam/operations/sa/create-access-key.md) for the service account. Save the **Key ID** and **Your secret key**.
-1. [Create a secret](../lockbox/quickstart.md) named `ffmpeg-sa-secret` in {{ lockbox-name }}. Under **{{ ui-key.yacloud.lockbox.forms.section_version }}**, specify:
+1. [Create a secret](../lockbox/quickstart.md) named `ffmpeg-sa-secret` in {{ lockbox-name }}. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**, specify:
 
    * `ACCESS_KEY_ID` as the key and **Key ID** from the previous step as the value.
    * `SECRET_ACCESS_KEY` as the key and **Your secret key** from the previous step as the value.

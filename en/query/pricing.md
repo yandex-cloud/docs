@@ -1,3 +1,3 @@
-# {{ yq-full-name }} pricing
+# {{ yq-full-name }} pricing policy
 
 

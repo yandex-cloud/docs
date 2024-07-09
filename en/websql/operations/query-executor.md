@@ -1,12 +1,10 @@
-# Working with the SQL query editor
+# Working with the query editor
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
-The SQL query editor opens in the data panel when you select a database, a table, or a view in the **Connection manager** window.
+The query editor opens in the data panel when you select a database, a table, or a view in the ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section.
 
 ## Running a query {#execute-query}
 
-To perform a database query, [establish](connect.md##connect-db) or [activate](connect.md#update-connection) a connection with the database.
+To perform a database query, [establish](create-connection.md#connect-db) or [activate](connect.md#update-connection) a connection with the database.
 
 {% include notitle [execute-sql](../../_includes/websql/execute-sql.md) %}
 
@@ -31,7 +29,7 @@ A file with the results will be added to your browser's downloads section.
 
 {{ websql-full-name }} enables you to quickly edit your queries, including with features, such as context help or SQL syntax and error highlighting. To manage these features:
 
-1. Click **Settings** (![image](../../_assets/console-icons/gear.svg)) in the bottom-left corner.
+1. Click ![image](../../_assets/console-icons/gear.svg) **Settings** in the bottom-left corner.
 1. Go to the **Query editor** section.
 1. Set up the editor theme (`Visual Studio` or `High Contrast`), font size and type, and the editing features:
    * Editor tips

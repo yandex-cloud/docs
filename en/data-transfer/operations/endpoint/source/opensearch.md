@@ -4,7 +4,7 @@ description: "In this tutorial, you will learn how to set up an {{ OS }} source 
 ---
 # Transferring data from an {{ OS }} source endpoint
 
-{{ data-transfer-full-name }} enables you to migrate search and analytics data from an {{ OS }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate search and analytics data from an {{ OS }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ OS }}](#prepare) database for the transfer.
@@ -98,7 +98,7 @@ After configuring the data source and target, [create and start the transfer](..
 
 ## Troubleshooting data transfer issues {#troubleshooting}
 
-* [Transfer failure](#ambiguous-resolution-es)
+* [Transfer failure](#ambiguous-resolution-os)
 * [Document duplication on the target](#duplication)
 
 See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.

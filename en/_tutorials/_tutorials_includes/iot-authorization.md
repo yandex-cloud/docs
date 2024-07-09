@@ -1,0 +1,1 @@
+You can also complete authorization using certificates. Learn more [about authorization in {{ iot-name }}](../../iot-core/concepts/authorization.md).

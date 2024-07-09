@@ -53,7 +53,7 @@ _Внешний агент_ — физический или виртуальны
   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
 
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета, например `secret-loadtest`.
-  1. В блоке **{{ ui-key.yacloud.lockbox.forms.section_version }}**:
+  1. В блоке **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
       * в поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите неконфиденциальный идентификатор, например `key-loadtest`;
       * в поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** загрузите файл с открытым и закрытым авторизованными ключами.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.

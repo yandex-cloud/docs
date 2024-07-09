@@ -58,6 +58,8 @@ items:
         href: operations/schema-uploading.md
       - name: Managing queries
         href: operations/query.md
+      - name: Connecting using an IDE
+        href: operations/ide.md
   - name: Data sources and targets
     items:
       - name: Data formats and compression algorithms

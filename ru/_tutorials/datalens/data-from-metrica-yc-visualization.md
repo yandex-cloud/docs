@@ -1,4 +1,4 @@
-# Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
+# Яндекс Метрика: экспорт, постобработка и визуализация данных
 
 
 {% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}

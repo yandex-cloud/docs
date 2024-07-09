@@ -3,7 +3,7 @@
 Библиотека образов [Docker Hub](https://hub.docker.com/) ограничивает анонимный режим работы. Если при сборке Docker-образа базовый образ не скачивается или скачивается очень медленно, измените IP-адрес вашего проекта. Для этого:
 
 * [Создайте подсеть](../../vpc/operations/subnet-create).
-* [Создайте NAT-шлюз для доступа с интернет](../../vpc/operations/create-nat-gateway).
+* [Создайте NAT-шлюз для доступа в интернет](../../vpc/operations/create-nat-gateway).
 * [Создайте сервисный аккаунт](../../iam/operations/sa/create) с ролью `{{ roles-vpc-user }}`.
 * [В настройках проекта](../../datasphere/operations/projects/update) добавьте подсеть и сервисный аккаунт.
 

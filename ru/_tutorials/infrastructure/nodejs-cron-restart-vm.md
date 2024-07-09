@@ -51,7 +51,7 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета, например `oauth-token`.
-  1. В блоке **{{ ui-key.yacloud.lockbox.forms.section_version }}**:
+  1. В блоке **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
      * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите `key_token`.
      * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите значение OAuth-токена, необходимого для авторизации функции.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
