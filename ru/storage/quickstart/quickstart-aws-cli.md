@@ -147,7 +147,7 @@ description: "Следуя данной инструкции, вы сможет�
       1. Задайте эндпоинт {{ objstorage-name }}:
 
           ```bash
-          aws configure set endpoint-url https://{{ s3-storage-host }}/
+          aws configure set endpoint_url https://{{ s3-storage-host }}/
           ```
 
           {% cut "Пример получившихся конфигурационных файлов" %}
