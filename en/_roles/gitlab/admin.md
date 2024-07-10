@@ -6,3 +6,5 @@ Users with this role can:
 * View info on the [quotas](../../managed-gitlab/concepts/limits.md#quotas) for Managed Service for GitLab.
 
 This role includes the `gitlab.editor` permissions.
+
+To create Managed Service for GitLab instances, you also need the `vpc.user` role.

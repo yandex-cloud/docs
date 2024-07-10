@@ -1,5 +1,6 @@
 # {{ data-transfer-name }} release notes
 
+- [June 2024](2406.md)
 - [May 2024](2405.md)
 - [April 2024](2404.md)
 - [March 2024](2403.md)

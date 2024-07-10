@@ -58,10 +58,10 @@
 
 * Добавлена поддержка CLI: доступны команды `{{ yc-mdb-gp }} cluster` и `{{ yc-mdb-gp }} hosts`. {{ tag-cli }}
 * Добавлена возможность миграции базы данных из/в {{ mgp-name }} с помощью сервиса {{ data-transfer-full-name }}. Доступные приемники и источники приведены в [документации](../data-transfer/concepts/index.md#connectivity-matrix). Функциональность находится в стадии [Preview](../overview/concepts/launch-stages.md).
-* Добавлена поддержка расширения [pgcrypto](https://gpdb.docs.pivotal.io/6-9/ref_guide/modules/pgcrypto.html).
+* Добавлена поддержка расширения [pgcrypto]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-modules-pgcrypto.html).
 * [Оптимизировано](https://github.com/wal-g/wal-g/pull/1257) создание резервных копий за счет особой обработки append-only сегментов.
-* Добавлен модуль [diskquota](https://gpdb.docs.pivotal.io/6-19/ref_guide/modules/diskquota.html), который позволяет ограничивать схемы БД по месту на диске.
-* Реализовано автоматическое переключение на резервный мастер через [gpactivatestandby](https://gpdb.docs.pivotal.io/6-3/utility_guide/ref/gpactivatestandby.html).
+* Добавлен модуль [diskquota]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-modules-diskquota.html), который позволяет ограничивать схемы БД по месту на диске.
+* Реализовано автоматическое переключение на резервный мастер через [gpactivatestandby]({{ gp.docs.vmware }}/6/greenplum-database/utility_guide-ref-gpactivatestandby.html).
 * Добавлены настройки `max_statement_mem` и `log_statement`, доступные при создании и изменении кластера.
 * Добавлена возможность создавать кластер с нечетным количеством сегментов.
 * Минимальный размер хранилища на сетевых SSD-дисках для мастер-хоста ограничен 100 ГБ.

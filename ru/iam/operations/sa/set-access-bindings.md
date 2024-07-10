@@ -219,7 +219,6 @@
 * [{#T}](#multiple-roles).
 * [{#T}](#impersonation).
 * [{#T}](#access-to-sa).
-* [{#T}](#access-to-all).
 
 ### Назначить несколько ролей {#multiple-roles}
 
@@ -608,108 +607,5 @@
           }}}]}' \
           https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
       ```
-
-{% endlist %}
-
-### Разрешить доступ к ресурсу всем пользователям {#access-to-all}
-
-{% include [set-access-to-all](../../../_includes/iam/set-access-to-all.md) %}
-
-Например, разрешите любому прошедшему аутентификацию пользователю просматривать информацию о сервисном аккаунте `my-robot`:
-
-{% list tabs group=instructions %}
-
-- CLI {#cli}
-
-  {% include [cli-install](../../../_includes/cli-install.md) %}
-
-  Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В типе субъекта укажите `system`:
-
-  ```bash
-  yc iam service-account add-access-binding my-robot \
-    --role viewer \
-    --subject system:allAuthenticatedUsers
-  ```
-
-- {{ TF }} {#tf}
-
-  {% include [terraform-install](../../../_includes/terraform-install.md) %}
-
-  Чтобы разрешить любому прошедшему аутентификацию пользователю просматривать информацию о сервисном аккаунте `my-robot`:
-
-    1. Добавьте в конфигурационный файл параметры ресурса и укажите роль пользователей для доступа к сервисному аккаунту:
-
-       * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
-       * `role` — назначаемая роль. Обязательный параметр.
-       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
-
-     {% cut "Пример разрешения любому прошедшему аутентификацию пользователю просматривать информацию о сервисном аккаунте `my-robot`" %}
-
-     ```hcl
-     ...
-     resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
-       service_account_id = "aje82upckiqh********"
-       role               = "viewer"
-       members = [
-         "system:allUsers",
-       ]
-     }
-     ...
-     ```
-
-     {% endcut %}
-
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
-
-  1. Проверьте конфигурацию командой:
-     ```
-     terraform validate
-     ```
-
-     Если конфигурация является корректной, появится сообщение:
-
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Выполните команду:
-     ```
-     terraform plan
-     ```
-
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-  1. Примените изменения конфигурации:
-     ```
-     terraform apply
-     ```
-
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
-
-     Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
-
-     ```
-     yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
-     ```
-
-- API {#api}
-
-  Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В свойстве `subject` укажите тип `system`:
-
-  ```bash
-  curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-токен>" \
-      -d '{
-      "accessBindingDeltas": [{
-          "action": "ADD",
-          "accessBinding": {
-              "roleId": "viewer",
-              "subject": {
-                  "id": "allAuthenticatedUsers",
-                  "type": "system"
-      }}}]}' \
-      https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
-  ```
 
 {% endlist %}

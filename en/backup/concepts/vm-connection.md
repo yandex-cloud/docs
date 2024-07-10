@@ -37,9 +37,9 @@ You can automatically install the {{ backup-name }} agent when creating a VM fro
 
 ### Windows-based images {#windows}
 
-* [Kosmos VM 2022 based on Windows Server 2022 Datacenter](/marketplace/products/fotonsrv/kosmosvm2022)
-* [Kosmos VM 2019 based on Windows Server 2019 Datacenter](/marketplace/products/fotonsrv/kosmosvm2019)
-* [Kosmos VM 2016 on Windows Server 2016 Datacenter](/marketplace/products/fotonsrv/kosmosvm2016)
+* [Kosmos VM 2022 based on Windows Server Datacenter 2022](/marketplace/products/fotonsrv/kosmosvm2022)
+* [Kosmos VM 2019 based on Windows Server Datacenter 2019](/marketplace/products/fotonsrv/kosmosvm2019)
+* [Kosmos VM 2016 based on Windows Server Datacenter 2016](/marketplace/products/fotonsrv/kosmosvm2016)
 * [Kosmos VM RDS (5 licenses)](/marketplace/products/fotonsrv/kos-5-rds)
 * [Kosmos VM RDS (10 licenses)](/marketplace/products/fotonsrv/kos-10-rds)
 * [Kosmos VM RDS (50 licenses)](/marketplace/products/fotonsrv/kos-50-rds)

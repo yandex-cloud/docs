@@ -48,35 +48,8 @@ To share a chart or dashboard containing Yandex Metrica or AppMetrica data, use 
 
 {% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
 
-## Embedding public objects {#embedded-public-chart}
-
-You can [embed](../dashboard/embedded-objects.md) published dashboards and charts into a website or app using an `iframe`.
-
-### Getting the embed code {#get-code}
-
-To get the embed code with a preset dashboard or chart design:
-
-1. [Publish](#how-to-publish) your dashboard or chart.
-1. Open the dashboard or chart using the public link provided to you.
-1. Click ![image](../../_assets/console-icons/arrow-shape-turn-up-right.svg) in the top-right corner and select ![image](../../_assets/console-icons/code.svg) **Embed code**.
-1. In the window that opens, set up the menu language, theme, and appearance. On the right of the window, copy the link or embed code with the preset design parameters.
-
-### Filtering embedded charts {#filtering-embedded-charts}
-
-You can apply filtering to embedded charts. To do this, provide the filtering parameters in the chart link.
-
-To set up filtering:
-
-1. Add a chart and selector to the dashboard.
-1. [Publish](#how-to-publish) the dashboard.
-1. Set the required selector values.
-1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the chart on the dashboard and select ![image](../../_assets/console-icons/code.svg) **Embed code**.
-1. In the window that opens, set up the menu language, theme, and appearance. On the right of the window, copy the link or embed code with the preset design and filter parameters.
-
-The filter parameters will be added to the chart URL after `?`. When providing multiple parameters, they will be separated by `&` (ampersand).
-
-```
-<iframe frameborder="0" src="https://datalens.yandex/z2uxl5pbztkep?shopid_vj2j=sp-15&shopid_vj2j=sp-18&shopid_vj2j=sp-20&_embedded=1&_no_controls=1&_theme=light&_lang=ru" width="100%" height="400px"></iframe>
-```
-
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
+
+#### See also: {#see-also}
+
+* [{#T}](../security/embedded-objects.md)

@@ -17,14 +17,14 @@
         1. [Создайте эндпоинт для источника](../../../data-transfer/operations/endpoint/index.md#create) со следующими параметрами:
 
              * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `PostgreSQL`.
-             * **Параметры эндпойнта** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`.
+             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`.
 
            Укажите параметры подключения к кластеру-источнику.
 
         1. [Создайте эндпоинт для приемника](../../../data-transfer/operations/endpoint/index.md#create) со следующими параметрами:
 
              * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ PG }}`.
-             * **Параметры эндпойнта** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
 
            Укажите идентификатор кластера-приемника.
 

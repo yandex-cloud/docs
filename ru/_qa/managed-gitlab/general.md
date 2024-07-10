@@ -43,4 +43,6 @@ You are not allowed to push code to protected branches on this project.
 
 #### Я получаю ошибку `500 Internal Server Error` при открытии инстанса, в чем может быть проблема? {#500-error}
 
-Дисковое пространство инстанса может быть переполнено. [Проверьте и очистите его](../../managed-gitlab/operations/instance/clean-up-disk-space.md).
+Дисковое пространство инстанса может быть переполнено. Для очистки дискового пространства и восстановления доступа к инстансу обратитесь в [техническую поддержку]({{ link-console-support }}).
+
+Подробнее о том, как снизить вероятность переполнения дискового пространства инстанса, см. в [инструкции](../../managed-gitlab/operations/instance/clean-up-disk-space.md).

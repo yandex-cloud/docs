@@ -1,44 +1,4 @@
-# Embedding objects
-
-You can embed [published](../concepts/datalens-public.md) dashboards and charts into a website or app using an `iframe`.
-
-
-You can configure the features and appearance of the objects being embedded through these parameters:
-
-* `_autoupdate`: Sets the [auto-update](./settings.md#auto-update) time for dashboards and charts in seconds. By default, these are not updated automatically. Only active browser tabs auto-update. Auto-update of objects on an inactive tab occurs when the tab becomes active again. The minimum values are:
-
-   * 30 seconds for dashboards
-   * 15 seconds for charts
-
-* `_embedded`: Hides the navigation panel. To enable the parameter, set to `1`.
-* `_no_controls`: Hides the ![image](../../_assets/console-icons/ellipsis.svg) menu for charts. To enable the parameter, set to `1`.
-* `_theme`: Specifies the object's appearance. The possible values include:
-
-   * `light`: Use the light theme.
-   * `dark`: Use the dark theme.
-
-* `_no_scroll`: Disables vertical scrolling on dashboards. To enable the parameter, set to `1`.
-* `_lang`: For charts, defines the language for the menu that opens when you click ![image](../../_assets/console-icons/ellipsis.svg). The possible values are `ru` or `en`.
-* `_opened_info`: Displays dashboard [description](./settings.md#message-settings) as you open a dashboard, if filled. To enable the parameter, set to `1`.
-
-Provide the parameters in `<parameter_name>=<value>` format. For example, to set the auto-update time to 50 seconds, specify: `_autoupdate=50`.
-
-The parameter is added to the object address after the question mark (`?`). To send multiple parameters, list them separated by `&`, e.g.:
-
-
-```html
-<iframe frameborder="0" src="https://datalens.yandex/bdzix********?_embedded=1&_no_controls=1&_lang=ru&_theme=dark&_autoupdate=50"></iframe>
-```
-
-Here are examples of public embedded charts and dashboards:
-
-* KinoPoisk: Public statistics on [movie ratings](https://www.kinopoisk.ru/votes/) and [filmography ratings](https://www.kinopoisk.ru/name/37859/) of actors.
-* [Yandex Direct Audience](https://yandex.com/adv/products/platforms): Yandex research result.
-* [Catalog of schools with assigned houses](https://gradstat.ru/): Urban data service for parents.
-
-
-
-## Embedding private charts {#private-embedding}
+# Embedding private charts
 
 {% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
 
@@ -46,7 +6,7 @@ You can securely embed private charts into a website or app using special links 
 
 Embedding private charts only works in the new {{ datalens-short-name }} object model at the [workbook](../workbooks-collections/index.md) level and is only available to the workbook [administrator](../security/roles.md#workbooks-admin).
 
-### How to embed a private chart {#how-to-private-embed}
+## How to embed a private chart {#how-to-private-embed}
 
 1. Create a key for embedding:
 
@@ -68,7 +28,7 @@ Embedding private charts only works in the new {{ datalens-short-name }} object 
 
          {% note warning %}
 
-         After closing the window, all data from it will be lost.
+         After you close the window, all data from it will be lost.
 
          {% endnote %}
 
@@ -94,10 +54,10 @@ Embedding private charts only works in the new {{ datalens-short-name }} object 
 
 1. Create a token:
 
-   1. Prepare a payload for the token; a payload contains information about the object to embed. The payload contains the following fields:
+   1. Prepare a payload for the token, i.e., information about the object to embed. The payload contains the following fields:
 
       * `embedId`: ID of the object to embed.
-      * `iat`: Time of issuing a JWT token in [Unix Timestamp](https://en.wikipedia.org/wiki/Unix_time) format.
+      * `iat`: JWT token's issue time in [Unix Timestamp](https://en.wikipedia.org/wiki/Unix_time) format.
       * `exp`: Token expiration time in Unix Timestamp format.
 
          {% note warning %}
@@ -270,7 +230,7 @@ Embedding private charts only works in the new {{ datalens-short-name }} object 
    * `height`: Chart height
    * `frameborder`: Chart boarder (yes or no)
 
-### Unsigned parameters {#unsigned-parameters}
+## Unsigned parameters {#unsigned-parameters}
 
 When creating an object to embed, you can specify one or more unsigned parameters. These parameters are not added to the token. You can provide them directly in the URL before the token hash. This allows you to change some widget parameters on the client side without recreating the token.
 
@@ -282,7 +242,6 @@ For example, if the chart uses the `from` and `to` parameters to filter by time,
 
 Where:
 
-* `src`: Embedding URL.
+* `src`: Embedding URL
 * `<token>`: JWT token.
-* `from=2022-01-01&to=2023-02-05`: Unsigned parameters specified during the embedding setup.
-
+* `from=2022-01-01&to=2023-02-05`: Unsigned parameters specified when setting up the embedding.

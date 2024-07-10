@@ -18,7 +18,6 @@ For more information about dashboards, see the following sections:
 * [{#T}](../dashboard/settings.md)
 * [{#T}](../dashboard/versioning.md)
 * [{#T}](../dashboard/dashboard_parameters.md)
-* [{#T}](../dashboard/embedded-objects.md)
 * [{#T}](../dashboard/markdown.md)
 * Step-by-step guides:
 
@@ -43,3 +42,4 @@ For more information about dashboards, see the following sections:
 #### See also {#see-also}
 
 * [{#T}](../security/index.md)
+* [{#T}](../security/embedded-objects.md)
