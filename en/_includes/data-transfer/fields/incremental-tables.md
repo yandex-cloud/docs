@@ -2,6 +2,6 @@
 
 {% note info %}
 
-This is more efficient than copying entire tables but less efficient than using transfers of the _{{ dt-type-copy-repl }}_ type. This setting is available for such sources as {{ PG }}, {{ CH }}, and Airbyte.
+This is more efficient than copying entire tables but less efficient than using transfers of the _{{ dt-type-copy-repl }}_ type. This setting is available for {{ PG }}, {{ CH }}, and {{ AB }} sources.
 
 {% endnote %}

@@ -30,7 +30,7 @@
 
    * [Top up](../operations/pay-the-bill.md) your personal account to a positive value within the deadline stipulated in the agreement.
 
-   1. Verification of payment for consumed resources:
+   1. Payment for used resources is verified:
 
       * If you top up your personal account before the deadline stipulated in the agreement, go back to step 2.
       * If you failed to top up your personal account, {{ yandex-cloud }} reserves the right to change the status of your billing account to [SUSPENDED](../concepts/billing-account-statuses.md). Go to step 7.

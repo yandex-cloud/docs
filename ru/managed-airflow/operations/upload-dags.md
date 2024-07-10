@@ -1,6 +1,6 @@
 # Загрузка DAG-файлов в кластер {{ maf-name }}
 
-Чтобы реализовать автоматизацию, обработку данных или запуск задач по расписанию, используются _[DAG-файлы](../concepts/index.md#about-the-service)_. Они представляют собой Python-скрипты, которые запускаются внутри {{ AF }}. Пример DAG-файла см. в [документации {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).
+Чтобы реализовать автоматизацию, обработку данных или запуск задач по расписанию, используются _[DAG-файлы](../concepts/index.md#about-the-service)_. Они представляют собой скрипты на Python 3.8, которые запускаются внутри {{ AF }}. Пример DAG-файла см. в [документации {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).
 
 DAG-файлы загружаются в [бакет {{ objstorage-full-name }}](../../storage/concepts/bucket.md), который был указан при создании кластера. Так графы задач DAG автоматически попадают в кластер {{ maf-name }} и отображаются в веб-интерфейсе {{ AF }}.
 

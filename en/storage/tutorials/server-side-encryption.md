@@ -73,7 +73,6 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
    1. Describe the resources in the configuration file. In this scenario, the parameters are specified under `locals`:
 
-      
       ```
       locals {
         cloud_id    = "<cloud_ID>"
@@ -91,8 +90,8 @@ You can create a new bucket or use an existing one. To create a bucket, run:
       terraform {
         required_providers {
           yandex = {
-          source = "yandex-cloud/yandex"
-        }
+            source = "yandex-cloud/yandex"
+          }
         }
       }
 
@@ -125,8 +124,6 @@ You can create a new bucket or use an existing one. To create a bucket, run:
         secret_key = "${yandex_iam_service_account_static_access_key.buckets-account-key.secret_key}"
       }
       ```
-
-
 
       For more information about the resources you can create with [{{ TF }}](https://www.terraform.io/docs/language/index.html), see the [provider documentation]({{ tf-provider-link }}).
 
@@ -189,16 +186,18 @@ Create a new key or use an existing one. To create a key:
 
    ```bash
    yc kms symmetric-key create \
-     --name key-1 \
+     --name bucket-key \
      --default-algorithm aes-256 \
-     --rotation-period 7d
+     --rotation-period 168h
    ```
 
    Where:
 
    * `--name`: Key name.
    * `--default-algorithm`: Encryption algorithm (`aes-128`, `aes-192`, or `aes-256`).
-   * `--rotation-period`: Key rotation period. To create a key without automatic rotation, do not specify the `--rotation-period` parameter.
+   * `--rotation-period`: Key rotation period. The value is set in hours, minutes, and seconds and cannot be less than 24 hours, e.g., `--rotation-period 27h14m27s`.
+
+      To create a key without automatic rotation, do not specify the `--rotation-period` parameter.
 
    The key is created along with its first version. It is specified in the `primary_version` field.
 
@@ -206,7 +205,6 @@ Create a new key or use an existing one. To create a key:
 
    1. Describe the resources in the configuration file. In this scenario, the parameters are specified under `locals`:
 
-      
       ```
       locals {
         cloud_id    = "<cloud_ID>"
@@ -218,7 +216,7 @@ Create a new key or use an existing one. To create a key:
         sa_desc     = "Account for managing {{ objstorage-name }} buckets "
         sa_key_desc = "Static key for ${local.sa_name}"
 
-        key_name    = "key-1" # KMS key name.
+        key_name    = "bucket-key" # KMS key name.
         key_desc    = "Bucket encryption key"
 
         bucket_name = "Bucket name"
@@ -227,10 +225,10 @@ Create a new key or use an existing one. To create a key:
       terraform {
         required_providers {
           yandex = {
-          source = "yandex-cloud/yandex"
+            source = "yandex-cloud/yandex"
+          }
         }
-        }
-        }
+      }
 
       provider "yandex" {
         token     = local.oauth
@@ -269,8 +267,6 @@ Create a new key or use an existing one. To create a key:
       }
       ```
 
-
-
    1. Make sure the configuration files are correct.
 
       1. In the command line, go to the folder where you created the configuration file.
@@ -298,7 +294,7 @@ Create a new key or use an existing one. To create a key:
          * `New-buckets-account` service account
          * `Editor` role for `new-buckets-account`
          * Static key for the service account
-         * {{ kms-short-name }} key named `key-1`
+         * {{ kms-short-name }} key named `bucket-key`
          * Bucket
 
          You can check the new resources using the [management console]({{ link-console-main }}).
@@ -321,7 +317,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Select the previously created bucket.
    1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
-   1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select `key-1`.
+   1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select `bucket-key`.
    1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 - AWS CLI {#aws-cli}
@@ -345,13 +341,10 @@ To enable bucket encryption with a {{ kms-short-name }} key:
    	}'
    ```
 
-   As a result of successful command execution, all new objects in the bucket will be encrypted with `key-1`.
-
 - {{ TF }} {#tf}
 
    1. Describe the resources in the configuration file. In this scenario, the parameters are specified under `locals`:
 
-      
       ```
       locals {
         cloud_id    = "<cloud_ID>"
@@ -363,7 +356,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
         sa_desc     = "Account for managing {{ objstorage-name }} buckets"
         sa_key_desc = "Static key for ${local.sa_name}"
 
-        key_name    = "key-1" # KMS key name.
+        key_name    = "bucket-key" # KMS key name.
         key_desc    = "Bucket encryption key"
 
         bucket_name = "Bucket name" # Bucket name.
@@ -372,7 +365,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
       terraform {
         required_providers {
           yandex = {
-          source = "yandex-cloud/yandex"
+            source = "yandex-cloud/yandex"
           }
         }
       }
@@ -422,8 +415,6 @@ To enable bucket encryption with a {{ kms-short-name }} key:
       }
       ```
 
-
-
    1. Make sure the configuration files are correct.
 
       1. In the command line, go to the folder where you created the configuration file.
@@ -451,14 +442,14 @@ To enable bucket encryption with a {{ kms-short-name }} key:
          * `New-buckets-account` service account
          * `Editor` role for `new-buckets-account`
          * Static key for the service account
-         * {{ kms-short-name }} key named `key-1`
+         * {{ kms-short-name }} key named `bucket-key`
          * Bucket with encryption
 
          You can check the new resources using the [management console]({{ link-console-main }}).
 
-         As a result of successful command execution, all new objects in the bucket will be encrypted with `key-1`.
-
 {% endlist %}
+
+Now all new objects in the bucket will be encrypted with `bucket-key`.
 
 ## Disable encryption {#disable-encryption}
 
@@ -491,13 +482,10 @@ After you disable bucket encryption, previously uploaded objects will be stored 
      --endpoint-url=https://{{ s3-storage-host }}
    ```
 
-   As a result of successful execution, bucket encryption will be disabled.
-
 - {{ TF }} {#tf}
 
    1. Describe the resources in the configuration file. To disable encryption, delete or comment out the `server_side_encryption_configuration` section for the `yandex_storage_bucket` resource:
 
-      
       ```
       locals {
         cloud_id    = "<cloud_ID>"
@@ -509,7 +497,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
         sa_desc     = "Account for managing {{ objstorage-name }} buckets"
         sa_key_desc = "Static key for ${local.sa_name}"
 
-        key_name    = "key-1"
+        key_name    = "bucket-key"
         key_desc    = "Bucket encryption key"
 
         bucket_name = "Bucket name"
@@ -570,8 +558,6 @@ After you disable bucket encryption, previously uploaded objects will be stored 
       }
       ```
 
-
-
    1. Make sure the configuration files are correct.
 
       1. In the command line, go to the folder where you created the configuration file.
@@ -596,11 +582,11 @@ After you disable bucket encryption, previously uploaded objects will be stored 
          After the command is executed, {{ TF }} updates the following resources in the specified folder:
 
          * `new-buckets-account` service account
-         * `editor` role for `new-buckets-account`
+         * `Editor` role for `new-buckets-account`
          * Static key for the service account
-         * {{ kms-short-name }} key named `key-1`
+         * {{ kms-short-name }} key named `bucket-key`
          * Bucket
 
-         Bucket encryption in the specified folder will be disabled. You can check the resources update and configuration using the [management console]({{ link-console-main }}).
-
 {% endlist %}
+
+This will disable bucket encryption in the specified folder. You can check the resources update and configuration using the [management console]({{ link-console-main }}).

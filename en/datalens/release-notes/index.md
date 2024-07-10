@@ -1,87 +1,115 @@
 ---
-title: "{{ datalens-full-name }} release notes for May 2024"
-description: "Check out {{ datalens-full-name }} release notes for May 2024."
+title: "{{ datalens-full-name }} release notes for June 2024"
+description: "Check out {{ datalens-full-name }} release notes for June 2024."
 ---
 
-# {{ datalens-full-name }} release notes: May 2024
+# {{ datalens-full-name }} release notes: June 2024
 
+* [Updates](#updates)
+* [Fixes and improvements](#fixes)
+* [Mobile version updates](#mobile-version-changes)
 
-* [Changes in basic features](#base)
-* [Changes available with the _Business_ service plan](#business)
+## Updates {#updates}
 
-## Changes in basic features {#base}
+### Viewing linked objects {#related-objects-view}
 
+You can now see where an object is used or which objects it is using. To do this, click ![image](../../_assets/console-icons/ellipsis.svg) → **Linked objects** on the navigation page or object editing window. For example, this can give you a clue as to the sources used to build a dashboard or the charts based on a given dataset.
 
+{% cut "Linked object window" %}
 
-### Viewing dashboard access permissions {#view-dashboard-access}
-
-To view access permissions for a dashboard with the [access error message](../operations/dashboard/add-access-message.md) enabled, the [{{ permission-write }}](../security/manage-access.md#permission-write) or [{{ permission-admin }}](../security/manage-access.md#permission-admin) permissions for this dashboard are now required.
-
-Users with the [{{ permission-read }}](../security/manage-access.md#permission-read) permission cannot view the list of access permissions for this dashboard or request changing access to it via the {{ datalens-short-name }} interface.
-
-### Displaying dashboard description when opening a dashboard {#dashboard-opened-info}
-
-When opening a dashboard, you can now view its pop-up [description](../dashboard/settings.md#message-settings) (if provided). To enable this feature, add `_opened_info=1` to the dashboard's URL.
-
-### Background for the _Text_ and _Heading_ widgets {#background-for-text-title}
-
-You can now set the background for the [{#T}](../dashboard/widget.md#text) and [{#T}](../dashboard/widget.md#title) widgets. To do this, enable the **Background** option in the widget settings window and choose a color.
-
-The available colors include the [Light Semantic](https://preview.gravity-ui.com/uikit/iframe.html?args=&id=colors--backgrounds&viewMode=story) palette from the [Gravity UI](https://gravity-ui.com/) design system.
-
-### Disabling link optimization {#join-optimization-off}
-
-Added the option to disable link optimization when using multiple tables in a [data source](../concepts/dataset/data-model.md#source). To do this, use the **Optimize link** option in the link settings.
-
-The option is enabled by default for all links in the dataset: the `JOIN` operator is applied when a query accesses fields from two or more linked tables. You can disable the option for each individual link to make such link a required one. In this case, the `JOIN` operation will run even if you select fields from only one table.
-
-### Images in tables {#table-image}
-
-Added the [IMAGE](../function-ref/IMAGE.md) markup feature that allows you to add images in table cells.
-
-### Dragging and dropping to add widgets to a dashboard {#drag-n-drop}
-
-You can now drag and drop widgets directly to where you want them to be. This works for all objects you are creating or copying without affecting their size. The previous behavior based on clicking the panel is also supported.
-
-{% cut "How it looks" %}
-
-![drag-n-drop](../../_assets/datalens/drag-n-drop.gif)
+![image](../../_assets/datalens/release-notes/related-objects-view.png)
 
 {% endcut %}
 
-### Tooltips in selectors and tables {#hint}
+### Basic background color for widgets {#background-base-color}
 
-The new **Tooltip** feature allows adding a text comment to a [selector](../operations/dashboard/add-selector.md) or [regular](../visualization-ref/table-chart.md#hint-column) and [pivot table](../visualization-ref/pivot-table-chart.md#hint-column) headers. By default, the tooltip text is substituted from the field description in the dataset.
+Now you can set the same background color for the [Text](../dashboard/widget.md#text) and [Header](../dashboard/widget.md#title) widgets as for charts and selectors: white for the light interface theme and dark gray for the dark one. To do this, set the background color to ![image](../../_assets/console-icons/chart-column.svg) **Basic** in the widget settings window.
 
-When the option is enabled, the ![image](../../_assets/console-icons/circle-question.svg) icon appears on the dashboard next to the selector or table column header.
+{% cut "**Text** widget settings window" %}
+
+![image](../../_assets/datalens/release-notes/background-base-color.png)
+
+{% endcut %}
+
+### Disabling default preview in a dataset {#preview-disable}
+
+Now you can [disable](../concepts/dataset/settings.md#preview-default) default data preview at the dataset level. This is especially useful when editing datasets with large numbers of complex [calculated fields](../concepts/calculations/index.md).
+
+### Displaying a header in the indicator {#indicator-title}
+
+You can now customize header appearance in the [Indicator](../visualization-ref/indicator-chart.md) chart's [settings](../concepts/chart/settings.md#common-settings):
+
+* `Field name`: Show header field name.
+* `Manually`: Rename header.
+* `Hide`: Hide header.
+
+{% cut "**Indicator** chart settings window" %}
+
+![image](../../_assets/datalens/release-notes/preview-disable.png)
+
+{% endcut %}
+
+### QL charts based on {{ ydb-name }} {#ydb-ql-chart}
+
+Now you can create [QL charts](../concepts/chart/ql-charts.md) based on a [{{ ydb-name }} connection](../operations/connection/create-ydb.md).
 
 
-### Selecting a widget in the link setup window {#link-settings-widget-select}
+### Undoing and redoing changes in the wizard {#undo-redo}
 
-You can now select the widget you want to configure from the drop-down list in the [link](../dashboard/link.md) setup window on a dashboard.
+When editing a chart, you can now undo/redo any change introduced within the current version:
 
-### Link to a dataset in a selector {#selector-dataset-link}
-
-You can now specify a link to a dataset when [adding](../operations/dashboard/add-selector.md) a dataset-based selector to a dashboard. To do this:
-
-1. In the window with selector settings, click **Specify link**.
-1. In the field below, enter the link to the dataset.
-1. Click **OK**.
-
-If the link is correct, the **Dataset** field will be filled automatically; otherwise, you will get an error.
+* To undo changes, click ![image](../../_assets/console-icons/arrow-uturn-ccw-left.svg) in the top right corner of the screen or press **Ctrl** (**Cmd**) + **Z**.
+* To redo changes, click ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) or press **Ctrl** (**Cmd**) + **Shift** + **Z**.
 
 
-## Changes available with the _Business_ service plan {#business}
 
-### Generating a color palette for the current theme only {#color-palette-for-current-theme-only}
+## Fixes and improvements {#fixes}
 
-You can now generate a color palette only for a selected theme and contrast combination when [customizing the UI](../settings/ui-customization.md). To do this, enable the **Current theme only** option in the main color selection window when generating the palette. If this option is disabled, the palette you generate will apply to all themes.
+### Pivot table sorting {#pivot-table-sorted}
 
-### Resetting UI customization {#customization-reset}
+Fixed a row sorting issue for the [pivot table](../visualization-ref/pivot-table-chart.md). The issue occurred after editing a [parameter](../concepts/parameters.md) in the [calculated field](../concepts/calculations/index.md) of a column or row.
 
-You can now reset a customized UI to {{ datalens-short-name }} system defaults. To do this:
+### Date filtering in charts {#chart-date-filter}
 
-1. In the UI customization window, click **Reset**.
-1. Enable **Current theme and contrast only** to reset the selected theme only. If this option is disabled, all themes will be reset.
-1. Click **Reset**.
+Fixed the date filtering behavior in charts. Now, dashboard [filters](../concepts/chart/settings.md#filter) use by default the **Equals** comparison operation instead of **Belongs to range** for fields of the [Date](../concepts/data-types.md#date) and [Date and time](../concepts/data-types.md#datetime) types.
+
+
+### Other fixes and improvements {#other-fixes}
+
+{% list tabs %}
+
+- Fixes
+
+   * Increased the number of dashboard tabs whose names are not truncated in the drop-down list.
+   * Increased the width of the default value setting window for the **Calendar** type selector.
+   * Fixed line sorting in descending order for negative values in tooltips.
+   * Fixed an error where the chart saving option was not available after adding/removing a [tooltip](../visualization-ref/table-chart.md#hint-column) to/from a table field in the wizard.
+   * Fixed a header display issue in **Indicator** type charts where the chart name was always substituted from the dataset field name.
+   * Fixed an interface display issue in tables occurring on selecting a palette in a [linear indicator](../visualization-ref/table-chart.md#add-linear-indicator).
+   * Fixed a value loading error for chart [color customization](../concepts/chart/settings.md#color-settings).
+   * Fixed a pagination error in the [Pivot table](../visualization-ref/pivot-table-chart.md) type chart.
+   * Fixed tooltip display in the **Checkbox** type selector.
+   * Fixed incorrect chart rendering when the **Empty values (null)** parameter is set to `Do not show`.
+   * Fixed an issue where empty charts were invisibly overlapping the space below them on the dashboard.
+   * Fixed an error occurring on duplicating a dashboard from the navigation panel.
+   * Now, if you change field visibility (![image](../../_assets/console-icons/eye-slash.svg)) in the dataset field editor, an attempt to close the page will prompt an unsaved changes warning.
+   * Fixed the calculation of the [Text](../dashboard/widget.md#text) widget minimum height with **Auto height** enabled.
+   * Fixed display of the tooltip input field in the selector settings window. It is now displayed only if the **Tooltip** option is enabled.
+
+- Improvements
+
+   * Added a panel for migrating legacy dashboard configurations.
+   * Modified the navigation interface. Now, when you select multiple items from the navigation list for a bulk action, the ![image](../../_assets/console-icons/ellipsis.svg) icon at the top of the window gets hidden.
+
+{% endlist %}
+
+
+## Mobile version updates {#mobile-version-changes}
+
+* The new menu at the top of the screen allows you to switch between navigation pages (**Charts**, **Dashboards**, and **Collections and workbooks**), change settings (language, theme), and contact support.
+* You can now open a chart preview from the new **Charts** navigation page.
+* Improved the **Collections and workbooks** navigation page.
+* Improved the appearance of pages and windows with bigger font sizes and interface elements.
+* Added a table of contents for dashboards.
+* Clicking the **Share** button now opens the link settings window.
 

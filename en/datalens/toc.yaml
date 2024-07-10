@@ -722,8 +722,6 @@ items:
         href: dashboard/versioning.md
       - name: Parameters
         href: dashboard/dashboard_parameters.md
-      - name: Embedding objects
-        href: dashboard/embedded-objects.md
       - name: Markdown
         href: dashboard/markdown.md
       - name: Step-by-step guides
@@ -788,6 +786,12 @@ items:
         href: security/row-level-security.md
       - name: Public access
         href: concepts/datalens-public.md
+      - name: Embedding objects
+        items:
+          - name: Public embedding
+            href: security/embedded-objects.md
+          - name: Private embedding
+            href: security/private-embedded-objects.md
   - name: Service settings
     items:
       - name: UI customization
@@ -812,8 +816,10 @@ items:
             href: pricing-archive/pricing23042024.md
   - name: Release notes
     items:
-      - name: May 2024
+      - name: June 2024
         href: release-notes/index.md
+      - name: May 2024
+        href: release-notes/2405.md
       - name: April 2024
         href: release-notes/2404.md
       - name: March 2024

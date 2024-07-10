@@ -49,7 +49,7 @@ You will see ![image](../../_assets/console-icons/lock-open.svg) next to the inf
 
 ## Configuring access permissions for a published query {#set-access-rights-to-published-query}
 
-To configure access permissions:
+To configure [access permissions](../security/index.md):
 
 1. Go to the ![image](../../_assets/console-icons/clock-arrow-rotate-left.svg) **Query history** section.
 
