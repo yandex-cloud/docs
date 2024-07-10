@@ -12,7 +12,7 @@ To create and configure an Always On availability group with an internal network
 1. [Prepare your cloud](#before-begin).
 1. [Create a network infrastructure](#prepare-network).
 1. [Create an internal network load balancer](#create-load-balancer).
-1. [Create VMs for the availability group](#create-vms).
+1. [Prepare VMs for the availability group](#create-vms).
 1. [Test the availability group](#test).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -285,13 +285,13 @@ Prepare the network infrastructure to host the availability group.
 
 {% endlist %}
 
-## Create VMs for the availability group {#create-vms}
+## Prepare VMs for the availability group {#create-vms}
 
 
 
 ### Prepare Windows Server images {#prepare-images}
 
-Before creating VM instances, prepare your Windows Server image to use it in {{ yandex-cloud }} with your own license.
+Before creating VMs, prepare a Windows Server image you are going to use in {{ yandex-cloud }} with your own license.
 
 
 

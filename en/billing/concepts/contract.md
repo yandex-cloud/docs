@@ -38,3 +38,7 @@ You can learn more about the terms of the agreement in [Yandex Legal documents](
 ## Agreement number {#id}
 
 You can find the agreement number in {{ billing-name }} on the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page.
+
+## Agreement termination {#termination}
+
+After you [delete your billing account](../operations/delete-account.md), your agreement will be terminated. In this case, you do not have to notify Yandex.Cloud LLC, Cloud Services Kazakhstan LLP or Iron Hive doo Beograd (Serbia) of the termination.

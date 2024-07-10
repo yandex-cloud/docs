@@ -74,6 +74,6 @@ By default, optimized images have a zero [quota](../concepts/limits.md#compute-q
 ## See also {#see-also}
 
 * Learn how to create a VM from a [custom](../operations/vm-create/create-from-user-image.md) or [public](../operations/images-with-pre-installed-software/create.md) image.
-* [{#T}](../operations/image-create/custom-image.md).
-* [{#T}](../operations/image-control/import.md).
-* [{#T}](../operations/image-control/access.md).
+* [{#T}](../operations/image-create/custom-image.md)
+* [{#T}](../operations/image-control/import.md)
+* [{#T}](../operations/image-control/access.md)

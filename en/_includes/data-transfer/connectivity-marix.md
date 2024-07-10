@@ -15,7 +15,7 @@ Possible source and target combinations:
 | ![metrica](../../_assets/data-transfer/icons/metrica.png =32x)<br>[{{ metrika-endpoint }}](../../data-transfer/operations/endpoint/source/metrika.md) | - | - | - | [R^1^](../../data-transfer/tutorials/metrika-to-clickhouse.md) | - | - | - | - | - | - | - | ![metrica](../../_assets/data-transfer/icons/metrica.png =32x)<br>[{{ metrika-endpoint }}](../../data-transfer/operations/endpoint/source/metrika.md) |
 | ![yds](../../_assets/data-transfer/icons/yds-icon.svg =10x)<br>[{{ yds-short-name }}](../../data-transfer/operations/endpoint/source/data-streams.md) | R^1^ | R^1^ | R^1^ | [R](../../data-transfer/tutorials/yds-to-clickhouse.md) | R^1^ | R | [R^1^](../../data-transfer/tutorials/yds-to-objstorage.md) | R | R^1^ | R^1^ | [R^1^](../../data-transfer/tutorials/trails-to-os.md) | ![yds](../../_assets/data-transfer/icons/yds-icon.svg =10x)<br>[{{ yds-full-name }}](../../data-transfer/operations/endpoint/source/data-streams.md) |
 | ![kafka](../../_assets/data-transfer/icons/kafka-icon.svg =10x)<br>[{{ KF }}](../../data-transfer/operations/endpoint/source/kafka.md) | [R^1^](../../data-transfer/tutorials/mkf-to-mpg.md) | [R^1^](../../data-transfer/tutorials/mkf-to-mmy.md) | [R^1^](../../data-transfer/tutorials/mkf-to-mmg.md) | [R^1^](../../data-transfer/tutorials/mkf-to-mch) | [R^1^](../../data-transfer/tutorials/managed-kafka-to-greenplum.md) | [R](../../data-transfer/tutorials/mkf-to-ydb.md) | R^1^ | [R](../../data-transfer/tutorials/mkf-to-mkf.md) | [R^1^](../../data-transfer/tutorials/mkf-to-yds.md) | R^1^ | [R^1^](../../data-transfer/tutorials/mkf-to-mos.md) | ![kafka](../../_assets/data-transfer/icons/kafka-icon.svg =10x)<br>[{{ KF }}](../../data-transfer/operations/endpoint/source/kafka.md) |
-| ![airbyte](../../_assets/data-transfer/icons/airbyte.png =32x)<br>[Airbyte®](#airbyte) | C^1^ | C^1^ | C^1^ | C^1^ | C^1^ | C^1^ | - | C^1^ | C^1^ | - | - | ![airbyte](../../_assets/data-transfer/icons/airbyte.png =32x)<br>[Airbyte®](#airbyte) |
+| ![airbyte](../../_assets/data-transfer/icons/airbyte.png =32x)<br>[{{ AB }}](#airbyte) | C^1^ | C^1^ | C^1^ | C^1^ | C^1^ | C^1^ | - | C^1^ | C^1^ | - | - | ![airbyte](../../_assets/data-transfer/icons/airbyte.png =32x)<br>[{{ AB }}](#airbyte) |
 | ![elasticsearch](../../_assets/data-transfer/icons/elasticsearch-icon.svg =10x)<br>[{{ ES }}](../../data-transfer/operations/endpoint/source/elasticsearch.md) | C^1^ | - | - | C^1^ | C^1^ | C^1^ | C^1^ | C^1^ | C^1^ | C^1^ | [C^1^](../../data-transfer/tutorials/mes-to-mos.md) | ![elasticsearch](../../_assets/data-transfer/icons/elasticsearch-icon.svg =10x)<br>[{{ ES }}](../../data-transfer/operations/endpoint/source/elasticsearch.md) |
 | ![opensearch](../../_assets/data-transfer/icons/opensearch-icon.svg =10x)<br>[{{ OS }}](../../data-transfer/operations/endpoint/source/opensearch.md) | C^1^ | - | - | C^1^ | C^1^ | C^1^ | C^1^ | C^1^ | C^1^ | C^1^ | [C^1^](../../data-transfer/tutorials/os-to-mos.md) | ![opensearch](../../_assets/data-transfer/icons/opensearch-icon.svg =10x)<br>[{{ OS }}](../../data-transfer/operations/endpoint/source/opensearch.md) |
 
@@ -29,12 +29,14 @@ CR: [Copy and replicate](../../data-transfer/concepts/transfer-lifecycle.md#copy
 
 ^1^ This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and is available upon request. Contact [support]({{ link-console-support }}) or your account manager.
 
-#### Airbyte® endpoints {#airbyte}
+#### {{ AB }} endpoints {#airbyte}
 
-You can use [Airbyte®](https://docs.airbyte.com/integrations/sources) to configure the following source endpoints:
+You can use [{{ AB }}](https://docs.airbyte.com/integrations/sources) to configure the following source endpoints:
 
 * [AWS CloudTrail](../../data-transfer/operations/endpoint/source/aws-cloudtrail.md)
 * [BigQuery](../../data-transfer/operations/endpoint/source/bigquery.md)
 * [Microsoft SQL Server](../../data-transfer/operations/endpoint/source/mssql.md)
 * [S3](../../data-transfer/operations/endpoint/source/s3.md)
+
+{{ AB }} is already built into {{ data-transfer-name }}, so you do not have to create a separate VM and deploy {{ AB }}.
 

@@ -7,6 +7,27 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ## Current version {#latest-release}
 
+### Version 0.128.0 (02/07/24) {#version0.128.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ api-gw-name }} {#api-gw}
+
+Added the `--execution-timeout` parameter to the `yc serverless api-gateway create` and `yc serverless api-gateway update` commands to limit the processing time for requests to an API gateway:
+
+#### Managed database services {#managed-db}
+
+**{{ mch-name }}**
+
+* Added the `--convert-tables-to-replicated` parameter for converting tables into replicated tables when adding them to a {{ ZK }} cluster.
+* Added the `{{ yc-mdb-ch }} hosts add` and `{{ yc-mdb-ch }} shards add` commands. The `copy-schema` parameter is enabled by default.
+
+**{{ mgp-name }}**
+
+* Added the `delay-redistribution`, `parallel`, and `close-cluster` options to the `yc managed-greenplum cluster expand` command.
+
+## Previous releases {#previous-releases}
+
 ### Version 0.127.0 (17/06/24) {#version0.127.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -14,16 +35,16 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 ##### {{ iam-name }} {#iam}
 
 * Added the `yc iam service-account add-labels` and `yc iam service-account remove-labels` commands to manage labels.
-* Added the `--labels` parameter defining DB labels to the `yc iam service-account create` and `yc iam service-account update` commands.
+* Added the `--labels` parameter to define the set of DB labels to the `yc iam service-account create` and `yc iam service-account update` commands.
 
 ##### {{ org-name }} {#organization}
 
-* Added the following commands to manage labels:
+* Added the following label management commands:
    * `yc organization-manager organization add-labels`
    * `yc organization-manager organization remove-labels`
    * `yc organization-manager federation saml add-labels`
    * `yc organization-manager federation saml remove-labels`
-* Added the `--labels` parameter to the following commands to define DB labels:
+* Added the `--labels` parameter to the following commands to define the set of DB labels:
    * `yc organization-manager organization update`
    * `yc organization-manager federation saml create`
    * `yc organization-manager federation saml update`
@@ -35,17 +56,15 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 ##### {{ resmgr-name }} {#resmgr}
 
 * Added the `yc resource-manager cloud add-labels` and `yc resource-manager cloud remove-labels` commands to manage labels.
-* Added the `--labels` parameter defining DB labels to the `yc resource-manager cloud update` command.
+* Added the `--labels` parameter to the `yc resource-manager cloud update` command. The parameter defines the set of DB labels.
 
 ##### {{ iot-name }} {#iot}
 
 * Added the `yc iot registry enable` and `yc iot registry disable` commands to enable and disables registries.
 
-##### {{ sf-name }} {#serverless-functions}
+##### {{ sf-name }} {#cloud-functions}
 
 * Added the new `concurrency` flag to the `yc serverless function version create` command.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.126.0 (04/06/24) {#version0.126.0}
 
@@ -57,30 +76,35 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 #### Changes to {{ yandex-cloud }} services {#services}
 
 ##### {{ resmgr-name }} {#resmgr}
+
 * Added the `yc resource-manager cloud create` command to create a cloud.
    * The `--billing-account-id` flag allows you to automatically link a new cloud to a billing account.
 * Added the `yc resource-manager cloud delete` command to delete a cloud.
    * The `--delete-after` flag allows you to delete a cloud after a specified period of time.
 * Added the `--delete-after` flag for delayed deletion after a specified time to the `yc resource-manager folder delete` command.
 
-##### {{ load-testing-name }}
+##### {{ load-testing-name }} {#load-testing}
+
 * Added the `--platform-id` flag to create a VM on a specified platform to the `yc loadtesting agent create` command.
 * Added these parameters to manage the export of agent artifacts to {{ objstorage-name }} to the `yc loadtesting test create` command:
    * `--artifacts-output-bucket` to specify the name of the bucket to export the artifacts to.
    * `--artifacts-make-archive` to specify whether to export the artifacts as a single archive or separately.
    * `--artifacts` to list specific files for export.
 
-##### {{ mos-name }}
+##### {{ mos-name }} {#mos}
+
 * Added the optional `--keystore-settings` parameter that allows setting up the {{ OS }} keystore contents to the `yc managed-opensearch cluster create` and `yc managed-opensearch cluster restore` commands.
 * Added these optional `--set-keystore-settings` and `--remove-keystore-settings` parameters to the `yc managed-opensearch cluster update` command:
    * `--set-keystore-settings` to list records you want to add or replace. Keystore records not specified in this parameter will remain unchanged.
    * `--remove-keystore-settings` to list records you want to remove from keystore.
 
-##### {{ sf-name }} {#serverless-functions}
+##### {{ sf-name }} {#cloud-functions}
+
 * Replaced the legacy `serverless.functions.invoker` role with the new `functions.functionInvoker` role in the `yc serverless function allow-unauthenticated-invoke` command.
 * The `yc serverless function deny-unauthenticated-invoke` command now deletes the legacy `serverless.functions.invoker` role and the new `functions.functionInvoker` role.
 
 ##### {{ serverless-containers-name }} {#serverless-containers}
+
 * Replaced the legacy `serverless.containers.invoker` role with the new `serverless-containers.containerInvoker` role in the `yc serverless container allow-unauthenticated-invoke` command.
 * The `yc serverless container deny-unauthenticated-invoke` command now deletes the legacy `serverless.containers.invoker` role and the new `serverless-containers.containerInvoker` role.
 
@@ -323,7 +347,7 @@ Added the `yc serverless network` command group to manage networks that are used
 
 Added the parameters to the `yc cdn resource update` and `yc cdn resource create` commands to define the *ip address acl* option:
 
-* `--policy-type`: Client access policy by IP addresses; either *allow* or *deny*.
+* `--policy-type`: Client access policy by IP address; either *allow* or *deny*.
 * `--acl-excepted-values`: List of IP addresses for which access will be allowed or denied depending on the specified policy type.
 
 ##### {{ load-testing-name }}
@@ -1823,7 +1847,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 {{ cloud-logging-name }} is a service for reading and recording service logs and user applications.
 
-{{ cloud-logging-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. If you want to learn more about , see [our relevant documentation](../logging/).
+{{ cloud-logging-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. If you want to learn more about the service, see [our relevant documentation](../logging/).
 
 #### {{ sf-name }} {#serverless-functions}
 

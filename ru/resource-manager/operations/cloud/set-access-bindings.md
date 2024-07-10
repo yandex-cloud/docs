@@ -488,11 +488,6 @@
 {% endlist %}
 
 
-## Доступ к ресурсу всем пользователям {#access-to-all}
-
-{% include [set-accessbinding-all-console](../../../_includes/iam/set-accessbinding-all-console.md) %}
-
-
 ## Что дальше {#what-is-next}
 
 * [{#T}](../folder/create.md)

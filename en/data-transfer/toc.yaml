@@ -332,6 +332,8 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Public materials
@@ -340,6 +342,8 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
+      - name: June 2024
+        href: release-notes/2406.md
       - name: May 2024
         href: release-notes/2405.md
       - name: April 2024

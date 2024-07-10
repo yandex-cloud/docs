@@ -1,5 +1,5 @@
 {% note warning %}
 
-In {{ yandex-cloud }}, Microsoft products can only be used with your own licenses and only on dedicated hosts. For details, see [{#T}](../microsoft/byol.md).
+In {{ yandex-cloud }}, you can only use Microsoft products with your own licenses and on dedicated hosts. For more information, see [{#T}](../microsoft/byol.md).
 
 {% endnote %}

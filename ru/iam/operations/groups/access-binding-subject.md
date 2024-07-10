@@ -1,10 +1,6 @@
 # Назначение прав группе пользователей
 
-Выдайте [группе](../../../organization/operations/manage-groups.md) права на доступ к какому-либо ресурсу. Чтобы дать [субъекту](../../concepts/access-control/index.md#subject) права на доступ к группе, воспользуйтесь инструкцией [{#T}](access-binding-object.md).
-
-Управление [доступом](../../concepts/access-control/index.md#how-do-i-perform-access-management) в {{ yandex-cloud }} построено на основе ролей.
-
-В консоли управления группе можно назначить роль на облако, каталог или сервисный аккаунт. В сервисе {{ org-full-name }} группе можно назначить роль только на другую группу. Чтобы назначить группе роль на организацию, используйте CLI.
+Чтобы выдать права доступа [группе пользователей](../../../organization/concepts/groups.md), назначьте ей роли на нужные ресурсы из [списка](../../concepts/access-control/resources-with-access-control.md). Вы также можете выдать [субъектам](../../concepts/access-control/index.md#subject) права на [доступ к группе](access-binding-object.md) как ресурсу.
 
 ## Назначить роль на облако или каталог {#access-binding-cloud}
 

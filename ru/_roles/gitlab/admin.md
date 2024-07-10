@@ -6,3 +6,5 @@
 * просматривать информацию о [квотах](../../managed-gitlab/concepts/limits.md#quotas) сервиса Managed Service for GitLab.
 
 Включает разрешения, предоставляемые ролью `gitlab.editor`.
+
+Для создания инстансов Managed Service for GitLab дополнительно необходима роль `vpc.user`.

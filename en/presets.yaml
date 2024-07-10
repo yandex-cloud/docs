@@ -8040,6 +8040,7 @@ default:
                     ClickHouseSource:
                       connection:
                         title: Connection settings
+                      title: Endpoint parameters
                     ClickHouseTableFilter:
                       exclude_tables:
                         title: Excluded tables
@@ -8148,6 +8149,7 @@ default:
                         title: Connection
                       sanitize_doc_keys:
                         title: Sanitize documents keys
+                      title: Endpoint parameters
                     OnPremiseElasticSearch:
                       addresses:
                         title: Data nodes
@@ -8190,6 +8192,7 @@ default:
                     GreenplumSource:
                       connection:
                         title: Connection settings
+                      title: Endpoint parameters
                     GreenplumTableFilter:
                       exclude_tables:
                         title: Excluded tables
@@ -8200,6 +8203,7 @@ default:
                         title: Cleanup policy
                       connection:
                         title: Connection settings
+                      title: Endpoint parameters
                     OnPremiseGreenplum:
                       ca_certificate:
                         title: CA certificate
@@ -8239,6 +8243,7 @@ default:
                         title: Advanced settings
                       connection:
                         title: Connection settings
+                      title: Endpoint parameters
                     KafkaSourceAdvancedSettings:
                       converter:
                         title: Conversion rules
@@ -8254,6 +8259,7 @@ default:
                     KafkaTarget:
                       connection:
                         title: Connection settings
+                      title: Endpoint parameters
                     KafkaTargetConnection:
                       connection_type:
                         title: Connection type
@@ -8380,6 +8386,7 @@ default:
                     MongoSource:
                       connection:
                         title: Connection settings
+                      title: Endpoint parameters
                     MongoTarget:
                       cleanup_policy:
                         title: Cleanup policy
@@ -8387,6 +8394,7 @@ default:
                         title: Connection settings
                       database:
                         title: Database
+                      title: Endpoint parameters
                     OnPremiseMongo:
                       ca_certificate:
                         title: CA certificate
@@ -8427,6 +8435,7 @@ default:
                         title: Transfer schema
                       table_filter:
                         title: Table filter
+                      title: Endpoint parameters
                     MysqlSourceAdvancedSettings:
                       service_database:
                         title: Database for auxiliary tables
@@ -8442,6 +8451,7 @@ default:
                         title: Cleanup policy
                       connection:
                         title: Connection settings
+                      title: Endpoint parameters
                     MysqlTargetAdvancedSettings:
                       service_database:
                         title: Database schema for auxiliary tables
@@ -8569,6 +8579,7 @@ default:
                         title: Encoding format
                       output_format:
                         title: Serialization format
+                      title: Endpoint settings
             opensearch:
               console:
                 form:
@@ -8609,6 +8620,7 @@ default:
                         title: Connection
                       sanitize_doc_keys:
                         title: Sanitize documents keys
+                      title: Endpoint parameters
             oracle:
               console:
                 form:
@@ -8676,6 +8688,7 @@ default:
                         title: Connection settings
                       object_transfer_settings:
                         title: Schema migration
+                      title: Endpoint parameters
                     PostgresSourceAdvancedSettings:
                       collapse_inherit_table:
                         title: Merge inherited tables
@@ -8695,6 +8708,7 @@ default:
                         title: Cleanup policy
                       connection:
                         title: Connection settings
+                      title: Endpoint parameters
                     PostgresTargetAdvancedSettings:
                       save_tx_boundaries:
                         title: Save transaction borders
@@ -8784,11 +8798,13 @@ default:
                       paths:
                         array_item_label: Path
                         title: Included paths list
+                      title: Endpoint parameters
                     YdbTarget:
                       cleanup_policy:
                         title: Cleanup policy
                       connection:
                         title: Connection settings
+                      title: Endpoint parameters
                     YdbTargetAdvancedSettings:
                       alt_names:
                         title: Renaming tables

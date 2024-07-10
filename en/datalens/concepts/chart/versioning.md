@@ -14,6 +14,16 @@ To go to the list of versions, click the ![image](../../../_assets/console-icons
 
 To select a version from the list, click it. The version number will be displayed as the value of the `revId` parameter in the chart address string. Click a link with the version number in the `revId` parameter to open the relevant version of the chart directly.
 
+When editing within the current version, you can undo/redo any change you have made. To do this, in the top-right part of the screen, click:
+
+* ![image](../../../_assets/console-icons/arrow-uturn-ccw-left.svg) to undo a change.
+* ![image](../../../_assets/console-icons/arrow-uturn-cw-right.svg) to redo a change.
+
+Unsaved changes in the current version are reset:
+
+* When refreshing the page.
+* When saving a chart.
+* When switching to another version.
 
 ## Version types {#version-types}
 

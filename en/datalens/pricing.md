@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# {{ datalens-full-name }} pricing
+# {{ datalens-full-name }} pricing policy
 
 
 
@@ -28,7 +28,7 @@ You can find the {{ datalens-full-name }} features based on the service plan in 
 | Authentication | Yandex ID | Yandex ID, corporate accounts / SSO¹ |
 | [{{ datalens-name }} UI customization](./settings/ui-customization.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) |
 | [{{ datalens-name }} usage statistics](./operations/connection/create-usage-tracking.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) |
-| [Secure embedding for private objects](./dashboard/embedded-objects.md#private-embedding) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) |
+| [Secure embedding for private objects](./security/private-embedded-objects.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) |
 | [SLA](https://yandex.com/legal/cloud_sla_datalens) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) |
 | Technical support | [Basic plan](../support/pricing.md#base) (if the user does not have [Business](../support/pricing.md#business) or [Premium](../support/pricing.md#premium) enabled) | [Business plan](../support/pricing.md#business) (only applies to {{ datalens-name }}) and priority over the Community plan when processing support requests |
 

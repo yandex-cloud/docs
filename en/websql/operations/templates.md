@@ -1,6 +1,6 @@
 # Working with saved queries
 
-You can save any query for later use and to create a template out of it. The ![image](../../_assets/console-icons/floppy-disk.svg) **Saved queries** section enables you to:
+You can save any query to use it later and create a template out of it. The ![image](../../_assets/console-icons/floppy-disk.svg) **Saved queries** section enables you to:
 
 * [Save a query as a template](#save-query).
 * [Use a saved query](#use-templates).
@@ -40,7 +40,7 @@ To save a query:
   1. In the top-right corner, click ![image](../../_assets/websql/new-connection.svg).
   1. In the window that opens:
 
-     1. Select the database connection to query.
+     1. Select a connection to the queried database.
      1. Specify a **Name**, i.e., any name under which the query will be displayed in the list of saved queries.
      1. For your saved query to be used as a template in the suggestions list, select **Add tip** and type the **Tip text** including `userTemplate_`.
 
@@ -127,7 +127,7 @@ You will see ![image](../../_assets/console-icons/lock-open.svg) next to the nam
 
 ## Configuring access permissions for a published query {#set-access-rights-to-published-query}
 
-To configure access permissions:
+To configure [access permissions](../security/index.md):
 
 1. Go to the ![image](../../_assets/console-icons/floppy-disk.svg) **Saved queries** section.
 

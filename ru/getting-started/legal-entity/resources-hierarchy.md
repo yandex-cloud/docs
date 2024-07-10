@@ -348,7 +348,3 @@
   {% include [grant-role-for-sa-to-folder-via-api](../../_includes/iam/grant-role-for-sa-to-folder-via-api.md) %}
 
 {% endlist %}
-
-## Дайте доступ к ресурсу всем пользователям {#access-to-all}
-
-{% include [grant-role-for-sa](../../_includes/iam/grant-role-for-all.md) %}

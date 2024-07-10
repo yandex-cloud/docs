@@ -8042,6 +8042,7 @@ default:
                     ClickHouseSource:
                       connection:
                         title: Настройки подключения
+                      title: Параметры эндпоинта
                     ClickHouseTableFilter:
                       exclude_tables:
                         title: Список исключённых таблиц
@@ -8150,6 +8151,7 @@ default:
                         title: Настройки подключения
                       sanitize_doc_keys:
                         title: Исправить некорректные ключи в документах
+                      title: Параметры эндпоинта
                     OnPremiseElasticSearch:
                       addresses:
                         title: Узлы с данными
@@ -8192,6 +8194,7 @@ default:
                     GreenplumSource:
                       connection:
                         title: Настройки подключения
+                      title: Параметры эндпоинта
                     GreenplumTableFilter:
                       exclude_tables:
                         title: Список исключённых таблиц
@@ -8202,6 +8205,7 @@ default:
                         title: Политика очистки
                       connection:
                         title: Настройки подключения
+                      title: Параметры эндпоинта
                     OnPremiseGreenplum:
                       ca_certificate:
                         title: Сертификат CA
@@ -8241,6 +8245,7 @@ default:
                         title: Расширенные настройки
                       connection:
                         title: Настройки подключения
+                      title: Параметры эндпоинта
                     KafkaSourceAdvancedSettings:
                       converter:
                         title: Правила конвертации
@@ -8256,6 +8261,7 @@ default:
                     KafkaTarget:
                       connection:
                         title: Настройки подключения
+                      title: Параметры эндпоинта
                     KafkaTargetConnection:
                       connection_type:
                         title: Тип подключения
@@ -8382,6 +8388,7 @@ default:
                     MongoSource:
                       connection:
                         title: Настройки подключения
+                      title: Параметры эндпоинта
                     MongoTarget:
                       cleanup_policy:
                         title: Политика очистки
@@ -8389,6 +8396,7 @@ default:
                         title: Настройки подключения
                       database:
                         title: База данных
+                      title: Параметры эндпоинта
                     OnPremiseMongo:
                       ca_certificate:
                         title: Сертификат CA
@@ -8429,6 +8437,7 @@ default:
                         title: Перенос схемы
                       table_filter:
                         title: Фильтр таблиц
+                      title: Параметры эндпоинта
                     MysqlSourceAdvancedSettings:
                       service_database:
                         title: База данных для служебных таблиц
@@ -8444,6 +8453,7 @@ default:
                         title: Политика очистки
                       connection:
                         title: Настройки подключения
+                      title: Параметры эндпоинта
                     MysqlTargetAdvancedSettings:
                       service_database:
                         title: Схема базы данных для служебных таблиц
@@ -8571,6 +8581,7 @@ default:
                         title: Формат сжатия
                       output_format:
                         title: Выходной формат
+                      title: Параметры эндпоинта
             opensearch:
               console:
                 form:
@@ -8611,6 +8622,7 @@ default:
                         title: Настройки подключения
                       sanitize_doc_keys:
                         title: Исправить невалидные ключи в документах
+                      title: Параметры эндпоинта
             oracle:
               console:
                 form:
@@ -8678,6 +8690,7 @@ default:
                         title: Настройки подключения
                       object_transfer_settings:
                         title: Перенос схемы
+                      title: Параметры эндпоинта
                     PostgresSourceAdvancedSettings:
                       collapse_inherit_table:
                         title: Объединить наследуемые таблицы
@@ -8697,6 +8710,7 @@ default:
                         title: Политика очистки
                       connection:
                         title: Настройки подключения
+                      title: Параметры эндпоинта
                     PostgresTargetAdvancedSettings:
                       save_tx_boundaries:
                         title: Сохранение границ транзакций
@@ -8786,11 +8800,13 @@ default:
                       paths:
                         array_item_label: Путь
                         title: Список включенных путей
+                      title: Параметры эндпоинта
                     YdbTarget:
                       cleanup_policy:
                         title: Политика очистки
                       connection:
                         title: Настройки подключения
+                      title: Параметры эндпоинта
                     YdbTargetAdvancedSettings:
                       alt_names:
                         title: Переименование таблиц

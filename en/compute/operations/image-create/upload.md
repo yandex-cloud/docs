@@ -11,7 +11,7 @@ keywords:
 
 # Uploading a disk image to {{ yandex-cloud }}
 
-This tutorial will tell you how to upload a Linux OS image file to [{{ objstorage-full-name }}](../../../storage/) and use it to create an [image](../../concepts/image.md) and a [VM](../../concepts/vm.md) in {{ compute-name }}. 
+In this tutorial, you will learn how to upload a Linux OS image file to [{{ objstorage-full-name }}](../../../storage/) and use it to create an [image](../../concepts/image.md) and a [VM](../../concepts/vm.md) in {{ compute-name }}.
 
 Major virtualization systems are supported.
 
@@ -51,7 +51,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
       {% include [name-format](../../../_includes/name-format.md) %}
 
    1. If necessary, add a description of the image.
-   1. Insert the link to the image you received in {{ objstorage-name }}.
+   1. Paste the link to the image you got in {{ objstorage-name }}.
    1. To create an [optimized image](../../concepts/image.md#images-optimized-for-deployment), enable **{{ ui-key.yacloud.compute.images.popup-upload_field_pooled }}**.
    1. Click **{{ ui-key.yacloud.compute.images.popup-upload_button_upload }}**.
 
@@ -110,7 +110,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
       For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
    1. Make sure the configuration files are correct.
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
