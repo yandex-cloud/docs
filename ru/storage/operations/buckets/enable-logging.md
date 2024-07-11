@@ -69,6 +69,14 @@
 
    - {{ TF }} {#tf}
 
+     {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+
+     {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+     
+     {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+
      Чтобы включить механизм логирования в бакете, который вы хотите отслеживать:
 
      1. Откройте файл конфигурации {{ TF }} и добавьте блок `logging` во фрагмент с описанием бакета.

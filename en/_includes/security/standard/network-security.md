@@ -1,5 +1,6 @@
 # 2. Network security
 
+
 This section provides users with recommendations on security settings in [{{ vpc-full-name }}](../../../vpc/).
 
 
@@ -232,7 +233,7 @@ We recommend that you only allow access to your cloud infrastructure through con
 {{ yandex-cloud }} has basic and extended DDoS protection. Make sure to use at least basic protection.
 
 * [{{ ddos-protection-full-name }}](../../../vpc/ddos-protection/index.md) is the {{ vpc-name }} component that safeguards cloud resources from DDoS attacks. {{ ddos-protection-name }} is provided in partnership with Qrator Labs. You can enable it yourself for an external [IP address](../../../vpc/concepts/address.md) through cloud administration tools. Supported up to OSI L4.
-* [Extended](/services/ddos-protection) DDoS protection operates at layers 3 and 7 of the OSI model. You can also track loads and attack properties, as well as enable Soundwall WAF in your Qrator Labs account. To enable extended protection, contact your manager or the tech support service.
+* [Advanced](/services/ddos-protection) protection against DDoS attacks operates at Levels 3 and 7 of the OSI model. You can also follow load and attack parameters and enable Solidwall WAF in your Qrator Labs account. To enable advanced protection, contact your manager or technical support.
 
 {% list tabs group=instructions %}
 
@@ -280,7 +281,7 @@ We recommend that you only allow access to your cloud infrastructure through con
 #### 2.6 Protected remote access is used {#secure-access}
 
 To enable administrators to establish remote connections to your cloud resources, use one of the following:
-* Site-to-site VPN between a remote site, e.g. your office, and a cloud. As a remote access gateway, use a VM featuring a site-to-site VPN based on an [image]({{ link-cloud-marketplace }}?categories=network) from {{ marketplace-name }}.
+* Site-to-site VPN between a remote site, e.g., your office, and a cloud. As a remote access gateway, use a VM featuring a site-to-site VPN based on an [image]({{ link-cloud-marketplace }}?categories=network) from {{ marketplace-name }}.
 
    **Setup options**:
    * [Creating an IPsec VPN tunnel using the strongSwan](../../../tutorials/routing/ipsec/index.md).

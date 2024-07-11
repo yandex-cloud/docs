@@ -5,7 +5,7 @@ description: "Различные сценарии использования {{ 
 
 # Практические руководства {{ container-registry-name }}
 
-* [{#T}](run-docker-on-vm.md)
+* [{#T}](run-docker-on-vm/index.md)
 
 
 * [{#T}](image-auto-scan.md)

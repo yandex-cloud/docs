@@ -72,8 +72,6 @@ items:
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
-      - name: Группы хостов
-        href: concepts/host-groups.md
       - name: Роли хостов
         href: concepts/host-roles.md
       - name: Индексы

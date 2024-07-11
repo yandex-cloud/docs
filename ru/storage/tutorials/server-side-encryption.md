@@ -69,6 +69,8 @@
 
 - {{ TF }} {#tf}
 
+  {% include [terraform-role](../../_includes/storage/terraform-role.md) %}
+
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы задать параметры, в данном сценарии используется блок `locals`:

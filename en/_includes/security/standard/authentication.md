@@ -1,12 +1,13 @@
 # 1. Authentication and access control
 
+
 In {{ yandex-cloud }}, identification, authentication, and access control is performed by [{{ iam-full-name }} ({{ iam-short-name }})](../../../iam/) and [{{ org-full-name }}](../../../organization/).
 
 The platform works with three categories of users:
 
-* [Yandex accounts](../../../iam/concepts/users/accounts.md#passport): Yandex ID accounts.
-* [Federated accounts](../../../iam/concepts/#saml-federation): Accounts in a corporate [SAML-compatible identity federation](../../../organization/concepts/add-federation.md), such as Active Directory.
-* [Service accounts](../../../iam/concepts/#sa): Accounts that can be used by a program to manage resources.
+* [Yandex accounts](../../../iam/concepts/users/accounts.md#passport): Accounts in Yandex ID.
+* [Federated accounts](../../../iam/concepts/users/accounts.md#saml-federation): Accounts in a corporate [SAML-compatible identity federation](../../../organization/concepts/add-federation.md), such as Active Directory.
+* [Service accounts](../../../iam/concepts/users/accounts.md#sa): Accounts that can be used by a program to manage resources.
 
 Yandex ID accounts and federated accounts are authenticated in their own systems. {{ yandex-cloud }} has no access to these users' passwords and only authenticates service accounts via {{ iam-short-name }}.
 
@@ -373,7 +374,7 @@ yc compute instance update <VM_ID> \
 
 #### 1.8 Service accounts have minimum privileges granted {#sa-privileges}
 
-Follow the principle of least privilege and [assign to the service account](../../../iam/operations/roles/grant.md) only those roles that are needed to run the application.
+Follow the principle of least privilege and [assign to the service account](../../../iam/operations/roles/grant.md) only the roles necessary to run the application.
 
 {% list tabs group=instructions %}
 
@@ -739,7 +740,7 @@ If you grant third-party contractors access to your clouds, make sure to follow 
 * Assign permissions to contractor employees based on the principle of least privilege.
 * If possible, create a separate account for third-party employees in your corporate IdP and assign the required policies to this account.
 * Require them to handle their account secrets with care.
-* Review the relevance of granting external users access to your cloud infrastructure.
+* Review the relevance of external user access to your cloud infrastructure.
 * Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role without data access wherever possible.
 
 {% list tabs group=instructions %}
@@ -759,7 +760,7 @@ When developing an access model for your infrastructure, we recommend the follow
 * Place any critical resources in a separate folder or cloud. These include resources related to the processing of payment data, personal data, and trade secret data.
 * Host the resource groups that require different administrative permissions in different folders or clouds (DMZ, CDE, security, backoffice, and so on).
 * When developing apps, make sure to isolate test and production environments.
-* Host shared resources (such as network and security groups) in a separate shared resource folder (if components are grouped by folder).
+* Put shared resources (e.g., network and security groups) into a separate shared resource folder (if you separate components into folders).
 
 {% list tabs group=instructions %}
 
@@ -994,7 +995,7 @@ If the `{{ roles-iam-sa-tokencreator }}` role is missing, set up impersonation f
 #### 1.21 Resource labels are used {#labels}
 
 [Labels](../../../resource-manager/concepts/labels.md) are required to monitor data streams and tag critical resources for privilege management.
-For example, for tagging resources that handle personal data under Russian Federal Law No. FZ-152, On Personal Data, select the `152-fz:true` label for:
+For example, for tagging resources involved in processing personal data under Federal Law No. FZ-152 of the Russian Federation on Personal Data, select the `152-fz:true` label for:
 
 * Folders
 * {{ objstorage-full-name }} [buckets](../../../storage/concepts/bucket.md)
@@ -1007,7 +1008,7 @@ For example, for tagging resources that handle personal data under Russian Feder
 
    The example below shows how to check if there is a label to a [{{ vpc-full-name }}](../../../vpc/) cloud network. You can perform similar checks for other resource labels.
 
-   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+   1. In the [management console]({{ link-console-main }}), select the folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. Check it for labels.
 

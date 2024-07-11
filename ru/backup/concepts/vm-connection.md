@@ -8,6 +8,8 @@
 
 После подключения к {{ backup-name }} [добавьте](../operations/policy-vm/attach-and-detach-vm.md#attach-vm) ВМ в [политику резервного копирования](policy.md).
 
+{% include [vm-running](../../_includes/backup/vm-running.md) %}
+
 ## Требования к характеристикам ВМ {#requirements}
 
 Минимальные характеристики ВМ для установки и корректной работы агента {{ backup-name }}:

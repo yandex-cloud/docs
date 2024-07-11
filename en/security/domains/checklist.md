@@ -5,6 +5,8 @@ description: "In this tutorial, you will learn about {{ yandex-cloud }} security
 
 # Security checklist
 
+{% include [kz-services](../../_includes/kz-services.md) %}
+
 ## Network security {#network-security}
 
 * **Segmentation**: Split resources into groups and put them in different folders or, if strict isolation is required, in different {{ vpc-short-name }}. Traffic within a {{ vpc-short-name }} is allowed by default but not allowed between {{ vpc-short-name }}s (only via a VM with two network interfaces in different networks, either VPN or {{ interconnect-full-name }}). Watch our webinar to learn [how a network works in {{ yandex-cloud }}](https://www.youtube.com/watch?v=g3cZ0o50qH0).
@@ -41,7 +43,7 @@ description: "In this tutorial, you will learn about {{ yandex-cloud }} security
 
     - Without an identity federation
 
-      Set a complex password for the Yandex account used to create the organization. Grant the less privileged `organization-manager.admin` role to organization administrators and use the account with the `organization-manager.organizations.owner` role only if you absolutely have to.
+      Set a complex password for the Yandex account used to create the organization. Grant the less privileged `organization-manager.admin` role to organization administrators; use the account with the `organization-manager.organizations.owner` role only if you absolutely have to.
 
     {% endlist %}
 

@@ -655,7 +655,8 @@ s3cmd put ~/spark-app/target/scala-<версия_Scala>/spark-app-assembly-0.1.0
     1. [Удалите кластер {{ dataproc-name }}](../operations/cluster-delete.md).
     1. Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
     1. [Удалите подсеть](../../vpc/operations/subnet-delete.md).
-    1. Удалите таблицу маршрутизации и NAT-шлюз.
+    1. [Удалите таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
+    1. [Удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
     1. [Удалите сеть](../../vpc/operations/network-delete.md).
 
 - {{ TF }} {#tf}

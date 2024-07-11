@@ -1,5 +1,6 @@
 # 5. Collecting, monitoring, and analyzing audit logs
 
+
 #### Introduction {#intro}
 
 An audit log is a record of all events in the system, including access to it and operations performed. By collecting and verifying audit logs, you can monitor compliance with the established security procedures and standards and identify vulnerabilities in your security mechanisms.
@@ -60,9 +61,9 @@ Solutions for exporting {{ yandex-cloud }} audit logs are available for the foll
 
 For more information about MaxPatrol, see this [section](../../../audit-trails/tutorials/maxpatrol.md).
 
-You can use the [GeeseFS](../../../storage/tools/geesefs.md) or [s3fs](../../../storage/tools/s3fs.md) utilities to set up export to any SIEM. They allow you to mount a {{ objstorage-full-name }} bucket as a VM's local disk. Next, you need to install a SIEM connector on the VM and configure reading JSON files from the bucket. You can also use utilities that are compatible with AWS Kinesis datastreams if you send audit logs to {{ yds-full-name }}.
+You can set up export to any SIEM using [GeeseFS](../../../storage/tools/geesefs.md) or [s3fs](../../../storage/tools/s3fs.md). These utilities allow mounting a {{ objstorage-full-name }} bucket as a VM local disk. Next, you need to install a SIEM connector on your VM and configure reading JSON files from the bucket. You can also use utilities compatible with AWS Kinesis datastreams if sending audit logs to {{ yds-full-name }}.
 
-If you have no SIEM system, you can also analyze audit logs manually in one of the following ways (from more convenient to less convenient):
+If you have no SIEM, you can also analyze audit logs manually using one of the following methods (in descending order of convenience):
 
 * [Searching](../../../audit-trails/tutorials/query.md) for {{ yandex-cloud }} events in {{ yq-full-name }}.
 * [Uploading](../../../audit-trails/tutorials/logs-analysis.md) audit logs to {{ mch-full-name }} and data visualization in {{ datalens-full-name }}.
@@ -90,7 +91,7 @@ Using {{ sf-full-name }}, you can configure alerts about {{ at-name }} events, a
 If you write {{ at-full-name }} audit logs to a {{ objstorage-full-name }} bucket, make sure the bucket is set up using best security practices, such as:
 
 * 4.1 In {{ objstorage-full-name }}, encryption of data at rest using KMS keys is enabled.
-* 3.8 In {{ objstorage-full-name }}, logging of actions with the bucket is enabled.
+* 3.8 In {{ objstorage-full-name }}, logging of actions with buckets is enabled.
 * 3.8 In {{ objstorage-full-name }}, the **Object locks** feature is enabled.
 * 3.7 In {{ objstorage-full-name }}, Bucket Policies are used.
 * 3.6 No public access to the {{ objstorage-full-name }} bucket is allowed.

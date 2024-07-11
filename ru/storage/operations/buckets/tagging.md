@@ -98,6 +98,10 @@
 
   {% include [tags-update-notice](../../../_includes/storage/tags-update-notice.md) %}
 
+  {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   1. Откройте файл конфигурации {{ TF }} и добавьте блок `tags` во фрагмент с описанием бакета:
@@ -391,6 +395,8 @@
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
 - {{ TF }} {#tf}
+
+  {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 

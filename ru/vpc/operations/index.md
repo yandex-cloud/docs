@@ -41,6 +41,8 @@ description: "На странице представлен список поша
 - [{#T}](static-route-move.md)
 - [{#T}](route-table-get-info.md)
 - [{#T}](static-gateway-move.md)
+- [{#T}](delete-route-table.md)
+- [{#T}](delete-nat-gateway.md)
 
 ## Группы безопасности {#security-groups}
 

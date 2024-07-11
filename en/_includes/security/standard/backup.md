@@ -1,8 +1,9 @@
 # 7. Backups
 
+
 #### 7.1 {{ backup-short-name }} or the scheduled snapshot mechanism is used {#snapshot}
 
-Make sure that all VMs in your organization are reserved using:
+Make sure that all VMs in your organization get backed up using:
 * Scheduled snapshots.
 * {{ backup-short-name }}.
 

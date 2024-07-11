@@ -1,5 +1,6 @@
 # 6. Vulnerability management
 
+
 #### Introduction {#intro}
 
 {{ yandex-cloud }} is responsible for managing vulnerabilities and security updates in managed services. The client is responsible for managing vulnerabilities and security updates for all other system components.

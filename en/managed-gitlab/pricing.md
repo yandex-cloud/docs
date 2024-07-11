@@ -4,7 +4,7 @@ description: "This article describes the {{ mgl-name }} pricing policy."
 editable: false
 ---
 
-# {{ mgl-full-name }} pricing
+# {{ mgl-full-name }} pricing policy
 
 
 
@@ -26,9 +26,9 @@ In all calculations, 1 GB = 2<sup>10</sup> MB = 2<sup>20</sup> KB = 2<sup>30</su
 
 You are charged per hour of VM use.
 
-The cost of computing resources depends on the [approval rules](concepts/approval-rules.md) configuration you select.
+The price of computing resources depends on the selected [approval rule](concepts/approval-rules.md) configuration.
 
-The minimum billing unit is one hour (e.g., the cost of 1.5 hours of operation is the same as the cost of 2 hours of operation).
+The minimum billing unit is one hour; e.g., you will be charged for 2 hours when using a VM for 90 minutes (1.5 hours).
 
 ### Disk space usage {#rules-storage}
 
@@ -65,6 +65,7 @@ Where:
 Calculation for storage and backup cost:
 
 
+
 > 30 × $0.104080 + 20 × 7 × $0.015360 = $5.272800
 
 Where:
@@ -96,7 +97,7 @@ All prices below do not include VAT.
 
 ### Computing resources of instances {#prices-instance}
 
-The cost of computing resources depends on the [approval rules](concepts/approval-rules.md) configuration you select:
+The price of computing resources depends on the selected [approval rule](concepts/approval-rules.md) configuration:
 
 
 

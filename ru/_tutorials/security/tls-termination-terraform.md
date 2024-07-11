@@ -12,7 +12,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-{% include [tls-termination-paid-resources](../_tutorials_includes/tls-termination-paid-resources.md) %}
+{% include [tls-termination-paid-resources](../_tutorials_includes/tls-termination/paid-resources.md) %}
 
 ## Создайте инфраструктуру {#deploy}
 
@@ -100,7 +100,7 @@
 
 ## Проверьте работу хостинга {#test}
 
-{% include [tls-termination-test](../_tutorials_includes/tls-termination-test.md) %}
+{% include [tls-termination-test](../_tutorials_includes/tls-termination/test.md) %}
 
 ## Как удалить созданные ресурсы {#clear-out}
 

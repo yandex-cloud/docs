@@ -7,7 +7,7 @@ description: "Различные сценарии хранения и восст
 
 * [Миграция в {{ yandex-cloud }} с помощью Hystax Acura](../infrastructure-management/hystax-migration.md)
 * [Защита от сбоев с помощью Hystax Acura](../infrastructure-management/hystax-disaster-recovery.md)
-* [Однонодовый файловый сервер](single-node-file-server.md)
+* [Однонодовый файловый сервер](single-node-file-server/index.md)
 * [Настройка SFTP-сервера на Centos 7](backup-and-archive-to-sftp.md)
 * [Резервное копирование ВМ с помощью Hystax Acura Backup](../infrastructure-management/hystax-backup.md)
 * [Резервное копирование в {{ objstorage-full-name }} с помощью CloudBerry Desktop Backup](object-storage-cloudberry.md)

@@ -1,11 +1,11 @@
 ---
 title: "SQL queries in {{ mmy-name }}"
-description: "{{ mmy-name }} lets you visualize the data structure in your cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to the management console, open the cluster page you need, and go to the SQL tab."
+description: "{{ mmy-name }} allows you to visualize data structure in your cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to the management console, open the cluster page you need, and go to the SQL tab."
 ---
 
 # SQL queries in Managed Service for MySQL
 
-{{ mmy-name }} allows you to visualize the data structure in your cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to the [management console]({{ link-console-main }}), open the cluster page you need, and go to the **SQL** tab.
+{{ mmy-name }} allows you to visualize data structure in your cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to the [management console]({{ link-console-main }}), open the cluster page you need, and go to the **SQL** tab.
 
 {% include [web-sql-warning](../../_includes/mdb/mch/note-web-sql-console.md) %}
 

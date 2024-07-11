@@ -288,8 +288,8 @@
 
         1. [Кластеры {{ dataproc-name }}](../../../data-proc/operations/cluster-delete.md).
         1. [Бакет {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
-        1. Таблицу маршрутизации.
-        1. NAT-шлюз.
+        1. [Таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
+        1. [NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
         1. [Группу безопасности](../../../vpc/operations/security-group-delete.md).
         1. [Подсеть](../../../vpc/operations/subnet-delete.md).
         1. [Сеть](../../../vpc/operations/network-delete.md).

@@ -10,11 +10,11 @@ keywords:
 # Управление группами хостов {{ OS }}
 
 
-В кластере {{ mos-name }} нет возможности добавлять, изменять и удалять индивидуальные хосты — вместо этого вы можете управлять [группами хостов](../concepts/host-groups.md):
+В кластере {{ mos-name }} вы можете управлять [группами хостов](../concepts/host-roles.md):
 
 * [{#T}](#list-groups).
 * [{#T}](#add-host-group).
-* [{#T}](#update-host-group).
+* [{#T}](#update-host-group), в том числе добавить в нее новые хосты или удалить их.
 * [{#T}](#delete-host-group).
 
 Также вы можете [получить список хостов в кластере](#list-hosts).
@@ -72,7 +72,7 @@ keywords:
     1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_add-node-group }}**.
     1. Укажите параметры группы:
 
-        * [Тип группы](../concepts/host-groups.md): `{{ OS }}` или `Dashboards`.
+        * [Тип группы](../concepts/host-roles.md): `{{ OS }}` или `Dashboards`.
         * Имя. Оно должно быть уникальным в кластере.
         * Для группы хостов `{{ OS }}` выберите [роль хостов](../concepts/host-roles.md).
         * Платформу, тип и класс хостов.
@@ -140,7 +140,7 @@ keywords:
 
         Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
 
-    1. Чтобы создать группу хостов типа `{{ OS }}`, добавьте блок `node_groups` в блок `opensearch`:
+    1. Чтобы создать группу хостов `{{ OS }}`, добавьте блок `node_groups` в блок `opensearch`:
 
         ```hcl
         resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
@@ -172,7 +172,7 @@ keywords:
         * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
         * `roles` — роли хостов: `DATA` и `MANAGER`.
 
-    1. Чтобы создать группу хостов типа `Dashboards`, добавьте блок `dashboards` в блок `config`:
+    1. Чтобы создать группу хостов `Dashboards`, добавьте блок `dashboards` в блок `config`:
 
         ```hcl
         resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
@@ -199,7 +199,7 @@ keywords:
 
         Где `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
 
-        В кластере может быть только одна группа хостов типа `Dashboards`.
+        В кластере может быть только одна группа хостов `Dashboards`.
 
     1. Проверьте корректность настроек.
 
@@ -213,9 +213,9 @@ keywords:
 
 - API {#api}
 
-    Чтобы создать группу хостов типа `{{ OS }}`, воспользуйтесь методом REST API [addOpenSearchNodeGroup](../api-ref/Cluster/addOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#AddOpenSearchNodeGroup).
+    Чтобы создать группу хостов `{{ OS }}`, воспользуйтесь методом REST API [addOpenSearchNodeGroup](../api-ref/Cluster/addOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#AddOpenSearchNodeGroup).
 
-    Чтобы создать группу хостов типа `Dashboards`, воспользуйтесь методом REST API [addDashboardsNodeGroup](../api-ref/Cluster/addDashboardsNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#AddDashboardsNodeGroup).
+    Чтобы создать группу хостов `Dashboards`, воспользуйтесь методом REST API [addDashboardsNodeGroup](../api-ref/Cluster/addDashboardsNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#AddDashboardsNodeGroup).
 
     Передайте в запросе конфигурацию группы в блоке `nodeGroupSpec`:
 
@@ -231,7 +231,7 @@ keywords:
     * Настройки публичного доступа в параметре `assignPublicIp`.
 
 
-    * Список ролей хостов в параметре `roles` (только для группы хостов типа `{{ OS }}`).
+    * Список ролей хостов в параметре `roles` (только для группы хостов с типом `{{ OS }}`).
 
 {% endlist %}
 
@@ -276,7 +276,7 @@ keywords:
 
         Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
 
-    1. Чтобы изменить конфигурацию группы хостов типа `{{ OS }}`, измените параметры нужного блока `node_groups` в блоке `opensearch`:
+    1. Чтобы изменить конфигурацию группы хостов `{{ OS }}`, измените параметры нужного блока `node_groups` в блоке `opensearch`:
 
         ```hcl
         resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
@@ -304,7 +304,7 @@ keywords:
         * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
         * `roles` — роли хостов: `DATA` и `MANAGER`.
 
-    1. Чтобы изменить конфигурацию группы хостов типа `Dashboards`, измените параметры блока `dashboards`:
+    1. Чтобы изменить конфигурацию группы хостов `Dashboards`, измените параметры блока `dashboards`:
 
         ```hcl
         resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
@@ -338,9 +338,9 @@ keywords:
 
 - API {#api}
 
-    Чтобы изменить конфигурацию группы хостов типа `{{ OS }}`, воспользуйтесь методом REST API [updateOpenSearchNodeGroup](../api-ref/Cluster/updateOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#UpdateOpenSearchNodeGroup).
+    Чтобы изменить конфигурацию группы хостов `{{ OS }}`, воспользуйтесь методом REST API [updateOpenSearchNodeGroup](../api-ref/Cluster/updateOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#UpdateOpenSearchNodeGroup).
 
-    Чтобы изменить конфигурацию группы хостов типа `Dashboards`, воспользуйтесь методом REST API [updateDashboardsNodeGroup](../api-ref/Cluster/updateDashboardsNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#UpdateDashboardsNodeGroup).
+    Чтобы изменить конфигурацию группы хостов `Dashboards`, воспользуйтесь методом REST API [updateDashboardsNodeGroup](../api-ref/Cluster/updateDashboardsNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#UpdateDashboardsNodeGroup).
 
     Передайте в запросе новую конфигурацию в блоке `nodeGroupSpec`:
 
@@ -348,7 +348,7 @@ keywords:
     * [Тип диска](../concepts/storage.md) в параметре `resources.diskTypeId`.
     * Объем хранилища, который используется для данных, в параметре `resources.diskSize`.
     * Количество хостов в группе в параметре `hostsCount`.
-    * Список ролей хостов в параметре `roles` (только для группы хостов типа `{{ OS }}`).
+    * Список ролей хостов в параметре `roles` (только для группы хостов с типом `{{ OS }}`).
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -391,9 +391,9 @@ keywords:
 
         Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
 
-    1. Чтобы удалить группу хостов типа `{{ OS }}`, удалите блок `node_groups`, который соответствует удаляемой группе хостов, из блока `opensearch`.
+    1. Чтобы удалить группу хостов `{{ OS }}`, удалите блок `node_groups`, который соответствует удаляемой группе хостов, из блока `opensearch`.
 
-    1. Чтобы удалить группу хостов типа `Dashboards`, удалите блок `dashboards`.
+    1. Чтобы удалить группу хостов `Dashboards`, удалите блок `dashboards`.
 
     1. Проверьте корректность настроек.
 
@@ -407,9 +407,9 @@ keywords:
 
 - API {#api}
 
-    Чтобы удалить группу хостов типа `{{ OS }}`, воспользуйтесь методом REST API [deleteOpenSearchNodeGroup](../api-ref/Cluster/deleteOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#DeleteOpenSearchNodeGroup).
+    Чтобы удалить группу хостов `{{ OS }}`, воспользуйтесь методом REST API [deleteOpenSearchNodeGroup](../api-ref/Cluster/deleteOpenSearchNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteOpenSearchNodeGroup](../api-ref/grpc/cluster_service.md#DeleteOpenSearchNodeGroup).
 
-    Чтобы удалить группу хостов типа `Dashboards`, воспользуйтесь методом REST API [deleteDashboardsNodeGroup](../api-ref/Cluster/deleteDashboardsNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#DeleteDashboardsNodeGroup).
+    Чтобы удалить группу хостов `Dashboards`, воспользуйтесь методом REST API [deleteDashboardsNodeGroup](../api-ref/Cluster/deleteDashboardsNodeGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#DeleteDashboardsNodeGroup).
 
     Передайте в запросе:
 
@@ -427,13 +427,13 @@ keywords:
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку ![hosts](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку ![hosts](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
 
 - API {#api}
 
-  Чтобы получить список хостов в кластере, воспользуйтесь методом REST API [listHosts](../api-ref/Cluster/listHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы получить список хостов в кластере, воспользуйтесь методом REST API [listHosts](../api-ref/Cluster/listHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
-  Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md).
+    Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md).
 
 {% endlist %}

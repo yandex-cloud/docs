@@ -1,5 +1,6 @@
 # 3. Secure configuration of a virtual environment
 
+
 This section provides recommendations to customers on security settings in {{ yandex-cloud }} services and the use of additional data protection tools in virtual environments.
 
 ### Overview {#general}
@@ -190,13 +191,13 @@ We recommend that you use [dedicated hosts](../../../compute/concepts/dedicated-
 
 #### 3.6 No public access to a {{ objstorage-name }} bucket is allowed {#bucket-access}
 
-We recommend assigning minimum roles to a bucket using {{ iam-short-name }} and supplementing or specifying them using BucketPolicy (for example, to restrict access to the bucket by IP, grant granular rights to objects, and so on).
+We recommend assigning minimum roles for a bucket using {{ iam-short-name }} and supplementing or itemizing them using a bucket policy (for example, to restrict access to the bucket by IP, grant granular permissions for objects, and so on).
 
 Access to {{ objstorage-name }} resources is verified at three levels:
 
-* [{{ iam-short-name }} verification](../../../iam/concepts).
-* [Bucket policy](../../../storage/concepts/policy.md).
-* [Access Control Lists (ACLs)](../../../storage/concepts/acl.md).
+* [{{ iam-short-name }} verification](../../../iam/concepts)
+* [Bucket policy](../../../storage/concepts/policy.md)
+* [Access Control Lists (ACLs)](../../../storage/concepts/acl.md)
 
 **Verification procedure:**
 
@@ -261,7 +262,7 @@ We recommend making sure that your {{ objstorage-name }} bucket uses at least on
 
    1. In the management console, select the cloud or folder to check the bucket policies in.
    1. From the list of services, select {{ objstorage-name }}.
-   1. Go to **Access policy**.
+   1. Go to **Bucket policy**.
    1. Make sure that at least one policy is enabled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}

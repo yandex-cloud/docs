@@ -63,7 +63,7 @@
    * [Группы безопасности](../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
    * [Образ ВМ](../../compute/concepts/image.md) — [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image).
    * [Диск](../../compute/concepts/disk.md) — [yandex_compute_disk]({{ tf-provider-resources-link }}/compute_disk).
-   * [Виртуальная машина](../../compute/concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).yandex_mdb_postgresql_cluster
+   * [Виртуальная машина](../../compute/concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
    * [Кластер {{ PG }}](../../managed-postgresql/concepts/index.md) — [yandex_mdb_postgresql_cluster]({{ tf-provider-resources-link }}/mdb_postgresql_cluster).
    * [БД {{ PG }}](../../managed-postgresql/) — [yandex_mdb_postgresql_database]({{ tf-provider-resources-link }}/mdb_postgresql_database).
    * [Пользователь БД](../../managed-postgresql/operations/cluster-users.md) — [yandex_mdb_postgresql_user]({{ tf-provider-resources-link }}/mdb_postgresql_user).

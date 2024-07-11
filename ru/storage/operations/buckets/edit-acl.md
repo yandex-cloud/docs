@@ -203,6 +203,8 @@ description: "Для управления доступом к бакету {{ ob
 
 - {{ TF }} {#tf}
 
+  {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   Перед началом работы, получите [статические ключи доступа](../../../iam/operations/sa/create-access-key.md) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.

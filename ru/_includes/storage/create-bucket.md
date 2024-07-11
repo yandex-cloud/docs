@@ -206,6 +206,8 @@
 
 - {{ TF }} {#tf}
 
+  {% include [terraform-role](terraform-role.md) %}
+  
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   
@@ -238,9 +240,9 @@
       }
 
       // Назначение роли сервисному аккаунту
-      resource "yandex_resourcemanager_folder_iam_member" "sa-editor" {
+      resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
         folder_id = "<идентификатор_каталога>"
-        role      = "storage.editor"
+        role      = "storage.admin"
         member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
       }
 
@@ -302,26 +304,11 @@
 
       Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
 
-  1. Проверьте корректность конфигурационных файлов.
-      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-      1. Выполните проверку с помощью команды:
+  1. Создайте ресурсы:
 
-          ```bash
-          terraform plan
-          ```
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-  1. Разверните облачные ресурсы.
-      1. Если в конфигурации нет ошибок, выполните команду:
-
-          ```bash
-          terraform apply
-          ```
-
-      1. Подтвердите создание ресурсов.
-
-      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+  {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 
