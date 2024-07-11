@@ -63,41 +63,25 @@ Make sure this does not affect your applications:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. Get a list of your {{ CH }} clusters:
+   1. Get a list of your {{ CH }} clusters and view their versions:
 
       ```bash
       {{ yc-mdb-ch }} cluster list
 
-      +----------------------+---------------+---------------------+--------+---------+
-      |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
-      +----------------------+---------------+---------------------+--------+---------+
-      | c9q8p8j2gaih******** | clickhouse691 | 2019-04-23 12:44:17 | ALIVE  | RUNNING |
-      +----------------------+---------------+---------------------+--------+---------+
+      +----------------------+------+-------------+---------+---------------------+--------+---------+
+      |          ID          | NAME | ENVIRONMENT | VERSION |     CREATED AT      | HEALTH | STATUS  |
+      +----------------------+------+-------------+---------+---------------------+--------+---------+
+      | c9qf1kmm0ebi******** | mych | PRODUCTION  |    23.8 | 2024-06-06 10:23:22 | ALIVE  | RUNNING |
+      +----------------------+------+-------------+---------+---------------------+--------+---------+
       ```
 
-   1. Get information about a cluster and check the {{ CH }} version in your cluster in the `config.version` parameter:
+   1. Update the {{ CH }} version for any cluster as needed:
 
       ```bash
-      {{ yc-mdb-ch }} cluster get c9q8p8j2gaih********
-      id: c9q8p8j2gaih********
-      folder_id: b1gqs1teo2q2********
-      created_at: "2019-04-23T12:44:17.929853Z"
-      name: clickhouse691
-      environment: PRODUCTION
-      monitoring:
-      - name: Console
-          description: Console charts
-          link: {{ link-console-main }}/folders/b1gqs1teo2q2********/managed-clickhouse/cluster/c9q8p8j2gaih********?section=monitoring
-      config:
-          version: "23.8"
-          ...
+      {{ yc-mdb-ch }} cluster update --id <cluster_ID> --version <{{ CH }}_version>
       ```
 
-   1. Update the {{ CH }} version:
-
-      ```bash
-      {{ yc-mdb-ch }} cluster update --id c9q8p8j2gaih******** --version 24.3
-      ```
+      Specify the {{ CH }} version: {{ versions.cli.str }}.
 
    When the update starts, the cluster status will switch to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
@@ -116,6 +100,8 @@ Make sure this does not affect your applications:
       }
       ```
 
+      Specify the {{ CH }} version: {{ versions.tf.str }}.
+
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -133,8 +119,8 @@ Make sure this does not affect your applications:
    To update a version, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * Required value in the `configSpec.clickhouse.config.version` parameter.
-   * List of settings to update (in this case, `configSpec.clickhouse.config.version`) in the `updateMask` parameter.
+   * {{ CH }} version in the `configSpec.version` parameter: {{ versions.api.str }}.
+   * List of settings to update (in our case, `configSpec.version`) in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

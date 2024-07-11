@@ -31,7 +31,7 @@ items:
             href: operations/connection-access.md
   - name: Concepts
     items:
-      - name: About {{ metadata-hub-name }}
+      - name: About {{ metadata-hub-full-name }}
         href: concepts/index.md
       - name: Connection Manager
         items:

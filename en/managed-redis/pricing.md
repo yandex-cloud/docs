@@ -22,9 +22,9 @@ The {{ mrd-name }} usage cost is based on:
 
 ### DB host usage {#rules-hosts-uptime}
 
-The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section, and vCPU and RAM prices, in the [Prices](#prices) section.
+Host operation cost is charged per hour based on what computing resources you allocate for it. You can find supported resource configurations in the [Host classes](concepts/instance-types.md) section, and vCPU and RAM prices, in the [Prices](#prices) section.
 
-The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You are not paying for the time when the {{ RD }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the {{ RD }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -32,13 +32,11 @@ You pay for the following:
 
 * Storage allocated for DB clusters.
 
-   * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts running Intel Cascade Lake and Intel Ice Lake, in increments of 93 GB.
+   * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for Intel Cascade Lake and clusters with three or more hosts, in increments of 93 GB.
 
-   * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
-            * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
+   * You can only order local SSD (`local-ssd`) storage for clusters with three or more hosts:
+            * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
       * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
-
-   * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts for **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
 
    For more information about platform-specific storage limitations, see [Disk types](./concepts/storage.md).
 
@@ -47,7 +45,7 @@ You pay for the following:
    * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
    * The requested storage size is allocated for each host, so the number of hosts in the cluster does not affect the free backup size.
 
-The cost is specified for one month of use and based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
@@ -58,17 +56,17 @@ The cost is specified for one month of use and based on 720 hours per month. The
 
 {% note info %}
 
-You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
+CVoS discount is only available for certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 
 
 
-All prices are shown without VAT.
+All prices below do not include VAT.
 
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
@@ -89,7 +87,7 @@ All prices are shown without VAT.
 
 {% note info %}
 
-Access to network SSD storage with 3 replicas is provided on request. Contact [technical support]({{ link-console-support }}) or your account manager.
+Access to network SSD storage with three replicas is provided upon request. Contact [technical support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 

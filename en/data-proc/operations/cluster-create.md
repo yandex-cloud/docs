@@ -116,10 +116,10 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
       {% endnote %}
 
-   1. Enable the **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** option to access the [web interfaces of {{ dataproc-name }} components](../concepts/interfaces.md).
+   1. Enable **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** to access the [web interfaces of {{ dataproc-name }} components](../concepts/interfaces.md).
    1. [{{ cloud-logging-full-name }}](../../logging/) stores {{ dataproc-name }} cluster logs. Select a log group from the list or [create a new one](../../logging/operations/create-group.md).
 
-      To enable this functionality, [assign](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role to the service account of the {{ dataproc-name }} cluster. For more information, see the [{{ cloud-logging-name }} documentation](../../logging/security/index.md).
+      For the function to work, [assign](../../iam/operations/roles/grant.md) the `logging.writer` role to the service account of the {{ dataproc-name }} cluster. For more information, see the [{{ cloud-logging-name }} documentation](../../logging/security/index.md).
    1. Configure {{ dataproc-name }} subclusters: maximum one subcluster with a master host (**Master**) and subclusters for data storage or processing.
 
       Roles of {{ dataproc-name }} subclusters for data storage and processing are different: you can deploy data storage components on data storage subclusters and computing components on data processing subclusters. You can use a [storage](../concepts/storage.md) on a {{ dataproc-name }} subcluster for data processing only to temporarily store the files being processed.

@@ -2,13 +2,14 @@ default:
   content: noshow
   versions:
     tf:
-      latest: '22.4'
-      str: 21.8, 22.2, 22.3, or 22.4
+      latest: '24.5'
+      str: 23.8, 24.3, 24.4 or 24.5
     cli:
-      latest: '22.4'
-      str: 21.8, 22.2, 22.3, or 22.4
+      latest: '24.5'
+      str: 23.8, 24.3, 24.4 or 24.5
     console:
-      latest: '22.4'
-      str: 21.8, 22.2, 22.3, and 22.4
-    hybrid: '21.7'
-    keeper: '22.3'
+      latest: '24.5'
+      str: 23.8 LTS, 24.3 LTS, 24.4 or 24.5
+    api:
+      latest: '24.5'
+      str: 23.8, 24.3, 24.4 or 24.5

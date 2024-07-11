@@ -140,7 +140,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
    publication.name=mpg_publication
    slot.name=debezium_slot
    heartbeat.interval.ms=15000
-   heartbeat.topics.prefix=__debezium-heartbeat
+   heartbeat.topics.prefix=debezium-heartbeat
    snapshot.mode=always
    ```
 
@@ -177,13 +177,13 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
 1. Create a service topic to track the connector status:
 
-   * **{{ ui-key.yacloud.common.name }}**: `__debezium-heartbeat.mpg`.
+   * **{{ ui-key.yacloud.common.name }}**: `debezium-heartbeat.mpg`
 
       Names for service topics [follow](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-property-heartbeat-topics-prefix) the `<prefix_for_heartbeat>.<server_name>` convention.
 
       According to the [Debezium configuration file](#setup-debezium):
 
-      * The `__debezium-heartbeat` prefix is specified in the `heartbeat.topics.prefix` parameter.
+      * The `debezium-heartbeat` prefix is specified in the `heartbeat.topics.prefix` parameter.
       * The name of the `mpg` server is specified in the `database.server.name parameter`.
 
    * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}**: `Compact`.
@@ -241,7 +241,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
    kafkacat \
        -C \
        -b <FQDN_of_broker_host_1>:9091,...,<FQDN_of_broker_host_N>:9091 \
-       -t mpg.db1.measurements \
+       -t mpg.public.measurements \
        -X security.protocol=SASL_SSL \
        -X sasl.mechanisms=SCRAM-SHA-512 \
        -X sasl.username=debezium \

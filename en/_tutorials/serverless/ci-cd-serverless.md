@@ -16,7 +16,7 @@ In addition, there is a common folder named `infra`. It contains a [{{ container
 To build a CI/CD pipeline using serverless products:
 1. [Create a {{ GL }} instance](#create-gitlab).
 1. [Configure {{ GL }}](#configure-gitlab).
-1. [Create a {{ GLR }}](#runner).
+1. [Create a {{ GLR }}](#runners).
 1. [Upload files to the {{ GL }} repository](#add-files).
 1. [Create {{ GL }} environment variables](#add-variables).
 1. [Create the CI script configuration file](#add-ci).
@@ -94,9 +94,7 @@ Create a {{ mgl-name }} instance and a [VM](../../compute/concepts/vm.md) with a
 
 {% include [Create a project](../../_includes/managed-gitlab/initialize.md) %}
 
-## Create a {{ GLR }} {#runner}
-
-Install the {{ GLR }} application by following [this guide](../../managed-kubernetes/operations/applications/gitlab-runner.md).
+{% include [create glr](../../_includes/managed-gitlab/k8s-runner.md) %}
 
 ## Upload files to the {{ GL }} repository {#add-files}
 
@@ -146,10 +144,10 @@ Install the {{ GLR }} application by following [this guide](../../managed-kubern
    1. Disable the **Protect variable** option.
    1. Click **Add variable**.
 
-## Create the CI script's configuration file {#add-ci}
+## Create the CI script configuration file {#add-ci}
 
-1. In the left-hand panel in {{ GL }}, go to **Repository** and click the **Files** tab.
-1. Click ![image](../../_assets/console-icons/plus.svg) to the right of the project name and select **New file** from the drop-down menu.
+1. Open the `gitlab-test` project.
+1. Click ![image](../../_assets/console-icons/plus.svg) in the repository navigation bar and select **New file** from the drop-down menu.
 1. Name the file as `.gitlab-ci.yml` and add the following build stages to it:
 
    {% cut ".gitlab-ci.yml" %}
@@ -275,7 +273,7 @@ After saving the `.gitlab-ci.yml` configuration file, the build script will star
 
 ## Check the result {#check-result}
 
-To check the build script results, select **CI/CD** → **Pipelines** in the drop-down menu in the left-hand panel in {{ GL }}. Make sure all the five stages complete successfully.
+To check the build script results, select **Build** on the left-hand panel in the `gitlab-test` project, and then **Pipelines** from the drop-down menu. Make sure all the five stages complete successfully.
 
 The app will be available at the URL of the {{ api-gw-name }} API gateway's service domain in the `prod` folder. You can find the URL in the [management console]({{ link-console-main }}) or the `domain` field in the `bootstrap.sh` script runtime log.
 

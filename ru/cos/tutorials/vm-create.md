@@ -65,7 +65,7 @@
        --public-ip \
        --platform standard-v3 \
        --container-name=my-app \
-       --container-image={{ registry }}/mirror/ubuntu:16.04 \
+       --container-image={{ registry }}/mirror/ubuntu:20.04 \
        --container-command=sleep \
        --container-arg="1000" \
        --container-env=KEY1=VAL1,KEY2=VAL2 \
@@ -75,7 +75,7 @@
      Где:
      * `--name` — имя ВМ.
      * `--zone` — зона доступности.
-     * `--ssh-key` — содержимое файла [открытого ключа](../../compute/quickstart/quick-create-linux.md#create-ssh).
+     * `--ssh-key` — содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * `--service-account-name` — имя сервисного аккаунта.
      * `--create-boot-disk size` — размер загрузочного диска. Должен быть не менее 30 ГБ.
      * `--public-ip` — выделение публичного IP-адреса для ВМ.
@@ -144,7 +144,7 @@
      * `--coi-spec-file` — путь к [файлу спецификации](../concepts/coi-specifications.md#coi-spec) Docker-контейнера.
      * `--name` — имя ВМ.
      * `--zone` — зона доступности.
-     * `--ssh-key` — содержимое файла [открытого ключа](../../compute/quickstart/quick-create-linux.md#create-ssh).
+     * `--ssh-key` — содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * `--create-boot-disk size` — размер загрузочного диска. Должен быть не менее 30 ГБ.
      * `--service-account-name` — имя сервисного аккаунта.
      * `--public-ip` — выделение публичного IP-адреса для ВМ.

@@ -1,5 +1,7 @@
-# {{ maf-name }} pricing
+# {{ maf-name }} pricing policy
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, using {{ maf-name }} is free of charge.
 
-You will be charged for other {{ yandex-cloud }} resources you consume while using the service according to their pricing policy.
+
+At the [Preview](../overview/concepts/launch-stages.md) stage, {{ maf-name }} is free of charge.
+
+Other {{ yandex-cloud }} resources you may use while using the service will be charged based on their pricing plans.

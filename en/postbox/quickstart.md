@@ -18,11 +18,18 @@ Use this guide to create your address and send a verification email.
 
 ## Create an address {#create-address}
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create an address.
+1. In the [management console]({{ link-console-main }}), select the folder you created your service account in.
 1. In the list of services, select **{{ postbox-name }}**.
 1. Click **Create address**.
 1. Specify the **Domain** from which you will be sending emails. The domain can be of any level.
-1. Specify the **Selector**: `mail`.
+1. Specify the **Selector**: `postbox`.
+
+   {% note info %}
+
+   You can specify a selector other than `postbox`. The specified selector must only be used in a single resource record: the one you will create at the [{#T}](#verify-domain) step.
+
+   {% endnote %}
+
 1. Copy the contents of the `privatekey.pem` private key file created during the [preparation stage](#service-account-and-keys), into the **Private key** field.
 1. Click **Create**.
 
@@ -32,23 +39,24 @@ To send emails, confirm ownership of the domain. After creating a record, the DK
 
 Here is an example of creating a resource record in **{{ dns-name }}**:
 
-1. In the [management console]({{ link-console-main }}), select the directory where your domain zone is located.
+1. In the [management console]({{ link-console-main }}), select the folder containing the address and your domain zone.
 1. In the list of services, select **{{ dns-name }}**.
 1. Select your domain zone.
 1. Click **Create record**.
-1. In the **Name** field, specify the name generated when creating the address, such as `mail._domainkey.example.com`.
+1. In the **Name** field, specify the name generated when creating the address in `postbox._domainkey.example.com` format.
 1. In the **Type** list, select `TXT`.
 1. To the **Value** field, copy the contents of the **Value** field under **Signature verification**. Note that the record value needs to be broken down into separate lines, for example:
 
-		( "v=DKIM1;h=sha256;k=rsa; "
+        ( "v=DKIM1;h=sha256;k=rsa; "
 
-		"p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAui6NEIfZdLfcbcJV4oqY5lWyYXV1ht1zYdrSHCVCWWBaOZ2mIGVzycDKPicLSDZBlN4I8HO2ajclFfQn3013klP7i6VrDSXMmO9hRGgVU+ZhoFJrsMRdbDK/1SIU1k7xiJIudB+YPcc69Y/jHQJk32q7b"
+        "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAui6NEIfZdLfcbcJV4oqY5lWyYXV1ht1zYdrSHCVCWWBaOZ2mIGVzycDKPicLSDZBlN4I8HO2ajclFfQn3013klP7i6VrDSXMmO9hRGgVU+ZhoFJrsMRdbDK/1SIU1k7xiJIudB+YPcc69Y/jHQJk32q7b"
 
-		"UC617oEwSL/sQHeueS0rMLrmPyOtXELLLHrx9IiHM8ACb6zFY/lWx3AnuOLOv4JXYPAQe+b2zvERpHA+AbaCUHi8dJVm1aY/TceakHkUMlWzh4YeSfuQkaNI1PEnLGA3u0WIGyvtTdA3FWhT3w3BFsVWCTFPIxjORvaY/eZMMcj3WM7GUtORbebAOUyBwIDAQAB" )
-
+        "UC617oEwSL/sQHeueS0rMLrmPyOtXELLLHrx9IiHM8ACb6zFY/lWx3AnuOLOv4JXYPAQe+b2zvERpHA+AbaCUHi8dJVm1aY/TceakHkUMlWzh4YeSfuQkaNI1PEnLGA3u0WIGyvtTdA3FWhT3w3BFsVWCTFPIxjORvaY/eZMMcj3WM7GUtORbebAOUyBwIDAQAB" )
 1. Click **Create**.
+1. Select the address you created.
+1. Click **Verify address**. If the record is correct, the verification status on the address page will change to `Success`.
 
-Wait a few minutes. If the record is correct, the verification status on the address page will change to `Success`.
+DNS server responses are cached, so delays may occur when updating a resource record.
 
 ## Send a verification email {#send-test-letter}
 
@@ -131,7 +139,7 @@ You can send a verification email using:
 
 ### SMTP
 
-1. Get a password by using the secret key of the `postbox-user` service account. To do this, run the `generate.py` script:
+1. Get a password by using the secret key of the `postbox-user` service account. To do this, run the `generate.py` script. Use Python 3 or higher.
 
    ```
    python generate.py <secret_key_of_service_account>
@@ -146,6 +154,7 @@ You can send a verification email using:
    import hashlib
    import base64
    import argparse
+   import sys
 
    # These values are required to calculate the signature. Do not change them.
    DATE = "20230926"
@@ -172,6 +181,9 @@ You can send a verification email using:
 
 
    def main():
+      if sys.version_info[0] < 3:
+         raise Exception("Must be using Python 3")
+
        parser = argparse.ArgumentParser(
            description="Convert a Secret Access Key to an SMTP password."
        )
@@ -190,7 +202,7 @@ You can send a verification email using:
 1. Specify the following parameters in your email client:
 
    * Server name: `postbox.cloud.yandex.net`.
-   * Port: `25`.
+   * Port: `587`.
    * Username: ID of the `postbox-user` service account key.
    * Password you obtained in the previous step.
 

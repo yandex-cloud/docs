@@ -20,7 +20,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 * A cluster that uses {{ CK }} to manage replication and fault tolerance should consist of three or more hosts with individual hosts not required to run {{ CK }}. You can only create this kind of cluster using the CLI or API.
 
    
-   This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). Access to {{ CK }} is available on request. To get such access, contact [support]({{ link-console-support }}) or your account manager.
+   This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). Access to {{ CK }} is available on request. Contact [technical support]({{ link-console-support }}) or your account manager.
 
 
 * When using {{ ZK }}, a cluster can consist of two or more hosts. Another three {{ ZK }} hosts will be added to the cluster automatically.

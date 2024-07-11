@@ -143,7 +143,7 @@ links:
     description: Очереди для обмена сообщениями между приложениями
     href: message-queue/
   - title: Yandex MetaData Hub
-    description: Управление подключениями
+    description: Управление настройками подключений и схемами данных
     href: metadata-hub/
   - title: Использование продуктов Microsoft
     description: Использование продуктов Microsoft

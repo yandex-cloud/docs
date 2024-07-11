@@ -28,7 +28,7 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 * [{{ mos-full-name }}](../managed-opensearch/release-notes.md)
 * [{{ mpg-full-name }}](../managed-postgresql/release-notes.md)
 * [{{ mrd-full-name }}](../managed-redis/release-notes.md)
-* [{{ metadata-hub-name }}](../metadata-hub/release-notes/index.md)
+* [{{ metadata-hub-full-name }}](../metadata-hub/release-notes/index.md)
 * [{{ websql-full-name }}](../websql/release-notes/index.md)
 
 ## Containers {#containers}

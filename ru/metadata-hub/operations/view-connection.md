@@ -14,7 +14,7 @@ description: "Пошаговые инструкции по работе с {{ co
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Выберите сервис **{{ metadata-hub-name }}**.
+  1. Выберите сервис **{{ metadata-hub-full-name }}**.
   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
   1. Нажмите на строку подключения для просмотра детальной информации о нем.
 
@@ -29,7 +29,7 @@ description: "Пошаговые инструкции по работе с {{ co
 - Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Выберите сервис **{{ metadata-hub-name }}**.
+  1. Выберите сервис **{{ metadata-hub-full-name }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager** и нажмите на имя нужного подключения.
   1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **Зависимости**.
 
@@ -44,7 +44,7 @@ description: "Пошаговые инструкции по работе с {{ co
 - Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Выберите сервис **{{ metadata-hub-name }}**.
+  1. Выберите сервис **{{ metadata-hub-full-name }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager** и нажмите на имя нужного подключения.
   1. На панели слева выберите ![image](../../_assets/console-icons/list-check.svg) **Операции**.
   

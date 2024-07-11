@@ -21,7 +21,7 @@ The following services are always free of charge:
 * [{{ forms-full-name }}](../forms/pricing.md)
 * [{{ iam-full-name }}](../iam/pricing.md)
 * {{ preview-stage }} [{{ maf-full-name }}](../managed-airflow/pricing.md)
-* {{ preview-stage }} [{{ metadata-hub-name }}](../metadata-hub/pricing.md)
+* {{ preview-stage }} [{{ metadata-hub-full-name }}](../metadata-hub/pricing.md)
 * {{ preview-stage }} [{{ postbox-name }}](../postbox/pricing.md)
 * {{ preview-stage }} [{{ sws-full-name }}](../smartwebsecurity/pricing.md)
 * {{ preview-stage }} [{{ speechsense-full-name }}](../speechsense/pricing.md)

@@ -13,8 +13,6 @@ If you close a thread manually, it will be created again. If a merge request is 
 
 For more information about working with approval rules, see [Setting up approval rules](../operations/approval-rules.md).
 
-At the [Preview](../../overview/concepts/launch-stages.md) stage, the feature can be used free of charge.
-
 ## {{ GL }} Token {#gitlab-token}
 
 You need a _[{{ GL }} token]({{ gl.docs }}/ee/user/profile/personal_access_tokens.html)_ to set up code approval rules. A token is requested for authorization when working with the repository: this is how the {{ GL }} API is accessed.

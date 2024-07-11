@@ -1857,6 +1857,11 @@ default:
           '0':
             1|string: "243,80\_₸"
         requests|string: Не тарифицируется
+  sku|KZT|yq:
+    network:
+      ingress:
+        v1|pricingRate:
+          10|string: "3,00\_₸"
   sku|RUB|ai:
     mt:
       detect|string: "492,20\_₽"
@@ -2957,6 +2962,11 @@ default:
           '0':
             1|string: "48,76\_₽"
         requests|string: Не тарифицируется
+  sku|RUB|yq:
+    network:
+      ingress:
+        v1|pricingRate:
+          10|string: "0,60\_₽"
   sku|USD|ai:
     mt:
       detect|string: "3,937600\_$"
@@ -3986,6 +3996,54 @@ default:
             ram:
               v2|month|string: "2,291328\_$"
               v2|string: "0,003182\_$"
+      y1:
+        mdb:
+          elasticsearch:
+            cpu:
+              c100:
+                v2|month|string: "6,923077\_$"
+                v2|string: "0,009615\_$"
+                v3|month|string: "6,923077\_$"
+                v3|string: "0,009615\_$"
+            ram:
+              v2:
+                basic|month|string: "11,353846\_$"
+                basic|string: "0,015769\_$"
+                gold|month|string: "13,384616\_$"
+                gold|string: "0,018590\_$"
+                platinum|month|string: "15,415385\_$"
+                platinum|string: "0,021410\_$"
+              v3:
+                basic|month|string: "11,353846\_$"
+                basic|string: "0,015769\_$"
+                gold|month|string: "13,384616\_$"
+                gold|string: "0,018590\_$"
+                platinum|month|string: "15,415385\_$"
+                platinum|string: "0,021410\_$"
+      y3:
+        mdb:
+          elasticsearch:
+            cpu:
+              c100:
+                v2|month|string: "5,353847\_$"
+                v2|string: "0,007436\_$"
+                v3|month|string: "5,353847\_$"
+                v3|string: "0,007436\_$"
+            ram:
+              v2:
+                basic|month|string: "10,984615\_$"
+                basic|string: "0,015256\_$"
+                gold|month|string: "12,923077\_$"
+                gold|string: "0,017949\_$"
+                platinum|month|string: "14,861539\_$"
+                platinum|string: "0,020641\_$"
+              v3:
+                basic|month|string: "10,984615\_$"
+                basic|string: "0,015256\_$"
+                gold|month|string: "12,923077\_$"
+                gold|string: "0,017949\_$"
+                platinum|month|string: "14,861539\_$"
+                platinum|string: "0,020641\_$"
   sku|USD|vpc:
     gateway:
       shared_egress_gateway:
@@ -7591,6 +7649,7 @@ default:
           label_action-deny: Запретить
           label_default-action: Действие для базового правила по умолчанию
           section_security-rules: Правила безопасности
+        label_search-rule-type: 'Тип правила:'
         overview:
           action_attach-to-host: Подключить к хосту
           action_disconnect-host: Отключить от профиля
@@ -7606,11 +7665,16 @@ default:
           column_type: Тип
           label_base-rule: Базовое
           label_smart-protection-rule: Smart Protection
+          label_waf-rule: Web Application Firewall
           title_connected-to-the-hosts: Подключенные хосты
           title_security-rules: Правила безопасности
         title_default-template: По преднастроенному шаблону
         title_no-template: С чистого листа
         title_profiles: Профили безопасности
+        waf:
+          label_create-profile: Создать профиль WAF
+          label_profiles: Профили WAF
+          title_connected-profiles: Подключённые профили безопасности
       smartcaptcha:
         button_captcha-settings-create: Создать капчу
         label_additional-challenge: Дополнительное задание

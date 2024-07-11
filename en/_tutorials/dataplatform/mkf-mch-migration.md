@@ -51,7 +51,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
       * [security group](../../vpc/concepts/security-groups.md) and rules required to connect to the clusters from the internet.
-      * A source {{ mkf-name }} cluster with a description of a topic and two users on whose behalf the producer and consumer will connect to the topic.
+      * {{ mkf-name }} source cluster.
+      * Topic and two {{ KF }} users on whose behalf the producer and consumer will connect to the topic.
       * {{ mch-name }} target cluster.
       * Target endpoint.
       * Transfer.

@@ -26,7 +26,7 @@ You can create connections of the following types:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a connection.
-  1. Select **{{ metadata-hub-name }}**.
+  1. Select **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
   1. Click **Create connection**.
   1. Enter a name for the connection.
@@ -50,7 +50,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a connection.
-   1. Select **{{ metadata-hub-name }}**.
+   1. Select **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
    1. Click **Create connection**.
    1. Enter a name for the connection.
@@ -73,7 +73,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a connection.
-   1. Select **{{ metadata-hub-name }}**.
+   1. Select **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
    1. Click **Create connection**.
    1. Enter a name for the connection.
@@ -99,7 +99,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a connection.
-   1. Select **{{ metadata-hub-name }}**.
+   1. Select **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
    1. Click **Create connection**.
    1. Enter a name for the connection.
@@ -128,7 +128,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a connection.
-   1. Select **{{ metadata-hub-name }}**.
+   1. Select **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
    1. Click **Create connection**.
    1. Enter a name for the connection.
@@ -156,7 +156,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a connection.
-   1. Select **{{ metadata-hub-name }}**.
+   1. Select **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
    1. Click **Create connection**.
    1. Enter a name for the connection.

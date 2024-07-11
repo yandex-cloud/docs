@@ -52,14 +52,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * Network.
       * Subnet.
       * Default security group and rules required to connect to the clusters from the internet.
-      * A {{ mkf-name }} cluster with a description of one topic and two users on whose behalf the producer and consumer will connect to the topic, respectively.
+      * {{ mkf-name }} cluster.
+      * Topic and two {{ mkf-name }} users on whose behalf the producer and consumer will connect to the topic, respectively.
 
          To create multiple topics or clusters, duplicate blocks with their description and specify new unique names. Users in different clusters may have the same names.
 
       * A {{ mch-name }} cluster with a single shard and a database named `db1`.
 
-   1. Specify in the file `data-from-kafka-to-clickhouse.tf`:
+   1. In `data-from-kafka-to-clickhouse.tf`, specify:
 
+      * {{ mkf-name }} version.
       * Usernames and passwords of users with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` roles in {{ mkf-name }} clusters.
       * Names of the {{ mkf-name }} clusters' topics.
       * Username and password that will be used to access a {{ mch-name }} cluster.
@@ -92,7 +94,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       Check that you can use it to [connect to {{ mkf-name }} clusters over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-   - [clickhouse-client]({{ ch.docs }}/interfaces/cli/): to connect to the database in the {{ mch-name }} cluster.
+   - [clickhouse-client]({{ ch.docs }}/interfaces/cli/): To connect to the database in the {{ mch-name }} cluster.
 
       1. Connect the [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 

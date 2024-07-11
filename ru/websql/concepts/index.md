@@ -41,7 +41,7 @@
 
 Внешние подключения не группируются, даже если адрес хоста БД одинаков.
 
-{{ websql-full-name }} также поддерживает интеграцию с сервисом [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml) на уровне каталога пользователя. Созданные в {{ websql-full-name}} подключения автоматически появляются в {{ connection-manager-name }} сервиса {{ metadata-hub-name }} и наоборот.
+{{ websql-full-name }} также поддерживает интеграцию с сервисом [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml) на уровне каталога пользователя. Созданные в {{ websql-full-name}} подключения автоматически появляются в {{ connection-manager-name }} сервиса {{ metadata-hub-full-name }} и наоборот.
 
 Вы также можете [редактировать настройки подключения](../operations/connect.md#change-connection-settings) и [удалять ненужные подключения](../operations/connect.md#delete-connection). После подключения к БД вы сможете [просматривать схемы, таблицы и представления](../operations/view-db-objects-info.md) (`VIEW`). Таблицы и представления в рамках одного подключения объединяются в группы. Группировка представлений доступна, если в БД есть хотя бы одно представление.
 

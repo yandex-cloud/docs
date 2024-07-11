@@ -6,7 +6,7 @@
 
 {% include [realized-waf-concept](../../_includes/smartwebsecurity/realized-waf-concept.md) %}
 
-Для контроля и ограничения нагрузки на веб-приложения используется [Advanced Rate Limiter (ARL)](../concepts/arl.md).
+{% include [realized-arl-concept](../../_includes/smartwebsecurity/realized-arl-concept.md) %}
 
 {% include [note-preview-waf-arl](../../_includes/smartwebsecurity/note-preview-waf-arl.md) %}
 

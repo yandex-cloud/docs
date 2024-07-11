@@ -10,7 +10,9 @@
 
 {% include [realized-waf-concept](../../_includes/smartwebsecurity/realized-waf-concept.md) %}
 
-{% include [note-preview-waf](../../_includes/smartwebsecurity/note-preview-waf.md) %}
+{% include [realized-arl-concept](../../_includes/smartwebsecurity/realized-arl-concept.md) %}
+
+{% include [note-preview-waf-arl](../../_includes/smartwebsecurity/note-preview-waf-arl.md) %}
 
 Логи {{ sws-name }} передаются в сервис [{{ cloud-logging-full-name }}](../../logging/).
 
