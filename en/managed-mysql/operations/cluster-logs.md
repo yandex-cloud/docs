@@ -12,13 +12,13 @@
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the cluster name and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mysql.cluster.switch_logs }}** tab.
-   1. Specify the time period for logs to be displayed: enter it manually or select in the calendar by clicking the date input field.
+   1. Specify the time period you want the log info for: enter it manually or select in the calendar using the date input field.
    1. Select the type of events to display. By default, the `MYSQL_ERROR` type is used.
-   1. Select the hosts and logging level in the drop-down lists next to the date input field, if required.
+   1. Specify the hosts and logging level in the line with the date input field if needed.
 
    A list of log entries for the selected time period will be displayed. To view detailed information about an event, click the respective entry in the list.
 
-   If there are too many records and not all of them are displayed, click the **Load more** link at the end of the list.
+   If there are too many records and not all of them are displayed, click **{{ ui-key.yacloud.common.label_load-more }}** at the end of the list.
 
 - CLI {#cli}
 

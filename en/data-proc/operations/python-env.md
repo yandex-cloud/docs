@@ -75,7 +75,7 @@ When using PySpark, it is often required to install or update Python packages in
 To use the prepared virtual environment in the {{ dataproc-name }} cluster, grant the cluster service account permissions to write and read data in the bucket that stores the archive. You can do this using two methods:
 
 * [Edit the bucket ACL](../../storage/operations/objects/edit-acl.md) by granting the cluster service account the `read` permission.
-* [Assign](../../iam/operations/roles/grant.md#access-to-sa) the service account the `storage.viewer` role.
+* [Assign](../../iam/operations/roles/grant.md) the service account the `storage.viewer` role.
 
 ### Using a virtual environment at regular runs of PySpark jobs {#launch-common}
 

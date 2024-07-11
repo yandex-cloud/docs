@@ -15,6 +15,8 @@ If the primary master fails, the standby one takes over. This way, a cluster wit
 
 Segment hosts have standalone DBMS's (_segments_) deployed on them. They store data fragments and perform most operations for handling queries. Each cluster segment has a replica, i.e., a mirror segment that is located on another host and stores a copy of the data from the main segment.
 
+The number of segments is the same for each host. When [expanding a cluster](../operations/hosts/cluster-expand.md), you can increase the number of segments. They will be added to all hosts — both new and existing ones. You cannot add segments to existing hosts without expanding the cluster.
+
 
 All {{ mgp-name }} cluster hosts are located in a single availability zone: `{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`. You cannot create hosts in `{{ region-id }}-c`, for it is being [discontinued](/blog/posts/2023/08/new-availability-zone). If you have hosts located in this availability zone, [restore your cluster from a backup](../operations/cluster-backups.md#restore). While restoring the cluster, specify a different availability zone.
 

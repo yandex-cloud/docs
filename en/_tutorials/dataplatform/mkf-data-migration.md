@@ -63,13 +63,14 @@ Both methods are also suitable for [migrating](../../managed-kafka/operations/ho
       * Network.
       * Subnet.
       * Default security group and rules required to connect to the cluster from the internet.
-      * {{ mkf-name }} cluster with an [administrator user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `admin-cloud`, and the [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics) setting on.
-      * MirrorMaker connector.
+      * {{ mkf-name }} target cluster with the [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics) setting on.
+      * `admin-cloud` [admin user](../../managed-kafka/operations/cluster-accounts.md#create-account) for the target cluster.
+      * MirrorMaker connector for the target cluster.
 
    1. In `kafka-mirrormaker-connector.tf`, specify:
 
-      * Usernames and passwords for the source and the target cluster users.
-      * Source cluster broker host FQDNs.
+      * Source cluster username and passwords for the source and target cluster users.
+      * FQDNs of the source cluster broker hosts.
       * Source and target cluster aliases.
       * Filter template for the topics to be transferred.
       * {{ KF }} version.
@@ -133,13 +134,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * Network.
       * Subnet.
       * Default security group and rules required to connect to the cluster and VM from the internet.
-      * {{ mkf-name }} cluster with an [administrator user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `admin-cloud`, and the [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics) setting on.
+      * {{ mkf-name }} cluster with the [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics) setting on.
+      * `admin-cloud` {{ KF }} [admin user](../../managed-kafka/operations/cluster-accounts.md#create-account).
       * Virtual machine with public internet access.
 
    1. In `kafka-mirror-maker.tf`, specify:
 
-      * {{ mkf-name }} admin user password.
-      * ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu and no GPU, e.g., [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+      * {{ KF }} version.
+      * {{ KF }} admin user password.
+      * ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list.md) with Ubuntu and no GPU, e.g., [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
       * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file for accessing the virtual machine. By default, the specified username is ignored in the image used. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
 
    1. Make sure the {{ TF }} configuration files are correct using this command:

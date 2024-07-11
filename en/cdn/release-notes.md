@@ -1,5 +1,9 @@
 # {{ cdn-full-name }} release notes
 
+## Q2 2024 {#q2-2024}
+
+You can now [configure secure token access](./operations/resources/enable-secure-token.md) in the management console.
+
 ## Q1 2024 {#q1-2024}
 
 * Added support for [IP-based access policies](./concepts/ip-address-acl.md) for CDN resources.

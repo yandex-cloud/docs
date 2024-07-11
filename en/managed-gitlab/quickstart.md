@@ -25,7 +25,7 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
 
 - Management console {#console}
 
-  1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
+  1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
   1. If you do not have a folder yet, create one:
 
      {% include [create-folder](../_includes/create-folder.md) %}
@@ -41,6 +41,8 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
   {% include [instance-create-console](../_includes/managed-gitlab/instance-create-console.md) %}
 
 {% endlist %}
+
+{% include [HTTPS info](../_includes/managed-gitlab/note-https.md) %}
 
 ## Set up a working environment {#configure-mgl}
 

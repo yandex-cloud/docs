@@ -29,6 +29,12 @@ description: "This page provides a list of tutorials for building a data platfor
   * [{#T}](managed-schema-registry.md)
   * [{#T}](confluent-schema-registry.md)
 
+## {{ AF }} {#airflow}
+
+* [{#T}](yandex-query-automation.md)
+* [{#T}](using-python-sdk-in-airflow.md)
+* [{#T}](lockbox-and-airflow.md)
+
 ## {{ CH }} {#clickhouse}
 
 * [{#T}](mysql-to-clickhouse.md)

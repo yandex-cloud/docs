@@ -9,13 +9,13 @@ In a {{ mgp-name }} cluster, the type of disks for master hosts and segment host
 
 {% note info %}
 
-When using standard hosts on **Intel Ice Lake**, access to local SSD storage is provided on request. Contact [technical support]({{ link-console-support }}) or your account manager.
+When using standard **Intel Ice Lake** hosts, access to local SSD storage is provided on request. Contact [technical support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 
 ## Specifics of local SSD storage {#local-storage-features}
 
-Local SSDs do not provide fault-tolerant storage and impact the cost of the entire cluster: a cluster with this type of storage is charged even if not running. You can find more information in the [pricing policy](../pricing).
+Local SSDs do not provide fault-tolerant storage and impact the cost of the entire cluster: you are charged for a cluster with this type of storage even if it is stopped. You can find more information in the [pricing policy](../pricing).
 
 
 ## Managing disk space {#manage-storage-space}
@@ -41,19 +41,19 @@ To monitor storage usage on cluster hosts, configure alerts in {{ monitoring-ful
       * **{{ mgp-name }}** service
       * {{ mgp-name }} cluster ID
 
-         You can get the cluster ID [with a list of clusters in a folder](../operations/cluster-list.md#list-clusters).
+         You can get the cluster ID [with a list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
       * `disk.free_bytes` label
 
    1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}**: Set the `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` condition for the percentage of free disk space to trigger the alert:
 
-      * 95% of the storage size for `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`.
-      * 90% of the storage size for `{{ ui-key.yacloud_monitoring.alert.status_warn }}`.
+      * 95% of the storage size for `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`
+      * 90% of the storage size for `{{ ui-key.yacloud_monitoring.alert.status_warn }}`
 
    1. **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}**:
 
-      * **{{ ui-key.yacloud_monitoring.service.field.function }}**: `{{ ui-key.yacloud_monitoring.alert.title_aggregation-min }}` (a minimum metric value for the period).
-      * **{{ ui-key.yacloud_monitoring.alert-template.field.evaluation-window }}**: Required period to update a metric value.
+      * **{{ ui-key.yacloud_monitoring.service.field.function }}**: `{{ ui-key.yacloud_monitoring.alert.title_aggregation-min }}` (minimum metric value for the period).
+      * **{{ ui-key.yacloud_monitoring.alert-template.field.evaluation-window }}**: Preferred metric update period.
 
    1. Add the previously created notification channel.
 
@@ -68,7 +68,7 @@ If the cluster switched to read-only mode:
 
    {% note alert %}
 
-   When doing so, make sure the amount of free disk space never reaches zero. Otherwise, since the fail-safe is disabled, {{ GP }} will crash and the cluster will stop working.
+   When doing so, make sure the amount of free disk space never reaches zero. Otherwise, since the fail-safe mechanism is disabled, {{ GP }} will crash and the cluster will stop operating.
 
    {% endnote %}
 

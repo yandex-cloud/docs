@@ -64,6 +64,8 @@ items:
         href: tutorials/test-vms-creation-via-gitlab-ci.md
       - name: Integration with {{ tracker-full-name }}
         href: tutorials/tracker-integration.md
+      - name: Invoking load testing from {{ GL }}} CI
+        href: tutorials/loadtesting-gitlab-ci.md
   - name: Concepts
     items:
       - name: Resource relationships

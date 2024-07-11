@@ -75,6 +75,7 @@ Public access to hosts can only be configured for clusters created with enabled 
       * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
 
 
+      * [Priority for assigning the host as a master](../concepts/replication.md#master-failover).
       * If necessary, configure public access to the host.
       * If you are adding a host to a sharded cluster, select a shard.
 
@@ -135,7 +136,7 @@ Public access to hosts can only be configured for clusters created with enabled 
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
          * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
          * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
-         * `replica-priority`: Priority for selecting the host as a master if the [primary master fails](../concepts/replication.md#master-failover). It is only available for non-sharded clusters.
+         * `replica-priority`: Priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover). It is only available for non-sharded clusters.
          * `shard-name`: Name of the shard in which the host must be created if the cluster is sharded.
 
 - {{ TF }} {#tf}
@@ -201,7 +202,11 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row and select **{{ ui-key.yacloud.common.edit }}**.
-   1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
+   1. Set new settings for the host:
+
+      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
+      1. Specify the [priority for assigning the host as a master](../concepts/replication.md#master-failover).
+
    1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
 - CLI {#cli}
@@ -282,6 +287,8 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
 You can remove a host from a {{ RD }} cluster if it is not the only host in it. To replace a single host, first create a new host and then remove the old one.
 
 If the host is the master when deleted, {{ mrd-name }} automatically assigns another replica as the master.
+
+If the number of hosts in a cluster or cluster shard is equal to the minimum value, you cannot delete the host. For more information, refer to [Quotas and limits](../concepts/limits.md#mrd-limits).
 
 {% list tabs group=instructions %}
 

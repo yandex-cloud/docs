@@ -87,10 +87,13 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
 
          * **{{ ui-key.yacloud.mdb.forms.host_column_zone }}**: Select an [availability zone](../../overview/concepts/geo-scope.md).
          * **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}**: Specify a [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
-         * **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**: Enable access to the host from the internet if the cluster is created with **{{ ui-key.yacloud.redis.field_tls-support }}** activated.
-         * **{{ ui-key.yacloud.mdb.forms.host_column_shard-name }}**: Enables you to change the shard name for the host. The field is only available if the cluster is created with the enabled **{{ ui-key.yacloud.mdb.forms.field_cluster-mode }}** setting.
+         * **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**: Enables access to the host from the internet if the cluster is created with **{{ ui-key.yacloud.redis.field_tls-support }}** enabled.
+         * **{{ ui-key.yacloud.mdb.forms.host_column_replica-priority }}**: Priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+         * **{{ ui-key.yacloud.mdb.forms.host_column_shard-name }}**: Enables you to change the shard name for the host. The field is available only if the cluster is created with **{{ ui-key.yacloud.mdb.forms.field_cluster-mode }}** enabled.
 
       * To add hosts to the cluster, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
+
+      If you enabled sharding in the cluster and chose the **local-ssd** disk type, add at least two hosts per shard.
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
@@ -167,7 +170,7 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
          * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
          * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
-         * `replica-priority`: Priority for selecting the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+         * `replica-priority`: Priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
       * `--disk-type-id`: Disk type.
 
          {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
@@ -181,6 +184,8 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
       {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+      If you are creating a sharded cluster with the **local-ssd** disk type, specify at least two hosts per shard in the command.
 
       {% note info %}
 
@@ -258,11 +263,13 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
          * `zone_id`: Availability zone.
          * `subnet_id`: ID of a subnet in the selected availability zone.
          * `assign_public_ip`: Public access to the host, `true` or `false`.
-         * `replica_priority`: Host priority.
+         * `replica_priority`: Priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
 
       {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+      If you are creating a sharded cluster with the **local-ssd** disk type, specify at least two hosts per shard in the configuration file.
 
       {% include [Maintenance window](../../_includes/mdb/mrd/terraform/maintenance-window.md) %}
 
@@ -288,6 +295,8 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
    * Security group IDs in the `securityGroupIds` parameter.
    * `tlsEnabled=true` flag for creating clusters with encrypted SSL support.
    * Settings of public access to hosts in the `hostSpecs[].assignPublicIp` parameter.
+
+   If you are creating a sharded cluster with the **local-ssd** disk type, specify at least two hosts per shard in the request body.
 
 {% endlist %}
 

@@ -11,10 +11,10 @@ Before getting started, [create a service account](create-user.md#create) with a
 
 To use approval rules:
 
-1. [{#T}](#gitlab-token).
-1. [{#T}](#enable).
-1. [{#T}](#rules).
-1. [{#T}](#code-ownership) (available in **Standard** and **Advanced** [configurations](../concepts/approval-rules.md#packages)).
+1. [{#T}](#gitlab-token)
+1. [{#T}](#enable)
+1. [{#T}](#rules)
+1. [{#T}](#code-ownership) (available in **Standard** and **Advanced** [configurations](../concepts/approval-rules.md#packages))
 
 If necessary, enable [debugging mode](#debugging) and check out the [rules for handling exceptions](#exceptions).
 

@@ -14,6 +14,8 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 When you restore a cluster from a backup, you create a new cluster with the backup data. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps.
 
+If you chose the **local-ssd** disk type when restoring the cluster from a backup, add at least two hosts per shard.
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -88,7 +90,7 @@ When you restore a cluster from a backup, you create a new cluster with the back
       * Name: `mynewrd`
       * Environment: `PRODUCTION`
       * Network: `default`
-      * With a single `hm1.nano`-class host in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone with public access and a replica priority of `50`.
+      * With a single `hm1.nano`-class host in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone with public access and a [replica priority](../concepts/replication.md#master-failover) of `50`.
       * Password: `P@ssWord`
       * Network SSD storage (`{{ disk-type-example }}`): 20 GB
 

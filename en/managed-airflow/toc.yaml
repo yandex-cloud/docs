@@ -22,6 +22,20 @@ items:
         href: operations/upload-dags.md
       - name: Deleting a cluster
         href: operations/cluster-delete.md
+  - name: Tutorials
+    items:
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: Automating {{ dataproc-name }} operations
+        href: tutorials/data-proc-automation.md
+      - name: Automating {{ yq-full-name }} tasks
+        href: tutorials/yandex-query-automation.md
+      - name: >-
+          Sending requests to the {{ yandex-cloud }} API via the {{ yandex-cloud
+          }} Python SDK
+        href: tutorials/using-python-sdk.md
+      - name: Storing {{ AF }} connections and variables in {{ lockbox-full-name }}
+        href: tutorials/lockbox-secrets-in-maf-cluster.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -30,10 +44,6 @@ items:
         href: concepts/limits.md
       - name: Impersonation
         href: concepts/impersonation.md
-  - name: Tutorials
-    items:
-      - name: Automating {{ dataproc-name }} operations
-        href: tutorials/data-proc-automation.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

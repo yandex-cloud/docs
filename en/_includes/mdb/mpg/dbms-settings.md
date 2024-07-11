@@ -370,7 +370,7 @@
 
 - **Enable async append**{#setting-enable-async-append} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-   Allows the query planner to consider asynchronous execution of the query plan on different hosts when adding data from external sources. This feature has been supported by {{ PG }} starting from version 14.
+   Allows the query planner to consider asynchronous execution of the query plan on different hosts when adding data from external sources. {{ PG }} supports this feature starting from version 14.
 
    This setting is enabled by default.
 
@@ -394,7 +394,7 @@
 
 - **Enable gathermerge**{#setting-enable-gathermerge} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
 
-   Allows the query planner to use a Gather Merge node for merging query execution results while preserving their order in the parallel query plan. This feature has been supported by {{ PG }} starting from version 14.
+   Allows the query planner to use a Gather Merge node for merging query execution results while preserving their order in the parallel query plan. {{ PG }} supports this feature starting from version 14.
 
    This setting is enabled by default.
 
@@ -418,7 +418,7 @@
 
 - **Enable incremental sort**{#setting-enable-incremental-sort} {{ tag-all }}
 
-   Allows the query planner to use incremental sorting. This type of sorting can reduce query execution time and RAM requirements if rows need to be sorted by multiple columns, and one or more of them have already been sorted. This feature has been supported by {{ PG }} starting from version 13.
+   Allows the query planner to use incremental sorting. This type of sorting can reduce query execution time and RAM requirements if rows need to be sorted by multiple columns, and one or more of them have already been sorted. {{ PG }} supports this feature starting from version 13.
 
    This setting is enabled by default.
 
@@ -672,7 +672,7 @@
 
 - **Lo compat privileges**{#setting-lo-compat-privileges} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   Disables the check of access privileges for large objects. Prior to version 9.0, large objects did not have access privileges, so any user could read or write them. Enable this setting if you need compatibility with {{ PG }} versions below 9.0.
+   Disables access permission check for large objects. Prior to version 9.0, large objects were not covered by access permissions, so any user could access them for reading and writing. Enable this setting if you need compatibility with {{ PG }} versions below 9.0.
 
    The setting is disabled by default (privilege checks are enabled).
 
@@ -682,7 +682,7 @@
 
    Specifies how long to wait for the lock to be released (in milliseconds). Locks can be used for tables, indexes, rows, and other database objects. If the timeout for an operation has expired, the operation is aborted.
 
-   The minimum value is `0` (timeout is off, you may wait to acquire a lock as long as you need), while the maximum one is `2147483647`. The default value is `1000`.
+   The minimum value is `0` (timeout is off, lock waiting time can be indefinite), the maximum one is `2147483647`. The default value is `1000`.
 
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT).
 
@@ -732,7 +732,7 @@
 
 - **Log lock waits**{#setting-log-lock-waits} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   Controls logging of long lock waits. When enabled, a log entry is created when a {{ PG }} session waits longer than [Deadlock timeout](#setting-deadlock-timeout) to acquire a lock.
+   Controls logging of long lock waits. When enabled, a log entry is created when a {{ PG }} session waits longer than [Deadlock timeout](#setting-deadlock-timeout) to get a lock.
 
    This setting is disabled by default.
 
@@ -802,7 +802,7 @@
 
 - **Log recovery conflict waits**{#setting-log-recovery-conflict-waits} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-   Controls logging of long recovery conflict waits when reading WAL to continue replication. When enabled, a log entry is created when a {{ PG }} session waits longer than [Deadlock timeout](#setting-deadlock-timeout) to resolve a recovery conflict. This feature has been supported by {{ PG }} starting from version 14.
+   Controls logging of long recovery conflict waits when reading WAL to continue replication. When enabled, a log entry is created when a {{ PG }} session waits longer than [Deadlock timeout](#setting-deadlock-timeout) to resolve a recovery conflict. {{ PG }} supports this feature starting from version 14.
 
    This setting is disabled by default.
 
@@ -1338,7 +1338,7 @@
 
 - **Vacuum failsafe age**{#setting-vacuum-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
 
-   The maximum age of a <q>frozen</q> (already ended) transaction measured as the number of transactions initiated after it. After this value is reached, the `VACUUM` process triggers vacuuming to avoid transaction counter overflow. This feature has been supported by {{ PG }} starting from version 14.
+   The maximum age of a <q>frozen</q> (already ended) transaction measured as the number of transactions initiated after it. After this value is reached, the `VACUUM` process triggers vacuuming to avoid transaction counter overflow. {{ PG }} supports this feature starting from version 14.
 
    The minimum value is `0`, while the maximum one is `2100000000`. The default value is `1600000000`.
 
@@ -1346,7 +1346,7 @@
 
 - **Vacuum multixact failsafe age**{#setting-vacuum-multixact-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
 
-   The maximum age of a frozen (already ended) [multi-transaction](https://www.postgresql.org/docs/14/routine-vacuuming.html#VACUUM-FOR-MULTIXACT-WRAPAROUND) measured as the number of multi-transactions initiated after it. After this value is reached, the `VACUUM` process triggers vacuuming to avoid multi-transaction counter overflow. This feature has been supported by {{ PG }} starting from version 14.
+   The maximum age of a frozen (already ended) [multi-transaction](https://www.postgresql.org/docs/14/routine-vacuuming.html#VACUUM-FOR-MULTIXACT-WRAPAROUND) measured as the number of multi-transactions initiated after it. After this value is reached, the `VACUUM` process triggers vacuuming to avoid multi-transaction counter overflow. {{ PG }} supports this feature starting from version 14.
 
    The minimum value is `0`, while the maximum one is `2100000000`. The default value is `1600000000`.
 

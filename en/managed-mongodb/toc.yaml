@@ -2,7 +2,7 @@ title: Yandex Managed Service for MongoDB
 href: index.yaml
 label:
   title: RU
-  description: The service is available in Russia only.
+  description: This service is only available in Russia.
   theme: unknown
   when: region == "kz"
 items:
@@ -22,7 +22,7 @@ items:
             href: operations/update.md
           - name: MongoDB version upgrade
             href: operations/cluster-version-update.md
-          - name: Stopping and starting clusters
+          - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
           - name: Managing cluster hosts
             href: operations/hosts.md

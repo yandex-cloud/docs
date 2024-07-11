@@ -30,6 +30,8 @@ If the majority of master hosts fails to get a response from the host being poll
 
 To ensure stable cluster operation, you need to create at least three master hosts in different availability zones, each with a single replica. Make sure the masters and their replicas reside in different availability zones.
 
+Sharded clusters with the **local-ssd** disk type and only one host per shard are not considered fault-tolerant. You cannot create such a cluster.
+
 ## Scalability {#scaling}
 
 If you need to scale your cluster horizontally, you can [add new shards](../operations/shards.md#add) to it.

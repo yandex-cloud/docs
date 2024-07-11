@@ -2,6 +2,8 @@
 
 The `x-yc-apigateway-integration:http` extension redirects a request to the specified URL.
 
+{% include [add-extentions-console](../../../_includes/api-gateway/add-extentions-console.md) %}
+
 ## Supported parameters {#parameters}
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}

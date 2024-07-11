@@ -2,7 +2,7 @@ title: Yandex API Gateway
 href: index.yaml
 label:
   title: RU
-  description: This service is only available in Russia.
+  description: The service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -37,6 +37,28 @@ items:
             href: operations/api-gw-migration.md
           - name: Deleting an API gateway
             href: operations/api-gw-delete.md
+      - name: Specification constructor
+        items:
+          - name: Overview
+            href: operations/spec-constructor/index.md
+          - name: '{{ sf-name }}'
+            href: operations/spec-constructor/cloud-functions.md
+          - name: Static response
+            href: operations/spec-constructor/dummy.md
+          - name: '{{ objstorage-name }}'
+            href: operations/spec-constructor/object-storage.md
+          - name: '{{ serverless-containers-name }}'
+            href: operations/spec-constructor/containers.md
+          - name: HTTP Access
+            href: operations/spec-constructor/http.md
+          - name: '{{ message-queue-name }}'
+            href: operations/spec-constructor/ymq.md
+          - name: '{{ yds-name }}'
+            href: operations/spec-constructor/datastreams.md
+          - name: '{{ ydb-name }}'
+            href: operations/spec-constructor/ydb.md
+          - name: '{{ ml-platform-short-name }}'
+            href: operations/spec-constructor/datasphere.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -53,7 +75,7 @@ items:
         href: tutorials/api-gw-integration.md
       - name: Developing CRUD APIs for movie services
         href: tutorials/movies-database.md
-      - name: Communicating with an API gateway using the WebSocket protocol
+      - name: Working with an API gateway using the WebSocket protocol
         href: tutorials/api-gw-websocket.md
       - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md

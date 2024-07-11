@@ -1,5 +1,5 @@
 {% note info %}
 
-Access to the **Intel Ice Lake (Compute Optimized)** platform is provided on request. Contact [technical support]({{ link-console-support }}) or your account manager.
+Access to the **Intel Ice Lake (Compute Optimized)** platform is available upon request. Contact [support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}

@@ -2,6 +2,8 @@
 
 The `x-yc-apigateway-integration:dummy` extension returns fixed content with the specified response code and required headers without any third-party service involved.
 
+{% include [add-extentions-console](../../../_includes/api-gateway/add-extentions-console.md) %}
+
 ## Supported parameters {#parameters}
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
@@ -27,10 +29,10 @@ x-yc-apigateway-integration:
     "application/json": "{ \"message\": \"You've been redirected.\" }"
 ```
 
-Extension specifics:
-* If the request has the header `Accept:`
-    * The best match is selected first.
-    * If there is no match, the `*` key is selected.
-    * If there is no key, the `415 Media not supported` response is returned.
+Extension features:
+* If the request has the `Accept` header:
+   * The best match is selected first.
+   * If there is no match, the `*` key is selected.
+   * If there is no key, the `415 Media not supported` response is returned.
 * If the `Accept` header is missing, an arbitrary response is selected.
-* If the content option is selected by the `*` key, the response's `Content-Type` is picked from `http_headers`. If it isn't specified there, the actual `Content-Type` is returned.
+* If the content option is selected by the `*` key, the response's `Content-Type` is picked from `http_headers`. If it is not specified there, the actual `Content-Type` is returned.

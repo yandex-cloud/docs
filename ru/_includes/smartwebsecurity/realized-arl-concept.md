@@ -1,0 +1,1 @@
+Для контроля и ограничения нагрузки на веб-приложения используется [Advanced Rate Limiter (ARL)](../../smartwebsecurity/concepts/arl.md).

@@ -38,9 +38,9 @@ There are different ways to calculate the cost depending on the [host type](conc
   The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../compute/pricing.md#prices) and {{ mmy-name }} markup for using these resources.
 
 
-Supported resource configurations are shown in the [Host classes](concepts/instance-types.md) section; vCPU and RAM prices are quoted in the [Prices](#prices) section.
+You can find supported resource configurations in the [Host classes](concepts/instance-types.md) section, and vCPU and RAM prices, in the [Prices](#prices) section.
 
-The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You are not paying for the time when the {{ MY }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the {{ MY }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -48,8 +48,8 @@ You pay for the following:
 
 * Storage allocated for DB clusters.
 
-   * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
-            * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
+   * You can only order local SSD (`local-ssd`) storage for clusters with three or more hosts:
+            * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
       * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
 
    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
@@ -58,9 +58,9 @@ You pay for the following:
 
    * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
 
-   * The number of hosts in a cluster does not affect the storage size and, therefore, the free volume of backups.
+   * The number of hosts in a cluster does not affect the storage size and, consequently, the free volume of backups.
 
-The cost is specified for one month of use and based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
@@ -71,32 +71,32 @@ The cost is specified for one month of use and based on 720 hours per month. The
 
 {% note info %}
 
-You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
+CVoS discount is only available for certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 
 
 
-All prices are shown without VAT.
+All prices below do not include VAT.
 
 
-Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
+Host prices are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
 
-The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
+The price of local SSD storage (`local-ssd`) also depends on the host type.
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 ### Host computing resources {#prices-hosts}
 
-#### Standard hosts {#standard-hosts}
-
 
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
 
+
+#### Standard hosts {#standard-hosts}
 
 
 
@@ -105,10 +105,6 @@ The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
 
 
 #### Dedicated hosts {#dedicated-hosts}
-
-
-{% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
-
 
 The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../compute/pricing.md#prices) and {{ mmy-name }} markup for using these resources.
 
@@ -120,7 +116,7 @@ The usage cost includes two components: [the cost of {{ compute-full-name }} com
 
 ### Storage and backups {#prices-storage}
 
-{% include [local-ssd for Intel Ice Lake only on request](../_includes/ice-lake-local-ssd-note.md) %}
+{% include [local-ssd for Ice Lake by query only](../_includes/ice-lake-local-ssd-note.md) %}
 
 
 

@@ -1,11 +1,14 @@
 ---
 title: "Как управлять подключениями. Пошаговые инструкции"
-description: "Пошаговые инструкции по работе с {{ connection-manager-name }} в {{ yandex-cloud }}. Из статьи вы узнаете, как создавать, просматривать, изменять и удалять подключения."
+description: "Пошаговые инструкции по работе с {{ metadata-hub-full-name }} в {{ yandex-cloud }}. Из статьи вы узнаете, как создавать, просматривать, изменять и удалять подключения."
 ---
 
-# Пошаговые инструкции для {{ connection-manager-name }}
+# Все пошаговые инструкции
+
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
+## Пошаговые инструкции для {{ connection-manager-name }} {#instrucations-connman}
 
 * [{#T}](create-connection.md)
 * [{#T}](view-connection.md)

@@ -51,10 +51,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          * [Network](../../vpc/concepts/network.md#network).
          * [Subnet](../../vpc/concepts/network.md#subnet).
-         * [Security groups](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mkf-name }} cluster.
+         * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mkf-name }} cluster.
          * {{ mkf-name }} source cluster with public internet access.
+         * {{ KF }} topic for the source cluster.
+         * {{ KF }} user for the source cluster.
          * {{ mkf-name }} target cluster.
-         * {{ KF }} topic.
+         * {{ KF }} topic for the target cluster.
+         * {{ KF }} user for the target cluster.
          * Transfer.
 
       1. In the `data-transfer-mkf-mkf.tf` file, specify the values of parameters:
@@ -63,7 +66,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * `source_user_name`: Username for establishing a connection to the {{ KF }} topic.
          * `source_user_password`: User password.
          * `target_kf_version`: {{ KF }} version in the target cluster.
-         * `transfer_enabled`: Set `0` to ensure that no transfer is created before the [source and target endpoints are created manually](#prepare-transfer).
+         * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [manually create the source and target endpoints](#prepare-transfer).
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 

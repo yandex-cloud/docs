@@ -15,7 +15,11 @@ To set traffic rules for a {{ GL }} instance:
 
 1. [Create a security group](../../vpc/operations/security-group-create.md) in the {{ yandex-cloud }} network you selected when creating the instance.
 1. [Add](../../vpc/operations/security-group-add-rule.md) inbound and outbound traffic rules to the security groups. See the list of rules further below.
-1. [Consult the support]({{ link-console-support }}) to bind a security group to a {{ GL }} instance.
+1. [Contact support]({{ link-console-support }}) to bind a security group to a {{ GL }} instance.
+
+   If you do not bind a separate security group to an instance, the group created by default in the instance's network will apply to it. The rules of this security group added for other services affect access to the {{ GL }} instance.
+
+   If you have no access to the instance or it works incorrectly when using the default security group, add rules for {{ GL }} to this group or bind a new one.
 
 ## Rules for incoming traffic {#ingress-rules}
 
@@ -41,20 +45,20 @@ This certificate is [used by default]({{ gl.docs }}/omnibus/settings/ssl/#enable
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}: `0.0.0.0/0`
 ||
 || To access your Git repository over SSH |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `{{ port-https }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `{{ port-https }}`
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}: To provide access, specify subnet IP ranges within {{ yandex-cloud }} or public IP addresses of web-connected computers.
 ||
 || For [health checks](../../network-load-balancer/concepts/health-check.md) by a network load balancer |
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: Target port specified in the load balancer settings.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`
 ||
 || To connect to {{ GL }} Container Registry |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `5050`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `5050`
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}: To provide access, specify subnet IP ranges within {{ yandex-cloud }} or public IP addresses of web-connected computers.
 
    To allow all traffic from any IP, specify `0.0.0.0/0`.
@@ -63,18 +67,22 @@ This certificate is [used by default]({{ gl.docs }}/omnibus/settings/ssl/#enable
 
 ## Rules for outgoing traffic {#egress-rules}
 
-{% note info %}
+{{ mgl-name }} relies on third-party integrations to provide its services. If you limit the outgoing traffic in the instance's security group, the instance may work incorrectly. To avoid this, add one of the rules presented in the table to the security group. You need them to create backups and store user objects in {{ objstorage-full-name }}.
 
-{{ mgl-name }} relies on external resources, so imposing restrictions on outbound traffic may lead to errors and failures. If you still need to restrict outbound traffic, make sure to add the rule described below.
-
-{% endnote %}
+Your choice of rule depends on the certificate you are using: Let's Encrypt (default) or self-signed.
 
 #|
-|| **Why use the rule** | **Rule settings** ||
-|| To create backups and store user objects in {{ objstorage-full-name }} |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `{{ port-https }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}: `213.180.193.243/32`.
+|| **Instance certificate type** | **Rule settings** ||
+|| Let's Encrypt |
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `{{ port-https }}`
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}: `0.0.0.0/0`
+||
+|| Self-signed certificate |
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `{{ port-https }}`
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}: `213.180.193.243/32`
 ||
 |#

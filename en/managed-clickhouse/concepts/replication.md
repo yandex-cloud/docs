@@ -23,7 +23,7 @@ Using {{ CK }} is associated with the following limitations:
 * You can only create clusters of three or more hosts.
 * {{ CK }} support cannot be enabled or disabled after creating a cluster.
 * You cannot switch clusters using {{ ZK }} hosts to {{ CK }}.
-* To [migrate a host](../operations/host-migration.md) from {{ CK }} to a different availability zone, you need to contact [support]({{ link-console-support }}).
+* [To migrate a host](../operations/host-migration.md) from {{ CK }} to a different availability zone, you have to contact [support]({{ link-console-support }}).
 
 For more information about {{ CK }}, see the [{{ CH }} documentation]({{ ch.docs }}/operations/clickhouse-keeper/).
 

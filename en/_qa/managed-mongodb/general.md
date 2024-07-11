@@ -140,7 +140,7 @@ For all DBMS types, you can track:
 - Amount of data in the DB cluster and the remaining free space in the data storage.
 
 For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ MG }}, you can track:
-- Number of requests per second.
+- Number of queries per second.
 - Amount of disk space used.
 - Number of connections, and so on.
 

@@ -78,9 +78,13 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
 
 ## Creating a shard {#add}
 
+For clusters with the **local-ssd** disk type, the minimum allowed number of hosts per shard is two.
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
+
+   To add a shard:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Click the cluster name and go to the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
@@ -118,6 +122,8 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
    ```
 
 - {{ TF }} {#tf}
+
+   To add a shard:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

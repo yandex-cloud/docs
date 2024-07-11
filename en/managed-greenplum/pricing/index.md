@@ -6,7 +6,7 @@ editable: false
 
 
 
-In this section, you can find {{ mgp-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
+In this section, you can find {{ mgp-name }} pricing [rules](#rules) and [effective prices](#prices) for the service resources.
 
 {% include [use-calculator](../../_includes/pricing/use-calculator.md) %}
 
@@ -37,15 +37,15 @@ There are different ways to calculate the cost depending on the [host type](../c
 
 * Dedicated hosts
 
-   The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} markup for using these resources.
+   The cost is made up of two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} charges for these resources.
 
-Supported resource configurations are shown in the [Host classes](../concepts/instance-types.md) section; vCPU and RAM prices are quoted in the [Prices](#prices) section.
+You can find supported resource configurations in the [Host classes](../concepts/instance-types.md) section, and vCPU and RAM prices, in the [Prices](#prices) section.
 
-The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when the {{ GP }} host is not performing its main functions.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You are not paying for the time when the {{ GP }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
-You are charged for the following:
+You pay for the following:
 
 * Storage allocated for clusters.
 
@@ -62,16 +62,16 @@ You are charged for the following:
 
    * When performing automatic backups, {{ mgp-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
 
-   * The number of hosts in a cluster does not affect the storage size and, therefore, the free volume of backups.
+   * The number of hosts in a cluster does not affect the storage volume and, consequently, the free volume of backups.
 
-The cost is specified for one month of use and based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 ### Example of cluster cost calculation {#example}
 
 The cost of using a cluster with the following parameters for 30 days:
 
 * **Standard hosts**: 3 `s3-c8-m32` hosts: Intel Ice Lake, 8 × 100% vCPU, 32 GB RAM.
-* **Storage for standard hosts**: 100 GB of HDD network storage.
+* **Storage for standard hosts**: 100 GB of network HDD storage.
 * **Dedicated hosts**: 3 `s2.medium` hosts: Intel Cascade Lake, 8 × 100% vCPU, 32 GB RAM.
 * **Storage for dedicated hosts**: 50 GB of local SSD storage.
 
@@ -81,42 +81,42 @@ Cost calculation for standard hosts:
 
 > 3 × (8&nbsp;×&nbsp;$0.017231 + 32&nbsp;×&nbsp;$0.004564) = $0.851688
 >
-> Total: $0.851688 is the cost per hour of standard host operation.
+> Total: $0.851688, cost per hour of operation of standard hosts.
 
 Where:
 * 3: Number of standard hosts.
 * 8: Number of vCPUs.
 * $0.017231: Cost of using 100% vCPU per hour.
 * 32: Amount of RAM per standard host (in GB).
-* $0.004564: Cost of using 1GB of RAM on 100% vCPU per hour.
+* $0.004564: Cost of using 1 GB of RAM at 100% vCPU per hour.
 
 Cost calculation for dedicated hosts:
 
 > 3 × (8&nbsp;×&nbsp;$0.009595 + 32&nbsp;×&nbsp;$0.002538) = $0.473928
 >
-> Total: $0.473928 is the cost per hour of dedicated host operation.
+> Total: $0.473928, cost per hour of operation of dedicated hosts.
 
 Where:
 * 3: Number of dedicated hosts.
 * 8: Number of vCPUs.
 * $0.009595: Cost of using 100% vCPU per hour.
 * 32: Amount of RAM per dedicated host (in GB).
-* $0.002538: Cost of using 1GB of RAM on 100% vCPU per hour.
+* $0.002538: Cost of using 1 GB of RAM at 100% vCPU per hour.
 
 Calculation for the storage cost and total cost:
 
 > (720 × $0.851688 + 100 × $0.104080) + (720 × $0.473928 + 50 × $0.104080) = $970.0555
 >
-> Total: $970.0555 is the cost of using the cluster for 30 days.
+> Total: $970.0555, cost of using the cluster for 30 days.
 
 Where:
 * 720: Number of hours in 30 days.
-* $0.851688: Cost per hour of standard host operation.
-* 100: Amount of HDD network storage (in GB) for standard hosts.
+* $0.851688: Cost per hour of operation of standard hosts.
+* 100: Amount of network HDD storage (in GB) for standard hosts.
 * $0.104080: Cost of using 1 GB of network HDD storage per month.
-* $0.473928: Cost per hour of dedicated host operation.
+* $0.473928: Cost per hour of operation of dedicated hosts.
 * 50: Amount of local SSD storage (in GB) for dedicated hosts.
-* $0.104080: Cost of using 1 GB of local SSD storage per month.
+* $0.104080: Cost of using 1 GB of storage on local SSD disks per month.
 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
@@ -127,19 +127,19 @@ Where:
 
 {% note info %}
 
-You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage, web traffic, and computing resources for dedicated hosts this way.
+CVoS discount is only available for certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage, web traffic, and computing resources for dedicated hosts this way.
 
 {% endnote %}
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
-All prices are shown without VAT.
+All prices below do not include VAT.
 
 
-Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
+Host prices are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
 
-The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
+The price of local SSD (`local-ssd`) storage also depends on the host type.
 
 {% include [pricing-month-term](../../_includes/mdb/pricing-month-term.md) %}
 
