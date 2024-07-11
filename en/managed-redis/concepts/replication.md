@@ -38,13 +38,20 @@ Thanks to the `rdsync` agent running in a {{ mrd-name }} cluster:
 
 * The risk of losing data is reduced if using the `WAIT` command with `N/2` available replicas, where `N` is the number of cluster hosts.
 
+Sharded clusters with the **local-ssd** disk type and only one host per shard are not considered fault-tolerant. You cannot create such a cluster.
+
 ### Assigning a different host as a master if the primary master fails {#master-failover}
 
 If the master host fails, a host with the least lag behind the master will become a new master.
 
-If the master assignment priority is set for the cluster hosts, the host with the highest priority will become a new master. The minimum priority value is `0`, while the default one is `100`.
+You can influence master selection in a {{ RD }} cluster by [configuring priorities](../operations/hosts.md#update) for cluster hosts. The host with the highest priority will become a new master. If the replica host with the highest priority requires full data resync, the priority value will be ignored and a host with the least lag behind the master will become a new master.
 
-If the replica host with the highest priority requires full data resync, the priority value will be ignored and a host with the least lag behind the master will become a new master.
+You can set host priority:
+
+* When [creating a cluster](../operations/cluster-create.md) or [a host in a cluster](../operations/hosts.md#add).
+* When [changing the host settings](../operations/hosts.md#update).
+
+Minimum value (lowest priority): `0`. A host with such priority value can become a master only if there are no other hosts suitable for the role. Default priority value: `100`. You can specify a value higher than `100`.
 
 A master host can be changed either automatically, as a result of a failure, or [manually](../operations/failover.md). Manual master switching is available both for [sharded](./sharding.md#failover) and unsharded clusters.
 

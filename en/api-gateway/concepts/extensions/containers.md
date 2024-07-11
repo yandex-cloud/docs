@@ -4,6 +4,8 @@ The `x-yc-apigateway-integration:serverless_containers` extension invokes the sp
 
 {% include [ip](../../../_includes/serverless-containers/ip.md) %}
 
+{% include [add-extentions-console](../../../_includes/api-gateway/add-extentions-console.md) %}
+
 ## Supported parameters {#parameters}
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}

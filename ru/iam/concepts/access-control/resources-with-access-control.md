@@ -29,7 +29,7 @@ description: "Из статьи вы узнаете, на какие ресур�
 **{{ ydb-name }}**
 * [СУБД YDB](../../../ydb/operations/manage-databases.md#add-access-binding)
 
-**{{ metadata-hub-name }}**
+**{{ metadata-hub-full-name }}**
 * [Подключение к управляемым базам данных](../../../metadata-hub/operations/connection-access.md) в {{ connection-manager-full-name }}
 
 **{{ objstorage-name }}**

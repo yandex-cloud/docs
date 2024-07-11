@@ -32,11 +32,11 @@ The minimum billing unit is one hour (e.g., the cost of 1.5 hours of operation i
 
 ### Disk space usage {#rules-storage}
 
-You are charged for the following:
+You pay for the following:
 * Data storage allocated for your instance.
 * Size of backups stored in {{ objstorage-name }}.
 
-The cost is specified for one month of use. The minimum billing unit is 1 GB per hour (e.g., storing 1 GB for 1.5 hours costs the same as for 2 hours).
+The price covers one month of use. The minimum billing unit is 1 GB per hour (e.g., storing 1 GB for 1.5 hours costs the same as for 2 hours).
 
 ### Example of instance cost calculation {#example}
 
@@ -85,11 +85,11 @@ Total instance cost calculation:
 Where $45.362400 is the cost of using the instance for 30 days.
 
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 
-All prices are shown without VAT.
+All prices below do not include VAT.
 
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}

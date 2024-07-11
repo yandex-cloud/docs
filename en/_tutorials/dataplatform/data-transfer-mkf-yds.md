@@ -40,6 +40,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mkf-name }} cluster.
          * {{ mkf-name }} source cluster.
          * {{ KF }} topic.
+         * {{ KF }} user.
          * {{ ydb-name }} database.
          * Transfer.
 

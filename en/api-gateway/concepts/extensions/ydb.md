@@ -1,6 +1,8 @@
 # x-yc-apigateway-integration:cloud_ydb extension
 
-`x-yc-apigateway-integration:cloud_ydb` enables you to perform operations with [document tables](../../../ydb/concepts/dynamodb-tables.md) in a {{ ydb-full-name }} database. For interaction with {{ ydb-short-name }}, the [Document API](../../../ydb/docapi/api-ref/index.md) compatible with Amazon DynamoDB is used.
+`x-yc-apigateway-integration:cloud_ydb` enables you to perform operations with [document tables](../../../ydb/concepts/dynamodb-tables.md) in a {{ ydb-full-name }} database. To work with {{ ydb-short-name }}, use [Document API](../../../ydb/docapi/api-ref/index.md) that is compatible with Amazon's DynamoDB.
+
+{% include [add-extentions-console](../../../_includes/api-gateway/add-extentions-console.md) %}
 
 ## Supported operations
 

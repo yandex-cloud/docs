@@ -2,6 +2,8 @@
 
 `x-yc-apigateway-integration:cloud_ymq` gives you access to {{ message-queue-full-name }} to handle [message queues](../../../message-queue/concepts/queue.md). Currently, support is only available for [standard queues](../../../message-queue/concepts/queue.md#standard-queues) and the [SendMessage](../../../message-queue/api-ref/message/SendMessage.md) operation.
 
+{% include [add-extentions-console](../../../_includes/api-gateway/add-extentions-console.md) %}
+
 ## Supported parameters {#parameters}
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
@@ -10,10 +12,10 @@
 ----|----|----
 | `action` | `string` | Operation in progress. Available values: `SendMessage`. |
 | `queue_url` | `string` | Queue address. |
-| `folder_id` | `string` | ID of the folder containing the queue |
+| `folder_id` | `string` | ID of the folder containing the queue. |
 | `delay_seconds` | `integer` | This is an optional parameter. The number of seconds to [delay the message from being available for processing](../../../message-queue/concepts/delay-queues.md#delay-messages). |
-| `payload_format_type` | `string` | This is an optional parameter. Type of message content. If the value is `body`, only the request body is written to the queue. If the value is `request`, the entire [request](./cloud-functions.md#request_v1) in JSON format is written to the queue. The default value is `body`. |
-| `service_account_id` | `string` | Service account ID. Used for authorization when performing a queue operation. If not specified, it defaults to the [top-level](./index.md#top-level) `service_account_id` parameter. |
+| `payload_format_type` | `string` | This is an optional parameter. Type of message content. If the value is `body`, only the request body will be written to the queue. If the value is `request`, the whole [request](./cloud-functions.md#request_v1) in JSON format will be written to the queue. The default value is `body`. |
+| `service_account_id` | `string` | Service account ID. Used for authorization when performing a queue operation. If not specified, it defaults to the [top-level `service_account_id` parameter](./index.md#top-level). |
 
 ## Extension specification {#spec}
 

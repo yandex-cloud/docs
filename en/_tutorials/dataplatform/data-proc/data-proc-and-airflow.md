@@ -330,7 +330,7 @@ To prepare a DAG:
 
    It may take a few minutes to load the DAG file from the bucket.
 
-1. To run DAG, first click ![image](../../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name and then click **Trigger DAG**.
+1. To run the DAG, click ![image](../../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
 
 ## Check the result {#check-out}
 

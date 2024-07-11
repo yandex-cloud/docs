@@ -104,7 +104,7 @@ For more information, see [{#T}](../concepts/index.md).
    1. Specify the parameters of segment hosts on the **{{ ui-key.yacloud.greenplum.section_resource-segment }}** tab. For the recommended configuration, see [Calculating the cluster configuration](calculate-specs.md#segment).
 
       * Number of segment hosts.
-      * Number of segments per host. The maximum value of this parameter depends on a host class.
+      * [Number of segments per host](../concepts/index.md). The maximum value depends on host class.
       * [Host class](../concepts/instance-types.md): Defines technical properties of the virtual machines on which the cluster segment hosts will be deployed.
       * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
          * Select the [disk type](../concepts/storage.md).
@@ -326,6 +326,7 @@ For more information, see [{#T}](../concepts/index.md).
       * `version`: {{ GP }} version.
       * `master_host_count`: Number of master hosts, 1 or 2.
       * `segment_host_count`: Number of segment hosts, between 2 and 32.
+      * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value depends on host class.
 
       Enabled cluster deletion protection will not prevent a manual connection with the purpose to delete database contents.
 

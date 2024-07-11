@@ -12,9 +12,9 @@ description: "Пошаговые инструкции по работе с {{ co
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно удалить подключение.
-    1. Выберите сервис **{{ metadata-hub-name }}**.
+    1. Выберите сервис **{{ metadata-hub-full-name }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
     1. В списке подключений нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке подключения, которое вы хотите удалить.
-    1. Выберите пункт **Удалить**. Подтвердите действие.
+    1. Выберите пункт **Удалить**.
 
 {% endlist %}

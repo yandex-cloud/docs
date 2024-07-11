@@ -7,7 +7,7 @@ editable: false
 
 # {{ mpg-name }} pricing
 
-In this section, you can find {{ mpg-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
+In this section, you can find {{ mpg-name }} pricing [rules](#rules) and [effective prices](#prices) for the service resources.
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
@@ -27,17 +27,17 @@ The {{ mpg-name }} usage cost is based on:
 
 ### DB host usage {#rules-hosts-uptime}
 
-The cost is calculated for each hour of the host's operation in accordance with its class. You can find detailed class specifications in the [Host classes](concepts/instance-types.md) section.
+Host operation cost is charged per hour based on host class. You can find detailed class specifications in the [Host classes](concepts/instance-types.md) section.
 
-The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when the {{ PG }} host is not performing its main functions.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You are not paying for the time when the {{ PG }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
-You are charged for the following:
+You pay for the following:
 
 * Storage allocated for DB clusters.
 
-   * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
+   * You can only order local SSD (`local-ssd`) storage for clusters with three or more hosts:
             * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
       * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
 
@@ -53,11 +53,11 @@ You are charged for the following:
 
    * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
 
-   * During an automatic backup, {{ mpg-short-name }} does not create a new copy but saves changes to the database compared to the previous copy. This means that the storage used by automatic backups increases only in proportion to the volume of changes that are made.
+   * When performing automatic backups, {{ mpg-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
 
-   * Adding hosts increases the cluster's total storage size and, consequently, the size of free backups.
+   * Adding hosts increases the cluster's total storage size and, consequently, the free volume of backups.
 
-The cost is specified for one month of use and based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
@@ -68,17 +68,17 @@ The cost is specified for one month of use and based on 720 hours per month. The
 
 {% note info %}
 
-You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
+CVoS discount is only available for certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 
 
 
-All prices are shown without VAT.
+All prices below do not include VAT.
 
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}

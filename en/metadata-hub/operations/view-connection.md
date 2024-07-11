@@ -14,7 +14,7 @@ To view created connections:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Select **{{ metadata-hub-name }}**.
+  1. Select **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
   1. Click a connection string to view connection details.
 
@@ -46,9 +46,9 @@ For the selected connection, you can view information about its dependencies on 
   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. Select **{{ metadata-hub-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager** and click the name of the connection you need.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/list-check.svg) **Operations**.
+  1. On the left-hand panel, select ![image](../../_assets/console-icons/list-check.svg) **Operations**.
 
-     In the list of operations, you can view all the operations for the selected connection since its creation:
+     In the list of operations, you can view all the operations of the selected connection since its creation:
 
      * `Create`: Connection created.
      * `Update`: Connection updated.

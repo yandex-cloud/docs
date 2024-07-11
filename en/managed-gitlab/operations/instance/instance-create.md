@@ -15,6 +15,8 @@ description: "In this tutorial, you will learn how to create a {{ mgl-name }} in
 
 {% endlist %}
 
+{% include [HTTPS info](../../../_includes/managed-gitlab/note-https.md) %}
+
 ## Activating the {{ GL }} instance {#activate}
 
 After the instance status changes to **Running**, activate the instance:

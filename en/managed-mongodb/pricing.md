@@ -26,9 +26,9 @@ The {{ mmg-name }} usage cost is based on:
 
 ### DB host usage {#rules-hosts-uptime}
 
-The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. Supported resource configurations are shown in the [Host classes](concepts/instance-types.md) section, while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
+The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. You can find supported resource configurations in the [Host classes](concepts/instance-types.md) section, and vCPU and RAM prices, in the [Prices](#prices) section.
 
-The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not paying for the time when the {{ MG }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You are not paying for the time when the {{ MG }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -48,13 +48,13 @@ You pay for the following:
 
 * Space used by DB backups in excess of the storage amount specified for the cluster.
 
-   * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
+   * Backups are stored free of charge as long as the combined size of the DB and all its backups is smaller than the selected storage size.
 
-   * During an automatic backup, {{ mmg-short-name }} does not create a new copy but saves changes to the database compared to the previous copy. This means that the storage used by automatic backups increases only in proportion to the volume of changes that are made.
+   * When performing automatic backups, {{ mmg-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
 
    * The number of hosts in a cluster does not affect the storage size and, therefore, the free volume of backups.
 
-The cost is specified for one month of use and based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 ### Example of cluster cost calculation {#example}
 
@@ -69,14 +69,14 @@ Cost calculation for {{ MG }} hosts:
 
 > 3 × (2&nbsp;×&nbsp;$0.012800 + 8&nbsp;×&nbsp;$0.007200) = $0.249600
 >
-> Total: $0.249600 is the cost per hour of {{ MG }} host operation.
+> Total: $0.249600, cost per hour of {{ MG }} host operation.
 
 Where:
 * 3 is the number of {{ MG }} hosts.
 * 2 is the number of vCPUs.
-* $0.012800 is the cost of using 100% vCPU per hour.
+* $0.012800: Cost of using 100% vCPU per hour.
 * 8 is the amount of RAM per {{ MG }} host (in GB).
-* $0.007200 is the cost of using 1GB of RAM on 100% vCPU per hour.
+* $0.007200: Cost of using 1 GB of RAM at 100% vCPU per hour.
 
 
 Calculation for the storage cost and total cost:
@@ -85,21 +85,21 @@ Calculation for the storage cost and total cost:
 
 > 720 × $0.249600 + 100&nbsp;×&nbsp;$0.025600 = $182.272000
 >
-> Total: $182.272000 is the cost of using the cluster for 30 days.
+> Total: $182.272000, cost of using the cluster for 30 days.
 
 Where:
 * 720: Number of hours in 30 days.
-* $0.249600 is the cost per hour of {{ MG }} host operation.
+* $0.249600: Cost per hour of {{ MG }} host operation.
 * 100: Amount of HDD network storage (in GB).
-* $0.025600 is the cost of using 1 GB of network HDD storage per month.
+* $0.025600: Cost of using 1 GB of HDD network storage per month.
 
 
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 
-All prices are shown without VAT.
+All prices below do not include VAT.
 
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
@@ -119,7 +119,7 @@ The prices for computing resources are the same for all types of hosts: mongod, 
 
 {% note info %}
 
-Access to network SSD storage with 3 replicas is provided on request. Contact [technical support]({{ link-console-support }}) or your account manager.
+Access to network SSD storage with three replicas is provided upon request. Contact [support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 

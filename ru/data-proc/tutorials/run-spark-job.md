@@ -82,9 +82,12 @@ keywords:
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-    1. [Склонируйте репозиторий](https://github.com/yandex-cloud-examples/yc-data-proc-spark-pyspark). Он содержит файл с настройками провайдера и файл конфигурации инфраструктуры.
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-        В файле конфигурации описаны:
+    1. Скачайте в ту же рабочую директорию файл конфигурации [data-proc-for-spark-jobs.tf](https://github.com/yandex-cloud-examples/yc-data-proc-spark-pyspark/blob/main/data-proc-for-spark-jobs.tf).
+
+        В этом файле описаны:
 
         * сеть;
         * подсеть;
@@ -94,8 +97,7 @@ keywords:
         * бакет, в котором будут храниться зависимости заданий и результаты их выполнения;
         * кластер {{ dataproc-name }}.
 
-    1. Укажите в файлах `.tf` необходимые параметры.
-    1. Выполните команду `terraform init` в директории с репозиторием. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
+    1. Укажите в файле конфигурации `data-proc-for-spark-jobs.tf` необходимые параметры.
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash

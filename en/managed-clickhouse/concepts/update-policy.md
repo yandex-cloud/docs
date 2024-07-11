@@ -1,6 +1,6 @@
 # {{ CH }} versioning policy
 
-{{ CH }} uses the frequent release policy. In {{ mch-name }}, a limited set of {{ CH }} versions are available, which is continually updated. If the {{ CH }} version used in a {{ mch-name }} cluster becomes obsolete, it gets updated.
+{{ CH }} employs the frequent release policy. {{ mch-name }} offers a limited set of {{ CH }} versions: {{ versions.console.str }}. The list of versions is continuously updated. If the {{ CH }} version used in a {{ mch-name }} cluster becomes obsolete, it gets updated.
 
 Updating to current versions allows you to get new features, patches, and security fixes, which improves the overall stability of the cluster.
 

@@ -12,7 +12,7 @@ For performance diagnostics, the {{ mgp-name }} cluster uses:
 
 {% note info %}
 
-Access to the `gpperfmon` database is granted on request. To get such access, contact [support]({{ link-console-support }}) or your account manager.
+Access to the `gpperfmon` database is granted on request. Contact [technical support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 

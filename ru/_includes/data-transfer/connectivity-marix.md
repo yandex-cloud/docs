@@ -27,7 +27,7 @@
 КР — [Копирование и репликация](../../data-transfer/concepts/transfer-lifecycle.md#copy-and-replication)
 
 
-^1^ Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу. Обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+^1^  — функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу. Обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
 
 #### Эндпоинты {{ AB }} {#airbyte}
 

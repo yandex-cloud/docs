@@ -1859,6 +1859,11 @@ default:
           '0':
             1|string: ₸243.80
         requests|string: Free
+  sku|KZT|yq:
+    network:
+      ingress:
+        v1|pricingRate:
+          10|string: ₸3.00
   sku|RUB|ai:
     mt:
       detect|string: ₽492.20
@@ -2959,6 +2964,11 @@ default:
           '0':
             1|string: ₽48.76
         requests|string: Free
+  sku|RUB|yq:
+    network:
+      ingress:
+        v1|pricingRate:
+          10|string: ₽0.60
   sku|USD|ai:
     mt:
       detect|string: $3.937600
@@ -3988,6 +3998,54 @@ default:
             ram:
               v2|month|string: $2.291328
               v2|string: $0.003182
+      y1:
+        mdb:
+          elasticsearch:
+            cpu:
+              c100:
+                v2|month|string: $6.923077
+                v2|string: $0.009615
+                v3|month|string: $6.923077
+                v3|string: $0.009615
+            ram:
+              v2:
+                basic|month|string: $11.353846
+                basic|string: $0.015769
+                gold|month|string: $13.384616
+                gold|string: $0.018590
+                platinum|month|string: $15.415385
+                platinum|string: $0.021410
+              v3:
+                basic|month|string: $11.353846
+                basic|string: $0.015769
+                gold|month|string: $13.384616
+                gold|string: $0.018590
+                platinum|month|string: $15.415385
+                platinum|string: $0.021410
+      y3:
+        mdb:
+          elasticsearch:
+            cpu:
+              c100:
+                v2|month|string: $5.353847
+                v2|string: $0.007436
+                v3|month|string: $5.353847
+                v3|string: $0.007436
+            ram:
+              v2:
+                basic|month|string: $10.984615
+                basic|string: $0.015256
+                gold|month|string: $12.923077
+                gold|string: $0.017949
+                platinum|month|string: $14.861539
+                platinum|string: $0.020641
+              v3:
+                basic|month|string: $10.984615
+                basic|string: $0.015256
+                gold|month|string: $12.923077
+                gold|string: $0.017949
+                platinum|month|string: $14.861539
+                platinum|string: $0.020641
   sku|USD|vpc:
     gateway:
       shared_egress_gateway:
@@ -7589,6 +7647,7 @@ default:
           label_action-deny: Deny
           label_default-action: Action for the default base rule
           section_security-rules: Security rules
+        label_search-rule-type: 'Rule type:'
         overview:
           action_attach-to-host: Connect to host
           action_disconnect-host: Disconnect from profile
@@ -7604,11 +7663,16 @@ default:
           column_type: Type
           label_base-rule: Base
           label_smart-protection-rule: Smart Protection
+          label_waf-rule: Web Application Firewall
           title_connected-to-the-hosts: Connected hosts
           title_security-rules: Security rules
         title_default-template: From a preset template
         title_no-template: From scratch
         title_profiles: Security profiles
+        waf:
+          label_create-profile: Create WAF profile
+          label_profiles: WAF profiles
+          title_connected-profiles: Connected security profiles
       smartcaptcha:
         button_captcha-settings-create: Create captcha
         label_additional-challenge: Additional challenge

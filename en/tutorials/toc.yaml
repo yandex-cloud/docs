@@ -354,6 +354,14 @@ items:
         href: dataplatform/managed-schema-registry.md
       - name: Using Confluent Schema Registry with {{ mkf-name }}
         href: dataplatform/confluent-schema-registry.md
+      - name: Storing {{ AF }} connections and variables in {{ lockbox-full-name }}
+        href: dataplatform/lockbox-and-airflow.md
+      - name: Automating {{ yq-full-name }} tasks using {{ maf-name }}
+        href: dataplatform/yandex-query-automation.md
+      - name: >-
+          Sending requests to the {{ yandex-cloud }} API via the {{ yandex-cloud
+          }} Python SDK
+        href: dataplatform/using-python-sdk-in-airflow.md
       - name: >-
           Delivering data from {{ mmy-name }} to {{ mch-name }} using {{
           data-transfer-name }}

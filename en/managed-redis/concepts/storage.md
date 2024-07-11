@@ -16,5 +16,7 @@ The number of hosts you can create together with a {{ RD }} cluster depends on t
 | Local SSD storage (`local-ssd`) | 3 hosts or more | 6 hosts or more (3 shards, 2 hosts) |
 | Non-replicated SSD storage (`network-ssd-nonreplicated`) | 3 hosts or more | 9 hosts or more (3 shards, 3 hosts) |
 
+Sharded clusters with the **local-ssd** disk type and only one host per shard are not considered fault-tolerant. You cannot create such a cluster.
+
 For more information about limits on the number of hosts per cluster or shard, see [Quotas and limits](./limits.md).
 

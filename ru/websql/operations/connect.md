@@ -115,8 +115,8 @@
 1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) справа от его названия и выберите **Удалить подключение**.
 1. В открывшемся окне нажмите **Применить**.
 
-Подключение будет удалено как из {{ websql-full-name }}, так и из {{ connection-manager-name }} сервиса {{ metadata-hub-name }}.
+Подключение будет удалено как из {{ websql-full-name }}, так и из {{ connection-manager-name }} сервиса {{ metadata-hub-full-name }}.
 
-Вы также можете удалить подключение в {{ connection-manager-name }} сервиса {{ metadata-hub-name }}. Это подключение автоматически удалится из {{ websql-full-name }}. Удаление осуществляется только в рамках каталога пользователя.
+Вы также можете удалить подключение в {{ connection-manager-name }} сервиса {{ metadata-hub-full-name }}. Это подключение автоматически удалится из {{ websql-full-name }}. Удаление осуществляется только в рамках каталога пользователя.
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -81,7 +81,7 @@ The cost for maintaining a {{ GL }} server includes:
 ### Set privacy settings {#disable-signup}
 
 Disable sign-up for other users on the login page:
-1. Click **Configure {{ GL }}**.
+1. Go to **Admin area**.
 1. In the left-hand panel, go to **Settings** and select **General**.
 1. Under **Sign-up restrictions**, click **Expand**.
 1. Disable **Sign-up enabled**.
@@ -107,9 +107,9 @@ To create a project:
    ![Disabling Auto DevOps](../../_assets/tutorials/gitlab/gitlab2.png)
 
 1. Add a project file.
-   1. In the left-hand panel, go to **Project** and select **Details**.
-   1. On the project page, click **New file**.
-   1. Name the file `test.cpp`. Add to it the code of a program that checks the product of 2 × 2 and displays `Hello World` if the result is 4:
+   1. In the left-hand panel, go to the {{ GL }} project.
+   1. Click ![image](../../_assets/console-icons/plus.svg) in the repository navigation bar and select **New file** from the drop-down menu.
+   1. Name the file as `test.cpp`. To this file, add the code of a program that checks the product of 2 × 2 and displays `Hello World` if the result is 4:
 
       ```cpp
       #include <iostream>
@@ -218,8 +218,9 @@ To create a test script:
    ```
 
 1. Add a test script:
-   1. In the {{ GL }} web interface, in the left-hand panel, go to **Project**, and select the **Details** tab.
-   1. On the page that opens, click **Set up CI&CD**.
+   1. Open the {{ GL }} web interface.
+   1. Open the {{ GL }} project.
+   1. On the page that opens, click **Set up CI/CD**.
    1. A page will open asking you to add a new file named `.gitlab-ci.yml`, in which you need to describe the script in [YAML](https://yaml.org/) format. Add the script text:
 
       ```yaml
@@ -259,7 +260,7 @@ To create a test script:
 
    1. Click **Commit changes**
 
-After committing, the system automatically starts testing the last commit. You can view the testing process and results in the **CI/CD** section in the left panel. The line you will get should contain the first test with the `passed` status. By clicking the cloud icon, you can download the build artifacts.
+After committing, the system will automatically start testing the last commit. To check its results, select **Build** on the left-hand panel in the {{ GL }} project and then **Pipelines** from the drop-down menu. The line you will get should contain the first test with the `passed` status. By clicking the cloud icon, you can download the build artifacts.
 
 ### Create an error in the project {#create}
 
@@ -277,7 +278,7 @@ Now, make the project run with an error that the Runner should help you find dur
 1. Name the commit `Wrong assert in test.cpp`.
 1. Click **Commit Changes**.
 
-Open the **CI/CD** section. In the **Stages** column, you can see that, as a result of the test, the first stage, `build`, completed successfully and the second stage, `test`, ended with an error. The third stage, `pack`, was skipped and the build artifacts were not generated.
+Open **Build** → **Pipelines**. In the **Stages** column, you can see that, as a result of the test, the first stage, `build`, completed successfully and the second stage, `test`, ended with an error. The third stage, `pack`, was skipped and the build artifacts were not generated.
 
 If you click the `failed` progress status and go to **Failed Jobs**, you can see the error text saying that `assertion` failed:
 

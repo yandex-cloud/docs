@@ -70,11 +70,11 @@ All types support parameter substitution when all keys are replaced with the app
 
 Parameters are only substituted in some values, depending on the type of extension.
 
-## Components:x-yc-apigateway-integrations extension
+## Components:x-yc-apigateway-integrations extension {#integrations}
 
 The `x-yc-apigateway-integrations` extension allows you to specify the appropriate integration in the [components](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#components-object) section. You can refer to these integrations using the `$ref` parameter in the `x-yc-apigateway-integration` extension.
 
-### Extension specification
+### Extension specification {#intg-spec}
 
 Sample extension specification:
 ```yaml

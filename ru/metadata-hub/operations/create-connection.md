@@ -26,7 +26,7 @@ description: "Пошаговые инструкции по работе с {{ co
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
-  1. Выберите сервис **{{ metadata-hub-name }}**.
+  1. Выберите сервис **{{ metadata-hub-full-name }}**.
   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
   1. Нажмите кнопку **Создание подключения**.
   1. Укажите имя подключения.
@@ -50,7 +50,7 @@ description: "Пошаговые инструкции по работе с {{ co
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
-    1. Выберите сервис **{{ metadata-hub-name }}**.
+    1. Выберите сервис **{{ metadata-hub-full-name }}**.
     1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
     1. Нажмите кнопку **Создание подключения**.
     1. Укажите имя подключения.
@@ -73,7 +73,7 @@ description: "Пошаговые инструкции по работе с {{ co
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
-   1. Выберите сервис **{{ metadata-hub-name }}**.
+   1. Выберите сервис **{{ metadata-hub-full-name }}**.
    1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
    1. Нажмите кнопку **Создание подключения**.
    1. Укажите имя подключения.
@@ -99,7 +99,7 @@ description: "Пошаговые инструкции по работе с {{ co
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
-  1. Выберите сервис **{{ metadata-hub-name }}**.
+  1. Выберите сервис **{{ metadata-hub-full-name }}**.
   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
   1. Нажмите кнопку **Создание подключения**.
   1. Укажите имя подключения.
@@ -128,7 +128,7 @@ description: "Пошаговые инструкции по работе с {{ co
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
-    1. Выберите сервис **{{ metadata-hub-name }}**.
+    1. Выберите сервис **{{ metadata-hub-full-name }}**.
     1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
     1. Нажмите кнопку **Создание подключения**.
     1. Укажите имя подключения.
@@ -156,7 +156,7 @@ description: "Пошаговые инструкции по работе с {{ co
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
-   1. Выберите сервис **{{ metadata-hub-name }}**.
+   1. Выберите сервис **{{ metadata-hub-full-name }}**.
    1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
    1. Нажмите кнопку **Создание подключения**.
    1. Укажите имя подключения.

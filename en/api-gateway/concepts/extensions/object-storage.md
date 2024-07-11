@@ -1,6 +1,8 @@
 # x-yc-apigateway-integration:object_storage extension
 
-The `x-yc-apigateway-integration:object_storage` extension enables {{ objstorage-short-name }} to manage request handling for serving static files.
+The `x-yc-apigateway-integration:object_storage` extension turns over control of request handling to {{ objstorage-short-name }} to distribute static files.
+
+{% include [add-extentions-console](../../../_includes/api-gateway/add-extentions-console.md) %}
 
 ## Supported parameters {#parameters}
 

@@ -1,6 +1,6 @@
 ---
 title: "Pricing policy for Managed Service for Elasticsearch"
-description: "In this section, you can find {{ mes-name }} pricing rules and effective prices for the service resources."
+description: "In this section, you can find {{ mes-name }} pricing rules and effective prices for the resources it provides."
 editable: false
 ---
 
@@ -10,7 +10,7 @@ editable: false
 
 {% include [Elasticsearch-end-of-service](../_includes/mdb/mes/note-end-of-service.md) %}
 
-In this section, you can find {{ mes-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
+In this section, you can find {{ mes-name }} pricing [rules](#rules) and [effective prices](#prices) for the service resources.
 
 To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ yandex-cloud }} website.
 
@@ -20,8 +20,8 @@ To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ y
 
 Prices are applied differently depending on the cluster status:
 
-* For a `Running` cluster, you pay both for the computing resources and storage size.
-* For a `Stopped` cluster, you pay only for the storage size.
+* For a `Running` cluster, you pay for both the computing resources and your storage size.
+* For a `Stopped` cluster, you only pay for your storage size.
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
@@ -42,27 +42,27 @@ The {{ mes-name }} usage cost is based on:
 
 ### Using cluster hosts {#rules-hosts-uptime}
 
-The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources and {{ ES }} edition used. Supported resource configurations are shown in the [Host classes](concepts/instance-types.md) section; vCPU and RAM prices are quoted in the [Prices](#prices) section.
+The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources and {{ ES }} edition used. You can find supported resource configurations in the [Host classes](concepts/instance-types.md) section, and vCPU and RAM prices, in the [Prices](#prices) section.
 
 You can select host class both for hosts with the `Data node` role and hosts with the `Master node` role.
 
-The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when the {{ ES }} host is not performing its main functions.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the {{ ES }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
-You are charged for the following:
+You pay for the following:
 
 * Storage allocated for clusters.
 
 * Storage taken up by backups over specified cluster storage.
 
-   * Backups are stored free of charge as long as the combined size of cluster data and all backups is smaller than the selected storage size.
+   * Backups are stored free of charge as long as the combined size of the data in the cluster and all backups is smaller than the selected storage size.
 
-   * When performing automatic backups, {{ mes-short-name }} does not create a new copy but stores data changes with respect to the previous backup. This means that the storage used by automatic backups increases only in proportion to the volume of changes that are made.
+   * When performing automatic backups, {{ mes-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
 
-   * The number of hosts in a cluster does not affect the storage size and, therefore, the free volume of backups.
+   * The number of hosts in a cluster does not affect the storage volume and, therefore, the free volume of backups.
 
-The cost is specified for one month of use and based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 ### Example of cluster cost calculation {#example}
 
@@ -78,31 +78,32 @@ The cost is calculated as follows:
 
 > 3 × (2 × $0.013440 + 8 × $0.016800) + 3 × (2 × $0.013440 + 8 × $0.016800) = $0.967680
 >
-> Total: $0.967680 is the cost per hour of operation for all hosts.
+> Total: $0.967680, cost of operation of all hosts per hour.
 
 Where:
-* 3 is the number of hosts.
-* 2 is the number of vCPUs.
-* $0.013440 is the cost of using 100% vCPU per hour.
-* 8 is the amount of RAM per host (in GB).
-* $0.016800 is the cost of using 1GB of RAM on 100% vCPU per hour.
+* 3: Number of hosts.
+* 2: Number of vCPUs.
+* $0.013440: Cost of using 100% vCPU per hour.
+* 8: Amount of RAM per host (in GB).
+* $0.016800: Cost of using 1 GB of RAM at 100% vCPU per hour.
 
 > 720 × $0.967680 + 100 × $0.025600 = $699.289600
 >
-> Total: $699.289600 is the cost of using the cluster for 30 days.
+> Total: $699.289600, cost of using the cluster for 30 days.
 
 Where:
 * 720: Number of hours in 30 days.
-* Total: $0.967680 is the cost per hour of operation for all hosts.
-* 100: Amount of HDD network storage (in GB).
-* $0.025600 is the cost of using 1 GB of network HDD storage per month.
+* $0.967680: Cost of operation of all hosts per hour.
+* 100: Amount of network HDD storage (in GB).
+* $0.025600: Cost of using 1 GB of network HDD storage per month.
 
 
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
-All prices are shown without VAT.
+
+All prices below do not include VAT.
 
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
@@ -125,16 +126,37 @@ The cost for computing resources depends on the selected {{ ES }} edition:
 
   {% include [usd-hosts-basic](../_pricing/managed-elasticsearch/usd-hosts-basic.md) %}
 
+  **Costs per hour**
+
+  {% include [usd-hosts-basic-cvos-hour](../_pricing/managed-elasticsearch/usd-hosts-basic-cvos-hour.md) %}
+
+  **Costs per month**
+
+  {% include [usd-hosts-basic-cvos-month](../_pricing/managed-elasticsearch/usd-hosts-basic-cvos-month.md) %}
 
 - Gold
 
   {% include [usd-hosts-gold](../_pricing/managed-elasticsearch/usd-hosts-gold.md) %}
 
+  **Costs per hour**
+
+  {% include [usd-hosts-gold-cvos-hour](../_pricing/managed-elasticsearch/usd-hosts-gold-cvos-hour.md) %}
+
+  **Costs per month**
+
+  {% include [usd-hosts-gold-cvos-month](../_pricing/managed-elasticsearch/usd-hosts-gold-cvos-month.md) %}
 
 - Platinum
 
   {% include [usd-hosts-platinum](../_pricing/managed-elasticsearch/usd-hosts-platinum.md) %}
 
+  **Costs per hour**
+
+  {% include [usd-hosts-platinum-cvos-hour](../_pricing/managed-elasticsearch/usd-hosts-platinum-cvos-hour.md) %}
+
+  **Costs per month**
+
+  {% include [usd-hosts-platinum-cvos-month](../_pricing/managed-elasticsearch/usd-hosts-platinum-cvos-month.md) %}
 
 {% endlist %}
 
@@ -149,3 +171,4 @@ The cost for computing resources depends on the selected {{ ES }} edition:
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+

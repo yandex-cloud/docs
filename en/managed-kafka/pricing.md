@@ -61,11 +61,11 @@ The minimum billing unit is one minute (for example, 1.5 minutes of host operati
 You pay for the storage allocated for DB clusters.
 
 * You can only order local SSD storage (`local-ssd`) for clusters with three or more broker hosts:
-   * For Intel Cascade Lake: In increments of 100 GB.
+   * For Intel Cascade Lake: In 100 GB increments.
    * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
 * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
 
-The cost is specified for one month of use and based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 
 ### Example of cluster cost calculation {#example}
@@ -73,9 +73,9 @@ The cost is specified for one month of use and based on 720 hours per month. The
 The cost of using a cluster with the following parameters for 30 days:
 
 * **{{ KF }} broker hosts**: 3 `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
-* **Storage for {{ KF }} broker hosts**: 100 GB of HDD network storage per broker host.
+* **Storage for {{ KF }} broker hosts**: 100 GB of network HDD storage per broker host.
 * **{{ ZK }} hosts** (created automatically): 3 `b3-c1-m4` hosts: Intel Ice Lake, 2 × 50% vCPU, 4 GB RAM.
-* **Storage for {{ ZK }} hosts**: 10 GB of SSD network storage per host.
+* **Storage for {{ ZK }} hosts**: 10 GB of network SSD storage per host.
 
 #### Standard hosts {#example-standard-hosts}
 
@@ -92,24 +92,25 @@ The cost of using a cluster with the following parameters for 30 days:
 
 {% note info %}
 
-You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices for Russia](#prices). Currently, you cannot order storage or web traffic this way.
+CVoS discount is only available for certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices for the Russia region](#prices). Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 
 
 
-All prices are shown without VAT.
+
+All prices below do not include VAT.
 
 
-Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
+Host prices are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-The cost of fast local storage also depends on the type of hosts.
+The price of fast local storage also depends on host type.
 
 ### {{ KF }} broker host computing resources {#prices-kafka-brokers}
 

@@ -1,0 +1,1 @@
+You can add an extension to a specification using the [specification constructor](../../api-gateway/operations/spec-constructor/index.md).

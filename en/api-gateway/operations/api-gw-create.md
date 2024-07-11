@@ -55,6 +55,9 @@ paths:
    1. Enter a name for the API gateway in the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** field.
    1. (Optional) In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_description }}** field, enter a description for the API gateway.
    1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the text of the [OpenAPI specifications](https://en.wikipedia.org/wiki/OpenAPI_Specification).
+
+      {% include [add-extentions-constructor](../../_includes/api-gateway/add-extentions-constructor.md) %}
+
    1. Configure additional API gateway settings if needed.
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 

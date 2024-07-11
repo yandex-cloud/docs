@@ -23,7 +23,7 @@ To change {{ dataproc-name }} cluster settings:
    
    1. To edit the [log group](../../logging/concepts/log-group.md) that cluster logs are sent to, select a new log group from the list. If necessary, [create a new log group](../../logging/operations/create-group.md).
 
-      To enable this functionality, assign the [cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
+      For the function to work, [assign](../../iam/operations/roles/grant.md) the `logging.writer` role to the service account of the cluster. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
 
 
    1. To update your cluster [component properties](../concepts/settings-list.md), enter the component key and its new value in the **{{ ui-key.yacloud.mdb.forms.config_field_properties }}** field.

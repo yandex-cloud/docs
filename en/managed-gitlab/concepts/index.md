@@ -1,4 +1,4 @@
-# Relationships between resources in {{ mgl-name }}
+# Resource relationships in {{ mgl-name }}
 
 [{{ GL }}](https://about.gitlab.com/) is an open-source DevOps lifecycle tool. It is a system for managing code repositories for [Git](https://git-scm.com/) with error tracking, a [CI/CD](https://en.wikipedia.org/wiki/CI/CD) pipeline, a dedicated Wiki, and other features.
 
@@ -23,5 +23,7 @@ When creating an instance, you specify:
 * Storage size.
 * Name in the `.gitlab.yandexcloud.net` domain: Your {{ GL }} instance's internet address.
 * Administrator information:
-  * Email.
-  * Login.
+   * Email.
+   * Login.
+
+{% include [HTTPS info](../../_includes/managed-gitlab/note-https.md) %}

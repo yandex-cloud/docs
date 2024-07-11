@@ -21,7 +21,7 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Управление профилями
+      - name: Управление профилями безопасности
         items:
           - name: Создать профиль
             href: operations/profile-create.md
@@ -29,22 +29,48 @@ items:
             href: operations/profile-update.md
           - name: Удалить профиль
             href: operations/profile-delete.md
-          - name: Посмотреть операции с профилем безопасности
-            href: operations/operation-logs.md
-      - name: Управление правилами
-        items:
           - name: Добавить правило
             href: operations/rule-add.md
           - name: Изменить правило
             href: operations/rule-update.md
           - name: Удалить правило
             href: operations/rule-delete.md
-      - name: Управление подключениями к хостам
-        items:
           - name: Подключить профиль к хосту
             href: operations/host-connect.md
           - name: Отключить профиль от хоста
             href: operations/host-delete.md
+      - name: Управление профилями WAF
+        items:
+          - name: Создать профиль
+            href: operations/waf-profile-create.md
+          - name: Изменить основные параметры профиля
+            href: operations/waf-profile-update.md
+          - name: Удалить профиль
+            href: operations/waf-profile-delete.md
+          - name: Настроить набор базовых правил
+            href: operations/configure-set-rules.md
+          - name: Добавить правило-исключение
+            href: operations/exclusion-rule-add.md
+          - name: Изменить правило-исключение
+            href: operations/exclusion-rule-update.md
+          - name: Удалить правило-исключение
+            href: operations/exclusion-rule-delete.md
+      - name: Управление профилями ARL
+        items:
+          - name: Создать профиль
+            href: operations/arl-profile-create.md
+          - name: Изменить основные параметры профиля
+            href: operations/arl-profile-update.md
+          - name: Удалить профиль
+            href: operations/arl-profile-delete.md
+          - name: Добавить правило
+            href: operations/arl-rule-add.md
+          - name: Изменить правило
+            href: operations/arl-rule-update.md
+          - name: Удалить правило
+            href: operations/arl-rule-delete.md
+      - name: Посмотреть операции с профилями
+        href: operations/operation-logs.md
   - name: Практические руководства
     items:
       - name: Создание L7-балансировщика с профилем безопасности

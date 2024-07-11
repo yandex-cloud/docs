@@ -2,7 +2,7 @@
 
 When working with {{ maf-full-name }}, you can use [{{ lockbox-full-name }}](../../lockbox/index.yaml) to store connections, variables, and configuration data used in DAG files. {{ lockbox-name }} integrates into {{ maf-short-name }} via the [{{ lockbox-name }} Secret Backend](https://airflow.apache.org/docs/apache-airflow-providers-yandex/stable/secrets-backends/yandex-cloud-lockbox-secret-backend.html) provider. As a result, access to the secret storage is configured automatically.
 
-Below, we consider a [directed acyclic graph (DAG)](../../managed-airflow/concepts/index.md#about-the-service) running the `SELECT 1;` SQL query to a database in a {{ mpg-full-name }} cluster. Data for connecting to the DB is stored in {{ lockbox-name }} and gets automatically inserted into the graph.
+Below, we consider a [directed acyclic graph (DAG)](../../managed-airflow/concepts/index.md#about-the-service) running the `SELECT 1;` SQL query to a database in a {{ mpg-full-name }} cluster. Data for connecting to the DB is stored in {{ lockbox-name }} and automatically substituted into the graph.
 
 To use configuration data from a {{ lockbox-name }} secret in the graph:
 
@@ -28,7 +28,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    {% note info }
 
-   You do not have to assign the `lockbox.payloadViewer` role for the entire folder. You can simply [assign it for a specific {{ lockbox-name }} secret](../../lockbox/operations/secret-access.md) once you [create it](#create-lockbox-secret).
+   You do not have to assign the `lockbox.payloadViewer` role for the whole folder. It is enough to [assign it for a specific {{ lockbox-name }} secret](../../lockbox/operations/secret-access.md) once you [create it](#create-lockbox-secret).
 
    {% endnote %}
 
@@ -38,9 +38,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create a {{ maf-name }} cluster](../../managed-airflow/operations/cluster-create.md#create-cluster) with the following parameters:
 
-   * **Service account**: `airflow-sa`.
-   * **Bucket name**: Name of the bucket you created.
-   * **Key ID** and **secret key**: Belong to the static access key.
+   * **Service account**: `airflow-sa`
+   * **Bucket name**: Name of the bucket you created
+   * **Key ID** and **secret key**: Belong to the static access key
 
 1. [Create a {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-create.md#create-cluster) with the following parameters:
 
@@ -61,6 +61,7 @@ For the {{ AF }} cluster to work correctly, a secret in {{ lockbox-name }} must 
 
 * **Name**: `airflow/connections/pg`
 * **Value**: Specify the following contents:
+
    ```
    {
      "conn_type": "postgres",
@@ -98,7 +99,7 @@ For more information on how to get the FQDN of a {{ PG }} cluster host, see the 
      )
    ```
 
-1. Upload the `test_lockbox_connection.py` DAG file to the previously created bucket. This will automatically create a graph with the same name in the {{ AF }} web interface.
+1. Upload the `test_lockbox_connection.py` DAG file to the bucket you created previously. This will automatically create a graph with the same name in the {{ AF }} web interface.
 
 1. [Open the {{ AF }} web interface](../../managed-airflow/operations/af-interfaces.md#web-gui).
 

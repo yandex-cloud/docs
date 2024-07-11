@@ -45,7 +45,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * {{ mgp-name }} target cluster.
          * Transfer.
 
-      1. In the `kafka-greenplum.tf` file, specify the passwords for the {{ KF }} and {{ GP }} users.
+      1. In the `kafka-greenplum.tf` file, specify the user passwords and versions of {{ KF }} and {{ GP }}.
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash

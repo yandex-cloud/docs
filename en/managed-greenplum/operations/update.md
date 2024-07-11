@@ -5,7 +5,7 @@ description: "Follow this guide to change {{ GP }} cluster settings."
 
 # Updating {{ GP }} cluster settings
 
-After creating a cluster, you can:
+After you create a cluster, you can:
 
 * [{#T}](#change-name-and-description).
 
@@ -25,7 +25,7 @@ To move a cluster to a different availability zone, [restore it from a backup](c
 
 If you use [external data sources](../concepts/external-tables.md) for PXF operations, [learn how to configure the protocol](./pxf/settings.md). This will allow you to optimize operations with external data.
 
-## Change the cluster name and description {#change-name-and-description}
+## Changing the cluster name and description {#change-name-and-description}
 
 {% list tabs group=instructions %}
 
@@ -94,7 +94,7 @@ If you use [external data sources](../concepts/external-tables.md) for PXF opera
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To change the public access setting {{ GP }}:
+   To сhange the public access setting {{ GP }}:
 
    1. View a description of the update cluster configuration CLI command:
 
@@ -207,7 +207,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
    * `--datatransfer-access`: Enables [{{ data-transfer-full-name }}](../../data-transfer/) access. The default value is `false`.
 
-   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters), where `type` is the maintenance type:
+   * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters), where `type` is the maintenance type:
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -328,7 +328,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 {% endlist %}
 
-## Change the host class {#change-resource-preset}
+## Changing the host class {#change-resource-preset}
 
 You can change the host class for both master hosts and segment hosts. When changing the host class:
 

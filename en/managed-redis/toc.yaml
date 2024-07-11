@@ -22,7 +22,7 @@ items:
             href: operations/update.md
           - name: Updating the {{ RD }} version
             href: operations/cluster-version-update.md
-          - name: Stopping and starting clusters
+          - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
           - name: Managing cluster hosts
             href: operations/hosts.md
