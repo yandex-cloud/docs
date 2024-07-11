@@ -58,7 +58,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
    1. In the **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** field, specify the time before the browser asks the user to re-authenticate.
 
-   1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, enter the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
+   1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, enter the link from the **Entity ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
       ```
       https://accounts.google.com/o/saml2?idpid=<SAML_application_ID>
@@ -117,7 +117,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
       * `--issuer`: ID of the IdP server to be used for authentication.
 
-         Use the link provided in the **Object ID** field on the **Google IdP information** page in Google Workspace. This is a link in the format:
+         Use the link provided in the **Entity ID** field on the **Google IdP information** page in Google Workspace. This is a link in the format:
 
          ```
          https://accounts.google.com/o/saml2?idpid=<SAML_application_ID>
@@ -149,7 +149,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
       * `labels`: Set of key/value label pairs assigned to the federation.
       * `issuer`: ID of the IdP server to be used for authentication.
 
-         Use the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
+         Use the link from the **Entity ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
          ```
          https://accounts.google.com/o/saml2?idpid=<SAML_application_ID>
@@ -250,7 +250,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
       * `issuer`: ID of the IdP server to be used for authentication.
 
-         Use the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
+         Use the link from the **Entity ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
          ```
          https://accounts.google.com/o/saml2?idpid=<SAML_application_ID>
@@ -361,7 +361,13 @@ Once you have created a federation, complete the creation of the SAML applicatio
 
 1. In the **Service provider information** step, specify information about {{ yandex-cloud }} that acts as a service provider:
 
-   * In the **ACS URL** and **Object ID** fields, enter the ACS URL to redirect users to after successful authentication.
+   * In the **ACS URL** and **Entity ID** fields, enter the ACS URL to redirect users to after successful authentication:
+
+      
+      ```
+      https://{{ auth-host }}/federations/<federation_ID>
+      ```
+
 
       {% cut "How to get a federation ID" %}
 

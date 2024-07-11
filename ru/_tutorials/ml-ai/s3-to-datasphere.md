@@ -151,13 +151,21 @@
 
 - {{ TF }} {#tf}
 
+  {% include [terraform-role](../../_includes/storage/terraform-role.md) %}
+
   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. Опишите в конфигурационном файле параметры для создания сервисного аккаунта и ключа доступа:
+
+     {% include [terraform-sa-key](../../_includes/storage/terraform-sa-key.md) %}
 
   1. Добавьте в конфигурационный файл блок с параметрами бакета, указав имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming):
 
      ```hcl
      resource "yandex_storage_bucket" "<имя_бакета>" {
-       bucket = "<имя_бакета>"
+       access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+       secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+       bucket     = "<имя_бакета>"
      }
      ```
 

@@ -20,7 +20,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-{% include [tls-termination-paid-resources](../_tutorials_includes/tls-termination-paid-resources.md) %}
+{% include [tls-termination-paid-resources](../_tutorials_includes/tls-termination/paid-resources.md) %}
 
 ### Создайте облачную сеть {#create-network}
 
@@ -296,21 +296,15 @@
 
 ## Проверьте работу хостинга {#test}
 
-{% include [tls-termination-test](../_tutorials_includes/tls-termination-test.md) %}
+{% include [tls-termination-test](../_tutorials_includes/tls-termination/test.md) %}
 
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
 
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. [Удалите](../../application-load-balancer/operations/application-load-balancer-delete.md) L7-балансировщик `mysite-alb`.
-  1. [Удалите](../../application-load-balancer/operations/http-router-delete.md) HTTP-роутер `mysite-router`.
-  1. [Удалите](../../application-load-balancer/operations/backend-group-delete.md) группу бэкендов `my-site-bg`.
-  1. [Удалите](../../compute/operations/instance-groups/delete.md) группу ВМ `mysite-ig`.
-  1. [Удалите](../../vpc/operations/address-delete.md) зарезервированный статический публичный IP-адрес.
-  1. Если вы использовали {{ dns-name }}, то [удалите](../../dns/operations/resource-record-delete.md) DNS-записи и [удалите](../../dns/operations/zone-delete.md) DNS-зону.
-
-{% endlist %}
+1. [Удалите](../../application-load-balancer/operations/application-load-balancer-delete.md) L7-балансировщик `mysite-alb`.
+1. [Удалите](../../application-load-balancer/operations/http-router-delete.md) HTTP-роутер `mysite-router`.
+1. [Удалите](../../application-load-balancer/operations/backend-group-delete.md) группу бэкендов `my-site-bg`.
+1. [Удалите](../../compute/operations/instance-groups/delete.md) группу ВМ `mysite-ig`.
+1. [Удалите](../../vpc/operations/address-delete.md) зарезервированный статический публичный IP-адрес.
+1. Если вы использовали {{ dns-name }}, то [удалите](../../dns/operations/resource-record-delete.md) DNS-записи и [удалите](../../dns/operations/zone-delete.md) DNS-зону.

@@ -226,7 +226,8 @@ rc1a-dataproc-m-8kompl81232cdsu8j.mdb.yandexcloud.net. 600 IN A 192.168.1.8
     1. [Удалите кластер {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
     1. Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
     1. [Удалите подсеть](../../vpc/operations/subnet-delete.md).
-    1. Удалите таблицу маршрутизации и NAT-шлюз.
+    1. [Удалите таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
+    1. [Удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
     1. [Удалите сеть](../../vpc/operations/network-delete.md).
     1. [Удалите DNS-зону](../../dns/operations/zone-delete.md).
 

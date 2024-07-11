@@ -91,6 +91,8 @@ description: "Следуя данной инструкции, вы сможет�
 
 - {{ TF }} {#tf}
 
+  {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   

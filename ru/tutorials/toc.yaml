@@ -38,7 +38,13 @@ items:
       - name: Защита от сбоев с помощью Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
       - name: Однонодовый файловый сервер
-        href: archive/single-node-file-server.md
+        items:
+          - name: Обзор
+            href: archive/single-node-file-server/index.md
+          - name: Консоль управления
+            href: archive/single-node-file-server/console.md
+          - name: '{{ TF }}'
+            href: archive/single-node-file-server/terraform.md
       - name: Настройка SFTP-сервера на Centos 7
         href: archive/backup-and-archive-to-sftp.md
       - name: Резервное копирование ВМ с помощью Hystax Acura Backup
@@ -167,6 +173,14 @@ items:
             href: infrastructure-management/terraform-state-lock.md
           - name: Использование модулей {{ yandex-cloud }} в {{ TF }}
             href: infrastructure-management/terraform-modules.md
+          - name: Запуск Docker-образа на виртуальной машине
+            items:
+              - name: Обзор
+                href: infrastructure-management/run-docker-on-vm/index.md
+              - name: Консоль управления, CLI и API
+                href: infrastructure-management/run-docker-on-vm/console.md
+              - name: '{{ TF }}'
+                href: infrastructure-management/run-docker-on-vm/terraform.md
       - name: Сеть
         items:
           - name: Настройка синхронизации часов с помощью NTP
@@ -238,10 +252,22 @@ items:
                 href: web/joomla-postgresql/console.md
               - name: '{{ TF }}'
                 href: web/joomla-postgresql/terraform.md
-          - name: Сайт на WordPress
-            href: web/wordpress.md
+          - name: Создание сайта на WordPress
+            items:
+              - name: Обзор
+                href: web/wordpress/index.md
+              - name: Консоль управления
+                href: web/wordpress/console.md
+              - name: '{{ TF }}'
+                href: web/wordpress/terraform.md
           - name: Сайт на WordPress с БД {{ MY }}
-            href: web/wordpress-mysql.md
+            items:
+              - name: Обзор
+                href: web/wordpress-mysql/index.md
+              - name: Консоль управления
+                href: web/wordpress-mysql/console.md
+              - name: '{{ TF }}'
+                href: web/wordpress-mysql/terraform.md
           - name: Перенос WordPress сайта с хостинга в {{ yandex-cloud }}
             href: web/wordpress-transfer.md
           - name: Создание веб-сайта на базе «1С-Битрикс»

@@ -347,8 +347,8 @@ DAG будет состоять из нескольких вершин, кото
 1. [Бакеты {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
 1. [Кластер {{ metastore-name }}](../../../data-proc/operations/metastore/cluster-delete.md).
 1. [Кластер {{ maf-name }}](../../../managed-airflow/operations/cluster-delete.md).
-1. Таблицу маршрутизации.
-1. NAT-шлюз.
+1. [Таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
+1. [NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
 1. [Группу безопасности](../../../vpc/operations/security-group-delete.md).
 1. [Облачные подсети](../../../vpc/operations/subnet-delete.md), созданные по умолчанию в сети `dataproc-network`.
 1. [Облачную сеть](../../../vpc/operations/network-delete.md).

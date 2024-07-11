@@ -18,7 +18,7 @@ keywords:
 
 ## Создать кластер {#create-cluster}
 
-При создании кластера для каждой [группы хостов](../concepts/host-groups.md) указываются отдельные параметры.
+При создании кластера для каждой [группы хостов](../concepts/host-roles.md) указываются отдельные параметры.
 
 {% list tabs group=instructions %}
 
@@ -45,7 +45,7 @@ keywords:
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#security-groups) для того, чтобы можно было подключаться к кластеру.
 
 
-  1. В блоке **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1** задайте конфигурацию [группы хостов](../concepts/host-groups.md) `{{ OS }}`:
+  1. В блоке **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1** задайте конфигурацию [группы хостов](../concepts/host-roles.md) `{{ OS }}`:
 
       1. Выберите тип группы хостов: `{{ OS }}`.
 
@@ -81,7 +81,7 @@ keywords:
 
       {% endnote %}
 
-  1. При необходимости задайте конфигурацию [группы хостов](../concepts/host-groups.md) `Dashboards` в блоке **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 2**:
+  1. При необходимости задайте конфигурацию [группы хостов](../concepts/host-roles.md#dashboards) `Dashboards` в блоке **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 2**:
 
       1. Выберите платформу, тип и класс хостов.
       1. Настройте хранилище по аналогии с хостами `{{ OS }}`.

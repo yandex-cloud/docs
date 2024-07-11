@@ -7,7 +7,13 @@
 
     - Вручную {#manual}
 
-        1. [Подготовьте кластер-приемник](../../../data-transfer/operations/prepare.md#target-ch).
+        1. [Создайте группу безопасности](../../../vpc/operations/security-group-create.md) и [настройте ее](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
+
+        1. [Создайте кластер-приемник {{ mch-name }}](../../../managed-clickhouse/operations/cluster-create.md), вычислительная мощность и размер хранилища которого соответствуют среде, в которой развернута копируемая база данных.
+
+            При создании кластера укажите группу безопасности, подготовленную ранее.
+
+            Имя базы в кластере-приемнике должно совпадать с именем базы-источника.
 
         1. [Создайте эндпоинт для источника](../../../data-transfer/operations/endpoint/index.md#create):
 
@@ -26,7 +32,7 @@
         1. [Создайте трансфер](../../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy }}_, использующий созданные эндпоинты.
         1. [Активируйте](../../../data-transfer/operations/transfer.md#activate) его.
 
-    - {{ TF }} {#tf}
+    - С помощью {{ TF }} {#tf}
 
         1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
         1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
@@ -52,6 +58,7 @@
                 * `source_user` и `source_pwd` — имя и пароль пользователя для доступа к источнику;
                 * `source_db_name` — имя базы данных;
                 * `source_host` — FQDN или IP-адрес сервера {{ CH }};
+                * `source_shard` — имя шарда;
                 * `source_http_port` и `source_native_port` — порты для подключения по HTTP-интерфейсу и нативному интерфейсу {{ CH }}.
 
             * параметры кластера-приемника, которые используются и как [параметры эндпоинта-приемника](../../../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
@@ -85,13 +92,13 @@
 
     {% list tabs group=instructions %}
 
-    - Ресурсы созданы вручную {#manual}
+    - Вручную {#manual}
 
         * [Удалите кластер {{ mch-name }}](../../../managed-clickhouse/operations/cluster-delete.md).
         * [Удалите завершившийся трансфер](../../../data-transfer/operations/transfer.md#delete).
         * [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
 
-    - Ресурсы созданы с помощью {{ TF }} {#tf}
+    - С помощью {{ TF }} {#tf}
 
         1. В терминале перейдите в директорию с планом инфраструктуры.
         1. Удалите конфигурационный файл `data-transfer-ch-mch.tf`.

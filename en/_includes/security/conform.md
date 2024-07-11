@@ -1,6 +1,7 @@
 # Compliance
 
-## Russian Federal law No. 152-FZ on Personal Data {#law}
+
+## Federal Law No. 152-FZ of the Russian Federation on Personal Data {#law}
 
 In {{ yandex-cloud }}, measures were implemented to protect personal data pursuant to Resolution No. 1119 and FSTEC Order No. 21 regarding requirements for 1st-level protection (UZ-1).
 
@@ -12,6 +13,8 @@ For more information, see:
 * [Statement of Compliance of the Personal Data Protection System with the Requirements of Federal Act No. 152-FZ on Personal Data](https://{{ s3-storage-host }}/yc-compliance/conformance-ru-pdp-2023-11-23.pdf).
 * [Data Processing Agreement](https://yandex.ru/legal/cloud_dpa/?lang=en).
 * [Personal data protection guide for clients](https://{{ s3-storage-host }}/yc-compliance/recomendations/fz-152-ru-2023-11-23.pdf).
+
+
 
 ## GDPR (General Data Protection Regulation) {#gdpr}
 
@@ -44,10 +47,9 @@ For more information, see:
 * [Attachment to ISO 27701 certificate](https://{{ s3-storage-host }}/yc-compliance/certificates/ISO-27701-03-2024-part-2-eng.pdf).
 
 
-
 ## PCI DSS {#pci-dss}
 
-PCI DSS (Payment Card Industry Data Security Standard) contains a set of requirements for cardholder data protection. They are mandatory and apply to all companies that process data from payment systems like Visa, MasterCard, American Express, JCB, MIR, and others.
+PCI DSS (Payment Card Industry Data Security Standard) contains requirements for cardholder data protection. These are mandatory and apply to all companies processing data from payment systems like Visa, MasterCard, American Express, JCB, MIR, etc.
 
 By ensuring that our cloud infrastructure meets PCI DSS requirements, we enable {{ yandex-cloud }} clients to use cloud services to process payment card data with verified high levels of security.
 
@@ -109,7 +111,7 @@ We also participate in the Trusted Cloud Provider program that shows our commitm
 
 ## Central Registry of Russian Computer and Database Software{#reestr}
 
-{{ yandex-cloud }} is included in the register of software created pursuant to article 12.1 of the Federal Law "On Information, Information Technologies, and Information Protection" by the basic class "02.05 Software tools for cloud and distributed computing, visualization tools, and data storage systems" and additional classes "02.09 Database management systems", "04.07 Linguistic software", and "04.13 Systems for collecting, storing, processing, analyzing, modeling, and visualizing datasets".
+{{ yandex-cloud }} is listed in the software register created pursuant to Article 12.1 of the Federal Law On Information, Information Technologies, and Information Protection under the basic class "02.05 Software tools for cloud and distributed computing, visualization tools, and data storage systems" and additional classes "02.09 Database management systems", "04.07 Linguistic software", and "04.13 Systems for collecting, storing, processing, analyzing, modeling, and visualizing datasets".
 
-The fact that the platform is included in the Register proves that {{ yandex-cloud }} and its individual services of the above-mentioned classes are developed in Russia, which may be an advantage for companies with higher requirements for using software made in Russia. [Information about the registration entry in the Register](https://reestr.digital.gov.ru/reestr/310636/?sphrase_id=583415).
+The fact of the listing proves that {{ yandex-cloud }} and its individual services of the mentioned classes have been developed in Russia — potentially an advantage for organizations enforcing stricter requirements for the use of domestic software. [Register entry information](https://reestr.digital.gov.ru/reestr/310636/?sphrase_id=583415).
 

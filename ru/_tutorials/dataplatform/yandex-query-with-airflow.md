@@ -101,6 +101,6 @@
 1. [Сервисный аккаунт](../../iam/operations/sa/delete.md).
 1. [Бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
 1. [Облачную сеть](../../vpc/operations/network-delete.md).
-1. Таблицу маршрутизации.
-1. NAT-шлюз.
+1. [Таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
+1. [NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
 1. [Кластер {{ maf-name }}](../../managed-airflow/operations/cluster-delete.md).
