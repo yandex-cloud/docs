@@ -408,15 +408,25 @@
 
 - {{ TF }} {#tf}
 
+  {% include [terraform-role](../../_includes/storage/terraform-role.md) %}
+
+  1. Опишите в конфигурационном файле параметры для создания сервисного аккаунта и ключа доступа:
+
+     {% include [terraform-sa-key](../../_includes/storage/terraform-sa-key.md) %}
+
   1. Опишите в конфигурационном файле параметры основного и резервного бакетов:
 
      ```
      resource "yandex_storage_bucket" "main-bucket" {
-       bucket = "<имя_основного_бакета>"
+       access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+       secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+       bucket     = "<имя_основного_бакета>"
      }
 
      resource "yandex_storage_bucket" "reserve-bucket" {
-       bucket = "<имя_резервного_бакета>"
+       access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+       secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+       bucket     = "<имя_резервного_бакета>"
      }
      ```
 

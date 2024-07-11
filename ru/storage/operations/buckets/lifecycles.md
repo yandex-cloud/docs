@@ -276,6 +276,8 @@
 
 - {{ TF }} {#tf}
 
+  {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   Получите [статические ключи доступа](../../../iam/operations/sa/create-access-key.md) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
@@ -290,11 +292,28 @@
        token     = "<OAuth-токен>"
        }
 
+     resource "yandex_iam_service_account" "sa" {
+       name = "<имя_сервисного_аккаунта>"
+     }
+
+     // Назначение роли сервисному аккаунту
+     resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
+       folder_id = "<идентификатор_каталога>"
+       role      = "storage.admin"
+       member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
+     }
+
+     // Создание статического ключа доступа
+     resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
+       service_account_id = yandex_iam_service_account.sa.id
+       description        = "static access key for object storage"
+     }
+
      resource "yandex_storage_bucket" "bucket" {
        bucket     = "<имя_бакета>"
        acl        = "private"
-       access_key = "<идентификатор_ключа>"
-       secret_key = "<секретный_ключ>"
+       access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+       secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
 
        lifecycle_rule {
          id      = "log"
@@ -340,8 +359,8 @@
      resource "yandex_storage_bucket" "versioning_bucket" {
        bucket     = "<имя_бакета>"
        acl        = "private"
-       access_key = "<идентификатор_ключа>"
-       secret_key = "<секретный_ключ>"
+       access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+       secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
 
        versioning {
          enabled = true

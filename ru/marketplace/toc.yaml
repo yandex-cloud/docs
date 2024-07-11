@@ -155,6 +155,8 @@ items:
         items:
           - name: Подписка
             href: concepts/users/subscription.md
+          - name: Типы продуктов
+            href: concepts/users/products-types.md
       - name: Управление доступом
         href: security/index.md
       - name: Аудитные логи {{ at-name }}

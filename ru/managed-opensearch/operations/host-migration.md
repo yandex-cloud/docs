@@ -1,7 +1,7 @@
 # Миграция групп хостов в кластере {{ mos-name }} в другую зону доступности
 
 
-[Группы хостов](../concepts/host-groups.md) в кластере {{ mos-name }} располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Чтобы перенести группы хостов из одной зоны в другую:
+[Группы хостов](../concepts/host-roles.md) в кластере {{ mos-name }} располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Чтобы перенести группы хостов из одной зоны в другую:
 
 {% list tabs group=instructions %}
 

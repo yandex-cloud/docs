@@ -10,4 +10,4 @@ keywords:
 - wordpress сайт на mysql
 ---
 
-{% include [wordpress-mysql](../../_tutorials/applied/wordpress-mysql.md) %}
+{% include [wordpress-mysql](../../../_tutorials/applied/wordpress-mysql.md) %}

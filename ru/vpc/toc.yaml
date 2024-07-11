@@ -71,6 +71,10 @@ items:
             href: operations/route-table-get-info.md
           - name: Перенести NAT-шлюз между каталогами
             href: operations/static-gateway-move.md
+          - name: Удалить таблицу маршрутизации
+            href: operations/delete-route-table.md
+          - name: Удалить NAT-шлюз
+            href: operations/delete-nat-gateway.md
       - name: Группы безопасности
         items:
           - name: Создать группу безопасности

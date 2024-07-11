@@ -1,5 +1,6 @@
 # 4. Data encryption and key and secret management
 
+
 ### Introduction {#intro}
 
 {{ yandex-cloud }} provides built-in encryption features for a number of services. It is the customer's responsibility to enable encryption in these services and implement encryption in other components for processing critical data. Data encryption and encryption key management are performed by [{{ kms-name }}](../../../kms/) ({{ kms-short-name }}).

@@ -42,7 +42,8 @@
     }
   ],
   "site": "<адрес_сайта_для_поиска>",
-  "host": "<хост_для_поиска>"
+  "host": "<хост_для_поиска>",
+  "url": "<страница_для_поиска>"
 }
 ```
 
@@ -64,9 +65,9 @@
     * `yandex.cloud/path/`
     * `subdomain.yandex.cloud/path/`
 
-    В поле `site` можно указать конкретный путь к области поиска, например `yandex.cloud/docs`.
+    В поле `site` можно указать конкретный путь к области поиска, например `{{ link-docs }}`.
  
-* `host` — ограничение области поиска релевантных документов по хосту, например `yandex.cloud`.
+* `host` — ограничение области поиска релевантных документов по хосту, например `yandex.cloud/`.
 
     Поиск будет выполняться по всем документам вида `yandex.cloud/*`. То есть, в область поиска попадут документы со следующими адресами:
     * `yandex.cloud/`
@@ -74,9 +75,11 @@
 
     В отличие от ограничения области поиска в поле `site`, заданное в поле `host` ограничение не распространяется на поддомены. В поле `host` также нельзя указать конкретный путь к области поиска.
 
-* `url` — ограничение области поиска релевантных документов по странице, например `yandex.cloud/docs/search-api/pricing`.
+* `url` — ограничение области поиска релевантных документов по странице, например `{{ link-docs }}/search-api/pricing`.
 
     {% note info %}
+
+    Для ограничения области поиска достаточно указать в запросе одно из полей: `site`, `host` или `url`.
 
     Приоритет поля `host` выше, чем у поля `site`, а `url` в приоритете над `host`. Если в запросе передаются все три поля, область поиска будет ограничена значением поля `url`, а значение полей `host` и `site` будет проигнорировано.
 
@@ -88,13 +91,11 @@
 {
   "messages": [
     {
-      "content": "Сколько стоит Search API?",
+      "content": "Сколько стоит {{ search-api-name }}?",
       "role": "user"
     }
   ],
-  "site": "yandex.cloud",
-  "host": "yandex.cloud/docs",
-  "url": "yandex.cloud/docs/search-api/pricing"
+  "site": "{{ link-docs }}"
 }
 ```
 
@@ -103,8 +104,8 @@
 Чтобы отправить запрос, воспользуйтесь утилитой [cURL](https://curl.haxx.se) или языком программирования [Python](https://python.org/). Перед отправкой запроса сохраните [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) и [API-ключ](../../iam/concepts/authorization/api-key.md) вашего сервисного аккаунта в переменные окружения:
 
 ```bash
-export FOLDER-ID=<идентификатор_каталога>
-export API-KEY=<API-ключ>
+export FOLDER_ID=<идентификатор_каталога>
+export API_KEY=<API-ключ>
 ```
 
 {% list tabs group=programming_language %}
@@ -113,9 +114,9 @@ export API-KEY=<API-ключ>
 
   ```bash
   curl -X POST \
-    -H "Authorization: Api-Key ${API-KEY}" \
+    -H "Authorization: Api-Key ${API_KEY}" \
     -d "@<путь_к_файлу_с_телом_запроса>" \
-  "{{ link-yandex }}/search/xml/generative?folderid=${FOLDER-ID}"  
+  "{{ link-yandex }}/search/xml/generative?folderid=${FOLDER_ID}"  
   ```
 
 - Python 3 {#python}
@@ -132,11 +133,11 @@ export API-KEY=<API-ключ>
       data = {
           "messages": [
              {
-                  "content": "Сколько стоит Search API?",
+                  "content": "Сколько стоит {{ search-api-name }}?",
                   "role": "user"
               }
           ],
-          "site": "https://yandex.cloud/ru/docs/"
+          "url": "{{ link-docs }}/search-api/pricing"
       }
 
       response = requests.post(SEARCH_API_GENERATIVE, headers=headers, json=data)
@@ -173,8 +174,14 @@ export API-KEY=<API-ключ>
     ...
     "<ссылка_на_найденный_документ_n>"
   ],
+  "titles": [
+    "<заголовок_найденного_документа_1>",
+    "<заголовок_найденного_документа_2>",
+    ...
+    "<заголовок_найденного_документа_n>"
+  ],
   "final_search_query": "<доработанный_текст_запроса>",
-  "is_answer_rejected": false(true),
+  "is_answer_rejected": false (true),
   "is_bullet_answer": false (true),
   "search_reqid" : "...",
   "reqid" : "..."
@@ -184,6 +191,7 @@ export API-KEY=<API-ключ>
 Где:
 * `content` — текст генеративного ответа.
 * `links` — отсортированный список ссылок на документы, которые были найдены при запросе и могли использоваться {{ yagpt-name }} для формирования ответа.
+* `titles` — отсортированный список заголовков документов.
 * `final_search_query` — конечный вариант текста поискового запроса, доработанный моделью {{ yagpt-name }} и использованный при формировании генеративного ответа. Может отличаться от запроса, изначально переданного пользователем.
 * `is_answer_rejected` — индикатор отказа модели предоставить ответ из-за этических ограничений:
 
@@ -194,23 +202,29 @@ export API-KEY=<API-ключ>
 * `search_reqid` — уникальный идентификатор запроса в Поиске от Яндекса.
 * `reqid` — уникальный идентификатор запроса {{ search-api-name }}.
 
-
-Пример генеративного ответа c ограничением по сайту:
+Пример генеративного ответа с ограничением по сайту:
 
 ```json
 {
   "message": {
-    "content": "Стоимость использования Search API рассчитывается, исходя из количества инициированных поисковых запросов за календарный месяц**. [1]\n\n**Цена за 1000 запросов**, вкл. НДС:\n\n* Ночные запросы, первые 1000 запросов в месяц — не тарифицируется. [1]\n\n* Ночные запросы, свыше 1000 запросов в месяц — 360 ₽. [1]\n\n* Дневные запросы — 480 ₽. [1]\n\nДля всех новых пользователей сервиса действует квота в 30 000 запросов в месяц (1000 запросов в день). [1]\n\nДля изменения значений квот обратитесь в техническую поддержку или к вашему аккаунт-менеджеру. [1]",
-    "role": "assistant"
+      "content": "Стоимость использования {{ search-api-name }} **рассчитывается исходя из количества инициированных поисковых запросов за календарный месяц**. [1]\n\n**Цена за 1000 запросов**, включая НДС: [1]\n- ночные запросы, первые 1000 запросов в месяц — не тарифицируется; [1]\n- ночные запросы, свыше 1000 запросов в месяц — 360 рублей; [1]\n- дневные запросы — 480 рублей. [1]\n\nДля всех новых пользователей сервиса действует квота в 30 000 запросов в месяц (1000 запросов в день). [1]\n\nЦены могут отличаться в разных регионах, а валюта оплаты зависит от юридического лица, с которым пользователь заключил договор. [1]",
+      "role": "assistant"
   },
   "links": [
-    "https://yandex.cloud/ru/docs/search-api/pricing",
-    "https://yandex.cloud/ru/docs/api-gateway/pricing",
-    "https://yandex.cloud/ru/docs/monitoring/pricing",
-    "https://yandex.cloud/ru/docs/ydb/pricing/ru-docapi",
-    "https://yandex.cloud/ru/docs/billing/concepts/serverless-free-tier"
+      "{{ link-docs }}/search-api/pricing",
+      "{{ link-docs }}/search-api/concepts/generative-response",
+      "{{ link-docs }}/api-gateway/pricing",
+      "{{ link-docs }}/functions/pricing",
+      "{{ link-docs }}/ydb/pricing/ru-docapi"
   ],
-  "final_search_query": "стоимость search api",
+  "titles": [
+      "Правила тарификации для {{ search-api-full-name }} | {{ yandex-cloud }} - Документация",
+      "Генеративный ответ | {{ yandex-cloud }} - Документация",
+      "Правила тарификации для {{ api-gw-full-name }} | {{ yandex-cloud }} - Документация",
+      "Правила тарификации для {{ sf-name }} | {{ yandex-cloud }} - Документация",
+      "Правила оценки стоимости запросов к ydb-short-name через Document API | {{ yandex-cloud }} - Документация"
+  ],
+  "final_search_query": "стоимость {{ search-api-name }}",
   "is_answer_rejected": false,
   "is_bullet_answer": false,
   "search_reqid": "1716922280912146-404265690610183965-**************-BAL",

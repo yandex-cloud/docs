@@ -33,6 +33,7 @@ List of changes to version 1.1. compared to version 1.0:
    * 4.7 Added a guide on how to encrypt data in {{ mpg-full-name }} and {{ mgp-full-name }} using `pgcrypto` and {{ kms-short-name }}.
    * 4.13 Added recommendations for using {{ lockbox-full-name }} in {{ TF }} without writing the information to `.tfstate`.
 
+
 * Added the [{#T}](../../../security/standard/app-security.md) section:
 
    * 9.1 {{ captcha-full-name }} is used.
@@ -44,7 +45,9 @@ List of changes to version 1.1. compared to version 1.0:
    * 9.7 Artifacts are checked when deployed in {{ managed-k8s-full-name }}.
    * 9.8 Ready-made blocks of a secure pipeline are used.
 
+
 ### Scope {#application}
+
 
 The recommendations are designed for solution architects, technical specialists, and information security experts who use the following services when developing secure cloud systems and security policies to work with the cloud platform:
 
