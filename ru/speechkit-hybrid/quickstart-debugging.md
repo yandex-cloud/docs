@@ -30,10 +30,10 @@
 
    ```text
    REPOSITORY                                        TAG   DIGEST             IMAGE ID  CREATED  SIZE
-   cr.yandex/crp33...7i/release/stt/v100/stt_server  0.21  sha256:83245...6b  0d1...89  ...      15.3GB
-   cr.yandex/crp33...7i/release/tts/v100/tts_server  0.21  sha256:41c1f...ea  d3a...7d  ...      16.1GB
-   cr.yandex/crp33...7i/release/envoy                0.21  sha256:853ed...cb  6f7...31  ...      220MB
-   cr.yandex/crp33...7i/release/license_server       0.21  sha256:44d24...3d  59e...62  ...      1.23GB
+   {{ registry }}/crp33...7i/release/stt/v100/stt_server  0.21  sha256:83245...6b  0d1...89  ...      15.3GB
+   {{ registry }}/crp33...7i/release/tts/v100/tts_server  0.21  sha256:41c1f...ea  d3a...7d  ...      16.1GB
+   {{ registry }}/crp33...7i/release/envoy                0.21  sha256:853ed...cb  6f7...31  ...      220MB
+   {{ registry }}/crp33...7i/release/license_server       0.21  sha256:44d24...3d  59e...62  ...      1.23GB
    ```
 
    Если вы меняли теги образов, убедитесь, что во время [нагрузочного тестирования](quickstart.md#stt-and-tts) вы использовали нужный Docker-образ. Для этого в столбце `DIGEST` сравните хеш-суммы использованного вами образа и образа в полученном списке.
@@ -48,10 +48,10 @@
 
    ```text
    CONTAINER ID  IMAGE                                                  ...  STATUS            ...
-   659...a0      cr.yandex/crp33...7i/release/stt/v100/stt_server:0.21  ...  Up About an hour  ...
-   af3...1f      cr.yandex/crp33...7i/release/tts/v100/tts_server:0.21  ...  Up About an hour  ...
-   e42...36      cr.yandex/crp33...7i/release/envoy:0.21                ...  Up About an hour  ...
-   a4a...43      cr.yandex/crp33...7i/release/license_server:0.21       ...  Up About an hour  ...
+   659...a0      {{ registry }}/crp33...7i/release/stt/v100/stt_server:0.21  ...  Up About an hour  ...
+   af3...1f      {{ registry }}/crp33...7i/release/tts/v100/tts_server:0.21  ...  Up About an hour  ...
+   e42...36      {{ registry }}/crp33...7i/release/envoy:0.21                ...  Up About an hour  ...
+   a4a...43      {{ registry }}/crp33...7i/release/license_server:0.21       ...  Up About an hour  ...
    ```
 
 1. Проверьте список открытых сетевых соединений и сетевую конфигурацию:

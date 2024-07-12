@@ -55,7 +55,7 @@
 1. (Опционально) В поле **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.Description }}** укажите описание ноды.
 1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}** выберите ресурс, на основе которого создается нода — **{{ ui-key.yc-ui-datasphere.common.docker }}**.
 1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.source }}** выберите реестр контейнеров. Вы можете выбрать {{ container-registry-name }} или любой произвольный реестр. Для {{ container-registry-name }} укажите:
-   * **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}** вида `cr.yandex/<идентификатор_реестра>/<идентификатор_образа>:<тег>`.
+   * **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}** вида `{{ registry }}/<идентификатор_реестра>/<идентификатор_образа>:<тег>`.
    * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}** автоматически получит значение `json_key`.
    * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}** — выберите из списка [секрет](../../concepts/secrets.md) с содержимым файла с [авторизованным ключом](../../../iam/concepts/authorization/key.md) для сервисного аккаунта из настроек проекта.
      

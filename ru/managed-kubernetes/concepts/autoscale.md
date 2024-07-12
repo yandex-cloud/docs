@@ -23,9 +23,14 @@
 
 {% endnote %}
 
-Включение {{ k8s-ca }} доступно только при создании группы узлов.
+Включение {{ k8s-ca }} доступно только при создании группы узлов. Управление {{ k8s-ca }} выполняется на стороне сервиса {{ managed-k8s-name }}.
 
-Подробнее о {{ k8s-ca }} см. в [документации {{ k8s }}](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler).
+Подробнее см. в документации {{ k8s }}:
+
+* [описание {{ k8s-ca }}](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler);
+* [параметры, используемые по умолчанию](https://github.com/kubernetes/autoscaler/blob/c6b754c359a8563050933a590f9a5dece823c836/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca);
+
+См. также раздел [{#T}](../qa/cluster-autoscaler.md).
 
 ## Горизонтальное автомасштабирование подов {#hpa}
 

@@ -2,7 +2,7 @@ title: Yandex Smart Web Security
 href: index.yaml
 label:
   title: RU
-  description: This service is only available in Russia.
+  description: The service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -15,6 +15,8 @@ items:
         href: quickstart.md
       - name: Getting started with WAF
         href: quickstart/quickstart-waf.md
+      - name: Getting started with ARL
+        href: quickstart/quickstart-arl.md
   - name: Step-by-step guides
     items:
       - name: All guides
@@ -47,9 +49,7 @@ items:
     items:
       - name: Creating an L7 load balancer with a security profile
         href: tutorials/balancer-with-sws-profile.md
-      - name: >-
-          Creating an L7 load balancer with DDoS protection at the L3 layer of
-          the OSI model
+      - name: Creating an L7 load balancer with DDoS protection at OSI L3
         href: tutorials/alb-with-ddos-protection.md
   - name: Concepts
     expanded: true
@@ -60,6 +60,8 @@ items:
         href: concepts/profiles.md
       - name: WAF
         href: concepts/waf.md
+      - name: ARL (request limit)
+        href: concepts/arl.md
       - name: Rules
         href: concepts/rules.md
       - name: Conditions

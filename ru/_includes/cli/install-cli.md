@@ -4,14 +4,9 @@
 
     1. Выполните команду:
 
-
-        
-        
         ```bash
-        curl -sSL https://storage.yandexcloud.net{{ yc-install-path }} | bash
+        curl -sSL https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
         ```
-
-
 
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
         
@@ -35,14 +30,9 @@
 
     1. Выполните команду:
 
-
-        
-        
         ```bash
-        curl -sSL https://storage.yandexcloud.net{{ yc-install-path }} | bash
+        curl -sSL https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
         ```
-
-
 
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
     1. Перезапустите командную оболочку, чтобы перезагрузить переменные окружения.

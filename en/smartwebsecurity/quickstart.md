@@ -51,14 +51,17 @@ To create a security profile:
       * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`
       * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `{{ ui-key.yacloud.component.condition-column.condition_full-trafic }}`
 
-      This rule sends any traffic whose destination is the protected resource for automatic analysis using ML and behavioral analysis algorithms. As a result of automatic analysis:
+      This rule sends all incoming traffic of the protected resource for automatic analysis using ML and behavioral analysis algorithms. As a result of automatic analysis:
       * Legitimate requests are routed to the protected resource.
       * Illegitimate requests and attacks are blocked.
       * Suspicious requests are sent to [{{ captcha-name }}](../smartcaptcha/) for additional verification.
 
-   You can also connect a [WAF profile](./concepts/waf.md) to the security profile. For more information, see [{#T}](./quickstart/quickstart-waf.md).
+   You can also connect these to your security profile:
 
-   {% include [note-preview-waf](../_includes/smartwebsecurity/note-preview-waf.md) %}
+   * [WAF profile](./concepts/waf.md) (for more information, see [{#T}](./quickstart/quickstart-waf.md)).
+   * [ARL profile](./concepts/arl.md) (for more information, see [{#T}](./quickstart/quickstart-arl.md)).
+
+   {% include [note-preview-waf](../_includes/smartwebsecurity/note-preview-waf-arl.md) %}
 
 {% endlist %}
 
@@ -84,6 +87,7 @@ To create a security profile:
 ### See also {#see-also}
 
 * [{#T}](./quickstart/quickstart-waf.md)
+* [{#T}](./quickstart/quickstart-arl.md)
 * [{#T}](./concepts/profiles.md)
 * [{#T}](./operations/profile-create.md)
 * [Creating an L7 load balancer with a security profile](./tutorials/balancer-with-sws-profile.md)

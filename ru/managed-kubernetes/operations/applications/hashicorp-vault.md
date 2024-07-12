@@ -41,7 +41,7 @@
    ```
 
    Сохраните идентификатор ключа (`id`) — он понадобится при установке приложения.
-1. [Назначьте роль](../../../iam/operations/roles/grant.md) `kms.keys.encrypterDecrypter` ключу {{ kms-name }}:
+1. [Назначьте роль](../../../iam/operations/roles/grant.md) `kms.keys.encrypterDecrypter` сервисному аккаунту, созданному ранее:
 
    ```bash
    yc resource-manager folder add-access-binding \
@@ -60,6 +60,12 @@
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
+{% note warning %}
+
+При установке продукта HashiCorp Vault с поддержкой {{ kms-name }} с помощью {{ marketplace-name }} будет задействован механизм доставки секретов [Agent injector](https://developer.hashicorp.com/vault/docs/platform/k8s/injector). Чтобы задействовать альтернативный механизм [Vault CSI provider](https://developer.hashicorp.com/vault/docs/platform/k8s/csi), установите продукт [с помощью Helm-чарта](#helm-install). Подробнее об отличиях этих механизмов см. [в документации Hashicorp](https://developer.hashicorp.com/vault/docs/platform/k8s/injector-csi).
+
+{% endnote %}
+
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [HashiCorp Vault с поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms-k8s) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
@@ -67,7 +73,7 @@
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
    * **Название приложения** — укажите название приложения.
    * **Ключ сервисной учетной записи для Vault** — скопируйте в это поле содержимое файла `authorized-key.json`.
-   * **ID ключа {{ kms-short-name }} для Vault** — укажите [полученный ранее](#sa-keys-create) идентификатор ключа {{ kms-name }}.
+   * **ID ключа {{ kms-short-name }} для Vault** — укажите [полученный ранее](#before-you-begin) идентификатор ключа {{ kms-name }}.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 
@@ -79,18 +85,31 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   cat authorized-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
-   helm pull oci://{{ mkt-k8s-key.yc_vault-yckms-k8s.helmChart.name }} \
-     --version {{ mkt-k8s-key.yc_vault-yckms-k8s.helmChart.tag }} \
+   cat <путь_к_файлу_с_авторизованным_ключом> | helm registry login cr.yandex --username 'json_key' --password-stdin && \
+   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/vault/chart/vault \
+     --version 0.27.0+yckms \
      --untar && \
    helm install \
      --namespace <пространство_имен> \
      --create-namespace \
-     --set-file yandexKmsAuthJson=authorized-key.json \
+     --set-file yandexKmsAuthJson=<путь_к_файлу_с_авторизованным_ключом> \
+     --set yandexKmsKeyId=<идентификатор_ключа_KMS> \
      hashicorp ./vault/
    ```
 
-   Эта команда также создаст новое пространство имен, необходимое для работы HashiCorp Vault.
+   Где:
+   * `<путь_к_файлу_с_авторизованным_ключом>` — путь к файлу `authorized-key.json`, [сохраненному ранее](#before-you-begin).
+   * `<пространство_имен>` — новое пространство имен, которое будет создано для работы HashiCorp Vault.
+   * `<идентификатор_ключа_KMS>` — [полученный ранее](#before-you-begin) идентификатор ключа {{ kms-name }}.
+
+   В результате выполнения команды в кластер будет установлен продукт HashiCorp Vault с поддержкой KMS с механизмом доставки секретов [Agent injector](https://developer.hashicorp.com/vault/docs/platform/k8s/injector). Чтобы задействовать альтернативный механизм [Vault CSI provider](https://developer.hashicorp.com/vault/docs/platform/k8s/csi), дополните команду следующими параметрами:
+
+   ```bash
+   --set "injector.enabled=false" \
+   --set "csi.enabled=true"
+   ```
+
+   Подробнее об отличиях этих механизмов см. [в документации Hashicorp](https://developer.hashicorp.com/vault/docs/platform/k8s/injector-csi).
 
 ## Инициализация хранилища {#vault-init}
 
@@ -108,7 +127,9 @@
 1. Убедитесь, что приложение перешло в состояние `Running` и имеет `0/1` готовых [подов](../../concepts/index.md#pod):
 
    ```bash
-   kubectl get pods --selector='app.kubernetes.io/name=vault'
+   kubectl get pods \
+     --namespace=<пространство_имен> \
+     --selector='app.kubernetes.io/name=vault'
    ```
 
    Результат:
@@ -122,6 +143,7 @@
 
    ```bash
    kubectl exec \
+     --namespace=<пространство_имен> \
      --stdin=true \
      --tty=true <имя_пода_vault> \
      -- vault operator init
@@ -139,10 +161,14 @@
    securely distribute the key shares printed above.
    ```
 
+   Сохраните полученные данные в надежном месте.
+
 1. Повторно запросите список подов приложения и убедитесь, что готов один под:
 
    ```bash
-   kubectl get pods --selector='app.kubernetes.io/name=vault'
+   kubectl get pods \
+     --namespace=<пространство_имен> \
+     --selector='app.kubernetes.io/name=vault'
    ```
 
    Результат:

@@ -78,7 +78,7 @@
      * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
        ```bash
-       curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+       curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
        exec -l $SHELL
        yc version
        ```
@@ -143,7 +143,7 @@
      * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
        ```bash
-       curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+       curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
        exec -l $SHELL
        yc version
        ```

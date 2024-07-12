@@ -200,6 +200,8 @@ items:
         href: metrics-ref/compute-ref.md
       - name: '{{ dataproc-name }}'
         href: metrics-ref/data-proc-ref.md
+      - name: '{{ data-transfer-name }}'
+        href: metrics-ref/data-transfer-ref.md
       - name: '{{ iam-name }}'
         href: metrics-ref/iam-ref.md
       - name: '{{ kms-name }}'

@@ -75,7 +75,7 @@ env:
   docker: <идентификатор_Docker-образа>  # Docker-образ, доступный в проекте {{ ml-platform-name }}
   # Также можно указать Docker-образ в реестре образов
   # docker:
-  #   image: <путь_к_образу_в_реестре>:<тег>  # Например <cr.yandex/crtabcdef12345678900/myenv:0.1>
+  #   image: <путь_к_образу_в_реестре>:<тег>  # Например <{{ registry }}/crtabcdef12345678900/myenv:0.1>
                                               # Для Docker Hub достаточно указать `<имя>:<тег>`, например `ubuntu:focal` 
   #   username: <логин>
   #   password: <пароль> # в текстовом виде или имя секрета {{ ml-platform-name }}

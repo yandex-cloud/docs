@@ -29,9 +29,13 @@ editable: false
 
   {% include [test-time-rub](../_pricing/load-testing/test-time-rub.md) %}
 
+  {% include [rub-test-time](../_pricing_examples/load-testing/rub-test-time.md) %}
+
 - Цены в тенге {#prices-kzt}
 
   {% include [test-time-kzt](../_pricing/load-testing/test-time-kzt.md) %}
+
+  {% include [kzt-test-time](../_pricing_examples/load-testing/kzt-test-time.md) %}
 
 {% endlist %}
 
@@ -48,9 +52,13 @@ editable: false
 
   {% include [test-results-rub](../_pricing/load-testing/test-results-rub.md) %}
 
+  {% include [rub-test-results](../_pricing_examples/load-testing/rub-test-results.md) %}
+
 - Цены в тенге {#prices-kzt}
 
   {% include [test-results-kzt](../_pricing/load-testing/test-results-kzt.md) %}
+
+  {% include [kzt-test-results](../_pricing_examples/load-testing/kzt-test-results.md) %}
 
 {% endlist %}
 

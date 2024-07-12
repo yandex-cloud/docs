@@ -133,7 +133,7 @@
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=a1bs81qpemb4******** \
       --entrypoint="unified_agent" \
-      cr.yandex/yc/unified-agent
+      {{ registry }}/yc/unified-agent
       ```
 
        Другие способы установки агента описаны в разделе [{#T}](../../concepts/data-collection/unified-agent/installation.md).
