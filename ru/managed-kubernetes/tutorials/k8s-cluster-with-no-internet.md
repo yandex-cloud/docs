@@ -258,7 +258,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
          hostIPC: true
          containers:
          - name: certificate-updater
-           image: cr.yandex/yc/mk8s-openssl:stable
+           image: {{ registry }}/yc/mk8s-openssl:stable
            command: 
              - sh
              - -c

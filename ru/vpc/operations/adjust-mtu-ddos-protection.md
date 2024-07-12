@@ -60,7 +60,7 @@
          hostNetwork: true
          containers:
          - name: mtu-fix
-           image: cr.yandex/crpjfmfou6gflobbfvfv/ipfixik:0.1.0
+           image: {{ registry }}/crpjfmfou6gflobbfvfv/ipfixik:0.1.0
            command:
              - bash
              - -c

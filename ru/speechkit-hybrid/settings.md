@@ -47,7 +47,7 @@ docker run --it \
 docker run -it \
    --env LICENSE_SERVICE_ENDPOINTS=172.10.19.12:8083 \
    --env SERVICE_PORT=17019 \
-   cr.yandex/<идентификатор_реестра>/stt/cpu_x86_64/stt_server:<версия_приложения_STT>
+   {{ registry }}/<идентификатор_реестра>/stt/cpu_x86_64/stt_server:<версия_приложения_STT>
 ```
 
 Где:

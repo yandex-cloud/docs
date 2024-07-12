@@ -223,7 +223,7 @@ SSH-ключи понадобятся для аутентификации при
       --env ENVOY_HOST=<публичный_адрес_ВМ> \
       --env ENVOY_PORT=8080 \
       --env CONNECTIONS=40 \
-      cr.yandex/<идентификатор_реестра>/release/tools/stt-tools:0.20
+      {{ registry }}/<идентификатор_реестра>/release/tools/stt-tools:0.20
    ```
 
    В команде укажите публичный IP-адрес ВМ и идентификатор созданного ранее реестра {{ container-registry-name }}.
@@ -242,7 +242,7 @@ SSH-ключи понадобятся для аутентификации при
       --env ENVOY_HOST=<публичный_адрес_ВМ> \
       --env ENVOY_TTS_PORT=9080 \
       --env RPS=20 \
-      cr.yandex/<идентификатор_реестра>/release/tools/tts-tools:0.20
+      {{ registry }}/<идентификатор_реестра>/release/tools/tts-tools:0.20
    ```
 
    В команде укажите публичный IP-адрес ВМ и идентификатор созданного ранее реестра {{ container-registry-name }}.

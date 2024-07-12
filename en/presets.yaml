@@ -223,7 +223,7 @@ default:
   k8s-decomission-timeout: 7 minutes
   k8s-docs: https://kubernetes.io/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.26, 1.27, 1.28, 1.29
+  k8s-versions-rapid: 1.26, 1.27, 1.28, 1.29, 1.30
   k8s-versions-regular: 1.26, 1.27, 1.28, 1.29
   k8s-versions-stable: 1.26, 1.27, 1.28, 1.29
   k8s-vpa: Vertical Pod Autoscaler
@@ -1470,11 +1470,11 @@ default:
   sku|KZT|searchapi:
     requests:
       day:
-        v1|int|string: ₸2400
+        v1|string: ₸2400.00
       night:
-        v1|int|string: Free
         v1|pricingRate:
-          1|int|string: ₸1800
+          1|string: ₸1800.00
+        v1|string: Free
   sku|KZT|serverless:
     containers:
       compute:
@@ -2569,11 +2569,11 @@ default:
   sku|RUB|searchapi:
     requests:
       day:
-        v1|int|string: ₽480
+        v1|string: ₽480.00
       night:
-        v1|int|string: Free
         v1|pricingRate:
-          1|int|string: ₽360
+          1|string: ₽360.00
+        v1|string: Free
   sku|RUB|serverless:
     containers:
       compute:

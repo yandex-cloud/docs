@@ -376,7 +376,7 @@ Runner — это инструмент для выполнения задач, �
 1. Чтобы скрипт CI мог создавать ВМ, установите CLI {{ yandex-cloud }}:
 
    ```bash
-   curl https://{{ s3-storage-host }}{{ yc-install-path }} --output install.sh
+   curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} --output install.sh
    sudo bash install.sh -n -i /opt/yc
    ```
 

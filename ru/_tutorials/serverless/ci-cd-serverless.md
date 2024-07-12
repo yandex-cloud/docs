@@ -126,7 +126,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
 1. Нажмите кнопку **Expand** напротив пункта **Variables**.
 1. Добавьте переменные окружения с выключенной опцией защиты. Все необходимые переменные и их значения были выведены в конце выполнения скрипта `bootstrap.sh`:
    * `cloud_id` — идентификатор вашего облака.
-   * `CI_REGISTRY` — идентификатор реестра {{ container-registry-name }} в каталоге `infra` с префиксом `cr.yandex/`.
+   * `CI_REGISTRY` — идентификатор реестра {{ container-registry-name }} в каталоге `infra` с префиксом `{{ registry }}/`.
    * `CI_REGISTRY_KEY` — [ключ](../../iam/concepts/users/service-accounts.md#sa-key) сервисного аккаунта `builder`.
    * `cart_prod` — имя продакшн каталога в {{ yandex-cloud }}.
    * `DOCAPI_ENDPOINT_prod` — Document API эндпоинт БД [{{ ydb-full-name }}](../../ydb/) в каталоге `prod`.

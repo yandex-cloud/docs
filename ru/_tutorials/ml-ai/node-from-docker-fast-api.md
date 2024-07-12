@@ -205,7 +205,7 @@
    1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}**:
       * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}** — выберите **{{ ui-key.yc-ui-datasphere.common.docker }}**.
       * **{{ ui-key.yc-ui-datasphere.new-node.source }}** — выберите **{{ ui-key.yc-ui-datasphere.new-node.ycr }}**.
-      * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.image-path }}** — задайте путь к образу {{ container-registry-name }} вида `cr.yandex/<идентификатор_реестра>/<имя_образа>:<тег>`. Его можно получить в консоли управления, скопировав полное значение на странице репозитория. Также вы можете заполнить поле вручную. Идентификатор реестра можно получить в CLI, выполнив команду `yc container registry list`.      
+      * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.image-path }}** — задайте путь к образу {{ container-registry-name }} вида `{{ registry }}/<идентификатор_реестра>/<имя_образа>:<тег>`. Его можно получить в консоли управления, скопировав полное значение на странице репозитория. Также вы можете заполнить поле вручную. Идентификатор реестра можно получить в CLI, выполнив команду `yc container registry list`.      
       * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}** — выберите `key-for-sa`.
    1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.endpoint }}**:
       * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.type }}** — выберите протокол **HTTP**.

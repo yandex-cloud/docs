@@ -107,9 +107,9 @@
                            hubble-relay       Running: 1
     Cluster Pods:          5/5 managed by Cilium
     Helm chart version:
-    Image versions         cilium             cr.yandex/******/k8s-addons/cilium/cilium:v1.12.9: 1
-                           cilium-operator    cr.yandex/******/k8s-addons/cilium/operator-generic:v1.12.9: 1
-                           hubble-relay       cr.yandex/******/k8s-addons/cilium/hubble-relay:v1.12.9: 1
+    Image versions         cilium             {{ registry }}/******/k8s-addons/cilium/cilium:v1.12.9: 1
+                           cilium-operator    {{ registry }}/******/k8s-addons/cilium/operator-generic:v1.12.9: 1
+                           hubble-relay       {{ registry }}/******/k8s-addons/cilium/hubble-relay:v1.12.9: 1
     ```
 
     {% endcut %}
@@ -386,9 +386,9 @@
                            hubble-ui          Running: 1
     Cluster Pods:          6/6 managed by Cilium
     Helm chart version:
-    Image versions         cilium             cr.yandex/******/k8s-addons/cilium/cilium:v1.12.9: 1
-                           hubble-relay       cr.yandex/******/k8s-addons/cilium/hubble-relay:v1.12.9: 1
-                           cilium-operator    cr.yandex/******/k8s-addons/cilium/operator-generic:v1.12.9: 1
+    Image versions         cilium             {{ registry }}/******/k8s-addons/cilium/cilium:v1.12.9: 1
+                           hubble-relay       {{ registry }}/******/k8s-addons/cilium/hubble-relay:v1.12.9: 1
+                           cilium-operator    {{ registry }}/******/k8s-addons/cilium/operator-generic:v1.12.9: 1
                            hubble-ui          quay.io/cilium/hubble-ui-backend:v0.13.0@sha256:******: 1
                            hubble-ui          quay.io/cilium/hubble-ui:v0.13.0@sha256:******: 1
     ```

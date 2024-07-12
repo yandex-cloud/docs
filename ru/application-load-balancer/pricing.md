@@ -18,18 +18,17 @@ editable: false
 
 Использование балансировщика тарифицируется почасно. Плата берется за наибольшее количество ресурсных единиц, работавших в течение часа. При [создании](operations/application-load-balancer-create.md) L7-балансировщика в [консоли управления]({{ link-console-main }}) расчет стоимости отображается справа.
 
-
 ### Пример расчета стоимости {#example}
 
 Балансировщик размещен в одной зоне доступности. Автомасштабирование настроено по умолчанию: минимум 2 ресурсные единицы в зоне, максимальное суммарное количество не ограничено.
 
 Балансировщик работал в течение часа. Внешняя нагрузка на него достигала следующих максимальных показателей (возможно, разные максимумы достигались в разные моменты времени):
 
-> {% include [lcu-example](../_includes/application-load-balancer/lcu-example.md) %}
+{% include [lcu-example](../_includes/application-load-balancer/lcu-example.md) %}
 
 Эти показатели соответствуют **8 ресурсным единицам**:
 
-> {% include [lcu-example-amounts](../_includes/application-load-balancer/lcu-example-amounts.md) %}
+{% include [lcu-example-amounts](../_includes/application-load-balancer/lcu-example-amounts.md) %}
 
 Расчет стоимости за час:
 
@@ -38,25 +37,14 @@ editable: false
 
 - Расчет в рублях {#prices-rub}
 
-  > 8 × 2,22 ₽ = 17,76 ₽
-  >
-  > Итого: 17,76 ₽
-
-  Где:
-  * 8 — количество ресурсных единиц.
-  * 2,22 ₽ — цена ресурсной единицы.
+  {% include [rub-alb-hour](../_pricing_examples/application-load-balancer/rub-hour.md) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  > 8 × 11,10 ₸ = 88,80 ₸
-  >
-  >Итого: 88,80 ₸ — стоимость часа использования балансировщика.
-
-    Где:
-  * 8 — количество ресурсных единиц.
-  * 11,10 ₸ — цена ресурсной единицы.
+  {% include [kzt-alb-hour](../_pricing_examples/application-load-balancer/kzt-hour.md) %}
 
 {% endlist %}
+
 
 
 
@@ -67,28 +55,16 @@ editable: false
 
 - Расчет в рублях {#prices-rub}
 
-  > 17,76 ₽ × 720 = 12 787,20 ₽
-  >
-  > Итого: 12 787,20 ₽ — стоимость использования балансировщика за месяц.
-
-  Где:
-  * 17,76 ₽ — стоимость часа использования балансировщика.
-  * 720 — количество часов в месяц.
+  {% include [rub-alb-month](../_pricing_examples/application-load-balancer/rub-month.md) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  > 88,80 ₸ × 720 = 63 936,00 ₸
-  >
-  > Итого: 63 936,00 ₸ — стоимость использования балансировщика за месяц.
-
-  Где:
-  * 88,80 ₸ — стоимость часа использования балансировщика.
-  * 720 — количество часов в месяц.
+  {% include [kzt-alb-month](../_pricing_examples/application-load-balancer/kzt-month.md) %}
 
 {% endlist %}
 
 
- 
+
  
 
 
