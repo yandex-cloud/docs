@@ -101,4 +101,30 @@ regular expression allowed
 * `POST`
 * `DELETE`
 | _or_ ||
+
+|| `Cookie` |
+* Matches
+* Mismatches
+* Starts with
+* Does not start with
+* Matches regular expression
+* Mismatches regular expression
+|
+Format`key: value`, where key is the Cookie header, value is the specific Cookie value, value prefix, or regular expression of the PIRE library
+|
+* `csrftoken=u32t4o3tb`
+| _and_ ||
+
+|| `HTTP body` |
+* Matches
+* Mismatches
+* Starts with
+* Does not start with
+* Matches regular expression
+* Mismatches regular expression
+|
+String in the HTTP packet body or PIRE library regular expression
+|
+* `<br><input type='submit'>`
+| _or_ ||
 |#

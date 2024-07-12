@@ -142,7 +142,6 @@
 1. Создайте конфигурационный файл в формате [HCL](https://github.com/hashicorp/hcl#readme), например `toolbox.pkr.hcl`.
 1. Опишите в конфигурационном файле параметры образа, который необходимо создать:
 
-    
     ```hcl
     # {{ yandex-cloud }} Toolbox VM Image based on Ubuntu 20.04 LTS
     #
@@ -219,7 +218,7 @@
           "sudo apt-get install -y unzip python3-pip python3.8-venv",
 
           # {{ yandex-cloud }} CLI tool
-          "curl -s -O https://{{ s3-storage-host }}{{ yc-install-path }}",
+          "curl -s -O https://{{ s3-storage-host-cli }}{{ yc-install-path }}",
           "chmod u+x install.sh",
           "sudo ./install.sh -a -i /usr/local/ 2>/dev/null",
           "rm -rf install.sh",
@@ -304,8 +303,6 @@
       }
     }
     ```
-   
-
 
 {% include [warning-provisioner-metadata](../../_includes/tutorials/infrastructure-management/warning-provisioner-metadata.md) %}
 

@@ -68,14 +68,14 @@ _Внешний агент_ — физический или виртуальны
 1. [Установите](https://www.docker.com/) и запустите Docker.
 1. Аутентифицируйтесь в {{ container-registry-name }} от [имени пользователя](../../container-registry/operations/authentication.md#user) или с помощью [Docker Credential Helper](../../container-registry/operations/authentication.md#cred-helper).
 
-    Используйте эндпоинт [реестра](../../container-registry/concepts/registry.md) с [Docker-образами](../../container-registry/concepts/docker-image.md) внешних агентов: `cr.yandex/yc/`.
+    Используйте эндпоинт [реестра](../../container-registry/concepts/registry.md) с [Docker-образами](../../container-registry/concepts/docker-image.md) внешних агентов: `{{ registry }}/yc/`.
 
 ## Установите внешний агент {#install-external-agent}
 
 1. Скачайте Docker-образ с внешним агентом, в терминале выполните команду:
 
     ```bash
-    docker pull cr.yandex/yc/ya-lt-agent:latest
+    docker pull {{ registry }}/yc/ya-lt-agent:latest
     ```
 
     Результат:
@@ -85,8 +85,8 @@ _Внешний агент_ — физический или виртуальны
     df6635ed1257: Pull complete 
     7a51fa4387ba: Pull complete 
     Digest: sha256:fad262e94a8b4021b13336ae31c738ec1e77eb6a8971528429c67d2827f1e47b
-    Status: Downloaded newer image for cr.yandex/yc/ya-lt-agent:latest
-    cr.yandex/yc/ya-lt-agent:latest
+    Status: Downloaded newer image for {{ registry }}/yc/ya-lt-agent:latest
+    {{ registry }}/yc/ya-lt-agent:latest
     ```
 
 1. Скачайте файл с открытым и закрытым авторизованными ключами из {{ lockbox-short-name }}:
@@ -142,7 +142,7 @@ _Внешний агент_ — физический или виртуальны
       --mount type=bind,source=<путь_к_файлу_с_авторизованными_ключами>,target=/run/sa_key.json \
       --mount type=bind,source=<путь_к_конфигурационному_файлу>,target=/run/config.yaml \
       --env LOADTESTING_AGENT_CONFIG=/run/config.yaml \
-      cr.yandex/yc/ya-lt-agent:latest
+      {{ registry }}/yc/ya-lt-agent:latest
     ```
 
     Где:
@@ -161,7 +161,7 @@ _Внешний агент_ — физический или виртуальны
       --env LOADTESTING_AGENT_NAME='<имя_внешнего_агента>' \
       --env LOADTESTING_FOLDER_ID='<идентификатор_каталога>' \
       --env LOADTESTING_SA_KEY_FILE=<путь_к_файлу_с_авторизованными_ключами_в_контейнере> \
-      cr.yandex/yc/ya-lt-agent:latest
+      {{ registry }}/yc/ya-lt-agent:latest
     ```
 
     Где:
@@ -198,7 +198,7 @@ _Внешний агент_ — физический или виртуальны
       --mount type=bind,source=<путь_к_файлу_с_авторизованными_ключами>,target=/run/sa_key.json \
       --mount type=bind,source=<путь_к_конфигурационному_файлу>,target=/run/config.yaml \
       --env LOADTESTING_AGENT_CONFIG=/run/config.yaml \
-      cr.yandex/yc/ya-lt-agent:latest
+      {{ registry }}/yc/ya-lt-agent:latest
     ```
 
     {% endcut %}

@@ -106,7 +106,7 @@
 
     ```bash
     docker build . \
-        -t cr.yandex/<идентификатор_реестра>/ubuntu:pgconnect
+        -t {{ registry }}/<идентификатор_реестра>/ubuntu:pgconnect
     ```
 
     Проверьте, что в локальном репозитории появился образ с указанным именем:
@@ -124,7 +124,7 @@
         docker login \
         --username iam \
         --password <IAM-токен> \
-        cr.yandex
+        {{ registry }}
         ```
 
     Другие способы см. в разделе [{#T}](../../container-registry/operations/authentication.md).
@@ -132,7 +132,7 @@
 1. Загрузите Docker-образ в реестр:
 
     ```bash
-    docker push cr.yandex/<идентификатор_реестра>/ubuntu:pgconnect
+    docker push {{ registry }}/<идентификатор_реестра>/ubuntu:pgconnect
     ```
 
 ## Создайте и настройте контейнер {{ serverless-containers-name }} {#create-container}
@@ -168,5 +168,5 @@
 Чтобы удалить созданный Docker-образ из локального репозитория, выполните команду:
 
 ```bash
-docker rmi cr.yandex/<идентификатор_реестра>/ubuntu:pgconnect
+docker rmi {{ registry }}/<идентификатор_реестра>/ubuntu:pgconnect
 ```

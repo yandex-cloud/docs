@@ -15,7 +15,7 @@
 1. Скачайте последнюю версию docker-образа, используйте команду:
 
    ```bash
-   docker pull cr.yandex/yc/vault
+   docker pull {{ registry }}/yc/vault
    ```
 
 1. Выберите один из способов аутентификации запросов Vault к {{ kms-short-name }}. Аутентифицироваться можно через:

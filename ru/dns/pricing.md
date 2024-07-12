@@ -7,11 +7,16 @@ editable: false
 # Правила тарификации для {{ dns-name }}
 
 
+## Цены для региона Россия {#prices}
+
+
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 
-## Публичные DNS-запросы {#public-dns-requests}
+### Публичные DNS-запросы {#public-dns-requests}
 
 
 {% list tabs group=pricing %}
@@ -52,26 +57,25 @@ editable: false
 
 Стоимость публичных DNS-запросов рассчитывается пропорционально потреблению.
 
-
 Например, стоимость 50 тыс. авторитетных запросов к вашей публичной DNS-зоне за месяц составит:
-
 
 
 {% list tabs group=pricing %}
 
 - Расчет в рублях {#prices-rub}
 
-  {% include [rub-calculations](../_pricing/dns/rub-calculations.md) %}
+  {% include [rub-calculations](../_pricing_examples/dns/rub-calculations.md) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  {% include [kzt-calculations](../_pricing/dns/kzt-calculations.md) %}
+  {% include [kzt-calculations](../_pricing_examples/dns/kzt-calculations.md) %}
 
 {% endlist %}
 
 
 
-## DNS-зоны {#dns-zones}
+
+### DNS-зоны {#dns-zones}
 
 Тарифицируются [публичные](concepts/dns-zone.md#public-zones) или [внутренние](concepts/dns-zone.md#private-zones) DNS-зоны, созданные пользователем.
 
@@ -82,7 +86,7 @@ editable: false
 > Например, стоимость владения 2 DNS-зонами в течение 360 часов будет такой же, как стоимость владения 1 DNS-зоной в течение 720 часов.
 
 
-### За 1 пользовательскую зону DNS в месяц {#zone-month}
+#### За 1 пользовательскую зону DNS в месяц {#zone-month}
 
 
 {% list tabs group=pricing %}
@@ -99,7 +103,7 @@ editable: false
 
 
 
-### За 1 пользовательскую зону DNS в час {#zone-hour}
+#### За 1 пользовательскую зону DNS в час {#zone-hour}
 
 
 {% list tabs group=pricing %}

@@ -21,7 +21,7 @@ description: "На странице приведены часто возника
   **Почему возникла ошибка:** не указан или указан неверно идентификатор реестра. При использовании команд Docker CLI необходимо указывать полное имя [Docker-образа](../concepts/docker-image.md), включающее в себя идентификатор реестра. Подробнее об этом читайте в разделе [{#T}](../concepts/repository.md).
 
   **Как исправить:** проверьте корректность указанного уникального идентификатора реестра, [посмотрев список реестров](../operations/registry/registry-list.md).
-* `Error response from daemon: pull access denied for <cr.yandex/идентификатор_реестра/имя_Docker-образа>, repository does not exist or may require 'docker login': denied: Permission denied ; requestId = <идентификатор_запроса>`
+* `Error response from daemon: pull access denied for <{{ registry }}/идентификатор_реестра/имя_Docker-образа>, repository does not exist or may require 'docker login': denied: Permission denied ; requestId = <идентификатор_запроса>`
 
   **Почему возникла ошибка:** для [IP-адреса](../../vpc/concepts/address.md), с которого идет запрос на скачивание Docker-образа, нет разрешения на скачивание (PULL).
 

@@ -218,10 +218,10 @@ default:
   k8s: Kubernetes
   k8s-api-link: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/
   k8s-ca: Cluster Autoscaler
-  k8s-decomission-timeout: 7 минут
+  k8s-decomission-timeout: 5 минут
   k8s-docs: https://kubernetes.io/ru/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.26, 1.27, 1.28, 1.29
+  k8s-versions-rapid: 1.26, 1.27, 1.28, 1.29, 1.30
   k8s-versions-regular: 1.26, 1.27, 1.28, 1.29
   k8s-versions-stable: 1.26, 1.27, 1.28, 1.29
   k8s-vpa: Vertical Pod Autoscaler
@@ -596,6 +596,7 @@ default:
   s3-c2-m8: s3-c2-m8 (2 vCPU, 8 ГБ)
   s3-dotnet-sdk-host: s3.yandexcloud.net
   s3-storage-host: storage.yandexcloud.net
+  s3-storage-host-cli: storage.yandexcloud.net
   s3-storage-host-doc-files: storage.yandexcloud.net/doc-files
   s3-storage-host-mch: storage.yandexcloud.net/managed-clickhouse
   s3-web-host: website.yandexcloud.net
@@ -1468,11 +1469,11 @@ default:
   sku|KZT|searchapi:
     requests:
       day:
-        v1|int|string: "2\_400\_₸"
+        v1|string: "2\_400,00\_₸"
       night:
-        v1|int|string: Не тарифицируется
         v1|pricingRate:
-          1|int|string: "1\_800\_₸"
+          1|string: "1\_800,00\_₸"
+        v1|string: Не тарифицируется
   sku|KZT|serverless:
     containers:
       compute:
@@ -2567,11 +2568,11 @@ default:
   sku|RUB|searchapi:
     requests:
       day:
-        v1|int|string: "480\_₽"
+        v1|string: "480,00\_₽"
       night:
-        v1|int|string: Не тарифицируется
         v1|pricingRate:
-          1|int|string: "360\_₽"
+          1|string: "360,00\_₽"
+        v1|string: Не тарифицируется
   sku|RUB|serverless:
     containers:
       compute:

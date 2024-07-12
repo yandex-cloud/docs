@@ -18,10 +18,10 @@
 
 - Bash {#bash}
 
-    Выполните команду: 
-    
+    Выполните команду:
+
     ```
-    curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash -s -- -h
+    curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash -s -- -h
     Usage: install [options...]
     Options:
      -i [INSTALL_DIR]    Installs to specified dir.
@@ -30,20 +30,21 @@
      -a                  Automatically modify default rc file with PATH modification and shell completion.
      -h                  Prints help.
     ```
-    
+
     Примеры использования:  
     - Установка CLI в `/opt/yc`, без изменений в файле `.bashrc`:
-    
+
         ```
-        curl https://{{ s3-storage-host }}{{ yc-install-path }} | \
+        curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | \
             bash -s -- -i /opt/yc -n
         ```
-    - Установка CLI в директорию по умолчанию, в файл `.bashrc` добавляются `completion` и `PATH`:  
-        
+
+    - Установка CLI в директорию по умолчанию, в файл `.bashrc` добавляются `completion` и `PATH`:
+
         ```
-        curl https://{{ s3-storage-host }}{{ yc-install-path }} | \
+        curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | \
             bash -s -- -a
-        ``` 
+        ```
 
 {% endlist %}
 
