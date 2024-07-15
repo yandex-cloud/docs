@@ -35,6 +35,8 @@ To create a connection to {{ ydb-name }}:
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ ydb-name }} database or create a new one.
       * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select the {{ ydb-name }} [service account](../../iam/concepts/users/service-accounts.md) to use for connecting to `{{ ydb-name }}` clusters and database authentication. If you do not have a service account, create one and assign the `ydb.viewer` [role](../../ydb/security/index.md#ydb-viewer) to it.
 
+         {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
+
 
 1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 

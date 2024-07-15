@@ -121,6 +121,14 @@ Returns the substring `string` that matches the regular expression `pattern`.
 
 
 
+## [REGEXP_EXTRACT_ALL](REGEXP_EXTRACT_ALL.md)
+
+**Syntax:**`REGEXP_EXTRACT_ALL( string, pattern )`
+
+Returns all `string` substrings matching the `pattern` regex. For regexes with subgroups, it only works for the first subgroup.
+
+
+
 ## [REGEXP_EXTRACT_NTH](REGEXP_EXTRACT_NTH.md)
 
 **Syntax:**`REGEXP_EXTRACT_NTH( string, pattern, match_index )`

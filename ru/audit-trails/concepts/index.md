@@ -5,7 +5,7 @@ description: "{{ at-full-name }} позволяет собирать аудит�
 
 # Обзор сервиса {{ at-full-name }}
 
-{{ at-full-name }} позволяет собирать аудитные логи уровня конфигурации и аудитные логи уровня сервисов ресурсов {{ yandex-cloud }} и загружать их в бакет {{ objstorage-name }}, в поток данных {{ yds-name }} или в лог-группу {{ cloud-logging-name }}:
+{{ at-full-name }} позволяет собирать [аудитные логи уровня конфигурации](./events.md) и [аудитные логи уровня сервисов](./events-data-plane.md) ресурсов {{ yandex-cloud }} и загружать их в бакет {{ objstorage-name }}, в поток данных {{ yds-name }} или в лог-группу {{ cloud-logging-name }}:
 
 * [Загрузка аудитных логов в бакет](../operations/index.md#bucket).
 * [Загрузка аудитных логов в Cloud Logging](../operations/index.md#logging).
@@ -17,35 +17,6 @@ description: "{{ at-full-name }} позволяет собирать аудит�
 * [Поиск по аудитным логам в лог-группе](../tutorials/search-cloud-logging.md).
 * [Загрузка аудитных логов в SIEM](./export-siem.md).
 * [Настройка алертов в {{ monitoring-full-name }}](../tutorials/alerts-monitoring.md).
-
-## Аудитные логи уровня конфигурации {#control-plane-logs}
-
-{{ at-name }} собирает аудитные логи [уровня конфигурации](./control-plane-vs-data-plane.md#control-plane-events) для следующих сервисов {{ yandex-cloud }}:
-
-* {{ alb-full-name }}
-* {{ at-full-name }}
-* {{ certificate-manager-full-name }}
-* {{ dns-full-name }}
-* {{ cloud-logging-full-name }}
-* {{ compute-full-name }}
-* {{ iam-full-name }}
-* {{ kms-full-name }}
-* {{ lockbox-full-name }}
-* {{ mch-full-name }}
-* {{ mgl-full-name }}
-* {{ mmg-full-name }}
-* {{ managed-k8s-name }}
-* {{ mmy-full-name }}
-* {{ mpg-full-name }}
-* {{ mrd-full-name }}
-* {{ network-load-balancer-full-name }}
-* {{ objstorage-full-name }}
-* {{ org-full-name }}
-* {{ resmgr-full-name }}
-* {{ vpc-full-name }}
-* {{ websql-full-name }}
-* {{ ydb-full-name }}
-* {{ yq-full-name }}
 
 Логируются следующие [события уровня конфигурации](./events.md):
 
@@ -59,19 +30,6 @@ description: "{{ at-full-name }} позволяет собирать аудит�
 * Изменение политик доступа.
 * Создание/изменение групп безопасности.
 * Действия с ключами шифрования и секретами.
-
-## Аудитные логи уровня сервисов {#data-plane-logs}
-
-{{ at-name }} собирает аудитные логи [уровня сервисов](./control-plane-vs-data-plane.md#data-plane-events) для следующих сервисов {{ yandex-cloud }}:
-
-* {{ dns-full-name }}
-* {{ lockbox-full-name }}
-* {{ kms-full-name }}
-* {{ objstorage-full-name }}
-* {{ mpg-full-name }}
-* {{ mmg-full-name }}
-* {{ mmy-full-name }}
-* {{ websql-full-name }}
 
 ## Существующие ограничения сервиса {#known-restrictions}
 

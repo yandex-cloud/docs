@@ -36,3 +36,5 @@ description: "Из статьи вы узнаете, какие методы S3 
 || [getBucketTagging](bucket/getbuckettagging.md) | Возвращает метки бакета. ||
 || [deleteBucketTagging](bucket/deletebuckettagging.md) | Удаляет метки бакета. ||
 |#
+
+{% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

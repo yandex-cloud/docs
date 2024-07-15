@@ -1,20 +1,16 @@
-# Uploading {{ TF }} states to {{ objstorage-name }}
+# Uploading {{ TF }} states to {{ objstorage-full-name }}
 
-This guide describes the steps for uploading a {{ TF }} state to [{{ objstorage-full-name }}](../../storage/).
+
+This guide describes the steps for uploading a {{ TF }} state to [{{ objstorage-name }}](../../storage/).
 
 A {{ TF }} state describes the current deployed infrastructure and is stored in files with the `.tfstate` extension. The state file is created after the infrastructure is deployed and can be immediately uploaded to {{ objstorage-name }}. The uploaded state file is updated as the infrastructure you created changes.
 
 In this example, the saved state allows other users to get the ID of one of the created [subnets](../../vpc/concepts/network.md#subnet) to connect a new [VM](../../compute/concepts/vm.md) to it.
 
 To configure {{ TF }} state storage in {{ objstorage-name }} and use it to create new resources:
-
 1. [Prepare your cloud](#before-you-begin).
 1. [Required paid resources](#paid-resources).
-1. [Install {{ TF }}](#install-terraform).
-1. [Create a {{ TF }} configuration file](#configure-terraform).
-1. [Configure a provider](#configure-provider).
-1. [Create a service account and static access key](#create-service-account).
-1. [Create a bucket](#create-service-account).
+1. [Install and configure {{ TF }}](#install-terraform).
 1. [Configure the backend](#set-up-backend).
 1. [Deploy the configuration](#deploy).
 1. [Check the saved state](#check-condition).
@@ -28,7 +24,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 {% note alert %}
@@ -37,60 +32,56 @@ All resources created using {{ TF }} are chargeable. Make sure to check the conf
 
 {% endnote %}
 
-In this use case, you will create three VMs with public IP addresses, a virtual network, and two subnets.
+In this use case, you will create three VMs with [public IP addresses](../../vpc/concepts/address.md#public-addresses), a virtual [network](../../vpc/concepts/network.md#network), and two subnets.
 
 The cost of supporting this infrastructure includes:
 * Data storage fees (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
-* Charge for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for [disks](../../compute/concepts/disk.md) and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
-
-## Install {{ TF }} {#install-terraform}
-
-{% include [terraform-install](../../_tutorials/_tutorials_includes/terraform-install.md) %}
-
-## Create a {{ TF }} configuration file {#configure-terraform}
-
-{% include [configure-terraform](../_tutorials_includes/configure-terraform.md) %}
-
-## Configure a provider {#configure-provider}
-
-{% include [terraform-configure-provider](../../_tutorials/_tutorials_includes/terraform-configure-provider.md) %}
 
 ## Create a service account and static access key {#create-service-account}
 
-1. [Create a service account](../../iam/operations/sa/create.md) with the [editor](../../iam/concepts/access-control/roles.md#editor) [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) specified in the provider settings.
-1. [Get a static access key](../../iam/operations/sa/create-access-key.md). Save the key ID and secret key: you will need them in the next steps.
+1. [Create a service account](../../iam/operations/sa/create.md) with the [editor](../../iam/roles-reference.md#editor) [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) specified in the provider settings.
+1. [Get a static access key](../../iam/operations/sa/create-access-key.md). Save the key ID and secret key: you will need them at the next steps.
 
-## Create a bucket {#create-service-account}
+### Create a bucket {#create-service-account}
 
-[Create a bucket](../../storage/operations/buckets/create.md) with restricted access. It stores the {{ TF }} state file.
+[Create a bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will store the {{ TF }} state file.
+
+## Install and configure {{ TF }} {#prepare-terraform}
+
+{% include notitle [terraform-prepare.md](../../_tutorials/infrastructure/terraform-prepare.md) %}
 
 ## Configure the backend {#set-up-backend}
 
+{% note info %}
+
+The backend settings apply to {{ TF }} `1.6.3` and higher.
+
+{% endnote %}
+
 1. Add the [previously obtained](#create-service-account) key ID and secret key to environment variables:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
       ```bash
       export ACCESS_KEY="<key_ID>"
       export SECRET_KEY="<secret_key>"
       ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```powershell
-      $Env:ACCESS_KEY="<key_ID>"
-      $Env:SECRET_KEY="<secret_key>"
+      $ACCESS_KEY="<key_ID>"
+      $SECRET_KEY="<secret_key>"
       ```
 
    {% endlist %}
 
-1. Add provider and backend settings to the configuration file:
+1. Add the provider and backend settings to the configuration file:
 
-   
    ```hcl
    terraform {
      required_providers {
@@ -101,7 +92,7 @@ The cost of supporting this infrastructure includes:
 
      backend "s3" {
        endpoints = {
-         s3 = "{{ s3-storage-host }}"
+         s3 = "https://{{ s3-storage-host }}"
        }
        bucket = "<bucket_name>"
        region = "{{ region-id }}"
@@ -109,23 +100,18 @@ The cost of supporting this infrastructure includes:
 
        skip_region_validation      = true
        skip_credentials_validation = true
-       skip_requesting_account_id  = true # This option is required to describe backend for {{ TF }} version 1.6.1 or higher.
+       skip_requesting_account_id  = true # This option is required for {{ TF }} 1.6.1 or higher.
        skip_s3_checksum            = true # This option is required to describe backend for {{ TF }} version 1.6.3 or higher.
+
      }
    }
 
    provider "yandex" {
-     token     = "<service_account_OAuth_or_static_key>"
-     cloud_id  = "<cloud_ID>"
-     folder_id = "<folder_ID>"
      zone      = "<default_availability_zone>"
    }
    ```
 
-
-
-   To read more about the state storage backend, see the [{{ TF }} site](https://www.terraform.io/docs/backends/types/s3.html).
-
+   To read more about the state storage backend, see the [{{ TF }} website](https://www.terraform.io/docs/backends/types/s3.html).
 1. Run the following command in the folder with the configuration file:
 
    ```bash
@@ -142,9 +128,8 @@ You can request the {{ objstorage-name }} state saved in {{ TF }} from another c
 
 Create another configuration and use the saved state to create another VM in one of the existing subnets:
 1. Create the `remote-state` directory.
-1. Go to the created directory and create the configuration file `remote-state.tf`:
+1. Go to the created directory and create the `remote-state.tf` configuration file:
 
-   
    ```hcl
    terraform {
      required_providers {
@@ -155,23 +140,39 @@ Create another configuration and use the saved state to create another VM in one
    }
 
    provider "yandex" {
-     token     = "<service_account_OAuth_or_static_key>"
-     cloud_id  = "<cloud_ID>"
-     folder_id = "<folder_ID>"
      zone      = "{{ region-id }}-a"
    }
 
    data "terraform_remote_state" "vpc" {
      backend = "s3"
-     config = {
-       endpoint   = "{{ s3-storage-host }}"
-       bucket     = "<bucket_name>"
-       region     = "{{ region-id }}"
-       key        = "<path_to_state_file_in_bucket>/<state_file_name>.tfstate"
+     config  = {
+       endpoints = {
+         s3 = "https://{{ s3-storage-host }}"
+       }
+       bucket = "<bucket_name>"
+       region = "{{ region-id }}"
+       key    = "<path_to_state_file_in_bucket>/<state_file_name>.tfstate"
 
        skip_region_validation      = true
        skip_credentials_validation = true
-     }
+       skip_requesting_account_id  = true # This option is required to describe backend for Terraform version 1.6.1 or higher.
+
+       access_key = "<key_ID>"
+       secret_key = "<secret_key>"
+
+      }
+    }
+
+   resource "yandex_compute_image" "ubuntu_2004" {
+     source_family = "ubuntu-2004-lts"
+   }
+
+   resource "yandex_compute_disk" "boot-disk-vm3" {
+     name     = "boot-disk-3"
+     type     = "network-hdd"
+     zone     = "{{ region-id }}-a"
+     size     = "20"
+     image_id = yandex_compute_image.ubuntu_2004.id
    }
 
    resource "yandex_compute_instance" "vm-3" {
@@ -183,9 +184,7 @@ Create another configuration and use the saved state to create another VM in one
      }
 
      boot_disk {
-       initialize_params {
-         image_id = "fd87va5cc00gaq2f5qfb"
-       }
+       disk_id = yandex_compute_disk.boot-disk-vm3.id
      }
 
      network_interface {
@@ -194,13 +193,16 @@ Create another configuration and use the saved state to create another VM in one
      }
 
      metadata = {
-       ssh-keys = "ubuntu:${file("~/.ssh/id_ed25519.pub")}"
+       ssh-keys = "ubuntu:${file("<path_to_public_SSH_key>")}"
      }
    }
    ```
 
-
-
+   Where:
+   * `bucket`: Bucket name.
+   * `key`: Object key in the bucket (name and path to the {{ TF }} state file in the bucket).
+   * `access_key`: [Secret key ID](#create-service-account) of the [service account](../../iam/concepts/users/service-accounts.md) to access the bucket.
+   * `secret_key`: Service account secret key value.
 1. Run the `terraform init` command.
 1. Run the `terraform plan` command. The terminal will display the plan for creating the VM.
 1. Run the `terraform apply` command.
@@ -212,6 +214,7 @@ To delete the resources you created, run the `terraform destroy` command; start 
 
 ## See also {#see-also}
 
-
-* [{#T}](../../tutorials/infrastructure-management/terraform-state-lock.md)
-
+* [Getting started with {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
+* [Locking {{ TF }} states using {{ ydb-name }}](../../tutorials/infrastructure-management/terraform-state-lock.md).
+* [Using {{ yandex-cloud }} modules in {{ TF }}](../../tutorials/infrastructure-management/terraform-modules.md).
+* [{{ TF }} data sources](../../tutorials/infrastructure-management/terraform-data-sources.md).

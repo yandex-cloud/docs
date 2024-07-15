@@ -92,6 +92,8 @@ items:
         href: tutorials/data-migration.md
       - name: Шардирование таблиц
         href: tutorials/sharding.md
+      - name: Перешардирование данных в кластере {{ mch-name }}
+        href: tutorials/mch-mch-resharding.md
       - name: Использование гибридного хранилища
         href: tutorials/hybrid-storage.md
       - name: Получение данных из {{ mkf-name }}

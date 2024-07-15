@@ -35,3 +35,5 @@ description: "Из статьи вы узнаете, какие действия
 [s3:PutObject](../object/upload.md) | Дает право на добавление объекта в бакет.
 `s3:PutObjectAcl` | Дает право на установку ACL для указанного объекта.
 `s3:PutObjectVersionAcl` | Дает право на установку ACL для указанной версии объекта.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

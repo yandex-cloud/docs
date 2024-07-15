@@ -434,6 +434,8 @@ items:
                 href: function-ref/LTRIM.md
               - name: REGEXP_EXTRACT
                 href: function-ref/REGEXP_EXTRACT.md
+              - name: REGEXP_EXTRACT_ALL
+                href: function-ref/REGEXP_EXTRACT_ALL.md
               - name: REGEXP_EXTRACT_NTH
                 href: function-ref/REGEXP_EXTRACT_NTH.md
               - name: REGEXP_MATCH

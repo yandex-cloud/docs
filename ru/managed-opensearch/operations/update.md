@@ -222,6 +222,7 @@ keywords:
 
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
+
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
             {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}

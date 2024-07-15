@@ -42,3 +42,5 @@ GET /{bucket}?lifecycle HTTP/2
 ### Схема данных {#response-scheme}
 
 Возвращаемые данные имеют ту же структуру, которую имеют данные, передаваемые методом [upload](upload.md). Структура описана в разделе [{#T}](xml-config.md).
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

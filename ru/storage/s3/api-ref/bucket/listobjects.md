@@ -196,3 +196,5 @@ GET /{bucket}?delimiter=Delimiter&encoding-type=EncodingType&marker=Marker&max-k
 `MaxKeys` | Значение query-параметра `max-keys`.<br/><br/>Путь: `/ListBucketResult/MaxKeys`.
 `CommonPrefixes` | Часть имени ключа, которая определяется при обработке query-параметров `delimiter` и `prefix`.<br/><br/>Путь: `/ListBucketResult/CommonPrefixes`.
 `EncodingType` | Кодировка, в которой {{ objstorage-name }} представляет ключ в XML-ответе.<br/><br/>Появляется, если клиент при запросе передал параметр `encoding-type`.<br/><br/>Путь: `/ListBucketResult/EncodingType`.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

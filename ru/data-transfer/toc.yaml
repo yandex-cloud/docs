@@ -136,6 +136,8 @@ items:
             href: tutorials/mongodb-versions.md
           - name: Кластер {{ CH }}
             href: tutorials/managed-clickhouse.md
+          - name: Перешардирование данных в кластере {{ mch-name }}
+            href: tutorials/mch-mch-resharding.md
           - name: Кластер {{ GP }}
             href: tutorials/managed-greenplum.md
           - name: Миграция из AWS RDS for {{ PG }}

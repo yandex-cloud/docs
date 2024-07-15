@@ -37,3 +37,4 @@ HEAD /{bucket} HTTP/2
 
 Успешный ответ не содержит дополнительных данных и означает, что бакет существует и у пользователя достаточно прав для доступа к нему.
 
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

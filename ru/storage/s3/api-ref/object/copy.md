@@ -92,3 +92,5 @@ PUT /{bucket}/{key} HTTP/2
 `CopyObjectResult` | Содержит элементы ответа.<br/><br/>Путь: `/CopyObjectResult`.
 `ETag` | `ETag` результирующего объекта. Поскольку при вычислении `ETag` не учитываются метаданные, то `ETag` исходного и результирующего объекта должны быть равны.<br/><br/>Путь: `/CopyObjectResult/ETag`.
 `LastModified` | Дата последнего изменения объекта.<br/><br/>Путь: `/CopyObjectResult/LastModified`.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

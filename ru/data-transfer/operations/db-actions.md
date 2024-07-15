@@ -5,7 +5,7 @@
 
 ## MySQL {#mysql}
 
-{% include [PG](../../_includes/data-transfer/endpoints/sources/mysql-work-with-db.md) %}
+{% include [MY](../../_includes/data-transfer/endpoints/sources/mysql-work-with-db.md) %}
 
 ## PostgreSQL {#postgresql}
 
@@ -13,4 +13,4 @@
 
 ## MongoDB {#mongodb}
 
-{% include [PG](../../_includes/data-transfer/endpoints/sources/mongo-work-with-db.md) %}
+{% include [MG](../../_includes/data-transfer/endpoints/sources/mongo-work-with-db.md) %}

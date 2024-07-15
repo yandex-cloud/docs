@@ -198,6 +198,8 @@ items:
         href: metrics-ref/cdn-ref.md
       - name: '{{ compute-name }}'
         href: metrics-ref/compute-ref.md
+      - name: '{{ container-registry-name }}'
+        href: metrics-ref/container-registry-ref.md
       - name: '{{ dataproc-name }}'
         href: metrics-ref/data-proc-ref.md
       - name: '{{ data-transfer-name }}'

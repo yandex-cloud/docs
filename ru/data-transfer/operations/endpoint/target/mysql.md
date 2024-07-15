@@ -273,3 +273,5 @@ description: "Из статьи вы узнаете, как задать нас�
 {% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}
 
 {% include [timezone-shift](../../../../_includes/data-transfer/troubles/mysql/timezone-shift.md) %}
+
+{% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

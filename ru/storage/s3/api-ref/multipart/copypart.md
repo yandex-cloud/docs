@@ -88,3 +88,5 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 `CopyObjectResult` | Содержит элементы ответа.<br/><br/>Путь: `/CopyObjectResult`.
 `ETag` | `ETag` результирующей части составной загрузки.<br/><br/>Путь: `/CopyObjectResult/ETag`.
 `LastModified` | Дата последнего изменения части составной загрузки.<br/><br/>Путь: `/CopyObjectResult/LastModified`.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

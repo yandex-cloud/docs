@@ -19,6 +19,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
     * [Миграция кластера {{ CH }}](../../../tutorials/managed-clickhouse.md).
+    * [Перераспределение данных по шардам](../../../tutorials/mch-mch-resharding.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     * [Поставка данных из {{ KF }} в {{ CH }}](../../../tutorials/mkf-to-mch.md);
@@ -253,7 +254,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
         * {% include [round_robin](../../../../_includes/data-transfer/fields/clickhouse/terraform/round-robin.md) %}
 
-        Вы можете указать только один из вариантов шардирования: `sharding.column_value_hash.column_name`, `sharding.transfer_id`, `custom_mapping` или `round_robin`. Если вариант шардирования не указан, то все данные переносятся в один шард.
+        Вы можете указать только один из вариантов шардирования: `sharding.column_value_hash.column_name`, `sharding.transfer_id`, `sharding.custom_mapping` или `sharding.round_robin`. Если вариант шардирования не указан, то все данные переносятся в один шард.
 
 - API {#api}
 

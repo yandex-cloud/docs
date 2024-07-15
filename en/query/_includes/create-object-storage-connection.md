@@ -19,4 +19,6 @@
          * Select a bucket or create a new one.
          * Select or create a [service account](../../iam/concepts/users/service-accounts.md) with the [`storage.viewer`](../../storage/security/index.md#storage-viewer) role to be used to access the data.
 
+            {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
+
 1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.

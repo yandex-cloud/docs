@@ -121,6 +121,14 @@ sourcePath: ru/_api-ref/datalens/function-ref/string-functions.md
 
 
 
+## [REGEXP_EXTRACT_ALL](REGEXP_EXTRACT_ALL.md)
+
+**Синтаксис:**`REGEXP_EXTRACT_ALL( string, pattern )`
+
+Возвращает все подстроки `string`, которые соответствуют регулярному выражению `pattern`. Для регулярных выражений с подгруппами работает только для первой подгруппы.
+
+
+
 ## [REGEXP_EXTRACT_NTH](REGEXP_EXTRACT_NTH.md)
 
 **Синтаксис:**`REGEXP_EXTRACT_NTH( string, pattern, match_index )`

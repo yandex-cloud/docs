@@ -310,6 +310,7 @@ keywords:
 
   * Список плагинов в параметре `configSpec.elasticsearchSpec.plugins`.
   * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров {{ mes-name }}) в параметре `maintenanceWindow`.
+  * Настройки доступа из [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) в параметре `configSpec.access.dataTransfer`.
 
 {% endlist %}
 

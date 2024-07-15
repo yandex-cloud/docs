@@ -12,6 +12,6 @@
 Подробнее вы можете ознакомиться с изменениями в разделе **Создайте федерацию в организации** по ссылкам ниже:
 * [ADFS](../../../organization/operations/federations/integration-adfs#create-federation);
 * [Google Workspace](../../../organization/operations/federations/integration-gworkspace#yc-settings);
-* [Azure AD](../../../organization/operations/federations/integration-azure#yc-settings);
+* [{{ microsoft-idp.entra-id-short }}](../../../organization/operations/federations/integration-azure#yc-settings);
 * [Keycloak](../../../organization/operations/federations/integration-keycloak#yc-settings);
 * [SAML-совместимая](../../../organization/operations/federations/integration-common#create-federation).

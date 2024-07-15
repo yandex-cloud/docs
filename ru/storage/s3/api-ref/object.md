@@ -20,3 +20,4 @@ description: "Из статьи вы узнаете, какие методы S3 
 [getObjectTagging](object/getobjecttagging.md) | Возвращает метки объекта.
 [deleteObjectTagging](object/deleteobjecttagging.md) | Удаляет метки объекта.
 
+{% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

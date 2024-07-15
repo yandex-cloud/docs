@@ -153,3 +153,5 @@ POST /{bucket}/{key}?select&select-type=2 HTTP/2
 `Progress` | Информация о ходе выполнения запроса.<br/><br/>Путь: `/Payload/Progress`.
 `Records` | Результат запроса.<br/>Путь: `/Payload/Records`.
 `Stats` | Статистика по обработанным данным. Высылается один раз в конце запроса.<br/>Путь: `/Payload/Stats`.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}
