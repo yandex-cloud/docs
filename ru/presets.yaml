@@ -3782,6 +3782,7 @@ default:
       business:
         fixed_consumption:
           v1|int|string: "24\_$"
+          v1|string: "24,000000\_$"
     standard:
       fixed_consumption:
         v1|string: Не тарифицируется
@@ -5698,6 +5699,9 @@ default:
         value_retention-save-last-f: Только последнюю
       billing:
         account:
+          dashboard-overview:
+            button_refill: Пополнить баланс
+            popup-refill_button_company-action: Выписать счет
           detail:
             tab_product: По продуктам
           reconciliation-reports:
@@ -8095,6 +8099,9 @@ default:
                       transfer_to_shard:
                         array_item_label: Сопоставление
                         title: Сопоставление
+                    ClickHouseShardingSettings:
+                      sharding_settings_oneof:
+                        title: Шардирование
                     ClickHouseShardingSettingsOneof:
                       no_sharding:
                         title: Без шардирования

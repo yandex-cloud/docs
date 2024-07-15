@@ -65,3 +65,5 @@ GET /{bucket}?logging HTTP/2
 `BucketLoggingStatus` | Корневой элемент.
 `TargetBucket` | Имя целевого бакета, в который сохраняются [объекты](../../../concepts/object.md) с логами.<br>Путь: `/BucketLoggingStatus/LoggingEnabled/TargetBucket`.<br>Тип: String.
 `TargetPrefix` | [Префикс ключа объекта](../../../concepts/server-logs.md#key-prefix) с логами.<br>Путь: `/BucketLoggingStatus/LoggingEnabled/TargetPrefix`.<br>Тип: String.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

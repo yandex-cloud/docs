@@ -78,7 +78,7 @@ items:
             href: tutorials/federations/integration-adfs.md
           - name: Authentication using Google Workspace
             href: tutorials/federations/integration-gworkspace.md
-          - name: Authentication using Azure Active Directory
+          - name: Authentication using {{ microsoft-idp.entra-id-full }}
             href: tutorials/federations/integration-azure.md
           - name: Authentication using Keycloak
             href: tutorials/federations/integration-keycloak.md

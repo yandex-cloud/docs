@@ -37,3 +37,5 @@ DELETE /{bucket}?website HTTP/2
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
 Если конфигурация хостинга не существует, то {{ objstorage-name }} ответит кодом 200.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

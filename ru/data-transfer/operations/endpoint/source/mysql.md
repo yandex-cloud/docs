@@ -265,12 +265,6 @@ description: "Из статьи вы узнаете, как задать нас�
 * При переносе данных с типом `TIMESTAMP` применяется часовой пояс, указанный в настройках источника {{ MY }} или в [дополнительных настройках эндпоинта](#additional-settings). Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/datetime.html).
 * Эндпоинт-источник присваивает данным с типом `DATETIME` часовой пояс UTC+0.
 
-{% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}
-
-{% include [greenplum-trademark](../../../../_includes/mdb/mgp/trademark.md) %}
-
-{% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}
-
 ## Настройка приемника данных {#supported-targets}
 
 Настройте один из поддерживаемых приемников данных:
@@ -292,7 +286,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
 ## Действия с базой данных во время трансфера {#db-actions}
 
-{% include [work with db](../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) %}
+{% include [work with db](../../../../_includes/data-transfer/endpoints/sources/mysql-work-with-db.md) %}
 
 ## Решение проблем, возникающих при переносе данных {#troubleshooting}
 
@@ -321,3 +315,7 @@ description: "Из статьи вы узнаете, как задать нас�
 {% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}
 
 {% include [timezone-shift](../../../../_includes/data-transfer/troubles/mysql/timezone-shift.md) %}
+
+{% include [greenplum-trademark](../../../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

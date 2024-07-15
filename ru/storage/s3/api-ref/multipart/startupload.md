@@ -73,3 +73,5 @@ POST /{bucket}/{key}?uploads HTTP/2
 `Bucket` | Имя бакета в который загружается объект.<br/><br/>Путь: `/InitiateMultipartUploadResult/Bucket`.
 `Key` | Ключ, который ассоциируется с объектом, после окончания загрузки.<br/><br/>Путь: `/InitiateMultipartUploadResult/Key`.
 `UploadId` | Идентификатор загрузки.<br/><br/>Все последующие операции с загрузкой должны передавать в {{ objstorage-name }} этот идентификатор.<br/><br/>Путь: `/InitiateMultipartUploadResult/UploadId`.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

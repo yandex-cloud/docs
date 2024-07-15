@@ -52,3 +52,5 @@
 `Statement[].Condition{}.` | **string**<br/>(Опционально) [Условие](conditions.md), которое будет проверяться.
 `Statement[].Condition{}.`<br/>`condition_type_string{}.` | **string**<br/>Тип условия.<br/>Возможные значения: `StringEquals`, `Bool`. Полный список значений смотрите в разделе [Операторы сравнения](conditions.md#condition-operators).
 `Statement[].Condition{}.`<br/>`condition_type_string{}.`<br/>`condition_key_string` | **string**<br/>Определяет условие, значение которого будет проверяться.<br/>Возможные значения: `aws:PrincipalType`, `true`.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

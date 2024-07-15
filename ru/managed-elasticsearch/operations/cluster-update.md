@@ -595,6 +595,8 @@ keywords:
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
+    * Настройки доступа из [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) в параметре `configSpec.access.dataTransfer`.
+
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}

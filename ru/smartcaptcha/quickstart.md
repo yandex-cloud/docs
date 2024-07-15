@@ -28,6 +28,9 @@ description: "Следуя данной инструкции, вы сможет�
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
+
+       ![screen01](../_assets/smartcaptcha/screen01.svg)
+
     1. Введите имя капчи. Требования к имени:
 
         {% include [name-format](../_includes/smartcaptcha/name-format.md) %}
@@ -35,10 +38,15 @@ description: "Следуя данной инструкции, вы сможет�
     1. Выберите тип [основного задания](./concepts/tasks.md#main-task), которое предлагается решить пользователю.
     1. Выберите тип [дополнительного задания](./concepts/tasks.md#additional-task), которое предлагается решить пользователю.
     1. Выберите [сложность](./concepts/tasks.md#task-difficulty) `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`.
+
+       ![screen02](../_assets/smartcaptcha/screen02.svg)
+
     1. (Опционально) Отключите [проверку имени домена](./concepts/domain-validation.md).
     1. Укажите список сайтов, на которых будет размещаться капча.
     1. **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** оставьте стандартным.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+       ![screen03](../_assets/smartcaptcha/screen03.svg)
 
 {% endlist %}
 
@@ -53,6 +61,8 @@ description: "Следуя данной инструкции, вы сможет�
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
     1. Нажмите на имя капчи или [создайте](#creat-captcha) новую капчу.
     1. На вкладке **{{ ui-key.yacloud.common.overview }}** скопируйте значения полей **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** и **{{ ui-key.yacloud.smartcaptcha.label_server-key }}**.
+
+    ![screen04](../_assets/smartcaptcha/screen04.svg)
 
 {% endlist %}
 

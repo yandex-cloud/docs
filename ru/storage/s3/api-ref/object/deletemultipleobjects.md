@@ -107,3 +107,4 @@ POST /{bucket}?delete HTTP/2
 `Code` | Код ошибки.<br/>Путь: `/DeleteResult/Error/Code`.
 `Message` | Описание ошибки.<br/>Путь: `/DeleteResult/Error/Message`.
 
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

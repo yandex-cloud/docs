@@ -12,3 +12,4 @@ description: "Из статьи вы узнаете, какие методы S3 
 [bucketGetAcl](acl/bucketget.md) | Возвращает список управления доступом для бакета.
 [bucketPutAcl](acl/bucketput.md) | Загружает список управления доступом для бакета.
 
+{% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -90,7 +90,7 @@
 
 О том, как выполнить минимальные настройки LDAP-сервера для работы с {{ GL }}, см. в [документации {{ GL }}]({{ gl.docs }}/ee/administration/auth/ldap/#configure-ldap).
 
-### Microsoft Azure Active Directory {#azure-ad}
+### {{ microsoft-idp.entra-id-full }} {#azure-ad}
 
 * **Label** — название провайдера аутентификации. Может быть любым.
 * **Client ID** — идентификатор клиента, полученный при регистрации приложения.

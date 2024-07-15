@@ -90,7 +90,7 @@ Before setting up LDAP integration, make sure the users on the LDAP server canno
 
 Learn how to configure the LDAP server to work with {{ GL }} in the [{{ GL }} documentation]({{ gl.docs }}/ee/administration/auth/ldap/#configure-ldap).
 
-### Microsoft Azure Active Directory {#azure-ad}
+### {{ microsoft-idp.entra-id-full }} {#azure-ad}
 
 * **Label**: Name of the authentication provider. Specify any name.
 * **Client ID**: Client ID received when registering an application.

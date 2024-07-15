@@ -15,7 +15,7 @@
   1. Выберите сервис ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
   1. Нажмите на имя нужного аккаунта и выберите ![image](../../_assets/console-icons/layout-cells-large.svg) **Детализация**.
 
-  Подробнее о настройках страницы **Детализация** см. в [документации сервиса {{ billing-name }}](../../billing/operations/check-charges.md).
+     Подробнее о настройках страницы **Детализация** см. в [документации сервиса {{ billing-name }}](../../billing/operations/check-charges.md).
 
 - Партнерский портал {#partner}
 
@@ -41,3 +41,5 @@
        Вы можете скачать детальную статистику по клиентам в виде файла `.csv`, нажав кнопку **Скачать CSV**.
 
 {% endlist %}
+
+Вы также можете [посмотреть сведения по использованию сервисов](../../billing/operations/dashboard.md) в {{ datalens-full-name }}.

@@ -20,7 +20,7 @@ You can set up identity federations for different identity providers:
 
 * [Active Directory](../tutorials/federations/integration-adfs.md)
 * [Google Workspace](../tutorials/federations/integration-gworkspace.md)
-* [Azure Active Directory](../tutorials/federations/integration-azure.md)
+* [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/integration-azure.md)
 * [Keycloak](../tutorials/federations/integration-keycloak.md)
 * [Other SAML-compatible identity providers](../operations/setup-federation.md)
 

@@ -13,7 +13,6 @@
 
     {% include [Maintenance window](console/maintenance-window-description.md) %}
 
-- {% include [datatransfer access](console/datatransfer-access.md) %}
 
 - **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** — включите эту опцию, чтобы воспользоваться инструментом [{#T}](../../managed-mongodb/operations/performance-diagnostics.md) в кластере. Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). 
 

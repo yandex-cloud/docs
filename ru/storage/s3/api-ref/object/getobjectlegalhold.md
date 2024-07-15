@@ -48,3 +48,5 @@ GET /{bucket}/{key}?legal-hold&versionId={versionId} HTTP/2
 Элемент | Описание
 ----- | -----
 `Status` | <p>Статус бессрочной блокировки:</p><ul><li>`ON` — блокировка установлена.</li><li>`OFF` — блокировка не установлена.</li></ul><p>Путь: `LegalHold\Status`.</p>
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

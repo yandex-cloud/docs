@@ -219,9 +219,77 @@ signature = Hex(sign(SigningKey, StringToSign))
     https://<имя_бакета>.{{ s3-storage-host }}/object-for-share.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEK0Iv6xqy-pEQcueLTAdg%2F20231208%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20231208T195434Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=b10c16a1997bb524bf59974512f1a6561cf2953c29dc3efbdb920790********
     ```
 
+{% include [s3api-debug-and-curl](../s3api-debug-and-curl.md) %}
+
 #### Примеры кода для генерации подписанных URL {#code-examples}
 
+В подразделе приведены примеры кода для генерации подписанных URL.
+
+Чтобы показать принцип формирования и подписи запросов к {{ objstorage-name }}, в примерах не используются [AWS SDK](../../../storage/tools/sdk/index.md). Примеры с использованием AWS SDK и прочих инструментов см. в подразделе [Примеры получения подписанной ссылки в инструментах {{ objstorage-name }}](#example-for-getting-in-tools).
+
 {% list tabs %}
+
+- Python
+
+  ```python
+  import datetime
+  import hashlib
+  import hmac
+
+  access_key = '<идентификатор_статического_ключа>'
+  secret_key = '<содержимое_статического_ключа>'
+  object_key = '<ключ_объекта>'
+  bucket = '<имя_бакета>'
+  host = '{{ s3-storage-host }}'
+  now = datetime.datetime.now(datetime.UTC)
+  datestamp = now.strftime('%Y%m%d')
+  timestamp = now.strftime('%Y%m%dT%H%M%SZ')
+
+  def sign(key, msg):
+      return hmac.new(key, msg.encode('utf-8'), hashlib.sha256).digest()
+
+  canonical_request = """GET
+  /{bucket}/{object_key}
+  X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential={access_key}%2F{datestamp}%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date={timestamp}&X-Amz-Expires=3600&X-Amz-SignedHeaders=host
+  host:{host}
+
+  host
+  UNSIGNED-PAYLOAD""".format(
+      bucket=bucket,
+      object_key=object_key,
+      access_key=access_key,
+      datestamp=datestamp,
+      timestamp=timestamp,
+      host=host)
+
+  print()
+  print("Canonical request:\n" + canonical_request)
+  print()
+
+  string_to_sign = """AWS4-HMAC-SHA256
+  {timestamp}
+  {datestamp}/{{ region-id }}/s3/aws4_request
+  {request_hash}""".format(
+      timestamp=timestamp,
+      datestamp=datestamp,
+      request_hash=hashlib.sha256(canonical_request.encode('utf-8')).hexdigest())
+
+  print()
+  print("String to be signed:\n" + string_to_sign)
+  print()
+
+  signing_key = sign(sign(sign(sign(('AWS4' + secret_key).encode('utf-8'), datestamp), '{{ region-id }}'), 's3'), 'aws4_request')
+  signature = hmac.new(signing_key, string_to_sign.encode('utf-8'), hashlib.sha256).hexdigest()
+
+  print()
+  print("Signature: " + signature)
+  print()
+
+  signed_link = "https://" + host + '/' + bucket + '/' + object_key + "?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=" + access_key + "%2F" + datestamp + "%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=" + timestamp + "&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=" + signature + "\n"
+
+  print()
+  print("Signed Link:\n" + signed_link)
+  ```
 
 - PHP
 
@@ -229,17 +297,17 @@ signature = Hex(sign(SigningKey, StringToSign))
   <?php
 
     $keyid = "<идентификатор_статического_ключа>";
-    $secretkey = "содержимое_статического_ключа";
+    $secretkey = "<содержимое_статического_ключа>";
     $path = "<ключ_объекта>";
     $objectname = "/".implode("/", array_map("rawurlencode", explode("/", $path)));
-    $host = "<имя_бакета>.storage.yandexcloud.net";
-    $region = "ru-central1";
+    $host = "<имя_бакета>.{{ s3-storage-host }}";
+    $region = "{{ region-id }}";
     $timestamp = time();
     $dater = strval(date('Ymd', $timestamp));
     $dateValue = strval(date('Ymd', $timestamp))."T".strval(date('His', $timestamp))."Z";
 
     // Generate the canonical request
-    $canonical_request = "GET\n".$objectname."\nX-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=".$keyid."%2F".$dater."%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=".$dateValue."&X-Amz-Expires=3600&X-Amz-SignedHeaders=host\nhost:".$host."\n\nhost\nUNSIGNED-PAYLOAD";
+    $canonical_request = "GET\n".$objectname."\nX-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=".$keyid."%2F".$dater."%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=".$dateValue."&X-Amz-Expires=3600&X-Amz-SignedHeaders=host\nhost:".$host."\n\nhost\nUNSIGNED-PAYLOAD";
 
     echo "<b>Canonical request: </b><br>".$canonical_request."<br><br>";
 
@@ -249,7 +317,7 @@ signature = Hex(sign(SigningKey, StringToSign))
     echo "<b>String to be signed: </b><br>".$string_to_sign."<br><br>";
 
     // Generate the signing key
-    $signing_key = hash_hmac('sha256', 'aws4_request', hash_hmac('sha256', 's3', hash_hmac('sha256', 'ru-central1', hash_hmac('sha256', $dater, 'AWS4'.$secretkey, true), true), true), true);
+    $signing_key = hash_hmac('sha256', 'aws4_request', hash_hmac('sha256', 's3', hash_hmac('sha256', '{{ region-id }}', hash_hmac('sha256', $dater, 'AWS4'.$secretkey, true), true), true), true);
 
     echo "<b>Signing key: </b><br>".$signing_key."<br><br>";
 
@@ -259,7 +327,7 @@ signature = Hex(sign(SigningKey, StringToSign))
     echo "<b>Signature: </b><br>".$signature."<br><br>";
 
     // Generate the pre-signed link
-    $signed_link = "https://".$host.$objectname."?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=".$keyid."%2F".$dater."%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=".$dateValue."&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=".$signature."\n";
+    $signed_link = "https://".$host.$objectname."?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=".$keyid."%2F".$dater."%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=".$dateValue."&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=".$signature."\n";
 
     echo '<b>Signed link: </b><br>'.'<a href = "'.$signed_link.'" target = "_blank">'.$signed_link.'</a>';
 
@@ -270,6 +338,8 @@ signature = Hex(sign(SigningKey, StringToSign))
 
 ## Примеры получения подписанной ссылки в инструментах {{ objstorage-name }} {#example-for-getting-in-tools}
 
+В подразделе приведены примеры генерации подписанных URL c помощь различных [инструментов {{ objstorage-name }}](../../../storage/tools/index.md).
+
 {% list tabs %}
 
 - Консоль управления {#console}
@@ -278,12 +348,14 @@ signature = Hex(sign(SigningKey, StringToSign))
 
 - AWS CLI {#cli}
 
-    Ссылку на скачивание объекта также можно сгенерировать с помощью AWS CLI. Для этого выполните команду вида:
+    Ссылку на скачивание объекта можно сгенерировать с помощью AWS CLI. Для этого выполните команду:
 
+    ```bash
+    aws s3 presign s3://<имя_бакета>/<ключ_объекта> \
+      --expires-in <время_жизни_ссылки> \
+      --endpoint-url "https://{{ s3-storage-host }}/"
     ```
-    aws s3 presign s3://<bucket-name>/<object-key> --endpoint-url "https://{{ s3-storage-host }}/" [--expires-in <value>]
-    ```
-  
+
     Чтобы ссылка сформировалась корректно, обязательно укажите параметр `--endpoint-url` с указанием на доменное имя {{ objstorage-name }}. Подробнее см. в [разделе об особенностях работы AWS CLI](../../../storage/tools/aws-cli.md#specifics).
 
 - Python (boto3) {#boto3}

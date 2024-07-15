@@ -21,3 +21,5 @@ description: "Из статьи вы узнаете, какие заголовк
 `X-Amz-Date` | Дата и время на источнике запроса.<br/><br/>Формат: `20211102T145822Z`.<br/><br/>Когда установлен `X-Amz-Date`, {{ objstorage-name }} игнорирует заголовок `Date`.
 
 Если отправляется кросс-доменный ([CORS](../../../glossary/cors.md)) запрос, то он может содержать [заголовки](object/options.md#request-headers) предварительного запроса `options`.
+
+{% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

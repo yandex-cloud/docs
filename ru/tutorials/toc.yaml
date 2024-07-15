@@ -433,6 +433,8 @@ items:
         href: dataplatform/clickhouse-hybrid-storage.md
       - name: Шардирование таблиц {{ mch-name }}
         href: dataplatform/clickhouse-sharding.md
+      - name: Перешардирование данных в кластере {{ mch-name }}
+        href: dataplatform/mch-mch-resharding.md
       - name: >-
           Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с
           использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{

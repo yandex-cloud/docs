@@ -36,11 +36,11 @@ editable: false
 
 - Стоимость в рублях {#prices-rub}
 
-  {% include [rub.md](../_pricing/data-streams/rub-example.md) %}
+  {% include [rub.md](../_pricing_examples/data-streams/rub-data-streams.md) %}
 
 - Стоимость в тенге {#prices-kzt}
 
-  {% include [kzt.md](../_pricing/data-streams/kzt-example.md) %}
+  {% include [kzt.md](../_pricing_examples/data-streams/kzt-data-streams.md) %}
 
 {% endlist %}
 

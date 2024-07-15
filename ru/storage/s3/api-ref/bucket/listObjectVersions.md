@@ -106,3 +106,5 @@ GET /{bucket}?versions&delimiter=Delimiter&encoding-type=EncodingType&key-marker
 `Prefix` | Значение query параметра `prefix`.<br/><br/>Путь: `/ListBucketResult/Prefix`.
 `Version` | Версия объекта.<br/><br/>Путь: `/ListBucketResult/Version`.
 `VersionIdMarker` | Отмечает последнюю версию ключа, возвращенную в усеченном ответе. <br/><br/>Путь: `/ListBucketResult/VersionIdMarker`.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}
