@@ -36,7 +36,7 @@ To create a connection:
    - {{ mpg-name }}
 
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ mpg-name }} cluster or create a new one.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mpg-name }} [service account](../../iam/concepts/users/service-accounts.md), or create a new one with the [`{{ roles.mpg.viewer }}`](../../managed-postgresql/security/index.md#mpg-viewer) role, and use it to connect to `{{ mpg-name }}` clusters.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mpg-name }} [service account](../../iam/concepts/users/service-accounts.md) or create a new one with the [`{{ roles.mpg.viewer }}` role](../../managed-postgresql/security/index.md#managed-postgresql-viewer) to connect to `{{ mpg-name }}` clusters.
       * **{{ ui-key.yql.yq-connection-form.login.input-label }}**: Username to use when connecting to {{ PG }} databases.
       * **{{ ui-key.yql.yq-connection-form.password.input-label }}**: User password to use when connecting to {{ PG }} databases.
 
@@ -57,6 +57,8 @@ To create a connection:
    {% endlist %}
 
 1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
+
+To use a connection with a service account specified, the `iam.serviceAccounts.user` [role](../../iam/security/index.md#iam-serviceAccounts-user) is required.
 
 Next, you can [create a binding](binding.md#create).
 

@@ -47,3 +47,5 @@ GET /{bucket}?versioning HTTP/2
 ----- | -----
 `VersioningConfiguration` | Корневой элемент.
 `Status` | Состояние опции версионирования бакета.<br/><br/>Путь:`/VersioningConfiguration/Status`<br/>Тип: Строка<br/>Возможные значения: `Enabled | Suspended`
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

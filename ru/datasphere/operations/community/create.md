@@ -4,6 +4,7 @@
 1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create-community }}**.
 1. Введите имя сообщества.
 1. (Опционально) Введите описание сообщества.
+1. Выберите **Зону доступности**.
 1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 #### Что дальше {#what-is-next}

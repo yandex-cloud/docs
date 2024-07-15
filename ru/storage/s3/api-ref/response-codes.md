@@ -109,3 +109,5 @@ description: "Описаны коды ответов и ошибок в {{ objst
 || 503 | `ServiceUnavailable` | {{ objstorage-name }} недоступен.<br/>Уменьшите частоту ваших запросов.
 || 503 | `SlowDown` | Уменьшите частоту ваших запросов. ||
 |#
+
+{% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -5,7 +5,6 @@
 |----|----|
 | AI Platform | [{{ ml-platform-full-name }}](../../datasphere/) |
 | Azure Application Gateway | [{{ api-gw-full-name }}](../../api-gateway/) |
-| Azure Active Directory | [{{ iam-full-name }}](../../iam/) |
 | Azure Cache for Redis | [{{ mrd-full-name }}](../../managed-redis/) |
 | Azure Container Apps | [{{ serverless-containers-full-name }}](../../serverless-containers/) |
 | Azure Cosmos DB | [{{ mmg-full-name }}](../../managed-mongodb/) |
@@ -35,6 +34,7 @@
 | HDInsight | [{{ mkf-full-name }}](../../managed-kafka/) |
 | Key Vault | [{{ kms-full-name }}](../../kms/) |
 | Load Balancer | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
+| {{ microsoft-idp.entra-id-full }} | [{{ iam-full-name }}](../../iam/) |
 | Microsoft Power BI | [{{ datalens-full-name }}](../../datalens/) |
 | Microsoft: Azure Cosmos DB | [{{ ydb-full-name }}](../../ydb/) |
 | Queue Storage, Service Bus | [{{ message-queue-full-name }}](../../message-queue/) |

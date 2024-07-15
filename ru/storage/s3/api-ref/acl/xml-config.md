@@ -40,3 +40,5 @@ description: "Описан общий вид XML-структуры конфиг
 `DisplayName` | Имя пользователя. Игнорируется для запросов `objectPutAcl` и `bucketPutAcl`<br/><br/>Пути: `/AccessControlPolicy/Owner/DisplayName`, `/AccessControlPolicy/AccessControlList/Grant/Grantee/DisplayName`.
 `URI` | Идентификатор [системной группы](../../../concepts/acl.md#system-groups). Используется с типом получателя разрешений `Group`. Возможные значения:<ul><li>`http://acs.amazonaws.com/groups/global/AllUsers` — все пользователи интернета.</li><li>`http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — все аутентифицированные пользователи {{ yandex-cloud }}.</li></ul>Путь: `/AccessControlPolicy/AccessControlList/Grant/Grantee/URI`.
 `Permission` | Разрешения пользователя.<br/><br/>Можно указать: `READ`, `WRITE` и `FULL_CONTROL`, при выдаче разрешений для объекта можно также указать `READ_ACP`, `WRITE_ACP`. Подробнее читайте в разделе [Список управления доступом (ACL)](../../../concepts/acl.md).<br/><br/>Путь: `/AccessControlPolicy/AccessControlList/Grant/Grantee/DisplayName`.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -259,7 +259,6 @@
 
 - {{ TF }} {#tf}
 
-  
   ```hcl
   locals {
     folder_id   = "{{ tf-folder-id }}"
@@ -347,7 +346,8 @@
       protocol          = "TCP"
       description       = "Правило разрешает проверки доступности с диапазона адресов балансировщика нагрузки. Нужно для работы отказоустойчивого кластера {{ managed-k8s-name }} и сервисов балансировщика."
       predefined_target = "loadbalancer_healthchecks"
-      port              = 10256
+      from_port         = 0
+      to_port           = 65535
     }
     ingress {
       protocol          = "ANY"
@@ -385,8 +385,6 @@
   }
   ```
 
-
-
 {% endlist %}
 
 ### Создание регионального кластера {{ managed-k8s-name }} {#example-regional-cluster}
@@ -422,7 +420,6 @@
 
 - {{ TF }} {#tf}
 
-  
   ```hcl
   locals {
     folder_id   = "{{ tf-folder-id }}"
@@ -532,7 +529,8 @@
       protocol          = "TCP"
       description       = "Правило разрешает проверки доступности с диапазона адресов балансировщика нагрузки. Нужно для работы отказоустойчивого кластера {{ managed-k8s-name }} и сервисов балансировщика."
       predefined_target = "loadbalancer_healthchecks"
-      port              = 10256
+      from_port         = 0
+      to_port           = 65535
     }
     ingress {
       protocol          = "ANY"
@@ -569,7 +567,5 @@
     }
   }
   ```
-
-
 
 {% endlist %}

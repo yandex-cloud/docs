@@ -26,6 +26,9 @@ To send metrics to {{ monitoring-name }}:
 1. In the window that opens, specify a name for a connection to {{ monitoring-name }} in the **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** field.
 1. In the drop-down list under **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}**, select `{{ ui-key.yql.yq-connection.action_monitoring }}`.
 1. In the **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** field, select the service account to use for metric writes. You can also create a new service account with the [`monitoring.editor`](../../monitoring/security/index.md) permissions.
+
+   {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
+
 1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}** to create a connection.
 
 ## Data model

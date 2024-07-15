@@ -46,3 +46,4 @@ description: "Из статьи вы узнаете, какие шаги нуж�
 [listUploads](multipart/listuploads.md) | Выдает список незавершенных загрузок.
 
 
+{% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

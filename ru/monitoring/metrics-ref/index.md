@@ -11,6 +11,7 @@ description: "На странице приведен список справоч
 * [{{ certificate-manager-full-name }}](certificate-manager-ref.md)
 * [{{ cdn-full-name }}](cdn-ref.md)
 * [{{ compute-full-name }}](compute-ref.md)
+* [{{ container-registry-full-name }}](container-registry-ref.md)
 * [{{ dataproc-full-name }}](data-proc-ref.md)
 * [{{ data-transfer-full-name }}](data-transfer-ref.md)
 * [{{ iam-full-name }}](iam-ref.md)

@@ -131,3 +131,6 @@ description: "Из статьи вы узнаете, какие методы S3 
 ## См. также {#see-also}
 * [{#T}](../../s3/index.md)
 * [{#T}](../../tools/index.md)
+* [Отладка запросов с помощью утилиты AWS CLI](../signing-requests.md#debugging)
+* [Пример отправки подписанного запроса с помощью утилиты curl](../../api-ref/authentication.md#s3-api-example)
+* [Пример кода для генерации подписи](../../concepts/pre-signed-urls.md#code-examples)

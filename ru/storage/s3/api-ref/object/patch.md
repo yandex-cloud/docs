@@ -69,3 +69,5 @@ PATCH /{bucket}/{key} HTTP/2
 `Object` | Родительский тег для результатов изменения.
 `LastModified` | Дата и время последнего изменения объекта. При частичном изменении объекта тег не изменяется.
 `ETag` | ETag обновленного объекта. Подробнее см. [общие заголовки](../common-response-headers.md).
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

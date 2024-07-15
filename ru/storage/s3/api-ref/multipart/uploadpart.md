@@ -69,4 +69,4 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 `NoSuchUpload` | Указанная загрузка не существует. Возможно указан неверный идентификатор загрузки или загрузка была завершена или удалена. | 404 Not Found
 `EntityTooSmall` | Размер части слишком мал.<br/><br/>Загружаемая часть должна быть не менее 5MB. | 400 Bad Request
 
-
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

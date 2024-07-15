@@ -154,6 +154,8 @@ items:
             href: api/yql-json-conversion-rules.md
       - name: '{{ AF }}'
         href: airflow/operator.md
+  - name: Integrations
+    href: integrations.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: FAQ

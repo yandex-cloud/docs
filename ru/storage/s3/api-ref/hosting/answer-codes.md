@@ -11,3 +11,5 @@
 `404 Not Found` | Возвращается, если ресурс, к которому направлен запрос не существует, или бакет, в котором находится запрошенный ресурс, не сконфигурирован для хостинга статических сайтов.<br/><br/>[{#T}](../../../operations/hosting/setup.md).
 `500 Service Error` | Внутренняя ошибка {{ objstorage-name }}.
 `503 Service Unavailable` | Слишком высокая нагрузка на сервис. Необходимо снизить частоту запросов.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

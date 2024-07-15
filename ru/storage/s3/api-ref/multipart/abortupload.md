@@ -48,3 +48,4 @@ DELETE /{bucket}/{key}?uploadId=UploadId HTTP/2
 `NoSuchUpload` | Указанная загрузка не существует. Возможно указан неверный идентификатор загрузки или загрузка была завершена или удалена. | 404 Not Found
 
 
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

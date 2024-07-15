@@ -18,6 +18,8 @@ items:
         items:
           - name: Обзор
             href: program/var.md
+          - name: Добавление клиента
+            href: program/var-pin-client.md
           - name: Инструменты
             href: program/var-tools.md
   - name: Специализации
@@ -31,14 +33,14 @@ items:
     href: portal.md
   - name: Пошаговые инструкции
     items:
-      - name: Добавить клиента
-        href: operations/pin-client.md
       - name: Предоставить доступ к партнерскому аккаунту
         href: operations/access/partners-account.md
       - name: Посмотреть потребление клиентов
         href: operations/get-client-stat.md
       - name: Приостановить оказание услуг клиенту
         href: operations/stop-client-services.md
+      - name: Привязать облако к сабаккаунту
+        href: operations/pin-cloud.md
   - name: Термины и определения
     href: terms.md
   - name: Вопросы и ответы

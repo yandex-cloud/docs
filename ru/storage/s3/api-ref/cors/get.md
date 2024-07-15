@@ -39,3 +39,5 @@ GET /{bucket}?cors HTTP/2
 ### Схема данных {#response-scheme}
 
 Возвращаемые данные имеют ту же структуру, которую имеют данные, передаваемые методом [upload](upload.md).
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

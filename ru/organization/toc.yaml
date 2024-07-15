@@ -78,7 +78,7 @@ items:
             href: tutorials/federations/integration-adfs.md
           - name: Аутентификация с помощью Google Workspace
             href: tutorials/federations/integration-gworkspace.md
-          - name: Аутентификация с помощью Azure Active Directory
+          - name: Аутентификация с помощью {{ microsoft-idp.entra-id-full }}
             href: tutorials/federations/integration-azure.md
           - name: Аутентификация с помощью Keycloak
             href: tutorials/federations/integration-keycloak.md

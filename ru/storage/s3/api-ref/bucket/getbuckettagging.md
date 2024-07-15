@@ -59,3 +59,5 @@ GET /{bucket}?tagging HTTP/2
 `Tag` | Контейнер для метки.
 `Key` | Ключ метки.<br>Тип: string.
 `Value` | Значение метки.<br>Тип: string.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

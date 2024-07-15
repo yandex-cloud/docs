@@ -53,3 +53,5 @@ GET /{bucket}?object-lock HTTP/2
 `Mode` | <p>[Тип](../../../concepts/object-lock.md#types) блокировки по умолчанию:</p><ul><li>`GOVERNANCE` — временная управляемая блокировка.</li><li>`COMPLIANCE` — временная строгая блокировка.</li></ul><p>Путь: `ObjectLockConfiguration\Rule\DefaultRetention\Mode`.</p>
 `Days` | <p>Срок блокировки по умолчанию в днях от момента загрузки версии объекта. Должен быть положительным целым числом.</p><p>Путь: `ObjectLockConfiguration\Rule\DefaultRetention\Days`.</p>
 `Years` | <p>Срок блокировки по умолчанию в годах от момента загрузки версии объекта. Должен быть положительным целым числом.</p><p>Путь: `ObjectLockConfiguration\Rule\DefaultRetention\Years`.</p>
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

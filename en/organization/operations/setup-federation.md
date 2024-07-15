@@ -15,7 +15,7 @@ For IdP-specific examples, see our tutorials:
 
 * [Active Directory](../tutorials/federations/integration-adfs.md)
 * [Google Workspace](../tutorials/federations/integration-gworkspace.md)
-* [Azure Active Directory](../tutorials/federations/integration-azure.md)
+* [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/integration-azure.md)
 * [Keycloak](../tutorials/federations/integration-keycloak.md)
 
 ## Creating an identity federation {#create-federation}
@@ -436,7 +436,7 @@ For more information on how to set up a SAML application, consult you IdP's docu
 
 * [Active Directory](../tutorials/federations/integration-adfs.md)
 * [Google Workspace](../tutorials/federations/integration-gworkspace.md)
-* [Azure Active Directory](../tutorials/federations/integration-azure.md)
+* [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/integration-azure.md)
 * [Keycloak](../tutorials/federations/integration-keycloak.md)
 
 ## Setting up user attribute mapping {#claims-mapping}

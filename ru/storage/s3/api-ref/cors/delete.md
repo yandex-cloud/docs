@@ -37,3 +37,5 @@ DELETE /{bucket}?cors HTTP/2
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
 Если конфигурация CORS не существует, то {{ objstorage-name }} ответит кодом `204 No Content`.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

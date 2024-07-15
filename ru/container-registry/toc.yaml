@@ -272,6 +272,8 @@ items:
                 href: api-ref/Scanner/listVulnerabilities.md
               - name: scan
                 href: api-ref/Scanner/scan.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: Решение проблем

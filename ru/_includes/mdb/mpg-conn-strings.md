@@ -57,6 +57,69 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 {% endlist %}
 
+### C++ (фреймворк userver) {#cpp-userver}
+
+Асинхронный фреймворк [userver](https://userver.tech/) предоставляет богатый набор абстракций для создания утилит, сервисов и микросервисов на языке C++. В том числе фреймворк предоставляет возможности для взаимодействия с {{ PG }}.
+
+Перед подключением получите доступ к фреймворку одним из способов:
+
+* [Создайте виртуальную машину](../../compute/operations/images-with-pre-installed-software/create.md) {{ compute-full-name }} из [образа userver](https://yandex.cloud/ru/marketplace/products/yc/userver). Этот образ уже содержит фреймворк и все необходимые зависимости.
+* [Вручную установите фреймворк и все необходимые зависимости](https://userver.tech/docs/v2.0/d3/da9/md_en_2userver_2tutorial_2build.html).
+
+{% list tabs group=connection %}
+
+- Подключение без SSL {#without-ssl}
+
+    1. Создайте проект на основе [шаблона для сервиса](https://github.com/userver-framework/pg_service_template).
+
+    1. Измените конфигурационный файл `configs/config_vars.yaml`. В качестве значения переменной `dbconnection` укажите строку подключения к кластеру {{ PG }}:
+
+        ```url
+        postgres://<имя_пользователя>:<пароль_пользователя>@c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mpg }}/<имя_БД>
+        ```
+
+    1. Соберите проект и запустите сервис:
+
+        ```bash
+        make build-debug && \
+        ./build_debug/pg_service_template -c configs/static_config.yaml --config_vars configs/config_vars.yaml
+        ```
+
+- Подключение с SSL {#with-ssl}
+
+    1. Создайте проект на основе [шаблона для сервиса](https://github.com/userver-framework/pg_service_template).
+
+    1. Измените конфигурационный файл `configs/config_vars.yaml`. В качестве значения переменной `dbconnection` укажите строку подключения к кластеру {{ PG }}:
+
+        ```url
+        postgres://<имя_пользователя>:<пароль_пользователя>@c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mpg }}/<имя_БД>?ssl=true&sslmode=verify-full
+        ```
+
+    1. Соберите проект и запустите сервис:
+
+        ```bash
+        make build-debug && \
+        ./build_debug/pg_service_template -c configs/static_config.yaml --config_vars configs/config_vars.yaml
+        ```
+
+{% endlist %}
+
+После запуска сервис будет ожидать поступления POST-запроса от пользователя. В ходе ожидания запроса сервис будет периодически проверять доступность кластера {{ PG }}, выполняя запрос `SELECT 1 as ping`. Информация об этом содержится в логах работы сервиса.
+
+{% cut "Пример содержимого логов при успешном подключении к кластеру" %}
+
+```text
+tskv ... level=INFO      module=MakeQuerySpan ( userver/postgresql/src/storages/postgres/detail/connection_impl.cpp:647 )
+...
+db_statement=SELECT 1 AS ping
+db_type=postgres
+db_instance=********
+peer_address=c-********.rw.{{ dns-zone }}:{{ port-mpg }}
+...
+```
+
+{% endcut %}
+
 ### C# EF Core {#csharpefcore}
 
 Для подключения к кластеру необходим пакет [Npgsql](https://www.nuget.org/packages/Npgsql/).

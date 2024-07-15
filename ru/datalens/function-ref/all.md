@@ -1637,6 +1637,14 @@ DATETRUNC(#2018-07-12 11:07:13#, "month", 4) = #2018-05-01 00:00:00#
 
 
 
+## [REGEXP_EXTRACT_ALL](REGEXP_EXTRACT_ALL.md)
+
+**Синтаксис:**`REGEXP_EXTRACT_ALL( string, pattern )`
+
+Возвращает все подстроки `string`, которые соответствуют регулярному выражению `pattern`. Для регулярных выражений с подгруппами работает только для первой подгруппы.
+
+
+
 ## [REGEXP_EXTRACT_NTH](REGEXP_EXTRACT_NTH.md)
 
 **Синтаксис:**`REGEXP_EXTRACT_NTH( string, pattern, match_index )`
