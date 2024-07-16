@@ -704,7 +704,7 @@ default:
   wiki-name: Wiki
   ya-360: Яндекс 360 для бизнеса
   yagpt-full-name: YandexGPT API
-  yagpt-max-tokens: 8000
+  yagpt-max-tokens: 8192
   yagpt-name: YandexGPT
   yandex-360: Яндекс 360
   yandex-cloud: Yandex Cloud

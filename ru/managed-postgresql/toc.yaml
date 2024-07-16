@@ -76,7 +76,7 @@ items:
             href: operations/datalens-connect.md
   - name: Практические руководства
     items:
-      - name: Все сценарии
+      - name: Все руководства
         href: tutorials/index.md
       - name: Создание кластера {{ PG }} для 1С
         href: tutorials/1c-postgresql.md

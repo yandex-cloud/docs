@@ -54,7 +54,7 @@ items:
             href: operations/monitoring.md
   - name: Практические руководства
     items:
-      - name: Все сценарии
+      - name: Все руководства
         href: tutorials/index.md
       - name: Хранение сессий PHP в {{ mrd-name }}
         href: tutorials/redis-as-php-sessions-storage.md

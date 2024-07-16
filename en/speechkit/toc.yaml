@@ -2,7 +2,7 @@ title: '{{ speechkit-full-name }}'
 href: index.yaml
 label:
   title: RU
-  description: The service is available in Russia only.
+  description: The service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -96,7 +96,7 @@ items:
                 href: stt/api/streaming-api.md
               - name: Asynchronous Recognition API
                 href: stt/api/transcribation-api.md
-          - name: API v3 gRPC (англ.)
+          - name: API v3 gRPC
             items:
               - name: Overview
                 href: stt-v3/api-ref/grpc/index.md
@@ -106,7 +106,7 @@ items:
                 href: stt-v3/api-ref/grpc/AsyncRecognizer.md
               - name: OperationService
                 href: stt-v3/api-ref/grpc/operation_service.md
-          - name: API v3 REST (англ.)
+          - name: API v3 REST
             items:
               - name: Overview
                 href: stt-v3/api-ref/index.md

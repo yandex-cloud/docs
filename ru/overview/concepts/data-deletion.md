@@ -37,8 +37,6 @@
 
 При разрыве контракта все облака пользователя и ресурсы в них немедленно помечаются как удаляемые и удаляются в течение 72 часов.
 
-
-
 ## Как перестать работать с {{ yandex-cloud }} {#quit-cloud}
 
 После запроса пользователя на удаление платежный аккаунт помечается как удаляемый и в течение 72 часов перестает быть доступен пользователю.
@@ -47,18 +45,4 @@
 
 По истечении указанных сроков платежный аккаунт удаляется без возможности восстановления.
 
-
-
-Чтобы удалить неактуальный платежный аккаунт в {{ yandex-cloud }}:
-
-{% include [delete-account](../../_includes/billing/delete-account.md) %}
-
-
-
-#### См. также {#see-also}
-
-* [Удаление каталога](../../resource-manager/operations/folder/delete.md)
-* [Удаление облака](../../resource-manager/operations/cloud/delete.md)
-* [Удаление организации](../../organization/operations/delete-org.md)
-* [Удаление сообщества {{ ml-platform-name }}](../../datasphere/operations/community/delete.md)
-* [Удаление пространства {{ speechsense-name }}](../../speechsense/operations/space/delete.md)
+{% include [delete-account](../../_includes/billing/billing-delete-account.md) %}

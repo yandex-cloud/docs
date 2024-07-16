@@ -3,7 +3,7 @@
 
 {{ alb-name }} предоставляет инструмент для создания и управления балансировщиками нагрузки в [кластерах {{ managed-k8s-full-name }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) — Ingress-контроллер {{ alb-name }}.
 
-После установки контроллера вы сможете создать с его помощью ресурс [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/), отвечающий за прием входящего трафика. По конфигурации `Ingress` будет автоматически развернут [L7-балансировщик](../../concepts/application-load-balancer.md) со всеми необходимыми ресурсами {{ alb-name }}.
+Ingress-контроллер, установленный в кластер, будет автоматически разворачивать [L7-балансировщики](../../concepts/application-load-balancer.md) со всеми необходимыми ресурсами {{ alb-name }}, основываясь на конфугурации созданных вами ресурсов [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
 
 Полную конфигурацию ресурсов для Ingress-контроллера {{ alb-name }} см. в следующих разделах:
 
@@ -64,7 +64,7 @@ spec:
 
 ## Настройки логирования {#log-options}
 
-Чтобы задать настройки логирования для L7-балансировщика, созданного с помощью Ingress-контроллера {{ alb-name }} в кластере {{ managed-k8s-name }}, добавьте аннотацию `ingress.alb.yc.io/group-settings-name` с именем для настроек Ingress-группы и укажите настройки в дополнительном ресурсе `IngressGroupSettings`. Подробнее см. в разделе [Аннотации ресурса Ingress](../../k8s-ref/ingress.md#annotations).
+Чтобы задать настройки логирования для L7-балансировщика, созданного с помощью Ingress-контроллера {{ alb-name }} в кластере {{ managed-k8s-name }}, добавьте аннотацию `ingress.alb.yc.io/group-settings-name` с именем для настроек группы ресурсов Ingress и укажите настройки в дополнительном ресурсе `IngressGroupSettings`. Подробнее см. в разделе [Аннотации ресурса Ingress](../../k8s-ref/ingress.md#annotations).
 
 ## Установка и требования {#install}
 

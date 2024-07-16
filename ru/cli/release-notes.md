@@ -7,6 +7,46 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.129.0 (16.07.24) {#version0.129.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ load-testing-name }}
+
+* В командe `yc loadtesting test get-report-table` исправлена ошибка для тестов без табличного отчета.
+
+##### {{ captcha-name }}
+
+Добавлена поддержка сервиса {{ captcha-name }}:
+
+* Команды группы `yc smartcaptcha captcha` позволяют управлять капчами.
+
+##### {{ sws-name }}
+
+Добавлена поддержка сервиса {{ sws-name }}:
+
+* Команды группы `yc smartwebsecurity security-profile` позволяют управлять профилями безопасности.
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mrd-name }}**
+
+* В команды `yc managed-redis cluster create` и `yc managed-redis cluster update` добавлен параметр `--disk-size-autoscaling` для включения автоматического масштабирования диска.
+
+**{{ mch-name }}**
+
+* Добавлены команды для управления правами `yc managed-kafka user grant-permission` и `yc managed-kafka user revoke-permission`.
+* Добавлены команды `{{ yc-mdb-ch }} hosts add` и `{{ yc-mdb-ch }} shards add`. Параметр `copy-schema` включен по умолчанию.
+* Добавлена команда для удаления бекапа `yc managed-clickhouse backup delete`.
+* В команду `yc managed-kafka cluster update` добавлен параметр `--disk-type`.
+* Добавлен параметр `--backup-retain-period-days` для настройки периода хранения автоматических бэкапов.
+
+##### {{ marketplace-name }} {#marketplace}
+
+* Добавлена команда `yc marketplace reset-password` для сброса пароля на виртуальных машинах с установленным агентом для сброса паролей.
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.128.0 (02.07.24) {#version0.128.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -20,13 +60,10 @@ description: "На странице представлены релизы YC CLI
 **{{ mch-name }}**
 
 * Добавлен параметр `--convert-tables-to-replicated` для конвертации таблиц в реплицируемые при добавлении в кластер {{ ZK }}.
-* Добавлены команды `{{ yc-mdb-ch }} hosts add` и `{{ yc-mdb-ch }} shards add`. Параметр `copy-schema` включен по умолчанию.
 
 **{{ mgp-name }}**
 
 * В команду `yc managed-greenplum cluster expand` добавлены опции `delay-redistribution`, `parallel`, `close-cluster`.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.127.0 (17.06.24) {#version0.127.0}
 

@@ -5,7 +5,7 @@
 
 Чтобы настроить доступ к запущенным в кластере {{ managed-k8s-name }} приложениям через {{ alb-name }}:
 1. [Настройте Ingress-контроллер и тестовые приложения](#create-ingress-and-apps).
-1. [(Опционально) Настройте Ingress-группу](#configure-group).
+1. [(Опционально) Настройте группу ресурсов Ingress](#configure-group).
 1. [Убедитесь в доступности приложений кластера {{ managed-k8s-name }} через {{ alb-name }}](#verify-setup).
 
 Полную конфигурацию ресурсов для Ingress-контроллера {{ alb-name }} см. в следующих разделах:
@@ -315,7 +315,7 @@ yc certificate-manager certificate list
 
        Если вы указали значение `auto`, то при удалении Ingress-контроллера [IP-адрес](../../vpc/concepts/address.md) также будет удален из [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud). Чтобы избежать этого, используйте имеющийся зарезервированный адрес.
 
-     * `ingress.alb.yc.io/group-name` — имя группы. Ресурсы {{ k8s }} Ingress объединяются в группы, каждая их которых обслуживается отдельным экземпляром {{ alb-name }}.
+     * `ingress.alb.yc.io/group-name` — имя группы. Ресурсы {{ k8s }} Ingress объединяются в группы, каждая из которых обслуживается отдельным экземпляром {{ alb-name }}.
 
        Вместо `my-ingress-group` вы можете указать произвольное имя группы. Убедитесь, что оно соответствует [требованиям]({{ k8s-docs }}/concepts/overview/working-with-objects/names/).
 
@@ -325,7 +325,7 @@ yc certificate-manager certificate list
 
      {% cut "Дополнительные настройки" %}
 
-     * `ingress.alb.yc.io/group-settings-name` — имя для настроек Ingress-группы, которые должны быть описаны в дополнительном ресурсе `IngressGroupSettings`. Подробнее см. в разделе [Настройте Ingress-группу](#configure-group).
+     * `ingress.alb.yc.io/group-settings-name` — имя для настроек группы ресурсов Ingress, которые должны быть описаны в дополнительном ресурсе `IngressGroupSettings`. Подробнее см. в разделе [Настройте группу ресурсов Ingress](#configure-group).
      * `ingress.alb.yc.io/internal-ipv4-address` — предоставление внутреннего доступа к {{ alb-name }}. Укажите внутренний IP-адрес, либо установите значение `auto`, чтобы получить IP-адрес автоматически.
 
        {% note info %}
@@ -585,12 +585,12 @@ yc certificate-manager certificate list
 
        Если вы указали значение `auto`, то при удалении Ingress-контроллера [IP-адрес](../../vpc/concepts/address.md) также будет удален из [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud). Чтобы избежать этого, используйте имеющийся зарезервированный адрес.
 
-     * `ingress.alb.yc.io/group-name` — имя группы. Ресурсы {{ k8s }} Ingress объединяются в группы, каждая их которых обслуживается отдельным экземпляром {{ alb-name }}.
+     * `ingress.alb.yc.io/group-name` — имя группы. Ресурсы {{ k8s }} Ingress объединяются в группы, каждая из которых обслуживается отдельным экземпляром {{ alb-name }}.
 
        Вместо `my-ingress-group` вы можете указать произвольное имя группы. Убедитесь, что оно соответствует [требованиям]({{ k8s-docs }}/concepts/overview/working-with-objects/names/).
 
      (Опционально) Укажите дополнительные настройки контроллера:
-     * `ingress.alb.yc.io/group-settings-name` — имя для настроек Ingress-группы, которые должны быть описаны в дополнительном ресурсе `IngressGroupSettings`. Подробнее см. в разделе [Настройте Ingress-группу](#configure-group).
+     * `ingress.alb.yc.io/group-settings-name` — имя для настроек группы ресурсов Ingress, которые должны быть описаны в дополнительном ресурсе `IngressGroupSettings`. Подробнее см. в разделе [Настройте группу ресурсов Ingress](#configure-group).
      * `ingress.alb.yc.io/internal-ipv4-address` — предоставление внутреннего доступа к {{ alb-name }}. Укажите внутренний IP-адрес, либо установите значение `auto`, чтобы получить IP-адрес автоматически.
 
        {% note info %}
@@ -660,16 +660,16 @@ yc certificate-manager certificate list
 
 {% endlist %}
 
-## (Опционально) Настройте Ingress-группу {#configure-group}
+## (Опционально) Настройте группу ресурсов Ingress {#configure-group}
 
-Если при установке Ingress-контроллера вы указали имя для настроек Ingress-группы в аннотации `ingress.alb.yc.io/group-settings-name`, можете задать настройки логирования для L7-балансировщика. Для этого [создайте пользовательскую лог-группу](../../logging/operations/create-group.md) и укажите настройки Ingress-группы в дополнительном ресурсе `IngressGroupSettings`.
+Если при установке Ingress-контроллера вы указали имя для настроек группы ресурсов Ingress в аннотации `ingress.alb.yc.io/group-settings-name`, то вы можете задать настройки логирования для L7-балансировщика. Для этого [создайте пользовательскую лог-группу](../../logging/operations/create-group.md) и укажите настройки группы ресурсов Ingress в дополнительном ресурсе `IngressGroupSettings`.
 1. Создайте файл `settings.yaml` и укажите в нем настройки логирования и идентификатор пользовательской лог-группы, например:
 
     ```yaml
     apiVersion: alb.yc.io/v1alpha1
     kind: IngressGroupSettings
     metadata:
-      name: <имя_для_настроек_Ingress-группы>
+      name: <имя_для_настроек_группы_ресурсов_Ingress>
     logOptions:
       logGroupID: <идентификатор_пользовательской_лог-группы>
       discardRules:
@@ -687,9 +687,9 @@ yc certificate-manager certificate list
             - 404
     ```
 
-    Где `name` — имя для настроек Ingress-группы в аннотации `ingress.alb.yc.io/group-settings-name`.
+    Где `name` — имя для настроек группы ресурсов Ingress в аннотации `ingress.alb.yc.io/group-settings-name`.
 
-1. Примените настройки для Ingress-группы:
+1. Примените настройки для группы ресурсов Ingress:
 
     ```bash
     kubectl apply -f settings.yaml

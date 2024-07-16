@@ -84,7 +84,7 @@ items:
             href: operations/datalens-connect.md
   - name: Практические руководства
     items:
-      - name: Все сценарии
+      - name: Все руководства
         href: tutorials/index.md
       - name: Добавление данных в БД
         href: tutorials/insert.md
@@ -92,7 +92,7 @@ items:
         href: tutorials/data-migration.md
       - name: Шардирование таблиц
         href: tutorials/sharding.md
-      - name: Перешардирование данных в кластере {{ mch-name }}
+      - name: Перешардирование данных в кластере
         href: tutorials/mch-mch-resharding.md
       - name: Использование гибридного хранилища
         href: tutorials/hybrid-storage.md

@@ -71,13 +71,13 @@ spark:spark.driver.cores : 1
 
 Для улучшения производительности работы JVM в общем случае на кластерах {{ dataproc-name }} выставляются следующие настройки по умолчанию:
 
-* **spark.driver.extraJavaOptions**:
+* **spark:spark.driver.extraJavaOptions**:
     * `-XX:+UseConcMarkSweepGC`
     * `-XX:CMSInitiatingOccupancyFraction=70`
     * `-XX:MaxHeapFreeRatio=70`
     * `-XX:+CMSClassUnloadingEnabled`
     * `-XX:OnOutOfMemoryError='kill -9 %p'`
-* **spark.executor.extraJavaOptions**:
+* **spark:spark.executor.extraJavaOptions**:
     * `-verbose:gc`
     * `-XX:+PrintGCDetails`
     * `-XX:+PrintGCDateStamps`
@@ -86,6 +86,12 @@ spark:spark.driver.cores : 1
     * `-XX:MaxHeapFreeRatio=70`
     * `-XX:+CMSClassUnloadingEnabled`
     * `-XX:OnOutOfMemoryError='kill -9 %p'`
+
+Если вы хотите изменить настройки JVM, передайте их в одной строке через пробел. Например, для свойства кластера `spark:spark.driver.extraJavaOptions`:
+
+```text
+-XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=60 -XX:MaxHeapFreeRatio=80
+```
 
 {% note info %}
 
