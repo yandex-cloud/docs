@@ -70,13 +70,14 @@ List of languages (from A to Z):
 1. `ml`: Malayalam
 1. `mn`: Mongolian
 1. `mr`: Marathi
-1. `mrj`: Hill Mari
+1. `mrj`: Western Mari
 1. `ms`: Malay
 1. `mt`: Maltese
 1. `my`: Burmese
 1. `ne`: Nepali
 1. `nl`: Dutch
 1. `no`: Norwegian
+1. `os`: Ossetian
 1. `pa`: Punjabi
 1. `pap`: Papiamento
 1. `pl`: Polish

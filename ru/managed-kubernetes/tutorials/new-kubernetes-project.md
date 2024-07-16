@@ -442,7 +442,7 @@ yc container registry configure-docker
           ingress.alb.yc.io/subnets: <список_идентификаторов_подсетей>
           ingress.alb.yc.io/security-groups: <список_идентификаторов_групп_безопасности>
           ingress.alb.yc.io/external-ipv4-address: <способ_назначения_IP-адреса>
-          ingress.alb.yc.io/group-name: <имя_Ingress-группы>
+          ingress.alb.yc.io/group-name: <имя_группы_ресурсов_Ingress>
       spec:
         tls:
           - hosts:

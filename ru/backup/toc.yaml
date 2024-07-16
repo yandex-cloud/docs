@@ -32,8 +32,10 @@ items:
             href: operations/policy-vm/create.md
           - name: Изменить политику
             href: operations/policy-vm/update.md
-          - name: Изменить список ВМ в политике
+          - name: Привязать ВМ к политике
             href: operations/policy-vm/attach-and-detach-vm.md
+          - name: Отвязать ВМ от политики
+            href: operations/policy-vm/detach-vm.md
           - name: Удалить политику
             href: operations/policy-vm/delete.md
       - name: Резервные копии
@@ -160,8 +162,6 @@ items:
     href: at-ref.md
   - name: История изменений
     href: release-notes.md
-  - name: Вопросы и ответы
-    items:
-      - name: Решение проблем
-        href: qa/troubleshooting.md
+  - name: Решение проблем
+    href: qa/troubleshooting.md
 base: ru/backup

@@ -49,6 +49,9 @@ With {{ connection-manager-full-name }} service roles, you can view non-secret c
 
 {% include [connection-manager.admin](../../_roles/connection-manager/admin.md) %}
 
+#### connection-manager.user {#connection-manager-user}
+
+{% include [connection-manager.user](../../_roles/connection-manager/user.md) %}
 
 
 ### Primitive roles {#primitive-roles}

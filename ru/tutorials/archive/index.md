@@ -10,7 +10,7 @@ description: "Различные сценарии хранения и восст
 * [Однонодовый файловый сервер](single-node-file-server/index.md)
 * [Настройка SFTP-сервера на Centos 7](backup-and-archive-to-sftp.md)
 * [Резервное копирование ВМ с помощью Hystax Acura Backup](../infrastructure-management/hystax-backup.md)
-* [Резервное копирование в {{ objstorage-full-name }} с помощью CloudBerry Desktop Backup](object-storage-cloudberry.md)
+* [Резервное копирование в {{ objstorage-full-name }} с помощью MSP360 Backup (CloudBerry Desktop Backup)](object-storage-cloudberry.md)
 * [Резервное копирование в {{ objstorage-full-name }} через Duplicati](object-storage-duplicati.md)
 * [Резервное копирование в {{ objstorage-full-name }} с помощью Bacula](backup-with-bacula.md)
 * [Резервное копирование в {{ objstorage-full-name }} с помощью Veritas Backup Exec](object-storage-veritas.md)

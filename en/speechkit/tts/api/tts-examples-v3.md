@@ -95,7 +95,7 @@ To implement an example:
                  loudness_normalization_type=tts_pb2.UtteranceSynthesisRequest.LUFS
              )
 
-             # Establish connection with the server.
+             # Connect to the server.
              cred = grpc.ssl_channel_credentials()
              channel = grpc.secure_channel('{{ api-host-sk-tts }}:443', cred)
              stub = tts_service_pb2_grpc.SynthesizerStub(channel)

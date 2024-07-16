@@ -86,7 +86,7 @@ items:
         href: operations/python-env.md
   - name: Практические руководства
     items:
-      - name: Все практические руководства
+      - name: Все руководства
         href: tutorials/index.md
       - name: Работа с заданиями
         items:

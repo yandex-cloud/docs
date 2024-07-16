@@ -2,7 +2,7 @@ title: Yandex DataSphere
 href: index.yaml
 label:
   title: RU
-  description: This service is only available in Russia.
+  description: The service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -245,8 +245,6 @@ items:
             href: tutorials/node-from-docker-fast-api.md
           - name: Deploying a service based on an ONNX model
             href: tutorials/node-from-model.md
-          - name: Image generation using Stable Diffusion model
-            href: tutorials/stable-diffusion.md
           - name: Tuning a {{ yagpt-name }} model
             href: tutorials/yagpt-tuning.md
           - name: Tuning classifiers based on {{ yagpt-name }}

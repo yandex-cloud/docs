@@ -25,6 +25,8 @@ keywords:
 
 {% include [image-create-requirements](../../../_includes/compute/image-create-requirements.md) %}
 
+{% include [available-image-format](../../../_includes/compute/available-image-format.md) %}
+
 Инструкции по настройке см. в разделе [{#T}](custom-image.md).
 
 ## Загрузите файл образа в {{ objstorage-name }} {#upload-file}

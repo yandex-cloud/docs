@@ -187,7 +187,7 @@ datasource:
 
 ## Создайте файл с образом {#create-image-file}
 
-Поддерживаемые форматы: `Qcow2`, `VMDK`, `RAW` и `VHD`.
+{% include [available-image-format](../../../_includes/compute/available-image-format.md) %}
 
 Рекомендуется использовать формат `Qcow2` с оптимизированным размером кластера, чтобы ускорить импорт. Сконвертировать образ из других форматов можно с помощью утилиты `qemu-img`:
 

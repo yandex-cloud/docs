@@ -45,6 +45,44 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.visits.title }}**: Select whether information about sessions (visits) should be transferred.
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.visits.columns.title }}**: Select the session fields to export. In addition to the fields you select, there are certain mandatory fields that are always exported.
 
+- {{ TF }} {#tf}
+
+   * Endpoint type: `metrika_source`.
+
+   * {% include [counter_ids](../../../../_includes/data-transfer/fields/metrika/terraform/counter-ids.md) %}
+
+   * {% include [token](../../../../_includes/data-transfer/fields/metrika/token.md) %}
+
+   * {% include [streams](../../../../_includes/data-transfer/fields/metrika/streams.md) %}
+
+   Here is an example of the configuration file structure:
+
+   ```hcl
+   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+     name = "<endpoint_name>"
+     settings {
+       metrika_source {
+         counter_ids = [<tag_numbers>]
+         token {
+           raw = "<token>"
+         }
+         streams {
+           type    = "<data_type>"
+           columns = ["<field_list>"]
+         }
+       }
+     }
+   }
+   ```
+
+- API {#api}
+
+   * {% include [counterIds](../../../../_includes/data-transfer/fields/metrika/api/counter-ids.md) %}
+
+   * {% include [token](../../../../_includes/data-transfer/fields/metrika/token.md) %}
+
+   * {% include [streams](../../../../_includes/data-transfer/fields/metrika/streams.md) %}
+
 {% endlist %}
 
 For more information about the settings, see the [service documentation]({{ link-yandex }}/support/metrica/index.html).

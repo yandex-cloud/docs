@@ -50,8 +50,8 @@ items:
       - name: Резервное копирование ВМ с помощью Hystax Acura Backup
         href: infrastructure-management/hystax-backup.md
       - name: >-
-          Резервное копирование в {{ objstorage-name }} с помощью CloudBerry
-          Desktop Backup
+          Резервное копирование в {{ objstorage-name }} с помощью MSP360 Backup
+          (CloudBerry Desktop Backup)
         href: archive/object-storage-cloudberry.md
       - name: Резервное копирование в {{ objstorage-name }} через Duplicati
         href: archive/object-storage-duplicati.md
