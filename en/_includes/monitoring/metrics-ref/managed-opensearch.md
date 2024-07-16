@@ -117,9 +117,9 @@ Processor core workload.
 ## Service metrics {#managed-opensearch-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `active`<br/>`DGAUGE`, number | Number of active clusters |
-| `available`<br/>`DGAUGE`, number | Number of available clusters |
-| `available_percent`<br/>`DGAUGE`, % | Percentage of available clusters |
+| `active`<br/>`DGAUGE`, number | Amount of RAM used most often and only freed up when absolutely necessary |
+| `available`<br/>`DGAUGE`, number | RAM usage, `available` usage type |
+| `available_percent`<br/>`DGAUGE`, % | Percentage of RAM usage, `available` usage type |
 | `buffered`<br/>`DGAUGE`, bytes | RAM usage, `buffered` usage type |
 | `bytes_recv`<br/>`DGAUGE`, bytes | Bytes received |
 | `bytes_sent`<br/>`DGAUGE`, bytes | Bytes sent |

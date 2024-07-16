@@ -12,6 +12,13 @@
 
 Подробнее в статье [Подключение виртуальных машин Compute Cloud к {{ backup-name }}](../../backup/concepts/vm-connection.md).
 
+#### Как заново подключить к сервису ВМ, удаленную из {{ backup-name }}? {#reconnect-deleted-vm}
+
+Если вы [удалили](../../backup/operations/delete-vm.md) ВМ из {{ backup-name }} и хотите подключить ее к сервису заново, воспользуйтесь инструкциями:
+
+* [Подключить виртуальную машину на Linux](../../backup/operations/connect-vm-linux.md)
+* [Подключить виртуальную машину на Windows](../../backup/operations/connect-vm-windows.md)
+
 #### Как заново подключить ВМ к {{ backup-name }} после восстановления ее копии в другую ВМ? {#how-to-renew-connection}
 
 Виртуальная машина, после [восстановления ее копии в другую ВМ](../../backup/operations/backup-vm/non-native-recovery.md), становится неактуальной. Чтобы избежать конфликтов между исходной и целевой ВМ при резервном копировании, [обновите](../../backup/operations/refresh-connection.md) подключение неактуальной ВМ к {{ backup-name }}.

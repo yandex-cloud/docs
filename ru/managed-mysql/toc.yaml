@@ -92,7 +92,7 @@ items:
         href: concepts/sql-limits.md
   - name: Практические руководства
     items:
-      - name: Все сценарии
+      - name: Все руководства
         href: tutorials/index.md
       - name: Анализ производительности и оптимизация {{ mmy-name }}
         href: tutorials/profiling-mmy.md

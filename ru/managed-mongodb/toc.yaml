@@ -64,7 +64,7 @@ items:
             href: operations/monitoring.md
   - name: Практические руководства
     items:
-      - name: Все сценарии
+      - name: Все руководства
         href: tutorials/index.md
       - name: Шардирование коллекций
         href: tutorials/sharding.md

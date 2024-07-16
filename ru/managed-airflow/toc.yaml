@@ -24,7 +24,7 @@ items:
         href: operations/cluster-delete.md
   - name: Практические руководства
     items:
-      - name: Все практические руководства
+      - name: Все руководства
         href: tutorials/index.md
       - name: Автоматизация работы с {{ dataproc-name }}
         href: tutorials/data-proc-automation.md

@@ -87,7 +87,7 @@ rules: <[]TLSRouteRule>
 
 {% include [k8s-ingress-controller-hostnames-wildcard](../../application-load-balancer/k8s-ingress-controller-hostnames-wildcard.md) %} ||
 || `rules` | `[]TLSRouteRule` | **Обязательное**.
-[Правила маршрутизации запросов.](#rules) ||
+[Правила маршрутизации запросов](#rules). ||
 |#
 
 ### ParentReference {#parentrefs}

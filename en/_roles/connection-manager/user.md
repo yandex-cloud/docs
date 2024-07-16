@@ -1,0 +1,1 @@
+The `connection-manager.user` role enables using [connections](../../metadata-hub/concepts/connection-manager.md) in the resources of other cloud services integrated with Connection Manager, e.g., in Data Transfer, DataLens, WebSQL, etc.

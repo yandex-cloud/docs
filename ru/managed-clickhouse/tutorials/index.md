@@ -8,7 +8,7 @@ description: "Различные сценарии использования {{ 
 * [Добавление данных в БД](insert.md)
 * [{#T}](data-migration.md)
 * [Шардирование таблиц](sharding.md)
-* [Перешардирование данных в кластере {{ mch-name }}](mch-mch-resharding.md)
+* [Перешардирование данных в кластере](mch-mch-resharding.md)
 * [Использование гибридного хранилища](hybrid-storage.md)
 * [Получение данных из {{ mkf-name }}](fetch-data-from-mkf.md)
 * [Получение данных из RabbitMQ](fetch-data-from-rabbitmq.md)
