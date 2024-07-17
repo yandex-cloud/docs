@@ -24,6 +24,8 @@ Aliases:
 - [yc managed-kafka user create](create.md) — Create a Kafka user.
 - [yc managed-kafka user update](update.md) — Modify attributes of a Kafka user.
 - [yc managed-kafka user delete](delete.md) — Delete a Kafka user.
+- [yc managed-kafka user grant-permission](grant-permission.md) — Grant permission to the specified Kafka user.
+- [yc managed-kafka user revoke-permission](revoke-permission.md) — Revoke permission from the specified Kafka user.
 
 #### Global Flags
 

@@ -90,6 +90,8 @@ items:
             href: operations/password/device-password.md
           - name: Управление паролями брокера
             href: operations/password/broker-password.md
+      - name: Просмотр операций с ресурсами сервиса
+        href: operations/operation-logs.md
   - name: Концепции
     items:
       - name: Аутентификация

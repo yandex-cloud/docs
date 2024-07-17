@@ -14,13 +14,13 @@
 
    To get a list of functions, run the following command:
 
-   ```
+   ```bash
    yc serverless function list
    ```
 
    Result:
 
-   ```
+   ```text
    +----------------------+--------------------+----------------------+--------+
    |          ID          |        NAME        |      FOLDER ID       | STATUS |
    +----------------------+--------------------+----------------------+--------+
@@ -32,10 +32,8 @@
 
    To get a list of functions, use the [list](../../functions/functions/api-ref/Function/list.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionsService/List](../../functions/functions/api-ref/grpc/function_service.md#List) gRPC API call.
 
-
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
-   You can get a list of versions using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
-
+   You can get a list of functions using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}

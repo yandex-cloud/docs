@@ -44,6 +44,7 @@ Syntax:
 |`--cloud-storage-data-cache`|Whether to use cache for data on Yandex Object Storage.|
 |`--cloud-storage-data-cache-max-size`|<b>`byteSize`</b><br/>Limit for cache for data on Yandex Object Storage.|
 |`--cloud-storage-prefer-not-to-merge`|Disable merge of data parts stored in Yandex Object Storage.|
+|`--backup-retain-period-days`|<b>`int`</b><br/>Auto backups retain period in days.|
 |`--enable-sql-database-management`|Whether database management through SQL commands is enabled.|
 |`--enable-sql-user-management`|Whether user management through SQL commands is enabled.|
 |`--admin-password`|<b>`string`</b><br/>Password for entity. Usage of --read-admin-password is more secure|

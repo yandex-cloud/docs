@@ -7481,6 +7481,7 @@ default:
             switch_domains: Domains
             switch_logs: Logs
             switch_monitoring: Monitoring
+            switch_operations: Operations
           list:
             button_action-delete: Delete
             button_action-edit: Edit
@@ -7564,6 +7565,7 @@ default:
           button_create: Create function
           popup-confirm_button_delete: Delete
         switch_list: Functions
+        switch_list-gateways: API gateways
         switch_list-mdb-proxy: Database connections
         switch_list-triggers: Triggers
         triggers:

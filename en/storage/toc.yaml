@@ -98,6 +98,10 @@ items:
         href: tutorials/index.md
       - name: Getting object query statistics with S3 Select
         href: tutorials/server-logs.md
+      - name: >-
+          Getting {{ objstorage-full-name }} object query statistics using {{
+          yq-full-name }}
+        href: tutorials/server-logs-yq.md
       - name: Getting website traffic statistics with S3 Select
         href: tutorials/user-agent-statistics.md
       - name: Generating a billing report with resource break-down using S3 Select

@@ -21,6 +21,7 @@ Aliases:
 
 - [yc managed-clickhouse backup get](get.md) — Get information about a ClickHouse backup.
 - [yc managed-clickhouse backup list](list.md) — List ClickHouse backups available in a folder.
+- [yc managed-clickhouse backup delete](delete.md) — Delete ClickHouse backup.
 
 #### Global Flags
 

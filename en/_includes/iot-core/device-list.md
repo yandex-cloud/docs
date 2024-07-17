@@ -13,21 +13,27 @@
 
    {% include [default-catalogue](../default-catalogue.md) %}
 
-   Get a list of devices in the registry:
+   1. View the description of the CLI command to get a list of devices:
 
-   ```
-   yc iot device list --registry-name my-registry
-   ```
+      ```bash
+      yc iot device list --help
+      ```
 
-   Result:
+   1. Get a list of devices in the registry by specifying its name or ID:
 
-   ```
-   +----------------------+-----------+
-   |          ID          |   NAME    |
-   +----------------------+-----------+
-   | b9135goeh1uc******** | my-device |
-   +----------------------+-----------+
-   ```
+      ```bash
+      yc iot device list --registry-name <registry_name>
+      ```
+
+      Result:
+
+      ```
+      +----------------------+-----------+
+      |          ID          |   NAME    |
+      +----------------------+-----------+
+      | b9135goeh1uc******** | my-device |
+      +----------------------+-----------+
+      ```
 
 - API {#api}
 

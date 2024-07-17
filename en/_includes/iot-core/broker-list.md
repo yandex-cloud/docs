@@ -12,21 +12,27 @@
 
    {% include [default-catalogue](../default-catalogue.md) %}
 
-   Get a list of brokers in the folder:
+   1. View the description of the CLI command to get a list of brokers:
 
-   ```
-   yc iot broker list
-   ```
+      ```bash
+      yc iot broker list --help
+      ```
 
-   Result:
+   1. Get a list of brokers in the default folder:
 
-   ```
-   +----------------------+-------------+
-   |          ID          |    NAME     |
-   +----------------------+-------------+
-   | b91ki3851h********** | my-broker   |
-   +----------------------+-------------+
-   ```
+      ```bash
+      yc iot broker list
+      ```
+
+      Result:
+
+      ```text
+      +----------------------+-------------+
+      |          ID          |    NAME     |
+      +----------------------+-------------+
+      | b91ki3851h********** | my-broker   |
+      +----------------------+-------------+
+      ```
 
 - API {#api}
 

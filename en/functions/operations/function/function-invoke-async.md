@@ -50,6 +50,7 @@ description: "Follow this guide to configure and invoke a function asynchronousl
       --async-failure-ymq-arn <message_queue> \
       --async-failure-sa-id <service_account_ID>
     ```
+
     Where:
 
     * `--function-name`: Function name.
@@ -59,11 +60,70 @@ description: "Follow this guide to configure and invoke a function asynchronousl
     * `--execution-timeout`: Maximum function execution time before the timeout is reached.
     * `--source-version-id`: ID of the function version to copy the code of.
     * `--async-max-retries`: Number of invocation retries before the call is considered failed.
-    * `--async-service-account-id`: Service account with rights to invoke the function.
-    * `--async-success-ymq-arn`: Queue in {{ message-queue-name }} where messages about successful function calls should be sent to. If the parameter is omitted, messages will not be sent.
-    * `--async-success-sa-id`: Service account with rights to write messages to the `async-success-ymq-arn` queue.
-    * `--async-failure-ymq-arn`: Queue in {{ message-queue-name }} where messages about failed function calls should be sent to. If the parameter is omitted, messages will not be sent.
-    * `--async-failure-sa-id`: Service account with rights to write messages to the `async-failure-ymq-arn` queue.
+    * `--async-service-account-id`: ID of the service account with permissions to invoke the function.
+    * `--async-success-ymq-arn`: ARN of the destination queue in {{ message-queue-name }} for messages about successful function invocations. If omitted, the messages are not sent.
+    * `--async-success-sa-id`: ID of the service account with permissions to write to the `async-success-ymq-arn` queue.
+    * `--async-failure-ymq-arn`: ARN of the destination queue in {{ message-queue-name }} for messages about failed function invocations. If omitted, the messages are not sent.
+    * `--async-failure-sa-id`: ID of the service account with permissions to write to the `async-failure-ymq-arn` queue.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  To set up asynchronous invocation:
+
+  1. Open the {{ TF }} configuration file and add the `async_invocation` section to the function description:
+
+     ```hcl
+     resource "yandex_function" "test-function" {
+       name               = "<function_name>"
+       user_hash          = "<function_hash>"
+       runtime            = "<runtime_environment>"
+       entrypoint         = "<entry_point>"
+       memory             = "<RAM_amount>"
+       execution_timeout  = "<maximum_execution_time>"
+       service_account_id = "<service_account_ID>"
+
+       async_invocation {
+         retries_count       = "<number_of_retry_invocation_attempts>"
+         service_account_id  = "<service_account_ID>"
+         ymq_failure_target {
+           service_account_id = "<service_account_ID>"
+           arn                = "<message_queue>"
+         }
+         ymq_success_target {
+           service_account_id = "service_account_ID"
+           arn                = "<message_queue>"
+         }
+       }
+     }
+     ```
+
+     Where:
+
+     * `async_invocation`: Asynchronous invocation parameters:
+        * `retries_count`: Number of retry attempts to make before the invocation fails.
+        * `service_account_id`: Service account with permissions to invoke the function.
+        * `ymq_failure_target`: Parameters of the queue for failed invocations:
+           * `service_account_id`: Service account with permissions to write to the queue for failed asynchronous invocations.
+           * `arn`: ARN of the destination queue in {{ message-queue-name }} for messages about failed function invocations. If omitted, the messages are not sent.
+        * `ymq_failure_target`: Parameters of the queue for successful invocations:
+           * `service_account_id`: Service account with permissions to write to the queue for successful asynchronous invocations.
+           * `arn`: ARN of the destination queue in {{ message-queue-name }} for messages about successful function invocations. If omitted, the messages are not sent.
+
+     For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  You can check the function update and its new configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+
+  ```bash
+  yc serverless function version get <function_version_ID>
+  ```
 
 - API {#api}
 
