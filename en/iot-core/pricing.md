@@ -4,7 +4,7 @@ description: "This article describes the {{ iot-name }} pricing policy."
 editable: false
 ---
 
-# {{ iot-name }} pricing
+# {{ iot-name }} pricing policy
 
 
 

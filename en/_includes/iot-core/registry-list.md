@@ -12,21 +12,27 @@
 
   {% include [default-catalogue](../default-catalogue.md) %}
 
-  Get a list of registries in the folder:
+  1. View the description of the CLI command to get a list of registries:
 
-  ```
-  yc iot registry list
-  ```
+      ```bash
+      yc iot registry list --help
+      ```
 
-  Result:
+  1. Get a list of registries in the default folder:
 
-  ```
-  +----------------------+-------------+
-  |          ID          |    NAME     |
-  +----------------------+-------------+
-  | b91ki3851hab******** | my-registry |
-  +----------------------+-------------+
-  ```
+      ```bash
+      yc iot registry list
+      ```
+
+      Result:
+
+      ```text
+      +----------------------+-------------+
+      |          ID          |    NAME     |
+      +----------------------+-------------+
+      | b91ki3851hab******** | my-registry |
+      +----------------------+-------------+
+      ```
 
 - API {#api}
 

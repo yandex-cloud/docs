@@ -83,6 +83,7 @@ Aliases:
 - [yc managed-clickhouse backup](backup/index.md) — Manage ClickHouse backups.
 	- [yc managed-clickhouse backup get](backup/get.md) — Get information about a ClickHouse backup.
 	- [yc managed-clickhouse backup list](backup/list.md) — List ClickHouse backups available in a folder.
+	- [yc managed-clickhouse backup delete](backup/delete.md) — Delete ClickHouse backup.
 - [yc managed-clickhouse resource-preset](resource-preset/index.md) — Learn about ClickHouse resource presets.
 	- [yc managed-clickhouse resource-preset get](resource-preset/get.md) — Get information about a ClickHouse resource preset.
 	- [yc managed-clickhouse resource-preset list](resource-preset/list.md) — List available resource presets for Managed Service for ClickHouse.

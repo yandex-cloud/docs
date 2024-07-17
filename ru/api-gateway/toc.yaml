@@ -15,7 +15,6 @@ items:
       - name: Создание API-шлюза
         href: operations/api-gw-create.md
       - name: Управление API-шлюзом
-        expanded: true
         items:
           - name: Изменить API-шлюз и его спецификацию
             href: operations/api-gw-update.md
@@ -37,6 +36,44 @@ items:
             href: operations/api-gw-migration.md
           - name: Удалить API-шлюз
             href: operations/api-gw-delete.md
+      - name: Получение информации о триггере
+        items:
+          - name: Получить список триггеров
+            href: operations/trigger/trigger-list.md
+          - name: Получить информацию о триггере
+            href: operations/trigger/trigger-info.md
+      - name: Создание триггера
+        items:
+          - name: Создать таймер
+            href: operations/trigger/timer-create.md
+          - name: Создать триггер для {{ message-queue-name }}
+            href: operations/trigger/ymq-trigger-create.md
+          - name: Создать триггер для {{ objstorage-name }}
+            href: operations/trigger/os-trigger-create.md
+          - name: Создать триггер для {{ container-registry-name }}
+            href: operations/trigger/cr-trigger-create.md
+          - name: Создать триггер для {{ cloud-logging-name }}
+            href: operations/trigger/cloud-logging-trigger-create.md
+          - name: Создать триггер для {{ iot-name }}
+            items:
+              - name: Устройство
+                href: operations/trigger/iot-core-trigger-create.md
+              - name: Брокер
+                href: operations/trigger/iot-core-trigger-broker-create.md
+          - name: Создать триггер для бюджетов
+            href: operations/trigger/budget-trigger-create.md
+          - name: Создать триггер для {{ yds-name }}
+            href: operations/trigger/data-streams-trigger-create.md
+          - name: Создать триггер для почты
+            href: operations/trigger/mail-trigger-create.md
+      - name: Управление триггером
+        items:
+          - name: Изменить триггер
+            href: operations/trigger/trigger-update.md
+          - name: Посмотреть графики мониторинга
+            href: operations/trigger/trigger-monitoring.md
+          - name: Удалить триггер
+            href: operations/trigger/trigger-delete.md
       - name: Конструктор спецификаций
         items:
           - name: Обзор
@@ -59,6 +96,8 @@ items:
             href: operations/spec-constructor/ydb.md
           - name: '{{ ml-platform-short-name }}'
             href: operations/spec-constructor/datasphere.md
+      - name: Просмотр операций с ресурсами сервиса
+        href: operations/operation-logs.md
   - name: Практические руководства
     items:
       - name: Все практические руководства
@@ -143,6 +182,28 @@ items:
             href: concepts/extensions/canary.md
           - name: Ограничение скорости обработки запросов
             href: concepts/extensions/rate-limit.md
+      - name: Триггер
+        items:
+          - name: Обзор
+            href: concepts/trigger/index.md
+          - name: Таймер
+            href: concepts/trigger/timer.md
+          - name: Триггер для {{ message-queue-name }}
+            href: concepts/trigger/ymq-trigger.md
+          - name: Триггер для {{ objstorage-name }}
+            href: concepts/trigger/os-trigger.md
+          - name: Триггер для {{ container-registry-name }}
+            href: concepts/trigger/cr-trigger.md
+          - name: Триггер для {{ cloud-logging-full-name }}
+            href: concepts/trigger/cloud-logging-trigger.md
+          - name: Триггер для {{ iot-full-name }}
+            href: concepts/trigger/iot-core-trigger.md
+          - name: Триггер для бюджетов
+            href: concepts/trigger/budget-trigger.md
+          - name: Триггер для {{ yds-name }}
+            href: concepts/trigger/data-streams-trigger.md
+          - name: Триггер для почты
+            href: concepts/trigger/mail-trigger.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
@@ -151,6 +212,8 @@ items:
     href: pricing.md
   - name: Справочник CLI
     href: ../cli/cli-ref/managed-services/serverless/api-gateway/index.md
+  - name: Справочник CLI Triggers
+    href: ../cli/cli-ref/managed-services/serverless/trigger/index.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -221,6 +284,42 @@ items:
                 href: apigateway/websocket/api-ref/Connection/get.md
               - name: send
                 href: apigateway/websocket/api-ref/Connection/send.md
+  - name: Справочник API Triggers
+    items:
+      - name: Аутентификация в API
+        href: api-ref/triggers/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: triggers/api-ref/grpc/index.md
+          - name: TriggerService
+            href: triggers/api-ref/grpc/trigger_service.md
+          - name: OperationService
+            href: triggers/api-ref/grpc/operation_service.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: triggers/api-ref/index.md
+          - name: Trigger
+            items:
+              - name: Overview
+                href: triggers/api-ref/Trigger/index.md
+              - name: create
+                href: triggers/api-ref/Trigger/create.md
+              - name: delete
+                href: triggers/api-ref/Trigger/delete.md
+              - name: get
+                href: triggers/api-ref/Trigger/get.md
+              - name: list
+                href: triggers/api-ref/Trigger/list.md
+              - name: listOperations
+                href: triggers/api-ref/Trigger/listOperations.md
+              - name: pause
+                href: triggers/api-ref/Trigger/pause.md
+              - name: resume
+                href: triggers/api-ref/Trigger/resume.md
+              - name: update
+                href: triggers/api-ref/Trigger/update.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений

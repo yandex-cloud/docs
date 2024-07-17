@@ -8,11 +8,7 @@ The backup policy specifies:
 * Backup type: Full or incremental. For more information, see [{#T}](backup.md#types).
 * [Snapshot retention](#retention) settings.
 
-{% note info %}
-
-Backups can be created with a little delay from the schedule, depending on the current load on the service.
-
-{% endnote %}
+{% include [policy-execute-time](../../_includes/backup/policy-execute-time.md) %}
 
 ## Storing backups {#retention}
 

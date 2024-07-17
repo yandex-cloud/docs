@@ -5,6 +5,8 @@ description: "In this tutorial, you will learn how to update a backup policy in 
 
 # Updating a backup policy
 
+{% include [policy-execute-time](../../../_includes/backup/policy-execute-time.md) %}
+
 ## Changing basic settings {#update-basic-parameters}
 
 {% list tabs group=instructions %}
@@ -41,7 +43,7 @@ description: "In this tutorial, you will learn how to update a backup policy in 
 
       {% endcut %}
 
-      The example describes a configuration for a backup policy that will create [incremental](../../concepts/backup.md#types) [VM](../../concepts/backup.md) [backups](../../../compute/concepts/vm.md) every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
+      The example describes a configuration for a backup policy that will create [incremental](../../concepts/backup.md#types) [VM](../../../compute/concepts/vm.md) [backups](../../concepts/backup.md) every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
 
       See [Full backup policy specification](../../concepts/policy.md#specification).
    1. Get the ID of the backup policy you want to update:

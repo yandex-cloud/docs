@@ -1,6 +1,6 @@
 # Creating a trigger for {{ yds-name }} that invokes a {{ sf-name }} function
 
- Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigger.md) that calls a [{{ sf-name }} function](../../concepts/function.md) when data is sent to a [stream](../../../data-streams/concepts/glossary.md#stream-concepts). 
+Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigger.md) to invoke a {{ sf-name }} [function](../../concepts/function.md) when data is sent to a [stream](../../../data-streams/concepts/glossary.md#stream-concepts).
 
 ## Getting started {#before-you-begin}
 
@@ -11,9 +11,9 @@ To create a trigger, you need:
    * [Create a function](../function/function-create.md).
    * [Create a function version](../function/version-manage.md).
 
-* (Optional) A [Dead Letter Queue](../../concepts/dlq.md) where messages that could not be processed by a function will be redirected. If you do not have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
+* (Optional) A [dead-letter queue](../../concepts/dlq.md) where messages that could not be processed by a function will be redirected. If you do not have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
 
-* [Service accounts](../../../iam/concepts/users/service-accounts.md) with rights:
+* [Service accounts](../../../iam/concepts/users/service-accounts.md) with the following permissions:
 
    * To invoke a function.
    * To read from the stream that activates the trigger when data is sent there.
@@ -31,7 +31,7 @@ To create a trigger, you need:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
@@ -62,7 +62,7 @@ To create a trigger, you need:
 
       {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+   1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -172,7 +172,7 @@ To create a trigger, you need:
       * `data_streams`: Trigger parameters:
 
          * `stream_name`: Data stream name.
-         * `database`: Location of the {{ ydb-short-name }} database that the {{ yds-name }} stream is linked to.
+         * `database`: Location of the {{ ydb-short-name }} database the {{ yds-name }} stream is linked to.
 
             To find out where the database is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, in the `database` parameter, e.g., `/ru-central1/b1gia87mba**********/etn7hehf6g*******`.
 

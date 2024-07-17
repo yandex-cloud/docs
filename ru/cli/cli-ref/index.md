@@ -64,3 +64,5 @@ Syntax:
 - [yc backup](managed-services/backup/index.md) — Manage Yandex Cloud Backup resources
 - [yc loadtesting](managed-services/loadtesting/index.md) — Manage Yandex Load Testing resources
 - [yc audit-trails](managed-services/audit-trails/index.md) — Manage Audit Trails resources
+- [yc smartcaptcha](managed-services/smartcaptcha/index.md) — Manage Yandex SmartCaptcha resources
+- [yc smartwebsecurity](managed-services/smartwebsecurity/index.md) — Manage Yandex SmartWebSecurity resources

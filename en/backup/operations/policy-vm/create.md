@@ -5,6 +5,8 @@ description: "In this tutorial, you will learn how to create a backup policy in 
 
 # Creating a backup policy
 
+{% include [policy-execute-time](../../../_includes/backup/policy-execute-time.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -275,5 +277,5 @@ description: "In this tutorial, you will learn how to create a backup policy in 
 
 #### See also {#see-also}
 
-* [{#T}](update.md).
-* [{#T}](delete.md).
+* [{#T}](update.md)
+* [{#T}](delete.md)

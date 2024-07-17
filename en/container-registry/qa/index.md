@@ -3,9 +3,9 @@ title: "Questions and answers about {{ container-registry-full-name }}"
 description: "This page presents questions and answers about {{ container-registry-name }}."
 ---
 
-# Questions and answers about {{ container-registry-name }}
+# FAQ about {{ container-registry-name }}
 
-#### Why is the `latest` tag missing or why is it assigned to a Docker image that was not the last one pushed? {#latest}
+#### Why is the `latest` tag missing or applied to a Docker image that is not the last one pushed? {#latest}
 
 The reason is that you specified a different [tag](../concepts/docker-image.md#version) when pushing the [Docker image](../concepts/docker-image.md).
 

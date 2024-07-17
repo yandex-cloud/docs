@@ -37,6 +37,12 @@ The infrastructure support costs include:
 
 Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store an [OAuth token](../../iam/concepts/authorization/oauth-token.md).
 
+{% note info %}
+
+Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you cannot request an [IAM token](../../iam/concepts/authorization/iam-token.md) automatically. The IAM token is updated more frequently and is therefore more secure.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -102,7 +108,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store an [O
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -268,7 +274,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store an [O
       * `--execution-timeout`: Maximum function execution time before the timeout is reached.
       * `--runtime`: Runtime environment.
       * `--entrypoint`: Entry point.
-      * `--service-account-id`: [ID](../../iam/operations/sa/get-id.md) of the service account with rights to invoke the function.
+      * `--service-account-id`: [ID](../../iam/operations/sa/get-id.md) of the service account with permissions to invoke the function.
       * `--environment`: Environment variables:
          * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) in which to restart the stopped VM instances.
          * `INSTANCE_ID`: [ID of the VM instance](../../compute/operations/vm-info/get-info.md#outside-instance) to restart at interruption.
@@ -344,7 +350,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store an [O
 
       For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
    1. Make sure the configuration files are correct.
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -425,7 +431,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store an [O
    * `--name`: Trigger name.
    * `--cron-expression`: Function invocation schedule specified as a [cron expression](../../functions/concepts/trigger/timer.md#cron-expression).
    * `--invoke-function-name`: Name of the function being invoked.
-   * `--invoke-function-service-account-id`: ID of the service account with rights to invoke the function.
+   * `--invoke-function-service-account-id`: ID of the service account with permissions to invoke the function.
 
    Result:
 
@@ -465,7 +471,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store an [O
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
    1. Make sure the configuration files are correct.
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash

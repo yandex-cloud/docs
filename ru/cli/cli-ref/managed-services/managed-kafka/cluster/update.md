@@ -32,6 +32,7 @@ Syntax:
 |`--brokers-count`|<b>`int`</b><br/>Count of brokers in each availability zone.|
 |`--resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to a Kafka host (CPU, RAM etc.).|
 |`--disk-size`|<b>`byteSize`</b><br/>Storage volume available to a Kafka host.|
+|`--disk-type`|<b>`string`</b><br/>Storage type of a Kafka host.|
 |`--zookeeper-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to a ZooKeeper host (CPU, RAM etc.).|
 |`--zookeeper-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a ZooKeeper host.|
 |`--assign-public-ip`|Whether a Kafka brokers should get a public IP address.|

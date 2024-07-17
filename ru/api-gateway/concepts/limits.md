@@ -11,4 +11,4 @@ description: "В сервисе {{ api-gw-name }} действуют лимит�
 
 {% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
 
-{% include [functions-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}
+{% include [api-gateway-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}
