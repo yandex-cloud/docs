@@ -129,7 +129,7 @@ Example of the token validation function:
            res.on('data', (content) => {
                if (res.statusCode !== 200) {
                    console.error(`Allow access due to an error: code=${res.statusCode}; message=${content}`);
-                   callback(true);
+                   callback(false);
                    return;
                }
                callback(JSON.parse(content).status === 'ok');
@@ -137,7 +137,7 @@ Example of the token validation function:
        });
        req.on('error', (error) => {
            console.error(error);
-           callback(true);
+           callback(false);
        });
        req.end();
    }
@@ -176,7 +176,7 @@ Example of the token validation function:
 
        if ($httpcode !== 200) {
            echo "Allow access due to an error: code=$httpcode; message=$server_output\n";
-           return true;
+           return false;
        }
        $resp = json_decode($server_output);
        return $resp->status === "ok";
@@ -215,7 +215,7 @@ Example of the token validation function:
        server_output = resp.content.decode()
        if resp.status_code != 200:
            print(f"Allow access due to an error: code={resp.status_code}; message={server_output}", file=sys.stderr)
-           return True
+           return False
        return json.loads(server_output)["status"] == "ok"
    token = "<token>" # For example, request.form["smart-token"]
    if check_captcha(token):
