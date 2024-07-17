@@ -7484,6 +7484,7 @@ default:
             switch_domains: Домены
             switch_logs: Логи
             switch_monitoring: Мониторинг
+            switch_operations: Операции
           list:
             button_action-delete: Удалить
             button_action-edit: Редактировать
@@ -7567,6 +7568,7 @@ default:
           button_create: Создать функцию
           popup-confirm_button_delete: Удалить
         switch_list: Функции
+        switch_list-gateways: API-шлюзы
         switch_list-mdb-proxy: Подключения к БД
         switch_list-triggers: Триггеры
         triggers:

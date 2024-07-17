@@ -11,14 +11,13 @@ Use this guide to create your address and send a verification email.
 1. [Create](../iam/operations/sa/create.md) a service account named `postbox-user` with the `postbox.sender` role.
 1. [Create](../iam/operations/sa/create-access-key.md) static access keys. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
 1. Generate a key to create a DKIM signature:
-
    ```
    openssl genrsa -out privatekey.pem 2048
    ```
 
 ## Create an address {#create-address}
 
-1. In the [management console]({{ link-console-main }}), select the folder you created your service account in.
+1. In the [management console]({{ link-console-main }}), select the folder where you created the service account.
 1. In the list of services, select **{{ postbox-name }}**.
 1. Click **Create address**.
 1. Specify the **Domain** from which you will be sending emails. The domain can be of any level.
@@ -30,7 +29,7 @@ Use this guide to create your address and send a verification email.
 
    {% endnote %}
 
-1. Copy the contents of the `privatekey.pem` private key file created during the [preparation stage](#service-account-and-keys), into the **Private key** field.
+1. Copy the contents of the `privatekey.pem` private key file you created earlier and paste them into the [preparation stage](#service-account-and-keys) field.
 1. Click **Create**.
 
 ## Verify domain ownership {#verify-domain}
@@ -43,7 +42,7 @@ Here is an example of creating a resource record in **{{ dns-name }}**:
 1. In the list of services, select **{{ dns-name }}**.
 1. Select your domain zone.
 1. Click **Create record**.
-1. In the **Name** field, specify the name generated when creating the address in `postbox._domainkey.example.com` format.
+1. In the **Name** field, specify the name generated when creating the address, such as `postbox._domainkey.example.com`.
 1. In the **Type** list, select `TXT`.
 1. To the **Value** field, copy the contents of the **Value** field under **Signature verification**. Note that the record value needs to be broken down into separate lines, for example:
 
@@ -61,7 +60,6 @@ DNS server responses are cached, so delays may occur when updating a resource re
 ## Send a verification email {#send-test-letter}
 
 You can send a verification email using:
-
 * AWS CLI
 * SMTP protocol
 
@@ -69,33 +67,23 @@ You can send a verification email using:
 
 1. [Install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) the AWS CLI.
 1. Set up the AWS CLI:
-
    1. Launch the interactive profile setup:
-
       ```
       aws configure
       ```
-
    1. Specify the previously obtained ID of the `postbox-user` service account key:
-
       ```
       AWS Access Key ID [****************ver_]: <service_account_key_ID>
       ```
-
    1. Specify the previously obtained secret key of the `postbox-user` service account:
-
       ```
       AWS Secret Access Key [****************w5lb]: <service_account_secret_key>
       ```
-
    1. Specify the {{ region-id }} default region name:
-
       ```
       Default region name [{{ region-id }}]: {{ region-id }}
       ```
-
    1. Specify `JSON` as the default format for output data:
-
       ```
       Default output format [None]: json
       ```
@@ -140,7 +128,6 @@ You can send a verification email using:
 ### SMTP
 
 1. Get a password by using the secret key of the `postbox-user` service account. To do this, run the `generate.py` script. Use Python 3 or higher.
-
    ```
    python generate.py <secret_key_of_service_account>
    ```
@@ -200,10 +187,9 @@ You can send a verification email using:
    {% endcut %}
 
 1. Specify the following parameters in your email client:
-
    * Server name: `postbox.cloud.yandex.net`.
    * Port: `587`.
-   * Username: ID of the `postbox-user` service account key.
+   * Username: Static key ID of the `postbox-user` service account.
    * Password you obtained in the previous step.
 
    {% note info %}

@@ -13,20 +13,68 @@
 
    {% include [default-catalogue](../default-catalogue.md) %}
 
-   Get detailed information about the registry:
+   1. View the description of the CLI command to get information about a registry:
 
-   ```
-   yc iot registry get <registry_name>
-   ```
+      ```bash
+      yc iot registry get --help
+      ```
 
-   Result:
+   1. Get detailed information about a registry by specifying its name or ID:
 
-   ```
-   id: b91ki3851hab********
-   folder_id: aoek49ghmknn********
-   created_at: "2019-05-28T11:29:42.420Z"
-   name: my-registry
-   ```
+       ```bash
+       yc iot registry get <registry_name>
+       ```
+
+       Result:
+
+       ```text
+       id: b91ki3851hab********
+       folder_id: aoek49ghmknn********
+       created_at: "2019-05-28T11:29:42.420Z"
+       name: my-registry
+       ```
+
+- {{ TF }} {#tf}
+
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   To get detailed information about a registry using {{ TF }}:
+   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
+
+      ```hcl
+      data "yandex_iot_core_registry" "my_registry" {
+        registry_id = "<registry_ID>"
+      }
+
+      output "registry_params" {
+        value = data.yandex_iot_core_registry.my_registry.created_at
+      }
+      ```
+
+      Where:
+      * `data "yandex_iot_core_registry"`: Description of the registry as a data source:
+         * `registry_id`: Registry ID.
+      * `output "registry_params"`: Output variable that contains information about the registry creation timestamp:
+         * `value`: Returned value.
+
+      You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_iot_core_registry` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_iot_core_registry).
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+
+      ```bash
+      terraform output
+      ```
+
+      Result:
+
+      ```text
+      registry_params = "2024-05-08T06:40:52Z"
+      ```
 
 - API {#api}
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# {{ backup-full-name }} pricing
+# {{ backup-full-name }} pricing policy
 
 
 

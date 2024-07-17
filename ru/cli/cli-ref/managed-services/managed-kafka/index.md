@@ -44,6 +44,8 @@ Aliases:
 	- [yc managed-kafka user create](user/create.md) — Create a Kafka user.
 	- [yc managed-kafka user update](user/update.md) — Modify attributes of a Kafka user.
 	- [yc managed-kafka user delete](user/delete.md) — Delete a Kafka user.
+	- [yc managed-kafka user grant-permission](user/grant-permission.md) — Grant permission to the specified Kafka user.
+	- [yc managed-kafka user revoke-permission](user/revoke-permission.md) — Revoke permission from the specified Kafka user.
 - [yc managed-kafka connector](connector/index.md) — Manage Kafka connectors.
 	- [yc managed-kafka connector get](connector/get.md) — Get information about a Kafka connector.
 	- [yc managed-kafka connector list](connector/list.md) — List connectors of a Kafka cluster.

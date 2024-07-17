@@ -12,7 +12,7 @@ description: "Follow this guide to place your product on {{ marketplace-full-nam
 
 ## Submit an application {#send-application}
 
-To become a {{ marketplace-short-name }} partner, fill out the form on the [Marketplace page](/marketplace) and describe your product. Provide some details on your product features and how it works, so that we could review your application faster. By submitting your application, you accept the [Offer](https://yandex.ru/legal/marketplace_offer/?lang=en) for Software Product Access on {{ marketplace-short-name }}. If your business already has a billing account, list it in your application.
+To become a {{ marketplace-short-name }} partner, fill out the form on the [Marketplace page](/marketplace#marketplace-form) and describe your product. Provide some details on your product features and how it works, so that we could review your application faster. By submitting your application, you accept the [Offer](https://yandex.ru/legal/marketplace_offer/?lang=en) for Software Product Access on {{ marketplace-short-name }}. If your business already has a billing account, list it in your application. During application review, we may contact you for more information.
 
 Once the moderation is complete, you will receive a confirmation email to the address you specified in your application.
 
@@ -21,6 +21,8 @@ Once the moderation is complete, you will receive a confirmation email to the ad
 To access the {{ marketplace-short-name }} partner dashboard, you need the billing account of a business that is a resident of Russia or Kazakhstan. If you do not have a billing account yet, [create one](operations/registration.md).
 
 {% include [billing-note](../_includes/marketplace/billing-note.md) %}
+
+Billing account details will be used to provide access to the [partner dashboard]({{ link-cloud-partners }}).
 
 ## Create a product in the partner dashboard {#create-product}
 
@@ -36,10 +38,14 @@ Create a [service plan](operations/create-tariff.md) to assign it to your produc
 
 ## Create and upload a VM image or packages for {{ managed-k8s-name }} {#create-image}
 
-In {{ marketplace-short-name }}, you can place VM images from {{ yandex-cloud }} public images and packages for {{ managed-k8s-name }}. Requirements for images and applications and recommendations for creating them are described in the sections:
+In {{ marketplace-short-name }}, you can place VM images from {{ yandex-cloud }} public images and packages for {{ managed-k8s-name }}. Make sure you read through the image and app requirements and recommendations:
 * [{#T}](operations/create-image.md)
 * [{#T}](operations/create-container.md)
 
 ## Create the first version of the product {#create-version}
 
 For more information on creating the first version of a product in a {{ marketplace-name }} partner dashboard, see [{#T}](operations/create-new-version.md).
+
+## Submit you version for moderation {#moderate-version}
+
+All product versions listed in {{ marketplace-short-name }} undergo technical and content moderation to ensure they meet the {{ marketplace-short-name }} product requirements for [{{ compute-name }}](operations/create-image.md) and [{{ managed-k8s-name }}](operations/create-container.md). Once the moderation process is successfully completed, you will receive a notification and can start offering your product version to users.

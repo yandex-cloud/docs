@@ -176,6 +176,8 @@ items:
             href: operations/trigger/trigger-monitoring.md
           - name: Удалить триггер
             href: operations/trigger/trigger-delete.md
+      - name: Просмотр операций с ресурсами сервиса
+        href: operations/operation-logs.md
   - name: Концепции
     items:
       - name: Обзор

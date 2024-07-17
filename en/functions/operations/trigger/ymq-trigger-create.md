@@ -1,6 +1,6 @@
 # Create a trigger for {{ message-queue-name }} that sends messages to the {{ sf-name }} function
 
-Create a [trigger](../../concepts/trigger/ymq-trigger.md) for a message queue in {{ message-queue-short-name }} and process the messages using the {{ sf-name }} [function](../../concepts/function.md).
+Create a [trigger](../../concepts/trigger/ymq-trigger.md) for a [message queue](../../../message-queue/concepts/queue.md) in {{ message-queue-short-name }} and process the messages using the {{ sf-name }} [function](../../concepts/function.md).
 
 {% include [ymq-trigger-note.md](../../../_includes/functions/ymq-trigger-note.md) %}
 
@@ -13,7 +13,7 @@ To create a trigger, you need:
    * [Create a function](../function/function-create.md).
    * [Create a function version](../function/version-manage.md).
 
-* [Service accounts](../../../iam/concepts/users/service-accounts.md) with rights:
+* [Service accounts](../../../iam/concepts/users/service-accounts.md) with the following permissions:
 
    * To invoke a function.
    * To read from the queue the trigger receives messages from.
@@ -30,7 +30,7 @@ To create a trigger, you need:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
@@ -44,7 +44,7 @@ To create a trigger, you need:
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}**.
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}**.
 
-   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select a message queue and a service account with rights to read messages from this message queue.
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select a message queue and a service account with permissions to read messages from this queue.
 
    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
@@ -87,7 +87,7 @@ To create a trigger, you need:
 
       1. In the [management console]({{ link-console-main }}), select the folder containing the queue.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
-      1. Select the desired queue.
+      1. Select the queue.
       1. You can see the queue ID under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** in the **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}** field.
 
    * `--invoke-function-id`: Function ID.
