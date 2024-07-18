@@ -11,7 +11,7 @@ After creating a cluster, you can:
 * [Change service account settings](#change-service-account).
 
 
-* [{#T}](#change-resource-preset).
+* [{#T}](#change-resource-preset)
 
 * [{#T}](#change-disk-size)
 
@@ -163,7 +163,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required values in the `configSpec.clickhouse.resources.resourcePresetId` parameter (`configSpec.zookeeper.resources.resourcePresetId` for ZooKeeper).
 
-      To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
+      To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
 
    * List of settings to update, in the `updateMask` parameter.
 
@@ -402,29 +402,34 @@ You cannot directly update the [Max server memory usage]({{ ch.docs }}/operation
       ```bash
       {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
          --backup-window-start <backup_start_time> \
-         --datalens-access=<access_from_{{ datalens-name }}> \
-         --datatransfer-access=<access_from_Data_Transfer> \
+         --datalens-access=<true_or_false> \
+         --metrika-access=<true_or_false> \
+         --serverless-access=<true_or_false> \
+         --websql-access=<true_or_false> \
+         --yandexquery-access=<true_or_false> \
          --deletion-protection=<cluster_deletion_protection> \
          --maintenance-window type=<maintenance_type>,`
-                             `day=<day_of_week>,`
-                             `hour=<hour> \
-         --metrika-access=<data_import_from_AppMetrica> \
-         --serverless-access=<access_from_Cloud_Functions> \
-         --yandexquery-access=<access_via_Yandex_Query> \
-         --websql-access=<SQL_query_execution>
+                             `day=<weekday>,`
+                             `hour=<hour>
       ```
-
 
 
    You can change the following settings:
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   
    * `--datalens-access`: Enables access from {{ datalens-name }}. The default value is `false`. For more information about setting up a connection, see [Connecting from {{ datalens-name }}](datalens-connect.md).
 
-   * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
+   
+   * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). The default value is `false`.
 
+   * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+
+
+   * `--websql-access`: Enables you to [run SQL queries](web-sql-query.md) to cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
+
+
+   * `--yandexquery-access=true`: Enables cluster access from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. The default value is `false`.
 
    * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -433,18 +438,6 @@ You cannot directly update the [Max server memory usage]({{ ch.docs }}/operation
    * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters), where `type` is the maintenance type:
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
-
-   
-   
-   * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). The default value is `false`.
-
-   * `--websql-access`: Enables [running SQL queries](web-sql-query.md) from the management console. The default value is `false`.
-
-   * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
-
-   * `--yandexquery-access=true`: Enables cluster access from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. The default value is `false`.
-
-
 
    You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -467,31 +460,35 @@ You cannot directly update the [Max server memory usage]({{ ch.docs }}/operation
       }
       ```
 
-   
-   1. To allow access from other services and [execution of SQL queries from the management console](web-sql-query.md), change the values of the appropriate fields in the `access` block:
+   1. To allow access to the cluster from other services and [execution of SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, change the values of the appropriate fields in the `access` section:
 
+      
       ```hcl
       resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         access {
-          data_lens  = <access_from_{{ datalens-name }}>
-          metrika    = <access_from_Yandex_Metrica_and_AppMetrica>
-          serverless = <access_from_Cloud_Functions>
-          web_sql    = <SQL_query_execution_from_management_console>
-          yandex_query = <access_via_Yandex_Query>
+          data_lens    = <access_from_{{ datalens-name }}>
+          metrika      = <access_from_Yandex_Metrica_and_AppMetrica>
+          serverless   = <access_from_Cloud_Functions>
+          web_sql      = <SQL_query_execution_from_management_console>
+          yandex_query = <access_from_Yandex_Query>
         }
         ...
       }
       ```
 
+
       Where:
+
       * `data_lens`: Access from {{ datalens-name }}, `true` or `false`.
+
+      
       * `metrika`: Access from Yandex Metrica and AppMetrica, `true` or `false`.
-      * `serverless`: Access to the cluster from {{ sf-full-name }}, `true` or `false`.
+      * `serverless`: Access from {{ sf-name }}, `true` or `false`.
+
+
+      * `yandex_query`: Access from {{ yq-full-name }}, `true` or `false`.
       * `web_sql`: Execution of SQL queries from the management console, `true` or `false`.
-      * `yandex_query`: Access to the cluster from {{ yq-full-name }}, `true` or `false`.
-
-
 
    1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
@@ -523,9 +520,9 @@ You cannot directly update the [Max server memory usage]({{ ch.docs }}/operation
    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * Settings for access from other services  and access to SQL queries from the management console  in the `configSpec.access` parameter.
+   * Settings for access from other services and access to SQL queries from the management console using {{ websql-full-name }} in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
-   * [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters) in the `maintenanceWindow` parameter.
+   * [Maintenance](../concepts/maintenance.md) window settings (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -533,16 +530,6 @@ You cannot directly update the [Max server memory usage]({{ ch.docs }}/operation
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
-
-   
-   
-   To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), set `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
-
-   To allow cluster access from [{{ yq-full-name }}](../../query/concepts/index.md), set `true` for the `configSpec.access.yandexQuery` parameter. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
-
-
-
-   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
 {% endlist %}
 

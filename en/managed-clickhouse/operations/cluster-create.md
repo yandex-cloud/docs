@@ -20,7 +20,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 * A cluster that uses {{ CK }} to manage replication and fault tolerance should consist of three or more hosts with individual hosts not required to run {{ CK }}. You can only create this kind of cluster using the CLI or API.
 
    
-   This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). Access to {{ CK }} is available on request. Contact [technical support]({{ link-console-support }}) or your account manager.
+   This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. Access to {{ CK }} is available on request. Contact [technical support]({{ link-console-support }}) or your account manager.
 
 
 * When using {{ ZK }}, a cluster can consist of two or more hosts. Another three {{ ZK }} hosts will be added to the cluster automatically.
@@ -43,7 +43,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
-         1. Select a **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+         1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
    1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
    1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
@@ -164,16 +164,15 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
              `assign-public-ip=<public_access_to_host> \
         --clickhouse-resource-preset <host_class> \
         --clickhouse-disk-type <disk_type> \
-        --clickhouse-disk-size <storage_size_GB> \
+        --clickhouse-disk-size <storage_size_in_GB> \
         --user name=<username>,password=<user_password> \
         --database name=<database_name> \
         --security-group-ids <list_of_security_group_IDs> \
-        --yandexquery-access=<access_via_Yandex_Query> \
+        --websql-access=<true_or_false> \
         --deletion-protection=<cluster_deletion_protection>
       ```
 
       You need to specify the `subnet-id` if the selected availability zone has two or more subnets.
-
 
 
       Where:
@@ -189,8 +188,8 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
          {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
-      * `--yandexquery-access`: Access via {{ yq-full-name }}, `true` or `false`.
 
+      * `--websql-access`: Enables you to [run SQL queries](web-sql-query.md) to cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
       * `--deletion-protection`: Cluster deletion protection, `true` or `false`.
 
@@ -229,10 +228,9 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       
       1. To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), provide the `--serverless-access` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
-      1. To allow access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), provide the `--yandexquery-access=true` parameter. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
+      1. To allow access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), provide the `--yandexquery-access=true` parameter. This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). 
 
-      1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
 
       1. To enable [{{ CK }}](../concepts/replication.md#ck) in a cluster, set the `--embedded-keeper` parameter to `true`.
 
@@ -283,7 +281,8 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
-      1. {% include [terraform-install](../../_includes/terraform-install.md) %}
+   
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
       * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be hosted. If you already have a suitable network, you do not need to describe it again.
@@ -302,16 +301,8 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       }
       ```
 
+
    1. Create a configuration file with a description of the cluster and its hosts.
-
-      * Database cluster: Description of the cluster and its hosts. Also as required here:
-         * Specify [DBMS settings](../concepts/settings-list.md). You can specify them later.
-
-            Using the {{ yandex-cloud }} interfaces, you can manage a limited number of settings. Using SQL queries, you can [apply {{ CH }} settings at the user level](change-query-level-settings.md).
-
-         * Enable deletion protection.
-
-            {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       Example structure of a configuration file that describes a cluster with a single host:
 
@@ -358,43 +349,44 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
-      
-      1. To enable access from other services and [SQL query execution from the management console](web-sql-query.md), add a block named `access` with the required settings:
+      1. To enable access from other services and allow [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, add a section named `access` with the settings you need:
 
+         
          ```hcl
          resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
            ...
            access {
-             data_lens  = <access_from_{{ datalens-name }}>
-             metrika    = <access_from_Yandex_Metrica_and_AppMetrica>
-             serverless = <access_from_Cloud_Functions>
+             data_lens    = <access_from_{{ datalens-name }}>
+             metrika      = <access_from_Yandex_Metrica_and_AppMetrica>
+             serverless   = <access_from_Cloud_Functions>
              yandex_query = <access_from_Yandex_Query>
-             web_sql    = <SQL_query_execution_from_management_console>
+             web_sql      = <SQL_query_execution_from_management console>
            }
            ...
          }
          ```
 
 
+      Where:
+
+      * `data_lens`: Access from {{ datalens-name }}, `true` or `false`.
 
       
-      Where:
-      * `data_lens`: Access from {{ datalens-name }}, `true` or `false`.
       * `metrika`: Access from Yandex Metrica and AppMetrica, `true` or `false`.
       * `serverless`: Access from {{ sf-name }}, `true` or `false`.
+
+
       * `yandex_query`: Access from {{ yq-full-name }}, `true` or `false`.
       * `web_sql`: Execution of SQL queries from the management console, `true` or `false`.
 
+      1. You can manager cluster users and databases via SQL.
+
+         {% include notitle [SQL Management can't be switched off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
+
+         * {% include notitle [Enable SQL user management with Terraform](../../_includes/mdb/mch/terraform/sql-management-users.md) %}
 
 
-      You can manager cluster users and databases via SQL.
-
-      {% include notitle [SQL Management can't be switched off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
-
-      * {% include notitle [Enable SQL user management with Terraform](../../_includes/mdb/mch/terraform/sql-management-users.md) %}
-
-
-      * {% include notitle [Enable SQL database management with Terraform](../../_includes/mdb/mch/terraform/sql-management-databases.md) %}
+         * {% include notitle [Enable SQL database management with Terraform](../../_includes/mdb/mch/terraform/sql-management-databases.md) %}
 
       For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mch }}).
 
@@ -424,6 +416,8 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    * Security group identifiers in the `securityGroupIds` parameter.
 
 
+   * Settings for access from other services in the `configSpec.access` parameter.
+
    To allow [connection](connect/index.md) to cluster hosts from the internet, provide the `true` value in the `hostSpecs.assignPublicIp` parameter.
 
    Enable user and database management via SQL, if required:
@@ -433,12 +427,6 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-
-      To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), set `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
-
-   To allow cluster access from [{{ yq-full-name }}](../../query/concepts/index.md), set `true` for the `configSpec.access.yandexQuery` parameter. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
-
-   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
    To configure [hybrid storage settings](../concepts/storage.md##hybrid-storage-settings):
 
@@ -602,7 +590,11 @@ To create a {{ CH }} cluster copy:
    * Cloud ID: `{{ tf-cloud-id }}`.
    * Folder ID: `{{ tf-folder-id }}`.
    * New cloud network named `cluster-net`.
-      * New [default security group](connect/index.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+
+   
+   * New [default security group](connect/index.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+
+
    * Number of `{{ host-class }}` class hosts in a new subnet named `cluster-subnet-{{ region-id }}-a`: 1.
 
       Subnet parameters:
@@ -660,7 +652,10 @@ To create a {{ CH }} cluster copy:
 
       These subnets will belong to the `cluster-net` network.
 
-      * New [default security group](connect/index.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+   
+   * New [default security group](connect/index.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+
+
    * Local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ CH }} hosts: 32 GB.
    * Local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ ZK }} hosts: 10 GB.
    * Database name: `db1`.
@@ -687,7 +682,6 @@ To create a {{ CH }} cluster copy:
       {% include [terraform-mch-multiple-hosts-single-shard](../../_includes/mdb/mch/terraform/multiple-hosts-single-shard.md) %}
 
 {% endlist %}
-
 
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

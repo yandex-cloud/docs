@@ -151,38 +151,31 @@ For more information about {{ mmy-name }} cluster structure, see [Resource relat
 
          {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
-      * `backup-priority`: Priority when selecting a new master host, between `0` and `100`.
+      * `backup-priority`: Host priority when selecting a new master host, between `0` and `100`.
       * `backup-priority`: Backup priority, between `0` and `100`.
       * `mysql-version`: {{ MY }} version, `{{ versions.cli.str }}`.
 
       Configure additional {{ mmy-name }} cluster settings, if required:
 
-      
       ```bash
       {{ yc-mdb-my }} cluster create \
         ...
         --backup-window-start <backup_start_time> \
         --backup-retain-period-days=<backup_retention_period> \
-        --datalens-access=<access_from_{{ datalens-name }}> \
-        --websql-access=<queries_from_management_console> \
+        --datalens-access=<true_or_false> \
+        --websql-access=<true_or_false> \
         --deletion-protection=<deletion_protection> \
         --performance-diagnostics enabled=true,`
                                  `sessions-sampling-interval=<session_sampling_interval>,`
                                  `statements-sampling-interval=<statement_sampling_interval>
       ```
 
-
-
       Where:
 
       * `backup-window-start`: Backup start time.
       * `backup-retain-period-days`: Retention period for automatic backups (in days).
-      * `datalens-access`: Access to the cluster from {{ datalens-name }}, `true` or `false`.
-
-      
-      * `websql-access`: Queries from the management console, `true` or `false`.
-
-
+      * `datalens-access`: Enables access from {{ datalens-full-name }}. The default value is `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
+      * `websql-access`: Enables you to [run SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
       * `deletion-protection`: Cluster deletion protection, `true` or `false`.
       * `performance-diagnostics`: Enabling statistics collection for [cluster performance diagnostics](performance-diagnostics.md). The values of the `sessions-sampling-interval` and the `statements-sampling-interval` parameters may range from `1` to `86400` seconds.
 
@@ -303,8 +296,8 @@ For more information about {{ mmy-name }} cluster structure, see [Resource relat
 
          Where:
 
-         * `hours`: Backup starting hour
-         * `minutes`: Backup start minutes
+         * `hours`: Backup start hour
+         * `minutes`: Backup start minute
 
       * To set the retention period for backup files, define the `backup_retain_period_days` parameter in the {{ mmy-name }} cluster description:
 
@@ -317,7 +310,6 @@ For more information about {{ mmy-name }} cluster structure, see [Resource relat
          ```
 
          Where `backup_retain_period_days` is the retention period for automatic backups (in days).
-
 
          Acceptable values are from `7` to `60`. The default value is `7`.
 
@@ -370,8 +362,6 @@ For more information about {{ mmy-name }} cluster structure, see [Resource relat
    If required, provide the [backup](../concepts/backup.md) start time in the `configSpec.backupWindowStart` parameter and the retention period for automatic backups (in days) in the `configSpec.backupRetainPeriodDays` parameter. Acceptable values are from `7` to `60`. The default value is `7`.
 
    To allow [connection](connect.md) to cluster hosts from the internet, provide the `true` value in the `hostSpecs.assignPublicIp` parameter.
-
-   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
    {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
 
@@ -532,7 +522,7 @@ To create a {{ MY }} cluster copy:
    * Number of `{{ host-class }}` hosts in the new `mysubnet` subnet, in the `{{ region-id }}-a` availability zone: 1. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
 
    
-   * New security group: `mysql-sg`, allowing {{ mmy-name }} cluster connections from the internet on port `{{ port-mmy }}`.
+   * New security group: `mysql-sg`, allowing {{ mmy-name }} cluster connections from the internet via port `{{ port-mmy }}`.
 
 
    * Network SSD storage (`{{ disk-type-example }}`): 20 GB

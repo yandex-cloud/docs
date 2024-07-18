@@ -4,14 +4,18 @@ This section contains {{ mgp-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## June 2024 {#jun-2024}
+
+Now you can [create](operations/index.md#pxf) external S3, JDBC, HDFS, and Hive data sources to work with external tables. {{ tag-con }}
+
 ## February 2024 {#feb-2024}
 
-* Added the ability to partially [restore a cluster](./operations/cluster-backups.md#restore) from a backup: now you can specify a list of databases or tables to restore. This significantly reduces the time to restore and saves on cluster resources, especially when restoring small amounts of data.
+Added the ability to partially [restore a cluster](./operations/cluster-backups.md#restore) from a backup: now you can specify a list of databases or tables to restore. This greatly reduces the recovery time and saves cluster resources if restoring small amounts of data.
 
 ## January 2024 {#jan-2024}
 
 * A new version is available: {{ GP }} 6.25. It features [cold storage integration](tutorials/yezzey.md) tools and a [command center](./concepts/command-center.md) by default.
-* Now you can [configure external PXF sources](operations/pxf/settings.md) for accessing external tables yourself. Previously, users had to contact support for PXF configuration.
+* Now you can [configure PXF](operations/pxf/settings.md) for accessing external tables yourself. Previously, users had to contact support for PXF configuration.
 
 ## Q3 2023 {#q3-2023}
 
@@ -30,7 +34,7 @@ This section contains {{ mgp-name }} release notes.
 
 ## Q4 2022 {#q4-2022}
 
-* You can now [expand a cluster](operations/hosts/cluster-expand.md) via the CLI and API by adding new segment hosts with data redistribution across all segments. {{ tag-cli }} {{ tag-api }}
+* You can now [expand a cluster](operations/hosts/cluster-expand.md) via the CLI and API by adding new segment hosts with data redistribution across all segments. {{ tag-cli }}
 * You can now view cluster backups, recover from backups, and modify public access to the cluster via the CLI. For more information, see [YC CLI Releases](../cli/release-notes.md#version0.100.0). {{ tag-cli }}
 * Added the `mdb_toolkit.table_privileges()` function that allows users with the `mdb_admin` role to view the history of granting and revoking privileges in the cluster. For more information, see the [{{ PG }} documentation]({{ pg.docs.org }}/current/infoschema-table-privileges.html).
 * Added the `mdb_toolkit.gp_workfile_usage_per_query()` function that allows users with the `mdb_admin` role to view information about active queries from all users. For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-gp_toolkit.html#topic34).
@@ -41,7 +45,7 @@ This section contains {{ mgp-name }} release notes.
 
 ## Q3 2022 {#q3-2022}
 
-* Added the ability to change the administrator password. {{ tag-cli }} {{ tag-tf }}
+* Added the ability to change the administrator password. {{ tag-cli }}
 * You can now [configure the DBMS and the connection pooler in {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex/blob/master/CHANGELOG.md#0770-july-27-2022). {{ tag-tf }}
 * Added support for the [postgis]({{gp.docs.vmware}}/5/greenplum-database/ref_guide-extensions-postGIS.html) extension.
 * Added the ability to edit clusters and cluster settings via CLI as well as to grant access from {{ data-transfer-full-name }}. For more information, see [YC CLI Releases](../cli/release-notes.md#version0.94.0). {{ tag-cli }}

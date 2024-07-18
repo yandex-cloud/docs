@@ -15,3 +15,4 @@ description: "Различные сценарии использования {{ 
 * [{#T}](gateway-api.md)
 * [{#T}](alb-ingress-controller.md)
 * [{#T}](alb-ingress-controller-log-options.md)
+* [{#T}](custom-health-checks.md)

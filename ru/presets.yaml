@@ -784,11 +784,11 @@ default:
   sku|KZT|b2b:
     tracker:
       license:
-        v1|int|string: Не тарифицируется
         v1|pricingRate:
           100|string: "2\_000,00\_₸"
           250|string: "1\_800,00\_₸"
           6|string: "2\_200,00\_₸"
+        v1|string: Не тарифицируется
   sku|KZT|backup:
     protected_vms:
       v2|month|string: "1\_194,00\_₸"
@@ -1883,11 +1883,11 @@ default:
   sku|RUB|b2b:
     tracker:
       license:
-        v1|int|string: Не тарифицируется
         v1|pricingRate:
           100|string: "400,00\_₽"
           250|string: "360,00\_₽"
           6|string: "440,00\_₽"
+        v1|string: Не тарифицируется
   sku|RUB|backup:
     protected_vms:
       v2|month|string: "238,80\_₽"
@@ -2690,14 +2690,14 @@ default:
   sku|RUB|support:
     business:
       fixed_consumption:
-        v1|int|string: Не тарифицируется
+        v1|string: Не тарифицируется
     organization:
       business:
         fixed_consumption:
           v1|string: "3\_000,00\_₽"
     standard:
       fixed_consumption:
-        v1|int|string: Не тарифицируется
+        v1|string: Не тарифицируется
   sku|RUB|sws:
     profile:
       v1|string: "250,00\_₽"
@@ -5856,10 +5856,7 @@ default:
             popup-add_button_add: Создать
           explore:
             button_execute: Выполнить
-            button_explain: План запроса
-            button_explain-analyze: Анализ запроса
             button_submit-creds: Подключиться
-            label_offset: Номер первой строки
             label_password: Пароль
             label_username: Имя пользователя БД
           format-schemas:
@@ -7122,10 +7119,6 @@ default:
             field_where: Условие выбора
             label_fixed-lifetime: фиксированный
             label_range-lifetime: переменный
-          explain:
-            value_buffers: Buffers
-            value_cost: Cost
-            value_time: Time
           hosts:
             action_add-host: Создать хост
             action_restart-host: Перезагрузить

@@ -73,7 +73,7 @@ annotations:
 
 * **yandex.cloud/load-balancer-type**
 
-  Тип балансировщика (по умолчанию — с внешним IP-адресом).
+  [Тип балансировщика](../../../network-load-balancer/concepts/nlb-types.md) (по умолчанию — с внешним IP-адресом).
 
   Значение для балансировщика с внутренним IP-адресом — `internal`.
 * **yandex.cloud/subnet-id**
@@ -127,11 +127,10 @@ externalTrafficPolicy: <string>
 [Список портов, на которых доступен сервис](#ports).
 ||
 
-|| `loadBalancerIP` | `string` | [Заранее зарезервированный статический публичный IP-адрес](../../../vpc/operations/get-static-ip.md). Если не указан, то сетевому балансировщику назначается динамический IP-адрес.
+|| `loadBalancerIP` | `string` | При использовании [внешнего балансировщика нагрузки](../../../network-load-balancer/concepts/nlb-types.md) в этом поле можно указать статический [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Такой адрес необходимо [зарезервировать заранее](../../../vpc/operations/get-static-ip.md). Во время резервирования публичного IP-адреса можно активировать [защиту от DDoS-атак](../../../vpc/ddos-protection/index.md).
 
-Во время резервирования статического IP-адреса можно активировать [защиту от DDoS-атак](../../../vpc/ddos-protection/index.md)
-||
 
+Если не указывать статический IP-адрес, то сетевому балансировщику нагрузки будет назначен динамический IP-адрес ||
 || `externalTrafficPolicy` | `string` | [Политика управления трафиком]({{ k8s-api-link }}#servicespec-v1-core):
 
 * `Cluster` — трафик попадает на любой из узлов кластера {{ k8s }}. В случае отсутствия нужных подов на узле, трафик перенаправляется с помощью [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) на другой узел. Значение по умолчанию.

@@ -40,7 +40,7 @@ items:
         items:
           - name: Connecting to a database
             href: operations/connect.md
-          - name: SQL queries in the management console
+          - name: SQL queries in {{ websql-full-name }}
             href: operations/web-sql-query.md
           - name: Copying and populating a table
             href: operations/copy-write-data.md
@@ -144,7 +144,7 @@ items:
         items:
           - name: Active host classes
             href: concepts/instance-types.md
-          - name: Archive
+          - name: Archives
             items:
               - name: Before June 1, 2020
                 href: concepts/instance-types-archive/instance-types-01062020.md
@@ -180,7 +180,7 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
-      - name: Archive
+      - name: Archives
         items:
           - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md
