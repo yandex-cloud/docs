@@ -21,6 +21,7 @@
 * [AWS SDK для C++](aws-sdk-cpp.md)
 * [AWS SDK для PHP](aws-sdk-php.md)
 * [AWS SDK для Go](aws-sdk-go.md)
+* [AWS SDK для Ruby](https://docs.aws.amazon.com/sdk-for-ruby/)
 
 ## FUSE {#fuse}
 
