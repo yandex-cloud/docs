@@ -42,7 +42,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 When changing the host class:
 
 * Your single-host cluster will be unavailable for a few minutes with database connections terminated.
-* Your multi-host cluster will get a new master host. Its hosts will be stopped and updated one by one. When stopped, a host will be unavailable for a few minutes.
+* Your multi-host cluster will get a new master host. Its hosts will be stopped and updated one by one. Once stopped, a host will be unavailable for a few minutes.
 * Using a [special FQDN](./connect.md#special-fqdns) does not guarantee a stable database connection: user sessions may be terminated.
 
 We recommend changing the host class only when the cluster has no active workload.
@@ -334,23 +334,20 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
    1. Run the following command with a list of settings to update:
 
-      
       ```bash
       {{ yc-mdb-my }} cluster update <cluster_name_or_ID> \
         --backup-window-start <backup_start_time> \
         --backup-retain-period-days=<backup_retention_period> \
-        --datalens-access=<access_from_{{ datalens-name }}> \
+        --datalens-access=<true_or_false> \
+        --websql-access=<true_or_false> \
         --maintenance-window type=<maintenance_type>,`
                             `day=<day_of_week>,`
                             `hour=<hour> \
-        --websql-access=<queries_from_management_console> \
         --deletion-protection=<deletion_protection> \
         --performance-diagnostics enabled=true,`
                                  `sessions-sampling-interval=<session_sampling_interval>,`
                                  `statements-sampling-interval=<statement_sampling_interval>
       ```
-
-
 
    You can change the following settings:
 
@@ -360,11 +357,11 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
    * `--datalens-access`: Enables access from {{ datalens-name }}. The default value is `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
 
-   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters), where `type` is the maintenance type:
+   * `--websql-access`: Enables you to [run SQL queries](web-sql-query.md) to cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
+
+   * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters), where `type` is the maintenance type:
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
-
-   *`--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. The default value is `false`.
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -410,9 +407,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       Where `backup_retain_period_days` is the retention period for automatic backups (in days). Acceptable values are from `7` to `60`. The default value is `7`.
 
-   
    1. {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
-
 
    1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
@@ -461,10 +456,10 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Settings for access to SQL queries from the management console in the `configSpec.access` parameter.
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Settings for access from other services in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
-   * [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters) in the `maintenanceWindow` parameter.
+   * [Maintenance](../concepts/maintenance.md) window settings (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Retention period of automatic backups in the `configSpec.backupRetainPeriodDays` parameter. Acceptable values are from `7` to `60`. The default value is `7`.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
@@ -473,10 +468,6 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
    * Settings of statistics collection for [cluster performance diagnostics](performance-diagnostics.md) in the `configSpec.performanceDiagnostics` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
-
-   {% include [DataTransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
-
-   {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
 
    You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 

@@ -200,15 +200,10 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 {% endlist %}
 
 
-## Connecting to a cluster from your browser {#browser}
+## Connecting from {{ websql-full-name }} {#websql}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
+{% include [WebSQL](../../_includes/mdb/mmy/websql.md) %}
 
-Use [{{ websql-full-name }}](../../websql) to connect to a {{ MY }} cluster in {{ yandex-cloud }}.
-
-{% include notitle [connect-to-cluster](../../_includes/websql/connect-to-cluster.md) %}
-
-{% include notitle [execute-sql](../../_includes/websql/execute-sql.md) %}
 
 
 ## Before you connect from a Docker container {#connection-docker}

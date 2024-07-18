@@ -14,7 +14,7 @@ To get started with the service:
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if you are not signed up yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 
 
 1. If you do not have a folder yet, create one:
@@ -39,11 +39,11 @@ To get started with the service:
 
 ## Open the {{ AF }} web interface {#web-gui}
 
-You can manage {{ AF }} through the web interface. To start using it:
+You can manage {{ AF }} through the web interface. Only users with the [{{ roles.maf.user }}](security/index.md#managed-airflow-user) role or higher can use it. To get started with the {{ AF }} web interface:
 
 {% include [web interface](../_includes/mdb/maf/web-interface.md) %}
 
-In addition to the web interface, you can use the [{{ AF }} API](https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html). Learn more about how to work with it in [{#T}](operations/af-interfaces.md).
+In addition to the web interface, you can use the [{{ AF }} API](https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html). For more information, see [{#T}](operations/af-interfaces.md).
 
 ## What's next {#whats-next}
 

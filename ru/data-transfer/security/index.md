@@ -20,7 +20,7 @@ description: "Управление доступом в сервисе по пе�
 
 ## На какие ресурсы можно назначить роль {#resources}
 
-Роль можно назначить на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Роли на облако действуют и на вложенные каталоги.
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 ## Какие роли действуют в сервисе {#roles-list}
 

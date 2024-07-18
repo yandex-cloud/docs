@@ -1,4 +1,4 @@
-# Настройка Ingress-контроллера {{ alb-name }}
+# Настройка Ingress-контроллера {{ alb-full-name }}
 
 
 Сервис [{{ alb-full-name }}](../../application-load-balancer/) используется для балансировки нагрузки и распределения трафика между приложениями. Чтобы с его помощью управлять трафиком к приложениям, запущенным в [кластере {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), необходим [Ingress-контроллер](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
@@ -632,7 +632,7 @@ yc certificate-manager certificate list
      kubectl apply -f .
      ```
 
-  1. Дождитесь создания Ingress-контроллера и получения им публичного IP-адреса, это может занять несколько минут:
+  1. Дождитесь создания Ingress-контроллера и получения им публичного IP-адреса, это может занять несколько минут.
 
      Чтобы отслеживать создание контроллера и убедиться в отсутствии ошибок, откройте логи пода, в котором запущен процесс создания:
 
@@ -659,6 +659,10 @@ yc certificate-manager certificate list
      По конфигурации Ingress-контроллера будет автоматически развернут L7-балансировщик.
 
 {% endlist %}
+
+По умолчанию Ingress-контроллер {{ alb-name }} принимает от L7-балансировщика запросы для [проверок состояния](../../application-load-balancer/concepts/backend-group.md#health-checks) приложения на TCP-порт `10501` и проверяет работоспособность подов [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) на каждом узле кластера. Суть проверки состояния заключается в том, что когда kube-proxy работоспособен, то даже если приложение в конкретном поде не отвечает, {{ k8s }} перенаправит трафик в другой под с этим приложением или на другой узел.
+
+В параметрах ресурса [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md) вы можете настроить собственные проверки состояния. Подробнее см. в разделе [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
 
 ## (Опционально) Настройте группу ресурсов Ingress {#configure-group}
 

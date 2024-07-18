@@ -245,6 +245,10 @@ items:
             href: tutorials/alb-ingress-controller.md
           - name: Настройки логирования для Ingress-контроллеров {{ alb-name }}
             href: tutorials/alb-ingress-controller-log-options.md
+          - name: >-
+              Проверка состояния приложений в кластере с помощью
+              Ingress-контроллера {{ alb-name }}
+            href: tutorials/custom-health-checks.md
           - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
           - name: Настройка Kyverno & Kyverno Policies

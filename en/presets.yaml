@@ -785,11 +785,11 @@ default:
   sku|KZT|b2b:
     tracker:
       license:
-        v1|int|string: Free
         v1|pricingRate:
           100|string: ₸2000.00
           250|string: ₸1800.00
           6|string: ₸2200.00
+        v1|string: Free
   sku|KZT|backup:
     protected_vms:
       v2|month|string: ₸1194.00
@@ -1884,11 +1884,11 @@ default:
   sku|RUB|b2b:
     tracker:
       license:
-        v1|int|string: Free
         v1|pricingRate:
           100|string: ₽400.00
           250|string: ₽360.00
           6|string: ₽440.00
+        v1|string: Free
   sku|RUB|backup:
     protected_vms:
       v2|month|string: ₽238.80
@@ -2691,14 +2691,14 @@ default:
   sku|RUB|support:
     business:
       fixed_consumption:
-        v1|int|string: Free
+        v1|string: Free
     organization:
       business:
         fixed_consumption:
           v1|string: ₽3000.00
     standard:
       fixed_consumption:
-        v1|int|string: Free
+        v1|string: Free
   sku|RUB|sws:
     profile:
       v1|string: ₽250.00
@@ -5855,10 +5855,7 @@ default:
             popup-add_button_add: Create
           explore:
             button_execute: Execute
-            button_explain: Explain
-            button_explain-analyze: Explain analyze
             button_submit-creds: Connect
-            label_offset: Query result offset
             label_password: Password
             label_username: Database username
           format-schemas:
@@ -7119,10 +7116,6 @@ default:
             field_where: Selection condition
             label_fixed-lifetime: fixed
             label_range-lifetime: variable
-          explain:
-            value_buffers: Buffers
-            value_cost: Cost
-            value_time: Time
           hosts:
             action_add-host: Create host
             action_restart-host: Restart

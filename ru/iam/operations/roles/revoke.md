@@ -9,9 +9,7 @@
 
 - Консоль управления {#console}
 
-    В консоли управления можно отозвать роль только на облако или каталог.
-
-    * Чтобы отозвать роль только в каталоге:
+    * Чтобы отозвать роль в каталоге и его дочерних ресурсах:
 
         {% include [update-access-binding-user-console-folder](../../../_includes/resource-manager/update-access-binding-user-console-folder.md) %}
 

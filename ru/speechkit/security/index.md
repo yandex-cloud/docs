@@ -13,7 +13,7 @@ description: "Управление доступом в сервисе речев
 
 ## На какие ресурсы можно назначить роль {#resources}
 
-{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control-without-service-account.md) %}
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 ## Какие роли действуют в сервисе {#roles-list}
 

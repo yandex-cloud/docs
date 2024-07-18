@@ -2,6 +2,10 @@
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
+## На какие ресурсы можно назначить роль {#resources}
+
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 ### Сервисные роли {#service-roles}

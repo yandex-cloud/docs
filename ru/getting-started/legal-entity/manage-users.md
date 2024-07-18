@@ -34,8 +34,6 @@
 
 - Консоль управления {#console}
 
-  В консоли управления можно назначить роль только на облако или каталог:
-
   {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
 

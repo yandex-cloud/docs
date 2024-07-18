@@ -28,6 +28,10 @@ docker run --it \
 | Сервер STT/TTS | `SERVICE_PORT`                           | Порт для запросов к сервисам на обработку речи/текста                                                                                                    |
 | Сервер STT     | `LICENSE_SERVICE_ENDPOINTS`              | FQDN License server и порт регистрации сервиса, указанный в настройке `UPSTREAM_ASR_REGISTRATIONS_SERVER_PORT`, в формате `<FQDN_License_server>:<порт>` |
 | Сервер TTS     | `LICENSE_SERVICE_ENDPOINTS`              | FQDN License server и порт регистрации сервиса, указанный в настройке `UPSTREAM_TTS_REGISTRATIONS_SERVER_PORT`, в формате `<FQDN_License_server>:<порт>` |
+| Сервер {{ PG }} | `POSTGRES_JDBC_URL`                     | URL сервера в формате `jdbc:postgresql://host:<порт>/database?properties`                                                                                  |
+| Сервер {{ PG }} | `POSTGRES_USER`                         | Имя пользователя сервера                                                                                      |
+| Сервер {{ PG }} | `POSTGRES_PASSWORD`                     | Пароль для входа на сервер                                                                                       |
+| Billing server | `STATIC_API_KEY`                         | [API-ключ](../iam/concepts/authorization/api-key.md) для аутентификации на сервере                                                                    |
 
 ## Зарезервированные порты {#reserved-ports}
 

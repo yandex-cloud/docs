@@ -1,1 +1,0 @@
-Как и в других сервисах, роль можно назначить на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Роли, назначенные на облако или каталог, действуют и на вложенные ресурсы.
