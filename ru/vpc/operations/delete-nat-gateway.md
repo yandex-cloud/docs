@@ -119,7 +119,7 @@
 
 - API {#api}
 
-  Чтобы отвязать NAT-шлюз от таблицы маршрутизации, нужно удалить из таблицы маршрутизации статический маршрут с этим NAT-шлюзом. Для этого воспользуйтесь методом REST API [update](../api-ref/RouteTable/update.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Update](../api-ref/grpc/route_table_service.md#Update) и передайте в запросе список статических маршрутов без удалемого маршрута в параметре:
+  Чтобы отвязать NAT-шлюз от таблицы маршрутизации, нужно удалить из таблицы маршрутизации статический маршрут с этим NAT-шлюзом. Для этого воспользуйтесь методом REST API [update](../api-ref/RouteTable/update.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Update](../api-ref/grpc/route_table_service.md#Update) и передайте в запросе список статических маршрутов без удаляемого маршрута в параметре:
     * `staticRoutes` для REST API;
     * `static_routes` для gRPC API.
   

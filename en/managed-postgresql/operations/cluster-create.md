@@ -309,7 +309,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
          By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
 
-      * `version`: {{ PG }} version, {{ pg.versions.tf.str }}.
+      * `version`: {{ PG }} {{ pg.versions.tf.str }}.
       * `pool_discard`: Odyssey `pool_discard` parameter, `true` or `false`.
       * `pooling_mode`: Pooling mode: `SESSION`, `TRANSACTION`, or `STATEMENT`.
 
@@ -337,7 +337,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 - API {#api}
 
    To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
-   * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the cluster should be placed, in the `folderId` parameter.
+   * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the cluster in the `folderId` parameter.
    * Cluster name in the `name` parameter.
    * Cluster environment in the `environment` parameter.
    * [Network](../../vpc/concepts/network.md#network) ID in the `networkId` parameter.
@@ -365,14 +365,11 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
    To allow [connection](connect.md) to cluster hosts from the internet, provide the `true` value in the `hostSpecs.assignPublicIp` parameter.
 
-   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
-   
    
    To allow cluster access from [{{ sf-full-name }}](../../functions/), set `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
    To allow cluster access from [{{ yq-full-name }}](../../query/index.yaml), set `true` for the `configSpec.access.yandexQuery` parameter. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and available upon request.
-
 
 
    To enable [statistics collection](performance-diagnostics.md#activate-stats-collector):

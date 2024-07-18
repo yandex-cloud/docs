@@ -22,7 +22,7 @@ description: "Управление доступом в сервисе созда
 
 {% include [basic-resources](../_includes/iam/basic-resources-for-access-control.md) %}
 
-Чтобы разрешить доступ к ресурсам сервиса {{ mch-name }} (кластеры и хосты БД, резервные копии кластеров, базы данных и их пользователи), назначьте пользователю нужные роли на каталог или облако, в котором эти ресурсы лежат.
+{% include [assign-roles-mdb](../_includes/iam/assign-roles-mdb.md) %}
 
 ## Какие роли действуют в сервисе {#roles-list}
 

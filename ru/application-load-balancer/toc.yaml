@@ -100,6 +100,10 @@ items:
         href: tutorials/alb-ingress-controller.md
       - name: Настройки логирования для Ingress-контроллеров {{ alb-name }}
         href: tutorials/alb-ingress-controller-log-options.md
+      - name: >-
+          Проверка состояния приложений в кластере {{ k8s }} с помощью
+          Ingress-контроллера {{ alb-name }}
+        href: tutorials/custom-health-checks.md
   - name: Концепции
     items:
       - name: Обзор

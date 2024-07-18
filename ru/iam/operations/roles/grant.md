@@ -238,7 +238,7 @@
 
 ## Назначить роль на ресурс {#resource}
 
-Вы можете назначить роль не только на облако или каталог, но и на их дочерние ресурсы. Они перечислены в разделе [{#T}](../../concepts/access-control/resources-with-access-control.md).
+Вы можете назначить роль не только на организацию, облако или каталог, но и на их дочерние ресурсы. Они перечислены в разделе [{#T}](../../concepts/access-control/resources-with-access-control.md).
 
 {% list tabs group=instructions %}
 

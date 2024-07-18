@@ -1,6 +1,6 @@
 - {% include [Backup time](../../../_includes/mdb/console/backup-time.md) %}
 
-- **{{ ui-key.yacloud.mdb.forms.backup-retain-period }}**: Period to store automatically created backups. If an automatic backup expires, it is deleted. The default is {{ mpg-backup-retention }} days. For more information, see [Backups](../../../managed-postgresql/concepts/backup.md).
+- **{{ ui-key.yacloud.mdb.forms.backup-retain-period }}**: Retention period for automatic backups. If an automatic backup expires, it is deleted. The default is {{ mpg-backup-retention }} days. For more information, see [Backups](../../../managed-postgresql/concepts/backup.md).
 
    Changing the retention period affects both new automatic backups and existing backups. For example, the initial retention period was 7 days. The remaining lifetime for a backup with this period is 1 day. When the retention period increases to 9 days, the remaining lifetime for this backup is 3 days.
 
@@ -13,10 +13,9 @@
 - **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**: This option allows you to analyze cluster data in [{{ datalens-full-name }}](../../../datalens/concepts/index.md).
 
 
-- **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**: This option allows you to run SQL queries against cluster databases from the {{ yandex-cloud }} management console.
+- **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}**: Enables you to [run SQL queries](../../../managed-postgresql/operations/web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}.
 
 
-- {% include [datatransfer access](../console/datatransfer-access.md) %}
 
 
 

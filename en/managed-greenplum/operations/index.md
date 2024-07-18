@@ -5,7 +5,7 @@ description: "This page provides a list of step-by-step guides for {{ mpg-name }
 
 # Step-by-step guides for {{ mgp-name }}
 
-## Clusters
+## Clusters {#clusters}
 
 * [Information about existing clusters](cluster-list.md)
 * [{#T}](calculate-specs.md)
@@ -18,11 +18,11 @@ description: "This page provides a list of step-by-step guides for {{ mpg-name }
 * [Managing backups](cluster-backups.md)
 * [Deleting a cluster](cluster-delete.md)
 
-## Databases
+## Databases {#databases}
 
 * [{#T}](connect.md)
 
-## Users and sessions
+## Users and sessions {#users-and-sessions}
 
 * [{#T}](roles-and-users.md)
 * [{#T}](resource-groups.md)
@@ -30,7 +30,7 @@ description: "This page provides a list of step-by-step guides for {{ mpg-name }
 * [{#T}](command-center.md)
 * [{#T}](cluster-process.md)
 
-## PXF external tables
+## PXF external tables {#pxf}
 
 * [{#T}](external-tables.md)
 * [{#T}](pxf/create-s3-source.md)
@@ -38,24 +38,25 @@ description: "This page provides a list of step-by-step guides for {{ mpg-name }
 * [{#T}](pxf/create-hdfs-source.md)
 * [{#T}](pxf/create-hive-source.md)
 * [{#T}](pxf/create-table.md)
+* [{#T}](pxf/settings.md)
 
-## Working with `gpfdist`
+## Working with `gpfdist` {#gpfdist}
 
 * [{#T}](gpfdist/connect.md)
 
-## {{ GP }} extensions
+## {{ GP }} extensions {#extensions}
 
 * [Managing extensions](./extensions/cluster-extensions.md)
 * [Using pgcrypto](./extensions/pgcrypto.md)
 * [Using uuid-cb](./extensions/uuid-cb.md)
 
-## Logs and monitoring
+## Logs and monitoring {#logs-and-monitoring}
 
 * [Viewing cluster logs](cluster-logs.md)
 * [{#T}](performance-diagnostics.md)
 * [Monitoring the state of clusters and hosts](monitoring.md)
 
-## Auxiliary utilities
+## Auxiliary utilities {#tools}
 
 * [{#T}](greenplum-db.md)
 

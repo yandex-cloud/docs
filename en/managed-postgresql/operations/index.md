@@ -5,7 +5,7 @@ description: "This page provides a list of step-by-step guides for {{ mpg-name }
 
 # Step-by-step guides for {{ mpg-name }}
 
-## Clusters
+## Clusters {#clusters}
 
 * [Getting information on existing clusters](cluster-list.md)
 * [Creating a cluster](cluster-create.md)
@@ -19,19 +19,19 @@ description: "This page provides a list of step-by-step guides for {{ mpg-name }
 * [Upgrading the {{ PG }} version](cluster-version-update.md)
 * [Deleting a cluster](cluster-delete.md)
 
-## Databases
+## Databases {#databases}
 
 * [Connecting to a database in a cluster](connect.md)
-* [SQL queries in the management console](web-sql-query.md)
+* [{#T}](web-sql-query.md)
 * [Copying and populating a table from a local machine](copy-write-data.md)
 * [Managing databases](databases.md)
 
-## {{ PG }} users
+## {{ PG }} users {#users}
 
 * [Managing users](cluster-users.md)
 * [Assigning privileges and roles to users](grant.md)
 
-## {{ PG }} extensions and dictionaries
+## {{ PG }} extensions and dictionaries {#extensions-and-dictionaries}
 
 * [Managing extensions](./extensions/cluster-extensions.md)
 * [Using pg_cron](./extensions/pg_cron.md)
@@ -39,7 +39,7 @@ description: "This page provides a list of step-by-step guides for {{ mpg-name }
 * [Using pgcrypto](./extensions/pgcrypto.md)
 * [Using a Hunspell dictionary for full-text search](./extensions/hunspell.md)
 
-## Logs and monitoring
+## Logs and monitoring {#logs-and-monitoring}
 
 * [Viewing cluster logs](cluster-logs.md)
 * [Performance diagnostics](performance-diagnostics.md)

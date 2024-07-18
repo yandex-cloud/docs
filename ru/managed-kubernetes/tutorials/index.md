@@ -66,6 +66,7 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 * [{#T}](marketplace/gateway-api.md)
 * [{#T}](alb-ingress-controller.md)
 * [{#T}](alb-ingress-controller-log-options.md)
+* [{#T}](custom-health-checks.md)
 * [{#T}](marketplace/jaeger-over-ydb.md)
 * [{#T}](marketplace/kyverno.md)
 * [{#T}](marketplace/metrics-provider.md)

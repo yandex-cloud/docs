@@ -17,6 +17,8 @@ items:
         href: domains/index.md
       - name: Чеклист
         href: domains/checklist.md
+      - name: Чеклист безопасности IaaS
+        href: domains/iaas-checklist.md
       - name: Безопасность Kubernetes
         href: domains/kubernetes.md
   - name: Стандарт по защите облачной инфраструктуры 1.1

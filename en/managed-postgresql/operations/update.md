@@ -40,7 +40,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 When changing the host class:
 
 * Your single-host cluster will be unavailable for a few minutes with database connections terminated.
-* Your multi-host cluster will get a new master host. Its hosts will be stopped and updated one by one. When stopped, a host will be unavailable for a few minutes.
+* Your multi-host cluster will get a new master host. Its hosts will be stopped and updated one by one. Once stopped, a host will be unavailable for a few minutes.
 * Using a [special FQDN](./connect.md#special-fqdns) does not guarantee a stable database connection: user sessions may be terminated.
 
 We recommend changing the host class only when the cluster has no active workload.
@@ -132,7 +132,7 @@ We recommend changing the host class only when the cluster has no active workloa
    To change the class of cluster hosts, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * Host class ID in the `configSpec.resources.resourcePresetId` parameter. To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
+   * Host class ID in the `configSpec.resources.resourcePresetId` parameter. To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
    * List of settings to update (in this case, `configSpec.resources.resourcePresetId`) in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -292,18 +292,16 @@ You can change the DBMS settings of the hosts in your cluster.
 
    * `--datalens-access`: Enables DataLens access. The default value is `false`. For more information on setting up a connection, see [Connecting to a cluster from {{ datalens-name }}](datalens-connect.md).
 
-   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters), where `type` is the maintenance type:
+   * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters), where `type` is the maintenance type:
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-   
-   * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. The default value is `false`.
+   * `--websql-access`: Enables you to [run SQL queries](web-sql-query.md) to cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
    
    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
    * `--yandexquery-access`: Enables cluster access from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and available upon request.
-
 
 
    * `--autofailover` manages automatic master change setup. To learn more, see [Replication](../concepts/replication.md#replication-auto). The default value is `true`.
@@ -349,8 +347,7 @@ You can change the DBMS settings of the hosts in your cluster.
       }
       ```
 
-   
-   1. To allow access from {{ datalens-full-name }} and [execution of SQL queries from the management console](web-sql-query.md), change the values of the appropriate fields in the `config.access` block:
+   1. To enable access from {{ datalens-full-name }} and allow [execution of SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, change the values of the appropriate fields in the `config.access` section:
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
@@ -368,9 +365,7 @@ You can change the DBMS settings of the hosts in your cluster.
       Where:
 
       * `data_lens`: Access from {{ datalens-name }}, `true` or `false`.
-      * `web_sql`: Execution of SQL queries from the management console, `true` or `false`.
-
-
+      * `web_sql`: Execution of SQL queries from the management console using {{ websql-full-name }}: `true` or `false`.
 
    1. To change the [connection pooler mode](../concepts/pooling.md), add the `config.pooler_config` section to the {{ mpg-name }} cluster description:
 
@@ -428,10 +423,10 @@ You can change the DBMS settings of the hosts in your cluster.
    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
+   * Settings for access from other services in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * [Connection pooler mode](../concepts/pooling.md) in the `configSpec.poolerConfig.poolingMode` parameter.
-   * [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters) in the `maintenanceWindow` parameter.
+   * [Maintenance](../concepts/maintenance.md) window settings (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Settings for protection of the cluster, its databases, and users against deletion in the `deletionProtection` parameter: `true` or `false`.
 
       By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.

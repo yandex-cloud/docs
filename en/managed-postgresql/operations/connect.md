@@ -221,15 +221,10 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 {% endlist %}
 
 
-## Connecting to a cluster from your browser {#browser}
+## Connecting from {{ websql-full-name }} {#websql}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
+{% include [WebSQL](../../_includes/mdb/mpg/websql.md) %}
 
-Use [{{ websql-full-name }}](../../websql) to connect to a {{ PG }} cluster in {{ yandex-cloud }}.
-
-{% include notitle [connect-to-cluster](../../_includes/websql/connect-to-cluster.md) %}
-
-{% include notitle [execute-sql](../../_includes/websql/execute-sql.md) %}
 
 
 ## Connecting from {{ pgadmin }} {#connection-pgadmin}
@@ -276,7 +271,7 @@ You can only use [{{ google-looker }}](https://lookerstudio.google.com/overview)
 
 1. On the [{{ google-looker }} navigation page](https://lookerstudio.google.com/navigation/reporting), select **Create** → **Data source**.
 1. Choose {{ PG }}.
-1. Fill out the fields below:
+1. Fill in the fields as follows:
 
    * **Host name or IP address**: [Special master host FQDN](#fqdn-master) or regular host [FQDN](../concepts/network.md#hostname).
    * **Port**: `{{ port-mpg }}`.

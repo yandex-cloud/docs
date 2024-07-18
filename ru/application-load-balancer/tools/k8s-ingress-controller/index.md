@@ -3,7 +3,7 @@
 
 {{ alb-name }} предоставляет инструмент для создания и управления балансировщиками нагрузки в [кластерах {{ managed-k8s-full-name }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) — Ingress-контроллер {{ alb-name }}.
 
-Ingress-контроллер, установленный в кластер, будет автоматически разворачивать [L7-балансировщики](../../concepts/application-load-balancer.md) со всеми необходимыми ресурсами {{ alb-name }}, основываясь на конфугурации созданных вами ресурсов [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
+Ingress-контроллер, установленный в кластер, будет автоматически разворачивать [L7-балансировщики](../../concepts/application-load-balancer.md) со всеми необходимыми ресурсами {{ alb-name }}, основываясь на конфигурации созданных вами ресурсов [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
 
 Полную конфигурацию ресурсов для Ingress-контроллера {{ alb-name }} см. в следующих разделах:
 

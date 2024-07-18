@@ -4,13 +4,17 @@ This section contains {{ mch-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## June 2024 {#june-2024}
+
+New {{ CH }} version is now available: [24.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-245-2024-05-30).
+
 ## May 2024 {#may-2024}
 
-* New {{ CH }} version is now available: [24.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-244-2024-04-30).
+New {{ CH }} version is now available: [24.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-244-2024-04-30).
 
 ## April 2024 {#apr-2024}
 
-* New {{ CH }} version is now available: [24.3 LTS](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-243-lts-2024-03-27).
+New {{ CH }} version is now available: [24.3 LTS](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-243-lts-2024-03-27).
 
 ## March 2024 {#mar-2024}
 
@@ -25,18 +29,18 @@ This section contains {{ mch-name }} release notes.
 
 ## Q2 2023 {#q2-2023}
 
-* New {{ CH }} versions are now available: [23.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-234-2023-04-26) and [23.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-235-2023-06-08).
+New {{ CH }} versions are now available: [23.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-234-2023-04-26) and [23.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-235-2023-06-08).
 
 ## Q1 2023 {#q1-2023}
 
-* New {{ CH }} version is now available: [23.3](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-233-lts-2023-03-30).
+New {{ CH }} version is now available: [23.3](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-233-lts-2023-03-30).
 
 ## Q4 2022 {#q4-2022}
 
 * New {{ CH }} versions are now available: [22.10](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-2210-2022-10-25) and [22.11](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-2211-2022-11-17).
 * You can now create {{ ZK }} hosts with [non-replicated SSD storage](concepts/storage.md).
 * You can now set up {{ ZK }} hosts when restoring a cluster from a backup.
-* You can now set up hybrid storage when restoring a cluster from a backup. {{ tag-con }} {{ tag-api }}
+* You can now set up hybrid storage when restoring a cluster from a backup. {{ tag-con }}
 * You can now run SQL queries from your browser using a [built-in SQL editor](./operations/connect/clients.md#inline-editor).
 * Added **Data parts**, **Databases**, **Inode usage**, **Rows of MergeTree tables**, and **Tables** charts on the [cluster monitoring](operations/monitoring.md#monitoring-cluster) page.
 * The **Failed insert queries per host**, **Failed queries per host**, and **Failed select queries per host** charts now show the percentage of failed queries rather than their number.
@@ -72,7 +76,7 @@ This section contains {{ mch-name }} release notes.
 ## Q1 2022 {#q1-2022}
 
 * A new version is available: {{ CH }} 22.3 LTS ([revision list](https://github.com/ClickHouse/ClickHouse/blob/master/CHANGELOG.md)).
-* Added the ability to restore a sharded cluster from a backup entirely. {{ tag-cli }} {{ tag-api }}
-* Added the ability to change the settings that enable public access to a host. {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* Added the ability to restore a sharded cluster from a backup entirely. {{ tag-cli }}
+* Added the ability to change the settings that enable public access to a host. {{ tag-con }}
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}
