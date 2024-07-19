@@ -37,6 +37,12 @@
         * (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_prefix }}** введите [префикс](../../concepts/trigger/os-trigger.md#filter) для фильтрации.
         * (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_suffix }}** введите [суффикс](../../concepts/trigger/os-trigger.md#filter) для фильтрации.
 
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
+
+        {% include [batch-settings](../../../_includes/functions/batch-settings.md) %}
+
+        {% include [batch-events](../../../_includes/functions/batch-events.md) %}
+
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите функцию и укажите:
 
         {% include [function-settings](../../../_includes/functions/function-settings.md) %}

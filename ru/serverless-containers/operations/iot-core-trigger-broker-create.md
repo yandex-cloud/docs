@@ -46,6 +46,12 @@ description: "Создайте триггер для топика брокера
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_broker }}** укажите брокер.
         * (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_mqtt-topic }}** укажите MQTT-топик. Если MQTT-топик не указан, триггер срабатывает для всех топиков брокера.
 
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
+
+        {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
+
+        {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %} 
+    
     1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
     1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:

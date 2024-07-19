@@ -7595,6 +7595,7 @@ default:
             field_retry-interval: Интервал
             field_service-account: Сервисный аккаунт
             field_size: Размер группы
+            field_stream-size: Размер группы, Б
             field_suffix: Суффикс ключа объекта
             field_tag: Тег Docker-образа
             field_type: Тип

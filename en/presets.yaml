@@ -7592,6 +7592,7 @@ default:
             field_retry-interval: Interval
             field_service-account: Service account
             field_size: Batch size
+            field_stream-size: Batch size, B
             field_suffix: Object key suffix
             field_tag: Docker image tag
             field_type: Type

@@ -34,12 +34,11 @@
 
         {% include [logging-settings](../../_includes/functions/logging-settings.md) %}
 
-    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
 
-        * размер группы сообщений. Допустимые значения от 1 до 100, значение по умолчанию — 1.
-        * максимальное время ожидания. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда.
+        {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
 
-       Триггер группирует сообщения не дольше указанного времени ожидания и отправляет их в контейнер. Число сообщений при этом не превышает указанный размер группы.
+        {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %}
 
     1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 

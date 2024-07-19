@@ -12,14 +12,13 @@ description: "На странице представлен список поша
 - [Изменение настроек кластера](cluster-update.md)
 - [{#T}](cluster-version-update.md)
 - [Остановка и запуск кластера](cluster-stop.md)
-- [Управление хостами кластера](cluster-hosts.md)
+- [Получение списка хостов кластера](cluster-hosts.md)
 - [{#T}](host-migration.md)
 - [Удаление кластера](cluster-delete.md)
 
 ## Подключение к кластеру {#connect}
 
 * [Предварительная настройка](connect/index.md)
-* [FQDN хостов {{ KF }}](connect/fqdn.md)
 * [Подключение к кластеру из приложений](connect/clients.md)
 * [Примеры кода для подключения к кластеру](connect/code-examples.md)
 

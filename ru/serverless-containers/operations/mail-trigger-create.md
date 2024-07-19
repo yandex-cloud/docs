@@ -51,6 +51,12 @@
 
     1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
+
+        {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
+
+        {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %} 
+
     1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
         {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}

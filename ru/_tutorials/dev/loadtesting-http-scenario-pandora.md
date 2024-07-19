@@ -194,6 +194,11 @@
                      times: 5
             log:
                level: debug
+      autostop:
+         enabled: true
+         package: yandextank.plugins.Autostop
+         autostop:
+            - limit (5m)
       core: {}
    ```
 

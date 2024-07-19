@@ -49,6 +49,12 @@
       
         {% include [mail-trigger-attachements](../../../_includes/functions/mail-trigger-attachements.md) %}
 
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
+
+        {% include [batch-settings](../../../_includes/functions/batch-settings.md) %}
+
+        {% include [batch-messages](../../../_includes/functions/batch-messages.md) %}
+
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите функцию и укажите:
 
         {% include [function-settings](../../../_includes/functions/function-settings.md) %}
