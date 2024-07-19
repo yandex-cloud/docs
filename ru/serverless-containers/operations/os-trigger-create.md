@@ -36,6 +36,12 @@
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** выберите события, после наступления которых триггер будет запускаться.
         * (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_prefix }}** введите префикс для фильтрации.
         * (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_suffix }}** введите суффикс для фильтрации.
+    
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
+
+        {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
+
+        {% include [batch-events](../../_includes/serverless-containers/batch-events.md) %}
 
     1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 

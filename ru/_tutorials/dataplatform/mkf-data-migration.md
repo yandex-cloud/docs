@@ -288,7 +288,7 @@
    * Параметр `<M>` — [фактор репликации по умолчанию](../../managed-kafka/concepts/settings-list.md#settings-topic-replication-factor), установленный для топиков в кластере-приемнике.
    * Параметр `<T>` — количество одновременно работающих процессов MirrorMaker. Рекомендуется указывать не менее `2` для равномерного распределения нагрузки репликации. Подробнее см. [в документации {{ KF }}](https://kafka.apache.org/documentation/#georeplication-config-syntax).
 
-   FQDN брокеров {{ mkf-name }} можно запросить со [списком хостов в кластере](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
+   FQDN брокеров {{ mkf-name }} можно запросить со [списком хостов в кластере](../../managed-kafka/operations/cluster-hosts.md).
 
 ### Запустите репликацию {#replication-start}
 

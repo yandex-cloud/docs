@@ -297,6 +297,11 @@
         expvar:
          enabled: true
          port: 1234
+   autostop:
+      enabled: true
+      package: yandextank.plugins.Autostop
+      autostop:
+         - limit (5m)
    uploader:
      enabled: true
      package: yandextank.plugins.DataUploader

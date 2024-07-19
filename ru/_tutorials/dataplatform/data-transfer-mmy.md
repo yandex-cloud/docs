@@ -145,7 +145,7 @@
         -K:
     ```
 
-    FQDN хостов-брокеров можно получить со [списком хостов в кластере {{ mkf-name }}](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
+    FQDN хостов-брокеров можно получить со [списком хостов в кластере {{ mkf-name }}](../../managed-kafka/operations/cluster-hosts.md).
 
 1. Подключитесь к кластеру-источнику и добавьте данные в таблицу `measurements`:
 

@@ -233,7 +233,7 @@
         -K:
     ```
 
-    FQDN хостов-брокеров можно получить со [списком хостов в кластере {{ mkf-name }}](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
+    FQDN хостов-брокеров можно получить со [списком хостов в кластере {{ mkf-name }}](../../managed-kafka/operations/cluster-hosts.md).
 
 1. [Подключитесь к базе данных {{ ydb-name }}](../../ydb/operations/connection.md) и [добавьте тестовые данные](../../ydb/operations/crud.md) в таблицу `sensors`:
 
