@@ -24,7 +24,7 @@ items:
             href: operations/cluster-version-update.md
           - name: Остановка и запуск кластера
             href: operations/cluster-stop.md
-          - name: Управление хостами {{ KF }}
+          - name: Получение списка хостов кластера {{ KF }}
             href: operations/cluster-hosts.md
           - name: Миграция хостов в другую зону доступности
             href: operations/host-migration.md
@@ -34,8 +34,6 @@ items:
         items:
           - name: Предварительная настройка
             href: operations/connect/index.md
-          - name: FQDN хостов
-            href: operations/connect/fqdn.md
           - name: Подключение из приложений
             href: operations/connect/clients.md
           - name: Примеры кода

@@ -140,6 +140,7 @@
       enabled: true
       package: yandextank.plugins.Autostop
       autostop:
+         - limit(5m) # Обязательный параметр
          - quantile(50,100,5,)
    core: {}
    ```

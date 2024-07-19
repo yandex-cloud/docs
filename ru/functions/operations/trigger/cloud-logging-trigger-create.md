@@ -34,12 +34,11 @@
 
         {% include [logging-settings](../../../_includes/functions/logging-settings.md) %}
 
-    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
 
-        * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_ymq-cutoff }}**. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда.
-        * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**. Допустимые значения от 1 до 100, значение по умолчанию — 1.
+        {% include [batch-settings](../../../_includes/functions/batch-settings.md) %}
 
-       Триггер группирует сообщения не дольше указанного времени ожидания и отправляет их в функцию. Число сообщений при этом не превышает указанный размер группы.
+        {% include [batch-messages](../../../_includes/functions/batch-messages.md) %}
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите функцию и укажите:
 

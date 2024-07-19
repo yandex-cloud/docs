@@ -166,7 +166,7 @@
 
     {{ KFC }} будет подключаться к кластеру {{ mkf-name }} от имени пользователя `user`, [созданного ранее](#before-you-begin).
 
-    FQDN хостов-брокеров можно запросить со [списком хостов в кластере](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
+    FQDN хостов-брокеров можно запросить со [списком хостов в кластере](../../managed-kafka/operations/cluster-hosts.md).
 
 1. Создайте файл настроек коннектора `/etc/kafka-connect-worker/file-connector.properties`:
 
@@ -207,7 +207,7 @@
         -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
     ```
 
-    FQDN хостов-брокеров можно запросить со [списком хостов в кластере](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
+    FQDN хостов-брокеров можно запросить со [списком хостов в кластере](../../managed-kafka/operations/cluster-hosts.md).
 
     В выводе команды вы увидите содержимое тестового файла `/var/log/sample.json`, переданное на предыдущем шаге.
 

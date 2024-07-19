@@ -1,12 +1,11 @@
 # Обновление версии {{ MG }}
 
-Вы можете обновить кластер {{ mmg-name }} только на следующую версию относительно текущей, например, с версии 4.0 на 4.2. Обновление до более поздних версий производится поэтапно. Например, обновление версии {{ MG }} с 4.2 до 6.0 выполняется в такой последовательности: 4.2 → 4.4 → 5.0 → 6.0.
+Вы можете обновить кластер {{ mmg-name }} только на следующую версию относительно текущей, например, с версии 4.2 на 4.4. Обновление до более поздних версий производится поэтапно. Например, обновление версии {{ MG }} с 4.2 до 6.0 выполняется в такой последовательности: 4.2 → 4.4 → 5.0 → 6.0.
 
 
 {% note alert %}
 
-* После обновления невозможно вернуть кластер к предыдущей версии.
-* Перед обновлением выполните подготовительные шаги.
+После обновления невозможно вернуть кластер к предыдущей версии.
 
 {% endnote %}
 
@@ -110,7 +109,7 @@
 
 ## Примеры {#examples}
 
-Допустим, нужно обновить кластер с версии 4.0 до версии 4.2.
+Допустим, нужно обновить кластер с версии 5.0 до версии 6.0.
 
 {% list tabs group=instructions %}
 
@@ -120,7 +119,11 @@
 
       ```bash
       {{ yc-mdb-mg }} cluster list
+      ```
 
+      Результат:
+
+      ```text
       +----------------------+---------------+---------------------+--------+---------+
       |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
       +----------------------+---------------+---------------------+--------+---------+
@@ -132,33 +135,38 @@
 
       ```bash
       {{ yc-mdb-mg }} cluster get c9qut3k64b2o********
-        id: c9qut3k64b2o********
-        folder_id: b1g0itj57rbj********
-        created_at: "2019-07-16T09:43:50.393231Z"
-        name: mongodb406
-        environment: PRODUCTION
-        monitoring:
-        - name: Console
-          description: Console charts
-          link: {{ link-console-main }}/folders/b1g0itj57rbj********/managed-mongodb/cluster/c9qut3k64b2o********?section=monitoring
-        config:
-          version: "4.0"
-          feature_compatibility_version: "4.0"
-          ...
+      ```
+      
+      Результат:
+
+      ```text
+      id: c9qut3k64b2o********
+      folder_id: b1g0itj57rbj********
+      created_at: "2019-07-16T09:43:50.393231Z"
+      name: mongodb406
+      environment: PRODUCTION
+      monitoring:
+      - name: Console
+        description: Console charts
+        link: {{ link-console-main }}/folders/b1g0itj57rbj********/managed-mongodb/cluster/c9qut3k64b2o********?section=monitoring
+      config:
+        version: "5.0"
+        feature_compatibility_version: "5.0"
+        ...
       ```
 
-   1. Для обновления кластера `c9qutgkd4b2o********` до версии 4.2, выполните команду:
+   1. Для обновления кластера `c9qutgkd4b2o********` до версии 6.0, выполните команду:
 
       ```bash
       {{ yc-mdb-mg }} cluster update c9qutgkd4b2o******** \
-          --mongodb-version=4.2
+          --mongodb-version=6.0
       ```
 
-   1. Чтобы включить все возможности версии 4.2 в кластере `c9qutgkd4b2o********`, выполните команду:
+   1. Чтобы включить все возможности версии 6.0 в кластере `c9qutgkd4b2o********`, выполните команду:
 
       ```bash
       {{ yc-mdb-mg }} cluster update c9qutgkd4b2o******** \
-          --feature-compatibility-version=4.2
+          --feature-compatibility-version=6.0
       ```
 
 {% endlist %}

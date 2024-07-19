@@ -49,7 +49,7 @@
 
         * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
         * `--columns` — список колонок для вывода информации:
-            * `hostname` — [имя хоста](cluster-hosts.md#list-hosts).
+            * `hostname` — [имя хоста](cluster-hosts.md).
             * `message` — сообщение, которое выводит компонент.
             * `severity` — уровень логирования, например, `I` или `W` (`Info` и `Warning` соответственно).
             * `origin` — источник сообщения, например, `kafka_server` или `kafka_controller`.

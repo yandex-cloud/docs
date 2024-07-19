@@ -46,12 +46,12 @@
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}** выберите очередь сообщений и сервисный аккаунт с правами на чтение из нее.
 
-    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
 
-        * размер группы сообщений. Допустимые значения от 1 до 1000, значение по умолчанию — 1.
-        * максимальное время ожидания. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд.
+        * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_ymq-cutoff }}**. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд.
+        * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**. Допустимые значения от 1 до 1000, значение по умолчанию — 1.
 
-        Триггер группирует сообщения не дольше указанного времени ожидания и отправляет их в контейнер. Число сообщений при этом не превышает указанный размер группы.
+        {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %}
 
     1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 

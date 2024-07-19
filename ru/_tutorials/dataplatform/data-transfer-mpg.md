@@ -154,7 +154,7 @@
         -K:
     ```
 
-    FQDN хостов-брокеров можно получить со [списком хостов в кластере {{ mkf-name }}](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
+    FQDN хостов-брокеров можно получить со [списком хостов в кластере {{ mkf-name }}](../../managed-kafka/operations/cluster-hosts.md).
 
     Будет выведена схема формата данных таблицы `public.measurements` и данные о добавленных в нее ранее строках.
 

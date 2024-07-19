@@ -31,6 +31,12 @@
      * (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_image-name }}** введите имя образа для [фильтрации](../../functions/concepts/trigger/cr-trigger.md#filter). Чтобы узнать имя Docker-образа, [получите список Docker-образов в реестре](../../container-registry/operations/docker-image/docker-image-list.md).
      * (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_tag }}** введите [тег образа](../../functions/concepts/trigger/cr-trigger.md#filter) для фильтрации.
 
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
+
+     {% include [batch-settings](batch-settings.md) %}
+
+     {% include [batch-events](batch-events.md) %}
+
   1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите функцию и укажите:
 
      {% include [function-settings](function-settings.md) %}
