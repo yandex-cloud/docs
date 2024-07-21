@@ -133,7 +133,7 @@ curl -I "https://storage.yandexcloud.net/your-bucket/object"
   ```bash
 ycs3 cp s3://your-bucket/object s3://your-bucket/object \
 --metadata '{"x-amz-meta-my-key":"new-value"}' \
---metadata-directive REPLA
+--metadata-directive REPLACE
   ```
 
 ### См. также {#see-also}
