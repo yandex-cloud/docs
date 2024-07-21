@@ -131,7 +131,7 @@ curl -I "https://storage.yandexcloud.net/your-bucket/object"
 ### Обновление метаданных объекта
 
   ```bash
-yss3 cp s3://your-bucket/object s3://your-bucket/object \
+ycs3 cp s3://your-bucket/object s3://your-bucket/object \
 --metadata '{"x-amz-meta-my-key":"new-value"}' \
 --metadata-directive REPLA
   ```
