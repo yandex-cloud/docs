@@ -76,7 +76,7 @@
 
 ## Метаданные {#metadata}
 
-С объектом хранятся метаданные в виде пар `имя-значение`.
+С объектом хранятся метаданные в виде пар `ключ-значение`.
 
 Метаданные могут быть системными и пользовательскими.
 
@@ -96,7 +96,7 @@
 
 ### Пользовательские метаданные {#user-meta}
 
-При загрузке объекта в {{ objstorage-name }}, вместе с ним можно передать набор метаданных в виде пар `имя-значение`.
+При загрузке объекта в {{ objstorage-name }}, вместе с ним можно передать набор метаданных в виде пар `ключ-значение`.
 
 В HTTP API, совместимом с Amazon S3, метаданные передаются в виде HTTP-заголовков. Имя заголовка должно начинаться с `X-Amz-Meta-`. При запросе объекта через HTTP API Object Storage возвращает метаданные в виде HTTP-заголовков с этим же префиксом.
 
@@ -108,6 +108,33 @@
 
 {% endnote %}
 
+
+## Пример загрузки, получения и обновления метаданных {#user-meta}
+
+### Загрузка объекта с заданными метаданными
+
+  ```bash
+curl -X PUT "https://storage.yandexcloud.net/your-bucket/object" \
+  -H "x-amz-meta-my-key: my-value" \
+  -H "Content-Type: image/jpeg" \
+  --data-binary @/Users/your-username/file.jpg 
+  ```
+
+В поле `--data-binary` необходимо указать полный путь до файла.
+
+### Получение метаданных объекта
+
+  ```bash
+curl -I "https://storage.yandexcloud.net/your-bucket/object"
+  ```
+
+### Обновление метаданных объекта
+
+  ```bash
+yss3 cp s3://your-bucket/object s3://your-bucket/object \
+--metadata '{"x-amz-meta-my-key":"new-value"}' \
+--metadata-directive REPLA
+  ```
 
 ### См. также {#see-also}
 
