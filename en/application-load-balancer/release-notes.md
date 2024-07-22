@@ -1,5 +1,10 @@
 # {{ alb-full-name }} release notes
 
+## Q2 2024 {#q2-2024}
+
+* Added validation of internal IPv4 addresses when creating or updating a load balancer.
+* Fixed the validation issue when creating and updating a target group that could place a backend without a specified weight in a group of backends with specified weights.
+
 ## Q1 2024 {#q1-2024}
 
 * Improved stability of data processing and transmission (data plane) within the service.

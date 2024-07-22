@@ -152,8 +152,8 @@ images:
      user_values:
      - name: app.port
        title:
-         en: <English_title>
-         ru: <Заголовок_на_русском>
+         en: <english_title>
+         ru: <заголовок_на_русском>
      ```
    * `description` — описание переменной, может быть на русском и английском языке. Значение должно начинаться с заглавной буквы.
 
@@ -166,23 +166,26 @@ images:
             ru: <Описание_на_русском>
       ```
 
-   * тип переменной. Доступны значения:
-      * `boolean_value`. Может содержать значение по умолчанию.
+   * `required` (опционально) — флаг *Обязательно для заполнения*. Может быть установлен в любом типе переменной, кроме `boolean_value`. Доступны значения `true` и `false`.
+
+   * Тип переменной. Доступны значения:
+      * `simple_disabled`. Может содержать значение по умолчанию и флаг включения.
 
         ```yaml
         user_values:
-          - name: <Название>
+          - name: <название>
+            disabled: true
             title: <Заголовок>
-            description: <Описание>
-            boolean_value:
-              default_value: true
+            string_value:
+              required: true
+              default_value: "simple_string_value"
         ```
 
-      * `integer_value`. Может содержать значение по умолчанию, флаг <q>обязательно для заполнения</q> и диапазон допустимых значений.
+      * `integer_value`. Может содержать значение по умолчанию и диапазон допустимых значений.
 
         ```yaml
         user_values:
-          - name: <Название>
+          - name: <название>
             title: <Заголовок>
             description: <Описание>
             integer_value:
@@ -193,26 +196,22 @@ images:
                 max: <целое_число_2>
         ```
 
-      * `string_value`. Может содержать флаги <q>обязательно для заполнения</q>> и <q>>поле с секретом</q>, а также ограничение на длину значения.
+      * `boolean_value`. Может содержать значение по умолчанию.
 
         ```yaml
         user_values:
-          - name: <Название>
+          - name: <название>
             title: <Заголовок>
             description: <Описание>
-            string_value:
-              required: true
-              secret: true
-              length_restrictions:
-                min: <min_длина_строки>
-                max: <max_длина_строки>
+            boolean_value:
+              default_value: true
         ```
 
-      * `string_selector_value` — строка из определенного списка. Может содержать значение по умолчанию, флаг <Q>обязательно для заполнения</q> и список допустимых значений.
+      * `string_selector_value` — строка из определенного списка. Может содержать значение по умолчанию и список допустимых значений.
 
         ```yaml
         user_values:
-          - name: <Название>
+          - name: <название>
             title: <Заголовок>
             description: <Описание>
             string_selector_value:
@@ -224,11 +223,11 @@ images:
                 - <значение_3>
         ```
 
-      * `integer_selector_value` — целочисленное значение из определенного списка. Может содержать значение по умолчанию, флаг <q>обязательно для заполнения</q> и список допустимых значений.
+      * `integer_selector_value` — целочисленное значение из определенного списка. Может содержать значение по умолчанию и список допустимых значений.
 
         ```yaml
         user_values:
-          - name: <Название>
+          - name: <название>
             title: <Заголовок>
             description: <Описание>
             integer_selector_value:
@@ -240,11 +239,106 @@ images:
                 - <целое_число_3>
         ```
 
-      * `service_account_aws_key_value` — [статический ключ](../../iam/concepts/authorization/access-key.md) сервисного аккаунта для доступа к {{ objstorage-name }}. Передается в формате JSON. Может содержать флаг *Обязательно для заполнения*. 
+      * `string_value`. Может содержать флаг и *поле с секретом*, а также ограничение на длину значения.
+
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+            description: <Описание>
+            string_value:
+              required: true
+              secret: true
+              length_restrictions:
+                min: <min_длина_строки>
+                max: <max_длина_строки>
+        ```
+
+      * `cloudiddisabled` — идентификатор [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) в {{ yandex-cloud }}. Если параметр был передан, соответствующее поле продукта в консоли управления будет недоступно для редактирования и автоматически предзаполнится.
+
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+            cloud_id_value:
+              required: true
+        ```
+
+      * `cloudid` — идентификатор облака в {{ yandex-cloud }}, который можно выбрать из консоли управления.
+
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+            cloud_id_value:
+              required: true
+        ```
+
+      * `folderid` — идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).
+
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+            folder_id_value:
+              required: true
+        ```
+
+      * `clusterid` — идентификатор [кластера {{ k8s }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+  
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+            cluster_id_value:
+              required: true
+        ```
+
+      * `networkid` — идентификатор [сети](../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
+
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+            network_id_value:
+              required: true
+        ```
+      
+      * `subnetid` — идентификатор [подсети](../../vpc/concepts/network.md#subnet) {{ vpc-name }}.
+
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+            subnet_id_value:
+              required: true
+        ```
+
+      * `serviceaccountid` — идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
+
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+            service_account_id_value:
+              required: true
+        ```
+
+      * `serviceaccountkey` — [авторизованный ключ](../../iam/concepts/authorization/key.md) сервисного аккаунта.
+
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+            service_account_key_value:
+              required: true
+        ```
+
+      * `service_account_aws_key_value` — [статический ключ](../../iam/concepts/authorization/access-key.md) сервисного аккаунта для доступа к {{ objstorage-name }}. Передается в формате JSON. 
       
         ```yaml
         user_values:
-          - name: <Название>
+          - name: <название>
             title: <Заголовок>
             description: <Описание>
             service_account_aws_key_value:
@@ -294,7 +388,115 @@ images:
           SECRET_ACCESS_KEY: {{ include "mychart.access_key_secret" . | b64enc | quote }}
         ```
 
-Значения переменных, указанные пользователем при установке продукта в кластер Kubernetes, будут переопределять значения из файла `values.yaml`.
+      * `ciliumvaluedisabled` — использование провайдера сетевых политик Cilium. Если параметр был передан, соответствующее поле продукта в консоли управления будет недоступно для редактирования и автоматически предзаполнится.
+      
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+          cilium_value: {}
+        ```
+
+      * `ciliumvalue` — использование провайдера сетевых политик Cilium.
+      
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+          cilium_value: {}
+        ```
+
+      * `kubednsclusteripvaluedisabled` — IP-адрес кластера {{ k8s }}. Если параметр был передан, соответствующее поле продукта в консоли управления будет недоступно для редактирования и автоматически предзаполнится.
+      
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+          kube_dns_cluster_ip_value:
+            required: true
+        ```
+
+      * `kubednsclusteripvalue` — IP-адрес кластера {{ k8s }}.
+      
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+          kube_dns_cluster_ip_value:
+            required: true
+        ```
+
+      * `loggroupidvalue` — идентификатор [лог-группы](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}.
+      
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+          log_group_id_value:
+            required: true
+        ```
+
+      * `kmskeyidvalue` — содержимое [ключа {{ kms-full-name }}](../../kms/concepts/key.md).
+      
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+          kms_key_id_value:
+            required: true
+        ```
+
+      * `domainvalue` — домен, в котором будет расположен кластер {{ k8s }}.
+      
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+          domain_value:
+            required: true
+        ```
+
+      * `iamapikeyvalue` — значение [API-ключа](../../iam/concepts/authorization/api-key.md) сервисного аккаунта. Передается в формате JSON.
+      
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+          iam_api_key_value:
+            required: true
+        ```
+
+      * `storagebucketvalue` — [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}.
+      
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+          storage_bucket_value:
+            required: true
+        ```
+
+      * `prometheusworkspaceidvalue` — название рабочего пространства {{ prometheus-name }}.
+      
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+          prometheus_workspace_id_value:
+            required: false
+        ```
+
+      * `licenseidvalue` — идентификатор [подписки](license-manager-integration.md) из {{ license-manager }} API.
+      
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+          license_id_value:
+            required: false
+        ```
+
+Значения переменных, указанные пользователем при установке продукта в кластер {{ k8s }}, будут переопределять значения из файла `values.yaml`.
 
 ## Пример манифеста и соответствующего файла переменных {#examples}
 

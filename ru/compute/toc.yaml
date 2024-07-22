@@ -28,6 +28,8 @@ items:
             href: operations/vm-create/create-from-snapshots.md
           - name: Создать ВМ из пользовательского образа
             href: operations/vm-create/create-from-user-image.md
+          - name: Создать ВМ с пользовательским скриптом конфигурации
+            href: operations/vm-create/create-with-cloud-init-scripts.md
           - name: Создать ВМ с GPU
             href: operations/vm-create/create-vm-with-gpu.md
           - name: Сделать ВМ прерываемой

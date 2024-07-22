@@ -344,7 +344,7 @@ You can assign a role not only for a cloud or folder but also their child resour
 
 - CLI {#cli}
 
-   {% include [set-access-bindings-cli](../../../_includes/iam/roles/set-access-bindings-cli.md) %}
+   {% include [set-access-bindings-cli](../../../_includes/iam/set-access-bindings-cli.md) %}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -425,7 +425,7 @@ You can assign a role not only for a cloud or folder but also their child resour
 
 - API {#api}
 
-   {% include [set-access-bindings-api](../../../_includes/iam/roles/set-access-bindings-api.md) %}
+   {% include [set-access-bindings-api](../../../_includes/iam/set-access-bindings-api.md) %}
 
    To assign multiple roles for a resource, use the `setAccessBindings` REST API method or gRPC API call for the resource. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
 

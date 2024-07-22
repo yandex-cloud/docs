@@ -12,6 +12,7 @@ You can also log information about the traffic matching your conditions, without
 * [Basic](#base-rules)
 * [Smart Protection](#smart-protection-rules)
 * [Web Application Firewall](#waf-rules)
+* [Advanced Rate Limiter](#arl-rules)
 
 You can learn more in [Managing rules](../operations/#rules).
 
@@ -35,6 +36,16 @@ You can use the following {{ captcha-name }} CAPTCHA options to verify requests 
 
 {% include [captcha-integration](../../_includes/smartwebsecurity/captcha-integration.md) %}
 
+## Advanced Rate Limiter rules {#arl-rules}
+
+An [Advanced Rate Limiter](arl.md) rule calculates the number of requests received over a certain period of time. Requests are counted after they are allowed by the Smart Protection and Web Application Firewall rules, meaning that ARL rules have their own priority independent of other rules.
+
+ARL rules allow you to set limits on either all traffic or its particular segments.
+
+Unlike Smart Protection and WAF rules, ARL rules are configured in an ARL profile.
+
+{% include [note-preview-arl](../../_includes/smartwebsecurity/note-preview-arl.md) %}
+
 ## Rule actions {#rule-action}
 
 Actions for basic rules:
@@ -43,4 +54,6 @@ Actions for basic rules:
 
 Actions for Smart Protection and Web Application Firewall rules:
 * _Full Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Suspicious requests are sent to {{ captcha-name }}.
-* _API Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Suspicious requests are blocked.
+* _API Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Suspicious requests are denied.
+
+Advanced Rate Limiter rule action: _Block requests when exceeding the limit_. Requests above the specified limit over a period of time will be blocked. The requesting client will get error `429`.

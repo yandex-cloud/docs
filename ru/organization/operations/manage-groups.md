@@ -46,7 +46,7 @@
 
 * CLI {#cli}
 
-   {% include [set-access-bindings-cli](../../_includes/iam/roles/set-access-bindings-cli.md) %}
+   {% include [set-access-bindings-cli](../../_includes/iam/set-access-bindings-cli.md) %}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -120,7 +120,7 @@
 
 * API {#api}
 
-   {% include [set-access-bindings-api](../../_includes/iam/roles/set-access-bindings-api.md) %}
+   {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
    Воспользуйтесь методом [setAccessBindings](../api-ref/Group/setAccessBindings.md) для ресурса [Group](../api-ref/Group/index.md) или вызовом gRPC API [GroupService/SetAccessBindings](../api-ref/grpc/group_service.md#SetAccessBindings). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
 

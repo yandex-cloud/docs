@@ -3,6 +3,7 @@
 `AddInstanceOneToOneNat` | Добавление публичного IP-адреса виртуальной машине
 `AttachInstanceDisk` | Подключение диска к ВМ
 `AttachInstanceFilesystem` | Подключение файловой системы к ВМ
+`AttachInstanceNetworkInterface` | Подключение сетевого интерфейса
 `ChangeDiskStatus` | Изменение статуса нереплицируемого диска
 `CrashInstance` | Аварийное отключение ВМ
 `CreateDisk` | Создание диска
@@ -24,6 +25,7 @@
 `DeleteSnapshotSchedule` | Удаление расписания снимков диска
 `DetachInstanceDisk` | Отключение диска от ВМ
 `DetachInstanceFilesystem` | Отключение файловой системы от ВМ
+`DetachInstanceNetworkInterface` | Отключение сетевого интерфейса
 `DisableSnapshotSchedule` | Отключение расписания снимков диска
 `EnableSnapshotSchedule` | Включение расписания снимков диска
 `GuestStopInstance` | Остановка ВМ по команде из этой ВМ
@@ -57,4 +59,3 @@
 `instancegroup.StopInstanceGroupInstances` | Остановка ВМ из группы
 `instancegroup.UpdateInstanceGroup` | Изменение группы ВМ
 `instancegroup.UpdateInstanceGroupAccessBindings` | Изменение ролей для группы ВМ
-`serialssh.ConnectSerialPort` | Подключение к серийному порту инстанса

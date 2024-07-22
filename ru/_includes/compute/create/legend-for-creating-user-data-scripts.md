@@ -1,0 +1,3 @@
+Где:
+* `<имя_пользователя>` — логин пользователя, который будет использоваться для [подключения](../../../compute/operations/vm-connect/ssh.md) к ВМ по SSH.
+* `<публичный_SSH-ключ>` — содержимое файла [открытого ключа](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Пару ключей для подключения по [SSH](../../../glossary/ssh-keygen.md) необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.

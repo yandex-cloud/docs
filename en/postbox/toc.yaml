@@ -3,16 +3,36 @@ stage: preview
 href: index.yaml
 label:
   title: RU
-  description: The service is available in Russia only.
+  description: The service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
   - name: Getting started
     href: quickstart.md
+  - name: Step-by-step guides
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: Creating an address
+        href: operations/create-adress.md
+      - name: Domain ownership verification
+        href: operations/check-domain.md
+      - name: Creating a configuration
+        href: operations/create-configuration.md
+      - name: Binding configuration to an address
+        href: operations/bind-configuration.md
   - name: Concepts
     items:
+      - name: Email delivery notifications
+        href: concepts/notification.md
+      - name: Terms and definitions
+        href: concepts/glossary.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Tools
+    items:
+      - name: AWS CLI
+        href: tools/aws-cli.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

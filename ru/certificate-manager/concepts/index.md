@@ -1,6 +1,6 @@
 # Концепции {{ certificate-manager-name }}
 
-{{ certificate-manager-name }} — сервис для управления [TLS-сертификатами](https://en.wikipedia.org/wiki/Public_key_certificate#TLS/SSL_server_certificate) в {{ yandex-cloud }}. С помощью сервиса вы можете получать и обновлять сертификаты от Let's Encrypt, а также добавлять собственные сертификаты.
+{{ certificate-manager-name }} — сервис для управления [TLS-сертификатами](../../glossary/ssl-certificate.md) в {{ yandex-cloud }}. С помощью сервиса вы можете получать и обновлять сертификаты от Let's Encrypt, а также добавлять собственные сертификаты.
 
 {% note warning %}
 

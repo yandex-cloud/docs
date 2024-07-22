@@ -46,7 +46,7 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
 
 - CLI {#cli}
 
-   {% include [set-access-bindings-cli](../../_includes/iam/roles/set-access-bindings-cli.md) %}
+   {% include [set-access-bindings-cli](../../_includes/iam/set-access-bindings-cli.md) %}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -120,7 +120,7 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
 
 - API {#api}
 
-   {% include [set-access-bindings-api](../../_includes/iam/roles/set-access-bindings-api.md) %}
+   {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
    Use the [setAccessBindings](../api-ref/Group/setAccessBindings.md) method for the [Group](../api-ref/Group/index.md) resource or the [GroupService/SetAccessBindings](../api-ref/grpc/group_service.md#SetAccessBindings) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
 

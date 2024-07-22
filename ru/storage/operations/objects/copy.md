@@ -15,6 +15,10 @@ description: "Из статьи вы узнаете, как скопироват
 
 Вы можете скопировать как [все содержимое бакета](#copy-from-bucket-to-bucket), так и [отдельный его объект](#copy-single-object). Также доступно копирование объектов между [бакетами разных организаций](#copy-to-another-org-bucket).
 
+
+{% include [encryption-roles](../../../_includes/storage/encryption-roles.md) %}
+
+
 ## Копирование одного объекта {#copy-single-object}
 
 {% list tabs group=instructions %}

@@ -87,7 +87,7 @@
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat <путь_к_файлу_с_авторизованным_ключом> | helm registry login cr.yandex --username 'json_key' --password-stdin && \
    helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/vault/chart/vault \
-     --version 0.27.0+yckms \
+     --version 0.28.0+yckms \
      --untar && \
    helm install \
      --namespace <пространство_имен> \

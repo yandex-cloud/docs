@@ -109,7 +109,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 * CLI {#cli}
 
-   {% include [set-access-bindings-cli](../../_includes/iam/roles/set-access-bindings-cli.md) %}
+   {% include [set-access-bindings-cli](../../_includes/iam/set-access-bindings-cli.md) %}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -183,7 +183,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 * API {#api}
 
-   {% include [set-access-bindings-api](../../_includes/iam/roles/set-access-bindings-api.md) %}
+   {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
    Воспользуйтесь вызовом gRPC API [AsymmetricEncryptionKeyService/SetAccessBindings](../api-ref/grpc/asymmetric_encryption_key_service.md#SetAccessBindings). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
 

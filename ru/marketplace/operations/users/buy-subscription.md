@@ -4,6 +4,8 @@ title: "Как купить подписку в {{ marketplace-full-name }}"
 
 # Покупка подписки
 
+Для покупки подписки необходима роль [{{ roles-license-manager-user }}](../../security/index.md#license-manager-user) на каталог.
+
 {% list tabs group=service %}
 
 - {{ compute-name }} {#compute}
