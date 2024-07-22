@@ -30,14 +30,19 @@ You can assign a role for a [cloud](../../resource-manager/concepts/resources-hi
 
 #### gitlab.auditor {#gitlab-auditor}
 
-{% include [gitlab-auditor](../../_roles/gitlab/auditor.md) %}
+{% include [gitlab.auditor](../../_roles/gitlab/auditor.md) %}
 
-{% include [gitlab-viewer](../../_includes/iam/roles/gitlab-viewer.md) %}
+#### gitlab.viewer {#gitlab-viewer}
 
-{% include [gitlab-editor](../../_includes/iam/roles/gitlab-editor.md) %}
+{% include [gitlab.viewer](../../_roles/gitlab/viewer.md) %}
 
-{% include [gitlab-admin](../../_includes/iam/roles/gitlab-admin.md) %}
+#### gitlab.editor {#gitlab-editor}
 
+{% include [gitlab.editor](../../_roles/gitlab/editor.md) %}
+
+#### gitlab.admin {#gitlab-admin}
+
+{% include [gitlab.admin](../../_roles/gitlab/admin.md) %}
 
 ### Primitive roles {#primitive-roles}
 

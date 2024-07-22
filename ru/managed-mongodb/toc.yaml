@@ -32,16 +32,22 @@ items:
             href: operations/cluster-backups.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
+      - name: Подключение
+        items:
+          - name: Предварительная настройка
+            href: operations/connect/index.md
+          - name: Подключение из приложений
+            href: operations/connect/clients.md
+          - name: Примеры кода
+            items:
+              - name: Обзор
+                href: operations/connect/code-examples.md
+              - name: Примеры для подключения к нешардированному кластеру
+                href: operations/connect/non-sharded.md
+              - name: Примеры для подключения к шардированному кластеру
+                href: operations/connect/sharded.md
       - name: Базы данных
         items:
-          - name: Подключение к базе данных
-            items:
-              - name: Обзор способов подключения к базе данных
-                href: operations/connect/index.md
-              - name: Подключение к нешардированному кластеру
-                href: operations/connect/non-sharded.md
-              - name: Подключение к шардированному кластеру
-                href: operations/connect/sharded.md
           - name: Управление базами данных
             href: operations/databases.md
           - name: Управление пользователями БД

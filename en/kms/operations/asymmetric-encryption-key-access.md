@@ -109,7 +109,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
 - CLI {#cli}
 
-   {% include [set-access-bindings-cli](../../_includes/iam/roles/set-access-bindings-cli.md) %}
+   {% include [set-access-bindings-cli](../../_includes/iam/set-access-bindings-cli.md) %}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -183,7 +183,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
 - API {#api}
 
-   {% include [set-access-bindings-api](../../_includes/iam/roles/set-access-bindings-api.md) %}
+   {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
    Use the [AsymmetricEncryptionKeyService/SetAccessBindings](../api-ref/grpc/asymmetric_encryption_key_service.md#SetAccessBindings) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
 

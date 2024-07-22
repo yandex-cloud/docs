@@ -12,28 +12,34 @@ description: "После удаления кластера баз данных P
 
   {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
 
+{% note warning %}
+
+При удалении кластера будут удалены все пользователи и БД в этом кластере, в том числе защищенные от удаления.
+
+{% endnote %}
+
 ## Удалить кластер {#delete}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-  
+
   1. Откройте страницу каталога в консоли управления.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного кластера, выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}** и подтвердите удаление.
-  
+
 - CLI {#cli}
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   Чтобы удалить кластер, выполните команду:
-  
+
   ```bash
   {{ yc-mdb-pg }} cluster delete <имя_или_идентификатор_кластера>
   ```
-  
+
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}

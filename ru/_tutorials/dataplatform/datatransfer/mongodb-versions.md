@@ -227,7 +227,7 @@
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. [Подключитесь к базе данных](../../../managed-mongodb/operations/connect/sharded.md) `db1` в кластере-приемнике {{ mmg-name }}.
+1. [Подключитесь к базе данных](../../../managed-mongodb/operations/connect/index.md) `db1` в кластере-приемнике {{ mmg-name }}.
 
 1. Убедитесь, что в базе данных `db1` появились коллекции с данными:
 

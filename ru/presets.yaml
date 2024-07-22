@@ -221,9 +221,9 @@ default:
   k8s-decomission-timeout: 5 минут
   k8s-docs: https://kubernetes.io/ru/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.26, 1.27, 1.28, 1.29, 1.30
-  k8s-versions-regular: 1.26, 1.27, 1.28, 1.29
-  k8s-versions-stable: 1.26, 1.27, 1.28, 1.29
+  k8s-versions-rapid: 1.27, 1.28, 1.29, 1.30
+  k8s-versions-regular: 1.27, 1.28, 1.29
+  k8s-versions-stable: 1.27, 1.28, 1.29
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
   KF: Apache Kafka®
@@ -504,6 +504,8 @@ default:
   roles-functions-invoker: functions.functionInvoker
   roles-iam-sa-tokencreator: iam.serviceAccounts.tokenCreator
   roles-image-user: compute.images.user
+  roles-license-manager-subscription-agent: license-manager.subscriptionAgent
+  roles-license-manager-user: license-manager.user
   roles-lockbox-admin: lockbox.admin
   roles-lockbox-editor: lockbox.editor
   roles-lockbox-payloadviewer: lockbox.payloadViewer
@@ -5156,6 +5158,9 @@ default:
       component:
         iam-delete-folder-or-cloud-dialog:
           label_delete-now: Удалить сейчас
+        key-values-input:
+          label_key: Ключ
+          label_value: Значение
     yacloud_components:
       acl:
         action:
@@ -9563,7 +9568,7 @@ default:
     yc_vault-yckms-k8s:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/vault/chart/vault
-        tag: 0.27.0_yckms
+        tag: 0.28.0_yckms
     yc_velero-yc-csi:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero

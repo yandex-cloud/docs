@@ -1,50 +1,4 @@
-### Bash {#bash}
-
-Перед подключением установите [утилиту MongoDB Shell]({{ shell-link }}).
-
-{% list tabs group=connection %}
-
-- Подключение с SSL для {{ MG }} 4.2 и выше {#with-ssl}
-
-    ```bash
-    mongosh --norc \
-            --tls \
-            --tlsCAFile /home/<домашняя_директория>/.mongodb/root.crt \
-            --host '<FQDN_хоста_1_MONGOINFRA_или_MONGOS>:27017,...,<FQDN_хоста_N_MONGOINFRA_или_MONGOS>:27017' \
-            --username <имя_пользователя_БД> \
-            --password <пароль_пользователя_БД> \
-            <имя_БД>
-    ```
-
-- Подключение с SSL для {{ MG }} 4.0 {#with-ssl-4}
-
-    ```bash
-    mongosh --norc \
-            --ssl \
-            --sslCAFile /home/<домашняя_директория>/.mongodb/root.crt \
-            --host '<FQDN_хоста_1_MONGOINFRA_или_MONGOS>:27017,...,<FQDN_хоста_N_MONGOINFRA_или_MONGOS>:27017' \
-            --username <имя_пользователя_БД> \
-            --password <пароль_пользователя_БД> \
-            <имя_БД>
-    ```
-
-- Подключение без SSL {#without-ssl}
-
-    ```bash
-    mongosh --norc \
-            --host '<FQDN_хоста_1_MONGOINFRA_или_MONGOS>:27017,...,<FQDN_хоста_N_MONGOINFRA_или_MONGOS>:27017' \
-            --username <имя_пользователя_БД> \
-            --password <пароль_пользователя_БД> \
-            <имя_БД>
-    ```
-
-{% endlist %}
-
-{% include [see-fqdn-host](fqdn-host.md) %}
-
-После подключения выполните команду `db`.
-
-### Go {#go}
+## Go {#go}
 
 **Перед подключением установите зависимости:**
 
@@ -150,7 +104,7 @@ go get go.mongodb.org/mongo-driver/mongo
 go run connect.go
 ```
 
-### Java {#java}
+## Java {#java}
 
 **Перед подключением:**
 
@@ -360,7 +314,7 @@ mvn clean package && \
     java -jar target/app-0.1.0-jar-with-dependencies.jar
 ```
 
-### Node.js {#nodejs}
+## Node.js {#nodejs}
 
 **Перед подключением установите зависимости**:
 
@@ -450,7 +404,7 @@ npm install mongodb
 node app.js
 ```
 
-### PHP {#php}
+## PHP {#php}
 
 **Перед подключением установите зависимости:**
 
@@ -539,41 +493,7 @@ sudo apt update && sudo apt install --yes php php-mongodb
 php connect.php
 ```
 
-### PowerShell {#powershell}
-
-Перед подключением установите [утилиту MongoDB Shell](https://www.mongodb.com/try/download/shell).
-
-{% list tabs group=connection %}
-
-- Подключение с SSL для {{ MG }} 4.2 и выше {#with-ssl}
-
-    ```powershell
-    mongosh.exe --norc `
-                --host '<FQDN_хоста_1_MONGOINFRA_или_MONGOS>:{{ port-mmg-sharded }},...,<FQDN_хоста_N_MONGOINFRA_или_MONGOS>:{{ port-mmg-sharded }}' `
-                --tls `
-                --tlsCAFile $HOME\.mongodb\root.crt `
-                --username <имя_пользователя_БД> `
-                --password <пароль_пользователя_БД> `
-                <имя_БД>
-    ```
-
-- Подключение без SSL {#without-ssl}
-
-    ```powershell
-    mongosh.exe --norc `
-                --host '<FQDN_хоста_1_MONGOINFRA_или_MONGOS>:{{ port-mmg-sharded }},...,<FQDN_хоста_N_MONGOINFRA_или_MONGOS>:{{ port-mmg-sharded }}' `
-                --username <имя_пользователя_БД> `
-                --password <пароль_пользователя_БД> `
-                <имя_БД>
-    ```
-
-{% endlist %}
-
-{% include [see-fqdn-host](fqdn-host.md) %}
-
-После подключения выполните команду `db`.
-
-### Python {#python}
+## Python {#python}
 
 **Перед подключением установите зависимости:**
 

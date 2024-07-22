@@ -18,23 +18,22 @@ editable: false
 * Чтение метрик при помощи интерфейса {{ monitoring-short-name }} и при помощи консоли {{ yandex-cloud }} не тарифицируется.
 * Входящий и исходящий трафик в {{ monitoring-short-name }} не тарифицируются.
 
-
 ### Пример расчета стоимости {#example}
-
-Стоимость пользования сервисом {{ monitoring-short-name }} в течение 30 дней при записи 20 метрик с частотой **1 значение в минуту** через {{ monitoring-short-name }} API:
 
 
 {% list tabs group=pricing %}
 
 - Расчет в рублях {#prices-rub}
 
-  {% include [rub-example](../_pricing/monitoring/rub-example.md) %}
+  {% include [rub-example](../_pricing_examples/monitoring/rub-example.md) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  {% include [kzt-example](../_pricing/monitoring/kzt-example.md) %}
+  {% include [kzt-example](../_pricing_examples/monitoring/kzt-example.md) %}
 
 {% endlist %}
+
+
 
 
 
