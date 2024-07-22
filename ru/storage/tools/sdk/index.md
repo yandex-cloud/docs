@@ -15,4 +15,4 @@ description: "Из статьи вы узнаете, какие SDK можно �
 * [AWS SDK для PHP](../aws-sdk-php.md)
 * [AWS SDK для Go](../aws-sdk-go.md)
 
-Полный перечень SDK для работы с S3 API см. на сайте [AWS](https://aws.amazon.com/ru/developer/tools/).
+{% include [all-aws-sdks](../../../_includes/storage/all-aws-sdks.md) %}
