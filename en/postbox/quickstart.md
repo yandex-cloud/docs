@@ -17,45 +17,30 @@ Use this guide to create your address and send a verification email.
 
 ## Create an address {#create-address}
 
-1. In the [management console]({{ link-console-main }}), select the folder where you created the service account.
-1. In the list of services, select **{{ postbox-name }}**.
-1. Click **Create address**.
-1. Specify the **Domain** from which you will be sending emails. The domain can be of any level.
-1. Specify the **Selector**: `postbox`.
+{% list tabs group=instructions %}
 
-   {% note info %}
+- Management console {#console}
 
-   You can specify a selector other than `postbox`. The specified selector must only be used in a single resource record: the one you will create at the [{#T}](#verify-domain) step.
+    1. In the [management console]({{ link-console-main }}), select the folder where you created the service account.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. Click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
+    1. Specify the **{{ ui-key.yacloud.postbox.label_address }}** from which you will be sending emails. The domain can be of any level.
+    1. Specify a **{{ ui-key.yacloud.postbox.label_selector }}**: `postbox`.
 
-   {% endnote %}
+        {% note info %}
 
-1. Copy the contents of the `privatekey.pem` private key file you created earlier and paste them into the [preparation stage](#service-account-and-keys) field.
-1. Click **Create**.
+        You can specify a selector other than `postbox`. The specified selector must only be used in a single resource record: the one you will create at the [{#T}](#verify-domain) step.
 
-## Verify domain ownership {#verify-domain}
+        {% endnote %}
 
-To send emails, confirm ownership of the domain. After creating a record, the DKIM signature settings will be generated on its page. Specify them as the values of the resource record added to your domain zone. You can add a record with your registrar or in [{{ dns-full-name }}](../dns/) if you have delegated your domain.
+    1. Paste the contents of the `privatekey.pem` file you [created earlier](#service-account-and-keys) into the **{{ ui-key.yacloud.postbox.label_private-key }}** field.
+    1. Click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
 
-Here is an example of creating a resource record in **{{ dns-name }}**:
+{% endlist %}
 
-1. In the [management console]({{ link-console-main }}), select the folder containing the address and your domain zone.
-1. In the list of services, select **{{ dns-name }}**.
-1. Select your domain zone.
-1. Click **Create record**.
-1. In the **Name** field, specify the name generated when creating the address, such as `postbox._domainkey.example.com`.
-1. In the **Type** list, select `TXT`.
-1. To the **Value** field, copy the contents of the **Value** field under **Signature verification**. Note that the record value needs to be broken down into separate lines, for example:
+## Pass domain ownership verification {#verify-domain}
 
-        ( "v=DKIM1;h=sha256;k=rsa; "
-
-        "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAui6NEIfZdLfcbcJV4oqY5lWyYXV1ht1zYdrSHCVCWWBaOZ2mIGVzycDKPicLSDZBlN4I8HO2ajclFfQn3013klP7i6VrDSXMmO9hRGgVU+ZhoFJrsMRdbDK/1SIU1k7xiJIudB+YPcc69Y/jHQJk32q7b"
-
-        "UC617oEwSL/sQHeueS0rMLrmPyOtXELLLHrx9IiHM8ACb6zFY/lWx3AnuOLOv4JXYPAQe+b2zvERpHA+AbaCUHi8dJVm1aY/TceakHkUMlWzh4YeSfuQkaNI1PEnLGA3u0WIGyvtTdA3FWhT3w3BFsVWCTFPIxjORvaY/eZMMcj3WM7GUtORbebAOUyBwIDAQAB" )
-1. Click **Create**.
-1. Select the address you created.
-1. Click **Verify address**. If the record is correct, the verification status on the address page will change to `Success`.
-
-DNS server responses are cached, so delays may occur when updating a resource record.
+{% include [check-domain](../_includes/postbox/check-domain.md) %}
 
 ## Send a verification email {#send-test-letter}
 
@@ -120,7 +105,7 @@ You can send a verification email using:
 1. Send an email using the AWS CLI:
 
    ```bash
-   aws sesv2 send-email --from-email-address mail@example.com --destination file://destination.json --content file://message.json --endpoint-url https://postbox.cloud.yandex.net
+   aws sesv2 send-email --from-email-address mail@example.com --destination file://destination.json --content file://message.json --endpoint-url {{ postbox-endpoint }}
    ```
 
 1. Check the mailbox specified in `destination.json` for the test email.
@@ -168,8 +153,8 @@ You can send a verification email using:
 
 
    def main():
-      if sys.version_info[0] < 3:
-         raise Exception("Must be using Python 3")
+       if sys.version_info[0] < 3:
+           raise Exception("Must be using Python 3")
 
        parser = argparse.ArgumentParser(
            description="Convert a Secret Access Key to an SMTP password."
@@ -199,3 +184,7 @@ You can send a verification email using:
    {% endnote %}
 
 1. Send an email using your email client and make sure the specified recipients receive it.
+
+## See also {#see-also}
+
+* [{#T}](concepts/notification.md)

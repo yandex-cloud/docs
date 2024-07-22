@@ -4,6 +4,8 @@ title: "Как привязать купленную в {{ marketplace-full-name
 
 # Привязка подписки
 
+Для привязки подписки необходима роль [{{ roles-license-manager-user }}](../../security/index.md#license-manager-user) на каталог.
+
 {% list tabs group=service %}
 
 - {{ compute-name }} {#compute}

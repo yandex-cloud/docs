@@ -39,7 +39,7 @@ The cost of resources includes:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
       1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter the service account name: `s3-copy-fn`.
@@ -134,7 +134,7 @@ The cost of resources includes:
 
       1. Make sure the configuration files are correct.
 
-         1. In the command line, go to the directory where you created the configuration file.
+         1. In the command line, go to the folder where you created the configuration file.
          1. Run a check using this command:
 
             ```bash
@@ -222,7 +222,7 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -345,7 +345,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -424,7 +424,7 @@ Create two buckets: the main one to store files and the backup one to copy the m
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -640,7 +640,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -675,7 +675,7 @@ Create a trigger for {{ objstorage-name }} that will invoke a `copy-function` wh
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
@@ -769,7 +769,7 @@ Create a trigger for {{ objstorage-name }} that will invoke a `copy-function` wh
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash

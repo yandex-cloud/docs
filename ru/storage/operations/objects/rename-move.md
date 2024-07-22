@@ -5,6 +5,10 @@ description: "Из статьи вы узнаете, как переименов
 
 # Переименование и перемещение объекта
 
+
+{% include [encryption-roles](../../../_includes/storage/encryption-roles.md) %}
+
+
 ## Переименование {#rename}
 
 {% list tabs group=instructions %}

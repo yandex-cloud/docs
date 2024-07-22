@@ -681,7 +681,7 @@ You can grant a user, service account, or user group access to a {{ ydb-name }} 
 
 - CLI {#cli}
 
-   {% include [set-access-bindings-cli](../../_includes/iam/roles/set-access-bindings-cli.md) %}
+   {% include [set-access-bindings-cli](../../_includes/iam/set-access-bindings-cli.md) %}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -755,7 +755,7 @@ You can grant a user, service account, or user group access to a {{ ydb-name }} 
 
 - API {#api}
 
-   {% include [set-access-bindings-api](../../_includes/iam/roles/set-access-bindings-api.md) %}
+   {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
    Use the [DatabaseService/SetAccessBindings](../api-ref/grpc/database_service.md#SetAccessBindings) gRPC API call. Provide an array of objects in your request, with each object associated with a particular role and containing the following data:
 

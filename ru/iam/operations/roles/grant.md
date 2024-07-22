@@ -344,7 +344,7 @@
 
 * CLI {#cli}
 
-   {% include [set-access-bindings-cli](../../../_includes/iam/roles/set-access-bindings-cli.md) %}
+   {% include [set-access-bindings-cli](../../../_includes/iam/set-access-bindings-cli.md) %}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -425,7 +425,7 @@
 
 * API {#api}
 
-   {% include [set-access-bindings-api](../../../_includes/iam/roles/set-access-bindings-api.md) %}
+   {% include [set-access-bindings-api](../../../_includes/iam/set-access-bindings-api.md) %}
 
    Чтобы назначить несколько ролей на ресурс, воспользуйтесь методом REST API или вызовом gRPC API `setAccessBindings` для нужного ресурса. Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
 

@@ -11,6 +11,10 @@
 
 ## Простая загрузка {#simple}
 
+
+{% include [encryption-roles](../../../_includes/storage/encryption-roles.md) %}
+
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

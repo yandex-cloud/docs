@@ -13,7 +13,6 @@
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}**.
 
-
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -27,7 +26,6 @@
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-
 
 - API {#api}
 
@@ -64,7 +62,7 @@
           - **Как у кластера**.
           - **Включена**.
           - **Выключена**.
-          
+
       * (Опционально) Шаблон — имя одной из существующих баз, с которой нужно будет скопировать схему данных. На время создания новой базы все подключения к базе-шаблону будут закрыты.
 
           Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/sql-createdatabase.html).
@@ -123,7 +121,7 @@
         Полный список доступных для изменения полей конфигурации базы данных кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_postgresql_database).
 
     1. Добавьте ресурс `yandex_mdb_postgresql_database`. При необходимости укажите нужные локали сортировки и набора символов (по умолчанию задаются `LC_COLLATE=C` и `LC_CTYPE=C`) и шаблон:
-  
+
         ```hcl
         resource "yandex_mdb_postgresql_database" "<имя_БД>" {
           cluster_id  = "<идентификатор_кластера>"
@@ -143,11 +141,11 @@
         {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
     1. Проверьте корректность настроек.
-  
+
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
+
     1. Подтвердите изменение ресурсов.
-  
+
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
   {% note warning %}
@@ -230,11 +228,11 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
 - {{ TF }} {#tf}
-  
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры. 
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
   1. Найдите ресурс `yandex_mdb_postgresql_database` нужной БД.
-  
+
   1. Добавьте параметр `deletion_protection`. Доступные значения: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
         ```hcl
@@ -244,11 +242,11 @@
           ...
         }
         ```
-  
+
   1. Проверьте корректность настроек.
-  
+
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
+
   1. Подтвердите изменение ресурсов.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -256,13 +254,19 @@
 - API {#api}
 
   Чтобы настроить защиту от удаления БД, воспользуйтесь методом REST API [update](../api-ref/Database/update.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) и передайте в запросе:
-  
+
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя БД в параметре `databaseName`. Чтобы узнать имя БД, [получите список БД в кластере](#list-db).
   * Параметр `updateMask` со значением `deletionProtection`.
   * Новое значение параметра `deletionProtection`. Возможные значения — `true`, `false`. Значение по умолчанию — `unspecified` (наследует значение от кластера).
 
 {% endlist %}
+
+{% note warning %}
+
+Защита от удаления действует только на уровне конкретной БД. При удалении кластера будут удалены все БД, в том числе защищенные от удаления.
+
+{% endnote %}
 
 ## Удалить базу данных {#remove-db}
 
@@ -293,20 +297,20 @@
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
 - {{ TF }} {#tf}
-  
+
   Чтобы удалить базу данных:
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  
+
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
      Полный список доступных для изменения полей конфигурации базы данных кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_postgresql_database).
 
   1. Удалите ресурс `yandex_mdb_postgresql_database` с именем удаляемой базы данных.
-  
+
   1. Проверьте корректность настроек.
-  
+
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
+
   1. Подтвердите изменение ресурсов.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -314,7 +318,7 @@
 - API {#api}
 
   Чтобы удалить базу данных, воспользуйтесь методом REST API [delete](../api-ref/Database/delete.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Delete](../api-ref/grpc/database_service.md#Delete) и передайте в запросе:
-  
+
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя удаляемой базы данных в параметре `databaseName`. Чтобы узнать имя базы данных, [получите список баз данных в кластере](#list-db).
 

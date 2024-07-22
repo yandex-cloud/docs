@@ -49,7 +49,7 @@ items:
     items:
       - name: Creating an L7 load balancer with a security profile
         href: tutorials/balancer-with-sws-profile.md
-      - name: Creating an L7 load balancer with DDoS protection at OSI L3
+      - name: Creating an L7 load balancer with DDoS protection at OSI L3-L4
         href: tutorials/alb-with-ddos-protection.md
   - name: Concepts
     expanded: true

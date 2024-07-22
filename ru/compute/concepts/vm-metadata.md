@@ -128,8 +128,8 @@
 - Linux {#linux}
 
   * `serial-port-enable` — флаг, включающий доступ к [серийной консоли](../operations/serial-console/index.md). `1` — включить, `0` (по умолчанию) — выключить.
-  * `user-data` — строка с пользовательскими метаданными, которые будут обработаны агентом [cloud-init](https://cloud-init.io), запущенным на ВМ.
   * `enable-oslogin` — флаг, включающий доступ через [OS Login](../operations/vm-connect/os-login.md). `true` — включить, `false` (по умолчанию) — выключить.
+  * `user-data` — строка с пользовательскими метаданными, которые будут обработаны агентом [cloud-init](https://cloud-init.io), запущенным на ВМ.
 
     Cloud-init поддерживает разные [форматы](https://cloudinit.readthedocs.io/en/latest/topics/format.html) передачи метаданных, например [cloud-config](https://cloudinit.readthedocs.io/en/latest/topics/examples.html). В этом формате вы можете передать SSH-ключи и указать, какому пользователю принадлежит каждый ключ. Для этого укажите их в элементе `users/ssh-authorized-keys`:
 
@@ -142,6 +142,8 @@
       "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3Nza......OjbSMRX user@example.com\n      - ssh-ed25519 AAAAB3Nza...Pu00jRN user@desktop"
     }
     ```
+
+    В ключе `user-data` также можно описать [скрипты для установки программного обеспечения](../operations/vm-create/create-with-cloud-init-scripts.md#examples), которые нужно выполнить при создании новой машины.
 
   * `ssh-keys` — ключ для доставки SSH-ключа на ВМ Linux через {{ TF }}. Указывается в формате `<имя_пользователя>:<содержимое_SSH-ключа>`, например `user:ssh-ed25519 AAC4NzaC1... user@example.com`. Если указать несколько ключей, будет использован только первый из них.
 
@@ -426,3 +428,4 @@ openssl dgst -sha256 < document
 #### См. также {#see-also}
 
 * [{#T}](instance-groups/instance-template.md).
+* [Создание виртуальной машины с пользовательским скриптом конфигурации](../operations/vm-create/create-with-cloud-init-scripts.md).

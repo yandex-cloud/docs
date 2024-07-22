@@ -26,16 +26,9 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-{% note alert %}
+В стоимость поддержки инфраструктуры для загрузки состояний {{ TF }} в {{ objstorage-full-name }} входит плата за хранение данных (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage)).
 
-Все созданные с помощью {{ TF }} ресурсы тарифицируются, внимательно проверьте конфигурации, которые будут использоваться далее.
-
-{% endnote %}
-
-В этом сценарии будут созданы три ВМ с [публичными IP-адресами](../../vpc/concepts/address.md#public-addresses), виртуальная [сеть](../../vpc/concepts/network.md#network) и две подсети.
-
-В стоимость поддержки этой инфраструктуры входят:
-* Плата за хранение данных (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage)).
+В качестве примера инфраструктуры, разворачиваемой через {{ TF }}, в руководстве будут созданы три [ВМ](../../compute/concepts/vm.md) с [публичными IP-адресами](../../vpc/concepts/address.md#public-addresses), виртуальная [сеть](../../vpc/concepts/network.md#network) и две [подсети](../../vpc/concepts/network.md#subnet). В стоимость поддержки этой инфраструктуры входят:
 * Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 * Плата за использование динамических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 

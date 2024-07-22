@@ -26,7 +26,7 @@
 
 {% note info %}
 
-Тип проверки `HTTP` не может использоваться для [Wildcard-сертификатов](https://en.wikipedia.org/wiki/Wildcard_certificate).
+Тип проверки `HTTP` не может использоваться для [Wildcard-сертификатов](../../glossary/ssl-certificate.md#types).
 
 {% endnote %}
 
@@ -52,7 +52,7 @@
 
 ## DNS {#dns}
 
-Если у вас нет доступа к веб-серверу или необходимо получить [Wildcard-сертификат](https://en.wikipedia.org/wiki/Wildcard_certificate) с масками на поддомены вида `*.example.com`, используйте тип проверки `DNS`.
+Если у вас нет доступа к веб-серверу или необходимо получить [Wildcard-сертификат](../../glossary/ssl-certificate.md#types) с масками на поддомены вида `*.example.com`, используйте тип проверки `DNS`.
 
 Для прохождения проверки вам необходимо добавить специальную DNS-запись одного из двух типов: `TXT` или `CNAME`.
 
@@ -154,13 +154,13 @@
 * Для каждого домена сертификата настроен:
     * [алиас](../../storage/operations/hosting/own-domain.md) на бакет статического сайта, в котором используется этот сертификат;
     * или [переадресация](../../storage/operations/hosting/multiple-domains.md) на домен с алиасом на бакет.
-* Сертификат не является [Wildcard-сертификатом](https://en.wikipedia.org/wiki/Wildcard_certificate) — не содержит масок на поддомены.
+* Сертификат не является [Wildcard-сертификатом](../../glossary/ssl-certificate.md#types) — не содержит масок на поддомены.
 
 ### Перенаправление на сервер валидации в веб-сервере {#auto-vs}
 
 Проверка проходит автоматически при соблюдении следующих условий:
 * Сертификат находится в статусе `Renewing` — проходит процедуру [обновления](managed-certificate.md#renew).
-* Сертификат не является [Wildcard-сертификатом](https://en.wikipedia.org/wiki/Wildcard_certificate) — не содержит масок на поддомены.
+* Сертификат не является [Wildcard-сертификатом](../../glossary/ssl-certificate.md#types) — не содержит масок на поддомены.
 * Для каждого домена сертификата в веб-сервере настроено перенаправление с
     ```
     http://<домен>/.well-known/acme-challenge/*
