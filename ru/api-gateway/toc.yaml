@@ -28,8 +28,12 @@ items:
             href: operations/api-gw-canary.md
           - name: Посмотреть графики мониторинга
             href: operations/api-gw-monitoring.md
-          - name: Посмотреть журнал выполнения
-            href: operations/api-gw-logs.md
+          - name: Управлять логами
+            items:
+              - name: Посмотреть логи
+                href: operations/api-gw-logs.md
+              - name: Записать логи
+                href: operations/api-gw-logs-write.md
           - name: Отключить домен
             href: operations/api-gw-domain-detach.md
           - name: Миграция в зону {{ region-id }}-d

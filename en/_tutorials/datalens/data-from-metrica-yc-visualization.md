@@ -1,4 +1,4 @@
-# Web analytics with funnels and cohorts calculated based on Yandex Metrica data
+# Yandex Metrica: data export, post-processing, and visualization
 
 
 {% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}

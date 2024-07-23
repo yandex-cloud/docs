@@ -1,0 +1,45 @@
+---
+title: "Access management in {{ cloud-desktop-full-name }}"
+description: "Access management in {{ cloud-desktop-full-name }}. Permissions are granted when assigning a role. A role can be assigned for an organization, a folder or a cloud: all organization and cloud permissions are inherited."
+---
+
+# Access management in {{ cloud-desktop-name }}
+
+In this section, you will learn:
+* [Which resources you can assign a role for](#resources).
+* [Which roles exist in the service](#roles-list).
+
+{% include [about-access-management](../../_includes/iam/about-access-management.md) %}
+
+## Which resources you can assign a role for {#resources}
+
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control-without-service-account.md) %}
+
+## Which roles exist in the service {#roles-list}
+
+### Service roles {#service-roles}
+
+#### vdi.viewer {#vdi-viewer}
+
+{% include [vdi.viewer](../../_roles/vdi/viewer.md) %}
+
+#### vdi.editor {#vdi-editor}
+
+{% include [vdi.editor](../../_roles/vdi/editor.md) %}
+
+#### vdi.admin {#vdi-admin}
+
+{% include [vdi.admin](../../_roles/vdi/admin.md) %}
+
+For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} service documentation.
+
+### Primitive roles {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+#### What's next {#what-is-next}
+
+* [How to assign a role](../../iam/operations/roles/grant.md).
+* [How to revoke a role](../../iam/operations/roles/revoke.md).
+* [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
+* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

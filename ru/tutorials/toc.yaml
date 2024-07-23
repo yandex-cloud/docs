@@ -676,7 +676,7 @@ items:
             href: datalens/data-from-metrica-yc-visualization.md
           - name: 'AppMetrica: прямое подключение'
             href: datalens/data-from-appmetrica-visualization.md
-          - name: 'AppMetrica: экспорт, постобоработка и визуализация данных'
+          - name: 'AppMetrica: экспорт, постобработка и визуализация данных'
             href: datalens/data-from-appmetrica-yc-visualization.md
           - name: 'Битрикс24: прямое подключение'
             href: datalens/data-from-bitrix24-visualization.md

@@ -1,4 +1,4 @@
-# Visualizing data using parameters
+# Using parameters
 
 
 A parameter is a variable that can substitute constant values in calculated fields.
@@ -115,7 +115,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
    1. Drag the created **Date** field to the **X** section.
 
 1. Drag the **Sales** measure to the **Y** section.
-1. Add a product category dimension to the chart. To do this, drag the **ProductCategory** field from the **Dimensions** section to the **Colors** section. The diagram areas corresponding to product categories will be filled by different colors.
+1. Add a product category dimension to the chart. To do this, drag the **ProductCategory** field from **Dimensions** to the **Colors** section. The diagram areas corresponding to each product category will get different color fills.
 1. Save the chart.
 
    1. In the top-right corner, click **Save**.
@@ -210,7 +210,7 @@ After you add a selector, unlink it from other selectors in this dashboard tab.
    1. Click the input field next to the **Default value** parameter and add the values:
 
       * `day`
-      * `week()`
+      * `week`
       * `month`
       * `year`
 

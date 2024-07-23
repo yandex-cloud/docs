@@ -6,7 +6,11 @@ description: "In this tutorial, you will learn how to connect to {{ MS }} Server
 # Creating a {{ MS }} connection
 
 
+{% note warning %}
+
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
+
+{% endnote %}
 
 
 To create a {{ MS }} connection:

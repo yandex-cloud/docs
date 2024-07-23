@@ -1,7 +1,5 @@
 # {{ sts-name }}
 
-{% include [sts-preview](sts-preview.md) %}
-
 _{{ sts-name }}_: {{ iam-name }} component to get _temporary access keys_ compatible with [AWS S3 API](../../storage/s3/index.md).
 
 Temporary access keys as an authentication method are only supported in [{{ objstorage-full-name }}](../../storage/).

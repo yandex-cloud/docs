@@ -1,4 +1,4 @@
-# Visualizing data from a file
+# Simple dashboard from a CSV file
 
 
 For our source data, let's use a file named [SuperHeroes.csv](https://storage.yandexcloud.net/datalens/SuperHeroes.csv) with information about superheroes, such as their name, gender, race, and comic book publisher.
@@ -146,9 +146,9 @@ To visualize whether a superhero is good or bad, create a bar chart.
    1. In the window that opens, enter the name of the new chart: **SuperHeroes — alignment**.
    1. Click **Done**.
 
-1. Add to the chart a color division for superheroes depending on whether they are good or bad. To do this, drag the **Alignment** field from **Dimensions** to the **Colors** section.
+1. Color code superheros in the chart based on whether they are good or bad. To do this, drag the **Alignment** field from **Dimensions** to the **Colors** section.
 
-   The previous value of the section (the **Gender** field) is replaced with **Alignment**.
+   The previous section (**Gender** field) value will be replaced with **Alignment**.
 
    ![image](../../_assets/datalens/solution-01/20-Charts-Alignment.png)
 
@@ -195,7 +195,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 
 ## Step 7. Add selectors to the dashboard {#step7}
 
-Add [selectors](../../datalens/dashboard/selector.md) to be able to filter superheroes by race (the **Race** field) and publisher (the **Publisher** field).
+Add [selectors](../../datalens/dashboard/selector.md) to be able to filter superheroes by race (**Race** field) and publisher (**Publisher** field).
 
 1. Click **Add**.
 1. Choose **Selector**.

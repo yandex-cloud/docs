@@ -33,52 +33,58 @@ items:
     items:
       - name: Overview
         href: tutorials/index.md
-      - name: Visualizing data from a CSV file
-        href: tutorials/data-from-csv-visualization.md
-      - name: Creating and publishing a chart with a map of Moscow from a CSV file
-        href: tutorials/data-from-csv-to-public-visualization.md
-      - name: Analyzing public data on road accidents in Russia
-        href: tutorials/data-from-csv-geo-visualization.md
-      - name: Analyzing a retail chain's sales from a {{ CH }} database
-        href: tutorials/data-from-ch-visualization.md
-      - name: Visualizing data from CHYT
-        href: tutorials/data-from-ch-over-yt.md
-      - name: >-
-          Analyzing sales and locations of pizzerias based on data from {{ CH }}
-          DB and Marketplace
-        href: tutorials/data-from-ch-to-geolayers-visualization.md
-      - name: Analyzing Yandex Music podcast statistics (for podcasters)
-        href: tutorials/data-from-podcasts.md
-      - name: Visualizing {{ monitoring-full-name }} data
-        href: tutorials/data-from-monitoring-visualization.md
-      - name: Visualizing Bitrix24 data
-        href: tutorials/data-from-bitrix24-visualization.md
-      - name: Visualizing data from {{ tracker-full-name }}
-        href: tutorials/data-from-tracker.md
-      - name: Visualizing {{ yq-full-name }} data
-        href: tutorials/data-from-yandex-query-visualization.md
-      - name: Web analytics with a connection to Yandex Metrica
-        href: tutorials/data-from-metrica-visualization.md
-      - name: >-
-          Web analytics with funnels and cohorts calculated based on Yandex
-          Metrica data
-        href: tutorials/data-from-metrica-yc-visualization.md
-      - name: Mobile app analytics based on AppMetrica data
-        href: tutorials/data-from-appmetrica-visualization.md
-      - name: Building customer journey charts based on AppMetrica data
-        href: tutorials/data-from-appmetrica-yc-visualization.md
-      - name: Visualizing data with a QL chart
-        href: tutorials/data-from-ch-to-sql-chart.md
-      - name: Visualizing data using parameters
-        href: tutorials/data-from-ch-with-parameters.md
-      - name: Visualizing data using Heat Maps
-        hidden: true
-        href: tutorials/data-on-heat-map-dashboard.md
-      - name: >-
-          Geocoding with the Yandex Maps API for data visualization in {{
-          datalens-short-name }}
-        href: tutorials/data-from-ch-geocoder.md
-  - name: Connection
+      - name: Getting started with {{ datalens-short-name }}
+        items:
+          - name: Simple dashboard from a CSV file
+            href: tutorials/data-from-csv-visualization.md
+          - name: Public chart with a map of Moscow from a CSV file
+            href: tutorials/data-from-csv-to-public-visualization.md
+          - name: Retail chain's dashboard based on a {{ CH }} DB
+            href: tutorials/data-from-ch-visualization.md
+      - name: Working with geodata
+        items:
+          - name: Analyzing public data on road accidents in Russia
+            href: tutorials/data-from-csv-geo-visualization.md
+          - name: >-
+              Analyzing sales and locations of pizzerias based on data from {{
+              CH }} DB and Marketplace
+            href: tutorials/data-from-ch-to-geolayers-visualization.md
+          - name: >-
+              Geocoding with the Yandex Maps API for data visualization in {{
+              datalens-short-name }}
+            href: tutorials/data-from-ch-geocoder.md
+          - name: Visualizing data using Heat Maps
+            hidden: true
+            href: tutorials/data-on-heat-map-dashboard.md
+      - name: Service analytics
+        items:
+          - name: 'Yandex Metrica: direct connection'
+            href: tutorials/data-from-metrica-visualization.md
+          - name: 'Yandex Metrica: data export, post-processing, and visualization'
+            href: tutorials/data-from-metrica-yc-visualization.md
+          - name: 'AppMetrica: direct connection'
+            href: tutorials/data-from-appmetrica-visualization.md
+          - name: 'AppMetrica: data export, post-processing, and visualization'
+            href: tutorials/data-from-appmetrica-yc-visualization.md
+          - name: 'Bitrix24: direct connection'
+            href: tutorials/data-from-bitrix24-visualization.md
+          - name: '{{ tracker-full-name }}: data export and visualization'
+            href: tutorials/data-from-tracker.md
+          - name: 'Yandex Music podcasts: statistics'
+            href: tutorials/data-from-podcasts.md
+          - name: Visualizing {{ yq-full-name }} data
+            href: tutorials/data-from-yandex-query-visualization.md
+          - name: Visualizing {{ monitoring-full-name }} data
+            href: tutorials/data-from-monitoring-visualization.md
+          - name: Visualizing {{ ytsaurus-name }}} CHYT data
+            href: tutorials/data-from-ch-over-yt.md
+      - name: Functional
+        items:
+          - name: Using parameters
+            href: tutorials/data-from-ch-with-parameters.md
+          - name: Examples of creating QL charts
+            href: tutorials/data-from-ch-to-sql-chart.md
+  - name: Connections
     items:
       - name: Overview
         href: concepts/connection.md
@@ -814,6 +820,8 @@ items:
         href: settings/service-plan.md
       - name: Archive
         items:
+          - name: Before June 1, 2024
+            href: pricing-archive/pricing01062024.md
           - name: Before April 23, 2024
             href: pricing-archive/pricing23042024.md
   - name: Release notes

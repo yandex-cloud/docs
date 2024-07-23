@@ -234,3 +234,5 @@
 1. [Удалите сервисные аккаунты](../../iam/operations/sa/delete.md).
 1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
 1. Убедитесь, что удален агент тестирования, созданный скриптом. Вы можете [удалить агент](../../compute/operations/vm-control/vm-delete.md) вручную.
+1. [Удалите таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
+1. [Удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).

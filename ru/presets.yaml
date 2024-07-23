@@ -483,6 +483,8 @@ default:
   roles-auditor: auditor
   roles-cloud-member: resource-manager.clouds.member
   roles-cloud-owner: resource-manager.clouds.owner
+  roles-connection-manager-user: connection-manager.user
+  roles-connection-manager-viewer: connection-manager.viewer
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
   roles-datalens-admin: datalens.admin
@@ -6581,8 +6583,6 @@ default:
         section_cloud-storage: Гибридное хранилище
         section_resource-master: Master
         section_resource-segment: Segment
-        wizard:
-          action_open-wizard: Открыть визард
       iam:
         cloud:
           change-org:
@@ -6713,6 +6713,7 @@ default:
             button_add: Создать сервисный аккаунт
             column_roles: Роли в каталоге
             popup-confirm_button_delete: Удалить
+          switch_dashboard: Дашборд каталога
           switch_service-accounts: Сервисные аккаунты
           switch_service-notifications: Уведомления сервисов
       iot:
@@ -7050,6 +7051,7 @@ default:
         label_export: Выгрузить логи
         label_groups: Группы
         label_loggroup: Лог-группа
+        label_minlevel: Минимальный уровень логирования
         label_retention-period: Срок хранения логов
         label_sinks: Приёмники логов
         label_stream: Поток данных
@@ -7455,6 +7457,7 @@ default:
         label_editor: Редактор
         label_environment: Переменные окружения
         label_image-url: URL образа
+        label_public-container: Публичный контейнер
         label_service-account: Сервисный аккаунт
         label_timeout: Таймаут, с
         label_url: Ссылка для вызова
@@ -8549,11 +8552,23 @@ default:
               console:
                 form:
                   object_storage:
+                    ConnectionSettings:
+                      bucket:
+                        title: Бакет
+                      endpoint:
+                        title: Эндпоинт
+                      title: Настройки подключения
+                      use_ssl:
+                        title: Использовать SSL
+                      verify_ssl_cert:
+                        title: Проверять SSL-сертификат
                     ObjectStorageAdvancedSettings:
                       bucket_layout_column:
                         title: Колонка со временем
                       bucket_layout_timezone:
                         title: Часовой пояс
+                      bucket_layout:
+                        title: Имя папки
                       buffer_interval:
                         title: Интервал записи
                       buffer_size:
@@ -8564,10 +8579,6 @@ default:
                       UNCOMPRESSED:
                         title: Без сжатия
                     ObjectStorageConnectionSettings:
-                      bucket_layout:
-                        title: Имя папки
-                      bucket:
-                        title: Бакет
                       region:
                         title: Регион
                       service_account_id:
@@ -8577,6 +8588,8 @@ default:
                         title: Вручную
                       infer:
                         title: Автоматически
+                    ObjectStorageEndpoint:
+                      title: Параметры эндпоинта
                     ObjectStorageResultTable:
                       add_system_cols:
                         title: Добавить системные колонки
@@ -8591,21 +8604,15 @@ default:
                       ObjectStorageEventSource:
                         SQS:
                           aws_access_key_id:
-                            title: Идентификатор ключа доступа AWS
+                            title: Идентификатор статического ключа
                           aws_secret_access_key:
-                            title: Секретный ключ доступа AWS
-                          endpoint:
-                            title: Эндпоинт
+                            title: Содержимое статического ключа
                           owner_id:
                             title: Идентификатор аккаунта владельца очереди
                           queue_name:
                             title: Имя очереди
                           region:
                             title: Регион
-                          use_ssl:
-                            title: Использовать SSL
-                          verify_ssl_cert:
-                            title: Проверить SSL-сертификат
                       ObjectStorageReaderFormat:
                         Csv:
                           additional_options:
@@ -8621,7 +8628,7 @@ default:
                           escape_char:
                             title: Символ отмены
                           newlines_in_values:
-                            title: Разрешить перенос строк в значениях.
+                            title: Разрешить перенос строк в значениях
                           quote_char:
                             title: Символ кавычек
                         csv:
@@ -8630,7 +8637,7 @@ default:
                           block_size:
                             title: Размер блока
                           newlines_in_values:
-                            title: Разрешить перенос строк в значениях.
+                            title: Разрешить перенос строк в значениях
                           unexpected_field_behavior:
                             title: Неожиданное поведение поля
                         jsonl:
@@ -8646,15 +8653,12 @@ default:
                         title: Расширенные настройки
                       any_as_string:
                         title: Преобразовать комплексные значения в строки
-                      connection_settings:
-                        title: Настройки подключения
                       format:
                         title: Формат данных
                       output_encoding:
                         title: Формат сжатия
                       output_format:
                         title: Выходной формат
-                      title: Параметры эндпоинта
             opensearch:
               console:
                 form:

@@ -1,0 +1,1 @@
+The `yq.auditor` role allows you to view the service metadata, including the information on [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), [connections](../../query/concepts/glossary.md#connection), [bindings](../../query/concepts/glossary.md#binding), and [queries](../../query/concepts/glossary.md#query).

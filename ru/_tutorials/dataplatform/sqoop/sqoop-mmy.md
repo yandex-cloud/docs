@@ -216,8 +216,11 @@
         * [{{ dataproc-name }}](../../../data-proc/operations/cluster-delete.md).
 
     1. Если вы создавали бакет {{ objstorage-full-name }}, [удалите его](../../../storage/operations/buckets/delete.md).
-    1. Удалите [подсеть](../../../vpc/operations/subnet-delete.md).
-    1. Удалите [облачную сеть](../../../vpc/operations/network-delete.md).
+    1. [Удалите подсеть](../../../vpc/operations/subnet-delete.md).
+    1. [Удалите таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
+    1. [Удалите NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
+    1. [Удалите облачную сеть](../../../vpc/operations/network-delete.md).
+    1. [Удалите сервисный аккаунт](../../../iam/operations/sa/delete.md).
 
 * {{ TF }} {#tf}
 
@@ -242,6 +245,8 @@
     Удалите созданные вручную:
 
     1. [Подсеть](../../../vpc/operations/subnet-delete.md).
+    1. [Таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
+    1. [NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
     1. [Облачную сеть](../../../vpc/operations/network-delete.md).
 
 {% endlist %}

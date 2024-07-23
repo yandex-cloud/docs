@@ -1,6 +1,3 @@
-
-{% note warning %}
-
 When connecting an external database which is not a {{ yandex-cloud }} resource:
 
 * Make sure the database uses an SSL certificate signed by a SSL certificate authority. You will not be able to create a connection in {{ datalens-short-name }} if the database uses a self-signed SSL certificate.
@@ -26,5 +23,3 @@ When connecting an external database which is not a {{ yandex-cloud }} resource:
       * `2a02:6b8:c41:1300:0:f83d:a987:0/112`
 
    {% endlist %}
-
-{% endnote %}

@@ -115,8 +115,8 @@ If you already have a database connection in a cluster, you can add a connection
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of its name and select **Delete connection**.
 1. In the window that opens, click **Apply**.
 
-The connection will be deleted from both {{ websql-full-name }} and {{ connection-manager-name }} in {{ metadata-hub-name }}.
+The connection will be deleted from both {{ websql-full-name }} and {{ connection-manager-name }} in {{ metadata-hub-full-name }}.
 
-You can also delete a connection from {{ connection-manager-name }} in {{ metadata-hub-name }}. This connection will be automatically deleted from {{ websql-full-name }}. Deletion is limited to the user's folder.
+You can also delete a connection from {{ connection-manager-name }} in {{ metadata-hub-full-name }}. This connection will be automatically deleted from {{ websql-full-name }}. Deletion is limited to the user's folder.
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

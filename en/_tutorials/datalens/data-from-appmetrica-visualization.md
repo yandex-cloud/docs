@@ -1,10 +1,10 @@
-# Mobile app analytics based on AppMetrica data
+# AppMetrica: direct connection
 
 
 You can visualize and explore AppMetrica data in {{ datalens-full-name }} using the following methods:
 
 * Direct access.
-   {{ datalens-name }} connects directly to AppMetrica. This method is the easiest and fastest, but the set of supported functions is [limited](../../datalens/function-ref/availability.md).
+   {{ datalens-name }} connects directly to AppMetrica. This method is the easiest and fastest but supports a [limited](../../datalens/function-ref/availability.md) set of functions.
 * Real-time export of data from AppMetrica to {{ mch-name }}.
    Raw data is available and its pre-aggregation and post-processing at the DB level are supported. To implement this option, [set up data export](https://appmetrica.yandex.ru/docs/common/cloud/about.html?lang=en) and [create a connection](../../datalens/operations/connection/create-clickhouse.md) from {{ datalens-name }} to the {{ CH }} database.
 

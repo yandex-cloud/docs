@@ -362,8 +362,10 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы остановить работу модели и перестать платить за созданные ресурсы:
+Некоторые ресурсы платные. Чтобы остановить работу модели и перестать платить за созданные ресурсы, удалите те из них, которые вы больше не будете использовать:
 
-1. [Удалите](../../storage/operations/objects/delete.md) все объекты из бакета.
-1. [Удалите](../../storage/operations/buckets/delete.md) бакет.
-1. [Удалите](../../datasphere/operations/projects/delete.md) проект.
+1. [Удалите все объекты из бакета](../../storage/operations/objects/delete.md).
+1. [Удалите бакет](../../storage/operations/buckets/delete.md).
+1. [Удалите проект](../../datasphere/operations/projects/delete.md).
+1. [Удалите таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
+1. [Удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).

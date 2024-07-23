@@ -23,7 +23,7 @@ description: "На странице представлен список прак
   * [Яндекс Метрика: прямое подключение](data-from-metrica-visualization.md)
   * [Яндекс Метрика: экспорт, постобработка и визуализация данных](data-from-metrica-yc-visualization.md)
   * [AppMetrica: прямое подключение](data-from-appmetrica-visualization.md)
-  * [AppMetrica: экспорт, постобоработка и визуализация данных](data-from-appmetrica-yc-visualization.md)
+  * [AppMetrica: экспорт, постобработка и визуализация данных](data-from-appmetrica-yc-visualization.md)
   * [Битрикс24: прямое подключение](data-from-bitrix24-visualization.md)
   * [{{ tracker-full-name }}: экспорт и визуализация данных](data-from-tracker.md)
   * [Анализ логов {{ objstorage-name }}](storage-logs-analysis.md)

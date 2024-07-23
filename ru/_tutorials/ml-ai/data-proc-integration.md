@@ -265,9 +265,14 @@
 
 {% endnote %}
 
-Чтобы перестать платить за созданные ресурсы:
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-* [удалите объекты](../../storage/operations/objects/delete-all.md) из бакета;
-* [удалите бакет](../../storage/operations/buckets/delete.md);
-* [удалите кластер](../../data-proc/operations/cluster-delete.md);
-* [удалите проект](../../datasphere/operations/projects/delete.md).
+* [объекты](../../storage/operations/objects/delete-all.md) из бакета;
+* [бакет](../../storage/operations/buckets/delete.md);
+* [кластер](../../data-proc/operations/cluster-delete.md);
+* [проект](../../datasphere/operations/projects/delete.md);
+* [подсеть](../../vpc/operations/subnet-delete.md);
+* [таблицу маршрутизации](../../vpc/operations/delete-route-table.md);
+* [NAT-шлюз](../../vpc/operations/delete-nat-gateway.md);
+* [сеть](../../vpc/operations/network-delete.md);
+* [сервисный аккаунт](../../iam/operations/sa/delete.md).

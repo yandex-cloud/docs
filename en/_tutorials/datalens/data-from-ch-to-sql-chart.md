@@ -1,4 +1,4 @@
-# Visualizing data with a QL chart
+# Examples of creating QL charts
 
 
 In this scenario, you will create charts using SQL queries. SQL queries enable you to configure data for visualization in a more flexible way than the standard dataset method does. For example, you can add parameters from dashboards to a SQL query.
@@ -37,7 +37,7 @@ SQL queries only work with databases. File, GoogleSheets, Yandex Metrica, and ot
 
 1. Go to an existing database connection.
 1. Make sure **SQL query access level** → **Allow subqueries in datasets and queries from charts** is enabled.
-1. In the top right-hand corner, click **Create QL chart**.
+1. In the top-right corner, click **Create QL chart**.
 1. On the **Query** tab, enter the query code:
 
    ```sql
@@ -88,7 +88,7 @@ SQL queries only work with databases. File, GoogleSheets, Yandex Metrica, and ot
 
       {% endnote %}
 
-1. Go back to the **Query** tab. In the lower left-hand corner, click **Start**. Running the query will produce a visualization in the right-hand window.
+1. Go back to the **Query** tab. In the bottom-left corner, click **Start**. Running the query will produce a visualization in the right-hand window.
 1. Configure the visualization:
 
    * Select **Bar chart** as chart type.
@@ -201,4 +201,4 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 - [{#T}](../../datalens/operations/dashboard/add-chart.md)
 - [{#T}](../../datalens/operations/dashboard/add-selector.md)
 - [{#T}](../../datalens/operations/chart/create-sql-chart.md)
-- [QL chart](../../datalens/concepts/chart/index.md#sql-charts)
+- [QL charts](../../datalens/concepts/chart/index.md#sql-charts)
