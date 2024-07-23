@@ -36,6 +36,10 @@ The list below shows all roles that are considered when verifying access rights 
 
 ### Service roles {#service-roles}
 
+#### yq.auditor {#query-auditor}
+
+{% include [query.auditor](../../_roles/yq/auditor.md) %}
+
 #### yq.viewer {#query-viewer}
 
 {% include [query.viewer](../../_roles/yq/viewer.md) %}

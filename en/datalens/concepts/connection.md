@@ -33,10 +33,9 @@ The following connection types are available in {{ datalens-short-name }}:
 
 You can add connections from the available list in [{{ datalens-short-name }} Marketplace](marketplace.md).
 
-
+## Connecting an external database {#external-db-connection}
 
 {% include [connection-note](../../_includes/datalens/datalens-connection-note.md) %}
-
 
 
 ## Access management {#access-management}

@@ -210,7 +210,10 @@
    - Вручную {#manual}
 
      1. [Удалите кластер {{ k8s }}](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-     1. [Удалите созданные подсети](../../../vpc/operations/subnet-delete.md) и [сети](../../../vpc/operations/network-delete.md).
+     1. [Удалите созданные подсети](../../../vpc/operations/subnet-delete.md).
+     1. [Удалите таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
+     1. [Удалите NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
+     1. [Удалите сети](../../../vpc/operations/network-delete.md).
      1. [Удалите созданные сервисные аккаунты](../../../iam/operations/sa/delete.md).
 
    - {{ TF }} {#tf}

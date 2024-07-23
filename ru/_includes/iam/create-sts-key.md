@@ -1,7 +1,5 @@
 # Создать временный ключ доступа с помощью {{ sts-name }}
 
-{% include [sts-preview](sts-preview.md) %}
-
 С помощью [{{ sts-name }}](../../iam/concepts/authorization/sts.md) вы можете получить временные ключи для ограниченного доступа в [бакеты](../../storage/concepts/bucket.md) {{ objstorage-full-name }}.
 
 Временные ключи доступа в качестве способа аутентификации поддерживаются только в сервисе [{{ objstorage-name }}](../../storage/).

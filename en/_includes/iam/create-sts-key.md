@@ -1,7 +1,5 @@
 # Creating a temporary access key using {{ sts-name }}
 
-{% include [sts-preview](sts-preview.md) %}
-
 With [{{ sts-name }}](../../iam/concepts/authorization/sts.md), you can get temporary keys for limited access to {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md).
 
 Temporary access keys as an authentication method are only supported in [{{ objstorage-name }}](../../storage/).

@@ -25,7 +25,7 @@ default:
   link-500-users: /services/tracker#contact-form
   link-tracker-support: https://support.yandex.cloud/?referral=tracker
   link-migration-form: /services/tracker#tracker-form
-  link-billing: https://billing.cloud.yandex.ru/
+  link-billing: https://billing.yandex.cloud
   link-bind-ba: https://tracker.yandex.ru/admin/licenses/users?billing-account=1
   link-tracker-example-1: https://tracker.yandex.ru/<ключ_задачи>
   link-tracker-example-2: https://tracker.yandex.ru/<ключ_очереди>

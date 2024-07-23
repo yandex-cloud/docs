@@ -297,6 +297,8 @@
     * [Эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete).
     * [Инстанс Amazon RDS for {{ PG }}](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html).
     * [Кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
+    * [Таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
+    * [NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
 
 - {{ TF }} {#tf}
 

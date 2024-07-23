@@ -1,7 +1,5 @@
 # {{ sts-name }}
 
-{% include [sts-preview](sts-preview.md) %}
-
 _{{ sts-name }}_ — компонент сервиса {{ iam-name }} для получения _временных ключей доступа_, совместимых с [AWS S3 API](../../storage/s3/index.md).
 
 Временные ключи доступа в качестве способа аутентификации поддерживаются только в сервисе [{{ objstorage-full-name }}](../../storage/).

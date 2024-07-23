@@ -41,7 +41,7 @@ Connections to databases within a single managed database cluster are grouped in
 
 External connections are not grouped together even if they share the same DB host address.
 
-{{ websql-full-name }} also supports integration with [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml) at the user folder level. Connections created in {{ websql-full-name}} automatically appear in {{ metadata-hub-name }} {{ connection-manager-name }} and vice versa.
+{{ websql-full-name }} also supports integration with [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml) at the user folder level. Connections created in {{ websql-full-name}} automatically appear in {{ metadata-hub-full-name }} {{ connection-manager-name }} and vice versa.
 
 You can also [edit connection settings](../operations/connect.md#change-connection-settings) and [delete connections you no longer need](../operations/connect.md#delete-connection). After you connect to a DB, you can [view schemas, tables, and views](../operations/view-db-objects-info.md) (`VIEW`). Tables and views within one connection are grouped together. Grouping of views is available if there is at least one view in the DB.
 

@@ -1,4 +1,4 @@
-# Creating and publishing a chart with a map of Moscow from a CSV file
+# Public chart with a map of Moscow from a CSV file
 
 
 You can use {{ datalens-short-name }} to grant public access to your charts and dashboards.

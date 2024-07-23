@@ -14,7 +14,7 @@ items:
       - name: All guides
         href: operations/index.md
       - name: Creating an address
-        href: operations/create-adress.md
+        href: operations/create-address.md
       - name: Domain ownership verification
         href: operations/check-domain.md
       - name: Creating a configuration

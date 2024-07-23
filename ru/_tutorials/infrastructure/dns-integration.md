@@ -323,10 +323,12 @@ sudo netplan apply
 
 Чтобы перестать платить за ресурсы:
 
-* [удалите](../../compute/operations/vm-control/vm-delete) ВМ;
-* [удалите](../../vpc/operations/address-delete) статические публичные IP-адреса, если вы зарезервировали его специально для своих ВМ;
-* [удалите](../../network-load-balancer/operations/target-group-delete.md) целевые группы;
-* [удалите](../../network-load-balancer/operations/listener-remove.md) обработчики;
-* [удалите](../../network-load-balancer/operations/load-balancer-delete.md) сетевой балансировщик;
-* [удалите](../../vpc/operations/subnet-delete.md) подсети;
-* [удалите](../../vpc/operations/network-delete.md) сети.
+* [удалите ВМ](../../compute/operations/vm-control/vm-delete);
+* [удалите статические публичные IP-адреса](../../vpc/operations/address-delete), если вы зарезервировали их специально для своих ВМ;
+* [удалите целевые группы](../../network-load-balancer/operations/target-group-delete.md);
+* [удалите обработчики](../../network-load-balancer/operations/listener-remove.md);
+* [удалите сетевой балансировщик](../../network-load-balancer/operations/load-balancer-delete.md);
+* [удалите подсети](../../vpc/operations/subnet-delete.md);
+* [удалите таблицу маршрутизации](../../vpc/operations/delete-route-table.md);
+* [удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md);
+* [удалите сети](../../vpc/operations/network-delete.md).

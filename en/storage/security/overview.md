@@ -91,8 +91,6 @@ Access is granted to a [bucket](../concepts/bucket.md).
 
 ## {{ sts-name }} {#sts}
 
-{% include [sts-preview](../../_includes/iam/sts-preview.md) %}
-
 [{{ sts-name }}](./sts.md): {{ iam-name }} component to get temporary access keys compatible with [AWS S3 API](../s3/index.md).
 
 With temporary keys, you can set up granular access to buckets for multiple users with a single service account.

@@ -213,6 +213,9 @@
     1. [Удалите бакет в {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
     1. [Удалите кластер {{ mgp-name }}](../../../managed-greenplum/operations/cluster-delete.md).
     1. [Удалите сервисный аккаунт](../../../iam/operations/sa/delete.md).
+    1. [Удалите подсеть](../../../vpc/operations/subnet-delete.md).
+    1. [Удалите таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
+    1. [Удалите NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
     1. [Удалите облачную сеть](../../../vpc/operations/network-delete.md).
 
 

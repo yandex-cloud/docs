@@ -248,6 +248,9 @@
     1. [Кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
     1. [Кластер {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
     1. [Бакеты {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+    1. [Подсеть](../../vpc/operations/subnet-delete.md).
+    1. [Таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
+    1. [NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
     1. [Облачную сеть](../../vpc/operations/network-delete.md).
     1. [Сервисный аккаунт](../../iam/operations/sa/delete.md).
 

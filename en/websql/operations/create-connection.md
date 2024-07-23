@@ -15,7 +15,7 @@ In {{ websql-full-name }}, you can connect to databases in the following cluster
 
 {% include notitle [connect-to-cluster](../../_includes/websql/connect-to-cluster.md) %}
 
-You can also [create a connection](../../metadata-hub/operations/create-connection.md) to a cluster in {{ metadata-hub-name }} {{ connection-manager-name }}. This connection will automatically appear in {{ websql-full-name }}. But DB username, password, and name should be entered manually.
+You can also [create a connection](../../metadata-hub/operations/create-connection.md) to a cluster in {{ metadata-hub-full-name }} {{ connection-manager-name }}. This connection will automatically appear in {{ websql-full-name }}. But DB username, password, and name should be entered manually.
 
 If the connection is successful, you will see the cluster structure in the connection tree. Connections to databases within a single managed database cluster are grouped into an expandable list under the name of that cluster.
 

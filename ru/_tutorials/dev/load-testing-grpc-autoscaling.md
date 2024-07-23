@@ -320,7 +320,7 @@
      * В поле **{{ ui-key.yacloud.load-testing.field_config-file }}** нажмите **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** и загрузите подготовленный ранее файл `load.yaml`.
 1. Наблюдайте за прохождением теста:
    1. В [консоли управления]({{ link-console-main }}) выберите сервис {{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}.
-   1. Выберите ваш тестовый кластер {{ managed-k8s-name }}].
+   1. Выберите ваш тестовый кластер {{ managed-k8s-name }}.
    1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
    1. Наблюдайте за изменением количества подов приложения по мере увеличения и уменьшения нагрузки.
    1. По завершении теста в [консоли управления]({{ link-console-main }}) выберите сервис {{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}.
@@ -331,6 +331,8 @@
 ## Удалите созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
-1. Если вы настраивали [CNAME-записи](../../dns/concepts/resource-record.md#cname) в {{ dns-name }}, [удалите](../../dns/operations/zone-delete.md) зону DNS.
-1. [Удалите](../../application-load-balancer/operations/application-load-balancer-delete.md) L7-балансировщик.
-1. [Удалите](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) кластер {{ managed-k8s-name }}.
+1. Если вы настраивали [CNAME-записи](../../dns/concepts/resource-record.md#cname) в {{ dns-name }}, [удалите зону DNS](../../dns/operations/zone-delete.md).
+1. [Удалите L7-балансировщик](../../application-load-balancer/operations/application-load-balancer-delete.md).
+1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. [Удалите таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
+1. [Удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).

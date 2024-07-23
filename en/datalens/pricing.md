@@ -6,18 +6,16 @@ editable: false
 
 
 
-## Current pricing policy {#effective-rules}
+## {{ datalens-name }} service plans {#effective-rules}
 
-You can use {{ datalens-full-name }} under the service plans that offer different service packages:
+{{ datalens-full-name }} features service plans offering different service packages:
 
 * **Community**: Suitable for small teams and non-profit projects.
 * **Business**: Suitable for enterprise deployments and business scenarios.
 
 The plan you choose covers your organization and can only be [changed](./settings/service-plan.md#change-service-plan) by its owner or administrator.
 
-From April 23 to June 1, 2024, you will be able to test features of these service plans at no charge. This will help you choose a plan that best fits your needs. After that period, you will have to [pay for the service plan](#service-plan-cost) you choose.
-
-You can find the {{ datalens-full-name }} features based on the service plan in the table below.
+Service plans offer different feature sets and [cost](#prices) differently.
 
 | **Service plan** | **Community** | **Business** |
 ------------------ |---------------|---------------
@@ -38,21 +36,20 @@ You can find the {{ datalens-full-name }} features based on the service plan in 
 
 {% endnote %}
 
-## Pricing policy as of June 1, 2024 {#service-plan-cost}
+## Prices for the Russia region {#prices}
 
-Starting June 1, 2024, {{ datalens-name }} billing will be based on the selected service plan.
+The cost of using {{ datalens-name }} depends on the service plan you select.
 
 {% note info %}
 
-When switching to the _Business_ plan, the price for the first month is calculated proportionally to the remaining part of the month at the time of switching.
+If you change to the _Business_ plan, the price for the first month will be proportional to the remaining portion of the month as of the change date.
 
 {% endnote %}
 
-A user is active and subject to billing if their actions have resulted in a query to a data source, e.g., they opened or edited a dashboard, chart, or dataset. Public URLs to dashboards and charts work without authentication and do not contribute to the active user count.
-
-## Prices for the Russia region {#prices}
+A user is active and subject to billing if their actions have resulted in a query to a data source, e.g., they opened or edited a dashboard, chart, or dataset. Public URLs to dashboards and charts work without authentication and do not contribute to active user count. You can look up user count in [{{ datalens-name }} usage statistics](./operations/connection/create-usage-tracking.md).
 
 
 
 {% include notitle [usd.md](../_pricing/datalens/usd.md) %}
+
 
