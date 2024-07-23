@@ -3,7 +3,7 @@ title: "Visualizing data from {{ tracker-short-name }}"
 description: "To visualize data from {{ tracker-short-name }}, set up regular export of data to external storage and visualize the required metrics and data using {{ datalens-short-name }} tools."
 ---
 
-# Visualizing data from {{ tracker-full-name }}
+# {{ tracker-full-name }}: data export and visualization
 
 
 Visualizing data from {{ tracker-short-name }} to {{ datalens-full-name }} allows you to build more advanced analytics than when using the {{ tracker-short-name }} tools.

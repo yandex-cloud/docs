@@ -255,11 +255,11 @@ The management console only allows you to change the name of a folder. To change
 
    {% note alert %}
 
-   The `set-access-binding` command completely rewrites access permissions to the resource. All current resource roles will be deleted.
+   The `set-access-binding` command completely rewrites access permissions for the resource. All current resource roles will be deleted.
 
    {% endnote %}
 
-   1. Make sure the resource has no roles assigned that you would rather not lose:
+   1. Make sure the resource has no roles assigned that you would not want to lose:
 
       ```
       yc resource-manager folder list-access-binding my-folder
@@ -306,7 +306,7 @@ The management console only allows you to change the name of a folder. To change
 
    {% note alert %}
 
-   The `setAccessBindings` method completely rewrites access permissions to the resource. All current resource roles will be deleted.
+   The `setAccessBindings` method completely rewrites access permissions for the resource. All current resource roles will be deleted.
 
    {% endnote %}
 
@@ -348,7 +348,3 @@ Allow the service account to manage the folder and its resources:
    {% include [grant-role-for-sa-to-folder-via-api](../../_includes/iam/grant-role-for-sa-to-folder-via-api.md) %}
 
 {% endlist %}
-
-## Allow access to resources for all users {#access-to-all}
-
-{% include [grant-role-for-sa](../../_includes/iam/grant-role-for-all.md) %}

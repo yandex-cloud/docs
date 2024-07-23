@@ -31,6 +31,10 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 ## Service roles {#auxiliary-roles}
 
+#### quota-manager.viewer {#quota-manager-viewer}
+
+{% include [quota-manager.viewer](../_roles/quota-manager/viewer.md) %}
+
 #### quota-manager.requestOperator {#quota-manager-requestoperator}
 
 {% include [quota-manager.requestOperator](../_roles/quota-manager/requestOperator.md) %}
@@ -228,6 +232,23 @@ For more information, see [{#T}](../billing/security/index.md).
 {% include [cdn-admin](../_roles/cdn/admin.md) %}
 
 For more information, see [{#T}](../cdn/security/index.md).
+
+
+## {{ cloud-desktop-full-name }} {#desktop-roles}
+
+#### vdi.viewer {#vdi-viewer}
+
+{% include [vdi.viewer](../_roles/vdi/viewer.md) %}
+
+#### vdi.editor {#vdi-editor}
+
+{% include [vdi.editor](../_roles/vdi/editor.md) %}
+
+#### vdi.admin {#vdi-admin}
+
+{% include [vdi.admin](../_roles/vdi/admin.md) %}
+
+For more information, see [{#T}](../cloud-desktop/security/index.md).
 
 
 ## {{ dns-full-name }} {#dns-roles}
@@ -1290,6 +1311,10 @@ For more information, see [{#T}](../storage/security/index.md).
 
 
 ## {{ yq-full-name }} {#query-roles}
+
+#### yq.auditor {#query-auditor}
+
+{% include [query.auditor](../_roles/yq/auditor.md) %}
 
 #### yq.viewer {#query-viewer}
 

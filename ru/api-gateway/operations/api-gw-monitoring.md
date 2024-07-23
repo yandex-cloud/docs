@@ -15,7 +15,7 @@ description: "Вы можете посмотреть графики монито
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится API-шлюз. 
+    1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится API-шлюз. 
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Выберите API-шлюз, графики мониторинга которого хотите посмотреть.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_monitoring }}**.

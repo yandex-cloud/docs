@@ -16,6 +16,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](api-gw-canary.md)
 * [Посмотреть графики мониторинга](api-gw-monitoring.md)
 * [Посмотреть журнал выполнения](api-gw-logs.md)
+* [Записать логи в журнал выполнения](api-gw-logs-write.md)
 * [{#T}](api-gw-domain-detach.md)
 * [{#T}](api-gw-migration.md)
 * [{#T}](api-gw-delete.md)

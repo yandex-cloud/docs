@@ -104,8 +104,8 @@
    spec:
      containers:
        - name: app
-        image: ubuntu
-        command: ["/bin/sh"]
+         image: ubuntu
+         command: ["/bin/sh"]
          args:
            ["-c", "while true; do echo $(date -u) >> /data/out.txt; sleep 5; done"]
          volumeMounts:

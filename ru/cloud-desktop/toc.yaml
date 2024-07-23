@@ -61,6 +61,8 @@ items:
         href: concepts/showcase.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Управление доступом
+    href: security/index.md
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник CLI

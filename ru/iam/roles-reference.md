@@ -31,6 +31,10 @@ description: "В статье приведен полный справочник
 
 ## Служебные роли {#auxiliary-roles}
 
+#### quota-manager.viewer {#quota-manager-viewer}
+
+{% include [quota-manager.viewer](../_roles/quota-manager/viewer.md) %}
+
 #### quota-manager.requestOperator {#quota-manager-requestoperator}
 
 {% include [quota-manager.requestOperator](../_roles/quota-manager/requestOperator.md) %}
@@ -228,6 +232,23 @@ description: "В статье приведен полный справочник
 {% include [cdn-admin](../_roles/cdn/admin.md) %}
 
 Подробнее см. [{#T}](../cdn/security/index.md).
+
+
+## {{ cloud-desktop-full-name }} {#desktop-roles}
+
+#### vdi.viewer {#vdi-viewer}
+
+{% include [vdi.viewer](../_roles/vdi/viewer.md) %}
+
+#### vdi.editor {#vdi-editor}
+
+{% include [vdi.editor](../_roles/vdi/editor.md) %}
+
+#### vdi.admin {#vdi-admin}
+
+{% include [vdi.admin](../_roles/vdi/admin.md) %}
+
+Подробнее см. [{#T}](../cloud-desktop/security/index.md).
 
 
 ## {{ dns-full-name }} {#dns-roles}
@@ -1290,6 +1311,10 @@ description: "В статье приведен полный справочник
 
 
 ## {{ yq-full-name }} {#query-roles}
+
+#### yq.auditor {#query-auditor}
+
+{% include [query.auditor](../_roles/yq/auditor.md) %}
 
 #### yq.viewer {#query-viewer}
 

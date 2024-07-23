@@ -6577,8 +6577,6 @@ default:
         section_cloud-storage: Hybrid storage
         section_resource-master: Master
         section_resource-segment: Segment
-        wizard:
-          action_open-wizard: Open wizard
       iam:
         cloud:
           change-org:
@@ -6709,6 +6707,7 @@ default:
             button_add: Create service account
             column_roles: Roles in folder
             popup-confirm_button_delete: Delete
+          switch_dashboard: Folder dashboard
           switch_service-accounts: Service accounts
           switch_service-notifications: Service notifications
       iot:
@@ -7046,6 +7045,7 @@ default:
         label_export: Export logs
         label_groups: Groups
         label_loggroup: Log group
+        label_minlevel: Min. logging level
         label_retention-period: Log retention
         label_sinks: Sinks
         label_stream: Stream
@@ -7451,6 +7451,7 @@ default:
         label_editor: Editor
         label_environment: Environment variables
         label_image-url: Image URL
+        label_public-container: Public container
         label_service-account: Service account
         label_timeout: Timeout, s
         label_url: Link to invoke
@@ -8545,11 +8546,23 @@ default:
               console:
                 form:
                   object_storage:
+                    ConnectionSettings:
+                      bucket:
+                        title: Bucket
+                      endpoint:
+                        title: Endpoint
+                      title: Connection settings
+                      use_ssl:
+                        title: Use SSL
+                      verify_ssl_cert:
+                        title: Verify SSL certificate
                     ObjectStorageAdvancedSettings:
                       bucket_layout_column:
                         title: Row time column name
                       bucket_layout_timezone:
                         title: Time zone
+                      bucket_layout:
+                        title: Folder name
                       buffer_interval:
                         title: Flush interval
                       buffer_size:
@@ -8560,10 +8573,6 @@ default:
                       UNCOMPRESSED:
                         title: Uncompressed
                     ObjectStorageConnectionSettings:
-                      bucket_layout:
-                        title: Folder name
-                      bucket:
-                        title: Bucket
                       region:
                         title: Region
                       service_account_id:
@@ -8573,6 +8582,8 @@ default:
                         title: Manual
                       infer:
                         title: Automatically
+                    ObjectStorageEndpoint:
+                      title: Endpoint settings
                     ObjectStorageResultTable:
                       add_system_cols:
                         title: Add system columns
@@ -8590,18 +8601,12 @@ default:
                             title: AWS Access Key ID
                           aws_secret_access_key:
                             title: AWS Secret Access Key
-                          endpoint:
-                            title: Endpoint
                           owner_id:
                             title: Queue owner account ID
                           queue_name:
                             title: Queue name
                           region:
                             title: Region
-                          use_ssl:
-                            title: Use SSL
-                          verify_ssl_cert:
-                            title: Verify SSL certificate
                       ObjectStorageReaderFormat:
                         Csv:
                           additional_options:
@@ -8617,7 +8622,7 @@ default:
                           escape_char:
                             title: Escape char
                           newlines_in_values:
-                            title: Allow line breaks in values.
+                            title: Allow line breaks in values
                           quote_char:
                             title: Quote char
                         csv:
@@ -8626,7 +8631,7 @@ default:
                           block_size:
                             title: Block size
                           newlines_in_values:
-                            title: Allow line breaks in values.
+                            title: Allow line breaks in values
                           unexpected_field_behavior:
                             title: Unexpected field behavior
                         jsonl:
@@ -8642,15 +8647,12 @@ default:
                         title: Advanced settings
                       any_as_string:
                         title: Convert complex data to strings
-                      connection_settings:
-                        title: Connection settings
                       format:
                         title: Data format
                       output_encoding:
                         title: Encoding format
                       output_format:
                         title: Serialization format
-                      title: Endpoint settings
             opensearch:
               console:
                 form:

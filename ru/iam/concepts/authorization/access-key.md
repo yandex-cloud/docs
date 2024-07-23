@@ -24,8 +24,6 @@
 
 Помимо статических ключей доступа, для работы с {{ objstorage-full-name }} вы можете использовать временные ключи [{{ sts-name }}](sts.md) также совместимые с AWS API.
 
-{% include [sts-preview](../../../_includes/iam/sts-preview.md) %}
-
 ## Формат статического ключа {#access-key-format}
 
 ### Идентификатор ключа {#key-id}

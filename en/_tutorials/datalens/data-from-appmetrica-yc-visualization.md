@@ -1,4 +1,4 @@
-# Mobile app customer journey analytics based on AppMetrica data
+# AppMetrica: data export, post-processing, and visualization
 
 
 In this scenario, you will analyze user behavior in a mobile app based on AppMetrica data:
@@ -29,9 +29,7 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 
 1. [Connect {{ CH }} and {{ ml-platform-short-name }}](#ch-datasphere-connection)
    1. [Connect {{ CH }}](#ch-connection)
-
    1. [Connect {{ ml-platform-short-name }}](#datasphere-connection)
-
    1. [Clone the repository to {{ ml-platform-short-name }}](#clone-repo-to-datasphere)
 1. [Retrieve and upload data to {{ CH }}](#get-download-data-in-ch)
    1. [{{ ml-platform-short-name }}. Download the test app data via Yandex Disk](#uploading-data-counter-from-disk)
@@ -67,14 +65,14 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 
       {% note warning %}
 
-      We don't recommend using **burstable** VM configurations in production environments. This tutorial uses them as an example. For production solutions, use **standard** or **memory-optimized** configurations.
+      We do not recommend using **burstable** VM configurations in production environments. This tutorial uses them as an example. For production solutions, use **standard** or **memory-optimized** configurations.
 
       {% endnote %}
 
       ![image](../../_assets/datalens/solution-13/01-cluster-ch-settings.png)
 
    1. **Storage size**: Leave the value at 10 GB.
-   1. **Database**: Enter `autoru_appmetrica` database name, as well as its username and password. Make sure to memorize the credentials.
+   1. **Database**: Enter `autoru_appmetrica` database name, as well as its username and password. Memorize these credentials.
 
       ![image](../../_assets/datalens/solution-13/02-ch-settings-storage.png)
 
@@ -86,7 +84,7 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
       * Access from Yandex Metrica and AppMetrica
       * Access from Serverless
 
-   1. After configuring all the settings, click **Create cluster**.
+   1. After configuring all settings, click **Create cluster**.
 
 ### 1.2. Connect {{ ml-platform-short-name }} {#datasphere-connection}
 

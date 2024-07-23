@@ -25,9 +25,7 @@ items:
         href: security/gitlab-lockbox-integration.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
         href: security/static-key-in-lockbox.md
-      - name: >-
-          Using a service account with an OS Login profile for VM management via
-          Ansible
+      - name: Service account with an OS Login profile for VM management via Ansible
         href: security/sa-oslogin-ansible.md
   - name: Storing and recovering data
     items:
@@ -246,7 +244,7 @@ items:
                 href: internet-store/opencart/terraform.md
           - name: Setting up virtual hosting
             href: web/virtual-hosting.md
-          - name: Binding a domain name to a VM with a web server
+          - name: Assigning a domain name to a VM with a web server
             href: web/bind-domain-vm.md
           - name: Creating a Python web application with Flask
             href: web/flask.md
@@ -612,38 +610,56 @@ items:
     items:
       - name: All tutorials
         href: datalens/index.md
-      - name: Visualizing data from a file
-        href: datalens/data-from-csv-visualization.md
-      - name: Creating and publishing a chart with a map of Moscow from a CSV file
-        href: datalens/data-from-csv-to-public-visualization.md
-      - name: Analyzing a retail chain's sales from a {{ CH }} database
-        href: datalens/data-from-ch-visualization.md
-      - name: Analyzing public data on road accidents in Russia
-        href: datalens/data-from-csv-geo-visualization.md
-      - name: >-
-          Analyzing sales and locations of pizzerias based on {{ CH }} and {{
-          marketplace-name }} data
-        href: datalens/data-from-ch-to-geolayers-visualization.md
-      - name: Web analytics with a connection to Yandex Metrica
-        href: datalens/data-from-metrica-visualization.md
-      - name: >-
-          Web analytics with funnels and cohorts calculated based on Yandex
-          Metrica data
-        href: datalens/data-from-metrica-yc-visualization.md
-      - name: Mobile app analytics based on AppMetrica data
-        href: datalens/data-from-appmetrica-visualization.md
-      - name: Analyzing Yandex Music podcast statistics (for podcasters)
-        href: datalens/data-from-podcasts.md
-      - name: Visualizing data with a QL chart
-        href: datalens/data-from-ch-to-sql-chart.md
-      - name: Mobile app customer journey analytics based on AppMetrica data
-        href: datalens/data-from-appmetrica-yc-visualization.md
-      - name: Analyzing {{ objstorage-name }} logs in {{ datalens-name }}
-        href: datalens/storage-logs-analysis.md
-      - name: Visualizing data from {{ tracker-name }} in {{ datalens-name }}
-        href: datalens/data-from-tracker.md
-      - name: Visualizing geographic data with the Yandex Geocoder API
-        href: datalens/data-from-ch-geocoder.md
+      - name: Getting started with {{ datalens-short-name }}
+        items:
+          - name: Simple dashboard from a CSV file
+            href: datalens/data-from-csv-visualization.md
+          - name: Public chart with a map of Moscow from a CSV file
+            href: datalens/data-from-csv-to-public-visualization.md
+          - name: Retail chain's dashboard based on a {{ CH }} DB
+            href: datalens/data-from-ch-visualization.md
+      - name: Working with geodata
+        items:
+          - name: Analyzing public data on road accidents in Russia
+            href: datalens/data-from-csv-geo-visualization.md
+          - name: >-
+              Analyzing sales and locations of pizzerias based on data from {{
+              CH }} DB and Marketplace
+            href: datalens/data-from-ch-to-geolayers-visualization.md
+          - name: >-
+              Geocoding with the Yandex Maps API for data visualization in {{
+              datalens-short-name }}
+            href: datalens/data-from-ch-geocoder.md
+      - name: Service analytics
+        items:
+          - name: 'Yandex Metrica: direct connection'
+            href: datalens/data-from-metrica-visualization.md
+          - name: 'Yandex Metrica: data export, post-processing, and visualization'
+            href: datalens/data-from-metrica-yc-visualization.md
+          - name: 'AppMetrica: direct connection'
+            href: datalens/data-from-appmetrica-visualization.md
+          - name: 'AppMetrica: data export, post-processing, and visualization'
+            href: datalens/data-from-appmetrica-yc-visualization.md
+          - name: 'Bitrix24: direct connection'
+            href: datalens/data-from-bitrix24-visualization.md
+          - name: '{{ tracker-full-name }}: data export and visualization'
+            href: datalens/data-from-tracker.md
+          - name: Analyzing {{ objstorage-name }} logs in {{ datalens-name }}
+            href: datalens/storage-logs-analysis.md
+          - name: 'Yandex Music podcasts: statistics'
+            href: datalens/data-from-podcasts.md
+          - name: Visualizing {{ yq-full-name }} data
+            href: datalens/data-from-yandex-query-visualization.md
+          - name: Visualizing {{ monitoring-full-name }} data
+            href: datalens/data-from-monitoring-visualization.md
+          - name: Visualizing {{ ytsaurus-name }}} CHYT data
+            href: datalens/data-from-ch-over-yt.md
+      - name: Functional
+        items:
+          - name: Using parameters
+            href: datalens/data-from-ch-with-parameters.md
+          - name: Examples of creating QL charts
+            href: datalens/data-from-ch-to-sql-chart.md
   - name: Serverless technologies
     items:
       - name: All tutorials

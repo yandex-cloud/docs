@@ -1,4 +1,4 @@
-# Analyzing Yandex Music podcast statistics (for podcasters)
+# Yandex Music podcasts: statistics
 
 
 A podcast from Yandex Music that you have access to will serve as your data source.
@@ -51,7 +51,7 @@ You will get access after uploading a podcast to Yandex Music. The podcast is li
 {% endnote %}
 
 1. Follow the link you received in the email and fill out the form for your connection.
-1. Enter a name for the connection like **My Podcast** (it can be anything).
+1. Enter a name for the connection, e.g., **My Podcast** (you can use any name).
 1. Click **Get key**. If this is your first time creating a connection to Yandex Music podcasts, grant the service the required permissions.
 
    ![image](../../_assets/datalens/solution-10/30-get-key-oauth.png)
@@ -236,7 +236,7 @@ Set up access to {{ datalens-full-name }}:
    ![image](../../_assets/datalens/solution-10/25-access.png)
 
 1. Permissions must be assigned to the **All** group or a specific user. If permissions are missing, click **Add**.
-1. In the **Add member** field, enter "All" or the name of the user who needs extended permissions.
+1. In the **Add member** field, enter _All_ or the name of the user who needs extended permissions.
 1. Go to the **Current object** section and set access permissions for the **Yandex Music podcast analytics** dashboard:
    * Execute: Allows making queries to the object.
    * View: Only view is available.
@@ -271,7 +271,7 @@ To restrict shared access:
 
 1. Open the **Yandex Music podcast analytics** dashboard.
 1. Go to the chart's top panel and click the navigation icon ![image](../../_assets/console-icons/folders.svg).
-1. In the window that opens, select **Podcasts Analytics. Connection**. Click ![image](../../_assets/console-icons/ellipsis.svg) → **Access rights**.
+1. In the window that opens, select the **Podcasts Analytics. Connection**. Click ![image](../../_assets/console-icons/ellipsis.svg) → **Access rights**.
 1. Click the **All** group and set the permissions to **Execute**. Shared access will be restricted: other users will be able to view statistics on the dashboard, for example, only for individual episodes, but will not be able to change these settings.
 
 Repeat the action for the **D01. Podcast listens** and **D02. Podcast subscribers** datasets.

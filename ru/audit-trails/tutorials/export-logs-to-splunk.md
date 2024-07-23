@@ -353,6 +353,10 @@
 
    1. Для подтверждения удаления введите `yes` и нажмите **Enter**.
 
-1. [Удалите](../../storage/operations/buckets/delete.md) бакет {{ objstorage-name }}.
+1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
 
-1. [Удалите](../../kms/operations/key.md#delete) ключ {{ kms-name }}.
+1. [Удалите ключ {{ kms-name }}](../../kms/operations/key.md#delete).
+
+1. [Удалите таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
+
+1. [Удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).

@@ -5,7 +5,13 @@ description: "In this tutorial, you will learn how to connect to Oracle Database
 
 # Creating an Oracle Database connection
 
+
+{% note warning %}
+
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
+
+{% endnote %}
+
 
 To create an Oracle Database connection:
 
