@@ -38,12 +38,14 @@
         - Нажмите на свое фото в правом верхнем углу и выберите **Settings**.
         - На панели слева выберите **Developer settings** → **Personal access token** → **Tokens (classic)**.
         - Нажмите кнопку **Generate new token**.
+        - В выпадающем меню выберите **Generate new token (classic)**
 
         - Придумайте название для токена.
 
         - Настройте разрешения для токена. Для правильной работы с {{ tracker-name }} необходимо, чтобы опции **repo** и **read:org** были включены:
 
-            ![](../../_assets/tracker/github-token-settings.png)
+            ![](../../../en/_assets/tracker/github-token-settings-repo.png)
+            ![](../../../en/_assets/tracker/github-token-settings-admin.png)
 
         - Нажмите кнопку **Generate token**.
 
