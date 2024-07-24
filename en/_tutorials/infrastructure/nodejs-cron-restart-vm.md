@@ -105,9 +105,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
       For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
       * [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret).
       * [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version).
-
    1. Make sure the configuration files are correct.
-
       1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
@@ -431,7 +429,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
    * `--name`: Trigger name.
    * `--cron-expression`: Function invocation schedule specified as a [cron expression](../../functions/concepts/trigger/timer.md#cron-expression).
    * `--invoke-function-name`: Name of the function being invoked.
-   * `--invoke-function-service-account-id`: ID of the service account with permissions to invoke the function.
+   * `--invoke-function-service-account-id`: Service account ID with permissions to invoke the function.
 
    Result:
 

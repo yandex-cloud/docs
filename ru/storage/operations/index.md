@@ -38,6 +38,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](objects/deleting-multipart.md)
 * [{#T}](objects/edit-acl.md)
 * [{#T}](objects/tagging.md)
+* [{#T}](objects/object-meta.md)
 
 ## Хостинг статических сайтов {#hosting}
 

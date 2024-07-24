@@ -1,11 +1,15 @@
 # Gateway resource fields
 
 
-The `Gateway` resource defines the rules for receiving incoming traffic and selecting routes ([`HTTPRoute` resources](../../../application-load-balancer/k8s-ref/http-route.md)) for the traffic. The [{{ alb-name }} Gateway API](../../../application-load-balancer/tools/k8s-gateway-api/index.md) uses these rules to create a [load balancer](../../../application-load-balancer/concepts/application-load-balancer.md) with the required listeners and [HTTP routers](../../../application-load-balancer/concepts/http-router.md).
+The `Gateway` resource defines the rules for accepting and routing ([HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md) and [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md) resources) incoming traffic. [{{ alb-name }} Gateway API](../../../application-load-balancer/tools/k8s-gateway-api/index.md) uses these rules to create:
 
-`Gateway` is designed for cluster operators. Application developers should use `HTTPRoute`.
+* [Load balancer](../../../application-load-balancer/concepts/application-load-balancer.md) with the required listeners.
+* [Backend groups](../../../application-load-balancer/concepts/backend-group.md).
+* [HTTP routers](../../../application-load-balancer/concepts/http-router.md) (if the [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md) resources are used).
 
-`Gateway` is a {{ k8s }} resource specified by the [{{ k8s }} Gateway API project](https://gateway-api.sigs.k8s.io/). Below, you can find the descriptions of the resource fields and annotations the {{ alb-name }} Gateway API interfaces with. For a full description of the resource configuration, see the [{{ k8s }} Gateway API documentation](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.Gateway).
+`Gateway` is designed for cluster operators. Application developers should use `TLSRoute` or `HTTPRoute`.
+
+`Gateway` is a {{ k8s }} resource specified by the [{{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/) project. Below, you can find the descriptions of the resource fields and annotations {{ alb-name }} Gateway API interfaces with. For a full description of the resource configuration, see the [{{ k8s }} Gateway API documentation](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.Gateway).
 
 ## Gateway {#gateway}
 
@@ -121,19 +125,19 @@ Where:
 
       {% include [k8s-ingress-controller-hostnames-wildcard](../../application-load-balancer/k8s-ingress-controller-hostnames-wildcard.md) %}
 
-      The listener is only linked to the routes ([HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md) resources) whose domain names (the `spec.hostnames` field) overlap with the domain name specified in this field.
+      Only the routes ([HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md) and [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md) resources) whose domain names (`spec.hostnames` field) <q>overlap</q> with the domain name specified in this field will be linked to the listener.
 
    * `port` (`int32`)
 
-      Port where the listener is listening for incoming traffic.
+      Port the listener uses for incoming traffic.
 
    * `protocol` (`string`)
 
-      Protocol used by the listener to listen for incoming traffic: `HTTP` or `HTTPS`.
+      Protocol the listener uses for incoming traffic: `HTTP`, `HTTPS`, or `TLS`.
 
    * `tls` (`GatewayTlsConfig`)
 
-      Configuration used by the listener to listen for incoming HTTPS traffic.
+      TLS settings used for incoming HTTPS or TLS traffic.
 
       * `mode` (`string`)
 
@@ -145,7 +149,7 @@ Where:
 
          List of {{ k8s }} resources where TLS certificates are stored.
 
-         Only used if the `protocol` field value is `HTTPS`. The list should then contain at least one certificate.
+         Only used if the `protocol` field value is `HTTPS` or `TLS`. In which case the list must contain at least one certificate.
 
          The load balancer only uses the first certificate from the list while ignoring the other ones.
 
@@ -180,20 +184,20 @@ Where:
 
    * `allowedRoutes` (`AllowedRoutes`)
 
-      Rules for selecting routes for the listener (`HTTPRoute` resources). These routes are used for creating [HTTP routers](../../../application-load-balancer/concepts/http-router.md) and [backend groups](../../../application-load-balancer/concepts/backend-group.md) linked to the listener.
+      Rules for selecting routes for the listener ([HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md) and [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md) resources). For a route to be selected, the resources must refer to the `Gateway` resource in the `spec.parentRefs` field in their configuration.
 
-      To have the `HTTPRoute` selected, its [configuration](../../../application-load-balancer/k8s-ref/http-route.md#spec) (the `spec.parentRefs` field) must refer to the `Gateway` resource.
+      These routes are used to create the [backend groups](../../../application-load-balancer/concepts/backend-group.md) you can link to the listener. If using `HTTPRoute`, [HTTP routers](../../../application-load-balancer/concepts/http-router.md) are also created.
 
       * `namespaces` (`RouteNamespaces`)
 
-         Rule for selecting namespaces that the `HTTPRoute` resources linked to the listener belong to.
+         Rule for selecting the namespaces of the `HTTPRoute` and `TLSRoute` resources you can link to the listener.
 
          * `from` (`string`)
 
             Rule type:
 
             * `All`: Resources from all namespaces are selected.
-            * `Same`: Resources are only selected from the same namespace as that of the `Gateway` resource (the `metadata.namespace` field).
+            * `Same`: Resources are only selected from the same namespace as that of the `Gateway` resource (`metadata.namespace` field).
             * `Selector`: Resources are selected from namespaces that meet the requirements from the `selector` field.
 
          * `selector` (`LabelSelector`)

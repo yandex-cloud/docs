@@ -4,7 +4,7 @@ description: "In this tutorial, you will learn how to set up an {{ OS }} target 
 ---
 # Transferring data to an {{ OS }} target endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data to an {{ OS }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data to an {{ OS }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Configure one of the supported data sources](#supported-sources).
@@ -21,8 +21,8 @@ description: "In this tutorial, you will learn how to set up an {{ OS }} target 
    * [Delivering data from {{ KF }} to {{ OS }}](../../../tutorials/mkf-to-mos.md).
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
-   * [Migrating the {{ OS }} cluster](../../../tutorials/os-to-mos.md).
-   * [Migration with storage changed from {{ ES }} to {{ OS }}](../../../tutorials/mes-to-mos.md).
+   * [Migrating an {{ OS }} cluster](../../../tutorials/os-to-mos.md).
+   * [Migration with change of storage from {{ ES }} to {{ OS }}](../../../tutorials/mes-to-mos.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -30,13 +30,19 @@ For a detailed description of possible {{ data-transfer-full-name }} data transf
 
 Configure one of the supported data sources:
 
-* [{{ PG }}](../source/postgresql.md).
-* [{{ DS }}](../source/data-streams.md).
-* [{{ KF }}](../source/kafka.md).
-* [{{ ES }}](../source/elasticsearch.md).
-* [{{ OS }}](../source/opensearch.md).
+* [{{ PG }}](../source/postgresql.md)
+* [{{ DS }}](../source/data-streams.md)
+* [{{ KF }}](../source/kafka.md)​
+* [{{ ES }}](../source/elasticsearch.md)​
+* [{{ OS }}](../source/opensearch.md)​
 
-For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
+
+{% note info %}
+
+Data type limitation: if an `ip` (IP address) type record is transmitted from the source, it will be saved with the `text` type in the target.
+
+{% endnote %}
 
 ## Preparing the target database {#prepare}
 
@@ -44,7 +50,7 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 ## Configuring the {{ OS }} target endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
 * [{{ mos-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
@@ -93,9 +99,9 @@ Connecting to nodes with explicitly specified network addresses and ports.
 
       * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only going to do replication without copying data.
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Completely delete tables included in the transfer (used by default).
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Completely delete the tables included in the transfer (default).
 
-         Use this option so that the latest version of the table schema is always transferred to the target database from the source whenever the transfer is activated.
+         Use this option to always transfer the latest version of the table schema to the target database from the source whenever the transfer is activated.
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.sanitize_doc_keys.title }}**: Use this option to automatically replace keys that are not valid for {{ OS }} in the target fields.
 

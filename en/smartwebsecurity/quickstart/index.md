@@ -6,7 +6,7 @@ In a nutshell, the service checks the HTTP requests sent to the protected resour
 
 {% include [realized-waf-concept](../../_includes/smartwebsecurity/realized-waf-concept.md) %}
 
-Load on web apps is monitored and limited with the help of [Advanced Rate Limiter (ARL)](../concepts/arl.md).
+{% include [realized-arl-concept](../../_includes/smartwebsecurity/realized-arl-concept.md) %}
 
 {% include [note-preview-waf-arl](../../_includes/smartwebsecurity/note-preview-waf-arl.md) %}
 

@@ -2,7 +2,9 @@
 
 `NetworkPolicy` is a resource used for connecting to services published via {{ network-load-balancer-name }} from specified IP addresses.
 
-`NetworkPolicy` is a standard {{ k8s }} resource. This reference describes fields and annotations of the resource that support {{ network-load-balancer-name }} for {{ managed-k8s-name }}. For a complete reference for the resource, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/network-policy-v1/).
+`NetworkPolicy` is a standard {{ k8s }} resource. This reference describes the resource's fields and annotations supporting {{ network-load-balancer-name }} for {{ managed-k8s-name }}. For a complete reference for the resource, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/network-policy-v1/).
+
+For more information about network policies, see [{#T}](../../../managed-kubernetes/concepts/network-policy.md).
 
 ## NetworkPolicy {#network-policy}
 

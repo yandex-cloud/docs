@@ -1,6 +1,6 @@
-# Viewing operations with a security profile
+# Viewing operations with profiles
 
-All actions with {{ sws-name }} security profiles are logged as a list of operations. Each operation is assigned a unique ID.
+All actions with security profiles, WAF, and ARL are logged as a list of operations. Each operation is assigned a unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -8,7 +8,7 @@ All actions with {{ sws-name }} security profiles are logged as a list of operat
 
 - Management console {#console}
 
-   To see all operations with all [security profiles](../concepts/profiles.md), in the left-hand panel, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**. In the list that opens, you will also see operations with the security profiles that were deleted.
+   To see operations with all [profiles](../concepts/profiles.md), select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** in the left-hand panel. In the list that opens, you will also see operations with the profiles that were deleted.
 
 {% endlist %}
 

@@ -22,6 +22,10 @@
 
 - CLI {#cli}
 
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
   Чтобы посмотреть список Helm-чартов, загруженных в {{ container-registry-name }}, выполните команду, как и для [просмотра](../docker-image/docker-image-list.md#docker-image-list) списка [Docker-образов](../../concepts/docker-image.md):
 
   ```bash

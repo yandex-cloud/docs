@@ -38,6 +38,8 @@ items:
             href: operations/connect-interfaces.md
           - name: Использование Sqoop
             href: operations/sqoop-usage.md
+          - name: Настройка {{ IBRG }}
+            href: operations/apache-iceberg.md
           - name: Delta Lake
             items:
               - name: Настройка Delta Lake в однокластерном режиме
@@ -176,6 +178,8 @@ items:
         href: concepts/storage.md
       - name: Свойства компонентов
         href: concepts/settings-list.md
+      - name: '{{ IBRG }} в {{ dataproc-name }}'
+        href: concepts/apache-iceberg.md
       - name: Delta Lake в {{ dataproc-name }}
         href: concepts/deltalake.md
       - name: Логи в {{ dataproc-name }}

@@ -92,7 +92,7 @@ items:
         href: tutorials/logging.md
       - name: Deploying and load testing a gRPC service with scaling
         href: tutorials/load-testing-grpc-autoscaling.md
-      - name: Setting up the Gateway API
+      - name: Setting up Gateway API
         href: tutorials/gateway-api.md
       - name: Setting up the {{ alb-name }} Ingress controller
         href: tutorials/alb-ingress-controller.md
@@ -148,6 +148,8 @@ items:
                 href: k8s-ref/gateway.md
               - name: HTTPRoute
                 href: k8s-ref/http-route.md
+              - name: TLSRoute
+                href: k8s-ref/tls-route.md
               - name: Service for Gateway API
                 href: k8s-ref/service-for-gateway.md
       - name: Configuring security groups

@@ -18,6 +18,8 @@ For the load balancer to work correctly:
    * Sending traffic to backend VMs, i.e., VMs whose IP addresses are included in [target groups](target-group.md). For example, any outgoing connections to internal VM addresses (any protocol, the whole port range, CIDR: `<VM_internal_IP>/32`).
 * Backend VM security groups must allow incoming traffic from the load balancer on the ports specified in the [backend groups](backend-group.md), e.g., any incoming connections from subnets [hosting the load balancer](#lb-location) or from at least one of its security groups.
 
+For information on how to configure security groups for the Ingress controller and Gateway API, see [{#T}](../tools/k8s-ingress-controller/security-groups.md).
+
 ## Host load balancer {#lb-location}
 
 When creating a load balancer, specify a [network](../../vpc/concepts/network.md) and [subnets](../../vpc/concepts/network.md#subnet) in the [availability zones](../../overview/concepts/geo-scope.md). Those are the subnets where the load balancer's nodes will be hosted. Application backends will receive traffic from the load balancer nodes in these subnets.

@@ -131,6 +131,8 @@ Error example:
 
 {% include [ambiguous-object-resolution-os](../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-os.md) %}
 
+{% include [exceeding-fields-limit](../../_includes/data-transfer/troubles/elastic-opensearch/exceeding-fields-limit.md) %}
+
 {% include [duplication](../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
 
 ## {{ PG }} {#postgresql}

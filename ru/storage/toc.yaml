@@ -82,6 +82,8 @@ items:
             href: operations/objects/edit-acl.md
           - name: Управление метками объекта
             href: operations/objects/tagging.md
+          - name: Управление пользовательскими метаданными объекта
+            href: operations/objects/object-meta.md
       - name: Хостинг статических сайтов
         items:
           - name: Настройка хостинга

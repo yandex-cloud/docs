@@ -15,7 +15,7 @@ ARL pros and features:
 
 You can configure ARL using profiles. A profile consists of rules that impose limits on requests of a certain type. ARL uses these rules to analyze incoming HTTP requests and blocks them when their number exceeds the specified limits.
 
-An ARL profile is connected to a [security profile](profiles.md). ARL rules apply to the traffic that already passed the SWS and WAF rules check. This allows analyzing only the allowed incoming traffic instead of analyzing it all, which improves the ARL module's fault tolerance.
+An ARL profile is connected to a [security profile](profiles.md). ARL rules are applied to the traffic that has already been through the security profile's rules check. This makes it possible to analyze only the allowed instead of all incoming traffic and makes the ARL module more fault tolerant.
 
 For more information about connecting to a security profile, see [{#T}](../quickstart/quickstart-arl.md).
 
@@ -45,7 +45,7 @@ You can count the requests for the limit purposes in one of the following ways:
 
 You can group requests:
 * Automatically based on the `Request path`, `HTTP method`, `IP address`, `Region`, and `Host` attributes.
-* Based on a key match in the `Query params`, `HTTP header`, and `HTTP cookie` attributes.
+* Based on key match in the `Query params`, `HTTP header`, and `HTTP cookie` attributes.
 
    You can configure flexible match/no match conditions for the parameters you specify for traffic. You can look for case-sensitive or case-insensitive string matches. Parameters can be represented by single values, ranges, or regular expressions.
 

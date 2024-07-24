@@ -5,6 +5,7 @@ description: "Access management in {{ metadata-hub-full-name }}. This section de
 
 # Access management
 
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
 In this section, you will learn:
@@ -63,7 +64,7 @@ With {{ connection-manager-full-name }} service roles, you can view non-secret c
 The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, you can assign the `editor` role instead of `viewer`.
 
 | Action | Required roles |
-|-----------------------------------------|-----------------------------|
+|---------------------------------------------------------------|--------------------------------------|
 | Getting information about connections | `connection-manager.viewer` |
 | Getting a list of connections | `connection-manager.viewer` |
 | Creating a connection | `connection-manager.editor` |
