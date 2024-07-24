@@ -7022,12 +7022,17 @@ default:
         button_deactivate-secret: Deactivate
         field_make-version-current: Set as current version
         forms:
+          alert_generated-version-edit_button: Edit secret
           button_add-pair: Add key/value
           button_schedule-destruction: Schedule
           field_deletion-protection: Block secret deletion
           label_key: Key
           label_value: Value
+          title_auto-generation_params_section: Automatic generation options
           title_kms-key: KMS key
+          title_secret-type: Secret type
+          title_secret-type-custom: Custom
+          title_secret-type-generated: Generated
         label_secret-general-section: Information about secret
         label_secret-id: ID
         label_secret-versions-section: Versions
@@ -7388,6 +7393,7 @@ default:
             action_add-virtual-node-group: Add virtual node group
             action_create-node-group: Create node group
             action_delete: Delete
+            action_edit: Edit
             title_node-groups: Node groups
             title_virtual-node-group: Virtual node group
         title_opensearch-dashboards-section: OpenSearch Dashboards

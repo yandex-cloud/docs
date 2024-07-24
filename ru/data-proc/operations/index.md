@@ -23,6 +23,7 @@ description: "На странице представлен список поша
 
 * [{#T}](connect-interfaces.md)
 * [{#T}](sqoop-usage.md)
+* [Настройка {{ IBRG }}](./apache-iceberg.md)
 
 ### Delta Lake
 

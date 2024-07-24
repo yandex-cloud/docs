@@ -7,6 +7,7 @@ description: "Различные сценарии использования {{ 
 
 * [Создание кластера {{ PG }} для <q>1С:Предприятия</q>](./1c-postgresql.md)
 * [{#T}](./sqoop.md)
+* [{#T}](./performance-problems.md)
 * [{#T}](./profiling.md)
 * [{#T}](./cdc-data-transfer.md)
 * [{#T}](./cdc-debezium.md)

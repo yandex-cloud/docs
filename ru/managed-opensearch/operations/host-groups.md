@@ -93,12 +93,6 @@ keywords:
 
     1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_create-node-group }}**.
 
-    {% note warning %}
-
-    После добавления группы хостов опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** изменить нельзя. Остальные параметры можно [изменить](#update-host-group) только с помощью [API](../../glossary/rest-api.md), однако при необходимости вы сможете создать новую группу хостов с другой конфигурацией.
-
-    {% endnote %}
-
 - CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
@@ -238,6 +232,39 @@ keywords:
 ## Изменить конфигурацию группы хостов {#update-host-group}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
+    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной группы и выберите пункт **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_edit }}**.
+    1. Измените настройки группы хостов:
+
+        * [Роль хостов](../concepts/host-roles.md) (только для группы хостов `{{ OS }}`).
+        * Платформу, тип и класс хостов.
+
+            Класс хостов определяет технические характеристики виртуальных машин, на которых будут развернуты ноды {{ OS }}. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md).
+
+        * Размер диска.
+
+            Шаг, с которым можно изменить размер диска, зависит от типа диска:
+
+            * Сетевые HDD- и SSD-диски — с шагом 1 ГБ.
+
+            
+            * Локальные SSD-диски:
+                * для платформы **Intel Cascade Lake** — с шагом 100 ГБ;
+                * для платформы **Intel Ice Lake** — с шагом {{ local-ssd-v3-step }}.
+            * Нереплицируемые SSD-диски — с шагом 93 ГБ.
+
+
+        * Расположение хостов по зонам доступности и подсетям.
+
+        * Количество хостов.
+
+        * Публичный доступ к хостам.
+
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 

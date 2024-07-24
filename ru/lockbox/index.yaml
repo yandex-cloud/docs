@@ -13,6 +13,15 @@ links:
   - title: Начало работы
     description: Создайте свой первый секрет
     href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Концепции
+    description: Узнайте подробнее о типах секретов и их использовании
+    href: concepts/
+  - title: Практические руководства
+    description: Воспользуйтесь готовыми сценариями использования секретов
+    href: tutorials/
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits

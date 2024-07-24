@@ -7,4 +7,4 @@ By default, buckets are created with restricted access, as specified in the [IAM
 
 {% include [public-access-warning](./public-access-warning.md) %}
 
-If required, you can configure permissions to the buckets and objects they contain using [ACLs](../../../storage/concepts/acl.md) or the [access policy](policy.md).
+If required, you can configure permissions to the buckets and objects they contain using [ACLs](../../../storage/concepts/acl.md) or the [access policy](../../../storage/concepts/policy.md).

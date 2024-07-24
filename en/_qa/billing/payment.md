@@ -1,8 +1,8 @@
-# Questions about payments
+# Questions about payment
 
 #### Who can pay for resources? {#how-to-buy}
 
-Resources are paid for by crediting funds to an individual [personal account](../../billing/concepts/personal-account.md) as per the [contract](../../billing/concepts/contract.md). Funds can be credited to a personal account by individual entrepreneurs, businesses, and individuals.
+You pay for resources by crediting money to your individual [personal account](../../billing/concepts/personal-account.md) as per the [agreement](../../billing/concepts/contract.md). Money can be credited to a personal account by individual entrepreneurs, businesses, and individuals.
 
 For more information, see [How to pay for resources](../../billing/payment/index.md).
 
@@ -71,4 +71,4 @@ The cost of using {{ marketplace-full-name }} is the total cost of using {{ mark
 
 #### Can I withdraw money from my account? {#refund}
 
-To recover your money not spent on {{ yandex-cloud }} services, [refer]({{ link-console-support }}) to the {{ support-center-name }} or email to [{{ link-support-mail }}](mailto:{{ link-support-mail }}).
+To recover money you are not going to spend on {{ yandex-cloud }} services, [contact]({{ link-console-support }}) {{ support-center-name }} or send an email to [{{ link-support-mail }}](mailto:{{ link-support-mail }}).

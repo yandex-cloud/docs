@@ -259,7 +259,6 @@ Install {{ TF }} (unless you already have it), configure the provider according 
 
 - {{ TF }} {#tf}
 
-   
    ```hcl
    locals {
      folder_id   = "{{ tf-folder-id }}"
@@ -386,8 +385,6 @@ Install {{ TF }} (unless you already have it), configure the provider according 
    }
    ```
 
-
-
 {% endlist %}
 
 ### Creating a regional {{ managed-k8s-name }} cluster {#example-regional-cluster}
@@ -423,7 +420,6 @@ Install {{ TF }} (unless you already have it), configure the provider according 
 
 - {{ TF }} {#tf}
 
-   
    ```hcl
    locals {
      folder_id   = "{{ tf-folder-id }}"
@@ -571,7 +567,5 @@ Install {{ TF }} (unless you already have it), configure the provider according 
      }
    }
    ```
-
-
 
 {% endlist %}

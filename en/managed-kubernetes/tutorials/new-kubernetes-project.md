@@ -268,8 +268,8 @@ To create a service account that lets nodes download the necessary Docker images
    {% endlist %}
 
 1. Assign the service account the following roles for the folder:
-   * [{{ roles-alb-editor }}](../../application-load-balancer/security/index.md#alb-editor).
-   * [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin).
+   * [{{ roles-alb-editor }}](../../application-load-balancer/security/index.md#alb-editor)​.
+   * [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin)​.
    * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader).
    * [compute.viewer](../../compute/security/index.md#compute-viewer).
 
@@ -478,7 +478,7 @@ To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [f
 
       Where:
       * `ingress.alb.yc.io/subnets`: Specify one or more [subnets](../../vpc/concepts/network.md#subnet) that {{ alb-name }} is going to work with.
-      * `ingress.alb.yc.io/security-groups`: Specify one or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If you skip this parameter, the default security group will be used. At least one of the security groups must allow outgoing TCP connections to ports 10501 and 10502 in the node group subnet or security group.
+      * `ingress.alb.yc.io/security-groups`: Specify one or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If you skip this parameter, the default security group will be used. At least one of the security groups must allow an outgoing TCP connection to port 10501 in the node group subnet or its security group.
       * `ingress.alb.yc.io/external-ipv4-address`: To get a new IP or provide public access to {{ alb-name }} from the internet, specify the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or set the value to `auto`.
 
          If you set `auto`, deleting the Ingress controller will also delete the IP address from the cloud. To avoid this, use an existing reserved IP address.

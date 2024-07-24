@@ -146,7 +146,7 @@ To get started with the AWS CLI:
       1. Set a {{ objstorage-name }} endpoint:
 
          ```bash
-         aws configure set endpoint-url https://{{ s3-storage-host }}/
+         aws configure set endpoint_url https://{{ s3-storage-host }}/
          ```
 
          {% cut "Examples of the resulting configuration files" %}

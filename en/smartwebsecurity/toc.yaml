@@ -21,7 +21,7 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Managing profiles
+      - name: Managing security profiles
         items:
           - name: Creating a profile
             href: operations/profile-create.md
@@ -29,22 +29,48 @@ items:
             href: operations/profile-update.md
           - name: Deleting a profile
             href: operations/profile-delete.md
-          - name: Viewing operations with a security profile
-            href: operations/operation-logs.md
-      - name: Managing rules
-        items:
           - name: Adding a rule
             href: operations/rule-add.md
           - name: Editing a rule
             href: operations/rule-update.md
           - name: Deleting a rule
             href: operations/rule-delete.md
-      - name: Managing host connections
-        items:
           - name: Connecting a profile to a host
             href: operations/host-connect.md
           - name: Disconnecting a profile from a host
             href: operations/host-delete.md
+      - name: Managing WAF profiles
+        items:
+          - name: Creating a profile
+            href: operations/waf-profile-create.md
+          - name: Editing basic profile settings
+            href: operations/waf-profile-update.md
+          - name: Deleting a profile
+            href: operations/waf-profile-delete.md
+          - name: Configuring a basic rule set
+            href: operations/configure-set-rules.md
+          - name: Adding an exclusion rule
+            href: operations/exclusion-rule-add.md
+          - name: Updating an exclusion rule
+            href: operations/exclusion-rule-update.md
+          - name: Deleting an exclusion rule
+            href: operations/exclusion-rule-delete.md
+      - name: Managing ARL profiles
+        items:
+          - name: Creating a profile
+            href: operations/arl-profile-create.md
+          - name: Editing basic profile settings
+            href: operations/arl-profile-update.md
+          - name: Deleting a profile
+            href: operations/arl-profile-delete.md
+          - name: Adding a rule
+            href: operations/arl-rule-add.md
+          - name: Editing a rule
+            href: operations/arl-rule-update.md
+          - name: Deleting a rule
+            href: operations/arl-rule-delete.md
+      - name: Viewing operations with profiles
+        href: operations/operation-logs.md
   - name: Tutorials
     items:
       - name: Creating an L7 load balancer with a security profile

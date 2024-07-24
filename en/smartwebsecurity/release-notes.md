@@ -1,5 +1,15 @@
 # {{ sws-full-name }} release notes
 
+## Q2 2024 {#q2-2024}
+
+* Implemented [Web Application Firewall (WAF)](./concepts/waf.md) to protect web applications against external threats, such as SQL injections, cross-site scripting, and other vulnerabilities. WAF analyzes and filters HTTP requests blocking potentially malicious data.
+
+    This feature is available at the [Preview](../overview/concepts/launch-stages.md) stage.
+
+* Implemented [Advanced Rate Limiter (ARL)](./concepts/arl.md) to manage web app loads. ARL allows you to set a limit on the number of requests over a certain period of time. This prevents overload and ensures stable operation of the application.
+
+    This feature is available at the [Preview](../overview/concepts/launch-stages.md) stage.
+
 ## Q1 2024 {#q1-2024}
 
 * Released the service for [general availability](../overview/concepts/launch-stages.md).
