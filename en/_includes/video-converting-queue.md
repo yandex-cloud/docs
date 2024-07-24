@@ -149,7 +149,7 @@ A message queue is handled using a [trigger for {{ message-queue-name }}](../fun
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Go to the **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** tab.
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
@@ -263,7 +263,7 @@ The trigger should invoke the converter function for each message in the queue. 
 
 ## How to delete the resources you created {#clear-out}
 
-To shut down the infrastructure and stop paying for the created resources:
+To shut down the infrastructure and stop paying for the resources you created:
 
 1. [Delete](../message-queue/operations/message-queue-delete-queue.md) the `converter-queue`.
 1. [Delete](../ydb/operations/manage-databases.md#delete-db) the database.

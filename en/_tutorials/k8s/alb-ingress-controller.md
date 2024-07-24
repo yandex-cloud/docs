@@ -19,6 +19,7 @@ For full configuration of the resources for the {{ alb-name }} Ingress controlle
 
 1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
 1. If you already have a certificate for the domain zone, [add its details](../../certificate-manager/operations/import/cert-create.md) to the [{{ certificate-manager-full-name }}](../../certificate-manager/) service. Alternatively, you can [add a new Let's Encrypt® certificate](../../certificate-manager/operations/managed/cert-create.md).
+
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
    {% include [configure-sg-alb-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-manual.md) %}
@@ -27,6 +28,7 @@ For full configuration of the resources for the {{ alb-name }} Ingress controlle
 
 1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
 1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
+
 1. [Install the {{ alb-name }} Ingress controller](../../managed-kubernetes/operations/applications/alb-ingress-controller.md).
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
@@ -308,7 +310,7 @@ Command result:
       Where:
 
       * `ingress.alb.yc.io/subnets`: One or more subnets that {{ alb-name }} is going to work with.
-      * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If you skip this parameter, the default security group will be used. At least one of the security groups must allow outgoing TCP connections on ports 10501 and 10502 in the {{ managed-k8s-name }} node group subnet or security group.
+      * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If you skip this parameter, the default security group will be used. At least one of the security groups must allow an outgoing TCP connection to port 10501 in the {{ managed-k8s-name }} node group subnet or its security group.
       * `ingress.alb.yc.io/external-ipv4-address`: Providing public online access to {{ alb-name }}. Enter the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or set `auto` to obtain a new IP address automatically.
 
          If you set `auto`, deleting the Ingress controller will also delete the [IP address](../../vpc/concepts/address.md) from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). To avoid this, use an existing reserved IP address.
@@ -334,7 +336,7 @@ Command result:
 
       * `ingress.alb.yc.io/internal-alb-subnet`: Subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
       * `ingress.alb.yc.io/protocol`: Connection protocol used by the load balancer and the backends:
-         * `http`: HTTP/1.1; default value
+         * `http`: HTTP/1.1, default value
          * `http2`: HTTP/2
          * `grpc`: gRPC
       * `ingress.alb.yc.io/transport-security`: Encryption protocol for connections between the load balancer and backends.
@@ -530,7 +532,7 @@ Command result:
       spec:
         backends: # List of backends.
           - name: alb-demo-1
-            weight: 70 # Relative weight of the backend when distributing traffic. The load will be distributed proportionally to the weight of other backends in the group. Specify the weight even if you have only one backend in the group.
+            weight: 70 # Relative weight of the backend when distributing traffic. The load will be distributed in proportion to the weights of the group's other backends. Specify the weight even if you have only one backend in the group.
             service:
                name: alb-demo-1
                port:
@@ -578,7 +580,7 @@ Command result:
 
       Where:
       * `ingress.alb.yc.io/subnets`: One or more subnets that {{ alb-name }} is going to work with.
-      * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If you skip this parameter, the default security group will be used. At least one of the security groups must allow outgoing TCP connections on ports 10501 and 10502 in the {{ managed-k8s-name }} node group subnet or security group.
+      * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If you skip this parameter, the default security group will be used. At least one of the security groups must allow an outgoing TCP connection to port 10501 in the {{ managed-k8s-name }} node group subnet or its security group.
       * `ingress.alb.yc.io/external-ipv4-address`: Providing public online access to {{ alb-name }}. Enter the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or set `auto` to obtain a new IP address automatically.
 
          If you set `auto`, deleting the Ingress controller will also delete the [IP address](../../vpc/concepts/address.md) from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). To avoid this, use an existing reserved IP address.
@@ -599,7 +601,7 @@ Command result:
 
       * `ingress.alb.yc.io/internal-alb-subnet`: Subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
       * `ingress.alb.yc.io/protocol`: Connection protocol used by the load balancer and the backends:
-         * `http`: HTTP/1.1; default value
+         * `http`: HTTP/1.1, default value
          * `http2`: HTTP/2
          * `grpc`: gRPC
       * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.

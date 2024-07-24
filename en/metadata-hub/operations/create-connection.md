@@ -3,7 +3,7 @@ title: "How to manage connections. Step-by-step guides"
 description: "Step-by-step guide on using {{ connection-manager-name }} in {{ yandex-cloud }}. In this tutorial, you will learn how to create connections."
 ---
 
-# Create a connection
+# Creating a connection
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
@@ -51,7 +51,7 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a connection.
    1. Select **{{ metadata-hub-full-name }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection Manager**.
    1. Click **Create connection**.
    1. Enter a name for the connection.
    1. (Optional) Add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
@@ -74,7 +74,7 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a connection.
    1. Select **{{ metadata-hub-full-name }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection Manager**.
    1. Click **Create connection**.
    1. Enter a name for the connection.
    1. (Optional) Add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
@@ -100,7 +100,7 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a connection.
    1. Select **{{ metadata-hub-full-name }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection Manager**.
    1. Click **Create connection**.
    1. Enter a name for the connection.
    1. (Optional) Add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
@@ -117,7 +117,7 @@ You can create connections of the following types:
          * **Enter manually**: You set the password manually.
          * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
    1. (Optional) List the databases whose connections you want to manage. You must have access to them configured.
-  1. Click **Create**.
+   1. Click **Create**.
 
 {% endlist %}
 
@@ -129,7 +129,7 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a connection.
    1. Select **{{ metadata-hub-full-name }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection Manager**.
    1. Click **Create connection**.
    1. Enter a name for the connection.
    1. (Optional) Add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
@@ -157,7 +157,7 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a connection.
    1. Select **{{ metadata-hub-full-name }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection Manager**.
    1. Click **Create connection**.
    1. Enter a name for the connection.
    1. (Optional) Add a description and [label](../../resource-manager/concepts/labels.md) for the connection.

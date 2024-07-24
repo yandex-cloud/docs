@@ -8,6 +8,20 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета.
+  1. (Опционально) Для разделения метрик в сервисе {{ monitoring-full-name }} добавьте [метку](../../monitoring/concepts/data-model.md#metric).
+  1. (Опционально) Включите опцию **{{ ui-key.yacloud.lockbox.forms.field_deletion-protection }}**. Пока опция включена, удалить секрет невозможно. Не защищает содержимое секрета от изменения.
+  1. Выберите **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}**:
+      * **{{ ui-key.yacloud.lockbox.forms.title_secret-type-generated }}** — значение формируется автоматически:
+  
+        * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите неконфиденциальный идентификатор.
+        * (Опционально) Разверните блок **{{ ui-key.yacloud.lockbox.forms.title_auto-generation_params_section }}** и задайте парамеры для конфиденциального значения (например, пароля).
+  
+      * **{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}** — значение задается вручную:
+
+        * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите неконфиденциальный идентификатор.
+        * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите конфиденциальные данные для хранения.
+
+          Чтобы добавить больше данных, нажмите кнопку **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** и повторите шаги.
   1. (Опционально) В поле **{{ ui-key.yacloud.lockbox.forms.title_kms-key }}** укажите существующий [ключ](../../kms/concepts/key.md) или [создайте новый](../../kms/operations/key.md#create).
 
      Указанный ключ [{{ kms-full-name }}](../../kms/) используется для шифрования секрета. Если вы не будете указывать ключ, секрет будет зашифрован специальным системным ключом.
@@ -18,12 +32,6 @@
 
      {% endnote %}
 
-  1. (Опционально) Включите опцию **{{ ui-key.yacloud.lockbox.forms.field_deletion-protection }}**. Пока опция включена, удалить секрет невозможно. Не защищает содержимое секрета.
-  1. В блоке **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
-     * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите неконфиденциальный идентификатор.
-     * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите конфиденциальные данные для хранения.
-
-     Чтобы добавить больше данных, нажмите кнопку **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** и повторите шаги.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}

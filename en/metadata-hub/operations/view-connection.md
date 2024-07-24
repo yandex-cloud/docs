@@ -13,10 +13,10 @@ To view created connections:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Select **{{ metadata-hub-full-name }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
-  1. Click a connection string to view connection details.
+   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+   1. Select **{{ metadata-hub-full-name }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection Manager**.
+   1. Click the line with the connection to view its details.
 
 {% endlist %}
 
@@ -28,12 +28,12 @@ For the selected connection, you can view information about its dependencies on 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Select **{{ metadata-hub-name }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager** and click the name of the connection you need.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **Dependencies**.
+   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+   1. Select **{{ metadata-hub-full-name }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection Manager** and click the name of the connection you need.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **Dependencies**.
 
-     The dependency list shows managed database clusters and service instances that use {{ connection-manager-name }} to store connection information. Click a line in the dependency list to go to a cluster or service instance.
+      The dependency list shows managed database clusters and service instances that use {{ connection-manager-name }} to store connection information. Click a line in the dependency list to go to a cluster or service instance.
 
 {% endlist %}
 
@@ -43,24 +43,24 @@ For the selected connection, you can view information about its dependencies on 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Select **{{ metadata-hub-name }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager** and click the name of the connection you need.
-  1. On the left-hand panel, select ![image](../../_assets/console-icons/list-check.svg) **Operations**.
+   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+   1. Select **{{ metadata-hub-full-name }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection Manager** and click the name of the connection you need.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/list-check.svg) **Operations**.
 
-     In the list of operations, you can view all the operations of the selected connection since its creation:
+      In the list of operations, you can view all the operations for the selected connection since its creation:
 
-     * `Create`: Connection created.
-     * `Update`: Connection updated.
-     * `Detele`: Connection deleted.
-     * `Set access bindings`: Connection user roles assigned.
-     * `Update access bindings`: Connection user roles updated.
+      * `Create`: Connection created.
+      * `Update`: Connection updated.
+      * `Delete`: Connection deleted.
+      * `Set access bindings`: Connection user roles assigned.
+      * `Update access bindings`: Connection user roles updated.
 
-     You can also view technical operations:
+      You can also view technical operations:
 
-     * `Bump version`: Secret version for MDB connections updated.
-     * `Update references`: Connection references updated.
-     * `Update version references`: Connection version references updated while creating or deleting an MDB cluster backup.
-     * `Delete version`: Connection version deleted after removing the most recent MDB cluster backup.
+      * `Bump version`: Secret version for MDB connections updated.
+      * `Update references`: Connection references updated.
+      * `Update version references`: Connection version references updated while creating or deleting an MDB cluster backup.
+      * `Delete version`: Connection version deleted after removing the most recent MDB cluster backup.
 
 {% endlist %}

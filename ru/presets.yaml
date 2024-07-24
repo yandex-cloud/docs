@@ -207,6 +207,7 @@ default:
   iam-name: Identity and Access Management
   iam-short-name: IAM
   iam-token-lifetime: 12 часов
+  IBRG: Apache Iceberg™
   ig-full-name: Yandex Instance Groups
   ig-name: Instance Groups
   interconnect-full-name: Yandex Cloud Interconnect
@@ -7028,12 +7029,17 @@ default:
         button_deactivate-secret: Деактивировать
         field_make-version-current: Сделать текущей версией
         forms:
+          alert_generated-version-edit_button: Редактировать секрет
           button_add-pair: Добавить ключ/значение
           button_schedule-destruction: Запланировать
           field_deletion-protection: Запретить удаление секрета
           label_key: Ключ
           label_value: Значение
+          title_auto-generation_params_section: Параметры автоматической генерации
           title_kms-key: Ключ KMS
+          title_secret-type: Тип секрета
+          title_secret-type-custom: Пользовательский
+          title_secret-type-generated: Генерируемый
         label_secret-general-section: Информация о секрете
         label_secret-id: Идентификатор
         label_secret-versions-section: Версии
@@ -7394,6 +7400,7 @@ default:
             action_add-virtual-node-group: Добавить группу виртуальных хостов
             action_create-node-group: Создать группу хостов
             action_delete: Удалить
+            action_edit: Изменить
             title_node-groups: Группы хостов
             title_virtual-node-group: Группа виртуальных хостов
         title_opensearch-dashboards-section: OpenSearch Dashboards

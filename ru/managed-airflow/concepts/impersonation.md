@@ -12,9 +12,13 @@ _Имперсонацией_ в {{ maf-short-name }} называется вып
 
 [{{ yandex-cloud }} Python SDK](https://github.com/yandex-cloud/python-sdk) позволяет управлять ресурсами {{ yandex-cloud }} из DAG-файлов кластера {{ AF }} от имени [сервисного аккаунта](../../functions/operations/function-sa.md). Для этого создайте в DAG-файле объект `yandexcloud.SDK()` без указания параметров аутентификации. DAG-файл будет аутентифицироваться с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, который привязан к кластеру.
 
+Пример интеграции см. в разделе [{#T}](../tutorials/using-python-sdk.md).
+
 ## Интеграция с {{ yandex-cloud }} через Airflow Provider {#yc-airflow-provider-integration}
 
 В кластерах {{ maf-short-name }} с включенной имперсонацией автоматически настроено соединение `yandexcloud_default`, которое используется всеми операторами в Airflow Yandex Provider по умолчанию. Чтобы использовать его, создайте DAG-файл без указания параметра `yandex_conn_id`. Оператор будет аутентифицироваться с помощью IAM-токена сервисного аккаунта, который привязан к кластеру.
+
+Пример интеграции см. в разделе [{#T}](../tutorials/yandex-query-automation.md).
 
 ## Интеграция с {{ lockbox-name }} {#lockbox-integration}
 
@@ -23,3 +27,5 @@ _Имперсонацией_ в {{ maf-short-name }} называется вып
 По умолчанию {{ AF }} хранит чувствительные данные в хранилище метаданных. В этом случае управлять секретами для каждого кластера {{ AF }} приходится вручную, через UI или API. Чтобы автоматизировать управление секретами, храните их в {{ lockbox-name }}. Подробнее см. в [документации {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/security/secrets/secrets-backend/index.html).
 
 Чтобы использовать возможности {{ lockbox-name }} в кластере {{ AF }}, [создайте секрет](../../lockbox/operations/secret-create.md) с нужными данными и [выдайте доступ к нему](../../lockbox/operations/secret-access.md) сервисному аккаунту, который привязан к кластеру. После этого данные из секрета можно будет использовать в DAG-файлах кластера.
+
+Пример интеграции см. в разделе [{#T}](../tutorials/lockbox-secrets-in-maf-cluster.md).

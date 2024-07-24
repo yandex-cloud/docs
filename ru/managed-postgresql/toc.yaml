@@ -82,6 +82,8 @@ items:
         href: tutorials/1c-postgresql.md
       - name: Выгрузка базы данных в {{ dataproc-full-name }}
         href: tutorials/sqoop.md
+      - name: Поиск проблем с производительностью кластера
+        href: tutorials/performance-problems.md
       - name: Анализ производительности и оптимизация
         href: tutorials/profiling.md
       - name: Настройка подключения из контейнера {{ serverless-containers-name }}

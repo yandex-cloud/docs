@@ -56,7 +56,7 @@ items:
             href: operations/applications/filebeat-oss.md
           - name: Installing Fluent Bit
             href: operations/applications/fluentbit.md
-          - name: Installing the Gateway API
+          - name: Installing Gateway API
             href: operations/applications/gateway-api.md
           - name: Installing {{ GL }} Agent
             href: operations/applications/gitlab-agent.md
@@ -235,7 +235,7 @@ items:
             href: tutorials/kubernetes-lockbox-secrets.md
           - name: Configuring Fluent Bit for {{ cloud-logging-name }}
             href: tutorials/fluent-bit-logging.md
-          - name: Setting up the Gateway API
+          - name: Setting up Gateway API
             href: tutorials/marketplace/gateway-api.md
           - name: Setting up the {{ alb-name }} Ingress controller
             href: tutorials/alb-ingress-controller.md
@@ -389,6 +389,8 @@ items:
             href: alb-ref/gateway.md
           - name: HTTPRoute
             href: alb-ref/http-route.md
+          - name: TLSRoute
+            href: alb-ref/tls-route.md
           - name: Service for Gateway API
             href: alb-ref/service-for-gateway.md
   - name: '{{ network-load-balancer-name }} tools'
