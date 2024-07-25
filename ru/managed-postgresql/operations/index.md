@@ -35,6 +35,7 @@ description: "На странице представлен список поша
 
 * [Управление расширениями](./extensions/cluster-extensions.md)
 * [Использование pg_cron](./extensions/pg_cron.md)
+* [Использование pg_repack](./extensions/pg_repack.md)
 * [Использование pgaudit](./extensions/pgaudit.md)
 * [Использование pgcrypto](./extensions/pgcrypto.md)
 * [Использование словаря Hunspell для полнотекстового поиска](./extensions/hunspell.md)

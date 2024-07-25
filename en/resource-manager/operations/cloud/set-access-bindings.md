@@ -3,7 +3,7 @@
 To grant a user access to cloud resources, assign the user a [role](../../../iam/concepts/access-control/roles.md) for the cloud.
 
 
-## Assign a role for the cloud {#access-to-user}
+## Assigning a role for a cloud {#access-to-user}
 
 {% list tabs group=instructions %}
 
@@ -83,7 +83,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Describe the cloud access permission parameters in the configuration file:
-      * `cloud_id`: cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`.
+      * `cloud_id`: Cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`.
       * `role`: Role to be assigned. You can get a list of roles using the [CLI](../../../cli/quickstart.md) command: `yc iam role list`. In one `yandex_resourcemanager_cloud_iam_member` resource, you can assign only one role.
       * `member`: User to assign the role to. Each `yandex_resourcemanager_cloud_iam_member` resource may have one of the following values:
                   * `userAccount:<user_ID>`: [User ID](../../../iam/operations/users/get.md)
@@ -205,7 +205,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 {% endlist %}
 
 
-## Assign multiple roles {#multiple-roles}
+## Assigning multiple roles {#multiple-roles}
 
 {% list tabs group=instructions %}
 
@@ -223,7 +223,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
    {% endnote %}
 
-   1. Make sure the resource has no roles assigned that you would rather not lose:
+   1. Make sure the resource has no roles assigned that you would not want to lose:
 
       ```bash
       yc resource-manager cloud list-access-binding my-cloud
@@ -486,11 +486,6 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
       ```
 
 {% endlist %}
-
-
-## Access to a resource for all users {#access-to-all}
-
-{% include [set-accessbinding-all-console](../../../_includes/iam/set-accessbinding-all-console.md) %}
 
 
 ## What's next {#what-is-next}

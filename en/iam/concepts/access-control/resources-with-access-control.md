@@ -29,7 +29,7 @@ If you need to grant access to a resource that is not on the list, assign the ro
 **{{ ydb-name }}**
 * [YDB DBMS](../../../ydb/operations/manage-databases.md#add-access-binding)
 
-**{{ metadata-hub-name }}**
+**{{ metadata-hub-full-name }}**
 * [Connection to managed databases](../../../metadata-hub/operations/connection-access.md) in {{ connection-manager-full-name }}
 
 **{{ objstorage-name }}**
