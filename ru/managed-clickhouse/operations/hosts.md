@@ -143,13 +143,103 @@
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы создать один или несколько хостов в кластере, воспользуйтесь методом REST API [addHosts](../api-ref/Cluster/addHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) и передайте в запросе:
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Один или несколько параметров `hostSpecs`: по одному параметру на каждый хост, который нужно создать.
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  Чтобы скопировать схему данных со случайной реплики на новый хост, передайте в запросе параметр `copySchema` со значением `true`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.addHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:batchCreate' \
+            --data '{
+                      "hostSpecs": [
+                        {
+                          "type": "CLICKHOUSE",
+                          "zoneId": "<зона_доступности>",
+                          "subnetId": "<идентификатор_подсети>",
+                          "shardName": "<имя_шарда>",
+                          "assignPublicIp": <публичный_доступ_к_хосту>
+                        },
+                        { <аналогичный_набор_настроек_для_создаваемого_хоста_2> },
+                        { ... },
+                        { <аналогичный_набор_настроек_для_создаваемого_хоста_N> }
+                      ],
+                      "copySchema": <копирование_схемы_данных>
+                    }'
+        ```
+
+        Где:
+
+        * `hostSpecs` — массив, содержащий настройки создаваемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
+
+            * `type` — тип хоста, всегда `CLICKHOUSE` для хостов {{ CH }}.
+            * `zoneId` — зона доступности.
+            * `subnetId` — идентификатор подсети.
+            * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+        * `copySchema` — параметр, который определяет, копировать ли схему данных со случайной реплики на создаваемые хосты: `true` или `false`.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addHosts.md#responses).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>",
+                    "host_specs": [
+                        {
+                            "type": "CLICKHOUSE",
+                            "zone_id": "<зона_доступности>",
+                            "subnet_id": "<идентификатор_подсети>",
+                            "shard_name": "<имя_шарда>",
+                            "assign_public_ip": <публичный_доступ_к_хосту>
+                        },
+                        { <аналогичный_набор_настроек_для_создаваемого_хоста_2> },
+                        { ... },
+                        { <аналогичный_набор_настроек_для_создаваемого_хоста_N> }
+                    ],
+                    "copy_schema": <копировать_ли_схему_данных>
+                }' \
+            {{ api-host-mdb }}:443 \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.AddHosts
+        ```
+
+        Где:
+
+        * `host_specs` — массив, содержащий настройки создаваемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
+
+            * `type` — тип хоста, всегда `CLICKHOUSE` для хостов {{ CH }}.
+            * `zone_id` — зона доступности.
+            * `subnet_id` — идентификатор подсети.
+            * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+        * `copy_schema` — параметр, который определяет, копировать ли схему данных со случайной реплики на создаваемые хосты: `true` или `false`.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#Operation11).
 
 {% endlist %}
 
@@ -227,15 +317,94 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы изменить параметры хоста, воспользуйтесь методом REST API [updateHosts](../api-ref/Cluster/updateHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateHosts](../api-ref/grpc/cluster_service.md#UpdateHosts) и передайте в запросе:
-  * Идентификатор кластера, в котором нужно изменить хост, в параметре `clusterId`. Чтобы узнать идентификатор, получите [список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Имя хоста, который нужно изменить, в параметре `updateHostSpecs.hostName`. Чтобы узнать имя, получите [список хостов в кластере](#list-hosts).
-  * Настройки публичного доступа к хосту в параметре `updateHostSpecs.assignPublicIp`.
-  * Список полей конфигурации кластера, подлежащих изменению (в данном случае — `assignPublicIp`), в параметре `updateMask`.
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.updateHosts](../api-ref/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:batchUpdate' \
+            --data '{
+                      "updateHostSpecs": [
+                        {
+                          "hostName": "<имя_хоста>",
+                          "updateMask": "assignPublicIp",
+                          "assignPublicIp": <публичный_доступ_к_хосту>
+                        }
+                      ]
+                    }'
+        ```
+
+        Где `updateHostSpecs[]` — перечень хостов, которые надо изменить, и их параметров. Структура отдельного элемента:
+
+        * `hostName` — имя хоста, которое можно запросить со [списком хостов в кластере](#list-hosts).
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+            В данном случае указан только один параметр: `assignPublicIp`.
+
+        * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateHosts.md#responses).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService/UpdateHosts](../api-ref/grpc/cluster_service.md#UpdateHosts) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>",
+                    "update_host_specs": [
+                    {
+                        "host_name": "<имя_хоста>",
+                        "update_mask": {
+                            "paths": [
+                                "assign_public_ip"
+                            ]
+                        },
+                        "assign_public_ip": <публичный_доступ_к_хосту>
+                    }]
+                }' \
+            {{ api-host-mdb }}:443 \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.UpdateHosts
+        ```
+
+        Где `update_host_specs[]` — перечень хостов, которые надо изменить, и их параметров. Структура отдельного элемента:
+
+        * `host_name` — имя хоста, которое можно запросить со [списком хостов в кластере](#list-hosts).
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            В данном случае указан только один параметр: `assign_public_ip`.
+
+        * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#Operation12).
 
 {% endlist %}
 
@@ -307,11 +476,65 @@
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы удалить один или несколько хостов, воспользуйтесь методом REST API [deleteHosts](../api-ref/Cluster/deleteHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) и передайте в запросе:
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Массив с именами хостов, которые нужно удалить, в параметре `hostNames`.
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.deleteHosts](../api-ref/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:batchDelete' \
+            --data '{
+                      "hostNames": [
+                        <перечень_имен_хостов>
+                      ]
+                    }'
+        ```
+
+        Где `hostNames` — массив строк. Каждая строка — имя хоста, который нужно удалить. Имена хостов можно запросить со [списком хостов в кластере](#list-hosts).
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteHosts.md#responses).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>",
+                    "host_names": [
+                      <перечень_имен_хостов>
+                    ]
+                }' \
+            {{ api-host-mdb }}:443 \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.DeleteHosts
+        ```
+
+        Где `host_names` — массив строк. Каждая строка — имя хоста, который нужно удалить. Имена хостов можно запросить со [списком хостов в кластере](#list-hosts).
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/cluster_service.md#Operation13).
 
 {% endlist %}
 

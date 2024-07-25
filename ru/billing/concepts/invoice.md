@@ -34,3 +34,6 @@
     Нерезидентам Российской Федерации и Республики Казахстан счет-фактура не предоставляется.
     
 {% endlist %}
+
+
+{% include [get-invoice-notice](../../_includes/billing/get-invoice-notice.md) %}

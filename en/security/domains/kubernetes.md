@@ -12,7 +12,7 @@ The user is responsible for correctly choosing security settings in {{ managed-k
 
 ## Sensitive data {#critical-data}
 
-When using {{ managed-k8s-name }} to comply with PCI DSS or other security standards, it is forbidden to: 
+To comply with PCI DSS or other security standards when using {{ managed-k8s-name }}, do not:
 
 * Use sensitive data in names and descriptions of clusters, node groups, namespaces, services, and pods.
 * Use sensitive data in [{{ k8s }} node labels](../../managed-kubernetes/concepts/#node-labels) and [{{ yandex-cloud }} service resource labels](../../resource-manager/concepts/labels.md).
@@ -100,7 +100,7 @@ The access of {{ iam-short-name }} accounts to {{ managed-k8s-name }} resources 
 * [{{ managed-k8s-name }}service roles](../../managed-kubernetes/security/#yc-api) (access to the {{ yandex-cloud }} API): These enable you to control clusters and node groups (for example, create a cluster, create/edit/delete a node group, and so on).
 * Service roles to access the {{ k8s }} API: These let you control cluster resources via the {{ k8s }} API (for example, perform standard actions with {{ k8s }}: create, delete, view namespaces, work with pods, deployments, create roles, and so on). Only the basic global roles at the cluster level are available: `k8s.cluster-api.cluster-admin`, `k8s.cluster-api.editor`, and `k8s.cluster-api.viewer`.
 * Primitive roles: These are global primitive {{ iam-short-name }} roles that include service roles (for example, the primitive role admin includes both the service administration role and the administrative role to access the {{ k8s }} API).
-* Standard {{ k8s }} roles: Inside the {{ k8s }} cluster, you can use {{ k8s }} tools to create both regular roles and cluster roles. This way, you can control {{ iam-short-name }} accounts access at the namespace level. To assign {{ iam-short-name }} roles at the namespace level, you can manually create RoleBinding objects in a relevant namespace, specifying the {{ iam-short-name }} ID of the cloud user in the "subjects name" field. For example:
+* Standard {{ k8s }} roles: Inside the {{ k8s }} cluster itself, you can use {{ k8s }} tools to create both regular roles and cluster roles. Thus you can control {{ iam-short-name }} accounts in terms of access at the namespace level. To assign {{ iam-short-name }} roles at the namespace level, you can manually create RoleBinding objects in a relevant namespace stating the cloud user's {{ iam-short-name }} ID in the **subjects name** field. Example:
 
    ```
    apiVersion: rbac.authorization.k8s.io/v1
@@ -165,7 +165,7 @@ If you mount folders as emptydir, files are stored on the node in the folder `/v
 
 In the case of separate disks (not emptydir), you can mount volumes in read mode to the above-mentioned DaemonSet running Osquery.
 
-To control file integrity on the {{ k8s }} nodes, you can also use the tools listed in [Integrity control](secure-config.md#integrity-control).
+To control file integrity on the {{ k8s }} nodes, you can also use the tools listed in [Integrity control](../standard/virtualenv-safe-config.md#integrity-control).
 
 There exist dedicated free solutions for {{ k8s }} nodes from Google or Argus, including [file-integrity-operator](https://github.com/openshift/file-integrity-operator).
 
@@ -175,7 +175,7 @@ At the {{ k8s }} etcd level, encrypt secrets using an in-built [mechanism from {
 
 We recommend that you use SecretManager solutions to work with {{ k8s }} secrets. [{{ lockbox-name }}](../../lockbox/) is such a solution in {{ yandex-cloud }}.
 
- {{ lockbox-name }} was integrated with {{ k8s }} using the [External Secrets](https://external-secrets.io/latest/) open-source project. The solution is available in {{ marketplace-name }} in the basic simplified scenario: [External Secrets Operator with Yandex Lockbox support](/marketplace/products/yc/external-secrets).
+ {{ lockbox-name }} was integrated with {{ k8s }} using the [External Secrets](https://external-secrets.io/latest/) open-source project. In {{ marketplace-name }}, the solution is available in the basic simplified scenario: [External Secrets Operator with Yandex Lockbox support](/marketplace/products/yc/external-secrets).
 
 Useful instructions on working with External Secrets:
 
@@ -188,7 +188,7 @@ The most secure recommended option for encrypting secrets is ESO as a Service (E
 
 ### Encryption in transit {#encryption-in-transist}
 
-For in-transit encryption, use TLS interaction between pods. If you can't use TLS interaction, use service mesh solutions:
+For in-transit encryption, use TLS interaction between pods. If TLS cannot be used, use the service mesh solutions:
 
 * [Istio](https://istio.io/)
 * [Linkerd](https://linkerd.io/)
@@ -232,7 +232,7 @@ You can break vulnerability scanning into the following levels:
 
 Vulnerability scanning at the image level is detailed in [Protection against malicious code in {{ managed-k8s-name }}](#malware-protection).
 
-Examples of free universal solutions for vulnerability scanning of the OS nodes in {{ k8s }} are given in [Scanning for vulnerabilities](vulnerability-management.md#vulnerability-scanning).
+Examples of free universal solutions for vulnerability scanning of the OS nodes in {{ k8s }} are given in [Scanning for vulnerabilities](../standard/vulnerabilities.md#vulnerability-scanning).
 
 There also exist both paid and free solutions for scanning the OS nodes in {{ k8s }} and {{ k8s }} hosts for vulnerabilities: for example, free tools such as kube-hunter and trivi (scan filesystem).
 
@@ -246,7 +246,7 @@ There also exist both paid and free solutions for scanning the OS nodes in {{ k8
 
 ## Backup and recovery {#backup-and-restore}
 
-Set up backups in {{ managed-k8s-name }} by following the [guide](../../managed-kubernetes/tutorials/backup.md). When storing your backups in {{ objstorage-name }}, follow recommendations from the [Secure configuration for {{ objstorage-name }}](secure-config.md#object-storage).
+Set up backups in {{ managed-k8s-name }} by following the [guide](../../managed-kubernetes/tutorials/backup.md). When storing your backups in {{ objstorage-name }}, follow recommendations from the [Secure configuration for {{ objstorage-name }}](../standard/virtualenv-safe-config.md#objstorage).
 
 ## Security policies in {{ k8s }} {#kubernetes-security-policies}
 
@@ -320,7 +320,7 @@ The [Filebeat](/marketplace/products/yc/filebeat) plugin for transferring logs t
 
 {{ monitoring-name }} includes a set of metrics to analyze availability of {{ k8s }} objects and their behavioral anomalies.
 
-Instructions on how to export {{ monitoring-name }} metrics is given in the section [Exporting events to SIEM](audit-logs.md#metriki-yandex-monitoring).
+For a guide on exporting {{ monitoring-name }} metrics, see the [Exporting events to SIEM](../standard/audit-logs.md#events) section.
 
 ### {{ k8s }} flow logs {#flow-logs-kubernetes}
 

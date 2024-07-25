@@ -24,7 +24,7 @@ To create an API key:
       yc iam api-key create --help
       ```
 
-   1. Select a service account (for example, `my-robot`):
+   1. Select a service account, e.g., `my-robot`:
 
       ```bash
       yc iam service-account list
@@ -32,7 +32,7 @@ To create an API key:
 
       Result:
 
-      ```
+      ```text
       +----------------------+------------------+-------------------------------+
       |          ID          |       NAME       |          DESCRIPTION          |
       +----------------------+------------------+-------------------------------+
@@ -41,13 +41,18 @@ To create an API key:
       +----------------------+------------------+-------------------------------+
       ```
 
-   1. Create an API key for the `my-robot` service account and write the response to a file:
+   1. Create an API key for the service account and save the response to the file:
 
       ```bash
-      yc iam api-key create --service-account-name my-robot > api-key.yaml
+      yc iam api-key create --service-account-name <service_account_name> > api_key.yaml
       ```
 
-      The response's `secret` property will contain the API key:
+      Where:
+
+      * `--service-account-name`: Name of the service account. This is a required parameter.
+      * `api_key.yaml`: File to save the response to.
+
+      As a result, you will get the `api_key.yaml` file with the API key value in the `secret` field:
 
       ```
       api_key:
@@ -57,21 +62,17 @@ To create an API key:
       secret: AQVN1HHJReSrfo9jU3aopsXrJyfq_UHs********
       ```
 
-      To learn how to provide the key to a request, read the guides for the [services](../../concepts/authorization/api-key.md#supported-services) that support this authorization method.
+   To learn how to transmit a key in a request, read the guides for the [services](../../concepts/authorization/api-key.md#supported-services) supporting this authorization method.
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   1. Add resource parameters to the configuration file:
+   1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
 
-      * `service_account_id`: Service account [ID](../sa/get-id.md). This is a required parameter.
-      * `description`: Key description. This is an optional parameter.
-      * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional parameter. Specify the public part of the key in Base64 encoding or in the `keybase:keybaseusername` format.
-
-      Here is an example of the configuration file structure:
-
-      ```
+      ```hcl
       resource "yandex_iam_service_account_api_key" "sa-api-key" {
         service_account_id = "<service_account_ID>"
         description        = "<key_description>"
@@ -79,59 +80,52 @@ To create an API key:
       }
       ```
 
+      Where:
+
+      * `service_account_id`: Service account [ID](../sa/get-id.md). This is a required parameter.
+      * `description`: Key description. This is an optional parameter.
+      * `pgp_key`: Additional PGP key for encrypting a private key. Specify the public part of the key in Base64 encoding or in the `keybase:keybaseusername` format. This is an optional parameter.
+
       For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_api_key).
 
-   1. Make sure the configuration files are valid.
+   1. Create resources:
 
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run a check using this command:
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-         ```
-         terraform plan
-         ```
+      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
-   1. Deploy cloud resources.
-
-      1. If the configuration does not contain any errors, run this command:
-
-         ```
-         terraform apply
-         ```
-
-      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
-
-      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) and this CLI command:
-
-      ```
+      ```bash
       yc iam key list --service-account-id <service_account_ID>
       ```
 
 - API {#api}
 
-   1. [Find out the service account ID](../sa/get-id.md).
-   1. Create an API key using the [create](../../api-ref/ApiKey/create.md) REST API method for the [ApiKey](../../api-ref/ApiKey/index.md) resource:
+  Create an API key using the [create](../../api-ref/ApiKey/create.md) REST API method for the [ApiKey](../../api-ref/ApiKey/index.md) resource:
 
-      ```bash
-      export SERVICEACCOUNT_ID=<service_account_ID>
-      export IAM_TOKEN=CggaATEVAgA...
-      curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer $IAM_TOKEN" \
-        -d "{ \"serviceAccountId\": \"$SERVICEACCOUNT_ID\" }" \
-        https://iam.{{ api-host }}/iam/v1/apiKeys
-      ```
+  ```bash
+  export SERVICEACCOUNT_ID=<service_account_ID>
+  export IAM_TOKEN=<token>
+  curl -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -d "{ \"serviceAccountId\": \"$SERVICEACCOUNT_ID\" }" \
+    https://iam.{{ api-host }}/iam/v1/apiKeys
+  ```
 
-      You can also create an API key using the [ApiKeyService/Create](../../api-ref/grpc/api_key_service.md#Create) gRPC API call.
+  Where:
+
+  * `SERVICEACCOUNT_ID`: Service account [ID](../sa/get-id.md). This is a required parameter.
+  * `IAM_TOKEN`: [IAM token](../../concepts/authorization/iam-token.md). This is a required parameter.
+
+  You can also create an API key using the [ApiKeyService/Create](../../api-ref/grpc/api_key_service.md#Create) gRPC API call.
 
 {% endlist %}
 
 ## Examples {#examples}
 
-### Add a description when creating {#add-description}
+### Adding a description when creating an API key {#add-description}
 
-To make it easier to find an API key without knowing its ID, add a description when creating it:
+To add an API key description when creating the key:
 
 {% list tabs group=instructions %}
 
@@ -142,54 +136,30 @@ To make it easier to find an API key without knowing its ID, add a description w
      --description "this API-key is for my-robot"
    ```
 
+   Where:
+
+   * `--service-account-name`: Name of the service account. This is a required parameter.
+   * `--description`: API key description. This is an optional parameter.
+
 - {{ TF }} {#tf}
 
-   1. Add resource parameters to the configuration file:
+   ```hcl
+   resource "yandex_iam_service_account_api_key" "sa-api-key" {
+     service_account_id = "<service_account_ID>"
+     description        = "this API-key is for my-robot"
+   }
+   ```
 
-      * `service_account_id`: Service account ID. This is a required parameter.
-      * `description`: Key description. This is an optional parameter.
+   Where:
 
-      {% cut "Example of adding a description when creating a service account API key using {{ TF }}" %}
-
-      ```
-      resource "yandex_iam_service_account_api_key" "sa-api-key" {
-        service_account_id = "<service_account_ID>"
-        description        = "this API-key is for my-robot"
-      }
-      ```
-
-      {% endcut %}
-
-      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_api_key).
-
-   1. Make sure the configuration files are valid.
-
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run a check using this command:
-
-         ```
-         terraform plan
-         ```
-
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
-   1. Deploy cloud resources.
-
-      1. If the configuration does not contain any errors, run this command:
-
-         ```
-         terraform apply
-         ```
-
-      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
-
-      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+   * `service_account_id`: Service account [ID](../sa/get-id.md). This is a required parameter.
+   * `-description`: Key description. This is an optional parameter.
 
 - API {#api}
 
    ```bash
    export SERVICEACCOUNT_ID=<service_account_ID>
-   export IAM_TOKEN=CggaATEVAgA...
+   export IAM_TOKEN=<IAM_token>
    curl -X POST \
      -H "Content-Type: application/json" \
      -H "Authorization: Bearer $IAM_TOKEN" \
@@ -199,6 +169,11 @@ To make it easier to find an API key without knowing its ID, add a description w
      }" \
      https://iam.{{ api-host }}/iam/v1/apiKeys
    ```
+
+   Where:
+
+   * `SERVICEACCOUNT_ID`: [Service account ID](../sa/get-id). This is a required parameter.
+   * `IAM_TOKEN`: [IAM token](../../concepts/authorization/iam-token.md). This is a required parameter.
 
 {% endlist %}
 

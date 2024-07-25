@@ -125,10 +125,10 @@ You can configure [exporting audit logs to a SIEM system](../../audit-trails/con
 
 Report the incident to the [support team]({{ link-console-support }}). This will help us enhance secret protection in future {{ yandex-cloud }} releases.
 
-You can learn more about requesting technical support [here](../../support/overview.md).
+You can learn more about the [technical support terms](../../support/overview.md) here.
 
 ## Follow our recommendations on building a secure infrastructure {#recommendations}
 
 1. Make sure secrets are separated from the source code. This will help you avoid adding them to public repositories, such as GitHub, along with the code and making them vulnerable.
-1. [Manage secrets in your cloud](../../security/domains/encryption.md#upravlenie-sekretami).
-1. [Collect, monitor, and analyze audit logs](../../security/domains/audit-logs.md).
+1. [Manage secrets in your cloud](../../security/standard/encryption.md).
+1. [Collect, monitor, and analyze audit logs](../../security/standard/audit-logs.md).

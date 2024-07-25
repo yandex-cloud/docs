@@ -33,10 +33,10 @@ build.zip
 ### Рекомендуемые версии Java-библиотек {#recommended-libraries}
 
 #|
-||                  | **Java 11**       | **Java 17** ||
-|| Spring Boot      | 2.3.4.RELEASE     | 2.5.14      ||
-|| Spring Framework | 5.2.9.RELEASE     | 5.3.24      ||
-|| javax.servlet    | 4.0.1             | 4.0.1       ||
+||                  | **Java 11**       | **Java 17, Java 21** ||
+|| Spring Boot      | 2.3.4.RELEASE     | 2.5.14               ||
+|| Spring Framework | 5.2.9.RELEASE     | 5.3.24               ||
+|| javax.servlet    | 4.0.1             | 4.0.1                ||
 |#
 
 {% note warning %}

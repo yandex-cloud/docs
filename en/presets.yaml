@@ -342,7 +342,6 @@ default:
   message-queue-name: Message Queue
   message-queue-short-name: Message Queue
   metadata-hub-full-name: Yandex MetaData Hub
-  metadata-hub-name: Yandex MetaData Hub
   metastore-full-name: Hive Metastore
   metastore-name: Metastore
   metrika: Yandex Metrica
@@ -5168,7 +5167,6 @@ default:
         button:
           add-role: Add role
         label:
-          public: Public
           title: Configuring access bindings
       marketplace:
         label_product-ids: Product IDs
@@ -5842,6 +5840,12 @@ default:
         overview:
           action_edit-meta: Edit
           action_reimport: Renew certificate
+          certificate_content_download: Download certificate
+          certificate_content_export: Export certificate
+          certificate_content_select_full: End-entity certificate and chain
+          certificate_content_select_leaf_only: End-entity certificate
+          certificate_content_select_no_private_key: Certificate without private key
+          certificate_content_select_private_key_only: Private key only
           challenge_label_dns-record-set: Cloud DNS
           challenge_label_http-content: Contents
           challenge_label_http-url: Link for hosting file
@@ -5958,7 +5962,6 @@ default:
           button_remove-bindings: Remove bindings
           label_access-bindings: Access bindings
           label_bindings: Roles
-          label_groups: Groups
           label_inherited-bindings: Inherited roles
           label_service-account: Service account
           label_service-accounts: Service accounts
