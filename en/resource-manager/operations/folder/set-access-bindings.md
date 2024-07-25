@@ -1,8 +1,8 @@
 # Setting up folder access permissions
 
-To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder) resources, assign the user a [role](../../../iam/concepts/access-control/roles.md) for the appropriate folder.
+To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder) resources, assign the user a [role](../../../iam/concepts/access-control/roles.md) for the folder.
 
-## Assign a role for a folder {#access-to-user}
+## Assigning a role for a folder {#access-to-user}
 
 {% list tabs group=instructions %}
 
@@ -226,7 +226,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 {% endlist %}
 
 
-## Assign multiple roles {#multiple-roles}
+## Assigning multiple roles {#multiple-roles}
 
 {% list tabs group=instructions %}
 
@@ -246,7 +246,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   {% endnote %}
 
-  1. Make sure the resource has no roles assigned that you would rather not lose:
+  1. Make sure the resource has no roles assigned that you would not want to lose:
       ```bash
       yc resource-manager folder list-access-bindings my-folder
       ```
@@ -533,11 +533,6 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
 {% endlist %}
 
-
-
-## Access to a resource for all users {#access-to-all}
-
-{% include [grant-role-for-sa](../../../_includes/iam/grant-role-for-all.md) %}
 
 
 ## What's next {#what-is-next}

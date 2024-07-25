@@ -46,6 +46,24 @@ description: "Порог оплаты — это отрицательный ба
 
 Если вы оплачиваете ресурсы {{ yandex-cloud }} с банковского счета, порог оплаты не применяется.
 
+## Сумма к оплате {#sum}
+
+{% list tabs group=customers %}
+
+- Физические лица {#individuals}
+
+  Отслеживать состояние [баланса лицевого счета](../concepts/personal-account.md#balance) можно в [сервисе {{ billing-name }}]({{ link-console-billing }}) на странице **{{ ui-key.yacloud_billing.billing.account.switch_overview }}**:
+  * Баланс автоматически уменьшается по мере потребления ресурсов.
+  * История потребления ресурсов доступна в [детализации](../operations/check-charges.md).
+  * При [зачислении средств](../payment/payment-methods-individual.md) баланс увеличивается. Запись о пополнении сохраняется в [истории платежей](../operations/check-bill-history.md).
+
+  Подробнее см. в разделе [Пополнить лицевой счет](../operations/pay-the-bill.md#individuals).
+
+- Юридические лица и ИП {#businesses}
+
+  Сумму к оплате можно найти в [отчетных документах](../payment/documents.md), которые {{ yandex-cloud }} ежемесячно направляет клиентам.
+
+{% endlist %}
 
 ## Погашение задолженности {#arrears}
 

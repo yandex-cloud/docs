@@ -28,6 +28,7 @@ Authorization: Api-Key <API-ключ>
 
 API-ключи в качестве способа аутентификации поддерживают несколько сервисов:
 
+* [{{ sf-full-name }}](../../../functions/operations/function/auth.md)
 * [{{ ml-platform-full-name }}](../../../datasphere/api-ref/authentication.md)
 * [{{ search-api-full-name }}](../../../search-api/operations/auth.md)
 * [{{ speechkit-full-name }}](../../../{{ speechkit-slug }}/concepts/auth.md)

@@ -58,6 +58,8 @@ items:
             href: operations/extensions/cluster-extensions.md
           - name: pg_cron
             href: operations/extensions/pg_cron.md
+          - name: pg_repack
+            href: operations/extensions/pg_repack.md
           - name: pgaudit
             href: operations/extensions/pgaudit.md
           - name: pgcrypto

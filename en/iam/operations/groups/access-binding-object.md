@@ -1,8 +1,6 @@
-# Setting up user group access bindings
+# Setting up user group access permissions
 
-Change a [subject's](../../concepts/access-control/index.md#subject) access bindings to a [group](../../../organization/operations/manage-groups.md) as a resource. To grant a group access bindings to a resource, follow the [{#T}](access-binding-subject.md) instructions.
-
-[Access](../../concepts/access-control/index.md#how-do-i-perform-access-management) management in {{ yandex-cloud }} is based on roles.
+To grant access permissions to a group as a resource, assign the required roles to the [subjects](../../concepts/access-control/index.md#subject). You can also [grant a group permissions](access-binding-subject.md) for any resource from the [list](../../concepts/access-control/resources-with-access-control.md).
 
 ## Assigning a role {#set-access-binding}
 

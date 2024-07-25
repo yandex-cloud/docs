@@ -228,7 +228,7 @@ Enable an HTTPS listener using the instructions.
 
 ### Providing encryption on your own {#self-encryption}
 
-**When using services with no built-in encryption, it's the customer's responsibility to ensure that critical data is encrypted.**
+**When using services without built-in encryption, it is the customer's responsibility to ensure that critical data is encrypted.**
 
 #### 4.6 For critical VMs, disk encryption using {{ kms-short-name }} is set up {#self-vm-kms}
 
@@ -352,7 +352,7 @@ To automate operations with {{ kms-short-name }}, we recommend that you create a
 
 We recommend that you grant granular permissions for specific keys in the {{ kms-short-name }} service to your users and service accounts. For more information, see the {{ kms-short-name }} documentation, [Access management in {{ kms-name }}](../../../kms/security/).
 
-For more information about security measures for access control, see [Authentication and access control](../../../security/domains/access.md).
+For more information about security measures for access control, see [Authentication and access control](authentication.md).
 
 To check the {{ kms-short-name }} key access permissions, check who has access permissions for:
 * Organization, cloud, and folders with the `admin`, `editor`, `kms.admin`, `kms.editor`, and `kms.keys.encrypterDecrypter` permissions.
@@ -635,7 +635,7 @@ Delete the secret data from env and [use](../../../functions/operations/function
 
 [Encrypting secrets in {{ TF }} to transfer them to a VM from a {{ coi }}](https://github.com/yandex-cloud-examples/yc-encrypt-coi-secrets).
 
-For other recommendations on how to use {{ TF }} safely, see [Secure configuration: {{ TF }}](../../../security/domains/secure-config.md).
+For other recommendations on how to use {{ TF }} safely, see [Secure configuration: {{ TF }}](virtualenv-safe-config.md#tf-using).
 
 #### 4.16 There is a guide for cloud administrators on what to do if their cloud secrets are compromised {#secrets-scanning}
 

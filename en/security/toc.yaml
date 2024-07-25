@@ -17,27 +17,6 @@ items:
         href: domains/index.md
       - name: Checklist
         href: domains/checklist.md
-      - name: Network security
-        hidden: true
-        href: domains/network.md
-      - name: Authentication and access control
-        hidden: true
-        href: domains/access.md
-      - name: Data encryption and key management
-        hidden: true
-        href: domains/encryption.md
-      - name: Secure configuration
-        hidden: true
-        href: domains/secure-config.md
-      - name: Vulnerability management
-        hidden: true
-        href: domains/vulnerability-management.md
-      - name: Audit logs
-        hidden: true
-        href: domains/audit-logs.md
-      - name: Physical security
-        hidden: true
-        href: domains/physical-security.md
       - name: Kubernetes security
         href: domains/kubernetes.md
   - name: Standard for securing Yandex Cloud infrastructure 1.1
@@ -82,7 +61,7 @@ items:
         href: operations/account-deletion.md
       - name: If you are being attacked from {{ yandex-cloud }} addresses
         href: operations/outgoing-ddos.md
-      - name: Detecting {{ yandex-cloud }} secrets in public sources
+      - name: Scanning for {{ yandex-cloud }} secrets in public sources
         href: operations/search-secrets.md
   - name: User support policy during vulnerability scanning
     href: compliance/pentest.md

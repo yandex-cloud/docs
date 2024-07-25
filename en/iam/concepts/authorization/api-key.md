@@ -28,6 +28,7 @@ Authorization: Api-Key <API_key>
 
 The following services support authentication based on API keys:
 
+* [{{ sf-full-name }}](../../../functions/operations/function/auth.md)
 * [{{ ml-platform-full-name }}](../../../datasphere/api-ref/authentication.md)
 * [{{ search-api-full-name }}](../../../search-api/operations/auth.md)
 * [{{ speechkit-full-name }}](../../../{{ speechkit-slug }}/concepts/auth.md)

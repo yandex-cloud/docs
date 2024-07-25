@@ -7,6 +7,11 @@ default:
   alb-name: Application Load Balancer
   all-mdb:
     max-databases: 1000
+  api-examples:
+    grpc:
+      tool: '[gRPCurl](https://github.com/fullstorydev/grpcurl)'
+    rest:
+      tool: '[cURL](https://curl.se/)'
   api-gw-full-name: Yandex API Gateway
   api-gw-name: API Gateway
   api-gw-short-name: API Gateway
@@ -341,7 +346,6 @@ default:
   message-queue-name: Message Queue
   message-queue-short-name: Message Queue
   metadata-hub-full-name: Yandex MetaData Hub
-  metadata-hub-name: Yandex MetaData Hub
   metastore-full-name: Hive Metastore
   metastore-name: Metastore
   metrika: Яндекс Метрика
@@ -5173,7 +5177,6 @@ default:
         button:
           add-role: Добавить роль
         label:
-          public: Публичные
           title: Настройка прав доступа
       marketplace:
         label_product-ids: Идентификаторы продукта
@@ -5847,6 +5850,12 @@ default:
         overview:
           action_edit-meta: Изменить
           action_reimport: Обновить сертификат
+          certificate_content_download: Скачать сертификат
+          certificate_content_export: Экспортировать сертификат
+          certificate_content_select_full: Сертификат и цепочка сертификатов
+          certificate_content_select_leaf_only: Конечный сертификат без цепочки сертификатов
+          certificate_content_select_no_private_key: Сертификат без приватного ключа
+          certificate_content_select_private_key_only: Только приватный ключ
           challenge_label_dns-record-set: Cloud DNS
           challenge_label_http-content: Содержимое
           challenge_label_http-url: Ссылка для размещения файла
@@ -5963,7 +5972,6 @@ default:
           button_remove-bindings: Отозвать роли
           label_access-bindings: Права доступа
           label_bindings: Роли
-          label_groups: Группы
           label_inherited-bindings: Наследуемые роли
           label_service-account: Сервисный аккаунт
           label_service-accounts: Сервисные аккаунты

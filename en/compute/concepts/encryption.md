@@ -57,4 +57,4 @@ To use encryption in {{ compute-name }}, the user must have the following roles:
 
 ### See also {#see-also}
 
-* [{#T}](../../security/domains/encryption.md)
+* [{#T}](../../security/standard/encryption.md)
