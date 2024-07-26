@@ -23,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note info %}
 
-{{ maf-name }} and {{ metastore-name }} are at the [Preview](../../../overview/concepts/launch-stages.md) stage. To get access, contact [tech support]({{ link-console-support }}) or your account manager.
+{{ maf-name }} and {{ metastore-name }} are at the [Preview](../../../overview/concepts/launch-stages.md) stage. To get access, contact [technical support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 
@@ -47,7 +47,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * `output-bucket` for output data
    * `log-bucket` to store collected logs
 
-   You need multiple buckets with different access rights.
+   You need multiple buckets with different access permissions.
 
 1. [Grant the `airflow-sa` service account](../../../storage/operations/buckets/edit-acl.md) the following bucket permissions:
 
@@ -328,7 +328,7 @@ To prepare a DAG:
 1. [Open the {{ AF }} web interface](../../../managed-airflow/operations/af-interfaces.md#web-gui).
 1. Make sure the **DAGs** section now contains a new DAG named `DATA_INGEST` and tagged as `data-proc-and-airflow`.
 
-   It may take a few minutes to load the DAG file from the bucket.
+   It may take a few minutes to upload a DAG file from the bucket.
 
 1. To run the DAG, click ![image](../../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
 

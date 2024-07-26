@@ -547,7 +547,7 @@
 
     {% endcut %}
 
-1. Убедитесь, что приложения `tiefighter` и `xwing` имеют доступ к API сервиса `deathstar` и возвращают строку `Ship landed`, т. к. сетевые политики не активированы:
+1. Убедитесь, что приложения `tiefighter` и `xwing` имеют доступ к [API](../../glossary/rest-api.md) сервиса `deathstar` и возвращают строку `Ship landed`, т. к. сетевые политики не активированы:
 
    ```bash
    kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing && \
