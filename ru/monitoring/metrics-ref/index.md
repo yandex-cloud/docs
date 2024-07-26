@@ -6,6 +6,7 @@ description: "На странице приведен список справоч
 # Справочники метрик сервисов {{ yandex-cloud }}
 
 
+* [{{ api-gw-full-name }}](api-gateway-ref.md)
 * [{{ alb-full-name }}](alb-ref.md)
 * [{{ at-full-name }}](at-ref.md)
 * [{{ certificate-manager-full-name }}](certificate-manager-ref.md)

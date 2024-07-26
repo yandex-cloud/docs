@@ -1,6 +1,6 @@
 # Установка Gateway API
 
-[Gateway API](https://github.com/kubernetes-sigs/gateway-api) — набор ресурсов API, моделирующих сетевое взаимодействие в [кластере {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). Среди них `GatewayClass`, `Gateway`, `HTTPRoute` и другие.
+[Gateway API](https://github.com/kubernetes-sigs/gateway-api) — набор ресурсов [API](../../glossary/rest-api.md), моделирующих сетевое взаимодействие в [кластере {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). Среди них `GatewayClass`, `Gateway`, `HTTPRoute` и другие.
 
 В сервисе {{ managed-k8s-name }} Gateway API запускает [{{ alb-full-name }}](../../application-load-balancer/) и необходимые вспомогательные ресурсы, когда пользователь {{ k8s }} объявляет ресурс `Gateway` в кластере {{ managed-k8s-name }}.
 

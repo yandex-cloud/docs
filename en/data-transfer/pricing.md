@@ -5,34 +5,36 @@ editable: false
 # {{ data-transfer-name }} pricing policy
 
 
+
 ## Current pricing policy {#effective-rules}
 
 Currently, {{ data-transfer-name }} resources are free of charge.
 
-Other {{ yandex-cloud }} resources you may use during transfer (e.g., managed database services) will be charged based on their [pricing plans]({{ link-cloud-calculator }}).
+Other {{ yandex-cloud }} resources you are going to use during transfer (e.g., managed database services) will be billed according to their respective [pricing plans]({{ link-cloud-calculator }}).
 
 ## Pricing policy as of August 1, 2024 {#service-plans}
 
-From August 1, 2024, the cost of using {{ data-transfer-name }} depends on the amount of compute resources used and the number of data rows transferred for each transfer at the GA stage.
+As of August 1, 2024, {{ data-transfer-name }} usage cost will depend on the amount of computing resources used and the number of data rows delivered by transfers that are at the [GA](../overview/concepts/launch-stages.md) stage:
 
-* [{{ PG }}](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ PG }}](operations/endpoint/target/postgresql.md);
-* [{{ PG }}](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ CH }}](operations/endpoint/target/clickhouse.md);
-* [{{ PG }}](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ KF }}](operations/endpoint/target/kafka.md);
-* [{{ MY }}](operations/endpoint/source/mysql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ MY }}](operations/endpoint/target/mysql.md);
-* [{{ MY }}](operations/endpoint/source/mysql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ CH }}](operations/endpoint/target/clickhouse.md);
-* [{{ MY }}](operations/endpoint/source/mysql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ KF }}](operations/endpoint/target/kafka.md);
-* [{{ MG }}](operations/endpoint/source/mongodb.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ MG }}](operations/endpoint/target/mongodb.md);
-* [{{ CH }}](operations/endpoint/source/clickhouse.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ CH }}](operations/endpoint/target/clickhouse.md);
-* [{{ GP }}](operations/endpoint/source/greenplum.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ CH }}](operations/endpoint/target/clickhouse.md).
-* [{{ yds-name }}](operations/endpoint/source/data-streams.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ CH }}](operations/endpoint/target/clickhouse.md);
-* [{{ yds-name }}](operations/endpoint/source/data-streams.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ ydb-name }}](operations/endpoint/target/yandex-database.md);
-* [{{ yds-name }}](operations/endpoint/source/data-streams.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ KF }}](operations/endpoint/target/kafka.md);
-* [{{ KF }}](operations/endpoint/source/kafka.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ ydb-name }}](operations/endpoint/target/yandex-database.md);
-* [{{ KF }}](operations/endpoint/source/kafka.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ KF }}](operations/endpoint/target/kafka.md).
+* [{{ PG }}](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ PG }}](operations/endpoint/target/postgresql.md)
+* [{{ PG }}](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ CH }}](operations/endpoint/target/clickhouse.md)
+* [{{ PG }}](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ KF }}](operations/endpoint/target/kafka.md)
+* [{{ MY }}](operations/endpoint/source/mysql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ MY }}](operations/endpoint/target/mysql.md)
+* [{{ MY }}](operations/endpoint/source/mysql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ CH }}](operations/endpoint/target/clickhouse.md)
+* [{{ MY }}](operations/endpoint/source/mysql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ KF }}](operations/endpoint/target/kafka.md)
+* [{{ MG }}](operations/endpoint/source/mongodb.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ MG }}](operations/endpoint/target/mongodb.md)
+* [{{ CH }}](operations/endpoint/source/clickhouse.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ CH }}](operations/endpoint/target/clickhouse.md)
+* [{{ GP }}](operations/endpoint/source/greenplum.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ CH }}](operations/endpoint/target/clickhouse.md)
+* [{{ yds-name }}](operations/endpoint/source/data-streams.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ CH }}](operations/endpoint/target/clickhouse.md)
+* [{{ yds-name }}](operations/endpoint/source/data-streams.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ ydb-name }}](operations/endpoint/target/yandex-database.md)
+* [{{ yds-name }}](operations/endpoint/source/data-streams.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ KF }}](operations/endpoint/target/kafka.md)
+* [{{ KF }}](operations/endpoint/source/kafka.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ ydb-name }}](operations/endpoint/target/yandex-database.md)
+* [{{ KF }}](operations/endpoint/source/kafka.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ KF }}](operations/endpoint/target/kafka.md)
 
-Transfers at the Preview stage are not charged. For a list of available transfers and their stages of readiness, see the [Available transfers](transfer-matrix.md) section.
 
-### Prices {#prices}
+Data delivery for transfers that are at the Preview stage is free of charge. For a list of available transfers and their release stages, see [Available transfers](transfer-matrix.md).
+
+### Pricing {#prices}
 
 #### Number of transferred rows {#data}
 
@@ -50,13 +52,13 @@ Transfers at the Preview stage are not charged. For a list of available transfer
 {% include [usd.md](../_pricing/data-transfer/usd-ram.md) %}
 
 
-### Example of calculating the cost {#price-example}
+### Examples of cost calculation {#price-example}
 
-When calculating the cost, it is necessary to take into account that by default one worker uses 2 vCPUs and 2 GB of RAM.
+When calculating the cost, note that by default a single worker uses 2 vCPUs and 2 GB of RAM.
 
-#### One-time copying data from {{ PG }} to {{ CH }} {#copy}
+#### Single data copying from {{ PG }} to {{ CH }} {#copy}
 
-During the reporting month, 500,000,000 rows of data were transferred from {{ PG }} to {{ CH }}. Copying was carried out using one worker, and it lasted 24 hours.
+The number of data rows transferred from {{ PG }} to {{ CH }} during the reporting month is 500,000,000. The copying was handled by one worker and took 24 hours.
 
 
 
@@ -64,12 +66,12 @@ CPU cost:
 
 > 24 * 2 * $0.01048 = $0.50304
 
-RAM cost calculation:
+RAM cost:
 
 > 24 * 2 * $0.0028 = $0.1344
 
-Transfer cost calculation:
- 
+Data transfer cost:
+
 > (500 - 100) * $0.0216 = $8.64
 
 **Total cost**:
@@ -79,7 +81,7 @@ Transfer cost calculation:
 
 #### Replicating data from {{ PG }} to {{ PG }} {#replication}
 
-During the reporting month, 50,000,000 rows of data were transferred from {{ PG }} to {{ PG }}. Replication was carried out continuously throughout the month using 6 workers.
+The number of data rows transferred from {{ PG }} to {{ PG }} during the reporting month is 50,000,000. The replication went on continuously throughout the whole month with the help of 6 workers.
 
 
 
@@ -91,9 +93,9 @@ RAM cost:
 
 > 30 * 24 * 6 * $0.0028 = $12.096
 
-Transfer cost:
+Data transfer cost:
 
-50,000,000 rows are included in the volume of free consumption and are not charged.
+Free of charge, as 50,000,000 rows is less than the free usage quota.
 
 **Total cost**:
 

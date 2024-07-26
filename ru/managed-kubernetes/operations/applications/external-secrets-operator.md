@@ -1,7 +1,7 @@
 # Установка External Secrets Operator с поддержкой {{ lockbox-name }}
 
 
-[External Secrets Operator](/marketplace/products/yc/external-secrets) — оператор {{ k8s }}, который интегрирует внешние системы управления секретами, такие как [{{ lockbox-name }}](../../../lockbox/), AWS Secrets Manager, Azure Key Vault, HashiCorp Vault, Google Secrets Manager и другие. Оператор считывает информацию из внешних API и автоматически вводит значения в {{ k8s }} Secret.
+[External Secrets Operator](/marketplace/products/yc/external-secrets) — оператор {{ k8s }}, который интегрирует внешние системы управления секретами, такие как [{{ lockbox-name }}](../../../lockbox/), AWS Secrets Manager, Azure Key Vault, HashiCorp Vault, Google Secrets Manager и другие. Оператор считывает информацию из внешних [API](../../../glossary/rest-api.md) и автоматически вводит значения в {{ k8s }} Secret.
 
 External Secrets Operator с поддержкой {{ lockbox-name }} позволяет настроить синхронизацию [секретов {{ lockbox-name }}](../../../lockbox/concepts/secret.md) с [секретами](../../concepts/encryption.md) [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
 

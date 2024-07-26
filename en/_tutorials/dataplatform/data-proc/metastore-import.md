@@ -229,7 +229,7 @@ To transfer data from one {{ dataproc-name }} cluster to another, back up the da
 ## Connect {{ dataproc-name }} to {{ metastore-name }} {#connect}
 
 1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the `dataproc-s3-sa` service account. Save its ID and the secret key.
-1. [Create a {{ metastore-name }} cluster](../../../data-proc/operations/metastore/cluster-create.md) with the following settings:
+1. [Create a {{ metastore-name }} cluster](../../../data-proc/operations/metastore/cluster-create.md) with the following parameters:
 
    * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `dataproc-network`.
    * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}**: `dataproc-subnet`.
@@ -287,7 +287,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
    - Manually {#manual}
 
       1. [{{ dataproc-name }} clusters](../../../data-proc/operations/cluster-delete.md)
-      1. [{{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md).
+      1. [{{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md)
       1. Route table
       1. NAT gateway
       1. [Security group](../../../vpc/operations/security-group-delete.md)
