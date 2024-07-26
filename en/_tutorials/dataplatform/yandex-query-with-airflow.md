@@ -82,7 +82,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Open the {{ AF }} web interface](../../managed-airflow/operations/af-interfaces.md#web-gui).
 1. Make sure that a new graph named **yq_hello_world_operator** has appeared in the `DAGs` section.
 
-   It may take several minutes to upload a DAG file from the bucket.
+   It may take a few minutes to upload a DAG file from the bucket.
 
 1. To run the graph, click ![image](../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
 
@@ -92,15 +92,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. Go to the **Grid** section.
 1. Select the **yq_operator** task.
 1. Go to the **XCom** section.
-1. Make sure the `return_value` line has the `'rows': [['Hello, world!']]` element. This means the query was executed successfully.
+1. Make sure the `return_value` line has the `'rows': [['Hello, world!']]` element. This indicates the query was successful.
 
 ## Delete the resources you created {#clear-out}
 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
-1. [Service account](../../iam/operations/sa/delete.md).
-1. [{{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
-1. [Cloud network](../../vpc/operations/network-delete.md).
+1. [Service account](../../iam/operations/sa/delete.md)
+1. [{{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md)
+1. [Cloud network](../../vpc/operations/network-delete.md)
 1. Route table
 1. NAT gateway
-1. [{{ maf-name }} cluster](../../managed-airflow/operations/cluster-delete.md).
+1. [{{ maf-name }} cluster](../../managed-airflow/operations/cluster-delete.md)

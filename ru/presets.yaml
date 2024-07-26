@@ -7151,6 +7151,7 @@ default:
             host_column_name: FQDN хоста
             host_column_public-ip: Публичный доступ
             host_column_role: Роль
+            host_column_zone: Зона доступности
             label_title: Хосты
             popup-confirm_button: Подтвердить
             switch_monitoring: Мониторинги

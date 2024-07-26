@@ -1,7 +1,7 @@
 # Запуск рабочих нагрузок с GPU
 
 
-[Кластер {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) позволяет запускать рабочие нагрузки на видеопроцессорах ([GPU](../../compute/concepts/gpus.md)), что может быть полезно для задач с особыми вычислительными требованиями.
+[Кластер {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) позволяет запускать рабочие нагрузки на [видеопроцессорах](../../compute/concepts/gpus.md) ([GPU](.././../glossary/gpu.md)), что может быть полезно для задач с особыми вычислительными требованиями.
 
 Чтобы запустить рабочие нагрузки с GPU на [подах](../concepts/index.md#pod) кластера {{ managed-k8s-name }}:
 1. [{#T}](#create-pod-gpu).

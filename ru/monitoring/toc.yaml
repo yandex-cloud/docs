@@ -188,6 +188,8 @@ items:
     items:
       - name: Все справочники метрик
         href: metrics-ref/index.md
+      - name: '{{ api-gw-name }}'
+        href: metrics-ref/api-gateway-ref.md
       - name: '{{ alb-name }}'
         href: metrics-ref/alb-ref.md
       - name: '{{ at-name }}'

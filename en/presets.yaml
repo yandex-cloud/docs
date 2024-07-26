@@ -7139,6 +7139,7 @@ default:
             host_column_name: Host FQDN
             host_column_public-ip: Public access
             host_column_role: Role
+            host_column_zone: Availability zone
             label_title: Hosts
             popup-confirm_button: Confirm
             switch_monitoring: Monitoring

@@ -43,6 +43,6 @@
 | Standard network storage | {{ sku|USD|mdb.cluster.network-hdd.opensearch|month|string }} |
 | Non-replicated network storage | {{ sku|USD|mdb.cluster.network-ssd-nonreplicated.opensearch|month|string }} |
 | Fast network storage | {{ sku|USD|mdb.cluster.network-nvme.opensearch|month|string }} |
-| Network SSD storage with 3 replicas | $0.174240 |
+| High-performance SSD storage | $0.174240 |
 | Fast local storage | {{ sku|USD|mdb.cluster.local-nvme.opensearch|month|string }} |
 | Backups beyond the storage size | $0.015360 |

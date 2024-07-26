@@ -9,13 +9,11 @@ This method allows you to:
 
 For more information, see [{#T}](../concepts/use-cases.md).
 
+
 ## Getting started {#before-you-begin}
 
-* [Create a {{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md) with the computing capacity and storage size appropriate for the environment where the copied database is deployed.
+[Allow connecting to the source cluster from the internet](../concepts/network.md#source-external).
 
-   The database name in the target cluster must be the same as the source database name.
-
-* [Allow connecting to the source cluster from the internet](../concepts/network.md#source-external).
 
 ## Transferring data {#data-transfer}
 
