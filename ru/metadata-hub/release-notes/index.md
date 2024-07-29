@@ -1,5 +1,11 @@
 # История изменений {{ metadata-hub-full-name }} в 2024 году
 
+## Июль {#july}
+
+### Новые возможности {#new-features-june}
+
+1. Добавлена интеграция [{{ connection-manager-name }}](../concepts/connection-manager.md) с [{{ mch-short-name }}](../../managed-clickhouse). Подключения для кластеров {{ mch-short-name }} [будут создаваться автоматически](../quickstart/connection-manager.md).
+
 ## Июнь {#june}
 
 ### Новые возможности {#new-features-june}

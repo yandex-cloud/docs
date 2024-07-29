@@ -7442,6 +7442,7 @@ default:
           switch_logs: Logs
           switch_monitoring: Monitoring
           switch_shards: Shards
+        field_announce-hostnames: Use FQDN instead of IP addresses
         field_tls-support: TLS support
         switch_backups: Backups
       search-api:
@@ -9480,7 +9481,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.5
+        tag: v0.2.6
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
