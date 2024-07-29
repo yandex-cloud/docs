@@ -27,3 +27,6 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+  - title: Release notes
+    description: Releases and updates
+    href: release-notes/
