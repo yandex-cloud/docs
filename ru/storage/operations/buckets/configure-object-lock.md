@@ -37,12 +37,53 @@
   * `--object-lock-configuration` — настройки блокировок в бакете. Значение `ObjectLockEnabled=Enabled` включает механизм блокировок.
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Откройте файл конфигурации {{ TF }} и добавьте к описанию бакета блок `object_lock_configuration`:
+
+      ```hcl
+      resource "yandex_storage_bucket" "b" {
+        ...
+        object_lock_configuration {
+          object_lock_enabled = "Enabled"
+        }
+      }
+      ```
+
+      Где:
+
+      * `object_lock_configuration` — настройки блокировки версий объектов:
+        * `object_lock_enabled` — включает блокировку версий объектов. Требует включенное версионирование бакета. Необязательный параметр.
+
+      Более подробную информацию о параметрах бакета, которые вы можете задать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/storage_bucket).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  После этого в указанном каталоге будет создана блокировка объектов для бакета. Проверить появление блокировки можно с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```bash
+    yc storage bucket get <имя_бакета>
+    ```
+
+    Результат:
+
+    ```bash
+    name: my-bucket
+    folder_id: b1geoelk2fld*********
+    ...
+    object_lock:
+      status: OBJECT_LOCK_STATUS_ENABLED
+    ```
+
 - API {#api}
 
   Воспользуйтесь методом S3 API [putObjectLockConfiguration](../../s3/api-ref/bucket/putobjectlockconfiguration.md), методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update).
 
 {% endlist %}
-
 
 ## Настроить блокировки по умолчанию {#default}
 
@@ -68,7 +109,7 @@
            "Mode": "<тип_блокировки>",
            "Days": <срок_блокировки_в_днях>,
            "Years": <срок_блокировки_в_годах>
-         }       
+         }
        }
      }
      ```
@@ -108,6 +149,52 @@
      * `--object-lock-configuration` — настройки блокировок по умолчанию. В данном случае указаны в файле `default-object-lock.json`.
      * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Откройте файл конфигурации {{ TF }} и  добавьте настройки блокировок по умолчанию в блок `object_lock_configuration`:
+
+      ```
+      ...
+      rule {
+        default_retention {
+          mode = "GOVERNANCE"
+          years = 1
+        }
+      }
+      ...
+      ```
+
+      Где:
+
+      * `rule` — правило для блокировки версий объектов. Содержит в себе параметр `default_retention` с настройками хранения:
+        * `mode` — тип блокировки. Может принимать значения `GOVERNANCE` или `COMPLIANCE`. Необязательный параметр.
+        * `years` или `days` — время, на которое распространяется блокировка объекта. Указывается в виде числа. Необязательный параметр.
+
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  Проверить появление блокировки можно с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```bash
+    yc storage bucket get <имя_бакета>
+    ```
+
+    Результат:
+
+    ```bash
+    name: my-bucket
+    folder_id: b1geoelk2fld********
+    ... 
+    object_lock:
+    status: OBJECT_LOCK_STATUS_ENABLED
+    default_retention:
+      mode: MODE_GOVERNANCE
+      years: "1"
+    ```
+
 {% endlist %}
 
 ## Выключить возможность блокировок {#disable}
@@ -138,6 +225,50 @@
   * `--bucket` — имя бакета.
   * `--object-lock-configuration` — настройки блокировок в бакете. Значение `ObjectLockEnabled=""` отключает механизм блокировок.
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Откройте файл конфигурации {{ TF }} и удалите блок `object_lock_configuration`:
+
+      {% cut "Пример описания блокировки версий объектов в конфигурации {{ TF }}" %}
+
+        ```
+        ...
+        object_lock_configuration {
+          object_lock_enabled = "Enabled"
+          rule {
+            default_retention {
+              mode = "GOVERNANCE"
+              years = 1
+            }
+          }
+        }
+        ...
+        ```
+
+      {% endcut %}
+
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  Проверить удаление блокировки можно с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```bash
+    yc storage bucket get <имя_бакета>
+    ```
+
+    Результат:
+
+    ```bash
+    name: my-bucket
+    folder_id: b1geoelk2fld********
+    ...
+    object_lock:
+      status: OBJECT_LOCK_STATUS_DISABLED
+    ```
 
 - API {#api}
 
