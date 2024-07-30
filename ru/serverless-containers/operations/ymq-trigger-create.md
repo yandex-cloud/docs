@@ -197,4 +197,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ message-queue-name }}, который передает сообщения в функцию {{ sf-name }}](../../functions/operations/trigger/ymq-trigger-create.md).
+* [{#T}](../../functions/operations/trigger/ymq-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/ymq-trigger-create.md)

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# {{ load-testing-full-name }} pricing
+# {{ load-testing-full-name }} pricing policy
 
 
 
@@ -12,7 +12,7 @@ You are charged per second of usage. The monthly prices are based on 720 hours p
 
 Tests run by multiple agents are charged as a sum of tests run by each agent.
 
-## Prices for Russia {#prices}
+## Prices for the Russia region {#prices}
 
 
 ### Test running time {#test-time}

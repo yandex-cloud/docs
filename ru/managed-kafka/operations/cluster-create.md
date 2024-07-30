@@ -124,7 +124,7 @@
         --subnet-ids <идентификаторы_подсетей> \
         --brokers-count <количество_брокеров_в_зоне> \
         --resource-preset <класс_хоста> \
-        --disk-type <тип_диска> \
+        --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --disk-size <размер_хранилища_ГБ> \
         --assign-public-ip <публичный_доступ> \
         --security-group-ids <список_идентификаторов_групп_безопасности> \
@@ -341,7 +341,7 @@
         --zone-ids <зоны_доступности> \
         --brokers-count <количество_брокеров_в_зоне> \
         --resource-preset <класс_хоста> \
-        --disk-type <тип_диска> \
+        --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --disk-size <размер_хранилища_ГБ> \
         --assign-public-ip <публичный_доступ> \
         --security-group-ids <список_идентификаторов_групп_безопасности> \

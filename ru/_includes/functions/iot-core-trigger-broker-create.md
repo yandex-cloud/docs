@@ -126,4 +126,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ iot-name }}, который передает сообщения из топиков брокеров в контейнер {{ serverless-containers-name }}](../../serverless-containers/operations/iot-core-trigger-broker-create.md).
+* [{#T}](../../serverless-containers/operations/iot-core-trigger-broker-create.md)
+* [{#T}](../../api-gateway/operations/trigger/iot-core-trigger-broker-create.md)

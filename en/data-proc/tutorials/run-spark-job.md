@@ -82,20 +82,22 @@ Prepare the infrastructure:
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-   1. [Clone the repository](https://github.com/yandex-cloud-examples/yc-data-proc-spark-pyspark). It contains a provider settings file and an infrastructure configuration file.
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-      The configuration file describes the following:
+   1. Download the [data-proc-for-spark-jobs.tf](https://github.com/yandex-cloud-examples/yc-data-proc-spark-pyspark/blob/main/data-proc-for-spark-jobs.tf) configuration file to the same working directory.
+
+      This file describes:
 
       * Network.
       * Subnet.
-      * NAT gateway and routing table.
+      * NAT gateway and route table.
       * Security groups.
       * Service account to work with cloud resources.
       * Bucket to store job dependencies and results.
       * {{ dataproc-name }} cluster.
 
-   1. Specify the required parameters in the `.tf` files.
-   1. Run the `terraform init` command in the directory containing the repository. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. In the `data-proc-for-spark-jobs.tf` configuration file, specify all the required parameters.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -240,7 +242,7 @@ Spark Submit allows you to run pre-written applications using the `spark-submit`
          ls /usr/lib/spark/jars
          ```
 
-         The versions are specified in the names of JAR files. For example:
+         The versions are specified in the names of JAR files. Example:
 
          ```text
          spark-core_2.12-3.0.3.jar
@@ -260,7 +262,7 @@ Spark Submit allows you to run pre-written applications using the `spark-submit`
          )
          ```
 
-         For example:
+         Example:
 
          ```scala
          scalaVersion := "2.12.10"
@@ -291,7 +293,7 @@ Spark Submit allows you to run pre-written applications using the `spark-submit`
       /usr/bin/spark-submit --class com.yandex.cloud.dataproc.scala.Main target/scala-<scala_version>/<built_JAR_file_name>
       ```
 
-      For example:
+      Example:
 
       ```bash
       /usr/bin/spark-submit --class com.yandex.cloud.dataproc.scala.Main target/scala-2.12/spark-app_2.12-0.1.0-SNAPSHOT.jar

@@ -31,4 +31,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ iot-name }}, который передает сообщения в контейнер {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/iot-core-trigger.md).
+* [{#T}](../../../serverless-containers/concepts/trigger/iot-core-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/iot-core-trigger.md)

@@ -25,4 +25,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ container-registry-name }}, который запускает контейнер {{ serverless-containers-name }}](../../serverless-containers/concepts/trigger/cr-trigger.md).
+* [{#T}](../../serverless-containers/concepts/trigger/cr-trigger.md)
+* [{#T}](../../api-gateway/concepts/trigger/cr-trigger.md)

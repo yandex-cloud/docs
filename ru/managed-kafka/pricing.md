@@ -67,7 +67,6 @@ editable: false
 
 Цена указывается за 1 месяц использования и формируется из расчета 720 часов в месяц. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
 
-
 ### Пример расчета стоимости кластера {#example}
 
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
@@ -84,13 +83,14 @@ editable: false
 
 - Расчет в рублях {#prices-rub}
 
-  {% include [rub-example-standard-hosts](../_pricing/managed-kafka/rub-example-standard-hosts.md) %}
+  {% include [rub-hour](../_pricing_examples/managed-kafka/rub-hour.md) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  {% include [kzt-example-standard-hosts](../_pricing/managed-kafka/kzt-example-standard-hosts.md) %}
+  {% include [kzt-hour](../_pricing_examples/managed-kafka/kzt-hour.md) %}
 
 {% endlist %}
+
 
 
 
@@ -105,6 +105,7 @@ editable: false
 По схеме CVoS можно заказать только ресурсы определенного вида: для недоступных видов ресурсов в колонках CVoS в разделе [Цены для региона Россия](#prices) стоят прочерки. Объем хранилища и интернет-трафика заказать таким образом пока невозможно.
 
 {% endnote %}
+
 
 ## Цены для региона Россия {#prices}
 

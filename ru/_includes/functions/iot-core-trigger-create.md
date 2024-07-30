@@ -186,4 +186,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ iot-name }}, который передает сообщения из топиков реестров и устройств в контейнер {{ serverless-containers-full-name }}](../../serverless-containers/operations/iot-core-trigger-create.md).
+* [{#T}](../../serverless-containers/operations/iot-core-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/iot-core-trigger-create.md)

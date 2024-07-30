@@ -30,4 +30,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ message-queue-name }}, который передает сообщения в контейнер {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/ymq-trigger.md).
+* [{#T}](../../../serverless-containers/concepts/trigger/ymq-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/ymq-trigger.md)

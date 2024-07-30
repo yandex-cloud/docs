@@ -15,7 +15,7 @@ description: "Расширение x-yc-apigateway позволяет задат
 
  Параметр                | Тип               | Описание                                                                                                                                          
 -------------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------
- `service_account_id`    | `string`          | Идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), от имени которого API-шлюз будет выполнять операции.     
+ `serviceAccountId`    | `string`          | Идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), от имени которого API-шлюз будет выполнять операции.     
  `validator`             | `ValidatorObject` | [Валидатор HTTP-запросов и ответов](validator.md#validator_object) или ссылка на него. Может быть переопределен на уровне конкретной операции. 
  `cors`                  | `CorsRuleObject`  | [Правило обработки preflight-запросов CORS](cors.md#corsrule_object) или ссылка на него. Может быть переопределено на уровне конкретного пути. 
  `rateLimit`             | `RateLimitObject` | [Ограничение скорости обработки запросов](rate-limit.md#rate_limit_object) или ссылка на него. Может быть переопределено на уровне конкретного пути и/или операции. 
@@ -47,11 +47,11 @@ x-yc-apigateway:
 ### Спецификация расширения {#intg-spec}
 
 ```
-<Запрос>:
-  <Метод>:
+<запрос>:
+  <метод>:
     x-yc-apigateway-integration:
-      type: <Тип>
-      <Список параметров в виде пары ключ: значение>
+      type: <тип>
+      <список параметров в виде пары ключ: значение>
 ```
 
 Содержимое расширения меняется в зависимости от указанного типа (`type`) в блоке `x-yc-apigateway-integration`: 
@@ -110,3 +110,36 @@ components:
       http_headers:
         Content-Type: text/plain
 ```
+
+## Расширение x-yc-status-mapping {#status-mapping}
+
+Расширение [x-yc-status-mapping](status-mapping.md) позволяет заменить код ответа в интеграции.
+
+### Спецификация расширения {#status-mapping-spec}
+
+```json
+paths:
+  /:
+    <метод>:
+      responses:
+        <код_ответа>:
+          description: ""
+          content:
+            ...
+          x-yc-status-mapping: <новый_код_ответа>
+      ...
+```
+
+## Расширение x-yc-schema-mapping {#schema-mapping}
+
+Расширение [x-yc-schema-mapping](schema-mapping.md) позволяет преобразовывать JSON-тело запроса к интеграции или ответа от нее.
+
+### Спецификация расширения {#schema-mapping-spec}
+
+ ```json
+x-yc-schema-mapping:
+  type:static
+  template:
+    <название_поля>: "<значение_поля>"
+    ...
+ ```

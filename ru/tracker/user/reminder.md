@@ -12,7 +12,7 @@
 
    Чтобы открыть список ваших задач, в меню слева выберите ![](../../_assets/tracker/svg/tasks.svg) **Задачи** → **Все мои задачи** или перейдите по [ссылке]({{ link-tracker }}issues/my-issues). Чтобы начать работать с задачей, перейдите на ее страницу.
 
-  {% endnote %}
+   {% endnote %}
 
 1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_issue-actions_IssueMenu.add-notification }}**.
 

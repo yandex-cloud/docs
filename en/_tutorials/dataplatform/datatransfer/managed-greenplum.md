@@ -32,14 +32,14 @@ The database name in the target cluster must be the same as the source database 
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Greenplum` or `PostgreSQL`
-   * **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.on_premise.title }}`
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.on_premise.title }}`
 
       Specify the parameters for connecting to the source cluster.
 
 1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Greenplum`
-   * **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`
 
       Specify the ID of the target cluster.
 
@@ -49,6 +49,6 @@ The database name in the target cluster must be the same as the source database 
 
    For more information about transfer statuses, see [Transfer lifecycle](../../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
-1. Switch the source cluster to "read-only" mode and transfer the load to the target cluster.
+1. Switch the source cluster to «read-only» mode and transfer the load to the target cluster.
 1. [Delete the completed transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete endpoints](../../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.

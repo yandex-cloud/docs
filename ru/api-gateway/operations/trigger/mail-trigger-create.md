@@ -28,7 +28,7 @@
 
         * (Опционально) Введите имя и описание триггера.
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_mail }}`.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `API-шлюз`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
     
     1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_mail-attachments }}**:
       

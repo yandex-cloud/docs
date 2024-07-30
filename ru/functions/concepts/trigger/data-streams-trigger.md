@@ -21,4 +21,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ yds-name }}, который запускает контейнер {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/data-streams-trigger.md).
+* [{#T}](../../../serverless-containers/concepts/trigger/data-streams-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/data-streams-trigger.md)

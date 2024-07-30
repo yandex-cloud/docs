@@ -16,7 +16,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Manually {#manual}
 
-      1. Create a [{{ mmy-name }} target cluster](../../../managed-mysql/operations/cluster-create.md) with any suitable configuration. Note that:
+      1. Create a [{{ mmy-name }} target cluster](../../../managed-mysql/operations/cluster-create.md) in any suitable configuration. Note that:
 
          * The {{ MY }} version must be the same or higher than the version in the source cluster.
 
@@ -30,20 +30,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create):
 
-         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`
-         * **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.on_premise.title }}`
+         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.on_premise.title }}`.
 
             Specify the parameters for connecting to the source cluster.
 
       1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create):
 
-         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`
-         * **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
+         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
 
             Select a target cluster from the list and specify its connection settings.
 
       1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
-      1. [Activate](../../../data-transfer/operations/transfer.md#activate) it.
+      1. [Activate](../../../data-transfer/operations/transfer.md#activate) your transfer.
 
          {% note warning %}
 
@@ -103,7 +103,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Finish data transfer {#finish-transfer}
 
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
-1. Switch the source cluster to "read-only" mode and transfer the load to the target cluster.
+1. Switch the source cluster to read-only and transfer the load to the target cluster.
 1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to decrease to zero. This means that all changes that occurred in the source cluster after data was copied are transferred to the target cluster.
 1. [Deactivate](../../../data-transfer/operations/transfer.md#deactivate) the transfer and wait for its status to change to {{ dt-status-stopped }}.
 

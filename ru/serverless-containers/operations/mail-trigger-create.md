@@ -205,4 +205,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для почты, который вызывает функцию {{ sf-name }}](../../functions/operations/trigger/mail-trigger-create.md).
+* [{#T}](../../functions/operations/trigger/mail-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/mail-trigger-create.md)

@@ -93,7 +93,7 @@ items:
         href: concepts/reporting-period.md
       - name: Резервируемое потребление (CVoS)
         href: concepts/cvos.md
-      - name: Free tier экосистемы бессерверных вычислений
+      - name: Free tier
         href: concepts/serverless-free-tier.md
       - name: Бюджет
         href: concepts/budget.md

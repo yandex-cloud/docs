@@ -6,7 +6,7 @@
 | Number of clusters per cloud | 16 |
 | Total number of processor cores for all database hosts per cloud | 96 |
 | Total virtual memory for all database hosts per cloud | 640 GB |
-| Total storage capacity for all clusters per cloud | 4096 GB |
+| Total storage capacity for all clusters per cloud | 4,096 GB |
 
 #### Limits {#mch-limits}
 
@@ -21,10 +21,10 @@
 | Number of hosts in a shard when using non-replicated SSD storage | 3 | 7 |
 | Number of hosts in a shard when using local SSD storage | 2 | 7 |
 | Total number of hosts per cluster | 1 | 353 (50 shards × 7 hosts + 3 {{ ZK }} hosts) |
-| Amount of data per host when using network HDD or SSD storage (for Intel Broadwell and Intel Cascade Lake) | 10 GB | 4096 GB |
-| Amount of data per host when using network HDD or SSD storage (for Intel Ice Lake) | 10 GB | 8192 GB |
-| Amount of data on the host when using non-replicated SSD storage | 93 GB | 8184 GB |
-| Amount of data on the host when using local SSD storage (for Intel Broadwell and Intel Cascade Lake) | 100 GB | 1500 GB |
-| Amount of data on the host when using local SSD storage (for Intel Ice Lake) | {{ local-ssd-v3-step }} | {{ local-ssd-v3-max }} |
+| Amount of data per host when using network HDD or SSD storage (for Intel Broadwell and Intel Cascade Lake) | 10 GB | 4,096 GB |
+| Amount of data per host when using network HDD or SSD storage (for Intel Ice Lake) | 10 GB | 8,192 GB |
+| Amount of data per host when using non-replicated SSD storage | 93 GB | 16,368 GB |
+| Amount of data per host when using local SSD storage (for Intel Broadwell and Intel Cascade Lake) | 100 GB | 1,500 GB |
+| Amount of data per host when using local SSD storage (for Intel Ice Lake) | {{ local-ssd-v3-step }} | {{ local-ssd-v3-max }} |
 | Number of databases per cluster | 1 | {{ all-mdb.max-databases }} |
 

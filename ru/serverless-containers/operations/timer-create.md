@@ -168,4 +168,5 @@
 
 ## См. также {#see-also}
 
-* [Таймер, который вызывает функцию {{ sf-name }}](../../functions/operations/trigger/timer-create.md).
+* [{#T}](../../functions/operations/trigger/timer-create.md)
+* [{#T}](../../api-gateway/operations/trigger/timer-create.md)
