@@ -151,7 +151,7 @@ Create a local `sample.json` file with the following test data:
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ KF }}` source](../../data-transfer/operations/endpoint/source/kafka.md):
 
-   **Endpoint parameters**:
+   **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
 
@@ -221,7 +221,7 @@ Create a local `sample.json` file with the following test data:
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ MG }}` target](../../data-transfer/operations/endpoint/target/mongodb.md):
 
-   **Endpoint parameters**:
+   **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.title }}**:
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.connection.title }}**:
 

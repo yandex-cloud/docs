@@ -133,7 +133,7 @@ System metrics can only be delivered from Linux hosts on the AMD platform. Windo
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=a1bs81qpemb4******** \
       --entrypoint="unified_agent" \
-      cr.yandex/yc/unified-agent
+      {{ registry }}/yc/unified-agent
       ```
 
       You can find more ways to install the agent in [{#T}](../../concepts/data-collection/unified-agent/installation.md).

@@ -31,4 +31,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ iot-name }}, который передает сообщения в функцию {{ sf-name }}](../../../functions/concepts/trigger/iot-core-trigger.md).
+* [{#T}](../../../functions/concepts/trigger/iot-core-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/iot-core-trigger.md)

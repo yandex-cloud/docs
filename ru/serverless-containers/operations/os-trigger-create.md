@@ -205,4 +205,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ objstorage-name }}, который вызывает функцию {{ sf-name }}](../../functions/operations/trigger/os-trigger-create.md).
+* [{#T}](../../functions/operations/trigger/os-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/os-trigger-create.md)

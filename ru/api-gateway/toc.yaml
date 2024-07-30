@@ -186,6 +186,10 @@ items:
             href: concepts/extensions/canary.md
           - name: Ограничение скорости обработки запросов
             href: concepts/extensions/rate-limit.md
+          - name: Замена кода ответа
+            href: concepts/extensions/status-mapping.md
+          - name: Преобразование тела ответа и запроса
+            href: concepts/extensions/schema-mapping.md
       - name: Триггер
         items:
           - name: Обзор

@@ -1,4 +1,4 @@
-# Migrating data with storage changed from {{ MY }} to {{ ydb-short-name }} using {{ data-transfer-full-name }}
+# Migrating data with change of storage from {{ MY }} to {{ ydb-short-name }} using {{ data-transfer-full-name }}
 
 
 With {{ data-transfer-name }}, you can transfer data from a {{ mmy-name }} source cluster to {{ ydb-name }}.
@@ -108,7 +108,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`.
-   * **Endpoint parameters**:
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select or create a service account with the `ydb.editor` role.
@@ -121,8 +121,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ MY }}`
-         * **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
+         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ MY }}`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
 
             Select a source cluster from the list and specify its connection settings.
 

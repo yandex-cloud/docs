@@ -145,10 +145,10 @@ keywords:
        --host zone-id=<зона_доступности>,subnet-id=<идентификатор_подсети>,assign-public-ip=<публичный_доступ>,type=<тип_хоста> \
        --datanode-resource-preset <класс_хостов_Data_node> \
        --datanode-disk-size <размер_хранилища_ГБ> \
-       --datanode-disk-type <тип_диска_Data_node> \
+       --datanode-disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
        --masternode-resource-preset <класс_хостов_Master_node> \
        --masternode-disk-size <размер_хранилища_ГБ_Master_node> \
-       --masternode-disk-type <тип_диска_Master_node> \
+       --masternode-disk-type <network-ssd> \
        --security-group-ids <список_идентификаторов_групп_безопасности> \
        --version <версия_{{ ES }}> \
        --edition <редакция_{{ ES }}> \

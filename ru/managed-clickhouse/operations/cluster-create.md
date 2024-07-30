@@ -166,7 +166,7 @@ description: "Следуя данной инструкции, вы сможет�
              `subnet-id=<идентификатор_подсети>,`
              `assign-public-ip=<публичный_доступ_к_хосту> \
         --clickhouse-resource-preset <класс_хоста> \
-        --clickhouse-disk-type <тип_диска> \
+        --clickhouse-disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --clickhouse-disk-size <размер_хранилища_ГБ> \
         --user name=<имя_пользователя>,password=<пароль_пользователя> \
         --database name=<имя_базы_данных> \

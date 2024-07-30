@@ -550,6 +550,8 @@ items:
                 href: triggers/api-ref/Trigger/resume.md
               - name: update
                 href: triggers/api-ref/Trigger/update.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений

@@ -25,4 +25,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ objstorage-name }}, который запускает функцию {{ sf-name }}](../../../functions/concepts/trigger/os-trigger.md).
+* [{#T}](../../../functions/concepts/trigger/os-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/os-trigger.md)

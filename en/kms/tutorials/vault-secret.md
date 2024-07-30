@@ -15,7 +15,7 @@ To set up Auto Unseal:
 1. Download the most recent Docker image using the command below:
 
    ```bash
-   docker pull cr.yandex/yc/vault
+   docker pull {{ registry }}/yc/vault
    ```
 
 1. Select one of the methods to authenticate Vault requests to {{ kms-short-name }}. You can authenticate via:

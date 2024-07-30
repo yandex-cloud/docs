@@ -23,4 +23,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ cloud-logging-name }}, который запускает функцию {{ sf-name }}](../../../functions/concepts/trigger/cloud-logging-trigger.md).
+* [{#T}](../../../functions/concepts/trigger/cloud-logging-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/cloud-logging-trigger.md)

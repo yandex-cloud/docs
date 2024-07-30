@@ -62,15 +62,23 @@ The cost includes:
 
 - {{ TF }} {#tf}
 
+  {% include [terraform-role](../../_includes/storage/terraform-role.md) %}
+
   {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. Describe the parameters for creating a service account and access key in the configuration file:
+
+     {% include [terraform-sa-key](../../_includes/storage/terraform-sa-key.md) %}
 
   1. Add bucket parameters to the configuration file:
 
      ```
      resource "yandex_storage_bucket" "bucket-logs" {
-       bucket = "<bucket_name>"
+       access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+       secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+       bucket     = "<bucket_name>"
      }
      ```
 
@@ -243,8 +251,8 @@ The cost includes:
 
   1. Add a description of the cluster and cluster hosts to the configuration file:
 
-     ```hcl
-     resource "yandex_mdb_clickhouse_cluster" "s3-logs" {
+      ```hcl
+      resource "yandex_mdb_clickhouse_cluster" "s3-logs" {
         name                = "s3-logs"
         environment         = "PRODUCTION"
         network_id          = yandex_vpc_network.<name_of_network_in_{{ TF }}>.id
@@ -279,10 +287,10 @@ The cost includes:
           datalens  = true
           web_sql   = true
         }
-     }
-     ```
+      }
+      ```
 
-     For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mch }}).
+      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mch }}).
 
   1. Make sure the settings are correct.
 

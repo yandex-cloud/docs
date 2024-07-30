@@ -1361,7 +1361,6 @@ default:
       v2:
         cpu:
           c100|string: "0,60\_₸"
-          c50|string: "0,30\_₸"
         ram|string: "0,15\_₸"
       v3:
         cpu:
@@ -1447,10 +1446,8 @@ default:
   sku|KZT|nbs:
     network-hdd:
       allocated|month|string: "14,60\_₸"
-      allocated|string: "0,0203\_₸"
     network-nvme:
       allocated|month|string: "59,55\_₸"
-      allocated|string: "0,0827\_₸"
     network-ssd-io-m3:
       allocated|month|string: "99,00\_₸"
     network-ssd-nonreplicated:
@@ -2460,7 +2457,6 @@ default:
       v2:
         cpu:
           c100|string: "0,12\_₽"
-          c50|string: "0,06\_₽"
         ram|string: "0,03\_₽"
       v3:
         cpu:
@@ -2546,10 +2542,8 @@ default:
   sku|RUB|nbs:
     network-hdd:
       allocated|month|string: "2,92\_₽"
-      allocated|string: "0,0041\_₽"
     network-nvme:
       allocated|month|string: "11,91\_₽"
-      allocated|string: "0,0165\_₽"
     network-ssd-io-m3:
       allocated|month|string: "19,80\_₽"
     network-ssd-nonreplicated:
@@ -7594,6 +7588,7 @@ default:
             button_create-function: Создать функцию
             button_create-trigger: Создать триггер
             button_update-trigger: Сохранить
+            field_api-gateway: API-шлюз
             field_broker: Брокер
             field_bucket: Бакет
             field_container-registry: Реестр
@@ -7607,6 +7602,7 @@ default:
             field_function: Функция
             field_function_service-account: Сервисный аккаунт
             field_function-tag: Тег версии функции
+            field_gateway-path: Путь
             field_image-name: Имя Docker-образа
             field_invoke: Запускаемый ресурс
             field_log-group: Лог-группа
@@ -7631,6 +7627,7 @@ default:
             label_container-registry: Container Registry
             label_data-streams: Data Streams
             label_function: Функция
+            label_gateway-broadcast: API-шлюз
             label_iot: IoT Core (устройство)
             label_iot-broker: IoT Core (брокер)
             label_logging: Cloud Logging
@@ -7647,6 +7644,7 @@ default:
             section_dlq: Настройки Dead Letter Queue
             section_function: Настройки функции
             section_function-retry: Настройки повторных запросов
+            section_gateway-broadcast: Настройки API-шлюза
             section_iot: Настройки сообщений IoT Core
             section_logging: Настройки Cloud Logging
             section_mail-attachments: Настройки сохранения вложений

@@ -205,4 +205,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ cloud-logging-name }}, который вызывает функцию {{ sf-name }}](../../functions/operations/trigger/cloud-logging-trigger-create.md).
+* [{#T}](../../functions/operations/trigger/cloud-logging-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/cloud-logging-trigger-create.md)

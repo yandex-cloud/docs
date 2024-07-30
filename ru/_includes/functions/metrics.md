@@ -1,0 +1,3 @@
+ Чтобы перейти к работе с [метриками](../../monitoring/concepts/data-model.md#metric), [дашбордами](../../monitoring/concepts/visualization/dashboard.md) и [алертами](../../monitoring/concepts/alerting.md#alert) в сервисе {{ monitoring-name }}, в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}**. 
+
+Описание метрик см. в [справочнике](../../functions/metrics.md).

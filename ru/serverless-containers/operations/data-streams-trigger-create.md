@@ -211,4 +211,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ yds-name }}, который вызывает функцию {{ sf-name }}](../../functions/operations/trigger/data-streams-trigger-create.md).
+* [{#T}](../../functions/operations/trigger/data-streams-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/data-streams-trigger-create.md)

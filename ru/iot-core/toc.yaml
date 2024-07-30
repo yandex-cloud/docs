@@ -298,6 +298,8 @@ items:
                 href: broker/api-ref/Broker/listPasswords.md
               - name: update
                 href: broker/api-ref/Broker/update.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений

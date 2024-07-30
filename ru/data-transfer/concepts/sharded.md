@@ -23,7 +23,7 @@
 
   **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeRegularSnapshot.snapshot_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.SnapshotSettings.parallel_settings.title }}**:
 
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.ParallelSnapshotSettings.workers_count.title }}** — количество воркеров, которые будут параллельно запущены для копирования данных. Каждый воркер запускается на независимой виртуальной машине с собственными ресурсами CPU и RAM и собственным сетевым подключением.
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.ParallelSnapshotSettings.workers_count.title }}** — количество [воркеров](index.md#worker), которые будут параллельно запущены для копирования данных. Каждый воркер запускается на независимой виртуальной машине с собственными ресурсами CPU и RAM и собственным сетевым подключением.
 
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.ParallelSnapshotSettings.threads_count.title }}** — количество потоков, которое будет запущено в каждом воркере. Каждый поток запускается в отдельном контейнере на виртуальной машине воркера и копирует одну таблицу или ее часть (в зависимости от типа источника).
 

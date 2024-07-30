@@ -199,4 +199,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ container-registry-name }}, который вызывает контейнер {{ serverless-containers-name }}](../../serverless-containers/operations/cr-trigger-create.md).
+* [{#T}](../../serverless-containers/operations/cr-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/cr-trigger-create.md)

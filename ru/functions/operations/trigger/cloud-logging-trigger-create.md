@@ -202,4 +202,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ cloud-logging-name }}, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/cloud-logging-trigger-create.md).
+* [{#T}](../../../serverless-containers/operations/cloud-logging-trigger-create.md)
+* [{#T}](../../../api-gateway/operations/trigger/cloud-logging-trigger-create.md)

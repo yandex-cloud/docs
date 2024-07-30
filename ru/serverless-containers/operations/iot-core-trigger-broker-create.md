@@ -130,4 +130,5 @@ description: "Создайте триггер для топика брокера
 
 ## См. также {#see-also}
 
-* [Триггер для {{ iot-name }}, который передает сообщения из топиков брокеров в функцию {{ sf-name }}](../../functions/operations/trigger/iot-core-trigger-create.md).
+* [{#T}](../../functions/operations/trigger/iot-core-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/iot-core-trigger-broker-create.md)

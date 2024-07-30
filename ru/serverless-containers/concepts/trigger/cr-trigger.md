@@ -27,4 +27,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ container-registry-name }}, который запускает функцию {{ sf-name }}](../../../functions/concepts/trigger/cr-trigger.md).
+* [{#T}](../../../functions/concepts/trigger/cr-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/cr-trigger.md)

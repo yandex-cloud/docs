@@ -5,11 +5,11 @@ description: "This guide describes how to use auxiliary utilities."
 
 # Auxiliary utilities
 
-Greenplum Database 6 features [some useful utilities](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/client_tool_guides-tools-ref.html) for working with {{ GP }} databases. In particular:
+Greenplum Database 6 features [a number of useful utilities]({{ gp.docs.vmware }}/6/greenplum-database/client_tool_guides-tools-ref.html) for working with {{ GP }} databases. In particular:
 
-* [gpfdist](https://gpdb.docs.pivotal.io/6-9/utility_guide/ref/gpfdist.html): Utility to read data from and write data to files located on remote servers. For more information, see [{#T}](gpfdist/connect.md).
-* [gpload](https://gpdb.docs.pivotal.io/6-9/utility_guide/ref/gpload.html): Utility to run jobs described in a YAML control file.
-* [psql](https://gpdb.docs.pivotal.io/6-9/utility_guide/ref/psql.html): Command line interface for working with {{ GP }}.
+* [gpfdist]({{ gp.docs.vmware }}/6/greenplum-database/utility_guide-ref-gpfdist.html): Reads/writes data from/to files located on remote servers. For more information, see [{#T}](gpfdist/connect.md).
+* [gpload]({{ gp.docs.vmware }}/6/greenplum-database/utility_guide-ref-gpload.html): Runs jobs described in a YAML control file.
+* [psql]({{ gp.docs.vmware }}/6/greenplum-database/utility_guide-ref-psql.html): Command line interface for working with {{ GP }}.
 
 To install Greenplum Database 6 on your PC or VM running Ubuntu 22.04 or Ubuntu 20.04:
 
@@ -97,7 +97,7 @@ To install Greenplum Database 6 on your PC or VM running Ubuntu 22.04 or Ubuntu 
    psql --version
    ```
 
-You can find installation guides for other utilities on the [VMware website](https://greenplum.docs.pivotal.io/6-19/client_tool_guides/installing.html).
+For guides on how to install the utilities on other operating systems visit the [VMware website]({{ gp.docs.vmware }}/6/greenplum-database/utility_guide-ref-gpfdist.html).
 
 
 {% note info %}

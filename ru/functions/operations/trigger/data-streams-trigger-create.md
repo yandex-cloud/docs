@@ -207,4 +207,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ yds-name }}, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/data-streams-trigger-create.md).
+* [{#T}](../../../serverless-containers/operations/data-streams-trigger-create.md)
+* [{#T}](../../../api-gateway/operations/trigger/data-streams-trigger-create.md)
