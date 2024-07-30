@@ -1353,7 +1353,6 @@ default:
       v2:
         cpu:
           c100|string: ₸0.60
-          c50|string: ₸0.30
         ram|string: ₸0.15
       v3:
         cpu:
@@ -1439,10 +1438,8 @@ default:
   sku|KZT|nbs:
     network-hdd:
       allocated|month|string: ₸14.60
-      allocated|string: ₸0.0203
     network-nvme:
       allocated|month|string: ₸59.55
-      allocated|string: ₸0.0827
     network-ssd-io-m3:
       allocated|month|string: ₸99.00
     network-ssd-nonreplicated:
@@ -2452,7 +2449,6 @@ default:
       v2:
         cpu:
           c100|string: ₽0.12
-          c50|string: ₽0.06
         ram|string: ₽0.03
       v3:
         cpu:
@@ -2538,10 +2534,8 @@ default:
   sku|RUB|nbs:
     network-hdd:
       allocated|month|string: ₽2.92
-      allocated|string: ₽0.0041
     network-nvme:
       allocated|month|string: ₽11.91
-      allocated|string: ₽0.0165
     network-ssd-io-m3:
       allocated|month|string: ₽19.80
     network-ssd-nonreplicated:
@@ -7582,6 +7576,7 @@ default:
             button_create-function: Create function
             button_create-trigger: Create trigger
             button_update-trigger: Save
+            field_api-gateway: API gateway
             field_broker: Broker
             field_bucket: Bucket
             field_container-registry: Registry
@@ -7595,6 +7590,7 @@ default:
             field_function: Function
             field_function_service-account: Service account
             field_function-tag: Function version tag
+            field_gateway-path: Path
             field_image-name: Docker image name
             field_invoke: Launched resource
             field_log-group: Log group
@@ -7619,6 +7615,7 @@ default:
             label_container-registry: Container Registry
             label_data-streams: Data Streams
             label_function: Function
+            label_gateway-broadcast: API gateway
             label_iot: IoT Core (device)
             label_iot-broker: IoT Core (broker)
             label_logging: Cloud Logging
@@ -7635,6 +7632,7 @@ default:
             section_dlq: Dead Letter Queue settings
             section_function: Function settings
             section_function-retry: Repeat request settings
+            section_gateway-broadcast: API gateway settings
             section_iot: IoT Core message settings
             section_logging: Cloud Logging settings
             section_mail-attachments: Settings for saving attachments

@@ -33,7 +33,7 @@ The infrastructure support cost includes:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a folder where you want to create your service account.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your service account.
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the service account, e.g., `win-secret-sa`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -73,7 +73,7 @@ The infrastructure support cost includes:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your key.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a key.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
       1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify the key attributes:
@@ -164,7 +164,7 @@ The password must:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your secret.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter the secret name, `win-secret`.
@@ -223,7 +223,7 @@ The password must:
 
       Where:
       * `name`: Secret name. This is a required parameter.
-      * `folder_id`: [ID](../../resource-manager/operations/folder/get-id.md) of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your secret. This is an optional parameter.
+      * `folder_id`: [ID](../../resource-manager/operations/folder/get-id.md) of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret. This is an optional parameter.
       * `kms_key_id`: ID of the [{{ kms-name }} encryption key](../../kms/concepts/key.md). The specified {{ kms-name }} key is used to encrypt your secret.
       * `entries`: Contents of the secret.
 
@@ -424,7 +424,7 @@ To check that the data from the secret was successfully used to create users, lo
    ```bash
    Please enter login credentials.
    Username: Administrator
-   Domain:
+   Domain  :
    Password: ***************
    ```
 

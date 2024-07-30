@@ -22,4 +22,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для почты, который запускает контейнер {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/mail-trigger.md).
+* [{#T}](../../../serverless-containers/concepts/trigger/mail-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/mail-trigger.md)

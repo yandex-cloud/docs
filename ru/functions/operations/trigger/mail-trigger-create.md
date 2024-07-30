@@ -200,4 +200,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для почты, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/mail-trigger-create.md).
+* [{#T}](../../../serverless-containers/operations/mail-trigger-create.md)
+* [{#T}](../../../api-gateway/operations/trigger/mail-trigger-create.md)

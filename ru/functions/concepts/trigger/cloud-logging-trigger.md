@@ -23,4 +23,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ cloud-logging-name }}, который запускает контейнер {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/cloud-logging-trigger.md).
+* [{#T}](../../../serverless-containers/concepts/trigger/cloud-logging-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/cloud-logging-trigger.md)

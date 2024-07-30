@@ -133,9 +133,9 @@ Prepare the infrastructure:
       1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/postgresql.md):
 
          * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`.
-         * **Endpoint parameters**:
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.title }}**:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**:
                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
 
                   Select a source cluster from the list and specify its connection settings.

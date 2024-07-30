@@ -109,5 +109,6 @@
 
 ## См. также {#see-also}
 
-* [{#T}](../../../serverless-containers/operations/budget-trigger-create.md).
-* [{#T}](../../tutorials/serverless-trigger-budget-vm.md).
+* [{#T}](../../../serverless-containers/operations/budget-trigger-create.md)
+* [{#T}](../../../api-gateway/operations/trigger/budget-trigger-create.md)
+* [{#T}](../../tutorials/serverless-trigger-budget-vm.md)

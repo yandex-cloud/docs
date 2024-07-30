@@ -209,4 +209,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ container-registry-name }}, который вызывает функцию {{ sf-name }}](../../functions/operations/trigger/cr-trigger-create.md).
+* [{#T}](../../functions/operations/trigger/cr-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/cr-trigger-create.md)

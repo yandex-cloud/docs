@@ -38,4 +38,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ objstorage-name }}, который запускает контейнер {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/os-trigger.md).
+* [{#T}](../../../serverless-containers/concepts/trigger/os-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/os-trigger.md)

@@ -5,7 +5,7 @@
 Метка | Значение
 --- | ---
 service | Идентификатор сервиса: `data-transfer`.
-job_index | Индекс воркера для отличия воркеров, используемых при [параллельном копировании](../../../data-transfer/concepts/sharded.md) данных.
+job_index | Индекс [воркера](../../../data-transfer/concepts/index.md#worker) для отличия воркеров, используемых при [параллельном копировании](../../../data-transfer/concepts/sharded.md) данных.
 src_id | Идентификатор [источника](../../../data-transfer/transfer-matrix.md).
 target_type | Тип [приемника](../../../data-transfer/transfer-matrix.md), например `mongo`.
 resource_id | Идентификатор [трансфера](../../../data-transfer/concepts/index.md#transfer) {{ data-transfer-name }}.

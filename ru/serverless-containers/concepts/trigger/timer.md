@@ -23,4 +23,5 @@ _Таймер_ — это [триггер](../trigger/), который запу
 
 ## См. также {#see-also}
 
-* [Таймер для запуска функции {{ sf-name }}](../../../functions/concepts/trigger/timer.md).
+* [{#T}](../../../functions/concepts/trigger/timer.md)
+* [{#T}](../../../api-gateway/concepts/trigger/timer.md)

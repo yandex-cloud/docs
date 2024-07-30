@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# {{ sws-full-name }} pricing
+# {{ sws-full-name }} pricing policy
 
 
 
@@ -18,7 +18,7 @@ The {{ sws-name }} cost depends on the following parameters:
 ## Prices for the Russia region {#prices}
 
 
-### Requests {#requests}
+### Queries {#requests}
 
 
 
@@ -26,15 +26,7 @@ The {{ sws-name }} cost depends on the following parameters:
 
 {% include [sum-cloud-account](../_includes/smartwebsecurity/sum-cloud-account.md) %}
 
-> For example, the total cost of sending 315.04 million requests per month to {{ sws-name }} for analysis will be:
-> 0.01 × $0.000000 + 0.99 × $200.000000 + 9 × $28.000000 + 90 × $1.600000 + 215.04 × $1.120000 = $834.844800 excluding VAT.
->
-> Where:
-> * 0.01 × $0.000000: Non-billable threshold of 0.01 million requests.
-> * 0.99 × $200.000000: Cost of the subsequent 0.99 million requests.
-> * 9 × $28.000000: Cost of the subsequent nine million requests.
-> * 90 × $1.600000: Cost of the subsequent 90 million requests.
-> * 215.04 × $1.120000: Cost of the remaining 215.04 million requests.
+{% include [usd-smartwebsecurity](../_pricing_examples/smartwebsecurity/usd-smartwebsecurity.md) %}
 
 
 ### Security profiles and rules {#profiles-and-rules}

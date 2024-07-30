@@ -22,4 +22,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для почты, который запускает функцию {{ sf-name }}](../../../functions/concepts/trigger/mail-trigger.md).
+* [{#T}](../../../functions/concepts/trigger/mail-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/mail-trigger.md)

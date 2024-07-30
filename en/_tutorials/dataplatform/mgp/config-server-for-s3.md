@@ -1,6 +1,6 @@
 # Creating an external table from a {{ objstorage-full-name }} bucket table using a configuration file
 
-To [create an external table](../../../managed-greenplum/operations/pxf/create-table.md) from a table in a {{ objstorage-full-name }} bucket, you need to provide a [static access key](../../../iam/concepts/authorization/access-key.md) for the service account in the query. You can do this using the [S3 protocol](https://greenplum.docs.pivotal.io/6-20/admin_guide/external/g-s3-protocol.html) and a configuration file stored on the HTTP server.
+To [create an external table](../../../managed-greenplum/operations/pxf/create-table.md) from a table in a {{ objstorage-full-name }} bucket, you need to provide a [static access key](../../../iam/concepts/authorization/access-key.md) for the service account in the query. You can do this using the [S3 protocol]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-external-g-s3-protocol.html) and a configuration file stored on the HTTP server.
 
 To create an external table using a configuration file:
 

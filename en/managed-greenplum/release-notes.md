@@ -6,11 +6,11 @@ This section contains {{ mgp-name }} release notes.
 
 ## June 2024 {#jun-2024}
 
-Now you can [create](operations/index.md#pxf) external S3, JDBC, HDFS, and Hive data sources to work with external tables. {{ tag-con }}
+Now you can [create](operations/index.md#pxf) external S3, JDBC, HDFS, and Hive data sources for accessing external tables. {{ tag-con }}
 
 ## February 2024 {#feb-2024}
 
-Added the ability to partially [restore a cluster](./operations/cluster-backups.md#restore) from a backup: now you can specify a list of databases or tables to restore. This greatly reduces the recovery time and saves cluster resources if restoring small amounts of data.
+Added the ability to partially [restore a cluster](./operations/cluster-backups.md#restore) from a backup: now you can specify a list of databases or tables to restore. This significantly reduces the time to restore and saves on cluster resources, especially when restoring small amounts of data.
 
 ## January 2024 {#jan-2024}
 
@@ -58,10 +58,10 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 
 * Added CLI support: `{{ yc-mdb-gp }} cluster` and `{{ yc-mdb-gp }} hosts` commands are available. {{ tag-cli }}
 * You can now migrate databases from/to {{ mgp-name }} using {{ data-transfer-full-name }}. See the [documentation](../data-transfer/concepts/index.md#connectivity-matrix) for available targets and sources. This feature is at the [Preview](../overview/concepts/launch-stages.md) stage.
-* Added support for the [pgcrypto](https://gpdb.docs.pivotal.io/6-9/ref_guide/modules/pgcrypto.html) extension.
+* Added support of the [pgcrypto]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-modules-pgcrypto.html) extension.
 * [Optimized](https://github.com/wal-g/wal-g/pull/1257) backup creation through special processing of append-only segments.
-* Added the [diskquota](https://gpdb.docs.pivotal.io/6-19/ref_guide/modules/diskquota.html) module that enables you to limit the amount of disk space used by schemas in a database.
-* Implemented automatic switchover to a standby master host using the [gpactivatestandby](https://gpdb.docs.pivotal.io/6-3/utility_guide/ref/gpactivatestandby.html) utility.
+* Added the [diskquota]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-modules-diskquota.html) module allowing to limit the disk space taken up by database schemas.
+* Implemented automatic switchover to a standby master host via [gpactivatestandby]({{ gp.docs.vmware }}/6/greenplum-database/utility_guide-ref-gpactivatestandby.html).
 * Added the `max_statement_mem` and `log_statement` settings that are available when creating or changing a cluster.
 * Added the ability to create a cluster with an odd number of segments.
 * Limited the minimum storage size on network SSD disks for a master host to 100 GB.

@@ -8,7 +8,7 @@
 
    - Manually {#manual}
 
-      1. Create a [{{ mpg-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md) with any suitable configuration. Note that:
+      1. Create a [{{ mpg-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md) in any suitable configuration. Note that:
 
          * The {{ PG }} version must be the same or higher than the version in the source cluster. You cannot perform migration while downgrading {{ PG }} version.
          * When creating a cluster, specify the same database name as in the source cluster.
@@ -16,15 +16,15 @@
       1. [Prepare the target cluster](../../../data-transfer/operations/prepare.md#target-pg).
       1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
-         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `PostgreSQL`
-         * **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`
+         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `PostgreSQL`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`
 
          Specify the parameters for connecting to the source cluster.
 
       1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
-         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ PG }}`
-         * **Endpoint parameters** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`
+         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ PG }}`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
 
          Specify the ID of the target cluster.
 
@@ -84,7 +84,7 @@
    {% endlist %}
 
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
-1. Switch the source cluster to "read-only" mode.
+1. Switch the source cluster to read-only.
 1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to decrease to zero. This means that all changes that occurred in the source cluster after data copying was completed are transferred to the target cluster.
 1. [Deactivate](../../../data-transfer/operations/transfer.md#deactivate) the transfer and wait for its status to change to {{ dt-status-stopped }}.
 

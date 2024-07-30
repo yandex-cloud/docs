@@ -168,4 +168,5 @@
 
 ## См. также {#see-also}
 
-* [Таймер, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/timer-create.md).
+* [{#T}](../../../serverless-containers/operations/timer-create.md)
+* [{#T}](../../../api-gateway/operations/trigger/timer-create.md)

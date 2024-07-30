@@ -132,7 +132,7 @@
         --mongod-resource-preset <класс_хоста> \
         --user name=<имя_пользователя>,password=<пароль_пользователя> \
         --database name=<имя_БД> \
-        --mongod-disk-type <тип_диска> \
+        --mongod-disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --mongod-disk-size <размер_хранилища_ГБ> \
         --performance-diagnostics=<включить_диагностику> \
         --deletion-protection=<защита_от_удаления>

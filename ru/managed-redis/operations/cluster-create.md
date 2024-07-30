@@ -172,7 +172,7 @@ description: "Следуя данной инструкции, вы сможет�
         --enable-tls \
         --resource-preset <класс_хоста> \
         --disk-size <размер_хранилища_ГБ> \
-        --disk-type-id <тип_диска> \
+        --disk-type-id <network-ssd|network-ssd-nonreplicated|local-ssd> \
         --password=<пароль_пользователя> \
         --backup-window-start <время> \
         --deletion-protection=<защита_от_удаления> \

@@ -48,6 +48,8 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: История изменений
     href: release-notes.md
 base: ru/managed-airflow

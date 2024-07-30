@@ -106,4 +106,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для бюджетов, который вызывает функцию {{ sf-name }}](../../functions/operations/trigger/budget-trigger-create.md).
+* [{#T}](../../functions/operations/trigger/budget-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/budget-trigger-create.md)
