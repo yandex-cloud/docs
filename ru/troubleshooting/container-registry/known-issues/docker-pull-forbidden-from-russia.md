@@ -113,7 +113,7 @@ See 'docker run --help'.
 - Приватный реестр Container Registry
 
     1. Используйте команду из способа выше для скачивания Docker-образа на вашу локальную машину.
-    2. Загрузите полученный Docker-образ в  в приватный реестр Yandex Container Registry [по этой инструкции](https://yandex.cloud/ru/docs/container-registry/operations/docker-image/docker-image-push).
+    2. Загрузите полученный Docker-образ в приватный реестр Yandex Container Registry [по этой инструкции](https://yandex.cloud/ru/docs/container-registry/operations/docker-image/docker-image-push).
 
     Не забудьте заменить в вашей CI/CD-cистеме ссылки для скачивания docker-образов на новые.
 

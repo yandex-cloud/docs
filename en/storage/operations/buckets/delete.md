@@ -138,6 +138,8 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+
    {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    

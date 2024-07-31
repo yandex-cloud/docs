@@ -27,14 +27,16 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
    * `--key`: Bucket object [key](../../concepts/object.md#key)
    * `--tagging`: Array of object labels, where:
       * `Key`: Label key of the `string` type
-      * `Value`: Label value of the `string` type.
-   * `--endpoint-url`: {{ objstorage-name }} endpoint.
+      * `Value`: Label value of the `string` type
+   * `--endpoint-url`: {{ objstorage-name }} endpoint
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   1. Open the {{ TF }} configuration file and add a section called `tags` to the fragment describing the object:
+   1. Open the {{ TF }} configuration file and add the `tags` section to the fragment describing the object:
 
       ```hcl
       resource "yandex_storage_object" "test-object" {

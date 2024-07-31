@@ -78,8 +78,8 @@
 
 | Среда | Уровень поддержки  | Инструкция |
 | --- | :---: | --- |
-| [{{ AF }}](../managed-airflow/quickstart.md) | [DML](#note) | [Инструкция](./tutorials/airflow.md) |
-| [{{ maf-full-name }}](../managed-airflow/quickstart.md) | [DML](#note) | [Инструкция](./tutorials/airflow.md) |
+| [{{ AF }}](../managed-airflow/quickstart.md) | [DML](#note) | [Инструкция](./tutorials/airflow-auto-tasks.md) |
+| [{{ maf-full-name }}](../managed-airflow/quickstart.md) | [DML](#note) | [Инструкция](./tutorials/airflow-auto-tasks.md) |
 
 ## Примечание {#note}
 

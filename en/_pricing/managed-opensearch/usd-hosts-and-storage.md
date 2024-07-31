@@ -1,8 +1,8 @@
 {% list tabs %}
 
-- Costs per hour
+- Prices per hour
 
-   | Resource | Cost per hour | Cost with CVoS for 6 months | Cost with CVoS for 1 year |
+   | Resource | Price per hour | Price with CVoS for 6 months | Price with CVoS for 1 year |
    |----------------|--------------------------------------------------------:|-------------------------------------------------------------------------------------:|-------------------------------------------------------------------------------------:|
    | **Intel Cascade Lake** |
    | 50% vCPU | {{ sku|USD|mdb.cluster.opensearch.v2.cpu.c50|string }} | — | — |
@@ -16,9 +16,9 @@
    | 100% vCPU | $0.021520 | - | - |
    | RAM (for 1 GB) | $0.006480 | - | - |
 
-- Costs per month
+- Prices per month
 
-   | Resource | Cost per hour | Cost with CVoS for 6 months | Cost with CVoS for 1 year |
+   | Resource | Price per hour | Price with CVoS for 6 months | Price with CVoS for 1 year |
    |----------------|--------------------------------------------------------------:|-------------------------------------------------------------------------------------:|-------------------------------------------------------------------------------------------------:|
    | **Intel Cascade Lake** |
    | 50% vCPU | {{ sku|USD|mdb.cluster.opensearch.v2.cpu.c50|month|string }} | — | — |
@@ -38,11 +38,11 @@
 
 {% include [local-ssd for Intel Ice Lake only on request](../../_includes/ice-lake-local-ssd-note.md) %}
 
-| Service | Cost of 1 GB per month |
+| Service | Price of 1 GB per month |
 |---------------------------------|----------------------------------------------------------------------------:|
-| Standard network storage | {{ sku|USD|mdb.cluster.network-hdd.opensearch|month|string }} |
-| Non-replicated network storage | {{ sku|USD|mdb.cluster.network-ssd-nonreplicated.opensearch|month|string }} |
-| Fast network storage | {{ sku|USD|mdb.cluster.network-nvme.opensearch|month|string }} |
+| Network HDD storage | {{ sku|USD|mdb.cluster.network-hdd.opensearch|month|string }} |
+| Non-replicated SSD storage | {{ sku|USD|mdb.cluster.network-ssd-nonreplicated.opensearch|month|string }} |
+| Network SSD storage | {{ sku|USD|mdb.cluster.network-nvme.opensearch|month|string }} |
 | High-performance SSD storage | $0.174240 |
-| Fast local storage | {{ sku|USD|mdb.cluster.local-nvme.opensearch|month|string }} |
+| Local SSD storage | {{ sku|USD|mdb.cluster.local-nvme.opensearch|month|string }} |
 | Backups beyond the storage size | $0.015360 |

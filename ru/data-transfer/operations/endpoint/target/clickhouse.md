@@ -18,7 +18,7 @@ description: "Из статьи вы узнаете, как задать нас�
 ## Сценарии передачи данных в {{ CH }} {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
-    * [Миграция кластера {{ CH }}](../../../tutorials/managed-clickhouse.md).
+    * [Миграция кластера {{ CH }}](../../../tutorials/managed-clickhouse.md);
     * [Перераспределение данных по шардам](../../../tutorials/mch-mch-resharding.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
@@ -32,7 +32,8 @@ description: "Из статьи вы узнаете, как задать нас�
     * [Загрузка данных {{ yandex-direct }} в {{ CH }}](../../../tutorials/direct-to-mch.md);
 
     * [Загрузка данных {{ PG }} в {{ CH }}](../../../tutorials/rdbms-to-clickhouse.md);
-    * [Загрузка данных из {{ objstorage-name }} в {{ CH }}](../../../tutorials/object-storage-to-clickhouse.md).
+    * [Загрузка данных из {{ objstorage-name }} в {{ CH }}](../../../tutorials/object-storage-to-clickhouse.md);
+    * [Загрузка данных из {{ ydb-short-name }} в витрину {{ CH }}](../../../tutorials/ydb-to-clickhouse.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 
@@ -49,7 +50,7 @@ description: "Из статьи вы узнаете, как задать нас�
 * [{{ metrika }}](../source/metrika.md);
 * [{{ DS }}](../source/data-streams.md);
 * [{{ objstorage-full-name }}](../source/object-storage.md);
-* [Oracle](../source/oracle.md).
+* [Oracle](../source/oracle.md);
 * [{{ ES }}](../source/elasticsearch.md);
 * [{{ OS }}](../source/opensearch.md).
 

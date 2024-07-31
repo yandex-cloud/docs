@@ -6,7 +6,7 @@
 
 ## Applying or editing a policy {#apply-policy}
 
-The minimum role required to apply or modify an access policy is `storage.configurer`. See the [role description](../../../storage/security/index.md#storage-configurer) for details.
+The minimum role required to apply or modify an access policy is `storage.configurer`. See the [role description](../../../storage/security/index.md#storage-configurer).
 
 {% note info %}
 
@@ -175,7 +175,7 @@ To apply or edit a bucket access policy:
          * `Resource`: Resource to apply the rule to.
          * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional parameter.
 
-      Once completed, save the configuration to a file named `policy.json`.
+      Once complete, save the configuration to a file named `policy.json`.
    1. Run this command:
 
       ```bash
@@ -187,17 +187,37 @@ To apply or edit a bucket access policy:
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a static key and a key ID used to authenticate in {{ objstorage-name }}.
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl
+
+      resource "yandex_iam_service_account" "sa" {
+        name = "<service_account_name>"
+      }
+
+      // Assigning a role to a service account
+      resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
+        folder_id = "<folder_ID>"
+        role      = "storage.admin"
+        member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
+      }
+
+      // Creating a static access keys
+      resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
+        service_account_id = yandex_iam_service_account.sa.id
+        description        = "static access key for object storage"
+      }
+
       resource "yandex_storage_bucket" "b" {
-        access_key = "<key_ID>"
-        secret_key = "<secret_key>"
-        bucket = "my-policy-bucket"
-        policy = <<POLICY
+        access_key = "yandex_iam_service_account_static_access_key.sa-static-key.access_key"
+        secret_key = "yandex_iam_service_account_static_access_key.sa-static-key.secret_key"
+        bucket     = "my-policy-bucket"
+        policy     = <<POLICY
        {
         "Version": "2012-10-17",
         "Statement": [

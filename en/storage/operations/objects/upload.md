@@ -61,6 +61,8 @@ You cannot upload objects larger than 5 GB via the management console (see [{#T}
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+
    {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -72,18 +74,36 @@ You cannot upload objects larger than 5 GB via the management console (see [{#T}
    1. In the configuration file, describe the parameters of resources that you want to create:
 
       ```hcl
+
+      resource "yandex_iam_service_account" "sa" {
+        name = "<service_account_name>"
+      }
+
+      // Assigning a role to a service account
+      resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
+        folder_id = "<folder_ID>"
+        role      = "storage.admin"
+        member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
+      }
+
+      // Creating a static access key
+      resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
+        service_account_id = yandex_iam_service_account.sa.id
+        description        = "static access key for object storage"
+      }
+
       resource "yandex_storage_object" "test-object" {
-        access_key = "<static_key_ID>"
-        secret_key = "<secret_key>"
+        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
         bucket     = "<bucket_name>"
         key        = "<object_name>"
-        source     = "<file_path>"
+        source     = "<path_to_file>"
       }
       ```
 
       Where:
       * `access_key`: ID of the static access key.
-      * `secret_key`: Secret access key value.
+      * `secret_key`: Value of the secret access key.
       * `bucket`: Name of the bucket to add the object to. This is a required parameter.
       * `key`: Name of the object in the bucket. This is a required parameter. The name format is as follows:
 
@@ -95,7 +115,7 @@ You cannot upload objects larger than 5 GB via the management console (see [{#T}
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash

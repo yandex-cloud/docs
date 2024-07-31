@@ -39,13 +39,13 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 
 ![cdc](../../_assets/data-transfer/tutorials/cdc.svg)
 
-* Захват изменений {{ MY }} и поставка в 
+* Захват изменений {{ MY }} и поставка в:
   * [{{ KF }}](cdc-mmy.md)
   * [{{ DS }}](mmy-to-yds.md)
-* Захват изменений {{ PG }} и поставка в
+* Захват изменений {{ PG }} и поставка в:
   * [{{ KF }}](cdc-mpg.md)
   * [{{ DS }}](mpg-to-yds.md)
-* Захват изменений {{ ydb-short-name }} и поставка в
+* Захват изменений {{ ydb-short-name }} и поставка в:
   * [{{ KF }}](cdc-ydb.md)
   * [{{ DS }}](ydb-to-yds.md)
 
@@ -84,6 +84,7 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ objstorage-name }} в {{ MY }}](objs-mmy-migration.md)
 * [{{ objstorage-name }} в {{ CH }}](object-storage-to-clickhouse.md)
 * [{{ objstorage-name }} в {{ ydb-short-name }}](object-storage-to-ydb.md)
+* [{{ ydb-short-name }} в {{ CH }}](object-storage-to-ydb.md)
 
 ## Загрузка данных в {{ objstorage-name }} {#upload-to-storage}
 

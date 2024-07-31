@@ -11,7 +11,7 @@ To control access to an object in an {{ objstorage-name }} bucket, you can use a
 
 {% note info %}
 
-If an [ACL](../../concepts/acl.md) was previously set for an object, it will be completely overwritten once you apply the changes.
+If an [ACL](../../concepts/acl.md) has been set for an object, it will be completely overwritten once you apply the changes.
 
 {% endnote %}
 
@@ -19,7 +19,7 @@ If an [ACL](../../concepts/acl.md) was previously set for an object, it will be 
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+   1. In the [management console]({{ link-console-main }}), select the folder.
    1. Select **{{ objstorage-name }}**.
    1. Click the bucket name.
    1. To edit an ACL, click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the object name and select **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
@@ -58,7 +58,7 @@ If an [ACL](../../concepts/acl.md) was previously set for an object, it will be 
    * `--bucket`: Bucket name.
    * `--key`: Object key.
 
-   You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to an object or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md) and [system groups](../../concepts/acl.md#system-groups) (e.g., a group including all internet users or a group including all authenticated {{ yandex-cloud }} users). These settings are not compatible: an object should have either a predefined ACL or a set of individual permissions.
+   You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to an object or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md) and [system groups](../../concepts/acl.md#system-groups) (e.g., a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). These settings are not compatible: an object should have either a predefined ACL or a set of individual permissions.
 
    **Predefined ACL**
 
@@ -110,12 +110,14 @@ If an [ACL](../../concepts/acl.md) was previously set for an object, it will be 
          * `--grant-write-acp`: Access to edit the object ACL.
 
          You can set multiple permissions within the same command.
-      * Possible permission grantees:
+      * The possible permission grantees are:
          * `id=<grantee_ID>`: ID of the user, service account, or user group to grant permission to.
          * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: [System group](../../concepts/acl.md#system-groups) of all authenticated {{ yandex-cloud }} users.
          * `uri=http://acs.amazonaws.com/groups/global/AllUsers`: System group of all internet users.
 
 - {{ TF }} {#tf}
+
+   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
 
    {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
@@ -142,7 +144,7 @@ If an [ACL](../../concepts/acl.md) was previously set for an object, it will be 
 
       Where:
       * `access_key`: ID of the static access key.
-      * `secret_key`: Secret access key value.
+      * `secret_key`: Value of the secret access key.
       * `acl`: [Predefined ACL](../../../storage/concepts/acl.md#predefined-acls) of an object. The default value is `private`: {{ yandex-cloud }} users get permissions based on their roles in {{ iam-short-name }}.
 
       For more information about the `yandex_storage_object` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_object).

@@ -81,7 +81,7 @@
 
         Для отслеживания изменений в нескольких таблицах создайте для каждой из них отдельный топик.
 
-    1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-user) с именем `kafka-user` и ролями `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER`, действующими для созданных топиков. Чтобы включить все такие топики, укажите в имени топика `cdc.*`.
+    1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `kafka-user` и ролями `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER`, действующими для созданных топиков. Чтобы включить все такие топики, укажите в имени топика `cdc.*`.
 
 - Admin API {#api}
 

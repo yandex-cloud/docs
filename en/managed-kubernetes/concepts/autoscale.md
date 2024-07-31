@@ -4,7 +4,7 @@ Automatic scaling is a way to modify the size of a [node group](./index.md#node-
 
 In a {{ managed-k8s-name }} cluster, three types of automatic scaling are available:
 * _Cluster autoscaling_ ({{ k8s-ca }}). {{ managed-k8s-name }} monitors the load on the nodes and modifies the number of nodes within specified limits as required.
-* _Horizontal pod scaling_ ({{ k8s-hpa }}). {{ k8s }} dynamically changes the number of pods running on each node of the group.
+* _Horizontal Pod Autoscaler_ ({{ k8s-hpa }}). {{ k8s }} dynamically changes the number of pods running on each node of the group.
 * _Vertical pod scaling_ ({{ k8s-vpa }}). When load increases, {{ k8s }} allocates additional resources to each pod within established limits.
 
 You can use several types of automatic scaling in the same cluster. However, using {{ k8s-hpa }} and {{ k8s-vpa }} together is not recommended.
@@ -14,8 +14,8 @@ You can use several types of automatic scaling in the same cluster. However, usi
 {{ k8s-ca }} automatically modifies the number of nodes in a group depending on the load.
 
 When [creating a node group](../operations/node-group/node-group-create.md), select an automatic scaling type and set the minimum, maximum, and initial number of nodes in the group. {{ k8s }} will check the pod status and the load on the nodes from time to time adjusting the group size as needed:
-* If pods cannot be assigned because of a shortage of vCPUs or RAM on the existing nodes, the number of nodes in the group will gradually increase until it reaches the specified maximum.
-* If the load on the nodes is insufficient and all pods can be assigned with fewer nodes per group, the number of nodes per group will gradually decrease to the specified minimum. If a node's pods cannot be evicted within the specified period ({{ k8s-decomission-timeout }}), the node will be forced to stop. The waiting time cannot be changed.
+* If pods cannot be assigned due to a lack of vCPUs or RAM on the existing nodes, the number of nodes in the group will gradually increase to the specified maximum size.
+* If the load on the nodes is insufficient, and all pods can be assigned with fewer nodes per group, the number of nodes per group will gradually decrease to the specified minimum size. If a node's pods cannot be evicted within the specified period of time ({{ k8s-decomission-timeout }}), the node is forced to stop. The waiting time cannot be changed.
 
 {% note info %}
 
@@ -23,9 +23,14 @@ When calculating the current limits and [quotas]({{ link-console-quotas }}), {{ 
 
 {% endnote %}
 
-{{ k8s-ca }} activation is only available when creating a node group.
+{{ k8s-ca }} activation is only available when creating a node group. {{ k8s-ca }} is managed on the {{ managed-k8s-name }} side.
 
-Learn more about {{ k8s-ca }} in the [{{ k8s }} documentation](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler).
+For more information, see the {{ k8s }} documentation:
+
+* [{{ k8s-ca }} description](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler)
+* [Default parameters](https://github.com/kubernetes/autoscaler/blob/c6b754c359a8563050933a590f9a5dece823c836/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca)
+
+See also [{#T}](../qa/cluster-autoscaler.md).
 
 ## Horizontal pod autoscaling {#hpa}
 
@@ -40,7 +45,7 @@ Horizontal pod autoscaling is available for the following controllers:
 * [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/).
 * [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/).
 
-Learn more about {{ k8s-hpa }} in the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
+You can learn more about {{ k8s-hpa }} in the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
 
 ## Vertical pod autoscaling {#vpa}
 
@@ -52,4 +57,4 @@ When [creating a {{ k8s-vpa }}](../operations/autoscale.md#vpa), set the autosca
 * `updateMode: "Auto"` for {{ k8s-vpa }} to manage pod resources automatically.
 * `updateMode: "Off"` for {{ k8s-vpa }} to [provide recommendations](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler#quick-start) on managing pod resources without modifying them.
 
-Learn more about {{ k8s-vpa }} in the [{{ k8s }} documentation](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler).
+You can learn more about {{ k8s-vpa }} in the [{{ k8s }} documentation](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler).

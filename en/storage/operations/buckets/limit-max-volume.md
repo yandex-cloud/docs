@@ -8,7 +8,7 @@ For example, if you provide the users of your service with the ability to upload
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+   1. In the [management console]({{ link-console-main }}), select the folder.
    1. Select **{{ objstorage-name }}**.
    1. Click the name of the bucket you need.
    1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
@@ -56,7 +56,7 @@ For example, if you provide the users of your service with the ability to upload
 
       Where:
       * `--name`: Name of the bucket to limit the size for.
-      * `--max_size`: Maximum bucket size (bytes). `0`: No limit.
+      * `--max_size`: Maximum bucket size, in bytes. `0`: No limit.
 
       Result:
 
@@ -71,6 +71,8 @@ For example, if you provide the users of your service with the ability to upload
       ```
 
 - {{ TF }} {#tf}
+
+   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
 
    {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
@@ -95,8 +97,8 @@ For example, if you provide the users of your service with the ability to upload
 
       Where:
       * `access_key`: ID of the static access key.
-      * `secret_key`: Secret access key value.
-      * `max_size`: Maximum bucket size (bytes).
+      * `secret_key`: Value of the secret access key.
+      * `max_size`: Maximum bucket size, in bytes.
 
       For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-max-size).
 

@@ -179,7 +179,7 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
       Where:
       * `--bucket`: Bucket name.
       * `--endpoint`: {{ objstorage-name }} endpoint.
-      * The possible types of ACL permissions include:
+      * Possible types of ACL permissions:
          * `--grant-read`: Permission to access the list of objects in the bucket, read various bucket settings (lifecycle, CORS, static hosting), and read all objects in the bucket.
          * `--grant-write`: Permission to write, overwrite, and delete objects in the bucket. It is used only together with `--grant-read`.
          * `--grant-full-control`: Full access to the bucket and the objects in it.
@@ -202,6 +202,8 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
       ```
 
 - {{ TF }} {#tf}
+
+   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 

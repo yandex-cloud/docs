@@ -215,9 +215,9 @@ items:
           - name: Миграция DNS-зон из Яндекс 360 в {{ dns-name }}
             href: infrastructure-management/connect-migration.md
           - name: >-
-              Настройка {{ dns-name }} для доступа к кластерам управляемых баз
-              данных из других облачных сетей
-            href: dataplatform/mdb-dns-peering.md
+              Настройка {{ dns-full-name }} для доступа к кластеру {{
+              mch-full-name }} из других облачных сетей
+            href: dataplatform/clickhouse-dns-peering.md
           - name: Интеграция {{ dns-name }} и корпоративного сервиса DNS
             href: infrastructure-management/dns-integration.md
           - name: Создание веб-хука резолвера ACME для ответов на DNS01-проверки
@@ -399,7 +399,7 @@ items:
       - name: Хранение подключений и переменных {{ AF }} в {{ lockbox-full-name }}
         href: dataplatform/lockbox-and-airflow.md
       - name: Автоматизация задач {{ yq-full-name }} с помощью {{ maf-full-name }}
-        href: dataplatform/yandex-query-automation.md
+        href: dataplatform/airflow-auto-tasks.md
       - name: >-
           Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud }}
           Python SDK
@@ -444,6 +444,10 @@ items:
           Загрузка данных из {{ objstorage-full-name }} в {{ mch-full-name }} с
           помощью {{ data-transfer-full-name }}
         href: dataplatform/object-storage-to-clickhouse.md
+      - name: >-
+          Загрузка данных из {{ ydb-full-name }} в {{ mch-full-name }} с помощью
+          {{ data-transfer-full-name }}
+        href: dataplatform/ydb-to-clickhouse.md
       - name: >-
           Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
           других облачных сетей

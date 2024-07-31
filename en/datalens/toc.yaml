@@ -839,7 +839,6 @@ items:
       - name: January 2024
         href: release-notes/2401.md
   - name: Troubleshooting
-    expanded: true
     items:
       - name: Optimization best practices
         href: concepts/optimization_recommendations.md

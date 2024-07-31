@@ -56,85 +56,56 @@ keywords:
 
 Создайте ВМ, которая будет шлюзом VPN-подключений:
 
-1. На странице каталога в [консоли управления]({{ link-console-main }}) в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
-1. Выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. Укажите имя виртуальной машины: `vpn-server` и описание ВМ.
-1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), где уже находится тестовая ВМ.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server).
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** укажите размер диска — `10 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
+{% list tabs group=instructions %}
 
-     * Выберите [платформу](../../compute/concepts/vm-platforms.md) Intel Ice Lake.
-     * Укажите необходимое количество vCPU и объем RAM:
+- Консоль управления {#console}
 
-       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
-       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+  1. Укажите имя виртуальной машины: `vpn-server` и описание ВМ.
+  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой уже находится тестовая ВМ.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** укажите размер диска — `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите:
 
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-   * Выберите нужную сеть, подсеть и назначьте ВМ публичный IP-адрес из списка или автоматически.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-     Используйте только статические публичные IP-адреса [из списка](../../vpc/operations/get-static-ip), или [сделайте](../../vpc/operations/set-static-ip) IP-адрес созданной машины статическим. Динамический IP-адрес может измениться после перезагрузки ВМ, и соединения перестанут работать.
+      * Выберите нужную сеть, подсеть и назначьте ВМ публичный IP-адрес из списка или автоматически.
 
-   * Если доступен список **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**, выберите [группу безопасности](../../vpc/concepts/security-groups.md). Если оставить поле пустым, будет назначена [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group).
+          Используйте только статические публичные IP-адреса [из списка](../../vpc/operations/get-static-ip), или [сделайте](../../vpc/operations/set-static-ip) IP-адрес созданной машины статическим. Динамический IP-адрес может измениться после перезагрузки ВМ, и соединения перестанут работать.
 
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
+      * Если доступен список **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**, выберите [группу безопасности](../../vpc/concepts/security-groups.md). Если оставить поле пустым, будет назначена [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group).
 
-   * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя [SSH](../../glossary/ssh-keygen.md), например, `yc-user`.
-   * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
 
-     Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. раздел [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя [SSH](../../glossary/ssh-keygen.md), например, `yc-user`.
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа.
 
-1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-1. Появится окно с информацией о типе тарификации: BYOL (Bring Your Own License). Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+          Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. раздел [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. Появится окно с информацией о типе тарификации: BYOL (Bring Your Own License). Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+{% endlist %}
+
+## Настройте разрешения сетевого трафика {#network-settings}
 
 {% include [openvpn-network-settings](../_tutorials_includes/openvpn-network-settings.md) %}
+
+## Получите пароль администратора {#get-admin-password}
 
 {% include [openvpn-get-admin-password](../_tutorials_includes/openvpn-get-admin-password.md) %}
 
 ## Активируйте лицензию {#get-license}
 
-{% note info %}
-
-Если у вас до двух VPN-подключений, используйте продукт бесплатно (активация не требуется).
-
-{% endnote %}
-
-Чтобы активировать лицензию:
-
-1. Создайте учетную запись на [сайте openvpn.net](https://myaccount.openvpn.com/signup).
-1. Введите код подверждения, полученный по электронной почте.
-1. В окне **Where would you like to Go?** отметьте опцию **Remember my choice** и выберите продукт **Access server**.
-1. В окне **Tell us more** выберите назначение: **Business use** или **Personal Use**.
-1. На вкладке **Subscriptions** выберите максимальное количество подключений в поле **How many VPN connections do you need?** и нажмите кнопку **Create**.
-1. На экране отобразится ваша подписка: **Subscription 1**.
-1. Чтобы скопировать ключ активации, нажмите кнопку **Copy Key** в блоке **Subscription Key**.
-
-Дождитесь перехода ВМ в статус `RUNNING` и введите ключ активации в административной панели по адресу `https://<публичный_IP-адрес_ВМ>/admin/`.
+{% include [openvpn-activate-license](../_tutorials_includes/openvpn-activate-license.md) %}
 
 ## Создайте пользователя OpenVPN {#configure-openvpn}
 
-OpenVPN Access Server предоставляет два веб-интерфейса:
-
-1. Client Web UI по адресу `https://<публичный_IP-адрес_ВМ>/`. Интерфейс предназначен для входа обычных пользователей, скачивания клиентских программ и профилей конфигурации.
-1. Admin Web UI по адресу `https://<публичный_IP-адрес_ВМ>/admin/`. Интерфейс предназначен для настройки сервера.
-
-{% note info %}
-
-По умолчанию на сервер установлен самоподписанный сертификат. Если вам необходимо поменять сертификат, воспользуйтесь [инструкцией](https://openvpn.net/vpn-server-resources/installing-a-valid-ssl-web-certificate-in-access-server/).
-
-{% endnote %}
-
-Чтобы создать пользователя, войдите в административную панель:
-
-1. Откройте в браузере URL вида `https://<публичный_IP-адрес_ВМ>/admin/`.
-1. Введите имя пользователя `openvpn` и пароль (см. раздел [про получение админского пароля](#get-admin-password)).
-1. Нажмите кнопку **Agree**. Откроется главный экран административной панели OpenVPN.
-1. Разверните вкладку **User management** и выберите пункт **User permissions**.
-1. В списке пользователей введите имя нового пользователя в поле **New Username**, например `test-user`.
-1. Нажмите значок карандаша в столбце **More Settings** и в поле **Password** введите пароль нового пользователя.
-1. Нажмите кнопку **Save settings**.
-1. Нажмите кнопку **Update running server**.
+{% include [openvpn-create-user](../_tutorials_includes/openvpn-create-user.md) %}
 
 ## Подключитесь к VPN {#test-vpn}
 
@@ -148,9 +119,10 @@ OpenVPN Access Server предоставляет два веб-интерфей�
 
    1. Установите `openvpn` с помощью менеджера пакетов:
 
-      ```
+      ```bash
       sudo apt update && sudo apt install openvpn
       ```
+
    1. Разрешите для пользователя `test-user` автоматическое подключение:
 
       * Войдите в панель администратора по адресу `https://<публичный_IP-адрес_ВМ>/admin/`.
@@ -172,31 +144,37 @@ OpenVPN Access Server предоставляет два веб-интерфей�
 
    1. Загрузите профиль конфигурации на машину с Linux:
 
-      ```
+      ```bash
       scp profile-1.ovpn user@<IP-адрес>:~
       ```
 
    1. Переместите профиль конфигурации в каталог `/etc/openvpn`:
-      ```
+
+      ```bash
       sudo mv /home/user/profile-1.ovpn /etc/openvpn
       ```
 
    1. Поменяйте расширение файла `ovpn` на `conf`:
-      ```
+
+      ```bash
       sudo mv /etc/openvpn/profile-1.ovpn /etc/openvpn/profile-1.conf
       ```
 
    1. Закройте доступ к файлу:
-      ```
+ 
+      ```bash
       sudo chown root:root /etc/openvpn/profile-1.conf
       sudo chmod 600 /etc/openvpn/profile-1.conf
       ```
 
    1. VPN-соединение включится автоматически после перезагрузки. Чтобы запустить вручную, выполните команду:
-      ```
+
+      ```bash
       sudo openvpn --config /etc/openvpn/profile-1.conf
       ```
+   
       Результат:
+   
       ```
       2022-04-05 15:35:49 DEPRECATED OPTION: --cipher set to 'AES-256-CBC' but missing in --data-ciphers (AES-256-GCM:AES-128-GCM). Future OpenVPN version will ignore --cipher for cipher negotiations. Add 'AES-256-CBC' to --data-ciphers or change --cipher 'AES-256-CBC' to --data-ciphers-fallback 'AES-256-CBC' to silence this warning.
       2022-04-05 15:35:49 OpenVPN 2.5.1 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [PKCS11] [MH/PKTINFO] [AEAD] built on May 14 2021
@@ -214,9 +192,11 @@ OpenVPN Access Server предоставляет два веб-интерфей�
       ```
 
    1. Проверьте работу сети с помощью команды `ping`:
-      ```
+
+      ```bash
       sudo ping <внутренний_IP-адрес_тестовой_ВМ>
       ```
+
       Если команда выполняется, доступ к ВМ через VPN есть.
 
    1. Чтобы прервать подключение, установленное вручную, нажмите  **Ctrl** + **C**.

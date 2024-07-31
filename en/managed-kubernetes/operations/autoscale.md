@@ -38,7 +38,7 @@ To create an autoscalable {{ managed-k8s-name }} node group:
 
 - CLI {#cli}
 
-  1. {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
@@ -89,7 +89,11 @@ To create an autoscalable {{ managed-k8s-name }} node group:
 
 {% endlist %}
 
-For more information about {{ k8s-ca }}, see [{#T}](../concepts/autoscale.md#ca).
+{{ k8s-ca }} is managed on the {{ managed-k8s-name }} side.
+
+For more information about {{ k8s-ca }}, see [{#T}](../concepts/autoscale.md#ca). The default parameters are described in the [{{ k8s }} documentation](https://github.com/kubernetes/autoscaler/blob/c6b754c359a8563050933a590f9a5dece823c836/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca).
+
+See also [{#T}](../qa/cluster-autoscaler.md).
 
 ## Configuring horizontal pod autoscaling {#hpa}
 
@@ -145,7 +149,7 @@ For more information about {{ k8s-hpa }}, see [{#T}](../concepts/autoscale.md#hp
          kind:       Deployment
          name:       <application_name>
      updatePolicy:
-       updateMode: "<VPA_runtime_mode:_Auto_or_Off>"
+       updateMode: "<VPA_runtime_mode>"
      ```
 
      Where `updateMode` is the {{ k8s-vpa }} runtime mode, `Auto` or `Off`.

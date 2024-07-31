@@ -7,7 +7,7 @@ description: "Various use cases for data storage and recovery in {{ yandex-cloud
 
 * [Migrating to {{ yandex-cloud }} using Hystax Acura](../infrastructure-management/hystax-migration.md)
 * [Fault protection with Hystax Acura](../infrastructure-management/hystax-disaster-recovery.md)
-* [Single-node file server](single-node-file-server.md)
+* [Single-node file server](single-node-file-server/index.md)
 * [Configuring an SFTP server based on CentOS 7](backup-and-archive-to-sftp.md)
 * [Creating a VM backup with Hystax Acura Backup](../infrastructure-management/hystax-backup.md)
 * [Backup to {{ objstorage-full-name }} via CloudBerry Desktop Backup](object-storage-cloudberry.md)

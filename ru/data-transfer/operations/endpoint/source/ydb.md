@@ -25,6 +25,8 @@ description: "Из статьи вы узнаете, как задать нас�
 
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
+    * [Загрузка данных из {{ ydb-short-name }} в витрину {{ CH }}](../../../tutorials/ydb-to-clickhouse.md).
+
 1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).

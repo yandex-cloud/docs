@@ -25,9 +25,9 @@
     +----------------------+-----------------+---------------+---------+----------------------+
     ```
 
-1. Подключитесь к ВМ, указав ее имя. Команда для подключения зависит от версии ОС Linux, установленной на виртуальной машине:
+1. Подключитесь к ВМ:
 
-   * **Debian, Ubuntu 20.04+**
+      Для подключения по OS login используйте имя ВМ:
 
       ```bash
       yc compute ssh \
@@ -46,30 +46,5 @@
       ```bash
       yc compute ssh \
         --name <имя_ВМ> \
-        --internal-address
-      ```
-
-   * **CentOS 7, Ubuntu 18.04**
-
-      ```bash
-      yc compute ssh \
-        --name <имя_ВМ> \
-        -o "PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com"
-      ```
-
-      При подключении по OS Login вместо имени ВМ можно указать ее идентификатор:
-
-      ```bash
-      yc compute ssh \
-        --id <идентификатор_ВМ> \
-        -o "PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com"
-      ```
-
-      Для подключения по OS login по внутреннему IP-адресу используйте параметр `--internal-address`:
-
-      ```bash
-      yc compute ssh \
-        --name <имя_ВМ> \
-        -o "PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com" \
         --internal-address
       ```

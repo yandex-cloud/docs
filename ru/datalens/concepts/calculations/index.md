@@ -84,7 +84,7 @@
   {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
 
 
-  1. На панели слева нажмите ![image](../../../_assets/console-icons/chart-column.svg) **Чарты** и выберите чарт, созданный в [визарде]({{ link-datalens-main }}/wizard).
+  1. На панели слева нажмите ![image](../../../_assets/console-icons/chart-column.svg) **Чарты** и выберите чарт, созданный в [визарде]({{ link-datalens-wizard }}).
   1. В левой части экрана над списком полей датасета нажмите значок ![image](../../../_assets/console-icons/plus.svg) и выберите **Поле**.
   1. Введите название поля.
   1. Введите необходимую формулу.

@@ -73,10 +73,17 @@ editable: false
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
+
+Все цены указаны с включением НДС.
+
+
+
+{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
+
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
-
 #### Стандартные хосты {#standard-hosts}
+
 
 {% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
 
@@ -92,9 +99,12 @@ editable: false
 
 {% endlist %}
 
+
+
 #### Выделенные хосты {#dedicated-hosts}
 
-Цены на вычислительные ресурсы выделенных хостов представлены в [документации {{ compute-full-name }}](../compute/pricing.md#prices-dedicated-host).
+Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../compute/pricing.md#prices-dedicated-host) и наценки {{ dataproc-name }} на эти ресурсы.
+
 
 {% list tabs group=pricing %}
 

@@ -3,10 +3,7 @@
 
 
 
-
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
-
-
 1. Click **Create connection**.
 
 
