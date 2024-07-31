@@ -1,4 +1,4 @@
-# Deleting an object
+# Delete a map item
 
 
 ## Deleting an object or object version without a lock {#wo-object-lock}
@@ -19,7 +19,7 @@ To delete an object:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+   1. In the [management console]({{ link-console-main }}), select the folder.
    1. Select **{{ objstorage-name }}**.
    1. Click the name of the bucket you need.
    1. To delete a single object, click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the object name; in the menu that opens, click **{{ ui-key.yacloud.storage.file.button_delete }}**.
@@ -154,6 +154,8 @@ To delete an object:
       ```
 
 - {{ TF }} {#tf}
+
+   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
 
    {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 

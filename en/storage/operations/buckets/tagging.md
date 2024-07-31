@@ -90,13 +90,17 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
    Where:
    * `--bucket`: Bucket name.
    * `--tagging`: Array of bucket labels, where:
-      * `Key`: Label key of the `string` type.
-      * `Value`: Label value of the `string` type.
-   * `--endpoint-url`: {{ objstorage-name }} endpoint.
+      * `Key`: Label key of the `string` type
+      * `Value`: Label value of the `string` type
+   * `--endpoint-url`: {{ objstorage-name }} endpoint
 
 - {{ TF }} {#tf}
 
    {% include [tags-update-notice](../../../_includes/storage/tags-update-notice.md) %}
+
+   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+
+   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -391,6 +395,8 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
    * `--endpoint-url`: {{ objstorage-name }} endpoint.
 
 - {{ TF }} {#tf}
+
+   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 

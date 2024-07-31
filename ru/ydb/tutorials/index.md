@@ -15,4 +15,5 @@ description: "Различные сценарии использования {{ 
 * [{#T}](ydb-mkf-replication.md)
 * [{#T}](ydb-to-yds.md)
 * [{#T}](object-storage-to-ydb.md)
+* [{#T}](ydb-to-clickhouse.md)
 * [{#T}](ci-cd-serverless.md)

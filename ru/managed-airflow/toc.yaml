@@ -29,7 +29,7 @@ items:
       - name: Автоматизация работы с {{ dataproc-name }}
         href: tutorials/data-proc-automation.md
       - name: Автоматизация задач {{ yq-full-name }}
-        href: tutorials/yandex-query-automation.md
+        href: tutorials/airflow-auto-tasks.md
       - name: >-
           Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud }}
           Python SDK

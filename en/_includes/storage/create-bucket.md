@@ -81,7 +81,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need _at least_ the 
 
       {% cut "Optional parameters" %}
 
-      * `--default-storage-class`: [Storage class](../../storage/concepts/storage-class.md). The possible values include:
+      * `--default-storage-class`: [Storage class](../../storage/concepts/storage-class.md). Possible values:
          * `standard`: Standard storage. It is installed by default.
          * `cold`: Cold storage.
          * `ice`: Ice storage.
@@ -187,7 +187,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need _at least_ the 
    ```
 
    Where:
-   * The possible types of ACL permissions include:
+   * Possible types of ACL permissions:
       * `--grant-read`: Permission to access the list of objects in the bucket, read various bucket settings (lifecycle, CORS, static hosting), and read all objects in the bucket.
       * `--grant-write`: Permission to write, overwrite, and delete objects in the bucket. It is used only together with `--grant-read`.
       * `--grant-full-control`: Full access to the bucket and the objects in it.
@@ -205,6 +205,8 @@ To create a [bucket](../../storage/concepts/bucket.md), you need _at least_ the 
    For more information about the `aws s3api create-bucket` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html).
 
 - {{ TF }} {#tf}
+
+   {% include [terraform-role](terraform-role.md) %}
 
    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
@@ -238,9 +240,9 @@ To create a [bucket](../../storage/concepts/bucket.md), you need _at least_ the 
       }
 
       // Assigning roles to the service account
-      resource "yandex_resourcemanager_folder_iam_member" "sa-editor" {
+      resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
         folder_id = "<folder_ID>"
-        role      = "storage.editor"
+        role      = "storage.admin"
         member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
       }
 
@@ -282,7 +284,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need _at least_ the 
 
 
          * `max_size`: Maximum bucket size, in bytes.
-         * `default_storage_class`: [Storage class](../../storage/concepts/storage-class.md). The possible values include:
+         * `default_storage_class`: [Storage class](../../storage/concepts/storage-class.md). Possible values:
 
             * `standard`: Standard storage.
             * `cold`: Cold storage.
@@ -302,26 +304,11 @@ To create a [bucket](../../storage/concepts/bucket.md), you need _at least_ the 
 
       For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
-   1. Make sure the configuration files are correct.
-      1. In the command line, go to the folder where you created the configuration file.
-      1. Run a check using this command:
+   1. Create resources:
 
-         ```bash
-         terraform plan
-         ```
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
-   1. Deploy cloud resources.
-      1. If the configuration does not contain any errors, run this command:
-
-         ```bash
-         terraform apply
-         ```
-
-      1. Confirm that you want to create the resources.
-
-      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+   {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

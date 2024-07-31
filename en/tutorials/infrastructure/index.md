@@ -10,12 +10,12 @@ description: "Various use cases for core infrastructure management systems in {{
 ## Fault tolerance and scaling {#fault-tolerance}
 
 * [Configuring a fault-tolerant architecture in {{ yandex-cloud }}](../infrastructure-management/fault-tolerance.md)
-* [Fault-tolerant website with load balancing by {{ network-load-balancer-full-name }}](../web/load-balancer-website.md)
-* [Fault-tolerant website with load balancing by {{ alb-full-name }}](../web/application-load-balancer-website.md)
+* [Fault-tolerant website with load balancing using {{ network-load-balancer-full-name }}](../web/load-balancer-website.md)
+* [Fault-tolerant website with load balancing using {{ alb-full-name }}](../web/application-load-balancer-website.md)
 * [Integrating an L7 load balancer with {{ cdn-full-name }} and {{ objstorage-full-name }}](../web/cdn-storage-integration.md)
 * [Running instance groups with auto-scaling](../infrastructure-management/vm-autoscale.md)
 * [Scheduled scaling of instance groups](../infrastructure-management/vm-scale-scheduled.md)
-* [Auto-scaling an instance group when processing messages from a queue in {{ message-queue-full-name }}](../infrastructure-management/autoscale-monitoring.md)
+* [Automatically scaling an instance group to process messages from a queue in {{ message-queue-full-name }}](../infrastructure-management/autoscale-monitoring.md)
 * [Updating an instance group under load](../infrastructure-management/updating-under-load.md)
 * [Creating a trigger for budgets that invokes a {{ sf-full-name }} function to stop VM instances](../infrastructure-management/serverless-trigger-budget-vm.md)
 * [Deploying a fault-tolerant architecture with preemptible VMs](../infrastructure/nodejs-cron-restart-vm.md)
@@ -24,11 +24,13 @@ description: "Various use cases for core infrastructure management systems in {{
 ## Tools {#tools}
 
 * [Getting started with {{ TF }}](../infrastructure-management/terraform-quickstart.md)
+* [Terraform data sources](../infrastructure-management/terraform-data-sources.md)
 * [Uploading {{ TF }} statuses to {{ objstorage-name }}](../infrastructure-management/terraform-state-storage.md)
 * [Getting started with Packer](../infrastructure-management/packer-quickstart.md)
 * [Building a VM image with a set of infrastructure tools using Packer](../infrastructure-management/packer-custom-image.md)
 * [Locking {{ TF }} states using {{ ydb-full-name }}](../infrastructure-management/terraform-state-lock.md)
 * [Using {{ yandex-cloud }} modules in {{ TF }}](../infrastructure-management/terraform-modules.md)
+* [Running a Docker image on a VM](../infrastructure-management/run-docker-on-vm/index.md)
 
 ## Network {#routing}
 

@@ -204,7 +204,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -270,14 +270,22 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-role](../../_includes/storage/terraform-role.md) %}
+
+   1. Describe the parameters for creating a service account and access key in the configuration file:
+
+      {% include [terraform-sa-key](../../_includes/storage/terraform-sa-key.md) %}
+
    1. Add bucket parameters to the configuration file:
 
       ```hcl
       ...
 
       resource "yandex_storage_bucket" "<bucket_name>" {
-        bucket = "<bucket_name>"
-        acl    = "public-read"
+        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+        bucket     = "<bucket_name>"
+        acl        = "public-read"
       }
       ```
 
@@ -285,7 +293,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -374,7 +382,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
       1. Make sure the configuration files are correct.
 
-         1. In the command line, go to the directory where you created the configuration file.
+         1. In the command line, go to the folder where you created the configuration file.
          1. Run a check using this command:
 
             ```bash
@@ -539,7 +547,7 @@ To create security groups:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -716,7 +724,7 @@ To create security groups:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -939,7 +947,7 @@ To create security groups:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -1112,7 +1120,7 @@ To create security groups:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -1186,7 +1194,7 @@ To configure DNS:
    {% endlist %}
 
 1. On the site of your DNS hosting provider, go to the DNS settings.
-1. Create or edit a CNAME record for `cdn.yandexcloud.example` to link them to the copied domain name:
+1. Create or edit a CNAME record for `cdn.yandexcloud.example` so that it points to the copied domain name:
 
    ```
    cdn CNAME cl-********.edgecdn.ru
@@ -1279,7 +1287,7 @@ To configure DNS:
 
       1. Make sure the configuration files are correct.
 
-         1. In the command line, go to the directory where you created the configuration file.
+         1. In the command line, go to the folder where you created the configuration file.
          1. Run a check using this command:
 
             ```bash
@@ -1327,7 +1335,7 @@ To check the service performance, open `https://cdn.yandexcloud.example/index.ht
 
 ## How to delete the resources you created {#clear-out}
 
-To shut down the infrastructure and stop paying for the created resources:
+To shut down the infrastructure and stop paying for the resources you created:
 
 1. If you set up CNAME records in {{ dns-name }}, [delete](../../dns/operations/zone-delete.md) the `example-dns-zone` DNS zone.
 1. [Delete](../../cdn/operations/resources/delete-resource.md) the CDN resource with the primary `cdn.yandexcloud.example` domain name.

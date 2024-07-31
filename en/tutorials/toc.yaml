@@ -36,7 +36,13 @@ items:
       - name: Fault protection with Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
       - name: Single-node file server
-        href: archive/single-node-file-server.md
+        items:
+          - name: Overview
+            href: archive/single-node-file-server/index.md
+          - name: Management console
+            href: archive/single-node-file-server/console.md
+          - name: '{{ TF }}'
+            href: archive/single-node-file-server/terraform.md
       - name: Configuring an SFTP server based on CentOS 7
         href: archive/backup-and-archive-to-sftp.md
       - name: Creating a VM backup with Hystax Acura Backup
@@ -147,6 +153,14 @@ items:
             href: infrastructure-management/terraform-state-lock.md
           - name: Using {{ yandex-cloud }} modules in {{ TF }}
             href: infrastructure-management/terraform-modules.md
+          - name: Running a Docker image on a VM
+            items:
+              - name: Overview
+                href: infrastructure-management/run-docker-on-vm/index.md
+              - name: Management console, CLI, and API
+                href: infrastructure-management/run-docker-on-vm/console.md
+              - name: '{{ TF }}'
+                href: infrastructure-management/run-docker-on-vm/terraform.md
       - name: Network
         items:
           - name: Configuring clock synchronization using NTP
@@ -218,10 +232,22 @@ items:
                 href: web/joomla-postgresql/console.md
               - name: '{{ TF }}'
                 href: web/joomla-postgresql/terraform.md
-          - name: WordPress website
-            href: web/wordpress.md
+          - name: Creating a website in WordPress
+            items:
+              - name: Overview
+                href: web/wordpress/index.md
+              - name: Management console
+                href: web/wordpress/console.md
+              - name: '{{ TF }}'
+                href: web/wordpress/terraform.md
           - name: WordPress website on a {{ MY }} database
-            href: web/wordpress-mysql.md
+            items:
+              - name: Overview
+                href: web/wordpress-mysql/index.md
+              - name: Management console
+                href: web/wordpress-mysql/console.md
+              - name: '{{ TF }}'
+                href: web/wordpress-mysql/terraform.md
           - name: >-
               Transferring a WordPress website from a different hosting provider
               to {{ yandex-cloud }}
@@ -632,27 +658,27 @@ items:
             href: datalens/data-from-ch-geocoder.md
       - name: Service analytics
         items:
-          - name: 'Yandex Metrica: direct connection'
+          - name: 'Yandex Metrica: Direct connection'
             href: datalens/data-from-metrica-visualization.md
-          - name: 'Yandex Metrica: data export, post-processing, and visualization'
+          - name: 'Yandex Metrica: Export, post-processing, and data visualization'
             href: datalens/data-from-metrica-yc-visualization.md
-          - name: 'AppMetrica: direct connection'
+          - name: 'AppMetrica: Direct connection'
             href: datalens/data-from-appmetrica-visualization.md
-          - name: 'AppMetrica: data export, post-processing, and visualization'
+          - name: 'AppMetrica: Export, post-processing, and data visualization'
             href: datalens/data-from-appmetrica-yc-visualization.md
-          - name: 'Bitrix24: direct connection'
+          - name: 'Bitrix24: Direct connection'
             href: datalens/data-from-bitrix24-visualization.md
-          - name: '{{ tracker-full-name }}: data export and visualization'
+          - name: '{{ tracker-full-name }}: Export and data visualization'
             href: datalens/data-from-tracker.md
           - name: Analyzing {{ objstorage-name }} logs in {{ datalens-name }}
             href: datalens/storage-logs-analysis.md
-          - name: 'Yandex Music podcasts: statistics'
+          - name: 'Yandex Music podcasts: Statistics'
             href: datalens/data-from-podcasts.md
           - name: Visualizing {{ yq-full-name }} data
             href: datalens/data-from-yandex-query-visualization.md
           - name: Visualizing {{ monitoring-full-name }} data
             href: datalens/data-from-monitoring-visualization.md
-          - name: Visualizing {{ ytsaurus-name }}} CHYT data
+          - name: Visualization of data from {{ ytsaurus-name }}} CHYT
             href: datalens/data-from-ch-over-yt.md
       - name: Functional
         items:

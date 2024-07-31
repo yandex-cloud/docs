@@ -21,15 +21,25 @@ In {{ postbox-name }}, you can manage access using both service and primitive ro
 
 ### Service roles {#service-roles}
 
-{% include [roles-postbox-sender](../../_includes/roles-postbox-sender.md) %}
+#### postbox.sender {#postbox-sender}
 
-{% include [roles-postbox-auditor](../../_includes/roles-postbox-auditor.md) %}
+{% include [postbox.sender](../../_roles/postbox/sender.md) %}
 
-{% include [roles-postbox-viewer](../../_includes/roles-postbox-viewer.md) %}
+#### postbox.auditor {#postbox-auditor}
 
-{% include [roles-postbox-editor](../../_includes/roles-postbox-editor.md) %}
+{% include [postbox.auditor](../../_roles/postbox/auditor.md) %}
 
-{% include [roles-postbox-admin](../../_includes/roles-postbox-admin.md) %}
+#### postbox.viewer {#postbox-viewer}
+
+{% include [postbox.viewer](../../_roles/postbox/viewer.md) %}
+
+#### postbox.editor {#postbox-editor}
+
+{% include [postbox.editor](../../_roles/postbox/editor.md) %}
+
+#### postbox.admin {#postbox-admin}
+
+{% include [postbox.admin](../../_roles/postbox/admin.md) %}
 
 ### Primitive roles {#primitive-roles}
 

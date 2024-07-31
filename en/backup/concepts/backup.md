@@ -5,6 +5,8 @@ description: "In this tutorial, you will learn about backups in {{ backup-name }
 
 # Backups
 
+{% include [vm-running](../../_includes/backup/vm-running.md) %}
+
 ## Backup types {#types}
 
 * _Full backups_ contain all data required for VM recovery. VMs recover faster from full backups than from incremental backups. However, full backups take up more storage space and it takes longer to create them.

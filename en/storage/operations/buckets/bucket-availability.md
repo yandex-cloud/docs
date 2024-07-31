@@ -19,7 +19,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+   1. In the [management console]({{ link-console-main }}), select the folder.
    1. Select **{{ objstorage-name }}**.
    1. Click the bucket name.
    1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
@@ -67,9 +67,9 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
 
       Where:
       * `--name`: Name of the bucket to enable public access to.
-      * `--public-read`: Flag to enable public read access to bucket objects.
+      * `--public-read`: Flag to enable public access to read bucket objects.
       * `--public-list`: Flag to enable public access to view the list of bucket objects.
-      * `--public-config-read`: Flag to enable public read access to the bucket configuration.
+      * `--public-config-read`: Flag to enable public access to read the bucket configuration.
 
       `name`: Required parameter. Other parameters are optional. By default, no public access to buckets is allowed.
 
@@ -90,6 +90,8 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
       ```
 
 - {{ TF }} {#tf}
+
+   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
 
    {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
@@ -117,7 +119,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
 
       Where:
       * `access_key`: [Static access key](../../../iam/concepts/authorization/access-key.md) ID.
-      * `secret_key`: Secret access key value.
+      * `secret_key`: Value of the secret access key.
       * `bucket`: Name of the bucket to enable public access to.
       * `anonymous_access_flags`: Public access parameters:
          * `read`: Public access to read bucket objects.
@@ -128,7 +130,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```
@@ -167,7 +169,7 @@ If your bucket has access policies, you will also need to [configure](./policy.m
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+   1. In the [management console]({{ link-console-main }}), select the folder.
    1. Select **{{ objstorage-name }}**.
    1. Click the bucket name.
    1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
@@ -265,7 +267,7 @@ If your bucket has access policies, you will also need to [configure](./policy.m
 
       Where:
       * `access_key`: [Static access key](../../../iam/concepts/authorization/access-key.md) ID.
-      * `secret_key`: Secret access key value.
+      * `secret_key`: Value of the secret access key.
       * `bucket`: Name of the bucket to disable public access to.
       * `anonymous_access_flags`: Public access parameters:
          * `read`: Public access to read bucket objects.
@@ -276,7 +278,7 @@ If your bucket has access policies, you will also need to [configure](./policy.m
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```

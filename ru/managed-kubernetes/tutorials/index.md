@@ -72,3 +72,4 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 * [{#T}](marketplace/metrics-provider.md)
 * [{#T}](marketplace/thumbor.md)
 * [{#T}](marketplace/istio.md)
+* [{#T}](marketplace/hashicorp-vault.md)

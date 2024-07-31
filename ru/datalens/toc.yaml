@@ -92,22 +92,16 @@ items:
         href: concepts/caching.md
       - name: Объединение данных
         href: concepts/data-join.md
-      - name: Пошаговые инструкции
+      - name: Базы данных
         items:
           - name: Создание подключения к {{ CH }}
             href: operations/connection/create-clickhouse.md
-          - name: Создание подключения к {{ MY }}
-            href: operations/connection/create-mysql.md
           - name: Создание подключения к {{ PG }}
             href: operations/connection/create-postgresql.md
-          - name: Создание подключения к {{ MS }}
-            href: operations/connection/create-mssql-server.md
-          - name: Создание подключения к Oracle Database
-            href: operations/connection/create-oracle.md
+          - name: Создание подключения к {{ MY }}
+            href: operations/connection/create-mysql.md
           - name: Создание подключения к {{ ydb-short-name }}
             href: operations/connection/create-ydb.md
-          - name: Создание подключения к {{ GP }}
-            href: operations/connection/create-greenplum.md
           - name: Создание подключения к {{ ytsaurus-name }} CHYT
             items:
               - name: Подключение
@@ -116,34 +110,44 @@ items:
                 href: operations/connection/chyt/chyt-global-join.md
               - name: Рекомендации
                 href: operations/connection/chyt/chyt-recommendations.md
-          - name: Создание подключения к {{ datalens-short-name }} Usage Analytics
-            href: operations/connection/create-usage-tracking.md
-          - name: Создание подключения к файлу
+          - name: Создание подключения к {{ GP }}
+            href: operations/connection/create-greenplum.md
+          - name: Создание подключения к {{ MS }}
+            href: operations/connection/create-mssql-server.md
+          - name: Создание подключения к Oracle Database
+            href: operations/connection/create-oracle.md
+          - name: Создание подключения к {{ prometheus-name }}
+            href: operations/connection/create-prometheus.md
+          - name: Создание подключения к BigQuery
+            href: operations/connection/create-big-query.md
+          - name: Создание подключения к Snowflake
+            href: operations/connection/create-snowflake.md
+      - name: Файлы и сервисы
+        items:
+          - name: Создание подключения к файлам
             href: operations/connection/create-file.md
           - name: Создание подключения к Яндекс Документам
             href: operations/connection/create-yadocs.md
           - name: Создание подключения к Google Sheets
             href: operations/connection/create-google-sheets.md
-          - name: Создание подключения к BigQuery
-            href: operations/connection/create-big-query.md
-          - name: Создание подключения к {{ prometheus-name }}
-            href: operations/connection/create-prometheus.md
           - name: Создание подключения к {{ yq-full-name }}
             href: operations/connection/create-yandex-query.md
-          - name: Создание подключения к {{ monitoring-full-name }}
-            href: operations/connection/create-monitoring.md
-          - name: Создание подключения к Битрикс24
-            href: operations/connection/create-bitrix24.md
-          - name: Создание подключения к подкастам Яндекс Музыки
-            href: operations/connection/create-podcasts.md
           - name: Создание подключения к Metrica API
             href: operations/connection/create-metrica-api.md
           - name: Создание подключения к AppMetrica
             href: operations/connection/create-appmetrica.md
           - name: Создание подключения к {{ billing-name }}
             href: operations/connection/create-cloud-billing.md
-          - name: Создание подключения к Snowflake
-            href: operations/connection/create-snowflake.md
+          - name: Создание подключения к {{ monitoring-full-name }}
+            href: operations/connection/create-monitoring.md
+          - name: Создание подключения к {{ datalens-short-name }} Usage Analytics
+            href: operations/connection/create-usage-tracking.md
+      - name: Партнерские подключения
+        items:
+          - name: Создание подключения к Битрикс24
+            href: operations/connection/create-bitrix24.md
+          - name: Создание подключения к подкастам Яндекс Музыки
+            href: operations/connection/create-podcasts.md
   - name: Датасеты
     items:
       - name: Обзор
@@ -839,7 +843,6 @@ items:
       - name: Январь 2024
         href: release-notes/2401.md
   - name: Решение проблем
-    expanded: true
     items:
       - name: Рекомендации по оптимизации
         href: concepts/optimization_recommendations.md

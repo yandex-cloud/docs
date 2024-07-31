@@ -259,6 +259,8 @@ items:
             href: tutorials/marketplace/thumbor.md
           - name: Использование Istio
             href: tutorials/marketplace/istio.md
+          - name: Использование HashiCorp Vault для хранения секретов
+            href: tutorials/marketplace/hashicorp-vault.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

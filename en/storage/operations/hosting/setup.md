@@ -50,7 +50,7 @@ description: "Follow this guide to set up hosting."
       Where:
 
       * `index`: Absolute path to the file of the website home page.
-      * `error`: Absolute path to the file displayed to the user upon a 4xx error.
+      * `error`: Absolute path to the file the user will see in case of 4xx errors.
 
    1. Run the following command:
 
@@ -92,6 +92,8 @@ description: "Follow this guide to set up hosting."
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    Before you start, retrieve the [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and a key ID used for authentication in {{ objstorage-short-name }}.
@@ -107,9 +109,26 @@ description: "Follow this guide to set up hosting."
         zone      = "{{ region-id }}-a"
       }
 
+      resource "yandex_iam_service_account" "sa" {
+        name = "<service_account_name>"
+      }
+
+      // Assigning a role to a service account
+      resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
+        folder_id = "<folder_ID>"
+        role      = "storage.admin"
+        member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
+      }
+
+      // Creating a static access key
+      resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
+        service_account_id = yandex_iam_service_account.sa.id
+        description        = "static access key for object storage"
+      }
+
       resource "yandex_storage_bucket" "test" {
-        access_key = "<static_key_ID>"
-        secret_key = "<secret_key>"
+        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
         bucket     = "<bucket_name>"
         acl        = "public-read"
 
@@ -131,11 +150,11 @@ description: "Follow this guide to set up hosting."
       * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
          * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
-         * `error_document`: Absolute path to the file displayed to the user on `4xx` errors. This is an optional parameter.
+         * `error_document`: Absolute path to the file the user will see in case of `4xx` errors. This is an optional parameter.
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```
@@ -188,7 +207,7 @@ description: "Follow this guide to set up hosting."
       yc storage bucket update --help
       ```
 
-   1. Create a file with redirect settings in JSON format, here is an example:
+   1. Create a file with redirect settings in JSON format, for example:
 
       ```json
       {
@@ -262,7 +281,7 @@ description: "Follow this guide to set up hosting."
       * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
          * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
-         * `error_document`: Absolute path to the file displayed to the user on `4xx` errors. This is an optional parameter.
+         * `error_document`: Absolute path to the file the user will see in case of `4xx` errors. This is an optional parameter.
          * `redirect_all_requests_to`: Domain name of the host to act as the redirect target for all requests to the current bucket. You can set a protocol prefix (`http://` or `https://`). By default, the original request's protocol is used.
 
       For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}//storage_bucket#static-website-hosting).
@@ -449,7 +468,7 @@ description: "Follow this guide to set up hosting."
       * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
          * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
-         * `error_document`: Absolute path to the file displayed to the user on `4xx` errors. This is an optional parameter.
+         * `error_document`: Absolute path to the file the user will see in case of `4xx` errors. This is an optional parameter.
          * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q> pair. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the respective API method (the **For conditionally redirecting requests** tab).
 
       For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}//storage_bucket#static-website-hosting).

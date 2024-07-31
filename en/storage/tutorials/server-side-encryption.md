@@ -69,6 +69,8 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-role](../../_includes/storage/terraform-role.md) %}
+
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Describe the resources in the configuration file. In this scenario, the parameters are specified under `locals`:
@@ -151,7 +153,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
          After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
 
-         * `New-buckets-account` service account
+         * Service account named `new-buckets-account`
          * `Editor` role for `new-buckets-account`
          * Static key for the service account
          * Bucket
@@ -291,7 +293,7 @@ Create a new key or use an existing one. To create a key:
 
          After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
 
-         * `New-buckets-account` service account
+         * Service account named `new-buckets-account`
          * `Editor` role for `new-buckets-account`
          * Static key for the service account
          * {{ kms-short-name }} key named `bucket-key`
@@ -439,7 +441,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 
          After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
 
-         * `New-buckets-account` service account
+         * Service account named `new-buckets-account`
          * `Editor` role for `new-buckets-account`
          * Static key for the service account
          * {{ kms-short-name }} key named `bucket-key`
@@ -581,7 +583,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
 
          After the command is executed, {{ TF }} updates the following resources in the specified folder:
 
-         * `new-buckets-account` service account
+         * Service account named `new-buckets-account`
          * `Editor` role for `new-buckets-account`
          * Static key for the service account
          * {{ kms-short-name }} key named `bucket-key`

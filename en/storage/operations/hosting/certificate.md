@@ -18,7 +18,7 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+   1. In the [management console]({{ link-console-main }}), select the folder.
    1. Select **{{ objstorage-name }}**.
    1. Click the name of the bucket you need.
    1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
@@ -65,6 +65,8 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+
    {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    
@@ -88,7 +90,7 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
       ```
 
       Where:
-      * `certificate_id` is the ID of the certificate in {{ certificate-manager-name }} to be used for the bucket.
+      * `certificate_id`: ID of the certificate in {{ certificate-manager-name }} to use for the bucket.
 
       For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-https-certificate).
 
@@ -146,7 +148,7 @@ To upload a certificate:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+   1. In the [management console]({{ link-console-main }}), select the folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click the name of the bucket you need.
    1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.

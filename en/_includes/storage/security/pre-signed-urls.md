@@ -231,7 +231,7 @@ Let's put together a pre-signed URL to download the `object-for-share.txt` objec
      $keyid = "<static_key_ID>";
      $secretkey = "static_key_contents";
      $path = "<object_key>";
-     $objectname = implode("/", array_map("rawurlencode", explode("/", $path)));
+     $objectname = "/".implode("/", array_map("rawurlencode", explode("/", $path)));
      $host = "<bucket_name>.storage.yandexcloud.net";
      $region = "ru-central1";
      $timestamp = time();

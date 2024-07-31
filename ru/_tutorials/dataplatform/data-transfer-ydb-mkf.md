@@ -39,7 +39,7 @@
 
                  Для отслеживания изменений в нескольких таблицах создайте для каждой из них отдельный топик с префиксом `cdc`.
 
-              1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-user) с ролями `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER` для топика `cdc.sensors`. Чтобы включить все созданные топики, укажите в имени топика `cdc.*`.
+              1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с ролями `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER` для топика `cdc.sensors`. Чтобы включить все созданные топики, укажите в имени топика `cdc.*`.
 
           * Если для управления топиками используется Kafka Admin API:
 

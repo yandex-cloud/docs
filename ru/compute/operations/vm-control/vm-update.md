@@ -185,3 +185,5 @@
   Передайте в поле `metadata` пару `enable-oslogin=true` в методе REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или в вызове gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
 
 {% endlist %}
+
+{% include [metadata-keys](../../../_includes/compute/metadata-keys.md) %}

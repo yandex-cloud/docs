@@ -19,7 +19,7 @@ Calculating the cost of storage for {{ KF }} broker hosts:
 
 Where:
 * 3 is the number of {{ KF }} broker hosts.
-* 100: Amount of HDD network storage (in GB).
+* 100: Amount of network HDD storage (in GB).
 * $0.025600: Cost of using 1 GB of network HDD storage per month.
 
 Cost calculation for {{ ZK }} hosts:

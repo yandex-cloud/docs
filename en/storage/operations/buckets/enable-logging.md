@@ -37,7 +37,7 @@ To log requests to the bucket:
 
       To enable logging via the [AWS CLI](../../tools/aws-cli.md):
 
-      1. Create a file with logging settings in JSON format. Here is an example:
+      1. Create a file with logging settings in JSON format. For example:
 
          ```json
          {
@@ -69,7 +69,15 @@ To log requests to the bucket:
 
    - {{ TF }} {#tf}
 
-      To enable logging for a bucket you want to track:
+      {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+
+      {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+      
+      {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+
+      To enable logging for a bucket that you wish to monitor:
 
       1. Open the {{ TF }} configuration file and add the `logging` section to the fragment describing the bucket.
 

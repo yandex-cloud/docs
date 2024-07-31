@@ -8,6 +8,8 @@ For the connection to work properly, assign a [service account](#sa) with the `b
 
 After connecting to {{ backup-name }}, [add](../operations/policy-vm/attach-and-detach-vm.md#attach-vm) the VM to the [backup policy](policy.md).
 
+{% include [vm-running](../../_includes/backup/vm-running.md) %}
+
 ## VM configuration requirements {#requirements}
 
 A VM's minimum configuration required to install and correctly run the {{ backup-name }} agent is as follows:
