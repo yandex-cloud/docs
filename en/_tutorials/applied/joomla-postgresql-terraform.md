@@ -5,7 +5,7 @@
 1. [Configure Joomla](#configure-joomla).
 1. [Upload the website files](#upload-files).
 1. [Create an infrastructure](#deploy).
-1. [Check that the website is running](#test-site).
+1. [Test the website](#test-site).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -63,7 +63,7 @@ To create an infrastructure using {{ TF }}:
    * [Security groups](../../vpc/concepts/security-groups.md): [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group)
    * [VM image](../../compute/concepts/image.md): [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image)
    * [Disk](../../compute/concepts/disk.md): [yandex_compute_disk]({{ tf-provider-resources-link }}/compute_disk)
-   * [VM instance](../../compute/concepts/vm.md): [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).yandex_mdb_postgresql_cluster
+   * [VM instance](../../compute/concepts/vm.md): [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance)
    * [{{ PG }} cluster](../../managed-postgresql/concepts/index.md): [yandex_mdb_postgresql_cluster]({{ tf-provider-resources-link }}/mdb_postgresql_cluster)
    * [{{ PG }} database](../../managed-postgresql/): [yandex_mdb_postgresql_database]({{ tf-provider-resources-link }}/mdb_postgresql_database)
    * [Database user](../../managed-postgresql/operations/cluster-users.md): [yandex_mdb_postgresql_user]({{ tf-provider-resources-link }}/mdb_postgresql_user)
@@ -72,7 +72,7 @@ To create an infrastructure using {{ TF }}:
 
 1. In the `joomla-postgresql-terraform.auto.tfvars` file, set the user-defined parameters:
    * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-   * `vm_user`: VM user name.
+   * `vm_user`: VM username.
    * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
    * `db_user`: Database username, e.g., `joomla`.
 * `db_password`: Password for the database. The password must be 8 to 128 characters long.
@@ -101,7 +101,7 @@ After creating the infrastructure, [install Joomla](#install).
 
 {% include [joomla-postgresql-upload-files](../_tutorials_includes/joomla-postgresql-upload-files.md) %}
 
-## Check that the website is running {#test-site}
+## Test the website {#test-site}
 
 {% include [joomla-postgresql-test-site](../_tutorials_includes/joomla-postgresql-test-site.md) %}
 

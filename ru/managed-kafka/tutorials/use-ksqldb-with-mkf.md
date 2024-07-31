@@ -31,7 +31,7 @@ ksqlDB — это база данных, которая предназначен
    1. Служебный топик `default_ksql_processing_log` для записи логов ksqlDB. Настройки топика могут быть любыми.
    1. Топик для хранения данных `locations`. Настройки топика могут быть любыми.
 
-1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-user) с именем `ksql` и [назначьте ему роль](../operations/cluster-accounts#grant-permission) `ACCESS_ROLE_ADMIN` для всех топиков.
+1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `ksql` и [назначьте ему роль](../operations/cluster-accounts#grant-permission) `ACCESS_ROLE_ADMIN` для всех топиков.
 
 1. Убедитесь, что вы можете подключиться к серверу ksqlDB.
 

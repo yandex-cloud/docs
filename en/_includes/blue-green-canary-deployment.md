@@ -213,7 +213,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -284,19 +284,29 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-role](storage/terraform-role.md) %}
+
+   1. Describe the parameters for creating a service account and access key in the configuration file:
+
+      {% include [terraform-sa-key](storage/terraform-sa-key.md) %}
+
    1. Add the parameters of the blue (backend stable version) and green (backend test version) buckets to the configuration file:
 
       ```hcl
       ...
 
       resource "yandex_storage_bucket" "canary-bucket-blue" {
-        bucket = "<blue_bucket_name>"
-        acl    = "public-read"
+        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+        bucket     = "<blue_bucket_name>"
+        acl        = "public-read"
       }
 
       resource "yandex_storage_bucket" "canary-bucket-green" {
-        bucket = "<green_bucket_name>"
-        acl    = "public-read"
+        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+        bucket     = "<green_bucket_name>"
+        acl        = "public-read"
       }
       ```
 
@@ -304,7 +314,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -429,7 +439,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
       1. Make sure the configuration files are correct.
 
-         1. In the command line, go to the directory where you created the configuration file.
+         1. In the command line, go to the folder where you created the configuration file.
          1. Run a check using this command:
 
             ```bash
@@ -592,7 +602,7 @@ To create security groups:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -846,7 +856,7 @@ To create security groups:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -1069,7 +1079,7 @@ To create security groups:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -1256,7 +1266,7 @@ To create security groups:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -1330,7 +1340,7 @@ To configure DNS:
    {% endlist %}
 
 1. On the site of your DNS hosting provider, go to the DNS settings.
-1. Create or edit CNAME records for `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` to link them to the copied domain name:
+1. Create or edit CNAME records for `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` so that they point to the copied domain name:
 
    ```
    cdn CNAME cl-********.edgecdn.ru
@@ -1434,7 +1444,7 @@ To configure DNS:
 
       1. Make sure the configuration files are correct.
 
-         1. In the command line, go to the directory where you created the configuration file.
+         1. In the command line, go to the folder where you created the configuration file.
          1. Run a check using this command:
 
             ```bash

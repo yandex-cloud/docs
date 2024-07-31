@@ -6,7 +6,7 @@ With WordPress, you can create news sites, personal or corporate blogs, business
 
 It allows you to launch your website with minimal effort using one of the many available templates or your own design. Ready-made plugins help you easily add new blocks or features to a created service.
 
-In {{ yandex-cloud }}, you can quickly [create a website on WordPress](../../tutorials/web/wordpress.md) or transfer from another hosting provider.
+In {{ yandex-cloud }}, you can quickly [create a website on WordPress](../../tutorials/web/wordpress/index.md) or transfer from another hosting provider.
 
 To transfer a WordPress CMS website to {{ yandex-cloud }}:
 

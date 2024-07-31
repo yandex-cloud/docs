@@ -1,4 +1,4 @@
-| Resource | Cost per hour | Cost per month |
+| Resource | Price per hour | Price per month |
 |----------------|---------------------------------------------------:|---------------------------------------------------------:|
 | **Intel Broadwell** |
 | 5% vCPU | {{ sku|USD|mdb.zk.clickhouse.v1.cpu.c5|string }} | {{ sku|USD|mdb.zk.clickhouse.v1.cpu.c5|month|string }} |

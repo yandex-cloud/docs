@@ -1,8 +1,8 @@
 {% list tabs %}
 
-- Costs per hour
+- Prices per hour
 
-   | Resource | Cost per hour | With CVoS for 6 months | With CVoS for 1 year |
+   | Resource | Price per hour | With CVoS for 6 months | With CVoS for 1 year |
    |------------------------------------|---------------------------------------------------:|--------------------------------------------------------------------------------:|--------------------------------------------------------------------------------:|
    | **Intel Broadwell** |
    | 5% vCPU (**burstable**, 2 GB RAM) | {{ sku|USD|mdb.cluster.redis.v1.cpu.c5|string }} | − | − |
@@ -22,9 +22,9 @@
    | 100% vCPU | $0.019360 | − | − |
    | RAM (for 1 GB) | $0.003680 | − | − |
 
-- Costs per month
+- Prices per month
 
-   | Resource | Cost per hour | With CVoS for 6 months | With CVoS for 1 year |
+   | Resource | Price per hour | With CVoS for 6 months | With CVoS for 1 year |
    |------------------------------------|---------------------------------------------------------:|--------------------------------------------------------------------------------------:|--------------------------------------------------------------------------------------:|
    | **Intel Broadwell** |
    | 5% vCPU (**burstable**, 2 GB RAM) | {{ sku|USD|mdb.cluster.redis.v1.cpu.c5|month|string }} | − | − |

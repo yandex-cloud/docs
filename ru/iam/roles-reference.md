@@ -381,6 +381,10 @@ description: "В статье приведен полный справочник
 
 {% include [organization-manager.federations.viewer](../_roles/organization-manager/federations/viewer.md) %}
 
+#### organization-manager.federations.userAdmin {#organization-manager-federations-userAdmin}
+
+{% include [organization-manager.federations.userAdmin](../_roles/organization-manager/federations/userAdmin.md) %}
+
 #### organization-manager.federations.admin {#organization-manager-federations-admin}
 
 {% include [organization-manager.federations.admin](../_roles/organization-manager/federations/admin.md) %}

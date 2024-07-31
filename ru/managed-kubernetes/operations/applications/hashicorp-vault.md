@@ -180,5 +180,8 @@
 
 ## См. также {#see-also}
 
-* [Документация HashiCorp Vault](https://developer.hashicorp.com/vault/docs?product_intent=vault).
-* [Документация {{ kms-name }}](../../../kms/).
+* [Документация HashiCorp Vault](https://developer.hashicorp.com/vault/docs?product_intent=vault)
+* [Документация {{ kms-name }}](../../../kms/)
+* [{#T}](../../tutorials/marketplace/hashicorp-vault.md)
+* [{#T}](./external-secrets-operator.md)
+* [{#T}](../../tutorials/kubernetes-lockbox-secrets.md)

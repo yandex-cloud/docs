@@ -264,6 +264,7 @@ default:
   link-console-support: https://support.yandex.cloud
   link-datalens-main: https://datalens.yandex.cloud
   link-datalens-settings: https://datalens.yandex.cloud/settings
+  link-datalens-wizard: https://datalens.yandex.cloud/wizard
   link-datasphere-main: https://datasphere.yandex.cloud
   link-docs: https://yandex.cloud/en/docs
   link-forms-b2b: https://forms.yandex.com/cloud/admin
@@ -598,6 +599,7 @@ default:
   s3-c2-m8: s3-c2-m8 (2 vCPU, 8 GB)
   s3-dotnet-sdk-host: s3.yandexcloud.net
   s3-storage-host: storage.yandexcloud.net
+  s3-storage-host-cli: storage.yandexcloud.net
   s3-storage-host-doc-files: storage.yandexcloud.net/doc-files
   s3-storage-host-mch: storage.yandexcloud.net/managed-clickhouse
   s3-web-host: website.yandexcloud.net
@@ -1352,11 +1354,15 @@ default:
     dataproc:
       v2:
         cpu:
+          c100|month|string: ₸432.00
           c100|string: ₸0.60
+        ram|month|string: ₸108.00
         ram|string: ₸0.15
       v3:
         cpu:
+          c100|month|string: ₸432.00
           c100|string: ₸0.60
+        ram|month|string: ₸108.00
         ram|string: ₸0.15
     zk:
       clickhouse:
@@ -2448,11 +2454,15 @@ default:
     dataproc:
       v2:
         cpu:
+          c100|month|string: ₽86.40
           c100|string: ₽0.12
+        ram|month|string: ₽21.60
         ram|string: ₽0.03
       v3:
         cpu:
+          c100|month|string: ₽86.40
           c100|string: ₽0.12
+        ram|month|string: ₽21.60
         ram|string: ₽0.03
     zk:
       clickhouse:
@@ -3542,10 +3552,6 @@ default:
         cpu:
           c100|string: $0.000960
           c50|string: $0.000480
-        ram|string: $0.000240
-      v3:
-        cpu:
-          c100|string: $0.000960
         ram|string: $0.000240
     zk:
       clickhouse:
@@ -6005,6 +6011,7 @@ default:
             switch_none: No address
           one-to-one-nat-form:
             button_submit: Add
+            field_advanced: Advanced
             field_ddos-protection-provider: DDoS protection
             field_external-type: Public address
             switch_auto: Auto
@@ -6227,6 +6234,7 @@ default:
             button_edit-network-interface: Edit
             button_remove-public-ip: Disassociate public IP address
             field_ua-enabled: Agent for delivering metrics
+            label_host: Internal FQDN
             label_network-interface: Network interface
             label_public-ipv4: Public IPv4
             popup-confirm_button_remove-one-to-one-nat: Delete
@@ -7374,6 +7382,7 @@ default:
           switch_users: Users
         field_backup_priority: Backup priority
         field_priority: Master priority
+        switch_list: Clusters
       opensearch:
         auth:
           button_save: Save
@@ -7865,11 +7874,14 @@ default:
           popup-create_field_zone: Availability zone
         button_move-vpc-object: Move
         gateways:
+          button_create-gateway: Create gateway
+          field_name: Name
           field_type: Type
           value_gateway-type-egress-nat: Egress NAT
         label_network: Network
         network:
           overview:
+            button_create_route-table: Create routing table
             button_create_subnetwork: Create subnet
             column_subnetwork_id: ID
             section_subnetworks: Subnets
@@ -7902,6 +7914,7 @@ default:
             label_ingress: Ingress
           switch_overview: Overview
           switch_route-table: Routing tables
+          switch_security-groups: Security groups
         networks:
           button_create: Create network
           create:
@@ -9574,10 +9587,6 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor
         tag: 0.1.1-4
-    yc_vault-yckms-k8s:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/vault/chart/vault
-        tag: 0.28.0_yckms
     yc_velero-yc-csi:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero

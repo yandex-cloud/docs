@@ -102,8 +102,8 @@ items:
         href: tutorials/billing.md
       - name: Анализ данных с помощью Jupyter
         href: tutorials/jupyter.md
-      - name: Автоматизация с помощью {{ maf-short-name }}
-        href: tutorials/airflow.md
+      - name: Автоматизация задач с помощью {{ maf-short-name }}
+        href: tutorials/airflow-auto-tasks.md
   - name: Работа с YQL
     items:
       - name: Обзор

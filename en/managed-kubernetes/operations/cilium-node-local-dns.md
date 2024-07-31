@@ -17,7 +17,7 @@ To set up a local DNS in a [{{ managed-k8s-name }} cluster](../concepts/index.md
 
 1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
 
-   When creating it, specify the service account and the security groups prepared in advance. Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**, select **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
+   When creating it, specify the service account and security groups prepared in advance. Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**, select **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
 
 1. [Create a node group](node-group/node-group-create.md) of any suitable configuration. When creating it, specify the security groups prepared in advance.
 

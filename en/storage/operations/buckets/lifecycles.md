@@ -23,7 +23,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. Define the object lifecycle configuration in JSON format. Here is an example:
+   1. Define the object lifecycle configuration in JSON format. For example:
 
       ```json
       {
@@ -88,7 +88,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
          If no object filter is set, the rule applies to all objects in the bucket.
 
-      * `transitions`: Parameter of a rule for changing the storage class of any objects from standard (`STANDARD`) to cold (`COLD` or `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
+      * `Transitions`: Parameter of a rule for changing the storage class of any objects from standard (`STANDARD`) to cold (`COLD` or `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
          * `date`: Date after which you want the rule to take effect. Format: [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601), e.g., `YYYY-MM-DDT00:00:00Z`. Time: Always 00:00 UTC. You cannot use the `date` key together with the `days` key. This is an optional parameter.
          * `days`: Number of days from object creation date after which the rule will take effect. The minimum value is `1`. You cannot use the `days` key together with the `date` key. This is an optional parameter.
          * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required parameter.
@@ -166,7 +166,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
    To upload a configuration via the [AWS CLI](../../tools/aws-cli.md):
 
-   1. Define the object lifecycle configuration in JSON format. Here is an example:
+   1. Define the object lifecycle configuration in JSON format. For example:
 
       ```json
       {
@@ -230,12 +230,12 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
          If no object filter is set, the rule applies to all objects in the bucket.
 
-      * `Status`: Rule status. This is a required parameter. The possible values include:
+      * `Status`: Rule status. This is a required parameter. The possible values are:
          * `Enabled`: Rule enabled.
          * `Disabled`: Rule disabled.
-      * `transitions`: Parameter of a rule for changing the storage class of any objects from standard (`STANDARD`) to cold (`COLD` or `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
-         * `Date`: Date after which the storage class will change, Format: [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601), e.g., `YYYY-MM-DD`. Time: Always 00:00 UTC. You cannot use the `date` key together with the `days` key. This is an optional parameter.
-         * `Days`: Number of days from object creation date after which the storage class will be changed. The minimum value is `1`. You cannot use the `days` key together with the `date` key. This is an optional parameter.
+      * `Transitions`: Parameter of a rule for changing the storage class of any objects from standard (`STANDARD`) to cold (`COLD` or `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
+         * `Date`: Date after which the storage class will change, Format: [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601), e.g., `YYYY-MM-DD`. Time: Always 00:00 UTC. You cannot use the `Date` key together with the `Days` key. This is an optional parameter.
+         * `Days`: Number of days from object creation date after which the storage class will be changed. The minimum value is `1`. You cannot use the `Days` key together with the `Date` key. This is an optional parameter.
          * `StorageClass`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required parameter.
 
          It is transferred as an array:
@@ -246,8 +246,8 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
          To specify the `Transitions` parameter, you must specify the `Prefix` parameter in the configuration file. At the same time, the `Prefix` value must be empty (`""`).
       * `Expiration`: Parameter of a rule for deleting any objects. This is an optional parameter. It may contain:
-         * `Date`: Date after which the object will be deleted, Format: [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601), e.g., `YYYY-MM-DD`. Time: Always 00:00 UTC. You cannot use the `date` key together with the `days` key. This is an optional parameter.
-         * `Days`: Number of days from object creation date after which the object will be deleted. The minimum value is `1`. You cannot use the `days` key together with the `date` key. This is an optional parameter.
+         * `Date`: Date after which the object will be deleted, Format: [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601), e.g., `YYYY-MM-DD`. Time: Always 00:00 UTC. You cannot use the `Date` key together with the `Days` key. This is an optional parameter.
+         * `Days`: Number of days from object creation date after which the object will be deleted. The minimum value is `1`. You cannot use the `Days` key together with the `Date` key. This is an optional parameter.
          * `ExpiredObjectDeleteMarker`: It triggers when the object has only the current version left. It may take either the `true` or `false` value. This is an optional parameter.
       * `NoncurrentVersionTransitions`: Parameter of a rule for changing the storage class of non-current object versions from standard (`STANDARD`) to cold (`COLD` or `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
          * `NoncurrentDays`: Number of days before changing the storage class of non-current object versions. The minimum value is `1`. This is a required parameter.
@@ -276,6 +276,8 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a static key and a key ID used to authenticate in {{ objstorage-short-name }}.
@@ -290,11 +292,28 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
         token     = "<OAuth_token>"
         }
 
+      resource "yandex_iam_service_account" "sa" {
+        name = "<service_account_name>"
+      }
+
+      // Assigning a role to a service account
+      resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
+        folder_id = "<folder_ID>"
+        role      = "storage.admin"
+        member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
+      }
+
+      // Creating a static access key
+      resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
+        service_account_id = yandex_iam_service_account.sa.id
+        description        = "static access key for object storage"
+      }
+
       resource "yandex_storage_bucket" "bucket" {
         bucket     = "<bucket_name>"
         acl        = "private"
-        access_key = "<key_ID>"
-        secret_key = "<secret_key>"
+        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
 
         lifecycle_rule {
           id      = "log"
@@ -340,8 +359,8 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       resource "yandex_storage_bucket" "versioning_bucket" {
         bucket     = "<bucket_name>"
         acl        = "private"
-        access_key = "<key_ID>"
-        secret_key = "<secret_key>"
+        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
 
         versioning {
           enabled = true
@@ -434,7 +453,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure the configuration files are correct.
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -458,6 +477,6 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
    To manage bucket object lifecycles, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../s3/api-ref/lifecycles/upload.md) S3 API method.
 
-   If you are using the S3 API, specify a lifecycle configuration in [XML format](../../s3/api-ref/lifecycles/xml-config.md).
+   If you are using the S3 API, specify a lifecycle configuration in the [XML format](../../s3/api-ref/lifecycles/xml-config.md).
 
 {% endlist %}

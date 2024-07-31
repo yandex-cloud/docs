@@ -18,7 +18,7 @@
 yq_operator = YQExecuteQueryOperator(task_id="yq_operator", sql="SELECT 'Hello, world!'")
 ```
 
-В данном примере создается задание {{ AF }} с идентификатором `yq_operator`, которое выполняет запрос `SELECT 'Hello, world!'`. Полный пример запуска запроса в {{ yq-full-name }} из {{ maf-short-name }} находится в разделе [{#T}](../tutorials/airflow.md).
+В данном примере создается задание {{ AF }} с идентификатором `yq_operator`, которое выполняет запрос `SELECT 'Hello, world!'`. Полный пример запуска запроса в {{ yq-full-name }} из {{ maf-short-name }} находится в разделе [{#T}](../tutorials/airflow-auto-tasks.md).
 
 ## Возвращаемые значения {#ret_values}
 
@@ -93,6 +93,6 @@ yq_operator = YQExecuteQueryOperator(task_id="yq_operator", sql="SELECT 'Hello, 
 | `EmptyDict` | `{}` |
 
 
-## См. также {#see-also}
+#### См. также {#see-also}
 
-* [{#T}](../tutorials/airflow.md).
+* [{#T}](../tutorials/airflow-auto-tasks.md).

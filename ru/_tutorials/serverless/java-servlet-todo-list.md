@@ -30,8 +30,14 @@
 
 ## Подготовьте окружение {#prepare}
 
-1. [Скачайте](https://{{ s3-storage-host }}/doc-files/servlet.zip) архив с файлами проекта.
-1. [Создайте](../../iam/operations/sa/create.md#create-sa) сервисный аккаунт и [назначьте](../../iam/operations/roles/grant.md#cloud-or-folder) ему роли `{{ roles-viewer }}` и `{{ roles-editor }}` на ваш каталог.
+1. [Создайте](../../iam/operations/sa/create.md#create-sa) сервисный аккаунт и [назначьте](../../iam/operations/roles/grant.md#cloud-or-folder) ему роль `{{ roles-editor }}` на ваш каталог.
+1. Склонируйте [репозиторий](https://github.com/yandex-cloud-examples/yc-serverless-servlet) c проектом:
+
+    ```bash
+    git clone https://github.com/yandex-cloud-examples/yc-serverless-servlet
+    ```
+1. Добавьте содержимое склонированного локального репозитория `yc-serverless-servlet` в ZIP-архив `servlet.zip`. Архив потребуется позднее для создания функций {{ sf-full-name }}.
+
 
 ## Создайте бакет {{ objstorage-name }} {#create-bucket}
 
@@ -136,9 +142,9 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Введите имя `add-task` и описание функции.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите среду выполнения `java21` и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите среду выполнения `java21`, выключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
   1. Подготовьте код функции. Для этого в поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
-  1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** нажмите кнопку **Прикрепить файл** и выберите скачанный архив `servlet.zip`.
+  1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** нажмите кнопку **Прикрепить файл** и выберите созданный ранее архив `servlet.zip`.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** введите `yandex.cloud.examples.serverless.todo.AddTaskServlet`.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** установите значение `10`.
   1. В поле **{{ ui-key.yacloud.forms.label_service-account-select }}** укажите аккаунт, созданный при [подготовке окружения](#prepare).
@@ -190,7 +196,7 @@
      * `--entrypoint` — точка входа, указывается в формате `<имя_файла_с_функцией>`.`<имя_обработчика>`.
      * `--memory` — объем RAM.
      * `--execution-timeout` — максимальное время выполнения функции до таймаута.
-     * `--source-path` — ZIP-архив с кодом функции и необходимыми зависимостями.
+     * `--source-path` — путь к созданному ранее ZIP-архиву `servlet.zip` с кодом функции и необходимыми зависимостями.
      * `--environment` — переменные окружения в формате `key=value`.
 
      Результат:

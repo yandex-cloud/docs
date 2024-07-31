@@ -268,6 +268,7 @@ default:
   link-console-support: https://support.yandex.cloud
   link-datalens-main: https://datalens.yandex.cloud
   link-datalens-settings: https://datalens.yandex.cloud/settings
+  link-datalens-wizard: https://datalens.yandex.cloud/wizard
   link-datasphere-main: https://datasphere.yandex.cloud
   link-docs: https://yandex.cloud/ru/docs
   link-forms-b2b: https://forms.yandex.ru/cloud/admin
@@ -1360,11 +1361,15 @@ default:
     dataproc:
       v2:
         cpu:
+          c100|month|string: "432,00\_₸"
           c100|string: "0,60\_₸"
+        ram|month|string: "108,00\_₸"
         ram|string: "0,15\_₸"
       v3:
         cpu:
+          c100|month|string: "432,00\_₸"
           c100|string: "0,60\_₸"
+        ram|month|string: "108,00\_₸"
         ram|string: "0,15\_₸"
     zk:
       clickhouse:
@@ -2456,11 +2461,15 @@ default:
     dataproc:
       v2:
         cpu:
+          c100|month|string: "86,40\_₽"
           c100|string: "0,12\_₽"
+        ram|month|string: "21,60\_₽"
         ram|string: "0,03\_₽"
       v3:
         cpu:
+          c100|month|string: "86,40\_₽"
           c100|string: "0,12\_₽"
+        ram|month|string: "21,60\_₽"
         ram|string: "0,03\_₽"
     zk:
       clickhouse:
@@ -3550,10 +3559,6 @@ default:
         cpu:
           c100|string: "0,000960\_$"
           c50|string: "0,000480\_$"
-        ram|string: "0,000240\_$"
-      v3:
-        cpu:
-          c100|string: "0,000960\_$"
         ram|string: "0,000240\_$"
     zk:
       clickhouse:
@@ -6015,6 +6020,7 @@ default:
             switch_none: Без адреса
           one-to-one-nat-form:
             button_submit: Добавить
+            field_advanced: Дополнительно
             field_ddos-protection-provider: Защита от DDoS-атак
             field_external-type: Публичный адрес
             switch_auto: Автоматически
@@ -6237,6 +6243,7 @@ default:
             button_edit-network-interface: Изменить
             button_remove-public-ip: Отвязать публичный IP-адрес
             field_ua-enabled: Агент для поставки метрик
+            label_host: Внутренний FQDN
             label_network-interface: Сетевой интерфейс
             label_public-ipv4: Публичный IPv4
             popup-confirm_button_remove-one-to-one-nat: Удалить
@@ -7386,6 +7393,7 @@ default:
           switch_users: Пользователи
         field_backup_priority: Приоритет cоздания бэкапа
         field_priority: Приоритет мастера
+        switch_list: Кластеры
       opensearch:
         auth:
           button_save: Сохранить
@@ -7877,11 +7885,14 @@ default:
           popup-create_field_zone: Зона доступности
         button_move-vpc-object: Переместить
         gateways:
+          button_create-gateway: Создать шлюз
+          field_name: Имя
           field_type: Тип
           value_gateway-type-egress-nat: NAT-шлюз
         label_network: Сеть
         network:
           overview:
+            button_create_route-table: Создать таблицу маршрутизации
             button_create_subnetwork: Создать подсеть
             column_subnetwork_id: Идентификатор
             section_subnetworks: Подсети
@@ -7914,6 +7925,7 @@ default:
             label_ingress: Входящий трафик
           switch_overview: Обзор
           switch_route-table: Таблицы маршрутизации
+          switch_security-groups: Группы безопасности
         networks:
           button_create: Создать сеть
           create:
@@ -9584,10 +9596,6 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor
         tag: 0.1.1-4
-    yc_vault-yckms-k8s:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/vault/chart/vault
-        tag: 0.28.0_yckms
     yc_velero-yc-csi:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero

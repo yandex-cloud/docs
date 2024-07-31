@@ -54,31 +54,31 @@
 
    - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-      1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Введите имя сервисного аккаунта, например, `sa-firezone`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
+     1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+     1. Введите имя сервисного аккаунта, например, `sa-firezone`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
 
-      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      Выполните команду для создания сервисного аккаунта, указав имя `sa-firezone`:
+     Выполните команду для создания сервисного аккаунта, указав имя `sa-firezone`:
 
-      ```bash
-      yc iam service-account create --name sa-firezone
-      ```
+     ```bash
+     yc iam service-account create --name sa-firezone
+     ```
 
-      Где `--name` — имя сервисного аккаунта.
+     Где `--name` — имя сервисного аккаунта.
 
-      Результат:
+     Результат:
 
-      ```text
-      id: ajehr0to1g8b********
-      folder_id: b1gv87ssvu49********
-      created_at: "2023-07-06T09:00:00.665153755Z"
-      name: sa-firezone
-      ```
+     ```text
+     id: ajehr0to1g8b********
+     folder_id: b1gv87ssvu49********
+     created_at: "2023-07-06T09:00:00.665153755Z"
+     name: sa-firezone
+     ```
 
    {% endlist %}
 
@@ -88,19 +88,20 @@
 
    - Консоль управления {#console}
 
-      1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите каталог.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-      1. Найдите аккаунт `sa-firezone` в списке и нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. В открывшемся диалоге нажмите кнопку **Добавить роль** и выберите роль `admin`.
+     1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите каталог.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+     1. Найдите аккаунт `sa-firezone` в списке и нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+     1. В открывшемся диалоге нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль `admin`.
 
    - CLI {#cli}
 
-      Выполните команду:
-      ```
-      yc resource-manager folder add-access-binding <идентификатор_каталога> \
-         --role admin \
-         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
+     Выполните команду:
+
+     ```
+     yc resource-manager folder add-access-binding <идентификатор_каталога> \
+       --role admin \
+       --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
    {% endlist %}
@@ -111,12 +112,13 @@
 
    - CLI {#cli}
 
-      1. Создайте [авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта и запишите его в файл:
+     1. Создайте [авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта и запишите его в файл:
+
          ```
          yc iam key create \
-         --service-account-id <идентификатор_сервисного_аккаунта> \
-         --folder-id <идентификатор_каталога_с_сервисным_аккаунтом> \
-         --output key.json
+           --service-account-id <идентификатор_сервисного_аккаунта> \
+           --folder-id <идентификатор_каталога_с_сервисным_аккаунтом> \
+           --output key.json
          ```
 
          Где:
@@ -134,25 +136,29 @@
          key_algorithm: RSA_2048
          ```
 
-      1. Создайте профиль CLI для выполнения операций от имени сервисного аккаунта:
-         ```
+     1. Создайте профиль CLI для выполнения операций от имени сервисного аккаунта:
+
+         ```bash
          yc config profile create sa-firezone
          ```
 
          Результат:
-         ```
+
+         ```bash
          Profile 'sa-firezone' created and activated
          ```
 
-      1. Задайте конфигурацию профиля:
-         ```
+     1. Задайте конфигурацию профиля:
+
+         ```bash
          yc config set service-account-key key.json
          ```
 
          Где `service-account-key` — файл с авторизованным ключом сервисного аккаунта.
 
-      1.  Сохраните ключ доступа в переменную окружения:
-         ```
+     1. Сохраните ключ доступа в переменную окружения:
+
+         ```bash
          export YC_TOKEN=$(yc iam create-token)
          ```
 
@@ -204,9 +210,9 @@
       | Сертификат Certificate Manager              | 1          |
       | Зона DNS                                    | 1          |
       | Кластер Managed Service for PostgreSQL      | 1          |
-      | Объём SSD-хранилища для кластера PostgreSQL | 10 ГБ      |
+      | Объем SSD-хранилища для кластера PostgreSQL | 10 ГБ      |
       | Количество vCPU для кластера PostgreSQL     | 2          |
-      | Объём памяти для кластера PostgreSQL        | 8          |
+      | Объем памяти для кластера PostgreSQL        | 8          |
 
    {% endcut %}
 
@@ -214,28 +220,32 @@
 
    - {{ TF }} {#tf}
 
-      1. Перейдите в папку `main`
+     1. Перейдите в папку `main`
+
          ```bash
          cd main
          ```
 
-      1. Выполните инициализацию Terraform:
+     1. Выполните инициализацию Terraform:
+
          ```bash
          terraform init
          ```
 
-      1. Проверьте список создаваемых облачных ресурсов:
+     1. Проверьте список создаваемых облачных ресурсов:
+
          ```bash
          terraform plan
          ```
 
-      1. Создайте ресурсы:
+     1. Создайте ресурсы:
+
          ```bash
          terraform apply
          ```
          Дождитесь завершения процесса. Обработка запроса на выдачу сертификата в сервисе Let's Encrypt может выполняться до 30 минут. 
 
-      1. По завершению в командной строке будут выведены URL-адреса для подключения к веб-интерфейсам Firezone и Keycloak, а также учетные записи администраторов Firezone и Keycloak. В дальнейшем эту информацию можно будет посмотреть с помощью команды `terraform output`.
+     1. По завершении в командной строке будут выведены URL-адреса для подключения к веб-интерфейсам Firezone и Keycloak, а также учетные записи администраторов Firezone и Keycloak. В дальнейшем эту информацию можно будет посмотреть с помощью команды `terraform output`.
 
          ```bash
          Outputs:
@@ -268,27 +278,31 @@
 
 - {{ TF }} {#tf}
 
-   1. После завершения развертывания виртуальных машин для Firezone и Keycloak перейдите в папку `keycloak-config`, чтобы выполнить настройку Keycloak для сценария интеграции Keycloak с Firezone и Single Sign-On.
+  1. По завершении развертывания виртуальных машин для Firezone и Keycloak перейдите в папку `keycloak-config`, чтобы выполнить настройку Keycloak для сценария интеграции Keycloak с Firezone и Single Sign-On.
+
       ```bash
       cd ../keycloak-config
       ```
 
-   1. Выполните инициализацию Terraform:
+  1. Выполните инициализацию Terraform:
+
       ```bash
       terraform init
       ```
 
-   1. Проверьте список создаваемых облачных ресурсов:
+  1. Проверьте список создаваемых облачных ресурсов:
+
       ```bash
       terraform plan
       ```
 
-   1. Создайте ресурсы:
+  1. Создайте ресурсы:
+
       ```bash
       terraform apply
       ```
 
-   1. После завершения процесса terraform apply в командной строке будет выведена информация для настройки интеграции Firezone и Keycloak, а также учетная запись тестового пользователя для проверки SSO в Keycloak и подключения к VPN. В дальнейшем эту информацию можно будет посмотреть с помощью команды `terraform output`.
+  1. После завершения процесса terraform apply в командной строке будет выведена информация для настройки интеграции Firezone и Keycloak, а также учетная запись тестового пользователя для проверки SSO в Keycloak и подключения к VPN. В дальнейшем эту информацию можно будет посмотреть с помощью команды `terraform output`.
 
       ```bash
       Outputs:
@@ -329,7 +343,10 @@
 
 ## Протестируйте работу {#test-firezone}
 
-1. Установите на своё устройство [клиент WireGuard](https://www.wireguard.com/install/) с сайта WireGuard. Дальнейшие шаги по настройке клиента WireGuard приведены на примере ОС Windows. Для других ОС название элементов интерфейса клиента может отличаться.
+1. Установите на ваше устройство [клиент WireGuard](https://www.wireguard.com/install/) с сайта WireGuard.
+
+    Дальнейшие шаги по настройке клиента WireGuard приведены на примере ОС Windows. Для других ОС название элементов интерфейса клиента может отличаться.
+
 1. Перейдите в браузере по адресу `https://firezone_url`, где `firezone_url` — вывод команды `terraform output firezone_url` в папке `main`. Если у вас активна сессия администратора в веб-интерфейсе Firezone, то предварительно выполните **Log Out**. Нажмите **Sign in with Keycloak**. Произойдет редирект на веб-страницу Keycloak для Single Sign-On.
 1. Войдите с учетной записью тестового пользователя из вывода команды `terraform output test_user_credentials` в папке `keycloak-config`.
 1. После успешной аутентификации в веб-интерфейсе Firezone с тестовым пользователем добавьте устройство, с которого будет устанавливаться VPN подключение. Для этого нажмите **Add Device**.
@@ -344,7 +361,7 @@
 
 1. Добавьте новый VPN туннель (**Import tunnel(s) from file**) в приложении WireGuard, используя скачанный конфигурационный файл.
 1. Активируйте туннель нажатием на **Activate**.  
-1. Проверьте на своём устройстве в командной строке с помощью `ping 192.168.1.1` доступность шлюза из облачной подсети `firezone`. Вы подключились с помощью VPN туннеля к облачной инфраструктуре.
+1. Проверьте на своем устройстве в командной строке с помощью `ping 192.168.1.1` доступность шлюза из облачной подсети `firezone`. Вы подключились с помощью VPN туннеля к облачной инфраструктуре.
 
    ```bash
    Pinging 192.168.1.1 with 32 bytes of data:
@@ -359,7 +376,7 @@
 
 - {{ TF }} {#tf}
 
-   1. Перейдите на вашей рабочей станции в папку `keycloak-config` и выполните команду `terraform destroy`.
-   1. После этого перейдите в папку `main` и выполните команду `terraform destroy`.
+  1. Перейдите на вашей рабочей станции в папку `keycloak-config` и выполните команду `terraform destroy`.
+  1. После этого перейдите в папку `main` и выполните команду `terraform destroy`.
 
 {% endlist %}

@@ -50,6 +50,6 @@ description: "Различные сценарии использования с�
 
 * [Настройка локального кеширующего DNS-резолвера](../infrastructure-management/local-dns-cache.md)
 * [Миграция DNS-зон из {{ yandex-360 }} в {{ dns-name }}](../infrastructure-management/connect-migration.md)
-* [{#T}](../dataplatform/mdb-dns-peering.md)
+* [{#T}](../dataplatform/clickhouse-dns-peering.md)
 * [{#T}](../infrastructure-management/dns-integration.md)
 * [Создание веб-хука резолвера ACME для ответов на DNS01-проверки](../infrastructure-management/cert-manager-webhook.md)

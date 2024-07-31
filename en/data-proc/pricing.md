@@ -115,23 +115,29 @@ This functionality is at the [Preview](../overview/concepts/launch-stages.md) st
 ## Prices for the Russia region {#prices}
 
 
+
+
+All prices below do not include VAT.
+
+
+{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
+
 ### Host computing resources {#prices-hosts}
 
+#### Standard hosts {#standard-hosts}
 
 
-{% list tabs %}
 
-- Standard hosts
+{% include [usd-standard-hosts](../_pricing/data-proc/usd-standard-hosts.md) %}
 
-  {% include [usd-standard-hosts](../_pricing/data-proc/usd-standard-hosts.md) %}
 
-- Dedicated hosts
+#### Dedicated hosts {#dedicated-hosts}
 
-  For the prices of the computing resources of dedicated hosts, see the [{{ compute-full-name }} documentation](../compute/pricing.md#prices-dedicated-host).
+The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../compute/pricing.md#prices-dedicated-host) and {{ dataproc-name }} markup for using these resources.
 
-  {% include [usd-dedicated-hosts](../_pricing/data-proc/usd-dedicated-hosts.md) %}
 
-{% endlist %}
+
+{% include [usd-dedicated-hosts(../_pricing/data-proc/usd-dedicated-hosts.md) %}
 
 
 {% note info %}

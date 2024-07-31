@@ -1,6 +1,6 @@
 # Обмен файлами с виртуальной машиной Linux
 
-Для обмена файлами с с виртуальной машиной Linux рекомендуется использовать протоколы [SCP](https://ru.wikipedia.org/wiki/SCP) и [SFTP](https://ru.wikipedia.org/wiki/SFTP).
+Для обмена файлами с виртуальной машиной Linux рекомендуется использовать протоколы [SCP](https://ru.wikipedia.org/wiki/SCP) и [SFTP](https://ru.wikipedia.org/wiki/SFTP).
 
 Оба протокола туннелируют TCP-соединений через протокол [SSH](https://ru.wikipedia.org/wiki/SSH) при передаче файлов, обеспечивая тот же уровень безопасности и аутентификации, что и SSH.
 

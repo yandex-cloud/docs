@@ -1,1 +1,1 @@
-{% include [packer-quickstart](../../_tutorials/infrastructure-management/packer-quickstart.md) %}
+{% include [packer-quickstart](../../_tutorials/infrastructure/packer-quickstart.md) %}

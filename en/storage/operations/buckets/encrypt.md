@@ -37,6 +37,8 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
+
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To get started, [obtain an IAM token](../../../iam/operations/iam-token/create-for-sa.md#via-cli) for your service account and save it to a file.
@@ -46,12 +48,28 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
       
       ```
       provider "yandex" {
-        cloud_id  = "<cloud_ID>"
-        folder_id = "<folder_ID>"
-        zone      = "{{ region-id }}-a"
+        cloud_id                 = "<cloud_ID>"
+        folder_id                = "<folder_ID>"
+        zone                     = "{{ region-id }}-a"
         service_account_key_file = "key.json"
         }
 
+      resource "yandex_iam_service_account" "sa" {
+        name = "<service_account_name>"
+      }
+
+      // Assigning a role to a service account
+      resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
+        folder_id = "<folder_ID>"
+        role      = "storage.admin"
+        member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
+      }
+
+      // Creating a static access key
+      resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
+        service_account_id = yandex_iam_service_account.sa.id
+        description        = "static access key for object storage"
+      }
 
       resource "yandex_kms_symmetric_key" "key-a" {
         name              = "<key_name>"
@@ -61,9 +79,9 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
       }
 
       resource "yandex_storage_bucket" "test" {
-        bucket = "<bucket_name>"
-        access_key = "<static_key_ID>"
-        secret_key = "<secret_key>"
+        bucket     = "<bucket_name>"
+        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
         server_side_encryption_configuration {
           rule {
             apply_server_side_encryption_by_default {
@@ -88,7 +106,7 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
          ```
          terraform plan

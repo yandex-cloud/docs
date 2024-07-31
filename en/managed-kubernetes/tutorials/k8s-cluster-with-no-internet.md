@@ -10,10 +10,10 @@ You can create and configure a {{ managed-k8s-name }} cluster with no internet c
 
 To create a {{ managed-k8s-name }} cluster with no internet access:
 
-1. [{#T}](#infra)
-1. [{#T}](#vm)
-1. [{#T}](#check)
-1. [{#T}](#cert)
+1. [{#T}](#infra).
+1. [{#T}](#vm).
+1. [{#T}](#check).
+1. [{#T}](#cert).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -258,7 +258,7 @@ To configure certificate updates using DaemonSet, do the following on your VM:
          hostIPC: true
          containers:
          - name: certificate-updater
-           image: cr.yandex/yc/mk8s-openssl:stable
+           image: {{ registry }}/yc/mk8s-openssl:stable
            command:
              - sh
              - -c
