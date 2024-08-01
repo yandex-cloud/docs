@@ -51,7 +51,7 @@ To get started with the AWS CLI:
       1. In the [management console]({{ link-console-main }}), select a cloud or folder.
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-      1. In the window that opens, select **{{ ui-key.yacloud.common.resource-acl.label_service-accounts }}**.
+      1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts}}**.
       1. Select the required service account from the list or use the search.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list or use the search bar.
       1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.

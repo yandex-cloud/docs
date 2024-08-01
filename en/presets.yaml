@@ -5167,7 +5167,9 @@ default:
         button:
           add-role: Add role
         label:
+          service-accounts: Service accounts
           title: Configuring access bindings
+          user-accounts: User accounts
       marketplace:
         label_product-ids: Product IDs
         product-pricing-type_byol: BYOL
@@ -5964,8 +5966,6 @@ default:
           label_bindings: Roles
           label_inherited-bindings: Inherited roles
           label_service-account: Service account
-          label_service-accounts: Service accounts
-          label_user-accounts: User accounts
           placeholder_filter-by-type: Account type
         save: Save
         save-changes: Save changes
@@ -6188,7 +6188,7 @@ default:
             field_zone: Availability zone
             label_custom-metrics: Metrics
             metric-type-cpu: CPU
-            metric-type-custom: Custom
+            metric-type-custom: Yandex Monitoring
             section_alb: Integration with Application Load Balancer
             section_allocation: Allocation
             section_base: Basic parameters
@@ -7200,6 +7200,7 @@ default:
           button_action-connect: Connect
           button_action-delete: Delete
           button_action-move: Move
+          button_action-resetup: Resynchronize
           button_action-start: Start
           button_action-stop: Stop
           button_create: Create cluster
@@ -7365,7 +7366,6 @@ default:
           switch_shards: Shards
           switch_users: Users
         hosts:
-          action_resetup-host: Resynchronize
           action_stepdown-host: Step down
       monitoring:
         button_open-in-monitoring: Open in Monitoring
@@ -7889,7 +7889,6 @@ default:
             button_add-rule: Add rule
             button_create: Create security group
             forms:
-              button_add-cidr: Add CIDR
               button_select-all-port-range: Select the full range
               field_sg-name: Name
               field_sg-network: Network

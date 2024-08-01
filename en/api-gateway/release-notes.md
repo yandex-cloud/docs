@@ -1,5 +1,11 @@
 # {{ api-gw-full-name }} release notes
 
+## May–June 2024 {#may-june-2024}
+
+### Updates {#updates}
+
+* Added support for the [specification constructor](operations/spec-constructor/index.md).
+
 ## April 2024 {#april-2024}
 
 ### Updates {#updates}

@@ -161,18 +161,6 @@
 
 1. [Создайте пользователя](../../managed-opensearch/operations/cluster-users.md) и назначьте ему эту роль.
 
-## Настройте кластер-приемник {#configure-target}
-
-{% note tip %}
-
-Вы можете поставлять данные в кластер {{ mos-name }} от имени пользователя `admin`, имеющего роль `superuser`, но безопаснее для каждой задачи создавать отдельных пользователей с ограниченными привилегиями. Подробнее см. в разделе [{#T}](../../managed-opensearch/operations/cluster-users.md).
-
-{% endnote %}
-
-1. [Создайте роль]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) с привилегиями `create_index` и `write` для всех индексов (`*`).
-
-1. [Создайте пользователя](../../managed-opensearch/operations/cluster-users.md) и назначьте ему эту роль.
-
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
 1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [источника `{{ KF }}`](../../data-transfer/operations/endpoint/source/kafka.md):

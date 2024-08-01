@@ -122,11 +122,11 @@ Create a {{ mgl-name }} instance and a [VM](../../compute/concepts/vm.md) with a
 
 ## Create {{ GL }} environment variables {#add-variables}
 
-1. Go to **Settings** in the left-hand {{ GL }} panel and select **CI/CD** from the drop-down list.
+1. In {{ GL }}, go to **Settings** in the left-hand panel and select **CI/CD** from the drop-down list.
 1. Click **Expand** next to **Variables**.
 1. Add environment variables with the protection option disabled. All required variables and their values were output by the `bootstrap.sh` script upon its completion:
    * `cloud_id`: Your cloud ID.
-   * `CI_REGISTRY`: ID of the {{ container-registry-name }} registry in the `infra` folder prefixed with `cr.yandex/`.
+   * `CI_REGISTRY`: ID of the {{ container-registry-name }} registry in the `infra` folder prefixed with `{{ registry }}/`.
    * `CI_REGISTRY_KEY`: [Key](../../iam/concepts/users/service-accounts.md#sa-key) of the `builder` service account.
    * `cart_prod`: Name of the production folder in {{ yandex-cloud }}.
    * `DOCAPI_ENDPOINT_prod`: Document API endpoint of the [{{ ydb-full-name }}](../../ydb/) database in the `prod` folder.
@@ -269,7 +269,7 @@ In the `.gitlab-ci.yml` file, the following steps of the CI script are described
 * **delete-test-env**: Deleting the test app.
 * **release**: Deploying the app in production. This stage also uses [deployment environments](https://docs.gitlab.com/ee/ci/environments/). They are created and saved each time the pipeline is run successfully. Use them to restore and deploy the previous app version.
 
-After saving the `.gitlab-ci.yml` configuration file, the build script will start.
+After you save the `.gitlab-ci.yml` configuration file, the build script will start.
 
 ## Check the result {#check-result}
 

@@ -4,7 +4,7 @@ description: "This article describes the {{ api-gw-name }} pricing policy."
 editable: false
 ---
 
-# {{ api-gw-full-name }} pricing
+# {{ api-gw-full-name }} pricing policy
 
 
 
@@ -41,6 +41,10 @@ Cost per month = $0.96 × Number of millions of requests
 
 
 {% include [usd.md](../_pricing/api-gateway/usd.md) %}
+
+You pay for the actual number of calls.
+
+> For example, given that 1,000,000 calls cost $0.960000, 10,000 calls in excess of the free amount will cost $0.009600.
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

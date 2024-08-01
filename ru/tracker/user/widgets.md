@@ -10,5 +10,6 @@
 * [{#T}](./issues-stat.md)
 * [{#T}](./created-and-resolved.md)
 * [{#T}](./cycle-time.md)
+* [{#T}](./flow.md)
 
  Примеры виджетов для дашборда службы поддержки можно найти в разделе [{#T}](../support-process-dashboards.md).

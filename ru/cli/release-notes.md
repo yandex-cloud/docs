@@ -7,6 +7,39 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
+## Версия 0.130.0 (01.08.24) {#version0.130.0}
+
+### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+#### {{ data-transfer-name }}
+
+* В команду `yc datatransfer endpoint create clickhouse-source` добавлен флаг `--cluster-name`, позволяющий указать имя ClickHouse-кластера для переноса данных.
+
+#### {{ marketplace-name }}
+
+* Добавлена команда `yc marketplace reset-password`, ошибочно не попавшая в прошлый релиз.
+
+#### {{ iam-name }} {#iam}
+
+* Из дерева команд `yc iam service-control` удалены команды `pause` и `resume`.
+
+#### {{compute-name }}
+
+* В команду `yc compute host-group list-instances` добавлен флаг `--host-id`, позволяющий указать id хоста в группе хостов для листинга виртуальных машин.
+
+#### {{ load-testing-name }}
+
+* В команду `yc loadtesting agent create` добавлена возможность ожидания подключения созданного агента к сервису {{ load-testing-name }}:
+  * флаг `--wait-ready` — не завершать команду, пока агент не перейдет в статус `READY FOR TEST`;
+  * параметр `--wait-ready-timeout` — максимальное время ожидания для `--wait-ready` (default: 5m).
+
+### Изменения в CLI {#cli}
+
+* Протокол авторизации федеративных аккаунтов изменен на Authorization Code Flow с Proof Key for Code Exchange (PKCE).
+
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.129.0 (16.07.24) {#version0.129.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -45,7 +78,6 @@ description: "На странице представлены релизы YC CLI
 
 * Добавлена команда `yc marketplace reset-password` для сброса пароля на виртуальных машинах с установленным агентом для сброса паролей.
 
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.128.0 (02.07.24) {#version0.128.0}
 

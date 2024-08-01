@@ -106,7 +106,7 @@ If you no longer need the resources you created, [delete](#clear-out) them.
 
    ```bash
    docker build . \
-       -t cr.yandex/<registry_ID>/ubuntu:pgconnect
+       -t {{ registry }}/<registry_ID>/ubuntu:pgconnect
    ```
 
    Check that the image with the specified name appeared in the local repository:
@@ -123,8 +123,8 @@ If you no longer need the resources you created, [delete](#clear-out) them.
       ```bash
       docker login \
       --username iam \
-      --password <IAM token> \
-      cr.yandex
+      --password <IAM_token> \
+      {{ registry }}
       ```
 
    For other methods, see [{#T}](../../container-registry/operations/authentication.md).
@@ -132,7 +132,7 @@ If you no longer need the resources you created, [delete](#clear-out) them.
 1. Push the Docker image to the registry:
 
    ```bash
-   docker push cr.yandex/<registry_ID>/ubuntu:pgconnect
+   docker push {{ registry }}/<registry_ID>/ubuntu:pgconnect
    ```
 
 ## Create and set up a {{ serverless-containers-name }} container {#create-container}
@@ -168,5 +168,5 @@ To stop paying for the resources you created:
 To delete the created Docker image from the local repository, run the command:
 
 ```bash
-docker rmi cr.yandex/<registry_ID>/ubuntu:pgconnect
+docker rmi {{ registry }}/<registry_ID>/ubuntu:pgconnect
 ```
