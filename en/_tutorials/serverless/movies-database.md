@@ -79,7 +79,7 @@ The cost of CRUD API resources includes:
       * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
          ```bash
-         curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+         curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
          exec -l $SHELL
          yc version
          ```
@@ -167,7 +167,7 @@ The cost of CRUD API resources includes:
       * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
          ```bash
-         curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+         curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
          exec -l $SHELL
          yc version
          ```
@@ -591,13 +591,13 @@ To stop paying for resources created using {{ TF }}, delete them. In the termina
 terraform destroy
 ```
 
-Confirm resource deletion: type `yes` in the terminal and press **Enter**.
+Confirm the resource deletion: type `yes` in the terminal and press **Enter**.
 
 #### See also {#see-also}
 
-* [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md)
-* [{{ TF }} reference. {{ yandex-cloud }} provider]({{ tf-provider-link }})
-* [Document table](../../ydb/operations/schema.md)
-* [X-yc-apigateway-integration extension](../../api-gateway/concepts/extensions/containers.md)
-* [{#T}](../../serverless-containers/concepts/logs.md)
-* [{#T}](../../serverless-containers/operations/monitoring.md)
+* [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
+* [{{ TF }} reference. {{ yandex-cloud }} provider]({{ tf-provider-link }}).
+* [Document table](../../ydb/operations/schema.md).
+* [X-yc-apigateway-integration extension](../../api-gateway/concepts/extensions/containers.md).
+* [{#T}](../../serverless-containers/concepts/logs.md).
+* [{#T}](../../serverless-containers/operations/monitoring.md).

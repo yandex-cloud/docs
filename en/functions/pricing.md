@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# {{ sf-name }} pricing
+# {{ sf-name }} pricing policy
 
 
 
@@ -56,7 +56,7 @@ However, if the function uses other {{ yandex-cloud }} resources, they are bille
 
 {% include [usd.md](../_pricing/functions/usd-invocations.md) %}
 
-You pay for the actual number of invocations. For example, given that 1,000,000 calls cost $0.128000, 1,000 calls in excess of the free amount will cost $0.000128.
+You pay for the actual number of calls. For example, given that 1,000,000 calls cost $0.128000, 1,000 calls in excess of the free amount will cost $0.000128.
 
 
 ### Function execution time {#execution}

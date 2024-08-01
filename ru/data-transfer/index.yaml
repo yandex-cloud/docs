@@ -17,6 +17,10 @@ description:
     Data Transfer поддерживает несколько сценариев переноса, все они позволяют
     сохранять рабочее состояние источника и минимизировать время простоя
     использующих его приложений.
+  - >-
+    Уровень обслуживания сервиса определен в документе <a
+    href="https://yandex.ru/legal/cloud_sla_data_transfer/">Уровень обслуживания
+    Сервиса Транспортировки Данных / Yandex Data Transfer</a>.
 meta:
   title: Yandex Data Transfer
   description: >-

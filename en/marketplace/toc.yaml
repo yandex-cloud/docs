@@ -155,6 +155,8 @@ items:
         items:
           - name: Subscription
             href: concepts/users/subscription.md
+          - name: Product types
+            href: concepts/users/products-types.md
       - name: Access management
         href: security/index.md
       - name: '{{ at-name }} events'

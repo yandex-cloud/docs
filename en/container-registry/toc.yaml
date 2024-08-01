@@ -87,7 +87,13 @@ items:
       - name: All tutorials
         href: tutorials/index.md
       - name: Running a Docker image on a VM
-        href: tutorials/run-docker-on-vm.md
+        items:
+          - name: Overview
+            href: tutorials/run-docker-on-vm/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/run-docker-on-vm/console.md
+          - name: '{{ TF }}'
+            href: tutorials/run-docker-on-vm/terraform.md
       - name: Setting up automatic scanning of a Docker image
         href: tutorials/image-auto-scan.md
       - name: Signing and verifying Docker images in {{ managed-k8s-name }}

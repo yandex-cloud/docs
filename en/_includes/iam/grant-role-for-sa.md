@@ -19,7 +19,7 @@ To assign a role for a resource:
    1. In the [management console]({{ link-console-main }}), select the appropriate cloud or folder.
    1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
    1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-   1. In the window that opens, select **{{ ui-key.yacloud.common.resource-acl.label_service-accounts }}**.
+   1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts}}**.
    1. Select the required service account from the list or use the search.
    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list or use the search bar.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
@@ -121,11 +121,11 @@ To grant a service account permissions to access an organization, you need the `
 
    1. In the left-hand panel, select ![icon-acl](../../_assets/console-icons/persons-lock.svg) [**{{ ui-key.yacloud_org.pages.acl }}**]({{ link-org-acl }}).
 
-   1. In the **{{ ui-key.yacloud.common.resource-acl.placeholder_filter-by-type }}** filter, select `{{ ui-key.yacloud.common.resource-acl.label_service-accounts }}`.
+   1. In the **{{ ui-key.yacloud.common.resource-acl.placeholder_filter-by-type }}** filter, select `{{ ui-key.yacloud_components.acl.label.service-accounts}}`.
 
    1. If the respective service account has at least one role, select it from the list or use the search bar. In the line with the account name, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
 
-      If the service account is not on the list, click **{{ ui-key.yacloud_org.entity.user.action.acl }}** in the top-right corner. In the window that opens, go to **{{ ui-key.yacloud.common.resource-acl.label_service-accounts }}** and select the appropriate account from the list or use the search bar.
+      If the service account is not on the list, click **{{ ui-key.yacloud_org.entity.user.action.acl }}** in the top-right corner. In the window that opens, go to **{{ ui-key.yacloud_components.acl.label.service-accounts}}** and select the appropriate account from the list or use the search bar.
 
    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list or use the search bar.
 

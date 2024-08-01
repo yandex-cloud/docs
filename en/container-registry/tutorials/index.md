@@ -5,7 +5,7 @@ description: "Various {{ container-registry-full-name }} use cases in {{ yandex-
 
 # {{ container-registry-name }} tutorials
 
-* [{#T}](run-docker-on-vm.md)
+* [{#T}](run-docker-on-vm/index.md)
 
 
 * [{#T}](image-auto-scan.md)

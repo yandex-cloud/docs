@@ -1,5 +1,15 @@
 # {{ sf-full-name }} release notes
 
+## May–June 2024 {#may-june-2024}
+
+### Updates {#updates}
+
+* Added support for the `concurrency` parameter in the CLI, API, and {{ TF }}.
+
+### Fixes and improvements {#fixes-improvements}
+
+* Fixed the error that occurred when creating function versions with the `golang` runtime environment that use the [opentracing-go](github.com/opentracing/opentracing-go) package.
+
 ## April 2024 {#april-2024}
 
 ### Updates {#updates}

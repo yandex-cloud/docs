@@ -168,7 +168,7 @@
        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** выберите **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}**.
        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** выберите **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}**.
        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** укажите CIDR внутренней сети — `10.0.0.0/8`.
-       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}** и укажите CIDR удаленной площадки — `192.168.0.0/24`.
+       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}** и укажите CIDR удаленной площадки — `192.168.0.0/24`.
        1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
     1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** и создайте аналогичные правила для входящего трафика.
 

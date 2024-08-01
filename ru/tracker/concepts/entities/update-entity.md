@@ -91,7 +91,7 @@ followers | Наблюдатели (массив идентификаторов 
 start | Дата начала в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. | Дата
 end | Дедлайн в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. | Дата
 tags | Теги. | Массив строк
-parentEntity | Идентификатор родительской сущности (портфеля). | Число
+parentEntity | Идентификатор родительской сущности (поле «Входит в портфель»). Передается только значение для поля «Основной портфель». | Число
 entityStatus | Статус:<ul><li>draft — Черновик;</li><li>in_progress — В работе;</li><li>launched — Новый;</li><li>postponed — Отложен;</li><li>at_risk — Есть риски;</li><li>blocked — Заблокирован;</li><li>according_to_plan — По плану.</li></ul>| Строка
 
 **Поля объектов массива** `links`
