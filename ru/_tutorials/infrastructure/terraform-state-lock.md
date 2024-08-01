@@ -23,7 +23,7 @@ description: "При работе с {{ TF }} в облаке важно иск�
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-{{ TF }} и его провайдеры распространяются под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
+{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а его провайдеры – под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
@@ -127,7 +127,7 @@ description: "При работе с {{ TF }} в облаке важно иск�
      ```
 
    - PowerShell {#powershell}
-   
+
     ```powershell
     $Env:AWS_ACCESS_KEY_ID="<идентификатор_ключа>"
     $Env:AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
