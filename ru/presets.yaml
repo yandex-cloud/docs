@@ -5176,7 +5176,9 @@ default:
         button:
           add-role: Добавить роль
         label:
+          service-accounts: Сервисные аккаунты
           title: Настройка прав доступа
+          user-accounts: Пользовательские аккаунты
       marketplace:
         label_product-ids: Идентификаторы продукта
         product-pricing-type_byol: BYOL
@@ -5973,8 +5975,6 @@ default:
           label_bindings: Роли
           label_inherited-bindings: Наследуемые роли
           label_service-account: Сервисный аккаунт
-          label_service-accounts: Сервисные аккаунты
-          label_user-accounts: Пользовательские аккаунты
           placeholder_filter-by-type: Тип аккаунта
         save: Сохранить
         save-changes: Сохранить изменения
@@ -6197,7 +6197,7 @@ default:
             field_zone: Зона доступности
             label_custom-metrics: Метрики
             metric-type-cpu: CPU
-            metric-type-custom: Пользовательская
+            metric-type-custom: Yandex Monitoring
             section_alb: Интеграция с Application Load Balancer
             section_allocation: Распределение
             section_base: Базовые параметры
@@ -6212,8 +6212,8 @@ default:
             value_scale-fixed-test-auto: Фиксированный с тестом автоматического
             value_scale-regional: Региональное
             value_scale-zonal: Зональное
-            value_strategy-opportunistic: Деликатная
-            value_strategy-proactive: Принудительная
+            value_strategy-opportunistic: Ручная
+            value_strategy-proactive: Автоматическая
           popup-confirm_button_delete: Удалить
           popup-confirm_button_pause: Приостановить
           popup-confirm_button_resume: Возобновить
@@ -7211,6 +7211,7 @@ default:
           button_action-connect: Подключиться
           button_action-delete: Удалить
           button_action-move: Переместить
+          button_action-resetup: Ресинхронизировать
           button_action-start: Запустить
           button_action-stop: Остановить
           button_create: Создать кластер
@@ -7376,7 +7377,6 @@ default:
           switch_shards: Шарды
           switch_users: Пользователи
         hosts:
-          action_resetup-host: Ресинхронизировать
           action_stepdown-host: Сменить мастер
       monitoring:
         button_open-in-monitoring: Открыть в Monitoring
@@ -7900,7 +7900,6 @@ default:
             button_add-rule: Добавить правило
             button_create: Создать группу безопасности
             forms:
-              button_add-cidr: Добавить CIDR
               button_select-all-port-range: Выбрать весь диапазон
               field_sg-name: Имя
               field_sg-network: Сеть

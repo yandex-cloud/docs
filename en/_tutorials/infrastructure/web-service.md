@@ -168,7 +168,7 @@ For a VPN to work properly, allow traffic to be received and transmitted to UDP 
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, select **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}**.
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** field, select **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}**.
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the internal network CIDR: `10.0.0.0/8`.
-      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}** and specify the remote site CIDR: `192.168.0.0/24`.
+      1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}** and specify the remote site CIDR: `192.168.0.0/24`.
       1. Click **{{ ui-key.yacloud.common.save }}**.
    1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab and create similar rules for incoming traffic.
 

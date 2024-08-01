@@ -139,7 +139,7 @@ description: "Из статьи вы узнаете, как настроить �
        1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_select-all-port-range }}**.
        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** выберите `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** укажите CIDR внутренней сети — `10.0.0.0/8`. 
-       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}** и укажите CIDR удаленной площадки — `192.168.0.0/24`.
+       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}** и укажите CIDR удаленной площадки — `192.168.0.0/24`.
     1. Создайте такие же правила для входящего трафика.
 
 {% endlist %}

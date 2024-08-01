@@ -39,7 +39,7 @@ The cost of resources includes:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to create your service account.
       1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter the service account name: `s3-copy-fn`.
@@ -408,15 +408,25 @@ Create two buckets: the main one to store files and the backup one to copy the m
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-role](../../_includes/storage/terraform-role.md) %}
+
+   1. Describe the parameters for creating a service account and access key in the configuration file:
+
+      {% include [terraform-sa-key](../../_includes/storage/terraform-sa-key.md) %}
+
    1. In the configuration file, describe the parameters of the main and backup buckets:
 
       ```
       resource "yandex_storage_bucket" "main-bucket" {
-        bucket = "<main_bucket_name>"
+        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+        bucket     = "<main_bucket_name>"
       }
 
       resource "yandex_storage_bucket" "reserve-bucket" {
-        bucket = "<backup_bucket_name>"
+        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+        bucket     = "<backup_bucket_name>"
       }
       ```
 

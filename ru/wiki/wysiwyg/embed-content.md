@@ -29,7 +29,7 @@
 
     ### Вставить изображение, которое уже загружено на {{ wiki-name }} {#attach}
 
-    1. Откройте страницу и в правом верхнем углу нажмите ![](../../_assets/wiki/svg/actions-icon.svg) **Действия**, затем выберите ![](../../_assets/wiki/svg/attachments.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-sidebar.icon-files }}**.
+    1. Откройте страницу и в правом верхнем углу нажмите ![](../../_assets/wiki/svg/actions-icon.svg) **Действия**, затем выберите ![](../../_assets/wiki/svg/attachments.svg) **Ресурсы страницы**.
 
     1. Чтобы загрузить изображение на страницу, нажмите кнопку **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_w-attachments.upload-btn-text }}** и откройте нужный файл или файлы.
 
@@ -70,7 +70,7 @@
 
     1. Вставьте в текст страницы изображение из буфера обмена. 
 
-    Изображение будет автоматически загружено на {{ wiki-name }}, а ссылка на изображение появится в тексте страницы. Также оно будет доступно в списке прикрепленных файлов. Чтобы увидеть список прикрепленных файлов в меню ![](../../_assets/wiki/svg/actions-icon.svg) **Действия** нажмите ![](../../_assets/wiki/svg/attachments.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-sidebar.icon-files }}**.
+    Изображение будет автоматически загружено на {{ wiki-name }}, а ссылка на изображение появится в тексте страницы. Также оно будет доступно в списке прикрепленных файлов. Чтобы увидеть список прикрепленных файлов в меню ![](../../_assets/wiki/svg/actions-icon.svg) **Действия** нажмите ![](../../_assets/wiki/svg/attachments.svg) **Ресурсы страницы**.
 
 {% endlist %}
   

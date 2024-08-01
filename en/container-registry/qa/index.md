@@ -5,7 +5,7 @@ description: "This page presents questions and answers about {{ container-regist
 
 # FAQ about {{ container-registry-name }}
 
-#### Why is the `latest` tag missing or applied to a Docker image that is not the last one pushed? {#latest}
+#### Why is the `latest` tag missing or why is it assigned to a Docker image that was not the last one pushed? {#latest}
 
 The reason is that you specified a different [tag](../concepts/docker-image.md#version) when pushing the [Docker image](../concepts/docker-image.md).
 
@@ -50,7 +50,7 @@ You can use `sudo` or configure [non-root access](https://docs.docker.com/engine
 
    The top section of the `.bashrc` file contains a condition preventing its commands from running non-interactively. That is why the commands can run when connecting to the VM manually, but fail to run when doing so via SSH.
 
-#### What does "Error response from daemon: pull access denied for <cr.yandex/registry_ID/Docker_image_name>, repository does not exist or may require 'docker login': denied: Permission denied ; requestId = <request_ID>" mean? {#permission-denied-ip}
+#### What does "Error response from daemon: pull access denied for <{{ registry }}/registry_ID/Docker_image_name>, repository does not exist or may require 'docker login': denied: Permission denied ; requestId = <request_ID>" mean? {#permission-denied-ip}
 
 The [IP address](../../vpc/concepts/address.md) that the pull Docker image request is received from has no PULL permission.
 
