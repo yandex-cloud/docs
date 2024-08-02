@@ -85,7 +85,7 @@ Error example:
 
 {% include [no-new-tables](../../_includes/data-transfer/troubles/no-new-tables.md) %}
 
-{% include [no-new-tables](../../_includes/data-transfer/troubles/table-names.md) %}
+{% include [table-names](../../_includes/data-transfer/troubles/table-names.md) %}
 
 ## {{ ES }} {#elasticsearch}
 

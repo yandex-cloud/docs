@@ -24,7 +24,7 @@ DELETE /{bucket}/{key} HTTP/2
 
 ### Headers {#request-headers}
 
-Use the necessary [common request headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in requests.
 
 Moreover, if a [lock](../../../concepts/object-lock.md) with governance-mode retention is set for an object version in a versioned bucket, make sure to use the below-specified header to bypass retention and confirm deletion. Only users with the [`storage.admin` role](../../../security/index.md) can delete a retained object version. To check retention status, use the [getObjectRetention](getobjectretention.md) method.
 
@@ -43,3 +43,4 @@ Responses can only contain [common response headers](../common-response-headers.
 
 For a list of possible responses, see [{#T}](../response-codes.md).
 
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -23,6 +23,7 @@ Aliases:
 |`--id`|<b>`string`</b><br/>Host group id.|
 |`--name`|<b>`string`</b><br/>Host group name.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--host-id`|<b>`string`</b><br/>Host id to list instances on|
 
 #### Global Flags
 

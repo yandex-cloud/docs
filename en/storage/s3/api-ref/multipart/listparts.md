@@ -35,7 +35,7 @@ Only the `uploadId` parameter is required.
 
 ### Headers {#request-headers}
 
-Use the necessary [common request headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in requests.
 
 
 ## Response {#response}
@@ -108,3 +108,5 @@ Possible response tags are described in the table below.
 | `LastModified` | Date and time a part is uploaded.<br/><br/>Path: `/ListPartsResult/Part/LastModified`. |
 | `ETag` | `ETag` of the uploaded part.<br/><br/>Path: `/ListPartsResult/Part/ETag`. |
 | `Size` | Size of the uploaded part.<br/><br/>Path: `/ListPartsResult/Part/Size`. |
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -8,7 +8,7 @@ The request includes the updated object range and the new data.
 
 [Objects can be updated concurrently](../../../concepts/object-patch.md#concurrent-patch) with multiple requests.
 
-## Query {#request}
+## Request {#request}
 
 ```http
 PATCH /{bucket}/{key} HTTP/2
@@ -69,3 +69,5 @@ In addition, {{ objstorage-name }} can return other errors described in the tabl
 | `Object` | Parent tag for update results. |
 | `LastModified` | Date and time of the last object update. During the partial object update, the tag does not change. |
 | `ETag` | ETag of the updated object. For more details, see [common headers](../common-response-headers.md). |
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

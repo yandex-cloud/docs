@@ -18,7 +18,7 @@ For more information, see [Resource relationships in the service](../concepts/in
 
 ## Creating a cluster {#create-cluster}
 
-When creating a cluster, you need to specify individual parameters for each [host group](../concepts/host-groups.md).
+When creating a cluster, you need to specify individual parameters for each [host group](../concepts/host-roles.md).
 
 {% list tabs group=instructions %}
 
@@ -42,10 +42,10 @@ When creating a cluster, you need to specify individual parameters for each [hos
       1. Select the [plugins](plugins.md#supported-plugins) you want to install in the cluster.
 
    
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host the cluster and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
 
 
-   1. Under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1**, configure the [`{{ OS }}` host group](../concepts/host-groups.md):
+   1. Under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1**, configure the [`{{ OS }}` host group](../concepts/host-roles.md):
 
       1. Select the host group type: `{{ OS }}`
 
@@ -81,7 +81,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       {% endnote %}
 
-   1. If needed, configure the `Dashboards` [host group](../concepts/host-groups.md) under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 2**:
+   1. If needed, configure the `Dashboards` [host group](../concepts/host-roles.md#dashboards) under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 2**:
 
       1. Select the platform, host type, and host class.
       1. Set up storage in the same way as for `{{ OS }}` hosts.
@@ -170,7 +170,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
          * `production`: For stable versions of your applications.
          * `prestable`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
-      * `--service-account-name`: Name of the service account.
+      * `--service-account-name`: Name of the service account for [access to {{ objstorage-full-name }}](s3-access.md) as a repository of {{ OS }} snapshots. For more information about service accounts, see the [{{ iam-full-name }} documentation](../../iam/concepts/users/service-accounts.md).
 
       * `--delete-protection`: Cluster protection against accidental deletion by a user, `true` or `false`. Cluster deletion protection will not prevent a manual connection to a cluster to delete data.
 
@@ -318,7 +318,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-   * Settings for the [maintenance window](../concepts/maintenance.md) (for disabled clusters as well) in the `maintenanceWindow` parameter.
+   * [Maintenance](../concepts/maintenance.md) window settings (including for disabled clusters) in the `maintenanceWindow` parameter.
 
 {% endlist %}
 

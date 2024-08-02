@@ -45,9 +45,11 @@ items:
             href: archive/single-node-file-server/terraform.md
       - name: Configuring an SFTP server based on CentOS 7
         href: archive/backup-and-archive-to-sftp.md
-      - name: Creating a VM backup with Hystax Acura Backup
+      - name: Backing up a VM with Hystax Acura Backup
         href: infrastructure-management/hystax-backup.md
-      - name: Backup to {{ objstorage-name }} via CloudBerry Desktop Backup
+      - name: >-
+          Backup to {{ objstorage-name }} using MSP360 Backup (CloudBerry
+          Desktop Backup)
         href: archive/object-storage-cloudberry.md
       - name: Backup to {{ objstorage-name }} via Duplicati
         href: archive/object-storage-duplicati.md
@@ -415,6 +417,8 @@ items:
         href: dataplatform/clickhouse-hybrid-storage.md
       - name: Sharding {{ mch-name }} tables
         href: dataplatform/clickhouse-sharding.md
+      - name: Data resharding in a {{ mch-name }} cluster
+        href: dataplatform/mch-mch-resharding.md
       - name: >-
           Loading data from {{ yandex-direct }} to the {{ mch-full-name }} data
           mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{

@@ -4,7 +4,7 @@ Returns bucket object [labels](../../../concepts/tags.md).
 
 {% include [labels-tags](../../../../_includes/storage/labels-tags.md) %}
 
-## Query {#request}
+## Request {#request}
 
 ```http
 GET /{bucket}/{key}?tagging&versionId={versionId} HTTP/2
@@ -21,8 +21,8 @@ GET /{bucket}/{key}?tagging&versionId={versionId} HTTP/2
 
 | Parameter | Description |
 --- | ---
-| `tagging` | Type of operation. This parameter is required. |
-| `versionId` | [Object version](../../../concepts/versioning.md) ID. This parameter is required. |
+| `tagging` | Type of operation. This is a required parameter. |
+| `versionId` | [Object version](../../../concepts/versioning.md) ID. This is a required parameter. |
 
 ### Headers {#request-headers}
 
@@ -65,3 +65,5 @@ A successful response contains additional data in XML format.
 | `Tag` | Container for labels. |
 | `Key` | Label key.<br>Type: String. |
 | `Value` | Label value.<br>Type: String. |
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

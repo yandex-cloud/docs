@@ -18,7 +18,8 @@ description: "In this tutorial, you will learn how to set up a {{ CH }} target e
 ## Scenarios for transferring data to {{ CH }} {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
-   * [Migrating the {{ CH }} cluster](../../../tutorials/managed-clickhouse.md).
+   * [Migrating a {{ CH }} cluster](../../../tutorials/managed-clickhouse.md).
+   * [Redistributing data across shards](../../../tutorials/mch-mch-resharding.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
    * [Delivering data from {{ KF }} to {{ CH }}](../../../tutorials/mkf-to-mch.md).
@@ -39,18 +40,18 @@ For a detailed description of possible {{ data-transfer-full-name }} data transf
 
 Configure one of the supported data sources:
 
-* [{{ PG }}](../source/postgresql.md).
-* [{{ MY }}](../source/mysql.md).
-* [{{ CH }}](../source/clickhouse.md).
-* [{{ GP }}](../source/greenplum.md).
-* [{{ KF }}](../source/kafka.md).
-* [{{ AB }}](../../../transfer-matrix.md#airbyte).
-* [{{ metrika }}](../source/metrika.md).
-* [{{ DS }}](../source/data-streams.md).
-* [{{ objstorage-full-name }}](../source/object-storage.md).
-* [Oracle](../source/oracle.md).
-* [{{ ES }}](../source/elasticsearch.md).
-* [{{ OS }}](../source/opensearch.md).
+* [{{ PG }}](../source/postgresql.md)​
+* [{{ MY }}](../source/mysql.md)​
+* [{{ CH }}](../source/clickhouse.md)​
+* [{{ GP }}](../source/greenplum.md)​
+* [{{ KF }}](../source/kafka.md)
+* [{{ AB }}](../../../transfer-matrix.md#airbyte)​
+* [{{ metrika }}](../source/metrika.md)​
+* [{{ DS }}](../source/data-streams.md)​
+* [{{ objstorage-full-name }}](../source/object-storage.md)
+* [Oracle](../source/oracle.md)
+* [{{ ES }}](../source/elasticsearch.md)​
+* [{{ OS }}](../source/opensearch.md)​
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
 
@@ -60,7 +61,7 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 ## Configuring the {{ CH }} target endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
 * [{{ mch-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
@@ -253,7 +254,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
       * {% include [round_robin](../../../../_includes/data-transfer/fields/clickhouse/terraform/round-robin.md) %}
 
-      You can specify only one of the sharding options: `sharding.column_value_hash.column_name`, `sharding.transfer_id`, `custom_mapping`, or `round_robin`. If no sharding option is specified, all data will be transferred to a single shard.
+      You can specify only one of the sharding options: `sharding.column_value_hash.column_name`, `sharding.transfer_id`, `sharding.custom_mapping`, or `sharding.round_robin`. If no sharding option is specified, all data will be transferred to a single shard.
 
 - API {#api}
 

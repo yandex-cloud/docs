@@ -12,3 +12,4 @@ description: "In this tutorial, you will learn what S3 API methods can be used t
 | [delete](hosting/delete.md) | Deletes a bucket configuration for static website hosting. |
 
 
+{% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

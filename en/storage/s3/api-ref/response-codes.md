@@ -109,3 +109,5 @@ In case of an error, {{ objstorage-name }} returns a message with the appropriat
 || 503 | `ServiceUnavailable` | {{ objstorage-name }} is not available.<br/>Reduce your request rate.
 || 503 | `SlowDown` | Reduce your request rate. ||
 |#
+
+{% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -46,7 +46,6 @@
          * [Network](../../../vpc/concepts/network.md#network).
          * [Subnet](../../../vpc/concepts/network.md#subnet).
          * [Security group](../../../vpc/concepts/security-groups.md) and the rule required to connect to a cluster.
-         * {{ CH }} source.
          * {{ mch-name }} target cluster.
          * Source endpoint.
          * Target endpoint.

@@ -6,18 +6,23 @@ description: "Follow this guide to manage topics and partitions."
 # Managing {{ KF }} topics
 
 A {{ mkf-name }} cluster provides two ways for you to manage topics and partitions (which can be used separately or combined):
-* Using native {{ yandex-cloud }} interfaces, such as the CLI, API, or management console. Use this method if you want to create, delete, and configure topics and partitions using {{ mkf-name }} features.
-* Using the [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi). Select this method if you prefer to use your existing solution to manage topics and partitions.
 
-## Managing topics via the {{ KF }} Admin API {#admin-api}
+* Using [native {{ yandex-cloud }} interfaces](#yandex-cloud), such as the CLI, API, or management console. Choose this method if you want to manage topics using {{ mkf-name }} features.
 
-To manage topics via the [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi):
-1. [Create](cluster-accounts.md#create-user) a cluster admin user.
-1. Manage topics on behalf of this user through [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi) calls. Review your favorite programming language manual for information on working with the Admin API.
+    You can perform the following actions on {{ mkf-name }} topics:
 
-For more information about using the Admin API and existing limitations, see [{#T}](../concepts/topics.md#management) and the [{{ KF }} documentation](https://kafka.apache.org/documentation/#adminapi).
+    * [Create a topic](#create-topic).
+    * [Update topic settings](#update-topic).
+    * [Get a list of topics in a cluster](#list-topics).
+    * [Get detailed information about a topic](#get-topic).
+    * [Import a topic to {{ TF }}](#import-topic).
+    * [Delete a topic](#delete-topic).
 
-## Creating a topic {#create-topic}
+* Using the [{{ KF }} Admin API](#admin-api). Select this method if you prefer to use your existing solution to manage topics and partitions.
+
+## Managing topics via {{ yandex-cloud }} interfaces {#yandex-cloud}
+
+### Creating a topic {#create-topic}
 
 Prior to creating a topic, calculate the [minimum storage size](../concepts/storage.md#minimal-storage-size).
 
@@ -109,7 +114,7 @@ While running, {{ mkf-name }} is able to create [service topics](../concepts/top
 
 {% endnote %}
 
-## Updating topic settings {#update-topic}
+### Updating topic settings {#update-topic}
 
 You cannot reduce the number of partitions in {{ mkf-name }} topics. You cannot create new partitions if there is not enough storage space.
 
@@ -198,7 +203,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 {% endlist %}
 
-## Listing topics in a cluster {#list-topics}
+### Getting a list of topics in a cluster {#list-topics}
 
 {% list tabs group=instructions %}
 
@@ -230,7 +235,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 {% endlist %}
 
-## Getting detailed information about a topic {#get-topic}
+### Getting detailed information about a topic {#get-topic}
 
 {% list tabs group=instructions %}
 
@@ -263,7 +268,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 {% endlist %}
 
-## Importing topics to {{ TF }} {#import-topic}
+### Importing topics to {{ TF }} {#import-topic}
 
 Using import, you can bring the existing cluster topics under {{ TF }} management.
 
@@ -287,7 +292,7 @@ Using import, you can bring the existing cluster topics under {{ TF }} managemen
 
 {% endlist %}
 
-## Deleting a topic {#delete-topic}
+### Deleting a topic {#delete-topic}
 
 {% include [mkf-deleted-topic-permissions-note](../../_includes/mdb/mkf-deleted-topic-permissions-note.md) %}
 
@@ -345,3 +350,11 @@ Using import, you can bring the existing cluster topics under {{ TF }} managemen
 
 
 {% endlist %}
+
+## Managing topics via the {{ KF }} Admin API {#admin-api}
+
+To manage topics via the {{ KF }} Admin API:
+1. [Create](cluster-accounts.md#create-user) an admin user with the `ACCESS_ROLE_ADMIN` role in the cluster.
+1. Manage topics on behalf of this user by making requests to the {{ KF }} Admin API. Review your favorite programming language manual for information on working with the Admin API.
+
+For more information about using the Admin API and existing limitations, see [{#T}](../concepts/topics.md#management) and the [{{ KF }} documentation](https://kafka.apache.org/documentation/#adminapi).

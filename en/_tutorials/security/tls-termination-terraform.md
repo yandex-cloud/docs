@@ -1,6 +1,6 @@
 1. [Prepare your cloud](#before-begin).
 1. [Create an infrastructure](#deploy).
-1. [Check that the hosting is up and running](#test).
+1. [Test the hosting](#test).
 
 We will use the `my-site.com` domain name as an example.
 
@@ -12,7 +12,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-{% include [tls-termination-paid-resources](../_tutorials_includes/tls-termination-paid-resources.md) %}
+{% include [tls-termination-paid-resources](../_tutorials_includes/tls-termination/paid-resources.md) %}
 
 ## Create an infrastructure {#deploy}
 
@@ -84,7 +84,7 @@ To create an infrastructure using {{ TF }}:
 
 1. In the `tls-termination.auto.tfvars` file, set the user-defined parameters:
    * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-   * `vm_user`: VM user name.
+   * `vm_user`: VM username.
    * `ssh_key_path`: Path to the file with the public SSH key. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
    * `domain`: Domain to host the site.
       To get access to public zone domain names, you need to delegate the domain. Specify the addresses of the `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` servers in your personal dashboard at your registrar.
@@ -94,13 +94,13 @@ To create an infrastructure using {{ TF }}:
 
    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-1. [Get public IP addresses](../../compute/operations/instance-groups/get-info.md): you will need them to [check that the hosting is up and running](#test).
+1. [Get the public IP addresses](../../compute/operations/instance-groups/get-info.md): you will need them later to [test the hosting](#test).
 
-After creating the infrastructure, [check that the hosting is up and running](#test).
+After creating the infrastructure, [test the hosting](#test).
 
-## Check that the hosting is up and running {#test}
+## Test the hosting {#test}
 
-{% include [tls-termination-test](../_tutorials_includes/tls-termination-test.md) %}
+{% include [tls-termination-test](../_tutorials_includes/tls-termination/test.md) %}
 
 ## How to delete the resources you created {#clear-out}
 

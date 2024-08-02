@@ -89,15 +89,15 @@ kubectl describe clusterrole <роль_в_{{ k8s }}_RBAC>
 
 #### {{ roles-viewer }} {#viewer}
 
-{% include notitle [roles-viewer](../../_includes/roles-viewer.md) %}
+{% include notitle [roles-viewer](../../_roles/primitive-roles/viewer.md) %}
 
 #### {{ roles-editor }} {#editor}
 
-{% include notitle [roles-editor](../../_includes/roles-editor.md) %}
+{% include notitle [roles-editor](../../_roles/primitive-roles/editor.md) %}
 
 #### {{ roles-admin }} {#admin}
 
-{% include notitle [roles-admin](../../_includes/roles-admin.md) %}
+{% include notitle [roles-admin](../../_roles/primitive-roles/admin.md) %}
 
 ## Какие роли необходимы для создания {{ managed-k8s-name }} {#required-roles}
 

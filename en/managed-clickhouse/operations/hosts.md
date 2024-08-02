@@ -24,6 +24,8 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
 
 The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**.
 
+Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in one go.
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -47,7 +49,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a host:
+   To create one or more hosts:
 
    
    1. Request a list of cluster subnets to select one for the new host:
@@ -72,17 +74,21 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
       If the required subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
 
-   1. View a description of the CLI command for adding a host:
+   1. View the description of the CLI command for creating hosts:
 
       ```bash
-      {{ yc-mdb-ch }} host add --help
+      {{ yc-mdb-ch }} hosts add --help
       ```
 
-   1. Run the add host command:
+   1. Run the command for creating hosts.
+
+      Specify one or more `--host` parameters in the command, one for each host to be created.
+
+      The command for creating a single host looks like this:
 
       
       ```bash
-      {{ yc-mdb-ch }} host add \
+      {{ yc-mdb-ch }} hosts add \
         --cluster-name=<cluster_name> \
         --host zone-id=<availability_zone>,`
           `subnet-id=<subnet_ID>,`
@@ -96,7 +102,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
 
       To copy the data schema from a random replica to the new host, set the `--copy-schema` optional parameter.
 
-      {{ mch-name }} will run the add host operation.
+      {{ mch-name }} will run the operation for creating hosts.
 
       
       The subnet ID should be specified if the availability zone contains multiple subnets; otherwise, {{ mch-name }} will automatically select a single subnet. You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -107,7 +113,9 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about how to create this file, see [Creating clusters](cluster-create.md).
-   1. Add the `host` block to the {{ mch-name }} cluster description.
+   1. Add one or more `host` sections to the {{ mch-name }} cluster description, one for each host to be created.
+
+      A single `host` section looks like this:
 
       ```hcl
       resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -137,9 +145,9 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
 
 - API {#api}
 
-   To create a host, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) gRPC API call and provide the following in the request:
+   To create one or more hosts in a cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * New host settings in one or more `hostSpecs` parameters.
+   * One or more `hostSpecs` parameters, one for each host to be created.
 
    To copy the data schema from a random replica to the new host, include the `copySchema` parameter set to `true` in the request.
 
@@ -148,7 +156,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
 {% note warning %}
 
 
-If you cannot [connect](connect/clients.md) to the host you added, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the host's subnet.
+If you cannot [connect](connect/clients.md) to the host after you created it, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the host's subnet.
 
 
 Use the copy data schema option only if the schema is the same on all replica hosts of the cluster.
@@ -245,11 +253,13 @@ If you cannot [connect](connect/clients.md) to the host after you changed it, ch
 
 ## Removing a host {#remove-host}
 
-You can remove a host from a {{ CH }} cluster if it contains three or more hosts.
+You can use the CLI, {{ TF }}, and API to delete multiple hosts from a cluster in one go.
 
-{% note info %}
+{% note warning %}
 
-A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication support must include three or more hosts.
+You cannot delete a host from a cluster or shard if the [relevant limit for the minimum number of hosts](../concepts/limits.md#mch-limits) was reached.
+
+You cannot delete hosts used for [{{ CK }}](../concepts/replication.md#ck) placement if you enabled support of this replication mechanism when creating the cluster.
 
 {% endnote %}
 
@@ -267,21 +277,24 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To remove a host from the cluster, run:
+   To delete one or more hosts from the cluster, run the following command, providing the names of the hosts you want to delete. Use the space character as a separator.
+
+   The command for deleting a single host looks like this:
 
    ```bash
-   {{ yc-mdb-ch }} host delete <host_name> \
-      --cluster-name=<cluster_name>
+   {{ yc-mdb-ch }} hosts delete --cluster-name=<cluster_name> \
+     <host_name>
+
    ```
 
-   You can request the host name with a [list of cluster hosts](#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the host names with a [list of cluster hosts](#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about how to create this file, see [Creating clusters](cluster-create.md).
-   1. In the {{ mch-name }} cluster description, remove the `CLICKHOUSE` type `host` block.
+   1. In the {{ mch-name }} cluster description, delete one or more `host` sections of the `CLICKHOUSE` type.
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -296,9 +309,9 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 
 - API {#api}
 
-   To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) gRPC API call and provide the following in the request:
+   To delete one or more hosts, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Name(s) of the host(s) to delete in the `hostNames` parameter.
+   * In the `hostNames` parameter, the array of host names you want to delete.
 
 {% endlist %}
 

@@ -13,7 +13,6 @@
 
   {% include [Maintenance window](console/maintenance-window-description.md) %}
 
-- {% include [datatransfer access](console/datatransfer-access.md) %}
 
 - **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}**: Enable this option to use the [{#T}](../../managed-mongodb/operations/performance-diagnostics.md) tool in the cluster. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 

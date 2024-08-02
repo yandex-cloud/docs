@@ -4,15 +4,15 @@ Filters and returns the contents of an {{ objstorage-name }} object based on an 
 
 {% note warning %}
 
-To be able to make S3 Select queries, contact [support](../../../../support/overview.md). You must also have the `s3:GetObject` permission. For more information, see [{#T}](../../../concepts/policy.md).
+To be able to run S3 Select queries, contact [support](../../../../support/overview.md). You must also have the `s3:GetObject` permission. For more information, see [{#T}](../../../concepts/policy.md).
 
 {% endnote %}
 
-Features of objects that queries can be applied to:
+Supported features of objects you can apply a query to:
 
 * Objects in CSV, JSON, and Parquet formats are supported.
 
-* UTF-8 encoding is used.
+* UTF-8 encoded objects are supported.
 
 * GZIP and BZIP2 compression methods are supported for CSV files. For Parquet files, columnar compression with GZIP, Snappy, and ZSTD algorithms is supported.
 
@@ -45,7 +45,7 @@ POST /{bucket}/{key}?select&select-type=2 HTTP/2
 
 ### Headers {#request-headers}
 
-Use the necessary [common request headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in requests.
 
 
 ### Data schema {#request-scheme}
@@ -153,3 +153,5 @@ A successful response contains additional data in XML format with the schema des
 | `Progress` | Information about the progress of request execution.<br/><br/>Path: `/Payload/Progress`. |
 | `Records` | Request execution results.<br/>Path: `/Payload/Records`. |
 | `Stats` | Statistics on processed data. Sent once at the end of the request.<br/>Path: `/Payload/Stats`. |
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -4,7 +4,7 @@ description: "In this tutorial, you will learn how to set up a {{ MY }} source e
 ---
 # Transferring data from a {{ MY }} source endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data from a {{ MY }} database and implement various scenarios of data transfer, processing and transformation. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data from a {{ MY }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ MY }}](#prepare) database for the transfer.
@@ -19,9 +19,9 @@ description: "In this tutorial, you will learn how to set up a {{ MY }} source e
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
    * [Migrating {{ MY }} clusters](../../../tutorials/managed-mysql-to-mysql.md).
-   * [Migrating with change of storage: {{ MY }} to {{ ydb-short-name }}](../../../tutorials/managed-mysql-to-ydb.md).
-   * [Migrating with change of storage: {{ MY }} to {{ PG }}](../../../tutorials/mmy-to-mpg.md).
-   * [Migration with change of storage: {{ MY }} to {{ GP }}](../../../tutorials/mmy-to-mgp.md).
+   * [Migration with change of storage from {{ MY }} to {{ ydb-short-name }}](../../../tutorials/managed-mysql-to-ydb.md).
+   * [Migration with change of storage from {{ MY }} to {{ PG }}](../../../tutorials/mmy-to-mpg.md).
+   * [Migration with change of storage from {{ MY }} to {{ GP }}](../../../tutorials/mmy-to-mgp.md).
 
 1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
 
@@ -44,7 +44,7 @@ For a detailed description of possible {{ data-transfer-full-name }} data transf
 
 ## Configuring the {{ MY }} source endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
 * [{{ mmy-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
@@ -175,9 +175,9 @@ For OnPremise, all fields are filled in manually.
 - Management console {#console}
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.table_filter.title }}**:
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}**: Data is only transferred from listed tables. This option is specified using regular expressions.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}**: Only data from the tables listed here will be transferred. This option is specified using regular expressions.
 
-          {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+         {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred. This option is specified using regular expressions.
 
@@ -193,7 +193,7 @@ For OnPremise, all fields are filled in manually.
 
 - CLI {#cli}
 
-   * `--include-table-regex`: List of included tables. If this is on, the data will only be transferred from the tables in this list. This option is specified using regular expressions.
+   * `--include-table-regex`: List of included tables. Only data from the tables listed here will be transferred. This option is specified using regular expressions.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
@@ -207,7 +207,7 @@ For OnPremise, all fields are filled in manually.
 
 - {{ TF }} {#tf}
 
-   * `include_table_regex`: List of included tables. If this is on, the data will only be transferred from the tables in this list. This option is specified using regular expressions.
+   * `include_table_regex`: List of included tables. Only data from the tables listed here will be transferred. This option is specified using regular expressions.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
@@ -229,7 +229,7 @@ For OnPremise, all fields are filled in manually.
 
 - API {#api}
 
-   * `includeTablesRegex`: List of included tables. If this is on, the data will only be transferred from the tables in this list. This option is specified using regular expressions.
+   * `includeTablesRegex`: List of included tables. Only data from the tables listed here will be transferred. This option is specified using regular expressions.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
@@ -265,26 +265,20 @@ If you are setting up a transfer from a {{ MY }} cluster to a {{ CH }} cluster, 
 * When transferring data of the `TIMESTAMP` type, the time zone set in the {{ MY }} source settings or [advanced endpoint settings](#additional-settings) is used. For more information, see the [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/datetime.html).
 * The source endpoint assigns the UTC+0 time zone to data of the `DATETIME` type.
 
-{% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}
-
-{% include [greenplum-trademark](../../../../_includes/mdb/mgp/trademark.md) %}
-
-{% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}
-
 ## Configuring the data target {#supported-targets}
 
 Configure one of the supported data targets:
 
-* [{{ PG }}](../target/postgresql.md).
-* [{{ MY }}](../target/mysql.md).
-* [{{ CH }}](../target/clickhouse.md).
-* [{{ GP }}](../target/greenplum.md).
-* [{{ ydb-full-name }}](../target/yandex-database.md).
-* [{{ objstorage-full-name }}](../target/object-storage.md).
-* [{{ KF }}](../target/kafka.md).
-* [{{ DS }}](../target/data-streams.md).
-* [{{ ES }}](../target/elasticsearch.md).
-* [{{ OS }}](../target/opensearch.md).
+* [{{ PG }}](../target/postgresql.md)​
+* [{{ MY }}](../target/mysql.md)​
+* [{{ CH }}](../target/clickhouse.md)​
+* [{{ GP }}](../target/greenplum.md)
+* [{{ ydb-full-name }}](../target/yandex-database.md)
+* [{{ objstorage-full-name }}](../target/object-storage.md)​
+* [{{ KF }}](../target/kafka.md)
+* [{{ DS }}](../target/data-streams.md)
+* [{{ ES }}](../target/elasticsearch.md)​
+* [{{ OS }}](../target/opensearch.md)​
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
 
@@ -292,7 +286,7 @@ After configuring the data source and target, [create and start the transfer](..
 
 ## Operations with the database during transfer {#db-actions}
 
-{% include [work with db](../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) %}
+{% include [work with db](../../../../_includes/data-transfer/endpoints/sources/mysql-work-with-db.md) %}
 
 ## Troubleshooting data transfer issues {#troubleshooting}
 
@@ -321,3 +315,7 @@ See a full list of recommendations in the [Troubleshooting](../../../troubleshoo
 {% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}
 
 {% include [timezone-shift](../../../../_includes/data-transfer/troubles/mysql/timezone-shift.md) %}
+
+{% include [greenplum-trademark](../../../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

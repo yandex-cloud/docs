@@ -19,7 +19,9 @@
 * [{{ mmy-full-name }}](#mmy)
 * [{{ mpg-full-name }}](#mpg)
 * [{{ objstorage-full-name }}](#objstorage)
+* [{{ sws-full-name }}](#smartwebsecurity)
 * [{{ speechsense-full-name }}](#speechsense)
+* [{{ sws-full-name }}](#sws)
 * [{{ wiki-full-name }}](#wiki)
 * [{{ websql-full-name }}](#websql)
 
@@ -77,11 +79,23 @@
 
 {% include [storage-events-dp](../../_includes/audit-trails/events/storage-events-dp.md) %}
 
+## {{ sws-full-name }} {#smartwebsecurity}
+
+Имя сервиса — `smartwebsecurity`.
+
+{% include [sws-events](../../_includes/audit-trails/events/sws-events-dp.md) %}
+
 ## {{ speechsense-full-name }} {#speechsense}
 
 Имя сервиса — `speechsense`.
 
 {% include [speechsense-events-dp](../../_includes/audit-trails/events/speechsense-events-dp.md) %}
+
+## {{ sws-full-name }} {#sws}
+
+Имя сервиса — `smartwebsecurity`.
+
+{% include [sws-events-dp](../../_includes/audit-trails/events/sws-events-dp.md) %}
 
 ## {{ wiki-full-name }} {#wiki}
 

@@ -23,6 +23,7 @@ Sources enable you to do the following:
 
 * In the configuration, specify the parameters that cannot be included in an [SQL query for creating a PXF external table](../operations/pxf/create-table.md).
 * Avoid explicitly specifying the user password in an SQL query for creating an external table.
-* Simplify an SQL query for creating a table, as with a dedicated and configured source, you do not need to list configuration parameters in your query.
+* Simplify your SQL query for creating a table: with a dedicated source properly configured, there is no need to list configuration parameters in your query.
+* Simplify your configuration update: it is enough to redefine the parameters at the source only once without changing them for each table separately.
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

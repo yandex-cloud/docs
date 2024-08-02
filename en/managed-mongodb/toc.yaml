@@ -2,7 +2,7 @@ title: Yandex Managed Service for MongoDB
 href: index.yaml
 label:
   title: RU
-  description: This service is only available in Russia.
+  description: The service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -64,7 +64,7 @@ items:
             href: operations/monitoring.md
   - name: Tutorials
     items:
-      - name: All use cases
+      - name: All tutorials
         href: tutorials/index.md
       - name: Sharding collections
         href: tutorials/sharding.md

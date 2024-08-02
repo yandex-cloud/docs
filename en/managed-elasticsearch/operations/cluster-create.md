@@ -309,7 +309,8 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
 
    * List of plugins in the `configSpec.elasticsearchSpec.plugins` parameter.
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled {{ mes-name }} clusters) in the `maintenanceWindow` parameter.
+   * [Maintenance window](../concepts/maintenance.md) settings (including for disabled {{ mes-name }} clusters) in the `maintenanceWindow` parameter.
+   * Settings for access from [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) in the `configSpec.access.dataTransfer` parameter.
 
 {% endlist %}
 
@@ -332,11 +333,11 @@ If you specified security group IDs when creating a {{ mes-name }} cluster, you 
    To create a {{ mes-name }} cluster with a single host, provide a single `--host` parameter.
 
    Create a {{ mes-name }} cluster with the following test characteristics:
-   * Name: `my-es-clstr`
-   * Version: `{{ versions.cli.latest }}`
-   * Edition: `Platinum`
-   * Environment: `PRODUCTION`
-   * Network: `default`
+   * Name: `my-es-clstr`.
+   * Version: `{{ versions.cli.latest }}`.
+   * Edition: `Platinum`.
+   * Environment: `PRODUCTION`.
+   * Network: `default`.
 
 
    * Security group ID: `enpp2s8l3irh********`.

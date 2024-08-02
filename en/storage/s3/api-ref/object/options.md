@@ -41,10 +41,11 @@ In addition to [common response headers](../common-response-headers.md), respons
 
 ### Response codes {#response-codes}
 
-The method returns:
+The method returns the following:
 
 - 200: if requests to the object are allowed.
-- 403: if requests to the object aren't allowed.
+- 403: if requests to the object are not allowed.
 
 For a detailed description of response codes, see [{#T}](../response-codes.md).
 
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

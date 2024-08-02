@@ -92,7 +92,7 @@ items:
         href: concepts/sql-limits.md
   - name: Tutorials
     items:
-      - name: All use cases
+      - name: All tutorials
         href: tutorials/index.md
       - name: '{{ mmy-name }} performance analysis and tuning'
         href: tutorials/profiling-mmy.md

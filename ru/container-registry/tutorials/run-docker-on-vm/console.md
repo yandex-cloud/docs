@@ -10,4 +10,4 @@ canonical: "{{ link-docs }}/tutorials/infrastructure-management/run-docker-on-vm
 
 ## См. также {#see-also}
 
-* [{#T}](terraform.md).
+* [{#T}](terraform.md)

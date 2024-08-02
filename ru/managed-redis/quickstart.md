@@ -17,6 +17,7 @@ description: "В этой инструкции вы научитесь созд�
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
+1. [Убедитесь](../iam/operations/roles/get-assigned-roles.md), что для создания кластера у вашего аккаунта есть роль [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и роль [{{ roles.mrd.editor }} или выше](security/index.md#roles-list).
 1. Если для [кластера](../glossary/cluster.md) не настроен публичный доступ, подключиться к нему можно только изнутри {{ yandex-cloud }}. Для подключения создайте виртуальную машину в той же облачной сети, что и кластер {{ RD }} (на основе [Linux](../compute/quickstart/quick-create-linux.md)).
 1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к ВМ по [SSH](../glossary/ssh-keygen.md).
 1. Установите на ВМ утилиту [redis-cli](https://redis.io/topics/rediscli), например, так (для [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts)):

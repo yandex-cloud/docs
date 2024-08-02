@@ -52,3 +52,5 @@ Description of schema parameters:
 | `Statement[].Condition{}.` | **string**<br/>(Optional) [Condition](conditions.md) that will be checked. |
 | `Statement[].Condition{}.`<br/>`condition_type_string{}.` | **string**<br/>Condition type.<br/>Possible values: `StringEquals`, `Bool`. For a full list of values, see [Comparison operators](conditions.md#condition-operators). |
 | `Statement[].Condition{}.`<br/>`condition_type_string{}.`<br/>`condition_key_string` | **string**<br/>Specifies the condition whose value will be checked.<br/>Possible values: `aws:PrincipalType`, `true`. |
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

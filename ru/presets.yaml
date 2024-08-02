@@ -551,7 +551,10 @@ default:
         agent: k8s.clusters.agent
       editor: k8s.editor
     maf:
+      admin: managed-airflow.admin
+      editor: managed-airflow.editor
       user: managed-airflow.user
+      viewer: managed-airflow.viewer
     mch:
       admin: managed-clickhouse.admin
       editor: managed-clickhouse.editor
@@ -3789,7 +3792,6 @@ default:
     organization:
       business:
         fixed_consumption:
-          v1|int|string: "24\_$"
           v1|string: "24,000000\_$"
     standard:
       fixed_consumption:
@@ -5070,6 +5072,7 @@ default:
             popup-grant-activation_button_activate: Активировать
           detail:
             button_create-periodic-export: Регулярный экспорт
+            button_download-csv: Выгрузить в CSV
             button_export: Экспорт детализации
             button_move-to-datalens: Подробная детализация в DataLens
             column_cloud-name: Облако
@@ -5715,6 +5718,7 @@ default:
             button_refill: Пополнить баланс
             popup-refill_button_company-action: Выписать счет
           detail:
+            popup-csv_button_download: Скачать
             tab_product: По продуктам
           reconciliation-reports:
             action_download-with-facsimile: Скачать подписанный акт
@@ -5724,6 +5728,7 @@ default:
             field_actions: Действия
             value_completed: Готово
           switch_acts: Отчётные документы
+          switch_detail: Детализация
           tab_reconciliation-reports-title: Акты сверки
         label_accounts: Аккаунты
         label_service: Биллинг
