@@ -1,5 +1,14 @@
 # Updating a VM connection to {{ backup-name }}
 
+{% note info %}
+
+If you have [deleted](delete-vm.md) a VM from {{ backup-name }} and want to reconnect it to the service, use this guide:
+
+* [Connecting a Linux VM](connect-vm-linux.md)
+* [Connecting a Windows VM](connect-vm-windows.md)
+
+{% endnote %}
+
 After [restoring a VM from a backup of another VM](./backup-vm/non-native-recovery.md), the source VM the backup was created from becomes outdated.
 
 To avoid conflicts between the two VMs when making backups, update the outdated VM's connection to {{ backup-name }}:

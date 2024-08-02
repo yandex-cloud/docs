@@ -8,6 +8,7 @@ description: "Various {{ mch-full-name }} use cases in {{ yandex-cloud }}."
 * [Adding data to the database](insert.md)
 * [{#T}](data-migration.md)
 * [Sharding tables](sharding.md)
+* [Data resharding in a cluster](mch-mch-resharding.md)
 * [Using hybrid storage](hybrid-storage.md)
 * [Getting data from {{ mkf-name }}](fetch-data-from-mkf.md)
 * [Getting data from RabbitMQ](fetch-data-from-rabbitmq.md)

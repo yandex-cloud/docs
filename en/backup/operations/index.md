@@ -8,6 +8,7 @@ description: "This page provides a list of step-by-step guides for {{ backup-nam
 ## Managing VMs in {{ backup-name }} {#connect-vm}
 
 * [Creating a Linux VM with a connection to {{ backup-name }}](create-vm.md)
+* [Creating a Windows Server VM with a connection to {{ backup-name }}](create-vm-windows.md)
 * [Connecting a Linux VM to {{ backup-name }}](connect-vm-linux.md)
 * [Connecting a Windows Server VM to {{ backup-name }}](connect-vm-windows.md)
 * [Updating a VM connection to {{ backup-name }}](refresh-connection.md)
@@ -17,7 +18,8 @@ description: "This page provides a list of step-by-step guides for {{ backup-nam
 
 * [Creating a backup policy](./policy-vm/create.md)
 * [Updating a backup policy](./policy-vm/update.md)
-* [Editing a list of VMs in a backup policy](./policy-vm/attach-and-detach-vm.md)
+* [Linking a VM to a backup policy](./policy-vm/attach-and-detach-vm.md)
+* [Unlinking a VM from a backup policy](./policy-vm/detach-vm.md)
 * [Deleting a backup policy](./policy-vm/delete.md)
 
 ## Managing backups {#backup-vm}
@@ -27,3 +29,7 @@ description: "This page provides a list of step-by-step guides for {{ backup-nam
 * [Restoring a VM from a backup of another VM](./backup-vm/non-native-recovery.md)
 * [Restoring individual directories and files on a VM](./backup-vm/recover-file-by-file.md)
 * [Deleting a backup](./backup-vm/delete.md)
+
+## Service operations {#service-operations}
+
+* [Viewing operations with the service's resources](operation-logs.md)

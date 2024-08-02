@@ -2,7 +2,7 @@
 
 Uploads a CORS configuration for a bucket. It replaces any existing configuration.
 
-A CORS configuration is an XML file no larger than 64 KB. Configurations can't contain more than 100 rules.
+A CORS configuration is an XML file no larger than 64 KB. A configuration may not contain more than 100 rules.
 
 
 ## Request {#request}
@@ -27,7 +27,7 @@ PUT /{bucket}?cors HTTP/2
 
 ### Headers {#request-headers}
 
-Use the necessary [common request headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in your requests.
 
 You must use the `Content-MD5` header.
 
@@ -44,3 +44,5 @@ Responses can only contain [common response headers](../common-response-headers.
 ### Response codes {#response-codes}
 
 For a list of possible responses, see [{#T}](../response-codes.md).
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

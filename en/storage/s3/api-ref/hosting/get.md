@@ -25,7 +25,7 @@ GET /{bucket}?website HTTP/2
 
 ### Headers {#request-headers}
 
-Use the necessary [common request headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in your requests.
 
 
 ## Response {#response}
@@ -41,3 +41,5 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 ### Data schema {#response-scheme}
 
 The structure of returned data is the same as the structure of the data passed by the [upload](upload.md) method.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -20,11 +20,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The price for backups via Duplicati includes:
+The cost of backup via Duplicati includes:
 
-* Data storage fees (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-storage)).
-* Fee for data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-operations)).
-* Cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-traffic)).
+* Data storage fee (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-storage)).
+* Fee for operations with data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-operations)).
+* Fee for outbound traffic from {{ yandex-cloud }} to the internet (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-traffic)).
 
 
 ## Create a bucket {#create-bucket}
@@ -45,8 +45,8 @@ Backups in {{ objstorage-name }} are performed on behalf of a [service account](
 
 To create a service account:
 
-1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `editor` [role](../../iam/concepts/access-control/roles.md) to your service account.
-1. [Create](../../iam/operations/sa/create-access-key.md) static access keys. Save the ID and the secret key right away. After you close the window, the private key parameters will become unavailable.
+1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` [role](../../iam/concepts/access-control/roles.md) to the service account.
+1. [Create](../../iam/operations/sa/create-access-key.md) a static access key. Save the ID and private key. After closing the window, the private key parameters will be unavailable.
 
 ## Install Duplicati {#install-duplicati}
 
@@ -70,17 +70,16 @@ To configure Duplicati to work with {{ objstorage-name }}:
 
 1. Run Duplicati. If required, set a password for your account.
 1. Click **Add backup**.
-1. Select **Configure a new backup** then click **Next**.
-1. Enter the backup plan name: `{{ yandex-cloud }}`. If you selected to encrypt the backup (`AES-256 encryption`), enter the password and confirm it. Click **Next**.
-1. Under **Storage Type**, select`S3 compatible`.
-1. In the **Server** list, specify `Custom server URL`. In the field below, enter the address `{{ s3-storage-host }}/`.
+1. Select **Configure a new backup** and click **Next**.
+1. Enter the backup plan name: `{{ yandex-cloud }}`. If you chose to encrypt the backup (`AES-256 encryption` or `GNU Privacy Guard`), enter the password and confirm it. Click **Next**.
+1. In the **Storage Type** field, select `S3 compatible`.
+1. In the **Server** field, select `Custom server URL`. In the field that appeared, enter the address `{{ s3-storage-host }}/`.
 1. In the **Bucket name** field, enter a name for your bucket.
-1. In the **AWS Access ID** field, specify the static access key ID.
+1. In the **AWS Access ID** field, enter the static access key ID.
 1. In the **AWS Access Key** field, enter the secret key.
-1. To double-check the settings, click **Test connection**. In the window that opens, click **No**.
-1. After checking the settings, click **Next**.
-1. Select the files that you want to back up.
-1. Click **Next**.
+1. To make sure the settings are correct, click **Test connection**. In the window that opens, click **No**.
+1. If successful, a window will appear saying **Connection worked!**. After you check the settings, click **Next**.
+1. Select the files you want to back up from your computer. Click **Next**.
 1. Set the backup schedule or deselect the **Automatically run backups** option to create backups manually. Click **Next**.
 1. Specify the volume size and set the storage duration. Click **Save**.
 
@@ -89,10 +88,9 @@ To configure Duplicati to work with {{ objstorage-name }}:
 To test a backup:
 
 1. In the Duplicati interface, click **Home**.
-1. In the list of backup plans next to the `{{ yandex-cloud }}` plan, click **Run now**.
-1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-1. Go to the folder hosting your bucket with backups.
-1. Select **{{ objstorage-short-name }}**.
+1. In the list of backup plans next to the `{{ yandex-cloud }}` plan, click **Run now**. Wait for the operation to complete.
+1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), select the folder where the backup bucket is located.
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Open the bucket with backups and check whether all the relevant were copied.
 
 For more information about restoring from a backup, see the [Duplicati documentation](https://duplicati.readthedocs.io/en/latest/03-using-the-graphical-user-interface/#restoring-files-from-a-backup).

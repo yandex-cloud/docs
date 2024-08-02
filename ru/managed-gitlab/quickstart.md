@@ -30,6 +30,8 @@ description: "Следуя данной инструкции, вы сможет�
 
      {% include [create-folder](../_includes/create-folder.md) %}
 
+  1. [Убедитесь](../iam/operations/roles/get-assigned-roles.md), что для создания инстанса у вашего аккаунта есть роль [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и роль [{{ roles.gitlab.editor }} или выше](security/index.md#roles-list).
+
 {% endlist %}
 
 ## Создайте инстанс {#instance-create}

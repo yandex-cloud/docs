@@ -222,6 +222,7 @@ If the cluster already uses a service account to access objects from {{ objstora
 
          {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
+
       * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
          {% include [Deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -315,7 +316,7 @@ If the cluster already uses a service account to access objects from {{ objstora
    To update the `admin` user's password, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Settings for the [maintenance window](../concepts/maintenance.md) (for disabled clusters as well) in the `maintenanceWindow` parameter.
+   * [Maintenance](../concepts/maintenance.md) window settings (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [Deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}

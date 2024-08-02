@@ -84,7 +84,7 @@ items:
             href: operations/datalens-connect.md
   - name: Tutorials
     items:
-      - name: All use cases
+      - name: All tutorials
         href: tutorials/index.md
       - name: Adding data to the database
         href: tutorials/insert.md
@@ -92,6 +92,8 @@ items:
         href: tutorials/data-migration.md
       - name: Sharding tables
         href: tutorials/sharding.md
+      - name: Data resharding in a cluster
+        href: tutorials/mch-mch-resharding.md
       - name: Using hybrid storage
         href: tutorials/hybrid-storage.md
       - name: Fetching data from {{ mkf-name }}

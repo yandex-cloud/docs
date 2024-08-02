@@ -37,7 +37,7 @@ POST /{bucket}?delete HTTP/2
 
 ### Headers {#request-headers}
 
-Use the necessary [common request headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in requests.
 
 For this request, the `Content-MD5` and `Content-Length` headers are required.
 
@@ -107,3 +107,4 @@ A successful response contains additional data in XML format with the schema des
 | `Code` | Error code.<br/>Path: `/DeleteResult/Error/Code`. |
 | `Message` | Error description.<br/>Path: `/DeleteResult/Error/Message`. |
 
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

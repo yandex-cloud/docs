@@ -32,7 +32,7 @@ GET /{bucket}/{key} HTTP/2
 
 ### Headers {#request-headers}
 
-Use the necessary [common request headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in requests.
 
 You can also use the following headers in requests:
 
@@ -58,7 +58,7 @@ In addition to [common response headers](../common-response-headers.md), you can
 | `X-Amz-Server-Side-Encryption` | Encryption algorithm used to encrypt the object. Returned if the object was loaded with enabled [encryption](../../../operations/buckets/encrypt.md). |
 | `X-Amz-Server-Side-Encryption-Aws-Kms-Key-Id` | ID of the [key {{ kms-short-name }}](../../../../kms/concepts/key.md). Returned if the object was loaded with enabled [encryption](../../../operations/buckets/encrypt.md). |
 | `X-Amz-Object-Lock-Mode` | <p>Type of [retention](../../../concepts/object-lock.md) put on the object (if the bucket is [versioned](../../../concepts/versioning.md) and object lock is enabled in it):</p><ul><li>`GOVERNANCE`: Object lock with a predefined retention period that can be managed.</li><li>`COMPLIANCE`: Object lock with a predefined retention period with strict compliance.</li></ul><p>On an object version, you can put only retention (the headers `X-Amz-Object-Lock-Mode` and `X-Amz-Object-Lock-Retain-Until-Date`), only legal hold (`X-Amz-Object-Lock-Legal-Hold`), or both at the same time. For more information about their combined use, see [{#T}](../../../concepts/object-lock.md#types).</p> |
-| `X-Amz-Object-Lock-Retain-Until-Date` | Date and time until which the object is retained, specified in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), e.g., `Mon, 12 Dec 2022 09:00:00 GMT`. Specified only together with the `X-Amz-Object-Lock-Mode` header. |
+| `X-Amz-Object-Lock-Retain-Until-Date` | Date and time until which the object is retained, specified in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), e.g., `Mon, 12 Dec 2022 09:00:00 GMT`. Specify it only with the `X-Amz-Object-Lock-Mode` header. |
 | `X-Amz-Object-Lock-Legal-Hold` | <p>Type of [legal hold](../../../concepts/object-lock.md) put on the object (if the bucket is [versioned](../../../concepts/versioning.md) and object lock is enabled in it):</p><ul><li>`ON`: Enabled.</li><li>`OFF`: Disabled.</li></ul><p>On an object version, you can put only retention (the headers `X-Amz-Object-Lock-Mode` and `X-Amz-Object-Lock-Retain-Until-Date`), only legal hold (`X-Amz-Object-Lock-Legal-Hold`), or both at the same time. For more information about their combined use, see [{#T}](../../../concepts/object-lock.md#types).</p> |
 
 
@@ -66,3 +66,4 @@ In addition to [common response headers](../common-response-headers.md), you can
 
 For a list of possible responses, see [{#T}](../response-codes.md).
 
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

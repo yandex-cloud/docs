@@ -5,7 +5,7 @@ The [{{ alb-full-name }}](../../application-load-balancer/) service is designed 
 
 To set up access to the applications running in your {{ managed-k8s-name }} cluster via {{ alb-name }}:
 1. [Set up the Ingress controller and test applications](#create-ingress-and-apps).
-1. [(Optional) Set up the Ingress group](#configure-group).
+1. [(Optional) Configure the Ingress resource group](#configure-group).
 1. [Make sure the {{ managed-k8s-name }} cluster applications are accessible via {{ alb-name }}](#verify-setup).
 
 For full configuration of the resources for the {{ alb-name }} Ingress controller, see the following sections:
@@ -315,7 +315,7 @@ Command result:
 
          If you set `auto`, deleting the Ingress controller will also delete the [IP address](../../vpc/concepts/address.md) from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). To avoid this, use an existing reserved IP address.
 
-      * `ingress.alb.yc.io/group-name`: Group name. {{ k8s }} Ingress resources are grouped together, with each group served by a separate {{ alb-name }} instance.
+      * `ingress.alb.yc.io/group-name`: Group name. {{ k8s }} Ingress resources are grouped together, each group served by a separate {{ alb-name }} instance.
 
          You can replace `my-ingress-group` with any group name you like. Make sure it meets the naming [requirements]({{ k8s-docs }}/concepts/overview/working-with-objects/names/).
 
@@ -325,7 +325,7 @@ Command result:
 
       {% cut "Additional settings" %}
 
-      * `ingress.alb.yc.io/group-settings-name`: Name for the Ingress group settings to be described in the optional `IngressGroupSettings` resource. For more information, see [Set up the Ingress group](#configure-group).
+      * `ingress.alb.yc.io/group-settings-name`: Name for the Ingress resource group settings to be described in the optional `IngressGroupSettings` resource. For more information, see [Configure the Ingress resource group](#configure-group).
       * `ingress.alb.yc.io/internal-ipv4-address`: Provide internal access to {{ alb-name }}. Enter the internal IP address or use `auto` to obtain the IP address automatically.
 
          {% note info %}
@@ -336,7 +336,7 @@ Command result:
 
       * `ingress.alb.yc.io/internal-alb-subnet`: Subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
       * `ingress.alb.yc.io/protocol`: Connection protocol used by the load balancer and the backends:
-         * `http`: HTTP/1.1, default value
+         * `http`: HTTP/1.1. Default value.
          * `http2`: HTTP/2
          * `grpc`: gRPC
       * `ingress.alb.yc.io/transport-security`: Encryption protocol for connections between the load balancer and backends.
@@ -585,12 +585,12 @@ Command result:
 
          If you set `auto`, deleting the Ingress controller will also delete the [IP address](../../vpc/concepts/address.md) from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). To avoid this, use an existing reserved IP address.
 
-      * `ingress.alb.yc.io/group-name`: Group name. {{ k8s }} Ingress resources are grouped together, with each group served by a separate {{ alb-name }} instance.
+      * `ingress.alb.yc.io/group-name`: Group name. {{ k8s }} Ingress resources are grouped together, each group served by a separate {{ alb-name }} instance.
 
          You can replace `my-ingress-group` with any group name you like. Make sure it meets the naming [requirements]({{ k8s-docs }}/concepts/overview/working-with-objects/names/).
 
       (Optional) Enter the advanced settings for the controller:
-      * `ingress.alb.yc.io/group-settings-name`: Name for the Ingress group settings to be described in the optional `IngressGroupSettings` resource. For more information, see [Set up the Ingress group](#configure-group).
+      * `ingress.alb.yc.io/group-settings-name`: Name for the Ingress resource group settings to be described in the optional `IngressGroupSettings` resource. For more information, see [Configure the Ingress resource group](#configure-group).
       * `ingress.alb.yc.io/internal-ipv4-address`: Provide internal access to {{ alb-name }}. Enter the internal IP address or use `auto` to obtain the IP address automatically.
 
          {% note info %}
@@ -601,7 +601,7 @@ Command result:
 
       * `ingress.alb.yc.io/internal-alb-subnet`: Subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
       * `ingress.alb.yc.io/protocol`: Connection protocol used by the load balancer and the backends:
-         * `http`: HTTP/1.1, default value
+         * `http`: HTTP/1.1. Default value.
          * `http2`: HTTP/2
          * `grpc`: gRPC
       * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
@@ -660,16 +660,16 @@ Command result:
 
 {% endlist %}
 
-## (Optional) Set up the Ingress group {#configure-group}
+## (Optional) Configure the Ingress resource group {#configure-group}
 
-Specifying a name for the Ingress group settings using the `ingress.alb.yc.io/group-settings-name` annotation during the installation of the Ingress controller enables you to set logging settings for the L7 balancer. To do this, [create a custom log group](../../logging/operations/create-group.md) and specify the Ingress group settings in the optional `IngressGroupSettings` resource.
+If you specified a name for the Ingress resource group settings in the `ingress.alb.yc.io/group-settings-name` annotation when you installed the Ingress controller, you can specify logging settings for the L7 load balancer. To do this, [create a custom log group](../../logging/operations/create-group.md) and specify the Ingress resource group settings in the optional `IngressGroupSettings` resource.
 1. Create a `settings.yaml` file with your logging settings and the custom log group ID. For example:
 
    ```yaml
    apiVersion: alb.yc.io/v1alpha1
    kind: IngressGroupSettings
    metadata:
-     name: <name_for_Ingress_group_settings>
+     name: <name_for_Ingress_resource_group_settings>
    logOptions:
      logGroupID: <custom_log_group_ID>
      discardRules:
@@ -687,9 +687,9 @@ Specifying a name for the Ingress group settings using the `ingress.alb.yc.io/gr
            - 404
    ```
 
-   Where `name` is the name for Ingress group settings in the `ingress.alb.yc.io/group-settings-name` annotation.
+   Where `name` is the name for the Ingress resource group settings in the `ingress.alb.yc.io/group-settings-name` annotation.
 
-1. Apply the settings for the Ingress group:
+1. Apply the settings for the Ingress resource group:
 
    ```bash
    kubectl apply -f settings.yaml

@@ -14,19 +14,20 @@
 
 {% include [mkf-zk-hosts](../../_includes/mdb/mkf-zk-hosts.md) %}
 
-## Создать кластер с версией {{ KF }} 3.5 или ниже {#create-cluster}
+## Перед началом работы {#before-you-begin}
 
-Перед созданием кластера рассчитайте [минимальный размер хранилища](../concepts/storage.md#minimal-storage-size) для топиков.
+1. Рассчитайте [минимальный размер хранилища](../concepts/storage.md#minimal-storage-size) для топиков.
+1. [Убедитесь](../../iam/operations/roles/get-assigned-roles.md), что у вашего аккаунта есть роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mkf.editor }} или выше](../security/index.md#roles-list).
 
 
 Если вы указываете идентификаторы групп безопасности при создании кластера {{ mkf-name }}, для подключения к нему может понадобиться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups).
 
 
+## Создать кластер с версией {{ KF }} 3.5 или ниже {#create-cluster}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-
-  Чтобы создать кластер {{ mkf-name }}:
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -300,12 +301,6 @@
 В кластерах {{ mkf-name }} с версией {{ KF }} 3.6 и выше поддержан протокол [{{ kraft-name }}](../concepts/kraft.md) (сокращенно {{ kraft-short-name }}). Он используется для хранения метаданных вместо {{ ZK }}.
 
 Создать кластер с {{ kraft-short-name }} можно только с определенной конфигурацией и не во всех интерфейсах {{ yandex-cloud }}. Поэтому процесс создания кластера отличается для версий {{ KF }} 3.6 и выше.
-
-Перед созданием кластера рассчитайте [минимальный размер хранилища](../concepts/storage.md#minimal-storage-size) для топиков.
-
-
-Если вы указываете идентификаторы групп безопасности при создании кластера {{ mkf-name }}, для подключения к нему может понадобиться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups).
-
 
 {% note warning %}
 

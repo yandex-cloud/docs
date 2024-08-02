@@ -11,6 +11,8 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
 
 {% include [vm-prereqs-note](../../_includes/backup/vm-prereqs-note.md) %}
 
+If you have [deleted](delete-vm.md) a VM from {{ backup-name }} and want to reconnect it, follow the steps below.
+
 To connect a Windows VM to {{ backup-name }}:
 
 1. [Create](../../iam/operations/sa/create.md) a service account with the `backup.editor` [role](../security/index.md#backup-editor).

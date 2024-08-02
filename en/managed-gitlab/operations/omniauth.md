@@ -140,7 +140,7 @@ https://my-domain.gitlab.yandexcloud.net/users/auth/Yandex/callback
 
 {% note warning %}
 
-When integrating with the Yandex ID service, any user with a Yandex account can log in to your instance. To prevent access by unauthorized users, [set](#params) the **Allow single sign on** and **Block auto-created users** parameters to **true**. This will allow you to automatically create new users in {{ GL }}, but block them the first time they log in.
+When integrating with the Yandex ID service, any user with a Yandex account can log in to your instance. To prevent access by unauthorized users, [set](#params) the **Allow single sign on** and **Block auto-created users** parameters to **true**. This will allow you to automatically create new users in {{ GL }} but also block them at first log in.
 
 {% endnote %}
 

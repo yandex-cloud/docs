@@ -1,12 +1,12 @@
 # Authentication using {{ microsoft-idp.entra-id-full }}
 
-With an [identity federation](../../concepts/add-federation.md), you can use [{{ microsoft-idp.entra-id-full }} ({{ microsoft-idp.entra-id-short }})]({{ link-azure-ad }}) to authenticate users in an organization.
+With an [identity federation](../../concepts/add-federation.md), you can use [{{ microsoft-idp.entra-id-full }}]({{ link-azure-ad }}) ({{ microsoft-idp.entra-id-short }}) to authenticate users within an organization.
 
 Authentication setup includes the following steps:
 
-1. [Creating and setting up a SAML application in Azure](#azure-settings).
+1. [Creating and configuring a SAML application in Azure](#azure-settings).
 
-1. [Creating and setting up a federation in {{ org-full-name }}](#yc-settings).
+1. [Creating and configuring a federation in {{ org-full-name }}](#yc-settings).
 
 1. [Setting up single sign-on (SSO)](#sso-settings).
 
@@ -16,21 +16,21 @@ Authentication setup includes the following steps:
 
 To follow the steps described in this section, you will need an Azure account with an active subscription.
 
-## Creating and setting up a SAML application in Azure {#azure-settings}
+## Creating and configuring a SAML application in Azure {#azure-settings}
 
 ### Create a SAML application and download a certificate {#create-app}
 
-A SAML application in {{ microsoft-idp.entra-id-short }} acts as an identity provider (IdP). Create a SAML application and download a certificate:
+In Microsoft Azure, a SAML application acts as an identity provider (IdP). Create a SAML application and download a certificate:
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 
-1. In **Azure Services**, select **{{ microsoft-idp.entra-id-full }}**.
+1. Under **Azure services**, select **{{ microsoft-idp.entra-id-full }}**.
 
-1. On the left-hand panel, select **Enterprise Applications**.
+1. In the left-hand panel, select **Enterprise Applications**.
 
 1. Click **New application**.
 
-1. On the **Browse {{ microsoft-idp.entra-full }} Gallery** page, click **Create your own application**.
+1. On the **Browse {{ microsoft-idp.entra-full }} gallery** page, click **Create your own application**.
 
 1. In the window that opens:
 
@@ -66,7 +66,7 @@ Add users to the IdP server:
 
 1. Click **Assign**.
 
-## Creating and setting up a federation in {{ org-full-name }} {#yc-settings}
+## Creating and configuring a federation in {{ org-full-name }} {#yc-settings}
 
 ### Create a federation {#create-federation}
 
@@ -86,13 +86,13 @@ Add users to the IdP server:
 
    1. In the **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** field, specify the time before the browser asks the user to re-authenticate.
 
-   1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, insert the link from the **{{ microsoft-idp.entra-full }} ID** field on the {{ microsoft-idp.entra-id-short }} **SAML-based sign-on** page. The link should have the following format:
+   1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, insert the link from the **{{ microsoft-idp.entra-full }} ID** field on the **SAML-based sign-on** page in {{ microsoft-idp.entra-id-short }}. The link should have the following format:
 
       ```
       https://sts.windows.net/<SAML_application_ID>/
       ```
 
-   1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, insert the link from the **Login URL** field on the {{ microsoft-idp.entra-id-short }} **SAML-based sign-on** page. The link should have the following format:
+   1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, insert the link from the **Login URL** field on the **SAML-based sign-on** page in {{ microsoft-idp.entra-id-short }}. The link should have the following format:
 
       ```
       https://login.microsoftonline.com/<SAML_application_ID>/saml2
@@ -148,14 +148,14 @@ Add users to the IdP server:
 
       * `--issuer`: ID of the IdP server to use for authentication.
 
-         Use the link from the **{{ microsoft-idp.entra-full }} ID** field on the {{ microsoft-idp.entra-id-short }} **SAML-based sign-on** page. The link should have the following format:
+         Use the link from the **{{ microsoft-idp.entra-full }} ID** field on the **SAML-based sign-on** page in {{ microsoft-idp.entra-id-short }}. The link should have the following format:
          ```
          https://sts.windows.net/<SAML_application_ID>/
          ```
 
       * `--sso-url`: URL to which the browser redirects the user for authentication.
 
-         Use the link from the **Login URL** field on the {{ microsoft-idp.entra-id-short }} **SAML-based sign-on** page. The link should have the following format:
+         Use the link from the **Login URL** field on the **SAML-based sign-on** page in {{ microsoft-idp.entra-id-short }}. The link should have the following format:
 
          ```
          https://login.microsoftonline.com/<SAML_application_ID>/saml2
@@ -179,7 +179,7 @@ Add users to the IdP server:
       * `labels`: Set of key/value label pairs assigned to the federation.
       * `issuer`: ID of the IdP server to use for authentication.
 
-         Use the link from the **{{ microsoft-idp.entra-full }} ID** field on the {{ microsoft-idp.entra-id-short }} **SAML-based sign-on** page. The link should have the following format:
+         Use the link from the **{{ microsoft-idp.entra-full }} ID** field on the **SAML-based sign-on** page in {{ microsoft-idp.entra-id-short }}. The link should have the following format:
 
          ```
          https://sts.windows.net/<SAML_application_ID>/
@@ -188,7 +188,7 @@ Add users to the IdP server:
       * `sso_binding`: Specify the single sign-on binding type. Most identity providers support the `POST` binding type.
       * `sso_url`: URL of the page the browser redirects the user to for authentication.
 
-         Use the link from the **Login URL** field on the {{ microsoft-idp.entra-id-short }} **SAML-based sign-on** page. The link should have the following format:
+         Use the link from the **Login URL** field on the **SAML-based sign-on** page in {{ microsoft-idp.entra-id-short }}. The link should have the following format:
 
          ```
          https://login.microsoftonline.com/<SAML_application_ID>/saml2
@@ -205,7 +205,7 @@ Add users to the IdP server:
          If the option is enabled, the IDs of federated user names will be case-insensitive.
       * `security_settings`: Federation security settings:
          * `encrypted_assertions`: Sign authentication requests.
-            If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You need to download and install a {{ yandex-cloud }} certificate.
+            If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
 
       Here is an example of the configuration file structure:
 
@@ -280,7 +280,7 @@ Add users to the IdP server:
 
       * `issuer`: ID of the IdP server to use for authentication.
 
-         Use the link from the **{{ microsoft-idp.entra-full }} ID** field on the {{ microsoft-idp.entra-id-short }} **SAML-based sign-on** page. The link should have the following format:
+         Use the link from the **{{ microsoft-idp.entra-full }} ID** field on the **SAML-based sign-on** page in {{ microsoft-idp.entra-id-short }}. The link should have the following format:
 
          ```
          https://sts.windows.net/<SAML_application_ID>/
@@ -288,7 +288,7 @@ Add users to the IdP server:
 
       * `ssoUrl`: URL of the page the browser redirects the user to for authentication.
 
-         Use the link from the **Login URL** field on the {{ microsoft-idp.entra-id-short }} **SAML-based sign-on** page. The link should have the following format:
+         Use the link from the **Login URL** field on the **SAML-based sign-on** page in {{ microsoft-idp.entra-id-short }}. The link should have the following format:
 
          ```
          https://login.microsoftonline.com/<SAML_application_ID>/saml2
@@ -296,7 +296,7 @@ Add users to the IdP server:
 
          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-      * `ssoBinding`: Single sign-on binding type. Most identity providers support the `POST` binding type.
+      * `ssoBinding`: Specify the single sign-on binding type. Most identity providers support the `POST` binding type.
 
       * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
@@ -419,7 +419,7 @@ Following user authentication, the IdP server will send a SAML message to {{ yan
 
 To configure mapping between SAML message attributes and personal data, on the **SAML-based sign-on** page under **2. User Attributes & Claims**, click **Edit**.
 
-The types of personal data supported by {{ org-full-name }} for {{ microsoft-idp.entra-id-short }} are listed below.
+Types of personal data supported by {{ org-full-name }} for {{ microsoft-idp.entra-id-short }} are given below.
 
 | User data | Comment | Application Attributes |
 ------------------- | ----------- | -------------------
@@ -537,7 +537,7 @@ When you finish setting up SSO, test that everything works properly:
 
 1. Enter your credentials and click **Next**.
 
-On successful authentication, the IdP server will redirect you to the ACS URL that you specified in the {{ microsoft-idp.entra-id-short }} settings, and then, to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will see being logged in to the console as a federated user.
+On successful authentication, the IdP server will redirect you to the ACS URL that you specified in the {{ microsoft-idp.entra-id-short }} settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will see being logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 

@@ -22,7 +22,7 @@ PUT /{bucket}?website HTTP/2
 
 ### Headers {#request-headers}
 
-Use the necessary [common request headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in your requests.
 
 ### Data schema {#request-scheme}
 
@@ -32,7 +32,7 @@ You can configure a bucket:
 
 - As a website
 
-  Sample configuration:
+  Configuration example:
 
   ```xml
   <!--Website configuration-->
@@ -56,7 +56,7 @@ You can configure a bucket:
 
 - To redirect all requests
 
-  Sample configuration:
+  Configuration example:
 
   ```xml
   <!--Configuration for redirecting all requests-->
@@ -79,7 +79,7 @@ You can configure a bucket:
 
 - For conditionally redirecting requests
 
-  Sample configuration:
+  Configuration example:
 
   ```xml
   <!--Configuration for conditional redirect of all requests-->
@@ -133,3 +133,5 @@ Responses can only contain [common response headers](../common-response-headers.
 ### Response codes {#response-codes}
 
 For a list of possible responses, see [{#T}](../response-codes.md).
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

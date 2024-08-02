@@ -29,7 +29,7 @@ PUT /{bucket}/{key}?acl HTTP/2
 
 ### Headers {#request-headers}
 
-Use the necessary [common request headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in your requests.
 
 You can also use the headers listed below.
 
@@ -48,3 +48,5 @@ Responses can only contain [common response headers](../common-response-headers.
 ### Response codes {#response-codes}
 
 For a list of possible responses, see [{#T}](../response-codes.md).
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

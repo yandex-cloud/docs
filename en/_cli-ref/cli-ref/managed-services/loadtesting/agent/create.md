@@ -30,6 +30,8 @@ Syntax:
 |`--cores`|<b>`int`</b><br/>Specifies how many CPU cores instance should have.|
 |`--core-fraction`|<b>`int`</b><br/>If provided, specifies baseline performance for a core in percent.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--wait-ready`|Wait until an agent connects to the service|
+|`--wait-ready-timeout`|<b>`duration`</b><br/>The timeout to interrupt the command if an agent cannot connect to the service within specified period.|
 |`--service-account-id`|<b>`string`</b><br/>Service account ID, which token can be obtained inside VM from metadata service.|
 |`--service-account-name`|<b>`string`</b><br/>Service account name, which token can be obtained inside VM from metadata service.|
 

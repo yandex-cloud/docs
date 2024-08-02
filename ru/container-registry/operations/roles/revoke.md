@@ -8,22 +8,12 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно отозвать роль на ресурс.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-  1. Отзовите роль на ресурс.
-     * Отозвать роль на реестр:
-       1. Справа от имени нужного реестра нажмите значок ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **ACL реестра**.
-       1. В открывшемся окне в строке с именем пользователя, разрешения которого вы хотите отозвать, раскройте выпадающий список.
-       1. Снимите отметку с роли, которую хотите отозвать.
-
-          Чтобы отозвать все разрешения пользователя, нажмите кнопку **{{ ui-key.yacloud.component.acl-dialog.button_revoke }}**.
-       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-     * Отозвать роль на репозиторий:
-       1. Выберите нужный реестр.
-       1. Справа от имени нужного репозитория нажмите значок ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **Настроить ACL**.
-       1. В открывшемся окне в строке с именем пользователя, разрешения которого вы хотите отозвать, раскройте выпадающий список.
-       1. Снимите отметку с роли, которую хотите отозвать.
-
-          Чтобы отозвать все разрешения пользователя, нажмите кнопку **{{ ui-key.yacloud.component.acl-dialog.button_revoke }}**.
-       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Выберите [реестр](../../concepts/registry.md) или [репозиторий](../../concepts/repository.md) в нем.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) напротив имени пользователя.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+  1. Нажмите значок ![image](../../../_assets/console-icons/xmark.svg) напротив роли, которую хотите отозвать.
+  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI {#cli}
 
@@ -34,65 +24,104 @@
   1. Просмотрите назначенные роли:
 
      ```bash
-     yc <имя_сервиса> <ресурс> list-access-bindings <имя_или_идентификатор_ресурса>
+     yc container <ресурс> list-access-bindings <имя_или_идентификатор_ресурса>
      ```
 
      Где:
-     * `<имя_сервиса>` — имя сервиса `container`.
-     * `<ресурс>` — категория ресурса `registry` или `repository`.
-     * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса, на который назначается роль. Вы можете указать ресурс по имени или идентификатору.
-
-     >Пример. Просмотрите роли на реестр с идентификатором `crp0pmf1n68d********`:
-     >
-     >```bash
-     >yc container registry list-access-bindings crp0pmf1n68d********
-     >```
-     >
-     >Результат:
-     >
-     >```bash
-     >+--------------------------+------------------+----------------------+
-     >|         ROLE ID          |   SUBJECT TYPE   |      SUBJECT ID      |
-     >+--------------------------+------------------+----------------------+
-     >| container-registry.admin | federatedAccount | kolhpriseeio******** |
-     >+--------------------------+------------------+----------------------+
-     >```
+     * `<ресурс>` — тип ресурса `registry` (реестр) или `repository` (репозиторий);
+     * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса, на который назначена роль.
 
   1. Отзовите роль:
+     
+     * у пользователя:
+       
+       ```bash
+       yc container <ресурс> remove-access-binding <имя_или_идентификатор_ресурса> \
+         --role <роль> \
+         --user-account-id <идентификатор_пользователя>
+       ```
 
-          
+     * [у сервисного аккаунта](../../../iam/concepts/users/service-accounts.md):
+       
+       ```bash
+       yc container <ресурс> remove-access-binding <имя_или_идентификатор_ресурса> \
+         --role <роль> \
+         --service-account-id <идентификатор_сервисного_аккаунта>
+       ```
+
+     * у всех авторизованных пользователей (системная группа `allAuthenticatedUsers`):
+       
+       ```bash
+       yc container <ресурс> remove-access-binding <имя_или_идентификатор_ресурса> \
+         --role <роль> \
+         --all-authenticated-users
+       ```
+
+       Где:
+       * `<ресурс>` — тип ресурса `registry` (реестр) или `repository` (репозиторий);
+       * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса, на который отзывается роль;
+       * `<идентификатор_роли>` — [роль](../../security/index.md#service-roles), которую необходимо отозвать.
+     
+     **Пример**
+
+     В примере ниже у пользователя отзывается роль `container-registry.admin` на реестр `my-first-registry`.
+     
      ```bash
-     yc <имя_сервиса> <ресурс> remove-access-binding <имя_или_идентификатор_ресурса> \
-       --role <идентификатор_роли> \
-       --subject userAccount:<идентификатор_пользователя>
+     yc container registry remove-access-binding my-first-registry \
+       --role container-registry.admin \
+       --user-account-id ajeugsk5ubk6********
      ```
-     
 
+     Результат:
 
-     Где:
-     * `<имя_сервиса>` — имя сервиса `container`.
-     * `<ресурс>` — категория ресурса `registry` или `repository`.
-     * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса, для которого отзывается роль. Вы можете указать ресурс по имени или идентификатору.
-     * `--role` — идентификатор роли.
-     * `--subject` — идентификатор группы, пользователя или сервисного аккаунта, для которого отзывается роль.
+     ```bash
+     done (9s)
+     ```
 
-     >Пример. Отзовите роль `container-registry.admin` на реестр с идентификатором `crp0pmf1n68d********` для пользователя с идентификатором `kolhpriseeio********`:
-     >
+- {{ TF }} {#tf}
 
-     
-     >```bash
-     >yc container registry remove-access-binding crp0pmf1n68d******** \
-     >  --role container-registry.admin \
-     >  --subject userAccount:kolhpriseeio********
-     >```
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
+  1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием назначения ролей.
 
+     Пример описания назначения роли в конфигурации {{ TF }}:
+
+       ```
+       resource "yandex_container_registry_iam_binding" "имя_реестра" {
+         registry_id = "<идентификатор_реестра>"
+         role        = "<роль>"
+       
+         members = [
+           "userAccount:<идентификатор_пользователя>",
+         ]
+       }
+       ```
+
+       Более подробную информацию о ресурсе `yandex_container_registry_iam_binding`, см. в [документации провайдера]({{ tf-provider-resources-link }}/container_registry_iam_binding).
+  
+  1. {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  Проверить отзыв роли можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+     * Для реестра:
+
+       ```bash
+       yc container registry list-access-bindings <имя_или_идентификатор_реестра>
+       ```
+
+     * Для репозитория:
+
+       ```bash
+       yc container repository list-access-bindings <имя_или_идентификатор_репозитория>
+       ```
 
 - API {#api}
 
-  Просмотрите назначенные роли с помощью метода `listAccessBindings` для ресурсов `registry` и `repository`.
+  [Просмотрите](get-assigned-roles.md#cli) роли, назначенные на ресурсы.
+  
+  Чтобы отозвать роли, назначенные на реестр, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/UpdateAccessBindings](../../api-ref/grpc/registry_service.md#UpdateAccessBindings).
 
-  Отзовите роль методом `updateAccessBindings` для ресурсов `registry` и `repository`.
+  Чтобы отозвать роли, назначенные на репозиторий, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Repository/updateAccessBindings.md) для ресурса [Repository](../../api-ref/Repository/index.md) или вызовом gRPC API [RepositoryService/UpdateAccessBindings](../../api-ref/grpc/repository_service.md#UpdateAccessBindings).
 
 {% endlist %}
 

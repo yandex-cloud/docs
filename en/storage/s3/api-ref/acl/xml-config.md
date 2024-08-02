@@ -40,3 +40,5 @@ ACL general view:
 | `DisplayName` | Username. Ignored for `objectPutAcl` and `bucketPutAcl` requests<br/><br/>Paths: `/AccessControlPolicy/Owner/DisplayName`, `/AccessControlPolicy/AccessControlList/Grant/Grantee/DisplayName`. |
 | `URI` | ID of a [system group](../../../concepts/acl.md#system-groups). It is used with the `Group` permission grantee type. The possible values include:<ul><li>`http://acs.amazonaws.com/groups/global/AllUsers`: All internet users.</li><li>`http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: All authenticated {{ yandex-cloud }} users.</li></ul>Path: `/AccessControlPolicy/AccessControlList/Grant/Grantee/URI`. |
 | `Permission` | User permissions.<br/><br/>You can specify the following permissions: `READ`, `WRITE`, and `FULL_CONTROL`. When granting permissions to an object, you can also specify `READ_ACP` and `WRITE_ACP`. For more information, see [Access control lists (ACLs)](../../../concepts/acl.md). <br/><br/>Path: `/AccessControlPolicy/AccessControlList/Grant/Grantee/DisplayName`. |
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

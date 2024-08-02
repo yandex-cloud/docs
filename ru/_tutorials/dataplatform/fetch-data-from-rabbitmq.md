@@ -135,7 +135,7 @@
 
 - Вручную {#manual}
 
-    Укажите в [настройках кластера {{ mch-name }}](../../managed-clickhouse/operations/update.md#change-clickhouse-config) имя пользователя и пароль для аутентификации {{ RMQ }} в секции **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Rabbitmq**.
+    Укажите в [настройках кластера {{ mch-name }}](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces) имя пользователя и пароль для аутентификации {{ RMQ }} в секции **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Rabbitmq**.
 
 - {{ TF }} {#tf}
 

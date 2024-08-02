@@ -20,11 +20,11 @@ GET /{bucket}/{key}?legal-hold&versionId={versionId} HTTP/2
 | Parameter | Description |
 ----- | -----
 | `legal-hold` | Required parameter that indicates the type of operation. |
-| `versionId` | Object version ID. Required parameter. |
+| `versionId` | Object version ID. This is a required parameter. |
 
 ### Headers {#request-headers}
 
-Use the necessary [common request headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in requests.
 
 ## Response {#response}
 
@@ -48,3 +48,5 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 | Element | Description |
 ----- | -----
 | `Status` | <p>Status of legal hold:</p><ul><li>`ON`: Enabled.</li><li>`OFF`: Disabled.</li></ul><p>Path: `LegalHold\Status`.</p> |
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

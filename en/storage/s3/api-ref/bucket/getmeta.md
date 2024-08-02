@@ -1,4 +1,4 @@
-# getMeta method
+# GetMeta method
 
 Returns the bucket's metadata or an error.
 
@@ -23,7 +23,7 @@ HEAD /{bucket} HTTP/2
 
 
 ### Headers {#request-headers}
-Use only [common request headers](../common-request-headers.md) in requests.
+Use only [common request headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 
@@ -37,3 +37,4 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 
 A successful response does not contain any additional data and means that the bucket exists and the user has sufficient permissions to access it.
 
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

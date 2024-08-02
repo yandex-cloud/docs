@@ -16,7 +16,7 @@ DELETE /{bucket}?encryption HTTP/2
 
 ### Headers {#request-headers}
 
-Use only [common request headers](../common-request-headers.md) in requests.
+Use only [common request headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 
@@ -27,3 +27,5 @@ Responses can only contain [common response headers](../common-response-headers.
 ### Response codes {#response-codes}
 
 For a list of possible responses, see [{#T}](../response-codes.md).
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

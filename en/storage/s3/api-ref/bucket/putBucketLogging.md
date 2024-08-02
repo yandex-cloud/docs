@@ -12,13 +12,13 @@ PUT /{bucket}?logging HTTP/2
 ### Path parameters {#path-parameters}
 
 | Parameter | Description |
-| --- | --- |
-| `bucket` | [Bucket](../../../concepts/bucket.md) name. |
+--- | ---
+| `bucket` | [Bucket](../../../concepts/bucket.md) name |
 
 ### Query parameters {#request-params}
 
 | Parameter | Description |
-| --- | --- |
+--- | ---
 | `logging` | Required parameter that indicates the type of operation. |
 
 ### Data schema {#request-scheme}
@@ -36,7 +36,7 @@ PUT /{bucket}?logging HTTP/2
 ```
 
 | Element | Description |
-| --- | --- |
+--- | ---
 | `BucketLoggingStatus` | Root element. |
 | `TargetBucket` | The name of the target bucket where the log [objects](../../../concepts/object.md) are saved.<br>Type: String |
 | `TargetPrefix` | [Prefix of the key](../../../concepts/server-logs.md#key-prefix) for the log object.<br>Type: String. |
@@ -62,3 +62,5 @@ Responses can only contain [common response headers](../common-response-headers.
 For a list of possible responses, see [{#T}](../response-codes.md).
 
 A successful response does not contain any additional data.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

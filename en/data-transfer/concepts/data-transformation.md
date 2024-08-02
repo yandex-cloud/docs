@@ -68,16 +68,23 @@ Set the number of shards for particular tables and a list of columns whose value
 This filter only applies to transfers using queues (such as {{ KF }}) as a data source. When running a transfer, only the strings meeting the specified criteria remain in a changefeed.
 
 1. List the tables to filter data in using lists of included and excluded tables.
-1. Set a filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string.
+1. Set a filtering criterion. For the criterion, you can specify comparison operations for numeric, string, and Boolean values, comparison with NULL, and checking whether a substring is a part of a string and whether a value belongs to a set.
 
-Filtering criteria are specified by a set of rules separated by the `AND` keyword. Acceptable operators are `>`, `>=`, `<`, `<=`, `=`, `!=`, `~` (a substring is part of a string), `!~` (a substring is not part of a string). All columns listed in the filter must be present in the table being filtered.
+Filtering criteria are specified by a set of rules separated by the `AND` keyword. The following operations are supported: `>`, `>=`, `<`, `<=`, `=`, `!=`, `~` (substring is part of a string), `!~` (substring is not part of a string), `IN` (value belongs to a set), `NOT IN` (value does not belong to a set). All columns listed in the filter must be present in the table you are filtering.
 
 Here is an example of a filter string:
 ```
 aid > 0 AND id >= 10 AND f > 1000.1 AND f <= 1000.5 AND d != 3.14 AND i < 0 AND bi >= -9223372036854775808 AND biu <= 9223372036854775807 AND da > 1999-01-04 AND da <= 2000-03-04 AND ts > 2000-01-01T00:00:00 AND c != 'a' AND str ~ 'hello' AND t !~ 'bye-bye' AND nil = NULL AND val != NULL
 ```
 
-Specifics of the filter:
+Filter supports single-level nesting (parentheses) and only with the `IN` and `NOT IN` operators.
+
+Here is an example of a filter string using the `IN` and `NOT IN` operators:
+```
+i IN (3, 5, 7) AND str IN ('hello', 'hi') AND c NOT IN ('a', 'b', 'c')
+```
+
+When using the filter:
 
 * If the column value type specified in the filter does not match the column type in the table, the transformer is not applied (rows are not filtered).
 

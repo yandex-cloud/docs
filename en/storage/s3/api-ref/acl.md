@@ -12,3 +12,4 @@ description: "In this tutorial, you will learn what S3 API methods can be used t
 | [bucketGetAcl](acl/bucketget.md) | Returns the access control list for a bucket. |
 | [bucketPutAcl](acl/bucketput.md) | Uploads an access control list for a bucket. |
 
+{% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

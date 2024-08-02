@@ -1,25 +1,25 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-services/iam/service-control/pause.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/marketplace/index.md
 ---
 
-# yc iam service-control pause
+# yc marketplace
 
-Pause service access to cloud
+Manage Yandex Marketplace resources
 
 #### Command Usage
 
 Syntax: 
 
-`yc iam service-control pause <SERVICE-ID> [<SERVICE-ID>...] [Flags...] [Global Flags...]`
+`yc marketplace <command>`
 
-#### Flags
+Aliases: 
 
-| Flag | Description |
-|----|----|
-|`--id`|<b>`string`</b><br/>Service id.|
-|`--force`|Forces service pause|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+- `mkt`
+
+#### Command Tree
+
+- [yc marketplace reset-password](reset-password.md) — Reset password via Yandex Cloud Guest Agent
 
 #### Global Flags
 

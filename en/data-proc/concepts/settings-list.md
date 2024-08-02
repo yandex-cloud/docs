@@ -17,7 +17,7 @@ The key can either be a simple string or contain a prefix indicating that it bel
 <key_prefix>:<key_body>:<value>
 ```
 
-Here is an example:
+For example:
 
 ```text
 hdfs:dfs.replication : 2
@@ -71,13 +71,13 @@ Settings for running jobs are specified in special properties:
 
 Generally, the following default settings are applied on the {{ dataproc-name }} clusters to improve JVM performance:
 
-* **spark.driver.extraJavaOptions**:
+* **spark:spark.driver.extraJavaOptions**:
    * `-XX:+UseConcMarkSweepGC`
    * `-XX:CMSInitiatingOccupancyFraction=70`
    * `-XX:MaxHeapFreeRatio=70`
    * `-XX:+CMSClassUnloadingEnabled`
    * `-XX:OnOutOfMemoryError='kill -9 %p'`
-* **spark.executor.extraJavaOptions**:
+* **spark:spark.executor.extraJavaOptions**:
    * `-verbose:gc`
    * `-XX:+PrintGCDetails`
    * `-XX:+PrintGCDateStamps`
@@ -86,6 +86,12 @@ Generally, the following default settings are applied on the {{ dataproc-name }}
    * `-XX:MaxHeapFreeRatio=70`
    * `-XX:+CMSClassUnloadingEnabled`
    * `-XX:OnOutOfMemoryError='kill -9 %p'`
+
+If you want to update JVM settings, provide them in a single space-separated string. For example, for the `spark:spark.driver.extraJavaOptions` cluster property:
+
+```text
+-XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=60 -XX:MaxHeapFreeRatio=80
+```
 
 {% note info %}
 
@@ -99,8 +105,8 @@ The following settings are available for Apache Spark:
 
 | Setup | Default value | Description |
 |:----------------------------------|:--------------------------------------------------------|:-----------------------------------------------------------------------------------|
-| `fs.s3a.access.key` | N/A | [Static key](../../iam/concepts/authorization/access-key.md) ID |
-| `fs.s3a.secret.key` | N/A | Secret key |
+| `fs.s3a.access.key` | — | [Static key](../../iam/concepts/authorization/access-key.md) ID |
+| `fs.s3a.secret.key` | — | Secret key |
 | `fs.s3a.endpoint` | `{{ s3-storage-host }}` | Endpoint to connect to {{ objstorage-name }} |
 | `fs.s3a.signing-algorithm` | Empty value | Signature algorithm |
 | `fs.s3a.aws.credentials.provider` | `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider` | Credentials provider |

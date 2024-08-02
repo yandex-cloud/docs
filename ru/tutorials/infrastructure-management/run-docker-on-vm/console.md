@@ -6,4 +6,4 @@
 
 ## См. также {#see-also}
 
-* [{#T}](terraform.md).
+* [{#T}](terraform.md)

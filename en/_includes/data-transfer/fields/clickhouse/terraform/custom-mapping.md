@@ -1,4 +1,4 @@
-`custom_mapping`: Sharding by column value:
+`sharding.custom_mapping`: Sharding by column value:
 
 * `column_name`: Name of the table column to shard the data by.
 

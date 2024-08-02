@@ -31,6 +31,7 @@ Syntax:
 |`--password-file`|<b>`string`</b><br/>Path to the file containing password|
 |`--subnet-id`|<b>`string`</b><br/>Yandex Virtual Private Cloud subnet ID to access the ClickHouse server through|
 |`--security-group`|<b>`value[,value]`</b><br/>Yandex Virtual Private Cloud security group ID to associate with the endpoint|
+|`--cluster-name`|<b>`string`</b><br/>Name of the ClickHouse cluster. For Managed ClickHouse this defaults to the cluster ID|
 |`--include-table`|<b>`value[,value]`</b><br/>Do not transfer tables other than these|
 |`--exclude-table`|<b>`value[,value]`</b><br/>Do not transfer these tables|
 

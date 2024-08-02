@@ -2,6 +2,8 @@
 
 Backups of {{ yandex-cloud }} resources are created in {{ backup-name }} automatically according to _backup policies_.
 
+By default, VMs in {{ backup-name }} are not linked to any backup policies. To start creating backups, [link VMs](../operations/policy-vm/attach-and-detach-vm.md) to one or more policies.
+
 The backup policy specifies:
 
 * Backup frequency: By hour, day, week, or month. The time is provided for the [UTC](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00) time zone.
@@ -29,3 +31,10 @@ In {{ backup-name }}, you can [create](../operations/policy-vm/create.md) or [up
 Full backup policy specification in {{ backup-name }}:
 
 {% include [full-config](../../_includes/backup/operations/full-config.md) %}
+
+#### See also {#see-also}
+
+* [{#T}](../operations/policy-vm/create.md)
+* [{#T}](../operations/policy-vm/attach-and-detach-vm.md)
+* [{#T}](../operations/policy-vm/detach-vm.md)
+* [{#T}](../operations/policy-vm/update.md)

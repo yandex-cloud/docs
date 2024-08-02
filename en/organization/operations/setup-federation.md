@@ -9,13 +9,13 @@ To set up federated authentication, follow these steps:
 1. [Add the federation certificate to the IdP server](#add-certificate-idp).
 1. [Set up a SAML application in your IdP](#configure-sso).
 1. [Configure user attribute mapping](#claims-mapping).
-1. [Check the authentication operation](#test-auth).
+1. [Test the authentication operation](#test-auth).
 
 For IdP-specific examples, see our tutorials:
 
 * [Active Directory](../tutorials/federations/integration-adfs.md)
 * [Google Workspace](../tutorials/federations/integration-gworkspace.md)
-* [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/integration-azure.md)
+* [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/integration-azure.md)​
 * [Keycloak](../tutorials/federations/integration-keycloak.md)
 
 ## Creating an identity federation {#create-federation}
@@ -325,7 +325,7 @@ When the identity provider (IdP) informs {{ org-full-name }} that a user has bee
 
 {% note tip %}
 
-To ensure the authentication is not interrupted when the certificate expires, add multiple certificates to the federation, i.e., both the current one and those to use afterwards. If one certificate turns invalid, {{ yandex-cloud }} will attempt to verify the signature with another certificate.
+To ensure the authentication is not interrupted when the certificate expires, add multiple certificates to the federation, i.e., both the current one and those to use afterwards. When one certificate goes invalid, {{ yandex-cloud }} will use another one to verify the signature.
 
 {% endnote %}
 
@@ -436,7 +436,7 @@ For more information on how to set up a SAML application, consult you IdP's docu
 
 * [Active Directory](../tutorials/federations/integration-adfs.md)
 * [Google Workspace](../tutorials/federations/integration-gworkspace.md)
-* [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/integration-azure.md)
+* [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/integration-azure.md)​
 * [Keycloak](../tutorials/federations/integration-keycloak.md)
 
 ## Setting up user attribute mapping {#claims-mapping}

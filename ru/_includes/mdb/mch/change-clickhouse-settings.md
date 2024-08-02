@@ -7,7 +7,7 @@
    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
-   1. Задайте [настройки {{ CH }}](../../../managed-clickhouse/concepts/settings-list.md#dbms-cluster-settings).
+   1. Задайте [настройки {{ CH }}](../../../managed-clickhouse/concepts/settings-list.md#server-level-settings).
    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 * CLI {#cli}

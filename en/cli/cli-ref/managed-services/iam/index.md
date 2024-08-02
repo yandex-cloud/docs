@@ -53,8 +53,6 @@ Syntax:
 	- [yc iam service-control get](service-control/get.md) — Show information about state of specified service
 	- [yc iam service-control list](service-control/list.md) — List service states
 	- [yc iam service-control enable](service-control/enable.md) — Enable service access to cloud
-	- [yc iam service-control pause](service-control/pause.md) — Pause service access to cloud
-	- [yc iam service-control resume](service-control/resume.md) — Resume service access to cloud
 	- [yc iam service-control disable](service-control/disable.md) — Disable service access to cloud
 
 #### Global Flags

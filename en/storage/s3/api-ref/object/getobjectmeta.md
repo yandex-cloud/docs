@@ -20,7 +20,7 @@ HEAD /{bucket}/{key} HTTP/2
 
 ### Headers {#request-headers}
 
-Use the necessary [common request headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in requests.
 
 You can also use the following headers in requests:
 
@@ -54,3 +54,4 @@ In addition to [common response headers](../common-response-headers.md), you can
 
 For a list of possible responses, see [{#T}](../response-codes.md).
 
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

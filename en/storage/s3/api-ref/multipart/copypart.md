@@ -1,6 +1,6 @@
 ---
 title: "copyPart method. {{ objstorage-name }} API (S3)"
-description: "The copyPart method in {{ objstorage-name }} API (S3) copies a part of the object. It provides the same functionality as the uploadPart method but without transmitting data in the request body. It copies data from an existing object instead."
+description: "The copyPart method in the {{ objstorage-name }} API (S3) copies a part of the object. It provides the same functionality as the uploadPart method but data is copied from an existing object rather than transmitted in the request body."
 ---
 
 # copyPart method
@@ -32,13 +32,13 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 
 ### Headers {#request-headers}
 
-Use the necessary [common request headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in requests.
 
 The `Content-Length` header is required. The headers listed in the table below are also required.
 
 | Header | Description |
 ----- | -----
-| `X-Amz-Copy-Source` | The name of the bucket and the key of the object whose data will be copied, separated by the `/` character.<br/><br/>For example, `X-Amz-Copy-Source: /source_bucket/sourceObject`. |
+| `X-Amz-Copy-Source` | Name of the bucket and the key of the object whose data will be copied, separated by the `/` character.<br/><br/>For example, `X-Amz-Copy-Source: /source_bucket/sourceObject`. |
 | `X-Amz-Copy-Source-Range` | Byte range to copy from the source object. For example, if you specify `X-Amz-Copy-Source-Range:bytes=10-36`, then {{ objstorage-name }} will copy the range from the 10th to the 36th bytes of the source object. |
 
 The `Content-MD5` header is mandatory if [default object locks](../../../concepts/object-lock.md#default) are set up in the bucket.
@@ -70,7 +70,7 @@ Additionally, {{ objstorage-name }} may return errors described in the table bel
 
 | Error | Description | HTTP code |
 ----- | ----- | -----
-| `NoSuchUpload` | The specified upload doesn't exist. The specified upload ID might be incorrect or the upload was completed or deleted. | 404 Not Found |
+| `NoSuchUpload` | The specified upload does not exist. The specified upload ID may be incorrect or the upload was completed or deleted. | 404 Not Found |
 | `EntityTooSmall` | The part is too small.<br/><br/>The uploaded part must be at least 5 MB. | 400 Bad Request |
 
 
@@ -88,3 +88,5 @@ Additionally, {{ objstorage-name }} may return errors described in the table bel
 | `CopyObjectResult` | Contains response elements.<br/><br/>Path: `/CopyObjectResult`. |
 | `ETag` | `ETag` of the resulting part of multipart upload.<br/><br/>Path: `/CopyObjectResult/ETag`. |
 | `LastModified` | Date when a part of multipart upload was last modified.<br/><br/>Path: `/CopyObjectResult/LastModified`. |
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

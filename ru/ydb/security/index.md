@@ -68,16 +68,16 @@ sourcePath: overlay/security/start_auth.md
 
 #### {{ roles-auditor }} {#auditor}
 
-{% include [roles-auditor](../../_includes/roles-auditor.md) %}
+{% include [roles-auditor](../../_roles/primitive-roles/auditor.md) %}
 
 #### {{ roles-viewer }} {#viewer}
 
-{% include [roles-viewer](../../_includes/roles-viewer.md) %}
+{% include [roles-viewer](../../_roles/primitive-roles/viewer.md) %}
 
 #### {{ roles-editor }} {#editor}
 
-{% include [roles-editor](../../_includes/roles-editor.md) %}
+{% include [roles-editor](../../_roles/primitive-roles/editor.md) %}
 
 #### {{ roles-admin }} {#admin}
 
-{% include [roles-admin](../../_includes/roles-admin.md) %}
+{% include [roles-admin](../../_roles/primitive-roles/admin.md) %}

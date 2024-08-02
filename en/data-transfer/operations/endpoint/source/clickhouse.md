@@ -19,7 +19,8 @@ description: "In this tutorial, you will learn how to set up a {{ CH }} source e
 
 {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-* [Migrating the {{ CH }} cluster](../../../tutorials/managed-clickhouse.md).
+* [Migrating a {{ CH }} cluster](../../../tutorials/managed-clickhouse.md).
+* [Redistributing data across shards](../../../tutorials/mch-mch-resharding.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -29,7 +30,7 @@ For a detailed description of possible {{ data-transfer-full-name }} data transf
 
 ## Configuring the {{ CH }} source endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
 * [{{ mch-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
@@ -223,34 +224,6 @@ Connecting to the database with explicitly specified network addresses and ports
    If no lists are specified, data from all tables will be transferred.
 
 {% endlist %}
-
-### Known limitations {#known-limitations}
-
-Transfers will fail if {{ CH }} source tables contain the following types of columns:
-
-| Type | Error example |
-|---------------------|-------------------------------------------------------------------|
-| `Int128` | `unhandled type Int128` |
-| `Int256` | `unhandled type Int256` |
-| `UInt128` | `unhandled type UInt128` |
-| `UInt256` | `unhandled type UInt256` |
-| `Bool` | `unhandled type Bool` |
-| `Date32` | `unhandled type Date32` |
-| `JSON` | `unhandled type '<field_name> <type_name>'` |
-| `Array(Date)` | `Can't transfer type 'Array(Date)', column '<column_name>'` |
-| `Array(DateTime)` | `Can't transfer type 'Array(DateTime)', column '<column_name>'` |
-| `Array(DateTime64)` | `Can't transfer type 'Array(DateTime64)', column '<column_name>'` |
-| `Map(,)` | `unhandled type Map(<type_name>, <type_name>)` |
-
-#### Supported table types {#known-limitations-table-types}
-
-If a {{ CH }} cluster is multi-host, you can transfer tables and materialized views based on `ReplicatedMergeTree` or `Distributed` engines only. Moreover, these tables and views must be present in all cluster hosts.
-
-If the list of included tables contains tables or views with other engines or they are missing in some cluster hosts, a transfer will fail with an error saying `the following tables have not Distributed or Replicated engines and are not yet supported`.
-
-#### Database names {#known-limitations-db-names}
-
-{{ data-transfer-full-name }} cannot transfer a {{ CH }} database if its name contains a hyphen.
 
 ## Configuring the data target {#supported-targets}
 

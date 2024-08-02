@@ -1,24 +1,25 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-services/iam/service-control/resume.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/marketplace/index.md
 ---
 
-# yc iam service-control resume
+# yc marketplace
 
-Resume service access to cloud
+Manage Yandex Marketplace resources
 
 #### Command Usage
 
 Syntax: 
 
-`yc iam service-control resume <SERVICE-ID> [<SERVICE-ID>...] [Global Flags...]`
+`yc marketplace <command>`
 
-#### Flags
+Aliases: 
 
-| Flag | Description |
-|----|----|
-|`--id`|<b>`string`</b><br/>Service id.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+- `mkt`
+
+#### Command Tree
+
+- [yc marketplace reset-password](reset-password.md) — Reset password via Yandex Cloud Guest Agent
 
 #### Global Flags
 

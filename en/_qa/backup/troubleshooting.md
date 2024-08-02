@@ -12,6 +12,13 @@ Make sure that:
 
 For more information, see [Connecting Compute Cloud VM instances to {{ backup-name }}](../../backup/concepts/vm-connection.md).
 
+#### How to reconnect to the service a VM deleted from {{ backup-name }}? {#reconnect-deleted-vm}
+
+If you have [deleted](../../backup/operations/delete-vm.md) a VM from {{ backup-name }} and want to reconnect it to the service, use this guide:
+
+* [Connecting a Linux VM](../../backup/operations/connect-vm-linux.md)
+* [Connecting a Windows VM](../../backup/operations/connect-vm-windows.md)
+
 #### How can I reconnect a VM to {{ backup-name }} after restoring its backup to another VM? {#how-to-renew-connection}
 
 A virtual machine becomes outdated after [restoring its backup to another VM](../../backup/operations/backup-vm/non-native-recovery.md). To avoid conflicts between the source and target VMs when making backups, [refresh](../../backup/operations/refresh-connection.md) the connection of the outdated VM to {{ backup-name }}.

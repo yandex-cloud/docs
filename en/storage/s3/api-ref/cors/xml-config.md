@@ -47,3 +47,5 @@ This configuration allows you to send cross-domain requests from the `http://www
     </CORSRule>
 </CORSConfiguration>
 ```
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -1,4 +1,3 @@
-The cluster ID is required to restore a deleted cluster from a backup.
+You will need the cluster ID when restoring a deleted cluster from a backup.
 
-After you delete a database cluster, its backups are kept for 7 days for recovery purposes.
-
+After you delete a database cluster, its backups will be kept for seven days for recovery purposes.

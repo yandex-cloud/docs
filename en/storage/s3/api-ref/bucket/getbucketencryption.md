@@ -17,7 +17,7 @@ GET /{bucket}?encryption HTTP/2
 
 
 ### Headers {#request-headers}
-Use only [common request headers](../common-request-headers.md) in requests.
+Use only [common request headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 
@@ -52,3 +52,5 @@ A successful response contains additional data in XML format with the schema des
 | `Rule` | Encryption policy on the server side. <br/><br/>Encryption is defined by the `KMSMasterKeyID` and `SSEAlgorithm` elements.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule`. |
 | `ServerSideEncryptionConfiguration` | Encryption configuration used for new objects in the bucket by default.<br/><br/>Path: `ServerSideEncryptionConfiguration`. |
 | `SSEAlgorithm` | The encryption algorithm. Available values: `aws:kms`.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\SSEAlgorithm`. |
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

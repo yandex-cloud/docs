@@ -8,8 +8,8 @@ description: "In this tutorial, you will learn about the request headers existin
 | Header | Description |
 ----- | -----
 | `Authorization` | Any request to Yandex {{ objstorage-name }} must be authorized.<br/><br/>This header must be used with either the `Date` or `X-Amz-Date` header.<br/><br/>Learn about authorization methods in the corresponding sections of the guide. |
-| `Cache-Control` | A set of directives for caching data according to [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9). |
-| `Content-Disposition` | The name {{ objstorage-name }} suggests saving an object as a file under when it's downloaded. Compliant with [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1). |
+| `Cache-Control` | Directives for caching data according to [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9). |
+| `Content-Disposition` | Name {{ objstorage-name }} will suggest for the object to save it as a file when downloaded. Compliant with [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1). |
 | `Content-Encoding` | Defines the content encoding according to [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11). |
 | `Content-Length` | Length of the request body (without headers) in compliance with [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13).<br/><br/>This header is required for all requests that send to {{ objstorage-name }} any data, for example, when uploading an object. |
 | `Content-Type` | Data type in a request. For example, `text/html`. For more information about data types, see the [Media type](https://en.wikipedia.org/wiki/Media_type) Wikipedia article.<br/><br/>The default type is `binary/octet-stream`. |
@@ -21,3 +21,5 @@ description: "In this tutorial, you will learn about the request headers existin
 | `X-Amz-Date` | The date and time at the request source.<br/><br/>Format: `20211102T145822Z`.<br/><br/>When `X-Amz-Date` is set, {{ objstorage-name }} ignores the `Date` header. |
 
 If a cross-domain ([CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)) request is sent, it may contain [headers](object/options.md#request-headers) of the `options` preflight request.
+
+{% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

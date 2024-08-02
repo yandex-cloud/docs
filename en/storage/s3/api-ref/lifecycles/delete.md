@@ -22,7 +22,7 @@ DELETE /{bucket}?lifecycle HTTP/2
 
 ### Headers {#request-headers}
 
-Use only [common request headers](../common-request-headers.md) in requests.
+Use only [common request headers](../common-request-headers.md) in your requests.
 
 
 ## Response {#response}
@@ -35,4 +35,6 @@ Responses can only contain [common response headers](../common-response-headers.
 
 For a list of possible responses, see [{#T}](../response-codes.md).
 
-If there isn't a bucket object lifecycle configuration, {{ objstorage-name }} returns a 200 code.
+If there is no bucket object lifecycle configuration, {{ objstorage-name }} returns code 200.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

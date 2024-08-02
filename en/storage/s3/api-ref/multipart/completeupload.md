@@ -37,7 +37,7 @@ POST /{bucket}/{key}?uploadId=UploadId HTTP/2
 
 ### Headers {#request-headers}
 
-Use the necessary [common request headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in requests.
 
 ### Data schema {#request-scheme}
 
@@ -74,7 +74,7 @@ Additionally, {{ objstorage-name }} may return errors described in the table bel
 
 | Error | Description | HTTP code |
 ----- | ----- | -----
-| `NoSuchUpload` | The specified upload doesn't exist. The specified upload ID might be incorrect or the upload was completed or deleted. | 404 Not Found |
+| `NoSuchUpload` | The specified upload does not exist. The specified upload ID may be incorrect or the upload was completed or deleted. | 404 Not Found |
 | `InvalidPart` | Some of the specified parts not found.<br/><br/>Possible causes:<br/>- The parts have not been uploaded.<br/>- The passed `ETag` does not match the saved one. | 400 Bad Request |
 | `InvalidPartOrder` | The list of parts was not in ascending order.<br/><br/>The list must be sorted by part number in ascending order. | 400 Bad Request |
 
@@ -100,4 +100,4 @@ A successful response contains additional data in XML format with the schema des
 | `Key` | Key of the created object.<br/><br/>Path: `/CompleteMultipartUploadResult/Key`. |
 | `ETag` | Hash value of the object.<br/><br/>ETag may or may not be not an MD5 hash.<br/><br/>Path: `/CompleteMultipartUploadResult/ETag`. |
 
-
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}
