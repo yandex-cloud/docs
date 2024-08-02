@@ -7,6 +7,8 @@ description: "Из статьи вы узнаете, как создать ин�
 
 ## Создать инстанс {{ GL }} {#create}
 
+Для создания инстанса {{ mgl-name }} нужна роль [{{ roles-vpc-user }}](../../../vpc/security/index.md#vpc-user) и роль [{{ roles.gitlab.editor }} или выше](../../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../../iam/operations/roles/grant.md).
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

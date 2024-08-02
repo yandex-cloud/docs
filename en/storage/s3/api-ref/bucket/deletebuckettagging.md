@@ -4,7 +4,7 @@ Deletes bucket [labels](../../../concepts/tags.md).
 
 {% include [labels-tags](../../../../_includes/storage/labels-tags.md) %}
 
-## Query {#request}
+## Request {#request}
 
 ```http
 DELETE /{bucket}?tagging HTTP/2
@@ -37,3 +37,5 @@ Responses can only contain [common response headers](../common-response-headers.
 For a list of possible responses, see [{#T}](../response-codes.md).
 
 A successful response does not contain any additional data.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

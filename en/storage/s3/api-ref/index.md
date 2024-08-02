@@ -131,3 +131,6 @@ description: "In this tutorial, you will learn about the S3 API methods you can 
 ## See also {#see-also}
 * [{#T}](../../s3/index.md)
 * [{#T}](../../tools/index.md)
+* [Debugging requests using the AWS CLI](../signing-requests.md#debugging)
+* [Example of sending a signed request using curl](../../api-ref/authentication.md#s3-api-example)
+* [Example of signature generation code](../../concepts/pre-signed-urls.md#code-examples)

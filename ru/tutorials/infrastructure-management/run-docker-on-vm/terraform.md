@@ -6,4 +6,4 @@
 
 ## См. также {#see-also}
 
-* [{#T}](console.md).
+* [{#T}](console.md)

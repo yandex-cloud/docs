@@ -39,12 +39,12 @@ All the parameters listed in the table are optional.
 | `continuation-token` | Used to get the next part of the list if all the results don't fit in a single response.<br/>To get the next part of the list, use the `NextContinuationToken` value from the previous answer. |
 | `delimiter` | Delimiter character.<br/><br/>If this parameter is specified, {{ objstorage-name }} interprets the key as the path to the file with folders separated by the `delimiter` character. In response to the request, the user gets a list of <q>files</q> and <q>folders</q> in the bucket. <q>Files</q> are output in the `Contents` elements, and <q>folders</q> in the `CommonPrefixes` elements.<br/><br/>If the request also specifies the `prefix` parameter, {{ objstorage-name }} returns a list of <q>files</q> and <q>folders</q> in the <q></q> `prefix`. |
 | `encoding-type` | Encoding of server responses.<br/><br/>{{ objstorage-name }} can encode responses in the format requested by the client.<br/><br/>Possible values: `url`. |
-| `max-keys` | Maximum number of elements in a response.<br/><br/>By default, {{ objstorage-name }} outputs no more than 1,000 `Contents` and `CommonPrefixes` elements. This parameter should be used if you need to get less than 1000 elements in a single response.<br/><br/>If the number of keys meeting the selection criteria is greater than the number that could fit in the output, the response contains `<IsTruncated>true</IsTruncated>`.<br/><br/>To get all output elements if their number exceeds the `max-keys` value, make several consecutive requests to {{ objstorage-name }} with the `continuation-token` parameter, where, for each request, the `continuation-token` is equal to the value of the `NextContinuationToken` element from the previous response. |
+| `max-keys` | Maximum number of elements in a response.<br/><br/>By default, {{ objstorage-name }} outputs no more than 1,000 `Contents` and `CommonPrefixes` elements. This parameter should be used if you need to get less than 1,000 elements in a single response.<br/><br/>If the number of keys meeting the selection criteria is greater than the number that could fit in the output, the response contains `<IsTruncated>true</IsTruncated>`.<br/><br/>To get all output elements if their number exceeds the `max-keys` value, make several consecutive requests to {{ objstorage-name }} with the `continuation-token` parameter, where, for each request, the `continuation-token` is equal to the value of the `NextContinuationToken` element from the previous response. |
 | `prefix` | The string to start the key from.<br/><br/>{{ objstorage-name }} selects only those keys which start with `prefix`.<br/><br/>Can be used simultaneously with the `delimiter` parameter. In this case, the output logic is determined by the `delimiter` parameter. |
 | `start-after` | The key to start the listing from. |
 
 #### Headers {#request-headersV2}
-Use only [common request headers](../common-request-headers.md) in requests.
+Use only [common request headers](../common-request-headers.md) in your requests.
 
 ### Response {#responseV2}
 
@@ -132,11 +132,11 @@ All the parameters listed in the table are optional.
 | `delimiter` | Delimiter character.<br/><br/>If this parameter is specified, {{ objstorage-name }} interprets the key as the path to the file with folders separated by the `delimiter` character. In response to the request, the user gets a list of <q>files</q> and <q>folders</q> in the bucket. <q>Files</q> are output in the `Contents` elements, and <q>folders</q> in the `CommonPrefixes` elements.<br/><br/>If the request also specifies the `prefix` parameter, {{ objstorage-name }} returns a list of <q>files</q> and <q>folders</q> in the <q></q> `prefix`. |
 | `encoding-type` | Encoding of server responses.<br/><br/>{{ objstorage-name }} can encode responses in the format requested by the client.<br/><br/>Possible values: `url`. |
 | `marker` | Key to start the output from.<br/><br/>In the resulting output, {{ objstorage-name }} leaves the keys starting from the one following the `marker`. |
-| `max-keys` | Maximum number of elements in a response.<br/><br/>By default, {{ objstorage-name }} outputs no more than 1,000 `Contents` and `CommonPrefixes` elements. This parameter should be used if you need to get less than 1000 elements in a single response.<br/><br/>If the number of keys meeting the selection criteria is greater than the number that could fit in the output, the response contains `<IsTruncated>true</IsTruncated>`.<br/><br/>.To get all output elements if their number exceeds the `max-keys` value, make several consecutive requests to {{ objstorage-name }} with the `marker` parameter, where, for each request, the `marker` is equal to the value of the `NextMarker` element from the previous response. |
+| `max-keys` | Maximum number of elements in a response.<br/><br/>By default, {{ objstorage-name }} outputs no more than 1,000 `Contents` and `CommonPrefixes` elements. This parameter should be used if you need to get less than 1,000 elements in a single response.<br/><br/>If the number of keys meeting the selection criteria is greater than the number that could fit in the output, the response contains `<IsTruncated>true</IsTruncated>`.<br/><br/>.To get all output elements if their number exceeds the `max-keys` value, make several consecutive requests to {{ objstorage-name }} with the `marker` parameter, where, for each request, the `marker` is equal to the value of the `NextMarker` element from the previous response. |
 | `prefix` | The string to start the key from.<br/><br/>{{ objstorage-name }} selects only those keys which start with `prefix`.<br/><br/>Can be used simultaneously with the `delimiter` parameter. In this case, the output logic is determined by the `delimiter` parameter. |
 
 #### Headers {#request-headersV1}
-Use only [common request headers](../common-request-headers.md) in requests.
+Use only [common request headers](../common-request-headers.md) in your requests.
 
 ### Response {#responseV1}
 
@@ -196,3 +196,5 @@ A successful response contains additional data in XML format with the schema des
 | `MaxKeys` | Value of the `max-keys` query parameter.<br/><br/>Path: `/ListBucketResult/MaxKeys`. |
 | `CommonPrefixes` | Part of the key name that is identified when processing the `delimiter` and `prefix` query parameters.<br/><br/>Path: `/ListBucketResult/CommonPrefixes`. |
 | `EncodingType` | Encoding in which {{ objstorage-name }} provides a key in the XML response.<br/><br/>Appears if the client passed the `encoding-type` parameter in the request.<br/><br/>Path: `/ListBucketResult/EncodingType`. |
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

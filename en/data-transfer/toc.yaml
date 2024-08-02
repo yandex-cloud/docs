@@ -136,6 +136,8 @@ items:
             href: tutorials/mongodb-versions.md
           - name: '{{ CH }} cluster'
             href: tutorials/managed-clickhouse.md
+          - name: Data resharding in a {{ mch-name }} cluster
+            href: tutorials/mch-mch-resharding.md
           - name: '{{ GP }} cluster'
             href: tutorials/managed-greenplum.md
           - name: Migrating data from AWS RDS for {{ PG }}

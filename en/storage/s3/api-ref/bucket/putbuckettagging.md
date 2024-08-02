@@ -4,7 +4,7 @@ Adds [labels](../../../concepts/tags.md) to a bucket. This overwrites any existi
 
 {% include [labels-tags](../../../../_includes/storage/labels-tags.md) %}
 
-## Query {#request}
+## Request {#request}
 
 ```http
 PUT /{bucket}?tagging HTTP/2
@@ -58,3 +58,5 @@ Responses can only contain [common response headers](../common-response-headers.
 For a list of possible responses, see [{#T}](../response-codes.md).
 
 A successful response does not contain any additional data.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

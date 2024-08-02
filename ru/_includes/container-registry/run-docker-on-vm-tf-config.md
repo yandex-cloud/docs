@@ -1,4 +1,6 @@
 ```hcl
+# Объявление переменных для конфиденциальных параметров
+
 locals {
   zone             = "<зона_доступности_по_умолчанию>"
   username         = "<имя_пользователя_ВМ>"
@@ -11,6 +13,8 @@ locals {
   vm_name          = "<имя_виртуальной_машины>"
   image_id         = "<идентификатор_образа>"
 }
+
+# Настройка провайдера
 
 terraform {
   required_providers {
@@ -25,18 +29,21 @@ provider "yandex" {
   zone = local.zone
 }
 
+# Создание репозитория Сontainer Registry
+
 resource "yandex_container_registry" "my-registry" {
   name       = local.registry_name
   folder_id  = local.target_folder_id
-  labels     = {
-    my-label = "my-label-value"
-  }
 }
+
+# Создание сервисного аккаунта
 
 resource "yandex_iam_service_account" "registry-sa" {
   name      = local.sa_name
   folder_id = local.target_folder_id
 }
+
+# Назначение роли сервисному аккаунту
 
 resource "yandex_resourcemanager_folder_iam_member" "registry-sa-role-images-puller" {
   folder_id = local.target_folder_id
@@ -44,9 +51,13 @@ resource "yandex_resourcemanager_folder_iam_member" "registry-sa-role-images-pul
   member    = "serviceAccount:${yandex_iam_service_account.registry-sa.id}"
 }
 
+# Создание облачной сети
+
 resource "yandex_vpc_network" "docker-vm-network" {
   name = local.network_name
 }
+
+# Создание подсети
 
 resource "yandex_vpc_subnet" "docker-vm-network-subnet-a" {
   name           = local.subnet_name
@@ -55,14 +66,17 @@ resource "yandex_vpc_subnet" "docker-vm-network-subnet-a" {
   network_id     = yandex_vpc_network.docker-vm-network.id
 }
 
+# Создание загрузочного диска
+
 resource "yandex_compute_disk" "boot-disk" {
   name     = "bootvmdisk"
   type     = "network-hdd"
-  zone     = "local.zone"
-  size     = "5"
+  zone     = local.zone
+  size     = "10"
   image_id = local.image_id
 }
 
+# Создание ВМ
 
 resource "yandex_compute_instance" "docker-vm" {
   name               = local.vm_name

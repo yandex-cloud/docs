@@ -72,8 +72,6 @@ items:
     items:
       - name: Resource relationships
         href: concepts/index.md
-      - name: Host groups
-        href: concepts/host-groups.md
       - name: Host roles
         href: concepts/host-roles.md
       - name: Indexes

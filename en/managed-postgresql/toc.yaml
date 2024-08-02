@@ -76,7 +76,7 @@ items:
             href: operations/datalens-connect.md
   - name: Tutorials
     items:
-      - name: All use cases
+      - name: All tutorials
         href: tutorials/index.md
       - name: Creating a {{ PG }} cluster for 1C
         href: tutorials/1c-postgresql.md

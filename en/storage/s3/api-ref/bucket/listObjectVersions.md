@@ -12,7 +12,7 @@ GET /{bucket}?versions&delimiter=Delimiter&encoding-type=EncodingType&key-marker
 ### Path parameters {#path-parameters}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `bucket` | Bucket name. |
 
 ### Query parameters {#parameters}
@@ -20,16 +20,16 @@ GET /{bucket}?versions&delimiter=Delimiter&encoding-type=EncodingType&key-marker
 All the parameters listed in the table are optional.
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `delimiter` | Delimiter character.<br/><br/>If this parameter is specified, {{ objstorage-name }} interprets the key as the path to the file with folders separated by the `delimiter` character. In response to the request, the user gets a list of <q>files</q> and <q>folders</q> in the bucket. <q>Files</q> are output in the `Contents` elements, and <q>folders</q> in the `CommonPrefixes` elements.<br/><br/>If the request also specifies the `prefix` parameter, {{ objstorage-name }} returns a list of <q>files</q> and <q> folders</q> in the `prefix` <q>folder</q>. |
 | `encoding-type` | Encoding of server responses.<br/><br/>{{ objstorage-name }} can encode responses in the format requested by the client.<br/><br/>Possible values: `url`. |
 | `key-marker` | Key to start the output from.<br/><br/>In the resulting output, {{ objstorage-name }} leaves the keys starting from the one following the `key-marker`. |
-| `max-keys` | Maximum number of elements in a response.<br/><br/>By default, {{ objstorage-name }} outputs no more than 1000 `Contents` and `CommonPrefixes` elements. This parameter should be used if you need to get less than 1000 elements in a single response.<br/><br/>If the number of keys meeting the selection criteria is greater than the number that could fit in the output, the response contains `<IsTruncated>true</IsTruncated>`.<br/><br/>To get all output elements if there are more than the `max-keys` value, make several consecutive requests to {{ objstorage-name }} with the `key-marker` parameter, where for each request, the `key-marker` and `version-id-marker` are equal to the values of the `NextKeyMarker` and `NextVersionIdMarker` elements from the previous response. |
+| `max-keys` | Maximum number of elements in a response.<br/><br/>By default, {{ objstorage-name }} outputs no more than 1,000 `Contents` and `CommonPrefixes` elements. This parameter should be used if you need to get less than 1,000 elements in a single response.<br/><br/>If the number of keys meeting the selection criteria is greater than the number that could fit in the output, the response contains `<IsTruncated>true</IsTruncated>`.<br/><br/>To get all output elements if there are more than the `max-keys` value, make several consecutive requests to {{ objstorage-name }} with the `key-marker` parameter, where for each request, the `key-marker` and `version-id-marker` are equal to the values of the `NextKeyMarker` and `NextVersionIdMarker` elements from the previous response. |
 | `prefix` | The string to start the key from.<br/><br/>{{ objstorage-name }} selects only those keys which start with `prefix`.<br/><br/>Can be used simultaneously with the `delimiter` parameter. In this case, the output logic is the same as that specified in the `delimiter` parameter description. |
 | `version-id-marker` | Object version to start the output from.<br/><br/>In the resulting output, {{ objstorage-name }} leaves the versions starting from the one following the `version-id-marker`. |
 
 ### Headers {#request-headers}
-Use only [common request headers](../common-request-headers.md) in requests.
+Use only [common request headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 
@@ -92,7 +92,7 @@ A successful response contains additional data in XML format with the schema des
 
 | Element | Description |
 ----- | -----
-| `ListVersionsResult` | Root element. |
+| `ListVersionsResult` | Root element |
 | `CommonPrefixes` | Part of the key name that is identified when processing the `delimiter` and `prefix` query parameters.<br/><br/>Path: `/ListVersionsResult/CommonPrefixes`. |
 | `DeleteMarker` | Container for an object that is a delete marker.<br/><br/>Path: `/ListVersionsResult/DeleteMarker`. |
 | `Delimiter` | Value of the `delimiter` query parameter.<br/><br/>Path: `/ListVersionsResult/Delimiter`. |
@@ -106,3 +106,5 @@ A successful response contains additional data in XML format with the schema des
 | `Prefix` | Value of the `prefix` query parameter.<br/><br/>Path: `/ListBucketResult/Prefix`. |
 | `Version` | Object version.<br/><br/>Path: `/ListBucketResult/Version`. |
 | `VersionIdMarker` | Marks the latest version of the key returned in the truncated response. <br/><br/>Path: `/ListBucketResult/VersionIdMarker`. |
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

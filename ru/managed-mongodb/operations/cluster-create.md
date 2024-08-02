@@ -16,11 +16,13 @@
 
 ## Создать кластер {#create-cluster}
 
+Для создания кластера {{ mmg-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mmg.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  Чтобы создать кластер:
+  Чтобы создать кластер {{ mmg-name }}:
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер БД.
 
@@ -100,7 +102,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы создать кластер:
+  Чтобы создать кластер {{ mmg-name }}:
 
   
   1. Проверьте, есть ли в каталоге подсети для хостов кластера:
@@ -175,7 +177,7 @@
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  Чтобы создать кластер:
+  Чтобы создать кластер {{ mmg-name }}:
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -281,7 +283,7 @@
 
 - API {#api}
 
-    Чтобы создать кластер, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
+    Чтобы создать кластер {{ mmg-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
 
     * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
     * Имя кластера в параметре `name`.

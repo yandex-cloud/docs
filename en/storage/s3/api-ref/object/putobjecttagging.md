@@ -4,7 +4,7 @@ Adds [labels](../../../concepts/tags.md) to a bucket object. This overwrites any
 
 {% include [labels-tags](../../../../_includes/storage/labels-tags.md) %}
 
-## Query {#request}
+## Request {#request}
 
 ```http
 PUT /{bucket}/{key}?tagging&versionId={versionId} HTTP/2
@@ -21,8 +21,8 @@ PUT /{bucket}/{key}?tagging&versionId={versionId} HTTP/2
 
 | Parameter | Description |
 --- | ---
-| `tagging` | Type of operation. This parameter is required. |
-| `versionId` | [Object version](../../../concepts/versioning.md) ID. This parameter is required. |
+| `tagging` | Type of operation. This is a required parameter. |
+| `versionId` | [Object version](../../../concepts/versioning.md) ID. This is a required parameter. |
 
 ### Data schema {#request-scheme}
 
@@ -64,3 +64,5 @@ In addition to [common response headers](../common-response-headers.md), respons
 For a list of possible responses, see [{#T}](../response-codes.md).
 
 A successful response does not contain any additional data.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

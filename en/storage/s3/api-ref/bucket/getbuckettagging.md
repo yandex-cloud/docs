@@ -4,7 +4,7 @@ Returns bucket [labels](../../../concepts/tags.md).
 
 {% include [labels-tags](../../../../_includes/storage/labels-tags.md) %}
 
-## Query {#request}
+## Request {#request}
 
 ```http
 GET /{bucket}?tagging HTTP/2
@@ -59,3 +59,5 @@ A successful response contains additional data in XML format with the schema des
 | `Tag` | Container for labels. |
 | `Key` | Label key.<br>Type: String. |
 | `Value` | Label value.<br>Type: String. |
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

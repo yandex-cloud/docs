@@ -17,6 +17,7 @@ keywords:
 1. В каталоге, в котором планируется создать кластер, [создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `managed-airflow.integrationProvider`.
 1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта.
 1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md), в котором будут храниться [DAG-файлы](../concepts/index.md#about-the-service).
+1. [Убедитесь](../../iam/operations/roles/get-assigned-roles.md), что у вашего аккаунта есть роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.maf.editor }} или выше](../security/index.md#roles-list) для создания кластера.
 
 ## Создайте кластер {#create-cluster}
 

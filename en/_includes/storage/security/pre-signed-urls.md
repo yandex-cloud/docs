@@ -90,7 +90,7 @@ Do not normalize the path. For example, if an object has a `some//strange//key//
 
 The canonical query string must include all query parameters of the destination URL, except `X-Amz-Signature`. The parameters in the string must be URL-encoded and sorted alphabetically.
 
-For example:
+Example:
 
 ```
 X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host
@@ -110,7 +110,7 @@ The requirements are as follows:
 
 You can also add any request header to the list. The more headers you sign, the safer your request is going to be.
 
-For example:
+Example:
 
 ```
 host:sample-bucket.{{ s3-storage-host }}
@@ -121,7 +121,7 @@ x-amz-date:20190801T000000Z
 
 This is a list of lowercase request header names, sorted alphabetically and separated by semicolons.
 
-For example:
+Example:
 
 ```
 host;x-amz-date
@@ -219,9 +219,77 @@ Let's put together a pre-signed URL to download the `object-for-share.txt` objec
    https://<bucket_name>.{{ s3-storage-host }}/object-for-share.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEK0Iv6xqy-pEQcueLTAdg%2F20231208%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20231208T195434Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=b10c16a1997bb524bf59974512f1a6561cf2953c29dc3efbdb920790********
    ```
 
+{% include [s3api-debug-and-curl](../s3api-debug-and-curl.md) %}
+
 #### Code examples for generating pre-signed URLs {#code-examples}
 
+The subsection provides code examples for generating pre-signed URLs.
+
+To show the principle of forming and signing requests to {{ objstorage-name }}, the examples do not use [AWS SDKs](../../../storage/tools/sdk/index.md). For examples of using the AWS SDK and other tools, see [Examples of getting a signed link in {{ objstorage-name }} tools](#example-for-getting-in-tools).
+
 {% list tabs %}
+
+- Python
+
+   ```python
+   import datetime
+   import hashlib
+   import hmac
+
+   access_key = '<static_key_ID>'
+   secret_key = '<static_key_contents>'
+   object_key = '<object_key>'
+   bucket = '<bucket_name>'
+   host = '{{ s3-storage-host }}'
+   now = datetime.datetime.now(datetime.UTC)
+   datestamp = now.strftime('%Y%m%d')
+   timestamp = now.strftime('%Y%m%dT%H%M%SZ')
+
+   def sign(key, msg):
+       return hmac.new(key, msg.encode('utf-8'), hashlib.sha256).digest()
+
+   canonical_request = """GET
+   /{bucket}/{object_key}
+   X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential={access_key}%2F{datestamp}%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date={timestamp}&X-Amz-Expires=3600&X-Amz-SignedHeaders=host
+   host:{host}
+
+   host
+   UNSIGNED-PAYLOAD""".format(
+       bucket=bucket,
+       object_key=object_key,
+       access_key=access_key,
+       datestamp=datestamp,
+       timestamp=timestamp,
+       host=host)
+
+   print()
+   print("Canonical request:\n" + canonical_request)
+   print()
+
+   string_to_sign = """AWS4-HMAC-SHA256
+   {timestamp}
+   {datestamp}/{{ region-id }}/s3/aws4_request
+   {request_hash}""".format(
+       timestamp=timestamp,
+       datestamp=datestamp,
+       request_hash=hashlib.sha256(canonical_request.encode('utf-8')).hexdigest())
+
+   print()
+   print("String to be signed:\n" + string_to_sign)
+   print()
+
+   signing_key = sign(sign(sign(sign(('AWS4' + secret_key).encode('utf-8'), datestamp), '{{ region-id }}'), 's3'), 'aws4_request')
+   signature = hmac.new(signing_key, string_to_sign.encode('utf-8'), hashlib.sha256).hexdigest()
+
+   print()
+   print("Signature: " + signature)
+   print()
+
+   signed_link = "https://" + host + '/' + bucket + '/' + object_key + "?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=" + access_key + "%2F" + datestamp + "%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=" + timestamp + "&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=" + signature + "\n"
+
+   print()
+   print("Signed Link:\n" + signed_link)
+   ```
 
 - PHP
 
@@ -229,17 +297,17 @@ Let's put together a pre-signed URL to download the `object-for-share.txt` objec
    <?php
 
      $keyid = "<static_key_ID>";
-     $secretkey = "static_key_contents";
+     $secretkey = "<static_key_contents>";
      $path = "<object_key>";
      $objectname = "/".implode("/", array_map("rawurlencode", explode("/", $path)));
-     $host = "<bucket_name>.storage.yandexcloud.net";
-     $region = "ru-central1";
+     $host = "<bucket_name>.{{ s3-storage-host }}";
+     $region = "{{ region-id }}";
      $timestamp = time();
      $dater = strval(date('Ymd', $timestamp));
      $dateValue = strval(date('Ymd', $timestamp))."T".strval(date('His', $timestamp))."Z";
 
      // Generate the canonical request
-     $canonical_request = "GET\n".$objectname."\nX-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=".$keyid."%2F".$dater."%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=".$dateValue."&X-Amz-Expires=3600&X-Amz-SignedHeaders=host\nhost:".$host."\n\nhost\nUNSIGNED-PAYLOAD";
+     $canonical_request = "GET\n".$objectname."\nX-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=".$keyid."%2F".$dater."%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=".$dateValue."&X-Amz-Expires=3600&X-Amz-SignedHeaders=host\nhost:".$host."\n\nhost\nUNSIGNED-PAYLOAD";
 
      echo "<b>Canonical request: </b><br>".$canonical_request."<br><br>";
 
@@ -249,7 +317,7 @@ Let's put together a pre-signed URL to download the `object-for-share.txt` objec
      echo "<b>String to be signed: </b><br>".$string_to_sign."<br><br>";
 
      // Generate the signing key
-     $signing_key = hash_hmac('sha256', 'aws4_request', hash_hmac('sha256', 's3', hash_hmac('sha256', 'ru-central1', hash_hmac('sha256', $dater, 'AWS4'.$secretkey, true), true), true), true);
+     $signing_key = hash_hmac('sha256', 'aws4_request', hash_hmac('sha256', 's3', hash_hmac('sha256', '{{ region-id }}', hash_hmac('sha256', $dater, 'AWS4'.$secretkey, true), true), true), true);
 
      echo "<b>Signing key: </b><br>".$signing_key."<br><br>";
 
@@ -259,7 +327,7 @@ Let's put together a pre-signed URL to download the `object-for-share.txt` objec
      echo "<b>Signature: </b><br>".$signature."<br><br>";
 
      // Generate the pre-signed link
-     $signed_link = "https://".$host.$objectname."?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=".$keyid."%2F".$dater."%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=".$dateValue."&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=".$signature."\n";
+     $signed_link = "https://".$host.$objectname."?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=".$keyid."%2F".$dater."%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=".$dateValue."&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=".$signature."\n";
 
      echo '<b>Signed link: </b><br>'.'<a href = "'.$signed_link.'" target = "_blank">'.$signed_link.'</a>';
 
@@ -270,6 +338,8 @@ Let's put together a pre-signed URL to download the `object-for-share.txt` objec
 
 ## Examples of getting pre-signed links in {{ objstorage-name }} tools {#example-for-getting-in-tools}
 
+This subsection provides examples of generating pre-signed URLs with the help of various [{{ objstorage-name }} tools](../../../storage/tools/index.md).
+
 {% list tabs %}
 
 - Management console {#console}
@@ -278,10 +348,12 @@ Let's put together a pre-signed URL to download the `object-for-share.txt` objec
 
 - AWS CLI {#cli}
 
-   You can also use AWS CLI to generate a link for downloading an object. To do this, run the following command:
+   You can use the AWS CLI to generate a link for downloading an object. To do this, run the following command:
 
-   ```
-   aws s3 presign s3://<bucket-name>/<object-key> --endpoint-url "https://{{ s3-storage-host }}/" [--expires-in <value>]
+   ```bash
+   aws s3 presign s3://<bucket_name>/<object_key> \
+     --expires-in <link_lifetime> \
+     --endpoint-url "https://{{ s3-storage-host }}/"
    ```
 
    To generate the link properly, make sure to provide the `--endpoint-url` parameter pointing to the {{ objstorage-name }} hostname. For detailed information, see [this section covering AWS CLI specifics](../../../storage/tools/aws-cli.md#specifics).

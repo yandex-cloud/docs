@@ -19,10 +19,10 @@ For more information about secure tokens, see the documentation of the EdgeCente
 A _signed link_ is [generated](#link-generation-code) outside a CDN resource, e.g., on a lightweight website, and contains the following query parameters:
 * `MD5`: Secure token in [Base64](https://en.wikipedia.org/wiki/Base64) encoding that is an [MD5](https://en.wikipedia.org/wiki/MD5) hash of a string containing the following elements:
    * Secret key: Arbitrary string of 6 to 32 characters.
-   * Link validity: Point in time in [Unix format](https://en.wikipedia.org/wiki/Unix_time), after which file access will be denied. Users can start downloading the file before the link validity expires and complete downloading it after that.
+   * Link validity: Time point in [Unix format](https://en.wikipedia.org/wiki/Unix_time) after which file access will be denied. Users can start downloading the file before the link validity expires and complete downloading it after that.
    * Path to the file on the origin.
    * (Optional) Trusted IP address the file can be downloaded from. It is specified if you restricted access to the CDN resource based on IP. If no restriction is set, file access will be allowed from any IP. You can restrict access based on IP either when [enabling](../operations/resources/enable-secure-token.md#enable-secure-token) access via a secure token or at any later time.
-* `expires`: Validity period of a link in Unix format.
+* `expires`: Link validity period in Unix format.
 
 Here is an example of a signed link:
 
@@ -32,7 +32,13 @@ Here is an example of a signed link:
 
 Use one of the examples below to generate a signed link.
 
-### Signed links with restricted access based on IP {#link-code-ip-access}
+### Signed links with access restriction based on IP {#link-code-ip-access}
+
+{% note info %}
+
+A VPN connection may interfere with the proper functioning of signed links with access restriction based on IP. For links to function properly, disable the VPN.
+
+{% endnote %}
 
 {% list tabs group=programming_language %}
 
@@ -57,11 +63,11 @@ Use one of the examples below to generate a signed link.
    ```
 
    Where:
-   * `$secret`: Secret key that is an arbitrary string of 6 to 32 characters.
+   * `$secret`: Secret key, a string of 6 to 32 characters.
    * `$path`: Path to the file for access to which the link is generated, e.g., `/files/image.jpg`.
-   * `$ip`: Trusted IP address the file can be accessed from.
-   * `$expires`: Point in time in [Unix format](https://en.wikipedia.org/wiki/Unix_time), after which the link will be invalid; `<link_validity>`: Number of seconds during which the link will be valid once generated.
-   * `$hostname`: CDN resource [domain name](./resource.md#hostnames), e.g., `cdn.example.com`.
+   * `$ip`: Trusted IP address the file can be accessed from, e.g., `1.2.3.4`.
+   * `$expires`: Time point in [Unix format](https://en.wikipedia.org/wiki/Unix_time) after which the link will be invalid; `<link_validity>`: Link validity period in seconds since it was generated.
+   * `$hostname`: CDN resource [domain name](./resource.md#hostnames) with the scheme (`http` or `https`), e.g., `https://cdn.example.com`.
    * `$url`: Ready-to-use [signed link](#protected-link) to the file.
 
 - Python {#python}
@@ -80,24 +86,33 @@ Use one of the examples below to generate a signed link.
    ```
 
    Where:
-   * `ip`: Trusted IP address the file can be accessed from.
+   * `ip`: Trusted IP address the file can be accessed from, e.g., `1.2.3.4`.
    * `secret`: Secret key that is an arbitrary string of 6 to 32 characters.
    * `path`: Path to the file for access to which the link is generated, e.g., `/files/image.jpg`.
-   * `expires`: Point in time in [Unix format](https://en.wikipedia.org/wiki/Unix_time), after which the link will be invalid; `<link_validity>`: Number of seconds during which the link will be valid once generated.
-   * `hostname`: CDN resource [domain name](./resource.md#hostnames), e.g., `cdn.example.com`.
+   * `expires`: Time point in [Unix format](https://en.wikipedia.org/wiki/Unix_time) after which the link will be invalid; `<link_validity>`: Link validity period in seconds since it was generated.
+   * `hostname`: CDN resource [domain name](./resource.md#hostnames) with the scheme (`http` or `https`), e.g., `https://cdn.example.com`.
    * `secured_url`: Ready-to-use [signed link](#protected-link) to the file.
 
 - OpenSSL {#openssl}
 
    ```bash
-   echo -n '<link_validity><file_path><IP_address> <secret_key>' | openssl md5 -binary | openssl base64 | tr +/ -_ | tr -d ='<link_validity><file_path><IP_address> <secret_key>' = '{expires}{path}{ip} {secret_key}'
+   #!/bin/bash
+   # This script generates a signed link with IP-based restricted access
+   let "EXPIRES=$(date +%s) + <link_validity>"
+   HOSTNAME="<domain_name>"
+   FILEPATH="<file_path>"
+   IP="<IP_address>"
+   SECRET="<secret_key>"
+   TOKEN=$(echo -n $EXPIRES$FILEPATH$IP' '$SECRET | openssl md5 -binary | openssl base64 | tr +/ -_ | tr -d = )
+   echo $HOSTNAME$FILEPATH'?md5='$TOKEN'&expires='$EXPIRES
    ```
 
    Where:
-   * `<link_validity>`: Point in time in [Unix format](https://en.wikipedia.org/wiki/Unix_time), after which the link will be invalid.
-   * `<file_path>`: Path to the file for access to which the link is generated, e.g., `/files/image.jpg`.
-   * `<IP_address>`: Trusted IP address the file can be accessed from.
-   * `<secret_key>`: Secret key that is an arbitrary string of 6 to 32 characters.
+   * `$EXPIRES`: Time point in [Unix format](https://en.wikipedia.org/wiki/Unix_time) after which the link will be invalid; `<link_validity>`: Link validity period in seconds since it was generated.
+   * `$HOSTNAME`: CDN resource [domain name](./resource.md#hostnames) with the scheme (`http` or `https`), e.g., `https://cdn.example.com`.
+   * `$FILEPATH`: Path to the file for access to which the link is generated, e.g., `/files/image.jpg`.
+   * `$IP`: Trusted IP address the file can be accessed from, e.g., `1.2.3.4`.
+   * `$SECRET`: Secret key, a string of 6 to 32 characters.
 
 {% endlist %}
 
@@ -125,10 +140,10 @@ Use one of the examples below to generate a signed link.
    ```
 
    Where:
-   * `$secret`: Secret key that is an arbitrary string of 6 to 32 characters.
+   * `$secret`: Secret key, a string of 6 to 32 characters.
    * `$path`: Path to the file for access to which the link is generated, e.g., `/files/image.jpg`.
-   * `$expires`: Point in time in [Unix format](https://en.wikipedia.org/wiki/Unix_time), after which the link will be invalid; `<link_validity>`: Number of seconds during which the link will be valid once generated.
-   * `$hostname`: CDN resource [domain name](./resource.md#hostnames), e.g., `cdn.example.com`.
+   * `$expires`: Time point in [Unix format](https://en.wikipedia.org/wiki/Unix_time) after which the link will be invalid; `<link_validity>`: Link validity period in seconds since it was generated.
+   * `$hostname`: CDN resource [domain name](./resource.md#hostnames) with the scheme (`http` or `https`), e.g., `https://cdn.example.com`.
    * `$url`: Ready-to-use [signed link](#protected-link) to the file.
 
 - Python {#python}
@@ -138,7 +153,7 @@ Use one of the examples below to generate a signed link.
    from hashlib import md5
    from time import time
    secret = '<secret_key>'
-   path = f'<file_path>'  
+   path = f'<file_path>'
    expires = int(time()) + <link_validity>
    hostname = '<domain_name>'
    token = base64.encodebytes(md5(f"{expires}{path} {secret}".encode()).digest()).decode().replace("\n", "").replace("+", "-").replace("/", "_").replace("=", "")
@@ -148,20 +163,28 @@ Use one of the examples below to generate a signed link.
    Where:
    * `secret`: Secret key that is an arbitrary string of 6 to 32 characters.
    * `path`: Path to the file for access to which the link is generated, e.g., `/files/image.jpg`.
-   * `expires`: Point in time in [Unix format](https://en.wikipedia.org/wiki/Unix_time), after which the link will be invalid; `<link_validity>`: Number of seconds during which the link will be valid once generated.
-   * `hostname`: CDN resource [domain name](./resource.md#hostnames), e.g., `cdn.example.com`.
+   * `expires`: Time point in [Unix format](https://en.wikipedia.org/wiki/Unix_time) after which the link will be invalid; `<link_validity>`: Link validity period in seconds since it was generated.
+   * `hostname`: CDN resource [domain name](./resource.md#hostnames) with the scheme (`http` or `https`), e.g., `https://cdn.example.com`.
    * `secured_url`: Ready-to-use [signed link](#protected-link) to the file.
 
 - OpenSSL {#openssl}
 
    ```bash
-   echo -n '<link_validity><file_path> <secret_key>' | openssl md5 -binary | openssl base64 | tr +/ -_ | tr -d = '<link_validity><file_path> <secret_key>' = '{expires}{path} {secret_key}'
+   #!/bin/bash
+   # This script generates a signed link with no IP address restrictions
+   let "EXPIRES=$(date +%s) + <link_validity>"
+   HOSTNAME="<domain_name>"
+   FILEPATH="<file_path>"
+   SECRET="<secret_key>"
+   TOKEN=$(echo -n $EXPIRES$FILEPATH' '$SECRET | openssl md5 -binary | openssl base64 | tr +/ -_ | tr -d = )
+   echo $HOSTNAME$FILEPATH'?md5='$TOKEN'&expires='$EXPIRES
    ```
 
    Where:
-   * `<link_validity>`: Point in time in [Unix format](https://en.wikipedia.org/wiki/Unix_time), after which the link will be invalid.
-   * `<file_path>`: Path to the file for access to which the link is generated, e.g., `/files/image.jpg`.
-   * `<secret_key>`: Secret key that is an arbitrary string of 6 to 32 characters.
+   * `$EXPIRES`: Time point in [Unix format](https://en.wikipedia.org/wiki/Unix_time) after which the link will be invalid; `<link_validity>`: Link validity period in seconds since it was generated.
+   * `$HOSTNAME`: CDN resource [domain name](./resource.md#hostnames) with the scheme (`http` or `https`), e.g., `https://cdn.example.com`.
+   * `$FILEPATH`: Path to the file for access to which the link is generated, e.g., `/files/image.jpg`.
+   * `$SECRET`: Secret key, a string of 6 to 32 characters.
 
 {% endlist %}
 

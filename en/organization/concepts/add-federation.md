@@ -2,7 +2,7 @@
 
 {{ yandex-cloud }} supports [SAML 2.0](https://wiki.oasis-open.org/security)-based identity federations. This is a popular markup language to enable Single Sign-On (SSO), a technology that allows users to access multiple apps without having to enter their username and password every time. For example, whenever you visit a website and see the _Sign in with Yandex_, _Google_ or _Facebook_ buttons, these are examples of the single sign-on system at work.
 
-The technology is called _identity federation_ — it is when all the usernames and passwords information is stored with a trusted _Identity Provider (IdP)_. While a service provider (SP), such {{ yandex-cloud }}, refers users to the identity provider's (IdP's) server for authentication.
+The technology is called _identity federation_ — it is when all the usernames and passwords information is stored with a trusted _Identity Provider (IdP)_. While a service provider (SP), e.g., {{ yandex-cloud }}, refers users to the identity provider's (IdP's) server for authentication.
 
 If your company has a user and access management system (e.g., Active Directory or Google Workspace), you can use it to authenticate employees in {{ org-full-name }}. In this case, you do not need to create a new Yandex account for every employee. They can get access to {{ yandex-cloud }} services using their corporate accounts.
 
@@ -20,11 +20,11 @@ You can set up identity federations for different identity providers:
 
 * [Active Directory](../tutorials/federations/integration-adfs.md)
 * [Google Workspace](../tutorials/federations/integration-gworkspace.md)
-* [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/integration-azure.md)
+* [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/integration-azure.md)​
 * [Keycloak](../tutorials/federations/integration-keycloak.md)
 * [Other SAML-compatible identity providers](../operations/setup-federation.md)
 
-### Mapping user groups {#group-mapping}
+### User group mapping {#group-mapping}
 
 {% include notitle [preview](../../_includes/note-preview-by-request.md) %}
 

@@ -11,3 +11,5 @@ If a bucket is configured to host static websites, the user trying to access it 
 | `404 Not Found` | Returned if the resource that the request was sent to doesn't exist or the bucket where the requested resource is located isn't configured for hosting static websites.<br/><br/>[{#T}](../../../operations/hosting/setup.md). |
 | `500 Service Error` | Internal error in {{ objstorage-name }}. |
 | `503 Service Unavailable` | The load on the service is too high. You need to reduce your request rate. |
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

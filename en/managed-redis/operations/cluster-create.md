@@ -258,7 +258,7 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
       Where:
       * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
       * `deletion_protection`: Cluster deletion protection, `true` or `false`.
-      * `version`: {{ RD }} version, {{ versions.tf.str }}.
+      * `version`: {{ RD }} {{ versions.tf.str }}.
       * `host`: Host parameters:
          * `zone_id`: Availability zone.
          * `subnet_id`: ID of a subnet in the selected availability zone.
@@ -273,7 +273,7 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
 
       {% include [Maintenance window](../../_includes/mdb/mrd/terraform/maintenance-window.md) %}
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mrd }}).
+      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mrd }}).
 
    1. Make sure the settings are correct.
 
@@ -295,6 +295,7 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
    * Security group IDs in the `securityGroupIds` parameter.
    * `tlsEnabled=true` flag for creating clusters with encrypted SSL support.
    * Settings of public access to hosts in the `hostSpecs[].assignPublicIp` parameter.
+   * Settings for access from [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) in the `configSpec.access.dataTransfer` parameter.
 
    If you are creating a sharded cluster with the **local-ssd** disk type, specify at least two hosts per shard in the request body.
 
@@ -397,15 +398,15 @@ To create a {{ RD }} cluster copy:
 
    Create a {{ mrd-name }} cluster with the following test characteristics:
 
-   * Name: `myredis`
-   * Version: `{{ versions.cli.latest }}`
-   * Environment: `production`
-   * Network: `default`
+   * Name: `myredis`.
+   * Version: `{{ versions.cli.latest }}`.
+   * Environment: `production`.
+   * Network: `default`.
    * Single `{{ mrd-host-class }}` class host in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone and the security group with the `{{ security-group }}` ID with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
-   * SSL support: Enabled
-   * Network SSD storage (`{{ disk-type-example }}`): 16 GB
-   * Password: `user1user1`
-   * Protection against accidental cluster deletion: Enabled
+   * SSL support: Enabled.
+   * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
+   * Password: `user1user1`.
+   * Protection against accidental cluster deletion: Enabled.
 
    Run the following command:
 
@@ -431,18 +432,18 @@ To create a {{ RD }} cluster copy:
 
    Create a {{ mrd-name }} cluster and a network for it with the following test characteristics:
 
-   * Name: `myredis`
-   * Version: `{{ versions.tf.latest }}`
-   * Environment: `PRODUCTION`
-   * Cloud ID: `{{ tf-cloud-id }}`
-   * Folder ID: `{{ tf-folder-id }}`
-   * New network: `mynet`
+   * Name: `myredis`.
+   * Version: `{{ versions.tf.latest }}`.
+   * Environment: `PRODUCTION`.
+   * Cloud ID: `{{ tf-cloud-id }}`.
+   * Folder ID: `{{ tf-folder-id }}`.
+   * New network: `mynet`.
    * Single `{{ mrd-host-class }}` host in a new subnet named `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the `10.5.0.0/24` range.
    * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any addresses in the `mysubnet` subnet.
-   * SSL support: Enabled
-   * Network SSD storage (`{{ disk-type-example }}`): 16 GB
-   * Password: `user1user1`
-   * Protection against accidental cluster deletion: Enabled
+   * SSL support: Enabled.
+   * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
+   * Password: `user1user1`.
+   * Protection against accidental cluster deletion: Enabled.
 
    The configuration file for this cluster is as follows:
 
@@ -512,21 +513,21 @@ To create a {{ RD }} cluster copy:
 
    Create a [sharded](../concepts/sharding.md) {{ mrd-name }} cluster with the following test characteristics:
 
-   * Name: `myredis`
-   * Version: `{{ versions.tf.latest }}`
-   * Environment: `PRODUCTION`
-   * Cloud ID: `{{ tf-cloud-id }}`
-   * Folder ID: `{{ tf-folder-id }}`
-   * New network: `mynet`
+   * Name: `myredis`.
+   * Version: `{{ versions.tf.latest }}`.
+   * Environment: `PRODUCTION`.
+   * Cloud ID: `{{ tf-cloud-id }}`.
+   * Folder ID: `{{ tf-folder-id }}`.
+   * New network: `mynet`.
    * Three subnets in the `mynet` network, one in each availability zone:
       * `subnet-a` with the `10.1.0.0/24` range.
       * `subnet-b` with the `10.2.0.0/24` range.
       * `subnet-d` with the `10.3.0.0/24` range.
    * Three `{{ mrd-host-class }}` hosts, one in each subnet.
    * In the new `redis-sg` security group allowing connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) from any subnet address.
-   * Network SSD storage (`{{ disk-type-example }}`): 16 GB
-   * Password: `user1user1`
-   * Protection against accidental cluster deletion: Enabled
+   * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
+   * Password: `user1user1`.
+   * Protection against accidental cluster deletion: Enabled.
 
    The configuration file for this cluster is as follows:
 

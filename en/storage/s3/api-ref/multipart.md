@@ -11,17 +11,13 @@ To find out the maximum size for an uploaded object, see [{#T}](../../concepts/l
 
 Multipart upload consists of the following steps:
 1. Starting the upload.
-   
    The user sends the [start multipart upload request](multipart/startupload.md) and {{ objstorage-name }} returns the ID to be used for all subsequent upload operations.
-   
    At this step, user-defined metadata should be passed.
 1. Uploading an object in parts.
    Each part of the object is sent in a [separate request](multipart/uploadpart.md) and must have a sequence number that is used to build the object on the {{ objstorage-name }} side. If {{ objstorage-name }} receives two parts of the object with the same number, it will save the last one received.
    For each uploaded part, {{ objstorage-name }} returns the `ETag` header in the response. The user should save the numbers and their corresponding `ETag` headers for all uploaded parts. It is necessary for the upload complete operation.
-   
    During the upload, you can get a [list of already uploaded object parts](multipart/listparts.md) from {{ objstorage-name }}.
 1. Completing the upload.
-   
    After receiving the [complete upload request](multipart/completeupload.md), {{ objstorage-name }} combines all the uploaded parts into a single object and attaches the metadata that was passed when the upload started.
 
    {% note info %}
@@ -50,3 +46,4 @@ Multipart upload methods:
 | [listUploads](multipart/listuploads.md) | Returns a list of incomplete uploads. |
 
 
+{% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

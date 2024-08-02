@@ -51,9 +51,7 @@ The price is calculated based on the amount of resources consumed over the curre
 
 
 
-If a customer consumes $800 worth of resources a month, technical support will cost:
-{{ sku|USD|support.organization.business.fixed_consumption.v1|int|string }} + $800 * 0.05 = $64.
-This amount will be charged to a single billing account.
+{% include [usd-support-one-ba](../_pricing_examples/support/usd-one-ba.md) %}
 
 
 #### Example of calculating the cost for an organization whose resources are paid from two billing accounts {#business-example-two-ba}
@@ -63,22 +61,12 @@ If an organization with an activated support service plan uses resources paid fr
 
 
 
-An organization with the Business service plan activated pays for resources from different billing accounts:
-
-* Account 1: Consumes $400 worth of resources a month.
-* Account 2: Consumes $80 worth of resources a month.
-
-The fixed amount will only be paid by one of the accounts, for example, Account 1.
-
-The cost of support will be:
-
-* {{ sku|USD|support.organization.business.fixed_consumption.v1|int|string }} + $400 * 0.05 = $44 for Account 1.
-* $80 * 0.05 = $4 for Account 2.
+{% include [usd-support-two-ba](../_pricing_examples/support/usd-two-ba.md) %}
 
 
 
 ### Premium {#premium}
 
-The <q>Premium</q> plan includes all the services offered under the other service plans and can be supplemented based on your requirements.
+The Premium plan covers all the services of the other plans and can be further enhanced to best suit your requirements.
 
-To get an estimate of the Premium service plan cost, please contact your {{ yandex-cloud }} manager or [technical support]({{ link-console-support }}).
+For a cost estimate for the Premium plan, please contact your {{ yandex-cloud }} manager or [technical support]({{ link-console-support }}).

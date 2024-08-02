@@ -11,3 +11,4 @@ description: "The Lifecycles service in the {{ objstorage-name }} HTTP API (S3) 
 | [get](lifecycles/get.md) | Returns an object lifecycle configuration from {{ objstorage-name }}. |
 | [delete](lifecycles/delete.md) | Deletes an object lifecycle configuration from {{ objstorage-name }}. |
 
+{% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

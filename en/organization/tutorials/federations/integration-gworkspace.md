@@ -8,7 +8,7 @@ Authentication setup includes the following steps:
 
 1. [Creating and setting up a federation in {{ org-full-name }}](#yc-settings).
 
-1. [Setting up Single Sign-On (SSO)](#sso-settings).
+1. [Setting up single sign-on (SSO)](#sso-settings).
 
 1. [Authentication](#test-auth).
 
@@ -58,7 +58,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
    1. In the **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** field, specify the time before the browser asks the user to re-authenticate.
 
-   1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, enter the link from the **Entity ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
+   1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, enter the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
       ```
       https://accounts.google.com/o/saml2?idpid=<SAML_application_ID>
@@ -115,9 +115,9 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
       * `--cookie-max-age`: Time before the browser asks the user to re-authenticate.
 
-      * `--issuer`: ID of the IdP server to be used for authentication.
+      * `--issuer`: ID of the IdP server to use for authentication.
 
-         Use the link provided in the **Entity ID** field on the **Google IdP information** page in Google Workspace. This is a link in the format:
+         Use the link provided in the **Object ID** field on the **Google IdP information** page in Google Workspace. This is a link in the format:
 
          ```
          https://accounts.google.com/o/saml2?idpid=<SAML_application_ID>
@@ -133,7 +133,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-      * `--sso-binding`: Specify the single sign-on binding type. Most identity providers support the `POST` binding type.
+      * `--sso-binding`: Single sign-on binding type. Most identity providers support the `POST` binding type.
 
       * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
@@ -147,9 +147,9 @@ Do not close the page where you create an app in Google Workspace: you will get 
       * `description`: Federation description.
       * `organization_id`: Organization ID.
       * `labels`: Set of key/value label pairs assigned to the federation.
-      * `issuer`: ID of the IdP server to be used for authentication.
+      * `issuer`: ID of the IdP server to use for authentication.
 
-         Use the link from the **Entity ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
+         Use the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
          ```
          https://accounts.google.com/o/saml2?idpid=<SAML_application_ID>
@@ -175,7 +175,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
          If the option is enabled, the IDs of federated user names will be case-insensitive.
       * `security_settings`: Federation security settings:
          * `encrypted_assertions`: Sign authentication requests.
-            If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You need to download and install a {{ yandex-cloud }} certificate.
+            If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
 
       Here is an example of the configuration file structure:
 
@@ -195,7 +195,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```
@@ -248,9 +248,9 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
       * `cookieMaxAge`: Time before the browser asks the user to re-authenticate.
 
-      * `issuer`: ID of the IdP server to be used for authentication.
+      * `issuer`: ID of the IdP server to use for authentication.
 
-         Use the link from the **Entity ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
+         Use the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
          ```
          https://accounts.google.com/o/saml2?idpid=<SAML_application_ID>
@@ -346,12 +346,12 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
 {% note tip %}
 
-To make sure authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to your federation, i.e., the current one and those to be used afterwards. If one certificate turns invalid, {{ yandex-cloud }} will attempt to verify the signature with another one.
+To make sure authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to your federation, i.e., the current one and those to use afterwards. If one certificate goes invalid, {{ yandex-cloud }} will try another one to verify the signature.
 
 {% endnote %}
 
 
-## Setting up Single Sign-On (SSO) {#sso-settings}
+## Setting up single sign-on (SSO) {#sso-settings}
 
 ### Specify the redirect URL {#add-link}
 
@@ -361,7 +361,7 @@ Once you have created a federation, complete the creation of the SAML applicatio
 
 1. In the **Service provider information** step, specify information about {{ yandex-cloud }} that acts as a service provider:
 
-   * In the **ACS URL** and **Entity ID** fields, enter the ACS URL to redirect users to after successful authentication:
+   * In the **ACS URL** and **Object ID** fields, enter the ACS URL to redirect users to after successful authentication:
 
       
       ```

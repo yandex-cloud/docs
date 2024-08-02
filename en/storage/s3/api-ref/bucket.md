@@ -36,3 +36,5 @@ description: "In this tutorial, you will learn what S3 API methods can be used t
 || [getBucketTagging](bucket/getbuckettagging.md) | Returns bucket labels. ||
 || [deleteBucketTagging](bucket/deletebuckettagging.md) | Deletes bucket labels. ||
 |#
+
+{% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

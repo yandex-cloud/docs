@@ -1,6 +1,10 @@
 # Host roles in {{ mos-name }}
 
-Each [host group](host-groups.md) contains hosts with a certain role: `DATA`, `MANAGER`, or `DASHBOARDS`.
+Each {{ mos-name }} cluster consists of one or more host groups of the `{{ OS }}` and `Dashboards` (optional) types:
+
+* An `{{ OS }}` host group may contain hosts with the [DATA](#data) or [MANAGER](#manager) roles. If a cluster has a single `{{ OS }}` group, its hosts will have both roles.
+
+* A `Dashboards` host group may only contain hosts with the [DASHBOARDS](#dashboards) role.
 
 ## Hosts with the DATA role {#data}
 
@@ -12,16 +16,16 @@ There should be at least one host with the `DATA` role in the cluster. A single-
 
 {% endnote %}
 
-For fault tolerance reasons, you cannot create a cluster that only has two hosts with the `DATA` role. To make your cluster fault-tolerant, add an `{{ OS }}` host group with the `MANAGER` role.
+For fault tolerance reasons, you cannot create a cluster that only has two hosts with the `DATA` role. To make your cluster fault-tolerant, add a host group with the `MANAGER` role.
 
 ## Hosts with the MANAGER role {#manager}
 
 Hosts with this role monitor the state of the cluster and manage its configuration, ensuring the performance of all {{ OS }} components.
 
-When using hosts with the `MANAGER` role, the cluster will be added a host group containing three hosts like this.
+If you are using hosts with the `MANAGER` role, a group containing three such hosts will be added to the cluster.
 
 If no hosts with the `MANAGER` role are used, this role will be supported by hosts with the `DATA` role. However, with dedicated hosts with the `MANAGER` role, you can increase the overall cluster reliability and reduce the load on hosts with the `DATA` role.
 
 ## Hosts with the DASHBOARDS role {#dashboards}
 
-Hosts with this role are used as a data visualization tool, for example, for real-time application monitoring, threat detection, incident management, or personalized search.
+Hosts with this role run {{ OS }} Dashboards, a data visualization tool to use in such scenarios as real-time application monitoring, threat detection, incident management, or personalized search.

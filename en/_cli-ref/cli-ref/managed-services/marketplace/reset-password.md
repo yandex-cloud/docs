@@ -2,22 +2,22 @@
 editable: false
 ---
 
-# yc iam service-control resume
+# yc marketplace reset-password
 
-Resume service access to cloud
+Reset password via Yandex Cloud Guest Agent
 
 #### Command Usage
 
 Syntax: 
 
-`yc iam service-control resume <SERVICE-ID> [<SERVICE-ID>...] [Global Flags...]`
+`yc marketplace reset-password [Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>Service id.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--instance-id`|<b>`string`</b><br/>Instance ID to reset password for.|
+|`--username`|<b>`string`</b><br/>Username to reset password for.|
 
 #### Global Flags
 

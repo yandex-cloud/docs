@@ -5,7 +5,7 @@ description: "{{ at-full-name }} lets you collect audit logs about {{ yandex-clo
 
 # {{ at-full-name }} overview
 
-{{ at-full-name }} allows you to collect management event and data event audit logs for {{ yandex-cloud }} resources and upload them to {{ objstorage-name }} buckets, {{ yds-name }} streams, or {{ cloud-logging-name }} log groups:
+{{ at-full-name }} allows you to collect [management event audit logs](./events.md) and [data event audit logs](./events-data-plane.md) for {{ yandex-cloud }} resources and upload them to {{ objstorage-name }} buckets, {{ yds-name }} streams, or {{ cloud-logging-name }} log groups:
 
 * [Uploading audit logs to a bucket](../operations/index.md#bucket).
 * [Uploading audit logs to Cloud Logging](../operations/index.md#logging).
@@ -17,35 +17,6 @@ Collecting audit logs enables you to use analytical tools and promptly respond t
 * [Searching audit logs in a log group](../tutorials/search-cloud-logging.md).
 * [Exporting audit logs to SIEM systems](./export-siem.md).
 * [Alert settings in {{ monitoring-full-name }}](../tutorials/alerts-monitoring.md).
-
-## Management audit logs {#control-plane-logs}
-
-{{ at-name }} collects [management event](./control-plane-vs-data-plane.md#control-plane-events) audit logs for the following {{ yandex-cloud }} services:
-
-* {{ alb-full-name }}
-* {{ at-full-name }}
-* {{ certificate-manager-full-name }}
-* {{ dns-full-name }}
-* {{ cloud-logging-full-name }}
-* {{ compute-full-name }}
-* {{ iam-full-name }}
-* {{ kms-full-name }}
-* {{ lockbox-full-name }}
-* {{ mch-full-name }}
-* {{ mgl-full-name }}
-* {{ mmg-full-name }}
-* {{ managed-k8s-name }}
-* {{ mmy-full-name }}
-* {{ mpg-full-name }}
-* {{ mrd-full-name }}
-* {{ network-load-balancer-full-name }}
-* {{ objstorage-full-name }}
-* {{ org-full-name }}
-* {{ resmgr-full-name }}
-* {{ vpc-full-name }}
-* {{ websql-full-name }}
-* {{ ydb-full-name }}
-* {{ yq-full-name }}
 
 The following [management events](./events.md) are logged:
 
@@ -59,19 +30,6 @@ The following [management events](./events.md) are logged:
 * Changing access policies
 * Creating/editing security groups
 * Actions with encryption keys and secrets
-
-## Data event audit logs {#data-plane-logs}
-
-{{ at-name }} collects [data event](./control-plane-vs-data-plane.md#data-plane-events) audit logs for the following {{ yandex-cloud }} services:
-
-* {{ dns-full-name }}
-* {{ lockbox-full-name }}
-* {{ kms-full-name }}
-* {{ objstorage-full-name }}
-* {{ mpg-full-name }}
-* {{ mmg-full-name }}
-* {{ mmy-full-name }}
-* {{ websql-full-name }}
 
 ## Current service limits {#known-restrictions}
 

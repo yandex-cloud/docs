@@ -71,6 +71,14 @@ description: "Управление доступом в сервисе созда
 
 Включает в себя роль `{{ roles-editor }}`.
 
+## Какие роли необходимы {#required-roles}
+
+Чтобы пользоваться сервисом, необходима роль [{{ roles.maf.editor }} или выше](../../iam/concepts/access-control/roles.md) на каталог, в котором создается кластер. Роль `{{ roles.maf.viewer }}` позволит только просматривать список кластеров.
+
+Чтобы создать кластер {{ maf-name }}, нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль `{{ roles.maf.editor }}` или выше.
+
+Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `{{ roles.maf.admin }}` вместо `{{ roles.maf.editor }}`.
+
 ## Что дальше {#whats-next}
 
 * [Как назначить роль](../../iam/operations/roles/grant.md).

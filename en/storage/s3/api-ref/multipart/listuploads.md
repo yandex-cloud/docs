@@ -32,7 +32,7 @@ GET /{bucket}?uploads HTTP/2
 
 ### Headers {#request-headers}
 
-Use the necessary [common request headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in requests.
 
 
 ## Response {#response}
@@ -127,3 +127,5 @@ A successful response contains additional data in XML format with the schema des
 | `Delimiter` | Delimiter character that was used when generating output.<br/><br/>See the description of the `delimiter` request parameter.<br/><br/>Path: `/ListMultipartUploadsResult/Delimiter`. |
 | `CommonPrefixes` | Contains the `Prefix` element.<br/><br/>Path: `/ListMultipartUploadsResult/CommonPrefixes`. |
 | `CommonPrefixes/Prefix` | Part of the key name identified when processing the `delimiter` and `prefix` request parameters.<br/><br/>Path: `/ListMultipartUploadsResult/CommonPrefixes/Prefix`. |
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

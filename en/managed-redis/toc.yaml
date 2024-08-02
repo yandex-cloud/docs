@@ -54,7 +54,7 @@ items:
             href: operations/monitoring.md
   - name: Tutorials
     items:
-      - name: All use cases
+      - name: All tutorials
         href: tutorials/index.md
       - name: Storing PHP sessions in {{ mrd-name }}
         href: tutorials/redis-as-php-sessions-storage.md
@@ -84,7 +84,7 @@ items:
         href: concepts/supported-clients.md
       - name: Memory management
         href: concepts/memory-management.md
-      - name: Supported commands
+      - name: Available commands
         href: concepts/supported-features.md
       - name: Quotas and limits
         href: concepts/limits.md

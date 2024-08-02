@@ -59,12 +59,20 @@ The set of headers depends on the specific request and is described in the docum
 
 If you use the API directly (without an SDK or apps), you need to generate the `Authorization` header yourself for authenticating requests. Find out how to do this in the Amazon S3 documentation: [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html).
 
+{% include [s3api-debug-and-curl](../../_includes/storage/s3api-debug-and-curl.md) %}
+
 ### Request URL {#request-url}
 
 URLs can take one of the following forms:
 
-- `https://{{ s3-storage-host }}/<bucket_name>/<object_key>?<query parameters>`
-- `http://<bucket_name>.{{ s3-storage-host }}/<object_key>?<query parameters>`
+* `http(s)://{{ s3-storage-host }}/<bucket_name>/<object_key>?<query_parameters>`
+* `http(s)://<bucket_name>.{{ s3-storage-host }}/<object_key>?<query_parameters>`
+
+{% note info %}
+
+For buckets that have full stops in their names, e.g., `example.ru`, HTTPS is available only with a URL in the `https://{{ s3-storage-host }}/<bucket_name>/<object_key>?<query_parameters>` format. For more information, see [Accessing a bucket over HTTPS](../concepts/bucket.md#bucket-https).
+
+{% endnote %}
 
 The URL contains the bucket name, object key, and query parameters. See an example of possible query parameters in the [Get object method description](api-ref/object/get.md).
 
@@ -75,3 +83,5 @@ The URL contains the bucket name, object key, and query parameters. See an examp
 [Cross-domain requests](../concepts/cors.md) are available for all API methods used for object management.
 
 To check permissions, CORS sends the [options](api-ref/object/options.md) preflight request to a resource. {{ objstorage-name }} allows you to skip the preflight request when sending cross-domain requests to resources. In this case, your request's [headers](api-ref/object/options.md#request-headers) must be the same as those of the preflight request.
+
+{% include [the-s3-api-see-also-include](../../_includes/storage/the-s3-api-see-also-include.md) %}

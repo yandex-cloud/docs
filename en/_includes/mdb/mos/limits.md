@@ -5,7 +5,7 @@
 | Number of clusters per cloud | 16 |
 | Total number of processor cores for all hosts per cloud | 96 |
 | Total virtual memory for all hosts per cloud | 640 GB |
-| Total storage capacity for all clusters per cloud | 4096 GB |
+| Total storage capacity for all clusters per cloud | 4,096 GB |
 
 #### Limits {#limits}
 

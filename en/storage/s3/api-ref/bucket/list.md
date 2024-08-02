@@ -46,3 +46,5 @@ A successful response contains additional data in XML format with the schema des
 | `CreationDate` | Bucket creation time in the format `yyyy-mm-ddThh:mm:ss.timezone`.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket/CreationDate`. |
 | `ListAllMyBucketsResult` | Root element of a response.<br/><br/>Path: `/ListAllMyBucketsResult`. |
 | `Name` | Bucket name.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket/Name`. |
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

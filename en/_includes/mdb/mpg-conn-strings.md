@@ -57,6 +57,69 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 {% endlist %}
 
+### C++ (userver framework) {#cpp-userver}
+
+The asynchronous [userver](https://userver.tech/) framework provides a rich set of abstractions for creating utilities, services, and microservices in C++. Among other things, the framework provides opportunities to work with {{ PG }}.
+
+Before connecting, access the framework in one of the following ways:
+
+* [Create a {{ compute-full-name }} virtual machine](../../compute/operations/images-with-pre-installed-software/create.md) from the [userver image](https://yandex.cloud/ru/marketplace/products/yc/userver). This image already contains the framework and all required dependencies.
+* [Manually install the framework and all required dependencies](https://userver.tech/docs/v2.0/d3/da9/md_en_2userver_2tutorial_2build.html).
+
+{% list tabs group=connection %}
+
+- Connecting without SSL {#without-ssl}
+
+   1. Create a project based on the [service template](https://github.com/userver-framework/pg_service_template).
+
+   1. Modify the `configs/config_vars.yaml` configuration file. Specify the {{ PG }} cluster connection string as the `dbconnection` variable value:
+
+      ```url
+      postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/<DB_name>
+      ```
+
+   1. Build a project and run the service:
+
+      ```bash
+      make build-debug && \
+      ./build_debug/pg_service_template -c configs/static_config.yaml --config_vars configs/config_vars.yaml
+      ```
+
+- Connecting via SSL {#with-ssl}
+
+   1. Create a project based on the [service template](https://github.com/userver-framework/pg_service_template).
+
+   1. Modify the `configs/config_vars.yaml` configuration file. Specify the {{ PG }} cluster connection string as the `dbconnection` variable value:
+
+      ```url
+      postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/<DB_name>?ssl=true&sslmode=verify-full
+      ```
+
+   1. Build a project and run the service:
+
+      ```bash
+      make build-debug && \
+      ./build_debug/pg_service_template -c configs/static_config.yaml --config_vars configs/config_vars.yaml
+      ```
+
+{% endlist %}
+
+Once started, the service will wait for a POST request from the user. While waiting for a request, the service will periodically check the {{ PG }} cluster's availability by running the `SELECT 1 as ping` request. You can find this information in the service logs.
+
+{% cut "Example of log contents on successful connection to the cluster" %}
+
+```text
+tskv ... level=INFO      module=MakeQuerySpan ( userver/postgresql/src/storages/postgres/detail/connection_impl.cpp:647 )
+...
+db_statement=SELECT 1 AS ping
+db_type=postgres
+db_instance=********
+peer_address=c-********.rw.{{ dns-zone }}:{{ port-mpg }}
+...
+```
+
+{% endcut %}
+
 ### C# EF Core {#csharpefcore}
 
 To connect to a cluster, you need the [Npgsql](https://www.nuget.org/packages/Npgsql/) package.

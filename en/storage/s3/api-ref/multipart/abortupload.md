@@ -28,7 +28,7 @@ DELETE /{bucket}/{key}?uploadId=UploadId HTTP/2
 
 ### Headers {#request-headers}
 
-Use the necessary [common request headers](../common-request-headers.md) in requests.
+Use the appropriate [common headers](../common-request-headers.md) in requests.
 
 
 ## Response {#response}
@@ -45,6 +45,7 @@ Additionally, {{ objstorage-name }} may return errors described in the table bel
 
 | Error | Description | HTTP code |
 ----- | ----- | -----
-| `NoSuchUpload` | The specified upload doesn't exist. The specified upload ID might be incorrect or the upload was completed or deleted. | 404 Not Found |
+| `NoSuchUpload` | The specified upload does not exist. The specified upload ID may be incorrect or the upload was completed or deleted. | 404 Not Found |
 
 
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

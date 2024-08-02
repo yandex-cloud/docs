@@ -8,9 +8,13 @@
 
 ## Создать кластер {#create-cluster}
 
+Для создания кластера {{ mgp-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mgp.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
+
+    Чтобы создать кластер {{ mgp-name }}:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер баз данных.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
@@ -123,7 +127,7 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы создать кластер:
+    Чтобы создать кластер {{ mgp-name }}:
 
     
     1. Проверьте, есть ли в каталоге подсети для хостов кластера:
@@ -249,7 +253,7 @@
 
     {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  Чтобы создать кластер:
+  Чтобы создать кластер {{ mgp-name }}:
 
     1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
 
@@ -344,7 +348,7 @@
 
 - API {#api}
 
-    Чтобы создать кластер, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
+    Чтобы создать кластер {{ mgp-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
 
     * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
     * Имя кластера в параметре `name`.

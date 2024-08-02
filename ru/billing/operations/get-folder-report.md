@@ -1,8 +1,25 @@
 # Получать детализацию расходов по каталогам
 
-Вы можете получать CSV-файл с общей или поресурсной детализацией расходов.
+Вы можете получать CSV-файл с общей или поресурсной детализацией расходов. Файл можно скачать разово или настроить получение на постоянной основе.
 
-## Перед началом работы {#before-you-begin}
+## Разовый экспорт {#single-time-download}
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Выберите аккаунт, для которого хотите получить детализацию.
+  1. На панели слева выберите ![image](../../_assets/console-icons/chart-area-stacked.svg) **{{ ui-key.yacloud.billing.account.switch_detail }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.detail.button_download-csv }}**.
+  1. Выберите промежуток времени, за который хотите получить детализацию.
+  1. Нажмите кнопку **{{ ui-key.yacloud.billing.account.detail.popup-csv_button_download }}**.
+
+{% endlist %}
+
+## Настройка регулярного экспорта {#set-up-regular-download}
+
+### Перед началом работы {#before-you-begin}
 
 1. Если у вас еще нет разделения на [каталоги](../../resource-manager/concepts/resources-hierarchy.md#folder), [создайте каталог](../../resource-manager/operations/folder/create.md). В названии каталога укажите имя проекта или клиента, который будет использовать его.
 
@@ -19,7 +36,7 @@
 
 1. Проверьте, что у вас есть одна из ролей: `billing.accounts.owner`, `billing.accounts.admin`, `billing.accounts.editor`.
 
-## Получите детализацию расходов {#download-detail}
+### Получите детализацию расходов {#download-detail}
 
 {% list tabs group=instructions %}
 
@@ -34,7 +51,7 @@
      * В поле **{{ ui-key.yacloud_billing.billing.account.exports.field_prefix }}** название папки для файла. Последний символ должен быть `/`.
      * Выберите язык, на котором будут отображаться названия продуктов – английский или русский.
      * Выберите тип детализации – **{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}** или **{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}**.
-     
+
          {% note tip %}
 
          Выбирая тип **{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}** для регулярного экспорта детализации, вы сможете просматривать в [поле `resource_id`](#format), в том числе, и ресурсы сервисов {{ datalens-full-name }}, {{ tracker-full-name }} и {{ ml-platform-name }}, например [идентификаторы сообществ {{ ml-platform-name }}](../../datasphere/concepts/community.md).

@@ -13,6 +13,11 @@ If you delete a VM from {{ compute-name }} using the management console it is al
 
 {% endnote %}
 
+If you want to reconnect a VM to {{ backup-name }} after you delete it, use these guides:
+
+* [Connecting a Linux VM](connect-vm-linux.md)
+* [Connecting a Windows VM](connect-vm-windows.md)
+
 To delete a VM from {{ backup-name }}:
 
 {% list tabs group=instructions %}

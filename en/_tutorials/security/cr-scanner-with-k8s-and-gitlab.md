@@ -51,7 +51,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 ## Configure the CI script {#ci}
 
 1. Create the [{{ GL }} environment variables]({{ gl.docs }}/ee/ci/variables/):
-   1. Go to **Settings** in the left-hand {{ GL }} panel and select **CI/CD** from the drop-down list.
+   1. In {{ GL }}, go to **Settings** in the left-hand panel and select **CI/CD** from the drop-down list.
    1. Click **Expand** next to **Variables**.
    1. Add the following environment variables depending on the {{ managed-k8s-name }} authentication method in {{ GL }}:
 
@@ -79,7 +79,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
       * Click **Add variable**.
       * In the window that opens, enter the variable name in the **Key** field and the value in the **Value** field.
       * Click **Add variable**.
-1. Create the CI script's configuration file:
+1. Create the CI script configuration file:
    1. Open the `gitlab-test` project.
    1. Click ![image](../../_assets/console-icons/plus.svg) in the repository navigation bar and select **New file** from the drop-down menu.
    1. Name the file as `.gitlab-ci.yml`. Add the steps to build and push a Docker image, scan it for vulnerabilities, and update the application configuration in the {{ managed-k8s-name }} cluster. The file structure depends on the {{ k8s }} authentication method in {{ GL }}:
@@ -124,7 +124,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
            script:
              - export CI_COMMIT_SHA=${CI_COMMIT_SHA}
              # Install YC CLI.
-             - curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash -s -- -a && cp /root/yandex-cloud/bin/yc /usr/bin/
+             - curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash -s -- -a && cp /root/yandex-cloud/bin/yc /usr/bin/
              # Start scanning.
              - echo "Scanning image $IMAGE_NAME ${CI_REGISTRY}/${CI_COMMIT_REF_SLUG}:${CI_COMMIT_SHA}..."
              - export IMAGE_ID=$(yc container image list --registry-id (${CI_REGISTRY} | cut -d/ -f2) --format=json | jq -r --arg CI_COMMIT_SHA $CI_COMMIT_SHA '.[] | select(.tags[0]==$CI_COMMIT_SHA) | .id ')
@@ -191,7 +191,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
            script:
              - export CI_COMMIT_SHA=${CI_COMMIT_SHA}
              # Install YC CLI.
-             - curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash -s -- -a && cp /root/yandex-cloud/bin/yc /usr/bin/
+             - curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash -s -- -a && cp /root/yandex-cloud/bin/yc /usr/bin/
              # Start scanning.
              - echo "Scanning image $IMAGE_NAME ${CI_REGISTRY}/${CI_COMMIT_REF_SLUG}:${CI_COMMIT_SHA}..."
              - export IMAGE_ID=$(yc container image list --registry-id (${CI_REGISTRY} | cut -d/ -f2) --format=json | jq -r --arg CI_COMMIT_SHA $CI_COMMIT_SHA '.[] | select(.tags[0]==$CI_COMMIT_SHA) | .id ')
@@ -230,6 +230,6 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
 ## Check the result {#check-result}
 
-After saving the `.gitlab-ci.yml` configuration file, the build script will start. To check its results, select **Build** on the left-hand panel in the `gitlab-test` project, and then choose **Pipelines** from the drop-down menu. Vulnerability scanning is performed at the second stage (`test`).
+After you save the `.gitlab-ci.yml` configuration file, the build script will start. To check its results, select **Build** on the left-hand panel in the `gitlab-test` project, and then choose **Pipelines** from the drop-down menu. Vulnerability scanning is performed at the second stage (`test`).
 
 {% include [clear-out](../../_includes/managed-gitlab/clear-out.md) %}

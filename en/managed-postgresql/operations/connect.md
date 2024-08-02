@@ -52,7 +52,7 @@ Rule settings depend on the connection method you select:
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
-         This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
+         This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to a VM over SSH.
 
       * For outgoing traffic:
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
@@ -337,6 +337,6 @@ You can connect to a cluster using both regular host [FQDNs](../concepts/network
 
 {% include [mpg-connection-strings](../../_includes/mdb/mpg-conn-strings.md) %}
 
-If the connection to the cluster and the test query are successful, the {{ PG }} version is output.
+If the connection to the cluster and the test query are successful, the {{ PG }} version will be shown. The [userver framework example](#cpp-userver) is one exception, where the `SELECT 1 as ping` test query will be executed from time to time to check the {{ PG }} cluster for availability.
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -498,8 +498,8 @@ To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [f
       The expected result is a non-empty value in the `ADDRESS` field for the created load balancer:
 
       ```bash
-      NAME          CLASS   HOSTS           ADDRESS     PORTS    AGE
-      alb-demo-tls  <none>  <domain_name>  <IP_address> 80, 443  15h
+      NAME          CLASS   HOSTS           ADDRESS      PORTS    AGE
+      alb-demo-tls  <none>  <domain_name>   <IP_address> 80, 443  15h
       ```
 
       Based on the load balancer configuration, an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) will be automatically deployed.

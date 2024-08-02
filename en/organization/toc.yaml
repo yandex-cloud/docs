@@ -82,11 +82,11 @@ items:
             href: tutorials/federations/integration-azure.md
           - name: Authentication using Keycloak
             href: tutorials/federations/integration-keycloak.md
-          - name: Mapping user groups
+          - name: User group mapping
             items:
-              - name: Mapping user groups in {{ microsoft-idp.entra-id-full }}
+              - name: User group mapping in {{ microsoft-idp.entra-id-full }}
                 href: tutorials/federations/group-mapping/entra-id.md
-              - name: Mapping user groups in Keycloak
+              - name: User group mapping in Keycloak
                 href: tutorials/federations/group-mapping/keycloak.md
   - name: Concepts
     items:

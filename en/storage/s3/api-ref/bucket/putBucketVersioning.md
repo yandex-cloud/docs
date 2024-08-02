@@ -3,8 +3,8 @@
 Enables or pauses versioning of the bucket.
 
 Versioning can be set to one of two statuses:
-- `Enabled`: Turn on version management for objects in the bucket.  All new objects added to the bucket get a unique version ID.
-- `Suspended`: Suspends version management for objects in the bucket.  All new objects added to the bucket get `null` as the version ID.
+- `Enabled`: Turn on version management for objects in the bucket. All new objects added to the bucket get a unique version ID.
+- `Suspended`: Suspends version management for objects in the bucket. All new objects added to the bucket get `null` as the version ID.
 
 ## Request {#request}
 
@@ -38,7 +38,7 @@ PUT /{bucket}?versioning HTTP/2
 | `Status` | Status of the bucket versioning option.<br/><br/>Type: String<br/>Possible values: `Enabled \| Suspended` |
 
 ### Headers {#request-headers}
-Use only [common request headers](../common-request-headers.md) in requests.
+Use only [common request headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 
@@ -51,3 +51,5 @@ Responses can only contain [common response headers](../common-response-headers.
 For a list of possible responses, see [{#T}](../response-codes.md).
 
 A successful response does not contain any additional data.
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}
