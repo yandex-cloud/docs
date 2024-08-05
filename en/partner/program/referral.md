@@ -4,7 +4,7 @@ A _referral program_ is a program for acquisition of new {{ yandex-cloud }} cust
 
 Program participants:
 
-* Referrer: Partner company that refers customers to {{ yandex-cloud }}. Only a business that is a resident of the Russian Federation can be a referrer.
+* Referrer: Partner company that refers customers to {{ yandex-cloud }}. Only a legal entity or individual entrepreneur that is a resident of the Russian Federation can be a referrer.
 * Referral: Acquired customer. This can be either a business or an individual.
 
 ## Participating in the referral program {#desc}

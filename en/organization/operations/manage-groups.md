@@ -54,7 +54,7 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
 
    To assign multiple roles for a user group:
 
-   1. Make sure the resource has no roles assigned that you would rather not lose:
+   1. Make sure the resource has no roles assigned that you would not want to lose:
 
       ```bash
       yc organization-manager group list-access-bindings \
@@ -140,7 +140,7 @@ To enable group members to work with {{ yandex-cloud }} services, assign the app
 
 ### Assigning a role for a separate resource {#access-services}
 
-In the management console, you can assign a role for a cloud, folder, or service account.
+In the management console, you can assign a role for a cloud, folder, and other resources from the [list](../../iam/concepts/access-control/resources-with-access-control.md).
 
 To grant a group access to a resource:
 

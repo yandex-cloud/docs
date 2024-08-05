@@ -224,7 +224,7 @@ default:
   k8s-docs: https://kubernetes.io/docs
   k8s-hpa: Horizontal Pod Autoscaler
   k8s-versions-rapid: 1.27, 1.28, 1.29, 1.30
-  k8s-versions-regular: 1.27, 1.28, 1.29
+  k8s-versions-regular: 1.27, 1.28, 1.29, 1.30
   k8s-versions-stable: 1.27, 1.28, 1.29
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
@@ -5679,9 +5679,13 @@ default:
         button_attach-instance-submit: Attach
         button_create-policy: Create policy
         context_current-vm: current
+        field_auto-delete: Retain backups
+        field_backup-scheme: Type
+        field_days-of-week: Days of the week
         field_delete-old-vm: Delete outdated VM
         field_recover-to-vm: Target VM
         field_repeat-period-type: Create backups
+        field_time: Time
         field_type-full: Full
         field_type-incremental: Incremental
         field_vm-instances: Cloud Backup
@@ -5697,12 +5701,14 @@ default:
         label_linked-instances: Virtual machines
         label_policies: Backup policies
         title_backup: Backups
+        value_day-fri: Friday
         value_period-time-daily: Every day
         value_period-time-hourly: Every hour
         value_period-time-monthly: By month
         value_period-time-weekly: Every week
         value_retention-save-all: Retain all backups
         value_retention-save-last-f: Only the last
+        value_type-incremental: Incremental
       billing:
         account:
           dashboard-overview:
@@ -6302,6 +6308,7 @@ default:
             label_add-network-interface: Add network interface
             section_access: Access
             section_additional: Additional settings
+            section_backup: Cloud Backup
             section_base: Basic parameters
             section_coi: Docker container settings
             section_disk: Disks
@@ -9522,7 +9529,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/external-secrets/chart/external-secrets
-        tag: 0.9.16
+        tag: 0.9.20
     yc_externaldns:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/externaldns/chart/externaldns

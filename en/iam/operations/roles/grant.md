@@ -19,7 +19,7 @@ To select roles, look them up in the [role reference](../../roles-reference.md).
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the appropriate cloud or folder.
+   1. In the [management console]({{ link-console-main }}), select a cloud or folder.
    1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
    1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
    1. Select the group, user, or service account you want to grant access to a cloud or folder.
@@ -221,9 +221,9 @@ To grant access permissions for an organization, you need the `{{ roles-organiza
 
       This will create the necessary resources in the organization. You can check the new resources using the [management console]({{ link-console-main }}) or this CLI command:
 
-        ```bash
-        yc organization-manager organization list-access-bindings <organization_name_or_ID>
-        ```
+      ```bash
+      yc organization-manager organization list-access-bindings <organization_name_or_ID>
+      ```
 
 - API {#api}
 
@@ -238,7 +238,7 @@ To grant access permissions for an organization, you need the `{{ roles-organiza
 
 ## Assigning a role for a resource {#resource}
 
-You can assign a role not only for a cloud or folder but also their child resources. These are listed in [{#T}](../../concepts/access-control/resources-with-access-control.md).
+You can assign a role not only for an organization, cloud, or folder, but also their child resources. These are listed in [{#T}](../../concepts/access-control/resources-with-access-control.md).
 
 {% list tabs group=instructions %}
 
@@ -246,7 +246,7 @@ You can assign a role not only for a cloud or folder but also their child resour
 
    To assign a role for a resource:
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing the resource.
+   1. In the [management console]({{ link-console-main }}), select the folder the resource resides in.
    1. Open its page.
    1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
    1. Select the group, user, or service account you want to grant access to a resource.
@@ -335,7 +335,7 @@ You can assign a role not only for a cloud or folder but also their child resour
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing the resource.
+   1. In the [management console]({{ link-console-main }}), select the folder the resource resides in.
    1. Open its page.
    1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
    1. Select the group, user, or service account you want to grant access to a resource.
@@ -352,7 +352,7 @@ You can assign a role not only for a cloud or folder but also their child resour
 
    To assign multiple roles for a resource:
 
-   1. Make sure the resource has no roles assigned that you would rather not lose:
+   1. Make sure the resource has no roles assigned that you would not want to lose:
 
       ```bash
       yc <service_name> <resource> list-access-bindings \

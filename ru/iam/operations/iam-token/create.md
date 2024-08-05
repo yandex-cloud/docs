@@ -17,7 +17,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  Получите IAM-токен:
+  Получите [IAM-токен](../../concepts/authorization/iam-token.md):
 
   ```bash
   yc iam create-token

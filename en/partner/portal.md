@@ -17,7 +17,7 @@ The partner portal offers the following sections:
 
 In this section, you can find information on your customers and users with access to the partner portal.
 
-* **Portal dashboard** tab. List of all your customers with their current statuses. Here, you can track information on current customers and [add new ones](./operations/pin-client.md).
+* **Portal dashboard** tab. List of all your customers with their current statuses. Here, you can track information on current customers and [add new ones](./program/var-pin-client.md).
 
    Customer statuses:
 
