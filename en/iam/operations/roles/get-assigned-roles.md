@@ -21,15 +21,13 @@ To view assigned roles:
 
 - Management console {#console}
 
-   In the management console, you can view roles only for the folder, cloud, or organization. To view roles for other resources, use the CLI or API.
-
-   To view the roles of a [user with a Yandex account](../../concepts/users/accounts.md#passport), [federated user](../../concepts/users/accounts.md#saml-federation), or [service account](../../concepts/users/service-accounts.md):
+   To view the roles of a [user with a Yandex account](../../concepts/users/accounts.md#passport), [federated user](../../concepts/users/accounts.md#saml-federation), or [service account](../../concepts/users/service-accounts.md) for a cloud:
 
    {% include [include](../../../_includes/iam/configure-roles-console.md) %}
 
-   For the [service account](../../concepts/users/service-accounts.md), in the management console you can only view the roles for the folder where the service account was created (to view roles for other resources, use the CLI or API):
+   To view the roles of a [service account](../../concepts/users/service-accounts.md) for a folder and its child resources:
 
-   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
+   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. The service account's roles for the current folder are listed in the **{{ ui-key.yacloud.iam.folder.service-accounts.column_roles }}** column.
 

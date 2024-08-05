@@ -73,6 +73,10 @@ items:
           Развертывание параллельной файловой системы GlusterFS в
           высокопроизводительном режиме
         href: archive/ha-regional-glusterfs-high-performance.md
+      - name: >-
+          Автоматическая привязка политики резервного копирования {{ backup-name
+          }} к ВМ
+        href: archive/vm-with-backup-policy.md
   - name: Разработка и тестирование
     items:
       - name: Все руководства

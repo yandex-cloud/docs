@@ -145,7 +145,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
        -K:
    ```
 
-   You can obtain the FQDNs of broker hosts with a [list of hosts in the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
+   You can obtain the FQDNs of broker hosts with a [list of hosts in the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-hosts.md).
 
 1. Connect to the source cluster and add data to the `measurements` table:
 
@@ -285,7 +285,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. Delete the clusters:
 
-   * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
-   * [{{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
+   * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md)​
+   * [{{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md)​
 
 1. If static public IP addresses were used for accessing the cluster hosts, release and [delete](../../vpc/operations/address-delete.md) them.

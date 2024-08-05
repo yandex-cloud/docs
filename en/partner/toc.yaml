@@ -3,7 +3,7 @@ href: index.yaml
 editable: false
 label:
   title: RU
-  description: The service is available in Russia only.
+  description: The service is only available in the Russia region.
   theme: unknown
   when: region == "kz"
 items:
@@ -18,6 +18,8 @@ items:
         items:
           - name: Overview
             href: program/var.md
+          - name: Adding a customer
+            href: program/var-pin-client.md
           - name: Tools
             href: program/var-tools.md
   - name: Specializations
@@ -31,14 +33,14 @@ items:
     href: portal.md
   - name: Step-by-step guides
     items:
-      - name: Adding a customer
-        href: operations/pin-client.md
       - name: Granting access to a partner account
         href: operations/access/partners-account.md
       - name: Viewing details of service usage by customers
         href: operations/get-client-stat.md
       - name: Suspending services to customers
         href: operations/stop-client-services.md
+      - name: Linking a cloud to a subaccount
+        href: operations/pin-cloud.md
   - name: Terms and definitions
     href: terms.md
   - name: FAQ

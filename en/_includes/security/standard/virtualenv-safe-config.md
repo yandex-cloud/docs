@@ -66,7 +66,7 @@ If the serial console should not be used on the VM, disable it.
 When deploying virtual machines, we recommend:
 
 * Preparing a VM image whose system settings correspond to your information security policy. You can create an image using Packer. See [{#T}](../../../tutorials/infrastructure-management/packer-quickstart.md).
-* Use this image to create a VM or [{#T}](../../../compute/concepts/instance-groups/index.md).
+* Use this image to create a virtual machine or [instance group](../../../compute/concepts/instance-groups/index.md).
 * Look up the virtual machine's information to check that it was created using this image.
 
 {% list tabs group=instructions %}
@@ -261,7 +261,7 @@ We recommend making sure that your {{ objstorage-name }} bucket uses at least on
 - Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the bucket policies in.
-   1. From the list of services, select {{ objstorage-name }}.
+   1. In the list of services, select {{ objstorage-name }}.
    1. Go to **Bucket policy**.
    1. Make sure that at least one policy is enabled. Otherwise, proceed to the "Guides and solutions to use".
 
@@ -663,7 +663,7 @@ If necessary, you can specify a cloud network in function settings. In this case
 - Performing a check in the management console {#console}
 
    1. In the management console, select the cloud or folder to check the functions in.
-   1. From the list of services, select {{ sf-name }}.
+   1. In the list of services, select {{ sf-name }}.
    1. Open all the functions.
    1. In the object settings, go to the **Edit function version** tab.
    1. If the parameters of each object have **Network — {{ vpc-short-name }}** set, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".

@@ -34,8 +34,6 @@ To add federation users to an organization:
 
 - Management console {#console}
 
-   In the management console, you can only assign a role for a cloud or folder:
-
    {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
 

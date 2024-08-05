@@ -1,4 +1,4 @@
-# Setting up the {{ alb-name }} Ingress controller
+# Setting up the {{ alb-full-name }} Ingress controller
 
 
 The [{{ alb-full-name }}](../../application-load-balancer/) service is designed for load balancing and traffic distribution across applications. To use it for managing ingress traffic of applications running in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), you need an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
@@ -336,7 +336,7 @@ Command result:
 
       * `ingress.alb.yc.io/internal-alb-subnet`: Subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
       * `ingress.alb.yc.io/protocol`: Connection protocol used by the load balancer and the backends:
-         * `http`: HTTP/1.1. Default value.
+         * `http`: HTTP/1.1, default
          * `http2`: HTTP/2
          * `grpc`: gRPC
       * `ingress.alb.yc.io/transport-security`: Encryption protocol for connections between the load balancer and backends.
@@ -390,11 +390,11 @@ Command result:
       To track the progress of controller creation and check that it is error-free, open the logs of the pod where the controller is being created:
 
       1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-      1. Click the cluster name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
+      1. Click your cluster's name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
       1. Select one of the `alb-demo-***` pods the Ingress controller is being created on.
       1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab on the pod page.
 
-         You will see the Ingress controller creation logged, with the logs displayed in real time. If an error occurs while creating the controller, it will appear in the logs.
+         You will see the Ingress controller creation logged, with the logs displayed in real time. Any errors that occur will also be logged.
 
    1. Make sure the Ingress controller has been created. To do this, run the appropriate command and check that the command output shows the following value in the `ADDRESS` field:
 
@@ -601,7 +601,7 @@ Command result:
 
       * `ingress.alb.yc.io/internal-alb-subnet`: Subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
       * `ingress.alb.yc.io/protocol`: Connection protocol used by the load balancer and the backends:
-         * `http`: HTTP/1.1. Default value.
+         * `http`: HTTP/1.1, default
          * `http2`: HTTP/2
          * `grpc`: gRPC
       * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
@@ -637,11 +637,11 @@ Command result:
       To track the progress of controller creation and check that it is error-free, open the logs of the pod where the controller is being created:
 
       1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-      1. Click the cluster name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
+      1. Click your cluster's name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
       1. Select one of the `alb-demo-***` pods the Ingress controller is being created on.
       1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab on the pod page.
 
-         You will see the Ingress controller creation logged, with the logs displayed in real time. If an error occurs while creating the controller, it will appear in the logs.
+         You will see the Ingress controller creation logged, with the logs displayed in real time. Any errors that occur will also be logged.
 
    1. Make sure the Ingress controller has been created. To do this, run the appropriate command and check that the command output shows the following value in the `ADDRESS` field:
 
@@ -659,6 +659,10 @@ Command result:
       Based on the Ingress controller configuration, an L7 load balancer will be automatically deployed.
 
 {% endlist %}
+
+By default the {{ alb-name }} Ingress controller receives application [health check](../../application-load-balancer/concepts/backend-group.md#health-checks) requests from the L7 load balancer on TCP port `10501` and checks if the [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods work properly on each cluster node. If kube-proxy is healthy, then, even if an application in a particular pod does not respond, {{ k8s }} will redirect traffic to a different pod with that application or to a different node.
+
+You can use the [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md) resource parameters to customize health checks. For more information, see [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
 
 ## (Optional) Configure the Ingress resource group {#configure-group}
 

@@ -241,6 +241,10 @@ items:
             href: tutorials/alb-ingress-controller.md
           - name: Logging settings for {{ alb-name }} Ingress controllers
             href: tutorials/alb-ingress-controller-log-options.md
+          - name: >-
+              Health checking your applications in a cluster using the {{
+              alb-name }} Ingress controller
+            href: tutorials/custom-health-checks.md
           - name: Using Jaeger to trace requests in {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
           - name: Setting up Kyverno & Kyverno Policies

@@ -1,6 +1,6 @@
 1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе.
-1. Получите OAuth-токен в сервисе Яндекс.OAuth. Для этого перейдите по [ссылке]({{ link-cloud-oauth }}), нажмите **Разрешить** и скопируйте полученный OAuth-токен.
-1. Обменяйте OAuth-токен на IAM-токен:
+1. Получите [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) в сервисе Яндекс.OAuth. Для этого перейдите по [ссылке]({{ link-cloud-oauth }}), нажмите **Разрешить** и скопируйте полученный OAuth-токен.
+1. Обменяйте OAuth-токен на [IAM-токен](../../iam/concepts/authorization/iam-token.md):
 
     * с помощью [curl](https://curl.haxx.se) в Bash:
 

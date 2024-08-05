@@ -10,6 +10,8 @@
 
 {% include [vm-running](../../_includes/backup/vm-running.md) %}
 
+Также можно привязать политику к виртуальной машине во время создания ВМ. Привязка политики выполняется асинхронно после создания и инициализации ВМ, а также установки и настройки агента резервного копирования. Это может занимать до 10–15 минут. Подробнее в разделе [{#T}](../tutorials/vm-with-backup-policy.md).
+
 ## Требования к характеристикам ВМ {#requirements}
 
 {% include [vm-requirements](../../_includes/backup/vm-requirements.md) %}
@@ -82,7 +84,6 @@
 
 {% endlist %}
 
-Чтобы обеспечить сетевой доступ, [назначьте](../../compute/operations/vm-control/vm-attach-public-ip.md) ВМ публичный IP-адрес или примените [таблицу маршрутизации](../../vpc/concepts/static-routes.md#rt-vm), разрешающую доступ в интернет через [NAT-шлюз](../../vpc/concepts/gateways.md) или пользовательский маршрутизатор. 
+Чтобы обеспечить сетевой доступ, [назначьте](../../compute/operations/vm-control/vm-attach-public-ip.md) ВМ публичный IP-адрес или примените [таблицу маршрутизации](../../vpc/concepts/static-routes.md#rt-vm), разрешающую доступ в интернет через [NAT-шлюз](../../vpc/concepts/gateways.md) или пользовательский маршрутизатор.
 
 Правила [группы безопасности](../../vpc/concepts/security-groups.md) ВМ должны разрешать доступ к указанным ресурсам. Вы можете [добавить правила](../../vpc/operations/security-group-add-rule.md) в существующую группу безопасности или [создать](../../vpc/operations/security-group-create.md) новую группу с нужными правилами.
-

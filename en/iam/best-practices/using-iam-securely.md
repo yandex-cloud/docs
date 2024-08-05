@@ -1,8 +1,8 @@
-# How to use {{ yandex-cloud }} securely
+# Secure use of {{ yandex-cloud }}
 
-This section provides recommendations for using {{ iam-short-name }} features to ensure the secure operation of {{ yandex-cloud }} services.
+This section provides recommendations on how to make the best use of  {{ iam-short-name }} for secure work with {{ yandex-cloud }} services.
 
-## Don't grant unnecessary access rights {#restrict-access}
+## Do not grant unnecessary access rights {#restrict-access}
 
 For critical resources:
 
@@ -10,8 +10,8 @@ For critical resources:
 * Try to assign service roles rather than primitive roles (`viewer`, `editor`, `admin`). Primitive roles apply to resources in any service {{ yandex-cloud }}.
 
    Use primitive roles if there is no suitable service role or you want to confer broad authority on a user.
-* Assign only the roles you need at the moment. Do not assign roles that might only be needed in the future.
-* Keep in mind that when you assign a role for a folder or cloud, the permissions under this role [inherit all the nested resources](../concepts/access-control/index.md#inheritance).
+* Assign only roles you need right now. Do not assign roles you may only need in the future.
+* Note that when you assign a role for a folder, cloud, or organization, [all the nested resources will inherit](../concepts/access-control/index.md#inheritance) this role's permissions.
 * Only assign the [administrator](../roles-reference.md#admin) role or [cloud owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) role to the people responsible for managing resource access in your project.
 
    An administrators can revoke another administrator's access rights, and an owner can revoke another owner's owner role. These roles also include all the permissions under the `editor` role allowing to create, edit, and delete resources.
@@ -28,7 +28,7 @@ For critical resources:
 
 Use [service accounts](../concepts/users/service-accounts.md) to automate work with {{ yandex-cloud }} and follow these recommendations:
 
-* Control access to your service accounts. The `editor` role for a service account allows the user to perform operations permitted under the service account. If the service account has the administrator role for the cloud, the user can use it to make themselves an administrator.
+* Control access to your service accounts. The `editor` role for a service account allows the user to perform operations this service account is authorized to perform. If the service account is the cloud administrator, the user can use it to make themselves an administrator.
 * Create separate service accounts for different tasks. This way you can only assign them the roles you actually need. You can revoke roles from a service account or delete it without affecting other service accounts.
 * Name your service accounts according to their intended purposes and permissions.
 * Keep your [service account keys](../concepts/users/service-accounts#sa-key) secret: they can be used to perform operations under your service account. Do not keep your service account keys in the source code.

@@ -17,6 +17,8 @@ items:
         href: domains/index.md
       - name: Checklist
         href: domains/checklist.md
+      - name: IaaS security checklist
+        href: domains/iaas-checklist.md
       - name: Kubernetes security
         href: domains/kubernetes.md
   - name: Standard for securing Yandex Cloud infrastructure 1.1

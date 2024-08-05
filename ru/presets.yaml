@@ -228,7 +228,7 @@ default:
   k8s-docs: https://kubernetes.io/ru/docs
   k8s-hpa: Horizontal Pod Autoscaler
   k8s-versions-rapid: 1.27, 1.28, 1.29, 1.30
-  k8s-versions-regular: 1.27, 1.28, 1.29
+  k8s-versions-regular: 1.27, 1.28, 1.29, 1.30
   k8s-versions-stable: 1.27, 1.28, 1.29
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
@@ -5688,9 +5688,13 @@ default:
         button_attach-instance-submit: Привязать
         button_create-policy: Создать политику
         context_current-vm: текущая
+        field_auto-delete: Хранение копий
+        field_backup-scheme: Тип
+        field_days-of-week: Дни недели
         field_delete-old-vm: Удалить неактуальную ВМ
         field_recover-to-vm: Целевая ВМ
         field_repeat-period-type: Создавать копии
+        field_time: Время
         field_type-full: Полный
         field_type-incremental: Инкрементальный
         field_vm-instances: Cloud Backup
@@ -5706,12 +5710,14 @@ default:
         label_linked-instances: Виртуальные машины
         label_policies: Политики копирования
         title_backup: Резервное копирование
+        value_day-fri: Пятница
         value_period-time-daily: Каждый день
         value_period-time-hourly: Каждый час
         value_period-time-monthly: По месяцам
         value_period-time-weekly: Каждую неделю
         value_retention-save-all: Хранить все копии
         value_retention-save-last-f: Только последнюю
+        value_type-incremental: Инкрементальный
       billing:
         account:
           dashboard-overview:
@@ -6313,6 +6319,7 @@ default:
             label_add-network-interface: Добавить сетевой интерфейс
             section_access: Доступ
             section_additional: Дополнительные настройки
+            section_backup: Cloud Backup
             section_base: Базовые параметры
             section_coi: Настройка Docker-контейнера
             section_disk: Диски
@@ -9531,7 +9538,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/external-secrets/chart/external-secrets
-        tag: 0.9.16
+        tag: 0.9.20
     yc_externaldns:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/externaldns/chart/externaldns
