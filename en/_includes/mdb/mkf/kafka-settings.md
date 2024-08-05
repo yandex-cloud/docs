@@ -147,7 +147,7 @@
 
    Producer's message maximum size (in bytes).
 
-   The minimum value is `0` (unlimited size), and the default one is `1048588`. This setting value must not exceed the [Replica fetch max bytes](#settings-replica-fetch-max-bytes) value by more than 12 bytes.
+   The minimum value is `0` (unlimited size), and the default one is `1048576`. This setting value must not exceed the [Replica fetch max bytes](#settings-replica-fetch-max-bytes) value by more than 12 bytes.
 
    This is a global cluster-level setting.
 
@@ -179,7 +179,7 @@
 
    Size of the buffer for messages exchanged by brokers (in bytes).
 
-   The minimum value is `0` (unlimited size) and the default one is `1048576`. This setting value must be at least 12 bytes larger than the **Message max bytes** setting value that is set at the cluster or topic level.
+   The minimum value is `0` (unlimited size) and the default one is `1048588`. This setting value must be at least 12 bytes larger than the **Message max bytes** setting value that is set at the cluster or topic level.
 
    This is a global cluster-level setting.
 
