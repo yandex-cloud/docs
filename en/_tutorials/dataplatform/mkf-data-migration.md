@@ -142,7 +142,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * {{ KF }} version.
       * {{ KF }} admin user password.
-      * ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list.md) with Ubuntu and no GPU, e.g., [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+      * ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list.md) with Ubuntu and no GPU, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
       * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file for accessing the virtual machine. By default, the specified username is ignored in the image used. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
 
    1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -288,7 +288,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * `<M>` is the [default replication factor](../../managed-kafka/concepts/settings-list.md#settings-topic-replication-factor) defined for topics in the target cluster.
    * `<T>` is the number of concurrent MirrorMaker processes. We recommend a value of at least `2` for even replication load distribution. For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#georeplication-config-syntax).
 
-   You can request {{ mkf-name }} broker FQDNs with a [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
+   You can request {{ mkf-name }} broker FQDNs with a [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md).
 
 ### Start replication {#replication-start}
 

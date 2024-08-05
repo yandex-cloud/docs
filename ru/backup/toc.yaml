@@ -52,6 +52,10 @@ items:
             href: operations/backup-vm/delete.md
       - name: Посмотреть операции с ресурсами сервиса
         href: operations/operation-logs.md
+  - name: Практические руководства
+    items:
+      - name: Автоматическая привязка политики резервного копирования к ВМ
+        href: tutorials/vm-with-backup-policy.md
   - name: Концепции
     items:
       - name: Обзор сервиса

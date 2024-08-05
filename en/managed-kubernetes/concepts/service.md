@@ -1,6 +1,6 @@
 # Service
 
-Each pod in the {{ k8s }} cluster is assigned an internal IP address. Since pods are created and deleted and their IP addresses change, it doesn't make sense to use IP addresses for pods directly. Use _service_ to get permanent access to the pods and abandon internal IP addresses.
+Each pod in the {{ k8s }} cluster is assigned an internal IP address. Since pods are created and deleted and their IP addresses change, it makes no sense to use IP addresses for pods directly. Use _services_ to get permanent access to the pods and stop using internal IP addresses.
 
 A _service_ is a [{{ k8s }} API object (Service)](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1) designed to provide access to an app running as a set of pods in a {{ k8s }} cluster.
 
@@ -15,22 +15,22 @@ Depending on your task, you can use [different types](#type) of services.
 You can use various types of services in your {{ k8s }} clusters, including:
 * `ClusterIP`
   * The service is accessible only within the {{ k8s }} cluster network via an internal IP address.
-  * It doesn't require any additional cloud resources.
-* `NodePort` is a `ClusterIP` extensions.
-  * It provides access to the service via internal or public {{ k8s }} cluster node IP addresses.
-  * It doesn't require any additional cloud resources.
-* `LoadBalancer` is a `NodePort` extension.
-  * It provides access to the service through the created cloud network load balancer.
-  * It requires an additional cloud resource (network load balancer).
+  * Requires no additional cloud resources.
+* `NodePort`, a `ClusterIP` extension.
+  * Provides access to the service via internal or public {{ k8s }} cluster node IP addresses.
+  * Requires no additional cloud resources.
+* `LoadBalancer`, a `NodePort` extension.
+  * Provides access to the service via a cloud network load balancer you create.
+  * Requires additional cloud resources (network load balancer).
 
 To [publish your app](../operations/create-load-balancer.md), use a `LoadBalancer` service based on a [network load balancer](../../network-load-balancer/concepts/index.md) with a public or internal IP address.
 
 
-If you need [DDoS protection](../../vpc/ddos-protection/index.md), [reserve](../../vpc/operations/enable-ddos-protection.md) a static IP address with protection enabled and [specify](../operations/create-load-balancer.md#advanced) it using the `loadBalancerIP` option.
+If you need [DDoS protection](../../vpc/ddos-protection/index.md), [reserve](../../vpc/operations/enable-ddos-protection.md) a public IP address with enabled protection and [specify](../operations/create-load-balancer.md#advanced) it using the `loadBalancerIP` option.
 
 
 Read more about types of services in the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types).
 
 #### See also {#see-also}
 
-* [{#T}](../operations/create-load-balancer.md).
+* [{#T}](../operations/create-load-balancer.md)

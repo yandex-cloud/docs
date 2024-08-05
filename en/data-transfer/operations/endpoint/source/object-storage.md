@@ -4,7 +4,7 @@ description: "Follow this guide to configure an {{ objstorage-full-name }} sourc
 ---
 # Transferring data from an {{ objstorage-full-name }} source endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data from {{ objstorage-full-name }} storage to {{ yandex-cloud }} managed databases and implement various scenarios of data processing and transformation. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data from {{ objstorage-full-name }} storage to {{ yandex-cloud }} managed databases and implement various data processing and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Set up an endpoint source](#endpoint-settings) in {{ data-transfer-full-name }}.
@@ -116,11 +116,11 @@ Additionally, you can specify how to process rows that did not pass a type check
 
 Configure one of the supported data targets:
 
-* [{{ PG }}](../target/postgresql.md).
-* [{{ MY }}](../target/mysql.md).
-* [{{ CH }}](../target/clickhouse.md).
-* [{{ ydb-full-name }}](../target/yandex-database.md).
-* [{{ GP }}](../target/greenplum.md).
+* [{{ PG }}](../target/postgresql.md)​
+* [{{ MY }}](../target/mysql.md)​
+* [{{ CH }}](../target/clickhouse.md)
+* [{{ ydb-full-name }}](../target/yandex-database.md)
+* [{{ GP }}](../target/greenplum.md)
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
 

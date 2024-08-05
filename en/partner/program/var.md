@@ -31,8 +31,8 @@ For up-to-date conditions, see the [offer](https://yandex.ru/legal/cloud_grant/?
 
 You can also get the following:
 
-* When [registering an order](#deal-reg): up to 15% in addition to your partner bonus for as long as the customer remains linked to you.
-* When [registering a project](#project-reg): up to 15% of the customer's consumption growth in the registered cloud or folder in the form of a [rebate](../terms.md#rebate) credited within 12 months.
+* When [registering an order](./var-tools.md#deal-reg): up to 15% in addition to your partner bonus for as long as the customer remains linked to you.
+* When [registering a project](./var-tools.md#project-reg): up to 15% of the customer's consumption growth in the registered cloud or folder in the form of a [rebate](../terms.md#rebate) credited within 12 months.
 * Quarterly rebate for customer's consumption of [specialization](../specializations/index.md) services.
 
 ### What is not included in a partner bonus {#ignore}

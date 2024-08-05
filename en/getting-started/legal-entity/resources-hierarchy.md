@@ -329,7 +329,7 @@ The management console only allows you to change the name of a folder. To change
 
 ## Grant folder access for a service account {#access-to-sa}
 
-In the management console, you can only assign a role for the folder where the service account was created. To assign it a role for another resource, use the CLI or API.
+You can assign a role not only for a folder but its child resources as well. These are listed in [{#T}](../../iam/concepts/access-control/resources-with-access-control.md).
 
 Allow the service account to manage the folder and its resources:
 

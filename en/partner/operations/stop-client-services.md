@@ -1,5 +1,11 @@
 # Suspending services to customers
 
+{% note warning %}
+
+The maximum post-suspension data storage period is 60 calendar days. During that time, you can be charged for using resources of certain services. Such resources may include snapshots and disks of stopped instances and unused public IP addresses. After this period, all data will be permanently deleted.
+
+{% endnote %}
+
 Before you effect a suspension, check with the customer if they are going to continue using {{ yandex-cloud }} services:
 
 * If the customer chooses to continue using {{ yandex-cloud }} services, make sure all the active clouds are moved to the customer's another account from which they will pay for the services either directly or through another partner.

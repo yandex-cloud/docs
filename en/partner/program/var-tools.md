@@ -4,7 +4,7 @@ The VAR program participants have access to the following tools:
 
 * [Order registration](#deal-reg)
 * [Order registration as part of a scheduled procurement](#tender)
-* [Project registration](#reg)
+* [Project registration](#project-reg)
 * [Presale assistance](#presale)
 * [Acceleration program](#acceleration)
 * [Co-marketing program](#co-marketing)
@@ -50,7 +50,7 @@ To register an order:
    1. Complete the **New customers** form with your customer's information.
    1. Click **Add**. A new customer record with the `Verification required` status will appear in the list of customers on the partner portal.
 
-      After the [partnership is verified](../operations/pin-client.md#apply), a subaccount will be created for the customer. The target consumption amount is calculated from the date of subaccount creation.
+      After the [partnership is verified](./var-pin-client.md#confirm-partnership), a subaccount will be created for the customer. The target consumption amount is calculated from the date of subaccount creation.
 
 1. Create a new cloud for your customer:
 
@@ -62,7 +62,7 @@ To register an order:
    1. In the **{{ ui-key.yacloud.iam.cloud.create.popup-create-cloud_label_organization }}** field, select the [organization](../../organization/quickstart.md) named `For subaccount 'Customer_name'`.
    1. Click **{{ ui-key.yacloud.iam.cloud.create.popup-create-cloud_button_add }}**.
 
-      You can also [link](../operations/pin-client.md#bing) an existing cloud to the customer's subaccount.
+      You can also [link](../operations/pin-cloud.md) an existing cloud to the customer's subaccount.
 
 ## Order registration as part of a scheduled procurement {#tender}
 

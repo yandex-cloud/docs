@@ -6,4 +6,5 @@ description: "In this tutorial, you will learn about security recommendations ad
 # All recommendations
 
 * [{#T}](checklist.md)
+* [{#T}](iaas-checklist.md)
 * [{#T}](kubernetes.md)

@@ -6,7 +6,7 @@ A partner bonus is a discount on {{ yandex-cloud }} services applied to the paym
 
 #### What determines the discount amount, the way it is credited, and how it is calculated? {#discount}
 
-The discount amount depends on the total monthly consumption of {{ yandex-cloud }} services by all [subaccounts](../../partner/terms.md#sub-account) linked to the partner billing account.
+The basic bonus amounts to 10%. When [registering an order](../../partner/program/var-tools.md#deal-reg), you can get up to 15% in addition to your partner bonus for as long as the customer remains linked to you.
 
 You can link a customer subaccount to a partner account on the [partner portal]({{ link-cloud-partners }}). Linking a subaccount is grounds for crediting a bonus. It is displayed on the partner portal, in the partner's {{ yandex-cloud }} management console, and in the linked customer's management console.
 
@@ -17,12 +17,19 @@ For more information about the discount amount, see the [Partner Agreement](http
 #### What is not included when calculating a partner bonus? {#no-bonus}
 
 The discount does not apply to:
-* Service usage in the partner account.
+
+* Partner's own consumption of services in the partner account.
+* Consumption of the following services:
+
+   * [{{ marketplace-full-name }}](/marketplace)
+   * [{{ mes-full-name }}](../../managed-elasticsearch/)
+   * [{{ mmg-full-name }}](../../managed-mongodb/)
+   * [{{ interconnect-full-name }}](../../interconnect/)
+
 * Grants credited to subaccounts.
-* Resources from {{ yandex-cloud }} {{ marketplace-name }}.
 
-You can see the absolute and relative discount amount for the reporting month in the **Rewards** section on the partner portal.
+You can view the absolute and relative discounts for a reporting period under **Partner bonus** on the [partner portal]({{ link-cloud-partners }}).
 
-#### Why are resources from {{ yandex-cloud }} {{ marketplace-name }} not included when calculating a partner bonus? {#marketplace}
+#### Why are resources from {{ marketplace-full-name }} not included when calculating a partner bonus? {#marketplace}
 
 {{ yandex-cloud }} sells {{ marketplace-name }} services with a minimum margin or with no margin at all. Therefore, we cannot provide an additional discount on solutions from {{ marketplace-name }} images.

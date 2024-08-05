@@ -8,7 +8,7 @@
 В этом руководстве описан пример монтирования секрета из хранилища HashiCorp Vault через том [Container Storage Interface](https://kubernetes.io/docs/concepts/storage/volumes/#csi) (CSI).
 
 Чтобы организовать доступ к секрету в кластере {{ managed-k8s-name }} с помощью HashiCorp Vault:
-1. [Подготовьте облако к работе](№before-you-begin).
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Установите HashiCorp Vault](#install-vault).
 1. [Войдите в HashiCorp Vault](#login-vault).
 1. [Создайте секрет](#create-secret).

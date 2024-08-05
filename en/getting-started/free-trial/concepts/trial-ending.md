@@ -11,3 +11,7 @@ Unless you upgraded to the paid version, access to your resources will be suspen
 You can restore access to your resources if you upgrade to the paid version within 60 days after the end of the trial period. Otherwise, all resources in your cloud will be permanently deleted.
 
 {% include [restore-after-blocking](../../../_includes/restore-after-blocking.md) %}
+
+You can also stop using {{ yandex-cloud }} resources before the end of the trial period.
+
+{% include [delete-account](../../../_includes/billing/billing-delete-account.md) %}

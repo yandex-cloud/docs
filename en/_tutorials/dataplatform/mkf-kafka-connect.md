@@ -166,7 +166,7 @@ Create a `/var/log/sample.json` file with test data. This file contains data fro
 
    {{ KFC }} will connect to the {{ mkf-name }} cluster as the [previously created](#before-you-begin) user named `user`.
 
-   You can request the FQDNs of broker hosts with a [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
+   You can request the FQDNs of broker hosts with a [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md).
 
 1. Create a file named `/etc/kafka-connect-worker/file-connector.properties` with connector settings:
 
@@ -207,7 +207,7 @@ Create a `/var/log/sample.json` file with test data. This file contains data fro
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
    ```
 
-   You can request the FQDNs of broker hosts with a [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
+   You can request the FQDNs of broker hosts with a [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md).
 
    The command output will contain the contents of the `/var/log/sample.json` test file passed in the previous step.
 
