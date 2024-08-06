@@ -60,7 +60,7 @@ To learn more about MTU and MSS parameters in {{ yandex-cloud }}, see [{#T}](../
          hostNetwork: true
          containers:
          - name: mtu-fix
-           image: cr.yandex/crpjfmfou6gflobbfvfv/ipfixik:0.1.0
+           image: {{ registry }}/crpjfmfou6gflobbfvfv/ipfixik:0.1.0
            command:
              - bash
              - -c
@@ -75,7 +75,7 @@ To learn more about MTU and MSS parameters in {{ yandex-cloud }}, see [{#T}](../
                memory: 200Mi
              requests:
                cpu: 100m
-               memory: 200Mi          
+               memory: 200Mi
            volumeMounts:
            - mountPath: /sys/
              name: sys
@@ -92,7 +92,7 @@ To learn more about MTU and MSS parameters in {{ yandex-cloud }}, see [{#T}](../
              type: Directory
    ```
 
-   Save it to a file with any name, such as `ds-mtu-fix.yml`.
+   Save it to a file with any name, e.g., `ds-mtu-fix.yml`.
 
 1. Apply the manifest you created to the {{ managed-k8s-name }} cluster:
 

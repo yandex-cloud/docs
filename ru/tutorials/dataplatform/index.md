@@ -133,6 +133,7 @@ description: "На странице представлен список прак
 * [{#T}](mmy-ydb-migration.md)
 * [{#T}](mpg-ydb-replication.md)
 * [{#T}](object-storage-to-ydb.md)
+* [{#T}](ydb-to-object-storage.md)
 * [{#T}](ydb-to-clickhouse.md)
 
 ## {{ dns-full-name }} {#dns}

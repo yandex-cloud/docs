@@ -1,7 +1,6 @@
 # Markdown
 
 {{ datalens-short-name }} allows you to use the Markdown markup language in the [{#T}](./widget.md#text) widget on the dashboard.
-
 You can insert explanatory text, links, tables, images, or use formatting to highlight key points.
 
 In text widgets, you can use the following elements:
@@ -20,8 +19,6 @@ In text widgets, you can use the following elements:
    * [Inline code snippet](#inline-code)
    * [Code block](#codeblock)
 * [Image](#image)
-* [Cuts](#cuts)
-* [Tooltips](#term)
 
 ## Headers {#headings}
 
@@ -126,7 +123,7 @@ will be displayed as:
 
 ### Simple ordered list {#ordered-list}
 
-To make an ordered list, use numbers with a `.` or `)`.
+To make an ordered list, use numbers with a `.` or `)` symbol.
 
 For example, the following markup:
 
@@ -284,22 +281,21 @@ You can add images from the [{{ objstorage-full-name }}](../../storage/quickstar
 
 
 
-You can add images of any format.
+You can add images of any format using [object links](../../storage/concepts/object.md#object-url) in `https://{{ s3-storage-host }}/<bucket>/<key>` format.
 
 
 To upload an image from **{{ objstorage-short-name }}** to a widget:
 
 1. Open the [management console]({{ link-console-main }}).
 1. In the top-left corner, click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ objstorage-short-name }}**.
-1. [Create a bucket](../../storage/operations/buckets/create.md) with public access.
+1. [Create a bucket](../../storage/operations/buckets/create.md).
 1. [Upload the image](../../storage/operations/objects/upload.md) to the bucket.
 1. Go to the object you got and click **Get link**.
+1. Specify link lifetime and copy the link.
 
-1. Copy the link to the image.
+   {% note warning %}
 
-   {% note info %}
-
-   The only supported [object link](../../storage/concepts/object.md#object-url) format is `https://{{ s3-storage-host }}/<bucket>/<key>`.
+   When the specified lifetime expires, the image will become unavailable (30 days maximum).
 
    {% endnote %}
 
@@ -310,54 +306,39 @@ To upload an image from **{{ objstorage-short-name }}** to a widget:
    ![alt text](https://link_to_image "Text for tip on hover" =100x200)
    ```
 
+{% cut "How to create a permanent link" %}
 
+For the uploaded image to be permanently available, open access to it via an [ACL](../../storage/concepts/acl.md) object.
 
-## Cuts {#cuts}
+{% note warning %}
 
-Use `cuts` to hide content, e.g., additional information or long blocks of code.
-
-For example, the following markup:
-
-```markdown
-
-{% cut "Cut title" %}
-
-Content displayed on click.
-
-{% endcut %}
-
-```
-
-will be displayed as:
-
-{% cut "Cut title" %}
-
-Content displayed on click.
-
-{% endcut %}
-
-## Tooltips {#term}
-
-Tooltips allow you to display term definitions when clicking a term. Definitions are linked to their respective terms using a term key.
-
-Sample markup:
-
-```markdown
-
-[*term_key]: Term definition which may include _basic_ markup:
-* Lists
-* Links
-* Images, etc.
-
-
-[Term](*term_key) used in the text.
-
-```
-
-
-{% note info %}
-
-Currently, you can only use tooltips in code blocks that do not specify a language.
+Public access to the file is granted to an unlimited number of anonymous users. For more information about methods of access management in {{ objstorage-name }}, see the [documentation](../../storage/security/overview.md).
 
 {% endnote %}
+
+1. Open the [management console]({{ link-console-main }}).
+1. In the top-left corner, click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ objstorage-short-name }}**.
+1. [Create a bucket](../../storage/operations/buckets/create.md). When selecting a bucket name, use these [recommendations](../../storage/concepts/bucket.md#naming).
+1. [Upload the image](../../storage/operations/objects/upload.md) to the bucket.
+1. Configure an ACL for the object you created:
+
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the object name and select **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
+   1. Grant the `READ` permission to the `allUsers` group.
+
+1. Make a link to the object in the bucket in `https://{{ s3-storage-host }}/<bucket>/<key>` format, where:
+
+   * `<bucket>`: Bucket name.
+   * `<key>`: Object [key](../../storage/concepts/object.md#key) (file path).
+
+1. Open the dashboard in {{ datalens-name }} and [create](../operations/dashboard/add-text.md) a **Text** widget.
+1. Paste the following code in the widget:
+
+   ```markdown
+   ![alt text](https://link_to_image "Text for tip on hover" =100x200)
+   ```
+
+{% endcut %}
+
+
+
 

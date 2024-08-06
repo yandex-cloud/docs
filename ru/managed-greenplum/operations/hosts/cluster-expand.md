@@ -74,7 +74,7 @@
 
 ## Мониторинг перераспределения данных {#redistribute-monitoring}
 
-Чтобы следить за ходом перераспределения данных по новым сегментам, подключитесь к базе `postgres` и выполните запрос от имени пользователя с ролью `mdb_admin`:
+Чтобы следить за ходом перераспределения данных по новым сегментам, подключитесь к базе `postgres` и выполните запрос от имени пользователя с [ролью](../../concepts/cluster-users.md#mdb_admin) `mdb_admin`:
 
 ```sql
 SELECT dbname, fq_name, status, expansion_started, source_bytes FROM gpexpand.status_detail;

@@ -59,16 +59,16 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
       * Select the storage size to be used for data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
 
-   1. (Optional) Under **{{ ui-key.yacloud.postgresql.cluster.section_disk-scaling }}**, specify the settings you need:
+   1. (Optional) Under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, specify the settings you need:
 
-      * In the **{{ ui-key.yacloud.postgresql.cluster.field_thresholds }}** field, set the conditions to:
+      * In the **{{ ui-key.yacloud.mdb.cluster.field_thresholds }}** field, set the conditions to:
 
          * Increase the storage size during the [next maintenance window](../concepts/maintenance.md#maintenance-window) if the storage is more than the specified percent (%) full.
          * Increase the storage size right away if the storage is more than the specified percent (%) full.
 
          You can set both conditions, but the threshold for immediate increase must be higher than that for increase during the maintenance window.
 
-      * In the **{{ ui-key.yacloud.postgresql.cluster.field_diskSizeLimit }}** field, specify the maximum storage size that can be set when increasing the storage size automatically.
+      * In the **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** field, specify the maximum storage size that can be set when increasing the storage size automatically.
 
       {% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}
 

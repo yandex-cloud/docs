@@ -96,7 +96,7 @@ description: "Из статьи вы узнаете, как изменить п�
        retention:
          rules:
            - max_count: "10"
-         after_backup: true
+         before_backup: true
        scheduling:
          backup_sets:
            - time:

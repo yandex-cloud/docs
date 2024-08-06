@@ -377,7 +377,7 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
-   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the required shard row and select **{{ ui-key.yacloud.mdb.cluster.shards.button_action-remove }}**.
+   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the required shard row and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.
 
 - CLI {#cli}

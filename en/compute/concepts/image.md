@@ -25,6 +25,8 @@ You can create an image from a disk, snapshot, or another image. If you have an 
 
 When you create a Windows boot disk image, specify this in the operating system type. This is important for proper CPU emulation and calculating resource usage costs.
 
+{% include [available-image-format](../../_includes/compute/available-image-format.md) %}
+
 ## Image family {#family}
 
 If you regularly update your images, you can group them into families. You can use the family name to find the latest image in the family.

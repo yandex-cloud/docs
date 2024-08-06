@@ -99,7 +99,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
          For most tests, 1,000 to 10,000 [threads](../../load-testing/concepts/testing-stream.md) are enough.
 
-         Using a larger number of testing threads requires more resources of the [VM](../../compute/concepts/vm.md) the agent is running on. {{ compute-name }} also has a limit of 50,000 concurrent connections to a VM.
+         Using more testing threads requires more resources on the part of the [VM](../../compute/concepts/vm.md) the agent is running on. {{ compute-name }} also has a limit of 50,000 of concurrent connections to a VM.
 
          {% endnote %}
 
@@ -111,7 +111,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
          * **Step**: `1000`
          * **Duration**: `120s`
 
-         This is an instruction for the generator to increase the load from 1,000 to 5,000 requests per second in steps of 1,000 requests, 120 seconds each.
+         This is an instruction for the generator to increase the load from 1,000 to 5,000 requests per second in increments of 1,000 requests, 120 seconds each.
       1. In the **Request type** field, select `URI`.
       1. In the **{{ ui-key.yacloud.load-testing.test-data-section }}** field, select **Attached file**.
       1. In the **Autostop** menu, click ![image](../../_assets/plus-sign.svg) **Autostop** and enter the following description:
@@ -129,6 +129,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
          This criterion will stop the test if over 90% of the testing threads are busy for 60 seconds.
 
          As load increases, the system being tested will start to degrade at some point. Subsequent load increases will result in either an increased response time or an increased error rate. To avoid significantly increasing the test time, make sure to set **Autostop** as a termination criterion for these tests.
+      1. Under **Forced test termination time**, specify the time to autostop the test unless it is stopped for other reasons. The parameter value should be slightly greater than the expected duration of the test.
       1. Under **{{ ui-key.yacloud.load-testing.meta-section }}**, specify the name, description, and number of the test version. This will make the report easier to read.
 
    - {{ ui-key.yacloud.load-testing.label_settings-type-config }}
@@ -171,11 +172,12 @@ For a service whose subnet and security group differ from the agent's ones, [cre
            enabled: true
            package: yandextank.plugins.Autostop
            autostop:
-             - quantile(75,100ms,10s) # End test if 75th percentile
-                                      # exceeds 100 milliseconds for 10 seconds (for 10 seconds,
-                                      # the processing time of 25% of queries exceeds 100 milliseconds).
-             - instances(90%,60s)  # End test if 90% of testing threads
-                                   # are busy for 60 seconds.
+             - limit(5m) # Make sure to specify the time limit for the test.
+             - quantile(75,100ms,10s) # Stop the test if the 75th percentile
+                                      # exceeds 100 milliseconds in 10 seconds (within 10 seconds,
+                                      # the time to process 25% of requests exceeds 100 milliseconds).
+             - instances(90%,60s)  # Stop the test if 90% of testing threads
+                                   # get busy within 60 seconds.
          core: {}
          uploader:
            enabled: true

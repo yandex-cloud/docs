@@ -32,7 +32,7 @@ Service plans offer different feature sets and [cost](#prices) differently.
 
 {% note info %}
 
-¹ For existing customers who configured an identity federation and used a corporate account to log in to {{ datalens-name }} before April 22, 2024, enterprise authentication and SSO will be available for free as part of the _Community_ plan until December 31, 2024.
+¹ For existing customers who had configured an identity federation and used a corporate account to log in to {{ datalens-name }} before April 22, 2024, enterprise authentication and SSO will be available for free as part of the _Community_ plan until December 31, 2024.
 
 {% endnote %}
 
@@ -51,5 +51,4 @@ A user is active and subject to billing if their actions have resulted in a quer
 
 
 {% include notitle [usd.md](../_pricing/datalens/usd.md) %}
-
 

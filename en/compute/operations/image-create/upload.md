@@ -25,6 +25,8 @@ In {{ compute-name }}, you can only create images using files uploaded to {{ obj
 
 {% include [image-create-requirements](../../../_includes/compute/image-create-requirements.md) %}
 
+{% include [available-image-format](../../../_includes/compute/available-image-format.md) %}
+
 For setup instructions, see [{#T}](custom-image.md).
 
 ## Upload an image file to {{ objstorage-name }} {#upload-file}

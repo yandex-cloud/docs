@@ -179,19 +179,19 @@ To disable the read-only mode:
 - Management console {#console}
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
-   1. Under **{{ ui-key.yacloud.postgresql.cluster.section_disk-scaling }}**:
+   1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+   1. Under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**:
 
-      1. In the **{{ ui-key.yacloud.postgresql.cluster.field_thresholds }}** field, set the storage utilization percentage to trigger storage increase. You can configure the increase to take place:
+      1. In the **{{ ui-key.yacloud.mdb.cluster.field_thresholds }}** field, set the storage utilization percentage to trigger storage increase. You can configure the increase to take place:
 
          * During the next [maintenance window](../concepts/maintenance.md#maintenance-window).
          * Right away.
 
          You can enable both rules, but the threshold for immediate increase should be higher than that for increase during the maintenance window.
 
-      1. In the **{{ ui-key.yacloud.postgresql.cluster.field_diskSizeLimit }}** field, specify the maximum storage size that can be set if increasing storage size automatically.
+      1. In the **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** field, specify the maximum storage size that can be set if increasing storage size automatically.
 
-   1. Click **Save changes**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
