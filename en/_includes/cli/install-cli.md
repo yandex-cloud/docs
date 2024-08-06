@@ -4,14 +4,9 @@
 
    1. Run this command:
 
-
-      
-      
       ```bash
-      curl -sSL https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+      curl -sSL https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
       ```
-
-
 
       The script will install the CLI and add the executable file path to the `PATH` environment variable.
 
@@ -35,14 +30,9 @@
 
    1. Run this command:
 
-
-      
-      
       ```bash
-      curl -sSL https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+      curl -sSL https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
       ```
-
-
 
       The script will install the CLI and add the executable file path to the `PATH` environment variable.
    1. Restart your terminal for the changes to take effect.

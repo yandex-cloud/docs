@@ -118,6 +118,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
          * **Window duration**: `60s`
 
          This means a test will be stopped if 90% of testing threads are used for 60 seconds, which indicates a testing issue. [Learn more about autostop](../../load-testing/concepts/auto-stop.md).
+      1. Under **Forced test termination time**, specify the time to autostop the test unless it is stopped for other reasons. The parameter value should be slightly greater than the expected duration of the test.
       1. Under **{{ ui-key.yacloud.load-testing.meta-section }}**, specify the name, description, and number of the test version. This will make the report easier to read.
 
    - Configuration file
@@ -141,8 +142,9 @@ For a service whose subnet and security group differ from the agent's ones, [cre
            enabled: true
            package: yandextank.plugins.Autostop
            autostop:
-             - instances(90%,60s) # Stop the test if over 90% of testing threads are used
-                                 # for 60 seconds, which indicates
+             - limit (5m) # Make sure to specify the time limit for the test.
+             - instances(90%,60s) # Stop the test if 90% of testing threads get busy
+                                 # within 60 seconds, which indicates
                                  # a testing issue.
          uploader:
            enabled: true

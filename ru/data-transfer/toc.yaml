@@ -232,6 +232,8 @@ items:
             href: tutorials/mmy-objs-migration.md
           - name: '{{ PG }} в {{ objstorage-name }}'
             href: tutorials/mpg-to-objstorage.md
+          - name: '{{ ydb-name }} в {{ objstorage-name }}'
+            href: tutorials/ydb-to-object-storage.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

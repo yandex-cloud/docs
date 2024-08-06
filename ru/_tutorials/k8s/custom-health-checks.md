@@ -358,7 +358,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
    {% include [Настройка групп безопасности при недоступности ресурса](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
-1. Проверьте, что работают проверки состояния приложения
+1. Проверьте, что работают проверки состояния приложения:
 
    {% list tabs group=instructions %}
 

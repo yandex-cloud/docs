@@ -39,7 +39,7 @@
         "maxCount": "10"
       }
     ],
-    "afterBackup": true
+    "beforeBackup": true
   },
   "scheduling": {
     "backupSets": [

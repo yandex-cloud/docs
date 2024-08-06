@@ -142,7 +142,7 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
-   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.shards.button_action-edit }}**.
+   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
 
 - CLI {#cli}
 
@@ -200,7 +200,7 @@ When you delete a shard, all tables and data that are saved on that shard are de
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row and select **{{ ui-key.yacloud.mdb.cluster.shards.button_action-remove }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI {#cli}
 

@@ -600,6 +600,10 @@ items:
           Загрузка данных из {{ objstorage-full-name }} в {{ ydb-full-name }} с
           помощью {{ data-transfer-full-name }}
         href: dataplatform/object-storage-to-ydb.md
+      - name: >-
+          Загрузка данных из {{ ydb-full-name }} в {{ objstorage-full-name }} с
+          помощью {{ data-transfer-full-name }}
+        href: dataplatform/ydb-to-object-storage.md
   - name: Продукты Microsoft в {{ yandex-cloud }}
     items:
       - name: Все руководства

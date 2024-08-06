@@ -28,6 +28,9 @@ To get started with the service:
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
    1. Click **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
+
+      ![screen01](../_assets/smartcaptcha/quickstart/screen01.png)
+
    1. Enter a CAPTCHA name. The naming requirements are as follows:
 
       {% include [name-format](../_includes/smartcaptcha/name-format.md) %}
@@ -35,10 +38,15 @@ To get started with the service:
    1. Select the type of the [main challenge](./concepts/tasks.md#main-task) to complete by the user.
    1. Select the type of the [additional challenge](./concepts/tasks.md#additional-task) to complete by the user.
    1. Select the `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}` [level](./concepts/tasks.md#task-difficulty).
+
+      ![screen02](../_assets/smartcaptcha/quickstart/screen02.png)
+
    1. (Optional) Disable [domain name validation](./concepts/domain-validation.md).
    1. Specify a list of sites where the CAPTCHA will be placed.
    1. Leave the **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** as is.
    1. Click **{{ ui-key.yacloud.common.create }}**.
+
+      ![screen03](../_assets/smartcaptcha/quickstart/screen03.png)
 
 {% endlist %}
 
@@ -53,6 +61,8 @@ To get started with the service:
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
    1. Click the name of the CAPTCHA or [create](#creat-captcha) a new one.
    1. In the **{{ ui-key.yacloud.common.overview }}** tab, copy the **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** and **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** field values.
+
+   ![screen04](../_assets/smartcaptcha/quickstart/screen04.png)
 
 {% endlist %}
 

@@ -662,27 +662,27 @@ items:
             href: datalens/data-from-ch-geocoder.md
       - name: Service analytics
         items:
-          - name: 'Yandex Metrica: Direct connection'
+          - name: 'Yandex Metrica: direct connection'
             href: datalens/data-from-metrica-visualization.md
-          - name: 'Yandex Metrica: Export, post-processing, and data visualization'
+          - name: 'Yandex Metrica: data export, post-processing, and visualization'
             href: datalens/data-from-metrica-yc-visualization.md
-          - name: 'AppMetrica: Direct connection'
+          - name: 'AppMetrica: direct connection'
             href: datalens/data-from-appmetrica-visualization.md
-          - name: 'AppMetrica: Export, post-processing, and data visualization'
+          - name: 'AppMetrica: data export, post-processing, and visualization'
             href: datalens/data-from-appmetrica-yc-visualization.md
-          - name: 'Bitrix24: Direct connection'
+          - name: 'Bitrix24: direct connection'
             href: datalens/data-from-bitrix24-visualization.md
-          - name: '{{ tracker-full-name }}: Export and data visualization'
+          - name: '{{ tracker-full-name }}: data export and visualization'
             href: datalens/data-from-tracker.md
           - name: Analyzing {{ objstorage-name }} logs in {{ datalens-name }}
             href: datalens/storage-logs-analysis.md
-          - name: 'Yandex Music podcasts: Statistics'
+          - name: 'Yandex Music podcasts: statistics'
             href: datalens/data-from-podcasts.md
           - name: Visualizing {{ yq-full-name }} data
             href: datalens/data-from-yandex-query-visualization.md
           - name: Visualizing {{ monitoring-full-name }} data
             href: datalens/data-from-monitoring-visualization.md
-          - name: Visualization of data from {{ ytsaurus-name }}} CHYT
+          - name: Visualizing {{ ytsaurus-name }}} CHYT data
             href: datalens/data-from-ch-over-yt.md
       - name: Functional
         items:

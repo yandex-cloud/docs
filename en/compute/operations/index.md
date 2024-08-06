@@ -11,6 +11,7 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](vm-create/create-from-disks.md)
 * [{#T}](vm-create/create-from-snapshots.md)
 * [{#T}](vm-create/create-from-user-image.md)
+* [{#T}](vm-create/create-with-cloud-init-scripts.md)
 * [{#T}](vm-create/create-vm-with-gpu.md)
 * [{#T}](vm-create/create-preemptible-vm.md)
 

@@ -38,11 +38,11 @@ The cost for bucket support includes:
 
 ## Set up a working environment {#environment-prepare}
 
-1. Download and install the [winfsp distribution](https://winfsp.dev/rel/) from the developer site.
-1. Download the [archive with sysinternals suite utilities](https://docs.microsoft.com/en-us/sysinternals/downloads/) from the developer's website and unpack it to your local working directory.
-1. Download the [Windows Service Wrapper (WinSW) executable file](https://github.com/winsw/winsw/releases) depending on your OS configuration and save it to a separate directory.
-1. Download the [archive with the rclone utility](https://rclone.org/downloads/) from the developer's website and unpack it to your local working directory.
-1. Add the names of the directories with the utilities and the distribution to the `PATH` variable. To do this:
+1. Download and install the [winfsp distribution](https://winfsp.dev/rel/) from the developer website.
+1. Download the [archive with sysinternals suite utilities](https://docs.microsoft.com/en-us/sysinternals/downloads/) from the developer's website and unpack it to your local working folder.
+1. Download the [Windows Service Wrapper (WinSW) executable file](https://github.com/winsw/winsw/releases) depending on your OS configuration and save it to a separate folder.
+1. Download the [archive with the rclone utility](https://rclone.org/downloads/) from the developer's website and unpack it to your local working folder.
+1. Add the folders containing the utilities and the distribution to the `PATH` variable. To do this:
 
    1. Click **Start** and type **Change system environment variables** in the Windows search bar.
    1. Click **Environment Variables...** at the bottom right.
@@ -56,7 +56,7 @@ The cost for bucket support includes:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your service account.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. At the top right, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `sa-win-disk-connect`.
@@ -161,13 +161,21 @@ The cost for bucket support includes:
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-role](../../_includes/storage/terraform-role.md) %}
+
    {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   1. Describe the parameters for creating a service account and access key in the configuration file:
+
+      {% include [terraform-sa-key](../../_includes/storage/terraform-sa-key.md) %}
 
    1. Add a section with bucket parameters to the configuration file and enter the bucket name following the [naming conventions](../../storage/concepts/bucket.md#naming):
 
       ```hcl
       resource "yandex_storage_bucket" "<bucket_name>" {
-        bucket = "<bucket_name>"
+        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+        bucket     = "<bucket_name>"
       }
       ```
 
@@ -175,7 +183,7 @@ The cost for bucket support includes:
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, go to the folder where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -209,7 +217,7 @@ The cost for bucket support includes:
    ```
 
 1. In the console that opens, run `whoami` and make sure that the session has been started by the system user.
-1. Go to the directory with the `rclone` utility and run a configuration session for it:
+1. Go to the folder with the `rclone` utility and run a configuration session for it:
 
    ```powershell
    rclone.exe config
@@ -265,14 +273,14 @@ To mount the bucket at your desktop startup, set up mounting on behalf of the sy
      <id>rclone</id>
      <name>rclone-s3-disk</name>
      <description>This service maps an S3 bucket as a system drive.</description>
-     <executable>"<working_directory_path>\rclone.exe"</executable>
+     <executable>"<working_folder_path>\rclone.exe"</executable>
      <arguments>mount s3-connect:<bucket_name> <drive_letter>: --vfs-cache-mode full</arguments>
      <log mode="roll" />
      <onfailure action="restart" />
    </service>
    ```
 
-1. In the same directory, open the command prompt as an admin user and run the following command:
+1. In the same folder, open the command prompt as an admin user and run the following command:
 
    * If you have a 64-bit version of Windows:
 
@@ -282,13 +290,13 @@ To mount the bucket at your desktop startup, set up mounting on behalf of the sy
 
    * If you have a 32-bit version of Windows:
 
-   ```cmd
-   .\WinSW-x86.exe install .\WinSW-x86.xml
-   ```
+      ```cmd
+      .\WinSW-x86.exe install .\WinSW-x86.xml
+      ```
 
 1. Open the Windows services panel and make sure that `rclone-s3-disk` is listed:
 
-   1. Click **Win**+**R**.
+   1. Click **Win** + **R**.
    1. In the window that opens, enter `services.msc` and click **OK**.
    1. In the service list, find `rclone-s3-disk`.
 

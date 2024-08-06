@@ -38,14 +38,13 @@ This creates a VM in your folder that you will be able to use to load test targe
 ## Running a test {#run-test}
 
 This example will test a service located at `example.myservice.ru`.
-
 We will use Pandora as load generator, since it is best suited for testing cloud applications.
 
 1. Open the ![image](../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab in **{{ load-testing-name }}**. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**. Set the test parameters:
    1. **{{ ui-key.yacloud.load-testing.label_agents-list }}**: Select `test-agent`.
    1. **{{ ui-key.yacloud.load-testing.field_settings-type }}**: Select `{{ ui-key.yacloud.load-testing.label_settings-type-form }}`.
    1. **{{ ui-key.yacloud.load-testing.field_load-generator }}**: Select `Pandora`.
-   1. **Target address**: Enter the address of the service to test (`example.myservice.ru`).
+   1. **Target address**: Enter the address of the service to test, `example.myservice.ru`.
    1. **Target port**: Set to `80` (default HTTP port).
    1. **Testing threads**: `1000`.
       This means that the generator can simultaneously process 1,000 operations: either create 1,000 connections or wait for 1,000 responses from the service at the same time.
@@ -69,7 +68,7 @@ We will use Pandora as load generator, since it is best suited for testing cloud
 
       This instructs the generator to increase the load from 1 to 100 requests per second for the first 60 seconds, and then maintain a load of 100 requests per second for 5 minutes.
    1. **Request type**: Specify `URI`.
-   1. In the **{{ ui-key.yacloud.load-testing.test-data-section }}** field, select **{{ ui-key.yacloud.load-testing.label_settings-type-form }}**. In the menu that opens:
+   1. In the **Test data** field, select **{{ ui-key.yacloud.load-testing.label_settings-type-form }}**. In the menu that opens:
       * In the **Requests** submenu, add the following requests:
         * `/ index`
         * `/test?param1=1&param2=2 get_test`
@@ -80,6 +79,7 @@ We will use Pandora as load generator, since it is best suited for testing cloud
         * `[Connection: Close]`
 
         Please note that the `Connection: Close` header means each connection is terminated after making a request. This mode is heavier on the application and load generator. If you do not need to close connections, set `Keep-Alive`.
+   1. Under **Forced test termination time**, specify the time to autostop the test unless it is stopped for other reasons. The parameter value should be slightly greater than the expected duration of the test.
    1. Under **{{ ui-key.yacloud.load-testing.meta-section }}**, specify the name, description, and number of the test version. This will make the report easier to read.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 

@@ -128,10 +128,10 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
 - Linux {#linux}
 
   * `serial-port-enable`: Flag enabling access to the [serial console](../operations/serial-console/index.md). `1`: access enabled; `0`: (default) access disabled.
+  * `enable-oslogin`: Flag that enables access via [OS Login](../operations/vm-connect/os-login.md). `True` means access is enabled; `false` (default) means access is disabled.
   * `user-data`: String with the user metadata to be processed by the [cloud-init](https://cloud-init.io) agent running on a VM instance.
-   * `enable-oslogin`: Flag that enables access via [OS Login](../operations/vm-connect/os-login.md). `True` means access is enabled; `false` (default) means access is disabled.
 
-    Cloud-init supports different [formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html) for providing metadata, such as [cloud-config](https://cloudinit.readthedocs.io/en/latest/topics/examples.html). In this format, you can provide SSH keys and indicate which user each key is associated with. To do this, specify them in the `users/ssh-authorized-keys` section:
+    Cloud-init supports different metadata transmission [formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html), e.g., [cloud-config](https://cloudinit.readthedocs.io/en/latest/topics/examples.html). In this format, you can provide SSH keys and indicate which user each key is associated with. To do this, specify them in the `users/ssh-authorized-keys` section:
 
     {% include [user-data](../../_includes/compute/user-data.md) %}
 
@@ -142,6 +142,8 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
       "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3Nza......OjbSMRX user@example.com\n      - ssh-ed25519 AAAAB3Nza...Pu00jRN user@desktop"
     }
     ```
+
+    For example, in the `user-data` key, you can describe the [software installation scripts](../operations/vm-create/create-with-cloud-init-scripts.md#examples) to be run when creating a new VM.
 
   * `ssh-keys`: Key for delivering the SSH key to Linux VMs through {{ TF }}. Specify it in `<username>:<SSH_key_content>` format, e.g., `user:ssh-ed25519 AAC4NzaC1... user@example.com`. If you specify multiple keys, only the first one will be used.
 
@@ -230,6 +232,7 @@ Apart from identity documents, the VM metadata service provides their cryptograp
          ```
 
    1. Create a `certificate` file and add a public certificate to it:
+
 
 
 
@@ -367,4 +370,5 @@ If they have the same hash, the identity document saved to the file matches the 
 
 #### See also {#see-also}
 
-* [{#T}](instance-groups/instance-template.md).
+* [{#T}](instance-groups/instance-template.md)
+* [Creating a VM with a custom configuration script](../operations/vm-create/create-with-cloud-init-scripts.md)

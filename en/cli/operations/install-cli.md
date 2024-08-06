@@ -21,7 +21,7 @@ To use the CLI in scripts, you can use flags for a non-interactive installation:
    Run this command:
 
    ```
-   curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash -s -- -h
+   curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash -s -- -h
    Usage: install [options...]
    Options:
     -i [INSTALL_DIR]    Installs to specified dir.
@@ -35,13 +35,14 @@ To use the CLI in scripts, you can use flags for a non-interactive installation:
    - Installing the CLI in `/opt/yc` without changing `.bashrc`:
 
       ```
-      curl https://{{ s3-storage-host }}{{ yc-install-path }} | \
+      curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | \
           bash -s -- -i /opt/yc -n
       ```
+
    - Installing the CLI to the default directory with `completion` and `PATH` added to `.bashrc`:
 
       ```
-      curl https://{{ s3-storage-host }}{{ yc-install-path }} | \
+      curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | \
           bash -s -- -a
       ```
 

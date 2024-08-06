@@ -295,7 +295,7 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
-   1. Select the appropriate model, click ![image](../../_assets/console-icons/ellipsis-vertical.svg), and select **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button_action-delete-ml-model }}**.
+   1. Select the appropriate model, click ![image](../../_assets/console-icons/ellipsis-vertical.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI {#cli}
 

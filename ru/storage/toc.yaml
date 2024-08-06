@@ -155,6 +155,10 @@ items:
           data-transfer-full-name }}
         href: tutorials/object-storage-to-ydb.md
       - name: >-
+          Загрузка данных из {{ ydb-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/ydb-to-object-storage.md
+      - name: >-
           Хостинг статического сайта на фреймворке Gatsby в {{ objstorage-name
           }}
         href: tutorials/gatsby-static-website.md

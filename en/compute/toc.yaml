@@ -28,6 +28,8 @@ items:
             href: operations/vm-create/create-from-snapshots.md
           - name: Creating a VM from a custom image
             href: operations/vm-create/create-from-user-image.md
+          - name: Creating a VM with a custom configuration script
+            href: operations/vm-create/create-with-cloud-init-scripts.md
           - name: Creating a VM with a GPU
             href: operations/vm-create/create-vm-with-gpu.md
           - name: Making a VM preemptible
@@ -942,7 +944,7 @@ items:
         href: qa/instance-groups.md
       - name: Monitoring
         href: qa/monitoring.md
-      - name: Licensing
+      - name: Licensing agencies
         href: qa/licensing.md
       - name: Troubleshooting
         href: qa/troubleshooting.md

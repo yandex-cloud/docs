@@ -57,7 +57,6 @@ description: "Use this tutorial to create a Linux VM."
       ```
 
       Where:
-
       * `--name`: VM name. The naming requirements are as follows:
 
          {% include [name-format](../../../_includes/name-format.md) %}
@@ -77,7 +76,7 @@ description: "Use this tutorial to create a Linux VM."
 
          {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
-         If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data using the `--metadata-from-file` parameter.
+         If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data using the `--metadata-from-file` parameter. You can also use metadata to [install additional software](./create-with-cloud-init-scripts.md) on a VM when creating it.
 
    {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
@@ -134,7 +133,6 @@ description: "Use this tutorial to create a Linux VM."
       ```
 
       Where:
-
       * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
          * `name`: Disk name.
          * `type`: Disk type.
@@ -157,7 +155,7 @@ description: "Use this tutorial to create a Linux VM."
 
          * `metadata`: In the metadata, provide the public SSH key for accessing the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
 
-            If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in a file and provide it under `metadata`.
+            If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in a file and provide it under `metadata`. You can also use metadata to [install additional software](./create-with-cloud-init-scripts.md) on a VM when creating it.
       * `yandex_vpc_network`: Description of the cloud network.
       * `yandex_vpc_subnet`: Description of the subnet your VM will connect to.
 
@@ -222,7 +220,7 @@ description: "Use this tutorial to create a Linux VM."
       }
       ```
 
-   1. Create a file `named body.json` with the body of the request to create a VM:
+   1. Create a file named `body.json` with the body of the request to create a VM:
 
       ```json
       {
@@ -258,7 +256,7 @@ description: "Use this tutorial to create a Linux VM."
 
       Where:
       * `folderId`: Folder ID.
-      * `name`: Name assigned to the VM upon creation.
+      * `name`: Name to assign to the VM when you create it.
       * `zoneId`: Availability zone that corresponds to the selected subnet.
       * `platformId`: [Platform](../../concepts/vm-platforms.md).
       * `resourceSpec`: Resources available to the VM. The values must match the selected platform.
@@ -299,4 +297,4 @@ description: "Use this tutorial to create a Linux VM."
 
 #### See also {#see-also}
 
-* [{#T}](../vm-connect/ssh.md).
+* [{#T}](../vm-connect/ssh.md)

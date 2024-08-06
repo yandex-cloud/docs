@@ -53,7 +53,7 @@ Create a VM to deploy the test application to, a set of components required for 
       You will need to create a key pair for the SSH connection [yourself](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). To create keys, use third-party tools, such as `ssh-keygen` (on Linux or macOS) or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (on Windows).
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-It may take a few minutes to create the VM. When the VM status changes to `RUNNING`, you can start configuring it.
+It may take a few minutes to create a VM. When the VM status changes to `RUNNING`, you can start configuring it.
 
 Once created, the VM is assigned an [IP address and a host name (FQDN)](../../vpc/concepts/address.md). This data can be used for SSH access.
 
@@ -287,7 +287,7 @@ You can set up CI in {{ yandex-cloud }} by using a public image with {{ GL }} pr
       You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair yourself. To create keys, use third-party tools, such as `ssh-keygen` (on Linux or macOS) or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (on Windows).
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-It may take a few minutes to create the VM. When the VM status changes to `RUNNING`, you can start configuring it.
+It may take a few minutes to create a VM. When the VM status changes to `RUNNING`, you can start configuring it.
 
 Once created, the VM is assigned an [IP address and a host name (FQDN)](../../vpc/concepts/address.md). This data can be used for SSH access.
 
@@ -376,7 +376,7 @@ A Runner is a tool for performing tasks that a user creates. You need to install
 1. For the CI script to be able to create VMs, please install the {{ yandex-cloud }} CLI:
 
    ```bash
-   curl https://{{ s3-storage-host }}{{ yc-install-path }} --output install.sh
+   curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} --output install.sh
    sudo bash install.sh -n -i /opt/yc
    ```
 

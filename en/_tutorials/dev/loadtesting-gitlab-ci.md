@@ -84,7 +84,7 @@ You can also use the [Dispatcher](../../load-testing/operations/payload-dispatch
 
 ## Create {{ GL }} environment variables {#add-variables}
 
-1. Go to **Settings** in the left-hand {{ GL }} panel and select **CI/CD** from the drop-down list.
+1. In {{ GL }}, go to **Settings** in the left-hand panel and select **CI/CD** from the drop-down list.
 1. Click **Expand** next to **Variables**.
 1. Add environment variables with the protection option disabled:
    * `SERVICE_ACCOUNT_ID`: ID of the `sa-loadtest` service account
@@ -140,6 +140,7 @@ You can also use the [Dispatcher](../../load-testing/operations/payload-dispatch
       enabled: true
       package: yandextank.plugins.Autostop
       autostop:
+         - limit(5m) # Required parameter
          - quantile(50,100,5,)
    core: {}
    ```
@@ -212,7 +213,7 @@ You can also use the [Dispatcher](../../load-testing/operations/payload-dispatch
 
    During the stage described here, the script will create a test agent, run the test, and check the test result. The result evaluation is based on the 50th percentile. If it exceeds 100ms, the stage will terminate with an error.
 
-   After saving the `.gitlab-ci.yml` configuration file, the build script will start.
+   After you save the `.gitlab-ci.yml` configuration file, the build script will start.
 
    You can view the test results in more detail in the management console:
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.

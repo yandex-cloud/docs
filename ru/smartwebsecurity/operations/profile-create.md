@@ -1,3 +1,8 @@
+---
+title: "Как создать профиль безопасности {{ sws-full-name }}"
+description: "Следуя данной инструкции, вы сможете создать профиль безопасности {{ sws-full-name }}."
+---
+
 # Создать профиль безопасности
 
 {% list tabs group=instructions %}
@@ -31,6 +36,56 @@
 
       В блоке **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** в таблице появятся созданные вами правила.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды [CLI](../../cli/quickstart.md) для создания [профиля безопасности](../concepts/profiles.md):
+
+     ```bash
+     yc smartwebsecurity security-profile create --help
+     ```
+
+  1. Чтобы создать профиль безопасности, выполните команду:
+
+     ```bash
+     yc smartwebsecurity security-profile create \
+        --name <имя_профиля_безопасности> \
+        --description "<описание_профиля>" \
+        --labels <ключ_метки_1>=<значение_метки_1>,<ключ_метки_2>=<значение_метки_2>,...,<ключ_метки_n>=<значение_метки_n> \
+        --default-action <действие> \
+        --captcha-id <идентификатор_капчи> \
+        --security-rules-file <путь_к_файлу_с_правилами>
+     ```
+
+     Где:
+
+     * `--name` — имя профиля безопасности. Обязательный параметр. Если задать только имя профиля без дополнительных параметров, в профиле безопасности будет создано одно [базовое правило](../concepts/rules.md#base-rules).
+     * `--description` — текстовое описание профиля безопасности. Необязательный параметр.
+     * `--labels` — список [меток](../../resource-manager/concepts/labels.md) для добавления в профиль в формате `КЛЮЧ=ЗНАЧЕНИЕ`. Необязательный параметр. Например: `--labels foo=baz,bar=baz'`.
+     * `--default-action` — действие, которое следует выполнить для трафика, который не попал под условия других правил. Необязательный параметр. По умолчанию установлено значение `allow`, разрешающее все запросы к сервису. Чтобы запретить запросы, установите значение `deny`.
+     * `--captcha-id` — идентификатор капчи [{{ captcha-full-name }}](../../smartcaptcha/) для проверки подозрительных запросов. Необязательный параметр.
+      * `--security-rules-file` — путь к файлу с описанием правил безопасности в формате [YAML](https://ru.wikipedia.org/wiki/YAML). Необязательный параметр. Например:
+
+          {% include [profile-create-yaml-example](../../_includes/smartwebsecurity/profile-create-yaml-example.md) %}
+
+     Результат:
+
+     ```bash
+     id: fev6q4qqnn2q********
+     folder_id: b1g07hj5r6i********
+     cloud_id: b1gia87mbaom********
+     name: my-sample-profile
+     description: "my description"
+     labels: label1=value1,label2=value2
+     default_action: DENY
+     created_at: "2024-07-25T19:21:05.039610Z"
+     ```
+
+  Подробнее о команде `yc smartwebsecurity security-profile create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/smartwebsecurity/security-profile/create.md).
 
 - API {#api}
 

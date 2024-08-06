@@ -68,14 +68,14 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 1. [Install](https://www.docker.com/) and run Docker.
 1. Authenticate in {{ container-registry-name }} [as a user](../../container-registry/operations/authentication.md#user) or with a [Docker credential helper](../../container-registry/operations/authentication.md#cred-helper).
 
-   Use the endpoint of the [registry](../../container-registry/concepts/registry.md) with external agent [Docker images](../../container-registry/concepts/docker-image.md): `cr.yandex/yc/`.
+   Use the endpoint of the [registry](../../container-registry/concepts/registry.md) with external agent [Docker images](../../container-registry/concepts/docker-image.md): `{{ registry }}/yc/`.
 
 ## Install the external agent {#install-external-agent}
 
 1. Pull a Docker image with the external agent by running this command:
 
    ```bash
-   docker pull cr.yandex/yc/ya-lt-agent:latest
+   docker pull {{ registry }}/yc/ya-lt-agent:latest
    ```
 
    Result:
@@ -85,8 +85,8 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
    df6635ed1257: Pull complete
    7a51fa4387ba: Pull complete
    Digest: sha256:fad262e94a8b4021b13336ae31c738ec1e77eb6a8971528429c67d2827f1e47b
-   Status: Downloaded newer image for cr.yandex/yc/ya-lt-agent:latest
-   cr.yandex/yc/ya-lt-agent:latest
+   Status: Downloaded newer image for {{ registry }}/yc/ya-lt-agent:latest
+   {{ registry }}/yc/ya-lt-agent:latest
    ```
 
 1. Download the file with the public and private authorized keys from {{ lockbox-short-name }}:
@@ -142,7 +142,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
      --mount type=bind,source=<path_to_file_with_authorized_keys>,target=/run/sa_key.json \
      --mount type=bind,source=<path_to_configuration_file>,target=/run/config.yaml \
      --env LOADTESTING_AGENT_CONFIG=/run/config.yaml \
-     cr.yandex/yc/ya-lt-agent:latest
+     {{ registry }}/yc/ya-lt-agent:latest
    ```
 
    Where:
@@ -161,7 +161,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
      --env LOADTESTING_AGENT_NAME='<name_of_external_agent>' \
      --env LOADTESTING_FOLDER_ID='<folder_ID>' \
      --env LOADTESTING_SA_KEY_FILE=<path_to_file_with_authorized_keys_in_container> \
-     cr.yandex/yc/ya-lt-agent:latest
+     {{ registry }}/yc/ya-lt-agent:latest
    ```
 
    Where:
@@ -198,7 +198,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
      --mount type=bind,source=<path_to_file_with_authorized_keys>,target=/run/sa_key.json \
      --mount type=bind,source=<path_to_configuration_file>,target=/run/config.yaml \
      --env LOADTESTING_AGENT_CONFIG=/run/config.yaml \
-     cr.yandex/yc/ya-lt-agent:latest
+     {{ registry }}/yc/ya-lt-agent:latest
    ```
 
    {% endcut %}
@@ -252,4 +252,4 @@ To delete the external agent from {{ load-testing-name }}:
 
 ### See also
 
-* [{#T}](../../load-testing/tutorials/loadtesting-multiply.md).
+* [{#T}](../../load-testing/tutorials/loadtesting-multiply.md)

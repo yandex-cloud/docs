@@ -9,11 +9,11 @@ With {{ ig-name }}, you can:
 - Create groups with the required number of instances and performance parameters.
 - Scale the computing capacity up or down, depending on the load.
 
-You work with an instance group as a single entity in the {{ compute-full-name }} infrastructure. This allows you to manage the internal settings of the instance group to meet your application's requirements.
+You work with an instance group as a single entity in the {{ compute-full-name }} infrastructure. This allows you to manage internal settings of instance groups to meet your app requirements.
 
-#### How is the cost of instance group use calculated? {#ig-cost}
+#### How do I calculate the cost of using instance groups? {#ig-cost}
 
-Creation of an instance group is free of charge.
+Creating an instance group is free of charge.
 
 All other {{ yandex-cloud }} services, such as VMs and external IP addresses, are charged as usual.
 
@@ -27,3 +27,7 @@ To select the appropriate number of instances and minimize costs:
 #### Why can't I delete a service account linked to an instance group? {#sa-deletion}
 
 {% include [sa-dependence](../../_includes/instance-groups/sa-dependence.md) %}
+
+#### Can I install the required software on a group instance when creating it? {#preinstall-software}
+
+Yes, you can. To do this, specify a custom script with commands to install the required software in the metadata section of your new instance's template. For more information, see [{#T}](../../compute/operations/vm-create/create-with-cloud-init-scripts.md).
