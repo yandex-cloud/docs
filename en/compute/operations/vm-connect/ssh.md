@@ -105,7 +105,7 @@ You can also use the [internal IP addresses](../../../vpc/concepts/address.md#in
    If you have multiple private keys, specify the one you need:
 
    ```bash
-   ssh -i <key_path/key_file_name><username>@<VM_public_IP_address>
+   ssh -i <key_path/key_file_name> <username>@<VM_public_IP_address>
    ```
 
    If this is the first time you connect to a VM, you will see a warning about an unknown host:
