@@ -485,6 +485,8 @@ default:
   roles-auditor: auditor
   roles-cloud-member: resource-manager.clouds.member
   roles-cloud-owner: resource-manager.clouds.owner
+  roles-connection-manager-user: connection-manager.user
+  roles-connection-manager-viewer: connection-manager.viewer
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
   roles-datalens-admin: datalens.admin
@@ -512,6 +514,7 @@ default:
   roles-lockbox-payloadviewer: lockbox.payloadViewer
   roles-lockbox-viewer: lockbox.viewer
   roles-logging-writer: logging.writer
+  roles-mdb-admin: mdb.admin
   roles-monitoring-editor: monitoring.editor
   roles-monitoring-viewer: monitoring.viewer
   roles-organization-admin: organization-manager.admin
@@ -911,6 +914,15 @@ default:
   sku|KZT|datalens:
     users:
       v1|string: ₸4950.00
+  sku|KZT|datatransfer:
+    compute:
+      cpu:
+        v1|string: ₸6.55
+      ram:
+        v1|string: ₸1.75
+    rows:
+      v1|pricingRate:
+        100|string: ₸13.50
   sku|KZT|dns:
     requests:
       public:
@@ -2011,6 +2023,15 @@ default:
   sku|RUB|datalens:
     users:
       v1|string: ₽990.00
+  sku|RUB|datatransfer:
+    compute:
+      cpu:
+        v1|string: ₽1.31
+      ram:
+        v1|string: ₽0.35
+    rows:
+      v1|pricingRate:
+        100|string: ₽2.70
   sku|RUB|dns:
     requests:
       public:
@@ -3117,6 +3138,15 @@ default:
   sku|USD|datalens:
     users:
       v1|string: $7.920000
+  sku|USD|datatransfer:
+    compute:
+      cpu:
+        v1|string: $0.010480
+      ram:
+        v1|string: $0.002800
+    rows:
+      v1|pricingRate:
+        100|string: $0.021600
   sku|USD|dns:
     requests:
       public:
@@ -5131,7 +5161,7 @@ default:
           switch_expences: Expense history
           switch_exports: Export details
           switch_history: Payment history
-          switch_offers: Committed volume of services
+          switch_offers: Committed volume
           switch_overview: Account info
           switch_users: Access management
           tab_acts-title: Closing documents
@@ -5880,15 +5910,12 @@ default:
             label_password: Password
             label_username: Database username
           format-schemas:
-            button_action-delete-format-schema: Delete
-            button_action-edit-format-schema: Edit
             button-action_add-format-schema: Create schema
             dialog:
               field_format-schema-uri: URL
               label_add: Create
               title_add: Add schema
           ml-models:
-            button_action-delete-ml-model: Delete
             button_action-edit-ml-model: Edit
             button-action_add-ml-model: Create model
             field_ml-model-name: Name
@@ -7094,7 +7121,6 @@ default:
             label_title: Backups
           databases:
             action_add-database: Create database
-            button_action-connect: Connect
             button_action-manage: Manage
             button_action-remove: Delete
             column_extensions: PostgreSQL extensions
@@ -7142,6 +7168,8 @@ default:
             field_where: Selection condition
             label_fixed-lifetime: fixed
             label_range-lifetime: variable
+          field_diskSizeLimit: Maximum storage size
+          field_thresholds: Increase size
           hosts:
             action_add-host: Create host
             action_restart-host: Restart
@@ -7176,10 +7204,9 @@ default:
             section_configuration: Configuration
             section_resource: Resources
             section_ui-proxy: UI Proxy
+          section_disk-scaling: Automatic increase of storage size
           shards:
             action_add-shard: Create shard
-            button_action-edit: Edit
-            button_action-remove: Remove
             button_sharding-enable: Enable
             popup-confirm_button_delete: Remove
           start-dialog:
@@ -7188,8 +7215,6 @@ default:
             popup-confirm_button: Stop
           subclusters:
             action_add-subclaster: Create subcluster
-            button_action-delete: Delete
-            button_action-edit: Modify
           switch_backups: Backups
           switch_hosts: Hosts
           switch_jobs: Jobs
@@ -7199,7 +7224,6 @@ default:
           users:
             action_add-user: Create user
             button_action-password: Change password
-            button_action-remove: Delete
             button_action-update: Configure
             button_advanced-settings: Additional settings
             popup-add_button_add: Create
@@ -7211,6 +7235,7 @@ default:
         clusters:
           button_action-connect: Connect
           button_action-delete: Delete
+          button_action-edit: Edit
           button_action-move: Move
           button_action-resetup: Resynchronize
           button_action-start: Start
@@ -7431,9 +7456,6 @@ default:
       postgresql:
         cluster:
           additional-field-pooling_mode: Pooling mode
-          field_diskSizeLimit: Maximum storage size
-          field_thresholds: Increase size
-          section_disk-scaling: Automatic increase of storage size
           switch_backups: Backups
           switch_databases: Databases
           switch_datalens: DataLens

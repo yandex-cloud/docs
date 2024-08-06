@@ -116,3 +116,10 @@
 {% include [account-in-organization](../../_includes/billing/pay-resouces-of-another-organization.md) %}
 
 См. [Особенности управления платежным аккаунтом в организации](../../billing/concepts/organization.md).
+
+#### Как перестать пользоваться платформой и удалить платежный аккаунт? {#delete-account}
+
+
+Удалите все [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоги](../../resource-manager/concepts/resources-hierarchy.md#folder) и ресурсы в них, погасите существующую задолженность и выберите **{{ ui-key.yacloud_billing.billing.account.dashboard.label_inactivation }}** на странице платежного аккаунта в сервисе [**{{ billing-name }}**]({{ link-console-billing }}). Подробнее см. в разделе [{#T}](../../billing/operations/delete-account.md).
+
+

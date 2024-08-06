@@ -61,6 +61,10 @@ items:
           помощью {{ data-transfer-full-name }}
         href: tutorials/object-storage-to-ydb.md
       - name: >-
+          Загрузка данных из {{ ydb-short-name }} в {{ objstorage-full-name }} с
+          помощью {{ data-transfer-full-name }}
+        href: tutorials/ydb-to-object-storage.md
+      - name: >-
           Загрузка данных из {{ ydb-short-name }} в {{ mch-full-name }} с
           помощью {{ data-transfer-full-name }}
         href: tutorials/ydb-to-clickhouse.md

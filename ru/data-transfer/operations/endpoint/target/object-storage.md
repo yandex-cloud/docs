@@ -18,7 +18,8 @@
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
     
     * [Загрузка данных из {{ MY }} в {{ objstorage-name }}](../../../tutorials/mmy-objs-migration.md);
-    * [Загрузка данных из {{ PG }} в {{ objstorage-name }}](../../../tutorials/mpg-to-objstorage.md).
+    * [Загрузка данных из {{ PG }} в {{ objstorage-name }}](../../../tutorials/mpg-to-objstorage.md);
+    * [Загрузка данных из {{ ydb-name }} в {{ objstorage-name }}](../../../tutorials/ydb-to-object-storage.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 

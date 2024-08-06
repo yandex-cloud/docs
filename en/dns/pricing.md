@@ -4,11 +4,16 @@ description: "This article describes the {{ dns-name }} pricing policy."
 editable: false
 ---
 
-# {{ dns-name }} pricing
+# {{ dns-name }} pricing policy
+
+
+## Prices for the Russia region {#prices}
 
 
 
-## Public DNS queries {#public-dns-requests}
+
+
+### Public DNS queries {#public-dns-requests}
 
 
 
@@ -39,16 +44,15 @@ You will not be billed for:
 
 The cost of public DNS queries is based on usage.
 
-
 For example, the cost of 50 thousand authoritative queries to your public DNS zone per month will be:
 
 
 
 
-{% include [usd-calculations](../_pricing/dns/usd-calculations.md) %}
+{% include [usd-calculations](../_pricing_examples/dns/usd-calculations.md) %}
 
 
-## DNS zones {#dns-zones}
+### DNS zones {#dns-zones}
 
 You are charged for user-created [public](concepts/dns-zone.md#public-zones) or [internal](concepts/dns-zone.md#private-zones) DNS zones.
 

@@ -54,7 +54,7 @@ In case of an error, {{ objstorage-name }} returns a message with the appropriat
 || 400 | `InvalidPart` | One or more parts of a multipart upload are not found. Make sure the list is correct. The missing parts may not have been uploaded. ||
 || 400 | `InvalidPartOrder` | The list of parts of a multipart upload is incorrect. The parts must be sorted by number in ascending order. ||
 || 400 | `InvalidRequest` | Use AWS4-HMAC-SHA256. ||
-|| 400 | `InvalidRequest` | Attempt to exceed the maximum bucket size.<br/><br/>Error description in the response: "You have attempted to exceed the max size configured for the bucket." ||
+|| 400 | `BucketMaxSizeExceeded` | Attempt to exceed the maximum bucket size.<br/><br/>Error description in the response: "You have attempted to exceed the max size configured for the bucket." ||
 || 400 | `InvalidStorageClass` | Invalid storage class. ||
 || 400 | `InvalidTargetBucketForLogging` | The bucket does not exist, or you are not the bucket owner, or the log delivery group does not have sufficient permissions.
 

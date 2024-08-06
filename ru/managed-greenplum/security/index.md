@@ -67,6 +67,8 @@ keywords:
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
 
+При создании кластера {{ mgp-name }} вместе с ним автоматически создается пользователь-администратор с ролью `mdb_admin`. Эта роль заменяет суперпользователя при работе с БД и не является аналогом роли `{{ roles-mdb-admin }}` в {{ yandex-cloud }}. Подробнее читайте в разделе [{#T}](../concepts/cluster-users.md).
+
 #### vpc.publicAdmin {#vpc-public-admin}
 
 {% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}

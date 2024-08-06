@@ -41,6 +41,8 @@ description: "This page provides a list of step-by-step guides for {{ vpc-name }
 - [{#T}](static-route-move.md)
 - [{#T}](route-table-get-info.md)
 - [{#T}](static-gateway-move.md)
+- [{#T}](delete-route-table.md)
+- [{#T}](delete-nat-gateway.md)
 
 ## Security groups {#security-groups}
 

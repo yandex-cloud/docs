@@ -113,7 +113,7 @@ This instruction will use a gRPC service as a test target.
 
    {% note info %}
 
-   For the domain example.com, the zone must be named `example.com.` (with a dot at the end).
+   For the domain example.com, the zone must be named `example.com.` (it should have a period at the end).
 
    {% endnote %}
 
@@ -297,6 +297,11 @@ This instruction will use a gRPC service as a test target.
         expvar:
          enabled: true
          port: 1234
+   autostop:
+      enabled: true
+      package: yandextank.plugins.Autostop
+      autostop:
+         - limit (5m)
    uploader:
      enabled: true
      package: yandextank.plugins.DataUploader

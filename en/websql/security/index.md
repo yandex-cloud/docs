@@ -9,6 +9,7 @@ In this section, you will learn:
 
 * [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
+* [Which roles are required](#required-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -85,6 +86,37 @@ The role is assigned for a saved query you published.
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+## What roles do I need {#required-roles}
+
+The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the role specified. For example, you can assign the `editor` role instead of `viewer`.
+
+| Action | Required roles |
+----- | -----
+| **Viewing queries** |
+| Viewing connection information | `{{ roles-connection-manager-viewer }}` for an organization, cloud, folder, or connection |
+| Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an organization, cloud, or folder |
+| Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an organization, cloud, or folder |
+| Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder |
+| Viewing published queries | `websql.viewer` for an organization, cloud, or folder |
+| **Viewing and running queries** |
+| Using a database connection | `{{ roles-connection-manager-user }}` for an organization, cloud, folder, or connection |
+| Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an organization, cloud, or folder |
+| Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an organization, cloud, or folder |
+| Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder |
+| Making queries | `websql.user` for an organization, cloud, or folder |
+| **Viewing, running, and publishing queries** |
+| Using a database connection | `{{ roles-connection-manager-user }}` for an organization, cloud, folder, or connection |
+| Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an organization, cloud, or folder |
+| Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an organization, cloud, or folder |
+| Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder |
+| Running, publishing, and editing queries | `websql.editor` for an organization, cloud, or folder |
+| **Managing queries** |
+| Using a database connection | `{{ roles-connection-manager-user }}` for an organization, cloud, folder, or connection |
+| Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an organization, cloud, or folder |
+| Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an organization, cloud, or folder |
+| Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder |
+| Running, publishing, and editing queries and managing access permissions to them | `websql.admin` for an organization, cloud, or folder |
 
 ## What's next {#whats-next}
 

@@ -28,7 +28,7 @@ You can change the number of hosts in data storage and processing subclusters:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}** tab.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.cluster.subclusters.button_action-edit }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
    1. Enter or select the required number of hosts in the **{{ ui-key.yacloud.mdb.forms.base_field_hosts-count }}** field.
    1. (Optional) Specify the [decommissioning](../concepts/decommission.md) timeout.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -100,7 +100,7 @@ You can change the computing power of hosts in a separate subcluster. It depends
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster whose subcluster you want to change.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and the required cluster.
    1. Go to **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.cluster.subclusters.button_action-edit }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
    1. Select the required platform and configuration under **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
    1. (Optional) Specify the [decommissioning](../concepts/decommission.md) timeout.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -205,7 +205,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Select a cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}** tab.
-   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) for the appropriate subcluster and select **{{ ui-key.yacloud.mdb.cluster.subclusters.button_action-edit }}**.
+   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) for the appropriate subcluster and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_scaling }}**, enable **{{ ui-key.yacloud.mdb.forms.label_autoscaling-activated }}** if it is disabled.
    1. Set autoscaling parameters.
    1. The default metric used for autoscaling is `yarn.cluster.containersPending`. To enable scaling based on CPU usage, disable the **{{ ui-key.yacloud.compute.groups.create.field_default-utilization-target }}** setting and specify the target CPU utilization level.
@@ -331,7 +331,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster whose subcluster you want to change.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and the required cluster.
    1. Go to **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.cluster.subclusters.button_action-edit }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
    1. Enter or select the required amount of storage under **{{ ui-key.yacloud.mdb.forms.section_disk }}**.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 

@@ -185,7 +185,7 @@ All the shard hosts are deleted with the shard.
    1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to delete the shard from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
-   1. In the line of the appropriate shard, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.shards.button_action-remove }}**.
+   1. In the line of the appropriate shard, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.
 
 - CLI {#cli}

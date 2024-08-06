@@ -71,6 +71,10 @@ Standard operations for changing VM configuration, such as changing the number o
 
 Keep this in mind when using third-party software licenses. The best solution is to purchase a license that does not have any link to the UUID.
 
+#### Can I install the required software on a VM when creating it? {#preinstall-software}
+
+Yes, you can. To do this, specify a custom script with commands to install the required software in the metadata of the VM instance you are creating. For more information, see [{#T}](../../compute/operations/vm-create/create-with-cloud-init-scripts.md).
+
 #### How do I change metadata after creating a VM? {#change-metadata-after-creating}
 
 Use the [updateMetadata](../../compute/api-ref/Instance/updateMetadata.md) API method.

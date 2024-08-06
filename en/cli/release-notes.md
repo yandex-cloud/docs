@@ -7,6 +7,46 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ## Current version {#latest-release}
 
+### Version 0.129.0 (16/07/24) {#version0.129.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ load-testing-name }}
+
+* Fixed an error for tests without a tabular report in the `yc loadtesting test get-report-table` command.
+
+##### {{ captcha-name }}
+
+Added support for {{ captcha-name }}:
+
+* The `yc smartcaptcha captcha` group commands allow managing CAPTCHAs.
+
+##### {{ sws-name }}
+
+Added support for {{ sws-name }}:
+
+* The `yc smartwebsecurity security-profile` group commands allow managing security profiles.
+
+##### Managed database services {#managed-db}
+
+**{{ mrd-name }}**
+
+* Added the `--disk-size-autoscaling` parameter to the `yc managed-redis cluster create` and `yc managed-redis cluster update` commands to enable disk autoscaling.
+
+**{{ mch-name }}**
+
+* Added the `yc managed-kafka user grant-permission` and `yc managed-kafka user revoke-permission` commands to manage permissions.
+* Added the `{{ yc-mdb-ch }} hosts add` and `{{ yc-mdb-ch }} shards add` commands. The `copy-schema` parameter is enabled by default.
+* Added the `yc managed-clickhouse backup delete` command to delete backups.
+* Added the `--disk-type` parameter to the `yc managed-kafka cluster update` command.
+* Added the `--backup-retain-period-days` parameter to configure the automatic backup retention period.
+
+##### {{ marketplace-name }} {#marketplace}
+
+* Added the `yc marketplace reset-password` command to reset passwords on virtual machines with the password reset agent installed.
+
+## Previous releases {#previous-releases}
+
 ### Version 0.128.0 (02/07/24) {#version0.128.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -20,13 +60,10 @@ Added the `--execution-timeout` parameter to the `yc serverless api-gateway crea
 **{{ mch-name }}**
 
 * Added the `--convert-tables-to-replicated` parameter for converting tables into replicated tables when adding them to a {{ ZK }} cluster.
-* Added the `{{ yc-mdb-ch }} hosts add` and `{{ yc-mdb-ch }} shards add` commands. The `copy-schema` parameter is enabled by default.
 
 **{{ mgp-name }}**
 
 * Added the `delay-redistribution`, `parallel`, and `close-cluster` options to the `yc managed-greenplum cluster expand` command.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.127.0 (17/06/24) {#version0.127.0}
 
@@ -347,7 +384,7 @@ Added the `yc serverless network` command group to manage networks that are used
 
 Added the parameters to the `yc cdn resource update` and `yc cdn resource create` commands to define the *ip address acl* option:
 
-* `--policy-type`: Client access policy by IP address; either *allow* or *deny*.
+* `--policy-type`: Client access policy by IP address, either *allow* or *deny*.
 * `--acl-excepted-values`: List of IP addresses for which access will be allowed or denied depending on the specified policy type.
 
 ##### {{ load-testing-name }}
@@ -1183,7 +1220,6 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 * Commands `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update`.
 
-
    * Added the `--node-name` flag that can be used to specify a node name template within a group.
 
    * Added the `--template-labels` and `--template-labels-from-files` flags that can be used to specify [{{ yandex-cloud }} resource labels](../resource-manager/concepts/labels.md) for group node VMs (not to be confused with [{{ k8s }} node labels](../managed-kubernetes/concepts/index.md#node-labels)).
@@ -1798,7 +1834,6 @@ Added new flags to the `yc managed-clickhouse cluster create` and `yc managed-cl
 
 * Added the `yc managed-sqlserver database restore` command.
 
-
    It allows you to restore the specified database on an existing cluster from a backup. You can restore it under a different name.
 
 
@@ -1874,7 +1909,6 @@ Added support for {{ cloud-logging-full-name }}.
 #### {{ managed-k8s-name }} {#k8s}
 
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
-
 
    Added the `--network-acceleration-type` flag, which allows you to specify a network type for node groups: standard or software-accelerated.
 
@@ -2080,11 +2114,11 @@ Added commands for managing the allowed IP addresses for pushing and pulling Doc
 #### {{ alb-name }} {#alb}
 
 Added primary support for {{ alb-full-name }}:
-* Commands in the `yc alb backend-group` group allow you to manage a backend group.
-* Commands in the `yc alb http-router` group allow you to manage HTTP routers.
-* Commands in the `yc alb load-balancer` group allow you to manage L7 load balancers.
-* Commands in the `yc alb target-group` group allow you to manage target groups.
-* Commands in the `yc alb virtual-host` group allow you to manage virtual hosts.
+* The `yc alb backend-group` group commands allow managing a backend group.
+* The `yc alb http-router` group commands allow managing HTTP routers.
+* The `yc alb load-balancer` group commands allow managing L7 load balancers.
+* The `yc alb target-group` group commands allow managing target groups.
+* The `yc alb virtual-host` group commands allow managing virtual hosts.
 
 #### {{ compute-name }} {#compute}
 
@@ -2125,9 +2159,9 @@ Added primary support for {{ alb-full-name }}:
 **{{ mms-name }}**
 
 Added primary support for {{ mms-full-name }}:
-* Commands of the `yc managed-sqlserver cluster` group allow you to manage clusters.
-* Commands of the `yc managed-sqlserver database` group allow you to manage databases.
-* Commands of the `yc managed-sqlserver user` group allow you to manage users.
+* The `yc managed-sqlserver cluster` group commands allow managing clusters.
+* The `yc managed-sqlserver database` group commands allow managing databases.
+* The `yc managed-sqlserver user` group commands allow managing users.
 
 
 **{{ mch-name }}**
@@ -2176,8 +2210,8 @@ Added the `yc iam federation list-user-accounts` command for listing federation 
 **{{ mes-name }}**
 
 Added primary support for {{ mes-name }}:
-* Commands in the `yc managed-elasticsearch cluster` group allow you to manage clusters.
-* Commands in the `yc managed-elasticsearch user` group allow you to manage users.
+* The `yc managed-elasticsearch cluster` group commands allow managing clusters.
+* The `yc managed-elasticsearch user` group commands allow managing users.
 
 ### Version 0.69.0 (02/12/20) {#version0.69.0}
 
@@ -2194,9 +2228,9 @@ Added primary support for {{ mes-name }}:
 **{{ mkf-name }}**
 
 Added primary support for {{ mkf-name }}:
-* Commands in the `yc managed-kafka cluster` group allow you to manage clusters.
-* Commands in the `yc managed-kafka topic` group allow you to manage topics.
-* Commands in the `yc managed-kafka user` group allow you to manage users.
+* The `yc managed-kafka cluster` group commands allow managing clusters.
+* The `yc managed-kafka topic` group commands allow managing topics.
+* The `yc managed-kafka user` group commands allow managing users.
 
 **{{ mmy-name }}**
 
@@ -2256,7 +2290,6 @@ Added primary support for {{ mkf-name }}:
 
    Added the `--security-group-ids` flag to set cluster security groups.
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
-
 
    Added the `--network-interface` flag that allows you to configure more detailed network specifications for nodes. For example, you can manage security group settings for network interfaces and configure node interfaces for concurrent use of IPv4 and IPv6 in {{ k8s }} clusters.
 
@@ -2535,7 +2568,6 @@ Added support for {{ api-gw-full-name }}.
 
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
 
-
    Added the `--gpus=GPUS` flag to specify the number of GPUs on the nodes.
 
 ##### {{ container-registry-name }} {#container-registry}
@@ -2560,7 +2592,7 @@ Added support for {{ api-gw-full-name }}.
 
 **Fixed**
 
-* Fixed usage of a Docker Credential helper with HTTPS addresses. You can now get authentication data for `https://cr.yandex` addresses.
+* Fixed usage of a Docker credential helper with HTTPS addresses. You can now get authentication data for the `https://{{ registry }}` address.
 
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -2650,7 +2682,6 @@ Added support for {{ api-gw-full-name }}.
 
    Added the `--node-ipv4-mask-size` flag to configure the size of `CIDR` allocated to each cluster node.
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
-
 
    Added the `--max-unavailable` and `--max-expansion` flags to control the number of nodes deleted and created when updating the group.
 

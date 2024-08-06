@@ -15,11 +15,26 @@
       * Autostop parameter values.
 
          Specify different sets of parameters for different autostop types.
+   1. Under **Forced test termination time**, specify the time to autostop the test unless it is stopped for other reasons. The parameter value should be slightly greater than the expected duration of the test.
    1. (Optional) Enable the **Agent monitoring** option. For more information, see [{#T}](../../load-testing/concepts/monitoring.md).
    1. Under **{{ ui-key.yacloud.load-testing.meta-section }}**, specify the test name, description, version number, and label.
 
 - Configuration file
 
    Click **Attach file** and open the configuration file on your computer. If you do not have a configuration file, run the test again or generate a configuration file based on the [documentation](https://yandextank.readthedocs.io/en/latest/config_reference.html#phantom).
+
+   {% note warning %}
+
+   Make sure to specify the time limit for the test under `autostop` in the configuration file:
+
+   ```
+   autostop:
+     enabled: true
+     package: yandextank.plugins.Autostop
+     autostop:
+       - limit (5m)
+   ```
+
+   {% endnote %}
 
 {% endlist %}

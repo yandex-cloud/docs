@@ -71,6 +71,10 @@ items:
             href: operations/route-table-get-info.md
           - name: Moving a NAT gateway between folders
             href: operations/static-gateway-move.md
+          - name: Deleting a route table
+            href: operations/delete-route-table.md
+          - name: Deleting a NAT gateway
+            href: operations/delete-nat-gateway.md
       - name: Security groups
         items:
           - name: Creating a security group

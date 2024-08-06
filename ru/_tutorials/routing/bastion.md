@@ -208,7 +208,7 @@
        * В поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите **{{ ui-key.yacloud.component.compute.network-select.switch_list }}**.
        * Нажмите **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}**. В открывшемся окне:
 
-         * В поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** введите адрес `172.16.16.254`
+         * В поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** введите адрес `172.16.16.254`.
          * Нажмите **{{ ui-key.yacloud.common.create }}**.
 
      {% note info %}

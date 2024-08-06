@@ -206,7 +206,7 @@
            fi
       after_script:
          # Удаление агента тестирования
-         - agent_id=$(cat agent_id.txt)    
+         - agent_id=$(cat agent_id.txt)
          - yc loadtesting agent delete $agent_id
          - rm agent_id.txt
    ```

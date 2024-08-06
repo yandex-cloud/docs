@@ -54,7 +54,7 @@ description: "Описаны коды ответов и ошибок в {{ objst
 || 400 | `InvalidPart` | Одна и более частей составной загрузки не найдены. Проверьте корректность перечня. Возможно отсутствующие части не были загружены. ||
 || 400 | `InvalidPartOrder` | Перечень частей составной загрузки указан некорректно. Части должны быть отсортированы по возрастанию номера. ||
 || 400 | `InvalidRequest` | Используйте AWS4-HMAC-SHA256. ||
-|| 400 | `InvalidRequest` | Попытка превысить максимальный размер бакета.<br/><br/>Описание ошибки в ответе: "You have attempted to exceed the max size configured for the bucket." ||
+|| 400 | `BucketMaxSizeExceeded` | Попытка превысить максимальный размер бакета.<br/><br/>Описание ошибки в ответе: "You have attempted to exceed the max size configured for the bucket." ||
 || 400 | `InvalidStorageClass` | Некорректный класс хранилища. ||
 || 400 | `InvalidTargetBucketForLogging` | Бакет не существует или вы не владелец бакета или недостаточно прав у группы доставки логов.
 

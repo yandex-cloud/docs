@@ -278,7 +278,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
 См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
-{% include [no-new-tables](../../../../_includes/data-transfer/troubles/no-new-tables.md) %}
+{% include [no-new-tables](../../../../_includes/data-transfer/troubles/no-new-tables-mch.md) %}
 
 {% include [table-names](../../../../_includes/data-transfer/troubles/table-names.md) %}
 

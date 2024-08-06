@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# {{ vpc-name }} pricing
+# {{ vpc-name }} pricing policy
 
 {{ vpc-name }} usage is rated by the pricing policy described in this section.
 
@@ -46,20 +46,12 @@ All prices are net of VAT.
 
 The cost of an inactive public static address is calculated by adding the cost of a public IP address to the cost of reserving an inactive public static IP address.
 
-
 For example, the cost of an inactive public static address will be:
 
 
 
-> $0.001920 + $0.002480 = $0.004400
->
-> Total: $0.004400 per hour.
 
-Where:
-
-* $0.001920: Cost of using a public IP address per hour.
-* $0.002480: Cost of reserving an inactive public static IP address per hour.
-
+{% include [examples-usd-hour](../_pricing_examples/vpc/usd-hour.md) %}
 
 
 #### NAT gateways {#nat-gateways}
@@ -180,3 +172,4 @@ All prices below do not include VAT.
 The Managed Web Application Firewall plan includes the following services:
 
 {% include [waf-services](../_pricing/vpc/waf-services.md) %}
+

@@ -45,7 +45,7 @@ You can specify the [appropriate security groups](../../../vpc/concepts/security
 
 ## Metadata {#metadata}
 
-You can use a template to describe the metadata service parameters and metadata for the instances in the group. For example, you can use the `user-data` key to describe the system users to be created on new instance startup. For more information about the metadata supported by {{ compute-name }}, see [{#T}](../vm-metadata.md).
+You can use a template to describe the metadata service parameters and the VM metadata for the instances in the group. For example, in the `user-data` key, you can describe the system users to be added or the [software installation scripts](../../operations/vm-create/create-with-cloud-init-scripts.md#examples) to be run when creating a new VM. For more information about the metadata supported by {{ compute-name }}, see [{#T}](../vm-metadata.md).
 
 ## Template description in a YAML file {#instance-template}
 
@@ -153,8 +153,8 @@ Keys (the table lists keys that directly define the base instance configuration)
 | `metadata_options` | (Optional) [Metadata service parameters](../../operations/vm-info/get-info.md#metadata-options). |
 | `metadata_options.gce_http_endpoint` | (Optional) Access to metadata using Google Compute Engine format.</br>– `enabled`: Enabled.</br>– `disabled`: Disabled. |
 | `metadata_options.aws_v1_http_endpoint` | (Optional) Access to metadata using AWS format (IMDSv1).</br>– `enabled`: Enabled.</br>– `disabled`: Disabled. |
-| `metadata_options.gce_http_token` | (Optional) Access to the {{ iam-name }} credentials using Google Compute Engine format.</br>– `enabled`: Enabled.</br>– `disabled`: Disabled. |
-| `metadata_options.aws_v1_http_token` | (Optional) Access to the [{{ iam-name }}](../../../iam/) credentials using AWS format (IMDSv1).</br>– `enabled`: Enabled.</br>– `disabled`: Disabled. |
+| `metadata_options.gce_http_token` | (Optional) Access to {{ iam-name }} credentials using Google Compute Engine format.</br>– `enabled`: Enabled.</br>– `disabled`: Disabled. |
+| `metadata_options.aws_v1_http_token` | (Optional) Access to [{{ iam-name }}](../../../iam/) credentials using AWS format (IMDSv1).</br>– `enabled`: Enabled.</br>– `disabled`: Disabled. |
 | `metadata` | (Optional) Metadata for a template instance. For more information, see [{#T}](../vm-metadata.md). |
 | `metadata.user-data` | Additional settings for instance initialization. In the example, the settings are described for the `cloud-init` program. |
 | `placement_policy` | (Optional) [VM placement group](../placement-groups.md) parameters. |
@@ -162,3 +162,8 @@ Keys (the table lists keys that directly define the base instance configuration)
 | `service_account_id` | (Optional) [Service account](../../../iam/concepts/users/service-accounts.md) attached to the VMs in the group that enables them to use cloud resources. Using a service account enables flexible configuration of access permissions for resources.</br>For more granular management of access permissions, attach different service accounts with different permissions to the instance group and VMs in the group. |
 
 For information about the technical restrictions of {{ ig-name }}, see [{#T}](../limits.md).
+
+#### See also {#see-also}
+
+* [{#T}](../vm-metadata.md)
+* [Creating a VM with a custom configuration script](../../operations/vm-create/create-with-cloud-init-scripts.md)

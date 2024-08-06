@@ -101,7 +101,7 @@
       - Management console {#console}
 
          1. Go to the {{ MY }} cluster page in the [management console]({{ link-console-main }}).
-         1. On the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab next to the DB, click ![image](../../../_assets/options.svg) → **{{ ui-key.yacloud.mdb.cluster.databases.button_action-connect }}**.
+         1. On the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab next to the DB, click ![image](../../../_assets/options.svg) → **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
          1. Locate the `mysql --host=ХХХХ-ХХХХХХХХХХ.{{ dns-zone }}` line, where `ХХХХ-ХХХХХХХХХХ.{{ dns-zone }}` is the FQDN of the `MASTER` host.
 
       - CLI {#cli}

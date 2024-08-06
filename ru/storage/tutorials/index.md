@@ -33,4 +33,5 @@ description: "На странице представлен список прак
 * [{#T}](./object-storage-to-greenplum.md)
 * [{#T}](./object-storage-to-clickhouse.md)
 * [{#T}](./object-storage-to-ydb.md)
+* [{#T}](./ydb-to-object-storage.md)
 * [{#T}](./static-key-in-lockbox.md)

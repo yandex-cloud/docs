@@ -107,7 +107,7 @@
     1. Выберите зону из списка.
     1. Убедитесь, что в списке записей есть запись вида: `c-<идентификатор_кластера>.rw.mdb.yandexcloud.net.`.
 
-## Проверьте доступность кластера из другой облачной сети{#check-cluster-availability}
+## Проверьте доступность кластера из другой облачной сети {#check-cluster-availability}
 
 1. [Подключитесь по SSH](../../../compute/operations/vm-connect/ssh.md#vm-connect) к виртуальной машине `another-net-vm`.
 1. [Настройте подключение к кластеру](../../../managed-clickhouse/operations/connect/clients.md) через `clickhouse-client` и убедитесь, что подключение к кластеру из другой облачной сети по FQDN работает.

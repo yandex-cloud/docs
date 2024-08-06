@@ -19,7 +19,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-If the [agent](../../load-testing/concepts/agent.md) is hosted on {{ yandex-cloud }}, a fee is charged for computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+If the [agent](../../load-testing/concepts/agent.md) is hosted on {{ yandex-cloud }}, you pay for computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testing-name }} is free of charge.
 
@@ -162,7 +162,7 @@ In your test script, specify a sequence of HTTP requests to run during testing. 
 1. Under **Attached files**, click **Select files** and select the `users.csv` and `payload.hcl` files you previously saved.
 1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**, select the **{{ ui-key.yacloud.load-testing.label_settings-type-config }}** configuration method.
 
-1. In the configuration input field, specify the test thread settings in `yaml` format:
+1. In the configuration input field, specify the testing thread settings in `yaml` format:
 
    ```yaml
       uploader:
@@ -194,6 +194,11 @@ In your test script, specify a sequence of HTTP requests to run during testing. 
                      times: 5
             log:
                level: debug
+      autostop:
+         enabled: true
+         package: yandextank.plugins.Autostop
+         autostop:
+            - limit (5m)
       core: {}
    ```
 

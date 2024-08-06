@@ -94,7 +94,7 @@ In this example, the load will be applied to an external service named `example.
 
             {% note alert %}
 
-            Do not use the `root` username or other names reserved by the operating system. To perform operations that require superuser permissions, use the `sudo` command.
+            Do not use `root` or other names reserved by the operating system. To perform operations that require superuser permissions, use the `sudo` command.
 
             {% endnote %}
 
@@ -170,6 +170,7 @@ If you need to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) 
             * `[Connection: Close]`
 
                Please note that the `Connection: Close` header means each connection is terminated after making a request. This mode is heavier on the tested service and load generator. If you do not need to close connections, set `Keep-Alive`.
+         * Under **Forced test termination time**, specify the time to autostop the test unless it is stopped for other reasons. The parameter value should be slightly greater than the expected duration of the test.
    1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.load-testing.button_duplicate-configuration }}**. The test parameters will be copied to the **Configuration 2** settings.
    1. Under **Configuration 2**, specify the test parameters for the second agent:
       1. **{{ ui-key.yacloud.load-testing.label_agents-list }}**: Select the `agent-009` agent.
