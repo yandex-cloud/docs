@@ -52,6 +52,8 @@ description: "Среда выполнения выбирается при соз
 | Java 11 | `java11` | Нет | Нет |
 | Java 17 | `java17` | Нет | Нет |
 | Java 21 | `java21` | Нет | Да |
+| **Kotlin** |  |  |
+| Kotlin 2.0 | `kotlin20` | Нет | Да |
 | **.NET Core** |  |  |
 | .NET Core 3.1 | `dotnetcore31` | Нет | Нет |
 | .NET Core 6 | `dotnet6` | Нет | Нет |

@@ -17,6 +17,16 @@
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) `kube-system`.
    * **Название приложения** — укажите название, под которым приложение будет развернуто в кластере {{ managed-k8s-name }}.
+   * **Внутренний IP-адрес службы kube-dns** — адрес для обращения к NodeLocal DNS Cache. Запросы, отправленные из подов приложений по адресу в поле, маршрутизируются на [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) с помощью правил iptables.
+
+      Поле содержит адрес `ClusterIP` сервиса `kube-dns` в пространстве имен `kube-system`. Значение поля можно получить с помощью команды:
+
+      ```bash
+      kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
+      ```
+
+      Так как {{ yandex-cloud }} добавляет сервис `kube-dns` при создании кластера, IP-адрес сервиса предопределен. Поэтому его нельзя изменить в поле **Внутренний IP-адрес службы kube-dns**.
+
    * **Работа с Cilium** — выберите эту опцию, если кластер использует [контроллер сетевых политик Cilium](../../concepts/network-policy.md#cilium).
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
@@ -45,4 +55,6 @@
      node-local-dns ./chart/
    ```
 
-Подробнее о настройке локального кеширования DNS см. в [{#T}](../../tutorials/node-local-dns.md).
+   Где `KUBE_DNS_IP` — это адрес для обращения к NodeLocal DNS Cache. Запросы, отправленные из подов приложений по адресу `KUBE_DNS_IP`, маршрутизируются на [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) с помощью правил iptables.
+
+Подробнее о настройке локального кеширования DNS см. в разделе [{#T}](../../tutorials/node-local-dns.md).

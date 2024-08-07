@@ -2,6 +2,8 @@
 
 В инструкции описано, как создать [Docker-образ](../../concepts/docker-image.md) на основе Dockerfile и собрать его.
 
+Чтобы работать с Docker-образами, [установите и настройте](../configure-docker.md) Docker.
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}

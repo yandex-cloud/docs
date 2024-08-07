@@ -5,11 +5,7 @@ description: "Пошаговые инструкции по работе с Docke
 
 # Пошаговые инструкции для {{ container-registry-name }}
 
-Чтобы работать с Docker-образами, [аутентифицируйтесь в {{ container-registry-name }}](authentication.md).
-
-## Работа с {{ coi }} {#coi}
-
-Подробнее о том, как работать с образом {{ coi }}, читайте в документации [{{ cos-name }}](../../cos/).
+Чтобы работать с Docker-образами, [настройте Docker](./configure-docker.md) и [аутентифицируйтесь в {{ container-registry-name }}](./authentication.md).
 
 ## Управление Docker-образом {#docker-images}
 
@@ -61,3 +57,7 @@ description: "Пошаговые инструкции по работе с Docke
 * [{#T}](roles/grant.md)
 * [{#T}](roles/get-assigned-roles.md)
 * [{#T}](roles/revoke.md)
+
+## Работа с {{ coi }} {#coi}
+
+Подробнее о том, как работать с образом {{ coi }}, читайте в документации [{{ cos-name }}](../../cos/).

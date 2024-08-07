@@ -93,7 +93,7 @@
      Результат:
 
      ```text
-     Pushed: {{ registry }}/<идентификатор_реестра>/<имя_Helm-чарта>:<версия>
+     Pushed: {{ registry }}/crp3h07fgv9b********/<имя_Helm-чарта>:<версия>
      Digest: <SHA256...>
      ```
 
@@ -132,7 +132,7 @@
   1. Загрузите Helm-чарт в {{ container-registry-name }}:
 
      ```bash
-     helm push my-chart-3.11.2.tgz oci://{{ registry }}/crp3h07fgv9b********
+     helm push my-chart-3.11.2.tgz oci://{{ registry }}/<идентификатор_реестра>
      ```
 
      Результат:

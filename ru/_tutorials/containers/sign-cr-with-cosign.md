@@ -76,7 +76,7 @@
 
 ### Добавьте несколько Docker-образов в реестр {{ container-registry-name }} {#add-docker-images}
 
-1. [Аутентифицируйтесь в {{ container-registry-name }}](../../container-registry/operations/authentication.md).
+1. [Настройте](../../container-registry/operations/configure-docker.md) Docker и [аутентифицируйтесь в {{ container-registry-name }}](../../container-registry/operations/authentication.md).
 1. [Создайте несколько Docker-образов](../../container-registry/operations/docker-image/docker-image-create.md). Один из образов в дальнейшем будет подписан с помощью Cosign, остальные образы будут неподписанными.
 1. [Загрузите Docker-образы](../../container-registry/operations/docker-image/docker-image-push.md) в реестр {{ container-registry-name }}.
 

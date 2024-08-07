@@ -107,7 +107,7 @@ See 'docker run --help'.
     Для этого используйте команду следующего вида:
 
     ```
-    docker pull cr.yandex/mirror/hello-world
+    docker pull {{ registry }}/mirror/hello-world
     ```
 
 - Приватный реестр Container Registry
@@ -122,7 +122,7 @@ See 'docker run --help'.
 ## DaemonSet для Managed Service for Kubernetes
 
 Наша команда поддержки подготовила манифест объекта DaemonSet для кластеров Kubernetes.
-Этот DaemonSet создает внутри кластера привилегированный под, который обновляет конфигурацию `containerd` таким образом, чтобы запросы к реестру `hub.docker.io` перенаправлялись на `cr.yandex/mirror`.
+Этот DaemonSet создает внутри кластера привилегированный под, который обновляет конфигурацию `containerd` таким образом, чтобы запросы к реестру `hub.docker.io` перенаправлялись на `{{ registry }}/mirror`.
 
 Текст манифеста следует скопировать в файл с расширением YAML и применить к кластеру с помощью команды `kubectl apply -f filename.yaml`:
 
@@ -160,14 +160,14 @@ data:
       [plugins."io.containerd.grpc.v1.cri"]
           stream_server_address = "127.0.0.1"
           enable_tls_streaming = false
-          sandbox_image = "cr.yandex/crpsjg1coh47p81vh2lc/pause:3.9"
+          sandbox_image = "{{ registry }}/crpsjg1coh47p81vh2lc/pause:3.9"
           [plugins."io.containerd.grpc.v1.cri".containerd]
               snapshotter = "overlayfs"
 
       [plugins."io.containerd.grpc.v1.cri".registry]
         [plugins."io.containerd.grpc.v1.cri".registry.mirrors]
           [plugins."io.containerd.grpc.v1.cri".registry.mirrors."docker.io"]
-            endpoint = ["https://cr.yandex/v2/mirror/io/docker","https://mirror.gcr.io"]
+            endpoint = ["https://{{ registry }}/v2/mirror/io/docker","https://mirror.gcr.io"]
 kind: ConfigMap
 metadata:
   name: configtoml
@@ -200,7 +200,7 @@ spec:
       hostIPC: true
       containers:
       - name: config-updater
-        image: cr.yandex/yc/mk8s-openssl:stable
+        image: {{ registry }}/yc/mk8s-openssl:stable
         command:
           - sh
           - -c

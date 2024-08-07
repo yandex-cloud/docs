@@ -5203,6 +5203,8 @@ default:
           service-accounts: Service accounts
           title: Configuring access bindings
           user-accounts: User accounts
+      forms:
+        label_value: Value
       marketplace:
         label_product-ids: Product IDs
         product-pricing-type_byol: BYOL
@@ -5338,6 +5340,8 @@ default:
         channel-table:
           repeat: Re-notification
         label:
+          edit-notify-methods: Edit
+          notification-method: Notification method
           query-to-check: Query to check
           sent-notify-statuses: Notification statuses
         list-table:
@@ -5358,7 +5362,10 @@ default:
           min: Minimum
           sum: Sum
         title:
+          alert-conditions: Alert conditions
+          alert-config: Alert configuration
           evaluation-window: Evaluation window
+          notification-channels: Notifications
           time-shift: Evaluation delay
       prometheus:
         approved:
@@ -5368,6 +5375,7 @@ default:
         field:
           function: Aggregation function
       services:
+        label_custom: Custom Metrics
         label_managed-elasticsearch: Managed Service for Elasticsearch
         label_mysql: Managed Service for MySQL
         label_postgresql: Managed Service for PostgreSQL
@@ -7600,6 +7608,7 @@ default:
             field_payload-template: Payload template
             field_tag: Version tag
             label_result-success: Done
+            label_title: Testing
             label_title-test-result: Test result
             value_alice-skill: Alice's skill
             value_empty: Without preset
@@ -9204,6 +9213,8 @@ default:
           label-nodes: Nodes and load balancing
       new-node:
         add-acl: Add ACL
+        additional-disk:
+          title: Additional disk
         endpoint-form-label:
           idle-timeout: Idle timeout
           port: Port
@@ -9246,6 +9257,9 @@ default:
         mount-name: Mount name
         static-access-key: Static access key
       node-page:
+        instance-spec: Instance configuration
+        provisioning:
+          distribution-by-zones: Distribution by zones
         request:
           create-test-request: Create test request
           curl: cURL

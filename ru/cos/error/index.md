@@ -21,9 +21,9 @@ sudo journalctl -u yc-container-daemon
 Mar 25 12:07:39 instance-name yc-container-daemon[516]:
 {"level":"DEBUG","ts":"2021-03-25T12:07:39.785Z","caller":"container/image.go:75","msg":"trying to pull image (0/3)"}
 Mar 25 12:07:39 instance-name yc-container-daemon[516]:
-{"level":"DEBUG","ts":"2021-03-25T12:07:39.786Z","caller":"container/image.go:47","msg":"pulling image: '{{ registry }}/crpgrueprnc1cgt1la/nginx:1.16.0'"}
+{"level":"DEBUG","ts":"2021-03-25T12:07:39.786Z","caller":"container/image.go:47","msg":"pulling image: '{{ registry }}/crpgrueprn********/nginx:1.16.0'"}
 Mar 25 12:07:41 instance-name yc-container-daemon[516]:
-{"level":"ERROR","ts":"2021-03-25T12:07:41.005Z","caller":"container/image.go:78","msg":"error pulling image: Error response from daemon: pull access denied for {{ registry }}/crpgruernc1bgt1la/ngin>
+{"level":"ERROR","ts":"2021-03-25T12:07:41.005Z","caller":"container/image.go:78","msg":"error pulling image: Error response from daemon: pull access denied for {{ registry }}/crpgruern********/ngin>
 ```
 
 **Как исправить:** [назначьте сервисному аккаунту роль](../../iam/operations/sa/set-access-bindings.md) `viewer` или `container-registry.images.puller` на репозиторий, реестр или каталог. Подробнее про роли, действующие в сервисе, читайте в [документации](../../container-registry/security/index.md).

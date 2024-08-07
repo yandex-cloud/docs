@@ -8,7 +8,7 @@
 
 {% include [create-folder](../../_includes/create-folder.md) %}
 
-Также вам понадобятся [{{ yandex-cloud }} CLI](../../cli/quickstart.md) и [Docker](https://docs.docker.com/install/).
+Чтобы работать с {{ container-registry-name }} и Docker-образами, [установите {{ yandex-cloud }} CLI](../../cli/operations/install-cli.md) и [настройте](../operations/configure-docker.md) Docker.
 
 ## Создание реестра и базовые операции с Docker-образом {#registry-create}
 
@@ -62,21 +62,21 @@
 
    ```bash
    docker tag ubuntu \
-   {{ registry }}/crpc9qeoft23********/ubuntu:hello
+   {{ registry }}/<идентификатор_реестра>/ubuntu:hello
    ```
 
 1. Загрузите Docker-образ в репозиторий {{ container-registry-name }}:
 
    ```bash
    docker push \
-   {{ registry }}/crpc9qeoft23********/ubuntu:hello
+   {{ registry }}/<идентификатор_реестра>/ubuntu:hello
    ```
 
 1. Запустите Docker-образ:
 
    ```bash
    docker run \
-   {{ registry }}/crpc9qeoft23********/ubuntu:hello
+   {{ registry }}/<идентификатор_реестра>/ubuntu:hello
    ```
 
 #### Смотрите также {#see-also}

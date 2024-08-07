@@ -34,7 +34,7 @@ description: "Следуя данному руководству, вы смож�
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
-1. [Установите](https://www.docker.com) Docker.
+1. [Установите и настройте](../operations/configure-docker.md) Docker.
 1. Создайте реестр для загрузки Docker-образа.
 
    {% list tabs group=instructions %}

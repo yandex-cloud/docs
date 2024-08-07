@@ -61,6 +61,8 @@
      
    Чтобы использовать образ из другого хранилища Docker-образов, выберите тип **{{ ui-key.yc-ui-datasphere.common.other }}** и заполните остальные поля значениями, необходимыми для подключения к вашему реестру.
 
+1. (Опционально) В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.runtime-options }}** укажите размер диска, доступного в Docker-образе.
+
 1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.endpoint }}**:
    * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.type }}** — выберите протокол подключения к ноде: **HTTP** (**HTTP/2**) или **gRPC**.
    * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.port }}** — укажите порт для подключения к ноде.
@@ -80,8 +82,11 @@
    * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.passes-threshold }}** — необходимое количество пройденных проверок.
 1. (Опционально) В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.runtime-options }}** задайте размер общей памяти, доступной в Docker-образе.
 1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}** выберите каталог, в котором будут создаваться новые ресурсы.
-1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}** выберите [конфигурацию](../../concepts/configurations.md) вычислительных ресурсов [инстанса](../../concepts/deploy/index.md), [зону доступности](../../../overview/concepts/geo-scope.md) и идентификатор [подсети](../../../vpc/concepts/network.md#subnet) в которых будет размещен инстанс. 
-1. В поле **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.maintenance-limit }}** укажите, сколько инстансов ноды можно будет выключить одновременно для обслуживания.
+1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**:
+   * **{{ ui-key.yc-ui-datasphere.node-page.instance-spec }}** — выберите [конфигурацию](../../concepts/configurations.md) вычислительных ресурсов [инстанса](../../concepts/deploy/index.md).
+   * **{{ ui-key.yc-ui-datasphere.node-page.provisioning.distribution-by-zones }}** — добавьте [зону доступности](../../../overview/concepts/geo-scope.md) и идентификатор [подсети](../../../vpc/concepts/network.md#subnet) в которых будет размещен инстанс.
+   * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.maintenance-limit }}** — укажите, сколько инстансов ноды можно будет выключить одновременно для обслуживания.
+   * (Опционально) **{{ ui-key.yc-ui-datasphere.new-node.additional-disk.title }}** — добавьте дополнительный диск для инстанса. Если указано несколько инстансов, диск будет создан для каждого из них.
 1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}** нажмите кнопку ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.new-node.add-acl }}** и укажите [идентификаторы каталогов](../../../resource-manager/operations/folder/get-id.md), из которых можно будет подключаться к ноде. По умолчанию указывается идентификатор каталога пользователя, создающего ноду.
 1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
