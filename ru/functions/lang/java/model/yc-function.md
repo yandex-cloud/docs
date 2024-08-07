@@ -1,14 +1,9 @@
-# Использование интерфейса YcFunction для задания функции-обработчика на Java
+# Использование интерфейса YcFunction для обработчика на Java
 
-Вы можете задать функцию-обработчик на Java, реализовав интерфейс [YcFunction](https://github.com/yandex-cloud/java-sdk/blob/master/java-sdk-functions/src/main/java/yandex/cloud/sdk/functions/YcFunction.java). Для этого дополнительно нужно добавить [SDK](../sdk.md) в [зависимости](../dependencies.md).
-
-{% note warning %}
-
-Вы должны указать оба значения для параметров типа `YcFunction`, причем первый тип является типом входного аргумента, а второй — типом возвращаемого значения. Так же у метода `handle` есть второй аргумент — [контекст вызова](../context.md).
-
-{% endnote %}
+Чтобы создать [обработчик](../handler.md) на Java, вы можете реализовать интерфейс [YcFunction](https://github.com/yandex-cloud/java-sdk/blob/master/java-sdk-functions/src/main/java/yandex/cloud/sdk/functions/YcFunction.java). Для этого дополнительно добавьте [SDK](../sdk.md) в [зависимости](../dependencies.md).
 
 Пример корректного обработчика:
+
 ```java
 import yandex.cloud.sdk.functions.YcFunction;
 import yandex.cloud.sdk.functions.Context;
@@ -21,7 +16,14 @@ public class Handler implements YcFunction<Integer, String> {
 }
 ```
 
+{% note warning %}
+
+Указывайте два значения для параметров типа `YcFunction`: первый тип является типом входного аргумента, второй — типом возвращаемого значения. Для метода `handle` не забудьте передать второй аргумент — [контекст вызова](../context.md).
+
+{% endnote %}
+
 Примеры некорректных обработчиков:
+
 ```java
 import yandex.cloud.sdk.functions.YcFunction;
 import yandex.cloud.sdk.functions.Context;
@@ -47,11 +49,11 @@ public class Handler implements YcFunction {
 }
 ```
 
-Вы можете использовать любые классы в качестве входного и возвращаемого типов.
+Можно использовать любые классы в качестве входного и возвращаемого типов.
 
 {% note info %}
 
-Поля этих классов могут иметь любые [модификаторы доступа](https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html). В случае, когда поле непубличное, писать для него `getter`/`setter` необязательно.
+Поля этих классов могут иметь любые [модификаторы доступа](https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html). Если поле непубличное, писать для него `getter`/`setter` необязательно.
 
 {% endnote %}
 

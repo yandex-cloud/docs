@@ -440,17 +440,17 @@
 
     - CLI {#cli}
 
-      1. Присвойте загруженному образу `mongo-express` URL вида `{{ registry }}/<ID_реестра>/<имя_Docker-образа>:<тег>`:
+      1. Присвойте загруженному образу `mongo-express` URL вида `{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`:
 
          ```
          docker tag mongo-express \
-         {{ registry }}/crpd50616s9a********/mongo-express:mongo-tag
+         {{ registry }}/<идентификатор_реестра>/mongo-express:mongo-tag
          ```
 
       1. Загрузите образ `mongo-express` в реестр:
 
          ```
-         docker push {{ registry }}/crpd50616s9a********/mongo-express:mongo-tag
+         docker push {{ registry }}/<идентификатор_реестра>/mongo-express:mongo-tag
          ```
 
     {% endlist %}

@@ -78,9 +78,8 @@ env:
   #   image: <путь_к_образу_в_реестре>:<тег>  # Например <{{ registry }}/crtabcdef12345678900/myenv:0.1>
                                               # Для Docker Hub достаточно указать `<имя>:<тег>`, например `ubuntu:focal` 
   #   username: <логин>
-  #   password: <пароль> # в текстовом виде или имя секрета {{ ml-platform-name }}
-  #   # password:
-  #   #   secret-id: PASSWORD
+  #   password: 
+  #     secret-id: PASSWORD  # имя секрета {{ ml-platform-name }}
 
   # Способ сборки зависимостей окружения
   python: auto # Полная автоматизация сборки окружения

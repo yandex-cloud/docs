@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Чтобы загрузить образ, необходимо [аутентифицироваться](../authentication.md) в реестре.
+Чтобы загрузить образ, необходимо [настроить](../configure-docker.md) Docker и [аутентифицироваться](../authentication.md) в реестре.
 
 {% endnote %}
 
@@ -30,7 +30,7 @@
 
      ```
      docker tag ubuntu \
-     {{ registry }}/crpd50616s9a********/ubuntu:hello
+     {{ registry }}/<идентификатор_реестра>/ubuntu:hello
      ```
 
      {% note info %}
@@ -42,7 +42,7 @@
   1. Загрузите необходимый Docker-образ в реестр:
 
      ```
-     docker push {{ registry }}/crpd50616s9a********/ubuntu:hello
+     docker push {{ registry }}/<идентификатор_реестра>/ubuntu:hello
      ```
 
   1. Проверьте, что образ загрузился в реестр, [получив список Docker-образов в реестре](docker-image-list.md#docker-image-list).

@@ -5210,6 +5210,8 @@ default:
           service-accounts: Сервисные аккаунты
           title: Настройка прав доступа
           user-accounts: Пользовательские аккаунты
+      forms:
+        label_value: Значение
       marketplace:
         label_product-ids: Идентификаторы продукта
         product-pricing-type_byol: BYOL
@@ -5345,6 +5347,8 @@ default:
         channel-table:
           repeat: Повторная отправка
         label:
+          edit-notify-methods: Редактировать
+          notification-method: Способ уведомления
           query-to-check: Запрос для проверки
           sent-notify-statuses: Отправляемые статусы
         list-table:
@@ -5365,7 +5369,10 @@ default:
           min: Минимум
           sum: Сумма
         title:
+          alert-conditions: Условия срабатывания
+          alert-config: Настройки алерта
           evaluation-window: Окно вычисления
+          notification-channels: Уведомления
           time-shift: Задержка вычисления
       prometheus:
         approved:
@@ -5375,6 +5382,7 @@ default:
         field:
           function: Функция агрегации
       services:
+        label_custom: Custom Metrics
         label_managed-elasticsearch: Managed Service for Elasticsearch
         label_mysql: Managed Service for MySQL
         label_postgresql: Managed Service for PostgreSQL
@@ -7609,6 +7617,7 @@ default:
             field_payload-template: Шаблон данных
             field_tag: Тег версии
             label_result-success: Выполнена
+            label_title: Тестирование
             label_title-test-result: Результат тестирования
             value_alice-skill: Навык Алисы
             value_empty: Без шаблона
@@ -9211,6 +9220,8 @@ default:
           label-nodes: Ноды и распределение нагрузки
       new-node:
         add-acl: Добавить ACL
+        additional-disk:
+          title: Дополнительный диск
         endpoint-form-label:
           idle-timeout: Idle timeout
           port: Порт
@@ -9253,6 +9264,9 @@ default:
         mount-name: Имя раздела при подключении
         static-access-key: Статический ключ доступа
       node-page:
+        instance-spec: Конфигурация инстанса
+        provisioning:
+          distribution-by-zones: Распределение по зонам
         request:
           create-test-request: Создать тестовый запрос
           curl: cURL

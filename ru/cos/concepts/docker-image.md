@@ -6,4 +6,4 @@
 
 Пример имени Docker-образа для разных реестров:
 * Docker Hub: `ubuntu:16.04`.
-* {{ container-registry-name }}: `{{ registry }}/crpd50616s9a********/ubuntu:16.04`.
+* {{ container-registry-name }}: `{{ registry }}/<идентификатор_реестра>/ubuntu:16.04`.

@@ -71,7 +71,7 @@
     container_id: bbanb9mvu1dl********
     created_at: "2024-05-08T07:22:45.378Z"
     image:
-      image_url: cr.yandex/crprip91p1q9********/ubuntu:hello
+      image_url: {{ registry }}/crprip91p1q9********/ubuntu:hello
       image_digest: sha256:aa55c46fba9b14b8d8de16e2f8a07d716edfb1dbbb9433b827214ad2********
     resources:
       memory: "1073741824"

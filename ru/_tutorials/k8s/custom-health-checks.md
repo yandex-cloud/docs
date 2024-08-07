@@ -123,7 +123,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 1. В переменную окружения добавьте название Docker-образа, который будет создан:
 
    ```bash
-   export TEST_IMG=cr.yandex/<идентификатор_реестра>/example-app1:latest
+   export TEST_IMG={{ registry }}/<идентификатор_реестра>/example-app1:latest
    ```
 
 1. Соберите Docker-образ:

@@ -6,8 +6,8 @@
 В процессе подключения к внешним адресам с нод без доступа в интернет возникает ошибка:
 
 ```text
-Failed to pull image "cr.yandex/***": rpc error: code = Unknown desc
-Error response from daemon: Gethttps://cr.yandex/v2/: net/http: 
+Failed to pull image "{{ registry }}/***": rpc error: code = Unknown desc
+Error response from daemon: Gethttps://{{ registry }}/v2/: net/http: 
 request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
 ```
 
