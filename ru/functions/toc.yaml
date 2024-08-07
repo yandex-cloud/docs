@@ -336,6 +336,30 @@ items:
         href: lang/java/errors.md
       - name: Использование SDK
         href: lang/java/sdk.md
+  - name: Разработка на Kotlin
+    items:
+      - name: Обзор
+        href: lang/kotlin/index.md
+      - name: Модель программирования
+        items:
+          - name: Обзор
+            href: lang/kotlin/model/index.md
+          - name: Функция верхнего уровня
+            href: lang/kotlin/model/top-level-function.md
+          - name: Интерфейс YcFunction
+            href: lang/kotlin/model/yc-function.md
+      - name: Управление зависимостями
+        href: lang/kotlin/dependencies.md
+      - name: Обработчик запросов
+        href: lang/kotlin/handler.md
+      - name: Контекст вызова
+        href: lang/kotlin/context.md
+      - name: Журналирование
+        href: lang/kotlin/logging.md
+      - name: Обработка ошибок
+        href: lang/kotlin/errors.md
+      - name: Использование SDK
+        href: lang/kotlin/sdk.md
   - name: Разработка на R
     items:
       - name: Обзор

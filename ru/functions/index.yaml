@@ -41,6 +41,9 @@ links:
   - title: Java
     description: Разработка функций на языке Java
     href: lang/java/
+  - title: Kotlin
+    description: Разработка функций на языке Kotlin
+    href: lang/kotlin/
   - title: R
     description: Разработка функций на языке R
     href: lang/r/

@@ -88,7 +88,7 @@ description: "Данные в {{ container-registry-name }} надежно хр�
    - CLI {#cli}
 
      ```bash
-     docker pull {{ registry }}/crp1abc2tl3d********/ubuntu:hello
+     docker pull {{ registry }}/<идентификатор_реестра>/ubuntu:hello
      ```
 
      Результат:

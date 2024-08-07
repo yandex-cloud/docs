@@ -9,3 +9,4 @@ description: "Если у вас уже есть опыт использован
 * [{#T}](aws.md)
 * [{#T}](gcp.md)
 * [{#T}](azure.md)
+* [{#T}](vmware/index.md)

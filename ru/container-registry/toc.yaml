@@ -12,6 +12,8 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Установить и настроить Docker
+        href: operations/configure-docker.md
       - name: Аутентифицироваться в {{ container-registry-name }}
         href: operations/authentication.md
       - name: Управление Docker-образом
@@ -96,6 +98,7 @@ items:
             href: tutorials/run-docker-on-vm/terraform.md
       - name: Настройка автоматического сканирования Docker-образа
         href: tutorials/image-auto-scan.md
+        hidden: true
       - name: Подпись и проверка Docker-образов в {{ managed-k8s-name }}
         href: tutorials/sign-with-cosign.md
       - name: >-

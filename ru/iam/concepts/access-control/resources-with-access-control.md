@@ -102,38 +102,49 @@ description: "Из статьи вы узнаете, на какие ресур�
 ## Ресурсы, на которые можно назначать роли с помощью {{ TF }} {#terraform}
 
 **{{ container-registry-name }}**
-* [Реестр](../../../container-registry/concepts/registry.md)
-* [Репозиторий](../../../container-registry/concepts/repository.md)
+* [Реестр](../../../container-registry/operations/roles/grant.md)
+* [Репозиторий](../../../container-registry/operations/roles/grant.md)
 
 **{{ ml-platform-name }}**
-* [Проект](../../../datasphere/concepts/project.md)
-* [Сообщество](../../../datasphere/concepts/community.md)
+* [Проект](../../../datasphere/security/index.md)
+* [Сообщество](../../../datasphere/security/index.md)
 
 **{{ dns-name }}**
-* [Зона DNS](../../../dns/concepts/dns-zone.md)
+* [Зона DNS](../../../dns/operations/zone-access.md)
 
 **{{ sf-name }}**
-* [Функция](../../../functions/concepts/function.md)
+* [Функция](../../../functions/operations/function/role-add.md)
+
+**{{ compute-name }}**
+* [Виртуальная машина](../../../compute/operations/vm-control/vm-access.md)
+* [Группа размещения виртуальных машин](../../../compute/operations/placement-groups/access.md)
+* [Группа размещения нереплицируемых дисков](../../../compute/operations/disk-placement-groups/access.md)
+* [Диск виртуальной машины](../../../compute/operations/disk-control/disk-access.md)
+* [Кластер GPU](../../../compute/operations/gpu-cluster/access.md)
+* [Образ](../../../compute/operations/image-control/access.md)
+* [Расписание снимков](../../../compute/operations/snapshot-control/snapshot-schedule-access.md)
+* [Снимок диска](../../../compute/operations/snapshot-control/snapshot-access.md)
+* [Файловое хранилище](../../../compute/operations/filesystem/filesystem-access.md)
 
 **{{ iam-name }}**
-* [Сервисный аккаунт](../users/service-accounts.md)
+* [Сервисный аккаунт](../../operations/sa/assign-role-for-sa.md)
 
 **{{ kms-name }}**
 
 {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
 
 **{{ lockbox-name }}**
-* [Секрет](../../../lockbox/concepts/secret.md)
+* [Секрет](../../../lockbox/operations/secret-access.md)
 
 **{{ resmgr-name }}**
-* [Облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud)
-* [Каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder)
+* [Облако](../../../resource-manager/operations/cloud/set-access-bindings.md)
+* [Каталог](../../../resource-manager/operations/folder/set-access-bindings.md)
 
 **{{ serverless-containers-name }}**
-* [Контейнер](../../../serverless-containers/concepts/container.md)
+* [Контейнер](../../../serverless-containers/operations/role-add.md)
 
 **{{ ydb-name }}**
-* [СУБД YDB](../../../ydb/concepts/index.md#ydb)
+* [СУБД YDB](../../../ydb/security/index.md)
 
 **{{ org-name }}**
 

@@ -267,7 +267,7 @@ items:
         href: concepts/index.md
       - name: Релизные каналы и обновления
         href: concepts/release-channels-and-updates.md
-      - name: Шифрование секретов
+      - name: Шифрование
         href: concepts/encryption.md
       - name: Использование объектов API {{ k8s }}
         items:
