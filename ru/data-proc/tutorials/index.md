@@ -13,6 +13,7 @@ description: "Различные сценарии использования {{ 
 * [{#T}](./sqoop-mmy.md)
 * [{#T}](./sqoop-mpg.md)
 * [{#T}](./geesefs-init-actions.md)
+* [{#T}](./kafka.md)
 * [{#T}](./s3-dataproc-ch.md)
 * [{#T}](./airflow-automation.md)
 * [{#T}](./dataproc-to-dataproc.md)

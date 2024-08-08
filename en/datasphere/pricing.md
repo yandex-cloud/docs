@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# {{ ml-platform-name }} pricing
+# {{ ml-platform-name }} pricing policy
 
 
 
@@ -33,6 +33,8 @@ When you run computations remotely using [{{ ml-platform-name }} Jobs](concepts/
 ### {{ ds-inf }} {#node}
 
 When deploying models in {{ ds-inf }}, you pay for the uptime of each node instance: from its start to deletion.
+
+You pay for additional [node instance disks](#prices-storage) separately.
 
 ### Using {{ dataproc-name }} clusters {#data-proc}
 
@@ -88,16 +90,7 @@ The cost of using the service will be:
 
 
 
-> 72 × 600 = 43,200 units for VM usage
-> 43,200 × 0.0000096 = $0.4147200
->
-> Total: $0.4147200, cost of using {{ ml-platform-name }}.
-
-Where:
-
-* 72: Number of units per g1.1 configuration.
-* 600: VM usage time in seconds.
-* $0.0000096: Cost per unit.
+{% include [usd-datasphere-notebook](../_pricing_examples/datasphere/usd-notebook.md) %}
 
 
 ### {{ ds-inf }} {#price-example-node}
@@ -121,15 +114,5 @@ The cost of using {{ ds-inf }} will be:
 
 
 
-> 72 × 185,760 × 2 = 26,749,440 units for running a node
-> 26,749,440 × 0.0000096 = $256.7946240
->
-> Total: $256.7946240, cost of using {{ ml-platform-name }}.
-
-Where:
-
-* 72: Number of units per g1.1 configuration.
-* 185,760: Node runtime in seconds.
-* 2: Number of instances per node.
-* $0.0000096: Cost per unit.
+{% include [usd-datasphere-inference](../_pricing_examples/datasphere/usd-inference.md) %}
 

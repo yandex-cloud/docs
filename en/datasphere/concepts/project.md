@@ -12,7 +12,7 @@ You can upload small amounts of data (up to 100 MB) to your {{ ml-platform-name 
 
 ## Configuring a project runtime environment {#environment}
 
-Projects are created with a preset development environment and pre-installed packages. {{ ml-platform-name }} provides several Docker images of the environment with a choice of Python versions and libraries. The **DS Default (Python 3.10)** image is used by default, but you can [select](../operations/projects/python-version.md) another standard image. For a list of all pre-installed packages, see [{#T}](preinstalled-packages.md). If you are missing a package, you can [install it](../operations/projects/install-dependencies.md) right from the notebook cell or [build a Docker image](../operations/user-images.md).
+Projects are created with a preset development environment and pre-installed packages. {{ ml-platform-name }} provides several Docker images of the environment with a choice of Python versions and libraries. The **DS Default (Python 3.10)** image is used by default, but you can [select](../operations/projects/python-version.md) another standard image. For a list of all pre-installed packages, see [{#T}](preinstalled-packages.md). If you are missing a package, you can [install it](../operations/projects/install-dependencies.md) directly from the notebook cell or [build a Docker image](../operations/user-images.md).
 
 ## {{ ds-nb }} {#mode}
 

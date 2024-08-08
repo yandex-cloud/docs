@@ -112,7 +112,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a [static 
       ```
 
       For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/access-key/create.md).
-   1. Save the ID `key_id` and secret key `secret`. You will not be able to get the key value again.
+   1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
 
 - API {#api}
 
@@ -151,13 +151,21 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a [static 
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-role](../../_includes/storage/terraform-role.md) %}
+
    {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   1. Describe the parameters for creating a service account and access key in the configuration file:
+
+      {% include [terraform-sa-key](../../_includes/storage/terraform-sa-key.md) %}
 
    1. Add a section with bucket parameters to the configuration file and enter the bucket name following the [naming conventions](../../storage/concepts/bucket.md#naming):
 
       ```hcl
       resource "yandex_storage_bucket" "<bucket_name>" {
-        bucket = "<bucket_name>"
+        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+        bucket     = "<bucket_name>"
       }
       ```
 
@@ -235,7 +243,7 @@ You can perform advanced connection setup if needed. To do this, respond to `Edi
 To connect to the bucket from {{ ml-platform-name }}, you need an [S3 connector](../../datasphere/concepts/s3-connector.md):
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
-1. Fill out the fields below:
+1. Fill in the fields as follows:
    * **{{ ui-key.yc-ui-datasphere.common.name }}**: Name of the new connector, e.g., `s3-datasphere-connect`.
    * **{{ ui-key.yc-ui-datasphere.common.endpoint }}**: {{ objstorage-name }} host (`https://{{ s3-storage-host }}/`).
    * **{{ ui-key.yc-ui-datasphere.common.bucket }}**: Name of your bucket.
@@ -291,7 +299,7 @@ In the `diabetes_catboost.ipynb` notebook, you will connect to the `diabetes_dat
    X_train, X_validation, y_train, y_validation = train_test_split(X, y, train_size=0.75, random_state=42)
    ```
 
-1. Create a classifier named `СatBoost` and set hyperparameters:
+1. Create a classifier named `CatBoost` and set hyperparameters:
 
    ```python
    model = CatBoostClassifier(

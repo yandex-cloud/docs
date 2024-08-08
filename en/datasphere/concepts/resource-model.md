@@ -4,6 +4,8 @@
 
 _[Communities](community.md)_ is a way to organize team work. Communities determine the scope of projects and resources in {{ ml-platform-name }}.
 
+You can create a community in one of the [availability zones](../../overview/concepts/geo-scope.md). All projects and resources created in the community will also be hosted in this availability zone. Once a community is created, you cannot move it to a different zone.
+
 _[Projects](project.md)_ are the main workspaces in {{ ml-platform-name }}. Projects store code, variables, installed software, and other information.
 
 _{{ ml-platform-name }} resources_ are objects that are created or used in projects: datasets, Docker images, nodes, and more.
@@ -30,9 +32,9 @@ By publishing a resource, you grant resource access to all users in a community.
 
 Exchanging resources between communities enables different teams of the same organization to share Docker images, datasets, and other objects.
 
-{{ ml-platform-name }} communities, projects, and resources are only visible inside an [organization](../../organization/). You cannot exchange resources between organizations.
+{{ ml-platform-name }} communities, projects, and resources are only visible inside an [organization](../../organization/). You cannot exchange resources between organizations. You also cannot share a resource in a community that was created in a different availability zone.
 
-You can share the resources of the {{ ml-platform-name }} project in which you have at least the `Editor` role in any community of the organization in which you have at least the `Developer` role. You can open the access on the **{{ ui-key.yc-ui-datasphere.common.access }}** tab on the secret view page. For more information, see [{#T}](../security/index.md).
+You can share the resources of the {{ ml-platform-name }} project in which you have at least the `Editor` role in any community of the organization in which you have at least the `Developer` role. You can open the access on the **{{ ui-key.yc-ui-datasphere.common.access }}** tab on the resource view page. For more information, see [{#T}](../security/index.md).
 
 ## Relationships between {{ ml-platform-name }} resources and {{ yandex-cloud }} services {#ml-cloud-connection}
 

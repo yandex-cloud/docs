@@ -74,12 +74,12 @@ datasphere project job list -p <project_ID>
 ```
 
 The response will return a table with the following fields:
-* Job ID
-* Name
-* Description
-* Status
-* Job start and end date (if already completed)
-* Name of the user who ran the job
+* job ID
+* name
+* description
+* status
+* job start and end date (if already completed)
+* name of the user who ran the job
 
 To view information about a specific job, run the following command:
 

@@ -2,10 +2,6 @@
 
 {{ mkf-name }} можно использовать для передачи данных между базами данных. Источником или приемником может быть кластер {{ mkf-name }}, сторонний кластер {{ KF }} или управляемая база данных {{ yandex-cloud }}.
 
-## Работа с веб-интерфейсом {{ KF }}
-
-[{#T}](deploy-kafka-ui.md)
-
 ## Перемещение данных из {{ KF }} {#moving-data}
 
 * [Настройка {{ KFC }} для работы с кластером {{ mkf-name }}](./kafka-connect.md)
@@ -37,5 +33,13 @@
 * [Из {{ MY }} в {{ KF }} с помощью Debezium](cdc/debezium-mmy.md)
 * [Из {{ KF }} в {{ CH }}](send-data-to-mch.md)
 * [Из {{ KF }} в ksqlDB](use-ksqldb-with-mkf.md)
+
+## Другое {#other}
+
+* [{#T}](deploy-kafka-ui.md)
+
+
+* [{#T}](data-proc.md)
+
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

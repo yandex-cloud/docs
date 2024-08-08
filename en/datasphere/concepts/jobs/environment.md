@@ -52,7 +52,7 @@ Where:
 
 ### Configuring a Python environment manually {#manual}
 
-When setting up a Python environment manually, you can explicitly specify the Python version, define dependencies and pip operation parameters through the `requirements.txt` file, and provide local modules. When configuring an environment manually, you must specify at least one parameter. If you do not specify a parameter in the configuration file, its value will be defined automatically.
+When setting up a Python environment manually, you can explicitly specify the Python version, define dependencies and pip operation parameters through the `requirements.txt` file, and provide local modules. When configuring an environment manually, you must specify at least one parameter. If you do not specify a parameter in the configuration file, its value will be set automatically.
 
 ```yaml
 env:
@@ -68,8 +68,11 @@ env:
 Where:
 
 * `version`: Python version. If omitted, the job's runtime environment version will be used.
-* `requirements-file`: Path to the `requirements.txt` file listing all the packages and pip flags required for the job. If omitted, the list of dependencies will be determined automatically.
+* `requirements-file`: Path to the `requirements.txt` file listing all the packages and pip flags required for the job. If omitted, the list of dependencies will be formed automatically.
 * `local-paths`: List of local Python files to transfer. You can specify both individual files and whole directories. If omitted, the list of files will be formed automatically.
+   If the job consists of only one main Python script, specify `local-paths: []` in the `env` section.
+
+If the configuration file contains all three parameters (`version`, `requirements-file`, and `local-paths`), {{ ml-platform-name }} will not check the environment to identify missing dependencies. This can be of use if you cannot or do not want to reproduce the environment to run the job locally, as required by [automated environment build](#auto).
 
 ### Specifying entry points explicitly {#entry-points}
 
@@ -84,7 +87,7 @@ To run Python scripts in jobs, you can use one of the following methods:
 * Utilize pre-configured third-party launchers such as [deepspeed](https://pypi.org/project/deepspeed/): `deepspeed main.py --num_gpus=1 --deepspeed_stage 2 --apply_lora True`.
 * Provide programs as arguments when running other programs: `python main.py other.py`.
 
-To build the environment and launch the job, {{ ml-platform-name }} will need to determine all program entry points. If {{ ml-platform-name }} is unable to do this in the auto mode, specify them in the `config.yaml` configuration file:
+To build the environment and launch the job, {{ ml-platform-name }} will need to identify all the program's entry points. If {{ ml-platform-name }} is unable to do this in the auto mode, specify them in the `config.yaml` configuration file:
 
 ```yaml
 env:
@@ -103,7 +106,7 @@ By default, jobs use the plain environment to execute binary files and Bash scri
 
 Running the following job will output the Linux kernel version, the list of all installed packages, and the list of files and folders in the VM home directory.
 
-The `config.yaml` configuration file specifies the entry point and lists all the modules to be supplied to the VM:
+The `config.yaml` configuration file specifies the entry point and lists all the modules you need to provide to the VM:
 
 ```yaml
 cmd: ./run.sh

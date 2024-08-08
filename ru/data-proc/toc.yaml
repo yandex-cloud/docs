@@ -130,6 +130,8 @@ items:
         href: tutorials/geesefs-init-actions.md
       - name: Интеграция с сервисом {{ ml-platform-full-name }}
         href: tutorials/datasphere-integration.md
+      - name: Работа с топиками {{ KF }} с помощью PySpark-заданий
+        href: tutorials/kafka.md
       - name: >-
           Импорт данных из {{ objstorage-full-name }}, обработка и экспорт в {{
           mch-full-name }}

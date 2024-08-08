@@ -2,6 +2,10 @@
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
+## Which resources you can assign a role for {#resources}
+
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
 ## Which roles exist in the service {#roles-list}
 
 ### Service roles {#service-roles}
