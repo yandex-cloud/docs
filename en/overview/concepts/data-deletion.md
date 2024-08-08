@@ -37,8 +37,6 @@ When a cloud is [deleted](../../resource-manager/operations/cloud/delete.md):
 
 When a contract is terminated, all user's clouds and resources are immediately marked for deletion and deleted within 72 hours.
 
-
-
 ## How to stop working with {{ yandex-cloud }} {#quit-cloud}
 
 At the user's request, their billing account is marked for deletion, and the user loses access to it within 72 hours.
@@ -47,18 +45,4 @@ Billing account data may be used to generate financial statements. Therefore, th
 
 When these terms expire, the billing account is irrevocably deleted.
 
-
-
-To delete a {{ yandex-cloud }} billing account you no longer need:
-
-{% include [delete-account](../../_includes/billing/delete-account.md) %}
-
-
-
-#### See also {#see-also}
-
-* [Deleting a folder](../../resource-manager/operations/folder/delete.md)
-* [Deleting a cloud](../../resource-manager/operations/cloud/delete.md)
-* [Deleting an organization](../../organization/operations/delete-org.md)
-* [Deleting a {{ ml-platform-name }} community](../../datasphere/operations/community/delete.md)
-* [Deleting a {{ speechsense-name }} space](../../speechsense/operations/space/delete.md)
+{% include [delete-account](../../_includes/billing/billing-delete-account.md) %}

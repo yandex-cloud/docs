@@ -42,7 +42,7 @@ Such audio recordings will have distortions and are not suitable for model train
 
 ### Example of prepared data {#example}
 
-1. _Recordings.zip_ archive containing the 1.wav, 2.wav, 3.wav. files.
+1. _Recordings.zip archive_ containing the files 1.wav, 2.wav, 3.wav.
 1. _Table in TSV format_, matching the audio files with their transcripts:
 
    The table header is given as an example, it must be excluded from the uploaded file.
@@ -67,15 +67,15 @@ For your voice to work for both synthesis modes, we recommend that you do the fo
 We recommend using patters if you want to achieve more expressive and natural intonation in synthesized speech.
 
 > For example, a speaker records an audio of this phrase:
-> *Hi, this is Jane. I work at Thunderclouds. Is it a good time to talk?*
+> *Hi, this is Jane. I work at Thunderclouds. Is it a good time for you to talk?*
 >
 > You like how this particular phrase sounds when uttered by a speaker. However, you will not be able to use this very audio as certain words are to be replaced depending on the context. Then, you need to mark up the transcript with variables:
-> *Hi, this is Jane. I work at **{company_name=Thunderclouds}**. Is it a good time to talk?*
+> *Hi, this is Jane. I work at **{company_name=Thunderclouds}**. Is it a good time for you to talk?*
 >
 > Use the original audio with the required intonations and the original text as a pattern for synthesis to preserve the speaker's intonation, while replacing the variable parts. For example:
-> *Hi, this is Jane. I work at New Doors. Is it a good time to talk?*
+> *Hi, this is Jane. I work at New Doors. Is it a good time for you to talk?*
 
-Try to provide pattern audio recordings that closely resemble the phrases you will use for synthesis. If that is not possible during the data preparation stage, you can send them later on, or train the model without them altogether. You will be able to use pattern-based synthesis in any case. However, the sooner you provide the pattern recordings, the better the results you will get.
+Try to provide pattern audio recordings that closely resemble the phrases you will use for synthesis. If that is not possible during the data preparation stage, you can provide them later or train your model without them altogether — you will still be able to use pattern-based synthesis. However, the sooner you provide the pattern recordings, the better your results will be.
 
 {% note info %}
 
@@ -85,7 +85,7 @@ The pattern phrase for {{ brand-voice-core }} voice synthesis should be recorded
 
 ### Texts for model training {#texts}
 
-If you do not plan to use the created voice to narrate books, cite long lists, or synthesize texts rich in specialized terminology, the {{ speechkit-name }} team can help you prepare the texts for model training. However, you will still need to add 500-1000 phrases that are specific to your particular use case. Before recording, you can send us the texts you prepared to check that the training data is diverse enough from the linguistic standpoint.
+If you do not plan to use the created voice to narrate books, cite long lists, or synthesize texts rich in specialized terminology, the {{ speechkit-name }} team can help you prepare the texts for model training. However, you will still need to add 500-1,000 phrases that are specific to your particular use case. Before recording, you can send us the texts you prepared to check that the training data is diverse enough from the linguistic standpoint.
 
 You will need to prepare the source data for the patterns yourself, as only you know how and to what end the synthesized voice will be used.
 
@@ -143,7 +143,7 @@ Save all the audio recordings as a ZIP archive for uploading.
 
 ## Upload your data {#upload}
 
-Use the [{{ ml-platform-full-name }}](../../../datasphere/index.yaml) interface to upload text data and audio files. For detailed guidelines on how to upload them, [fill out this form](#contact-form), contact your manager or [our support]({{ link-console-support }}).
+Use the [{{ ml-platform-full-name }}](../../../datasphere/index.yaml) interface to upload text data and audio files. For detailed guidelines on how to upload them, [fill out this form](#contact-form), contact your manager or [technical support]({{ link-console-support }}).
 
 ## Frequently asked questions {#faq}
 

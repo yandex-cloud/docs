@@ -2,7 +2,7 @@
 
 {{ ml-platform-name }} enables you to deploy and run services based on any Docker image.
 
-In this tutorial, you will, use a [node built from a Docker image](../../datasphere/concepts/deploy/index.md#docker-node) to deploy an object detection service based on [NVIDIA Triton Inference Server](https://github.com/triton-inference-server).
+In this tutorial, you will use a [node built from a Docker image](../../datasphere/concepts/deploy/index.md#docker-node) to deploy an object detection service based on [NVIDIA Triton Inference Server](https://github.com/triton-inference-server).
 
 1. [Prepare your infrastructure](#infra).
 1. [Prepare a Docker image for the service deployment](#docker).
@@ -150,7 +150,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 1. Build a Docker image:
 
    ```bash
-   docker build -t triton-docker --platfom linux/amd64 .
+   docker build -t triton-docker --platform linux/amd64 .
    ```
 
 ### Push the Docker image to {{ container-registry-name }} {#push-docker}
@@ -224,8 +224,8 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 1. Select a community with a billing account linked.
 1. [Create a project](../../datasphere/operations/projects/create.md) named `Node from Docker`.
 1. [In the project settings](../../datasphere/operations/projects/update.md), specify:
-   * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**: `data-folder`
-   * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}**: `sa-for-datasphere`
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**: `data-folder`.
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}**: `sa-for-datasphere`.
 1. [Create a secret](../../datasphere/operations/data/secrets.md) named `iam-secret` including an IAM token of your user account.
 1. Create a secret named `key-for-sa` to store the full contents of the authorized key file for the `sa-for-datasphere` service account.
 1. Create a node. To do this, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}** in the top-right corner of the project page. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.node }}**. Specify the node settings:
@@ -233,7 +233,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
    1. Under **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**:
       * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: Select **{{ ui-key.yc-ui-datasphere.common.docker }}**.
       * **{{ ui-key.yc-ui-datasphere.new-node.source }}**: Select **{{ ui-key.yc-ui-datasphere.new-node.ycr }}**.
-      * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.image-path }}**: Specify the path to the {{ container-registry-name }} image in the `cr.yandex/<registry_ID>/<image_name>:<tag>` format. You can get it in the management console by copying the full value on the repository page. You can also fill out this field manually. You can get the registry ID in the CLI by running the `yc container registry list` command.
+      * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.image-path }}**: Specify the path to the {{ container-registry-name }} image in the `{{ registry }}/<registry_ID>/<image_name>:<tag>` format. You can get it in the management console by copying the full value on the repository page. You can also fill out this field manually. You can get the registry ID in the CLI by running the `yc container registry list` command.
       * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}**: Select `key-for-sa`.
    1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.endpoint }}**:
       * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.type }}**: Select **HTTP**.
@@ -258,7 +258,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 
 1. [Download a notebook](https://{{ s3-storage-host }}/doc-files/datasphere-nodefromdocker.ipynb) with the health check code and upload it to the `Node from Docker` project in {{ jlab }}Lab.
 1. Run the cells in the **Preparing environment** section: select the cells and press **Shift** + **Enter**.
-1. Under **Authentication**, fill out the details to get authenticated in the node. Replace `<node_ID>` and `<folder_ID>` with your node ID `triton` and folder ID `data-folder`.
+1. Under **Authentication**, fill out the details to get authenticated in the node. Replace `<node_ID>` and `<folder_ID>` with the IDs of the `triton` node and the `data-folder` folder.
 1. Run the cells under **Authentication**.
 1. Run the cells under **Test requests**. As you will access different models, the service will return objects it has detected in the image in response to each request.
 

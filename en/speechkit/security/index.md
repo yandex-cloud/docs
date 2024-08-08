@@ -13,7 +13,7 @@ In this section, you will learn:
 
 ## Which resources you can assign a role for {#resources}
 
-{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control-without-service-account.md) %}
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 ## Which roles exist in the service {#roles-list}
 

@@ -76,9 +76,9 @@ Node instances can have one of the following statuses:
 * `Unhealthy`: There are issues with the instance and it has been excluded from balancing.
 * `Created`: VM has been created for the instance.
 * `Started`: Connection has been established with the instance's VM.
-* `Preparing`: Instance is being prepared for processing requests.
+* `Preparing`: Instance is under preparation for request processing.
 * `Deleting`: Instance is being deleted.
-* `Undefined`: Initial state of the instance when the VM has not yet been created.
+* `Undefined`: Initial state of the instance; VM not created yet.
 
 
 ## Alias {#alias}

@@ -4,7 +4,7 @@
 
 1. [Create a secret](../data/secrets.md#create) with a password for your container registry.
 
-   If you use the {{ container-registry-full-name }} registry, authenticate using the authorized key for your [service account](../../../iam/concepts/users/service-accounts.md) that has the [required roles](../../../container-registry/security/index.md) and is specified in the [project settings](../projects/update.md).
+   If you are using a registry created in {{ container-registry-full-name }}, authenticate using the authorized key for the [service account](../../../iam/concepts/users/service-accounts.md) that has the [required roles](../../../container-registry/security/index.md) and is specified in the [project settings](../projects/update.md).
 
    1. {% include [cli-install](../../../_includes/cli-install.md) %}
 

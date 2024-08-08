@@ -147,6 +147,7 @@ description: "На странице представлен список прак
 * [{#T}](sqoop-mmy.md)
 * [{#T}](sqoop-mpg.md)
 * [{#T}](data-proc-init-actions-geesefs.md)
+* [{#T}](data-proc-and-kafka.md)
 * [{#T}](data-proc-and-airflow.md)
 * [{#T}](metastore-import.md)
 

@@ -12,7 +12,7 @@ You can find jobs in the **{{ ml-platform-name }} Jobs** tab of a project. Their
 
 {% note tip %}
 
-For long-running jobs, we recommend saving intermediate results in S3 object storage.
+For long-running jobs, we recommend saving intermediate results in an S3 object storage.
 
 {% endnote %}
 
@@ -48,7 +48,7 @@ cmd: >  # multi-line YAML string
     --model ${MODEL}
     --epochs 5
 
-# Files with input data
+# Input data files
 inputs:
   - misc/logging.yaml  # File path relative to the job run directory on local computer
   - /usr/share/params.json: # Absolute file path on local computer is saved to the PARAMS variable
@@ -62,7 +62,7 @@ outputs:
 # Resources required for running the job must be available in the project
 s3-mounts: # S3 connectors
   - <connector_ID>   # S3 connector ID
-                           # Since no connector name is set, the connector can be accessed by ID
+                           # No connector name is set, so the connector can be accessed by ID
 datasets:
   - <dataset_ID>:  # ID of the available project dataset
       var: CIFAR   # CIFAR is a variable to access the dataset
@@ -75,7 +75,7 @@ env:
   docker: <Docker_image_ID>  # Docker image available in the project {{ ml-platform-name }}
   # You can also specify a Docker image in an image registry
   # docker:
-  #   image: <image_path_in_registry>:<tag>  # E.g., <cr.yandex/crtabcdef12345678900/myenv:0.1>
+  #   image: <image_path_in_registry>:<tag>  # E.g., <{{ registry }}/crtabcdef12345678900/myenv:0.1>
                                               # For Docker Hub, it is enough to specify `<name>:<tag>`, e.g., `ubuntu:focal`
   #   username: <username>
   #   password: <password> # in text format or {{ ml-platform-name }} secret name
@@ -101,8 +101,8 @@ cloud-instance-types:
 
 # Extended working directory configuration
 working-storage:
-  - type: SSD    # type of the disk being used. Optional, SSD by default. Possible values: SSD
-  - size: 150Gb  # size of the working directory ranges from 100 GB to 10 TB.
+  type: SSD    # type of disk used. Optional, SSD by default. Possible values: SSD
+  size: 150Gb  # size of the working directory ranges from 100 GB to 10 TB
 ```
 
 The job `config.yaml` file contains multiple sections.
@@ -119,16 +119,16 @@ The job `config.yaml` file contains multiple sections.
 
    You can also use project storage in your job. To do this, set the `attach-project-disk` flag in the `flags` section. The project storage will be mounted to the VM the job is running on as an external disk for data reads. The storage path will be available in the `DS_PROJECT_HOME` environment variable.
 
-1. The `env` section defines environment parameters for running the job: the VM environment build method, environment variables and, optionally, a Docker image that is built in {{ ml-platform-name }} or stored in a different image registry. You can specify the registry authorization credentials if needed.
+1. The `env` section defines environment parameters for running the job: the VM environment build method, environment variables and, optionally, a Docker image built in {{ ml-platform-name }} or stored in a different image registry. You can specify the registry authorization credentials if needed.
 
-   There are two ways to set an environment for Python projects:
+   There are two ways to set up the environment for your Python projects:
 
-   * Allow {{ ml-platform-name }} to automatically identify any required dependencies, analyze the current environment on your local computer, and build and transfer the environment on its own. To enable this, set `python: auto` in the `env` section.
-   * You can specify the Python interpreter version and used libraries yourself right in the configuration file or in a separate `requirements.txt` file. If you explicitly set at least one parameter, missing parameter values will be fetched from the current environment automatically.
+   * Allow {{ ml-platform-name }} to automatically identify all required dependencies, analyze the current environment on your local computer, and build and migrate the environment on its own. To enable this, set `python: auto` in the `env` section.
+   * You can specify the Python interpreter version and used libraries yourself directly in the configuration file or in a separate `requirements.txt` file. If you explicitly set at least one parameter, missing parameter values will be fetched from the current environment automatically.
 
    {% note warning %}
 
-   If you use auto mode for setting the environment or only specify some dependencies, run your job from the Python virtual environment where all the relevant packages and local modules are installed. This will enable the `datasphere` library to automatically identify the job runtime environment parameters.
+   If you set up the environment in auto mode or specify only some of the dependencies, run your job from the Python virtual environment with all the current packages and local modules installed. This will enable the `datasphere` library to automatically identify the job runtime environment parameters.
 
    {% endnote %}
 

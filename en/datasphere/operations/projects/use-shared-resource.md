@@ -4,7 +4,9 @@ title: How to use shared resources in {{ ml-platform-full-name }}
 
 # Using shared resources
 
-In your project, you can use a resource available to the entire community. To share resources with community members, the `{{ roles-datasphere-project-admin }}` role is required.
+In your project, you can use a resource available to the entire community.
+
+To share a resource in a community, you need to have the `Editor` role in the project, and `Developer`, in the community. To learn more about roles that apply in {{ ml-platform-name }}, see [{#T}](../../security/index.md).
 
 To use a shared resource:
 

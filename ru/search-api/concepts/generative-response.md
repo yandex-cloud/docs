@@ -116,7 +116,7 @@ export API_KEY=<API-ключ>
   curl -X POST \
     -H "Authorization: Api-Key ${API_KEY}" \
     -d "@<путь_к_файлу_с_телом_запроса>" \
-  "{{ link-yandex }}/search/xml/generative?folderid=${FOLDER_ID}"  
+  "{{ link-yandex }}/search/xml/generative?folderid=${FOLDER_ID}"
   ```
 
 - Python 3 {#python}

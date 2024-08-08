@@ -24,7 +24,7 @@ If you are missing a package, you can [install it](../operations/projects/instal
 
 ### Teamwork and cost management {#communities}
 
-We introduced [communities](community.md) that allow you to collaborate on projects and flexibly manage your costs in {{ ml-platform-name }}. You can link a separate [{{ yandex-cloud }} billing account](../../billing/concepts/billing-account.md) to each community to distinguish between the finances of different teams. However, communities do not isolate teams from each other; instead, they enable sharing projects and created resources.
+We have introduced [communities](community.md) for you to collaborate on projects and flexibly manage your costs in {{ ml-platform-name }}. You can link a separate [{{ yandex-cloud }} billing account](../../billing/concepts/billing-account.md) to each community to separate the finances of different teams. Yet communities do not isolate teams from each other and allow sharing projects and created resources.
 
 Resource access permissions and scope are managed using roles. For more information about roles, see [{#T}](../security/index.md).
 
@@ -34,8 +34,8 @@ In addition, community administrators can set up functions to be available in pr
 
 [{{ ds-inf }}](deploy/index.md) provides easy-to-use tools for deploying services based on both models trained in {{ ml-platform-name }} and custom Dockerimages built outside {{ ml-platform-name }}.
 
-[Aliases](deploy/index.md#alias) allow you to balance the load across multiple running nodes and publish new versions without having to stop a running service. You can [create an alias](../operations/deploy/alias-create.md) in the {{ ml-platform-name }} interface.
+[Aliases](deploy/index.md#alias) allow you to balance the load across multiple running nodes and publish new versions without having to stop your running service. You can [create an alias](../operations/deploy/alias-create.md) in the {{ ml-platform-name }} interface.
 
 On the node page in the {{ ml-platform-name }} interface, you can track the monitoring charts and logs of the deployed instances. You can also change the configuration of computing resources and send test requests to the deployed service API.
 
-You can find the guides for working with nodes and aliases [here](../operations/index.md#deploy).
+[List of guides](../operations/index.md#deploy) on using nodes and aliases.

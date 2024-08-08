@@ -24,7 +24,7 @@ If you have experience using [{{ dataproc-full-name }}](../../data-proc/) or the
 
 {% note warning %}
 
-Using a cluster deployed in {{ dataproc-name }}, you will need to manage its lifecycle on your own. Even if there have been no computations for more than two hours, the cluster will be running and you will pay for it until you stop it.
+As a user of a cluster deployed in {{ dataproc-name }}, you manage its lifecycle yourself. Even if there are no computations for over two hours, the cluster will still be running and you will pay for it until you stop it.
 
 {% endnote %}
 
@@ -112,4 +112,4 @@ For more information about the SQL query syntax and how to use the Spark SQL lib
 #### See also {#see-also}
 
 * [{#T}](data-proc-template.md)
-* [{#T}](../tutorials/data-proc-integration.md).
+* [{#T}](../tutorials/data-proc-integration.md)

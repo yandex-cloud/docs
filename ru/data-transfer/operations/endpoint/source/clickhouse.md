@@ -181,8 +181,6 @@ description: "Из статьи вы узнаете, как задать нас�
 
     * {% include [exclude_tables](../../../../_includes/data-transfer/fields/clickhouse/ui/exclude-tables.md) %}
 
-    {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
-
     Имена включенных и исключенных таблиц должны соответствовать правилам именования идентификаторов в {{ CH }}. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/syntax#syntax-identifiers). Экранирование двойных кавычек не требуется.
 
     Оставьте списки пустыми для переноса всех таблиц.
@@ -195,8 +193,6 @@ description: "Из статьи вы узнаете, как задать нас�
 
     * {% include [exclude-table](../../../../_includes/data-transfer/fields/clickhouse/cli/exclude-table.md) %}
 
-    {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
-
     Если списки не указаны, передаются данные из всех таблиц.
 
 - {{ TF }} {#tf}
@@ -207,8 +203,6 @@ description: "Из статьи вы узнаете, как задать нас�
 
     * {% include [exclude_tables](../../../../_includes/data-transfer/fields/clickhouse/terraform/exclude-tables.md) %}
 
-    {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
-
     Если списки не указаны, передаются данные из всех таблиц.
 
 - API {#api}
@@ -218,8 +212,6 @@ description: "Из статьи вы узнаете, как задать нас�
         {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
     * {% include [excludeTables](../../../../_includes/data-transfer/fields/clickhouse/api/exclude-tables.md) %}
-
-    {% include [Description of table names](../../../../_includes/data-transfer/fields/clickhouse/description-table-name.md) %}
 
     Если списки не указаны, передаются данные из всех таблиц.
 
