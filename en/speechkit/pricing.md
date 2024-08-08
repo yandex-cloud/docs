@@ -4,7 +4,7 @@ description: "This article describes the {{ speechkit-full-name }} pricing polic
 editable: false
 ---
 
-# {{ speechkit-name }} pricing
+# {{ speechkit-name }} pricing policy
 
 
 
@@ -97,138 +97,6 @@ The cost of an empty request to any type of speech recognition is equal to that 
 
 {% include [error-request](../_includes/speechkit/error-request.md) %}
 
-### Examples of cost calculation {#price-example}
-
-#### Speech synthesis using API v1 {#price-example-tts-v1}
-
-The cost of using {{ speechkit-short-name }} for speech synthesis using the API v1 with the following parameters:
-
-* **Number of characters sent per month**: 2,023
-
-
-
-The cost is calculated as follows:
-
-> 2,023 × (10.56 / 1,000,000) = $0.02
->
-> Total: $0.02
-
-Where:
-* 10.56 is the cost per one million characters.
-* 10.56 / 1,000,000 is the cost per one character.
-
-
-#### Speech synthesis using the API v3 {#price-example-tts-v3}
-
-The cost of using {{ speechkit-short-name }} for speech synthesis using the API v3 with the following parameters:
-
-* **Number of requests sent**: 3
-* **Number of characters in requests**: 150, 300, 600
-
-
-
-The cost is calculated as follows:
-
-> (1 + 2 + 3) × 0.001280 = $0.00768
->
-> Total: $0.00768
-
-Where:
-* 1 is the number of billing units charged for the first request of 150 characters.
-* 2 is the number of billing units charged for the second request of 300 characters made using `unsafe_mode`.
-* 3 is the number of billing units charged for the third request of 600 characters made using `unsafe_mode`.
-* 0.001280: Cost per billing unit.
-
-
-#### Streaming speech recognition {#price-example-stt-streaming}
-
-The cost of using {{ speechkit-short-name }} for streaming speech recognition with the following parameters:
-
-* **Number of audio fragments**: 2
-* **Audio fragment duration**: 5 seconds, 37 seconds
-
-
-
-The cost is calculated as follows:
-
-> ((1 + 1) + (3 + 1)) × 0.001280 = $0.00768
->
-> Total: $0.00768
-
-Where:
-* (1 + 1) is the number of billing units charged for the first 5-second audio fragment rounded up to 15 seconds with recognition settings message considered.
-* (3 + 1) is the number of billing units charged for the second 37-second audio fragment rounded up to 45 seconds with recognition settings message considered.
-* 0.001280: Cost per billing unit.
-
-
-#### Synchronous speech recognition {#price-example-stt-short}
-
-The cost of using {{ speechkit-short-name }} for synchronous speech recognition with the following parameters:
-
-* **Number of audio fragments**: 2
-* **Audio fragment duration**: 5 seconds, 37 seconds
-
-
-
-The cost is calculated as follows:
-
-> (1 + 3) × 0.001280 = $0.00512
->
-> Total: $0.00512
-
-Where:
-* 1 is the number of billing units charged for the first 5-second audio fragment rounded up to 15 seconds.
-* 3 is the number of billing units charged for the second 37-second audio fragment rounded up to 45 seconds.
-* 0.001280: Cost per billing unit.
-
-
-#### Asynchronous speech recognition {#price-example-stt-long}
-
-The cost of using {{ speechkit-short-name }} for asynchronous speech recognition with the following parameters:
-
-* **Number of audio fragments**: 4
-* **Audio fragment duration**: 5 seconds, 5 seconds, 15.5 seconds, 15.5 seconds
-* **Number of channels in audio fragments**: 1, 3, 2, 4
-
-
-
-The cost is calculated as follows:
-
-> (15 + 30 + 16 + 32) × 0.000128 = $0.011904
->
-> Total: $0.011904
-
-Where:
-* 15 is the number of billing units charged for the first single-channel 5-second audio fragment rounded up to 2 channels and 15 seconds.
-* 30 is the number of billing units charged for the second 3-channel 5-second audio fragment rounded up to 4 channels and 15 seconds.
-* 16 is the number of billing units charged for the third 2-channel 15.5-second audio fragment rounded up to 16 seconds.
-* 32 is the number of billing units charged for the fourth 4-channel 15.5-second audio fragment rounded up to 16 seconds.
-* 0.000128: Cost per billing unit.
-
-
-#### Asynchronous speech recognition in deferred mode {#price-example-stt-long-deferred}
-
-The cost of using {{ speechkit-short-name }} for asynchronous speech recognition in deferred mode with the following parameters:
-
-* **Number of audio fragments**: 3
-* **Audio fragment duration**: 2 seconds, 14 seconds, 19.5 seconds
-* **Number of channels in audio fragments**: 2, 3, 4
-
-
-
-The cost is calculated as follows:
-
-> (15 + 30 + 40) × 0.000032 = $0.00272
->
-> Total: $0.00272
-
-Where:
-* 15 is the number of billing units charged for the first 2-channel 2-second audio fragment rounded up to 15 seconds.
-* 30 is the number of billing units charged for the second 3-channel 14-second audio fragment rounded up to 4 channels and 15 seconds.
-* 40 is the number of billing units charged for the third 4-channel 19.5-second audio fragment rounded up to 20 seconds.
-* 0.000032: Cost per billing unit.
-
-
 ## Prices for the Russia region {#prices}
 
 
@@ -252,3 +120,90 @@ Where:
 
 {% include [usd.md](../_pricing/speechkit/usd-stt.md) %}
 
+
+
+## Examples of cost calculation {#price-example}
+
+### Speech synthesis using API v1 {#price-example-tts-v1}
+
+The cost of using {{ speechkit-short-name }} for speech synthesis using the API v1 with the following parameters:
+
+* **Number of characters sent per month:** 2,023
+
+
+
+The cost is calculated as follows:
+
+{% include [usd-speechkit-tts-v1](../_pricing_examples/speechkit/usd-speechkit-tts-v1.md) %}
+
+
+### Speech synthesis using the API v3 {#price-example-tts-v3}
+
+The cost of using {{ speechkit-short-name }} for speech synthesis using the API v3 with the following parameters:
+
+* **Number of requests sent**: 3
+* **Number of characters in requests**: 150, 300, 600
+
+
+
+The cost is calculated as follows:
+
+{% include [usd-speechkit-tts-v3](../_pricing_examples/speechkit/usd-speechkit-tts-v3.md) %}
+
+
+### Streaming speech recognition {#price-example-stt-streaming}
+
+The cost of using {{ speechkit-short-name }} for streaming speech recognition with the following parameters:
+
+* **Number of audio fragments:** 2
+* **Audio fragment duration:** 5 seconds, 37 seconds
+
+
+
+The cost is calculated as follows:
+
+{% include [usd-speechkit-stt-streaming](../_pricing_examples/speechkit/usd-speechkit-stt-streaming.md) %}
+
+
+### Synchronous speech recognition {#price-example-stt-short}
+
+The cost of using {{ speechkit-short-name }} for synchronous speech recognition with the following parameters:
+
+* **Number of audio fragments:** 2
+* **Audio fragment duration:** 5 seconds, 37 seconds
+
+
+
+The cost is calculated as follows:
+
+{% include [usd-speechkit-stt-short](../_pricing_examples/speechkit/usd-speechkit-stt-short.md) %}
+
+
+### Asynchronous speech recognition {#price-example-stt-long}
+
+The cost of using {{ speechkit-short-name }} for asynchronous speech recognition with the following parameters:
+
+* **Number of audio fragments:** 4
+* **Audio fragment duration:** 5 seconds, 5 seconds, 15.5 seconds, 15.5 seconds
+* **Number of channels in audio fragments:** 1, 3, 2, 4
+
+
+
+The cost is calculated as follows:
+
+{% include [usd-speechkit-stt-long](../_pricing_examples/speechkit/usd-speechkit-stt-long.md) %}
+
+
+### Asynchronous speech recognition in deferred mode {#price-example-stt-long-deferred}
+
+The cost of using {{ speechkit-short-name }} for asynchronous speech recognition in deferred mode with the following parameters:
+
+* **Number of audio fragments:** 3
+* **Audio fragment duration:** 2 seconds, 14 seconds, 19.5 seconds
+* **Number of channels in audio fragments:** 2, 3, 4
+
+
+
+The cost is calculated as follows:
+
+{% include [usd-speechkit-stt-long-deferred](../_pricing_examples/speechkit/usd-speechkit-stt-long-deferred.md) %}

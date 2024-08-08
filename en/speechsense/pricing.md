@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# {{ speechsense-full-name }} pricing
+# {{ speechsense-full-name }} pricing policy
 
 
 
@@ -17,4 +17,11 @@ editable: false
 
 
 {% include [usd.md](../_pricing/speechsense/usd-speechsense.md) %}
+
+
+### Cost calculation example {#price-example}
+
+
+
+{% include [usd-speechsense](../_pricing_examples/speechsense/usd-speechsense.md) %}
 

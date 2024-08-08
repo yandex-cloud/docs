@@ -1,4 +1,5 @@
-* When recording Russian speech, make sure to use the letter _ё_ when needed in the pattern text. You cannot use _е_ instead of _ё_ in any synthesized text. In homographs where the stress may be ambiguous, explicitly indicate the stressed vowel with the `+` sign.
+* When recording Russian speech, make sure to use the letter _ё_ when needed in the pattern text. You cannot use _е_ instead of _ё_ in any synthesized text.
+* In homographs where the stress may be ambiguous, explicitly indicate the stressed vowel with the `+` sign.
    > _The +import of goods from foreign countries._: Stress falls on the first syllable.
    > _Goods they im+port from China._: Stress falls on the second syllable.
 

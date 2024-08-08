@@ -42,7 +42,8 @@ Each query seeking a generative response must contain a [JSON](https://en.wikipe
     }
   ],
   "site": "<website_URL_to_search>",
-  "host": "<host_to_search>"
+  "host": "<host_to_search>",
+  "url": "<page_to_search>"
 }
 ```
 
@@ -50,7 +51,7 @@ Each query seeking a generative response must contain a [JSON](https://en.wikipe
 
 * `messages`: A single search query or a search query with context in the form of chat messages exchanged with the model. It is specified as an array of objects, each one containing two elements:
    * `content`: Text of user query or the model's response (depending on the `role` value).
-   * `role`: Message sender's role. The possible values are:
+   * `role`: Message sender's role. The possible values include:
       * `user`: Means that the message is sent by the user, and the `content` field contains the user's query.
       * `assistant`: Means that the message is sent by the model, and the `content` field contains the model's response.
 
@@ -64,19 +65,21 @@ Each query seeking a generative response must contain a [JSON](https://en.wikipe
    * `yandex.cloud/path/`
    * `subdomain.yandex.cloud/path/`
 
-   You can use the `site` field to specify the exact path to the search area, e.g., `yandex.cloud/docs`.
+   You can use the `site` field to specify the exact path to the search area, e.g., `{{ link-docs }}`.
 
-* `host`: Restricts the search to a specific host, e.g., `yandex.cloud`.
+* `host`: Restricts the search to a specific host, e.g., `yandex.cloud/`.
 
    The search will target all `yandex.cloud/*` documents, i.e, the results will include pages with the following URLs:
    * `yandex.cloud/`
    * `yandex.cloud/path/`
 
-   Unlike `site`-based restrictions, `host`-based restrictions do not apply to subdomains. Besides, you cannot specify the exact path to the search area in the `host` field.
+   Unlike `site`-based restrictions, `host`-based restrictions do not apply to subdomains. You also cannot provide a specific path to the search area in the `host` field.
 
-* `url`: Restricts the search to a specific page, e.g., `yandex.cloud/docs/search-api/pricing`.
+* `url`: Restricts the search to a specific page, e.g., `{{ link-docs }}/search-api/pricing`.
 
    {% note info %}
+
+   To restrict the search, you simply need to specify one of these fields in your query: `site`, `host`, or `url`.
 
    The `host` field has priority over the `site` field, and `url` has priority over `host`. If you provide all the three parameters in your query, the search will be limited to the `url` value and ignore the `host` and `site` values.
 
@@ -88,13 +91,11 @@ Request body example:
 {
   "messages": [
     {
-      "content": "How much does it cost to use Search API?",
+      "content": "How much does {{ search-api-name }} cost?",
       "role": "user"
     }
   ],
-  "site": "yandex.cloud",
-  "host": "yandex.cloud/docs",
-  "url": "yandex.cloud/docs/search-api/pricing"
+  "site": "{{ link-docs }}"
 }
 ```
 
@@ -103,8 +104,8 @@ Request body example:
 To submit a query, use the [cURL](https://curl.haxx.se) utility or [Python](https://python.org/). Before submitting your query, save the [folder ID](../../resource-manager/operations/folder/get-id.md) and [API key](../../iam/concepts/authorization/api-key.md) of your service account to environment variables:
 
 ```bash
-export FOLDER-ID=<folder_ID>
-export API-KEY=<API_key>
+export FOLDER_ID=<folder_ID>
+export API_KEY=<API_key>
 ```
 
 {% list tabs group=programming_language %}
@@ -113,9 +114,9 @@ export API-KEY=<API_key>
 
    ```bash
    curl -X POST \
-     -H "Authorization: Api-Key ${API-KEY}" \
+     -H "Authorization: Api-Key ${API_KEY}" \
      -d "@<path_to_request_body_file>" \
-   "{{ link-yandex }}/search/xml/generative?folderid=${FOLDER-ID}"
+   "{{ link-yandex }}/search/xml/generative?folderid=${FOLDER_ID}"
    ```
 
 - Python 3 {#python}
@@ -132,11 +133,11 @@ export API-KEY=<API_key>
        data = {
            "messages": [
               {
-                   "content": "How much does it cost to use Search API?",
+                   "content": "How much does it cost to use {{ search-api-name }}?",
                    "role": "user"
                }
            ],
-           "site": "https://yandex.cloud/ru/docs/"
+           "url": "{{ link-docs }}/search-api/pricing"
        }
 
        response = requests.post(SEARCH_API_GENERATIVE, headers=headers, json=data)
@@ -173,8 +174,14 @@ export API-KEY=<API_key>
     ...
     "<link_to_found_document_n>"
   ],
+  "titles": [
+    "<title_of_found_document_1>",
+    "<title_of_found_document_2>",
+    ...
+    "<title_of_found_document_n>"
+  ],
   "final_search_query": "<refined_query_text>",
-  "is_answer_rejected": false(true),
+  "is_answer_rejected": false (true),
   "is_bullet_answer": false (true),
   "search_reqid" : "...",
   "reqid" : "..."
@@ -184,6 +191,7 @@ export API-KEY=<API_key>
 Where:
 * `content`: Text of the generative response.
 * `links`: Sorted list of links to documents found when processing the query which could be used by {{ yagpt-name }} to generate the response.
+* `titles`: Sorted list of document titles.
 * `final_search_query`: Final text of the search query, refined by the {{ yagpt-name }} model and used for the generative response. May be different from the original user query.
 * `is_answer_rejected`: Indicates the model's refusal to provide a response for ethical reasons:
 
@@ -194,23 +202,29 @@ Where:
 * `search_reqid`: Unique query ID in Yandex Search.
 * `reqid`: Unique {{ search-api-name }} query ID.
 
-
-Example of a generative response with website limitation:
+Here is an example of a generative response with website limitation:
 
 ```json
 {
   "message": {
-    "content": "The cost of using Search API is based on the number of search queries per month**. [1]\n\n**Cost per 1,000 queries**, including VAT:\n\n* For night-time queries, first 1,000 queries per month: free of charge. [1]\n\n* Night-time queries in excess of 1,000 queries per month: ₽360. [1]\n\n* Daytime queries: ₽480. [1]\n\nThe service has a quota of 30,000 queries per month (1,000 queries per day) for all new users. [1]\n\nTo request a change in quotas, contact technical support or your account manager. [1]",
-    "role": "assistant"
+      "content": "The cost of using {{ search-api-name }} **is based on the number of search queries per month**. [1]\n\n**Price per 1,000 queries**, including VAT: [1]\n- Night-time queries, first 1,000 queries per month: Free of charge. [1]\n- Night-time queries in excess of 1,000 queries per month: ₽360. [1]\n- Daytime queries: ₽480. [1]\n\nThe service has a quota of 30,000 queries per month (1,000 queries per day) for all new users. [1]\n\nPrices may differ by region, and the currency of payment depends on the legal entity with which the user has an agreement. [1]",
+      "role": "assistant"
   },
   "links": [
-    "https://yandex.cloud/ru/docs/search-api/pricing",
-    "https://yandex.cloud/ru/docs/api-gateway/pricing",
-    "https://yandex.cloud/ru/docs/monitoring/pricing",
-    "https://yandex.cloud/ru/docs/ydb/pricing/ru-docapi",
-    "https://yandex.cloud/ru/docs/billing/concepts/serverless-free-tier"
+      "{{ link-docs }}/search-api/pricing",
+      "{{ link-docs }}/search-api/concepts/generative-response",
+      "{{ link-docs }}/api-gateway/pricing",
+      "{{ link-docs }}/functions/pricing",
+      "{{ link-docs }}/ydb/pricing/ru-docapi"
   ],
-  "final_search_query": "search api pricing",
+  "titles": [
+      "{{ search-api-full-name }} pricing policy | {{ yandex-cloud }} documentation",
+      "Generative responses | {{ yandex-cloud }} documentation",
+      "{{ api-gw-full-name }} pricing policy | {{ yandex-cloud }} documentation",
+      "{{ sf-name }} pricing policy | {{ yandex-cloud }} documentation",
+      "Rules for estimating the cost of requests to ydb-short-name via the Document API | {{ yandex-cloud }} documentation"
+  ],
+  "final_search_query": "{{ search-api-name }} cost",
   "is_answer_rejected": false,
   "is_bullet_answer": false,
   "search_reqid": "1716922280912146-404265690610183965-**************-BAL",

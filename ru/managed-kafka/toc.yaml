@@ -54,8 +54,6 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Развертывание веб-интерфейса {{ KF }}
-        href: tutorials/deploy-kafka-ui.md
       - name: Перемещение данных из {{ KF }}
         items:
           - name: Настройка {{ KFC }} для работы с {{ mkf-name }}
@@ -106,6 +104,10 @@ items:
             href: tutorials/send-data-to-mch.md
           - name: Поставка в ksqlDB
             href: tutorials/use-ksqldb-with-mkf.md
+      - name: Развертывание веб-интерфейса {{ KF }}
+        href: tutorials/deploy-kafka-ui.md
+      - name: Работа с топиками {{ KF }} с помощью {{ dataproc-name }}
+        href: tutorials/data-proc.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

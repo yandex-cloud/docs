@@ -1,5 +1,5 @@
 ---
-title: "{{ ml-platform-full-name }}. Questions and answers"
+title: "{{ ml-platform-full-name }}. FAQ"
 description: "How do I get {{ ml-platform-full-name }} activity logs? Find the answer to this and other questions in this article."
 ---
 
@@ -38,7 +38,9 @@ Select **Edit** ⟶ **Clear All Outputs** in {{ jlab }}Lab or right-click on any
 
 #### Does {{ ml-platform-name }} support scheduled cell runs? {#regular-launch}
 
-This feature is not supported in {{ ml-platform-name }}. You can use [{{ sf-full-name }}](../../functions/concepts/trigger/timer.md) to automatically run cells through the [{{ ml-platform-name }} API](../api-ref/overview.md). For a detailed description of regular runs, see this [guide](../tutorials/regular-launch.md).
+You can run scheduled calculations by [rerunning](../concepts/jobs/fork.md) the {{ ds-jobs }} jobs and [integrating them with {{ maf-full-name }}](../concepts/jobs/airflow.md).
+
+You can also use [{{ sf-full-name }}](../../functions/concepts/trigger/timer.md) to automatically initiate notebook execution using the [{{ ml-platform-name }} API](../api-ref/overview.md). For a detailed description of regular runs, see this [guide](../tutorials/regular-launch.md).
 
 #### My browser cannot open a {{ ml-platform-name }} project in the IDE. How can I fix this? {#browser}
 

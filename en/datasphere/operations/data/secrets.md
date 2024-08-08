@@ -16,7 +16,9 @@
 
 ## Sharing secrets {#share}
 
-Only a community admin can share a secret in the community. To learn more about roles that apply in {{ ml-platform-name }}, see [{#T}](../../security/index.md).
+{% include [zones](../../../_includes/datasphere/zones.md) %}
+
+To share a secret in a community, you need to have the `Editor` role in the project, and `Developer`, in the community. To learn more about roles that apply in {{ ml-platform-name }}, see [{#T}](../../security/index.md).
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
@@ -24,7 +26,7 @@ Only a community admin can share a secret in the community. To learn more about 
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
 1. Enable the visibility option next to the name of the community to share the secret in.
 
-To make a secret available for use in another project, the project administrator should [add](../projects/use-shared-resource.md) it to the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
+To make a secret available for use in another project, the project editor should [add](../projects/use-shared-resource.md) it to the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
 
 ## Invoking a secret in a project cell {#call}
 

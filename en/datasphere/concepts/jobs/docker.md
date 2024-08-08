@@ -39,7 +39,7 @@ You can also use a different Docker image to run a job by specifying it under `e
 
    Where:
 
-   * `<image_path>`: Full path to the image in a container registry, e.g., `cr.yandex/b1g**********/myenv:0.1`.
+   * `<image_path>`: Full path to the image in a container registry, e.g., `{{ registry }}/b1g**********/myenv:0.1`.
    * `<username>`: Username for accessing your registry. For {{ container-registry-full-name }} authentication, use a [service account](../../../iam/concepts/users/service-accounts.md) and an [authorized key](../../../iam/concepts/authorization/key.md).
    * `<project_secret_ID>`: Secret ID with a password. The secret must be [created](../../operations/data/secrets.md#create) in a {{ ml-platform-name }} project.
 

@@ -6,6 +6,7 @@ For more information about voice models, see [About technology](tts/index.md#voi
 
 ## Current version {#current}
 
+
 ### Release on 15/04/24 {#150424}
 
 Fixed a bug of synthesizing speech at too fast a rate.
@@ -132,7 +133,7 @@ The `general` branch now has `amira` and `john` voices.
 
 ### Release on 24/01/22 {#240122}
 
-1. Updated the generation model. The new version improves the way numbers and abbreviations from the finance domain are pronounced.
+1. Updated the generative model. The new version improves the way numbers and abbreviations from the finance domain are pronounced.
 
 1. You can now emphasize using markup: `Are you **happy** to see me?`
 

@@ -1,6 +1,6 @@
-# Finding and eliminating errors when creating a demonstration stand
+# Finding and fixing errors when creating a demo stand
 
-If you encounter problems while [creating](quickstart.md) the {{ sk-hybrid-name }} demonstration stand, run diagnostics to find errors:
+If you encounter problems while [creating](quickstart.md) a {{ sk-hybrid-name }} demo stand, run diagnostics to detect errors:
 
 1. [Connect to the VM over SSH](../compute/operations/vm-connect/ssh.md#vm-connect):
 
@@ -10,13 +10,13 @@ If you encounter problems while [creating](quickstart.md) the {{ sk-hybrid-name 
 
    Where `<username>` is the VM account username. You can find the VM's public IP address in the [management console]({{ link-console-main }}), on the VM page.
 
-1. Check if the `8080` and `9080` ports are open to receive client requests:
+1. Check whether the `8080` and `9080` ports are open to receive client requests:
 
    ```bash
    telnet <VM_public_address> 8080 && telnet <VM_public_address> 9080
    ```
 
-   In the command, specify the public IP address of the VM that was created with the [infrastructure](quickstart.md#create-infrastructure). Learn how to [get the IP address of a VM](../compute/operations/vm-info/get-info.md#outside-instance).
+   In the command, specify the public IP address of the VM that was created with the [infrastructure](quickstart.md#create-infrastructure). You can learn how to get the IP address of a VM [here](../compute/operations/vm-info/get-info.md#outside-instance).
 
 1. Check the list of downloaded Docker images:
 
@@ -24,16 +24,16 @@ If you encounter problems while [creating](quickstart.md) the {{ sk-hybrid-name 
    docker images --digests
    ```
 
-   Make sure the required images are present. They are loaded into the {{ container-registry-full-name }} registry after you [provide](quickstart.md#get-started) the registry ID to the {{ speechkit-name }} command.
+   Make sure the required images are there. They are loaded into the {{ container-registry-full-name }} registry after you [provide](quickstart.md#get-started) the registry ID to the {{ speechkit-name }} command.
 
    Expected result:
 
    ```text
    REPOSITORY                                        TAG   DIGEST             IMAGE ID  CREATED  SIZE
-   cr.yandex/crp33...7i/release/stt/v100/stt_server  0.21  sha256:83245...6b  0d1...89  ...      15.3GB
-   cr.yandex/crp33...7i/release/tts/v100/tts_server  0.21  sha256:41c1f...ea  d3a...7d  ...      16.1GB
-   cr.yandex/crp33...7i/release/envoy                0.21  sha256:853ed...cb  6f7...31  ...      220MB
-   cr.yandex/crp33...7i/release/license_server       0.21  sha256:44d24...3d  59e...62  ...      1.23GB
+   {{ registry }}/crp33...7i/release/stt/v100/stt_server  0.21  sha256:83245...6b  0d1...89  ...      15.3GB
+   {{ registry }}/crp33...7i/release/tts/v100/tts_server  0.21  sha256:41c1f...ea  d3a...7d  ...      16.1GB
+   {{ registry }}/crp33...7i/release/envoy                0.21  sha256:853ed...cb  6f7...31  ...      220MB
+   {{ registry }}/crp33...7i/release/license_server       0.21  sha256:44d24...3d  59e...62  ...      1.23GB
    ```
 
    If you changed image labels, make sure you used the required Docker image during [load testing](quickstart.md#stt-and-tts). To do this, in the `DIGEST` column, compare the hash sums of the image you used and the image in the resulting list.
@@ -48,15 +48,15 @@ If you encounter problems while [creating](quickstart.md) the {{ sk-hybrid-name 
 
    ```text
    CONTAINER ID  IMAGE                                                  ...  STATUS            ...
-   659...a0      cr.yandex/crp33...7i/release/stt/v100/stt_server:0.21  ...  Up About an hour  ...
-   af3...1f      cr.yandex/crp33...7i/release/tts/v100/tts_server:0.21  ...  Up About an hour  ...
-   e42...36      cr.yandex/crp33...7i/release/envoy:0.21                ...  Up About an hour  ...
-   a4a...43      cr.yandex/crp33...7i/release/license_server:0.21       ...  Up About an hour  ...
+   659...a0      {{ registry }}/crp33...7i/release/stt/v100/stt_server:0.21  ...  Up About an hour  ...
+   af3...1f      {{ registry }}/crp33...7i/release/tts/v100/tts_server:0.21  ...  Up About an hour  ...
+   e42...36      {{ registry }}/crp33...7i/release/envoy:0.21                ...  Up About an hour  ...
+   a4a...43      {{ registry }}/crp33...7i/release/license_server:0.21       ...  Up About an hour  ...
    ```
 
 1. Check the list of open network connections and the network configuration:
 
-   1. Install the `netstat` utility:
+   1. Install `netstat`:
 
       ```bash
       sudo apt install net-tools
@@ -64,7 +64,7 @@ If you encounter problems while [creating](quickstart.md) the {{ sk-hybrid-name 
 
    1. Make sure {{ sk-hybrid-name }} services are ready to serve network connections on their dedicated ports. For a list of ports, see the `docker-compose.yaml` file. It is stored in the [node-deploy.tf](https://github.com/yandex-cloud-examples/yc-speechkit-hybrid-deployment/blob/main/node-deploy.tf) file, in the `COMPOSE_V100_STT_TTS` variable.
 
-      Run the command to get information about network connections of services:
+      Run this command to get information about network connections of services:
 
       ```bash
       sudo netstat -tulpn && sudo ip addr
@@ -142,7 +142,7 @@ If you encounter problems while [creating](quickstart.md) the {{ sk-hybrid-name 
       Architecture:   7.0
       ```
 
-1. Check if there are errors like `WARNING`, `ERROR`, `EMERG`, or `ALERT` in the STDOUT output of the containers. To do this, dump the output into text files. Run the following command in the `yc-speechkit-hybrid-deployment` repository directory:
+1. Check if there are `WARNING`, `ERROR`, `EMERG`, or `ALERT` errors in the STDOUT output of the containers. To do this, dump the output into text files. Run the following command in the `yc-speechkit-hybrid-deployment` repository directory:
 
    ```bash
    mkdir -p logs ; cd ./logs
@@ -151,9 +151,8 @@ If you encounter problems while [creating](quickstart.md) the {{ sk-hybrid-name 
 
    If you [contact technical support]({{ link-console-support }}), tell them what command you ran and send the received text files.
 
-1. Examine the contents of the `docker-compose.yaml` file, which is used to launch Docker containers.
+1. View the contents of the `docker-compose.yaml` file, which is used to launch Docker containers.
 
    `docker-compose.yaml` is described in the `node-deploy.tf` file, in the `COMPOSE_V100_STT_TTS` variable. The contents of the variable are automatically dumped into the `docker-compose.yaml` file. It is hosted and built on the VM that runs {{ sk-hybrid-name }}.
 
-   Errors may occur during assembly. To process them, make sure the contents of the `docker-compose.yaml` file match the environment configuration information. This information was collected using the steps described above.
-   
+   Errors may occur during the build. To process them, make sure the contents of the `docker-compose.yaml` file match the environment configuration information. This information was collected using the steps described above.

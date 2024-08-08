@@ -87,6 +87,5 @@ description: "Транскрибация — это перевод речи из
     * [Автоматизация контакт-центра. Часть 1. Голосовые роботы](https://yandex.cloud/ru/blog/posts/2019/09/solutions-for-call-centers-robots)
     * [Автоматизация контакт-центра. Часть 2. Речевая аналитика](https://yandex.cloud/ru/blog/posts/2019/09/solutions-for-call-centers-speech-analytics)
 * Истории успеха:
-    * [SpeechKit Brand Voice и уникальный синтез для голосового помощника Alf](https://yandex.cloud/ru/cases/alfabank)
     * [Как British American Tobacco повысила качество обслуживания клиентов с помощью речевой аналитики](https://yandex.cloud/ru/cases/bat)
     * [Как Yandex Cloud помогает tada.team изменить формат рабочих коммуникаций](https://yandex.cloud/ru/cases/tada-team)

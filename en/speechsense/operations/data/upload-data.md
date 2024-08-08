@@ -40,10 +40,17 @@ To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` 
       ```bash
       cd <path_to_cloudapi_directory> && \
       mkdir upload_data && \
-      python3 -m grpc_tools.protoc -I . \
+      python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
            --python_out=./upload_data/ \
            --grpc_python_out=./upload_data/ \
-           yandex/cloud/speechsense/v1/*
+           google/api/http.proto \
+           google/api/annotations.proto \
+           yandex/cloud/api/operation.proto \
+           google/rpc/status.proto \
+           yandex/cloud/operation/operation.proto \
+           yandex/cloud/validation.proto \
+           yandex/cloud/speechsense/v1/*.proto \
+           yandex/cloud/speechsense/v1/*/*.proto
       cd upload_data
       ```
 

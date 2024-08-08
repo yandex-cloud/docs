@@ -185,6 +185,10 @@ items:
             href: concepts/jobs/docker.md
           - name: Job runtime environment
             href: concepts/jobs/environment.md
+          - name: Rerunning jobs
+            href: concepts/jobs/fork.md
+          - name: Integration with {{ maf-name }}
+            href: concepts/jobs/airflow.md
       - name: Resources
         items:
           - name: Overview

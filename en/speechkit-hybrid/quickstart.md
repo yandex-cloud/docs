@@ -16,13 +16,13 @@ Our demo stand uses the [Cloud Billing](pricing.md#billing) licensing model; thi
 
 To deploy your {{ sk-hybrid-name }} demo stand:
 
-1. [{#T}](#get-started)
-1. [{#T}](#prepare)
-1. [{#T}](#ssh)
-1. [{#T}](#variables)
-1. [{#T}](#create-infrastructure)
-1. [{#T}](#communication-channel)
-1. [{#T}](#stt-and-tts)
+1. [{#T}](#get-started).
+1. [{#T}](#prepare).
+1. [{#T}](#ssh).
+1. [{#T}](#variables).
+1. [{#T}](#create-infrastructure).
+1. [{#T}](#communication-channel).
+1. [{#T}](#stt-and-tts).
 
 In case of errors, use our [debugging guide](quickstart-debugging.md).
 
@@ -223,7 +223,7 @@ To perform load testing:
       --env ENVOY_HOST=<VM_public_address> \
       --env ENVOY_PORT=8080 \
       --env CONNECTIONS=40 \
-      cr.yandex/<registry_ID>/release/tools/stt-tools:0.20
+      {{ registry }}/<registry_ID>/release/tools/stt-tools:0.20
    ```
 
    In the command, specify the public IP address of the VM and the ID of the previously created {{ container-registry-name }} registry.
@@ -242,7 +242,7 @@ To perform load testing:
       --env ENVOY_HOST=<VM_public_address> \
       --env ENVOY_TTS_PORT=9080 \
       --env RPS=20 \
-      cr.yandex/<registry_ID>/release/tools/tts-tools:0.20
+      {{ registry }}/<registry_ID>/release/tools/tts-tools:0.20
    ```
 
    In the command, specify the public IP address of the VM and the ID of the previously created {{ container-registry-name }} registry.

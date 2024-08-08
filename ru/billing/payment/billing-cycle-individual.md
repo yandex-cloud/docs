@@ -50,9 +50,10 @@
 
    {% include [blocked-note](../_includes/blocked-note.md) %}
 
-#### См.также
+#### См. также {#see-also}
 
 - [Грант](../concepts/bonus-account.md)
 - [Порог оплаты](../concepts/billing-threshold.md)
 - [Лицевой счет](../concepts/personal-account.md)
 - [Платежный аккаунт](../concepts/billing-account.md)
+- [Как отключить подписку](../qa/all.md#delete-account)

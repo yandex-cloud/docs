@@ -55,7 +55,7 @@ To view all created nodes:
 1. (Optional) In the **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.Description }}** field, enter a description of the node.
 1. Under **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**, select the resource to base your node on: **{{ ui-key.yc-ui-datasphere.common.docker }}**.
 1. Under **{{ ui-key.yc-ui-datasphere.new-node.source }}**, select the container registry. You can select {{ container-registry-name }} or any other registry. For {{ container-registry-name }}, specify:
-   * **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}** in the `cr.yandex/<registry_ID>/<image_ID>:<tag>` format.
+   * **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}** in the `{{ registry }}/<registry_ID>/<image_ID>:<tag>` format.
    * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}** will automatically get the `json_key` value.
    * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}**: In the project settings, select the [secret](../../concepts/secrets.md) containing the file with the [authorized key](../../../iam/concepts/authorization/key.md) for the service account from the list.
 
